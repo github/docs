@@ -21,6 +21,8 @@ children:
   - /explore-pull-requests
   - /write-tests
   - /refactor-code
+  - /optimize-code-reviews
+  - /reduce-technical-debt
   - /review-ai-generated-code
   - /learn-a-new-language
   - /modernize-legacy-code

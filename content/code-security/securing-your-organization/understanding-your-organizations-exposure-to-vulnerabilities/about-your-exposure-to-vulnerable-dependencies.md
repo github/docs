@@ -65,8 +65,8 @@ Focus on vulnerabilities that present the highest risk to your organization.
 
 * Prioritize alerts with high or critical severity. For {% data variables.product.prodname_dependabot_alerts %}, also prioritize high EPSS scores, and available patches.
 * Use the repository breakdown information to direct remediation efforts to the most at-risk projects.{% ifversion fpt or ghec %}
-* Encourage development teams to address vulnerabilities that are actually used in deployed artifacts through repository custom properties and using production context. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/alerts-in-production-code).{% endif %}
-* Create security campaigns to encourage and track the remediation of high priority {% data variables.product.prodname_code_scanning %} alerts. See [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns).
+* Encourage development teams to address vulnerabilities that are actually used in deployed artifacts through repository custom properties and using production context. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/alerts-in-production-code).{% endif %}{% ifversion security-campaigns %}
+* Create security campaigns to encourage and track the remediation of high priority {% data variables.product.prodname_code_scanning %} alerts. See [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns).{% endif %}
 
 ### 4. Communicate risk and progress
 

@@ -284,6 +284,11 @@ async function main() {
   // Ensure previous console logging is not truncated
   console.log('\n')
   const took = end - start
+  if (warningFileCount > 0 || errorFileCount > 0) {
+    spinner.info(
+      `💡 You can disable linter rules for specific lines or blocks of text. See https://gh.io/suppress-linter-rule.\n\n`,
+    )
+  }
   spinner.info(
     `🕦 Markdownlint finished in ${(took > 1000 ? took / 1000 : took).toFixed(1)} ${
       took > 1000 ? 's' : 'ms'

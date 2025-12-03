@@ -263,14 +263,11 @@ You can mitigate the risks associated with using the automatic approval options 
 
 ## Model usage
 
-> [!NOTE]
-> {% data variables.copilot.copilot_claude_sonnet_45 %} is available in {% data variables.copilot.copilot_cli %} version 0.0.329 and later.
+The default model used by {% data variables.copilot.copilot_cli %} is {% data variables.copilot.copilot_claude_sonnet_45 %}. {% data variables.product.github %} reserves the right to change this model.
 
-The default model used by {% data variables.copilot.copilot_cli %} is {% data variables.copilot.cca_current_model %}. {% data variables.product.github %} reserves the right to change this model.
+You can change the model used by {% data variables.copilot.copilot_cli %} by using the `/model` slash command. Enter this command, then select a model from the list.
 
-You can change the model used by {% data variables.copilot.copilot_cli %} by using the `/model` slash command. Enter this command and select a model from the list.
-
-Each time you submit a prompt to {% data variables.product.prodname_copilot_short %} in {% data variables.copilot.copilot_cli_short %}'s interactive mode, and each time you use {% data variables.copilot.copilot_cli_short %} in programmatic mode, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one. For information about premium requests, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
+Each time you submit a prompt to {% data variables.product.prodname_copilot_short %} in {% data variables.copilot.copilot_cli_short %}'s interactive mode, and each time you use {% data variables.copilot.copilot_cli_short %} in programmatic mode, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one, multiplied by the multiplier shown in parentheses in the model list. For example, `Claude Sonnet 4.5 (1x)` indicates that with this model each time you submit a prompt your quota of premium requests is reduced by one. For information about premium requests, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
 
 {% data reusables.cli.feedback %}
 

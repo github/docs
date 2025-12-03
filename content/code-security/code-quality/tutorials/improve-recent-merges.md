@@ -17,7 +17,7 @@ redirect_from:
 
 ## Introduction
 
-This tutorial shows you how to explore and remediate quality issues that have been detected by {% data variables.product.prodname_code_quality_short %}'s analysis of code that was recently merged into your default branch.
+This tutorial shows you how to explore and remediate quality issues that have been detected by {% data variables.product.prodname_code_quality_short %}'s AI-powered analysis of code that was recently merged into your default branch.
 
 When you improve quality of recently merged files, you reduce technical debt in the repository and make it easier for other developers to work on files that are under active development.
 

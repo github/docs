@@ -149,7 +149,6 @@ childGroups:
       - code-security/securing-your-organization
       - enterprise-onboarding
       - admin
-      - gh-wa
   - name: Developers
     octicon: CodeSquareIcon
     children:
@@ -196,4 +195,3 @@ externalProducts:
     href: 'https://wellarchitected.github.com/'
     external: true
 ---
-

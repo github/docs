@@ -12,7 +12,5 @@ children:
   - /spaces
   - /repository-indexing
   - /content-exclusion
-  - /knowledge-bases
 contentType: concepts
 ---
-

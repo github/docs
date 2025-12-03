@@ -34,7 +34,7 @@ If you believe that {% data variables.product.prodname_secret_scanning %} should
 This table lists the secrets supported by {% data variables.product.prodname_secret_scanning %}. You can see the types of alert that get generated for each token, as well as whether a validity check is performed on the token.
 
 * **Provider:** Name of the token provider.{% ifversion fpt or ghec %}
-* **Partner:** Token for which leaks are reported to the relevant token partner. Applies to public repositories only.
+* **Partner:** Token for which leaks are reported to the relevant token partner. Applies to public repositories and all gists, including secret gists. Secret gists are not private and can be accessed by anyone with the URL. See [About gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists#about-gists).
 * **User:** Token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}.
   * Applies to public repositories, and to private repositories where {% data variables.product.prodname_GH_secret_protection %} and {% data variables.product.prodname_secret_scanning %} are enabled.
   * Includes {% ifversion secret-scanning-alert-experimental-list %}default{% else %}high confidence{% endif %} tokens, which relate to supported patterns and specified custom patterns, as well as non-provider tokens such as private keys, which usually have a higher ratio of false positives.
@@ -53,6 +53,9 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 
 Precision levels are estimated based on the pattern type's typical false positive rates.
 
+<!-- Team plan and GHEC version of table -->
+{% ifversion fpt or ghec %}
+
 | Provider | Token | Description | Precision |
 |:---------|:--------------------------------------|:------------|:----------|
 | Generic | ec_private_key | Elliptic Curve (EC) private keys used for cryptographic operations | High |
@@ -66,7 +69,29 @@ Precision levels are estimated based on the pattern type's typical false positiv
 | Generic | postgres_connection_string | Connection strings for PostgreSQL databases containing credentials | High |
 | Generic | rsa_private_key | RSA private keys used for cryptographic operations | High |
 
-`generic_private_key` support is only available on {% data variables.product.prodname_ghe_server %} from version 3.20.
+{% endif %}
+
+<!-- GHES 3.11+ table -->
+{% ifversion ghes %}
+
+| Provider | Token | Description | Precision |
+|:---------|:--------------------------------------|:------------|:----------|
+| {% ifversion ghes > 3.18 %} |
+| Generic | ec_private_key | Elliptic Curve (EC) private keys used for cryptographic operations | High |
+| {% endif %} |
+| {% ifversion ghes > 3.19 %} |
+| Generic | generic_private_key | Cryptographic private keys with `-----BEGIN PRIVATE KEY-----` header | High |
+| {% endif %} |
+| Generic | http_basic_authentication_header | HTTP Basic Authentication credentials in request headers | Medium |
+| Generic | http_bearer_authentication_header | HTTP Bearer tokens used for API authentication | Medium |
+| Generic | mongodb_connection_string | Connection strings for MongoDB databases containing credentials | High |
+| Generic | mysql_connection_string | Connection strings for MySQL databases containing credentials | High |
+| Generic | openssh_private_key | OpenSSH format private keys used for SSH authentication | High |
+| Generic | pgp_private_key | PGP (Pretty Good Privacy) private keys used for encryption and signing | High |
+| Generic | postgres_connection_string | Connection strings for PostgreSQL databases containing credentials | High |
+| Generic | rsa_private_key | RSA private keys used for cryptographic operations | High |
+
+{% endif %}
 
 >[!NOTE]
 > Validity checks are **not supported** for non-provider patterns.

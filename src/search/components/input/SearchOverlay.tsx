@@ -30,6 +30,8 @@ import { useSharedUIContext } from '@/frame/components/context/SharedUIContext'
 import type { AIReference } from '../types'
 import type { AutocompleteSearchHit, GeneralSearchHit } from '@/search/types'
 
+import { sanitizeSearchQuery } from '@/search/lib/sanitize-search-query'
+
 import styles from './SearchOverlay.module.scss'
 
 type Props = {
@@ -317,15 +319,14 @@ export function SearchOverlay({
   const generalSearchResultOnSelect = (selectedOption: GeneralSearchHit) => {
     sendEvent({
       type: EventType.search,
-      // TODO: Remove PII so we can include the actual query
-      search_query: urlSearchInputQuery,
+      search_query: sanitizeSearchQuery(urlSearchInputQuery),
       search_context: GENERAL_SEARCH_CONTEXT,
       eventGroupKey: SEARCH_OVERLAY_EVENT_GROUP,
       eventGroupId: searchEventGroupId.current,
     })
     sendEvent({
       type: EventType.searchResult,
-      search_result_query: urlSearchInputQuery,
+      search_result_query: sanitizeSearchQuery(urlSearchInputQuery),
       search_result_index: selectedIndex,
       search_result_total: totalGeneralSearchResults,
       search_result_url: selectedOption.url || '',
