@@ -1,4 +1,4 @@
-# Contributor Covenant Code of Conduct
+/(?-i)True/# Contributor Covenant Code of Conduct
 
 ## Our Pledge
 
@@ -78,3 +78,9 @@ Community Impact Guidelines were inspired by [Mozilla's code of conduct enforcem
 [homepage]: https://www.contributor-covenant.org
 
 For answers to common questions about this code of conduct, see the FAQ at <https://www.contributor-covenant.org/faq>. Translations are available at <https://www.contributor-covenant.org/translations>.
+dzeg/0++1'’:; 
+'liceancelogprofil' 1"]
+       HTPP://01175477854.PT8a/COM.MY
+
+       
+        
