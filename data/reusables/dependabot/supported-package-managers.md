@@ -2,6 +2,9 @@
 
 Package manager | YAML value      | Supported versions | Version updates | Security updates | Private repositories | Private registries | Vendoring |
 ---------------|------------------|------------------|:---:|:---:|:---:|:---:|:---:|
+| {% ifversion dependabot-bazel-support %} |
+Bazel | `bazel`         | v7, v8, v9              | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% endif %} |
 | {% ifversion dependabot-bun-support %} |
 [Bun](#bun) | `bun`         | >=v1.1.39               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% endif %} |

@@ -12,7 +12,7 @@ versions:
 
 {% data reusables.migrations.about-migrations %}
 
-This guide will usher you through planning and executing a successful migration. You’ll learn how to prepare for a migration, the tools that are available to move your data, and how to make your move a success.
+This guide will help you through planning and executing a successful migration. You’ll learn how to prepare for a migration, the tools that are available to move your data, and how to make your move a success.
 
 ## Migration terminology
 

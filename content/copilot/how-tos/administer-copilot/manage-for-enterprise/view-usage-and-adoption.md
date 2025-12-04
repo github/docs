@@ -1,7 +1,7 @@
 ---
 title: Viewing the Copilot usage metrics dashboard
 shortTitle: View usage and adoption
-intro: You can use the {% data variables.product.prodname_copilot_short %} usage metrics dashboard to monitor adoption and usage trends across your enterprise.
+intro: You can use the {% data variables.product.prodname_copilot_short %} usage metrics dashboard to monitor how developers across your enterprise are adopting and using {% data variables.product.prodname_copilot_short %}.
 permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
@@ -22,6 +22,7 @@ After your initial rollout, the {% data variables.product.prodname_copilot_short
 ## Accessing the dashboard
 
 {% data reusables.copilot.access-copilot-metrics-dashboard %}
+1. In the left sidebar, click **{% data variables.product.prodname_copilot_short %} usage**.
 
 Data in the dashboard is based only on IDE telemetry and may appear up to three full UTC days behind the current date. See [AUTOTITLE](/copilot/concepts/copilot-metrics#data-freshness).
 
@@ -38,3 +39,4 @@ For deeper analysis, you can export NDJSON reports from the dashboard and use {%
 
 * To learn how to interpret the data in each chart and act on usage trends, see [AUTOTITLE](/copilot/reference/interpret-copilot-metrics).
 * To learn how to track license activation and initial usage of {% data variables.product.prodname_copilot %} with usage metrics, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/assign-licenses/track-usage-and-adoption).
+* To access usage data programmatically, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics).

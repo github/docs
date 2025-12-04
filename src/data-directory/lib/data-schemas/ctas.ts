@@ -12,7 +12,7 @@ export default {
       type: 'string',
       name: 'Product',
       description: 'The GitHub product the CTA leads users to',
-      enum: ['copilot', 'ghec', 'desktop', 'code-quality', 'cli'],
+      enum: ['copilot', 'ghec', 'desktop', 'code-quality', 'cli', 'github'],
     },
 
     // Type of CTA: The type of action the CTA encourages users to take

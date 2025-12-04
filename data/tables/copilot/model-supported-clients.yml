@@ -29,6 +29,14 @@
   xcode: true
   jetbrains: true
 
+- name: Claude Opus 4.5
+  dotcom: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
 - name: Claude Sonnet 4
   dotcom: true
   vscode: true
