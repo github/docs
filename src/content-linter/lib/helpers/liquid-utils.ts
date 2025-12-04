@@ -1,20 +1,16 @@
 import { Tokenizer, TokenKind } from 'liquidjs'
+import type { TopLevelToken, TagToken } from 'liquidjs'
 
 import { deprecated } from '@/versions/lib/enterprise-server-releases'
 
-// Using `any` for the cache because TopLevelToken is a complex union type from liquidjs
-// that includes TagToken, OutputToken, and HTMLToken with different properties.
-// The cache is private to this module and we control all access to it.
-const liquidTokenCache = new Map<string, any>()
+// Cache for liquid tokens to improve performance
+const liquidTokenCache = new Map<string, TopLevelToken[]>()
 
-// Returns `any[]` instead of `TopLevelToken[]` because TopLevelToken is a union type
-// (TagToken | OutputToken | HTMLToken) and consumers of this function access properties
-// like `name` and `args` that only exist on TagToken. Using `any` here avoids complex
-// type narrowing throughout the codebase.
+// Returns TopLevelToken array from liquidjs which is a union of TagToken, OutputToken, and HTMLToken
 export function getLiquidTokens(
   content: string,
   { noCache = false }: { noCache?: boolean } = {},
-): any[] {
+): TopLevelToken[] {
   if (!content) return []
 
   if (noCache) {
@@ -23,13 +19,13 @@ export function getLiquidTokens(
   }
 
   if (liquidTokenCache.has(content)) {
-    return liquidTokenCache.get(content)
+    return liquidTokenCache.get(content)!
   }
 
   const tokenizer = new Tokenizer(content)
   const tokens = tokenizer.readTopLevelTokens()
   liquidTokenCache.set(content, tokens)
-  return liquidTokenCache.get(content)
+  return liquidTokenCache.get(content)!
 }
 
 export const OUTPUT_OPEN = '{%'
@@ -40,10 +36,9 @@ export const TAG_CLOSE = '}}'
 export const conditionalTags = ['if', 'elseif', 'unless', 'case', 'ifversion']
 const CONDITIONAL_TAG_NAMES = ['if', 'ifversion', 'elsif', 'else', 'endif']
 
-// Token is `any` because it's used with different token types from liquidjs
-// that all have `begin` and `end` properties but are part of complex union types.
+// Token parameter uses TopLevelToken which has begin and end properties
 export function getPositionData(
-  token: any,
+  token: TopLevelToken,
   lines: string[],
 ): { lineNumber: number; column: number; length: number } {
   // Liquid indexes are 0-based, but we want to
@@ -77,9 +72,9 @@ export function getPositionData(
  * by Markdownlint:
  * [ { lineNumber: 1, column: 1, deleteCount: 3, }]
  */
-// Token is `any` because it's used with different token types from liquidjs.
+// Token parameter uses TopLevelToken from liquidjs
 export function getContentDeleteData(
-  token: any,
+  token: TopLevelToken,
   tokenEnd: number,
   lines: string[],
 ): Array<{ lineNumber: number; column: number; deleteCount: number }> {
@@ -123,15 +118,14 @@ export function getContentDeleteData(
 // related elsif, else, and endif tags).
 // Docs doesn't use the standard `if` tag for versioning, instead the
 // `ifversion` tag is used.
-// Returns `any[]` because the tokens need to be accessed as TagToken with `name` and `args` properties,
-// but TopLevelToken union type would require complex type narrowing.
-export function getLiquidIfVersionTokens(content: string): any[] {
+// Returns TagToken array since we filter to only Tag tokens
+export function getLiquidIfVersionTokens(content: string): TagToken[] {
   const tokens = getLiquidTokens(content)
-    .filter((token) => token.kind === TokenKind.Tag)
+    .filter((token): token is TagToken => token.kind === TokenKind.Tag)
     .filter((token) => CONDITIONAL_TAG_NAMES.includes(token.name))
 
   let inIfStatement = false
-  const ifVersionTokens: any[] = []
+  const ifVersionTokens: TagToken[] = []
   for (const token of tokens) {
     if (token.name === 'if') {
       inIfStatement = true
