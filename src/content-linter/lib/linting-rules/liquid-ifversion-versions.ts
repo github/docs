@@ -1,4 +1,5 @@
 import { addError } from 'markdownlint-rule-helpers'
+import type { TopLevelToken } from 'liquidjs'
 
 import {
   getLiquidIfVersionTokens,
@@ -35,8 +36,11 @@ export const liquidIfversionVersions = {
     const fileVersionsFm = params.name.startsWith('data')
       ? { ghec: '*', ghes: '*', fpt: '*' }
       : fm
-        ? fm.versions
-        : getFrontmatter(params.frontMatterLines)?.versions
+        ? (fm.versions as string | Record<string, string> | undefined)
+        : (getFrontmatter(params.frontMatterLines)?.versions as
+            | string
+            | Record<string, string>
+            | undefined)
     // This will only contain valid (non-deprecated) and future versions
     const fileVersions = getApplicableVersions(fileVersionsFm, '', {
       doNotThrow: true,
@@ -134,7 +138,7 @@ function setLiquidErrors(condTagItems: any[], onError: RuleErrorCallback, lines:
         {
           begin: item.begin,
           end: item.end,
-        },
+        } as TopLevelToken,
         lines,
       )
       const deleteCount = length - column + 1 === lines[lineNumber - 1].length ? -1 : length
@@ -159,7 +163,7 @@ function setLiquidErrors(condTagItems: any[], onError: RuleErrorCallback, lines:
         {
           begin: item.contentrange[0],
           end: item.contentrange[1],
-        },
+        } as TopLevelToken,
         lines,
       )
       const insertText = `${item.action.name || item.name} ${item.action.cond || item.cond}`
