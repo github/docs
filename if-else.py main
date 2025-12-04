@@ -1,0 +1,18 @@
+a=int(input("Enter your age: "))
+print("your age is:", a)
+if (a>18):
+    print("you can drive")
+
+conditional operators
+>, <, >=, <=, ==, !=  
+
+print(a>18)
+print(a<18)
+print(a>=18)
+print(a<=18)
+print(a==18)
+print(a!=18)
+
+
+else:
+    print("you can not drive")
