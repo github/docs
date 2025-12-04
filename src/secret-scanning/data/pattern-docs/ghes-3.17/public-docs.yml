@@ -132,7 +132,9 @@
   isduplicate: false
 - provider: Amazon AWS
   supportedSecret: Amazon AWS Session Token
-  secretType: aws_secret_access_key </br>aws_session_token </br>aws_temporary_access_key_id
+  secretType: >-
+    aws_secret_access_key </br>aws_session_token
+    </br>aws_temporary_access_key_id
   versions:
     fpt: '*'
     ghec: '*'
@@ -1598,7 +1600,9 @@
   isduplicate: false
 - provider: Google
   supportedSecret: Google Cloud Storage Service Account Access Key ID
-  secretType: google_cloud_storage_access_key_secret </br>google_cloud_storage_service_account_access_key_id
+  secretType: >-
+    google_cloud_storage_access_key_secret
+    </br>google_cloud_storage_service_account_access_key_id
   versions:
     fpt: '*'
     ghec: '*'
@@ -1610,7 +1614,9 @@
   isduplicate: false
 - provider: Google
   supportedSecret: Google Cloud Storage User Access Key ID
-  secretType: google_cloud_storage_access_key_secret </br>google_cloud_storage_user_access_key_id
+  secretType: >-
+    google_cloud_storage_access_key_secret
+    </br>google_cloud_storage_user_access_key_id
   versions:
     fpt: '*'
     ghec: '*'
@@ -2167,7 +2173,9 @@
   isduplicate: false
 - provider: Login with Amazon
   supportedSecret: Login with Amazon OAuth Client ID
-  secretType: amazon_oauth_client_id </br>amazon_oauth_client_secret </br>amazon_oauth_client_secret
+  secretType: >-
+    amazon_oauth_client_id </br>amazon_oauth_client_secret
+    </br>amazon_oauth_client_secret
   versions:
     fpt: '*'
     ghec: '*'

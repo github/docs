@@ -3567,6 +3567,54 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
+- provider: Lark
+  supportedSecret: Lark APaaS Client ID
+  secretType: lark_apaas_client_id, </br>lark_apaas_client_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Lark
+  supportedSecret: Lark Application ID
+  secretType: lark_app_id, </br>lark_app_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Lark
+  supportedSecret: Lark Meego Plugin ID
+  secretType: lark_meego_plugin_id, </br>lark_meego_plugin_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Lark
+  supportedSecret: Lark User Session
+  secretType: lark_user_session
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: LaunchDarkly
   supportedSecret: LaunchDarkly API Token
   secretType: launchdarkly_access_token
