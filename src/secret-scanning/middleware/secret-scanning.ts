@@ -3,7 +3,6 @@ import fs from 'fs'
 import yaml from 'js-yaml'
 import type { NextFunction, Response } from 'express'
 
-import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import { liquid } from '@/content-render/index'
 import { ExtendedRequest, SecretScanningData } from '@/types'
 import { allVersions } from '@/versions/lib/all-versions'
@@ -38,11 +37,9 @@ export default async function secretScanning(
       : 'fpt'
   const filepath = `${secretScanningDir}/${versionPath}/public-docs.yml`
 
-  const secretScanningData = yaml.load(fs.readFileSync(filepath, 'utf-8')) as SecretScanningData[]
-
-  req.context.secretScanningData = secretScanningData.filter((entry) =>
-    currentVersion ? getApplicableVersions(entry.versions).includes(currentVersion) : false,
-  )
+  req.context.secretScanningData = yaml.load(
+    fs.readFileSync(filepath, 'utf-8'),
+  ) as SecretScanningData[]
 
   // Some entries might use Liquid syntax, so we need
   // to execute that Liquid to get the actual value.
