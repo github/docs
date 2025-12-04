@@ -1,5 +1,13 @@
 # Docs changelog
 
+**2 December 2025**
+
+You can now share Copilot Spaces publicly. See [Collaborating with others using GitHub Copilot Spaces](https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces/collaborate-with-others#sharing-spaces).
+
+You can also now add files to a Copilot Space directly from the code view on GitHub, so you don't need to break your flow when building context for your space. See [Creating GitHub Copilot Spaces](https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces#adding-context-as-youre-working).
+
+<hr>
+
 **25 November 2025**
 
 We've added details of files that are excluded from Copilot code reviews. 
