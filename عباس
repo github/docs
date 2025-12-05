@@ -1,0 +1,858 @@
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.label import Label
+from kivy.uix.textinput import TextInput
+from kivy.uix.button import Button
+from kivy.uix.spinner import Spinner
+from kivy.uix.scrollview import ScrollView
+from kivy.uix.popup import Popup
+from kivy.graphics import Color, RoundedRectangle, Ellipse
+from kivy.core.window import Window
+from kivy.core.text import LabelBase
+from kivy.metrics import dp
+from kivy.clock import Clock
+import jdatetime
+from datetime import datetime
+import json
+import os
+
+LabelBase.register(
+    name='Vazir',
+    fn_regular='Vazirmatn-Regular.ttf',
+    fn_bold='Vazirmatn-Bold.ttf'
+)
+
+from kivy.config import Config
+Config.set('kivy', 'default_font', [
+    'Vazir',
+    'Vazirmatn-Regular.ttf',
+    'Vazirmatn-Bold.ttf'
+])
+
+Window.clearcolor = (0.95, 0.97, 1, 1)
+
+
+class PersianTextInput(TextInput):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.persian_numbers = '۰۱۲۳۴۵۶۷۸۹'
+        self.english_numbers = '0123456789'
+    
+    def insert_text(self, substring, from_undo=False):
+        new_text = ''
+        for char in substring:
+            if char in self.persian_numbers:
+                index = self.persian_numbers.index(char)
+                new_text += self.english_numbers[index]
+            else:
+                new_text += char
+        return super().insert_text(new_text, from_undo=from_undo)
+
+
+class RoundedButton(Button):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.background_normal = ''
+        self.background_color = (0, 0, 0, 0)
+        
+        with self.canvas.before:
+            self.bg_color = Color(0.3, 0.8, 0.4, 1)
+            self.bg_rect = RoundedRectangle(pos=self.pos, size=self.size, radius=[25])
+        
+        self.bind(pos=self.update_rect, size=self.update_rect)
+    
+    def update_rect(self, *args):
+        self.bg_rect.pos = self.pos
+        self.bg_rect.size = self.size
+
+
+class CircleButton(Button):
+    def __init__(self, bg_color=(0.3, 0.8, 0.4, 1), **kwargs):
+        super().__init__(**kwargs)
+        self.background_normal = ''
+        self.background_color = (0, 0, 0, 0)
+        self.bg_color_value = bg_color
+        
+        with self.canvas.before:
+            self.bg_color = Color(*bg_color)
+            self.bg_circle = Ellipse(pos=self.pos, size=self.size)
+        
+        self.bind(pos=self.update_circle, size=self.update_circle)
+    
+    def update_circle(self, *args):
+        self.bg_circle.pos = self.pos
+        self.bg_circle.size = self.size
+
+
+class TaxiExpenseApp(App):
+    def build(self):
+        from kivy.base import EventLoop
+        EventLoop.ensure_window()
+        from kivy.core.text import DEFAULT_FONT
+        LabelBase.register(
+            name=DEFAULT_FONT,
+            fn_regular='Vazirmatn-Regular.ttf',
+            fn_bold='Vazirmatn-Bold.ttf'
+        )
+        
+        self.title = 'عباس'
+        
+        self.records = {}
+        self.load_records()
+        self.is_authenticated = False
+        
+        return self.show_login_screen()
+    
+    def show_login_screen(self):
+        # اضافه کردن ScrollView برای جلوگیری از مشکل صفحه کلید
+        scroll_view = ScrollView(size_hint=(1, 1))
+        
+        login_layout = BoxLayout(
+            orientation='vertical', 
+            padding=dp(30), 
+            spacing=dp(20),
+            size_hint_y=None
+        )
+        login_layout.bind(minimum_height=login_layout.setter('height'))
+        
+        # فضای خالی در بالا
+        login_layout.add_widget(Label(size_hint_y=None, height=dp(80)))
+        
+        # عنوان
+        title = Label(
+            text='درود عباس',
+            font_name='Vazir',
+            font_size='32sp',
+            bold=True,
+            color=(0.2, 0.2, 0.3, 1),
+            size_hint_y=None,
+            height=dp(70)
+        )
+        login_layout.add_widget(title)
+        
+        # تاریخ
+        self.login_date_label = Label(
+            text='',
+            font_name='Vazir',
+            font_size='18sp',
+            color=(0.4, 0.4, 0.5, 1),
+            size_hint_y=None,
+            height=dp(35)
+        )
+        login_layout.add_widget(self.login_date_label)
+        
+        # ساعت
+        self.login_time_label = Label(
+            text='',
+            font_name='Vazir',
+            font_size='24sp',
+            bold=True,
+            color=(0.3, 0.3, 0.4, 1),
+            size_hint_y=None,
+            height=dp(45)
+        )
+        login_layout.add_widget(self.login_time_label)
+        
+        # فضای خالی بین ساعت و فیلد رمز
+        login_layout.add_widget(Label(size_hint_y=None, height=dp(60)))
+        
+        # فیلد رمز
+        self.password_input = PersianTextInput(
+            hint_text='رمز',
+            font_name='Vazir',
+            multiline=False,
+            password=True,
+            size_hint_y=None,
+            height=dp(55),
+            font_size='20sp',
+            padding=[dp(15), dp(15)]
+        )
+        login_layout.add_widget(self.password_input)
+        
+        # دکمه ورود
+        login_btn = RoundedButton(
+            text='ورود',
+            font_name='Vazir',
+            font_size='22sp',
+            size_hint_y=None,
+            height=dp(60)
+        )
+        login_btn.bind(on_press=self.check_password)
+        login_layout.add_widget(login_btn)
+        
+        # فضای خالی در پایین
+        login_layout.add_widget(Label(size_hint_y=None, height=dp(150)))
+        
+        scroll_view.add_widget(login_layout)
+        
+        self.update_login_datetime()
+        Clock.schedule_interval(lambda dt: self.update_login_datetime(), 1)
+        
+        return scroll_view
+    
+    def update_login_datetime(self):
+        persian_date = self.get_full_persian_date()
+        current_time = self.get_persian_time()
+        self.login_date_label.text = persian_date
+        self.login_time_label.text = f"ساعت: {current_time}"
+    
+    def check_password(self, instance):
+        now = datetime.now()
+        hour = now.hour
+        minute = now.minute
+        hour_str = str(hour).zfill(2)
+        minute_str = str(minute).zfill(2)
+        correct_password = minute_str[1] + minute_str[0] + hour_str[1] + hour_str[0]
+        
+        entered_password = self.password_input.text.strip()
+        
+        if entered_password == correct_password:
+            self.is_authenticated = True
+            Clock.unschedule(self.update_login_datetime)
+            self.root.clear_widgets()
+            self.root.add_widget(self.create_main_layout())
+        else:
+            self.show_popup('خطا', 'کد ورود اشتباه است!')
+            self.password_input.text = ''
+    
+    def create_main_layout(self):
+        main_layout = BoxLayout(orientation='vertical', padding=dp(15), spacing=dp(10))
+        
+        header = BoxLayout(orientation='vertical', size_hint_y=None, height=dp(100))
+        
+        title = Label(
+            text='ثبت هزینه سفر',
+            font_name='Vazir',
+            font_size='24sp',
+            bold=True,
+            color=(0.2, 0.2, 0.3, 1),
+            size_hint_y=None,
+            height=dp(40)
+        )
+        header.add_widget(title)
+        
+        self.main_date_label = Label(
+            text='',
+            font_name='Vazir',
+            font_size='14sp',
+            color=(0.5, 0.5, 0.6, 1),
+            size_hint_y=None,
+            height=dp(30)
+        )
+        header.add_widget(self.main_date_label)
+        
+        self.main_time_label = Label(
+            text='',
+            font_name='Vazir',
+            font_size='16sp',
+            bold=True,
+            color=(0.4, 0.4, 0.5, 1),
+            size_hint_y=None,
+            height=dp(30)
+        )
+        header.add_widget(self.main_time_label)
+        
+        main_layout.add_widget(header)
+        
+        form_layout = GridLayout(cols=1, spacing=dp(10), size_hint_y=None)
+        form_layout.bind(minimum_height=form_layout.setter('height'))
+        
+        form_layout.add_widget(Label(
+            text='مبدا',
+            font_name='Vazir',
+            font_size='14sp',
+            size_hint_y=None,
+            height=dp(30),
+            halign='right',
+            color=(0.3, 0.3, 0.4, 1)
+        ))
+        self.origin_input = PersianTextInput(
+            hint_text='شروع',
+            font_name='Vazir',
+            multiline=False,
+            size_hint_y=None,
+            height=dp(45),
+            font_size='16sp',
+            padding=[dp(15), dp(12)]
+        )
+        form_layout.add_widget(self.origin_input)
+        
+        form_layout.add_widget(Label(
+            text='مقصد',
+            font_name='Vazir',
+            font_size='14sp',
+            size_hint_y=None,
+            height=dp(30),
+            halign='right',
+            color=(0.3, 0.3, 0.4, 1)
+        ))
+        self.destination_input = PersianTextInput(
+            hint_text='مقصد سفر',
+            font_name='Vazir',
+            multiline=False,
+            size_hint_y=None,
+            height=dp(45),
+            font_size='16sp',
+            padding=[dp(15), dp(12)]
+        )
+        form_layout.add_widget(self.destination_input)
+        
+        form_layout.add_widget(Label(
+            text='مبلغ پایه',
+            font_name='Vazir',
+            font_size='14sp',
+            size_hint_y=None,
+            height=dp(30),
+            halign='right',
+            color=(0.3, 0.3, 0.4, 1)
+        ))
+        self.base_amount_input = PersianTextInput(
+            hint_text='مبلغ به تومان',
+            font_name='Vazir',
+            multiline=False,
+            input_filter='int',
+            size_hint_y=None,
+            height=dp(45),
+            font_size='16sp',
+            padding=[dp(15), dp(12)]
+        )
+        form_layout.add_widget(self.base_amount_input)
+        
+        form_layout.add_widget(Label(
+            text='مبلغ دریافتی',
+            font_name='Vazir',
+            font_size='14sp',
+            size_hint_y=None,
+            height=dp(30),
+            halign='right',
+            color=(0.3, 0.3, 0.4, 1)
+        ))
+        self.received_amount_input = PersianTextInput(
+            hint_text='مبلغ دریافت شده',
+            font_name='Vazir',
+            multiline=False,
+            input_filter='int',
+            size_hint_y=None,
+            height=dp(45),
+            font_size='16sp',
+            padding=[dp(15), dp(12)]
+        )
+        form_layout.add_widget(self.received_amount_input)
+        
+        form_layout.add_widget(Label(
+            text='نوع سرویس',
+            font_name='Vazir',
+            font_size='14sp',
+            size_hint_y=None,
+            height=dp(30),
+            halign='right',
+            color=(0.3, 0.3, 0.4, 1)
+        ))
+        self.service_spinner = Spinner(
+            text='الوپیک',
+            font_name='Vazir',
+            values=('الوپیک', 'تپسی', 'متفرقه'),
+            size_hint_y=None,
+            height=dp(45),
+            font_size='16sp'
+        )
+        form_layout.add_widget(self.service_spinner)
+        
+        total_layout = BoxLayout(
+            orientation='vertical',
+            size_hint_y=None,
+            height=dp(80),
+            padding=[dp(15), dp(10)]
+        )
+        total_layout.canvas.before.clear()
+        with total_layout.canvas.before:
+            Color(0.8, 0.95, 0.85, 1)
+            self.total_bg = RoundedRectangle(pos=total_layout.pos, size=total_layout.size, radius=[15])
+        total_layout.bind(pos=self.update_total_bg, size=self.update_total_bg)
+        
+        total_layout.add_widget(Label(
+            text='جمع مبالغ دریافتی کل',
+            font_name='Vazir',
+            font_size='14sp',
+            size_hint_y=None,
+            height=dp(25),
+            color=(0.2, 0.5, 0.3, 1)
+        ))
+        self.total_label = Label(
+            text='۰ تومان',
+            font_name='Vazir',
+            font_size='22sp',
+            bold=True,
+            size_hint_y=None,
+            height=dp(35),
+            color=(0.1, 0.6, 0.2, 1)
+        )
+        total_layout.add_widget(self.total_label)
+        form_layout.add_widget(total_layout)
+        
+        main_layout.add_widget(form_layout)
+        
+        buttons_layout = BoxLayout(
+            orientation='horizontal',
+            spacing=dp(20),
+            size_hint_y=None,
+            height=dp(100),
+            padding=[dp(30), dp(10)]
+        )
+        
+        self.history_btn = CircleButton(
+            text='📋\nتاریخچه',
+            font_name='Vazir',
+            font_size='28sp',
+            size_hint=(None, None),
+            size=(dp(70), dp(70)),
+            bg_color=(0.2, 0.5, 0.9, 1)
+        )
+        self.history_btn.bind(on_press=self.show_history)
+        
+        self.save_btn = CircleButton(
+            text='💾\nذخیره',
+            font_name='Vazir',
+            font_size='28sp',
+            size_hint=(None, None),
+            size=(dp(70), dp(70)),
+            bg_color=(0.3, 0.8, 0.4, 1)
+        )
+        self.save_btn.bind(on_press=self.save_record)
+        
+        buttons_layout.add_widget(self.history_btn)
+        buttons_layout.add_widget(Label())
+        buttons_layout.add_widget(self.save_btn)
+        
+        main_layout.add_widget(buttons_layout)
+        
+        self.update_main_datetime()
+        Clock.schedule_interval(lambda dt: self.update_main_datetime(), 1)
+        
+        self.update_total()
+        return main_layout
+    
+    def update_main_datetime(self):
+        persian_date = self.get_full_persian_date()
+        current_time = self.get_persian_time()
+        self.main_date_label.text = persian_date
+        self.main_time_label.text = f"ساعت: {current_time}"
+    
+    def update_total_bg(self, instance, value):
+        self.total_bg.pos = instance.pos
+        self.total_bg.size = instance.size
+    
+    def get_full_persian_date(self):
+        now = jdatetime.datetime.now()
+        day_names = ['شنبه', 'یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه']
+        weekday = now.togregorian().weekday()
+        day_name = day_names[(weekday + 2) % 7]
+        month_name = now.strftime('%B')
+        return f"{day_name}، {now.day} {month_name} {now.year}"
+    
+    def get_short_persian_date(self):
+        now = jdatetime.datetime.now()
+        return f"{now.year}/{now.month}/{now.day}"
+    
+    def get_persian_time(self):
+        now = datetime.now()
+        return now.strftime('%H:%M')
+    
+    def to_persian_number(self, num):
+        persian_numbers = '۰۱۲۳۴۵۶۷۸۹'
+        english_numbers = '0123456789'
+        result = str(num)
+        for i, char in enumerate(english_numbers):
+            result = result.replace(char, persian_numbers[i])
+        return result
+
+# ============= اینجا بخش دوم اضافه می‌شود =============# ============= بخش دوم - ادامه کد =============
+
+    def update_total(self):
+        total = 0
+        today = self.get_short_persian_date()
+        
+        if today in self.records:
+            for record in self.records[today]:
+                try:
+                    total += int(record.get('received_amount', 0))
+                except:
+                    pass
+        
+        if self.received_amount_input.text:
+            try:
+                total += int(self.received_amount_input.text)
+            except:
+                pass
+        
+        persian_total = self.to_persian_number(f"{total:,}")
+        self.total_label.text = f"{persian_total} تومان"
+    
+    def save_record(self, instance):
+        if not all([
+            self.origin_input.text,
+            self.destination_input.text,
+            self.base_amount_input.text,
+            self.received_amount_input.text
+        ]):
+            self.show_popup('خطا', 'لطفاً تمام فیلدها را پر کنید')
+            return
+        
+        try:
+            base_val = int(self.base_amount_input.text)
+            received_val = int(self.received_amount_input.text)
+        except:
+            self.show_popup('خطا', 'لطفاً مبالغ را به صورت عددی وارد کنید')
+            return
+        
+        date = self.get_short_persian_date()
+        time = self.get_persian_time()
+        
+        record = {
+            'date': date,
+            'time': time,
+            'origin': self.origin_input.text,
+            'destination': self.destination_input.text,
+            'base_amount': self.base_amount_input.text,
+            'received_amount': self.received_amount_input.text,
+            'service_type': self.service_spinner.text
+        }
+        
+        if date not in self.records:
+            self.records[date] = []
+        
+        self.records[date].append(record)
+        self.save_records()
+        self.save_to_text_file(date)
+        
+        self.origin_input.text = ''
+        self.destination_input.text = ''
+        self.base_amount_input.text = ''
+        self.received_amount_input.text = ''
+        self.service_spinner.text = 'الوپیک'
+        
+        self.update_total()
+        self.show_popup('موفق', 'رکورد با موفقیت ذخیره شد')
+    
+    def save_records(self):
+        try:
+            with open('taxi_records.json', 'w', encoding='utf-8') as f:
+                json.dump(self.records, f, ensure_ascii=False, indent=2)
+        except Exception as e:
+            print(f"خطا در ذخیره: {e}")
+    
+    def load_records(self):
+        try:
+            if os.path.exists('taxi_records.json'):
+                with open('taxi_records.json', 'r', encoding='utf-8') as f:
+                    self.records = json.load(f)
+        except Exception as e:
+            print(f"خطا در بارگذاری: {e}")
+            self.records = {}
+    
+    def save_to_text_file(self, date):
+        try:
+            filename = f"taxi_records_{date.replace('/', '-')}.txt"
+            
+            with open(filename, 'w', encoding='utf-8') as f:
+                f.write(f"گزارش تاریخ: {date}\n")
+                f.write("=" * 100 + "\n")
+                f.write(f"{'ردیف':<8}{'مبدا':<20}{'مقصد':<20}{'مبلغ پایه':<15}{'مبلغ دریافتی':<15}{'سرویس':<12}{'زمان':<10}\n")
+                f.write("-" * 100 + "\n")
+                
+                total = 0
+                for idx, record in enumerate(self.records[date], 1):
+                    origin = record['origin']
+                    destination = record['destination']
+                    base = record['base_amount']
+                    received = record['received_amount']
+                    service = record['service_type']
+                    time_str = record['time']
+                    
+                    f.write(f"{idx:<8}{origin:<20}{destination:<20}"
+                           f"{base:<15}{received:<15}"
+                           f"{service:<12}{time_str:<10}\n")
+                    
+                    try:
+                        total += int(received)
+                    except:
+                        pass
+                
+                f.write("-" * 100 + "\n")
+                f.write(f"جمع کل دریافتی: {total:,} تومان\n")
+                f.write(f"تعداد سفرها: {len(self.records[date])}\n")
+                f.write("=" * 100 + "\n")
+        except Exception as e:
+            print(f"خطا در ذخیره فایل متنی: {e}")
+    
+    def show_history(self, instance):
+        content = BoxLayout(orientation='vertical', spacing=dp(10), padding=dp(10))
+        
+        header_box = BoxLayout(orientation='vertical', size_hint_y=None, height=dp(70))
+        
+        self.history_date_label = Label(
+            text='',
+            font_name='Vazir',
+            font_size='14sp',
+            color=(0.5, 0.5, 0.6, 1),
+            size_hint_y=None,
+            height=dp(30)
+        )
+        header_box.add_widget(self.history_date_label)
+        
+        self.history_time_label = Label(
+            text='',
+            font_name='Vazir',
+            font_size='16sp',
+            bold=True,
+            color=(0.4, 0.4, 0.5, 1),
+            size_hint_y=None,
+            height=dp(30)
+        )
+        header_box.add_widget(self.history_time_label)
+        
+        content.add_widget(header_box)
+        
+        scroll = ScrollView()
+        history_layout = GridLayout(cols=1, spacing=dp(10), size_hint_y=None)
+        history_layout.bind(minimum_height=history_layout.setter('height'))
+        
+        if not self.records:
+            empty_label = Label(
+                text='هیچ رکوردی ثبت نشده است',
+                font_name='Vazir',
+                size_hint_y=None,
+                height=dp(50),
+                font_size='16sp',
+                color=(0.5, 0.5, 0.6, 1)
+            )
+            history_layout.add_widget(empty_label)
+        else:
+            sorted_dates = sorted(self.records.keys(), reverse=True)
+            for date in sorted_dates:
+                day_records = self.records[date]
+                day_total = 0
+                
+                for r in day_records:
+                    try:
+                        day_total += int(r.get('received_amount', 0))
+                    except:
+                        pass
+                
+                date_box = BoxLayout(
+                    orientation='vertical',
+                    size_hint_y=None,
+                    height=dp(50) + len(day_records) * dp(80),
+                    padding=[dp(10), dp(5)]
+                )
+                
+                with date_box.canvas.before:
+                    Color(0.9, 0.95, 1, 1)
+                    date_bg = RoundedRectangle(pos=date_box.pos, size=date_box.size, radius=[10])
+                date_box.bind(
+                    pos=lambda inst, val, bg=date_bg: setattr(bg, 'pos', inst.pos),
+                    size=lambda inst, val, bg=date_bg: setattr(bg, 'size', inst.size)
+                )
+                
+                date_header = BoxLayout(size_hint_y=None, height=dp(40))
+                
+                date_label = Label(
+                    text=date,
+                    font_name='Vazir',
+                    font_size='16sp',
+                    bold=True,
+                    halign='right',
+                    color=(0.2, 0.2, 0.3, 1)
+                )
+                date_header.add_widget(date_label)
+                
+                persian_total = self.to_persian_number(f"{day_total:,}")
+                total_label = Label(
+                    text=f"جمع: {persian_total} تومان",
+                    font_name='Vazir',
+                    font_size='14sp',
+                    color=(0.2, 0.5, 0.9, 1),
+                    halign='left'
+                )
+                date_header.add_widget(total_label)
+                date_box.add_widget(date_header)
+                
+                for record in day_records:
+                    base_persian = self.to_persian_number(record['base_amount'])
+                    received_persian = self.to_persian_number(record['received_amount'])
+                    
+                    record_text = (
+                        f"{record['origin']} → {record['destination']}\n"
+                        f"پایه: {base_persian} | دریافتی: {received_persian} | "
+                        f"{record['service_type']} | {record['time']}"
+                    )
+                    
+                    record_label = Label(
+                        text=record_text,
+                        font_name='Vazir',
+                        size_hint_y=None,
+                        height=dp(60),
+                        font_size='13sp',
+                        color=(0.3, 0.3, 0.4, 1)
+                    )
+                    date_box.add_widget(record_label)
+                
+                history_layout.add_widget(date_box)
+        
+        scroll.add_widget(history_layout)
+        content.add_widget(scroll)
+        
+        buttons_box = BoxLayout(
+            orientation='horizontal',
+            spacing=dp(10),
+            size_hint_y=None,
+            height=dp(50)
+        )
+        
+        export_btn = Button(
+            text='خروجی متنی کامل',
+            font_name='Vazir',
+            background_color=(0.2, 0.6, 0.9, 1)
+        )
+        export_btn.bind(on_press=self.export_all_to_text)
+        
+        close_btn = Button(
+            text='بستن',
+            font_name='Vazir',
+            background_color=(0.9, 0.3, 0.3, 1)
+        )
+        
+        buttons_box.add_widget(export_btn)
+        buttons_box.add_widget(close_btn)
+        
+        popup = Popup(
+            title='تاریخچه کامل',
+            title_font='Vazir',
+            content=content,
+            size_hint=(0.95, 0.9)
+        )
+        
+        close_btn.bind(on_press=popup.dismiss)
+        content.add_widget(buttons_box)
+        
+        self.update_history_datetime()
+        self.history_clock = Clock.schedule_interval(lambda dt: self.update_history_datetime(), 1)
+        popup.bind(on_dismiss=self.stop_history_clock)
+        
+        popup.open()
+    
+    def update_history_datetime(self):
+        if hasattr(self, 'history_date_label') and hasattr(self, 'history_time_label'):
+            persian_date = self.get_full_persian_date()
+            current_time = self.get_persian_time()
+            self.history_date_label.text = persian_date
+            self.history_time_label.text = f"ساعت: {current_time}"
+    
+    def stop_history_clock(self, instance):
+        if hasattr(self, 'history_clock'):
+            Clock.unschedule(self.history_clock)
+    
+    def export_all_to_text(self, instance):
+        try:
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+            filename = f"all_taxi_records_{timestamp}.txt"
+            
+            with open(filename, 'w', encoding='utf-8') as f:
+                f.write("=" * 120 + "\n")
+                f.write("گزارش کامل تمام سفرها\n")
+                current_date = self.get_full_persian_date()
+                current_time = self.get_persian_time()
+                f.write(f"تاریخ تهیه گزارش: {current_date} - ساعت {current_time}\n")
+                f.write("=" * 120 + "\n\n")
+                
+                grand_total = 0
+                total_trips = 0
+                sorted_dates = sorted(self.records.keys())
+                
+                for date in sorted_dates:
+                    day_records = self.records[date]
+                    day_total = 0
+                    
+                    for r in day_records:
+                        try:
+                            day_total += int(r['received_amount'])
+                        except:
+                            pass
+                    
+                    grand_total += day_total
+                    total_trips += len(day_records)
+                    
+                    f.write(f"\n{'*' * 120}\n")
+                    f.write(f"تاریخ: {date}\n")
+                    f.write(f"{'*' * 120}\n")
+                    f.write(f"{'ردیف':<8}{'زمان':<10}{'مبدا':<20}{'مقصد':<20}{'مبلغ پایه':<15}{'مبلغ دریافتی':<15}{'سرویس':<12}\n")
+                    f.write("-" * 120 + "\n")
+                    
+                    for idx, record in enumerate(day_records, 1):
+                        origin = record['origin']
+                        destination = record['destination']
+                        base = record['base_amount']
+                        received = record['received_amount']
+                        service = record['service_type']
+                        time_str = record['time']
+                        
+                        f.write(f"{idx:<8}{time_str:<10}{origin:<20}{destination:<20}"
+                               f"{base:<15}{received:<15}{service:<12}\n")
+                    
+                    f.write("-" * 120 + "\n")
+                    f.write(f"جمع روز: {day_total:,} تومان | تعداد سفر: {len(day_records)}\n")
+                
+                f.write("\n" + "=" * 120 + "\n")
+                f.write(f"جمع کل تمام دریافتی‌ها: {grand_total:,} تومان\n")
+                f.write(f"تعداد کل روزها: {len(self.records)}\n")
+                f.write(f"تعداد کل سفرها: {total_trips}\n")
+                
+                if len(self.records) > 0:
+                    avg_daily = grand_total // len(self.records)
+                    f.write(f"میانگین دریافتی روزانه: {avg_daily:,} تومان\n")
+                
+                if total_trips > 0:
+                    avg_per_trip = grand_total // total_trips
+                    f.write(f"میانگین دریافتی هر سفر: {avg_per_trip:,} تومان\n")
+                
+                f.write("=" * 120 + "\n")
+            
+            self.show_popup('موفق', f'گزارش کامل در فایل\n{filename}\nذخیره شد')
+        except Exception as e:
+            self.show_popup('خطا', f'خطا در ذخیره گزارش:\n{str(e)}')
+    
+    def show_popup(self, title, message):
+        content = BoxLayout(orientation='vertical', padding=dp(10), spacing=dp(10))
+        
+        message_label = Label(
+            text=message,
+            font_name='Vazir',
+            font_size='16sp',
+            color=(0.2, 0.2, 0.3, 1)
+        )
+        content.add_widget(message_label)
+        
+        btn = Button(
+            text='باشه',
+            font_name='Vazir',
+            size_hint_y=None,
+            height=dp(50),
+            background_color=(0.3, 0.7, 0.4, 1)
+        )
+        
+        popup = Popup(
+            title=title,
+            title_font='Vazir',
+            content=content,
+            size_hint=(0.8, 0.4)
+        )
+        
+        btn.bind(on_press=popup.dismiss)
+        content.add_widget(btn)
+        
+        popup.open()
+
+
+if __name__ == '__main__':
+    TaxiExpenseApp().run()
