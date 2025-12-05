@@ -1,5 +1,11 @@
 # Docs changelog
 
+**5 December 2025**
+
+We added documentation for the new Code generation tab, which is part of Copilot usage metrics. The docs now describe how to view code generation insights across your enterprise, compare user-initiated and agent-initiated behavior, and understand differences across models, languages, and modes. We also updated related conceptual and reference content for consistency and scannability. See [Viewing the code generation dashboard](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/view-code-generation).
+
+<hr>
+
 **2 December 2025**
 
 You can now share Copilot Spaces publicly. See [Collaborating with others using GitHub Copilot Spaces](https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces/collaborate-with-others#sharing-spaces).
