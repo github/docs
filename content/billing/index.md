@@ -11,7 +11,7 @@ featuredLinks:
   startHere:
     - '{% ifversion fpt or ghec %}/billing/get-started/introduction-to-billing{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/get-started/how-billing-works{% endif %}'
-    - '{% ifversion fpt or ghec %}/billing/how-tos/set-up-payment/manage-payment-info{% endif %}'
+    - '{% ifversion fpt %}/billing/how-tos/set-up-payment/manage-payment-info{% elsif ghec %}/billing/tutorials/control-costs-at-scale{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/tutorials/set-up-budgets{% endif %}'
     - '{% ifversion ghes %}/billing/concepts/enterprise-billing/billing-for-enterprises{% endif %}'
     - '{% ifversion ghes %}/billing/how-tos/manage-plan-and-licenses/view-enterprise-usage{% endif %}'
