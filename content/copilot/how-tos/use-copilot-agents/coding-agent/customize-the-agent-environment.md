@@ -144,22 +144,7 @@ jobs:
 
 ## Using self-hosted {% data variables.product.prodname_actions %} runners with ARC
 
-You can use self-hosted {% data variables.product.prodname_actions %} runners to support {% data variables.copilot.copilot_coding_agent %} using ARC (Actions Runner Controller). This allows you to run {% data variables.product.prodname_copilot_short %}'s development environment on your own infrastructure.
-
-Before {% data variables.product.prodname_copilot_short %} can use self-hosted runners, you must first set up ARC-managed scale sets in your environment. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller).
-
-To use self-hosted runners with ARC, update the `runs-on` attribute in your `copilot-setup-steps` job to target your ARC-managed scale set:
-
-```yaml
-# ...
-
-jobs:
-  copilot-setup-steps:
-    runs-on: arc-scale-set-name
-    # ...
-```
-
-Replace `arc-scale-set-name` with the name of your ARC-managed scale set.
+You can use ARC (Actions Runner Controller) to run {% data variables.copilot.copilot_coding_agent %} on self-hosted runners. You must first set up ARC-managed scale sets in your environment. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller).
 
 > [!WARNING]
 > Persistent runners are not recommended for autoscaling scenarios with {% data variables.copilot.copilot_coding_agent %}.
@@ -169,14 +154,21 @@ Replace `arc-scale-set-name` with the name of your ARC-managed scale set.
 > * {% data variables.copilot.copilot_coding_agent %} is only compatible with Ubuntu x64 Linux runners. Runners with Windows, macOS or other operating systems are not supported.
 > * For more information about ARC, see [AUTOTITLE](/actions/concepts/runners/actions-runner-controller).
 
-### Repository firewall requirements
+1. In your `copilot-setup-steps.yml` file, set the `runs-on` attribute to your ARC-managed scale set name:
 
-To enable communication between {% data variables.copilot.copilot_coding_agent %} and your self-hosted runners, you must disable the repository firewall in the coding agent's repository settings. Without this change, runners will not be able to connect to {% data variables.product.prodname_copilot_short %}.
+   ```yaml
+   # ...
 
-For more information about disabling the firewall, see [AUTOTITLE](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
+   jobs:
+     copilot-setup-steps:
+       runs-on: arc-scale-set-name
+       # ...
+   ```
 
-> [!WARNING]
-> Disabling the firewall reduces isolation between {% data variables.product.prodname_copilot_short %} and your self-hosted environment. You must implement alternative network security controls to protect your environment.
+1. Disable {% data variables.copilot.copilot_coding_agent %}'s integrated firewall in your repository settings, as it is not compatible with self-hosted runners. Without disabling the firewall, runners will not be able to connect to {% data variables.product.prodname_copilot_short %}. You must configure your own network security controls before disabling the built-in firewall. For more information, see [AUTOTITLE](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
+    
+    > [!WARNING]
+    > Disabling the firewall reduces isolation between {% data variables.product.prodname_copilot_short %} and your self-hosted environment. You must implement alternative network security controls to protect your environment.
 
 ### Security considerations for self-hosted runners
 
@@ -185,6 +177,8 @@ When using self-hosted runners, especially with the firewall disabled, ensure yo
 * `api.githubcopilot.com`
 * `uploads.github.com`
 * `user-images.githubusercontent.com`
+
+For a comprehensive list of other hosts that must also be allowlisted for {% data variables.product.prodname_actions %} self-hosted runners, see [AUTOTITLE](/actions/reference/runners/self-hosted-runners#accessible-domains-by-function).
 
 ## Enabling Git Large File Storage (LFS)
 

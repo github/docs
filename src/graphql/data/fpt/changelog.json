@@ -4,6 +4,42 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>automaticCopilotCodeReviewEnabled</code> was removed from object type <code>PullRequestParameters</code></p>",
+          "<p>Input field <code>automaticCopilotCodeReviewEnabled</code> was removed from input object type <code>PullRequestParametersInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-12-05"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>SuggestedReviewerActor</code> was added</p>",
+          "<p>Type <code>SuggestedReviewerActorConnection</code> was added</p>",
+          "<p>Type <code>SuggestedReviewerActorEdge</code> was added</p>",
+          "<p>Enum value 'ISSUE_FIELD_ADDED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_FIELD_CHANGED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_FIELD_REMOVED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Field <code>suggestedReviewerActors</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Enum value 'ISSUE_FIELD_ADDED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_FIELD_CHANGED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_FIELD_REMOVED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-11-30"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>Agentic</code> was added</p>",
           "<p><code>User</code> object implements <code>Agentic</code> interface</p>",
           "<p>Field <code>viewerCopilotAgentCreatesChannel</code> was added to object type <code>User</code></p>",

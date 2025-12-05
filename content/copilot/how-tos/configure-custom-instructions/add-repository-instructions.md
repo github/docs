@@ -39,7 +39,7 @@ This version of this article is for using repository custom instructions and pro
 
 {% visualstudio %}
 
-This version of this article is for using repository custom instructions in {% data variables.product.prodname_vs %}. Click the tabs above for instructions on using custom instructions in other environments.
+This version of this article is for using repository custom instructions and prompt files in {% data variables.product.prodname_vs %}. Click the tabs above for instructions on using custom instructions in other environments.
 
 {% data reusables.copilot.repository-custom-instructions-about %}
 
@@ -282,7 +282,19 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 {% visualstudio %}
 
-{% data variables.product.prodname_vs %} supports a single `.github/copilot-instructions.md` custom instructions file stored in the repository.
+{% data variables.product.prodname_vs %} supports two types of custom instructions. For details of which {% data variables.product.prodname_copilot %} features support these types of instructions, see [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=visualstudio#support-for-repository-custom-instructions-2).
+
+* **Repository-wide custom instructions**, which apply to all requests made in the context of a repository.
+
+  These are specified in a `copilot-instructions.md` file in the `.github` directory of the repository. See [Creating repository-wide custom instructions](#creating-repository-wide-custom-instructions-2).
+
+* **Path-specific custom instructions**, which apply to requests made in the context of files that match a specified path.
+
+  These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions-2).
+
+  If the path you specify matches a file that {% data variables.product.prodname_copilot_short %} is working on, and a repository-wide custom instructions file also exists, then the instructions from both files are used.
+
+## Creating repository-wide custom instructions
 
 1. In the root of your repository, create a file named `.github/copilot-instructions.md`.
 
@@ -291,6 +303,10 @@ Once saved, these instructions will apply to the current project in Eclipse that
 1. Add natural language instructions to the file, in Markdown format.
 
    Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
+
+## Creating path-specific custom instructions
+
+{% data reusables.copilot.custom-instructions-path %}
 
 {% endvisualstudio %}
 
@@ -533,9 +549,24 @@ Custom instructions are enabled for {% data variables.copilot.copilot_code-revie
 
 {% data reusables.copilot.custom-instructions-enabling-for-ccr %}
 
+## Using prompt files
+
+{% data reusables.copilot.prompt-files-preview-note %}
+
+Prompt files let you build and share reusable prompt instructions with additional context. A prompt file is a Markdown file, stored in your workspace, that mimics the existing format of writing prompts in {% data variables.copilot.copilot_chat_short %} (for example, `Rewrite #file:x.ts`). You can have multiple prompt files in your workspace, each of which defines a prompt for a different purpose.
+
+### Creating prompt files
+
+1. Add a prompt file, including the `.prompt.md` file name extension inside the `.github/prompts` folder in the root of the repository. The name can contain alphanumeric characters and spaces and should describe the purpose of the prompt information the file will contain.
+1. Write the prompt instructions, using Markdown formatting.
+
+   You can reference other files in the workspace by using Markdown links—for example, `[index](../../web/index.ts)`—or by using the `#file:'../../web/index.ts'` syntax. Paths are relative to the prompt file. Referencing other files allows you to provide additional context, such as API specifications or product documentation.
+
+For more information about prompt files, see [Use prompt files in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/copilot-chat-context?view=vs-2022#use-prompt-files) in the {% data variables.product.prodname_vs %} documentation.
+
 ## Further reading
 
-* [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions)—a curated collection of examples
+* [AUTOTITLE](/copilot/tutorials/customization-library)—a curated collection of examples
 
 {% endvisualstudio %}
 

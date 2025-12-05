@@ -27,6 +27,7 @@ Used for:
 * {% data variables.copilot.copilot_gpt_51 %}
 * {% data variables.copilot.copilot_gpt_51_codex %}
 * {% data variables.copilot.copilot_gpt_51_codex_mini %}
+* {% data variables.copilot.copilot_gpt_51_codex_max %}
 
 These models are hosted by OpenAI and {% data variables.product.github %}'s Azure infrastructure.
 

@@ -168,10 +168,6 @@ export default class Operation {
     // Operation Id: markdown/render-raw
     const contentType = Object.keys(this.#operation.requestBody.content)[0]
     const schema = get(this.#operation, `requestBody.content.${contentType}.schema`, {})
-    // TODO: Remove this check
-    if (this.#operation.operationId === 'checks/create') {
-      delete schema.oneOf
-    }
     // Merges any instances of allOf in the schema using a deep merge
     const mergedAllofSchema = mergeAllOf(schema)
     try {
