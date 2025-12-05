@@ -17,7 +17,7 @@ category:
 
 Experience less rate limiting and reduce the mental load of choosing a model by letting {% data variables.copilot.copilot_auto_model_selection %} automatically choose the best available model on your behalf.
 
-{% data variables.copilot.copilot_auto_model_selection %} is currently optimized for model availability, choosing from a list of models that may change over time. It currently chooses from {% data variables.copilot.copilot_gpt_41 %}, {% data variables.copilot.copilot_gpt_5_mini %}, {% data variables.copilot.copilot_gpt_5 %}, {% data variables.copilot.copilot_claude_haiku_45 %}, and {% data variables.copilot.copilot_claude_sonnet_45 %}, based on your subscription type. 
+{% data variables.copilot.copilot_auto_model_selection %} is currently optimized for model availability, choosing from a list of models that may change over time. It currently chooses from {% data variables.copilot.copilot_gpt_41 %}, {% data variables.copilot.copilot_gpt_5_mini %}, {% data variables.copilot.copilot_gpt_51_codex_max %}, {% data variables.copilot.copilot_claude_haiku_45 %}, {% data variables.copilot.copilot_claude_sonnet_45 %}, and {% data variables.copilot.copilot_gemini_3_pro %}, based on your subscription type.
 
 With {% data variables.copilot.copilot_auto_model_selection %}, you benefit from:
   * Reduced chances of rate limiting

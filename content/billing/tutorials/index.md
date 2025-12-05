@@ -12,8 +12,8 @@ children:
   - /automate-usage-reporting
   - /set-up-budgets
   - /control-costs-at-scale
-  - /use-cost-centers
   - /estimate-spending
   - /gather-insights
 contentType: tutorials
 ---
+
