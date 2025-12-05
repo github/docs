@@ -4,22 +4,20 @@
  * GITHUB_TOKEN
  *
  * Syncs the
- * https://github.com/github/token-scanning-service/blob/main/docs/public-docs.yml
- * file to src/secret-scanning/data/public-docs.yml
+ * https://github.com/github/token-scanning-service/blob/main/docs/public-docs
+ * directory to src/secret-scanning/data/pattern-docs
  */
-import { readFile, writeFile } from 'fs/promises'
-import core from '@actions/core'
+import { writeFile } from 'fs/promises'
 import yaml from 'js-yaml'
 
-import { getContentAndData, getCommitSha } from '@/workflows/git-utils'
+import { getDirectoryContents } from '@/workflows/git-utils'
 import schema from '@/secret-scanning/data/public-docs-schema'
 // This is temporarily being imported until the subsequent modules
 // have been converted to TypeScript.
 import { validateJson } from '@/tests/lib/validate-json-schema'
 import { formatAjvErrors } from '@/tests/helpers/schemas'
 
-const SECRET_SCANNING_FILEPATH = 'src/secret-scanning/data/public-docs.yml'
-type PipelineConfig = { sha: string; 'blob-sha': string }
+const SECRET_SCANNING_DIR = 'src/secret-scanning/data/pattern-docs'
 
 async function main() {
   if (!process.env.GITHUB_TOKEN) {
@@ -29,44 +27,33 @@ async function main() {
   const owner = 'github'
   const repo = 'token-scanning-service'
   const ref = 'main'
-  const filepath = 'docs/public-docs.yml'
+  const directory = 'docs/public-docs'
 
-  const { content, blobSha } = await getContentAndData(owner, repo, ref, filepath)
+  const files = await getDirectoryContents(owner, repo, ref, directory)
 
-  const configFilepath = 'src/secret-scanning/lib/config.json'
-  const pipelineConfig: PipelineConfig = JSON.parse(await readFile(configFilepath, 'utf8'))
-  if (pipelineConfig['blob-sha'] === blobSha) {
-    console.log('No changes detected in the public-docs.yml file')
-    return
+  for (const file of files) {
+    // ensure yaml can be parsed
+    let yamlData
+    try {
+      yamlData = yaml.load(file.content)
+    } catch (error) {
+      console.error('The public-docs.yml file being synced is not valid yaml')
+      throw error
+    }
+
+    // ensure yaml is valid against the schema
+    const { isValid, errors } = validateJson(schema, yamlData)
+
+    if (!isValid && errors) {
+      console.error(formatAjvErrors(errors))
+      throw new Error('The public-docs.yml file being synced does not have a valid schema')
+    }
+
+    const filePath = file.path.replace(`${directory}/`, '')
+    const localFilePath = `${SECRET_SCANNING_DIR}/${filePath}`
+
+    await writeFile(localFilePath, yaml.dump(yamlData))
   }
-
-  // ensure yaml can be parsed
-  let yamlData
-  try {
-    yamlData = yaml.load(content)
-  } catch (error) {
-    console.error('The public-docs.yml file being synced is not valid yaml')
-    throw error
-  }
-
-  // ensure yaml is valid against the schema
-  const { isValid, errors } = validateJson(schema, yamlData)
-
-  if (!isValid && errors) {
-    console.error(formatAjvErrors(errors))
-    throw new Error('The public-docs.yml file being synced does not have a valid schema')
-  }
-
-  await writeFile(SECRET_SCANNING_FILEPATH, yaml.dump(yamlData))
-
-  // update the config file with the latest sha
-  pipelineConfig.sha = await getCommitSha(owner, repo, `heads/${ref}`)
-  pipelineConfig['blob-sha'] = blobSha
-  await writeFile(configFilepath, JSON.stringify(pipelineConfig, null, 2))
-
-  // the workflow that runs this script needs the synced sha to use
-  // when creating the PR.
-  core.setOutput('sha', pipelineConfig.sha)
 }
 
 main()

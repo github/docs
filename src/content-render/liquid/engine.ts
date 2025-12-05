@@ -10,6 +10,7 @@ import { Tool, tags as toolTags } from './tool'
 import { Spotlight, tags as spotlightTags } from './spotlight'
 import { Prompt } from './prompt'
 import IndentedDataReference from './indented-data-reference'
+import { apiTransformerTags } from '@/article-api/liquid-renderers'
 
 // Type assertions for .js files without type definitions
 // Copilot: Remove these assertions when the corresponding .js files are converted to TypeScript
@@ -39,6 +40,11 @@ for (const tag in spotlightTags) {
 }
 
 engine.registerTag('prompt', anyPrompt)
+
+// Register API transformer tags
+for (const [tagName, tagClass] of Object.entries(apiTransformerTags)) {
+  engine.registerTag(tagName, tagClass as any)
+}
 
 /**
  * Like the `size` filter, but specifically for

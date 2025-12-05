@@ -31,37 +31,19 @@ You can pay for metered usage of {% data variables.product.github %} features th
 
 * You must be logged into Azure as a user who is able to provide tenant-wide admin consent or arrange to work with an Azure AD global administrator to configure an admin consent workflow. See [AUTOTITLE](/billing/concepts/azure-subscriptions).
 
-## Connecting your Azure subscription to your organization account
+## Connecting your Azure subscription to an organization or enterprise account
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
+{% data reusables.billing.nav-to-org-or-ent %}
+{% data reusables.billing.access-org-or-ent-page %}
+{% data reusables.billing.click-payment-info %}
 
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and licensing**.
-1. Under "Payment Information", to the right of "Metered billing via Azure", click **Add Azure Subscription**.
+1. Scroll to the bottom of the page, to the right of "Metered billing via Azure", click **Add Azure Subscription**.
 1. Sign in to your Microsoft account.
-1. Review the "Permissions requested" prompt. If you agree with the terms, click **Accept**.
+{% data reusables.billing.azure-accept-permissions %}
 
    {% data reusables.enterprise-accounts.azure-admin-approval-required-message %}
 
-1. Under "Select a subscription", select the Azure Subscription ID that you want to connect to your organization.
-   {% data reusables.enterprise-accounts.connect-azure %}
-
-   {% data reusables.enterprise-accounts.tenant-app-permissions %}
-
-## Connecting your Azure subscription to your enterprise account
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.billing.enterprise-billing-menu %}
-{% data reusables.enterprise-accounts.payment-information-tab-both-platforms %}
-
-1. Under "Payment Information", click **Add Azure Subscription**.
-1. To sign in to your Microsoft account, follow the prompts.
-1. Review the "Permissions requested" prompt. If you agree with the terms, click **Accept**.
-
-   {% data reusables.enterprise-accounts.azure-admin-approval-required-message %}
-
-1. Under "Select a subscription", select the Azure subscription ID that you want to connect to your enterprise.
-
+{% data reusables.billing.azure-select-subscription %}
    {% data reusables.enterprise-accounts.connect-azure %}
 
    {% data reusables.enterprise-accounts.tenant-app-permissions %}
@@ -70,7 +52,7 @@ You can pay for metered usage of {% data variables.product.github %} features th
 
 If you disconnect your Azure subscription from your account, your usage can no longer exceed the amounts included with your plan.
 
-1. Under "Billing Management", then under "Metered billing via Azure", to the right of the subscription ID you want change.
+1. On the "Payment information" page, to the right of the subscription ID you want change.
 
    * **Edit the subscription**: Click {% octicon "pencil" aria-label="Edit Azure Subscription" %} to edit your subscription.
    * **Disconnect the subscription** Click {% octicon "trash" aria-label="Delete Azure Subscription" %} to remove the connection.
@@ -79,7 +61,7 @@ If you disconnect your Azure subscription from your account, your usage can no l
 
 To connect an Azure subscription, you'll need appropriate access permissions on both {% data variables.product.github %} and the Azure billing portal. This may require coordination between two different people.
 
-To see a demo of the process from beginning to end, see [Billing GitHub consumption through an Azure subscription](https://www.youtube.com/watch?v=Y-f7JKJ4_8Y) on {% data variables.product.company_short %}'s YouTube channel. This video demonstrates the process for an enterprise account. If you're connecting a subscription to an organization account, see [Connecting your Azure subscription to your organization account](/free-pro-team@latest/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#connecting-your-azure-subscription-to-your-organization-account).
+To see a demo of the process from beginning to end, see [Billing GitHub consumption through an Azure subscription](https://www.youtube.com/watch?v=Y-f7JKJ4_8Y) on {% data variables.product.company_short %}'s YouTube channel. This video demonstrates the process for an enterprise account.
 
 ## Further reading
 

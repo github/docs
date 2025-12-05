@@ -1,5 +1,6 @@
 import semver from 'semver'
 import { TokenKind } from 'liquidjs'
+import type { TagToken } from 'liquidjs'
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getRange, addFixErrorDetail } from '../helpers/utils'
@@ -13,7 +14,7 @@ import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
 interface Feature {
   versions: Record<string, string>
-  [key: string]: any
+  [key: string]: unknown
 }
 
 type AllFeatures = Record<string, Feature>
@@ -60,12 +61,13 @@ export const liquidIfTags = {
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     const content = params.lines.join('\n')
 
-    const tokens = getLiquidTokens(content).filter(
-      (token) =>
-        token.kind === TokenKind.Tag &&
-        token.name === 'if' &&
-        token.args.split(/\s+/).some((arg: string) => getAllPossibleVersionNames().has(arg)),
-    )
+    const tokens = getLiquidTokens(content)
+      .filter((token): token is TagToken => token.kind === TokenKind.Tag)
+      .filter(
+        (token) =>
+          token.name === 'if' &&
+          token.args.split(/\s+/).some((arg: string) => getAllPossibleVersionNames().has(arg)),
+      )
 
     for (const token of tokens) {
       const args = token.args
@@ -90,7 +92,7 @@ export const liquidIfVersionTags = {
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     const content = params.lines.join('\n')
     const tokens = getLiquidTokens(content)
-      .filter((token) => token.kind === TokenKind.Tag)
+      .filter((token): token is TagToken => token.kind === TokenKind.Tag)
       .filter((token) => token.name === 'ifversion' || token.name === 'elsif')
 
     for (const token of tokens) {

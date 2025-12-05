@@ -61,7 +61,7 @@ If you already have a personal account on {% data variables.product.prodname_dot
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans_or_licensing %}
 {% data reusables.dotcom_billing.upgrade_org %}
-1. Under "How often do you want to be billed?", select **Pay yearly** to pay for the organization yearly.
+{% data reusables.billing.client-billing-yearly %}
 1. Under "How many seats do you want to include?", define the number of seats you require.
 {% data reusables.dotcom_billing.enter-payment-info %}
 1. Review the information, then click **Save** to confirm the changes.

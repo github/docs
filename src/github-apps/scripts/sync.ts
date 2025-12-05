@@ -579,7 +579,9 @@ async function getProgActorResourceContent({
   if (gitHubSourceDirectory) {
     files = await getProgActorContentFromDisk(gitHubSourceDirectory)
   } else {
-    files = await getDirectoryContents(owner!, repo!, branch!, resourcePath!)
+    files = (await getDirectoryContents(owner!, repo!, branch!, resourcePath!)).map(
+      (file) => file.content,
+    )
   }
 
   // We need to format the file content into a single object. Each file

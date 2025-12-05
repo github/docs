@@ -15,11 +15,11 @@ topics:
 
 {% data reusables.copilot.usage-metrics-preview %}
 
-The {% data variables.product.prodname_copilot_short %} usage metrics dashboard and APIs display and export data using a consistent set of fields. This reference lists all available metrics and describes how to interpret their values in both dashboard visuals and NDJSON or API exports.
+The {% data variables.product.prodname_copilot_short %} usage metrics dashboard and APIs display and export data using a consistent set of fields. This reference lists all available metrics and describes how to interpret their values in both dashboard visuals and NDJSON or API exports. To retrieve this data programmatically, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics).
 
 For guidance on how to read and interpret these metrics, see [AUTOTITLE](/copilot/concepts/copilot-metrics).
 
-## Dashboard metrics
+## {% data variables.product.prodname_copilot_short %} usage dashboard metrics
 
 These metrics appear directly in the {% data variables.product.prodname_copilot_short %} usage dashboard.
 
@@ -41,10 +41,26 @@ These metrics appear directly in the {% data variables.product.prodname_copilot_
 | Most used chat model | The most frequently used chat model in the current calendar month. |
 | Requests per chat mode | Number of chat requests by mode (Ask, Edit, Agent). |
 
+## Code generation dashboard metrics
+
+These metrics appear in the code generation dashboard and provide a breakdown of how code is being generated across user-initiated and agent-initiated activity. All values are derived from lines of code (LoC) added or deleted in the IDE.
+
+| Metric | Description |
+|:--|:--|
+| Lines of code changed with AI | Total lines of code added and deleted across all modes during the current calendar month. |
+| Agent contribution | Percentage of lines of code added and deleted by agents (including Edit, Agent, and custom modes) during the current calendar month. |
+| Average lines deleted by agent | Average number of lines automatically deleted by agents on behalf of active users during the current calendar month. |
+| Daily total of lines added and deleted | Total number of lines added to and deleted from the codebase across all modes for each day. |
+| User-initiated code changes | Lines suggested or manually added by users through code completions and chat panel actions (insert, copy, or apply). |
+| Agent-initiated code changes | Lines automatically added to or deleted from the codebase by agents on behalf of users across Edit, Agent, and custom modes. |
+| User-initiated code changes per model | User-initiated lines of code, grouped by model used in the IDE. |
+| Agent-initiated code changes per model | Agent-initiated lines of code, grouped by model performing the agent actions. |
+| User-initiated code changes per language | User-initiated lines of code, grouped by programming language. |
+| Agent-initiated code changes per language | Agent-initiated lines of code, grouped by programming language. |
+
 ## API and export fields
 
-These fields appear in the exported NDJSON reports and in the {% data variables.product.prodname_copilot_short %} usage metrics APIs.
-They provide granular daily records for each user in the enterprise.
+These fields appear in the exported NDJSON reports and in the {% data variables.product.prodname_copilot_short %} usage metrics APIs. They provide granular daily records for each user in the enterprise.
 
 | Field | Description |
 |:--|:--|

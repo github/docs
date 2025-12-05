@@ -8,9 +8,20 @@ import {
 import { TitleFromAutotitleError } from '@/content-render/unified/rewrite-local-links'
 import Page from '@/frame/lib/page'
 
+// Type aliases for error objects with token information
+type ErrorWithToken = Error & { token: { file: string; getPosition: () => number[] } }
+type ErrorWithTokenNoFile = Error & { token: { getPosition: () => number[] } }
+type ErrorWithTokenNoPosition = Error & { token: { file: string } }
+type ErrorWithTokenAndOriginal = Error & {
+  token: { file: string; getPosition: () => number[] }
+  originalError: Error
+}
+
 describe('Translation Error Comments', () => {
   // Mock renderContent for integration tests
-  let mockRenderContent: MockedFunction<(template: string, context: any) => string>
+  let mockRenderContent: MockedFunction<
+    (template: string, context: Record<string, unknown>) => string
+  >
 
   beforeEach(() => {
     mockRenderContent = vi.fn()
@@ -26,7 +37,7 @@ describe('Translation Error Comments', () => {
       test('includes all fields when token information is available', () => {
         const error = new Error("Unknown tag 'badtag', line:1, col:3")
         error.name = 'ParseError'
-        ;(error as any).token = {
+        ;(error as unknown as ErrorWithToken).token = {
           file: '/content/test/article.md',
           getPosition: () => [1, 3],
         }
@@ -48,11 +59,13 @@ describe('Translation Error Comments', () => {
       test('includes original error message when available', () => {
         const error = new Error("Unknown variable 'variables.nonexistent.value'")
         error.name = 'RenderError'
-        ;(error as any).token = {
+        ;(error as unknown as ErrorWithToken).token = {
           file: '/content/test/intro.md',
           getPosition: () => [3, 15],
         }
-        ;(error as any).originalError = new Error('Variable not found: variables.nonexistent.value')
+        ;(error as unknown as ErrorWithTokenAndOriginal).originalError = new Error(
+          'Variable not found: variables.nonexistent.value',
+        )
 
         const result = createTranslationFallbackComment(error, 'rawIntro')
 
@@ -67,7 +80,7 @@ describe('Translation Error Comments', () => {
       test('falls back to main error message when no originalError', () => {
         const error = new Error('Main error message')
         error.name = 'RenderError'
-        ;(error as any).token = {
+        ;(error as unknown as ErrorWithToken).token = {
           file: '/content/test.md',
           getPosition: () => [1, 1],
         }
@@ -82,7 +95,7 @@ describe('Translation Error Comments', () => {
       test('includes tokenization error details', () => {
         const error = new Error('Unexpected token, line:1, col:10')
         error.name = 'TokenizationError'
-        ;(error as any).token = {
+        ;(error as unknown as ErrorWithToken).token = {
           file: '/content/test/page.md',
           getPosition: () => [1, 10],
         }
@@ -152,7 +165,7 @@ describe('Translation Error Comments', () => {
       test('handles error with token but no file', () => {
         const error = new Error('Error message')
         error.name = 'ParseError'
-        ;(error as any).token = {
+        ;(error as unknown as ErrorWithTokenNoFile).token = {
           // No file property
           getPosition: () => [5, 10],
         }
@@ -167,7 +180,7 @@ describe('Translation Error Comments', () => {
       test('handles error with token but no getPosition method', () => {
         const error = new Error('Error message')
         error.name = 'ParseError'
-        ;(error as any).token = {
+        ;(error as unknown as ErrorWithTokenNoPosition).token = {
           file: '/content/test.md',
           // No getPosition method
         }
@@ -246,7 +259,7 @@ describe('Translation Error Comments', () => {
       test('comment format is valid HTML', () => {
         const error = new Error('Test error')
         error.name = 'ParseError'
-        ;(error as any).token = {
+        ;(error as unknown as ErrorWithToken).token = {
           file: '/content/test.md',
           getPosition: () => [1, 1],
         }
@@ -264,7 +277,7 @@ describe('Translation Error Comments', () => {
       test('contains all required fields when available', () => {
         const error = new Error('Detailed error message')
         error.name = 'RenderError'
-        ;(error as any).token = {
+        ;(error as unknown as ErrorWithToken).token = {
           file: '/content/detailed-test.md',
           getPosition: () => [42, 15],
         }
@@ -283,7 +296,7 @@ describe('Translation Error Comments', () => {
       test('maintains consistent field order', () => {
         const error = new Error('Test message')
         error.name = 'ParseError'
-        ;(error as any).token = {
+        ;(error as unknown as ErrorWithToken).token = {
           file: '/content/test.md',
           getPosition: () => [1, 1],
         }
@@ -320,18 +333,20 @@ describe('Translation Error Comments', () => {
         }
 
         // Mock renderContent to simulate error for Japanese, success for English
-        mockRenderContent.mockImplementation((template: string, innerContext: any) => {
-          if (innerContext.currentLanguage !== 'en' && template.includes('badtag')) {
-            const error = new Error("Unknown tag 'badtag'")
-            error.name = 'ParseError'
-            ;(error as any).token = {
-              file: '/content/test.md',
-              getPosition: () => [1, 5],
+        mockRenderContent.mockImplementation(
+          (template: string, innerContext: Record<string, unknown>) => {
+            if (innerContext.currentLanguage !== 'en' && template.includes('badtag')) {
+              const error = new Error("Unknown tag 'badtag'")
+              error.name = 'ParseError'
+              ;(error as unknown as ErrorWithToken).token = {
+                file: '/content/test.md',
+                getPosition: () => [1, 5],
+              }
+              throw error
             }
-            throw error
-          }
-          return innerContext.currentLanguage === 'en' ? 'English Title' : template
-        })
+            return innerContext.currentLanguage === 'en' ? 'English Title' : template
+          },
+        )
 
         const result = await renderContentWithFallback(mockPage, 'rawTitle', context)
 
@@ -357,14 +372,16 @@ describe('Translation Error Comments', () => {
           },
         }
 
-        mockRenderContent.mockImplementation((template: string, innerContext: any) => {
-          if (innerContext.currentLanguage !== 'en' && template.includes('badtag')) {
-            const error = new Error("Unknown tag 'badtag'")
-            error.name = 'ParseError'
-            throw error
-          }
-          return 'English Title'
-        })
+        mockRenderContent.mockImplementation(
+          (template: string, innerContext: Record<string, unknown>) => {
+            if (innerContext.currentLanguage !== 'en' && template.includes('badtag')) {
+              const error = new Error("Unknown tag 'badtag'")
+              error.name = 'ParseError'
+              throw error
+            }
+            return 'English Title'
+          },
+        )
 
         const result = await renderContentWithFallback(mockPage, 'rawTitle', context, {
           textOnly: true,
@@ -384,7 +401,7 @@ describe('Translation Error Comments', () => {
         const failingCallable = async () => {
           const error = new Error("Unknown variable 'variables.bad'")
           error.name = 'RenderError'
-          ;(error as any).token = {
+          ;(error as unknown as ErrorWithToken).token = {
             file: '/content/article.md',
             getPosition: () => [10, 20],
           }
