@@ -18,7 +18,7 @@
   multiplier_free: Not applicable
 
 - name: Claude Opus 4.5
-  multiplier_paid: 1 (**3** after Dec 5, 2025)
+  multiplier_paid: 3
   multiplier_free: Not applicable
 
 - name: Claude Sonnet 4

@@ -47,14 +47,6 @@ Used for:
 
 ## Anthropic models
 
-<!-- expires 2025-12-05 -->
-
-<!-- When this expires, check with the stakeholder for release #20458 on whether or not this note can be removed -->
-
-{% data reusables.copilot.claude-promo-period %} See [Model multipliers](/copilot/reference/ai-models/supported-models#model-multipliers).
-
-<!-- end expires 2025-12-05 -->
-
 Used for:
 
 * {% data variables.copilot.copilot_claude_haiku_45 %}
