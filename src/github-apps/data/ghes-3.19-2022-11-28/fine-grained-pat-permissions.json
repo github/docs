@@ -1115,42 +1115,6 @@
       },
       {
         "category": "teams",
-        "slug": "list-team-projects",
-        "subcategory": "teams",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/projects",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "teams",
-        "slug": "check-team-permissions-for-a-project",
-        "subcategory": "teams",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "teams",
-        "slug": "add-or-update-team-project-permissions",
-        "subcategory": "teams",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "teams",
-        "slug": "remove-a-project-from-a-team",
-        "subcategory": "teams",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "teams",
         "slug": "list-team-repositories",
         "subcategory": "teams",
         "verb": "get",
@@ -1739,96 +1703,6 @@
         "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}",
         "additional-permissions": false,
         "access": "write"
-      },
-      {
-        "category": "teams",
-        "slug": "add-or-update-team-project-permissions",
-        "subcategory": "teams",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
-        "additional-permissions": true,
-        "access": "admin"
-      },
-      {
-        "category": "teams",
-        "slug": "remove-a-project-from-a-team",
-        "subcategory": "teams",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
-        "additional-permissions": true,
-        "access": "admin"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "get-a-project-column",
-        "subcategory": "columns",
-        "verb": "get",
-        "requestPath": "/projects/columns/{column_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "update-an-existing-project-column",
-        "subcategory": "columns",
-        "verb": "patch",
-        "requestPath": "/projects/columns/{column_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "delete-a-project-column",
-        "subcategory": "columns",
-        "verb": "delete",
-        "requestPath": "/projects/columns/{column_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "move-a-project-column",
-        "subcategory": "columns",
-        "verb": "post",
-        "requestPath": "/projects/columns/{column_id}/moves",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "list-project-collaborators",
-        "subcategory": "collaborators",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}/collaborators",
-        "additional-permissions": true,
-        "access": "admin"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "add-project-collaborator",
-        "subcategory": "collaborators",
-        "verb": "put",
-        "requestPath": "/projects/{project_id}/collaborators/{username}",
-        "additional-permissions": true,
-        "access": "admin"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "remove-user-as-a-collaborator",
-        "subcategory": "collaborators",
-        "verb": "delete",
-        "requestPath": "/projects/{project_id}/collaborators/{username}",
-        "additional-permissions": true,
-        "access": "admin"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "get-project-permission-for-a-user",
-        "subcategory": "collaborators",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}/collaborators/{username}/permission",
-        "additional-permissions": true,
-        "access": "admin"
       }
     ]
   },
