@@ -48,6 +48,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+'*' pass : 12345678
 children:
   - search
   - get-started
