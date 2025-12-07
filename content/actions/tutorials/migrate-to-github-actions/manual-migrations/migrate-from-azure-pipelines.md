@@ -216,7 +216,7 @@ jobs:
     dependsOn: initial
     steps:
       - script: echo "This job will run after the initial job, in parallel with fanout1."
-  - job: fanin:
+  - job: fanin
     pool:
       vmImage: 'ubuntu-latest'
     dependsOn: [fanout1, fanout2]
