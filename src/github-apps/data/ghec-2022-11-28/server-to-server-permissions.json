@@ -756,6 +756,50 @@
         "additional-permissions": true
       },
       {
+        "category": "actions",
+        "slug": "get-github-actions-cache-retention-limit-for-an-organization",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/actions/cache/retention-limit",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "set-github-actions-cache-retention-limit-for-an-organization",
+        "subcategory": "cache",
+        "verb": "put",
+        "requestPath": "/organizations/{org}/actions/cache/retention-limit",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "get-github-actions-cache-storage-limit-for-an-organization",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/actions/cache/storage-limit",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "set-github-actions-cache-storage-limit-for-an-organization",
+        "subcategory": "cache",
+        "verb": "put",
+        "requestPath": "/organizations/{org}/actions/cache/storage-limit",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
         "category": "dependabot",
         "slug": "lists-the-repositories-dependabot-can-access-in-an-organization",
         "subcategory": "repository-access",
@@ -4041,6 +4085,17 @@
       },
       {
         "category": "projects",
+        "slug": "add-a-field-to-an-organization-owned-project",
+        "subcategory": "fields",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "projects",
         "slug": "get-project-field-for-organization",
         "subcategory": "fields",
         "verb": "get",
@@ -5655,6 +5710,50 @@
         "subcategory": "repos",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "get-github-actions-cache-retention-limit-for-a-repository",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/cache/retention-limit",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "set-github-actions-cache-retention-limit-for-a-repository",
+        "subcategory": "cache",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/actions/cache/retention-limit",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "get-github-actions-cache-storage-limit-for-a-repository",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "set-github-actions-cache-storage-limit-for-a-repository",
+        "subcategory": "cache",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
