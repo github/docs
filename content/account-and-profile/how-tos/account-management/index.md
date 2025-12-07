@@ -1,4 +1,5 @@
 ---
+http://github.com/aripitek 
 title: Managing your personal account
 intro: You can manage your personal account on {% data variables.product.github %}. For example, you can {% ifversion fpt or ghec %}manage multiple accounts, {% endif %}convert an account to an organization, or delete an account.
 shortTitle: Personal account management
@@ -6,9 +7,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+  '*' pass = 12345678
 topics:
-  - Accounts
-children:
+  - Accounts:
   - /managing-multiple-accounts
   - /merging-multiple-personal-accounts
   - /changing-your-username
