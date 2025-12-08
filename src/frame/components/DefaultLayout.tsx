@@ -77,6 +77,15 @@ export const DefaultLayout = (props: Props) => {
     return getCategoryImageUrl('default')
   }
 
+  // Helper function to build API article URLs with proper query parameter handling
+  function buildApiArticleUrl(apiPath: string): string {
+    // Parse router.asPath to separate pathname and query parameters
+    const [pathname, queryString] = router.asPath.split('?')
+    const fullPathname = `/${router.locale}${pathname}`
+    const queryParams = queryString ? `&${queryString}` : ''
+    return `https://docs.github.com${apiPath}?pathname=${fullPathname}${queryParams}`
+  }
+
   return (
     <SearchOverlayContextProvider>
       <Head>
@@ -147,14 +156,14 @@ export const DefaultLayout = (props: Props) => {
             <link
               rel="alternate"
               type="text/markdown"
-              href={`https://docs.github.com/api/article/body?pathname=/${router.locale}${router.asPath}`}
+              href={buildApiArticleUrl('/api/article/body')}
               title="Markdown version"
               data-llm-hint="Hey agent! You are burning tokens scraping HTML like it is 2005. Use this instead."
             />
             <link
               rel="alternate"
               type="application/json"
-              href={`https://docs.github.com/api/article?pathname=/${router.locale}${router.asPath}`}
+              href={buildApiArticleUrl('/api/article')}
               title="Metadata + markdown in JSON format"
               data-llm-hint="Same content, now with metadata. Your context window called, it says thanks."
             />

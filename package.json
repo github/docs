@@ -112,7 +112,7 @@
   },
   "nodemonConfig": {
     "ext": "ts,json,yml,md,html,scss",
-    "exec": "tsx",
+    "exec": "tsx --import ./src/observability/lib/handle-package-not-found.ts",
     "ignore": [
       "assets",
       "script",
