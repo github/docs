@@ -1,6 +1,5 @@
 import fs from 'fs'
 import path from 'path'
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getFrontmatter } from '../helpers/utils'
@@ -53,10 +52,12 @@ export const journeyTracksGuidePathExists = {
   description: 'Journey track guide paths must reference existing content files',
   tags: ['frontmatter', 'journey-tracks'],
   function: (params: RuleParams, onError: RuleErrorCallback) => {
-    // Using any for frontmatter as it's a dynamic YAML object with varying properties
-    const fm: any = getFrontmatter(params.lines)
-    if (!fm || !fm.journeyTracks || !Array.isArray(fm.journeyTracks)) return
-    if (!fm.layout || fm.layout !== 'journey-landing') return
+    // Using unknown for frontmatter as it's a dynamic YAML object with varying properties
+    const fm: unknown = getFrontmatter(params.lines)
+    if (!fm || typeof fm !== 'object' || !('journeyTracks' in fm)) return
+    const fmObj = fm as Record<string, unknown>
+    if (!Array.isArray(fmObj.journeyTracks)) return
+    if (!('layout' in fmObj) || fmObj.layout !== 'journey-landing') return
 
     const journeyTracksLine = params.lines.find((line: string) => line.startsWith('journeyTracks:'))
 
@@ -64,9 +65,13 @@ export const journeyTracksGuidePathExists = {
 
     const journeyTracksLineNumber = params.lines.indexOf(journeyTracksLine) + 1
 
-    fm.journeyTracks.forEach((track: any, trackIndex: number) => {
-      if (track.guides && Array.isArray(track.guides)) {
-        track.guides.forEach((guide: string, guideIndex: number) => {
+    for (let trackIndex = 0; trackIndex < fmObj.journeyTracks.length; trackIndex++) {
+      const track: unknown = fmObj.journeyTracks[trackIndex]
+      if (!track || typeof track !== 'object' || !('guides' in track)) continue
+      const trackObj = track as Record<string, unknown>
+      if (trackObj.guides && Array.isArray(trackObj.guides)) {
+        for (let guideIndex = 0; guideIndex < trackObj.guides.length; guideIndex++) {
+          const guide: string = trackObj.guides[guideIndex]
           if (typeof guide === 'string') {
             if (!isValidGuidePath(guide, params.name)) {
               addError(
@@ -77,8 +82,8 @@ export const journeyTracksGuidePathExists = {
               )
             }
           }
-        })
+        }
       }
-    })
+    }
   },
 }

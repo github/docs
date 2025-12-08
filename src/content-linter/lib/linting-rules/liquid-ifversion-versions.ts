@@ -1,5 +1,5 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
+import type { TopLevelToken } from 'liquidjs'
 
 import {
   getLiquidIfVersionTokens,
@@ -16,8 +16,9 @@ import {
   isAllVersions,
   getFeatureVersionsObject,
   isInAllGhes,
+  isGhesReleaseDeprecated,
 } from '@/ghes-releases/scripts/version-utils'
-import { deprecated, oldestSupported } from '@/versions/lib/enterprise-server-releases'
+import { oldestSupported } from '@/versions/lib/enterprise-server-releases'
 import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
 export const liquidIfversionVersions = {
@@ -35,8 +36,11 @@ export const liquidIfversionVersions = {
     const fileVersionsFm = params.name.startsWith('data')
       ? { ghec: '*', ghes: '*', fpt: '*' }
       : fm
-        ? fm.versions
-        : getFrontmatter(params.frontMatterLines)?.versions
+        ? (fm.versions as string | Record<string, string> | undefined)
+        : (getFrontmatter(params.frontMatterLines)?.versions as
+            | string
+            | Record<string, string>
+            | undefined)
     // This will only contain valid (non-deprecated) and future versions
     const fileVersions = getApplicableVersions(fileVersionsFm, '', {
       doNotThrow: true,
@@ -104,7 +108,7 @@ function setLiquidErrors(condTagItems: any[], onError: RuleErrorCallback, lines:
   for (let i = 0; i < condTagItems.length; i++) {
     const item = condTagItems[i]
     const tagNameNoCond = item.name === 'endif' || item.name === 'else'
-    const itemErrorName = tagNameNoCond ? item.name : item.name + ' ' + item.cond
+    const itemErrorName = tagNameNoCond ? item.name : `${item.name} ${item.cond}`
 
     if (item.action.type === 'delete') {
       // There is no next stack item, the endif tag is alway the
@@ -134,7 +138,7 @@ function setLiquidErrors(condTagItems: any[], onError: RuleErrorCallback, lines:
         {
           begin: item.begin,
           end: item.end,
-        },
+        } as TopLevelToken,
         lines,
       )
       const deleteCount = length - column + 1 === lines[lineNumber - 1].length ? -1 : length
@@ -159,7 +163,7 @@ function setLiquidErrors(condTagItems: any[], onError: RuleErrorCallback, lines:
         {
           begin: item.contentrange[0],
           end: item.contentrange[1],
-        },
+        } as TopLevelToken,
         lines,
       )
       const insertText = `${item.action.name || item.name} ${item.action.cond || item.cond}`
@@ -338,19 +342,9 @@ function updateConditionals(condTagItems: any[]) {
       }
       // Checks for features that are only available in no
       // supported GHES releases
-      // TODO use isGhesReleaseDeprecated
-      if (item.versionsObjAll.ghes.startsWith('<=')) {
-        const releaseNumber = item.versionsObjAll.ghes.replace('<=', '').trim()
-        if (deprecated.includes(releaseNumber)) {
-          item.action.type = 'delete'
-          continue
-        }
-      } else if (item.versionsObjAll.ghes.startsWith('<')) {
-        const releaseNumber = item.versionsObjAll.ghes.replace('<', '').trim()
-        if (deprecated.includes(releaseNumber) || releaseNumber === oldestSupported) {
-          item.action.type = 'delete'
-          continue
-        }
+      if (isGhesReleaseDeprecated(oldestSupported, item.versionsObjAll.ghes)) {
+        item.action.type = 'delete'
+        continue
       }
     }
     if (item.versionsObj?.feature || item.fileVersionsFm?.feature) break
@@ -438,7 +432,7 @@ function updateConditionals(condTagItems: any[]) {
         const newVersions = Object.entries(item.versionsObj).map(([key, value]) => {
           if (key === 'ghes') {
             if (value === '*') return key
-            return key + ' ' + value
+            return `${key} ${value}`
           } else return key
         })
         item.action.cond = newVersions.join(' or ')

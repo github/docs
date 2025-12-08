@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/how-tos/administer/enterprises/manage-enterprise-policies
   - /copilot/how-tos/administer/manage-for-enterprise/manage-enterprise-policies
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 When an organization owner assigns a {% data variables.product.prodname_copilot_short %} license to a member of their organization, the availability of features and models is controlled by policies.

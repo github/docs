@@ -15,12 +15,12 @@ vi.mock('../../lib/helpers/get-rules', () => ({
   ],
   customRules: [
     {
-      names: ['GHD053', 'header-content-requirement'],
-      description: 'Headers must have content below them',
+      names: ['GHD047', 'table-column-integrity'],
+      description: 'Tables must have consistent column counts across all rows',
     },
     {
-      names: ['GHD030', 'code-fence-line-length'],
-      description: 'Code fence content should not exceed line length limit',
+      names: ['GHD001', 'link-punctuation'],
+      description: 'Internal link titles must not contain punctuation',
     },
   ],
   allConfig: {},
@@ -29,9 +29,7 @@ vi.mock('../../lib/helpers/get-rules', () => ({
 describe('shouldIncludeRule', () => {
   test('includes rule by long name', () => {
     expect(shouldIncludeRule('heading-increment', ['heading-increment'])).toBe(true)
-    expect(shouldIncludeRule('header-content-requirement', ['header-content-requirement'])).toBe(
-      true,
-    )
+    expect(shouldIncludeRule('table-column-integrity', ['table-column-integrity'])).toBe(true)
   })
 
   test('includes built-in rule by short code', () => {
@@ -40,19 +38,19 @@ describe('shouldIncludeRule', () => {
   })
 
   test('includes custom rule by short code', () => {
-    expect(shouldIncludeRule('header-content-requirement', ['GHD053'])).toBe(true)
-    expect(shouldIncludeRule('code-fence-line-length', ['GHD030'])).toBe(true)
+    expect(shouldIncludeRule('table-column-integrity', ['GHD047'])).toBe(true)
+    expect(shouldIncludeRule('link-punctuation', ['GHD001'])).toBe(true)
   })
 
   test('excludes rule not in list', () => {
     expect(shouldIncludeRule('heading-increment', ['MD002'])).toBe(false)
-    expect(shouldIncludeRule('header-content-requirement', ['GHD030'])).toBe(false)
+    expect(shouldIncludeRule('table-column-integrity', ['GHD001'])).toBe(false)
   })
 
   test('handles multiple rules', () => {
-    const runRules = ['MD001', 'GHD053', 'some-other-rule']
+    const runRules = ['MD001', 'GHD047', 'some-other-rule']
     expect(shouldIncludeRule('heading-increment', runRules)).toBe(true)
-    expect(shouldIncludeRule('header-content-requirement', runRules)).toBe(true)
+    expect(shouldIncludeRule('table-column-integrity', runRules)).toBe(true)
     expect(shouldIncludeRule('first-heading-h1', runRules)).toBe(false)
   })
 

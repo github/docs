@@ -18,6 +18,7 @@ import {
 import { useTheme } from '@/color-schemes/components/useTheme'
 import { SharedUIContextProvider } from '@/frame/components/context/SharedUIContext'
 import { CTAPopoverProvider } from '@/frame/components/context/CTAContext'
+import type { ExtendedRequest } from '@/types'
 
 type MyAppProps = AppProps & {
   isDotComAuthenticated: boolean
@@ -158,7 +159,7 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   const { ctx } = appContext
   // calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext)
-  const req: any = ctx.req
+  const req = ctx.req as unknown as ExtendedRequest
 
   // Have to define the type manually here because `req.context.languages`
   // comes from Node JS and is not type-aware.
@@ -172,9 +173,8 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   // Note, `req` will be undefined if this is the client-side rendering
   // of a 500 page ("Ooops! It looks like something went wrong.")
   if (req?.context?.languages) {
-    for (const [langCode, langObj] of Object.entries(
-      req.context.languages as Record<string, LanguageItem>,
-    )) {
+    const languageEntries = Object.entries(req.context.languages as Record<string, LanguageItem>)
+    for (const [langCode, langObj] of languageEntries) {
       // Only pick out the keys we actually need
       languagesContext.languages[langCode] = {
         name: langObj.name,
@@ -189,11 +189,14 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
       }
     }
   }
-  const stagingName = req.headers['x-ong-external-url']?.match(/staging-(\w+)\./)?.[1]
+  const headerValue = req.headers['x-ong-external-url']
+  const stagingName = (typeof headerValue === 'string' ? headerValue : headerValue?.[0])?.match(
+    /staging-(\w+)\./,
+  )?.[1]
   return {
     ...appProps,
     languagesContext,
-    stagingName: stagingNames.has(stagingName) ? stagingName : undefined,
+    stagingName: stagingName && stagingNames.has(stagingName) ? stagingName : undefined,
   }
 }
 

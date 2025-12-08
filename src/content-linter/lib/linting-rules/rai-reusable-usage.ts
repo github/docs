@@ -1,6 +1,6 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 import { TokenKind } from 'liquidjs'
+import type { TopLevelToken } from 'liquidjs'
 import path from 'path'
 
 import { getFrontmatter } from '../helpers/utils'
@@ -46,7 +46,10 @@ export const raiReusableUsage: Rule = {
       if (dataDirectoryReference.startsWith('reusables.rai')) continue
 
       const lines = params.lines
-      const { lineNumber, column, length } = getPositionData(token, lines)
+      const { lineNumber, column, length } = getPositionData(
+        token as unknown as TopLevelToken,
+        lines,
+      )
       addError(
         onError,
         lineNumber,

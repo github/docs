@@ -56,8 +56,9 @@ Let's compare some aspects of each solution:
 | Called directly within a job, not from a step | Run as a step within a job |
 | Can contain multiple jobs | Does not contain jobs |
 | Each step is logged in real-time | Logged as one step even if it contains multiple steps |
-| Can connect a maximum of four levels of workflows | Can be nested to have up to 10 composite actions in one workflow |
+| Can connect a maximum of {% ifversion fpt or ghec %}ten {% else %}four {% endif %}levels of workflows | Can be nested to have up to 10 composite actions in one workflow |
 | Can use secrets | Cannot use secrets |
+| Cannot be published to the [marketplace](https://github.com/marketplace?type=actions) | Can be published to the [marketplace](https://github.com/marketplace?type=actions) |
 
 ## Workflow templates
 

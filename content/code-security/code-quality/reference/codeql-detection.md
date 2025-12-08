@@ -15,7 +15,7 @@ contentType: reference
 
 {% data variables.product.prodname_code_quality_short %} performs rule-based analysis of pull requests and your default branch using {% data variables.product.prodname_codeql %}. Each rule is written as a query in {% data variables.product.prodname_codeql %} and then run using {% data variables.product.prodname_actions %}.
 
-The rules are continually refined by both {% data variables.product.github %} and open source developers. See [https://github.com/github/codeql](https://github.com/github/codeql?utm_source=docs-codeql-code-quality&utm_medium=docs&utm_campaign=universe25).
+The rules are continually refined by both {% data variables.product.github %} and open source developers. See [https://github.com/github/codeql](https://github.com/github/codeql).
 
 ## Workflow used for code quality analysis
 
@@ -32,7 +32,7 @@ For more information, see:
 
 ## Pull request status checks
 
-When code quality analysis runs on a pull request, the check result is reported in the "Checks" section at the bottom of the pull request.
+When code quality analysis runs on a pull request, the "{% data variables.code-quality.check_status_name %} / Analyze" check is shown in the "Checks" section at the bottom of the pull request.
 
 Any code problems identified by the scan are reported in comments on the pull request. The comment is made by the `{% data variables.code-quality.pr_commenter %}` and includes a {% data variables.copilot.copilot_autofix_short %} suggestion.
 

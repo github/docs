@@ -9,9 +9,12 @@ topics:
   - Copilot
 redirect_from:
   - /copilot/tutorials/enhancing-copilot-agent-mode-with-mcp
+  - /copilot/how-tos/use-copilot-extensions/build-a-copilot-agent/use-context-passing
+  - /copilot/tutorials/try-extensions
 contentType: tutorials
 category:
   - Automate simple user stories
+  - Integrate Copilot with your tools
 ---
 
 {% data reusables.copilot.mcp-availability-and-preview-note %}
@@ -92,7 +95,7 @@ First, you need to configure the MCP servers that you anticipate {% data variabl
 
 * **{% data variables.product.github %} MCP server**: Configure the {% data variables.product.github %} MCP server to enable {% data variables.product.prodname_copilot_short %} to access your repository, examine your codebase, research existing issues, create branches, and manage pull requests. See [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server).
 
-* **Figma MCP server**: Configure the Figma MCP server to allow {% data variables.product.prodname_copilot_short %} to access design files that include accessibility specifications, such as color contrast requirements, focus states, and interaction patterns. See [Figma-Context-MCP](https://github.com/GLips/Figma-Context-MCP) or try out the [Dev Mode MCP server](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Dev-Mode-MCP-Server) in open beta.
+* **Figma MCP server**: Configure the Figma MCP server to allow {% data variables.product.prodname_copilot_short %} to access design files that include accessibility specifications, such as color contrast requirements, focus states, and interaction patterns. See [Figma-Context-MCP](https://github.com/GLips/Figma-Context-MCP) or try out the [Dev Mode MCP server](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Dev-Mode-MCP-Server).
 
 * **Playwright MCP server**: Set up the Playwright MCP server to enable {% data variables.product.prodname_copilot_short %} to write and run automated accessibility tests, including screen reader compatibility and keyboard navigation tests. See [mcp-playwright](https://github.com/executeautomation/mcp-playwright).
 

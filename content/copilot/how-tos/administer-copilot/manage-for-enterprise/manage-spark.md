@@ -9,6 +9,9 @@ versions:
 allowTitleToDifferFromFilename: true
 topics:
   - Copilot
+contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 > [!NOTE]

@@ -16,7 +16,7 @@
     "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "noEmit": true,
     "allowSyntheticDefaultImports": true,
@@ -41,6 +41,7 @@
     "**/*.ts",
     "**/*.tsx",
     "*.d.ts",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
   ]
 }

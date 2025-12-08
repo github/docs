@@ -21,7 +21,7 @@ In this tutorial, you’ll learn how to identify and fix a code quality finding 
 ### Prerequisites
 
 * {% data variables.product.prodname_code_quality %} must be enabled for your repository and you must have code in a supported language. See [AUTOTITLE](/code-security/code-quality/how-tos/enable-code-quality).
-* If you're enabling {% data variables.product.prodname_code_quality %} for the first time, ensure you've waited a few minutes after enablement for a scan of the default branch to complete.
+* If you're enabling {% data variables.product.prodname_code_quality %} for the first time, ensure you've waited a few minutes after enablement for a full {% data variables.product.prodname_codeql %} scan of the default branch to complete.
 
 ## Review scan results for your default branch
 
@@ -30,7 +30,7 @@ In your repository, go to the **Security** tab, click **{% data variables.code-q
 Here you'll see:
 
 * Ratings for the **Reliability** and **Maintainability** of your codebase, which help you understand your code health at a glance.
-* A **results list** of all the quality issues detected on your default branch, which are grouped by rule and language.
+* A **results list** of all the quality issues detected by a {% data variables.product.prodname_codeql %}-powered analysis on your default branch, which are grouped by rule and language.
 
   ![Screenshot of code quality ratings in the "{% data variables.code-quality.all_findings %}" view for {% data variables.product.prodname_code_quality_short %}.](/assets/images/help/code-quality/all-findings-overview-repo.png)
 
@@ -86,4 +86,4 @@ Healthy code is easier to understand, maintain, and extend, and remediating co
 ## Next steps
 
 * Learn how {% data variables.product.prodname_code_quality %} works on pull requests to prevent code quality issues from reaching your default branch. See [AUTOTITLE](/code-security/code-quality/tutorials/fix-findings-in-prs).
-* Provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488?utm_source=docs-discussions-code-quality&utm_medium=docs&utm_campaign=universe25).
+* Provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488).

@@ -1,8 +1,7 @@
 ---
 title: Responsible use of GitHub Code Quality
 shortTitle: Code quality
-intro: 'Learn how to use {% data variables.product.prodname_code_quality %} responsibly by understanding its purposes, capabilities, and limitations.'
-product: '{% data reusables.gated-features.code-quality-availability %}'
+intro: 'Use {% data variables.product.prodname_code_quality %} responsibly by understanding its purposes, capabilities, and limitations.'
 versions:
   feature: code-quality
 topics:
@@ -93,7 +92,7 @@ For more information on the limitations of {% data variables.copilot.copilot_aut
 
 ## Provide feedback
 
-You can provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488?utm_source=docs-discussions-code-quality&utm_medium=docs&utm_campaign=universe25).
+You can provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488).
 
 ## Next steps
 

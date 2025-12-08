@@ -21,8 +21,9 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
   let docsSource = ''
   try {
     docsSource = getCSECopilotSource(version)
-  } catch (error: any) {
-    errors.push({ message: error?.message || 'Invalid version' })
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Invalid version'
+    errors.push({ message })
   }
 
   if (errors.length) {
@@ -132,8 +133,7 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
         res.status(500).json({ errors: [{ message: 'Internal server error' }] })
       } else {
         // Send error message via the stream
-        const errorMessage =
-          JSON.stringify({ errors: [{ message: 'Internal server error' }] }) + '\n'
+        const errorMessage = `${JSON.stringify({ errors: [{ message: 'Internal server error' }] })}\n`
         res.write(errorMessage)
         res.end()
       }

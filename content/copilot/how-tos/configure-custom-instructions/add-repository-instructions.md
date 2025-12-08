@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot
   - /copilot/how-tos/custom-instructions/add-repository-instructions
   - /copilot/how-tos/use-copilot-agents/request-a-code-review/configure-coding-guidelines
+category:
+  - Configure Copilot
 ---
 
 {% webui %}
@@ -37,7 +39,7 @@ This version of this article is for using repository custom instructions and pro
 
 {% visualstudio %}
 
-This version of this article is for using repository custom instructions in {% data variables.product.prodname_vs %}. Click the tabs above for instructions on using custom instructions in other environments.
+This version of this article is for using repository custom instructions and prompt files in {% data variables.product.prodname_vs %}. Click the tabs above for instructions on using custom instructions in other environments.
 
 {% data reusables.copilot.repository-custom-instructions-about %}
 
@@ -99,7 +101,7 @@ This version of this article is for using repository custom instructions in Ecli
 
 {% visualstudio %}
 
-* The **Enable custom instructions...** option must be enabled in your settings. This is enabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions-2) later in this article.
+* The **Enable custom instructions...** option must be enabled in your settings. This is enabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions-1) later in this article.
 
 {% endvisualstudio %}
 
@@ -247,11 +249,11 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 * **Repository-wide custom instructions**, which apply to all requests made in the context of a repository.
 
-  These are specified in a `copilot-instructions.md` file in the `.github` directory of the repository. See [Creating repository-wide custom instructions](#creating-repository-wide-custom-instructions).
+  These are specified in a `copilot-instructions.md` file in the `.github` directory of the repository. See [Creating repository-wide custom instructions](#creating-repository-wide-custom-instructions-1).
 
 * **Path-specific custom instructions**, which apply to requests made in the context of files that match a specified path.
 
-  These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions).
+  These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions-1).
 
   If the path you specify matches a file that {% data variables.product.prodname_copilot_short %} is working on, and a repository-wide custom instructions file also exists, then the instructions from both files are used.
 
@@ -263,9 +265,6 @@ Once saved, these instructions will apply to the current project in Eclipse that
    > Support of `AGENTS.md` files outside of the workspace root is currently turned off by default. For details of how to enable this feature, see [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_use-an-agentsmd-file) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ## Creating repository-wide custom instructions
-
-> [!NOTE]
-> {% data reusables.copilot.custom-instructions-ccr-support %} See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review?tool=vscode).
 
 1. In the root of your repository, create a file named `.github/copilot-instructions.md`.
 
@@ -283,7 +282,19 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 {% visualstudio %}
 
-{% data variables.product.prodname_vs %} supports a single `.github/copilot-instructions.md` custom instructions file stored in the repository.
+{% data variables.product.prodname_vs %} supports two types of custom instructions. For details of which {% data variables.product.prodname_copilot %} features support these types of instructions, see [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=visualstudio#support-for-repository-custom-instructions-2).
+
+* **Repository-wide custom instructions**, which apply to all requests made in the context of a repository.
+
+  These are specified in a `copilot-instructions.md` file in the `.github` directory of the repository. See [Creating repository-wide custom instructions](#creating-repository-wide-custom-instructions-2).
+
+* **Path-specific custom instructions**, which apply to requests made in the context of files that match a specified path.
+
+  These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions-2).
+
+  If the path you specify matches a file that {% data variables.product.prodname_copilot_short %} is working on, and a repository-wide custom instructions file also exists, then the instructions from both files are used.
+
+## Creating repository-wide custom instructions
 
 1. In the root of your repository, create a file named `.github/copilot-instructions.md`.
 
@@ -293,6 +304,10 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
    Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
 
+## Creating path-specific custom instructions
+
+{% data reusables.copilot.custom-instructions-path %}
+
 {% endvisualstudio %}
 
 {% webui %}
@@ -301,11 +316,11 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 * **Repository-wide custom instructions** apply to all requests made in the context of a repository.
 
-  These are specified in a `copilot-instructions.md` file in the `.github` directory of the repository. See [Creating repository-wide custom instructions](#creating-repository-wide-custom-instructions-1).
+  These are specified in a `copilot-instructions.md` file in the `.github` directory of the repository. See [Creating repository-wide custom instructions](#creating-repository-wide-custom-instructions-2).
 
 * **Path-specific custom instructions** apply to requests made in the context of files that match a specified path.
 
-  These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions-1).
+  These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions-2).
 
   If the path you specify matches a file that {% data variables.product.prodname_copilot_short %} is working on, and a repository-wide custom instructions file also exists, then the instructions from both files are used.
 
@@ -444,7 +459,7 @@ The instructions in the file(s) are available for use by {% data variables.produ
 
 {% webui %}
 
-In {% data variables.copilot.copilot_chat_short %}'s immersive view ([github.com/copilot](https://github.com/copilot)), you can start a conversation that uses repository custom instructions by adding, as an attachment, the repository that contains the instructions file.
+In {% data variables.copilot.copilot_chat_short %} ([github.com/copilot](https://github.com/copilot)), you can start a conversation that uses repository custom instructions by adding, as an attachment, the repository that contains the instructions file.
 
 Whenever repository custom instructions are used by {% data variables.copilot.copilot_chat_short %}, the instructions file is added as a reference for the response that's generated. To find out whether repository custom instructions were used, expand the list of references at the top of a chat response in the Chat panel and check whether the `.github/copilot-instructions.md` file is listed.
 
@@ -492,20 +507,14 @@ You can click the reference to open the file.
 
 {% webui %}
 
-{% data reusables.copilot.custom-instructions-enabling %}
+## Enabling or disabling custom instructions for {% data variables.copilot.copilot_code-review_short %}
 
-1. On {% data variables.product.prodname_dotcom_the_website %}, do one of the following:
-   * Go to a repository with a custom instructions file and open the assistive chat panel.
-   * Go to the immersive view of {% data variables.copilot.copilot_chat_short %} ([github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text)) and attach a repository that contains a custom instructions file.
-1. Click the {% octicon "kebab-horizontal" aria-label="Conversation options" %} button at the top of the Chat panel, or the top right of the immersive page.
-1. Click **Disable custom instructions** or **Enable custom instructions**.
+Custom instructions are enabled for {% data variables.copilot.copilot_code-review_short %} by default but you can disable, or re-enable, them in the repository settings on {% data variables.product.prodname_dotcom_the_website %}. This applies to {% data variables.product.prodname_copilot_short %}'s use of custom instructions for all code reviews it performs in this repository.
 
-   > [!NOTE]
-   > You will only see these options in the context of a repository that contains a custom instructions file.
-
-Your choice persists, for all repositories containing a custom instructions file, until you change it.
-
-{% data reusables.copilot.custom-instructions-enabling-for-ccr %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then **Code review**.
+1. Toggle the “Use custom instructions when reviewing pull requests” option on or off.
 
 ## Further reading
 
@@ -540,9 +549,24 @@ Your choice persists, for all repositories containing a custom instructions file
 
 {% data reusables.copilot.custom-instructions-enabling-for-ccr %}
 
+## Using prompt files
+
+{% data reusables.copilot.prompt-files-preview-note %}
+
+Prompt files let you build and share reusable prompt instructions with additional context. A prompt file is a Markdown file, stored in your workspace, that mimics the existing format of writing prompts in {% data variables.copilot.copilot_chat_short %} (for example, `Rewrite #file:x.ts`). You can have multiple prompt files in your workspace, each of which defines a prompt for a different purpose.
+
+### Creating prompt files
+
+1. Add a prompt file, including the `.prompt.md` file name extension inside the `.github/prompts` folder in the root of the repository. The name can contain alphanumeric characters and spaces and should describe the purpose of the prompt information the file will contain.
+1. Write the prompt instructions, using Markdown formatting.
+
+   You can reference other files in the workspace by using Markdown links—for example, `[index](../../web/index.ts)`—or by using the `#file:'../../web/index.ts'` syntax. Paths are relative to the prompt file. Referencing other files allows you to provide additional context, such as API specifications or product documentation.
+
+For more information about prompt files, see [Use prompt files in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/copilot-chat-context?view=vs-2022#use-prompt-files) in the {% data variables.product.prodname_vs %} documentation.
+
 ## Further reading
 
-* [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions)—a curated collection of examples
+* [AUTOTITLE](/copilot/tutorials/customization-library)—a curated collection of examples
 
 {% endvisualstudio %}
 
@@ -582,11 +606,11 @@ To enable prompt files, configure the workspace settings.
 
 1. Submit the chat prompt.
 
-For more information about prompt files, see [Custom instructions for {% data variables.product.prodname_copilot %} in VS Code](https://code.visualstudio.com/docs/copilot/copilot-customization#_reusable-prompt-files-experimental) in the {% data variables.product.prodname_vscode %} documentation.
+For more information about prompt files, see [Use prompt files in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/customization/prompt-files) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/tutorials/customization-library)
+* [AUTOTITLE](/copilot/tutorials/customization-library)—a curated collection of examples
 
 {% endvscode %}
 
@@ -646,6 +670,7 @@ Once prompt files are saved, their instructions will apply to the current worksp
 
 ## Further reading
 
+* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
 * [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions)—a curated collection of examples
 
 {% endcopilotcli %}

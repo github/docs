@@ -4,7 +4,11 @@ import express from 'express'
 import { defaultCacheControl } from '@/frame/middleware/cache-control'
 import catchMiddlewareError from '@/observability/middleware/catch-middleware-error'
 import { ExtendedRequestWithPageInfo } from '../types'
-import { pageValidationMiddleware, pathValidationMiddleware } from './validation'
+import {
+  pageValidationMiddleware,
+  pathValidationMiddleware,
+  apiVersionValidationMiddleware,
+} from './validation'
 import { getArticleBody } from './article-body'
 import { getMetadata } from './article-pageinfo'
 import {
@@ -24,9 +28,10 @@ const router = express.Router()
  * Get article metadata and content in a single object. Equivalent to calling `/article/meta` concatenated with `/article/body`.
  * @route GET /api/article
  * @param {string} pathname - Article path (e.g. '/en/get-started/article-name')
+ * @param {string} [apiVersion] - API version for REST pages (optional, defaults to latest)
  * @returns {object} JSON object with article metadata and content (`meta` and `body` keys)
  * @throws {Error} 403 - If the article body cannot be retrieved. Reason is given in the error message.
- * @throws {Error} 400 - If pathname parameter is invalid.
+ * @throws {Error} 400 - If pathname or apiVersion parameters are invalid.
  * @throws {Error} 404 - If the path is valid, but the page couldn't be resolved.
  * @example
  * ❯ curl -s "https://docs.github.com/api/article?pathname=/en/get-started/start-your-journey/about-github-and-git"
@@ -43,6 +48,7 @@ router.get(
   '/',
   pathValidationMiddleware as RequestHandler,
   pageValidationMiddleware as RequestHandler,
+  apiVersionValidationMiddleware as RequestHandler,
   catchMiddlewareError(async function (req: ExtendedRequestWithPageInfo, res: Response) {
     const { meta, cacheInfo } = await getMetadata(req)
     let bodyContent
@@ -66,9 +72,10 @@ router.get(
  * Get the contents of an article's body.
  * @route GET /api/article/body
  * @param {string} pathname - Article path (e.g. '/en/get-started/article-name')
+ * @param {string} [apiVersion] - API version (optional, defaults to latest)
  * @returns {string} Article body content in markdown format.
  * @throws {Error} 403 - If the article body cannot be retrieved. Reason is given in the error message.
- * @throws {Error} 400 - If pathname parameter is invalid.
+ * @throws {Error} 400 - If pathname or apiVersion parameters are invalid.
  * @throws {Error} 404 - If the path is valid, but the page couldn't be resolved.
  * @example
  * ❯ curl -s https://docs.github.com/api/article/body\?pathname=/en/get-started/start-your-journey/about-github-and-git
@@ -83,6 +90,7 @@ router.get(
   '/body',
   pathValidationMiddleware as RequestHandler,
   pageValidationMiddleware as RequestHandler,
+  apiVersionValidationMiddleware as RequestHandler,
   catchMiddlewareError(async function (req: ExtendedRequestWithPageInfo, res: Response) {
     let bodyContent
     try {
@@ -167,7 +175,7 @@ function incrementArticleLookup(
   const source =
     req.get('X-Request-Source') ||
     (req.get('Referer')
-      ? 'external-' + (new URL(req.get('Referer') || '').hostname || 'unknown')
+      ? `external-${new URL(req.get('Referer') || '').hostname || 'unknown'}`
       : 'external')
 
   const tags = [

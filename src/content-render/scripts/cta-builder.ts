@@ -1,3 +1,7 @@
+/**
+ * @purpose Writer tool
+ * @description Create a properly formatted Call-to-Action URL with tracking parameters
+ */
 import { Command } from 'commander'
 import readline from 'readline'
 import chalk from 'chalk'
@@ -95,10 +99,11 @@ async function selectFromOptions(
   promptFn: (question: string) => Promise<string>,
 ): Promise<string> {
   console.log(chalk.yellow(`\n${message} (${paramName}):`))
-  options.forEach((option, index) => {
+  for (let index = 0; index < options.length; index++) {
+    const option = options[index]
     const letter = String.fromCharCode(97 + index) // 97 is 'a' in ASCII
     console.log(chalk.white(`  ${letter}. ${option}`))
-  })
+  }
 
   let attempts = 0
   while (true) {
@@ -197,11 +202,11 @@ function validateCTAParams(params: CTAParams): { isValid: boolean; errors: strin
 function buildCTAUrl(baseUrl: string, params: CTAParams): string {
   const url = new URL(baseUrl)
 
-  Object.entries(params).forEach(([key, value]) => {
+  for (const [key, value] of Object.entries(params)) {
     if (value) {
       url.searchParams.set(key, value)
     }
-  })
+  }
 
   return url.toString()
 }
@@ -273,11 +278,11 @@ export function convertOldCTAUrl(oldUrl: string): { newUrl: string; notes: strin
     newUrl.searchParams.delete('ref_page')
 
     // Add new CTA parameters
-    Object.entries(newParams).forEach(([key, value]) => {
+    for (const [key, value] of Object.entries(newParams)) {
       if (value) {
         newUrl.searchParams.set(key, value)
       }
-    })
+    }
 
     // The URL constructor may add a slash before the question mark in
     // "github.com?foo", but we don't want that. First, check if original
@@ -413,7 +418,9 @@ async function interactiveBuilder(): Promise<void> {
 
     if (!validation.isValid) {
       console.log(chalk.red('\n❌ Validation Errors:'))
-      validation.errors.forEach((error) => console.log(chalk.red(`  • ${error}`)))
+      for (const error of validation.errors) {
+        console.log(chalk.red(`  • ${error}`))
+      }
       rl.close()
       return
     }
@@ -424,11 +431,11 @@ async function interactiveBuilder(): Promise<void> {
     console.log(chalk.green('\n✅ CTA URL generated successfully!'))
 
     console.log(chalk.white.bold('\nParameters summary:'))
-    Object.entries(params).forEach(([key, value]) => {
+    for (const [key, value] of Object.entries(params)) {
       if (value) {
         console.log(chalk.white(`  ${key}: ${value}`))
       }
-    })
+    }
 
     console.log(chalk.white.bold('\nYour CTA URL:'))
     console.log(chalk.cyan(ctaUrl))
@@ -470,7 +477,9 @@ async function convertUrls(options: { url?: string; quiet?: boolean }): Promise<
 
         if (!validation.isValid) {
           console.log(chalk.red('\n❌ Validation errors in converted URL:'))
-          validation.errors.forEach((message) => console.log(chalk.red(`  • ${message}`)))
+          for (const message of validation.errors) {
+            console.log(chalk.red(`  • ${message}`))
+          }
         }
       } catch (validationError) {
         console.log(chalk.red(`\n❌ Failed to validate new URL: ${validationError}`))
@@ -478,7 +487,9 @@ async function convertUrls(options: { url?: string; quiet?: boolean }): Promise<
 
       if (result.notes.length) {
         console.log(chalk.white('\n👉 Notes:'))
-        result.notes.forEach((note) => console.log(`  ${note}`))
+        for (const note of result.notes) {
+          console.log(`  ${note}`)
+        }
       }
     } else {
       if (!options.quiet) {
@@ -530,12 +541,14 @@ async function validateUrl(options: { url?: string }): Promise<void> {
       if (validation.isValid) {
         console.log(chalk.green('\n✅ URL is valid'))
         console.log(chalk.white('\nCTA parameters found:'))
-        Object.entries(ctaParams).forEach(([key, value]) => {
+        for (const [key, value] of Object.entries(ctaParams)) {
           console.log(chalk.white(`  ${key}: ${value}`))
-        })
+        }
       } else {
         console.log(chalk.red('\n❌ Validation errors:'))
-        validation.errors.forEach((message) => console.log(chalk.red(`  • ${message}`)))
+        for (const message of validation.errors) {
+          console.log(chalk.red(`  • ${message}`))
+        }
         console.log(
           chalk.yellow(
             '\n💡 Try: npm run cta-builder -- convert --url "your-url" to auto-fix old format URLs',
@@ -592,9 +605,9 @@ async function buildProgrammaticCTA(options: {
     const validation = validateCTAParams(params)
     if (!validation.isValid) {
       // Output validation errors to stderr and exit with error code
-      validation.errors.forEach((error) => {
+      for (const error of validation.errors) {
         console.error(`Validation error: ${error}`)
-      })
+      }
       process.exit(1)
     }
 

@@ -19,11 +19,17 @@ versions:
   feature: copilot
 shortTitle: Chat in IDE
 contentType: how-tos
+category:
+  - Author and optimize with Copilot
 ---
 
 ## Introduction
 
 This guide describes how to use {% data variables.copilot.copilot_chat_short %} to ask questions about software development in your IDE. You can ask general questions about software development, or specific questions about the code in your project. For more information, see [AUTOTITLE](/copilot/concepts/about-github-copilot-chat).
+
+<!-- --------------------- -->
+<!-- VS Code -->
+<!-- --------------------- -->
 
 {% vscode %}
 
@@ -66,10 +72,6 @@ Alternatively, you can manually specify a chat participant to scope your prompt 
 
 For a list of available chat participants, type `@` in the chat prompt box. See also [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet?tool=vscode#chat-participants) or [Chat participants](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-participants) in the {% data variables.product.prodname_vscode %} documentation.
 
-### {% data variables.copilot.copilot_extensions_short %} chat participants
-
-You can also install {% data variables.copilot.copilot_extensions_short %} that provide chat participants. You can install these extensions from [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=apps&copilot_app=true) and from [{% data variables.product.prodname_vscode_marketplace %}](https://marketplace.visualstudio.com/search?target=VSCode&category=Chat&sortBy=Installs). For information about extensions from {% data variables.product.prodname_marketplace %} that provide chat participants, see [AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/about-github-copilot-extensions).
-
 ### Slash commands
 
 Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by a command.
@@ -86,22 +88,9 @@ To see all available chat variables, type `#` in the chat prompt box. See also [
 
 {% data reusables.copilot.using-skills %}
 
-{% ifversion ghec %}
+## Using Model Context Protocol (MCP) servers
 
-## Asking a question about a knowledge base
-
-> [!NOTE] This feature is only available if you have a {% data variables.copilot.copilot_enterprise_short %} subscription.
-
-Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases).
-
-You can tell {% data variables.product.prodname_copilot_short %} to answer a question within the context of a knowledge base.
-
-1. At the bottom of the {% data variables.copilot.copilot_chat_short %} window, in the **Ask {% data variables.product.prodname_copilot_short %} or type / for commands** text box, type `@github #kb`, then press **Enter** to open the knowledge base selector.
-1. Pick one of your available knowledge bases using the arrow keys, then press **Enter**.
-1. In the **Ask {% data variables.product.prodname_copilot_short %} or type / for commands** text box, continue your message with your question, and then press **Enter**.
-1. {% data variables.copilot.copilot_chat_short %} will process your question and provide an answer, with citations from your knowledge base, in the chat window.
-
-{% endif %}
+{% data reusables.copilot.mcp.mcp-chat-in-ide %}
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
@@ -117,12 +106,26 @@ In addition to submitting prompts through the chat view, you can submit prompts 
 
 See [inline chat](https://code.visualstudio.com/docs/copilot/copilot-chat#_inline-chat), [quick chat](https://code.visualstudio.com/docs/copilot/copilot-chat#_quick-chat), and [chat smart actions](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-smart-actions) in the {% data variables.product.prodname_vscode %} documentation for more details.
 
-## {% data variables.copilot.copilot_edits_short %}
+## {% data variables.copilot.copilot_chat_short %} chat modes
 
-Use {% data variables.copilot.copilot_edits_short %} to make changes across multiple files directly from a single {% data variables.copilot.copilot_chat_short %} prompt. {% data variables.copilot.copilot_edits_short %} has the following modes:
+You can use {% data variables.copilot.copilot_chat_short %} in the following modes:
 
-* [Edit mode](#edit-mode) lets {% data variables.product.prodname_copilot_short %} make controlled edits to multiple files.
-* [Agent mode](#agent-mode) lets {% data variables.product.prodname_copilot_short %} autonomously accomplish a set task.
+* [Ask mode](#ask-mode): to get answers to coding questions and get {% data variables.product.prodname_copilot_short %} to provide code suggestions.
+* [Edit mode](#edit-mode): to get {% data variables.product.prodname_copilot_short %} to make controlled edits to multiple files.
+* [Agent mode](#agent-mode): to get {% data variables.product.prodname_copilot_short %} to autonomously accomplish a set task.
+* [Plan mode](#plan-mode): to get {% data variables.product.prodname_copilot_short %} to create detailed implementation plans to ensure all requirements are met.
+
+To switch between modes, use the agents dropdown at the bottom of the chat view.
+
+### Ask mode
+
+Ask mode is optimized for answering questions about your codebase, coding, and general technology concepts. Use ask mode when you want to understand how something works, explore ideas, or get help with coding tasks. For larger changes across multiple files or more complex coding tasks, consider using edit mode or agent mode.
+
+#### Using ask mode
+
+1. If the chat view is not already displayed, select **Open Chat** from the {% data variables.copilot.copilot_chat_short %} menu.
+1. At the bottom of the chat view, select **Ask** from the agents dropdown.
+1. Type a prompt in the prompt box and press <kbd>Enter</kbd>.
 
 ### Edit mode
 
@@ -130,10 +133,10 @@ Use {% data variables.copilot.copilot_edits_short %} to make changes across mult
 
 #### Using edit mode
 
-1. To start an edit session, select **Open Chat** from the {% data variables.copilot.copilot_chat_short %} menu.
-1. At the bottom of the chat panel, select **Edit** from the mode dropdown.
+1. If the chat view is not already displayed, select **Open Chat** from the {% data variables.copilot.copilot_chat_short %} menu.
+1. At the bottom of the chat view, select **Edit** from the agents dropdown.
 
-   ![Screenshot of the {% data variables.copilot.copilot_chat_short %} mode dropdown. The "Edit" option is outlined in dark orange.](/assets/images/help/copilot/chat-mode-vscode.png)
+   ![Screenshot of the {% data variables.copilot.copilot_chat_short %} agents dropdown. The "Edit" option is outlined in dark orange.](/assets/images/help/copilot/chat-mode-vscode.png)
 
 1. Optionally, add relevant files to the _working set_ to indicate to {% data variables.product.prodname_copilot %} which files you want to work on.
 1. Submit a prompt. In response to your prompt, {% data variables.copilot.copilot_edits_short %} determines which files in your _working set_ to change and adds a short description of the change.
@@ -147,8 +150,8 @@ For more detailed instructions, see [{% data variables.copilot.copilot_edits_sho
 
 #### Using agent mode
 
-1. To start an edit session, select **Open Chat** from the {% data variables.copilot.copilot_chat_short %} menu.
-1. At the bottom of the chat panel, select **Agent** from the mode dropdown.
+1. If the chat view is not already displayed, select **Open Chat** from the {% data variables.copilot.copilot_chat_short %} menu.
+1. At the bottom of the chat view, select **Agent** from the agents dropdown.
 1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_short %} streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
 1. Review the changes. If {% data variables.product.prodname_copilot_short %} suggested terminal commands, confirm whether or not {% data variables.product.prodname_copilot_short %} can run them. In response, {% data variables.product.prodname_copilot_short %} iterates and performs additional actions to complete the task in your original prompt.
 
@@ -157,6 +160,46 @@ You can also directly [open agent mode in {% data variables.product.prodname_vsc
 For more information, see [{% data variables.copilot.copilot_edits_short %}](https://aka.ms/vscode-copilot-agent) in the {% data variables.product.prodname_vscode %} documentation.
 
 {% data reusables.copilot.copilot-edits.agent-mode-requests %}
+
+### Using {% data variables.copilot.subagents_short %}
+
+{% data reusables.copilot.subagent-intro %}
+
+#### Enabling {% data variables.copilot.subagents_short %}
+
+1. In the {% data variables.copilot.copilot_chat_short %} window, click the tools icon.
+1. Enable the `runSubagent` tool.
+
+If you use custom prompt files or {% data variables.copilot.custom_agents_short %}, ensure you specify the `runSubagent` tool in the `tools` frontmatter property.
+
+#### Invoking {% data variables.copilot.subagents_short %}
+
+{% data reusables.copilot.using-subagents %}
+* **Calling the #runSubagent tool.**.
+
+   ```text
+   Evaluate the #file:databaseSchema using #runSubagent and generate an optimized data-migration plan.
+   ```
+
+When the {% data variables.copilot.subagent_short %} completes its task, its results appear back in the main chat session, ready for follow-up questions or next steps.
+
+### Plan mode
+
+{% data reusables.copilot.plan-agent-intro %}
+
+#### Using plan mode
+
+1. If the chat view is not already displayed, select **Open Chat** from the {% data variables.copilot.copilot_chat_short %} menu.
+1. At the bottom of the chat view, select **Plan** from the agents dropdown.
+1. Type a prompt that describes a task, such as adding a feature to an existing application, refactoring code, fixing a bug, or creating an initial version of a new application.
+
+   For example: `Create a simple to-do web app with HTML, CSS, and JS files.`
+
+   After a few moments, the plan agent outputs a plan in the chat view. The plan provides a high-level summary and a breakdown of steps, including any open questions for clarification.
+
+{% data reusables.copilot.plan-agent-steps %}
+
+For more information, see [Planning in VS Code chat](https://code.visualstudio.com/docs/copilot/chat/chat-planning) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Using images in {% data variables.copilot.copilot_chat_short %}
 
@@ -194,6 +237,10 @@ To leave feedback about the {% data variables.copilot.copilot_chat %} extension,
 
 {% endvscode %}
 
+<!-- --------------------- -->
+<!-- Visual Studio -->
+<!-- --------------------- -->
+
 {% visualstudio %}
 
 ## Prerequisites
@@ -225,10 +272,6 @@ You can ask {% data variables.copilot.copilot_chat_short %} to give you code sug
 
 You can use special keywords to help {% data variables.product.prodname_copilot_short %} understand your prompt.
 
-### Extending {% data variables.copilot.copilot_chat_short %}
-
-{% data reusables.copilot.copilot-extensions.extending-copilot-chat %}
-
 ### Slash commands
 
 Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by a command.
@@ -252,23 +295,9 @@ When you add `@github` to a question, {% data variables.product.prodname_copilot
 
 You can generate a list of currently available skills by asking {% data variables.product.prodname_copilot_short %}: `@github What skills are available?`
 
-{% ifversion ghec %}
+## Using Model Context Protocol (MCP) servers
 
-## Asking a question about a knowledge base (preview)
-
-> [!NOTE]
-> * This feature is only available if you have a {% data variables.copilot.copilot_enterprise_short %} subscription.
-> * Support for knowledge bases is currently in preview, and only available in [{% data variables.product.prodname_vs %} 2022 Preview 3](https://visualstudio.microsoft.com/vs/preview/) onwards.
-
-Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. For more information, see [AUTOTITLE](/copilot/github-copilot-enterprise/managing-copilot-knowledge-bases).
-
-You can tell {% data variables.product.prodname_copilot_short %} to answer a question within the context of a knowledge base.
-
-1. At the bottom of the {% data variables.copilot.copilot_chat_short %} window, in the **Ask {% data variables.product.prodname_copilot_short %}: Type / for commands and # to reference** text box, type `@github`, press <kbd>#</kbd>, then select a knowledge base from the list.
-1. In the **Type / for commands and # to reference** text box, continue your message with your question, and then press **Enter**.
-1. {% data variables.copilot.copilot_chat_short %} will process your question and provide an answer, with citations from your knowledge base, in the chat window.
-
-{% endif %}
+{% data reusables.copilot.mcp.mcp-chat-in-ide %}
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
@@ -293,7 +322,7 @@ Use agent mode when you have a specific task in mind and want to enable {% data 
 ### Using agent mode
 
 1. In the {% data variables.product.prodname_vs %} menu bar, click **View**, then click **{% data variables.copilot.copilot_chat %}**.
-1. At the bottom of the chat panel, select **Agent** from the mode dropdown.
+1. At the bottom of the chat panel, select **Agent** from the agents dropdown.
 1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_short %} streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
 1. Review the changes. If {% data variables.product.prodname_copilot_short %} suggested terminal commands, confirm whether or not {% data variables.product.prodname_copilot_short %} can run them. In response, {% data variables.product.prodname_copilot_short %} iterates and performs additional actions to complete the task in your original prompt.
 
@@ -341,6 +370,10 @@ To share feedback about {% data variables.copilot.copilot_chat_short %}, you can
 
 {% endvisualstudio %}
 
+<!-- --------------------- -->
+<!-- JetBrains -->
+<!-- --------------------- -->
+
 {% jetbrains %}
 
 ## Prerequisites
@@ -369,19 +402,9 @@ You can ask {% data variables.copilot.copilot_chat_short %} to give you code sug
 
    To see the files that {% data variables.copilot.copilot_chat_short %} used to generate the response, click the **References** link below the response. The references may include a link to a custom instructions file for your repository. This file contains additional information that is automatically added to all of your chat questions to improve the quality of the responses. For more information, see [AUTOTITLE](/copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot).
 
-## Using keywords in your prompt
+## Supplementing your prompt
 
-You can use special keywords to help {% data variables.product.prodname_copilot_short %} understand your prompt.
-
-### Chat participants
-
-Chat participants are like domain experts who have a specialty that they can help you with. You can use a chat participant to scope your prompt to a specific domain. To do this, type `@` in the chat prompt box, followed by a chat participant name.
-
-For a list of available chat participants, type `@` in the chat prompt box. See also [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet?tool=jetbrains#chat-participants-1).
-
-### Extending {% data variables.copilot.copilot_chat_short %}
-
-{% data reusables.copilot.copilot-extensions.extending-copilot-chat %}
+You can use slash commands and file references to help {% data variables.product.prodname_copilot_short %} understand your what you are asking it to do.
 
 ### Slash commands
 
@@ -396,6 +419,10 @@ By default, {% data variables.copilot.copilot_chat_short %} will reference the f
 ## Using {% data variables.product.prodname_dotcom %} skills for {% data variables.product.prodname_copilot_short %}
 
 {% data reusables.copilot.using-skills %}
+
+## Using Model Context Protocol (MCP) servers
+
+{% data reusables.copilot.mcp.mcp-chat-in-ide %}
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
@@ -439,6 +466,43 @@ Use {% data variables.copilot.copilot_edits_short %} to make changes across mult
 
 {% data reusables.copilot.copilot-edits.agent-mode-requests %}
 
+### Using {% data variables.copilot.subagents_short %}
+
+{% data reusables.copilot.subagent-intro %}
+
+To use {% data variables.copilot.subagents_short %}, you **must have {% data variables.copilot.custom_agents_short %} configured in your environment**. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents).
+
+#### Enabling {% data variables.copilot.subagents_short %}
+
+To enable {% data variables.copilot.subagents_short %}:
+
+1. Click **Tools** in the menu bar, then click **{% data variables.product.prodname_copilot %}**, then **Edit Settings**.
+1. In the popup menu, click **Chat**, then click the **Enable {% data variables.copilot.subagent_caps_short %}** checkbox.
+
+#### Invoking {% data variables.copilot.subagents_short %}
+
+{% data reusables.copilot.using-subagents %}
+
+When the {% data variables.copilot.subagent_short %} completes its task, its results appear back in the main chat session, ready for follow-up questions or next steps.
+
+## Using plan mode
+
+{% data reusables.copilot.plan-agent-intro %}
+
+To use plan mode:
+
+1. If it is not already displayed, open the {% data variables.copilot.copilot_chat_short %} panel by clicking the **{% data variables.copilot.copilot_chat %}** icon at the right side of the JetBrains IDE window.
+1. At the bottom of the {% data variables.copilot.copilot_chat_short %} panel, select **Plan** from the agents dropdown.
+1. Type a prompt that describes a task, such as adding a feature to an existing application, refactoring code, fixing a bug, or creating an initial version of a new application.
+
+   For example: `Create a simple to-do web app with HTML, CSS, and JS files.`
+
+1. Submit the prompt.
+
+   After a few moments, the plan agent outputs a plan in the chat panel. The plan provides a high-level summary and a breakdown of steps, including any open questions for clarification.
+
+{% data reusables.copilot.plan-agent-steps %}
+
 ## Sharing feedback
 
 To share feedback about {% data variables.copilot.copilot_chat_short %}, you can use the **share feedback** link in JetBrains.
@@ -463,6 +527,10 @@ To share feedback about {% data variables.copilot.copilot_chat_short %}, you can
 
 {% endjetbrains %}
 
+<!-- --------------------- -->
+<!-- XCode -->
+<!-- --------------------- -->
+
 {% xcode %}
 
 ## Prerequisites
@@ -477,7 +545,7 @@ To share feedback about {% data variables.copilot.copilot_chat_short %}, you can
 
 You can ask {% data variables.copilot.copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.
 
-1. To open the chat view, click **Editor** in the menu bar, then click **{% data variables.product.prodname_copilot %}** then **Open Chat**. {% data variables.copilot.copilot_chat_short %} opens in a new window.
+1. To open the chat window, click **Editor** in the menu bar, then click **{% data variables.product.prodname_copilot %}** then **Open Chat**. {% data variables.copilot.copilot_chat_short %} opens in a new window.
 
 1. Enter a prompt in the prompt box. For example prompts, see [AUTOTITLE](/copilot/get-started/getting-started-with-prompts-for-copilot-chat).
 
@@ -486,6 +554,10 @@ You can ask {% data variables.copilot.copilot_chat_short %} to give you code sug
    The response often includes interactive elements. For example, the response may include buttons to copy or insert a code block.
 
    To see the files that {% data variables.copilot.copilot_chat_short %} used to generate the response, click the **References** link below the response. The references may include a link to a custom instructions file for your repository. This file contains additional information that is automatically added to all of your chat questions to improve the quality of the responses. For more information, see [AUTOTITLE](/copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot).
+
+## Using Model Context Protocol (MCP) servers
+
+{% data reusables.copilot.mcp.mcp-chat-in-ide %}
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
@@ -501,19 +573,54 @@ Use slash commands to avoid writing complex prompts for common scenarios. To use
 
 To see all available slash commands, type `/` in the chat prompt box. For more information, see [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet?tool=xcode#slash-commands).
 
-## {% data variables.product.prodname_copilot_short %} agent mode
+## Using plan mode
+
+{% data reusables.copilot.plan-agent-intro %}
+
+To use plan mode:
+
+1. If it is not already displayed, open the {% data variables.copilot.copilot_chat_short %} window by clicking **Editor** in the menu bar, then clicking **{% data variables.product.prodname_copilot %}** then **Open Chat**.
+1. At the bottom of the {% data variables.copilot.copilot_chat_short %} window, select **Plan** from the agents dropdown.
+1. Type a prompt that describes a task, such as adding a feature to an existing application, refactoring code, fixing a bug, or creating an initial version of a new application.
+
+   For example: `Create a simple to-do app with Swift files.`
+
+1. Submit the prompt.
+
+   After a few moments, the plan agent outputs a plan in the chat panel. The plan provides a high-level summary and a breakdown of steps, including any open questions for clarification.
+
+{% data reusables.copilot.plan-agent-steps %}
+
+## Using {% data variables.product.prodname_copilot_short %} agent mode
 
 {% data reusables.copilot.copilot-edits.agent-mode-description %}
 
 ### Using agent mode
 
-1. To open the chat view, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** in the menu bar, then click **Open Chat**.
-1. At the bottom of the chat panel, select **Agent** from the mode dropdown.
+1. If it is not already displayed, open the {% data variables.copilot.copilot_chat_short %} window by clicking **Editor** in the menu bar, then clicking **{% data variables.product.prodname_copilot %}** then **Open Chat**.
+1. At the bottom of the chat panel, select **Agent** from the agents dropdown.
 1. Optionally, add relevant files to the _working set_ view to indicate to {% data variables.product.prodname_copilot_short %} which files you want to work on.
 1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_short %} streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
 1. Review the changes. If {% data variables.product.prodname_copilot_short %} suggested terminal commands, confirm whether or not {% data variables.product.prodname_copilot_short %} can run them. In response, {% data variables.product.prodname_copilot_short %} iterates and performs additional actions to complete the task in your original prompt.
 
 {% data reusables.copilot.copilot-edits.agent-mode-requests %}
+
+### Using {% data variables.copilot.subagents_short %}
+
+{% data reusables.copilot.subagent-intro %}
+
+To use {% data variables.copilot.subagents_short %}, you **must have {% data variables.copilot.custom_agents_short %} configured in your environment**. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents).
+
+#### Enabling {% data variables.copilot.subagents_short %}
+
+1. Click **Editor** in the menu bar, then click **{% data variables.product.prodname_copilot %}** then **Open GitHub Copilot for Xcode Settings**.
+1. Click **Advanced** in the chat panel, then under **Chat Settings** click the **Enable {% data variables.copilot.subagents_caps_short %}** toggle.
+
+#### Invoking {% data variables.copilot.subagents_short %}
+
+{% data reusables.copilot.using-subagents %}
+
+When the {% data variables.copilot.subagent_short %} completes its task, its results appear back in the main chat session, ready for follow-up questions or next steps.
 
 ## File references
 
@@ -538,6 +645,10 @@ To indicate whether a response was helpful, use {% octicon "thumbsup" aria-label
 * [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
 {% endxcode %}
+
+<!-- --------------------- -->
+<!-- Eclipse -->
+<!-- --------------------- -->
 
 {% eclipse %}
 
@@ -571,22 +682,62 @@ Use slash commands to avoid writing complex prompts for common scenarios. To use
 
 To see all available slash commands, type `/` in the chat prompt box.
 
+## Using Model Context Protocol (MCP) servers
+
+{% data reusables.copilot.mcp.mcp-chat-in-ide %}
+
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
 {% data reusables.copilot.change-the-ai-model %}
 
-## {% data variables.product.prodname_copilot_short %} agent mode
+## Using plan mode
+
+{% data reusables.copilot.plan-agent-intro %}
+
+To use plan mode:
+
+1. If it is not already displayed, open the {% data variables.copilot.copilot_chat_short %} panel by clicking the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse, then clicking **Open Chat**.
+1. At the bottom of the chat panel, select **Plan** from the agents dropdown.
+1. Type a prompt that describes a task, such as adding a feature to an existing application, refactoring code, fixing a bug, or creating an initial version of a new application.
+
+   For example: `Create a simple to-do app using JavaFX.`
+
+1. Submit the prompt.
+
+   After a few moments, the plan agent outputs a plan in the chat panel. The plan provides a high-level summary and a breakdown of steps, including any open questions for clarification.
+
+{% data reusables.copilot.plan-agent-steps %}
+
+## Using {% data variables.product.prodname_copilot_short %} agent mode
 
 {% data reusables.copilot.copilot-edits.agent-mode-description %}
 
-### Using agent mode
+To use agent mode:
 
-1. To open the {% data variables.copilot.copilot_chat_short %} panel, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse, then click **Open Chat**.
-1. At the bottom of the chat panel, select **Agent** from the mode dropdown.
+1. Open the {% data variables.copilot.copilot_chat_short %} panel by clicking the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse, then clicking **Open Chat**.
+1. At the bottom of the chat panel, select **Agent** from the agents dropdown.
 1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_short %} streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
 1. Review the changes. If {% data variables.product.prodname_copilot_short %} suggested terminal commands, confirm whether or not {% data variables.product.prodname_copilot_short %} can run them. In response, {% data variables.product.prodname_copilot_short %} iterates and performs additional actions to complete the task in your original prompt.
 
 {% data reusables.copilot.copilot-edits.agent-mode-requests %}
+
+### Using {% data variables.copilot.subagents_short %}
+
+{% data reusables.copilot.subagent-intro %}
+
+To use {% data variables.copilot.subagents_short %}, you **must have {% data variables.copilot.custom_agents_short %} configured in your environment**. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents).
+
+#### Enabling {% data variables.copilot.subagents_short %}
+
+1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the status bar.
+1. In the popup menu, click **Edit Preferences**.
+1. Under **Chat**, click the **Enable sub-agent** check box
+
+#### Invoking {% data variables.copilot.subagents_short %}
+
+{% data reusables.copilot.using-subagents %}
+
+When the {% data variables.copilot.subagent_short %} completes its task, its results appear back in the main chat session, ready for follow-up questions or next steps.
 
 ## Further reading
 

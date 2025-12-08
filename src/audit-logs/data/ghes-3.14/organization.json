@@ -987,7 +987,7 @@
       "actor_is_bot",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Creating and managing GitHub Copilot knowledge bases"
+    "docs_reference_titles": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
   },
   {
     "action": "copilot.knowledge_base_deleted",
@@ -1011,7 +1011,7 @@
       "actor_is_bot",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Creating and managing GitHub Copilot knowledge bases"
+    "docs_reference_titles": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
   },
   {
     "action": "copilot.knowledge_base_updated",
@@ -1035,7 +1035,7 @@
       "actor_is_bot",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Creating and managing GitHub Copilot knowledge bases"
+    "docs_reference_titles": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
   },
   {
     "action": "copilot.plan_changed",
@@ -11046,8 +11046,8 @@
   },
   {
     "action": "repo.rename_branch",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A branch was renamed.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch",
     "fields": [
       "user_agent",
       "request_id",
@@ -11069,7 +11069,8 @@
       "token_scopes",
       "programmatic_access_type",
       "actor_is_bot"
-    ]
+    ],
+    "docs_reference_titles": "/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch"
   },
   {
     "action": "repo.restore",

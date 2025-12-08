@@ -106,8 +106,8 @@ function FineGrainedAccess({ progAccess }: FineGrainedProps) {
     numPermissionSets === 0
       ? t('no_permission_sets')
       : numPermissionSets > 1
-        ? t('permission_sets') + ':'
-        : t('permission_set') + ':'
+        ? `${t('permission_sets')}:`
+        : `${t('permission_set')}:`
   const publicAccessMsg =
     numPermissionSets === 0
       ? t('allows_public_read_access_no_permissions')

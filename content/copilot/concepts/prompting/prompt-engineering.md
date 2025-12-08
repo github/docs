@@ -12,6 +12,8 @@ redirect_from:
   - /copilot/concepts/prompt-engineering-for-copilot-chat
   - /copilot/concepts/prompt-engineering
 contentType: concepts
+category:
+  - Configure Copilot
 ---
 
 A prompt is a request that you make to {% data variables.product.prodname_copilot %}. For example, a question that you ask {% data variables.copilot.copilot_chat_short %}, or a code snippet that you ask {% data variables.product.prodname_copilot_short %} to complete. In addition to your prompt, {% data variables.product.prodname_copilot_short %} uses additional context, like the code in your current file and the chat history, to generate a response.
@@ -115,17 +117,6 @@ If you aren't getting the responses you want when you ask {% data variables.prod
 
 >[!Tip]
 > Use {% data variables.product.prodname_copilot_short %} to help your code follow best practices. For example, ask {% data variables.product.prodname_copilot_short %} to add comments or to break a large function into smaller functions.
-
-{% ifversion ghec %}
-
-Similarly, if you aren't getting the responses you want when you use {% data variables.product.prodname_copilot_short %} with knowledge bases, apply these best practices to your knowledge base files:
-
-* Organize the files into a logical hierarchy
-* Use clear and concise language
-* Include examples and use cases, if relevant
-* Cross reference between related files
-
-{% endif %}
 
 ## Further reading
 

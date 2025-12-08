@@ -10,6 +10,8 @@ topics:
 contentType: concepts
 redirect_from:
   - /copilot/concepts/coding-agent/mcp-and-coding-agent
+category: 
+  - Integrate Copilot with your tools
 ---
 
 ## Overview

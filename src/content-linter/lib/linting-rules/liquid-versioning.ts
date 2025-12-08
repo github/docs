@@ -1,6 +1,6 @@
 import semver from 'semver'
 import { TokenKind } from 'liquidjs'
-// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
+import type { TagToken } from 'liquidjs'
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getRange, addFixErrorDetail } from '../helpers/utils'
@@ -14,7 +14,7 @@ import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
 interface Feature {
   versions: Record<string, string>
-  [key: string]: any
+  [key: string]: unknown
 }
 
 type AllFeatures = Record<string, Feature>
@@ -61,12 +61,13 @@ export const liquidIfTags = {
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     const content = params.lines.join('\n')
 
-    const tokens = getLiquidTokens(content).filter(
-      (token) =>
-        token.kind === TokenKind.Tag &&
-        token.name === 'if' &&
-        token.args.split(/\s+/).some((arg: string) => getAllPossibleVersionNames().has(arg)),
-    )
+    const tokens = getLiquidTokens(content)
+      .filter((token): token is TagToken => token.kind === TokenKind.Tag)
+      .filter(
+        (token) =>
+          token.name === 'if' &&
+          token.args.split(/\s+/).some((arg: string) => getAllPossibleVersionNames().has(arg)),
+      )
 
     for (const token of tokens) {
       const args = token.args
@@ -91,7 +92,7 @@ export const liquidIfVersionTags = {
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     const content = params.lines.join('\n')
     const tokens = getLiquidTokens(content)
-      .filter((token) => token.kind === TokenKind.Tag)
+      .filter((token): token is TagToken => token.kind === TokenKind.Tag)
       .filter((token) => token.name === 'ifversion' || token.name === 'elsif')
 
     for (const token of tokens) {
@@ -129,7 +130,7 @@ function validateIfversionConditionals(cond: string, possibleVersionNames: Set<s
   // Note that Lengths 1 and 2 may be used with feature-based versioning, but NOT Length 3.
   const condParts = cond.split(/ (or|and) /).filter((part) => !(part === 'or' || part === 'and'))
 
-  condParts.forEach((str) => {
+  for (const str of condParts) {
     const strParts = str.split(' ')
     // if length = 1, this should be a valid short version or feature version name.
     if (strParts.length === 1) {
@@ -193,7 +194,7 @@ function validateIfversionConditionals(cond: string, possibleVersionNames: Set<s
         )
       }
     }
-  })
+  }
 
   return errors
 }

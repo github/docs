@@ -1,5 +1,8 @@
 | Package manager | Languages | Static transitive dependencies | Automatic dependency submission | Recommended files | Additional files |
 | --- | --- | --- | --- | --- | ---|
+| {% ifversion dependabot-bazel-support %} |
+| Bazel | Starlark | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | `MODULE.bazel`, `WORKSPACE` | `MODULE.bazel.lock`, `maven_install.json`, `*.MODULE.bazel` |
+| {% endif %} |
 | Cargo | Rust | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | `Cargo.lock` | `Cargo.toml` |
 | Composer             | PHP           | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | `composer.lock` | `composer.json` |
 | NuGet | .NET languages (C#, F#, VB), C++  | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` | `packages.config` |

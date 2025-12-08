@@ -23,13 +23,13 @@ describe('REST references docs', () => {
         .map((i, h2) => $(h2).attr('id'))
         .get()
       const schemaSlugs = checksRestOperations.map((operation) => slug(operation.title))
-      expect(schemaSlugs.every((slug) => domH2Ids.includes(slug))).toBe(true)
+      expect(schemaSlugs.every((operationSlug) => domH2Ids.includes(operationSlug))).toBe(true)
     }
   })
 
   // These tests exists because of issue #1960
   test('rest subcategory with fpt in URL', async () => {
-    for (const category of [
+    const categories = [
       'migrations',
       'actions',
       'activity',
@@ -58,7 +58,8 @@ describe('REST references docs', () => {
       'search',
       'teams',
       'users',
-    ]) {
+    ]
+    for (const category of categories) {
       // Without language prefix
       {
         const res = await get(`/free-pro-team@latest/rest/reference/${category}`)
@@ -109,7 +110,7 @@ describe('REST references docs', () => {
             .text()
             .trim()
           if (apiVersion === allVersions[version].latestApiVersion) {
-            expect(versionName).toBe(apiVersion + ' (latest)')
+            expect(versionName).toBe(`${apiVersion} (latest)`)
           } else {
             expect(versionName).toBe(apiVersion)
           }
@@ -148,12 +149,11 @@ describe('REST references docs', () => {
 function formatErrors(differences: Record<string, any>): string {
   let errorMessage = 'There are differences in Categories/Subcategories in:\n'
   for (const schema in differences) {
-    errorMessage += 'Version: ' + schema + '\n'
+    errorMessage += `Version: ${schema}\n`
     for (const category in differences[schema]) {
-      errorMessage += 'Category: ' + category + '\nSubcategories: \n'
-      errorMessage +=
-        '  - content/rest directory: ' + differences[schema][category].contentDir + '\n'
-      errorMessage += '  - OpenAPI Schema: ' + differences[schema][category].openAPI + '\n'
+      errorMessage += `Category: ${category}\nSubcategories: \n`
+      errorMessage += `  - content/rest directory: ${differences[schema][category].contentDir}\n`
+      errorMessage += `  - OpenAPI Schema: ${differences[schema][category].openAPI}\n`
       errorMessage += '---\n'
     }
   }

@@ -1,6 +1,7 @@
 'use client'
 
 import { createContext, useContext, ReactNode, useMemo } from 'react'
+import type { JSX } from 'react'
 import { languages, languageKeys, type LanguageCode } from '@/languages/lib/languages'
 
 interface LocaleContextType {

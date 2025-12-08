@@ -7,6 +7,8 @@ versions:
   feature: copilot
 topics:
   - Copilot
+category:
+  - Learn about Copilot
 redirect_from:
   - /copilot/using-github-copilot/using-claude-sonnet-in-github-copilot
   - /copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot
@@ -68,6 +70,11 @@ The following table shows which models are available in each client.
 > [!NOTE]
 > * {% data reusables.copilot.auto-model-selection %}
 > * {% data reusables.copilot.gpt-5-codex-vscode-support %}
+> * {% data variables.copilot.copilot_gpt_51_codex %} and {% data variables.copilot.copilot_gpt_51_codex_mini %} are supported in: 
+>   * Visual Studio Code versions 1.104.1 or higher
+>   * JetBrains, Copilot plugin versions 1.5.61 or higher
+>   * Xcode, Copilot plugin versions 0.45.0 or later
+>   * Eclipse, Copilot plugin versions 0.13.0 or later 
 
 {% rowheaders %}
 
@@ -97,6 +104,6 @@ For more information about premium requests, see [AUTOTITLE](/copilot/managing-c
 
 * For task-based guidance on selecting a model, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 * To configure which models are available to you, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/configuring-access-to-ai-models-in-copilot).
-* To learn how to change your current model, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat) or [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
+* To learn how to change your current model, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat) or [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-completion-model).
 * To learn more about Responsible Use and Responsible AI, see [{% data variables.product.prodname_copilot_short %} Trust Center](https://copilot.github.trust.page/) and [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features).
 * To learn how {% data variables.copilot.copilot_chat_short %} serves different AI models, see [AUTOTITLE](/copilot/reference/ai-models/model-hosting).

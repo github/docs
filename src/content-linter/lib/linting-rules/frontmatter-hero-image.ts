@@ -1,6 +1,5 @@
 import fs from 'fs'
 import path from 'path'
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getFrontmatter } from '../helpers/utils'
@@ -8,10 +7,10 @@ import type { RuleParams, RuleErrorCallback, Rule } from '@/content-linter/types
 
 interface Frontmatter {
   heroImage?: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
-// Get the list of valid hero images
+// Get the list of valid hero images (without extensions)
 function getValidHeroImages(): string[] {
   const ROOT = process.env.ROOT || '.'
   const heroImageDir = path.join(ROOT, 'assets/images/banner-images')
@@ -22,8 +21,11 @@ function getValidHeroImages(): string[] {
     }
 
     const files = fs.readdirSync(heroImageDir)
-    // Return absolute paths as they would appear in frontmatter
-    return files.map((file) => `/assets/images/banner-images/${file}`)
+    // Return absolute paths without extensions as they should appear in frontmatter
+    return files.map((file) => {
+      const baseName = path.basename(file, path.extname(file))
+      return `/assets/images/banner-images/${baseName}`
+    })
   } catch {
     return []
   }
@@ -32,7 +34,7 @@ function getValidHeroImages(): string[] {
 export const frontmatterHeroImage: Rule = {
   names: ['GHD061', 'frontmatter-hero-image'],
   description:
-    'Hero image paths must be absolute and point to valid images in /assets/images/banner-images/',
+    'Hero image paths must be absolute, extensionless, and point to valid images in /assets/images/banner-images/',
   tags: ['frontmatter', 'images'],
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     // Only check index.md files
@@ -45,7 +47,7 @@ export const frontmatterHeroImage: Rule = {
 
     // Check if heroImage is an absolute path
     if (!heroImage.startsWith('/')) {
-      const line = params.lines.find((line: string) => line.trim().startsWith('heroImage:'))
+      const line = params.lines.find((ln: string) => ln.trim().startsWith('heroImage:'))
       const lineNumber = line ? params.lines.indexOf(line) + 1 : 1
       addError(
         onError,
@@ -59,7 +61,7 @@ export const frontmatterHeroImage: Rule = {
 
     // Check if heroImage points to banner-images directory
     if (!heroImage.startsWith('/assets/images/banner-images/')) {
-      const line = params.lines.find((line: string) => line.trim().startsWith('heroImage:'))
+      const line = params.lines.find((ln: string) => ln.trim().startsWith('heroImage:'))
       const lineNumber = line ? params.lines.indexOf(line) + 1 : 1
       addError(
         onError,
@@ -71,10 +73,25 @@ export const frontmatterHeroImage: Rule = {
       return
     }
 
-    // Check if the file actually exists
+    // Check if the path includes a file extension (which is not allowed)
+    if (path.extname(heroImage)) {
+      const line = params.lines.find((ln: string) => ln.trim().startsWith('heroImage:'))
+      const lineNumber = line ? params.lines.indexOf(line) + 1 : 1
+      const withoutExtension = heroImage.substring(0, heroImage.lastIndexOf('.'))
+      addError(
+        onError,
+        lineNumber,
+        `Hero image path must not include file extension. Use: ${withoutExtension}`,
+        line || '',
+        null, // No fix possible
+      )
+      return
+    }
+
+    // Check if a file with this base name actually exists
     const validHeroImages = getValidHeroImages()
     if (validHeroImages.length > 0 && !validHeroImages.includes(heroImage)) {
-      const line = params.lines.find((line: string) => line.trim().startsWith('heroImage:'))
+      const line = params.lines.find((ln: string) => ln.trim().startsWith('heroImage:'))
       const lineNumber = line ? params.lines.indexOf(line) + 1 : 1
       const availableImages = validHeroImages.join(', ')
       addError(

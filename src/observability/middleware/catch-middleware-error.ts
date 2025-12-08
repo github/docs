@@ -4,5 +4,11 @@ import type { NextFunction } from 'express'
 // This matches the original JavaScript behavior while providing some type safety
 // The assertion is necessary because Express middleware can have various request/response types
 export default function catchMiddlewareError(fn: any) {
-  return (req: any, res: any, next: NextFunction) => Promise.resolve(fn(req, res, next)).catch(next)
+  return async (req: any, res: any, next: NextFunction) => {
+    try {
+      await fn(req, res, next)
+    } catch (error) {
+      next(error)
+    }
+  }
 }

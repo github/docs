@@ -9,8 +9,8 @@ topics:
 children:
   - /manage-for-organization
   - /manage-for-enterprise
+  - /manage-mcp-usage
   - /download-activity-report
-  - /configure-mcp-server-access
 redirect_from:
   - /copilot/how-tos/administer
 contentType: how-tos

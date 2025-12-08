@@ -64,11 +64,11 @@ export async function populateIndex(
     {
       attempts,
       sleepTime,
-      onError: (_, attempts, sleepTime) => {
+      onError: (_, remainingAttempts, sleepMs) => {
         console.warn(
           chalk.yellow(
-            `Failed to bulk index ${indexName}. Will attempt ${attempts} more times (after ${
-              sleepTime / 1000
+            `Failed to bulk index ${indexName}. Will attempt ${remainingAttempts} more times (after ${
+              sleepMs / 1000
             }s sleep).`,
           ),
         )

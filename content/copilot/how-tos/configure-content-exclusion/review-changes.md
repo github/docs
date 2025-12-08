@@ -17,6 +17,8 @@ redirect_from:
   - /copilot/how-tos/content-exclusion/reviewing-changes-to-content-exclusions-for-github-copilot
   - /copilot/how-tos/content-exclusion/review-changes
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 Organization and repository settings include the ability to exclude content from being used by {% data variables.product.prodname_copilot %}. You can review any changes that are made to these content exclusion settings.

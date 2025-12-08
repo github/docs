@@ -13,6 +13,7 @@ redirect_from:
 contentType: tutorials
 category:
   - Burn down tech debt
+  - Author and optimize with Copilot
 ---
 
 > [!NOTE]

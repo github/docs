@@ -1,7 +1,7 @@
 ---
 title: REST API for organization custom properties in an enterprise
 shortTitle: Custom properties for organizations
-intro: 'Use the REST API to manage custom property values for organizations belonging to the enterprise'
+intro: 'Use the REST API to manage custom properties for organizations belonging to an enterprise'
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
 topics:

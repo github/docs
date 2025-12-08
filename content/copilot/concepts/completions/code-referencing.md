@@ -9,6 +9,8 @@ topics:
 versions:
   feature: copilot
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 {% jetbrains %}
@@ -17,7 +19,7 @@ contentType: concepts
 
 {% data reusables.copilot.about-code-referencing %}
 
-### Code referencing for {% data variables.product.prodname_copilot_short %} code completion
+### Code referencing for {% data variables.product.prodname_copilot_short %} inline suggestions
 
 {% data reusables.copilot.code-referencing-note %}
 
@@ -33,7 +35,7 @@ contentType: concepts
 
 {% data reusables.copilot.about-code-referencing %}
 
-### Code referencing for {% data variables.product.prodname_copilot_short %} code completion
+### Code referencing for {% data variables.product.prodname_copilot_short %} inline suggestions
 
 {% data reusables.copilot.code-referencing-note %}
 
@@ -60,7 +62,7 @@ If you, or your organization, have allowed suggestions that match public code, t
 
 {% data reusables.copilot.about-code-referencing %}
 
-### Code referencing for {% data variables.product.prodname_copilot_short %} code completion
+### Code referencing for {% data variables.product.prodname_copilot_short %} inline suggestions
 
 {% data reusables.copilot.code-referencing-note %}
 

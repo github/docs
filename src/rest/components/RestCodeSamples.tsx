@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, FormEvent } from 'react'
+import React, { useState, useEffect, useRef, FormEvent } from 'react'
 import { FormControl, IconButton, Select, SegmentedControl } from '@primer/react'
 import { CheckIcon, CopyIcon, InfoIcon } from '@primer/octicons-react'
 import { announce } from '@primer/live-region-element'

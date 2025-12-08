@@ -15,6 +15,8 @@ redirect_from:
   - /copilot/how-tos/spending/managing-your-companys-spending-on-github-copilot
   - /copilot/how-tos/spending/manage-company-spending
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 When you're adopting {% data variables.product.prodname_copilot %} in an enterprise, you will want to set budgets and track spending to ensure your rollout is sustainable. {% data variables.product.github %} offers billing tools to help you visualize your spending patterns, receive alerts when you reach budget thresholds, and optimize your license usage.
@@ -49,7 +51,7 @@ You can create cost centers to map spending to individual business units or grou
 
 For example, if you were running a pilot program for {% data variables.copilot.copilot_enterprise %} for a group of employees, you might want to create a cost center to track their spending and set a budget independently of the rest of the company.
 
-For more information, see [AUTOTITLE](/billing/tutorials/use-cost-centers).
+For more information, see [AUTOTITLE](/billing/tutorials/control-costs-at-scale).
 
 ## Preventing overspending
 

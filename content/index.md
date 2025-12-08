@@ -112,9 +112,10 @@ childGroups:
       - copilot
       - copilot/get-started/plans
       - copilot/how-tos/get-code-suggestions/get-ide-code-suggestions
-      - copilot/tutorials/copilot-chat-cookbook
       - copilot/how-tos/use-copilot-agents/coding-agent
-      - copilot/how-tos/configure-custom-instructions
+      - copilot/tutorials
+      - copilot/tutorials/copilot-chat-cookbook
+      - copilot/tutorials/customization-library
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:
@@ -148,7 +149,6 @@ childGroups:
       - code-security/securing-your-organization
       - enterprise-onboarding
       - admin
-      - gh-wa
   - name: Developers
     octicon: CodeSquareIcon
     children:
@@ -156,7 +156,6 @@ childGroups:
       - rest
       - graphql
       - webhooks
-      - copilot/how-tos/use-copilot-extensions
       - github-models
   - name: Community
     octicon: GlobeIcon
@@ -196,4 +195,3 @@ externalProducts:
     href: 'https://wellarchitected.github.com/'
     external: true
 ---
-

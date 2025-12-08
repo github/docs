@@ -12,13 +12,12 @@ children:
   - /keyboard-shortcuts
   - /custom-agents-configuration
   - /policy-conflicts
-  - /allowlist-reference
+  - /copilot-allowlist-reference
+  - /mcp-allowlist-enforcement
   - /metrics-data
   - /copilot-billing
   - /agentic-audit-log-events
-  - /extensions-glossary
+  - /review-excluded-files
   - /copilot-usage-metrics
-  - /interpret-copilot-metrics
-  - /reconciling-usage-metrics
 contentType: reference
 ---

@@ -33,9 +33,9 @@ interface LoggerMethod {
   (message: string, ...args: (string | number | boolean | Error | IncludeContext)[]): void
 }
 
-/* 
-Call this function with `import.meta.url` as the argument to create a logger for a specific file. 
-   
+/*
+Call this function with `import.meta.url` as the argument to create a logger for a specific file.
+
 e.g. `const logger = createLogger(import.meta.url)`
 
 Logs will be output to the console in development, and in `logfmt` format to stdout in production.
@@ -111,9 +111,10 @@ export function createLogger(filePath: string) {
         finalMessage = `${finalMessage}: ${errorObjects[0].message}`
       } else {
         // Multiple errors - use indexed keys and append all error messages
-        errorObjects.forEach((error, index) => {
+        for (let index = 0; index < errorObjects.length; index++) {
+          const error = errorObjects[index]
           includeContext[`error_${index + 1}`] = error
-        })
+        }
         const errorMessages = errorObjects.map((err) => err.message).join(', ')
         finalMessage = `${finalMessage}: ${errorMessages}`
       }

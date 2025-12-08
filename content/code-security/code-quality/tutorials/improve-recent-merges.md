@@ -1,14 +1,14 @@
 ---
 title: Improving the quality of recently merged code with AI
 shortTitle: Improve recent merges
-intro: Learn how to assess and remediate issues detected by {% data variables.product.prodname_code_quality %} in your most recently changed code, so you can maintain high standards of code health across your default branch.
+intro: 'Explore {% data variables.product.prodname_code_quality %} findings for recently merged code and fix with {% data variables.copilot.copilot_autofix_short %} or delegate remediation work to {% data variables.copilot.copilot_coding_agent %}.'
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
 permissions: '{% data reusables.permissions.code-quality-see-repo-findings %}'
 topics:
   - Code Quality
-contentType: other
+contentType: tutorials
 redirect_from:
   - /code-security/code-quality/tutorials/improve-active-code
 ---
@@ -17,7 +17,7 @@ redirect_from:
 
 ## Introduction
 
-This tutorial shows you how to explore and remediate quality issues that have been detected by {% data variables.product.prodname_code_quality_short %}'s analysis of code that was recently merged into your default branch.
+This tutorial shows you how to explore and remediate quality issues that have been detected by {% data variables.product.prodname_code_quality_short %}'s AI-powered analysis of code that was recently merged into your default branch.
 
 When you improve quality of recently merged files, you reduce technical debt in the repository and make it easier for other developers to work on files that are under active development.
 
@@ -55,7 +55,7 @@ On the **{% data variables.code-quality.recent_suggestions %}** page, each file 
 ## 3. Delegate remediation work or open pull requests yourself
 
 You can open a pull request to apply the suggested autofixes to a file or delegate the remediation work to {% data variables.copilot.copilot_coding_agent %}. You need a {% data variables.product.prodname_copilot_short %} license to assign work to {% data variables.copilot.copilot_coding_agent %}.
-<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-signup-copilot&utm_medium=docs&utm_campaign=universe25" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 ### Delegate work to {% data variables.copilot.copilot_coding_agent %}
 
@@ -71,7 +71,7 @@ There is a delay while the {% data variables.copilot.copilot_coding_agent_short 
 You can track {% data variables.copilot.copilot_coding_agent %}'s work:
 
 * In the pull request, the summary is updated as work progresses.
-* Using the [agents page](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-web-agents-page&utm_medium=docs&utm_campaign=universe25) or session logs. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions).
+* Using the [agents page](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text) or session logs. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions).
 
 ### Open your own pull requests
 
@@ -109,4 +109,4 @@ When you return to the "{% data variables.code-quality.recent_suggestions %}" vi
 ## Next steps
 
 * Learn more about how {% data variables.copilot.copilot_coding_agent %} can help expedite development tasks. See [AUTOTITLE](/copilot/tutorials/coding-agent/get-the-best-results).
-* Provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488?utm_source=docs-discussions-code-quality&utm_medium=docs&utm_campaign=universe25).
+* Provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488).

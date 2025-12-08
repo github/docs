@@ -60,12 +60,9 @@ export const getLandingContextFromRequest = async (
     }
   }
 
-  let journeyTracks: JourneyTrack[] = []
-  if (landingType === 'journey' && page.journeyTracks) {
-    // Need a dynamic import because journey-path-resolver uses Node fs apis
-    const { resolveJourneyTracks } = await import('@/journeys/lib/journey-path-resolver')
-    journeyTracks = await resolveJourneyTracks(page.journeyTracks, req.context)
-  }
+  // Note: Journey tracks are resolved in middleware and added to the request
+  // context to avoid the error using server side apis client side
+  const journeyTracks: JourneyTrack[] = []
 
   return {
     landingType,
@@ -81,7 +78,7 @@ export const getLandingContextFromRequest = async (
     renderedPage: req.context.renderedPage,
     currentLearningTrack: req.context.currentLearningTrack,
     currentLayout: req.context.currentLayoutName,
-    heroImage: page.heroImage || '/assets/images/banner-images/hero-1.png',
+    heroImage: page.heroImage || '/assets/images/banner-images/hero-1',
     introLinks: page.introLinks || null,
     recommended,
     journeyTracks,

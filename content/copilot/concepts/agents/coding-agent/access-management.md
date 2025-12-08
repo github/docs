@@ -20,6 +20,8 @@ redirect_from:
   - /copilot/concepts/agents/coding-agent/coding-agent-for-business-and-enterprise
   - /copilot/concepts/agents/coding-agent/managing-access
 contentType: concepts
+category: 
+  - Manage Copilot for a team
 ---
 
 > [!NOTE]

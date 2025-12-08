@@ -3,11 +3,13 @@ import path from 'path'
 
 import { afterAll, beforeAll, describe, expect, test, vi } from 'vitest'
 import nock from 'nock'
+import type { Response } from 'express'
 
 import { get } from '@/tests/helpers/e2etest'
 import { checkCachingHeaders } from '@/tests/helpers/caching-headers'
 import { setDefaultFastlySurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key'
 import archivedEnterpriseVersionsAssets from '@/archives/middleware/archived-enterprise-versions-assets'
+import type { ExtendedRequest } from '@/types'
 
 function getNextStaticAsset(directory: string) {
   const root = path.join('.next', 'static', directory)
@@ -16,13 +18,13 @@ function getNextStaticAsset(directory: string) {
   return path.join(root, files[0])
 }
 
-function mockRequest(path: string, { headers }: { headers?: Record<string, string> } = {}) {
+function mockRequest(requestPath: string, { headers }: { headers?: Record<string, string> } = {}) {
   const _headers = Object.fromEntries(
     Object.entries(headers || {}).map(([key, value]) => [key.toLowerCase(), value]),
   )
   return {
-    path,
-    url: path,
+    path: requestPath,
+    url: requestPath,
     get: (header: string) => {
       return _headers[header.toLowerCase()]
     },
@@ -34,10 +36,10 @@ function mockRequest(path: string, { headers }: { headers?: Record<string, strin
 }
 
 type MockResponse = {
-  status: number
-  statusCode: number
-  json?: (payload: any) => void
-  send?: (body: any) => void
+  status: number | undefined
+  statusCode: number | undefined
+  json?: (payload: unknown) => void
+  send?: (body: unknown) => void
   sendStatus?: (statusCode: number) => void
   end?: () => void
   _json?: string
@@ -50,17 +52,17 @@ type MockResponse = {
 
 const mockResponse = () => {
   const res: MockResponse = {
-    status: undefined as any,
-    statusCode: undefined as any,
+    status: undefined,
+    statusCode: undefined,
     headers: {},
   }
   res.json = (payload) => {
-    res._json = payload
+    res._json = payload as string
   }
   res.send = (body) => {
     res.status = 200
     res.statusCode = 200
-    res._send = body
+    res._send = body as string
   }
   res.end = () => {
     // Mock end method
@@ -74,8 +76,8 @@ const mockResponse = () => {
     if (typeof key === 'string') {
       res.headers[key.toLowerCase()] = value
     } else {
-      for (const [k, value] of Object.entries(key)) {
-        res.headers[k.toLowerCase()] = value
+      for (const [k, v] of Object.entries(key)) {
+        res.headers[k.toLowerCase()] = v
       }
     }
   }
@@ -86,7 +88,7 @@ const mockResponse = () => {
     return key in res.headers
   }
   // Add Express-style status method that supports chaining
-  ;(res as any).status = (code: number) => {
+  ;(res as unknown as { status: (code: number) => MockResponse }).status = (code: number) => {
     res.status = code
     res.statusCode = code
     return res
@@ -113,7 +115,7 @@ describe('static assets', () => {
     // This picks the first one found. We just need it to be anything
     // that actually resolves.
     const filePath = getNextStaticAsset('css')
-    const asURL = '/' + filePath.replace('.next', '_next').split(path.sep).join('/')
+    const asURL = `/${filePath.replace('.next', '_next').split(path.sep).join('/')}`
     const res = await get(asURL)
     expect(res.statusCode).toBe(200)
     checkCachingHeaders(res)
@@ -222,7 +224,11 @@ describe('archived enterprise static assets', () => {
       throw new Error('did not expect this to ever happen')
     }
     setDefaultFastlySurrogateKey(req, res, () => {})
-    await archivedEnterpriseVersionsAssets(req as any, res as any, next)
+    await archivedEnterpriseVersionsAssets(
+      req as unknown as ExtendedRequest,
+      res as unknown as Response,
+      next,
+    )
     expect(res.statusCode).toBe(200)
     checkCachingHeaders(res, false, 60)
   })
@@ -238,7 +244,11 @@ describe('archived enterprise static assets', () => {
       throw new Error('did not expect this to ever happen')
     }
     setDefaultFastlySurrogateKey(req, res, () => {})
-    await archivedEnterpriseVersionsAssets(req as any, res as any, next)
+    await archivedEnterpriseVersionsAssets(
+      req as unknown as ExtendedRequest,
+      res as unknown as Response,
+      next,
+    )
     expect(res.statusCode).toBe(200)
     checkCachingHeaders(res, false, 60)
   })
@@ -254,7 +264,11 @@ describe('archived enterprise static assets', () => {
       throw new Error('did not expect this to ever happen')
     }
     setDefaultFastlySurrogateKey(req, res, () => {})
-    await archivedEnterpriseVersionsAssets(req as any, res as any, next)
+    await archivedEnterpriseVersionsAssets(
+      req as unknown as ExtendedRequest,
+      res as unknown as Response,
+      next,
+    )
     expect(res.statusCode).toBe(200)
     checkCachingHeaders(res, false, 60)
   })
@@ -271,7 +285,11 @@ describe('archived enterprise static assets', () => {
       nexted = true
     }
     setDefaultFastlySurrogateKey(req, res, next)
-    await archivedEnterpriseVersionsAssets(req as any, res as any, next)
+    await archivedEnterpriseVersionsAssets(
+      req as unknown as ExtendedRequest,
+      res as unknown as Response,
+      next,
+    )
     // It didn't exit in that middleware but called next() to move on
     // with any other middlewares.
     expect(nexted).toBe(true)
@@ -289,7 +307,11 @@ describe('archived enterprise static assets', () => {
       nexted = true
     }
     setDefaultFastlySurrogateKey(req, res, () => {})
-    await archivedEnterpriseVersionsAssets(req as any, res as any, next)
+    await archivedEnterpriseVersionsAssets(
+      req as unknown as ExtendedRequest,
+      res as unknown as Response,
+      next,
+    )
     // It tried to go via the proxy, but it wasn't there, but then it
     // tried "our disk" and it's eventually there.
     expect(nexted).toBe(true)
@@ -319,9 +341,9 @@ describe('archived enterprise static assets', () => {
     },
   ])(
     'should return $expectStatus for $name',
-    ({ name, path, referrer, expectStatus, shouldCallNext }) => {
+    ({ name, path: testPath, referrer, expectStatus, shouldCallNext }) => {
       test(name, async () => {
-        const req = mockRequest(path, {
+        const req = mockRequest(testPath, {
           headers: {
             Referrer: referrer,
           },
@@ -335,7 +357,11 @@ describe('archived enterprise static assets', () => {
           nexted = true
         }
         setDefaultFastlySurrogateKey(req, res, () => {})
-        await archivedEnterpriseVersionsAssets(req as any, res as any, next)
+        await archivedEnterpriseVersionsAssets(
+          req as unknown as ExtendedRequest,
+          res as unknown as Response,
+          next,
+        )
         expect(res.statusCode).toBe(expectStatus)
         if (shouldCallNext) {
           expect(nexted).toBe(true)
@@ -359,22 +385,29 @@ describe('archived enterprise static assets', () => {
       expectStatus: undefined,
       shouldCallNext: true,
     },
-  ])('should not suppress $name', ({ name, path, referrer, expectStatus, shouldCallNext }) => {
-    test(name, async () => {
-      const req = mockRequest(path, {
-        headers: {
-          Referrer: referrer,
-        },
+  ])(
+    'should not suppress $name',
+    ({ name, path: testPath, referrer, expectStatus, shouldCallNext }) => {
+      test(name, async () => {
+        const req = mockRequest(testPath, {
+          headers: {
+            Referrer: referrer,
+          },
+        })
+        const res = mockResponse()
+        let nexted = false
+        const next = () => {
+          nexted = true
+        }
+        setDefaultFastlySurrogateKey(req, res, () => {})
+        await archivedEnterpriseVersionsAssets(
+          req as unknown as ExtendedRequest,
+          res as unknown as Response,
+          next,
+        )
+        expect(nexted).toBe(shouldCallNext)
+        expect(res.statusCode).toBe(expectStatus)
       })
-      const res = mockResponse()
-      let nexted = false
-      const next = () => {
-        nexted = true
-      }
-      setDefaultFastlySurrogateKey(req, res, () => {})
-      await archivedEnterpriseVersionsAssets(req as any, res as any, next)
-      expect(nexted).toBe(shouldCallNext)
-      expect(res.statusCode).toBe(expectStatus)
-    })
-  })
+    },
+  )
 })

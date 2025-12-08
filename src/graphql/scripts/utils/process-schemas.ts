@@ -389,10 +389,10 @@ export default async function processSchemas(
             }
 
             await Promise.all(
-              mutationReturnFields.fields!.map(async (field: FieldDefinitionNode) => {
+              mutationReturnFields.fields!.map(async (returnFieldDef: FieldDefinitionNode) => {
                 const returnField: Partial<ReturnFieldInfo> = {}
-                returnField.name = field.name.value
-                const fieldType = helpers.getType(field)
+                returnField.name = returnFieldDef.name.value
+                const fieldType = helpers.getType(returnFieldDef)
                 if (!fieldType) return
                 returnField.type = fieldType
                 returnField.id = helpers.getId(returnField.type)
@@ -401,17 +401,17 @@ export default async function processSchemas(
                 returnField.kind = fieldKind
                 returnField.href = helpers.getFullLink(returnField.kind, returnField.id)
                 returnField.description = await helpers.getDescription(
-                  field.description?.value || '',
+                  returnFieldDef.description?.value || '',
                 )
                 returnField.isDeprecated = helpers.getDeprecationStatus(
-                  (field.directives || []) as readonly ConstDirectiveNode[],
+                  (returnFieldDef.directives || []) as readonly ConstDirectiveNode[],
                 )
                 returnField.deprecationReason = await helpers.getDeprecationReason(
-                  (field.directives || []) as readonly ConstDirectiveNode[],
+                  (returnFieldDef.directives || []) as readonly ConstDirectiveNode[],
                   returnField as ReturnFieldInfo,
                 )
                 returnField.preview = await helpers.getPreview(
-                  (field.directives || []) as readonly ConstDirectiveNode[],
+                  (returnFieldDef.directives || []) as readonly ConstDirectiveNode[],
                   returnField as ReturnFieldInfo,
                   previewsPerVersion,
                 )

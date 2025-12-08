@@ -18,6 +18,8 @@ redirect_from:
   - /copilot/how-tos/administer/manage-for-enterprise/manage-copilot-coding-agent
   - /copilot/how-tos/administer-copilot/manage-for-enterprise/manage-copilot-coding-agent
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 > [!NOTE]

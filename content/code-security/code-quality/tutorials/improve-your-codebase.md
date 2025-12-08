@@ -1,7 +1,7 @@
 ---
 title: Improving the quality of your repository's code
 shortTitle: Improve your codebase
-intro: 'Learn how to assess and remediate code quality issues detected on your default branch so you can improve the quality of your codebase. As you progress, you''ll see your repository''s code quality rating rise as a result.'
+intro: 'Assess and remediate code quality issues detected on your default branch so you can improve the quality of your codebase. As you progress, you''ll see your repository''s code quality rating rise as a result.'
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
@@ -20,7 +20,7 @@ This tutorial guides you through using {% data variables.product.prodname_code_q
 ### Prerequisites
 
 * {% data variables.product.prodname_code_quality_short %} is enabled for your repository. See [AUTOTITLE](/code-security/code-quality/how-tos/enable-code-quality).
-* A full scan of the default branch has completed.
+* If you're enabling {% data variables.product.prodname_code_quality %} for the first time, ensure you've waited a few minutes after enablement for a full {% data variables.product.prodname_codeql %} scan of the default branch to complete.
 
 ## 1. Assess your repository's overall code health
 
@@ -107,4 +107,4 @@ If you haven't already, set up quality thresholds for pull requests, to block an
 ## Next steps
 
 * Reduce technical debt further by fixing findings in recently changed files. See [AUTOTITLE](/code-security/code-quality/tutorials/improve-recent-merges).
-* Provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488?utm_source=docs-discussions-code-quality&utm_medium=docs&utm_campaign=universe25).
+* Provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488).

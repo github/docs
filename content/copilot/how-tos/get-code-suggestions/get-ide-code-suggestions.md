@@ -13,6 +13,8 @@ defaultTool: vscode
 topics:
   - Copilot
 contentType: how-tos
+category:
+  - Author and optimize with Copilot
 ---
 
 <style>
@@ -23,7 +25,7 @@ contentType: how-tos
 </style>
 
 <div class="button-container">
-    <a href="https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=button&ref_plan=free" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline">
+    <a href="https://github.com/copilot?ref_product=copilot&ref_type=trial&ref_style=button&ref_plan=free" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline">
         <span>Get started for free</span> {% octicon "link-external" height:16 aria-label="link-external" %}
     </a>
     {% vscode %}
@@ -199,9 +201,7 @@ Alternatively, you can show alternate suggestions by pressing <kbd>Alt</kbd>+<kb
 
 ## Getting comment suggestions
 
-> [!NOTE]
-> * Comment suggestions are currently in {% data variables.release-phases.public_preview %} and are subject to change.
-> * Comment suggestions are available in {% data variables.product.prodname_vs %} 17.14 Preview 2 and later.
+> [!NOTE] Comment suggestions are available in {% data variables.product.prodname_vs %} 17.14 Preview 2 and later.
 
 {% data variables.product.prodname_copilot %} can suggest comments for your code, by analyzing the code you write and generating comments that describe what the code does. For {% data variables.copilot.copilot_free_short %} users, comment suggestions count towards your monthly {% data variables.copilot.copilot_chat_short %} usage, not your code suggestions usage.
 
@@ -218,16 +218,23 @@ To enable comment suggestions, you need to configure the comment style in {% dat
 
 1. In {% data variables.product.prodname_vs %}, in the **Tools** menu, click **Options**.
 1. In the left-side panel, click **Text Editor**.
-1. Click **C++**, then **Code Style**, then **General**.
+1. Click **C++**, then **Code Style**.
+1. Under the **Code Style** heading, click **General**.
 1. Under "Comments," select **Xml Doc Comments** from the dropdown.
-1. Select **Insert existing comment style at the start of new lines when writing comments** and **Continue single line comments.**
+1. Select **Insert existing comment style at the start of new lines when writing comments** and **Continue single line comments.** Then click **OK**.
+1. In the **Options** tab, in the left-side panel, click **GitHub**. 
+1. Click **Copilot**, then **Editor**.
+1. Select **Enable AI generated descriptions for auto-inserted documentation comments in supported languages**.
 
 #### For C#
 
 1. In {% data variables.product.prodname_vs %}, in the **Tools** menu, click **Options**.
-1. In the left-side panel, click **Text Editor**.
-1. Click **C#**, then **Advanced**.
-1. Under "Comments," select **Generate XML documentation comments for ///**, **Insert // at the start of new lines when writing // comments**, and **Insert \* at the start of new lines when writing /\* \*/ comments.**
+1. In the left-side panel, click **Languages**.
+1. Click **C#**, then **More Settings**, then **Advanced**.
+1. Under "Comments," select **Generate XML documentation comments for ///**, **Insert // at the start of new lines when writing // comments**, and **Insert \* at the start of new lines when writing /\* \*/ comments.** Then click **OK**.
+1. In the **Options** tab, in the left-side panel, click **GitHub**. 
+1. Click **Copilot**, then **Editor**.
+1. Select **Enable AI generated descriptions for auto-inserted documentation comments in supported languages**.
 
 ### Using comment suggestions
 
@@ -358,11 +365,11 @@ An arrow in the gutter indicates an available edit suggestion. Hover over the ar
 
 ![Screenshot of the gutter menu in {% data variables.product.prodname_vscode %}. The arrow is outlined in dark orange.](/assets/images/help/copilot/vsc-advanced-code-completion-menu.png)
 
-For more details and examples, see [Code completions with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/ai-powered-suggestions) in the {% data variables.product.prodname_vscode %} documentation.
+For more details and examples, see [Inline suggestions with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/ai-powered-suggestions) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Changing the AI model
 
-You can change the large language model that's used to generate code completion suggestions. For more information, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
+You can change the large language model that's used to generate inline suggestions. For more information, see [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-completion-model).
 
 {% endvscode %}
 
@@ -521,6 +528,16 @@ If you encounter issues with code suggestions, such as conflicting or missing su
 
 You can also open an issue in the [{% data variables.product.prodname_copilot_short %} for Xcode repository](https://github.com/github/CopilotForXcode).
 
+## Navigating and accepting {% data variables.copilot.next_edit_suggestions %}
+
+{% data variables.copilot.next_edit_suggestions_caps %} predicts where and what edits may be needed based on ongoing changes.
+
+You can navigate suggested code changes using <kbd>Tab</kbd>, making it easier to find the next relevant edit without manually searching through files or references. Press <kbd>Tab</kbd> again to accept a suggestion (unless you have disabled the "Accept suggestions with Tab" setting for the {% data variables.product.prodname_copilot %} for Xcode extension).
+
+An arrow in the gutter indicates an available edit suggestion. Hover over the arrow to access the edit suggestion menu, which provides keyboard shortcuts and settings options.
+
+![Screenshot of the gutter menu in Xcode. The arrow is outlined in dark orange.](/assets/images/help/copilot/xcode-advanced-code-completion-menu.png)
+
 {% endxcode %}
 
 {% eclipse %}
@@ -559,11 +576,11 @@ You can also describe something you want to do using natural language within a c
 > [!TIP]
 > If you receive limited or no suggestions from {% data variables.product.prodname_copilot_short %}, you may have duplication detection enabled. For more information about duplication detection, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code).
 
-## Manually triggering code completion
+## Manually triggering inline suggestions
 
-You can also use keyboard shortcuts to trigger code completion.
+You can also use keyboard shortcuts to trigger inline suggestions.
 
-| OS               | Trigger code completion                           |
+| OS               | Trigger inline suggestions                        |
 |:-----------------|:--------------------------------------------------|
 | macOS            | <kbd>Option</kbd>+<kbd>Command</kbd>+<kbd>/</kbd> |
 | Windows or Linux | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>/</kbd>       |
@@ -576,6 +593,16 @@ If you don't want to accept an entire suggestion from {% data variables.product.
 |:-----------------|:-------------------------------------|
 | macOS            | <kbd>Command</kbd>+<kbd>&rarr;</kbd> |
 | Windows or Linux | <kbd>Ctrl</kbd>+<kbd>&rarr;</kbd>    |
+
+## Navigating and accepting {% data variables.copilot.next_edit_suggestions %}
+
+{% data variables.copilot.next_edit_suggestions_caps %} predicts where and what edits may be needed based on ongoing changes.
+
+You can navigate suggested code changes using <kbd>Tab</kbd>, making it easier to find the next relevant edit without manually searching through files or references. Press <kbd>Tab</kbd> again to accept a suggestion.
+
+An arrow in the gutter indicates an available edit suggestion. Hover over the arrow to access the edit suggestion menu, which provides keyboard shortcuts and settings options.
+
+![Screenshot of the gutter menu in Eclipse. The arrow is outlined in dark orange.](/assets/images/help/copilot/eclipse-advanced-code-completion-menu.png)
 
 {% endeclipse %}
 

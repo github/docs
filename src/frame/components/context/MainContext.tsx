@@ -118,6 +118,7 @@ export type MainContextT = {
   page: {
     documentType: string
     type?: string
+    contentType?: string
     topics: Array<string>
     title: string
     fullTitle?: string
@@ -217,6 +218,7 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     (page && {
       documentType,
       type: req.context.page.type || null,
+      contentType: req.context.page.contentType || null,
       title: req.context.page.title,
       fullTitle: req.context.page.fullTitle || null,
       topics: req.context.page.topics || [],
@@ -266,7 +268,7 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     error: req.context.error ? req.context.error.toString() : '',
     featureFlags: {},
-    fullUrl: req.protocol + '://' + req.hostname + req.originalUrl, // does not include port for localhost
+    fullUrl: `${req.protocol}://${req.hostname}${req.originalUrl}`, // does not include port for localhost
     isHomepageVersion: req.context.page?.documentType === 'homepage',
     nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
     page: pageInfo,

@@ -19,6 +19,7 @@ redirect_from:
 contentType: tutorials
 category:
   - Automate simple user stories
+  - Author and optimize with Copilot
 ---
 
 > [!NOTE]
@@ -155,6 +156,10 @@ When writing Playwright tests, please follow these guidelines to ensure consiste
 1. **Set up proper test data** - Use beforeEach/afterEach hooks for test setup and cleanup
 1. **Configure CI/CD integration** - Set up headless mode, screenshots on failure, and parallel execution
 ```
+
+## Organization-wide custom instructions
+
+{% data variables.copilot.copilot_coding_agent %} leverages your organization's custom instructions as part of its work. {% data variables.copilot.copilot_coding_agent %} first prioritizes repository-wide custom instructions. For more information on how to configure organization custom instructions, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-organization-instructions).
 
 ## Using the Model Context Protocol (MCP)
 

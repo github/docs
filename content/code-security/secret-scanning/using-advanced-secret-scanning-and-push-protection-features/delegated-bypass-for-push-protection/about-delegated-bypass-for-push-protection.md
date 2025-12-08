@@ -19,7 +19,7 @@ shortTitle: About delegated bypass
 
 {% data reusables.secret-scanning.push-protection-delegate-bypass-beta-note %}
 
-By default, when push protection is enabled for a repository, anyone with write access can still push a secret to the repository, provided that they specify a reason for bypassing push protection.
+When push protection is enabled for a repository, users with write access can bypass push protection and push a secret if they provide a reason and the bypass is approved.
 
 With delegated bypass for push protection, you can:
 

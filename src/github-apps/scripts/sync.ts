@@ -126,7 +126,7 @@ export async function syncGitHubAppsData(
   const { progAccessData, progActorResources } = await getProgAccessData(progAccessSource)
 
   for (const schemaName of sourceSchemas) {
-    const data = JSON.parse(
+    const schemaData = JSON.parse(
       await readFile(path.join(openApiSource, schemaName), 'utf8'),
     ) as OpenApiData
     const appsDataConfig = JSON.parse(await readFile(CONFIG_FILE, 'utf8')) as AppsDataConfig
@@ -138,7 +138,7 @@ export async function syncGitHubAppsData(
     }
     // Because the information used on the apps page doesn't require any
     // rendered content we can parse the dereferenced files directly
-    for (const [requestPath, operationsAtPath] of Object.entries(data.paths)) {
+    for (const [requestPath, operationsAtPath] of Object.entries(schemaData.paths)) {
       for (const [verb, operation] of Object.entries(operationsAtPath)) {
         // We only want to process operations that have programmatic access data
         if (!progAccessData[operation.operationId]) continue
@@ -378,10 +378,10 @@ function getDisplayPermissions(
 ): Array<Record<string, string>> {
   const displayPermissions = permissionSets.map((permissionSet) => {
     const displayPermissionSet: Record<string, string> = {}
-    Object.entries(permissionSet).forEach(([key, value]) => {
+    for (const [key, value] of Object.entries(permissionSet)) {
       const { displayTitle } = getDisplayTitle(key, progActorResources, true)
       displayPermissionSet[displayTitle] = value
-    })
+    }
 
     return displayPermissionSet
   })
@@ -448,11 +448,11 @@ function getDisplayTitle(
 
   const displayTitle = isRest
     ? !resourceGroup
-      ? sentenceCase(title) + ' permissions'
-      : `"${sentenceCase(title)}" ` + resourceGroup + ' permissions'
+      ? `${sentenceCase(title)} permissions`
+      : `"${sentenceCase(title)}" ${resourceGroup} permissions`
     : !resourceGroup
-      ? sentenceCase(title) + ' permissions'
-      : sentenceCase(resourceGroup) + ` permissions for "${title}"`
+      ? `${sentenceCase(title)} permissions`
+      : `${sentenceCase(resourceGroup)} permissions for "${title}"`
 
   return { title, displayTitle }
 }
@@ -491,17 +491,17 @@ export function shouldFilterMetadataPermission(
 export function isActorExcluded(
   excludedActors: string[] | undefined | null | unknown,
   actorType: string,
-  actorTypeMap: Record<string, string> = {},
+  actorMapping: Record<string, string> = {},
 ): boolean {
   if (!excludedActors || !Array.isArray(excludedActors)) {
     return false
   }
 
   // Map generic actor type to actual YAML value if mapping exists
-  const actualActorType = actorTypeMap[actorType] || actorType
+  const mappedActorType = actorMapping[actorType] || actorType
 
   // Check if the mapped actor type is excluded
-  if (excludedActors.includes(actualActorType)) {
+  if (excludedActors.includes(mappedActorType)) {
     return true
   }
 
@@ -571,7 +571,7 @@ async function getProgActorResourceContent({
   owner,
   repo,
   branch,
-  path,
+  path: resourcePath,
   gitHubSourceDirectory = null,
 }: ProgActorResourceContentOptions): Promise<ProgActorResources> {
   // Get files either locally from disk or from the GitHub remote repo
@@ -579,7 +579,9 @@ async function getProgActorResourceContent({
   if (gitHubSourceDirectory) {
     files = await getProgActorContentFromDisk(gitHubSourceDirectory)
   } else {
-    files = await getDirectoryContents(owner!, repo!, branch!, path!)
+    files = (await getDirectoryContents(owner!, repo!, branch!, resourcePath!)).map(
+      (file) => file.content,
+    )
   }
 
   // We need to format the file content into a single object. Each file
@@ -592,9 +594,9 @@ async function getProgActorResourceContent({
     if (Object.keys(fileContent).length !== 1) {
       throw new Error(`Error: The file ${JSON.stringify(fileContent)} must only have one key.`)
     }
-    Object.entries(fileContent).forEach(([key, value]) => {
+    for (const [key, value] of Object.entries(fileContent)) {
       progActorResources[key] = value
-    })
+    }
   }
   return progActorResources
 }

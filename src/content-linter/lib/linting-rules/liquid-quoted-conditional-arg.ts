@@ -1,5 +1,5 @@
 import { TokenKind } from 'liquidjs'
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
+import type { TagToken } from 'liquidjs'
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getLiquidTokens, conditionalTags, getPositionData } from '../helpers/liquid-utils'
@@ -20,14 +20,12 @@ export const liquidQuotedConditionalArg: Rule = {
   tags: ['liquid', 'format'],
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     const content = params.lines.join('\n')
-    // Using 'any' type for tokens as getLiquidTokens returns tokens from liquid-utils.ts which lacks type definitions
     const tokens = getLiquidTokens(content)
-      .filter((token: any) => token.kind === TokenKind.Tag)
-      .filter((token: any) => conditionalTags.includes(token.name))
-      .filter((token: any) => {
+      .filter((token): token is TagToken => token.kind === TokenKind.Tag)
+      .filter((token) => conditionalTags.includes(token.name))
+      .filter((token) => {
         const tokensArray = token.args.split(/\s+/g)
-        // Using 'any' for args as they come from the untyped liquid token structure
-        if (tokensArray.some((arg: any) => isStringQuoted(arg))) return true
+        if (tokensArray.some((arg) => isStringQuoted(arg))) return true
         return false
       })
 

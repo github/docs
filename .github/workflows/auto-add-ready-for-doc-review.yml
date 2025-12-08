@@ -1,0 +1,54 @@
+name: Auto-add ready-for-doc-review label
+
+# **What it does**: Automatically adds the "ready-for-doc-review" label to DIY docs PRs that contain content or data changes when they are opened in a non-draft state or converted from draft to ready for review.
+# **Why we have it**: To ensure DIY docs PRs are automatically added to the docs-content review board without requiring manual labeling.
+# **Who does it impact**: Contributors making content changes and docs-content reviewers.
+
+on:
+  pull_request:
+    types:
+      - opened
+      - ready_for_review
+    paths:
+      - 'content/**'
+      - 'data/**'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  add-review-label:
+    name: Add ready-for-doc-review label to DIY docs PRs
+    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.actor != 'github-openapi-bot' && github.actor != 'docs-bot'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+
+      - name: Check team membership
+        id: membership_check
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            try {
+              await github.rest.teams.getMembershipForUserInOrg({
+                org: 'github',
+                team_slug: 'docs',
+                username: context.payload.sender.login,
+              });
+              return true
+            } catch(err) {
+              console.log(err)
+              return false
+            }
+
+      - name: Add ready-for-doc-review label
+        if: steps.membership_check.outputs.result == 'false'
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr edit $PR_URL --add-label ready-for-doc-review

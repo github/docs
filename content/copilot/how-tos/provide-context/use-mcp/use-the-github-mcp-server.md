@@ -12,7 +12,10 @@ redirect_from:
   - /copilot/how-tos/context/model-context-protocol/using-the-github-mcp-server
   - /copilot/how-tos/context/model-context-protocol/use-the-github-mcp-server
   - /copilot/how-tos/context/use-mcp/use-the-github-mcp-server
+  - /copilot/how-tos/provide-context/install-copilot-extensions/use-copilot-extensions
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 The {% data variables.product.github %} MCP server is available to all {% data variables.product.github %} users regardless of plan type. However, specific tools within the MCP server inherit the same access requirements as their corresponding {% data variables.product.github %} features. If a feature requires a paid {% data variables.product.github %} or {% data variables.product.prodname_copilot_short %} license, the equivalent MCP tool will require the same subscription. For example, tools that interact with {% data variables.product.prodname_copilot_short %} Coding Agent require a paid {% data variables.product.prodname_copilot_short %} license.
@@ -180,7 +183,7 @@ Within {% data variables.copilot.copilot_chat_dotcom_short %}, the {% data varia
 
 The {% data variables.product.github %} MCP server is automatically configured in {% data variables.copilot.copilot_chat_dotcom_short %}. You can start using it immediately without any additional setup.
 
-{% data reusables.copilot.immersive-mode-instructions %}
+{% data reusables.copilot.access-chat-instructions %}
 1. In the prompt box, type a request related to the skill you want {% data variables.copilot.copilot_chat_short %} to perform, and press **Enter**.
 
     Some examples of requests you can make are:

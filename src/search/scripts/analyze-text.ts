@@ -72,13 +72,15 @@ program
 const options = program.opts<Options>()
 const args: string[] = program.args
 
-main(options, args).catch((err) => {
+try {
+  await main(options, args)
+} catch (err) {
   console.error(chalk.red('Error:'), err)
   process.exit(1)
-})
+}
 
-async function main(opts: Options, args: string[]): Promise<void> {
-  const texts = [args.join(' ')]
+async function main(opts: Options, textArgs: string[]): Promise<void> {
+  const texts = [textArgs.join(' ')]
   if (!opts.elasticsearchUrl && !process.env.ELASTICSEARCH_URL) {
     throw new Error(
       'Must pass the elasticsearch URL option or ' +

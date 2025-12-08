@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/how-tos/custom-instructions/adding-organization-custom-instructions-for-github-copilot
   - /copilot/how-tos/custom-instructions/add-organization-instructions
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 {% data reusables.copilot.custom-instructions-org-support %}

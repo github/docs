@@ -1982,7 +1982,7 @@
     },
     {
       "slug": "get-github-advanced-security-active-committers-for-an-enterprise",
-      "subcategory": "billing",
+      "subcategory": "licensing",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/settings/billing/advanced-security"
     },
@@ -3373,98 +3373,6 @@
       "requestPath": "/orgs/{org}/private-registries/{secret_name}"
     }
   ],
-  "projects-classic": [
-    {
-      "slug": "list-organization-projects",
-      "subcategory": "projects",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/projects"
-    },
-    {
-      "slug": "create-an-organization-project",
-      "subcategory": "projects",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/projects"
-    },
-    {
-      "slug": "get-a-project-column",
-      "subcategory": "columns",
-      "verb": "get",
-      "requestPath": "/projects/columns/{column_id}"
-    },
-    {
-      "slug": "update-an-existing-project-column",
-      "subcategory": "columns",
-      "verb": "patch",
-      "requestPath": "/projects/columns/{column_id}"
-    },
-    {
-      "slug": "delete-a-project-column",
-      "subcategory": "columns",
-      "verb": "delete",
-      "requestPath": "/projects/columns/{column_id}"
-    },
-    {
-      "slug": "move-a-project-column",
-      "subcategory": "columns",
-      "verb": "post",
-      "requestPath": "/projects/columns/{column_id}/moves"
-    },
-    {
-      "slug": "get-a-project",
-      "subcategory": "projects",
-      "verb": "get",
-      "requestPath": "/projects/{project_id}"
-    },
-    {
-      "slug": "update-a-project",
-      "subcategory": "projects",
-      "verb": "patch",
-      "requestPath": "/projects/{project_id}"
-    },
-    {
-      "slug": "delete-a-project",
-      "subcategory": "projects",
-      "verb": "delete",
-      "requestPath": "/projects/{project_id}"
-    },
-    {
-      "slug": "list-project-collaborators",
-      "subcategory": "collaborators",
-      "verb": "get",
-      "requestPath": "/projects/{project_id}/collaborators"
-    },
-    {
-      "slug": "add-project-collaborator",
-      "subcategory": "collaborators",
-      "verb": "put",
-      "requestPath": "/projects/{project_id}/collaborators/{username}"
-    },
-    {
-      "slug": "remove-user-as-a-collaborator",
-      "subcategory": "collaborators",
-      "verb": "delete",
-      "requestPath": "/projects/{project_id}/collaborators/{username}"
-    },
-    {
-      "slug": "get-project-permission-for-a-user",
-      "subcategory": "collaborators",
-      "verb": "get",
-      "requestPath": "/projects/{project_id}/collaborators/{username}/permission"
-    },
-    {
-      "slug": "list-repository-projects",
-      "subcategory": "projects",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/projects"
-    },
-    {
-      "slug": "create-a-repository-project",
-      "subcategory": "projects",
-      "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/projects"
-    }
-  ],
   "pulls": [
     {
       "slug": "list-pull-requests",
@@ -4555,30 +4463,6 @@
       "subcategory": "members",
       "verb": "delete",
       "requestPath": "/orgs/{org}/teams/{team_slug}/memberships/{username}"
-    },
-    {
-      "slug": "list-team-projects",
-      "subcategory": "teams",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/projects"
-    },
-    {
-      "slug": "check-team-permissions-for-a-project",
-      "subcategory": "teams",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
-    },
-    {
-      "slug": "add-or-update-team-project-permissions",
-      "subcategory": "teams",
-      "verb": "put",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
-    },
-    {
-      "slug": "remove-a-project-from-a-team",
-      "subcategory": "teams",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
     },
     {
       "slug": "list-team-repositories",

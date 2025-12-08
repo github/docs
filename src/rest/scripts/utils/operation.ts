@@ -1,8 +1,6 @@
-// @ts-ignore - no types available
 import httpStatusCodes from 'http-status-code'
 import { get, isPlainObject } from 'lodash-es'
 import { parseTemplate } from 'url-template'
-// @ts-ignore - no types available
 import mergeAllOf from 'json-schema-merge-allof'
 
 import { renderContent } from './render-content'
@@ -47,9 +45,9 @@ export default class Operation {
     if (serverVariables) {
       // Template variables structure comes from OpenAPI server variables
       const templateVariables: Record<string, any> = {}
-      Object.keys(serverVariables).forEach(
-        (key) => (templateVariables[key] = serverVariables[key].default),
-      )
+      for (const key of Object.keys(serverVariables)) {
+        templateVariables[key] = serverVariables[key].default
+      }
       this.serverUrl = parseTemplate(this.serverUrl).expand(templateVariables)
     }
 
@@ -170,15 +168,11 @@ export default class Operation {
     // Operation Id: markdown/render-raw
     const contentType = Object.keys(this.#operation.requestBody.content)[0]
     const schema = get(this.#operation, `requestBody.content.${contentType}.schema`, {})
-    // TODO: Remove this check
-    if (this.#operation.operationId === 'checks/create') {
-      delete schema.oneOf
-    }
     // Merges any instances of allOf in the schema using a deep merge
     const mergedAllofSchema = mergeAllOf(schema)
     try {
       this.bodyParameters = isPlainObject(schema)
-        ? await getBodyParams(mergedAllofSchema, true)
+        ? await getBodyParams(mergedAllofSchema as any, true)
         : []
     } catch (error) {
       console.error(error)

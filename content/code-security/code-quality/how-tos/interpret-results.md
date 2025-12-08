@@ -2,7 +2,7 @@
 title: Interpreting the code quality results for your repository
 shortTitle: Interpret results
 allowTitleToDifferFromFilename: true
-intro: 'View {% data variables.product.prodname_code_quality %} findings for your default branch and fix them to improve your quality rating.'
+intro: 'View {% data variables.product.prodname_code_quality %} findings for your default branch.'
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
@@ -49,6 +49,8 @@ Code quality results should always be interpreted in the context of your reposit
 * Small repositories, or repositories with only a small amount of code written in supported languages, tend to have few results and good ratings.
 * Repositories with a lot of generated code may have many maintenance results, lowering the rating for maintainability. This is not a problem if the source code itself is maintainable.
 * Large repositories with a lot of code in a fully supported language often have many results even if the majority of the code has good maintainability and reliability standards.
+
+To learn more about the metrics and how the ratings are calculated, see [AUTOTITLE](/code-security/code-quality/reference/metrics-and-ratings).
 
 ## Next steps
 

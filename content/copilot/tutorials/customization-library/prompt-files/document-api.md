@@ -6,6 +6,7 @@ versions:
 category:
   - Prompt files
   - Development workflows
+  - Configure Copilot
 complexity:
   - Advanced
 octicon: copilot

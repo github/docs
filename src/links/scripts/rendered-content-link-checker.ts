@@ -87,11 +87,11 @@ const STATIC_PREFIXES: Record<string, string> = {
   public: path.resolve(path.join('src', 'graphql', 'data')),
 }
 // Sanity check that these are valid paths
-Object.entries(STATIC_PREFIXES).forEach(([key, value]) => {
+for (const [key, value] of Object.entries(STATIC_PREFIXES)) {
   if (!fs.existsSync(value)) {
     throw new Error(`Can't find static prefix (${key}): ${value}`)
   }
-})
+}
 
 // By default, we don't cache external link checks to disk.
 // By setting this env var to something >0, it enables the disk-based
@@ -128,10 +128,12 @@ async function limitConcurrency<T, R>(
   const executing = new Set<Promise<R>>()
 
   for (const item of items) {
-    const promise = asyncFn(item).then((result) => {
+    const createPromise = async () => {
+      const result = await asyncFn(item)
       executing.delete(promise)
       return result
-    })
+    }
+    const promise = createPromise()
 
     results.push(promise)
     executing.add(promise)
@@ -481,8 +483,8 @@ async function commentOnPR(core: CoreInject, octokit: Octokit, flaws: LinkFlaw[]
     issue_number: pullNumber,
   })
   let previousCommentId
-  for (const { body, id } of data) {
-    if (body && body.includes(findAgainSymbol)) {
+  for (const { body: commentBody, id } of data) {
+    if (commentBody && commentBody.includes(findAgainSymbol)) {
       previousCommentId = id
     }
   }
@@ -611,7 +613,7 @@ function flawIssueDisplay(flaws: LinkFlaw[], opts: Options, mentionExternalExclu
 
   // limit is 65536
   if (output.length > 60000) {
-    output = output.slice(0, 60000) + '\n\n---\n\nOUTPUT TRUNCATED'
+    output = `${output.slice(0, 60000)}\n\n---\n\nOUTPUT TRUNCATED`
   }
 
   return output
@@ -950,7 +952,7 @@ async function checkHrefLink(
   // 6. 'https://example.com' (external link)
 
   const [pathFragment, hashFragment] = href.split('#')
-  const hash = '#' + hashFragment // the hash is the part that starts with `#`
+  const hash = `#${hashFragment}` // the hash is the part that starts with `#`
 
   // this conditional handles cases in which the link is to the current article (cases 1-3 above)
   if (checkAnchors && (!pathFragment || pathFragment === permalink.href)) {

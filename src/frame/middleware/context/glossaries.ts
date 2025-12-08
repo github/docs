@@ -27,9 +27,9 @@ export default async function glossaries(req: ExtendedRequest, res: Response, ne
   if (req.context.currentLanguage !== 'en') {
     const enGlossariesRaw: Glossary[] = getDataByLanguage('glossaries.external', 'en')
 
-    enGlossariesRaw.forEach(({ term, description }) => {
+    for (const { term, description } of enGlossariesRaw) {
       enGlossaryMap.set(term, description)
-    })
+    }
   }
 
   // The glossaries Yaml file contains descriptions that might contain
@@ -41,7 +41,7 @@ export default async function glossaries(req: ExtendedRequest, res: Response, ne
     'glossaries.external',
     req.context.currentLanguage!,
   )
-  const glossaries = (
+  const glossariesList = (
     await Promise.all(
       glossariesRaw.map(async (glossary) => {
         let { description } = glossary
@@ -80,7 +80,7 @@ export default async function glossaries(req: ExtendedRequest, res: Response, ne
     )
   ).filter(Boolean)
 
-  req.context.glossaries = glossaries.sort((a, b) =>
+  req.context.glossaries = glossariesList.sort((a, b) =>
     a.term.localeCompare(b.term, req.context!.currentLanguage),
   )
 

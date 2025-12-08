@@ -9,7 +9,7 @@ topics:
 children:
   - /create-copilot-spaces
   - /use-copilot-spaces
-  - /collaborate-with-your-team
+  - /collaborate-with-others
 redirect_from:
   - /copilot/using-github-copilot/copilot-spaces
   - /copilot/how-tos/context/copilot-spaces

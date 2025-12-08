@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getFrontmatter } from '../helpers/utils'
@@ -7,7 +6,7 @@ import type { RuleParams, RuleErrorCallback, Rule } from '@/content-linter/types
 
 interface Frontmatter {
   introLinks?: Record<string, string>
-  [key: string]: any
+  [key: string]: unknown
 }
 
 // Get the valid introLinks keys from ui.yml
@@ -48,8 +47,8 @@ export const frontmatterIntroLinks: Rule = {
     for (const key of Object.keys(introLinks)) {
       if (!validKeys.includes(key)) {
         // Find the line with this key
-        const line = params.lines.find((line: string) => {
-          const trimmed = line.trim()
+        const line = params.lines.find((ln: string) => {
+          const trimmed = ln.trim()
           return trimmed.startsWith(`${key}:`) && !trimmed.startsWith('introLinks:')
         })
         const lineNumber = line ? params.lines.indexOf(line) + 1 : 1

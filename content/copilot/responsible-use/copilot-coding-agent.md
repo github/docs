@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-copilot-coding-agent-on-githubcom
   - /copilot/responsible-use-of-github-copilot-features/copilot-coding-agent
 contentType: rai
+category: 
+  - Responsible use
 ---
 
 ## About {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.prodname_dotcom_the_website %}

@@ -130,12 +130,15 @@ export default async function buildRecords(
     })
     .on('error', (err) => {
       // Track the failure
-      const url = (err as any).url
-      const relativePath = (err as any).relativePath
+      const url = (err as unknown as { url?: string }).url
+      const relativePath = (err as unknown as { relativePath?: string }).relativePath
 
       // Check for HTTPError by name since it may come from a different module
-      if ((err instanceof HTTPError || err?.name === 'HTTPError') && (err as any).response) {
-        const httpErr = err as any
+      if (
+        (err instanceof HTTPError || err?.name === 'HTTPError') &&
+        (err as unknown as HTTPError).response
+      ) {
+        const httpErr = err as unknown as HTTPError
         failedPages.push({
           url: httpErr.request?.requestUrl?.pathname || url,
           relativePath,
@@ -146,7 +149,7 @@ export default async function buildRecords(
         if (!noMarkers) process.stdout.write(chalk.red('✗'))
       } else if (err instanceof Error) {
         // Enhanced error handling for timeout and network errors
-        const errorType = (err.cause as any)?.code || err.name
+        const errorType = (err.cause as unknown as { code?: string })?.code || err.name
         const isTimeout =
           errorType === 'UND_ERR_HEADERS_TIMEOUT' ||
           errorType === 'UND_ERR_CONNECT_TIMEOUT' ||
@@ -173,61 +176,59 @@ export default async function buildRecords(
     })
 
   // Wait for 'done' event but ignore 'error' events (they're handled by the error listener above)
-  return eventToPromise(waiter, 'done', { ignoreErrors: true }).then(() => {
-    console.log('\nrecords in index: ', records.length)
+  await eventToPromise(waiter, 'done', { ignoreErrors: true })
+  console.log('\nrecords in index: ', records.length)
 
-    // Report failed pages if any
-    if (failedPages.length > 0) {
-      console.log(
-        '\n' +
-          boxen(
-            chalk.bold.red(`${failedPages.length} page(s) failed to scrape\n\n`) +
-              failedPages
-                .slice(0, 10) // Show first 10 failures
-                .map((failure, idx) => {
-                  return (
-                    chalk.gray(`${idx + 1}. `) +
-                    chalk.yellow(failure.errorType) +
-                    '\n' +
-                    (failure.relativePath
-                      ? chalk.cyan(`   Path: `) + failure.relativePath + '\n'
-                      : '') +
-                    (failure.url ? chalk.cyan(`   URL: `) + failure.url + '\n' : '') +
-                    chalk.gray(`   Error: ${failure.error}`)
-                  )
-                })
-                .join('\n\n') +
-              (failedPages.length > 10
-                ? `\n\n${chalk.gray(`... and ${failedPages.length - 10} more`)}`
-                : ''),
-            {
-              title: chalk.red('⚠ Failed Pages'),
-              padding: 1,
-              borderColor: 'yellow',
-            },
-          ) +
-          '\n',
-      )
+  // Report failed pages if any
+  if (failedPages.length > 0) {
+    const failureCount = failedPages.length
+    const header = chalk.bold.red(`${failureCount} page(s) failed to scrape\n\n`)
 
-      // Log suggestion
+    const failureList = failedPages
+      .slice(0, 10) // Show first 10 failures
+      .map((failure, idx) => {
+        const number = chalk.gray(`${idx + 1}. `)
+        const errorType = chalk.yellow(failure.errorType)
+        const pathLine = failure.relativePath
+          ? `\n${chalk.cyan('   Path: ')}${failure.relativePath}`
+          : ''
+        const urlLine = failure.url ? `\n${chalk.cyan('   URL: ')}${failure.url}` : ''
+        const errorLine = `\n${chalk.gray(`   Error: ${failure.error}`)}`
+
+        return `${number}${errorType}${pathLine}${urlLine}${errorLine}`
+      })
+      .join('\n\n')
+
+    const remaining =
+      failureCount > 10 ? `\n\n${chalk.gray(`... and ${failureCount - 10} more`)}` : ''
+
+    const boxContent = header + failureList + remaining
+    const box = boxen(boxContent, {
+      title: chalk.red('⚠ Failed Pages'),
+      padding: 1,
+      borderColor: 'yellow',
+    })
+
+    console.log(`\n${box}\n`)
+
+    // Log suggestion
+    console.log(
+      chalk.yellow(
+        `💡 Tip: These failures won't stop the scraping process. The script will continue with the remaining pages.`,
+      ),
+    )
+
+    if (failedPages.some((f) => f.errorType === 'Timeout')) {
       console.log(
-        chalk.yellow(
-          `💡 Tip: These failures won't stop the scraping process. The script will continue with the remaining pages.`,
+        chalk.gray(
+          `   For timeout errors, try: export BUILD_RECORDS_MAX_CONCURRENT=50 (currently ${MAX_CONCURRENT})`,
         ),
       )
-
-      if (failedPages.some((f) => f.errorType === 'Timeout')) {
-        console.log(
-          chalk.gray(
-            `   For timeout errors, try: export BUILD_RECORDS_MAX_CONCURRENT=50 (currently ${MAX_CONCURRENT})`,
-          ),
-        )
-      }
     }
+  }
 
-    return {
-      records,
-      failedPages,
-    }
-  })
+  return {
+    records,
+    failedPages,
+  }
 }

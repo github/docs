@@ -17,7 +17,7 @@ copilot_free_short: 'Copilot Free'
 
 ## Copilot billing
 # Price per additional premium request
-additional_premium_requests: '$0.04 USD'
+additional_premium_requests: '$0.04 USD' # Note that these are also used to bill other products
 # Price per month for Copilot Pro
 cfi_price_per_month: '$10 USD'
 # Price per year for Copilot Pro
@@ -81,6 +81,12 @@ copilot_custom_agent_caps_short: 'Custom agent'
 custom_agents_short: 'custom agents'
 custom_agents_caps_short: 'Custom agents'
 
+## Copilot subagents
+subagent_short: 'subagent'
+subagent_caps_short: 'Subagent'
+subagents_short: 'subagents'
+subagents_caps_short: 'Subagents'
+
 ## Agent profiles (configuration files that define custom agents)
 agent_profile: 'agent profile'
 agent_profile_caps: 'Agent profile'
@@ -132,6 +138,7 @@ copilot_claude: 'Claude'
 copilot_claude_haiku_45: 'Claude Haiku 4.5'
 copilot_claude_opus: 'Claude Opus 4'
 copilot_claude_opus_41: 'Claude Opus 4.1'
+copilot_claude_opus_45: 'Claude Opus 4.5'
 copilot_claude_sonnet: 'Claude Sonnet'
 copilot_claude_sonnet_35: 'Claude Sonnet 3.5'
 copilot_claude_sonnet_37: 'Claude Sonnet 3.7'
@@ -141,12 +148,17 @@ copilot_claude_sonnet_45: 'Claude Sonnet 4.5'
 copilot_gemini: 'Gemini'
 copilot_gemini_flash: 'Gemini 2.0 Flash'
 copilot_gemini_25_pro: 'Gemini 2.5 Pro'
+copilot_gemini_3_pro: 'Gemini 3 Pro'
 # OpenAI GPT series:
 copilot_gpt_4o: 'GPT-4o'
 copilot_gpt_41: 'GPT-4.1'
 copilot_gpt_5: 'GPT-5'
 copilot_gpt_5_codex: 'GPT-5-Codex'
 copilot_gpt_5_mini: 'GPT-5 mini'
+copilot_gpt_51: 'GPT-5.1'
+copilot_gpt_51_codex: 'GPT-5.1-Codex'
+copilot_gpt_51_codex_mini: 'GPT-5.1-Codex-Mini'
+copilot_gpt_51_codex_max: 'GPT-5.1-Codex-Max'
 # OpenAI 'o' series:
 copilot_o3: 'o3'
 copilot_o4_mini: 'o4-mini'
@@ -154,11 +166,13 @@ copilot_o4_mini: 'o4-mini'
 copilot_grok_code: 'Grok Code Fast 1'
 # Qwen:
 copilot_qwen_25: 'Qwen2.5'
+# Microsoft fine-tuned:
+copilot_raptor_mini: 'Raptor mini'
 
 ## Current model used by Copilot coding agent and Copilot CLI
 cca_current_model: '{% data variables.copilot.copilot_claude_sonnet_40 %}'
 
-## Next edit suggestions in VS Code
+## Next edit suggestions
 next_edit_suggestions: 'next edit suggestions'
 next_edit_suggestions_caps: 'Next edit suggestions'
 
@@ -167,3 +181,6 @@ copilot_workspace_pr: 'GitHub Copilot Workspace for pull requests'
 copilot_workspace_pr_short: 'Copilot Workspace for PRs'
 copilot_workspace: 'Copilot Workspace'
 copilot_workspace_short: 'Workspace'
+
+# BYOK
+copilot_byok_supported_features: '{% data variables.copilot.copilot_chat %}'

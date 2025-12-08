@@ -59,7 +59,7 @@ const graphqlTypes: GraphQLTypeInfo[] = JSON.parse(
 const singleQuotesInsteadOfBackticks = / '(\S+?)' /
 
 function addPeriod(string: string): string {
-  return string.endsWith('.') ? string : string + '.'
+  return string.endsWith('.') ? string : `${string}.`
 }
 
 async function getArguments(
@@ -128,8 +128,8 @@ function getFullLink(baseType: string, id: string): string {
   return `/graphql/reference/${baseType}#${id}`
 }
 
-function getId(path: string): string {
-  return removeMarkers(path).toLowerCase()
+function getId(typeName: string): string {
+  return removeMarkers(typeName).toLowerCase()
 }
 
 // e.g., given `ObjectTypeDefinition`, get `objects`

@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
@@ -63,7 +64,7 @@ export const DefaultLayout = (props: Props) => {
   const metaDescription = page.introPlainText ? page.introPlainText : t('default_description')
 
   const SOCIAL_CATEGORIES = new Set(['code-security', 'actions', 'issues', 'copilot'])
-  const SOCIAL_CARD_IMG_BASE_URL = `${xHost ? 'https://' + xHost : ''}/assets/cb-345/images/social-cards`
+  const SOCIAL_CARD_IMG_BASE_URL = `${xHost ? `https://${xHost}` : ''}/assets/cb-345/images/social-cards`
 
   function getCategoryImageUrl(category: string): string {
     return `${SOCIAL_CARD_IMG_BASE_URL}/${category}.png`
@@ -118,6 +119,7 @@ export const DefaultLayout = (props: Props) => {
           />
         )}
         {page.type && <meta name="page-type" content={page.type} />}
+        {page.contentType && <meta name="page-content-type" content={page.contentType} />}
         {page.documentType && <meta name="page-document-type" content={page.documentType} />}
         {status && <meta name="status" content={status.toString()} />}
 

@@ -6,6 +6,7 @@ versions:
 category:
   - Custom instructions
   - GitHub flows
+  - Configure Copilot
 complexity:
   - Simple
 octicon: book
@@ -50,7 +51,7 @@ When creating or managing {% data variables.product.prodname_dotcom %} issues:
 
 ## Key Response Guidelines
 - Request reproduction steps for unclear bugs
-- Ask for screenshots/logs when visual issues are reported  
+- Ask for screenshots/logs when visual issues are reported
 - Explain technical concepts clearly for non-technical users
 - Update issue status regularly with progress information
 

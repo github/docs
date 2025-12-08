@@ -8,5 +8,4 @@ children:
   - /optimizing-your-ai-powered-app-with-github-models
   - /evaluating-ai-models
   - /storing-prompts-in-github-repositories
-  - /integrating-ai-models-into-your-development-workflow
 ---

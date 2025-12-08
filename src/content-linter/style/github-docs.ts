@@ -1,31 +1,3 @@
-export const reportingConfig = {
-  // Always include all rules with these severities in automated weekly reports
-  includeSeverities: ['error'],
-
-  // Specific rules to include regardless of severity
-  // Add rule names (short or long form) that should always be reported
-  includeRules: [
-    'GHD038', // expired-content - Content that has passed its expiration date
-    'expired-content',
-  ],
-
-  // Specific rules to exclude from CI and reports (overrides severity-based inclusion)
-  // Add rule names here if you want to suppress them from reports
-  excludeRules: [
-    // Example: 'GHD030' // Uncomment to exclude code-fence-line-length warnings
-    'british-english-quotes', // Exclude from reports but keep for pre-commit
-  ],
-
-  // Files to exclude from specific rules in CI and reports
-  // Format: { 'rule-name': ['file/path/pattern1', 'file/path/pattern2'] }
-  excludeFilesFromRules: {
-    'todocs-placeholder': [
-      'content/contributing/collaborating-on-github-docs/using-the-todocs-placeholder-to-leave-notes.md',
-      'content/contributing/collaborating-on-github-docs/index.md',
-    ],
-  },
-}
-
 const githubDocsConfig = {
   'link-punctuation': {
     // GHD001
@@ -129,12 +101,6 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
-  'code-fence-line-length': {
-    // GHD030
-    severity: 'warning',
-    'partial-markdown-files': true,
-    'yml-files': true,
-  },
   'image-alt-text-exclude-words': {
     // GHD031
     severity: 'error',
@@ -149,13 +115,7 @@ const githubDocsConfig = {
   },
   'incorrect-alt-text-length': {
     // GHD033
-    severity: 'warning',
-    'partial-markdown-files': true,
-    'yml-files': true,
-  },
-  'list-first-word-capitalization': {
-    // GHD034
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
     'yml-files': true,
   },
@@ -202,58 +162,28 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
-  'octicon-aria-labels': {
-    // GHD044
-    severity: 'warning',
-    'partial-markdown-files': true,
-    'yml-files': true,
-  },
+  // GHD044 removed - octicon aria-labels are now auto-generated
   'code-annotation-comment-spacing': {
     // GHD045
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
     'yml-files': true,
   },
   'outdated-release-phase-terminology': {
     // GHD046
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
     'yml-files': true,
   },
   'table-column-integrity': {
     // GHD047
-    severity: 'warning',
-    'partial-markdown-files': true,
-    'yml-files': true,
-  },
-  'british-english-quotes': {
-    // GHD048
-    severity: 'warning',
-    precommitSeverity: 'warning', // Show warnings locally for writer awareness
-    'partial-markdown-files': true,
-    'yml-files': true,
-  },
-  'note-warning-formatting': {
-    // GHD049
-    severity: 'warning',
-    'partial-markdown-files': true,
-    'yml-files': true,
-  },
-  'multiple-emphasis-patterns': {
-    // GHD050
-    severity: 'warning',
-    'partial-markdown-files': true,
-    'yml-files': true,
-  },
-  'header-content-requirement': {
-    // GHD053
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
     'yml-files': true,
   },
   'third-party-actions-reusable': {
     // GHD054
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
     'yml-files': true,
   },
@@ -308,13 +238,7 @@ export const githubDocsFrontmatterConfig = {
   },
   'frontmatter-versions-whitespace': {
     // GHD051
-    severity: 'warning',
-    'partial-markdown-files': false,
-    'yml-files': false,
-  },
-  'frontmatter-validation': {
-    // GHD055
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': false,
     'yml-files': false,
   },
