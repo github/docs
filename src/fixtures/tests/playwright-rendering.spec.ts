@@ -1071,7 +1071,7 @@ test.describe('Journey Tracks', () => {
 
     // Verify track has proper structure
     const firstTrack = tracks.first()
-    await expect(firstTrack.locator('h3')).toBeVisible() // Track title
+    await expect(firstTrack.locator('h2')).toBeVisible() // Track title
     await expect(firstTrack.locator('p')).toBeVisible() // Track description
   })
 
