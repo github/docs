@@ -206,9 +206,10 @@ async function getApplicableVersionFromLiquidTag(conditionStr: string) {
       const ands = ver.split(' and ')
       const firstAnd = ands[0].split(' ')[0]
       // if all ands don't start with the same version it's invalid
+      // Note: This edge case (e.g., "fpt and ghes >= 3.1") doesn't occur in our content.
+      // All actual uses have matching versions (e.g., "ghes and ghes > 3.19").
+      // If this edge case appears in the future, additional logic would be needed here.
       if (!ands.every((and) => and.startsWith(firstAnd))) {
-        // noop - we don't handle this case
-        // TODO - handle this case in the future
         return []
       }
       const andValues = []
