@@ -413,7 +413,7 @@
   hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
-  isduplicate: false
+  isduplicate: true
 - provider: Azure
   supportedSecret: Azure Cache for Redis Access Key
   secretType: azure_cache_for_redis_access_key
@@ -2401,9 +2401,6 @@
 - provider: Lark
   supportedSecret: Lark APaaS Client ID
   secretType: lark_apaas_client_id, </br>lark_apaas_client_secret
-  versions:
-    fpt: '*'
-    ghec: '*'
   isPublic: true
   isPrivateWithGhas: false
   hasPushProtection: false
@@ -2413,9 +2410,15 @@
 - provider: Lark
   supportedSecret: Lark Application ID
   secretType: lark_app_id, </br>lark_app_secret
-  versions:
-    fpt: '*'
-    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Lark
+  supportedSecret: Lark MCP Grant Token
+  secretType: lark_mcp_grant_token
   isPublic: true
   isPrivateWithGhas: false
   hasPushProtection: false
@@ -2425,9 +2428,6 @@
 - provider: Lark
   supportedSecret: Lark Meego Plugin ID
   secretType: lark_meego_plugin_id, </br>lark_meego_plugin_secret
-  versions:
-    fpt: '*'
-    ghec: '*'
   isPublic: true
   isPrivateWithGhas: false
   hasPushProtection: false
@@ -2437,9 +2437,6 @@
 - provider: Lark
   supportedSecret: Lark User Session
   secretType: lark_user_session
-  versions:
-    fpt: '*'
-    ghec: '*'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3070,10 +3067,6 @@
 - provider: Paddle
   supportedSecret: Paddle Sandbox API Key
   secretType: paddle_sandbox_api_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.20'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
