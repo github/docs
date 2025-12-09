@@ -38,7 +38,7 @@ These limits are subject to change.
 | All {% data variables.product.github %}-hosted runners | Storage limits | Varies | For more information, see [Storage limits for all {% data variables.product.github %}-hosted runners](#storage-limits-for-all-github-hosted-runners). | {% octicon "x" aria-label="No" %} |
 | {% endif %} |
 | Larger runners | Per runner concurrency limit | Varies by runner type | Established when setting up a runner. Normally 1,000 max for Linux CPU runners, but varies by type. See [Job concurrency limits for {% data variables.product.github %}-hosted runners](#job-concurrency-limits-for-github-hosted-runners). | {% octicon "check" aria-label="Yes" %} Support ticket |
-| Larger runners | Static IP limits | 10-50 IPs | 10 IPs for team plans, 50 IPs for enterprise, and the limit is configurable. | {% octicon "check" aria-label="Yes" %} Support ticket |
+| Larger runners | Static IP limits | 10 IPs | 10 IPs per enterprise and organization. | {% octicon "check" aria-label="Yes" %} Support ticket |
 | Larger runners | Private IP scaling for vnet injection | 30% buffer | You need a buffer to accommodate the maximum job concurrency you anticipate. See [Private IP scaling for vnet injection on larger runners](#private-ip-scaling-for-vnet-injection-on-larger-runners). | {% octicon "check" aria-label="Yes" %} Configurable Azure virtual network |
 
 ### Job concurrency limits for {% data variables.product.github %}-hosted runners

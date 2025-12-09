@@ -70,9 +70,8 @@ export default function parsePageSectionsIntoRecords(page: any): Record {
   // We need to avoid these because if you use `getAllText()` on these
   // pages, it will extract *everything* from the page, which will
   // include the side bar and footer.
-  // TODO: Come up a custom solution to extract some text from these
-  // pages that yields some decent content to be searched on, because
-  // when you view these pages in a browser, there's clearly text there.
+  // Note: We're not adding custom extraction for guide pages as they are
+  // being phased out and don't warrant the effort.
   if ($root.length > 0) {
     body = render($root)
   }

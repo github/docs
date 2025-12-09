@@ -56183,14 +56183,6 @@
           "href": "/graphql/reference/enums#pullrequestallowedmergemethods"
         },
         {
-          "name": "automaticCopilotCodeReviewEnabled",
-          "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and their premium requests quota has not\nreached the limit.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
           "name": "dismissStaleReviewsOnPush",
           "description": "<p>New, reviewable commits pushed will dismiss previous pull request review approvals.</p>",
           "type": "Boolean!",
@@ -106360,14 +106352,6 @@
           "id": "pullrequestallowedmergemethods",
           "kind": "enums",
           "href": "/graphql/reference/enums#pullrequestallowedmergemethods"
-        },
-        {
-          "name": "automaticCopilotCodeReviewEnabled",
-          "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and their premium requests quota has not\nreached the limit.</p>",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "dismissStaleReviewsOnPush",

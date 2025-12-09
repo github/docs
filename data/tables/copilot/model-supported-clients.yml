@@ -32,10 +32,10 @@
 - name: Claude Opus 4.5
   dotcom: true
   vscode: true
-  vs: false
-  eclipse: false
-  xcode: false
-  jetbrains: false
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
 
 - name: Claude Sonnet 4
   dotcom: true
@@ -124,6 +124,14 @@
   eclipse: true
   xcode: true
   jetbrains: true
+
+- name: GPT-5.1-Codex-Max
+  dotcom: true
+  vscode: true
+  vs: false
+  eclipse: false
+  xcode: false
+  jetbrains: false
 
 - name: Grok Code Fast 1
   dotcom: true

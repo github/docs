@@ -1,4 +1,5 @@
 import { addError } from 'markdownlint-rule-helpers'
+import type { TopLevelToken } from 'liquidjs'
 
 import {
   getLiquidIfVersionTokens,
@@ -35,8 +36,11 @@ export const liquidIfversionVersions = {
     const fileVersionsFm = params.name.startsWith('data')
       ? { ghec: '*', ghes: '*', fpt: '*' }
       : fm
-        ? fm.versions
-        : getFrontmatter(params.frontMatterLines)?.versions
+        ? (fm.versions as string | Record<string, string> | undefined)
+        : (getFrontmatter(params.frontMatterLines)?.versions as
+            | string
+            | Record<string, string>
+            | undefined)
     // This will only contain valid (non-deprecated) and future versions
     const fileVersions = getApplicableVersions(fileVersionsFm, '', {
       doNotThrow: true,
@@ -134,7 +138,7 @@ function setLiquidErrors(condTagItems: any[], onError: RuleErrorCallback, lines:
         {
           begin: item.begin,
           end: item.end,
-        },
+        } as TopLevelToken,
         lines,
       )
       const deleteCount = length - column + 1 === lines[lineNumber - 1].length ? -1 : length
@@ -159,7 +163,7 @@ function setLiquidErrors(condTagItems: any[], onError: RuleErrorCallback, lines:
         {
           begin: item.contentrange[0],
           end: item.contentrange[1],
-        },
+        } as TopLevelToken,
         lines,
       )
       const insertText = `${item.action.name || item.name} ${item.action.cond || item.cond}`
@@ -202,9 +206,10 @@ async function getApplicableVersionFromLiquidTag(conditionStr: string) {
       const ands = ver.split(' and ')
       const firstAnd = ands[0].split(' ')[0]
       // if all ands don't start with the same version it's invalid
+      // Note: This edge case (e.g., "fpt and ghes >= 3.1") doesn't occur in our content.
+      // All actual uses have matching versions (e.g., "ghes and ghes > 3.19").
+      // If this edge case appears in the future, additional logic would be needed here.
       if (!ands.every((and) => and.startsWith(firstAnd))) {
-        // noop - we don't handle this case
-        // TODO - handle this case in the future
         return []
       }
       const andValues = []
