@@ -1697,6 +1697,24 @@
       "subcategory": "secrets",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/dependabot/secrets/{secret_name}"
+    },
+    {
+      "slug": "list-dismissal-requests-for-dependabot-alerts-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot"
+    },
+    {
+      "slug": "get-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}"
+    },
+    {
+      "slug": "review-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}"
     }
   ],
   "dependency-graph": [
@@ -2905,62 +2923,6 @@
       "subcategory": "organization-configurations",
       "verb": "delete",
       "requestPath": "/orgs/{org}/private-registries/{secret_name}"
-    }
-  ],
-  "projects": [
-    {
-      "slug": "list-projects-for-organization",
-      "subcategory": "projects",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/projectsV2"
-    },
-    {
-      "slug": "get-project-for-organization",
-      "subcategory": "projects",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/projectsV2/{project_number}"
-    },
-    {
-      "slug": "list-project-fields-for-organization",
-      "subcategory": "fields",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields"
-    },
-    {
-      "slug": "get-project-field-for-organization",
-      "subcategory": "fields",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields/{field_id}"
-    },
-    {
-      "slug": "list-items-for-an-organization-owned-project",
-      "subcategory": "items",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/projectsV2/{project_number}/items"
-    },
-    {
-      "slug": "add-item-to-organization-owned-project",
-      "subcategory": "items",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/projectsV2/{project_number}/items"
-    },
-    {
-      "slug": "get-an-item-for-an-organization-owned-project",
-      "subcategory": "items",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}"
-    },
-    {
-      "slug": "update-project-item-for-organization",
-      "subcategory": "items",
-      "verb": "patch",
-      "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}"
-    },
-    {
-      "slug": "delete-project-item-for-organization",
-      "subcategory": "items",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}"
     }
   ],
   "pulls": [
