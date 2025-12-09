@@ -2565,6 +2565,24 @@
       "subcategory": "secrets",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/dependabot/secrets/{secret_name}"
+    },
+    {
+      "slug": "list-dismissal-requests-for-dependabot-alerts-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot"
+    },
+    {
+      "slug": "get-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}"
+    },
+    {
+      "slug": "review-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}"
     }
   ],
   "dependency-graph": [
@@ -5378,13 +5396,13 @@
     },
     {
       "slug": "create-an-attestation",
-      "subcategory": "repos",
+      "subcategory": "attestations",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/attestations"
     },
     {
       "slug": "list-attestations",
-      "subcategory": "repos",
+      "subcategory": "attestations",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/attestations/{subject_digest}"
     },
