@@ -14,6 +14,8 @@ versions:
   ghec: '*'
 ---
 
+{% data reusables.actions.workflow-run-statuses-2 %}
+
 > [!NOTE]
 > Re-run workflows use the privileges of the actor who initially triggered the workflow, not the privileges of the actor who initiated the re-run. The workflow will also use the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (git ref) of the original event that triggered the workflow run.
 
