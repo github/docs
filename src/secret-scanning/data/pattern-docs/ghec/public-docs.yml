@@ -308,6 +308,17 @@
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Active Directory Application Secret
+  secretType: >-
+    azure_active_directory_application_id,
+    </br>azure_active_directory_application_secret
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Azure
+  supportedSecret: Azure Active Directory Application Secret
   secretType: azure_active_directory_application_secret
   isPublic: true
   isPrivateWithGhas: true
