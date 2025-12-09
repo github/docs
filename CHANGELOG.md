@@ -1,5 +1,11 @@
 # Docs changelog
 
+**9 December 2025**
+
+We published [a guide](https://docs.github.com/en/enterprise-cloud@latest/admin/concepts/enterprise-best-practices/use-innersource) to help customers set up innersource practices in their enterprise. The guide also provides a conceptual introduction to features like internal visibility, organization base permissions, and roles for external collaborators.
+
+<hr>
+
 **8 December 2025**
 
 We've added a new tutorial on how to use Copilot Chat to write code for you. The tutorial steps you through how to create a time tracking web app using only prompts in Copilot Chat.
