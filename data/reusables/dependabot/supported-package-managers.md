@@ -2,6 +2,9 @@
 
 Package manager | YAML value      | Supported versions | Version updates | Security updates | Private repositories | Private registries | Vendoring |
 ---------------|------------------|------------------|:---:|:---:|:---:|:---:|:---:|
+| {% ifversion dependabot-bazel-support %} |
+Bazel | `bazel`         | v7, v8, v9              | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% endif %} |
 | {% ifversion dependabot-bun-support %} |
 [Bun](#bun) | `bun`         | >=v1.1.39               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% endif %} |
@@ -128,9 +131,9 @@ For {% data variables.product.prodname_dependabot_security_updates %}, Gradle su
 
 {% data variables.product.prodname_dependabot %} supports using a username and password for registries. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#helm-registry).
 
-{% data variables.product.prodname_dependabot %} works with any OCI-compliant registries that implement the Open Container Initiative (OCI) Distribution Specification.
+The `helm-registry` type only supports HTTP Basic Auth and does not support OCI-compliant registries. If you need to access an OCI-compliant registry for Helm charts, configure a `docker-registry` instead. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#docker-registry).
 
-When configuring Dependabot for Helm charts, it will also automatically update the Docker images referenced within those charts, ensuring that both the chart versions and their contained images stay up to date.
+When configuring {% data variables.product.prodname_dependabot %} for Helm charts, it will also automatically update the Docker images referenced within those charts, ensuring that both the chart versions and their contained images stay up to date.
 
 #### Maven
 

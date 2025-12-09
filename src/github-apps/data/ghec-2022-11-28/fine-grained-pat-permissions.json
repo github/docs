@@ -211,6 +211,42 @@
         "access": "read"
       },
       {
+        "category": "actions",
+        "slug": "get-github-actions-cache-retention-limit-for-an-organization",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/actions/cache/retention-limit",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
+        "slug": "set-github-actions-cache-retention-limit-for-an-organization",
+        "subcategory": "cache",
+        "verb": "put",
+        "requestPath": "/organizations/{org}/actions/cache/retention-limit",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "get-github-actions-cache-storage-limit-for-an-organization",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/actions/cache/storage-limit",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
+        "slug": "set-github-actions-cache-storage-limit-for-an-organization",
+        "subcategory": "cache",
+        "verb": "put",
+        "requestPath": "/organizations/{org}/actions/cache/storage-limit",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
         "category": "dependabot",
         "slug": "lists-the-repositories-dependabot-can-access-in-an-organization",
         "subcategory": "repository-access",
@@ -2696,6 +2732,21 @@
       }
     ]
   },
+  "organization_dependabot_dismissal_requests": {
+    "title": "Organization dismissal requests for Dependabot",
+    "displayTitle": "Organization permissions for \"Organization dismissal requests for Dependabot\"",
+    "permissions": [
+      {
+        "category": "dependabot",
+        "slug": "review-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
+        "additional-permissions": true,
+        "access": "write"
+      }
+    ]
+  },
   "organization_code_scanning_dismissal_requests": {
     "title": "Organization dismissal requests for code scanning",
     "displayTitle": "Organization permissions for \"Organization dismissal requests for code scanning\"",
@@ -2837,6 +2888,15 @@
         "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields",
         "additional-permissions": false,
         "access": "read"
+      },
+      {
+        "category": "projects",
+        "slug": "add-a-field-to-an-organization-owned-project",
+        "subcategory": "fields",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields",
+        "additional-permissions": false,
+        "access": "write"
       },
       {
         "category": "projects",
@@ -4175,6 +4235,42 @@
       },
       {
         "category": "actions",
+        "slug": "get-github-actions-cache-retention-limit-for-a-repository",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/cache/retention-limit",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
+        "slug": "set-github-actions-cache-retention-limit-for-a-repository",
+        "subcategory": "cache",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/actions/cache/retention-limit",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "get-github-actions-cache-storage-limit-for-a-repository",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
+        "slug": "set-github-actions-cache-storage-limit-for-a-repository",
+        "subcategory": "cache",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "actions",
         "slug": "get-github-actions-permissions-for-a-repository",
         "subcategory": "permissions",
         "verb": "get",
@@ -5394,7 +5490,7 @@
       {
         "category": "repos",
         "slug": "create-an-attestation",
-        "subcategory": "repos",
+        "subcategory": "attestations",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/attestations",
         "additional-permissions": false,
@@ -5403,7 +5499,7 @@
       {
         "category": "repos",
         "slug": "list-attestations",
-        "subcategory": "repos",
+        "subcategory": "attestations",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/attestations/{subject_digest}",
         "additional-permissions": false,
@@ -6758,6 +6854,33 @@
         "requestPath": "/repos/{owner}/{repo}/dependabot/alerts/{alert_number}",
         "additional-permissions": false,
         "access": "write"
+      },
+      {
+        "category": "dependabot",
+        "slug": "list-dismissal-requests-for-dependabot-alerts-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "dependabot",
+        "slug": "get-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "dependabot",
+        "slug": "review-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
+        "additional-permissions": true,
+        "access": "read"
       }
     ]
   },

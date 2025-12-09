@@ -1,6 +1,30 @@
 {
   "actions": [
     {
+      "slug": "get-github-actions-cache-retention-limit-for-an-enterprise",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-retention-limit-for-an-enterprise",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "get-github-actions-cache-storage-limit-for-an-enterprise",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/actions/cache/storage-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-storage-limit-for-an-enterprise",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/actions/cache/storage-limit"
+    },
+    {
       "slug": "get-github-actions-cache-usage-for-an-enterprise",
       "subcategory": "cache",
       "verb": "get",
@@ -11,6 +35,30 @@
       "subcategory": "oidc",
       "verb": "put",
       "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/issuer"
+    },
+    {
+      "slug": "get-github-actions-cache-retention-limit-for-an-organization",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-retention-limit-for-an-organization",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/organizations/{org}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "get-github-actions-cache-storage-limit-for-an-organization",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/actions/cache/storage-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-storage-limit-for-an-organization",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/organizations/{org}/actions/cache/storage-limit"
     },
     {
       "slug": "get-github-actions-cache-usage-for-an-organization",
@@ -551,6 +599,30 @@
       "subcategory": "artifacts",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}"
+    },
+    {
+      "slug": "get-github-actions-cache-retention-limit-for-a-repository",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-retention-limit-for-a-repository",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "get-github-actions-cache-storage-limit-for-a-repository",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-storage-limit-for-a-repository",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit"
     },
     {
       "slug": "get-github-actions-cache-usage-for-a-repository",
@@ -2493,6 +2565,24 @@
       "subcategory": "secrets",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/dependabot/secrets/{secret_name}"
+    },
+    {
+      "slug": "list-dismissal-requests-for-dependabot-alerts-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot"
+    },
+    {
+      "slug": "get-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}"
+    },
+    {
+      "slug": "review-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}"
     }
   ],
   "dependency-graph": [
@@ -4827,6 +4917,12 @@
       "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields"
     },
     {
+      "slug": "add-a-field-to-an-organization-owned-project",
+      "subcategory": "fields",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields"
+    },
+    {
       "slug": "get-project-field-for-organization",
       "subcategory": "fields",
       "verb": "get",
@@ -5300,13 +5396,13 @@
     },
     {
       "slug": "create-an-attestation",
-      "subcategory": "repos",
+      "subcategory": "attestations",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/attestations"
     },
     {
       "slug": "list-attestations",
-      "subcategory": "repos",
+      "subcategory": "attestations",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/attestations/{subject_digest}"
     },

@@ -17,6 +17,7 @@ children:
   - /integrate-coding-agent-with-slack
   - /integrate-coding-agent-with-teams
   - /integrate-coding-agent-with-linear
+  - /changing-the-ai-model
   - /customize-the-agent-environment
   - /customize-the-agent-firewall
   - /troubleshoot-coding-agent
