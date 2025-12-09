@@ -27,8 +27,12 @@ export type ExtendedRequest = Request & {
   FailBot?: Failbot
 }
 
-// TODO: Make this type from inference using AJV based on the schema.
-// For now, it's based on `schema` in frame/lib/frontmatter.ts
+// This type is manually maintained based on `schema` in frame/lib/frontmatter.ts
+// We're not auto-generating this from the AJV schema because:
+// 1. It would require significant build tooling (json-schema-to-typescript or similar)
+// 2. The schema is dynamically constructed with version-specific properties
+// 3. Manual maintenance provides better type control and documentation
+// 4. The effort/benefit tradeoff doesn't justify the complexity
 export type PageFrontmatter = {
   title: string
   versions: FrontmatterVersions
