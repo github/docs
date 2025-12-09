@@ -14,4 +14,4 @@ topics:
 
 ## Next steps
 
-Now that you've set up organizations and teams to manage people's access to work in your enterprise, learn about support so you can get help when you need it. See [AUTOTITLE](/enterprise-onboarding/support-for-your-enterprise/understanding-support).
+Learn how to set up a culture of innersource in your enterprise to allow teams to collaborate and work efficiently. See [AUTOTITLE](/enterprise-onboarding/setting-up-organizations-and-teams/use-innersource).
