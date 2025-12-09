@@ -1,5 +1,13 @@
 # Docs changelog
 
+**8 December 2025**
+
+We've added a new tutorial on how to use Copilot Chat to write code for you. The tutorial steps you through how to create a time tracking web app using only prompts in Copilot Chat.
+
+[Vibe coding with GitHub Copilot](https://docs.github.com/en/copilot/tutorials/vibe-coding)
+
+<hr>
+
 **5 December 2025**
 
 We added documentation for the new Code generation tab, which is part of Copilot usage metrics. The docs now describe how to view code generation insights across your enterprise, compare user-initiated and agent-initiated behavior, and understand differences across models, languages, and modes. We also updated related conceptual and reference content for consistency and scannability. See [Viewing the code generation dashboard](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/view-code-generation).
