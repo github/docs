@@ -27,7 +27,7 @@ This article will guide you through the essential concepts and tasks you should 
 
 ## 1. Understand how {% data variables.product.github %} charges for use
 
-First, you need to understand how billing works on GitHub and familiarize yourself with your organization's current costs and payment structure.
+First, you need to understand how billing works on {% data variables.product.github %} and familiarize yourself with your organization's current costs and payment structure.
 
 * Read about billing concepts to understand the terminology, what you pay for, and when. See [AUTOTITLE](/billing/get-started/how-billing-works).
 * Get an overview of the billing functionality and discover how to access billing information. See [AUTOTITLE](/billing/get-started/introduction-to-billing).
