@@ -26,7 +26,7 @@ For more information about what you can do with {% data variables.product.prodna
 
 The Git command line interface (`git`) allows you to work with a local or remote Git repository. The remote repository may be hosted on {% data variables.product.prodname_dotcom %} or it may be hosted by another service.
 
-{% data variables.product.prodname_cli %} (`gh`) is specifically for working with {% data variables.product.prodname_dotcom %}. It allows you to use the command line to interact with {% data variables.product.prodname_dotcom %} in all sorts of ways, as illustrated by the previous list. If you tend to work on the command line you may prefer using {% data variables.product.prodname_cli %} instead of using {% data variables.product.prodname_dotcom %} in a browser. {% data variables.product.prodname_cli %} also makes it easier for you to create scripts to automate {% data variables.product.prodname_dotcom %} operations.
+{% data variables.product.prodname_cli %} (`gh`) is specifically for working with {% data variables.product.prodname_dotcom %}. It allows you to use the command line to interact with {% data variables.product.prodname_dotcom %} in all sorts of ways, as illustrated by the previous list. If you tend to work on the command line, you may prefer using {% data variables.product.prodname_cli %} instead of using {% data variables.product.prodname_dotcom %} in a browser. {% data variables.product.prodname_cli %} also makes it easier for you to create scripts to automate {% data variables.product.prodname_dotcom %} operations.
 
 ## Installing {% data variables.product.prodname_cli %}
 
