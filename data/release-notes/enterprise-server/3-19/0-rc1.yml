@@ -245,7 +245,7 @@ sections:
   closing_down:
     # https://github.com/github/releases/issues/7007
     - |
-      As announced in [this previous blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/), GitHub will stop supporting basic authentication to APIs using a username and password in the coming versions of GHES. Instead of using password authentication, [create a {% data variables.product.pat_generic %}]((/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) in limited situations like testing. You should authenticate apps in production by using the web applications flow. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)
+      As announced in [this previous blog post](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/), GitHub will stop supporting basic authentication to APIs using a username and password in the coming versions of GHES. Instead of using password authentication, [create a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) in limited situations like testing. You should authenticate apps in production by using the web applications flow. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)
     # https://github.com/github/releases/issues/5771
     - |
       The "reviewers" configuration option for Dependabot pull requests is retired. Reviewers are now determined by repository CODEOWNERS files. If your workflow depended on the "reviewers" option, update your automation to use CODEOWNERS for assigning pull request reviewers.
