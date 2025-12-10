@@ -23,7 +23,7 @@ This prompt file creates professional, comprehensive README files by analyzing y
 
 ```text copy
 ---
-agent: 'agent'
+mode: 'agent'
 description: 'Create a comprehensive README.md file for the project'
 ---
 
