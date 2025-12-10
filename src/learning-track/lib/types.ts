@@ -2,18 +2,10 @@
  * Common types used across learning track components
  */
 
-/**
- * Basic context interface for rendering operations
- */
-export interface Context {
-  currentProduct?: string
-  currentLanguage?: string
-  currentVersion?: string
-  pages?: any
-  redirects?: any
-  // Additional properties that may be needed for rendering
-  [key: string]: any
-}
+import type { Context, Page as MainPage } from '@/types'
+
+// Re-export Context from main types to avoid duplicate definitions
+export type { Context }
 
 /**
  * Options for retrieving link data
@@ -49,11 +41,9 @@ export interface PageFeaturedLinks {
 
 /**
  * Page interface for basic page properties
+ * Using the main Page type from @/types
  */
-export interface Page {
-  renderTitle: (context: Context, opts: any) => Promise<string>
-  renderProp: (prop: string, context: Context, opts: any) => Promise<string>
-}
+export type Page = MainPage
 
 /**
  * Guide in a learning track
@@ -83,7 +73,7 @@ export interface LearningTrackMetadata {
   title: string
   description: string
   guides: string[]
-  versions?: any
+  versions?: unknown
 }
 
 /**
