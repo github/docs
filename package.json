@@ -30,7 +30,7 @@
     "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon --inspect src/frame/server.ts",
     "delete-orphan-translation-files": "tsx src/workflows/delete-orphan-translation-files.ts",
     "docsaudit": "tsx src/metrics/scripts/docsaudit.ts",
-    "docstat": "tsx src/metrics/scripts/docstat.ts",
+    "docstat": "tsx --disable-warning=DEP0190 src/metrics/scripts/docstat.ts",
     "deleted-assets-pr-comment": "tsx src/assets/scripts/deleted-assets-pr-comment.ts",
     "deleted-features-pr-comment": "tsx src/data-directory/scripts/deleted-features-pr-comment.ts",
     "deprecate-ghes": "tsx src/ghes-releases/scripts/deprecate/index.ts",
