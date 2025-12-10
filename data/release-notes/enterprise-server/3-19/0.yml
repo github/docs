@@ -1,14 +1,8 @@
-date: '2025-12-02'
-release_candidate: true
-deprecated: true
+date: '2025-12-09'
+release_candidate: false
+deprecated: false
 intro: |
-  > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
-  >
-  > Do not upgrade to an RC from a supported, earlier version.
-  >
-  > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
 
-  For upgrade instructions, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
 sections:
   # Remove section heading if the section contains no notes.
 
@@ -20,7 +14,7 @@ sections:
       notes:
         #
         - |
-          You can configure which SSH and TLS ciphers are used on your instance. You can view the default ciphers and select preferred ones, providing you flexibility and ability to exclude weak ciphers.
+          You can configure which SSH and TLS ciphers are used on your instance. You can view the default ciphers and select preferred ones, providing you flexibility and ability to exclude weak ciphers. For more information, see [AUTOTITLE](/enterprise-server@3.19/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls-and-ssh-ciphers).
         # https://github.com/github/releases/issues/6908
         - |
           Starting 3.19, new installations of GHES will have OpenTelemetry metrics enabled and Collectd metrics disabled by default. You have the option to toggle between the two. Upgraded instances will retain their current settings. In about two to three releases, OpenTelemetry metrics will become the only supported metrics. To learn about OTel metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics).
@@ -66,7 +60,7 @@ sections:
           Administrators can specify which secret scanning patterns are included in push protection to enhance control over exposure prevention workflows. This update allows finer-tuning of push protected secrets.
         # https://github.com/github/releases/issues/6436
         - |
-         Organization and security admins can now run a free scan to understand how their repositories are affected by secret leaks and exposures. These secret risk assessments can be run at the organization level from the `Security` tab.
+          Organization and security admins can now run a free scan to understand how their repositories are affected by secret leaks and exposures. These secret risk assessments can be run at the organization level from the `Security` tab.
         # https://github.com/github/releases/issues/6232
         - |
           When uploading analysis results for code scanning using SARIF files, each run in a multi-run SARIF file is now processed as a separate scan. Previously, multiple runs in one SARIF file were combined into a single scan, which could cause confusion in results and reporting. For more information, see [the changelog](https://github.blog/changelog/2025-07-21-code-scanning-will-stop-combining-multiple-sarif-runs-uploaded-in-the-same-sarif-file/).
@@ -126,6 +120,9 @@ sections:
         # https://github.com/github/releases/issues/6351
         - |
           Administrators and repository owners can manage Dependabot alerts using batched updates for dependencies. This feature reduces alert noise by grouping related alerts and allowing simultaneous remediation, streamlining workflow and improving oversight for security and maintenance.
+        # https://github.com/github/releases/issues/6612
+        - |
+          Dependabot can now update private Go modules hosted on enterprise registries and behind GOPROXY-compatible private proxies, as well as public modules, within the same workflow. This enables automated version and security updates for internal Go libraries.
 
     - heading: GitHub Actions
       notes:
@@ -202,6 +199,9 @@ sections:
         # https://github.com/github/releases/issues/6385
         - |
           Enterprises using IP allowlists should verify and update their network settings to include the newly required IP ranges for importer migrations. Failure to allow these addresses prevents successful migrations.
+        # https://github.com/github/releases/issues/6019  
+        - |
+          Projects now support up to 50,000 active items and 10,000 archived items. The previous limit was 1,200 items total. There is no option to opt out of this increased limit.
 
   known_issues:
     # INCLUDE NOTES FOR RELEASE FROM "GHES Release Note Tracking" PROJECT'S "Known Issues" TAB
@@ -252,3 +252,5 @@ sections:
     # https://github.com/github/releases/issues/6651
     - |
       Starting 3.21, networking-related syscalls will be disabled by default in the pre-receive hook environment. For enhanced security, hook environments will be placed in dedicated network namespaces. You will be able to override the default setting by setting pre-receive-hook-networking to enabled. As an alternative to many pre-receive hooks, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#push-rulesets).
+    - |
+      In 3.20, we will be retiring `Telegraf`. For context, this was a dark-shipped service running in the background and not part of any customer workflows. If you have discovered it and notice it is missing in a future release, we want to you to know we have intentionally removed it. 
