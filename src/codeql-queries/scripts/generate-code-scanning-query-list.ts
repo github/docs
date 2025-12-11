@@ -53,7 +53,8 @@ import chalk from 'chalk'
 import { program } from 'commander'
 // We don't want to introduce a global dependency on @github/cocofix, so we install it by hand
 // as described above and suppress the import warning.
-import { getSupportedQueries } from '@github/cocofix/dist/querySuites' /* eslint-disable-line import/no-extraneous-dependencies, import/no-unresolved */
+// eslint-disable-next-line import/no-unresolved -- @github/cocofix is installed manually
+import { getSupportedQueries } from '@github/cocofix/dist/querySuites'
 import type { Language } from 'codeql-ts'
 
 program

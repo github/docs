@@ -32,6 +32,7 @@ children:
   - actions
   - rest
   - webhooks
+  - graphql
   - video-transcripts
   # - account-and-profile
   # - authentication

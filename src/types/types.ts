@@ -388,6 +388,7 @@ export type Page = {
   sidebarLink?: SidebarLink
   type?: string
   contentType?: string
+  children?: string[]
 }
 
 export type SidebarLink = {
