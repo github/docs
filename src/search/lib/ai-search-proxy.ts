@@ -60,9 +60,8 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
   let reader: ReadableStreamDefaultReader<Uint8Array> | null = null
 
   try {
-    // TODO: We temporarily add ?ai_search=1 to use a new pattern in cgs-copilot production
     const response = await fetchStream(
-      `${process.env.CSE_COPILOT_ENDPOINT}/answers?ai_search=1`,
+      `${process.env.CSE_COPILOT_ENDPOINT}/answers`,
       {
         method: 'POST',
         body: JSON.stringify(body),
