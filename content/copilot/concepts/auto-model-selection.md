@@ -3,7 +3,7 @@ title: 'About {% data variables.product.prodname_copilot_short %} auto model sel
 allowTitleToDifferFromFilename: true
 shortTitle: 'Auto model selection'
 intro: 'Automatically select models for {% data variables.copilot.copilot_chat_short %} and {% data variables.copilot.copilot_coding_agent %}.'
-product: '{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} for {% data variables.copilot.copilot_chat_short %} is in {% data variables.release-phases.public_preview %} for supported IDEs with all {% data variables.product.prodname_copilot %} plans. {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} for {% data variables.copilot.copilot_coding_agent %} is generally available for {% data variables.copilot.copilot_pro %} and {% data variables.copilot.copilot_pro_plus %} users.'
+product: '{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} for {% data variables.copilot.copilot_chat_short %} is available with all {% data variables.product.prodname_copilot %} plans. <br>{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} for {% data variables.copilot.copilot_coding_agent %} is available for {% data variables.copilot.copilot_pro %} and {% data variables.copilot.copilot_pro_plus %} plans.'
 topics:
   - Copilot
 versions:
@@ -32,8 +32,10 @@ With {% data variables.copilot.copilot_auto_model_selection %}, you benefit from
 
 ## {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in {% data variables.copilot.copilot_chat_short %}
 
-{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} is available in the following IDEs: 
+{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} is generally available in the following IDEs: 
   * {% data variables.product.prodname_vscode_shortname %}
+
+{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} is in public preview for the following IDEs: 
   * {% data variables.product.prodname_vs %}
   * Eclipse
   * JetBrains IDEs
@@ -60,7 +62,7 @@ During the {% data variables.release-phases.public_preview %}, if you're using a
 
 ## {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in {% data variables.copilot.copilot_coding_agent %}
 
-> [!NOTE] {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} for {% data variables.copilot.copilot_coding_agent %} is currently only available for {% data variables.copilot.copilot_pro %} and {% data variables.copilot.copilot_pro_plus %} users.
+> [!NOTE] {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} for {% data variables.copilot.copilot_coding_agent %} is generally available and currently only available for {% data variables.copilot.copilot_pro %} and {% data variables.copilot.copilot_pro_plus %} plans.
 
 When you select **Auto** in {% data variables.copilot.copilot_coding_agent %}, {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} currently chooses from the following list of models, subject to your policies and subscription type:
   {% data reusables.copilot.copilot-coding-agent-auto-models %}
