@@ -78,6 +78,7 @@
     "release-banner": "tsx src/ghes-releases/scripts/release-banner.ts",
     "repo-sync": "./src/workflows/local-repo-sync.sh",
     "reusables": "tsx src/content-render/scripts/reusables-cli.ts",
+    "resolve-liquid": "tsx src/content-render/scripts/resolve-liquid.ts",
     "rendered-content-link-checker": "tsx src/links/scripts/rendered-content-link-checker.ts",
     "rendered-content-link-checker-cli": "tsx src/links/scripts/rendered-content-link-checker-cli.ts",
     "rest-dev": "tsx src/rest/scripts/update-files.ts",
