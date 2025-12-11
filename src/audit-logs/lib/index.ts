@@ -31,9 +31,59 @@ export function getCategoryNotes(): CategoryNotes {
   return auditLogConfig.categoryNotes || {}
 }
 
-type TitleResolutionContext = Context & {
+export type TitleResolutionContext = Context & {
   pages: Record<string, Page>
   redirects: Record<string, string>
+}
+
+// Resolves docs_reference_links URLs to markdown links
+export async function resolveReferenceLinksToMarkdown(
+  docsReferenceLinks: string,
+  context: TitleResolutionContext,
+): Promise<string> {
+  if (!docsReferenceLinks || docsReferenceLinks === 'N/A') {
+    return ''
+  }
+
+  // Handle multiple comma-separated or space-separated links
+  const links = docsReferenceLinks
+    .split(/[,\s]+/)
+    .map((link) => link.trim())
+    .filter((link) => link && link !== 'N/A')
+
+  const markdownLinks = []
+  for (const link of links) {
+    try {
+      const page = findPage(link, context.pages, context.redirects)
+      if (page) {
+        // Create a minimal context for rendering the title
+        const renderContext = {
+          currentLanguage: 'en',
+          currentVersion: 'free-pro-team@latest',
+          pages: context.pages,
+          redirects: context.redirects,
+        } as unknown as Context
+        const title = await page.renderProp('title', renderContext, { textOnly: true })
+        markdownLinks.push(`[${title}](${link})`)
+      } else {
+        // If we can't resolve the link, use the original URL
+        markdownLinks.push(link)
+      }
+    } catch (error) {
+      // If resolution fails, use the original URL
+      console.warn(
+        `Failed to resolve title for link: ${link}`,
+        error instanceof Error
+          ? error instanceof Error
+            ? error.message
+            : String(error)
+          : String(error),
+      )
+      markdownLinks.push(link)
+    }
+  }
+
+  return markdownLinks.join(', ')
 }
 
 // Resolves docs_reference_links URLs to page titles
