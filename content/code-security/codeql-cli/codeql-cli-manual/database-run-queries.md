@@ -170,9 +170,7 @@ thread).
 
 #### `--[no-]save-cache`
 
-\[Advanced] Aggressively write intermediate results to the disk cache.
-This takes more time and uses (much) more disk space, but may speed up
-the subsequent execution of similar queries.
+\[Deprecated] \[Advanced] This flag does nothing.
 
 #### `--[no-]expect-discarded-cache`
 
