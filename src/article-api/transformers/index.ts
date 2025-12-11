@@ -1,5 +1,6 @@
 import { TransformerRegistry } from './types'
 import { RestTransformer } from './rest-transformer'
+import { GraphQLTransformer } from './graphql-transformer'
 
 /**
  * Global transformer registry
@@ -9,6 +10,9 @@ export const transformerRegistry = new TransformerRegistry()
 
 // Register REST transformer
 transformerRegistry.register(new RestTransformer())
+
+// Register GraphQL transformer
+transformerRegistry.register(new GraphQLTransformer())
 
 // Future transformers can be registered here:
 // transformerRegistry.register(new WebhooksTransformer())
