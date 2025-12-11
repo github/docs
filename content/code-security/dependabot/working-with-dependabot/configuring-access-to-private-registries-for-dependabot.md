@@ -344,7 +344,7 @@ registries:
 
 ### `maven-repository`
 
-The `maven-repository` type supports username and password. {% data reusables.dependabot.password-definition %}
+The `maven-repository` type supports username, password and replaces-base. {% data reusables.dependabot.password-definition %}
 
 {% data reusables.dependabot.dependabot-updates-path-match %}
 
@@ -357,6 +357,7 @@ registries:
     url: https://acme.jfrog.io/artifactory/my-maven-registry
     username: octocat
     password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
+    replaces-base: true
 ```
 
 {% endraw %}
