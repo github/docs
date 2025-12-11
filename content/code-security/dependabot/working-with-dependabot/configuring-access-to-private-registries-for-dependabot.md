@@ -359,6 +359,8 @@ registries:
     password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 ```
 
+`maven-repository` doesn't support the `replaces-base` parameter.
+
 {% endraw %}
 
 ### `npm-registry`
