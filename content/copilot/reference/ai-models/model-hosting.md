@@ -27,6 +27,7 @@ Used for:
 * {% data variables.copilot.copilot_gpt_51 %}
 * {% data variables.copilot.copilot_gpt_51_codex %}
 * {% data variables.copilot.copilot_gpt_51_codex_mini %}
+* {% data variables.copilot.copilot_gpt_51_codex_max %}
 
 These models are hosted by OpenAI and {% data variables.product.github %}'s Azure infrastructure.
 
@@ -45,14 +46,6 @@ Used for:
 {% data variables.copilot.copilot_raptor_mini %} is deployed on {% data variables.product.github %} managed Azure OpenAI tenant.
 
 ## Anthropic models
-
-<!-- expires 2025-12-05 -->
-
-<!-- When this expires, check with the stakeholder for release #20458 on whether or not this note can be removed -->
-
-{% data reusables.copilot.claude-promo-period %} See [Model multipliers](/copilot/reference/ai-models/supported-models#model-multipliers).
-
-<!-- end expires 2025-12-05 -->
 
 Used for:
 

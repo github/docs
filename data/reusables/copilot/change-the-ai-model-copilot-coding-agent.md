@@ -1,0 +1,1 @@
+You can change the model {% data variables.product.prodname_copilot_short %} uses. You may find that different models perform better, or provide more useful responses, depending on the type of task you give Copilot. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/changing-the-ai-model).

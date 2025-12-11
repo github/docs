@@ -98,14 +98,6 @@ Each model has a premium request multiplier, based on its complexity and resourc
 
 For more information about premium requests, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
 
-<!-- expires 2025-12-05 -->
-
-<!-- When this expires, check with the stakeholder for release #20458 on whether or not this note can be removed and table updated -->
-
-{% data reusables.copilot.claude-promo-period %}
-
-<!-- end expires 2025-12-05 -->
-
 {% data reusables.copilot.model-multipliers %}
 
 ## Next steps

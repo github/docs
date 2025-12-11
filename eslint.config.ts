@@ -109,6 +109,7 @@ export default [
       'rest-api-description/',
       'docs-internal-data/',
       'src/code-scanning/scripts/generate-code-scanning-query-list.ts',
+      'next-env.d.ts',
     ],
   },
 

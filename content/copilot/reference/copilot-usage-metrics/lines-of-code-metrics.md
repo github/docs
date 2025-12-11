@@ -16,7 +16,19 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.copilot.usage-metrics-preview %}
 
-Lines of Code (LoC) metrics offer a directional way to measure {% data variables.product.prodname_copilot_short %}’s tangible output. These metrics quantify how many lines {% data variables.product.prodname_copilot_short %} suggested, added, or deleted in the editor—helping key stakeholders and decision makers understand {% data variables.product.prodname_copilot_short %}’s contribution to the codebase over time.
+Lines of Code (LoC) metrics provide a directional measure of {% data variables.product.prodname_copilot_short %}’s output by quantifying the lines it suggested, added, or deleted across completions, chat, and agent features.
+
+## Where LoC metrics appear
+
+You may encounter LoC metrics in:
+
+* **Code generation dashboard** — visualizes LoC-based user and agent activity. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/view-code-generation).
+* **Exports and APIs** — expose LoC fields such as `loc_suggested_to_add_sum`, `loc_added_sum`, and `loc_deleted_sum`. See [AUTOTITLE](/rest/copilot/copilot-usage-metrics).
+* **"Data available in {% data variables.product.prodname_copilot_short %} usage metrics" reference** — lists all dashboard and API fields derived from LoC. See [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics).
+
+This article covers how LoC is measured and what affects its accuracy and coverage. For detailed definitions, refer to the reference article above.
+
+## Considerations for LoC metrics
 
 LoC metrics may vary across IDEs and versions. Keep the following considerations in mind:
 
@@ -42,17 +54,6 @@ LoC metrics require specific minimum versions of IDEs and {% data variables.prod
 | XCode | <ul><li>`code_completion`</li></ul> | 14.3.1 | 0.40.0 |
 | | <ul><li>`chat_panel` (Ask, Edit, Agent)</li></ul> | 15.0 | 0.43.0 |
 | | <ul><li>`agent_edit`</li></ul> | 15.2 | 0.41.0 |
-
-## Available LoC metrics
-
-LoC metrics **are** included in:
-
-* The {% data variables.product.prodname_copilot_short %} user-level report
-* The {% data variables.product.prodname_copilot_short %} usage metrics API
-
-They are **not** included in the {% data variables.product.prodname_copilot_short %} usage metrics dashboard.
-
-LoC metrics measure {% data variables.product.prodname_copilot_short %}’s activity across completions, chat, and agent features. For detailed field descriptions and definitions, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics#api-and-export-fields).
 
 ## How agent mode affects LoC metrics
 

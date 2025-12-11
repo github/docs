@@ -14,9 +14,11 @@ redirect_from:
   - /copilot/reference/interpret-copilot-metrics
 ---
 
->[!NOTE] The {% data variables.product.prodname_copilot %} usage metrics dashboard is currently in {% data variables.release-phases.public_preview %} and subject to change.
+>[!NOTE] The {% data variables.product.prodname_copilot_short %} usage metrics dashboard is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 After you’ve viewed usage data in the {% data variables.product.prodname_copilot_short %} usage metrics dashboard, you can use this article to interpret what each chart means and identify opportunities to increase adoption and engagement across your enterprise.
+
+You can also access these metrics programmatically through the {% data variables.product.prodname_copilot_short %} usage metrics REST API, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics).
 
 ## Reviewing overall usage trends
 

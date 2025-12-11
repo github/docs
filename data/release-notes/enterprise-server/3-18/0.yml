@@ -196,7 +196,7 @@ sections:
       Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
     - |
       When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
-    - | 
+    - |
       Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
     - |
       When restoring data originally backed up from an appliance with version 3.13 or greater, the Elasticsearch indices must be reindexed before the data will display. This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
@@ -221,12 +221,12 @@ sections:
     - |
       When publishing npm packages in a workflow after restoring from a backup to GitHub Enterprise Server 3.13.5.gm4 or 3.14.2.gm3, you may encounter a `401 Unauthorized` error from the GitHub Packages service. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token is valid and includes the correct scopes for publishing to GitHub Packages.
     - |
-      The entry for Private Registries in the organization settings menu is not visible unless Dependabot is enabled.  
+      The entry for Private Registries in the organization settings menu is not visible unless Dependabot is enabled.
     - |
       Upgrading to this version from GHES 3.16.10 and higher or 3.17.6 and higher will cause the upgrade to fail due to this version containing an older version of MySQL. To avoid this issue please upgrade to GHES 3.18.1 or higher.
 
       [Updated: 2025-11-24]
-  
+
   closing_down:
     # https://github.com/github/releases/issues/5177
     - |
@@ -253,3 +253,6 @@ sections:
     # https://github.com/github/releases/issues/5811
     - |
       Automatic watching of repositories and teams is closing down. Users will no longer be auto-subscribed when joining organizations or teams, reducing notification noise and confusion. Existing auto-watching subscriptions remain unchanged; users stay subscribed to previously watched repositories or teams. See [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#automatic-watching).
+    # https://github.com/github/issues/issues/14468
+    - |
+      The issue template using a single `ISSUE_TEMPLATE.md` file is no longer supported. Users should migrate to using multiple issue templates stored in the `.github/ISSUE_TEMPLATE/` directory to provide a better issue reporting experience. See [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates#issue-templates). [Updated: 2025-12-04]
