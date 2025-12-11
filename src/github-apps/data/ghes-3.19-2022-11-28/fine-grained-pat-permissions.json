@@ -1475,6 +1475,21 @@
       }
     ]
   },
+  "organization_dependabot_dismissal_requests": {
+    "title": "Organization dismissal requests for Dependabot",
+    "displayTitle": "Organization permissions for \"Organization dismissal requests for Dependabot\"",
+    "permissions": [
+      {
+        "category": "dependabot",
+        "slug": "review-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
+        "additional-permissions": true,
+        "access": "write"
+      }
+    ]
+  },
   "organization_code_scanning_dismissal_requests": {
     "title": "Organization dismissal requests for code scanning",
     "displayTitle": "Organization permissions for \"Organization dismissal requests for code scanning\"",
@@ -1614,93 +1629,6 @@
         "subcategory": "organization-configurations",
         "verb": "delete",
         "requestPath": "/orgs/{org}/private-registries/{secret_name}",
-        "additional-permissions": false,
-        "access": "write"
-      }
-    ]
-  },
-  "organization_projects": {
-    "title": "Projects",
-    "displayTitle": "Organization permissions for \"Projects\"",
-    "permissions": [
-      {
-        "category": "projects",
-        "slug": "list-projects-for-organization",
-        "subcategory": "projects",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/projectsV2",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "projects",
-        "slug": "get-project-for-organization",
-        "subcategory": "projects",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/projectsV2/{project_number}",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "projects",
-        "slug": "list-project-fields-for-organization",
-        "subcategory": "fields",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "projects",
-        "slug": "get-project-field-for-organization",
-        "subcategory": "fields",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields/{field_id}",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "projects",
-        "slug": "list-items-for-an-organization-owned-project",
-        "subcategory": "items",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/projectsV2/{project_number}/items",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "projects",
-        "slug": "add-item-to-organization-owned-project",
-        "subcategory": "items",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/projectsV2/{project_number}/items",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "get-an-item-for-an-organization-owned-project",
-        "subcategory": "items",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "projects",
-        "slug": "update-project-item-for-organization",
-        "subcategory": "items",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "delete-project-item-for-organization",
-        "subcategory": "items",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}",
         "additional-permissions": false,
         "access": "write"
       }
@@ -4805,6 +4733,33 @@
         "requestPath": "/repos/{owner}/{repo}/dependabot/alerts/{alert_number}",
         "additional-permissions": false,
         "access": "write"
+      },
+      {
+        "category": "dependabot",
+        "slug": "list-dismissal-requests-for-dependabot-alerts-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "dependabot",
+        "slug": "get-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "dependabot",
+        "slug": "review-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
+        "additional-permissions": true,
+        "access": "read"
       }
     ]
   },

@@ -3813,6 +3813,23 @@
       }
     ]
   },
+  "organization_dependabot_dismissal_requests": {
+    "title": "Organization dismissal requests for Dependabot",
+    "displayTitle": "Organization permissions for \"Organization dismissal requests for Dependabot\"",
+    "permissions": [
+      {
+        "category": "dependabot",
+        "slug": "review-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      }
+    ]
+  },
   "organization_code_scanning_dismissal_requests": {
     "title": "Organization dismissal requests for code scanning",
     "displayTitle": "Organization permissions for \"Organization dismissal requests for code scanning\"",
@@ -7270,7 +7287,7 @@
       {
         "category": "repos",
         "slug": "create-an-attestation",
-        "subcategory": "repos",
+        "subcategory": "attestations",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/attestations",
         "access": "write",
@@ -7281,7 +7298,7 @@
       {
         "category": "repos",
         "slug": "list-attestations",
-        "subcategory": "repos",
+        "subcategory": "attestations",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/attestations/{subject_digest}",
         "access": "read",
@@ -9064,6 +9081,39 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
+      },
+      {
+        "category": "dependabot",
+        "slug": "list-dismissal-requests-for-dependabot-alerts-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "dependabot",
+        "slug": "get-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "dependabot",
+        "slug": "review-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
       }
     ]
   },

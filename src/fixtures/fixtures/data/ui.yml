@@ -258,6 +258,7 @@ footer:
   machine: Some of this content may be machine- or AI-translated.
 journey_landing:
   articles: '{{ number }} Articles'
+  articles_heading: Articles
 product_landing:
   article_grid:
     heading: Articles
