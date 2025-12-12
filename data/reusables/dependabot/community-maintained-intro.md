@@ -1,0 +1,1 @@
+The following ecosystems are maintained by their upstream community maintainers. {% data variables.product.github %} integrates {% data variables.product.prodname_dependabot %} with these ecosystems but does not maintain them directly.
