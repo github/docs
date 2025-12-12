@@ -1179,14 +1179,13 @@
   },
   {
     "action": "copilot.knowledge_base_created",
-    "description": "A knowledge base was created in the organization.",
-    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "actor",
       "actor_id",
       "user_agent",
       "request_id",
-      "knowledge_base_name",
       "org_id",
       "org",
       "action",
@@ -1198,19 +1197,17 @@
       "business_id",
       "actor_is_bot",
       "request_access_security_header"
-    ],
-    "docs_reference_titles": "Creating and managing GitHub Copilot knowledge bases"
+    ]
   },
   {
     "action": "copilot.knowledge_base_deleted",
-    "description": "A knowledge base was deleted from the organization.",
-    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "actor",
       "actor_id",
       "user_agent",
       "request_id",
-      "knowledge_base_name",
       "org_id",
       "org",
       "action",
@@ -1222,19 +1219,17 @@
       "business_id",
       "actor_is_bot",
       "request_access_security_header"
-    ],
-    "docs_reference_titles": "Creating and managing GitHub Copilot knowledge bases"
+    ]
   },
   {
     "action": "copilot.knowledge_base_updated",
-    "description": "A knowledge base was updated in the organization.",
-    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "actor",
       "actor_id",
       "user_agent",
       "request_id",
-      "knowledge_base_name",
       "org_id",
       "org",
       "action",
@@ -1246,8 +1241,7 @@
       "business_id",
       "actor_is_bot",
       "request_access_security_header"
-    ],
-    "docs_reference_titles": "Creating and managing GitHub Copilot knowledge bases"
+    ]
   },
   {
     "action": "copilot.plan_changed",
@@ -3877,7 +3871,7 @@
   },
   {
     "action": "merge_queue.pull_request_dequeued",
-    "description": "N/A",
+    "description": "A pull request was removed from a merge queue.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
@@ -3897,7 +3891,7 @@
   },
   {
     "action": "merge_queue.pull_request_queue_jump",
-    "description": "N/A",
+    "description": "A pull request was moved ahead in a merge queue.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -3921,7 +3915,7 @@
   },
   {
     "action": "merge_queue.queue_cleared",
-    "description": "N/A",
+    "description": "A merge queue was cleared.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
@@ -3940,7 +3934,7 @@
   },
   {
     "action": "merge_queue.update_settings",
-    "description": "N/A",
+    "description": "The settings for a merge queue were updated.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
@@ -4611,7 +4605,7 @@
   {
     "action": "org.allow_third_party_access_requests_from_outside_collaborators_enabled",
     "description": "Third-party application access for outside collaborators was enabled for the organization.",
-    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests#enabling-or-disabling-integration-access-requests",
+    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests-and-installations#enabling-or-disabling-app-access-requests",
     "fields": [
       "actor",
       "actor_id",
@@ -4625,7 +4619,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests#enabling-or-disabling-integration-access-requests"
+    "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests-and-installations#enabling-or-disabling-app-access-requests"
   },
   {
     "action": "org.archive",
@@ -10485,7 +10479,7 @@
   },
   {
     "action": "pull_request.rebase",
-    "description": "N/A",
+    "description": "A pull request was rebased.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -11919,8 +11913,8 @@
   },
   {
     "action": "repo.rename_branch",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A branch was renamed.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch",
     "fields": [
       "user_agent",
       "request_id",
@@ -11942,7 +11936,8 @@
       "token_scopes",
       "programmatic_access_type",
       "actor_is_bot"
-    ]
+    ],
+    "docs_reference_titles": "/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch"
   },
   {
     "action": "repo.restore",

@@ -98,6 +98,14 @@
 .heroSecondaryAction {
   background-color: transparent;
   color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+
+  @media (max-width: 865px) {
+    background-color: var(
+      --bgColor-muted,
+      var(--color-canvas-subtle, #f6f8fa)
+    ) !important;
+  }
+
   border-color: var(
     --borderColor-default,
     var(--color-border-default, #d1d9e0)
@@ -121,18 +129,37 @@
 
 @media (max-width: 865px) {
   .landingHero {
-    height: 24rem;
-    background-image: none !important;
+    height: 28rem;
     flex-direction: column;
     text-align: center;
     justify-content: center;
     background-color: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
+    position: relative;
+
+    background-position: unset;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: inherit;
+      background-size: contain;
+      background-position: bottom;
+      background-repeat: no-repeat;
+      opacity: 0.5;
+      z-index: 0;
+    }
   }
 
   .heroContent {
     width: 100%;
     order: 2;
     padding: 0 1rem;
+    position: relative;
+    z-index: 1;
   }
 
   .heroHeading {
@@ -144,7 +171,11 @@
   }
 
   .heroActions {
+    flex-direction: column;
+    align-self: baseline;
+    margin-left: 5rem;
     justify-content: center;
+    align-items: center;
   }
 
   .heroAction {
@@ -162,19 +193,36 @@
 
 @media (max-width: 480px) {
   .landingHero {
-    height: 32rem;
-    background-image: none !important;
+    height: 28rem;
     background-color: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
     flex-direction: column;
     text-align: center;
-    padding: 2rem 0 1rem;
+    padding: 1rem 0 1rem;
     justify-content: center;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: inherit;
+      background-size: contain;
+      background-position: bottom;
+      background-repeat: no-repeat;
+      opacity: 0.8;
+      z-index: 0;
+    }
   }
 
   .heroContent {
     width: 100%;
     order: 2;
-    padding: 1rem;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 1;
   }
 
   .heroText {
@@ -184,8 +232,27 @@
     align-items: center;
   }
 
+  .heroHeading {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+
   .heroActions {
+    flex-direction: column;
+    align-self: baseline;
+    margin-left: 2rem;
     justify-content: center;
     align-items: center;
+  }
+
+  .heroAction {
+    min-width: 9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .heroDescription {
+    font-size: 1rem;
+    max-height: 14rem;
+    text-overflow: ellipsis;
   }
 }

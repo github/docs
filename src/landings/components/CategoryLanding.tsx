@@ -12,6 +12,7 @@ import { ClientSideRedirects } from '@/rest/components/ClientSideRedirects'
 import { RestRedirect } from '@/rest/components/RestRedirect'
 import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
 import { ArticleCardItems } from '@/landings/types'
+import { UtmPreserver } from '@/frame/components/UtmPreserver'
 
 export const CategoryLanding = () => {
   const { t } = useTranslation('cookbook_landing')
@@ -34,7 +35,10 @@ export const CategoryLanding = () => {
           if (typeof value === 'string') {
             return value.toLowerCase().includes(searchQuery.toLowerCase())
           } else if (Array.isArray(value)) {
-            return value.some((item) => item.toLowerCase().includes(searchQuery.toLowerCase()))
+            return value.some(
+              (item) =>
+                typeof item === 'string' && item.toLowerCase().includes(searchQuery.toLowerCase()),
+            )
           }
           return false
         })
@@ -97,6 +101,7 @@ export const CategoryLanding = () => {
 
   return (
     <DefaultLayout>
+      <UtmPreserver />
       {router.route === '/[versionId]/rest/[category]' && <RestRedirect />}
       {/* Doesn't matter *where* this is included because it will
       never render anything. It always just return null. */}

@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/troubleshoot-coding-agent
   - /copilot/how-tos/agents/coding-agent/troubleshoot-coding-agent
 contentType: how-tos
+category: 
+  - Troubleshooting Copilot
 ---
 
 ## {% data variables.product.prodname_copilot_short %} is not available in the "Assignees" list on my issue

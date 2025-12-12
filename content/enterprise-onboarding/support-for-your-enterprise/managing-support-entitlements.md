@@ -1,6 +1,6 @@
 ---
 title: 'Managing support entitlements'
-intro: 'Learn how to manage support entitlements for your enterprise.'
+intro: 'Manage support entitlements for your enterprise.'
 versions:
   ghec: '*'
 allowTitleToDifferFromFilename: true
@@ -18,7 +18,7 @@ People with support entitlements for your enterprise account can use the support
 
 Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to a limited number of enterprise members.
 * **{% data variables.product.premium_support_plan %}:** Up to 20 members
-* **{% data variables.product.premium_plus_support_plan %}:** Up to 40 members
+* **{% data variables.product.premium_plus_support_plan %} / {% data variables.product.microsoft_premium_plus_support_plan %}:** Up to 40 members
 
 ## Adding support entitlements
 
@@ -36,8 +36,8 @@ To add a support entitlement to a user, the user must already be a member of an 
 
 You can manually remove support entitlements for enterprise members provided they are not enterprise owners or billing managers.
 
-To learn how to remove support entitlements, see [Removing a support entitlement from an enterprise member](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise#removing-a-support-entitlement-from-an-enterprise-member).
+To learn how to remove support entitlements, see [Removing a support entitlement from an enterprise member](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise#removing-a-support-entitlement-from-an-enterprise-member).
 
 ## Next steps
 
-Next, learn how you can automate your enterprise's software development cycle and improve productivity with {% data variables.product.prodname_actions %}. See [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/about-github-actions-for-enterprises).
+Next, learn how to stay compliant and secure by setting up governance policies for your users and repositories. See [AUTOTITLE](/enterprise-onboarding/govern-people-and-repositories/about-enterprise-policies).

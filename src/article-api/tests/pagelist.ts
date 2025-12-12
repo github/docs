@@ -41,22 +41,16 @@ describe.each(allVersionKeys)('pagelist api for %s', async (versionKey) => {
       expression = new RegExp(`/\\w{2}(/${versionKey})?/?.*`)
     else expression = new RegExp(`/\\w{2}/${versionKey}/?.*`)
 
-    res.body
-      .trim()
-      .split('\n')
-      .forEach((permalink: string) => {
-        expect(permalink).toMatch(expression)
-      })
+    for (const permalink of res.body.trim().split('\n')) {
+      expect(permalink).toMatch(expression)
+    }
   })
 
   test('English requests only returns urls that contain /en', async () => {
     const expression = new RegExp(`^/en(/${nonEnterpriseDefaultVersion})?/?.*`)
-    res.body
-      .trim()
-      .split('\n')
-      .forEach((permalink: string) => {
-        expect(permalink).toMatch(expression)
-      })
+    for (const permalink of res.body.trim().split('\n')) {
+      expect(permalink).toMatch(expression)
+    }
   })
 })
 

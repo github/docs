@@ -27,7 +27,7 @@ You may also be able to assign {% data variables.product.prodname_copilot_short 
 
 {% endif %}
 
-Issues and pull requests in public repositories, and in private repositories for a paid account, can have up to 10 people assigned. Private repositories on the free plan are limited to one person per issue or pull request.
+Both issues and pull requests support up to 10 assignees.
 
 ## Assigning an individual issue or pull request
 

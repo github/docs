@@ -55,6 +55,7 @@ To access a private container registry on AWS with a user name and password, a w
 In this example, when {% data variables.product.prodname_dependabot %} triggers the workflow, the {% data variables.product.prodname_dependabot %} secrets with the names `READONLY_AWS_ACCESS_KEY_ID` and `READONLY_AWS_ACCESS_KEY` are used. If another actor triggers the workflow, the actions secrets with those names are used.
 
 ```yaml copy
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 name: CI
 on:
   pull_request:

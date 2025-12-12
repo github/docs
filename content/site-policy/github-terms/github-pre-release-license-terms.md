@@ -54,9 +54,11 @@ These terms apply to the pre-release software made available to you by GitHub. T
 
 ## 4. Data Collection and Usage.
 
-  a. **Consent to Data Collection.** The pre-release software may collect telemetry information about you and your use of the software, and send that information to GitHub. Subject to the limitations in Section 4(b) below, GitHub may use this information to provide services, to improve our products and services, or for any other purpose permitted under the GitHub Data Protection Agreement or GitHub Privacy Statement. Your use of the pre-release software operates as your consent to these practices.
+  a. **Processing of Personal Data.** By default, GitHub is the data controller in relation to the Personal Data processed in connection with the pre-release software and follows the terms below. As the pre-release software is developed, it may reach a stage where data is handled the same as it will when the software becomes generally available. Pre-release software that has progressed to that stage of development is listed at [https://gh.io/dpa-previews](https://gh.io/dpa-previews). At that point, the customer becomes the data controller and the software is governed by the terms of the GitHub Data Protection Agreement instead of this Section 4.
 
-  b. **Use of Collected Data.**
+  b. **Consent to Data Collection.** The pre-release software may collect telemetry information about you and your use of the software, and send that information to GitHub. Subject to the limitations in Section 4(c) below, GitHub may use this information to provide services, to improve our products and services, or for any other purpose permitted under the GitHub Data Protection Agreement or GitHub Privacy Statement. Your use of the pre-release software operates as your consent to these practices.
+
+  c. **Use of Collected Data.**
   * GitHub will use collected data for analytics and measurement to understand how our pre-release software and related products are used.
   * The software will collect data and usage information about events generated when interacting with it. These events help us analyze and measure performance and features used. This usage information is used by GitHub and may be shared with affiliates and other third parties to help deliver, develop, evaluate, and improve the software and related products.
   * We analyze data to ensure the pre-release software is working as intended, to evaluate the safety, reliability, and user experience of the software, and to investigate and detect potential abuse.
@@ -65,8 +67,6 @@ These terms apply to the pre-release software made available to you by GitHub. T
       * You retain ownership of the code that you input to the software.
       * GitHub does not own the output sent to you by the software.
       * GitHub will not use your inputs or the outputs generated to train AI language models, unless you have instructed us in writing to do so.
-
-  c. **Processing of Personal Data.** GitHub is the data controller in relation to the Personal Data processed in connection with the pre-release software.
 
   d. **Data Collection by You.** There may be some features in the pre-release software that enable you and GitHub to collect data from users of your applications. If you use these features, you must comply with all applicable laws on data collection, including providing appropriate notices to users of your applications as well as a copy of GitHub’s Privacy Statement. You can learn more about data collection and use in the software documentation.
 
@@ -120,4 +120,4 @@ You bear the sole risk of using the pre-release software.
 
 ## 15. Nature of Terms for Microsoft Customers.
 
-  If you license GitHub through Microsoft, these terms shall be considered an amendment to the Microsoft Product Terms for GitHub Offerings for the duration of your use of the pre-release software.
+  If you license GitHub through Microsoft and your agreement with Microsoft does not already provide for the inclusion of these terms, these terms shall be considered an amendment to the Microsoft Product Terms for GitHub Offerings for the duration of your use of the pre-release software.

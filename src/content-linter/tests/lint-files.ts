@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { fileURLToPath } from 'url'
 import path from 'path'
 import yaml from 'js-yaml'
@@ -9,7 +8,7 @@ import walk from 'walk-sync'
 import { zip } from 'lodash-es'
 import { beforeAll, describe, expect, test } from 'vitest'
 
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import { getDiffFiles } from '../lib/diff-files'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -188,19 +187,20 @@ const FbvYamlRelPaths = FbvYamlAbsPaths.map((p) => slash(path.relative(rootDir, 
 const fbvTuples = zip(FbvYamlRelPaths, FbvYamlAbsPaths)
 
 // Put all the yaml files together
-ymlToLint = [].concat(
+ymlToLint = ([] as Array<[string | undefined, string | undefined]>).concat(
   variableYamlTuples, // These "tuples" not tested independently; they are only tested as part of ymlToLint.
   glossariesYamlTuples,
   fbvTuples,
 )
 
-function formatLinkError(message, links) {
+function formatLinkError(message: string, links: string[]) {
   return `${message}\n  - ${links.join('\n  - ')}`
 }
 
 // Returns `content` if its a string, or `content.description` if it can.
 // Used for getting the nested `description` key in glossary files.
-function getContent(content) {
+// Using any because content can be string | { description: string } | other YAML structures
+function getContent(content: any) {
   if (typeof content === 'string') return content
   if (typeof content.description === 'string') return content.description
   return null
@@ -224,9 +224,10 @@ if (diffFiles.length > 0) {
       return name
     }),
   )
-  const filterFiles = (tuples) =>
+  const filterFiles = (tuples: Array<[string | undefined, string | undefined]>) =>
     tuples.filter(
-      ([relativePath, absolutePath]) => only.has(relativePath) || only.has(absolutePath),
+      ([relativePath, absolutePath]: [string | undefined, string | undefined]) =>
+        only.has(relativePath!) || only.has(absolutePath!),
     )
   ymlToLint = filterFiles(ymlToLint)
 }
@@ -239,12 +240,15 @@ if (ymlToLint.length === 0) {
 } else {
   describe('lint yaml content', () => {
     if (ymlToLint.length < 1) return
-    describe.each(ymlToLint)('%s', (yamlRelPath, yamlAbsPath) => {
-      let dictionary, isEarlyAccess, fileContents
+    describe.each(ymlToLint)('%s', (yamlRelPath: any, yamlAbsPath: any) => {
+      // Using any because Vitest's describe.each doesn't properly infer tuple types
+      let dictionary: any // YAML structure varies by file type (variables, glossaries, features)
+      let isEarlyAccess: boolean
+      let fileContents: string
       // This variable is used to determine if the file was parsed successfully.
       // When `yaml.load()` fails to parse the file, it is overwritten with the error message.
       // `false` is intentionally chosen since `null` and `undefined` are valid return values.
-      let dictionaryError = false
+      let dictionaryError: any = false // Can be false, Error, or other error types
 
       beforeAll(async () => {
         fileContents = await fs.readFile(yamlAbsPath, 'utf8')
@@ -277,7 +281,7 @@ if (ymlToLint.length === 0) {
           if (!contentStr) continue
           const valMatches = contentStr.match(relativeArticleLinkRegex) || []
           if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
+            matches.push(...valMatches.map((match: string) => `Key "${key}": ${match}`))
           }
         }
 
@@ -295,7 +299,7 @@ if (ymlToLint.length === 0) {
             if (!contentStr) continue
             const valMatches = contentStr.match(earlyAccessLinkRegex) || []
             if (valMatches.length > 0) {
-              matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
+              matches.push(...valMatches.map((match: string) => `Key "${key}": ${match}`))
             }
           }
 
@@ -314,7 +318,7 @@ if (ymlToLint.length === 0) {
             if (!contentStr) continue
             const valMatches = contentStr.match(earlyAccessImageRegex) || []
             if (valMatches.length > 0) {
-              matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
+              matches.push(...valMatches.map((match: string) => `Key "${key}": ${match}`))
             }
           }
 
@@ -333,7 +337,7 @@ if (ymlToLint.length === 0) {
           if (!contentStr) continue
           const valMatches = contentStr.match(badEarlyAccessImageRegex) || []
           if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
+            matches.push(...valMatches.map((match: string) => `Key "${key}": ${match}`))
           }
         }
 
@@ -349,7 +353,7 @@ if (ymlToLint.length === 0) {
           if (!contentStr) continue
           const valMatches = contentStr.match(languageLinkRegex) || []
           if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
+            matches.push(...valMatches.map((match: string) => `Key "${key}": ${match}`))
           }
         }
 
@@ -365,7 +369,7 @@ if (ymlToLint.length === 0) {
           if (!contentStr) continue
           const valMatches = contentStr.match(versionLinkRegEx) || []
           if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
+            matches.push(...valMatches.map((match: string) => `Key "${key}": ${match}`))
           }
         }
 
@@ -381,7 +385,7 @@ if (ymlToLint.length === 0) {
           if (!contentStr) continue
           const valMatches = contentStr.match(domainLinkRegex) || []
           if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
+            matches.push(...valMatches.map((match: string) => `Key "${key}": ${match}`))
           }
         }
 
@@ -398,7 +402,7 @@ if (ymlToLint.length === 0) {
           const valMatches = contentStr.match(oldVariableRegex) || []
           if (valMatches.length > 0) {
             matches.push(
-              ...valMatches.map((match) => {
+              ...valMatches.map((match: string) => {
                 const example = match.replace(
                   /{{\s*?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*?}}/g,
                   '{% data $1 %}',
@@ -421,7 +425,7 @@ if (ymlToLint.length === 0) {
           if (!contentStr) continue
           const valMatches = contentStr.match(oldOcticonRegex) || []
           if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
+            matches.push(...valMatches.map((match: string) => `Key "${key}": ${match}`))
           }
         }
 

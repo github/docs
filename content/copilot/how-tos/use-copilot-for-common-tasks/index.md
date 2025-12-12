@@ -7,7 +7,7 @@ versions:
 topics:
   - Copilot
 children:
-  - /use-copilot-to-create-issues
+  - /use-copilot-to-create-or-update-issues
   - /create-a-pr-summary
   - /use-copilot-in-the-cli
 redirect_from:

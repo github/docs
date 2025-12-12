@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/concepts/indexing-repositories-for-copilot-chat
   - /copilot/concepts/repository-indexes
 contentType: concepts
+category: 
+  - Manage Copilot for a team
 ---
 
 ## Benefit of indexing repositories

@@ -4,6 +4,10 @@ intro: 'With issue and pull request templates, you can customize and standardize
 redirect_from:
   - /articles/about-issue-and-pull-request-templates
   - /github/building-a-strong-community/about-issue-and-pull-request-templates
+  - /articles/creating-an-issue-template-for-your-repository
+  - /articles/manually-creating-a-single-issue-template-for-your-repository
+  - /github/building-a-strong-community/manually-creating-a-single-issue-template-for-your-repository
+  - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/manually-creating-a-single-issue-template-for-your-repository
 versions:
   fpt: '*'
   ghes: '*'

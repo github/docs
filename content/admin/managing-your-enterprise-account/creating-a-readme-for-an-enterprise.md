@@ -9,6 +9,8 @@ topics:
   - Enterprise
 permissions: Enterprise owners can create and edit an enterprise README.
 shortTitle: Create a README
+redirect_from:
+  - /enterprise-onboarding/feature-enhancements/create-a-readme-for-your-enterprise
 ---
 
 ## About READMEs for enterprises

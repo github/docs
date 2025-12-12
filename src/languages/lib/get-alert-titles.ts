@@ -1,7 +1,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 import yaml from 'js-yaml'
-import languages from './languages'
+import languages from './languages-server'
 
 const cache: Record<string, any> = {}
 

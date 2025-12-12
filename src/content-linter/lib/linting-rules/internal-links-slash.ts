@@ -1,8 +1,7 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { filterTokens } from 'markdownlint-rule-helpers'
 
 import { addFixErrorDetail, getRange } from '../helpers/utils'
-import type { RuleParams, RuleErrorCallback, Rule } from '../../types'
+import type { RuleParams, RuleErrorCallback, Rule, MarkdownToken } from '../../types'
 
 export const internalLinksSlash: Rule = {
   names: ['GHD003', 'internal-links-slash'],
@@ -10,8 +9,8 @@ export const internalLinksSlash: Rule = {
   tags: ['links', 'url'],
   parser: 'markdownit',
   function: (params: RuleParams, onError: RuleErrorCallback) => {
-    // Using 'any' type for token as markdownlint-rule-helpers doesn't provide TypeScript types
-    filterTokens(params, 'inline', (token: any) => {
+    filterTokens(params, 'inline', (token: MarkdownToken) => {
+      if (!token.children) return
       for (const child of token.children) {
         if (child.type !== 'link_open') continue
 
@@ -21,6 +20,7 @@ export const internalLinksSlash: Rule = {
         //  ['rel', 'canonical'],
         // ]
         // Attribute arrays are tuples of [attributeName, attributeValue] from markdownit parser
+        if (!child.attrs) continue
         const hrefsMissingSlashes = child.attrs
           // The attribute could also be `target` or `rel`
           .filter((attr: [string, string]) => attr[0] === 'href')

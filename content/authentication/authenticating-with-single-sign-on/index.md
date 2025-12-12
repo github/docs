@@ -15,6 +15,7 @@ children:
   - /about-authentication-with-single-sign-on
   - /authorizing-an-ssh-key-for-use-with-single-sign-on
   - /authorizing-a-personal-access-token-for-use-with-single-sign-on
+  - /authorizing-an-app-for-single-sign-on
   - /viewing-and-managing-your-active-sso-sessions
 shortTitle: Authenticate with SSO
 ---

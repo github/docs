@@ -5,12 +5,10 @@ versions:
   ghec: '*'
   ghes: '*'
 children:
-  - /about-enterprise-accounts
   - /creating-an-enterprise-account
   - /creating-a-readme-for-an-enterprise
   - /deleting-an-enterprise-account
   - /changing-the-url-for-your-enterprise
-  - /creating-github-apps-for-your-enterprise
-  - /adding-and-removing-github-app-managers-in-your-enterprise
 shortTitle: Manage enterprise account
 ---
+

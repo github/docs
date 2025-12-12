@@ -1,6 +1,5 @@
 import React from 'react'
 import cx from 'classnames'
-import { Box } from '@primer/react'
 import { SupportPortalVaIframe, SupportPortalVaIframeProps } from './SupportPortalVaIframe'
 
 import styles from './ArticleInlineLayout.module.scss'
@@ -28,39 +27,41 @@ export const ArticleInlineLayout = ({
   return (
     <div className={cx(styles.containerBox, className)}>
       {breadcrumbs && (
-        <Box gridArea="breadcrumbs" className={cx('d-none d-xxl-block mt-3 mr-auto width-full')}>
+        <div
+          style={{ gridArea: 'breadcrumbs' }}
+          className={cx('d-none d-xxl-block mt-3 mr-auto width-full')}
+        >
           {breadcrumbs}
-        </Box>
+        </div>
       )}
       <div className={cx(styles.contentBox)}>
-        {topper && <Box gridArea="topper">{topper}</Box>}
+        {topper && <div style={{ gridArea: 'topper' }}>{topper}</div>}
 
         {intro && (
-          <Box id="article-intro" gridArea="intro" className="f4">
+          <div id="article-intro" style={{ gridArea: 'intro' }} className="f4">
             {intro}
-          </Box>
+          </div>
         )}
 
         {introCallOuts && (
-          <Box gridArea="intro" className="f4 mb-4">
+          <div style={{ gridArea: 'intro' }} className="f4 mb-4">
             {introCallOuts}
-          </Box>
+          </div>
         )}
 
         {toc && (
-          <Box
+          <div
             data-container="toc"
-            gridArea="sidebar"
-            alignSelf="flex-start"
+            style={{ gridArea: 'sidebar', alignSelf: 'flex-start' }}
             className={cx(styles.sidebarBox, 'border-bottom border-lg-0 pb-4 mb-5 pb-xl-0 mb-xl-0')}
           >
             {toc}
-          </Box>
+          </div>
         )}
 
-        <Box
+        <div
           data-container="article"
-          gridArea="content"
+          style={{ gridArea: 'content' }}
           data-search="article-body"
           className={cx(styles.articleContainer, className)}
         >
@@ -70,7 +71,7 @@ export const ArticleInlineLayout = ({
               <SupportPortalVaIframe supportPortalVaIframeProps={supportPortalVaIframeProps} />
             )}
           {children}
-        </Box>
+        </div>
       </div>
     </div>
   )

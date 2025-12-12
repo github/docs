@@ -1,3 +1,4 @@
+import React from 'react'
 import { SearchOverlay } from './SearchOverlay'
 import { QueryParams } from '../hooks/useMultiQueryParams'
 

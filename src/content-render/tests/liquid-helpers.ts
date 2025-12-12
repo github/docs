@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, test, vi } from 'vitest'
 
 import { liquid } from '@/content-render/index'
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import { DataDirectory } from '@/tests/helpers/data-directory'
 
 describe('liquid helper tags', () => {
@@ -9,7 +9,7 @@ describe('liquid helper tags', () => {
 
   // Using 'any' type as context is a test fixture with dynamic properties set in beforeAll
   const context: any = {}
-  // Using 'any' type as DataDirectory is from data-directory.js which lacks type definitions
+  // Using 'any' type as DataDirectory is from data-directory.ts which lacks type definitions
   let dd: any
   const enDirBefore = languages.en.dir
 

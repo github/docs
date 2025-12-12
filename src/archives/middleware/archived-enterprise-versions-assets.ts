@@ -10,7 +10,7 @@ import type { ExtendedRequest } from '@/types'
 // This module handles requests for the CSS and JS assets for
 // deprecated GitHub Enterprise versions by routing them to static content in
 // one of the docs-ghes-<release number> repos.
-// See also ./archived-enterprise-versions.js for non-CSS/JS paths
+// See also ./archived-enterprise-versions.ts for non-CSS/JS paths
 
 export default async function archivedEnterpriseVersionsAssets(
   req: ExtendedRequest,

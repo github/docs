@@ -12,6 +12,7 @@ children:
   - /github-actions
   - /github-advanced-security
   - /github-codespaces
+  - /github-code-quality
   - /github-copilot-licenses
   - /github-copilot-premium-requests
   - /github-models

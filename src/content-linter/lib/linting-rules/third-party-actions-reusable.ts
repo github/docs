@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 
 import type { RuleParams, RuleErrorCallback, MarkdownToken } from '@/content-linter/types'
@@ -43,32 +42,44 @@ export const thirdPartyActionsReusable = {
 
 /**
  * Find third-party actions in YAML content
- * Third-party actions are identified by the pattern: owner/action@version
- * where owner is not 'actions' or 'github'
+ * Third-party actions are identified by actions that are not GitHub-owned or documentation examples
  */
 function findThirdPartyActions(yamlContent: string): string[] {
   const thirdPartyActions: string[] = []
-
-  // Pattern to match 'uses: owner/action@version' where owner is not actions or github
   const actionPattern = /uses:\s+([^{\s]+\/[^@\s]+@[^\s]+)/g
 
   let match
   while ((match = actionPattern.exec(yamlContent)) !== null) {
     const actionRef = match[1]
 
-    // Extract owner from action reference
-    const parts = actionRef.split('/')
-    if (parts.length >= 2) {
-      const owner = parts[0]
-
-      // Skip GitHub-owned actions (actions/* and github/*)
-      if (owner !== 'actions' && owner !== 'github') {
-        thirdPartyActions.push(actionRef)
-      }
+    if (!isExampleOrGitHubAction(actionRef)) {
+      thirdPartyActions.push(actionRef)
     }
   }
 
   return thirdPartyActions
+}
+
+/**
+ * Check if an action should be skipped (GitHub-owned or documentation example)
+ */
+function isExampleOrGitHubAction(actionRef: string): boolean {
+  // List of patterns to exclude (GitHub-owned and documentation examples)
+  const excludePatterns = [
+    // GitHub-owned
+    /^actions\//,
+    /^github\//,
+    // Example organizations
+    /^(octo-org|octocat|different-org|fakeaction|some|OWNER|my-org)\//,
+    // Example repos (any owner)
+    /\/example-repo[/@]/,
+    /\/octo-repo[/@]/,
+    /\/hello-world-composite-action[/@]/,
+    /\/monorepo[/@]/,
+    // Monorepo patterns
+  ]
+
+  return excludePatterns.some((pattern) => pattern.test(actionRef))
 }
 
 /**

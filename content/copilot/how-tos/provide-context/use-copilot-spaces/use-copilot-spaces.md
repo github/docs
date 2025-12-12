@@ -8,6 +8,8 @@ versions:
 topics:
   - Copilot
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 For information on creating {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces).
@@ -18,7 +20,7 @@ Once you've added context to your space, you can ask {% data variables.product.p
 
 You can also change the large language model (LLM) used for your space by selecting the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then clicking the AI model of your choice. For more information, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 
-To star your favorite spaces so that you can easily find them later, you can click **{% octicon "star" aria-hidden="true" aria-label="star" %}** in the top right corner of the space. To view all spaces available to you, including starred spaces, go to [https://github.com/copilot/spaces](https://github.com/copilot/spaces).
+To star your favorite spaces so that you can easily find them later, you can click **{% octicon "star" aria-hidden="true" aria-label="star" %}** in the top right corner of the space. To view all spaces available to you, including starred spaces, go to [https://github.com/copilot/spaces](https://github.com/copilot/spaces?ref_product=copilot&ref_type=engagement&ref_style=text).
 
 ## Using {% data variables.copilot.copilot_spaces %} in your IDE
 
@@ -36,7 +38,28 @@ Once you've accessed space context from your IDE:
 
 ### Prerequisites
 
-To use {% data variables.copilot.copilot_spaces_short %} in your IDE, you need to install the {% data variables.product.github %} MCP server. For setup instructions, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/use-the-github-mcp-server).
+To use {% data variables.copilot.copilot_spaces_short %} in your IDE, you need to:
+
+* Set up the remote {% data variables.product.github %} MCP server for your IDE. For more information, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server) and [Remote {% data variables.product.github %} MCP Server](https://github.com/github/github-mcp-server/blob/main/docs/remote-server.md) in the {% data variables.product.github %} MCP server documentation.
+* Configure the set up of the remote {% data variables.product.github %} MCP server so that the {% data variables.copilot.copilot_spaces_short %} toolset is enabled.
+
+  The {% data variables.copilot.copilot_spaces_short %} toolset is not included in the default configuration, so you must explicitly enable it using the `X-MCP-Toolsets` header. The following example configuration enables both the default tools and {% data variables.copilot.copilot_spaces_short %}:
+
+   ```json copy
+   {
+     "servers": {
+       "github": {
+         "type": "http",
+         "url": "https://api.githubcopilot.com/mcp/",
+         "headers": {
+           "X-MCP-Toolsets": "default,copilot_spaces"
+         }
+       }
+     }
+   }
+   ```
+
+   Alternatively, you can use the dedicated {% data variables.copilot.copilot_spaces_short %} toolset URL: `https://api.githubcopilot.com/mcp/x/copilot_spaces`. Note that this configuration provides _only_ {% data variables.copilot.copilot_spaces_short %} tools, without other default {% data variables.product.github %} MCP server functionality.
 
 ### Accessing space context from your IDE
 

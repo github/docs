@@ -86,7 +86,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     Object.keys(auditLogEvents).map((category) => category),
     context,
   )
-  auditLogEventsMiniTocs && miniTocItems.push(...auditLogEventsMiniTocs)
+  if (auditLogEventsMiniTocs) {
+    miniTocItems.push(...auditLogEventsMiniTocs)
+  }
 
   return {
     props: {

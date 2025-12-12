@@ -14,6 +14,8 @@ topics:
   - Copilot
   - Mobile
 contentType: rai
+category: 
+  - Responsible use
 ---
 
 ## About {% data variables.copilot.copilot_mobile %}

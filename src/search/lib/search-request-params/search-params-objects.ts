@@ -3,7 +3,7 @@
   we need to validate and parse the parameters. This file contains the configuration for which parameters
   to expect based on the type of search request "e.g. general search vs autocomplete search" and how to validate them.
  */
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import { allIndexVersionKeys, versionToIndexVersionMap } from '@/search/lib/elasticsearch-versions'
 import { SearchTypes } from '@/search/types'
 

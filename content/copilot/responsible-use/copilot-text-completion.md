@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-text-completion
   - /copilot/responsible-use-of-github-copilot-features/copilot-text-completion
 contentType: rai
+category: 
+  - Responsible use
 ---
 
 {% ifversion fpt %}

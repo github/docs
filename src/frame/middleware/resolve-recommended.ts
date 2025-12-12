@@ -2,6 +2,7 @@ import type { ExtendedRequest, ResolvedArticle } from '@/types'
 import type { Response, NextFunction } from 'express'
 import findPage from '@/frame/lib/find-page'
 import { renderContent } from '@/content-render/index'
+import Permalink from '@/frame/lib/permalink'
 
 import { createLogger } from '@/observability/logger/index'
 
@@ -83,12 +84,11 @@ function tryResolveArticlePath(
 }
 
 /**
- * Get the href for a page from its permalinks
+ * Get the path for a page (without language/version)
  */
-function getPageHref(page: any, currentLanguage: string = 'en'): string {
-  if (page.permalinks?.length > 0) {
-    const permalink = page.permalinks.find((p: any) => p.languageCode === currentLanguage)
-    return permalink ? permalink.href : page.permalinks[0].href
+function getPageHref(page: any): string {
+  if (page.relativePath) {
+    return Permalink.relativePathToSuffix(page.relativePath)
   }
   return '' // fallback
 }
@@ -105,17 +105,17 @@ async function resolveRecommended(
     const page = req.context?.page
     const rawRecommended = (page as any)?.rawRecommended
     const spotlight = (page as any)?.spotlight
-
-    // Collect article paths from both rawRecommended and spotlight
-    const articlePaths: string[] = []
+    // Collect article paths from rawRecommended or spotlight if there are no
+    // recommended articles
+    let articlePaths: string[] = []
 
     // Add paths from rawRecommended
     if (rawRecommended && Array.isArray(rawRecommended)) {
       articlePaths.push(...rawRecommended)
     }
 
-    // Add paths from spotlight (legacy field)
-    if (spotlight && Array.isArray(spotlight)) {
+    // Add paths from spotlight (legacy field) if no recommended articles
+    if (articlePaths.length === 0 && spotlight && Array.isArray(spotlight)) {
       const spotlightPaths = spotlight
         .filter((item: any) => item && typeof item.article === 'string')
         .map((item: any) => item.article)
@@ -126,15 +126,20 @@ async function resolveRecommended(
       return next()
     }
 
-    const currentLanguage = req.context?.currentLanguage || 'en'
+    // remove duplicate articles
+    articlePaths = [...new Set(articlePaths)]
     const resolved: ResolvedArticle[] = []
 
     for (const rawPath of articlePaths) {
       try {
         const foundPage = tryResolveArticlePath(rawPath, page?.relativePath, req)
 
-        if (foundPage) {
-          const href = getPageHref(foundPage, currentLanguage)
+        if (
+          foundPage &&
+          (!req.context?.currentVersion ||
+            foundPage.applicableVersions.includes(req.context.currentVersion))
+        ) {
+          const href = getPageHref(foundPage)
           const category = foundPage.relativePath
             ? foundPage.relativePath.split('/').slice(0, -1).filter(Boolean)
             : []

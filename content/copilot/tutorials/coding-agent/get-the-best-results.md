@@ -17,6 +17,9 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/best-practices-for-using-copilot-to-work-on-tasks
   - /copilot/tutorials/coding-agent/best-practices
 contentType: tutorials
+category:
+  - Automate simple user stories
+  - Author and optimize with Copilot
 ---
 
 > [!NOTE]
@@ -154,9 +157,27 @@ When writing Playwright tests, please follow these guidelines to ensure consiste
 1. **Configure CI/CD integration** - Set up headless mode, screenshots on failure, and parallel execution
 ```
 
+## Organization-wide custom instructions
+
+{% data variables.copilot.copilot_coding_agent %} leverages your organization's custom instructions as part of its work. {% data variables.copilot.copilot_coding_agent %} first prioritizes repository-wide custom instructions. For more information on how to configure organization custom instructions, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-organization-instructions).
+
 ## Using the Model Context Protocol (MCP)
 
 You can extend the capabilities of {% data variables.copilot.copilot_coding_agent %} by using MCP. This allows {% data variables.copilot.copilot_coding_agent %} to use tools provided by local and remote MCP servers. The {% data variables.product.github %} MCP server and [Playwright MCP server](https://github.com/microsoft/playwright-mcp) are enabled by default. For more information, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
+
+## Creating {% data variables.copilot.custom_agents_short %}
+
+While custom instructions help guide {% data variables.product.prodname_copilot_short %}'s general behavior across your repository, {% data variables.copilot.custom_agents_short %} create entirely specialized agents with focused expertise and tailored tool configurations. These agents are designed for specific, recurring workflows where domain expertise and consistent behavior are crucial. {% data variables.copilot.custom_agents_caps_short %} are defined as Markdown files called {% data variables.copilot.agent_profiles %}.
+
+Here are some examples of {% data variables.copilot.custom_agents_short %} you could create:
+
+{% data reusables.copilot.custom-agents-examples-list %}
+
+By default, {% data variables.copilot.custom_agents_short %} inherit any MCP server tools that have been configured in the repository, but you can also configure {% data variables.copilot.custom_agents_short %} to only have access to specific tools.
+
+You can use {% data variables.copilot.custom_agents_short %} anywhere you use {% data variables.copilot.copilot_coding_agent %}, including when assigning an issue or prompting with a task.
+
+For more information on creating and configuring {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents).
 
 ## Pre-installing dependencies in {% data variables.product.prodname_copilot %}'s environment
 

@@ -1,55 +1,37 @@
 # GitHub Docs <!-- omit in toc -->
-[![Build GitHub Docs On Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
 
-This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
+Welcome to GitHub Docs! GitHub’s documentation is open source, meaning anyone from inside or outside the company can contribute. For full contributing guidelines, visit our [contributing guide](https://docs.github.com/en/contributing)
 
-GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
+## Quick links by contributor type
 
-Use the table of contents icon <img alt="Table of contents icon" src="./contributing/images/table-of-contents.png" width="25" height="25" /> on the top right corner of this document to navigate to a specific section quickly.
+* **Hubbers (GitHub employees):** See [CONTRIBUTING.md](https://github.com/github/docs-content/blob/main/CONTRIBUTING.md) in the `docs-content` repository for GitHub-specific processes.
 
-## Contributing
+* **Open source contributors:** See [CONTRIBUTING.md](https://github.com/github/docs/blob/main/.github/CONTRIBUTING.md) in the `docs` repository for a quick-start summary.
 
-We accept different types of contributions, including some that don't require you to write a single line of code. For detailed instructions on how to get started with our project, see [About contributing to GitHub Docs](https://docs.github.com/en/contributing/collaborating-on-github-docs/about-contributing-to-github-docs).
+## How we sync changes across Docs repositories
 
-### Ways to contribute
+There are two GitHub Docs repositories: 
 
-On the GitHub Docs site, you can contribute by clicking the **Make a contribution** button at the bottom of the page to open a pull request for quick fixes like typos, updates, or link fixes.
+- **`github/docs`** (public): Open to external contributions
 
-You can also contribute by creating a local environment or opening a Codespace. For more information, see [Setting up your environment to work on GitHub Docs](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs).
+- **`github/docs-internal`** (private): For GitHub employee contributions. 
 
-<img alt="Contribution call-to-action" src="./contributing/images/contribution_cta.png" width="400">
+The two repositories sync frequently. Content changes in one are reflected in the other.  Hubbers might prefer to post in `docs` when working with a customer, but `docs` has limitations on the types of contributions it accepts to safeguard the site and our workflows. Internal contributions should usually go to `docs-internal`.
 
-For more complex contributions, please [open an issue in the docs-content repo](https://github.com/github/docs-content/issues/new/choose) describing the changes you'd like to see.
+**Important:** The `docs` repository accepts contributions to content files (`.md` files in `/content` and select `/data` sections like reusables only). Infrastructure files, workflows, and site-building code are not open for external modification.
 
-If you're looking for a way to contribute, you can scan through our [help wanted board](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) to find open issues already approved for work.
+## New to contributing
 
-### And that's it!
+Here are some resources to help you get started with open source contributions:
 
-If you're having trouble with your GitHub account, contact [Support](https://support.github.com).
-
-That's how you can easily become a member of the GitHub Docs community. :sparkles:
-
-## READMEs
-
-In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
-
-- [content/README.md](content/README.md)
-- [content/graphql/README.md](content/graphql/README.md)
-- [content/rest/README.md](content/rest/README.md)
-- [contributing/README.md](contributing/README.md)
-- [data/README.md](data/README.md)
-- [data/reusables/README.md](data/reusables/README.md)
-- [data/variables/README.md](data/variables/README.md)
-- [src/README.md](src/README.md)
+* [Finding ways to contribute to open source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
+* [Set up Git](https://docs.github.com/en/get-started/git-basics/set-up-git)
+* [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow)
+* [Collaborating with pull requests](https://docs.github.com/en/github/collaborating-with-pull-requests)
 
 ## License
 
-The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
+This project is dual-licensed under:
 
-All other code in this repository is licensed under the [MIT license](LICENSE-CODE).
-
-When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
-
-## Thanks :purple_heart:
-
-Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
+* **Creative Commons Attribution 4.0** - for documentation and content in the assets, content, and data folders (see [LICENSE](LICENSE))
+* **MIT License** - for code (see [LICENSE-CODE](LICENSE-CODE))

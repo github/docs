@@ -14,7 +14,7 @@ import type { ExtendedRequest } from '@/types'
 // we strive to make the files in the repo only files that we actually
 // use and refer to in the non-archived content.
 
-// Note that, we also have `archived-enterprise-versions-assets.js`
+// Note that, we also have `archived-enterprise-versions-assets.ts`
 // but that one assumes the whole path refers to a prefix which is
 // considered archived. E.g. /en/enterprise-server@2.9/foo/bar.css
 

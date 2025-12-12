@@ -5,7 +5,7 @@ import type { ExtendedRequest } from '@/types'
 import { defaultCacheControl } from '@/frame/middleware/cache-control'
 import catchMiddlewareError from '@/observability/middleware/catch-middleware-error'
 import statsd from '@/observability/lib/statsd'
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import { allVersions } from '@/versions/lib/all-versions'
 
 const router = express.Router()

@@ -14,7 +14,7 @@ redirect_from:
 GitHub does not tolerate speech that attacks or promotes hate toward an individual or group of people on the basis of who they are, including age, body size, ability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, sexual identity, or sexual orientation. This includes:
 
 * Mocking, attacking, or excluding a person or group based on their beliefs or the characteristics listed above
-* Displaying clear affiliation or identification with known terrorist or violent extremist organizations
+* Displaying clear affiliation or identification with known [terrorist or violent extremist organizations](/site-policy/acceptable-use-policies/github-terrorism-and-violent-extremism)
 * Supporting or promoting hate groups or hate-based conspiracy theories
 * Sharing symbols or images synonymous with hate
 * Using harmful stereotypes, slurs, or dehumanizing speech

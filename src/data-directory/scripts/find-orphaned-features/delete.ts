@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 import chalk from 'chalk'
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 
 type Options = {
   verbose?: boolean

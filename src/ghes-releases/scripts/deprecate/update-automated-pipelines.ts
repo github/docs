@@ -55,7 +55,7 @@ export async function updateAutomatedPipelines() {
   // src/rest/lib/config.json file. We want to update 'api-versions'
   // before the allVersions object is created so we need to import it
   // after calling updateAutomatedConfigFiles.
-  const { allVersions } = await import('@/versions/lib/all-versions.js')
+  const { allVersions } = await import('@/versions/lib/all-versions')
 
   // Gets all of the base names (e.g., ghes-) in the allVersions object
   // Currently, this is only ghes- but if we had more than one type of
@@ -117,7 +117,7 @@ export async function updateAutomatedPipelines() {
     const addFiles = difference(expectedDirectory, existingDataDir)
     if (addFiles.length > numberedReleaseBaseNames.length) {
       throw new Error(
-        'Only one new release per numbered release version should be added at a time. Check that the lib/enterprise-server-releases.js is correct.',
+        'Only one new release per numbered release version should be added at a time. Check that the lib/enterprise-server-releases.ts is correct.',
       )
     }
 

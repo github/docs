@@ -3,7 +3,8 @@ title: Verifying the integrity of a release
 shortTitle: Verify release integrity
 intro: 'You can avoid tampering and accidental changes by ensuring the releases you use have not been modified after publication.'
 versions:
-  feature: immutable-releases-preview
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Code Security
@@ -11,8 +12,6 @@ topics:
   - Dependencies
 defaultTool: cli
 ---
-
-{% data reusables.releases.immutable-releases-preview-note %}
 
 {% cli %}
 

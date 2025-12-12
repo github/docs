@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { Link } from '@/frame/components/Link'
 import type { JourneyContext } from '@/journeys/lib/journey-path-resolver'
 import { useTranslation } from '@/languages/components/useTranslation'
+import { useVersion } from '@/versions/components/useVersion'
 
 type Props = {
   journey: JourneyContext
@@ -10,9 +11,11 @@ type Props = {
 
 export function JourneyTrackCard({ journey }: Props) {
   const { locale } = useRouter()
+  const { currentVersion } = useVersion()
   const { t } = useTranslation('journey_track_nav')
   const { trackTitle, journeyTitle, journeyPath, nextGuide, numberOfGuides, currentGuideIndex } =
     journey
+  const fullPath = `/${locale}/${currentVersion}${journeyPath}?feature=journey-landing`
 
   return (
     <div
@@ -21,7 +24,7 @@ export function JourneyTrackCard({ journey }: Props) {
     >
       <div className="d-flex flex-column width-full">
         <h2 className="h4">
-          <Link href={`/${locale}${journeyPath}`} className="mb-1 text-underline">
+          <Link href={fullPath} className="mb-1 text-underline">
             {journeyTitle}
           </Link>
         </h2>
@@ -41,7 +44,7 @@ export function JourneyTrackCard({ journey }: Props) {
               </Link>
             </>
           ) : (
-            <Link href={`/${locale}${journeyPath}`} className="h5 text-bold color-fg f5 ml-1">
+            <Link href={fullPath} className="h5 text-bold color-fg f5 ml-1">
               {t('more_articles')}
             </Link>
           )}

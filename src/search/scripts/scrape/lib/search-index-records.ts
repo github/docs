@@ -38,7 +38,7 @@ function validateRecords(name: string, records: Record[]): true {
     .map(({ value }) => value)
   assert(!dupes.length, `every objectID must be unique. dupes: ${dupes.join('; ')}`)
 
-  records.forEach((record) => {
+  for (const record of records) {
     assert(
       isString(record.objectID) && record.objectID.length,
       `objectID must be a string. received: ${record.objectID}, ${JSON.stringify(record)}`,
@@ -48,14 +48,16 @@ function validateRecords(name: string, records: Record[]): true {
       isString(record.title) && record.title.length,
       `title must be a string. received: ${record.title}, ${JSON.stringify(record)}`,
     )
-  })
+  }
 
   return true
 }
 
 function countArrayValues(arr: string[]) {
   const counter = new Map()
-  arr.forEach((value) => counter.set(value, (counter.get(value) || 0) + 1))
+  for (const value of arr) {
+    counter.set(value, (counter.get(value) || 0) + 1)
+  }
   return [...counter.entries()].map(([value, count]) => {
     return { value, count }
   })

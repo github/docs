@@ -3,7 +3,7 @@ import type { Response, NextFunction } from 'express'
 import type { ExtendedRequest } from '@/types'
 import { getProductGroups } from '@/products/lib/get-product-groups'
 import warmServer from '@/frame/lib/warm-server'
-import { languageKeys } from '@/languages/lib/languages'
+import { languageKeys } from '@/languages/lib/languages-server'
 import { allVersionKeys } from '@/versions/lib/all-versions'
 
 const isHomepage = (path: string) => {

@@ -27,11 +27,11 @@ async function alterExperimentsInPage(
   }
   for (const experiment of getActiveExperiments('all')) {
     await page.evaluate(
-      ({ experimentKey, variation }) => {
+      ({ experimentKey, variationType }) => {
         // @ts-expect-error overrideControlGroup is a custom function added to the window object
-        window.overrideControlGroup(experimentKey, variation)
+        window.overrideControlGroup(experimentKey, variationType)
       },
-      { experimentKey: experiment.key, variation },
+      { experimentKey: experiment.key, variationType: variation },
     )
   }
 }

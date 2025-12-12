@@ -22,19 +22,19 @@ export async function precompileRedirects(pageList: Page[]): Promise<Redirects> 
 
   // CURRENT PAGES PERMALINKS AND FRONTMATTER
   // create backwards-compatible old paths for page permalinks and frontmatter redirects
-  pageList
-    .filter((page) => page.languageCode === 'en')
-    .forEach((page) => Object.assign(allRedirects, page.buildRedirects()))
+  for (const page of pageList.filter((xpage) => xpage.languageCode === 'en')) {
+    Object.assign(allRedirects, page.buildRedirects())
+  }
 
   // NOTE: Exception redirects **MUST COME AFTER** pageList redirects above in order
   // to properly override them. Exception redirects are unicorn one-offs that are not
-  // otherwise handled by the versionless redirect fallbacks (see lib/all-versions.js).
+  // otherwise handled by the versionless redirect fallbacks (see lib/all-versions.ts).
   //
   // Examples of exceptions:
   // * We deprecate the FPT version of a page, and we want the FPT version to redirect
-  //   to a different version that goes against the order in lib/all-versions.js.
+  //   to a different version that goes against the order in lib/all-versions.ts.
   // * We deprecate a non-FPT version of a page, and we want the old version to redirect
-  //   to a different version. Because the order in lib/all-versions.js only covers
+  //   to a different version. Because the order in lib/all-versions.ts only covers
   //   versionless links (like `/foo`), we need to specify an exception for the old
   //   versioned links (like `/enterprise-cloud@latest/foo`).
   // * We deprecate a version of a page, and instead of falling back to the next
@@ -46,7 +46,7 @@ export async function precompileRedirects(pageList: Page[]): Promise<Redirects> 
   const exceptions = getExceptionRedirects(EXCEPTIONS_FILE) as Redirects
   Object.assign(allRedirects, exceptions)
 
-  Object.entries(allRedirects).forEach(([fromURI, toURI]) => {
+  for (const [fromURI, toURI] of Object.entries(allRedirects)) {
     // If the destination URL has a hardcoded `enterprise-server@latest` in
     // it we need to rewrite that now.
     // We never want to redirect to that as the final URL (in the 301 response)
@@ -60,7 +60,7 @@ export async function precompileRedirects(pageList: Page[]): Promise<Redirects> 
         `/enterprise-server@${latest}`,
       )
     }
-  })
+  }
 
   return allRedirects
 }

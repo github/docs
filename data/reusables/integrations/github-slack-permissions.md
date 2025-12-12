@@ -1,0 +1,1 @@
+When you grant the {% data variables.product.github %} app access to your Slack workspace, you are granting it certain permissions. The permissions provided are necessary for the app to function correctly and provide the features you expect. See [AUTOTITLE](/integrations/reference/slack-permissions).

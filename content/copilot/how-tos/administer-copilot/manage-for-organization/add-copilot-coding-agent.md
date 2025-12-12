@@ -15,6 +15,8 @@ redirect_from:
   - /copilot/how-tos/administer/organizations/add-copilot-coding-agent
   - /copilot/how-tos/administer/manage-for-organization/add-copilot-coding-agent
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 > [!NOTE]

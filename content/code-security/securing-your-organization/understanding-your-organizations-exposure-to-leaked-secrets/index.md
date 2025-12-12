@@ -12,7 +12,10 @@ topics:
   - Security
 children:
   - /about-secret-risk-assessment
+  - /assess-your-secret-risk
   - /viewing-the-secret-risk-assessment-report-for-your-organization
+  - /export-risk-report-csv
+  - /risk-report-csv-contents
   - /interpreting-secret-risk-assessment-results
   - /choosing-github-secret-protection
   - /calculating-the-cost-savings-of-push-protection

@@ -44,8 +44,6 @@ If you enable _security updates_, {% data variables.product.prodname_dependabot 
 
 {% data reusables.dependabot.dependabot-updates-prs-and-actions %}
 
-{% ifversion dependabot-on-actions-opt-in %}{% data reusables.dependabot.dependabot-updates-and-actions %} For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).{% endif %}
-
 {% data reusables.dependabot.dependabot-tos %}
 
 ## Frequency of {% data variables.product.prodname_dependabot %} pull requests

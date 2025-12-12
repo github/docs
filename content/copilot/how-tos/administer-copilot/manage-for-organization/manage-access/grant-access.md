@@ -20,6 +20,8 @@ redirect_from:
 topics:
   - Copilot
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 ## Configuring access to {% data variables.product.prodname_copilot %} in your organization

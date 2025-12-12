@@ -8,6 +8,8 @@ versions:
 topics:
   - Copilot
 contentType: rai
+category: 
+  - Responsible use
 ---
 
 ## About {% data variables.product.prodname_copilot_short %} commit message generation

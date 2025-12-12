@@ -91,9 +91,9 @@ export async function get<T extends ResponseTypes = 'text'>(
 
   // Convert headers to record format
   const headersRecord: Record<string, string> = {}
-  response.headers.forEach((value, key) => {
+  for (const [key, value] of response.headers) {
     headersRecord[key] = value
-  })
+  }
 
   // Return response in got-compatible format
   return {

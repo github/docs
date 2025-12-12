@@ -267,7 +267,22 @@ If you added manual build steps for compiled languages and {% data variables.pro
 
 When you enable default setup for a repository that contains C/C++ code, the build mode is set to `none` automatically.
 
->[!NOTE] Support of build mode `none` for C/C++ codebases is currently in {% data variables.release-phases.public_preview %} and subject to change.
+### No build for C/C++
+
+{% data variables.product.prodname_codeql %} will infer C/C++ compilation units through source file extensions. For each source file found, compilation flags and include paths are inferred by inspecting the codebase without the need for a working build command.
+
+#### Accuracy of no build analysis for C/C++
+
+Creating a {% data variables.product.prodname_codeql %} C/C++ database without a build may produce less accurate results than using `autobuild` or manual build steps in some cases; for example, if:
+
+* The code depends heavily on custom macros/defines not available in existing headers
+* The codebase has many external dependencies
+
+You can ensure a more accurate analysis by taking the following steps:
+
+* Place custom macros and defines in header files that are included in relevant source files
+* Ensure external dependencies (headers) are available in system include directories or in the workspace
+* Run the extraction on the target platform. For example, choose a Windows runner to analyze Windows projects to give access to platform specific headers and compilers
 
 {% endif %}
 

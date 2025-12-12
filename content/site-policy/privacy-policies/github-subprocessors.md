@@ -31,8 +31,10 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | Anthropic PBC                 | AI Inference and AI Services                                                   | United States                                     | United States      |
 | Cloudflare                    | Content delivery service                                                       | United States                                     | United States      |
 | CoreWeave, Inc.               | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
+| Elasticsearch, Inc.           | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
 | Fastly                        | Content delivery service                                                       | United States                                     | United States      |
-| Fireworks AI	               | AI Inference and AI Services                                                    | United States, Iceland, Germany            | United States      |
+| Fireworks AI                  | AI Inference and AI Services                                                   | United States, Iceland, Germany                   | United States      |
+| FullStory, Inc.               | Customer support ticketing analysis                                            | United States                                     | United States      |
 | Google Cloud Platform (GCP)   | Cloud Hosted Infrastructure, AI Inference and AI Services                      | United States, Belgium, Singapore                 | United States      |
 | Hewlett-Packard Limited       | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
 | LambdaTest                    | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |

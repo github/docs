@@ -18,9 +18,9 @@ In this guide, you’ll learn how to set up {% data variables.product.prodname_c
 
 This guide assumes that you'll use {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %}. To get set up, see [Set up Copilot in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/setup-simplified) in the {% data variables.product.prodname_vscode %} documentation.
 
-## Step 1: Disable code completion
+## Step 1: Disable {% data variables.product.prodname_copilot_short %} inline suggestions
 
-First, let's disable code completion. This will give you the opportunity to deepen your understanding of programming concepts by writing more code yourself.
+First, let's disable inline suggestions. This will give you the opportunity to deepen your understanding of programming concepts by writing more code yourself.
 
 1. In {% data variables.product.prodname_vscode_shortname %}, open your project.
 1. Create a folder in the root directory called `.vscode`.
@@ -35,13 +35,14 @@ First, let's disable code completion. This will give you the opportunity to deep
    }
    ```
 
-1. Save the file. {% data variables.product.prodname_copilot_short %} code completion is now disabled for this project in {% data variables.product.prodname_vscode_shortname %}.
+1. Save the file. {% data variables.product.prodname_copilot_short %} inline suggestions are now disabled for this project in {% data variables.product.prodname_vscode_shortname %}.
 
 ## Step 2: Add learning instructions
 
 Now, let's provide {% data variables.copilot.copilot_chat_short %} with instructions to act like a tutor that supports your learning.
 
-1. In the root folder of your project, create a file called `copilot-instructions.md`.
+1. Create a folder in the root directory called `.github`.
+1. Inside `.github`, create a file called `copilot-instructions.md`.
 1. Add the following text, or customize it for your personal learning goals:
 
    ```markdown copy
@@ -62,7 +63,7 @@ You're ready to start building real coding skills with {% data variables.product
 
 Throughout your work on the project, engage in a long-running conversation with **{% data variables.copilot.copilot_chat_short %}**. Treat it as your **personal tutor**, asking questions as they arise and using it to navigate challenges or clarify concepts.
 
-<a href="vscode://GitHub.Copilot-Chat" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline" aria-label="Open Copilot Chat in Visual Studio Code">
+<a href="vscode://GitHub.Copilot-Chat?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline" aria-label="Open Copilot Chat in Visual Studio Code">
 <span>Open {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}
 </a><br></br>
 

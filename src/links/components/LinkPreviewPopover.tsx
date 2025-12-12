@@ -248,16 +248,19 @@ function popoverWrap(element: HTMLLinkElement, filledCallback?: (popover: HTMLDi
 
   const { pathname } = new URL(element.href)
 
-  fetch(`/api/article/meta?${new URLSearchParams({ pathname })}`, {
-    headers: {
-      'X-Request-Source': 'hovercards',
-    },
-  }).then(async (response) => {
+  async function fetchAndFillPopover() {
+    const response = await fetch(`/api/article/meta?${new URLSearchParams({ pathname })}`, {
+      headers: {
+        'X-Request-Source': 'hovercards',
+      },
+    })
     if (response.ok) {
       const meta = (await response.json()) as PageMetadata
       fillPopover(element, meta, filledCallback)
     }
-  })
+  }
+
+  fetchAndFillPopover()
 }
 
 function fillPopover(
@@ -281,8 +284,8 @@ function fillPopover(
         const regex = /^\/(?<lang>\w{2}\/)?(?<version>[\w-]+@[\w-.]+\/)?(?<product>[\w-]+\/)?/
         const match = regex.exec(linkURL.pathname)
         if (match?.groups) {
-          const { lang, version, product } = match.groups
-          const productURL = [lang, version, product].map((n) => n || '').join('')
+          const { lang, version, product: productPath } = match.groups
+          const productURL = [lang, version, productPath].map((n) => n || '').join('')
           productHeadLink.href = `${linkURL.origin}/${productURL}`
         }
         productHead.style.display = 'block'

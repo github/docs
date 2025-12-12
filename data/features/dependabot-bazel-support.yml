@@ -1,0 +1,6 @@
+# Reference: #16918
+# Bazel support for Dependabot
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.19'

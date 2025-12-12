@@ -9,6 +9,7 @@ complexity:
 octicon: copilot
 category:
   - Communicate effectively
+  - Author and optimize with Copilot
 topics:
   - Copilot
 contentType: tutorials

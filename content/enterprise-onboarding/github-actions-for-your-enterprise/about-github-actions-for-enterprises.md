@@ -31,9 +31,8 @@ You can enjoy the convenience of {% data variables.product.company_short %}-host
 
 {% data variables.product.prodname_actions %} provides greater control over deployments. For example, you can use environments to require approval for a job to proceed, restrict which branches can trigger a workflow, or limit access to secrets. If your workflows need to access resources from a cloud provider that supports OpenID Connect (OIDC), you can configure your workflows to authenticate directly to the cloud provider. OIDC provides security benefits such as eliminating the need to store credentials as long-lived secrets. For more information, see [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
 
-{% data variables.product.prodname_actions %} also includes tools to govern your enterprise's software development cycle and meet compliance obligations. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
+{% data variables.product.prodname_actions %} also includes tools to govern your enterprise's software development cycle and meet compliance obligations. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
 
 ## Next steps
 
-1. To learn about {% data variables.product.prodname_actions %} basics, including core concepts and essential terminology, see [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/understanding-github-actions).
-1. To get started planning a rollout of {% data variables.product.prodname_actions %} in your enterprise, see [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise).
+Learn about the basics of writing a {% data variables.product.prodname_actions %} workflow. See [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/actions-components).

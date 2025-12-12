@@ -252,9 +252,6 @@ You may need to allowlist {% data variables.product.company_short %}'s IP ranges
 
 ### Uploading your migration archives to {% data variables.product.prodname_ghos %}
 
-> [!NOTE]
-> Repository migrations with {% data variables.product.prodname_ghos %} are currently in {% data variables.release-phases.public_preview %} and subject to change.
-
 If you're using {% data variables.product.prodname_ghos %}, you will upload your archive to {% data variables.product.prodname_ghos %} using the following process:
 
 1. Create a multipart upload by submitting a POST request
@@ -413,9 +410,6 @@ For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migr
 
 ### Migrating repositories with {% data variables.product.prodname_ghos %}
 
-> [!NOTE]
-> Repository migrations with {% data variables.product.prodname_ghos %} are currently in {% data variables.release-phases.public_preview %} and subject to change.
-
 If you do not want to set up and provide {% data variables.product.prodname_importer_proper_name %} with access to a customer-owned blob storage account for storing your repository archives, you can migrate repositories using {% data variables.product.prodname_ghos %}. To do so, you must be running v1.9.0 (or higher) of {% data variables.product.prodname_gei_cli %}. {% data variables.product.prodname_ghos %} does not require additional setup and is available as an option when you run {% data variables.product.prodname_gei_cli %} commands.
 
 For security purposes, {% data variables.product.prodname_ghos %} is explicitly write-only, and downloads from {% data variables.product.prodname_ghos %} are not possible. After a migration is complete, the repository archives are immediately deleted. If an archive is uploaded and not used in a migration, the archive is deleted after 7 days.
@@ -512,9 +506,11 @@ gh gei generate-script --github-source-org SOURCE \
 
 | Argument | Description |
 | -------- | ----------- |
-| `--target-api-url TARGET-API-URL` | {% data reusables.enterprise-migration-tool.add-target-api-url %} |
-| `--no-ssl-verify` | {% data reusables.enterprise-migration-tool.ssl-flag %} |
 | `--download-migration-logs` | Download the migration log for each migrated repository. For more information about migration logs, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer#downloading-all-migration-logs-for-an-organization). |
+| `--lock-source-repo` | Lock the source repository when migrating. **Warning:** Locking a source repository prevents further changes and may disrupt workflows. It is recommended to only use this option if you are certain it is appropriate. For more information, see [AUTOTITLE](/migrations/overview/about-locked-repositories). |
+| `--no-ssl-verify` | {% data reusables.enterprise-migration-tool.ssl-flag %} |
+| `--skip-releases` | {% data reusables.enterprise-migration-tool.skip-releases %} |
+| `--target-api-url TARGET-API-URL` | {% data reusables.enterprise-migration-tool.add-target-api-url %} |
 | `--use-github-storage`| Perform a repository migration using {% data variables.product.prodname_ghos %} as the intermediate blob storage solution. |
 
 ### Reviewing the migration script
@@ -588,9 +584,10 @@ gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --gith
 
 | Argument | Description |
 | -------- | ----------- |
-| `--target-api-url TARGET-API-URL` | {% data reusables.enterprise-migration-tool.add-target-api-url %} |
+| `--lock-source-repo` | Lock the source repository when migrating. For more information, see [AUTOTITLE](/migrations/overview/about-locked-repositories). |
 | `--no-ssl-verify` | {% data reusables.enterprise-migration-tool.ssl-flag %} |
 | `--skip-releases` | {% data reusables.enterprise-migration-tool.skip-releases %} |
+| `--target-api-url TARGET-API-URL` | {% data reusables.enterprise-migration-tool.add-target-api-url %} |
 | `--target-repo-visibility TARGET-VISIBILITY` | {% data reusables.enterprise-migration-tool.set-repository-visibility %} |
 | `--use-github-storage`| Perform a repository migration using {% data variables.product.prodname_ghos %} as the intermediate blob storage solution. |
 

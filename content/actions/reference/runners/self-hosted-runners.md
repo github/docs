@@ -193,7 +193,6 @@ If you have enabled automatic access to {% data variables.product.prodname_dotco
 github.com
 api.github.com
 codeload.github.com
-pkg.actions.githubusercontent.com
 ```
 
 You can use the REST API to get meta information about {% data variables.product.company_short %}, including the IP addresses and domain details for {% data variables.product.company_short %} services. The `actions_inbound` section of the API supports both fully qualified and wildcard domains. Fully qualified domains specify a complete domain name (e.g., `example.github.com`), while wildcard domains use a `*` to represent multiple possible subdomains (e.g., `*.github.com`). An example of the self-hosted runner requirements using wildcard domains has been listed below. For more information, see [AUTOTITLE](/rest/meta/meta).

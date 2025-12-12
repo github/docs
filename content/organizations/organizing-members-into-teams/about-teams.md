@@ -20,7 +20,8 @@ You can use teams to manage access for people in an organization, and for sendin
 
 {% ifversion not ghes %}
 
->![TIP] If you use an enterprise account, you can also create teams at the enterprise level. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-teams).
+> [!TIP]
+> If you use an enterprise account, you can also create teams at the enterprise level. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-teams).
 
 {% endif %}
 

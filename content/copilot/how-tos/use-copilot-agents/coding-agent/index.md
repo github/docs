@@ -8,10 +8,16 @@ topics:
   - Copilot
 children:
   - /create-a-pr
+  - /make-changes-to-an-existing-pr
   - /track-copilot-sessions
   - /review-copilot-prs
+  - /create-custom-agents
+  - /test-custom-agents
   - /extend-coding-agent-with-mcp
+  - /integrate-coding-agent-with-slack
   - /integrate-coding-agent-with-teams
+  - /integrate-coding-agent-with-linear
+  - /changing-the-ai-model
   - /customize-the-agent-environment
   - /customize-the-agent-firewall
   - /troubleshoot-coding-agent

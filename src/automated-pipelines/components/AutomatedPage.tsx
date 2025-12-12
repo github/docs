@@ -1,3 +1,4 @@
+import React from 'react'
 import { DefaultLayout } from '@/frame/components/DefaultLayout'
 import { ArticleTitle } from '@/frame/components/article/ArticleTitle'
 import { MarkdownContent } from '@/frame/components/ui/MarkdownContent'

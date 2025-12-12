@@ -10,6 +10,9 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/driving-downstream-impact/increase-test-coverage
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/drive-downstream-impact/increase-test-coverage
 contentType: tutorials
+category:
+  - Roll Copilot out at scale
+  - Manage Copilot for a team
 ---
 
 {% data reusables.copilot.essp-intro %}
@@ -130,7 +133,7 @@ Developers **should not**:
 ### Recommended features
 
 * [{% data variables.copilot.copilot_chat_dotcom_short %}](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github)
-* [{% data variables.product.prodname_copilot_short %} code completion](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot)
+* [{% data variables.product.prodname_copilot_short %} inline suggestions](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot)
 * [{% data variables.copilot.copilot_chat_short %} in the IDE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide)
 * [{% data variables.copilot.copilot_coding_agent %}](/copilot/concepts/about-copilot-coding-agent)
 

@@ -7,6 +7,7 @@ type: how_to
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>=3.19'
 topics:
   - Dependabot
   - Version updates
@@ -18,7 +19,7 @@ shortTitle: Multi-ecosystem updates
 
 ## About multi-ecosystem updates
 
-Multi-ecosystem updates allow you to create groups that span multiple package ecosystems and get a single {% data variables.product.prodname_dependabot %} pull request with updates across all supported ecosystems.  This approach helps reduce the number of {% data variables.product.prodname_dependabot %} pull requests you receive and streamlines your dependency update workflow.  
+Multi-ecosystem updates allow you to create groups that span multiple package ecosystems and get a single {% data variables.product.prodname_dependabot %} pull request with updates across all supported ecosystems.  This approach helps reduce the number of {% data variables.product.prodname_dependabot %} pull requests you receive and streamlines your dependency update workflow.
 
 Multi-ecosystem updates are particularly useful for:
 
@@ -28,9 +29,9 @@ Multi-ecosystem updates are particularly useful for:
 
 ## Getting Started
 
-You should follow these instructions to set up your first multi-ecosystem group.  
+You should follow these instructions to set up your first multi-ecosystem group.
 
-### 1. Add `multi-ecosystem-groups` to your `.github/dependabot.yml` file  
+### 1. Add `multi-ecosystem-groups` to your `.github/dependabot.yml` file
 
 Start by defining a group with a schedule in the top-level `multi-ecosystem-groups` section:
 
@@ -46,7 +47,7 @@ updates:
   # Your existing package ecosystems will go here
 ```
 
-### 2. Assign ecosystems to groups with patterns  
+### 2. Assign ecosystems to groups with patterns
 
 1. Add the `multi-ecosystem-group` key.
 1. Add `patterns` to your package ecosystem configurations.
@@ -64,7 +65,7 @@ updates:
     directory: "/"
     patterns: ["nginx", "redis", "postgres"]
     multi-ecosystem-group: "infrastructure"
-  
+
   - package-ecosystem: "terraform"
     directory: "/"
     patterns: ["aws", "terraform-*"]
@@ -72,18 +73,18 @@ updates:
 ```
 
 > [!IMPORTANT]
-> The `patterns` key is required when using `multi-ecosystem-group`. You can specify dependency patterns to include only certain dependencies in the group, or use `["*"]` to include all dependencies.  
+> The `patterns` key is required when using `multi-ecosystem-group`. You can specify dependency patterns to include only certain dependencies in the group, or use `["*"]` to include all dependencies.
 
-### 3. Commit and watch for consolidated pull requests  
+### 3. Commit and watch for consolidated pull requests
 
-Once you commit the changes to your `dependabot.yml` file, {% data variables.product.prodname_dependabot %} will:  
+Once you commit the changes to your `dependabot.yml` file, {% data variables.product.prodname_dependabot %} will:
 
 * Check for updates according to the group's schedule
 * Check for updates according to the group's schedule.
 * Create a single pull request containing updates for all the ecosystems specified in the group.
 * Use the group identifier in the branch name and the pull request title.
 
-### 4. Customize with additional keys (optional)  
+### 4. Customize with additional keys (optional)
 
 Add [`assignees`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#assignees--), [`labels`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#labels--), and other settings to your groups:
 
@@ -100,7 +101,7 @@ updates:
     directory: "/"
     patterns: ["nginx", "redis", "postgres"]
     multi-ecosystem-group: "infrastructure"
-  
+
   - package-ecosystem: "terraform"
     directory: "/"
     patterns: ["aws", "terraform-*"]
@@ -111,8 +112,8 @@ updates:
 
 Multi-ecosystem updates use a two-level configuration structure to provide flexibility and control over how updates are grouped and managed:
 
-* **Group-level** (`multi-ecosystem-groups`): This is where you define the overall group behavior, scheduling, and shared settings that apply to all package ecosystems in the group.  
-* **Ecosystem-level** (`updates`): Configure individual package managers within the group, including which dependencies to include and ecosystem-specific settings.  
+* **Group-level** (`multi-ecosystem-groups`): This is where you define the overall group behavior, scheduling, and shared settings that apply to all package ecosystems in the group.
+* **Ecosystem-level** (`updates`): Configure individual package managers within the group, including which dependencies to include and ecosystem-specific settings.
 
 This structure allows you to set consistent policies at the group level while maintaining fine-grained control over individual package ecosystems.
 
@@ -151,7 +152,7 @@ The following table shows the configuration keys available at the group level, a
 | [`commit-message`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#commit-message--) |{% octicon "x" aria-label="Not required" %} |Group-only |
 | [`pull-request-branch-name`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#pull-request-branch-nameseparator--) |{% octicon "x" aria-label="Not required" %} |Group-only |
 
-### Ecosystem-level (`updates`)  
+### Ecosystem-level (`updates`)
 
 The following table shows the configuration keys available at the ecosystem level, along with their behavior types. For more information, see [Configuration behavior](#configuration-behavior).
 
@@ -262,9 +263,9 @@ updates:
     multi-ecosystem-group: "infrastructure"
 ```
 
-**Result**: One weekly pull request containing updates for Docker images, Terraform providers, and Python dependencies used in infrastructure automation.  
+**Result**: One weekly pull request containing updates for Docker images, Terraform providers, and Python dependencies used in infrastructure automation.
 
-### Full-stack applications  
+### Full-stack applications
 
 **Scenario**: You have a web application with a React frontend and Rails backend. You want frontend and backend dependencies updated together to ensure compatibility and streamline testing.
 
@@ -289,7 +290,7 @@ updates:
 
 **Result**: Daily PRs containing both frontend JavaScript/TypeScript updates and backend Ruby gem updates, allowing you to test the complete application together.
 
-### Cross-platform libraries  
+### Cross-platform libraries
 
 **Scenario**: You're building a library or service that uses the same protocols across different languages (like gRPC and Protocol Buffers). You want to keep the library versions synchronized across all implementations.
 
@@ -331,7 +332,7 @@ multi-ecosystem-groups:
     commit-message:
       prefix: "infra"
       include: "scope"
-  
+
   # Application code updates - daily, with development team
   full-stack:
     schedule:
@@ -347,20 +348,20 @@ updates:
     assignees: ["@docker-admin"]            # adds to @platform-team (additive)
     labels: ["docker"]                      # adds to infrastructure, dependencies (additive)
     multi-ecosystem-group: "infrastructure"
-  
+
   # Terraform - infrastructure group with terraform specialists
   - package-ecosystem: "terraform"
     directory: "/"
     patterns: ["aws", "terraform-*"]
     multi-ecosystem-group: "infrastructure"
-    
+
   # Frontend - full-stack group with frontend focus
   - package-ecosystem: "npm"
     directory: "/frontend"
     patterns: ["react", "lodash", "@types/*"]
     labels: ["frontend"]                    # adds to full-stack (additive)
     multi-ecosystem-group: "full-stack"
-    
+
   # Backend - full-stack group with backend specialist
   - package-ecosystem: "bundler"
     directory: "/backend"
@@ -394,11 +395,11 @@ updates:
 
 This approach ensures that the right people are involved for each type of update while maintaining consistent policies across related technologies.
 
-## Best practices  
+## Best practices
 
-* **Group related dependencies**: Only group ecosystems that logically belong together.  
-* **Use descriptive identifiers**: Choose group names that clearly indicate the group's purpose.  
+* **Group related dependencies**: Only group ecosystems that logically belong together.
+* **Use descriptive identifiers**: Choose group names that clearly indicate the group's purpose.
 
-### Further reading  
+### Further reading
 
 * [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference)

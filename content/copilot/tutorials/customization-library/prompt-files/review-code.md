@@ -6,6 +6,7 @@ versions:
 category:
   - Prompt files
   - Development workflows
+  - Configure Copilot
 complexity:
   - Advanced
 octicon: copilot
@@ -70,7 +71,7 @@ Analyze the selected code for:
 Provide feedback as:
 
 **🔴 Critical Issues** - Must fix before merge
-**🟡 Suggestions** - Improvements to consider  
+**🟡 Suggestions** - Improvements to consider
 **✅ Good Practices** - What's done well
 
 For each issue:

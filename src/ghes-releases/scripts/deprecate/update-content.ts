@@ -28,7 +28,7 @@ export function updateContentFiles() {
     let featureData = undefined
 
     if (data.versions.feature) {
-      const featureFilePath = 'data/features/' + data.versions.feature + '.yml'
+      const featureFilePath = `data/features/${data.versions.feature}.yml`
       const featureContent = fs.readFileSync(featureFilePath, 'utf8')
       featureData = yaml.load(featureContent) as featureDataType
       if (!featureData || !featureData.versions)
@@ -117,8 +117,8 @@ function removeFileUpdateParent(filePath: string) {
   if (!data) return
   // Children paths are relative to the index.md file's directory
   const childPath = filePath.endsWith('index.md')
-    ? '/' + path.basename(path.dirname(filePath))
-    : '/' + path.basename(filePath, '.md')
+    ? `/${path.basename(path.dirname(filePath))}`
+    : `/${path.basename(filePath, '.md')}`
 
   // Remove the childPath from the parent index.md file's children frontmatter
   data.children = data.children.filter((child) => child !== childPath)

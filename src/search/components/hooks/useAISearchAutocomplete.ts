@@ -29,7 +29,7 @@ const DEBOUNCE_TIME = 100 // In milliseconds
 
 // Results are only cached for the current session
 // We cache results so if a user presses backspace, we can show the results immediately without burdening the API
-let sessionCache = {} as Record<string, SearchOptions>
+const sessionCache = {} as Record<string, SearchOptions>
 
 // Helper to incorporate version & locale into the cache key
 function getCacheKey(query: string, version: string, locale: string) {

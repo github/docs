@@ -47,7 +47,7 @@ describe('toc links', () => {
       }
     }
 
-    const message = 'broken link in a TOC: ' + JSON.stringify(issues, null, 2)
+    const message = `broken link in a TOC: ${JSON.stringify(issues, null, 2)}`
     expect(issues.length, message).toBe(0)
   })
 })

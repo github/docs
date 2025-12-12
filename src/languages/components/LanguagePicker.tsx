@@ -84,7 +84,7 @@ export const LanguagePicker = ({ xs, mediumOrLower }: Props) => {
                 className={`color-fg-default width-full ${styles.menuButton}`}
                 aria-label={`Select language: current language is ${selectedLang.name}`}
               >
-                <span className={styles.languageLabel}>{t('language_picker_label') + '\n'}</span>
+                <span className={styles.languageLabel}>{`${t('language_picker_label')}\n`}</span>
                 <span className="color-fg-muted text-normal f6">{selectedLang.name}</span>
               </ActionMenu.Button>
             </ActionMenu.Anchor>

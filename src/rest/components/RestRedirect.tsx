@@ -33,7 +33,7 @@ export function RestRedirect() {
       const params = new URLSearchParams(asPathQuery)
 
       params.set('apiVersion', date)
-      const url = `/${router.locale}${asPathRoot}?${params}${hash ? '#' + hash : ''}`
+      const url = `/${router.locale}${asPathRoot}?${params}${hash ? `#${hash}` : ''}`
       router.replace(url)
     }
   }, [router.asPath, currentVersion])

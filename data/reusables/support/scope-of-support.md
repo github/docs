@@ -22,6 +22,6 @@ If your support request is outside of the scope of what our team can help you wi
 
 {% ifversion ghec or ghes %}For support with {% data variables.release-phases.public_preview %} features, you can contact your account manager on {% data variables.contact.contact_enterprise_sales %}. For support with {% data variables.release-phases.private_preview %} and {% data variables.release-phases.technical_preview %} features, contact the group provided during the {% data variables.release-phases.private_preview %}'s onboarding session, or your account manager on {% data variables.contact.contact_enterprise_sales %}.{% endif %}
 
-For detailed assistance with workflows and data management, consult [GitHub Expert Services](https://github.com/services/), which offer specialized support to help you optimize your use of the platform.
+For assistance with topics outside the scope of support, for guided consulting, workshops, or training for your teams, please consult with [{% data variables.product.github %} Expert Services](https://github.com/services/), which offers specialized services to help you optimize your use of our platform.
 
 If you're uncertain if the issue is out of scope, open a ticket and we're happy to help you determine the best way to proceed.

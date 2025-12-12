@@ -13,6 +13,7 @@ children:
   - /improve-code-readability
   - /fix-lint-errors
   - /refactor-for-optimization
+  - /refactor-for-sustainability
   - /refactor-design-patterns
   - /refactor-data-access-layers
   - /decouple-business-logic

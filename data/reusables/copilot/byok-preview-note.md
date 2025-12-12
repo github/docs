@@ -1,0 +1,1 @@
+The ability to bring your own API keys to {% data variables.product.prodname_copilot %} is in {% data variables.release-phases.public_preview %} and subject to change.

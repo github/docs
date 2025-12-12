@@ -197,6 +197,9 @@ Repository permissions work for both user and organization resource owners.
 |---|---|---|
 | `actions` | Actions | `read`, `write` |
 | `administration` | Administration | `read`, `write` |
+| {% ifversion artifact-metadata %} |
+| `artifact_metadata` | Artifact Metadata | `read`, `write` |
+| {% endif %} |
 | `attestations` | Attestations | `read`, `write` |
 | `security_events` | Code scanning alerts | `read`, `write` |
 | `codespaces` | Codespaces | `read`, `write` |

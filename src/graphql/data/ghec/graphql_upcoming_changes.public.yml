@@ -1518,14 +1518,6 @@ upcoming_changes:
     date: '2025-10-01T00:00:00+00:00'
     criticality: breaking
     owner: github/advisory-database
-  - location: SearchType.ISSUE_ADVANCED
-    description: '`ISSUE_ADVANCED` will be removed.'
-    reason:
-      Search for issues and pull requests will be overridden by advanced search
-      on November 4, 2025. You can read more about this change on https://github.blog/changelog/2025-03-06-github-issues-projects-api-support-for-issues-advanced-search-and-more/.
-    date: '2025-11-04'
-    criticality: breaking
-    owner: github/issues_advanced_search
   - location: NotificationThread.list
     description: '`list` will be removed. Use the `optionalList` field instead.'
     reason: Null values are possible for this field.

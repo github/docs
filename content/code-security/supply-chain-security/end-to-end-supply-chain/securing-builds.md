@@ -59,7 +59,7 @@ How exactly you sign your build will depend on what sort of code you're writing,
 
 For more information, see [AUTOTITLE](/actions/security-guides/encrypted-secrets){% ifversion fpt or ghec %}, [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect),{% endif %} and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
-{% ifversion immutable-releases-preview %}
+{% ifversion fpt or ghec %}
 
 ## Use immutable releases
 

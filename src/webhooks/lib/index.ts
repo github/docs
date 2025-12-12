@@ -50,11 +50,11 @@ export async function getInitialPageWebhooks(version: string): Promise<InitialWe
     // remove all nested params for the initial webhooks page, we'll load
     // them by request
     if (initialWebhook.data.bodyParameters) {
-      initialWebhook.data.bodyParameters.forEach((bodyParam) => {
+      for (const bodyParam of initialWebhook.data.bodyParameters) {
         if (bodyParam.childParamsGroups) {
           bodyParam.childParamsGroups = []
         }
-      })
+      }
     }
 
     initialWebhooks.push({ ...initialWebhook })

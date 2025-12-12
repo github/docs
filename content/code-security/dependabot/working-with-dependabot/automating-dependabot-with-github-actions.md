@@ -53,6 +53,7 @@ Example:
 {% raw %}
 
 ```yaml copy
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 name: Dependabot fetch metadata
 on: pull_request
 
@@ -89,6 +90,7 @@ Example that flags all production dependency updates with a label:
 {% raw %}
 
 ```yaml copy
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 name: Dependabot auto-label
 on: pull_request
 
@@ -124,6 +126,7 @@ Example:
 {% raw %}
 
 ```yaml copy
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 name: Dependabot auto-approve
 on: pull_request
 
@@ -160,6 +163,7 @@ You can instead use {% data variables.product.prodname_actions %} and the {% dat
 {% raw %}
 
 ```yaml copy
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 name: Dependabot auto-merge
 on: pull_request
 

@@ -234,12 +234,12 @@ async function searchCode(
   }
 }
 
-async function secondaryRateLimitRetry(
-  callable: Function,
-  args: Record<string, any>,
+async function secondaryRateLimitRetry<T, TArgs = Record<string, unknown>>(
+  callable: (args: TArgs) => Promise<T>,
+  args: TArgs,
   maxAttempts = 10,
   sleepTime = 1000,
-) {
+): Promise<T> {
   try {
     const response = await callable(args)
     return response
@@ -295,11 +295,11 @@ export async function getDirectoryContents(
     } else if (blob.type === 'file') {
       if (!data.content) {
         const blobContents = await getContentsForBlob(owner, repo, blob.sha)
-        files.push(blobContents)
+        files.push({ path: blob.path, content: blobContents })
       } else {
         // decode Base64 encoded contents
         const decodedContent = Buffer.from(blob.content, 'base64').toString()
-        files.push(decodedContent)
+        files.push({ path: blob.path, content: decodedContent })
       }
     }
   }

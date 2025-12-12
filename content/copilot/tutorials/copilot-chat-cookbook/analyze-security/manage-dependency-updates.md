@@ -6,6 +6,7 @@ versions:
   feature: copilot
 category:
   - Security analysis
+  - Author and optimize with Copilot
 complexity:
   - Simple
 octicon: code

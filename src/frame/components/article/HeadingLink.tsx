@@ -1,4 +1,5 @@
 import GithubSlugger from 'github-slugger'
+import type { JSX } from 'react'
 
 const slugger = new GithubSlugger()
 

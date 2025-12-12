@@ -68,10 +68,10 @@ export default function appRouterGateway(req: ExtendedRequest, res: Response, ne
   if (shouldUseAppRouter(path, pageFound)) {
     console.log(`[INFO] Using App Router for path: ${path} (pageFound: ${!!pageFound})`)
 
-    const strippedPath = stripLocalePrefix(path)
+    const innerStrippedPath = stripLocalePrefix(path)
 
     // For 404 routes, always route to our 404 page
-    if (strippedPath === '/404' || strippedPath === '/_not-found' || !pageFound) {
+    if (innerStrippedPath === '/404' || innerStrippedPath === '/_not-found' || !pageFound) {
       req.url = '/404'
       res.status(404)
       defaultCacheControl(res)

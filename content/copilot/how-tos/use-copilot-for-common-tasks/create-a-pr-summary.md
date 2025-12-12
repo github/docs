@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/how-tos/github-flow/creating-a-pull-request-summary-with-github-copilot
   - /copilot/how-tos/github-flow/create-a-pr-summary
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 ## Creating a summary for a pull request

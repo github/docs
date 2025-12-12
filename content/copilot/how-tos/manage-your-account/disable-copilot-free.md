@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/disabling-github-copilot-free
   - /copilot/how-tos/manage-your-account/disabling-github-copilot-free
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 {% data variables.copilot.copilot_free_short %} is automatically disabled when you have a {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan, or when you are granted a license through an organization or enterprise. If you want to disable {% data variables.copilot.copilot_free_short %} without subscribing to a paid plan, you can do so in your IDE and in {% data variables.product.prodname_dotcom_the_website %}.

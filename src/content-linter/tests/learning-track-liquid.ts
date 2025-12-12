@@ -30,14 +30,14 @@ describe('lint learning tracks', () => {
       // Using any[] for toLint since it contains mixed string content from various YAML properties
       const toLint: any[] = []
       // Using any for destructured params as YAML structure varies across different learning track files
-      Object.values(yamlContent).forEach(({ title, description }: any) => {
+      for (const { title, description } of Object.values(yamlContent) as any[]) {
         toLint.push(title)
         toLint.push(description)
-      })
+      }
 
-      toLint.forEach((element) => {
+      for (const element of toLint) {
         expect(() => liquid.parse(element), `${element} contains invalid liquid`).not.toThrow()
-      })
+      }
     })
   })
 })

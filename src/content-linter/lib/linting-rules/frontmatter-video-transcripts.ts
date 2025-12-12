@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 import path from 'path'
 
@@ -10,7 +9,7 @@ interface Frontmatter {
   product_video_transcript?: string
   title?: string
   layout?: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 export const frontmatterVideoTranscripts: Rule = {

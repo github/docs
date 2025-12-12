@@ -42,9 +42,9 @@ export default function handleInvalidQuerystringValues(
     for (const [key, value] of Object.entries(query)) {
       if (RECOGNIZED_VALUES_KEYS.has(key)) {
         const validValues = RECOGNIZED_VALUES[key as keyof typeof RECOGNIZED_VALUES]
-        const value = query[key]
-        const values = Array.isArray(value) ? value : [value]
-        if (values.some((value) => typeof value === 'string' && !validValues.includes(value))) {
+        const queryValue = query[key]
+        const values = Array.isArray(queryValue) ? queryValue : [queryValue]
+        if (values.some((val) => typeof val === 'string' && !validValues.includes(val))) {
           if (process.env.NODE_ENV === 'development') {
             console.warn(
               'Warning! Invalid query string *value* detected. %O is not one of %O',

@@ -85,6 +85,14 @@ When fixing security alerts as part of a campaign, it may be helpful to group an
 
 {% data variables.copilot.copilot_autofix_short %} is automatically triggered for alerts that are included in a campaign, meaning that where possible, fixes are automatically generated for you. You can commit the suggested fix to resolve the alert and then verify that continuous integration testing (CI) for the codebase is still passing. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign).
 
+{% ifversion security-campaigns-assign-to-cca %}
+
+If {% data variables.copilot.copilot_coding_agent %} is enabled in the repository, you can also assign alerts to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot-coding-agent).
+
+By assigning multiple alerts, {% data variables.copilot.copilot_coding_agent %} will apply the fixes and iterate on the code to validate the changes, check for any new security issues, and ensure there are no merge conflicts.
+
+{% endif %}
+
 ### {% data variables.copilot.copilot_chat_short %}
 
 {% endif %}

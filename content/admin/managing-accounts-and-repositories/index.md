@@ -18,4 +18,5 @@ children:
   - /managing-users-in-your-enterprise
   - /managing-organizations-in-your-enterprise
   - /managing-repositories-in-your-enterprise
+  - /managing-roles-in-your-enterprise
 ---

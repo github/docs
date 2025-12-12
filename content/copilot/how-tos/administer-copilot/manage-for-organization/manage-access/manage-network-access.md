@@ -15,6 +15,8 @@ redirect_from:
   - /copilot/how-tos/administer/organizations/manage-access/manage-network-access
   - /copilot/how-tos/administer/manage-for-organization/manage-access/manage-network-access
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 {% data reusables.copilot.sku-isolation %}

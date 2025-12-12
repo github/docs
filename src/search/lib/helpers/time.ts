@@ -29,7 +29,7 @@ export function utcTimestamp() {
       d.getUTCSeconds(),
     ]
       // If it's a number make it a zero-padding 2 character string
-      .map((x) => (typeof x === 'number' ? ('0' + x).slice(-2) : x))
+      .map((x) => (typeof x === 'number' ? `0${x}`.slice(-2) : x))
       .join('')
   )
 }

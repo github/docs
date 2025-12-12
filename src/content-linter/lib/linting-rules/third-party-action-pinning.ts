@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 import yaml from 'js-yaml'
 
@@ -55,7 +54,7 @@ export const thirdPartyActionPinning: Rule = {
         const steps = getWorkflowSteps(yamlObj)
         if (!steps.some((step) => step.uses)) return
 
-        steps.forEach((step) => {
+        for (const step of steps) {
           if (step.uses) {
             const actionMatch = step.uses.match(actionRegex)
             if (actionMatch) {
@@ -72,7 +71,7 @@ export const thirdPartyActionPinning: Rule = {
               }
             }
           }
-        })
+        }
       } catch (e) {
         if (e instanceof yaml.YAMLException) {
           console.log('YAML Exception file:', params.name)

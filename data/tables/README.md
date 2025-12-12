@@ -86,7 +86,7 @@ After creating all three files:
 
 1. **Build the site**: Run `npm run build`
 2. **Test schemas**: Run `npm test -- src/data-directory/tests`
-3. **Fix any errors**: If you get failures in `src/data-directory/tests/data-schemas.js`:
+3. **Fix any errors**: If you get failures in `src/data-directory/tests/data-schemas.ts`:
    - Copy the error message
    - In VS Code Copilot Chat, type: "When I ran the schema test, I got this error:" and paste the error
    - Update your schema file based on Copilot's suggestions

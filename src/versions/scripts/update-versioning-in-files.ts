@@ -14,16 +14,16 @@ const dataFiles = walk(dataPath, { includeBasePath: true, directories: false })
   .filter((file) => file.includes('data/reusables') || file.includes('data/variables'))
   .filter((file) => !file.endsWith('README.md'))
 
-dataFiles.forEach((file) => {
+for (const file of dataFiles) {
   const content = fs.readFileSync(file, 'utf8')
 
   // Update Liquid in data files
   const newContent = updateLiquid(content)
 
   fs.writeFileSync(file, newContent)
-})
+}
 
-contentFiles.forEach((file) => {
+for (const file of contentFiles) {
   const { data, content } = frontmatter(fs.readFileSync(file, 'utf8'))
 
   // Update Liquid in content files
@@ -33,7 +33,7 @@ contentFiles.forEach((file) => {
   if (data) {
     if (!data.versions && data.productVersions) {
       data.versions = data.productVersions
-      Object.keys(data.versions).forEach((version) => {
+      for (const version of Object.keys(data.versions)) {
         // update dotcom, actions, rest, etc.
         if (version !== 'enterprise') {
           data.versions['free-pro-team'] = data.versions[version]
@@ -42,23 +42,23 @@ contentFiles.forEach((file) => {
           data.versions['enterprise-server'] = data.versions.enterprise
           delete data.versions.enterprise
         }
-      })
+      }
     }
 
     delete data.productVersions
 
     // Update Liquid in frontmatter props
-    Object.keys(data)
+    const frontmatterKeys = Object.keys(data)
       // Only process a subset of props
-      .filter((key) => key === 'title' || key === 'intro' || key === 'product')
-      .forEach((key) => {
-        data[key] = updateLiquid(data[key])
-      })
+      .filter((xkey) => xkey === 'title' || xkey === 'intro' || xkey === 'product')
+    for (const key of frontmatterKeys) {
+      data[key] = updateLiquid(data[key])
+    }
   }
 
   // Cast to any needed because frontmatter.stringify options parameter doesn't include lineWidth in its type definition
   fs.writeFileSync(file, frontmatter.stringify(newContent, data || {}, { lineWidth: 10000 } as any))
-})
+}
 
 function updateLiquid(content: string): string {
   return content

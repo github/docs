@@ -101,10 +101,10 @@ export default class Webhook implements WebhookInterface {
     this.bodyParameters = isPlainObject(schema) ? await getBodyParams(schema, true) : []
 
     // Removes the children of the common properties
-    this.bodyParameters.forEach((param) => {
+    for (const param of this.bodyParameters) {
       if (NO_CHILD_PROPERTIES.includes(param.name)) {
         param.childParamsGroups = []
       }
-    })
+    }
   }
 }

@@ -12,6 +12,8 @@ redirect_from:
   - /copilot/concepts/prompt-engineering-for-copilot-chat
   - /copilot/concepts/prompt-engineering
 contentType: concepts
+category:
+  - Configure Copilot
 ---
 
 A prompt is a request that you make to {% data variables.product.prodname_copilot %}. For example, a question that you ask {% data variables.copilot.copilot_chat_short %}, or a code snippet that you ask {% data variables.product.prodname_copilot_short %} to complete. In addition to your prompt, {% data variables.product.prodname_copilot_short %} uses additional context, like the code in your current file and the chat history, to generate a response.
@@ -116,20 +118,9 @@ If you aren't getting the responses you want when you ask {% data variables.prod
 >[!Tip]
 > Use {% data variables.product.prodname_copilot_short %} to help your code follow best practices. For example, ask {% data variables.product.prodname_copilot_short %} to add comments or to break a large function into smaller functions.
 
-{% ifversion ghec %}
-
-Similarly, if you aren't getting the responses you want when you use {% data variables.product.prodname_copilot_short %} with knowledge bases, apply these best practices to your knowledge base files:
-
-* Organize the files into a logical hierarchy
-* Use clear and concise language
-* Include examples and use cases, if relevant
-* Cross reference between related files
-
-{% endif %}
-
 ## Further reading
 
-* [How to use GitHub Copilot: Prompts, tips, and use cases](https://github.blog/2023-06-20-how-to-write-better-prompts-for-github-copilot/) in the {% data variables.product.company_short %} blog
-* [Using GitHub Copilot in your IDE: Tips, tricks, and best practices](https://github.blog/2024-03-25-how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/) in the {% data variables.product.company_short %} blog
+* [How to use GitHub Copilot: Prompts, tips, and use cases](https://github.blog/2023-06-20-how-to-write-better-prompts-for-github-copilot/?ref_product=copilot&ref_type=engagement&ref_style=text) in the {% data variables.product.company_short %} blog
+* [Using GitHub Copilot in your IDE: Tips, tricks, and best practices](https://github.blog/2024-03-25-how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/?ref_product=copilot&ref_type=engagement&ref_style=text) in the {% data variables.product.company_short %} blog
 * [A developer’s guide to prompt engineering and LLMs](https://github.blog/2023-07-17-prompt-engineering-guide-generative-ai-llms/) in the {% data variables.product.company_short %} blog
-* [Prompting GitHub Copilot Chat to become your personal AI assistant for accessibility](https://github.blog/2023-10-09-prompting-github-copilot-chat-to-become-your-personal-ai-assistant-for-accessibility/) in the {% data variables.product.company_short %} blog
+* [Prompting GitHub Copilot Chat to become your personal AI assistant for accessibility](https://github.blog/2023-10-09-prompting-github-copilot-chat-to-become-your-personal-ai-assistant-for-accessibility/?ref_product=copilot&ref_type=engagement&ref_style=text) in the {% data variables.product.company_short %} blog

@@ -32,10 +32,20 @@ You can unlock and access your account by updating your account's payment method
 
 You can downgrade your user account or organization to {% data variables.product.prodname_free_team %} to continue with the same advanced features in public repositories. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan).
 
-## Unlocking an organization's features due to a declined payment
+## Unlocking an account's features due to a declined payment
 
 If your account's advanced features are locked due to a declined payment, you'll need to update your billing information to trigger a newly authorized charge.
 
 {% data reusables.billing.manage-payment-info %}
 
 If the new billing information is approved, we will immediately charge you for the paid product you chose. The account will automatically unlock when a payment has been successfully processed. Payments may take up to 24 hours to process.
+
+## Unlocking an account's features due to a failed authorization hold
+
+When initiating a subscription or trial, we verify the entered payment method using an authorization hold. If the hold is unsuccessful, the chosen subscription or trial will not activate.
+
+If your account's advanced features are locked due to a failed authorization hold, you'll need to update your billing information to trigger a new authorization.
+
+{% data reusables.billing.manage-payment-info %}
+
+If the new authorization is successful, the account will automatically unlock and you will be able to proceed with the chosen subscription.

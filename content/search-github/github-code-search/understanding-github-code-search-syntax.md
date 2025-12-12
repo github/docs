@@ -100,6 +100,7 @@ You can use parentheses to express more complicated boolean expressions. For exa
 You can use specialized keywords to qualify your search.
 * [Repository qualifier](#repository-qualifier)
 * [Organization and user qualifiers](#organization-and-user-qualifiers)
+* [Enterprise qualifier](#enterprise-qualifier)
 * [Language qualifier](#language-qualifier)
 * [Path qualifier](#path-qualifier)
 * [Symbol qualifier](#symbol-qualifier)
@@ -139,6 +140,16 @@ user:octocat
 
 > [!NOTE]
 > Code search does not currently support regular expressions or partial matching for organization or user names, so you will have to type the entire organization or user name for the qualifier to work.
+
+### Enterprise qualifier
+
+To search for files within an enterprise, use the `enterprise:` qualifier. For example:
+
+```text
+enterprise:octocorp
+```
+
+This searches repositories owned by organizations in the `octocorp` enterprise. User-owned repositories are not included.
 
 ### Language qualifier
 

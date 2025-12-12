@@ -9,5 +9,6 @@
 * ISO/IEC 27001:2013 certification
 {%- ifversion ghec %}
 * Cloud Security Alliance STAR certification (CSA STAR - Level 2)
+* {% data variables.product.github %} Bug Bounty Quarterly reports
 * {% data variables.product.prodname_dotcom_the_website %} Services Continuity and Incident Management Plan
 {%- endif %}

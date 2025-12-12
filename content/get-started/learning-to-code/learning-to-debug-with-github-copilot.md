@@ -69,7 +69,7 @@ Unfortunately, we get some error text in our terminal ending with the following 
 
 #### Debugging the file
 
-To understand what this error means, [open {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat), then paste and send the following prompt: <!-- markdownlint-disable-line GHD003 -->
+To understand what this error means, [open {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat?ref_product=copilot&ref_type=engagement&ref_style=text), then paste and send the following prompt: <!-- markdownlint-disable-line GHD003 -->
 
 ```text copy
 Explain in depth why my code produces the following error and how I can fix it:
@@ -111,7 +111,7 @@ Unfortunately, the code isn't working as expected. We want it to return `720`, t
 
 #### Debugging the file
 
-To understand what went wrong, [open {% data variables.copilot.copilot_chat_short %}](vscode://GitHub.Copilot-Chat) and send the following prompt: <!-- markdownlint-disable-line GHD003 -->
+To understand what went wrong, [open {% data variables.copilot.copilot_chat_short %}](vscode://GitHub.Copilot-Chat?ref_product=copilot&ref_type=engagement&ref_style=text) and send the following prompt: <!-- markdownlint-disable-line GHD003 -->
 
 ```text copy
 Why is the output of this code so much higher than expected? Please explain in depth and suggest a solution.

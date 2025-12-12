@@ -8,6 +8,7 @@ children:
   - /manage-larger-runners
   - /control-access
   - /use-larger-runners
+  - /use-custom-images
 redirect_from:
   - /actions/using-github-hosted-runners/about-larger-runners
   - /actions/using-github-hosted-runners/using-larger-runners

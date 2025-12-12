@@ -18,6 +18,8 @@ redirect_from:
   - /copilot/how-tos/use-chat/use-chat-in-mobile
   - /copilot/how-tos/chat-with-copilot/use-chat-in-mobile
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 ## Overview

@@ -10,6 +10,7 @@ children:
   - /set-up-for-self
   - /set-up-for-organization
   - /set-up-for-enterprise
+  - /set-up-a-dedicated-enterprise-for-copilot-business
   - /install-copilot-extension
   - /install-copilot-cli
 redirect_from:

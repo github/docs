@@ -68,14 +68,20 @@ The creation workflow is the same for all campaigns, but you will notice a few d
 
 {% ifversion code-secret-alert-assignees %}
 
-### Assigning alerts
+## Assigning alerts{% ifversion security-campaigns-assign-to-cca %} to users and {% data variables.copilot.copilot_coding_agent %}{% endif %}
 
 >[!NOTE]
-> The option to assign {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %} alerts to users is currently in public preview and is subject to change.
+> The option to assign {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %} alerts is currently in public preview and is subject to change.
 
 You can assign a {% data variables.product.prodname_code_scanning %} or {% data variables.product.prodname_secret_scanning %} alert to any user who has **write** access for the repository.
 
 If the assignee for a {% data variables.product.prodname_secret_scanning %} alert **cannot view the alert list**, their permissions are temporarily raised for that alert. Any additional permissions are revoked when they are unassigned from the alert.
+
+{% ifversion security-campaigns-assign-to-cca %}
+
+If an autofix has been generated for alerts in a security campaign, you can select those alerts and assign them to {% data variables.copilot.copilot_coding_agent %}. {% data variables.product.prodname_copilot_short %} will create a pull request and add you as a requested reviewer. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot-coding-agent).
+
+{% endif %}
 
 {% endif %}
 

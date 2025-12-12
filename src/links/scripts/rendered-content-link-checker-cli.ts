@@ -18,11 +18,11 @@ const STATIC_PREFIXES = {
   public: path.resolve(path.join('src', 'graphql', 'data')),
 }
 // Sanity check that these are valid paths
-Object.entries(STATIC_PREFIXES).forEach(([key, value]) => {
+for (const [key, value] of Object.entries(STATIC_PREFIXES)) {
   if (!fs.existsSync(value)) {
     throw new Error(`Can't find static prefix (${key}): ${value}`)
   }
-})
+}
 
 program
   .description('Analyze all checked content files, render them, and check for flaws.')

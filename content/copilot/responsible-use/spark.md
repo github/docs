@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-spark
   - /copilot/responsible-use-of-github-copilot-features/spark
 contentType: rai
+category: 
+  - Responsible use
 ---
 
 {% data reusables.rai.spark-preview-note %}

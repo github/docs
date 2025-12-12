@@ -11,7 +11,7 @@ sections:
     - |
       After enabling GitHub Actions or performing an upgrade with GitHub Actions enabled, administrators experienced a delay of approximately 10 minutes longer than they should have due to a faulty connection check. This is fixed for future enablement and upgrades.
     - |
-      After upgrading to GHES 3.14.16, GHES 3.15.11, GHES 3.16.7, or GHES 3.17.4, administrators found that draft pull requests for private repositories were no longer available.
+      After upgrading to GHES 3.14.16, GHES 3.15.11, GHES 3.16.7, or GHES 3.17.4, administrators found that draft pull requests and autolink references for private repositories were no longer available. [Updated: 2025-11-11]
   changes:
     - |
       When administrators run the `ghe-support-bundle` command on an unconfigured node, the output clearly states that metadata collection was skipped, instead of producing misleading `curl` errors. This improves the clarity of support bundle diagnostics.

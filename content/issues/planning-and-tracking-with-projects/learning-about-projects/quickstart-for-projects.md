@@ -21,7 +21,7 @@ This guide demonstrates how to use {% data variables.product.prodname_projects_v
 
 You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. For more information about creating an organization, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch).
 
-In this guide, you will add existing issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. For more information about creating issues, see [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue).
+In this guide, you will add issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. For more information about creating issues, see [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue).
 
 ## Creating a project
 
@@ -76,8 +76,8 @@ Now, create a custom field named `Priority` and containing the values: `High`, `
 
 {% data reusables.projects.new-field %}
 1. Select **Single select**
-1. Below "Options", type the first option, "High".
-1. To add additional fields, for "Medium" and "Low", click **Add option**.
+1. Below "Options," type the first option, "High."
+1. To add additional fields, for "Medium" and "Low," click **Add option**.
 1. Click **Save**.
 
 Specify a priority for all items in your project.
@@ -110,7 +110,7 @@ Select visible fields for your view to communicate the priority and progress of 
 
    ![Screenshot of a project. The "Add field" button, indicated by a plus icon, is highlighted with an orange outline.](/assets/images/help/projects-v2/new-field-button.png)
 
-1. Under "Hidden fields", click {% ifversion issue-types %}**Type**, {% endif %}**Status**, {% ifversion sub-issues %}**Sub-issues progress**, {% endif %}**Assignees**, **Linked pull requests**, **Priority**, and **Estimate**.
+1. Under "Hidden fields," click {% ifversion issue-types %}**Type**, {% endif %}**Status**, {% ifversion sub-issues %}**Sub-issues progress**, {% endif %}**Assignees**, **Linked pull requests**, **Priority**, and **Estimate**.
 
 Next, group all of the items in your project by priority to make it easier to focus on the high priority items.
 
@@ -157,7 +157,7 @@ First, create a new view.
 Next, switch to the board layout.
 
 {% data reusables.projects.open-view-menu %}
-1. Under "Layout", click **Board**.
+1. Under "Layout," click **Board**.
 
 To indicate the purpose of the view, give it a descriptive name.
 
@@ -191,7 +191,7 @@ First, create a new view.
 Next, switch to the roadmap layout.
 
 {% data reusables.projects.open-view-menu %}
-1. Under "Layout", click **Roadmap**.
+1. Under "Layout," click **Roadmap**.
 
 You can add vertical markers on a roadmap to show the milestones associated with items in your project.
 
@@ -224,8 +224,8 @@ Next, configure the auto-add workflow to automatically add issues opened in a re
 
    ![Screenshot showing the workflow menu bar. The "Edit" button is highlighted with an orange rectangle.](/assets/images/help/projects-v2/workflow-start-editing.png)
 
-1. Under "Filters", select the repository you want to add items from.
-1. Next to the repository selection, type the filter criteria you want items to match before they are automatically added to your project. For example, to catch all issues and pull requests opened with the label "question", use `is:issue,pr label:question`.
+1. Under "Filters," select the repository you want to add items from.
+1. Next to the repository selection, type the filter criteria you want items to match before they are automatically added to your project. For example, to catch all issues and pull requests opened with the label "question," use `is:issue,pr label:question`.
 1. To enable the new workflow, click **Save and turn on workflow**.
 
 Finally, add a built in workflow to set the status to **Todo** when an item is added to your project.

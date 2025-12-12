@@ -43,7 +43,7 @@ import { writeFileSync, statSync } from 'fs'
 
 import { program, Option } from 'commander'
 
-import { languageKeys } from '@/languages/lib/languages'
+import { languageKeys } from '@/languages/lib/languages-server'
 import { allVersions } from '@/versions/lib/all-versions'
 import { allDocuments, POSSIBLE_FIELDS, type AllDocument } from './lib'
 
@@ -115,10 +115,10 @@ async function main(options: Options) {
 
   const toJson: AllDocument[] = []
   for (const doc of documents) {
-    const { documents, ...rest } = doc
+    const { documents: docDocuments, ...rest } = doc
     toJson.push({
       ...rest,
-      documents,
+      documents: docDocuments,
     })
   }
 

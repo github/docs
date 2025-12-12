@@ -21,7 +21,7 @@ interface WebhookActionData {
   codeExamples: Array<CodeSample>
   availability: Array<string>
   action: string
-  payloadExample?: Object
+  payloadExample?: object
 }
 export interface WebhookAction {
   name: string

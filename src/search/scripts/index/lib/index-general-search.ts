@@ -1,6 +1,6 @@
 import { Client } from '@elastic/elasticsearch'
 
-import { languageKeys } from '@/languages/lib/languages'
+import { languageKeys } from '@/languages/lib/languages-server'
 import { getElasticSearchIndex } from '@/search/lib/elasticsearch-indexes'
 import { getElasticsearchClient } from '@/search/lib/helpers/get-client'
 import {
@@ -98,7 +98,7 @@ export async function indexGeneralSearch(sourceDirectory: string, opts: Options)
     versionsToIndex,
   )
 
-  for (const language of languages) {
+  for (const lang of languages) {
     let count = 0
     for (const versionKey of versionsToIndex) {
       const startTime = new Date()
@@ -106,11 +106,11 @@ export async function indexGeneralSearch(sourceDirectory: string, opts: Options)
       const { indexName, indexAlias } = getElasticSearchIndex(
         'generalSearch',
         versionKey,
-        language,
+        lang,
         opts.indexPrefix || '',
       )
 
-      await indexVersion(client, indexName, indexAlias, language, sourceDirectory, opts)
+      await indexVersion(client, indexName, indexAlias, lang, sourceDirectory, opts)
 
       count++
       if (opts.staggerSeconds && count < versionsToIndex.length - 1) {

@@ -11,7 +11,7 @@ topics:
 children:
   - /automate-usage-reporting
   - /set-up-budgets
-  - /use-cost-centers
+  - /control-costs-at-scale
   - /estimate-spending
   - /gather-insights
 contentType: tutorials

@@ -9,6 +9,7 @@ versions:
   feature: copilot
 category:
   - Testing code
+  - Author and optimize with Copilot
 complexity:
   - Intermediate
 octicon: beaker

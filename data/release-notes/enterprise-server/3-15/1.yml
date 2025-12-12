@@ -94,8 +94,10 @@ sections:
       When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
     - |
       {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+    - |
+      Upgrading to this version from GHES 3.14.19 and higher will cause the upgrade to fail due to this version containing an older version of MySQL. To avoid this issue please upgrade to GHES 3.15.14 or higher.
 
-      [Updated: 2025-03-12]
+      [Updated: 2025-11-24]
 
   deprecations:
     # https://github.com/github/releases/issues/4037

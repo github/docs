@@ -35,7 +35,7 @@ where the syntax for `versions` is the same as the [frontmatter `versions` prope
 
 ## Rendering
 
-The product example data is added to the `context` object in `src/frame/middleware/context/product-examples.js`.
+The product example data is added to the `context` object in `src/frame/middleware/context/product-examples.ts`.
 
 The data is then rendered by `components/landing`.
 

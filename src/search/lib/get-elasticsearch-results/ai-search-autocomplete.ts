@@ -19,7 +19,7 @@ export async function getAISearchAutocompleteResults({
   const t0 = new Date()
   const client = getElasticsearchClient() as Client
 
-  let searchQuery: any = {
+  const searchQuery: any = {
     index: indexName,
     size,
     // Send absolutely minimal from Elasticsearch to here. Less data => faster.

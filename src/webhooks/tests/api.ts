@@ -14,7 +14,7 @@ describe('webhooks v1 middleware', () => {
     // field which all webhook types should have.
     sp.set('category', 'branch_protection_rule')
     sp.set('version', 'free-pro-team@latest')
-    const res = await get('/api/webhooks/v1?' + sp)
+    const res = await get(`/api/webhooks/v1?${sp}`)
     expect(res.statusCode).toBe(200)
     const results = JSON.parse(res.body)
     const actionTypes = Object.keys(results)
@@ -36,7 +36,7 @@ describe('webhooks v1 middleware', () => {
     const sp = new URLSearchParams()
     sp.set('category', 'branch_protection_rule')
     sp.set('version', 'enterprise-cloud@latest')
-    const res = await get('/api/webhooks/v1?' + sp)
+    const res = await get(`/api/webhooks/v1?${sp}`)
     expect(res.statusCode).toBe(200)
     const results = JSON.parse(res.body)
     const actionTypes = Object.keys(results)
@@ -50,7 +50,7 @@ describe('webhooks v1 middleware', () => {
     const sp = new URLSearchParams()
     sp.set('category', 'no-such-category')
     sp.set('version', 'free-pro-team@latest')
-    const res = await get('/api/webhooks/v1?' + sp)
+    const res = await get(`/api/webhooks/v1?${sp}`)
 
     expect(res.statusCode).toBe(404)
     expect(JSON.parse(res.body).error).toBeTruthy()
@@ -60,7 +60,7 @@ describe('webhooks v1 middleware', () => {
     const sp = new URLSearchParams()
     sp.set('category', 'branch_protection_rule')
     sp.set('version', 'no-such-version')
-    const res = await get('/api/webhooks/v1?' + sp)
+    const res = await get(`/api/webhooks/v1?${sp}`)
 
     expect(res.statusCode).toBe(404)
     expect(JSON.parse(res.body).error).toBeTruthy()

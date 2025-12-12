@@ -22,7 +22,7 @@ shortTitle: Configure
 {% data reusables.repositories.sidebar-settings %}
 1. In the "Features" section, under **Issues**, click **Set up templates**. You may need to enable **Issues** and refresh the page before you can see the button.
 
-![Screenshot of the "Features" section of a repository's settings, with the "Issues" setting ticked and the green "Set up templates" button visible.](/assets/images/help/repository/set-up-issue-templates-button.png)
+   ![Screenshot of the "Features" section of a repository's settings, with the "Issues" setting ticked and the green "Set up templates" button visible.](/assets/images/help/repository/set-up-issue-templates-button.png)
 1. Use the **Add template** dropdown menu, and click on the type of template you'd like to create.
 
    ![Screenshot of the "Add template" dropdown menu expanded to show standard templates, "Bug report" and "Feature request," with a "Custom template".](/assets/images/help/repository/add-template-drop-down-menu.png)
@@ -30,7 +30,7 @@ shortTitle: Configure
 1. To edit the template, click {% octicon "pencil" aria-label="Edit template" %}, and type in the fields to edit their contents.
 
    ![Screenshot of the preview of an issue template. To the right of the template name, a pencil icon is outlined in dark orange.](/assets/images/help/repository/issue-template-edit-button.png)
-1. To automatically set a default issue title, assign the issue to people with read access to the repository, or apply labels to issues raised from the template, use the fields under "Optional additional information." You can also add these details in the issue template with `title`, `labels`, or `assignees` in a YAML frontmatter format.
+1. To automatically set a default issue title, assign the issue to people with read access to the repository, or apply labels to issues raised from the template, use the fields under "Optional additional information." You can also add these details in the issue template with `title`, `labels`, `type`, or `assignees` in a YAML frontmatter format.
 1. When you're finished editing and previewing your template, click **Propose changes** in the upper right corner of the page.
 1. In the "Commit message" field, type a commit message describing your changes.
 1. Below the commit message fields, select whether to commit your template directly to the default branch, or to create a new branch and open a pull request. For more information about pull requests, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).

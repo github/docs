@@ -15,6 +15,7 @@ import { LearningTrackNav } from '@/learning-track/components/article/LearningTr
 import { ClientSideRedirects } from '@/rest/components/ClientSideRedirects'
 import { RestRedirect } from '@/rest/components/RestRedirect'
 import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
+import { UtmPreserver } from '@/frame/components/UtmPreserver'
 
 export const TocLanding = () => {
   const router = useRouter()
@@ -33,6 +34,7 @@ export const TocLanding = () => {
 
   return (
     <DefaultLayout>
+      <UtmPreserver />
       {router.route === '/[versionId]/rest/[category]' && <RestRedirect />}
       {/* Doesn't matter *where* this is included because it will
       never render anything. It always just return null. */}

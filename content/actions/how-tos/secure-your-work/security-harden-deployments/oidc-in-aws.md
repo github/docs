@@ -128,7 +128,8 @@ The `aws-actions/configure-aws-credentials` action receives a JWT from the {% da
 
 ```yaml copy
 # Sample workflow to access AWS resources when workflow is tied to branch
-# The workflow Creates static website using aws s3
+# The workflow creates a static website using Amazon S3
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 name: AWS example workflow
 on:
   push

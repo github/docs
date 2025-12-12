@@ -7,12 +7,16 @@ versions:
 topics:
   - Copilot
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 > [!NOTE]
 > This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 The {% data variables.product.github %} integration in Microsoft Teams allows you to interact with {% data variables.copilot.copilot_coding_agent %} all from within your Teams channels. From within a Teams thread you can initiate {% data variables.copilot.copilot_coding_agent_short %} sessions and open pull requests, using the context of your conversation.
+
+For information about additional {% data variables.product.prodname_copilot_short %} integrations, see [AUTOTITLE](/copilot/concepts/tools/about-copilot-integrations).
 
 > [!NOTE]
 > When you mention @{% data variables.product.github %} in a Teams thread, the agent will capture the entire thread as context for your request, understanding and implementing solutions based on the discussion. This context is stored in the pull request.
@@ -54,7 +58,7 @@ You can interact with the {% data variables.product.github %} app in Teams by me
     ```
 
    The `repo` parameter tells {% data variables.copilot.copilot_coding_agent %} which repository to use for the request, and the `branch` parameter specifies an existing branch of the repository that should be used as the base branch for a pull request. By default, {% data variables.product.prodname_copilot_short %} uses your configured default repository and the repository’s default branch.
-  
+
    {% data variables.product.prodname_copilot_short %} will initiate a {% data variables.copilot.copilot_coding_agent_short %} session and respond with a summary of the changes it plans to make, including a link to the pull request it has created in the repository.
 
 You can continue to iterate on the pull request in the same Teams thread. Mention @{% data variables.product.github %} with your suggested change, and the {% data variables.copilot.copilot_coding_agent %} will use all of the messages in the thread since the previous mention to iterate on the existing pull request.

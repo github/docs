@@ -1,10 +1,7 @@
-import cx from 'classnames'
 import React from 'react'
 
 import { Link } from '@/frame/components/Link'
 import type { TocItem } from '@/landings/types'
-import { ActionList } from '@primer/react'
-import styles from './TableOfContents.module.css'
 
 type Props = {
   items: Array<TocItem>
@@ -14,10 +11,7 @@ export const TableOfContents = (props: Props) => {
   const { items, variant = 'expanded' } = props
 
   return (
-    <div
-      data-testid="table-of-contents"
-      className={cx(variant === 'compact' ? 'list-style-outside pl-2' : '')}
-    >
+    <div data-testid="table-of-contents">
       {variant === 'expanded' &&
         items.map((item) => {
           const { fullPath: href, title, intro } = item
@@ -41,40 +35,29 @@ export const TableOfContents = (props: Props) => {
         })}
 
       {variant === 'compact' && (
-        <ActionList>
+        <ul className="list-style-none f4">
           {items.map((item) => {
             const { fullPath, title, childTocItems } = item
             return (
-              <React.Fragment key={fullPath}>
-                <ActionList.LinkItem href={fullPath} as="a" className={styles.linkItem}>
+              <li key={fullPath} className="mb-2">
+                <Link href={fullPath} className="text-underline mb-2 d-block">
                   {title}
-                </ActionList.LinkItem>
-                {(childTocItems || []).length > 0 && (
-                  <li className="f4 color-fg-accent d-list-item d-block width-full text-underline">
-                    <ActionList
-                      className={cx(
-                        variant === 'compact' ? 'list-style-circle pl-5' : 'list-style-none',
-                      )}
-                    >
-                      {(childTocItems || []).filter(Boolean).map((childItem) => {
-                        return (
-                          <ActionList.LinkItem
-                            key={childItem.fullPath}
-                            href={childItem.fullPath}
-                            as="a"
-                            className={styles.linkItem}
-                          >
-                            {childItem.title}
-                          </ActionList.LinkItem>
-                        )
-                      })}
-                    </ActionList>
-                  </li>
+                </Link>
+                {(childTocItems || []).filter(Boolean).length > 0 && (
+                  <ul className="pl-4 list-style-none">
+                    {(childTocItems || []).filter(Boolean).map((childItem) => (
+                      <li key={childItem.fullPath} className="mb-2">
+                        <Link href={childItem.fullPath} className="text-underline">
+                          {childItem.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 )}
-              </React.Fragment>
+              </li>
             )
           })}
-        </ActionList>
+        </ul>
       )}
     </div>
   )

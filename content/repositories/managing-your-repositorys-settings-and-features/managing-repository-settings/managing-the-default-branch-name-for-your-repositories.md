@@ -27,7 +27,7 @@ When you create a new repository on {% data variables.product.github %}, the rep
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.repo-tab %}
-1. In the text field, type the default name that you would like to use for new branches.
+1. In the text field, type the default name that you would like to use for new repositories.
 1. Click **Update**.
 
 ## Further reading

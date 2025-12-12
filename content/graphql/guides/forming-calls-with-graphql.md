@@ -112,9 +112,6 @@ For a real-world example, see [Example mutation](#example-mutation).
 
 [Variables](https://graphql.org/learn/queries/#variables) can make queries more dynamic and powerful, and they can reduce complexity when passing mutation input objects.
 
-> [!NOTE]
-> If you're using the Explorer, make sure to enter variables in the separate [Query Variables pane](/graphql/guides/using-the-explorer#using-the-variable-pane), and do not include the word `variables` before the JSON object.
-
 Here's an example query with a single variable:
 
 ```graphql
@@ -269,9 +266,6 @@ mutation AddReactionToIssue {
 }
 ```
 
-> [!TIP]
-> Although you can include a query and a mutation in the same Explorer window if you give them names (`FindIssueID` and `AddReactionToIssue` in this example), the operations will be executed as separate calls to the GraphQL endpoint. It's not possible to perform a query at the same time as a mutation, or vice versa.
-
 Let's walk through the example. The task sounds simple: add an emoji reaction to an issue.
 
 So how do we know to begin with a query? We don't, yet.
@@ -294,7 +288,7 @@ Let's examine the query line by line:
 
 * `query FindIssueID {`
 
-  Here we're performing a query, and we name it `FindIssueID`. Note that naming a query is optional; we give it a name here so that we can include it in same Explorer window as the mutation.
+  Here we're performing a query, and we name it `FindIssueID`. Note that naming a query is optional; we give it a name here so that we can include it in same GUI client window as the mutation.
 
 * `repository(owner:"octocat", name:"Hello-World") {`
 
@@ -317,7 +311,7 @@ With the ID known, we can proceed with the mutation:
 
 * `mutation AddReactionToIssue {`
 
-  Here we're performing a mutation, and we name it `AddReactionToIssue`. As with queries, naming a mutation is optional; we give it a name here so we can include it in the same Explorer window as the query.
+  Here we're performing a mutation, and we name it `AddReactionToIssue`. As with queries, naming a mutation is optional; we give it a name here so we can include it in the same GUI client window as the query.
 
 * `addReaction(input:{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}) {`
 

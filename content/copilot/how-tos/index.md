@@ -21,7 +21,6 @@ children:
   - /manage-your-account
   - /administer-copilot
   - /troubleshoot-copilot
-  - /use-copilot-extensions
 redirect_from:
   - /copilot/using-github-copilot
 contentType: how-tos

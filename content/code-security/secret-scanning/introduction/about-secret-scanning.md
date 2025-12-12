@@ -29,7 +29,13 @@ shortTitle: Secret scanning
 
 {% data variables.product.prodname_secret_scanning_caps %} scans your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for secrets, even if the repository is archived. {% data variables.product.prodname_dotcom %} will also periodically run a full Git history scan for new secret types in existing content in {% ifversion fpt or ghec %}public repositories{% else %}repositories with {% data variables.product.prodname_GH_secret_protection %} enabled{% endif %} where {% data variables.product.prodname_secret_scanning %} is enabled when new supported secret types are added.
 
+Additionally, {% data variables.product.prodname_secret_scanning %} scans:
+
 {% data reusables.secret-scanning.what-is-scanned %}
+
+{% ifversion fpt or ghec %}
+This additional scanning is free for public repositories.
+{% endif %}
 
 {% ifversion ghas-products %}{% ifversion secret-risk-assessment %}
 > [!TIP]

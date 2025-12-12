@@ -10,7 +10,7 @@ describe('AI Search Routes', () => {
   afterAll(() => stopMockServer())
 
   test('/api/ai-search/v1 should handle a successful response', async () => {
-    let apiBody = { query: 'How do I create a Repository?', language: 'en', version: 'dotcom' }
+    const apiBody = { query: 'How do I create a Repository?', language: 'en', version: 'dotcom' }
 
     const response = await fetch('http://localhost:4000/api/ai-search/v1', {
       method: 'POST',
@@ -80,7 +80,7 @@ describe('AI Search Routes', () => {
   })
 
   test('should handle validation errors: query missing', async () => {
-    let body = { language: 'en', version: 'dotcom' }
+    const body = { language: 'en', version: 'dotcom' }
     const response = await post('/api/ai-search/v1', {
       body: JSON.stringify(body),
       headers: { 'Content-Type': 'application/json' },
@@ -95,7 +95,7 @@ describe('AI Search Routes', () => {
   })
 
   test('should handle validation errors: version missing', async () => {
-    let body = { query: 'example query' }
+    const body = { query: 'example query' }
     const response = await post('/api/ai-search/v1', {
       body: JSON.stringify(body),
       headers: { 'Content-Type': 'application/json' },
@@ -110,7 +110,7 @@ describe('AI Search Routes', () => {
   })
 
   test('should handle multiple validation errors: query missing and version', async () => {
-    let body = { language: 'fr', version: 'fpt' }
+    const body = { language: 'fr', version: 'fpt' }
     const response = await post('/api/ai-search/v1', {
       body: JSON.stringify(body),
       headers: { 'Content-Type': 'application/json' },
@@ -140,7 +140,7 @@ describe('AI Search Routes', () => {
     if (response.body) {
       const reader = response.body.getReader()
       const decoder = new TextDecoder()
-      let chunks = []
+      const chunks = []
 
       try {
         while (true) {

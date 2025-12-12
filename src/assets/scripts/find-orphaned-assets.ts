@@ -11,7 +11,7 @@ import { program } from 'commander'
 import walk from 'walk-sync'
 
 import walkFiles from '@/workflows/walk-files'
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 
 const EXCEPTIONS = new Set([
   'assets/images/site/favicon.ico',
@@ -145,7 +145,9 @@ async function main(opts: MainOptions) {
   // Add exceptions
   sourceFiles.push('.github/CONTRIBUTING.md')
   sourceFiles.push('README.md')
-  verbose && console.log(`${sourceFiles.length.toLocaleString()} source files found in total.`)
+  if (verbose) {
+    console.log(`${sourceFiles.length.toLocaleString()} source files found in total.`)
+  }
 
   const allImages = new Set(
     walk(
@@ -159,7 +161,9 @@ async function main(opts: MainOptions) {
     ).filter((filePath) => !filePath.endsWith('.md')),
   )
 
-  verbose && console.log(`${allImages.size.toLocaleString()} images found in total.`)
+  if (verbose) {
+    console.log(`${allImages.size.toLocaleString()} images found in total.`)
+  }
 
   for (const sourceFile of sourceFiles) {
     const content = fs.readFileSync(sourceFile, 'utf-8')

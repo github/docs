@@ -35,11 +35,11 @@ interface RestApiConfig {
 // in all versions, we should not redirect it (because /foo is the correct FPT versioned URL).
 // But if /foo refers to a page that is only available in GHEC and GHES, we should redirect it
 // to /enterprise-cloud@latest/foo (since GHEC comes first in the hierarchy of version fallbacks).
-// The implementation lives in lib/redirects/permalinks.js.
+// The implementation lives in lib/redirects/permalinks.ts.
 const plans: PlanConfig[] = [
   {
     // free-pro-team is **not** a user-facing version and is stripped from URLs.
-    // See lib/remove-fpt-from-path.js for details.
+    // See lib/remove-fpt-from-path.ts for details.
     plan: 'free-pro-team',
     planTitle: 'Free, Pro, & Team',
     shortName: 'fpt',
@@ -76,8 +76,8 @@ const allVersions: AllVersions = {}
 
 // combine the plans and releases to get allVersions object
 // e.g. free-pro-team@latest, enterprise-server@2.21, enterprise-server@2.20, etc.
-plans.forEach((planObj) => {
-  planObj.releases.forEach((release) => {
+for (const planObj of plans) {
+  for (const release of planObj.releases) {
     const version = `${planObj.plan}${versionDelimiter}${release}`
 
     const versionObj: Version = {
@@ -107,21 +107,21 @@ plans.forEach((planObj) => {
     }
 
     allVersions[version] = versionObj
-  })
-})
+  }
+}
 
 // Adds the calendar date (or api versions) to the allVersions object
 const apiVersions: RestApiConfig['api-versions'] = JSON.parse(
   fs.readFileSync(REST_DATA_META_FILE, 'utf8'),
 )['api-versions']
 
-Object.keys(apiVersions).forEach((key) => {
+for (const key of Object.keys(apiVersions)) {
   const docsVersion = getDocsVersion(key)
   allVersions[docsVersion].apiVersions.push(...apiVersions[key].sort())
   // Create a copy of the array to avoid mutating the original when using pop()
   const sortedVersions = [...apiVersions[key].sort()]
   allVersions[docsVersion].latestApiVersion = sortedVersions.pop() || ''
-})
+}
 
 export const allVersionKeys: string[] = Object.keys(allVersions)
 export const allVersionShortnames: Record<string, string> = Object.fromEntries(

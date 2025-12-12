@@ -7,6 +7,7 @@ versions:
 topics:
   - Copilot
 children:
+  - /manage-agents
   - /coding-agent
   - /request-a-code-review
   - /use-copilot-cli

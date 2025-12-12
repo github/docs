@@ -58,8 +58,6 @@ If you enable _{% data variables.product.prodname_dependabot_security_updates %}
 
 {% data reusables.dependabot.dependabot-updates-prs-and-actions %}
 
-{% ifversion dependabot-on-actions-opt-in %}{% data reusables.dependabot.dependabot-updates-and-actions %} For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).{% endif %}
-
 {% data reusables.dependabot.dependabot-actions-support %}
 
 ## About pull requests for security updates

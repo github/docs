@@ -46,23 +46,25 @@ describe.skip('category pages', () => {
   // Combine those to fit vitest's `.each` usage
   const productTuples = zip(productNames, productIndices) as [string, string][]
 
-  // Use a regular forEach loop to generate the `describe(...)` blocks
+  // Use a regular for...of loop to generate the `describe(...)` blocks
   // otherwise, if one of them has no categories, the tests will fail.
-  productTuples.forEach((tuple) => {
+  for (const tuple of productTuples) {
     const [, productIndex] = tuple
+
+    const productDir = path.dirname(productIndex)
+
     // Get links included in product index page.
     // Each link corresponds to a product subdirectory (category).
     // Example: "getting-started-with-github"
-    const contents = fs.readFileSync(productIndex, 'utf8') // TODO move to async
+    // Note: We need to read this synchronously here because vitest's describe.each
+    // can't asynchronously define tests
+    const contents = fs.readFileSync(productIndex, 'utf8')
     const data = getFrontmatterData(contents)
-
-    const productDir = path.dirname(productIndex)
 
     const children: string[] = data.children
     const categoryLinks = children
       // Only include category directories, not standalone category files like content/actions/quickstart.md
       .filter((link) => fs.existsSync(getPath(productDir, link, 'index')))
-    // TODO this should move to async, but you can't asynchronously define tests with vitest...
 
     // Map those to the Markdown file paths that represent that category page index
     const categoryPaths = categoryLinks.map((link) => getPath(productDir, link, 'index'))
@@ -98,10 +100,10 @@ describe.skip('category pages', () => {
           const indexContents = await fs.promises.readFile(indexAbsPath, 'utf8')
           const parsed = matter(indexContents)
           if (!parsed.data) throw new Error('No frontmatter')
-          const data = parsed.data as MarkdownFrontmatter
-          categoryVersions = getApplicableVersions(data.versions, indexAbsPath)
-          allowTitleToDifferFromFilename = data.allowTitleToDifferFromFilename
-          const articleLinks = data.children.filter((child) => {
+          const categoryData = parsed.data as MarkdownFrontmatter
+          categoryVersions = getApplicableVersions(categoryData.versions, indexAbsPath)
+          allowTitleToDifferFromFilename = categoryData.allowTitleToDifferFromFilename
+          const articleLinks = categoryData.children.filter((child) => {
             const mdPath = getPath(productDir, indexLink, child)
             const fileExists = fs.existsSync(mdPath)
             return fileExists && fs.statSync(mdPath).isFile()
@@ -119,15 +121,19 @@ describe.skip('category pages', () => {
           await contextualize(req as ExtendedRequest, res as Response, next)
           await shortVersions(req as ExtendedRequest, res as Response, next)
 
-          // Save the index title for later testing
-          indexTitle = data.title.includes('{')
-            ? await renderContent(data.title, req.context, { textOnly: true })
-            : data.title
+          // Read the product index data for rendering
+          const productIndexContents = await fs.promises.readFile(productIndex, 'utf8')
+          const productIndexData = getFrontmatterData(productIndexContents)
 
-          if (data.shortTitle) {
-            indexShortTitle = data.shortTitle.includes('{')
-              ? await renderContent(data.shortTitle, req.context, { textOnly: true })
-              : data.shortTitle
+          // Save the index title for later testing
+          indexTitle = productIndexData.title.includes('{')
+            ? await renderContent(productIndexData.title, req.context, { textOnly: true })
+            : productIndexData.title
+
+          if (productIndexData.shortTitle) {
+            indexShortTitle = productIndexData.shortTitle.includes('{')
+              ? await renderContent(productIndexData.shortTitle, req.context, { textOnly: true })
+              : productIndexData.shortTitle
           } else {
             indexShortTitle = ''
           }
@@ -137,10 +143,10 @@ describe.skip('category pages', () => {
               articleLinks.map(async (articleLink) => {
                 const articlePath = getPath(productDir, indexLink, articleLink)
                 const articleContents = await fs.promises.readFile(articlePath, 'utf8')
-                const data = getFrontmatterData(articleContents)
+                const articleData = getFrontmatterData(articleContents)
 
                 // Do not include subcategories in list of published articles
-                if (data.subcategory || data.hidden) return null
+                if (articleData.subcategory || articleData.hidden) return null
 
                 // ".../content/github/{category}/{article}.md" => "/{article}"
                 return `/${path.relative(categoryDir, articlePath).replace(/\.md$/, '')}`
@@ -159,10 +165,10 @@ describe.skip('category pages', () => {
             await Promise.all(
               childFilePaths.map(async (articlePath) => {
                 const articleContents = await fs.promises.readFile(articlePath, 'utf8')
-                const data = getFrontmatterData(articleContents)
+                const availableArticleData = getFrontmatterData(articleContents)
 
                 // Do not include subcategories nor hidden pages in list of available articles
-                if (data.subcategory || data.hidden) return null
+                if (availableArticleData.subcategory || availableArticleData.hidden) return null
 
                 // ".../content/github/{category}/{article}.md" => "/{article}"
                 return `/${path.relative(categoryDir, articlePath).replace(/\.md$/, '')}`
@@ -173,10 +179,10 @@ describe.skip('category pages', () => {
           await Promise.all(
             childFilePaths.map(async (articlePath) => {
               const articleContents = await fs.promises.readFile(articlePath, 'utf8')
-              const data = getFrontmatterData(articleContents)
+              const versionData = getFrontmatterData(articleContents)
 
               articleVersions[articlePath] = getApplicableVersions(
-                data.versions,
+                versionData.versions,
                 articlePath,
               ) as string[]
             }),
@@ -196,11 +202,11 @@ describe.skip('category pages', () => {
         })
 
         test('contains only articles and subcategories with versions that are also available in the parent category', () => {
-          Object.entries(articleVersions).forEach(([articleName, articleVersions]) => {
-            const unexpectedVersions = difference(articleVersions, categoryVersions)
+          for (const [articleName, versions] of Object.entries(articleVersions)) {
+            const unexpectedVersions = difference(versions, categoryVersions)
             const errorMessage = `${articleName} has versions that are not available in parent category`
             expect(unexpectedVersions.length, errorMessage).toBe(0)
-          })
+          }
         })
 
         test('slugified title matches parent directory name', () => {
@@ -223,13 +229,13 @@ describe.skip('category pages', () => {
           }`
           const expectedSlug = expectedSlugs.at(-1) as string
           const newCategoryDirPath = path.join(path.dirname(categoryDirPath), expectedSlug)
-          customMessage += `\nTo resolve this consider running:\n  ./src/content-render/scripts/move-content.js ${categoryDirPath} ${newCategoryDirPath}\n`
+          customMessage += `\nTo resolve this consider running:\n  ./src/content-render/scripts/move-content.ts ${categoryDirPath} ${newCategoryDirPath}\n`
           // Check if the directory name matches the expected slug
           expect(expectedSlugs.includes(categoryDirName), customMessage).toBeTruthy()
         })
       },
     )
-  })
+  }
 })
 
 function getPath(productDir: string, link: string, filename: string) {

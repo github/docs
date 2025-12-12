@@ -234,6 +234,27 @@ on:
   gollum
 ```
 
+## `image_version`
+
+| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+|----------------------| -------------- | ------------ | -------------|
+| Not applicable       | Not applicable | Last commit on default branch |  Default branch |
+
+Runs your workflow when a new version of a specified image becomes available for use. This event is typically triggered after a successful image version creation, allowing you to automate actions such as deployment or notifications in response to new image versions.
+
+This event supports glob patterns for both image names and versions. The example below triggers when a new image version matches any of the specified name and version combinations. For example, `["MyNewImage", 1.0.0]`, `["MyNewImage", 2.53.0]`, `["MyOtherImage", 1.0.0]`, and `["MyOtherImage", 2.0.0]`.
+
+```yaml
+on:
+  image_version:
+    names:
+    - "MyNewImage"
+    - "MyOtherImage"
+    versions:
+    - 1.*
+    - 2.*
+```
+
 ## `issue_comment`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -674,14 +695,18 @@ on:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
+| {% ifversion ghes < 3.20 %} |
 | [`pull_request`](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>{% ifversion fpt or ghec %}- `enqueued`<br/>- `dequeued`<br/>{% endif %}- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | Last commit on the PR base branch | PR base branch |
+| {% else %} |
+| [`pull_request`](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>{% ifversion fpt or ghec %}- `enqueued`<br/>- `dequeued`<br/>{% endif %}- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | Last commit on default branch | Default branch |
+| {% endif %} |
 
 > [!NOTE]
 > {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request). By default, a workflow only runs when a `pull_request_target` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
 
 Runs your workflow when activity on a pull request in the workflow's repository occurs. For example, if no activity types are specified, the workflow runs when a pull request is opened or reopened or when the head branch of the pull request is updated.
 
-This event runs in the context of the base of the pull request, rather than in the context of the merge commit, as the `pull_request` event does. This prevents execution of unsafe code from the head of the pull request that could alter your repository or steal any secrets you use in your workflow. This event allows your workflow to do things like label or comment on pull requests from forks. Avoid using this event if you need to build or run code from the pull request.
+This event runs in the context of the {% ifversion ghes < 3.20 %}base of the pull request{% else %}default branch of the base repository{% endif %}, rather than in the context of the merge commit, as the `pull_request` event does. This prevents execution of unsafe code from the head of the pull request that could alter your repository or steal any secrets you use in your workflow. This event allows your workflow to do things like label or comment on pull requests from forks. Avoid using this event if you need to build or run code from the pull request.
 
 To ensure repository security, branches with names that match certain patterns (such as those which look similar to SHAs) may not trigger workflows with the `pull_request_target` event.
 

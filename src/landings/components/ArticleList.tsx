@@ -5,7 +5,7 @@ import { ArrowRightIcon } from '@primer/octicons-react'
 import { ActionList } from '@primer/react'
 import { clsx } from 'clsx'
 import dayjs from 'dayjs'
-import styles from './ArticleList.module.css'
+import styles from './ArticleList.module.scss'
 
 export type ArticleListPropsT = {
   title?: string

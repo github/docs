@@ -96,9 +96,6 @@ Before you can run a migration, you need to set up a storage container with your
 
 ### Using {% data variables.product.prodname_ghos %}
 
-> [!NOTE]
-> Repository migrations with {% data variables.product.prodname_ghos %} are currently in {% data variables.release-phases.public_preview %} and subject to change.
-
 If you do not want to set up and provide {% data variables.product.prodname_importer_proper_name %} with access to a blob storage account behind your firewall, you can migrate repositories with {% data variables.product.prodname_ghos %} using the `--use-github-storage` flag. To do so, you must be running v1.9.0 (or higher) of {% data variables.product.prodname_bbs2gh_cli %}.
 
 For security purposes, {% data variables.product.prodname_ghos %} is explicitly write-only, and downloads from {% data variables.product.prodname_ghos %} are not possible. After a migration is complete, the repository archives are immediately deleted. If an archive is uploaded and not used in a migration, the archive is deleted after 7 days.

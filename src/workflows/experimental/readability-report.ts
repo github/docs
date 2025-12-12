@@ -94,7 +94,9 @@ Note: Requires a local server running on localhost:4000 (npm start)
   }
 
   console.log(`Analyzing readability for ${changedFiles.length} changed files:`)
-  changedFiles.forEach((file) => console.log(`  - ${file}`))
+  for (const file of changedFiles) {
+    console.log(`  - ${file}`)
+  }
 
   // Wait for server to be ready
   await waitForServer()
@@ -118,7 +120,7 @@ Note: Requires a local server running on localhost:4000 (npm start)
   const report = generateReport(results)
 
   // Always output to console for local development
-  console.log('\n' + report)
+  console.log(`\n${report}`)
 
   // If running in CI, also save report for commenting on PR
   if (process.env.GITHUB_ACTIONS) {
@@ -162,8 +164,8 @@ function getChangedContentFiles(): string[] {
   })
 }
 
-function makeURL(path: string): string {
-  return `http://localhost:4000${path}`
+function makeURL(urlPath: string): string {
+  return `http://localhost:4000${urlPath}`
 }
 
 async function waitForServer(): Promise<void> {
@@ -198,12 +200,10 @@ async function waitForServer(): Promise<void> {
 async function analyzeFile(filePath: string): Promise<PageReadability | null> {
   // Convert file path to URL path
   // content/get-started/foo.md -> /get-started/foo
-  const urlPath =
-    '/' +
-    filePath
-      .replace(/^content\//, '')
-      .replace(/\.md$/, '')
-      .replace(/\/index$/, '')
+  const urlPath = `/${filePath
+    .replace(/^content\//, '')
+    .replace(/\.md$/, '')
+    .replace(/\/index$/, '')}`
 
   try {
     // Fetch the rendered page
@@ -637,7 +637,9 @@ function generateReport(results: PageReadability[]): string {
   return report
 }
 
-main().catch((error) => {
+try {
+  await main()
+} catch (error) {
   console.error('Readability analysis failed:', error)
   process.exit(1)
-})
+}

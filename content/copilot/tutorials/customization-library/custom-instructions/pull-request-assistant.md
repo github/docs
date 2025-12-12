@@ -6,6 +6,7 @@ versions:
 category:
   - Custom instructions
   - GitHub flows
+  - Configure Copilot
 complexity:
   - Simple
 octicon: book
@@ -32,7 +33,7 @@ When creating pull request descriptions or reviewing PRs:
 
 **Testing**
 - [ ] Unit tests pass and cover new functionality
-- [ ] Manual testing completed for user-facing changes  
+- [ ] Manual testing completed for user-facing changes
 - [ ] Performance/security considerations addressed
 
 **Breaking Changes**

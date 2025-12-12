@@ -22,6 +22,8 @@ permissions: 'Organization owners{% ifversion ghec %} and enterprise administrat
 topics:
   - Copilot
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 ## About audit logs for {% data variables.copilot.copilot_business_short %}

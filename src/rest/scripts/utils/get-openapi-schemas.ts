@@ -69,7 +69,7 @@ export async function getSchemas(
 export async function validateVersionsOptions(versions: string[]): Promise<void> {
   const schemas = await getSchemas()
   // Validate individual versions provided
-  versions.forEach((version) => {
+  for (const version of versions) {
     if (
       schemas.deprecated.includes(`${version}.deref.json`) ||
       schemas.unpublished.includes(`${version}.deref.json`)
@@ -79,5 +79,5 @@ export async function validateVersionsOptions(versions: string[]): Promise<void>
     } else if (!schemas.currentReleases.includes(`${version}.deref.json`)) {
       throw new Error(`🛑 The version (${version}) you specified is not valid.`)
     }
-  })
+  }
 }

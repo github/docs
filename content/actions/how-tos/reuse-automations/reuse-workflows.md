@@ -181,7 +181,9 @@ jobs:
 
 ## Nesting reusable workflows
 
-You can connect a maximum of four levels of workflows - that is, the top-level caller workflow and up to three levels of reusable workflows. For example: _caller-workflow.yml_ → _called-workflow-1.yml_ → _called-workflow-2.yml_ → _called-workflow-3.yml_. Loops in the workflow tree are not permitted.
+You can connect a maximum of {% ifversion fpt or ghec %}ten levels of workflows - that is, the top-level caller workflow and up to nine levels of reusable workflows. For example: _caller-workflow.yml_ → _called-workflow-1.yml_ → _called-workflow-2.yml_ → _called-workflow-3.yml_ → ... → _called-workflow-9.yml_.{% else %}four levels of workflows - that is, the top-level caller workflow and up to three levels of reusable workflows. For example: _caller-workflow.yml_ → _called-workflow-1.yml_ → _called-workflow-2.yml_ → _called-workflow-3.yml_.{% endif %}
+
+Loops in the workflow tree are not permitted.
 
 > [!NOTE] Nested reusable workflows require all workflows in the chain to be accessible to the caller, and permissions can only be maintained or reduced—not elevated—throughout the chain. For more information, see [AUTOTITLE](/actions/reference/reusable-workflows-reference#access-and-permissions-for-nested-workflows).
 

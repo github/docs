@@ -6,7 +6,7 @@ import { graphql } from '@octokit/graphql'
 // Pull out the node ID of a project field
 export function findFieldID(fieldName: string, data: Record<string, any>) {
   const field = data.organization.projectV2.fields.nodes.find(
-    (field: Record<string, any>) => field.name === fieldName,
+    (fieldNode: Record<string, any>) => fieldNode.name === fieldName,
   )
 
   if (field && field.id) {
@@ -23,14 +23,14 @@ export function findSingleSelectID(
   data: Record<string, any>,
 ) {
   const field = data.organization.projectV2.fields.nodes.find(
-    (field: Record<string, any>) => field.name === fieldName,
+    (fieldData: Record<string, any>) => fieldData.name === fieldName,
   )
   if (!field) {
     throw new Error(`A field called "${fieldName}" was not found. Check if the field was renamed.`)
   }
 
   const singleSelect = field.options.find(
-    (field: Record<string, any>) => field.name === singleSelectName,
+    (option: Record<string, any>) => option.name === singleSelectName,
   )
 
   if (singleSelect && singleSelect.id) {
@@ -203,7 +203,7 @@ export function generateUpdateProjectV2ItemFieldMutation({
   // Build the mutation to update a single project field
   // Specify literal=true to indicate that the value should be used as a string, not a variable
   function generateMutationToUpdateField({
-    item,
+    item: itemId,
     fieldID,
     value,
     fieldType,
@@ -220,12 +220,12 @@ export function generateUpdateProjectV2ItemFieldMutation({
     // Strip all non-alphanumeric out of the item ID when creating the mutation ID to avoid a GraphQL parsing error
     // (statistically, this should still give us a unique mutation ID)
     return `
-      set_${fieldID.slice(1)}_item_${item.replaceAll(
+      set_${fieldID.slice(1)}_item_${itemId.replaceAll(
         /[^a-z0-9]/g,
         '',
       )}: updateProjectV2ItemFieldValue(input: {
         projectId: $project
-        itemId: "${item}"
+        itemId: "${itemId}"
         fieldId: ${fieldID}
         value: { ${parsedValue} }
       }) {
@@ -321,12 +321,12 @@ export function getFeature(data: Record<string, any>) {
     process.env.REPO === 'github/docs-early-access'
   ) {
     const features: Set<string> = new Set([])
-    paths.forEach((path: string) => {
+    for (const path of paths as string[]) {
       const pathComponents = path.split('/')
       if (pathComponents[0] === 'content') {
         features.add(pathComponents[1])
       }
-    })
+    }
     const feature = Array.from(features).join()
 
     return feature
@@ -337,7 +337,7 @@ export function getFeature(data: Record<string, any>) {
     const features: Set<string> = new Set([])
     if (paths.some((path: string) => path.startsWith('app/api/description'))) {
       features.add('OpenAPI')
-      paths.forEach((path: string) => {
+      for (const path of paths as string[]) {
         if (path.startsWith('app/api/description/operations')) {
           features.add(path.split('/')[4])
           features.add('rest')
@@ -349,7 +349,7 @@ export function getFeature(data: Record<string, any>) {
         if (path.startsWith('app/api/description/components/schemas/webhooks')) {
           features.add('webhooks')
         }
-      })
+      }
     }
 
     const feature = Array.from(features).join()
@@ -375,13 +375,13 @@ export function getSize(data: Record<string, any>) {
   if (process.env.REPO === 'github/github') {
     let numFiles = 0
     let numChanges = 0
-    data.item.files.nodes.forEach((node: Record<string, any>) => {
+    for (const node of data.item.files.nodes as Record<string, any>[]) {
       if (node.path.startsWith('app/api/description')) {
         numFiles += 1
         numChanges += node.additions
         numChanges += node.deletions
       }
-    })
+    }
     if (numFiles < 5 && numChanges < 10) {
       return 'XS'
     } else if (numFiles < 10 && numChanges < 50) {
@@ -395,11 +395,11 @@ export function getSize(data: Record<string, any>) {
     // Otherwise, estimated the size based on all files
     let numFiles = 0
     let numChanges = 0
-    data.item.files.nodes.forEach((node: Record<string, any>) => {
+    for (const node of data.item.files.nodes as Record<string, any>[]) {
       numFiles += 1
       numChanges += node.additions
       numChanges += node.deletions
-    })
+    }
     if (numFiles < 5 && numChanges < 10) {
       return 'XS'
     } else if (numFiles < 10 && numChanges < 50) {

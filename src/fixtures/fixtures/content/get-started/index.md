@@ -41,7 +41,10 @@ children:
   - /versioning
   - /learning-about-github
   - /empty-categories
+  - /test-journey
   - /carousel
+  - /article-grid-discovery
+  - /article-grid-bespoke
 communityRedirect:
   name: Provide HubGit Feedback
   href: 'https://hubgit.com/orgs/community/discussions/categories/get-started'

@@ -204,8 +204,10 @@ sections:
       On Azure instances, a failed pre-upgrade check due to insufficient user disk size can result in the Management Console displaying an `Internal Server Error`. To restore access to the Management Console, run `sudo rm /var/log/preflight-check-report.json` to remove the file. If enabled, the `automatic update checks` need to be disabled from the Management Console until user disk size is increased to minimum 500 GB. To increase the user disk size, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity#increasing-the-data-partition-size).
     - |
       {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+    - |
+      Upgrading to this version from GHES 3.14.19 and higher will cause the upgrade to fail due to this version containing an older version of MySQL. To avoid this issue please upgrade to GHES 3.15.14 or higher.
 
-      [Updated: 2025-03-12]
+      [Updated: 2025-11-24]
 
   closing_down:
     # https://github.com/github/releases/issues/3525

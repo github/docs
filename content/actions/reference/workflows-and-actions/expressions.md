@@ -59,7 +59,7 @@ env:
 | `==`        | Equal |
 | `!=`        | Not equal |
 | `&&`        | And |
-|  <code>\|\|</code> | Or |
+| <code>\|\|</code> | Or |
 
   > [!NOTE]
   > * {% data variables.product.company_short %} ignores case when comparing strings.

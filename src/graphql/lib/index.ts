@@ -3,7 +3,7 @@ import {
   readCompressedJsonFileFallback,
 } from '@/frame/lib/read-json-file'
 import { getAutomatedPageMiniTocItems } from '@/frame/lib/get-mini-toc-items'
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import { allVersions } from '@/versions/lib/all-versions'
 interface GraphqlContext {
   currentLanguage: string
@@ -19,9 +19,9 @@ const changelog = new Map<string, any>()
 const graphqlSchema = new Map<string, any>()
 const miniTocs = new Map<string, Map<string, Map<string, any[]>>>()
 
-Object.keys(languages).forEach((language) => {
+for (const language of Object.keys(languages)) {
   miniTocs.set(language, new Map())
-})
+}
 
 // Using any for return type as the GraphQL schema structure is complex and dynamically loaded from JSON
 export function getGraphqlSchema(version: string, type: string): any {

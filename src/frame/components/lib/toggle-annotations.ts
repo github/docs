@@ -51,7 +51,7 @@ export default function toggleAnnotation() {
 function setActive(annotationButtons: Array<Element>, targetMode?: string) {
   const activeElements: Array<Element> = []
   targetMode = validateMode(targetMode)
-  annotationButtons.forEach((el) => {
+  for (const el of annotationButtons) {
     if (el.getAttribute('value') === targetMode) {
       el.ariaCurrent = 'true'
       el.classList.add('selected')
@@ -60,7 +60,7 @@ function setActive(annotationButtons: Array<Element>, targetMode?: string) {
       el.removeAttribute('aria-current')
       el.classList.remove('selected')
     }
-  })
+  }
 
   if (!activeElements.length)
     throw new Error('No annotationBtn item is active for code annotation.')
@@ -70,15 +70,15 @@ function setActive(annotationButtons: Array<Element>, targetMode?: string) {
 
 // displays the chosen annotation mode
 function displayAnnotationMode(annotationBtnItems: Array<Element>, targetMode?: string) {
-  if (!targetMode || targetMode === annotationMode.Beside)
-    annotationBtnItems.forEach((el) => {
+  if (!targetMode || targetMode === annotationMode.Beside) {
+    for (const el of annotationBtnItems) {
       el.closest('.annotate')?.classList.replace('inline', 'beside')
-    })
-  else if (targetMode === annotationMode.Inline)
-    annotationBtnItems.forEach((el) => {
+    }
+  } else if (targetMode === annotationMode.Inline) {
+    for (const el of annotationBtnItems) {
       el.closest('.annotate')?.classList.replace('beside', 'inline')
-    })
-  else throw new Error('Invalid target mode set for annotation.')
+    }
+  } else throw new Error('Invalid target mode set for annotation.')
 
   setActive(annotationBtnItems, targetMode)
 }

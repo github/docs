@@ -8,7 +8,7 @@
 # ---------------------------------------------------------------
 # To update the sha:
 # https://github.com/github/gh-base-image/pkgs/container/gh-base-image%2Fgh-base-noble
-FROM ghcr.io/github/gh-base-image/gh-base-noble:20251009-110343-g5a525d4e1 AS base
+FROM ghcr.io/github/gh-base-image/gh-base-noble:20251119-090131-gb27dc275c AS base
 
 # Install curl for Node install and determining the early access branch
 # Install git for cloning docs-early-access & translations repos
@@ -152,6 +152,4 @@ ARG BUILD_SHA
 ENV BUILD_SHA=$BUILD_SHA
 
 # Entrypoint to start the server
-# Note: Currently we have to use tsx because
-# we have a mix of `.ts` and `.js` files with multiple import patterns
 CMD ["node_modules/.bin/tsx", "src/frame/server.ts"]

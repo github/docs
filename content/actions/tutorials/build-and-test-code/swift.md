@@ -127,6 +127,7 @@ You can configure your job to use a single specific version of Swift, such as `5
 {% raw %}
 
 ```yaml copy
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 steps:
   - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
     with:
@@ -142,6 +143,7 @@ steps:
 You can use the same commands that you use locally to build and test your code using Swift. This example demonstrates how to use `swift build` and `swift test` in a job:
 
 ```yaml copy
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
