@@ -27,10 +27,55 @@ contentType: concepts
 
 {% data variables.product.prodname_actions %} usage is **free** for **self-hosted runners** and for **public repositories** that use standard {% data variables.product.github %}-hosted runners. See [AUTOTITLE](/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories).
 
-For **private repositories**, each {% data variables.product.github %} account receives a quota of free minutes, artifact storage, and cache storage for use with {% data variables.product.github %}-hosted runners, depending on the account's plan. Any usage beyond the included amounts is billed to your account. Minutes reset every month, while artifact and cache storage usage do not.
+For **private repositories**, each {% data variables.product.github %} account receives a quota of free minutes, artifact storage, and cache storage for use with {% data variables.product.github %}-hosted runners, depending on the account's plan. Any usage beyond the included amounts is billed to your account.
+
+* **Minutes:** Your free minutes reset to the full amount at the start of each billing cycle. Minutes usage is charged to the repository owner, not the person who triggered the workflow runs.
+* **Storage:** Storage charges accumulate throughout the month based on hourly usage. Your accrued storage charges reset to zero at the start of each billing cycle.
 
 > [!TIP]
 > Anyone with write access to a repository can run actions without using minutes for their personal account.
+
+## How storage billing works
+
+{% data variables.product.prodname_actions %} storage billing operates on an **hourly accrual model**:
+
+* **Continuous billing:** Storage charges accrue every hour based on your actual usage throughout the month
+* **Monthly total:** Your bill reflects the total storage used throughout the month, measured in GB-Hours
+* **Included amount:** The free storage allowance for your plan (for example, 50 GB on the Enterprise plan) is converted to an hourly rate for billing calculations
+* **Shared storage:** Actions artifacts, Actions caches, and {% data variables.product.prodname_registry %} storage all share the same pooled allowance. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-packages).
+
+### Understanding current vs. accrued storage
+
+It's important to understand the difference between what you see on {% data variables.product.github %} and what appears on your bill:
+
+* **Current storage:** The amount of storage you have right now (visible in repository settings and the **Billing Overview** page)
+* **Accrued storage:** The cumulative total of storage used throughout the billing cycle (determines your bill)
+
+**When you delete artifacts:**
+* Current storage decreases immediately
+* Future hourly charges stop accumulating
+* Storage already accrued during the current billing cycle remains in your total and will appear on your bill
+
+**Example (30-day billing cycle):** If you store 10 GB of artifacts for 10 days, then delete everything on day 11:
+* Days 1-10: Accruing 240 GB-Hours per day (10 GB × 24 hours)
+* Day 11: Delete artifacts → current storage drops to 0 GB
+* Days 11-30: Accruing 0 GB-Hours (no storage)
+* Your bill: Shows 2,400 GB-Hours total (10 days × 240 GB-Hours/day)
+
+Deleting artifacts reduces your current storage and prevents future charges, but does not remove charges already recorded for the time the storage existed.
+
+### Storage measurement units
+
+{% data variables.product.prodname_actions %} measures storage in **binary gigabytes (GB)**, where:
+* 1 GB = 2^30 bytes = 1,073,741,824 bytes
+* This is also known as a gibibyte (GiB)
+* 1 GB = 1,024 megabytes (MB)
+
+**Billing calculations use GB-Hours:**
+* 1 GB-Hour = 1 GB of storage for 1 hour
+* Example: Storing 3 GB for 10 days = 720 GB-Hours (3 GB × 10 days × 24 hours)
+
+Your monthly bill converts GB-Hours to GB-Months by dividing by the hours in the month (usually 720 hours for a 30-day month).
 
 ### Examples of how usage is measured
 
@@ -47,7 +92,8 @@ The following amounts of time for standard runners, artifact storage, and cache 
 {% data reusables.billing.actions-included-quotas %}
 
 > [!NOTE]
-> Included minutes cannot be used for larger runners. These runners will always be charged for, even when used by public repositories.
+> * Included minutes cannot be used for larger runners. These runners will always be charged for, even when used by public repositories.
+> * The storage amounts shown are **shared** with {% data variables.product.prodname_registry %}. This means your total storage across Actions artifacts, Actions caches, and Packages cannot exceed the included amount for your plan.
 
 The use of standard {% data variables.product.github %}-hosted runners is free:
 
