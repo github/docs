@@ -66,4 +66,13 @@ describe('article body api', () => {
     const { error } = JSON.parse(res.body)
     expect(error).toContain("isn't yet available in markdown")
   })
+
+  test('invalid Referer header does not crash', async () => {
+    const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'), {
+      headers: {
+        Referer: 'invalid-url',
+      },
+    })
+    expect(res.statusCode).toBe(200)
+  })
 })

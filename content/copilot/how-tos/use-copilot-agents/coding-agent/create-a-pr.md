@@ -94,6 +94,7 @@ You can assign an issue to {% data variables.product.prodname_copilot_short %}:
    > When you assign an issue to {% data variables.product.prodname_copilot_short %}, it gets sent the issue title, description, any comments that currently exist, and any additional instructions you provide. After assigning the issue, {% data variables.product.prodname_copilot_short %} will not be aware of, and therefore won't react to, any further comments that are added to the issue. If you have more information, or changes to the original requirement, add this as a comment in the pull request that {% data variables.product.prodname_copilot_short %} raises.
 
 {% data reusables.copilot.optional-select-custom-agent %}
+{% data reusables.copilot.optional-select-copilot-coding-agent-model %}
 
 You can also assign issues to {% data variables.product.prodname_copilot_short %} from other places on {% data variables.product.prodname_dotcom_the_website %}:
 
@@ -412,6 +413,7 @@ To see all of the available options, run `gh agent-task create --help`.
     For example, `Implement a user friendly message for common errors.`
 1. Select the repository you want {% data variables.product.prodname_copilot_short %} to work in.
 1. Optionally, select a base branch for {% data variables.product.prodname_copilot_short %}'s pull request. {% data variables.product.prodname_copilot_short %} will create a new branch based on this branch, then push the changes to a pull request targeting that branch.
+{% data reusables.copilot.optional-select-copilot-coding-agent-model %}
 1. Press <kbd>Command</kbd>+<kbd>Enter</kbd> to start the task.
 
     {% data variables.product.prodname_copilot_short %} will start a new session. {% data variables.product.prodname_copilot_short %} will work on the task and push changes to its pull request, then add you as a reviewer when it has finished, triggering a notification.

@@ -100,7 +100,7 @@ People with admin permissions for a repository can change an existing repository
 
 ## About internal repositories
 
-{% data reusables.repositories.about-internal-repos %} For more information on innersource, see {% data variables.product.prodname_dotcom %}'s whitepaper [An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/).
+{% data reusables.repositories.about-internal-repos %} For more information on innersource, see [AUTOTITLE](/admin/concepts/enterprise-best-practices/use-innersource).
 
 {% ifversion ghec %}
 

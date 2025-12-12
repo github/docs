@@ -102,13 +102,15 @@ export default [
   },
 
   // Ignored patterns
+  // CodeQL scripts included because cocofix is install manually by the workflow
   {
     ignores: [
       'tmp/*',
       '.next/',
       'rest-api-description/',
       'docs-internal-data/',
-      'src/code-scanning/scripts/generate-code-scanning-query-list.ts',
+      'src/codeql-queries/scripts/generate-code-scanning-query-list.ts',
+      'src/codeql-queries/scripts/generate-code-quality-query-list.ts',
       'next-env.d.ts',
     ],
   },

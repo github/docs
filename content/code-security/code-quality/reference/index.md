@@ -10,4 +10,5 @@ contentType: reference
 children:
   - metrics-and-ratings
   - codeql-detection
+  - codeql-queries
 ---

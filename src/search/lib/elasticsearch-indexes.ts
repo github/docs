@@ -71,10 +71,9 @@ export function getElasticSearchIndex(
   // e.g. free-pro-team becomes fpt for the index name
   let indexVersion = versionToIndexVersionMap[version]
 
-  // TODO: For AI Search, we initially only supported the latest GHES version
-  // Supporting more versions would involve adding more indexes and generating the data to fill them
-  // As a work around, we will just use the latest version for all GHES suggestions / autocomplete
-  // This is a temporary fix until we can support more versions
+  // For AI Search autocomplete, we use the latest GHES version for all GHES versions.
+  // This provides AI search functionality across all supported GHES versions without
+  // requiring separate indexes for each version.
   if (type === 'aiSearchAutocomplete' && indexVersion.startsWith('ghes')) {
     indexVersion = versionToIndexVersionMap['enterprise-server']
   }

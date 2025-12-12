@@ -1059,7 +1059,7 @@ test.describe('LandingCarousel component', () => {
 })
 
 test.describe('Journey Tracks', () => {
-  test('displays journey tracks on landing pages', async ({ page }) => {
+  test('displays all journey tracks on landing pages', async ({ page }) => {
     await page.goto('/get-started/test-journey')
 
     const journeyTracks = page.locator('[data-testid="journey-tracks"]')
@@ -1071,7 +1071,7 @@ test.describe('Journey Tracks', () => {
 
     // Verify track has proper structure
     const firstTrack = tracks.first()
-    await expect(firstTrack.locator('h3')).toBeVisible() // Track title
+    await expect(firstTrack.locator('h2')).toBeVisible() // Track title
     await expect(firstTrack.locator('p')).toBeVisible() // Track description
   })
 

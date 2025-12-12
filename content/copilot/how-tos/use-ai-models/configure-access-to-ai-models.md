@@ -40,7 +40,6 @@ You can enable access in two ways:
 
 >[!NOTE]
 > * Some models may not be available depending on your plan. See [AUTOTITLE](/copilot/about-github-copilot/plans-for-github-copilot#models).
-> * Models available in {% data variables.copilot.copilot_auto_model_selection %} will follow the policies set by users and align to individual plans. See [AUTOTITLE](/copilot/concepts/auto-model-selection).
 
 ## Setup for organization and enterprise use
 

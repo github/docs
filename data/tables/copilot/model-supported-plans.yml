@@ -117,6 +117,13 @@
   business: true
   enterprise: true
 
+- name: GPT-5.2
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
 - name: Grok Code Fast 1
   free: false
   pro: true
