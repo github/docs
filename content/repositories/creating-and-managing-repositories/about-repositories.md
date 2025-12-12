@@ -71,7 +71,9 @@ When you create a repository, you can choose to make the repository public or pr
 
 {%- ifversion fpt or ghec %}
 * {% ifversion ghec %}If your account is not a {% data variables.enterprise.prodname_managed_user %}, you can create public repositories. {% endif %}Public repositories are accessible to everyone on the internet.
-* Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
+* There are two types of private repositories:
+  * User Namespace private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
+  * Organization private repositoreis are accessible to you, people you explicitly share access with and all Organization members which are granted access by Member privileges of the Enterprise or Organization.
 {%- elsif ghes %}
 * If {% data variables.location.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. Otherwise, public repositories are available to everyone using {% data variables.location.product_location %}, including outside collaborators.
 * Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
