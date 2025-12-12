@@ -1,0 +1,6 @@
+# Reference: #20647
+# Adding community ecosystems to Dependabot docs #20647
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.19'
