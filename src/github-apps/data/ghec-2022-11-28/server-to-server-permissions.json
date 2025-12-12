@@ -3819,6 +3819,17 @@
     "permissions": [
       {
         "category": "dependabot",
+        "slug": "list-dismissal-requests-for-dependabot-alerts-for-an-organization",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/dismissal-requests/dependabot",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "dependabot",
         "slug": "review-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
         "subcategory": "alert-dismissal-requests",
         "verb": "patch",

@@ -2287,6 +2287,12 @@
       "requestPath": "/orgs/{org}/dependabot/secrets/{secret_name}/repositories/{repository_id}"
     },
     {
+      "slug": "list-dismissal-requests-for-dependabot-alerts-for-an-organization",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/dismissal-requests/dependabot"
+    },
+    {
       "slug": "list-dependabot-alerts-for-a-repository",
       "subcategory": "alerts",
       "verb": "get",
