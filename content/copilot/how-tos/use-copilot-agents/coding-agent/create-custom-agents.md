@@ -89,7 +89,7 @@ To configure your {% data variables.copilot.agent_profile %}:
 1. If creating an organization or enterprise level agent on {% data variables.product.github %}, you can use the `mcp-servers` property to optionally configure MCP servers that will be available only to this agent to extend its capabilities.
 1. If you are creating and using the {% data variables.copilot.agent_profile %} in {% data variables.product.prodname_vscode_shortname %}, JetBrains IDEs, Eclipse, or Xcode, you can also use the `model` property to control which AI model the agent should use.
 1. Optionally, set the `target` property to either `vscode` or `github-copilot` if you want to only use the agent in a specific environment. The agent will be available in both environments if you omit the property.
-1. Write the agent's prompt. Define the agent's behavior, expertise, and instructions in the Markdown content below the YAML frontmatter.
+1. Write the agent's prompt. Define the agent's behavior, expertise, and instructions in the Markdown content below the YAML frontmatter. The prompt can be a maximum of 30,000 characters.
 
 ## Example {% data variables.copilot.agent_profiles %}
 
