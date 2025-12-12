@@ -29,7 +29,7 @@ async function main() {
     includeBasePath: true,
     globs: ['**/*.md'],
   })
-  const cliMarkdownContents: Record<string, { data: any; content: string }> = {}
+  const cliMarkdownContents: Record<string, { data: Record<string, unknown>; content: string }> = {}
 
   for (const file of markdownFiles) {
     const sourceContent = await readFile(file, 'utf8')

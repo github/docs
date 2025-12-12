@@ -65,6 +65,13 @@ corresponding output instead of comparing. If --both is given, that
 output is taken from `file1`. Defaults to 'nodes,edges,subpaths' to
 simplify handling of path-problem results.
 
+#### `--result-sets=<name1>,<name2>`
+
+Compare only the specified result sets. The format is
+\<name1>,\<name2> where \<name1> is the result set name in `file1`
+and \<name2> is the result set name in `file2`. The two result sets
+must be compatible. The option can be repeated.
+
 #### `--[no-]compare-internal-ids`
 
 \[Advanced] Include internal entity IDs in the comparison. Entity IDs

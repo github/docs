@@ -28,6 +28,7 @@ children:
   - /modernize-legacy-code
   - /migrate-a-project
   - /plan-a-project
+  - /vibe-coding
   - /upgrade-projects
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
