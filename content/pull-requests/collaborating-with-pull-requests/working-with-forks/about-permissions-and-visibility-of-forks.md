@@ -14,21 +14,24 @@ topics:
 
 {% data reusables.repositories.you-can-fork %}
 
-If you fork a private repository that belongs to a personal account, external collaborators also get access to the fork. If you fork a private {% ifversion ghec or ghes %}or internal {% endif %}repository that belongs to an organization, teams within the organization get access to the fork, but external collaborators do not. You can add an external collaborator to a fork of a private repository that belongs to an organization if you are an owner of that organization or if your organization allows repository administrators to invite external collaborators.{% ifversion ghec or ghes %} You can add an external collaborator to a fork of an internal repository that belongs to an organization if the external collaborator also has access to the upstream repository.{% endif %}
+* If you fork a private repository that belongs to a personal account, external collaborators also get access to the fork.
+* If you fork a private {% ifversion ghec or ghes %}or internal {% endif %}repository that belongs to an organization, teams within the organization get access to the fork, but external collaborators do not.
+* {% ifversion ghes %} You can add an external collaborator to a fork of a private repository that belongs to an organization if you are an owner of that organization or if your organization allows repository administrators to invite external collaborators.{% endif %}{% ifversion fpt or ghec %} You can add an external collaborator to a fork of a private repository owned by an organization if you are an organization owner, or if your organization allows repository administrators to invite external collaborators, and the external collaborator also has access to the upstream repository.{% endif %}
+{% ifversion ghec or ghes %} * You can add an external collaborator to a fork of an internal repository that belongs to an organization if the external collaborator also has access to the upstream repository.{% endif %}
 
 {% ifversion fpt or ghec %}
 
-If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, there are further restrictions on the repositories you can fork. {% ifversion ghec %}{% data reusables.enterprise-accounts.emu-forks %}{% endif %} For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
+If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, there are further restrictions on the repositories you can fork. {% ifversion ghec %}{% data reusables.enterprise-accounts.emu-forks %}{% endif %} For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 
 {% endif %}
 
-Organizations can allow or prevent the forking of any private repositories owned by the organization{% ifversion ghec or ghes %}, and enterprises can enforce policies to specify where members can create forks of private or internal repositories. Policies control the options available to the enterprise's organizations.{% endif %}. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization){% ifversion fpt %}."{% else %} and [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories).{% endif %}
+Organizations can allow or prevent the forking of any private repositories owned by the organization{% ifversion ghec or ghes %}, and enterprises can enforce policies to specify where members can create forks of private or internal repositories. Policies control the options available to the enterprise's organizations{% endif %}. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization){% ifversion fpt %}.{% else %} and [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories).{% endif %}
 
 ## About visibility of forks
 
 A fork is a new repository that shares code and visibility settings with the upstream repository. All forks of public repositories are public. You cannot change the visibility of a fork.
 
-All repositories belong to a repository network. A repository network contains the upstream repository, the upstream repository's direct forks, and all forks of those forks. All forks in the repository network have the same visibility setting. For more information, see “[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories).”
+All repositories belong to a repository network. A repository network contains the upstream repository, the upstream repository's direct forks, and all forks of those forks. All forks in the repository network have the same visibility setting. For more information, see [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories).
 
 If you delete a repository or change the repository's visibility settings, you will affect the repository's forks. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)
 
@@ -38,7 +41,16 @@ If you delete a fork, any code contributions of that fork will still be accessib
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-Public forks do not inherit the permissions structure of the upstream repository. {% data reusables.repositories.about-giving-access-to-forks %}
+Public forks do not inherit the permissions structure of the upstream repository.
+
+When you fork a public repository to your personal account, you can allow repository maintainers to push to your pull request branch. This includes giving them permission to make commits or delete the branch.
+
+This speeds up collaboration by letting maintainers:
+* Make direct commits to your branch
+* Run tests locally before merging
+You cannot give push permissions to a fork owned by an organization.
+
+For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork).
 
 {% ifversion push-rulesets %}
 
@@ -64,7 +76,16 @@ If you work with forks, or if you're the owner of a repository or organization t
 ### About forks within an organization
 
 Forks within the same organization copy the collaborators and team settings of their upstream repositories. If a repository is owned by an organization:
+
 * That organization controls the permissions of its forks.
 * Any teams from the upstream permission structure that exist and are visible in the target organization or user namespace will have their permissions copied.
 * Admin permissions remain with the upstream owner, except when a user forks into a different organization.
 * If that repository is forked to a user namespace, the organization maintains admin permissions and any teams with access maintain access.
+
+{% ifversion ghec or ghes %}
+
+### About forks within an enterprise
+
+Internal repositories only support a single level of forking, it is not possible to fork a private fork of an internal repository. This is intentional to simplify access and management for internal repositories which have enterprise-wide access. This differs from the behavior of public and private repositories, that allow nested forking.
+
+{% endif %}

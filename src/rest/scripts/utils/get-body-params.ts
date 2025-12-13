@@ -1,19 +1,18 @@
-#!/usr/bin/env node
-import { renderContent } from '@/content-render/index'
+import { renderContent } from './render-content'
 
-interface Schema {
-  oneOf?: any[]
+export interface Schema {
+  oneOf?: Schema[]
   type?: string
-  items?: any
-  properties?: Record<string, any>
+  items?: Schema
+  properties?: Record<string, Schema>
   required?: string[]
-  additionalProperties?: any
+  additionalProperties?: Schema
   description?: string
   enum?: string[]
   nullable?: boolean
-  allOf?: any[]
-  anyOf?: any[]
-  [key: string]: any
+  allOf?: Schema[]
+  anyOf?: Schema[]
+  [key: string]: unknown
 }
 
 export interface TransformedParam {
@@ -25,7 +24,7 @@ export interface TransformedParam {
   childParamsGroups?: TransformedParam[]
   enum?: string[]
   oneOfObject?: boolean
-  default?: any
+  default?: unknown
 }
 
 interface BodyParamProps {
@@ -44,7 +43,7 @@ interface BodyParamProps {
 // operations have a top-level oneOf.
 async function getTopLevelOneOfProperty(
   schema: Schema,
-): Promise<{ properties: Record<string, any>; required: string[] }> {
+): Promise<{ properties: Record<string, Schema>; required: string[] }> {
   if (!schema.oneOf) {
     throw new Error('Schema does not have a requestBody oneOf property defined')
   }
@@ -66,15 +65,32 @@ async function getTopLevelOneOfProperty(
   // This merges all of the properties and required values.
   if (allOneOfAreObjects) {
     for (const each of schema.oneOf.slice(1)) {
-      Object.assign(firstOneOfObject.properties, each.properties)
-      required = firstOneOfObject.required.concat(each.required)
+      if (firstOneOfObject.properties && each.properties) {
+        Object.assign(firstOneOfObject.properties, each.properties)
+      }
+      if (firstOneOfObject.required && each.required) {
+        required = firstOneOfObject.required.concat(each.required)
+      }
     }
-    properties = firstOneOfObject.properties
+    properties = firstOneOfObject.properties || {}
   }
   return { properties, required }
 }
 
 // Gets the body parameters for a given schema recursively.
+// Helper function to handle oneOf fields where all items are objects
+async function handleObjectOnlyOneOf(
+  param: Schema,
+  paramType: string[],
+): Promise<TransformedParam[]> {
+  if (param.oneOf && param.oneOf.every((object: Schema) => object.type === 'object')) {
+    paramType.push('object')
+    param.oneOfObject = true
+    return await getOneOfChildParams(param)
+  }
+  return []
+}
+
 export async function getBodyParams(schema: Schema, topLevel = false): Promise<TransformedParam[]> {
   const bodyParametersParsed: TransformedParam[] = []
   const schemaObject = schema.oneOf && topLevel ? await getTopLevelOneOfProperty(schema) : schema
@@ -85,6 +101,9 @@ export async function getBodyParams(schema: Schema, topLevel = false): Promise<T
   // there will not be properties on the `schema` object.
   if (topLevel && schema.type === 'array') {
     const childParamsGroups: TransformedParam[] = []
+    if (!schema.items) {
+      throw new Error('Array schema must have items property')
+    }
     const arrayType = schema.items.type
     const paramType = [schema.type]
     if (arrayType === 'object') {
@@ -106,11 +125,14 @@ export async function getBodyParams(schema: Schema, topLevel = false): Promise<T
     // This makes type an array regardless of how many values the array
     // includes. This allows us to support 3.1 while remaining backwards
     // compatible with 3.0.
-    const paramType = Array.isArray(param.type) ? param.type : [param.type]
+    const paramType = (Array.isArray(param.type) ? param.type : [param.type]).filter(
+      (t): t is string => t !== undefined,
+    )
     const additionalPropertiesType = param.additionalProperties
-      ? Array.isArray(param.additionalProperties.type)
-        ? param.additionalProperties.type
-        : [param.additionalProperties.type]
+      ? (Array.isArray(param.additionalProperties.type)
+          ? param.additionalProperties.type
+          : [param.additionalProperties.type]
+        ).filter((t): t is string => t !== undefined)
       : []
     const childParamsGroups: TransformedParam[] = []
 
@@ -130,7 +152,6 @@ export async function getBodyParams(schema: Schema, topLevel = false): Promise<T
         description: await renderContent(
           `A user-defined key to represent an item in \`${paramKey}\`.`,
         ),
-        isRequired: param.required,
         enum: param.enum,
         default: param.default,
         childParamsGroups: [],
@@ -141,7 +162,7 @@ export async function getBodyParams(schema: Schema, topLevel = false): Promise<T
       childParamsGroups.push(keyParam)
     } else if (paramType.includes('array') && param.items) {
       if (param.items.oneOf) {
-        if (param.items.oneOf.every((object: TransformedParam) => object.type === 'object')) {
+        if (param.items.oneOf.every((object: Schema) => object.type === 'object')) {
           paramType.splice(paramType.indexOf('array'), 1, `array of objects`)
           param.oneOfObject = true
           childParamsGroups.push(...(await getOneOfChildParams(param.items)))
@@ -157,43 +178,56 @@ export async function getBodyParams(schema: Schema, topLevel = false): Promise<T
         if (arrayType === 'string' && param.items.enum) {
           param.description += `${
             param.description ? '\n' : ''
-          }Supported values are: ${param.items.enum.map((lang: string) => `<code>${lang}</code>`).join(', ')}`
+          }Supported values are: ${((param.items.enum || []) as string[]).map((lang: string) => `<code>${lang}</code>`).join(', ')}`
         }
       }
     } else if (paramType.includes('object')) {
       if (param.oneOf) {
-        if (param.oneOf.every((object: TransformedParam) => object.type === 'object')) {
-          param.oneOfObject = true
-          childParamsGroups.push(...(await getOneOfChildParams(param)))
+        const oneOfChildren = await handleObjectOnlyOneOf(param, paramType)
+        if (oneOfChildren.length > 0) {
+          childParamsGroups.push(...oneOfChildren)
         }
       } else {
         childParamsGroups.push(...(await getBodyParams(param, false)))
       }
     } else if (param.oneOf) {
-      const descriptions: { type: string; description: string }[] = []
-      for (const childParam of param.oneOf) {
-        paramType.push(childParam.type)
-        if (!param.description) {
-          if (childParam.type === 'array') {
-            if (childParam.items.description) {
-              descriptions.push({
-                type: childParam.type,
-                description: childParam.items.description,
-              })
+      // Check if all oneOf items are objects - if so, treat this as a oneOfObject case
+      const oneOfChildren = await handleObjectOnlyOneOf(param as Schema, paramType)
+      if (oneOfChildren.length > 0) {
+        childParamsGroups.push(...oneOfChildren)
+      } else {
+        // Handle mixed types or non-object oneOf cases
+        const descriptions: { type: string; description: string }[] = []
+        for (const childParam of param.oneOf) {
+          paramType.push(childParam.type)
+          if (!param.description) {
+            if (childParam.type === 'array') {
+              if (childParam.items && childParam.items.description) {
+                descriptions.push({
+                  type: (childParam.type as string) || '',
+                  description: (childParam.items?.description as string) || '',
+                })
+              }
+            } else {
+              if (childParam.description) {
+                descriptions.push({
+                  type: (childParam.type as string) || '',
+                  description: (childParam.description as string) || '',
+                })
+              }
             }
           } else {
-            if (childParam.description) {
-              descriptions.push({ type: childParam.type, description: childParam.description })
-            }
+            descriptions.push({
+              type: (param.type as string) || '',
+              description: (param.description as string) || '',
+            })
           }
-        } else {
-          descriptions.push({ type: param.type, description: param.description })
         }
+        // Occasionally, there is no parent description and the description
+        // is in the first child parameter.
+        const oneOfDescriptions = descriptions.length ? descriptions[0].description : ''
+        if (!param.description) param.description = oneOfDescriptions
       }
-      // Occasionally, there is no parent description and the description
-      // is in the first child parameter.
-      const oneOfDescriptions = descriptions.length ? descriptions[0].description : ''
-      if (!param.description) param.description = oneOfDescriptions
 
       // This is a workaround for an operation that incorrectly defines anyOf
       // for a body parameter. We use the first object in the list of the anyOf array.
@@ -207,12 +241,10 @@ export async function getBodyParams(schema: Schema, topLevel = false): Promise<T
       if (firstObject) {
         paramType.push('object')
         param.description = firstObject.description
-        param.isRequired = firstObject.required
         childParamsGroups.push(...(await getBodyParams(firstObject, false)))
       } else {
-        paramType.push(param.anyOf[0].type)
+        paramType.push(param.anyOf[0].type as string)
         param.description = param.anyOf[0].description
-        param.isRequired = param.anyOf[0].required
       }
       // Used only for webhooks handling allOf
     } else if (param.allOf) {
@@ -294,9 +326,8 @@ async function getOneOfChildParams(param: Schema): Promise<TransformedParam[]> {
   for (const oneOfParam of param.oneOf) {
     const objParam: TransformedParam = {
       type: 'object',
-      name: oneOfParam.title,
-      description: await renderContent(oneOfParam.description),
-      isRequired: oneOfParam.required,
+      name: (oneOfParam.title as string) || '',
+      description: await renderContent((oneOfParam.description as string) || ''),
       childParamsGroups: [],
     }
     if (objParam.childParamsGroups) {

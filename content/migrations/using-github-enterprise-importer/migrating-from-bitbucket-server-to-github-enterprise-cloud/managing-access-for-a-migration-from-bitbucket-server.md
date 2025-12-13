@@ -116,6 +116,10 @@ For more information, see [AUTOTITLE](/enterprise-cloud@latest/organizations/kee
 
 {% data reusables.enterprise-migration-tool.identifying-githubs-ip-ranges %}
 
+### Virtual network firewall rules for Azure Blob Storage for {% data variables.product.prodname_dotcom_the_website %}
+
+{% data reusables.enterprise-migration-tool.identify-gei-vnet-firewall-rules %}
+
 ### IP ranges for {% data variables.enterprise.data_residency_site %}
 
 {% data reusables.enterprise-migration-tool.ip-ranges-ghecom %}

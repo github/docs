@@ -44,7 +44,7 @@ When creating your public repository from a fork of someone's project, make sure
 
 ## Prerequisites
 
-If you haven't yet, first set up Git and authentication with {% data variables.location.product_location %} from Git. For more information, see [AUTOTITLE](/get-started/getting-started-with-git/set-up-git).
+If you haven't yet, first set up Git and authentication with {% data variables.location.product_location %} from Git. For more information, see [AUTOTITLE](/get-started/git-basics/set-up-git).
 
 ## Forking a repository
 
@@ -95,17 +95,17 @@ You can fork a repository on {% data variables.product.prodname_dotcom_the_websi
 
 {% enddesktop %}
 
+{% webui %}
+
 ## Cloning your forked repository
 
 Right now, you have a fork of the Spoon-Knife repository, but you do not have the files in that repository locally on your computer.
-
-{% webui %}
 
 1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.location.product_location %}{% endif %}, navigate to **your fork** of the Spoon-Knife repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
-1. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.product_name %} username instead of `YOUR-USERNAME`:
+1. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.github %} username instead of `YOUR-USERNAME`:
 
    ```shell
    git clone https://{% data variables.product.product_url %}/YOUR-USERNAME/Spoon-Knife
@@ -126,6 +126,10 @@ Right now, you have a fork of the Spoon-Knife repository, but you do not have th
 
 {% cli %}
 
+## Cloning your forked repository
+
+Right now, you have a fork of the Spoon-Knife repository, but you do not have the files in that repository locally on your computer.
+
 {% data reusables.cli.cli-learn-more %}
 
 To create a clone of your fork, use the `--clone` flag.
@@ -135,16 +139,6 @@ gh repo fork REPOSITORY --clone=true
 ```
 
 {% endcli %}
-
-{% desktop %}
-
-{% data reusables.desktop.choose-clone-repository %}
-{% data reusables.desktop.cloning-location-tab %}
-{% data reusables.desktop.cloning-repository-list %}
-{% data reusables.desktop.choose-local-path %}
-{% data reusables.desktop.click-clone %}
-
-{% enddesktop %}
 
 ## Configuring Git to sync your fork with the upstream repository
 
@@ -225,7 +219,7 @@ Fork a repository to start contributing to a project. {% data reusables.reposito
 
 You have now forked a repository, practiced cloning your fork, and configured an upstream repository.
 
-* For more information about cloning the fork and syncing the changes in a forked repository from your computer, see [AUTOTITLE](/get-started/getting-started-with-git/set-up-git).
+* For more information about cloning the fork and syncing the changes in a forked repository from your computer, see [AUTOTITLE](/get-started/git-basics/set-up-git).
 
 * You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}
 

@@ -7,7 +7,9 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/setting-up-github-desktop
   - /desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/setting-up-github-desktop
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 ## Part 1: Installing {% data variables.product.prodname_desktop %}
 
@@ -23,7 +25,7 @@ If you have an account on {% data variables.product.prodname_dotcom %} or {% dat
 
 If you do not already have an account on {% data variables.product.github %}, create one now.{% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github).{% endif %}
 
-{% ifversion ghec %}If you're part of an organization that uses {% data variables.product.prodname_emus %} and you do not have an account, contact your enterprise administrator.{% elsif ghes %}If you're a member of an organization that uses {% data variables.product.product_name %} and you do not have an account, contact your {% data variables.product.prodname_enterprise %} site administrator.{% endif %}
+{% ifversion ghec %}If you're part of an organization that uses {% data variables.product.prodname_emus %} and you do not have an account, contact your enterprise administrator.{% elsif ghes %}If you're a member of an organization that uses {% data variables.product.prodname_ghe_server %} and you do not have an account, contact your site administrator.{% endif %}
 
 ### Authenticating to {% data variables.product.prodname_dotcom %}
 
@@ -33,9 +35,9 @@ After authenticating your account, you are ready to manage and contribute to pro
 
 ## Part 3: Configuring Git
 
-You must have Git installed before using {% data variables.product.prodname_desktop %}. If you do not already have Git installed, you can download and install the latest version of Git from [https://git-scm.com/downloads](https://git-scm.com/downloads).
+To start working with {% data variables.product.prodname_desktop %}, you need to configure the name and email associated with your Git commits. See [AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/configuring-git-for-github-desktop).
 
-After you have Git installed, you'll need to configure Git for {% data variables.product.prodname_desktop %}. For more information, see [AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/configuring-git-for-github-desktop).
+> [!NOTE] If you also want to use Git on the command line, you need to install Git yourself. The latest version of Git is available from https://git-scm.com/downloads.
 
 ## Part 4: Customizing {% data variables.product.prodname_desktop %}
 

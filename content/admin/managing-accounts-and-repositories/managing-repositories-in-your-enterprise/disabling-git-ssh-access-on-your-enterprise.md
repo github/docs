@@ -52,11 +52,7 @@ shortTitle: Disable SSH for Git
 ## Disabling Git SSH access to all repositories in your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "Git SSH access", select the drop-down menu, and click **Disabled**.
 1. Select **Enforce on all repositories**.

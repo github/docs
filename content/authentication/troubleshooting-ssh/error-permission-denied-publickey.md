@@ -54,7 +54,7 @@ $ ssh -T GITHUB-USERNAME@{% data variables.product.product_url %}
 > Permission denied (publickey).
 ```
 
-If your connection failed and you're using a remote URL with your {% data variables.product.github %} username, you can [change the remote URL to use the "git" user](/get-started/getting-started-with-git/managing-remote-repositories).
+If your connection failed and you're using a remote URL with your {% data variables.product.github %} username, you can [change the remote URL to use the "git" user](/get-started/git-basics/managing-remote-repositories).
 
 You should verify your connection by typing:
 

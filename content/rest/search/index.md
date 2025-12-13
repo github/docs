@@ -4,7 +4,7 @@ shortTitle: Search
 allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to search for specific items on {% data
-  variables.product.product_name %}.
+  variables.product.github %}.
 versions:
   fpt: '*'
   ghec: '*'

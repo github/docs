@@ -1,0 +1,1 @@
+the **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security** tab for your organization, display the **{% octicon "key" aria-hidden="true" aria-label="key" %} Assessments** page, then click **Scan your organization**

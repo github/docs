@@ -2,4 +2,4 @@
 # Projects (classic)
 # n.b. /managing-project-boards/copying-a-project-board.md retains ghec/fpt versioning.
 versions:
-  ghes: '*'
+  ghes: '<=3.16'

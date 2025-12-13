@@ -1,7 +1,7 @@
 ---
 title: Editing a repository security advisory
 intro: You can edit the metadata and description for a repository security advisory if you need to update details or correct errors.
-permissions: Anyone with admin permissions to a repository security advisory, or with a security manager role within the repository, can edit the security advisory.
+permissions: '{% data reusables.permissions.security-repo-enable %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
   - /code-security/security-advisories/editing-a-security-advisory

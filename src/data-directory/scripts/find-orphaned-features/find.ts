@@ -32,14 +32,15 @@ import fs from 'fs'
 import path from 'path'
 
 import chalk from 'chalk'
-import { TokenizationError } from 'liquidjs'
+import { TokenizationError, TokenKind } from 'liquidjs'
+import type { TagToken } from 'liquidjs'
 
 import type { Page } from '@/types'
 import warmServer from '@/frame/lib/warm-server'
-import { getDeepDataByLanguage } from '@/data-directory/lib/get-data.js'
-import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils.js'
-import languages from '@/languages/lib/languages.js'
-import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content.js'
+import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
+import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
+import languages from '@/languages/lib/languages-server'
+import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
 
 const EXCEPTIONS = new Set([
   // From data/features/placeholder.yml. Used by tests.
@@ -155,6 +156,12 @@ function searchAndRemove(features: Set<string>, pages: Page[], verbose = false) 
   // them in, we'll need the English equivalent content to be able to
   // use the correctTranslatedContentStrings function.
 
+  // Check variables files
+  for (const filePath of getVariableFiles(path.join(languages.en.dir, 'data', 'variables'))) {
+    const fileContent = fs.readFileSync(filePath, 'utf-8')
+    checkString(fileContent, features, { filePath, verbose, languageCode: 'en' })
+  }
+
   const englishReusables = new Map<string, string>()
   for (const filePath of getReusableFiles(path.join(languages.en.dir, 'data', 'reusables'))) {
     const relativePath = path.relative(languages.en.dir, filePath)
@@ -197,13 +204,26 @@ function searchAndRemove(features: Set<string>, pages: Page[], verbose = false) 
   }
 }
 
-function getReusableFiles(root: string): string[] {
+export function getReusableFiles(root: string): string[] {
   const here = []
   for (const file of fs.readdirSync(root)) {
     const filePath = `${root}/${file}`
     if (fs.statSync(filePath).isDirectory()) {
       here.push(...getReusableFiles(filePath))
     } else if (file.endsWith('.md') && file !== 'README.md') {
+      here.push(filePath)
+    }
+  }
+  return here
+}
+
+export function getVariableFiles(root: string): string[] {
+  const here = []
+  for (const file of fs.readdirSync(root)) {
+    const filePath = `${root}/${file}`
+    if (fs.statSync(filePath).isDirectory()) {
+      here.push(...getVariableFiles(filePath))
+    } else if (file.endsWith('.yml') && file !== 'README.yml') {
       here.push(filePath)
     }
   }
@@ -227,7 +247,10 @@ function checkString(
     // a LOT of different strings in and the cache will fill up rapidly
     // when testing every possible string in every possible language for
     // every page.
-    for (const token of getLiquidTokens(string, { noCache: true })) {
+    const tokens = getLiquidTokens(string, { noCache: true }).filter(
+      (token): token is TagToken => token.kind === TokenKind.Tag,
+    )
+    for (const token of tokens) {
       if (token.name === 'ifversion' || token.name === 'elsif') {
         for (const arg of token.args.split(/\s+/)) {
           if (IGNORE_ARGS.has(arg)) continue

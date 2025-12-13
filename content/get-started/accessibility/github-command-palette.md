@@ -1,6 +1,6 @@
 ---
 title: GitHub Command Palette
-intro: 'Use the command palette in {% data variables.product.product_name %} to navigate, search, and run commands directly from your keyboard.'
+intro: 'Use the command palette to navigate, search, and run commands directly from your keyboard.'
 versions:
   feature: command-palette
 shortTitle: GitHub Command Palette
@@ -14,7 +14,7 @@ redirect_from:
 
 ## About the {% data variables.product.prodname_command_palette %}
 
-You can navigate, search, and run commands on {% data variables.product.product_name %} with the {% data variables.product.prodname_command_palette %}. The command palette is an on-demand way to show suggestions based on your current context and resources you've used recently. You can open the command palette with a keyboard shortcut from anywhere on {% data variables.product.product_name %}, which saves you time and keeps your hands on the keyboard.
+You can navigate, search, and run commands on {% data variables.product.github %} with the {% data variables.product.prodname_command_palette %}. The command palette is an on-demand way to show suggestions based on your current context and resources you've used recently. You can open the command palette with a keyboard shortcut from anywhere on {% data variables.product.github %}, which saves you time and keeps your hands on the keyboard.
 
 ### Fast navigation
 
@@ -50,7 +50,7 @@ The default keyboard shortcuts used to open the command palette may conflict wit
 
 ## Navigating with the {% data variables.product.prodname_command_palette %}
 
-You can use the command palette to navigate to any page that you have access to on {% data variables.product.product_name %}.
+You can use the command palette to navigate to any page that you have access to on {% data variables.product.github %}.
 
 {% data reusables.command-palette.open-palette %}
 

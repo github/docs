@@ -33,6 +33,7 @@ Migrations to {% data variables.product.prodname_ghe_cloud %} include migrations
 * {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
 * For the source organization, you must be an organization owner or have the migrator role. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role).
 * For the destination enterprise account, you must be an enterprise owner.
+* Organization migrations can migrate organizations with up to 5,000 repositories. If an organization contains more than 5,000 repositories, follow the instructions for [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/migrating-repositories-from-githubcom-to-github-enterprise-cloud).
 
 {% api %}
 

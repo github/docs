@@ -1,6 +1,6 @@
 ---
 title: Adding people to your organization
-intro: 'You can make anyone a member of your organization using their {% data variables.product.product_name %} username or email address.'
+intro: 'You can make anyone a member of your organization using their {% data variables.product.github %} username or email address.'
 redirect_from:
   - /articles/adding-people-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-people-to-your-organization

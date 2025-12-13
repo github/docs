@@ -1,4 +1,0 @@
-versions:
-  ghec: '*'
-  fpt: '*'
-  ghes: '>=3.9'

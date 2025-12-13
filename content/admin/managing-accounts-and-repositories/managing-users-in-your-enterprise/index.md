@@ -17,11 +17,11 @@ versions:
 topics:
   - Enterprise
 children:
-  - /roles-in-an-enterprise
   - /best-practices-for-user-security
+  - /create-enterprise-teams
+  - /invite-users-directly
   - /inviting-people-to-manage-your-enterprise
   - /managing-invitations-to-organizations-within-your-enterprise
-  - /managing-organization-members-in-your-enterprise
   - /about-reserved-usernames-for-github-enterprise-server
   - /promoting-or-demoting-a-site-administrator
   - /managing-support-entitlements-for-your-enterprise
@@ -40,3 +40,4 @@ children:
   - /enabling-guest-collaborators
 shortTitle: Manage users
 ---
+

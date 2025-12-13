@@ -21,8 +21,8 @@ After you create a {% data variables.product.prodname_custom_security_configurat
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Code security**.
-1. To the right of the configuration you want to apply, select the **Apply to** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **All repositories** or **All repositories without configurations**.
+{% data reusables.enterprise-accounts.advanced-security-tab %}
+1. To the right of the configuration you want to apply, select the **Apply to** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **All repositories** or **All repositories without configurations**.
 {% data reusables.security-configurations.apply-configuration-by-default %}
 
 {% data reusables.security-configurations.apply-configuration %}

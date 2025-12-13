@@ -42,12 +42,8 @@ To create an exception to an existing branch rule, you can create a new branch p
 
 For more information about each of the available branch protection settings, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches).
 
-{% ifversion repo-rules %}
-
 > [!NOTE]
 > Only a single branch protection rule can apply at a time, which means it can be difficult to know how which rule will apply when multiple versions of a rule target the same branch. {% ifversion repo-rules-enterprise %}Additionally, you may want to create a single set of rules that applies to multiple repositories in an organization. {% endif %}For information about an alternative to branch protection rules, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
-
-{% endif %}
 
 ## Creating a branch protection rule
 
@@ -61,9 +57,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 {% data reusables.repositories.repository-branches %}
 {% data reusables.repositories.add-branch-protection-rules %}
 1. Optionally, enable required pull requests.
-{% ifversion pull-request-mergeability-security-changes %}
 {% indented_data_reference reusables.pull_requests.security-changes-mergeability spaces=3 %}
-{% endif %}
    * Under "Protect matching branches", select **Require a pull request before merging**.
    * Optionally, to require approvals before a pull request can be merged, select **Require approvals**.
 
@@ -80,23 +74,15 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 1. Optionally, select **Require conversation resolution before merging**.
 1. Optionally, select **Require signed commits**.
 1. Optionally, select **Require linear history**.
-{%- ifversion merge-queue %}
 1. Optionally, to merge pull requests using a merge queue, select **Require merge queue**. {% data reusables.pull_requests.merge-queue-references %}
-{%- endif %}
-{%- ifversion required-deployments %}
 1. Optionally, to choose which environments the changes must be successfully deployed to before merging, select **Require deployments to succeed before merging**, then select the environments.
-{%- endif %}
-{% ifversion lock-branch %}
 1. Optionally, make the branch read-only.
    * Select **Lock branch**.
    * Optionally, to allow fork syncing, select **Allow fork syncing**.
-{%- endif %}
 1. Optionally, select **Do not allow bypassing the above settings**.
 1. Optionally,{% ifversion fpt or ghec %} in public repositories owned by a {% data variables.product.prodname_free_user %} organization and in all repositories owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
    * Select **Restrict who can push to matching branches**.
-{%- ifversion restrict-pushes-create-branch %}
    * Optionally, to also restrict the creation of matching branches, select **Restrict pushes that create matching branches**.
-{%- endif %}
    * In the search field, search for and select the people, teams, or apps who will have permission to push to the protected branch or create a matching branch.
 1. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**.
 

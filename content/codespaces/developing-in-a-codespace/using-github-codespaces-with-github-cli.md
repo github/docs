@@ -1,7 +1,7 @@
 ---
 title: Using GitHub Codespaces with GitHub CLI
 shortTitle: GitHub CLI
-intro: 'You can work with {% data variables.product.prodname_github_codespaces %} directly from your command line by using `gh`, the {% data variables.product.product_name %} command line interface.'
+intro: 'You can work with {% data variables.product.prodname_github_codespaces %} directly from your command line by using `gh`, the {% data variables.product.github %} command line interface.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -109,7 +109,7 @@ For more information, see the [{% data variables.product.prodname_dotcom %} CLI 
 gh codespace stop -c CODESPACE-NAME
 ```
 
-For more information, see [AUTOTITLE](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace).
+For more information, see [AUTOTITLE](/codespaces/about-codespaces/deep-dive#closing-or-stopping-your-codespace).
 
 ### Delete a codespace
 

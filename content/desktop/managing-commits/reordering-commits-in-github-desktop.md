@@ -3,7 +3,9 @@ title: Reordering commits in GitHub Desktop
 shortTitle: Reordering commits
 intro: 'You can use {% data variables.product.prodname_desktop %} to reorder commits in your branch''s history.'
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/reordering-commits
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/reordering-commits-in-github-desktop

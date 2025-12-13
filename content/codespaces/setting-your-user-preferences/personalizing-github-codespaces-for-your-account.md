@@ -1,7 +1,7 @@
 ---
 title: Personalizing GitHub Codespaces for your account
 shortTitle: Personalize your codespaces
-intro: 'You can personalize {% data variables.product.prodname_github_codespaces %} by using a `dotfiles` repository on {% data variables.product.product_name %} or by using Settings Sync.'
+intro: 'You can personalize {% data variables.product.prodname_github_codespaces %} by using a `dotfiles` repository on {% data variables.product.github %} or by using Settings Sync.'
 redirect_from:
   - /github/developing-online-with-github-codespaces/personalizing-github-codespaces-for-your-account
   - /github/developing-online-with-codespaces/personalizing-codespaces-for-your-account
@@ -161,6 +161,6 @@ You can also personalize {% data variables.product.prodname_github_codespaces %}
 ## Further reading
 
 * [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)
-* [AUTOTITLE](/codespaces/getting-started/deep-dive#personalizing-your-codespace-with-extensions-or-plugins)
+* [AUTOTITLE](/codespaces/about-codespaces/deep-dive#personalizing-your-codespace-with-extensions-or-plugins)
 * [AUTOTITLE](/codespaces/customizing-your-codespace)
 * [AUTOTITLE](/codespaces/managing-your-codespaces)

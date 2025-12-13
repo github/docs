@@ -25,7 +25,7 @@ You can create a default code of conduct for your organization or personal accou
 
 ## Adding a code of conduct using a template
 
-{% data variables.product.product_name %} provides templates for common codes of conduct to help you quickly add a code of conduct to your project.
+{% data variables.product.github %} provides templates for common codes of conduct to help you quickly add a code of conduct to your project.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}

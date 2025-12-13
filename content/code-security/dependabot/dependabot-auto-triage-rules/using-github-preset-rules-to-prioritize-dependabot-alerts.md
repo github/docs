@@ -3,7 +3,9 @@ title: Using GitHub preset rules to prioritize Dependabot alerts
 intro: 'You can use {% data variables.dependabot.github_presets %}, which are rules curated by {% data variables.product.company_short %}, to auto-dismiss low impact development alerts for npm dependencies.'
 permissions: '{% data reusables.permissions.dependabot-github-presets %}'
 versions:
-  feature: dependabot-auto-triage-rules
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Dependabot
@@ -44,7 +46,7 @@ The `Dismiss low impact issues for development-scoped dependencies` rule is enab
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. Under "{% data variables.product.prodname_dependabot_alerts %}", click {% octicon "gear" aria-label="The Gear icon" %} close to "{% data variables.product.prodname_dependabot %} rules".
 
-   ![Screenshot of the {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %} page for a repository. The gear icon is highlighted with an orange outline.](/assets/images/help/repository/dependabot-rules-page.png)
+   ![Screenshot of the "{% data variables.product.UI_advanced_security %}" page for a repository. The gear icon is highlighted with an orange outline.](/assets/images/help/repository/dependabot-rules-page.png)
 
 1. Under "{% data variables.product.company_short %} presets", to the right of "Dismiss low impact issues for development-scoped dependencies", click {% octicon "pencil" aria-label="Edit rule" %}.
 1. Under "State", select the dropdown menu, then click "Enabled".

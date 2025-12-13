@@ -1,5 +1,5 @@
 ---
-title: About teams
+title: About organization teams
 intro: Teams are groups of organization members that reflect your company or group's structure with cascading access permissions and mentions.
 redirect_from:
   - /articles/about-teams
@@ -11,15 +11,21 @@ versions:
 topics:
   - Organizations
   - Teams
+allowTitleToDifferFromFilename: true
 ---
 
 ## About teams
 
 You can use teams to manage access for people in an organization, and for sending notifications. Organization owners and team maintainers can give teams admin, read, or write access to organization repositories. Organization members can send a notification to an entire team by mentioning the team's name. Teams can only be made up of members of your organization, outside collaborators are unable to be on a team.
 
-{% ifversion team-mentions-setting %}Organization owners and team maintainers can disable team notifications. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/configuring-team-notifications).{% endif %}
+{% ifversion not ghes %}
 
-Organization members can also send a notification to an entire team by requesting a review from that team. Organization members can request reviews from specific teams with read access to the repository where the pull request is opened. Teams can be designated as owners of certain types or areas of code in a CODEOWNERS file.
+> [!TIP]
+> If you use an enterprise account, you can also create teams at the enterprise level. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-teams).
+
+{% endif %}
+
+Organization members can send a notification to an entire team by requesting a review from that team. Organization members can request reviews from specific teams with read access to the repository where the pull request is opened. Teams can be designated as owners of certain types or areas of code in a CODEOWNERS file.
 
 For more information, see:
 * [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)
@@ -44,15 +50,11 @@ You can view all the teams you belong to on your personal dashboard. For more in
 
 Each team has its own page within an organization. On a team's page, you can view team members, child teams, and the team's repositories. Organization owners and team maintainers can access team settings and update the team's description and profile picture from the team's page.
 
-{% ifversion team-discussions %}
-Organization members can create and participate in discussions with the team. For more information, see [AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions).
-{% else %}
 {% data reusables.organizations.team-discussions-deprecation %}
-{% endif %}
 
 ## Nested teams
 
-You can reflect your group or company's hierarchy within your {% data variables.product.product_name %} organization with multiple levels of nested teams. A parent team can have multiple child teams, while each child team only has one parent team. You cannot nest secret teams.
+You can reflect your group or company's hierarchy within your {% data variables.product.github %} organization with multiple levels of nested teams. A parent team can have multiple child teams, while each child team only has one parent team. You cannot nest secret teams.
 
 Child teams inherit the parent's access permissions, simplifying permissions management for large groups. Members of child teams also receive notifications when the parent team is @mentioned, simplifying communication with multiple groups of people.
 

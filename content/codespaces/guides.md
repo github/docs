@@ -8,8 +8,8 @@ versions:
   fpt: '*'
   ghec: '*'
 includeGuides:
-  - /codespaces/getting-started/quickstart
-  - /codespaces/getting-started/deep-dive
+  - /codespaces/quickstart
+  - /codespaces/about-codespaces/deep-dive
   - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
   - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-nodejs-project-for-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-python-project-for-codespaces
@@ -52,7 +52,7 @@ includeGuides:
   - /codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces
   - /codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports
   - /codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-github-codespaces
-  - /billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
+  - /billing/concepts/product-billing/github-codespaces
   - /codespaces/reference/using-the-vs-code-command-palette-in-codespaces
   - /codespaces/reference/disaster-recovery-for-github-codespaces
   - /codespaces/reference/security-in-github-codespaces

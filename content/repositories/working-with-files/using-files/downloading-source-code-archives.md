@@ -28,14 +28,14 @@ You can download the source code archives in three ways.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 1. Scroll down to the "Assets" section of the release.
-1. To download the source code, click **{% octicon "file-zip" aria-hidden="true" %} Source code (zip)** or **{% octicon "file-zip" aria-hidden="true" %} Source code (tar.gz)**.
+1. To download the source code, click **{% octicon "file-zip" aria-hidden="true" aria-label="file-zip" %} Source code (zip)** or **{% octicon "file-zip" aria-hidden="true" aria-label="file-zip" %} Source code (tar.gz)**.
 
 ### Downloading source code archives from a tag
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 1. At the top of the Releases page, click **Tags**.
-1. To download the source code, click **{% octicon "file-zip" aria-hidden="true" %} zip** or **{% octicon "file-zip" aria-hidden="true" %} tar.gz**.
+1. To download the source code, click **{% octicon "file-zip" aria-hidden="true" aria-label="file-zip" %} zip** or **{% octicon "file-zip" aria-hidden="true" aria-label="file-zip" %} tar.gz**.
 
    ![Screenshot of the "Tags" page of a repository. The zip and tar.gz options are outlined in dark orange.](/assets/images/help/repository/tags-download-zip-targz.png)
 

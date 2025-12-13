@@ -1,1 +1,1 @@
-{% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %} sends updates hourly.
+{% data variables.product.github %} requests updates hourly using {% data variables.product.prodname_github_connect %}.

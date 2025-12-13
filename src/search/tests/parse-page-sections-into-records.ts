@@ -73,7 +73,7 @@ describe('search parsePageSectionsIntoRecords module', () => {
     const record: Record = parsePageSectionsIntoRecords({ href, $, languageCode: 'en' })
     const expected: Record = {
       objectID: '/example/href',
-      breadcrumbs: 'Education / map topic',
+      breadcrumbs: 'Education / subcategory',
       title: 'A page without sections',
       headings: '',
       content: 'This is an introduction to the article.\nFirst paragraph.\nSecond paragraph.',
@@ -91,7 +91,7 @@ describe('search parsePageSectionsIntoRecords module', () => {
     const record: Record = parsePageSectionsIntoRecords({ href, $, languageCode: 'en' })
     const expected: Record = {
       objectID: '/example/href',
-      breadcrumbs: 'Education / map topic',
+      breadcrumbs: 'Education / subcategory',
       title: 'A page without body',
       headings: '',
       content: 'This is an introduction to the article.',

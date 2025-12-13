@@ -1,6 +1,6 @@
 ---
 title: Accessing your organization if your identity provider is unavailable
-intro: 'Organization owners can sign into {% data variables.product.product_name %} even if their identity provider is unavailable by bypassing single sign-on (SSO) and using their recovery codes.'
+intro: 'Organization owners can sign into {% data variables.product.github %} even if their identity provider is unavailable by bypassing single sign-on (SSO) and using their recovery codes.'
 redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organization-if-your-identity-provider-is-unavailable

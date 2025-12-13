@@ -45,6 +45,18 @@ You can revoke your authorization of a {% data variables.product.prodname_github
 
 Once an authorization is revoked, any tokens associated with the authorization will be revoked as well. To reauthorize an application, follow the instructions from the third-party application or website to connect your account on {% data variables.product.prodname_dotcom %} again.
 
+{% ifversion fpt or ghec %}
+
+## Token revoked by a third party
+
+To prevent unauthorized access using exposed tokens, {% data variables.product.github %} recommends token revocation to ensure that a token can no longer be used to authenticate to {% data variables.product.github %}. If you find another user's {% data variables.product.pat_generic %} leaked on {% data variables.product.github %} or elsewhere, you can submit a revocation request through the REST API. See [AUTOTITLE](/rest/credentials/revoke#revoke-a-list-of-credentials).
+
+If a valid {% data variables.product.pat_generic %} is submitted to {% data variables.product.github %}'s credential revocation API, the token will be automatically revoked. This API allows a third party to revoke a token they do not own and helps protect the data associated with this token from unauthorized access, limiting the impact of exposed tokens.
+
+To encourage reports and ensure that exposed tokens can be quickly and easily revoked, we do not require authentication for the revocation requests submitted through the API. As a result, {% data variables.product.github %} is unable to provide further information about the source of the reported token.
+
+{% endif %}
+
 ## Token revoked by the {% data variables.product.prodname_oauth_app %}
 
 The owner of an {% data variables.product.prodname_oauth_app %} can revoke an account's authorization of their app, this will also revoke any tokens associated with the authorization. For more information about revoking authorizations of your {% data variables.product.prodname_oauth_app %}, see [AUTOTITLE](/rest/apps/oauth-applications#delete-an-app-authorization).

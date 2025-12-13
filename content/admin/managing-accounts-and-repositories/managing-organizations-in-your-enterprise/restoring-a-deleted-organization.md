@@ -9,7 +9,7 @@ topics:
   - Enterprise
   - Organizations
 shortTitle: Restore organization
-permissions: 'Site administers can restore an organization on {% data variables.product.product_name %}.'
+permissions: 'Site administrators'
 redirect_from:
    - /admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization
 ---

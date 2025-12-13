@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // [start-readme]
 //
 // This script lists all local image files, sorted by their dimensions.
@@ -27,9 +25,7 @@ const images = await Promise.all(
     return { relativePath, width, height, size }
   }),
 )
-images
-  .sort((a, b) => b.size - a.size)
-  .forEach((image) => {
-    const { relativePath, width, height } = image
-    console.log(`${width} x ${height} - ${relativePath}`)
-  })
+for (const image of images.sort((a, b) => b.size - a.size)) {
+  const { relativePath, width, height } = image
+  console.log(`${width} x ${height} - ${relativePath}`)
+}

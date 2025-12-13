@@ -14,13 +14,14 @@ topics:
   - 2FA
 children:
   - /about-two-factor-authentication
+  - /about-mandatory-two-factor-authentication
   - /configuring-two-factor-authentication
   - /configuring-two-factor-authentication-recovery-methods
   - /accessing-github-using-two-factor-authentication
-  - /recovering-your-account-if-you-lose-your-2fa-credentials
-  - /changing-your-two-factor-authentication-method
-  - /about-mandatory-two-factor-authentication
   - /countries-where-sms-authentication-is-supported
+  - /changing-your-two-factor-authentication-method
+  - /troubleshooting-two-factor-authentication-issues
+  - /recovering-your-account-if-you-lose-your-2fa-credentials
   - /disabling-two-factor-authentication-for-your-personal-account
 shortTitle: Secure your account with 2FA
 ---

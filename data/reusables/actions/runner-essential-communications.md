@@ -10,13 +10,6 @@ api.github.com
 
 ```shell copy
 codeload.github.com
-pkg.actions.githubusercontent.com
-```
-
-**Needed for publishing immutable actions:**
-
-```shell copy
-ghcr.io
 ```
 
 **Needed for uploading/downloading job summaries, logs, workflow artifacts, and caches:**
@@ -64,3 +57,15 @@ dependabot-actions.githubapp.com
 ```
 
 {% endif %}
+
+**Needed for downloading release assets:**
+
+```shell copy
+release-assets.githubusercontent.com
+```
+
+**Needed for VNet:**
+
+```shell copy
+api.snapcraft.io
+```

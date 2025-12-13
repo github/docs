@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  * Hi there! 👋
  * To test this code locally, outside of Actions, you need to run
@@ -12,45 +10,42 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import * as github from '@actions/github'
+import github from '@actions/github'
 import core from '@actions/core'
 
 import walk from 'walk-sync'
 import { Octokit } from '@octokit/rest'
 import { retry } from '@octokit/plugin-retry'
 
-import { getContents } from './git-utils.js'
-import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
-import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version.js'
-import { allVersionShortnames } from '@/versions/lib/all-versions.js'
-import { waitUntilUrlIsHealthy } from './wait-until-url-is-healthy.js'
-import readFrontmatter from '@/frame/lib/read-frontmatter.js'
+import { getContents } from './git-utils'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+import { allVersionShortnames } from '@/versions/lib/all-versions'
+import readFrontmatter from '@/frame/lib/read-frontmatter'
 import { inLiquid } from './lib/in-liquid'
 
-const { GITHUB_TOKEN, APP_URL } = process.env
+const { GITHUB_TOKEN, APP_URL, BASE_SHA, HEAD_SHA } = process.env
 const context = github.context
 
 // the max size of the comment (in bytes)
 // the action we use to post the comment caps out at about 144kb
-// see docs-engineering#1849 for more info
-const MAX_COMMENT_SIZE = 125000
+// see docs-engineering#1849 and peter-evans/create-or-update-comment#271 for more info.
+// The max size the action allows is 2^16, but our table calculates near the end
+// of its rendering before we add a key, so playing it safe with 2^15.
+const MAX_COMMENT_SIZE = 32768
 
 const PROD_URL = 'https://docs.github.com'
 
 // When this file is invoked directly from action as opposed to being imported
 if (import.meta.url.endsWith(process.argv[1])) {
-  const owner = context.repo.owner
-  const repo = context.payload.repository!.name
-  const baseSHA = process.env.BASE_SHA || context.payload.pull_request!.base.sha
-  const headSHA = process.env.HEAD_SHA || context.payload.pull_request!.head.sha
+  const baseOwner = context.payload.pull_request!.base.repo.owner.login
+  const baseRepo = context.payload.pull_request!.base.repo.name
 
-  const isHealthy = await waitUntilUrlIsHealthy(new URL('/healthz', APP_URL).toString())
-  if (!isHealthy) {
-    core.setFailed(`Timeout waiting for preview environment: ${APP_URL}`)
-  } else {
-    const markdownTable = await main(owner, repo, baseSHA, headSHA)
-    core.setOutput('changesTable', markdownTable)
-  }
+  const baseSHA = BASE_SHA || context.payload.pull_request!.base.sha
+  const headSHA = HEAD_SHA || context.payload.pull_request!.head.sha
+
+  const markdownTable = await main(baseOwner, baseRepo, baseSHA, headSHA)
+  core.setOutput('changesTable', markdownTable)
 }
 
 async function main(owner: string, repo: string, baseSHA: string, headSHA: string) {
@@ -60,11 +55,14 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
   if (!APP_URL) {
     throw new Error(`APP_URL environment variable not set`)
   }
+
   const RetryingOctokit = Octokit.plugin(retry)
   const octokit = new RetryingOctokit({
     auth: `token ${GITHUB_TOKEN}`,
   })
+
   // get the list of file changes from the PR
+  // this works even if the head commit is from a fork
   const response = await octokit.rest.repos.compareCommitsWithBasehead({
     owner,
     repo,
@@ -164,18 +162,18 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
     return ''
   }
 
-  const headings = ['Source', 'Preview', 'Production', 'What Changed']
+  const headings = ['Source', 'Review', 'Production', 'What Changed']
   const markdownTableHead = [
     `| ${headings.map((heading) => `**${heading}**`).join(' | ')} |`,
     `| ${headings.map(() => ':---').join(' | ')} |`,
   ]
-  let markdownTable = markdownTableHead.join('\n') + '\n'
+  let markdownTable = `${markdownTableHead.join('\n')}\n`
   for (const filteredLine of filteredLines) {
     if ((markdownTable + filteredLine).length > MAX_COMMENT_SIZE) {
       markdownTable += '\n**Note** There are more changes in this PR than we can show.'
       break
     }
-    markdownTable += filteredLine + '\n'
+    markdownTable += `${filteredLine}\n`
   }
 
   return markdownTable
@@ -207,7 +205,7 @@ function makeRow({
   fromReusable?: boolean
 }) {
   let contentCell = ''
-  let previewCell = ''
+  let reviewCell = ''
   let prodCell = ''
 
   if (file.status === 'added') contentCell = 'New file: '
@@ -235,25 +233,25 @@ function makeRow({
         if (versions.toString() === nonEnterpriseDefaultVersion) {
           // omit version from fpt url
 
-          previewCell += `[${plan}](${APP_URL}/${fileUrl})<br>`
+          reviewCell += `[${plan}](${APP_URL}/${fileUrl})<br>`
           prodCell += `[${plan}](${PROD_URL}/${fileUrl})<br>`
         } else {
           // for non-versioned releases (ghec) use full url
 
-          previewCell += `[${plan}](${APP_URL}/${versions}/${fileUrl})<br>`
+          reviewCell += `[${plan}](${APP_URL}/${versions}/${fileUrl})<br>`
           prodCell += `[${plan}](${PROD_URL}/${versions}/${fileUrl})<br>`
         }
       } else if (versions.length) {
         // for ghes releases, link each version
 
-        previewCell += `${plan}@ `
+        reviewCell += `${plan}@ `
         prodCell += `${plan}@ `
 
-        versions.forEach((version) => {
-          previewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}) `
+        for (const version of versions) {
+          reviewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}) `
           prodCell += `[${version.split('@')[1]}](${PROD_URL}/${version}/${fileUrl}) `
-        })
-        previewCell += '<br>'
+        }
+        reviewCell += '<br>'
         prodCell += '<br>'
       }
     }
@@ -265,14 +263,14 @@ function makeRow({
   let note = ''
   if (file.status === 'removed') {
     note = 'removed'
-    // If the file was removed, the `previewCell` no longer makes sense
+    // If the file was removed, the `reviewCell` no longer makes sense
     // since it was based on looking at the base sha.
-    previewCell = 'n/a'
+    reviewCell = 'n/a'
   } else if (fromReusable) {
     note += 'from reusable'
   }
 
-  return `| ${contentCell} | ${previewCell} | ${prodCell} | ${note} |`
+  return `| ${contentCell} | ${reviewCell} | ${prodCell} | ${note} |`
 }
 
 function getAllContentFiles(): Map<string, string> {

@@ -34,14 +34,14 @@ We recommend always using a `www` subdomain, even if you also use an apex domain
 
 ## Using a custom domain across multiple repositories
 
-If you set a custom domain for a user or organization site, by default, the same custom domain will be used for all project sites owned by the same account. For more information about site types, see [AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites).
+If you set a custom domain for a user or organization site, by default, the same custom domain will be used for all project sites owned by the same account. For more information about site types, see [AUTOTITLE](/pages/getting-started-with-github-pages/what-is-github-pages#types-of-github-pages-sites).
 
 For example, if the custom domain for your user site is `www.octocat.com`, and you have a project site with no custom domain configured that is published from a repository called `octo-project`, the {% data variables.product.prodname_pages %} site for that repository will be available at `www.octocat.com/octo-project`.
 
 You can override the default custom domain by adding a custom domain to the individual repository.
 
 > [!NOTE]
-> The URLs for project sites that are privately published are not affected by the custom domain for your user or organization site. For more information about privately published sites, see [AUTOTITLE](/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site){% ifversion not ghec %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
+> The URLs for project sites that are privately published are not affected by the custom domain for your user or organization site. For more information about privately published sites, see [AUTOTITLE](/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 
 To remove the default custom domain, you must remove the custom domain from your user or organization site.
 
@@ -55,7 +55,7 @@ Subdomains are configured with a `CNAME` record through your DNS provider. For m
 
 A `www` subdomain is the most commonly used type of subdomain. For example, `www.example.com` includes a `www` subdomain.
 
-`www` subdomains are the most stable type of custom domain because `www` subdomains are not affected by changes to the IP addresses of {% data variables.product.product_name %}'s servers.
+`www` subdomains are the most stable type of custom domain because `www` subdomains are not affected by changes to the IP addresses of {% data variables.product.github %}'s servers.
 
 ### Custom subdomains
 

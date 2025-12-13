@@ -22,7 +22,7 @@ If you are publishing from a custom {% data variables.product.prodname_actions %
 
 If you are publishing from a branch, custom domains are stored in a CNAME file in the root of your publishing source. You can add or update this file through your repository settings or manually. For more information, see [AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
 
-For your site to render at the correct domain, make sure your CNAME file still exists in the repository. For example, many static site generators force push to your repository, which can overwrite the CNAME file that was added to your repository when you configured your custom domain. If you build your site locally and push generated files to {% data variables.product.product_name %}, make sure to pull the commit that added the CNAME file to your local repository first, so the file will be included in the build.
+For your site to render at the correct domain, make sure your CNAME file still exists in the repository. For example, many static site generators force push to your repository, which can overwrite the CNAME file that was added to your repository when you configured your custom domain. If you build your site locally and push generated files to {% data variables.product.github %}, make sure to pull the commit that added the CNAME file to your local repository first, so the file will be included in the build.
 
 Then, make sure the CNAME file is formatted correctly.
 
@@ -65,7 +65,7 @@ If you're using Certification Authority Authorization (CAA) records, at least on
 
 ## URL formatting on Linux
 
-If the URL for your site contains a username or organization name that begins or ends with a dash, or contains consecutive dashes, people browsing with Linux will receive a server error when they attempt to visit your site. To fix this, change your {% data variables.product.product_name %} username to remove non-alphanumeric characters. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username).
+If the URL for your site contains a username or organization name that begins or ends with a dash, or contains consecutive dashes, people browsing with Linux will receive a server error when they attempt to visit your site. To fix this, change your {% data variables.product.github %} username to remove non-alphanumeric characters. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username).
 
 ## Browser cache
 

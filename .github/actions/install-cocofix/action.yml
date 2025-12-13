@@ -18,4 +18,4 @@ runs:
         npm install --no-save \
           '--@github:registry=https://npm.pkg.github.com' \
           '--//npm.pkg.github.com/:_authToken=${TOKEN}' \
-          @github/cocofix
+          @github/cocofix codeql-ts

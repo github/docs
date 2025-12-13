@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  * This script will delete files from a translation repo of files that
  * only exist there and not "here". Here being the docs repo.
@@ -24,8 +22,8 @@ import fs from 'fs'
 import path from 'path'
 
 import { program } from 'commander'
-import walkFiles from 'src/workflows/walk-files'
-import { ROOT } from 'src/frame/lib/constants.js'
+import walkFiles from '@/workflows/walk-files'
+import { ROOT } from '@/frame/lib/constants'
 
 program
   .description('Delete orphan translation files')

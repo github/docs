@@ -14,7 +14,7 @@ topics:
 shortTitle: View repository traffic
 ---
 
-You can navigate to referring sites, excluding search engines and {% data variables.product.product_name %} itself, from the links the specific paths were referred from. The popular content links to the specific content that generated traffic.
+You can navigate to referring sites, excluding search engines and {% data variables.product.github %} itself, from the links the specific paths were referred from. The popular content links to the specific content that generated traffic.
 
 Referring sites and popular content are ordered by views and unique visitors. Full clones and visitor information update hourly, while referring sites and popular content sections update daily. All data in the traffic graph uses the UTC+0 timezone, regardless of your location.
 

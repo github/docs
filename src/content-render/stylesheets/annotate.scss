@@ -90,6 +90,27 @@
     background: var(--color-segmented-control-button-bg);
     border-color: var(--color-segmented-control-button-selected-border);
   }
+
+  // High contrast theme support
+  @media (prefers-contrast: high) {
+    border-color: var(--color-border-default);
+
+    &:hover {
+      background: var(--color-canvas-subtle);
+      border-color: var(--color-border-emphasis);
+    }
+
+    &.selected {
+      background: var(--color-accent-emphasis);
+      color: var(--color-fg-on-emphasis);
+      border-color: var(--color-border-emphasis);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-focus-outset);
+      outline-offset: 2px;
+    }
+  }
 }
 
 .annotate-row {

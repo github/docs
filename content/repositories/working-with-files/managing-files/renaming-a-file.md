@@ -1,6 +1,6 @@
 ---
 title: Renaming a file
-intro: 'You can rename any file in your repository directly in {% data variables.product.product_name %} or by using the command line.'
+intro: 'You can rename any file in your repository directly in {% data variables.product.github %} or by using the command line.'
 redirect_from:
   - /articles/renaming-a-file
   - /github/managing-files-in-a-repository/renaming-a-file
@@ -16,7 +16,7 @@ topics:
   - Repositories
 ---
 
-## Renaming a file on {% data variables.product.product_name %}
+## Renaming a file on {% data variables.product.github %}
 
 Renaming a file also gives you the opportunity to [move the file to a new location](/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location).
 
@@ -37,7 +37,7 @@ Renaming a file also gives you the opportunity to [move the file to a new locati
 
 You can use the command line to rename any file in your repository.
 
-Many files can be renamed directly on {% data variables.product.product_name %}, but some files, such as images, require that you rename them from the command line.
+Many files can be renamed directly on {% data variables.product.github %}, but some files, such as images, require that you rename them from the command line.
 
 {% data reusables.command_line.manipulating_file_prereqs %}
 

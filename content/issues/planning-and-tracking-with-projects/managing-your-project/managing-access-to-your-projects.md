@@ -3,7 +3,9 @@ title: 'Managing access to your {% data variables.projects.projects_v2 %}'
 shortTitle: 'Managing {% data variables.projects.project_v2 %} access'
 intro: 'Learn how to manage team and individual access to your {% data variables.projects.project_v2 %}.'
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/managing-access-to-projects
 type: tutorial
@@ -27,17 +29,9 @@ You can control access to your project by setting permissions for particular ind
 
 ### Managing access for everyone in your organization
 
-{% ifversion projects-v2-default-base-permission %}
-
 You can manage access for everyone in your organization to a particular project by changing the project's base permission. Changes to the base permission only affect organization members who are not organization owners and who are not granted individual access.
 
 You can also configure the default base permission at the organization-level for new projects and projects that haven't yet had a base permission configured. For more information about setting your organization's base permission for projects, see [AUTOTITLE](/organizations/managing-organization-settings/managing-base-permissions-for-projects).
-
-{% else %}
-
-The default base role is `write`, meaning that everyone in the organization can see and edit your project. To change project access for everyone in the organization, you can change the base role. Changes to the base role only affect organization members who are not organization owners and who are not granted individual access.
-
-{% endif %}
 
 {% data reusables.projects.project-settings %}
 1. Click **Manage access**.
@@ -54,11 +48,7 @@ The default base role is `write`, meaning that everyone in the organization can 
 
 You can also add teams, external collaborators, and individual organization members as collaborators for an organization-level project. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
 
-{% ifversion projects-v2-add-to-team %}
-
 If you grant a team read permissions or greater for a project, the project is also displayed on the team's projects page. You can also add projects to a team on the team's projects page. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team).
-
-{% endif %}
 
 You can only invite an individual user to collaborate on your organization-level project if they are already a member of the organization or an outside collaborator on at least one repository in the organization.
 

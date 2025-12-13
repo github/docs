@@ -3,7 +3,9 @@ title: Amending a commit in GitHub Desktop
 shortTitle: Amending a commit
 intro: 'You can use {% data variables.product.prodname_desktop %} to amend your last commit.'
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/amending-a-commit
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/amending-a-commit-in-github-desktop

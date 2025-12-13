@@ -1,5 +1,5 @@
-import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
-import { RepoCard } from 'src/landings/components/RepoCard'
+import { useProductLandingContext } from '@/landings/components/ProductLandingContext'
+import { RepoCard } from '@/landings/components/RepoCard'
 
 export const CommunityExamples = () => {
   const { productCommunityExamples } = useProductLandingContext()

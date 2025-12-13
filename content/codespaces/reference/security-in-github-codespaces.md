@@ -36,7 +36,7 @@ Each codespace has its own isolated virtual network. We use firewalls to block i
 
 ### Authentication
 
-You can connect to a codespace using a web browser or from {% data variables.product.prodname_vscode %}. If you connect from {% data variables.product.prodname_vscode_shortname %}, you are prompted to authenticate with {% data variables.product.product_name %}.
+You can connect to a codespace using a web browser or from {% data variables.product.prodname_vscode %}. If you connect from {% data variables.product.prodname_vscode_shortname %}, you are prompted to authenticate with {% data variables.product.github %}.
 
 Every time a codespace is created or restarted, it's assigned a new {% data variables.product.company_short %} token with an automatic expiry period. This period allows you to work in the codespace without needing to reauthenticate during a typical working day, but reduces the chance that you will leave a connection open when you stop using the codespace.
 
@@ -48,7 +48,7 @@ The token's scope will vary depending on the access you have to the repository w
 
 ### Codespace connections
 
-You can connect to your codespace using the TLS encrypted tunnel provided by the {% data variables.product.prodname_github_codespaces %} service. Only the creator of a codespace can connect to a codespace. Connections are authenticated with {% data variables.product.product_name %}.
+You can connect to your codespace using the TLS encrypted tunnel provided by the {% data variables.product.prodname_github_codespaces %} service. Only the creator of a codespace can connect to a codespace. Connections are authenticated with {% data variables.product.github %}.
 
 If you need to allow external access to services running on a codespace, you can enable port forwarding for private or public access.
 
@@ -58,9 +58,9 @@ If you need to connect to a service (such as a development web server) running w
 
 Organization owners can restrict the ability to make forward ports available publicly or within the organization. For more information, see [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports).
 
-**Privately forwarded ports:** Are accessible on the internet, but only the codespace creator can access them, after authenticating to {% data variables.product.product_name %}.
+**Privately forwarded ports:** Are accessible on the internet, but only the codespace creator can access them, after authenticating to {% data variables.product.github %}.
 
-**Publicly forwarded ports within your organization:** Are accessible on the internet, but only to members of the same organization as the codespace, after authenticating to {% data variables.product.product_name %}.
+**Publicly forwarded ports within your organization:** Are accessible on the internet, but only to members of the same organization as the codespace, after authenticating to {% data variables.product.github %}.
 
 **Publicly forwarded ports:** Are accessible on the internet, and anyone on the internet can access them. No authentication is needed to access public forwarded ports.
 

@@ -3,7 +3,9 @@ title: Creating a local environment
 shortTitle: Create a local environment
 intro: 'You can run the {% data variables.product.prodname_docs %} application locally on your computer.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About {% data variables.product.prodname_docs %} site structure
@@ -49,7 +51,7 @@ npm ci
 npm start
 ```
 
-You should now have a running server. To access your local preview environment, visit [localhost:4000](http://localhost:4000) in your browser.
+You should now have a running server. To access your local environment, visit [localhost:4000](http://localhost:4000) in your browser.
 
 When you're ready to stop your local server, type <kbd>Ctrl</kbd>+<kbd>C</kbd> in your terminal window.
 
@@ -58,10 +60,6 @@ When you're ready to stop your local server, type <kbd>Ctrl</kbd>+<kbd>C</kbd> i
 > * `npm run build` creates static assets, such as JavaScript and CSS files.
 
 If you would like to read more about debugging and troubleshooting the {% data variables.product.prodname_docs %} application, see [AUTOTITLE](/contributing/setting-up-your-environment-to-work-on-github-docs/troubleshooting-your-environment) in the github/docs repository.
-
-### Using browser shortcuts
-
-The [`src/bookmarklets`](https://github.com/github/docs/tree/main/src/bookmarklets) directory in the {% data variables.product.prodname_docs %} repository contains browser shortcuts that can help with reviewing {% data variables.product.company_short %} documentation. For more information, see the directory's [`README`](https://github.com/github/docs/tree/main/src/bookmarklets/README.md).
 
 ### Enabling different languages
 
@@ -72,7 +70,7 @@ For example, to enable Japanese and Portuguese in addition to English, you can e
 > [!NOTE]
 > Before you commit your changes, you should revert the `package.json` file to its original state.
 
-The supported language codes are defined in [`src/languages/lib/languages.js`](https://github.com/github/docs/blob/main/src/languages/lib/languages.js).
+The supported language codes are defined in [`src/languages/lib/languages.ts`](https://github.com/github/docs/blob/main/src/languages/lib/languages.ts).
 
 ## Using {% data variables.product.prodname_github_codespaces %}
 

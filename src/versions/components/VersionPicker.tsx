@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router'
 import { ArrowRightIcon, InfoIcon } from '@primer/octicons-react'
 
-import { useMainContext } from 'src/frame/components/context/MainContext'
-import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { Picker } from 'src/tools/components/Picker'
+import { useMainContext } from '@/frame/components/context/MainContext'
+import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { Picker } from '@/tools/components/Picker'
 
 import styles from './VersionPicker.module.scss'
 

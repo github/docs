@@ -1,5 +1,6 @@
 # Reference: #15650
 # Secret scanning - non-provider pattern enablement is included in security configurations [Public Beta]
 versions:
+  fpt: '*'
   ghec: '*'
   ghes: '> 3.14'

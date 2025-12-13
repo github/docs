@@ -39,7 +39,7 @@ If your {% data variables.product.prodname_pages %} site is private and you see 
 
 {% data variables.product.prodname_pages %} will look for an `index.html` file as the entry file for your site.
 
-* Make sure you have an `index.html` file in the repository for your site on {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site).
+* Make sure you have an `index.html` file in the repository for your site on {% data variables.product.github %}. For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site).
 * The entry file must be at the top level of your chosen publishing source. For example, if your publishing source is the `/docs` directory on the `main` branch, your entry file must be located in the `/docs` directory on a branch called `main`.
 
   If your publishing source is a branch and directory, the entry file must be at the top level of the source directory on the source branch. For example, if your publishing source is the `/docs` directory on the `main` branch, your entry file must be located in the `/docs` directory on a branch called `main`.

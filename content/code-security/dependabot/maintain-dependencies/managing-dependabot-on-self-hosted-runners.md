@@ -19,10 +19,6 @@ redirect_from:
 
 ## About {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} self-hosted runners
 
-{% data reusables.dependabot.dependabot-updates-and-actions %} For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
-
-{% data reusables.dependabot.dependabot-on-actions-future-note %}
-
 You can help users of your organization and repositories to create and maintain secure code by setting up {% data variables.product.prodname_dependabot %} security and version updates. With {% data variables.product.prodname_dependabot_updates %}, developers can configure repositories so that their dependencies are updated and kept secure automatically. Running {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} allows for better performance, and increased visibility and control of {% data variables.product.prodname_dependabot %} jobs.
 
 {% data reusables.dependabot.vnet-arc-note %}
@@ -95,7 +91,7 @@ You can enable {% data variables.product.prodname_dependabot %} on self-hosted r
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
+{% data reusables.security-configurations.display-global-settings %}
 1. Under "Dependabot", select "{% data variables.product.prodname_dependabot %} on self-hosted runners" to enable the feature or deselect to disable it. This action enables or disables the feature for all new repositories in the organization.
 
 For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization).

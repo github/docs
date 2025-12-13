@@ -5,7 +5,7 @@ versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -16,6 +16,9 @@ redirect_from:
   - /code-security/codeql-cli/manual/database-init
 ---
 
+<!-- markdownlint-disable GHD053 -->
+
+<!-- markdownlint-disable GHD030 -->
 
 <!-- Content after this section is automatically generated -->
 
@@ -239,7 +242,7 @@ produce all necessary data directly.
 #### `--extra-tracing-config=<tracing-config.lua>`
 
 \[Advanced] The path to a tracer configuration file. It may be used to
-modify the behaviour of the build tracer. It may be used to pick out
+modify the behavior of the build tracer. It may be used to pick out
 compiler processes that run as part of the build command, and trigger
 the execution of other tools. The extractors will provide default tracer
 configuration files that should work in most situations.
@@ -258,13 +261,13 @@ be any string that does not contain a newline.
 
 You can use this command-line option repeatedly to set multiple
 extractor options. If you provide multiple values for the same extractor
-option, the behaviour depends on the type that the extractor option
+option, the behavior depends on the type that the extractor option
 expects. String options will use the last value provided. Array options
 will use all the values provided, in order. Extractor options specified
 using this command-line option are processed after extractor options
 given via `--extractor-options-file`.
 
-When passed to [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init) or `codeql database begin-tracing`, the options will only be
+When passed to codeql database init or `codeql database begin-tracing`, the options will only be
 applied to the indirect tracing environment. If your workflow also makes
 calls to
 [codeql database trace-command](/code-security/codeql-cli/codeql-cli-manual/database-trace-command) then the options also need to be passed there if desired.
@@ -284,13 +287,13 @@ string and array options are map entries with string and array values.
 
 Extractor option bundle files are read in the order they are specified.
 If different extractor option bundle files specify the same extractor
-option, the behaviour depends on the type that the extractor option
+option, the behavior depends on the type that the extractor option
 expects. String options will use the last value provided. Array options
 will use all the values provided, in order. Extractor options specified
 using this command-line option are processed before extractor options
 given via `--extractor-option`.
 
-When passed to [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init) or `codeql database begin-tracing`, the options will only be
+When passed to codeql database init or `codeql database begin-tracing`, the options will only be
 applied to the indirect tracing environment. If your workflow also makes
 calls to
 [codeql database trace-command](/code-security/codeql-cli/codeql-cli-manual/database-trace-command) then the options also need to be passed there if desired.

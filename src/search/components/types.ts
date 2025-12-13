@@ -1,4 +1,4 @@
-import { GeneralSearchResponse, SearchValidationErrorEntry } from 'src/search/types'
+import { GeneralSearchResponse, SearchValidationErrorEntry } from '@/search/types'
 
 export interface SearchContextT {
   search: {
@@ -12,4 +12,10 @@ export interface SearchContextT {
 export type SearchQueryContentT = {
   query: string
   debug: boolean
+}
+
+export type AIReference = {
+  url: string
+  title: string
+  index: string
 }

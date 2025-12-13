@@ -1,6 +1,6 @@
 ---
 title: Importing a Team Foundation Version Control repository
-intro: 'You can import a repository from Team Foundation Version Control (TFVC) by converting the repository to Git, then pushing the Git repository to {% data variables.product.product_name %}.'
+intro: 'You can import a repository from Team Foundation Version Control (TFVC) by converting the repository to Git, then pushing the Git repository to {% data variables.product.github %}.'
 versions:
   fpt: '*'
   ghes: '*'

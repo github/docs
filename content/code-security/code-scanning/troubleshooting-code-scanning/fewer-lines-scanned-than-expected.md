@@ -13,18 +13,18 @@ redirect_from:
 
 ## About analysis of compiled languages
 
-{% ifversion codeql-no-build %}When compiled languages are analyzed using the `autobuild` or `manual` build mode,{% elsif ghes %}For compiled languages like {% data variables.code-scanning.compiled_languages %},{% endif %} {% data variables.product.prodname_codeql %} only scans files that are built during the analysis. Therefore the number of lines of code scanned will be lower than expected if some of the source code isn't compiled correctly. This can happen for several reasons:
+When compiled languages are analyzed using the `autobuild` or `manual` build mode, {% data variables.product.prodname_codeql %} only scans files that are built during the analysis. Therefore the number of lines of code scanned will be lower than expected if some of the source code isn't compiled correctly. This can happen for several reasons:
 
 1. The {% data variables.product.prodname_codeql %} `autobuild` feature uses heuristics to build the code in a repository. However, sometimes this approach results in an incomplete analysis of a repository. For example, when multiple `build.sh` commands exist in a single repository, the analysis may not be complete since the `autobuild` step will only execute one of the commands, and therefore some source files may not be compiled.
 
 1. Some compilers do not work with {% data variables.product.prodname_codeql %} and can cause issues while analyzing the code. For example, most vendor-specific C compilers will not be recognized by {% data variables.product.prodname_codeql %}. C code will need to be compiled with a recognized compiler (for example GCC, Clang or MSVC) in order to be analyzed.
 
-If your {% data variables.product.prodname_codeql %} analysis scans fewer lines of code than expected, you can try {% ifversion codeql-no-build %}changing the build mode to `manual` and specifying build commands if your workflow specifies a build mode, {% endif %} replacing the `autobuild` step with build commands if your workflow contains an `autobuild` step, or inspecting the copy of the source files in the {% data variables.product.prodname_codeql %} database.
+If your {% data variables.product.prodname_codeql %} analysis scans fewer lines of code than expected, you can try changing the build mode to `manual` and specifying build commands if your workflow specifies a build mode,  replacing the `autobuild` step with build commands if your workflow contains an `autobuild` step, or inspecting the copy of the source files in the {% data variables.product.prodname_codeql %} database.
 
-## {% ifversion codeql-no-build %}Change to a `manual` build process{% elsif ghes %}Replace the `autobuild` step{% endif %}
+## Change to a `manual` build process
 
 Replace the `autobuild` process with the same build commands you would use in production. This makes sure that {% data variables.product.prodname_codeql %} knows exactly how to compile all of the source files you want to scan.
-For more information about defining build steps, see {% ifversion codeql-no-build %}[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#using-build-mode-manual-and-specifying-build-steps){% elsif ghes %}[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#adding-build-steps-for-a-compiled-language){% endif %}.
+For more information about defining build steps, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#using-build-mode-manual-and-specifying-build-steps).
 
 ## Inspect the copy of the source files in the {% data variables.product.prodname_codeql %} database
 

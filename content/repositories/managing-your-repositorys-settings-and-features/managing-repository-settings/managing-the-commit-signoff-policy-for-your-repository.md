@@ -1,6 +1,6 @@
 ---
 title: Managing the commit signoff policy for your repository
-intro: 'You can require users to automatically sign off on the commits they make to your repository using {% data variables.product.product_name %}''s web interface.'
+intro: 'You can require users to automatically sign off on the commits they make to your repository using {% data variables.product.github %}''s web interface.'
 versions:
   fpt: '*'
   ghec: '*'

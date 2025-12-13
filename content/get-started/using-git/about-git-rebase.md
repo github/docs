@@ -64,7 +64,7 @@ There are six commands available while rebasing:
 
 ## An example of using `git rebase`
 
-No matter which command you use, Git will launch [your default text editor](/get-started/getting-started-with-git/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
+No matter which command you use, Git will launch [your default text editor](/get-started/git-basics/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
 
 ```text
 pick 1fc6c95 Patch A

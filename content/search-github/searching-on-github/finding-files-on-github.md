@@ -1,6 +1,6 @@
 ---
 title: Finding files on GitHub
-intro: 'You can search for a file in a repository using the file finder. To search for a file in multiple repositories on {% data variables.product.product_name %}, use the {% ifversion code-search-upgrade %}[`path` code search qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#path-qualifier){% else %}[`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename){% endif %}.'
+intro: 'You can search for a file in a repository using the file finder. To search for a file in multiple repositories on {% data variables.product.github %}, use the {% ifversion code-search-upgrade %}[`path` code search qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#path-qualifier){% else %}[`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename){% endif %}.'
 redirect_from:
   - /articles/finding-files-on-github
   - /github/searching-for-information-on-github/finding-files-on-github
@@ -19,25 +19,16 @@ topics:
 
 ## Using the file finder
 
-{% ifversion code-view-ui %}
 {% data reusables.repositories.navigate-to-repo %}
 1. In the “Go to file” search bar, type the name of the file or directory you'd like to find.
    ![Screenshot of the main view for a repository. A search bar, labeled "Go to file", is outlined in dark orange.](/assets/images/help/repository/repository-main-page-go-to-file.png)
 1. Alternatively, if there is no "Go to file" search bar, click **Go to file**, then type the name of the file or directory you'd like to find.
    ![Screenshot of the main view for a repository. A "Go to file" button is outlined in dark orange.](/assets/images/help/repository/repository-main-page-go-to-file-no-search-bar.png)
 1. In the list of results, click the file or directory you wanted to find. You can view the file path for a directory or file below each search result.
-{% else %}
-{% data reusables.repositories.navigate-to-repo %}
-1. Above the list of files, click **Go to file**.
-   ![Screenshot of a row of buttons on the main page of a repository. The "Go to file" button is outlined in dark orange.](/assets/images/help/search/find-file-button.png)
-1. In the search field, type the name of the file you'd like to find.
-   ![Screenshot of the search bar for finding a file in a repository. The search bar contains the term "readme" and under the search bar is a link to the file that is the result of the search, "README.md". The search bar is outlined in dark orange.](/assets/images/help/search/find-file-search-field.png)
-1. In the list of results, click the file you wanted to find.
-{% endif %}
 
 ## Customizing excluded files
 
-By default, file finder results do not include files in the following directories if they exist at your repository root:
+By default, file finder results do not include files in the following directories:
 
 * `.git`
 * `.hg`

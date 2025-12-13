@@ -1,6 +1,6 @@
 ---
 title: 'About {% data variables.product.prodname_projects_v1 %}'
-intro: '{% data variables.product.prodname_projects_v1_caps %} on {% data variables.product.product_name %} help you organize and prioritize your work. {% ifversion projects-v1-can-create %} You can create {% data variables.projects.projects_v1_boards %} for specific feature work, comprehensive roadmaps, or even release checklists. With {% data variables.product.prodname_projects_v1 %}, you have the flexibility to create customized workflows that suit your needs.{% endif %}'
+intro: '{% data variables.product.prodname_projects_v1_caps %} on {% data variables.product.github %} help you organize and prioritize your work. {% ifversion projects-v1-can-create %} You can create {% data variables.projects.projects_v1_boards %} for specific feature work, comprehensive roadmaps, or even release checklists. With {% data variables.product.prodname_projects_v1 %}, you have the flexibility to create customized workflows that suit your needs.{% endif %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-project-boards
   - /articles/about-projects

@@ -6,7 +6,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '> 3.8'
+  ghes: '*'
 topics:
   - Community
 ---
@@ -38,8 +38,8 @@ For example, the following form definition includes four form elements: a text a
     multiple: false
     options:
       - 1.0.2 (Default)
-      - 1.0.3 (Edge){% ifversion issue-form-dropdown-defaults %}
-    default: 0{% endif %}
+      - 1.0.3 (Edge)
+    default: 0
   validations:
     required: true
 - type: checkboxes
@@ -222,8 +222,8 @@ body:
       - Built from source
       - Homebrew
       - MacPorts
-      - apt-get{% ifversion issue-form-dropdown-defaults %}
-    default: 0{% endif %}
+      - apt-get
+    default: 0
   validations:
     required: true
 ```

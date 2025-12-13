@@ -61,11 +61,7 @@ For more information about minimum hardware requirements for {% data variables.l
 
 {% data reusables.enterprise_installation.about-adjusting-resources %}
 
-{% ifversion ghes %}
-
 Optionally, you can limit resource consumption on {% data variables.location.product_location %} by configuring a rate limit for {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions).
-
-{% endif %}
 
 ## External storage requirements
 
@@ -90,8 +86,6 @@ All other {% data variables.product.prodname_actions %} data, such as the workfl
 ## Networking considerations
 
 {% data reusables.actions.proxy-considerations %} For more information about using a proxy with {% data variables.product.prodname_ghe_server %}, see [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server).
-
-{% ifversion ghes %}
 
 ## Enabling {% data variables.product.prodname_actions %} with your storage provider
 
@@ -119,8 +113,6 @@ You can control which actions your users are allowed to use in your enterprise. 
 For more information, see [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise).
 
 {% data reusables.actions.general-security-hardening %}
-
-{% endif %}
 
 ## Reserved names
 

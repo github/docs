@@ -36,15 +36,11 @@ On {% data variables.product.prodname_dotcom %}, you can also restore an entire 
 
 {% data reusables.package_registry.packages-classic-pat-only %}
 
-{% ifversion packages-rest-api %}
-
 You can use the REST API to manage your packages. For more information, see the [AUTOTITLE](/rest/packages).
 
 {% data reusables.package_registry.delete-with-github-token-using-api-beta %}
 
 With registries that support granular permissions, you can use a `GITHUB_TOKEN` in a {% data variables.product.prodname_actions %} workflow to delete or restore packages using the REST API. The token must have `admin` permission to the package. If your workflow publishes a package, the `admin` role is granted by default to the repository where the workflow is stored. For existing packages not published by a workflow, you need to grant the repository the `admin` role to be able to use a {% data variables.product.prodname_actions %} workflow to delete or restore packages using the REST API. For more information, see [AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package).
-
-{% endif %}
 
 {% data reusables.package_registry.about-graphql-support %}
 
@@ -73,7 +69,7 @@ To delete a version of a repository-scoped package, you must have admin permissi
 
 ### Deleting a version of a repository-scoped package with GraphQL
 
-{% data reusables.package_registry.about-graphql-support %}{% ifversion packages-rest-api %} For information on using the REST API instead, see the [AUTOTITLE](/rest/packages).{% endif %}
+{% data reusables.package_registry.about-graphql-support %} For information on using the REST API instead, see the [AUTOTITLE](/rest/packages).
 
 Use the `deletePackageVersion` mutation in the GraphQL API. You must use a {% data variables.product.pat_v1 %} with the `read:packages`, `delete:packages`, and `repo` scopes. For more information about {% data variables.product.pat_v1_plural %}, see [AUTOTITLE](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages).
 
@@ -91,7 +87,7 @@ To find all of the private packages you have published to {% data variables.prod
 
 For more information about the `deletePackageVersion` mutation, see [AUTOTITLE](/graphql/reference/mutations#deletepackageversion).
 
-You cannot directly delete an entire package using GraphQL, but if you delete every version of a package, the package will no longer show on {% data variables.product.product_name %}.
+You cannot directly delete an entire package using GraphQL, but if you delete every version of a package, the package will no longer show on {% data variables.product.github %}.
 
 {% ifversion fpt or ghec %}
 
@@ -102,7 +98,7 @@ To delete a specific version of a user-scoped package on {% data variables.produ
 To review who can delete a package version, see [Required permissions](#required-permissions-to-delete-or-restore-a-package).
 
 {% data reusables.package_registry.package-settings-from-user-level %}
-{% data reusables.package_registry.package-settings-option %}
+1. Search for and then click the name of the package that you want to manage.
 {% data reusables.package_registry.package-settings-manage-versions-menu %}
 {% data reusables.package_registry.package-settings-delete-versions %}
 1. In the confirmation box, type the name of the package to confirm you want to delete the chosen version of it.
@@ -116,7 +112,7 @@ To delete an entire package, see [Deleting an entire organization-scoped package
 To review who can delete a package version, see [Required permissions to delete or restore a package](#required-permissions-to-delete-or-restore-a-package).
 
 {% data reusables.package_registry.package-settings-from-org-level %}
-{% data reusables.package_registry.package-settings-option %}
+1. Search for and then click the name of the package that you want to manage.
 {% data reusables.package_registry.package-settings-manage-versions-menu %}
 {% data reusables.package_registry.package-settings-delete-versions %}
 1. In the confirmation box, type the name of the package to confirm you want to delete the chosen version of it.
@@ -167,9 +163,9 @@ For example, if you're the user `octocat`, and you have a deleted RubyGems packa
 
 {% ifversion fpt or ghec %}
 To restore a deleted package, you must also meet one of these permission requirements:
-* For repository-scoped packages: You have admin permissions to the repository in which the deleted package is published.{% ifversion fpt or ghec %}
+* For repository-scoped packages: You have admin permissions to the repository in which the deleted package is published.
 * For user-account scoped packages: The deleted package is scoped to your personal account.
-* For organization-scoped packages: You have admin permissions to the deleted package in the organization to which the package is scoped.{% endif %}
+* For organization-scoped packages: You have admin permissions to the deleted package in the organization to which the package is scoped.
 {% endif %}
 
 {% ifversion ghes %}

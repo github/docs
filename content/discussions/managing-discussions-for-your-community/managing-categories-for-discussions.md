@@ -18,9 +18,9 @@ redirect_from:
 
 {% data reusables.discussions.about-announcement-format %}
 
-Each category must have a unique name and emoji pairing, and can be accompanied by a detailed description stating its purpose. Categories help maintainers organize how conversations are filed and are customizable to help distinguish categories that are Q&A or more open-ended conversations. {% data reusables.discussions.repository-category-limit %} For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions).
+Each category must have a unique name and emoji pairing, and can be accompanied by a detailed description stating its purpose. Categories help maintainers organize how conversations are filed and are customizable to help distinguish categories that are Q&A or more open-ended conversations. Each repository or organization can have up to 25 categories. For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions).
 
-{% data reusables.discussions.category-sections %}
+To further organize your discussions, you can create sections and then nest your categories within a section.
 
 ## Default categories
 
@@ -82,7 +82,7 @@ You can edit a section to change the section's emoji and title, and to add and r
 
 ## Deleting a category
 
-When you delete a category, {% data variables.product.product_name %} will move all discussions in the deleted category to an existing category that you choose.
+When you delete a category, {% data variables.product.github %} will move all discussions in the deleted category to an existing category that you choose.
 
 When you delete a section, all categories within the section will no longer belong to a section.
 

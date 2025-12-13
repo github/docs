@@ -12,7 +12,7 @@ import crypto from 'crypto'
 
 const router = express.Router()
 
-router.get('/*', function (req, res) {
+router.get('/*path', function (req, res) {
   // If X-CacheTest-Error is set, simulate the site being down (regardless of URL)
   if (req.get('X-CacheTest-Error')) {
     res.status(parseInt(req.get('X-CacheTest-Error') as string)).end()

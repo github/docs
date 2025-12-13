@@ -1,5 +1,6 @@
 ---
-title: Configuring backups on your instance
+title: Configuring backups on your instance using Backup Utilities
+allowTitleToDifferFromFilename: true
 shortTitle: Configuring backups
 redirect_from:
   - /enterprise/admin/categories/backups-and-restores
@@ -26,13 +27,25 @@ topics:
   - Fundamentals
   - Infrastructure
 ---
+
+{% ifversion ghes > 3.16 %}
+
+## About backup options for {% data variables.product.prodname_ghe_server %}
+
+{% data variables.product.company_short %} offers two options for backing up your {% data variables.product.prodname_ghe_server %} instance:
+
+* **{% data variables.product.prodname_enterprise_backup_utilities %}**: An open-source backup system that you install on a separate host. For more information, see the sections below.
+* **{% data variables.product.prodname_enterprise_backup_service %} (in {% data variables.release-phases.public_preview %})**: A managed backup service available in {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server).
+
+{% endif %}
+
 ## About {% data variables.product.prodname_enterprise_backup_utilities %}
 
 {% data variables.product.prodname_enterprise_backup_utilities %} is a backup system you install on a separate host, which takes backup snapshots of {% data variables.location.product_location %} at regular intervals over a secure SSH network connection. You can use a snapshot to restore an existing {% data variables.product.prodname_ghe_server %} instance to a previous state from the backup host.
 
 Only data added since the last snapshot will transfer over the network and occupy additional physical storage space. To minimize performance impact, backups are performed online under the lowest CPU/IO priority. You do not need to schedule a maintenance window to perform a backup.
 
-Major releases and version numbers for {% data variables.product.prodname_enterprise_backup_utilities %} align with feature releases of {% data variables.product.product_name %}. We support the four most recent versions of both products. For more information, see [AUTOTITLE](/admin/all-releases).
+Major releases and version numbers for {% data variables.product.prodname_enterprise_backup_utilities %} align with feature releases of {% data variables.product.prodname_ghe_server %}. We support the four most recent versions of both products. For more information, see [AUTOTITLE](/admin/all-releases).
 
 For more detailed information on features, requirements, and advanced usage, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
 
@@ -58,7 +71,7 @@ For more information, see [{% data variables.product.prodname_enterprise_backup_
 
 ## Installing {% data variables.product.prodname_enterprise_backup_utilities %}
 
-To install {% data variables.product.prodname_enterprise_backup_utilities %} on your backup host, download the latest version of {% data variables.product.prodname_enterprise_backup_utilities %} from the [github/backup-utils repository](https://github.com/github/backup-utils/releases) that is compatible with your version of {% data variables.product.product_name %}. For example, if you are running version 3.8.4 of {% data variables.product.product_name %}, then download the latest version of {% data variables.product.prodname_enterprise_backup_utilities %} in the 3.10 series. This is possible because all versions of {% data variables.product.prodname_enterprise_backup_utilities %} are backwards compatible for 2 versions, meaning the {% data variables.product.prodname_enterprise_backup_utilities %} 3.10 series can be used to backup and restore {% data variables.product.product_name %} instances running versions 3.8, 3.9, or 3.10.
+To install {% data variables.product.prodname_enterprise_backup_utilities %} on your backup host, download the latest version of {% data variables.product.prodname_enterprise_backup_utilities %} from the [github/backup-utils repository](https://github.com/github/backup-utils/releases) that is compatible with your version of {% data variables.product.prodname_ghe_server %}. For example, if you are running version 3.8.4 of {% data variables.product.prodname_ghe_server %}, then download the latest version of {% data variables.product.prodname_enterprise_backup_utilities %} in the 3.10 series. This is possible because all versions of {% data variables.product.prodname_enterprise_backup_utilities %} are backwards compatible for 2 versions, meaning the {% data variables.product.prodname_enterprise_backup_utilities %} 3.10 series can be used to backup and restore {% data variables.product.prodname_ghe_server %} instances running versions 3.8, 3.9, or 3.10.
 
 After you download a compressed archive, you can extract and install the contents. For more information, see [Getting started](https://github.com/github/backup-utils/blob/master/docs/getting-started.md) in the github/backup-utils repository.
 
@@ -117,7 +130,7 @@ For more information on advanced usage, see the [{% data variables.product.prodn
 
 ## Upgrading {% data variables.product.prodname_enterprise_backup_utilities %}
 
-When upgrading {% data variables.product.prodname_enterprise_backup_utilities %}, you must choose a version that will work with your current version of {% data variables.product.product_name %}. Your installation of {% data variables.product.prodname_enterprise_backup_utilities %} must be at least the same version as {% data variables.location.product_location %}, and cannot be more than two versions ahead. For more information, see [{% data variables.product.prodname_ghe_server %} version requirements](https://github.com/github/backup-utils/blob/master/docs/requirements.md#github-enterprise-server-version-requirements) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+When upgrading {% data variables.product.prodname_enterprise_backup_utilities %}, you must choose a version that will work with your current version of {% data variables.product.prodname_ghe_server %}. Your installation of {% data variables.product.prodname_enterprise_backup_utilities %} must be at least the same version as {% data variables.location.product_location %}, and cannot be more than two versions ahead. For more information, see [{% data variables.product.prodname_ghe_server %} version requirements](https://github.com/github/backup-utils/blob/master/docs/requirements.md#github-enterprise-server-version-requirements) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
 
 1. Verify the installation method for {% data variables.product.prodname_enterprise_backup_utilities %}. Previous versions of {% data variables.product.prodname_enterprise_backup_utilities %} supported installation and updates in a local Git repository, but this method is no longer supported.
 
@@ -143,7 +156,7 @@ If backup attempts overlap, the `ghe-backup` command will abort with an error me
 
 In the event of prolonged outage or catastrophic event at the primary site, you can restore {% data variables.location.product_location %} by provisioning another instance and performing a restore from the backup host. You must add the backup host's SSH key to the target {% data variables.product.prodname_enterprise %} instance as an authorized SSH key before restoring an instance.
 
-When performing backup restores to {% data variables.location.product_location %}, you can only restore data from at most two feature releases behind. For example, if you take a backup from {% data variables.product.product_name %} 3.0.x, you can restore the backup to an instance running {% data variables.product.product_name %} 3.2.x. You cannot restore data from a backup of {% data variables.product.product_name %} 2.22.x to an instance running 3.2.x, because that would be three jumps between versions (2.22 to 3.0 to 3.1 to 3.2). You would first need to restore to an instance running 3.1.x, and then upgrade to 3.2.x.
+When performing backup restores to {% data variables.location.product_location %}, you can only restore data from at most two feature releases behind. For example, if you take a backup from {% data variables.product.prodname_ghe_server %} 3.0.x, you can restore the backup to an instance running {% data variables.product.prodname_ghe_server %} 3.2.x. You cannot restore data from a backup of {% data variables.product.prodname_ghe_server %} 2.22.x to an instance running 3.2.x, because that would be three jumps between versions (2.22 to 3.0 to 3.1 to 3.2). You would first need to restore to an instance running 3.1.x, and then upgrade to 3.2.x.
 
 Network settings are excluded from the backup snapshot. After restoration, you must manually configure networking on the target {% data variables.product.prodname_ghe_server %} instance.
 
@@ -151,7 +164,7 @@ Network settings are excluded from the backup snapshot. After restoration, you m
 
 1. Ensure maintenance mode is enabled on the primary instance and all active processes have completed. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
 1. Stop replication on all replica nodes in a high-availability configuration. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#ghe-repl-stop).
-1. Provision a new {% data variables.product.product_name %} instance to use as a target for the restoration of your backup. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance).
+1. Provision a new {% data variables.product.prodname_ghe_server %} instance to use as a target for the restoration of your backup. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance).
 1. If {% data variables.location.product_location %} has {% data variables.product.prodname_actions %} enabled, you must configure the external storage provider for {% data variables.product.prodname_actions %} on the replacement instance. For more information, see [AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled).
 
 ### Starting the restore operation

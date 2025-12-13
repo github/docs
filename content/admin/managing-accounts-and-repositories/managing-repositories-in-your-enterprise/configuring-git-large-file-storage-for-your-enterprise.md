@@ -39,11 +39,7 @@ For more information, see [AUTOTITLE](/repositories/working-with-files/managing-
 ## Configuring {% data variables.large_files.product_name_long %} for your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "{% data variables.large_files.product_name_short %} access", select the drop-down menu, and click **Enabled** or **Disabled**.
 
@@ -66,8 +62,6 @@ For more information, see [AUTOTITLE](/repositories/working-with-files/managing-
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 {% data reusables.enterprise_site_admin_settings.git-lfs-toggle %}
-
-{% ifversion ghes %}
 
 ## Configuring Git Large File Storage to use a third party server
 
@@ -145,8 +139,6 @@ Before migrating to a different {% data variables.large_files.product_name_long 
    > Pushing objects...
    > Git LFS: (16 of 16 files) 48.00 MB / 48.85 MB, 879.10 KB skipped
    ```
-
-{% endif %}
 
 ## Further reading
 

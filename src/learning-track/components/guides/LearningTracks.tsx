@@ -1,5 +1,5 @@
-import { useProductGuidesContext } from 'src/landings/components/ProductGuidesContext'
-import { LearningTrack } from 'src/learning-track/components/guides/LearningTrack'
+import { useProductGuidesContext } from '@/landings/components/ProductGuidesContext'
+import { LearningTrack } from '@/learning-track/components/guides/LearningTrack'
 
 export const LearningTracks = () => {
   const { learningTracks } = useProductGuidesContext()

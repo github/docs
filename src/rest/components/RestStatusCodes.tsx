@@ -1,4 +1,4 @@
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { useTranslation } from '@/languages/components/useTranslation'
 import { StatusCode } from './types'
 
 type Props = {

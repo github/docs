@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { get, isPlainObject } from 'lodash-es'
 import { getJsonValidator } from '@/tests/lib/validate-json-schema'
 import { renderContent } from '@/content-render/index'
@@ -7,6 +6,7 @@ import { getBodyParams, TransformedParam } from '../../rest/scripts/utils/get-bo
 
 const NO_CHILD_PROPERTIES = [
   'action',
+  'comment',
   'enterprise',
   'installation',
   'organization',
@@ -101,10 +101,10 @@ export default class Webhook implements WebhookInterface {
     this.bodyParameters = isPlainObject(schema) ? await getBodyParams(schema, true) : []
 
     // Removes the children of the common properties
-    this.bodyParameters.forEach((param) => {
+    for (const param of this.bodyParameters) {
       if (NO_CHILD_PROPERTIES.includes(param.name)) {
         param.childParamsGroups = []
       }
-    })
+    }
   }
 }

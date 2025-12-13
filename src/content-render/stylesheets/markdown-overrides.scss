@@ -37,3 +37,21 @@
     overflow-wrap: break-word;
   }
 }
+
+// Fix for permissions icon collision with bulleted lists
+// When permissions/product statements contain lists that start immediately,
+// the list bullets can visually collide with the icons in the flex layout.
+// This adds proper spacing to prevent the collision while supporting RTL languages
+// and avoiding effects on nested lists.
+// See: https://github.com/github/docs-engineering/issues/5199
+.permissions-statement,
+.product-statement {
+  ul {
+    margin-inline-start: 0;
+    padding-inline-start: 1rem; // Ensure proper spacing from icon (RTL-aware)
+  }
+
+  ul > li {
+    margin-inline-start: 0.5rem; // Additional spacing to prevent bullet collision (direct children only)
+  }
+}

@@ -3,11 +3,11 @@ title: Using custom workflows with GitHub Pages
 intro: 'You can take advantage of using {% data variables.product.prodname_actions %} and {% data variables.product.prodname_pages %} by creating a workflow file or choosing from the predefined workflows.'
 product: '{% data reusables.gated-features.pages %}'
 versions:
-    fpt: '*'
-    ghes: '>= 3.7'
-    ghec: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
-    - Pages
+  - Pages
 shortTitle: Use custom workflows
 ---
 
@@ -37,11 +37,9 @@ To use the action in your current workflow place this snippet under `jobs`.
 ```yaml
 - name: Upload GitHub Pages artifact
 {%- ifversion fpt or ghec %}
-  uses: actions/upload-pages-artifact@v3
-{%- elsif pages-custom-workflow-ghes3-9 %}
+  uses: actions/upload-pages-artifact@v4
+{%- elsif ghes %}
   uses: actions/upload-pages-artifact@v2
-{%- else %}
-  uses: actions/upload-pages-artifact@v1
 {%- endif %}
 ```
 
@@ -75,10 +73,8 @@ jobs:
         id: deployment
 {%- ifversion fpt or ghec %}
         uses: actions/deploy-pages@v4
-{%- elsif pages-custom-workflow-ghes3-9 %}
+{%- elsif ghes %}
         uses: actions/deploy-pages@v3
-{%- else %}
-        uses: actions/deploy-pages@v1
 {%- endif %}
 # ...
 ```
@@ -107,11 +103,9 @@ jobs:
           destination: ./_site
       - name: Upload artifact
 {%- ifversion fpt or ghec %}
-        uses: actions/upload-pages-artifact@v3
-{%- elsif pages-custom-workflow-ghes3-9 %}
+        uses: actions/upload-pages-artifact@v4
+{%- elsif ghes %}
         uses: actions/upload-pages-artifact@v2
-{%- else %}
-        uses: actions/upload-pages-artifact@v1
 {%- endif %}
 
   # Deployment job
@@ -126,10 +120,8 @@ jobs:
         id: deployment
 {%- ifversion fpt or ghec %}
         uses: actions/deploy-pages@v4
-{%- elsif pages-custom-workflow-ghes3-9 %}
+{%- elsif ghes %}
         uses: actions/deploy-pages@v3
-{%- else %}
-        uses: actions/deploy-pages@v1
 {%- endif %}
 # ...
 ```
@@ -153,11 +145,9 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Upload Artifact
 {%- ifversion fpt or ghec %}
-        uses: actions/upload-pages-artifact@v3
-{%- elsif pages-custom-workflow-ghes3-9 %}
+        uses: actions/upload-pages-artifact@v4
+{%- elsif ghes %}
         uses: actions/upload-pages-artifact@v2
-{%- else %}
-        uses: actions/upload-pages-artifact@v1
 {%- endif %}
         with:
           # upload entire directory
@@ -166,10 +156,8 @@ jobs:
         id: deployment
 {%- ifversion fpt or ghec %}
         uses: actions/deploy-pages@v4
-{%- elsif pages-custom-workflow-ghes3-9 %}
+{%- elsif ghes %}
         uses: actions/deploy-pages@v3
-{%- else %}
-        uses: actions/deploy-pages@v1
 {%- endif %}
 
 # ...

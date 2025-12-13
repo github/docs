@@ -15,7 +15,7 @@ versions:
   ghec: '*'
 type: overview
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
 ---
 
@@ -29,7 +29,7 @@ If {% data variables.product.prodname_code_scanning %} finds a potential vulnera
 
 {% ifversion code-scanning-autofix %}
 
-{% data variables.product.prodname_copilot_autofix %} will suggest fixes for alerts from {% data variables.product.prodname_code_scanning %} analysis in private repositories, allowing developers to prevent and reduce vulnerabilities with less effort. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
+{% data variables.copilot.copilot_autofix %} will suggest fixes for alerts from {% data variables.product.prodname_code_scanning %} analysis, allowing developers to prevent and reduce vulnerabilities with less effort. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
 
 {% endif %}
 
@@ -44,7 +44,7 @@ To get started with {% data variables.product.prodname_code_scanning %}, see [AU
 
 {% data variables.product.prodname_code_scanning_caps %} uses {% data variables.product.prodname_actions %}, and each run of a {% data variables.product.prodname_code_scanning %} workflow consumes minutes for {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
 
-To use {% data variables.product.prodname_code_scanning %} on a private repository, you will also need a license for {% data variables.product.prodname_GH_advanced_security %}. {% data reusables.advanced-security.ghas-trial %}
+To use {% data variables.product.prodname_code_scanning %} on a private repository, you will also need a license for {% data variables.product.prodname_GH_code_security %}. {% data reusables.advanced-security.ghas-trial %}
 
 {% endif %}
 

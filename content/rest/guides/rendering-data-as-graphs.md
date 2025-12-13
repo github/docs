@@ -17,7 +17,7 @@ topics:
 In this guide, we're going to use the API to fetch information about repositories
 that we own, and the programming languages that make them up. Then, we'll
 visualize that information in a couple of different ways using the [D3.js](https://d3js.org/) library. To
-interact with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll be using the excellent Ruby library, [Octokit](https://github.com/octokit/octokit.rb).
+interact with the {% data variables.product.github %} API, we'll be using the excellent Ruby library, [Octokit](https://github.com/octokit/octokit.rb).
 
 If you haven't already, you should read the [Basics of Authentication](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app)
 guide before starting this example. You can find the complete source code for this project in the [platform-samples](https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs) repository.
@@ -26,7 +26,7 @@ Let's jump right in!
 
 ## Setting up an {% data variables.product.prodname_oauth_app %}
 
-First, [register a new application](https://github.com/settings/applications/new) on {% data variables.product.product_name %}. Set the main and callback
+First, [register a new application](https://github.com/settings/applications/new) on {% data variables.product.github %}. Set the main and callback
 URLs to `http://localhost:4567/`. As [before](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app), we're going to handle authentication for the API by
 implementing a Rack middleware using [sinatra-auth-github](https://github.com/atmos/sinatra_auth_github):
 
@@ -81,7 +81,7 @@ run Example::MyGraphApp
 
 ## Fetching repository information
 
-This time, in order to talk to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we're going to use the [Octokit
+This time, in order to talk to the {% data variables.product.github %} API, we're going to use the [Octokit
 Ruby library](https://github.com/octokit/octokit.rb). This is much easier than directly making a bunch of
 REST calls. Plus, Octokit was developed by a GitHubber, and is actively maintained,
 so you know it'll work.
@@ -106,7 +106,7 @@ With Octokit, that looks like this:
 repos = client.repositories
 ```
 
-Next, we'll iterate over each repository, and count the language that {% data variables.product.product_name %}
+Next, we'll iterate over each repository, and count the language that {% data variables.product.github %}
 associates with it:
 
 ``` ruby

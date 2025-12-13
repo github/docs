@@ -18,7 +18,7 @@ topics:
   - Infrastructure
 ---
 
-## About the hostname for {% data variables.product.product_name %}
+## About the hostname for {% data variables.product.prodname_ghe_server %}
 
 To provide reliable access to {% data variables.location.product_location %} via a known name on the network, you can configure a hostname. If you configure a hostname instead of using a hard-coded IP address, you will be able to change the physical hardware that {% data variables.location.product_location %} runs on without affecting users or client software.
 
@@ -28,7 +28,7 @@ Hostnames must be less than 63 characters in length per [Section 2.3.4 of the Do
 
 After you configure a hostname, you can enable subdomain isolation to further increase the security of {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation).
 
-{% data variables.product.company_short %} strongly recommends that you do not change the hostname for an existing {% data variables.product.product_name %} instance. Changing the hostname will cause unexpected behavior, up to and including instance outages. Instead, configure a new instance with the desired hostname, and then restore settings and data from the original instance to the new instance.
+{% data variables.product.company_short %} strongly recommends that you do not change the hostname for an existing {% data variables.product.prodname_ghe_server %} instance. Changing the hostname will cause unexpected behavior, up to and including instance outages. Instead, configure a new instance with the desired hostname, and then restore settings and data from the original instance to the new instance.
 
 For more information on the supported hostname types, see [Section 2.1 of the HTTP RFC](https://tools.ietf.org/html/rfc1123#section-2).
 

@@ -1,9 +1,11 @@
 ---
 title: About GitHub's documentation philosophy
 shortTitle: Documentation philosophy
-intro: 'Our documentation philosophy guides what content we create and how we create it.'
+intro: Our documentation philosophy guides what content we create and how we create it.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About the {% data variables.product.prodname_dotcom %} documentation philosophy

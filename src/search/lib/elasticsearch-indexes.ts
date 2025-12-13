@@ -1,4 +1,4 @@
-import languages from '@/languages/lib/languages.js'
+import languages from '@/languages/lib/languages-server'
 import { utcTimestamp } from '@/search/lib/helpers/time'
 import { allIndexVersionKeys, versionToIndexVersionMap } from '@/search/lib/elasticsearch-versions'
 
@@ -15,10 +15,9 @@ export type SearchIndex = {
 
 /* Elasticsearch uses indexes to group categories of data
 
-  We currently have 3 top-level categories of indexes:
+  We currently have 2 top-level categories of indexes:
     1. General search: This is populated using data from all of our Docs pages
-    2. General autocomplete: This is populated using analytics search history in docs-internal-data
-    3. AI autocomplete: This is populated with human-readable questions using a GPT query in docs-internal-data
+    2. AI autocomplete: This is populated with human-readable questions using a GPT query in docs-internal-data
 
   This file is intended to be the source of truth for Docs Elasticsearch indexes.
 
@@ -33,10 +32,6 @@ const indexes: SearchIndexes = {
   generalSearch: {
     prefix,
     type: 'general-search',
-  },
-  generalAutocomplete: {
-    prefix,
-    type: 'general-autocomplete',
   },
   aiSearchAutocomplete: {
     prefix,
@@ -74,7 +69,14 @@ export function getElasticSearchIndex(
   }
 
   // e.g. free-pro-team becomes fpt for the index name
-  const indexVersion = versionToIndexVersionMap[version]
+  let indexVersion = versionToIndexVersionMap[version]
+
+  // For AI Search autocomplete, we use the latest GHES version for all GHES versions.
+  // This provides AI search functionality across all supported GHES versions without
+  // requiring separate indexes for each version.
+  if (type === 'aiSearchAutocomplete' && indexVersion.startsWith('ghes')) {
+    indexVersion = versionToIndexVersionMap['enterprise-server']
+  }
 
   // In the index-test-fixtures.sh script, we use the tests_ prefix index for testing
   const testPrefix = process.env.NODE_ENV === 'test' ? 'tests_' : ''

@@ -1,9 +1,11 @@
 ---
 title: Creating screenshots
 shortTitle: Create screenshots
-intro: "You can help users locate elements of the user interface that are difficult to find by adding screenshots to {% data variables.product.prodname_docs %}."
+intro: 'You can help users locate elements of the user interface that are difficult to find by adding screenshots to {% data variables.product.prodname_docs %}.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About screenshots in {% data variables.product.prodname_docs %}
@@ -128,7 +130,7 @@ If the primary goal in showing a dropdown menu is to help the reader distinguish
 
 ## Highlighting elements in screenshots
 
-To highlight a specific UI element in a screenshot, use our special theme for [Snagit](https://www.techsmith.com/screen-capture.html) to apply a contrasting stroke around the element.
+To highlight a specific UI element in a screenshot, use our special theme for [Snagit](https://www.techsmith.com/snagit/) to apply a contrasting stroke around the element.
 
 The stroke is the color `fg.severe` in the [Primer Design System](https://primer.style/design/) (HEX #BC4C00 or RGB 188, 76, 0). This dark orange has good color contrast on both white and black. To check contrast on other background colors, use the [Color Contrast Analyzer](https://www.tpgi.com/color-contrast-checker/).
 

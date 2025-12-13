@@ -1,6 +1,6 @@
 ---
 title: About system logs
-intro: 'To help administrators understand activity and errors, {% data variables.product.product_name %} stores system logs.'
+intro: 'To help administrators understand activity and errors, {% data variables.product.prodname_ghe_server %} stores system logs.'
 versions:
   ghes: '*'
 type: overview
@@ -15,16 +15,16 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/about-system-logs
 ---
 
-## About system logs for {% data variables.product.product_name %}
+## About system logs for {% data variables.product.prodname_ghe_server %}
 
 To trace, review, and troubleshoot activity and exceptions on {% data variables.location.product_location %}, you can review system logs. Your instance stores the following two types of system logs.
 
 * Plain text log files on disk, stored by syslog or specific services
 * Binary log files, stored by journald
 
-By default, {% data variables.product.product_name %} rotates system logs automatically every 24 hours and retains rotated logs for seven days. System logs include system-level events, application logs, and data about Git events. Because log files are written often and can be large in size, you may prefer to extract and parse log entries on a host separate from {% data variables.location.product_location %}.
+By default, {% data variables.product.prodname_ghe_server %} rotates system logs automatically every 24 hours and retains rotated logs for seven days. System logs include system-level events, application logs, and data about Git events. Because log files are written often and can be large in size, you may prefer to extract and parse log entries on a host separate from {% data variables.location.product_location %}.
 
-People with administrative SSH access to a {% data variables.product.product_name %} instance can access and read system logs. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
+People with administrative SSH access to a {% data variables.product.prodname_ghe_server %} instance can access and read system logs. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
 
 You can forward system logs and audit logs to an external system for analysis or longer retention. For more information see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding) and [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).
 
@@ -35,7 +35,7 @@ In addition to reviewing your system logs, you can monitor activity on your inst
 
 ## System log files
 
-{% data variables.product.product_name %} writes several categories of system logs to the instance's disk in plain text. People with administrative SSH access to the instance can parse these files using Linux command-line tools such as `cat`, `tail`, `head`, `less`, and `more`.
+{% data variables.product.prodname_ghe_server %} writes several categories of system logs to the instance's disk in plain text. People with administrative SSH access to the instance can parse these files using Linux command-line tools such as `cat`, `tail`, `head`, `less`, and `more`.
 
 * [Log files for databases](#log-files-for-databases)
 * [Log files for the {% data variables.product.prodname_dotcom %} application](#log-files-for-the-github-application)
@@ -95,10 +95,8 @@ The following log files contain events related to the configuration of your inst
 
 | Path | Description |
 | :- | :- |
-| <pre>/data/user/common/ghe-config.log</pre> | Records events associated with {% ifversion unique-config-run-logs %}the latest{% else %}each{% endif %} configuration run. If a configuration run fails, output to the log stops. This log also records information about migrations that run during the process of upgrading an instance's software. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-config-apply). |
-|  {% ifversion unique-config-run-logs %} |
+| <pre>/data/user/common/ghe-config.log</pre> | Records events associated with the latest configuration run. If a configuration run fails, output to the log stops. This log also records information about migrations that run during the process of upgrading an instance's software. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-config-apply). |
 | <pre>/data/user/config-apply/logs/YYYYMMDD/*</pre> | Stores log files for previous configuration runs. The instance stores the files in a directory that reflects the date, and each file name reflects the node and the ID of the run. |
-|  {% endif %} |
 
 ### Log files for search
 
@@ -123,7 +121,7 @@ The following logs contain events from system services on your instance.
 
 ## System logs in the systemd journal
 
-Several {% data variables.product.product_name %} services, such as the `babeld` service, are containerized. {% data variables.product.product_name %} writes system logs for these services to the systemd journal in a binary format.
+Several {% data variables.product.prodname_ghe_server %} services, such as the `babeld` service, are containerized. {% data variables.product.prodname_ghe_server %} writes system logs for these services to the systemd journal in a binary format.
 
 People with administrative SSH access to the instance can parse these logs using the `journalctl` command. For more information, see [journalctl(1)](http://man7.org/linux/man-pages/man1/journalctl.1.html) in the online Linux manual pages.
 

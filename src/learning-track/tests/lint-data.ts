@@ -1,18 +1,16 @@
 import { describe, expect, test } from 'vitest'
 
 import type { LearningTracks } from '@/types'
-import { loadPages, loadPageMap } from '@/frame/lib/page-data.js'
-import loadRedirects from '@/redirects/lib/precompile.js'
-import { getDeepDataByLanguage } from '@/data-directory/lib/get-data.js'
-import { checkURL } from '@/tests/helpers/check-url.js'
+import { loadPages, loadPageMap } from '@/frame/lib/page-data'
+import loadRedirects from '@/redirects/lib/precompile'
+import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
+import { checkURL } from '@/tests/helpers/check-url'
 
 const pageList = await loadPages(undefined, ['en'])
 const pages = await loadPageMap(pageList)
 const redirects = await loadRedirects(pageList)
 
 describe('learning tracks', () => {
-  // TODO: Once getDeepDataByLanguage is ported to TS
-  // a more appropriate API would be to use `getDeepDataByLanguage<LearningTracks)(...)`
   const allLearningTracks = getDeepDataByLanguage('learning-tracks', 'en') as LearningTracks
   const topLevels = Object.keys(allLearningTracks)
 
@@ -57,10 +55,10 @@ describe('learning tracks', () => {
     let fixables = 0
     for (const [key, guides] of troubles) {
       errorMessage += `Under "${key}"...\n`
-      for (const { uri, index, redirects } of guides) {
-        if (redirects) {
+      for (const { uri, index, redirects: redirectTo } of guides) {
+        if (redirectTo) {
           fixables += 1
-          errorMessage += `  guide: #${index + 1} ${uri} redirects to ${redirects}\n`
+          errorMessage += `  guide: #${index + 1} ${uri} redirects to ${redirectTo}\n`
         } else {
           errorMessage += `  guide: #${index + 1} ${uri} is broken.\n`
         }
@@ -68,7 +66,7 @@ describe('learning tracks', () => {
     }
     if (fixables) {
       errorMessage += `\nNOTE! To automatically fix the redirects run this command:\n`
-      errorMessage += `\n\t./src/links/scripts/update-internal-links.js data/learning-tracks/${topLevel}.yml\n`
+      errorMessage += `\n\t./src/links/scripts/update-internal-links.ts data/learning-tracks/${topLevel}.yml\n`
     }
     expect(troubles.length, errorMessage).toEqual(0)
   })

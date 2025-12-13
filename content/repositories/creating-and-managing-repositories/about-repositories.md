@@ -38,7 +38,7 @@ Clone | To download a full copy of a repository's data from {% data variables.lo
 Fork | A new repository that shares code and visibility settings with the original "upstream" repository.
 Merge | To take the changes from one branch and apply them to another.
 Pull request | A request to merge changes from one branch into another.
-Remote | A repository stored on {% data variables.product.product_name %}, not on your computer.
+Remote | A repository stored on {% data variables.product.github %}, not on your computer.
 Upstream | The branch on an original repository that has been forked or cloned. The corresponding branch on the cloned or forked repository is called the "downstream."
 
 {% endrowheaders %}
@@ -80,6 +80,18 @@ When you create a repository, you can choose to make the repository public or pr
 * Internal repositories are accessible to all enterprise members. For more information, see [About internal repositories](#about-internal-repositories).
 {%- endif %}
 
+{% ifversion fpt or ghec %}
+
+### Security considerations for repository visibility
+
+Public repositories expose your codebase to everyone, increasing the risk that attackers might exploit vulnerabilities or access sensitive information. You can mitigate these risks by enabling {% data variables.product.github %} security features such as {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_secret_scanning %}, push protection, and {% data variables.product.prodname_code_scanning %} for the repository. Additionally, you should add a security policy (a `SECURITY.md` file) to your repository, that outlines how vulnerabilities should be reported, to ensure that potential threats are addressed efficiently.
+
+Although private repositories restrict access to authorized users, it's still essential to implement strong access controls, multi-factor authentication, and regular audits to mitigate risks.
+
+For more information, see [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository).
+
+{% endif %}
+
 Organization owners always have access to every repository created in an organization. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
 
 People with admin permissions for a repository can change an existing repository's visibility. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility).
@@ -88,7 +100,7 @@ People with admin permissions for a repository can change an existing repository
 
 ## About internal repositories
 
-{% data reusables.repositories.about-internal-repos %} For more information on innersource, see {% data variables.product.prodname_dotcom %}'s whitepaper [An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/).
+{% data reusables.repositories.about-internal-repos %} For more information on innersource, see [AUTOTITLE](/admin/concepts/enterprise-best-practices/use-innersource).
 
 {% ifversion ghec %}
 
@@ -97,14 +109,7 @@ People with admin permissions for a repository can change an existing repository
 
 {% endif %}
 
-All enterprise members have read permissions to the internal repository, but internal repositories are not visible to people {% ifversion fpt or ghec %}outside of the enterprise{% else %}who are not members of any organization{% endif %}, including outside collaborators on organization repositories. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-members) and [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
-
-{% ifversion ghes %}
-
-> [!NOTE]
-> A user must be part of an organization to be an enterprise member and have access to internal repositories. If a user on {% data variables.location.product_location %} is not a member of any organization, that user will not have access to internal repositories.
-
-{% endif %}
+Organization members have read permissions to all internal repositories in an enterprise, including those in organizations they are not a member of. Internal repositories are not visible to people {% ifversion fpt or ghec %}outside of the enterprise{% else %}who are not members of any organization{% endif %}, including outside collaborators on organization repositories. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-members) and [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
 
 {% data reusables.repositories.internal-repo-default %}
 

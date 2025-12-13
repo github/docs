@@ -20,7 +20,7 @@ topics:
 ---
 ## Create a repository
 
-{% data variables.product.product_name %} repositories store a variety of projects. In this guide, you'll create a repository and commit your first change.
+{% data variables.product.github %} repositories store a variety of projects. In this guide, you'll create a repository and commit your first change.
 
 {% webui %}
 
@@ -28,7 +28,7 @@ topics:
 1. Type a short, memorable name for your repository. For example, "hello-world".
 
    ![Screenshot of the first step in creating a repository. The "Repository name" field contains the text "hello-world" and is outlined in dark orange.](/assets/images/help/repository/create-repository-name.png)
-1. Optionally, add a description of your repository. For example, "My first repository on {% data variables.product.product_name %}."
+1. Optionally, add a description of your repository. For example, "My first repository on {% data variables.product.github %}."
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
@@ -118,9 +118,11 @@ You have now created a repository, including a _README_ file, and created your f
 
 {% webui %}
 
-* You can now clone a {% data variables.product.prodname_dotcom %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository) and [AUTOTITLE](/get-started/getting-started-with-git/set-up-git).
+* You can now clone a {% data variables.product.prodname_dotcom %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository) and [AUTOTITLE](/get-started/git-basics/set-up-git).
 
 {% endwebui %}
+
+* Secure your repository using {% data variables.product.github %}'s available security features. For more information, see [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository).
 
 * You can find interesting projects and repositories on {% data variables.product.prodname_dotcom %} and make changes to them by creating a fork of the repository. {% data reusables.getting-started.fork-a-repository %}
 

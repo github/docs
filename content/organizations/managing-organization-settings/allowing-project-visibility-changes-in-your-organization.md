@@ -27,14 +27,12 @@ This option may not be available to you if an enterprise owner restricts visibil
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" %} Projects**.
+1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects**.
 1. To allow members to adjust project visibility, select **Allow members to change project visibilities for this organization**.
 1. Click **Save**.
 
 ## Further reading
 
-{% ifversion projects-v2 %}
-* [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)
-{%- endif %}{%- ifversion projects-v1 %}
+* [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects){%- ifversion projects-v1 %}
 * [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)
 {% endif %}

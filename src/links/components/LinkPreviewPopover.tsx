@@ -38,14 +38,12 @@ const BOUNDING_TOP_MARGIN = 300
 const FIRST_LINK_ID = '_hc_first_focusable'
 const TITLE_ID = '_hc_title'
 
-type Info = {
+type PageMetadata = {
   product: string
   title: string
   intro: string
   anchor?: string
-}
-type APIInfo = {
-  info: Info
+  cacheInfo?: string
 }
 
 function getOrCreatePopoverGlobal() {
@@ -250,17 +248,24 @@ function popoverWrap(element: HTMLLinkElement, filledCallback?: (popover: HTMLDi
 
   const { pathname } = new URL(element.href)
 
-  fetch(`/api/pageinfo/v1?${new URLSearchParams({ pathname })}`).then(async (response) => {
+  async function fetchAndFillPopover() {
+    const response = await fetch(`/api/article/meta?${new URLSearchParams({ pathname })}`, {
+      headers: {
+        'X-Request-Source': 'hovercards',
+      },
+    })
     if (response.ok) {
-      const { info } = (await response.json()) as APIInfo
-      fillPopover(element, info, filledCallback)
+      const meta = (await response.json()) as PageMetadata
+      fillPopover(element, meta, filledCallback)
     }
-  })
+  }
+
+  fetchAndFillPopover()
 }
 
 function fillPopover(
   element: HTMLLinkElement,
-  info: Info,
+  info: PageMetadata,
   callback?: (popover: HTMLDivElement) => void,
 ) {
   const { product, title, intro, anchor } = info
@@ -279,8 +284,8 @@ function fillPopover(
         const regex = /^\/(?<lang>\w{2}\/)?(?<version>[\w-]+@[\w-.]+\/)?(?<product>[\w-]+\/)?/
         const match = regex.exec(linkURL.pathname)
         if (match?.groups) {
-          const { lang, version, product } = match.groups
-          const productURL = [lang, version, product].map((n) => n || '').join('')
+          const { lang, version, product: productPath } = match.groups
+          const productURL = [lang, version, productPath].map((n) => n || '').join('')
           productHeadLink.href = `${linkURL.origin}/${productURL}`
         }
         productHead.style.display = 'block'

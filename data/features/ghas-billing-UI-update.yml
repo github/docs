@@ -1,6 +1,0 @@
-# Reference: Issue #7659
-# Documentation to update confusing GHAS terminology
-
-versions:
-  ghec: '*'
-  ghes: '>=3.7'

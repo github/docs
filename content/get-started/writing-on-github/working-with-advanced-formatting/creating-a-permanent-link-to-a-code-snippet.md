@@ -18,7 +18,7 @@ shortTitle: Permanent links to code
 
 ## Linking to code
 
-This type of permanent link will render as a code snippet only in the repository it originated in. In other repositories, the permalink code snippet will render as a URL.
+This type of permanent link will render as a code snippet only in the repository it originated in. In other repositories, the permalink code snippet will render as a URL. This does not work in Markdown files, only in comments.
 
 ![Screenshot of an issue comment. A code snippet has a header that lists the file name and line numbers, and a body that lists the code on those lines.](/assets/images/help/repository/rendered-code-snippet.png)
 
@@ -28,7 +28,7 @@ This type of permanent link will render as a code snippet only in the repository
 {% data reusables.repositories.navigate-to-repo %}
 1. Locate the code you'd like to link to:
     * To link to code from a file, navigate to the file.
-    * To link to code from a pull request, navigate to the pull request and click **{% octicon "diff" aria-hidden="true" %} Files changed**. Then, browse to the file that contains the code you want include in your comment, and click **View**.
+    * To link to code from a pull request, navigate to the pull request and click **{% octicon "diff" aria-hidden="true" aria-label="diff" %} Files changed**. Then, browse to the file that contains the code you want to include in your comment, and click **View**.
 {% data reusables.repositories.choose-line-or-range %}
 1. To the left of the line or range of lines, click {% octicon "kebab-horizontal" aria-label="Code line X options" %}. In the drop-down menu, click **Copy permalink**.
 

@@ -1,12 +1,10 @@
-#!/usr/bin/env node
-
 // [start-readme]
 //
 // Makes sure that all the image assets in `assets/` are safe.
 //
 // Generally writers don't check in bogus/corrupt images but mistakes
 // can happen and it's ideally spotted in other processes such as
-// reviewing PR preview environment.
+// reviewing PR review environment.
 // This script also makes sure that all images really are what they're
 // called. For example, an image might be named `screenshot.png` but
 // it might actually be something mischievous.
@@ -19,7 +17,6 @@ import path from 'path'
 import { program } from 'commander'
 import chalk from 'chalk'
 import cheerio from 'cheerio'
-// @ts-ignore see https://github.com/sindresorhus/file-type/issues/652
 import { fileTypeFromFile } from 'file-type'
 import walk from 'walk-sync'
 import isSVG from 'is-svg'

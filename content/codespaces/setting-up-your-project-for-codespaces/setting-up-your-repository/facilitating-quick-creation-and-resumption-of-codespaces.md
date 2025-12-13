@@ -45,7 +45,7 @@ You can use the "Share a deep link" option to configure more options for the cod
 
    ![Screenshot of the branch dropdown menu, listing various branches. The dropdown menu, labeled with a branch icon and "trunk," is outlined in orange.](/assets/images/help/codespaces/branch-drop-down.png)
 
-1. Click the **{% octicon "code" aria-hidden="true" %} Code** button, then click the **Codespaces** tab.
+1. Click the **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** button, then click the **Codespaces** tab.
 1. To open the "Share codespace configuration" window, at the top right of the **Codespaces** tab, select {% octicon "kebab-horizontal" aria-label="Codespace repository configuration" %}, then click **Share a deep link**.
 
    ![Screenshot of the options dropdown in the "{% data variables.product.prodname_codespaces %}" tab. The "Share a deep link" option is highlighted with an orange outline.](/assets/images/help/codespaces/share-deep-link.png)

@@ -15,7 +15,7 @@ versions:
   ghec: '*'
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
   - Actions
@@ -69,7 +69,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [{% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %}]
+        language: [java-kotlin]
 
     # Specify the container in which actions will run
     container:

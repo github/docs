@@ -5,7 +5,7 @@ versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -16,6 +16,9 @@ redirect_from:
   - /code-security/codeql-cli/manual/bqrs-diff
 ---
 
+<!-- markdownlint-disable GHD053 -->
+
+<!-- markdownlint-disable GHD030 -->
 
 <!-- Content after this section is automatically generated -->
 
@@ -61,6 +64,13 @@ Comma-separated list of result set names to copy directly to the
 corresponding output instead of comparing. If --both is given, that
 output is taken from `file1`. Defaults to 'nodes,edges,subpaths' to
 simplify handling of path-problem results.
+
+#### `--result-sets=<name1>,<name2>`
+
+Compare only the specified result sets. The format is
+\<name1>,\<name2> where \<name1> is the result set name in `file1`
+and \<name2> is the result set name in `file2`. The two result sets
+must be compatible. The option can be repeated.
 
 #### `--[no-]compare-internal-ids`
 

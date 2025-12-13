@@ -1,7 +1,10 @@
 ---
 title: REST API endpoints for {% data variables.product.prodname_dependabot %}
 shortTitle: Dependabot
-intro: 'Use the REST API to interact with {% data variables.product.prodname_dependabot %} alerts and secrets for an organization or repository.'
+intro: >-
+  Use the REST API to interact with {% data
+  variables.product.prodname_dependabot_alerts %} and secrets for an
+  organization or repository.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -10,7 +13,9 @@ versions:
 topics:
   - API
 children:
+  - /alert-dismissal-requests
   - /alerts
+  - /repository-access
   - /secrets
 redirect_from:
   - /rest/reference/dependabot

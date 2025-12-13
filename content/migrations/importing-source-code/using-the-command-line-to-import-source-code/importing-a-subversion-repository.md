@@ -1,6 +1,6 @@
 ---
 title: Importing a Subversion repository
-intro: 'You can import a repository from Subversion by converting the repository to Git, then pushing the Git repository to {% data variables.product.product_name %}.'
+intro: 'You can import a repository from Subversion by converting the repository to Git, then pushing the Git repository to {% data variables.product.github %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -33,7 +33,7 @@ To follow these steps, you must use a macOS or Linux system and have the followi
 1. To get a list of authors in your Subversion project and store the list in `authors.txt`, run the following script:
 
    ```shell copy
-   svn log -q | grep -e '^r' | awk 'BEGIN { FS = "|" } ; { print $2" = "$2 }' | sed 's/^[ \t]*//' | sort | uniq > authors.txt
+   svn log -q | grep -e '^r' | awk 'BEGIN { FS = "|" } ; { print $2" = "$2 }' | sed -E 's/^ *//' | sort | uniq > authors.txt
    ```
 
 1. Update your `authors.txt` file, mapping the author name used in the Subversion repository to the name you want to use in your Git repository, with the following format:

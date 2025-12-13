@@ -71,6 +71,9 @@ The following variables are always available in the pre-receive hook environment
 | Variable | Description | Example value |
 | :- | :- | :- |
 |  <pre>$GIT_DIR</pre> | Path to the remote repository on the instance | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git |
+|  <pre>$GIT_OBJECT_DIRECTORY</pre> | Path to a temporary directory containing the objects from the push | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git/<br>objects/ghq_luvYC864B9j |
+|  <pre>$GIT_QUARANTINE_PATH</pre> | Contains the same value as `$GIT_OBJECT_DIRECTORY` | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git/<br>objects/ghq_luvYC864B9j |
+|  <pre>$GIT_ALTERNATE_OBJECT_<br>DIRECTORIES</pre> | Path to the object directory of the repository on the instance | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git/objects |
 |  <pre>$GIT_PUSH_OPTION_COUNT</pre> | The number of push options that were sent by the client with `--push-option`. For more information, see [git-push](https://git-scm.com/docs/git-push#Documentation/git-push.txt---push-optionltoptiongt) in the Git documentation. | 1 |
 | <pre>$GIT\_PUSH\_OPTION\_N</pre> | Where N is an integer starting at 0, this variable contains the push option string that was sent by the client. The first option that was sent is stored in `GIT_PUSH_OPTION_0`, the second option that was sent is stored in `GIT_PUSH_OPTION_1`, and so on. For more information about push options, see [git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt) in the Git documentation. | abcd |
 |  <pre>$GIT_USER_AGENT</pre> | User-agent string sent by the Git client that pushed the changes | git/2.0.0 |
@@ -103,9 +106,6 @@ The `$GITHUB_VIA` variable is available in the pre-receive hook environment when
 | <pre>releases delete button</pre> | Deletion of a release | [AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#deleting-a-release) |
 | <pre>stafftools branch restore</pre> | Restoration of a branch from the site admin dashboard | [AUTOTITLE](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#repositories) |
 | <pre>tag create api</pre> | Creation of a tag via the API | [AUTOTITLE](/rest/git/tags#create-a-tag-object) |
-| {% ifversion ghes < 3.13 %} |
-| <pre>slumlord (#SHA)</pre> | Commit via Subversion | [AUTOTITLE](/get-started/working-with-subversion-on-github/support-for-subversion-clients#making-commits-to-subversion) |
-| {% endif %} |
 | <pre>web branch create</pre> | Creation of a branch via the web interface | [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch) |
 
 #### Available for pull request merges

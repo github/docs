@@ -86,7 +86,6 @@ curl -X POST -H "Authorization: Bearer YOUR_TOKEN" -H "Content-Type: application
 
 For more information on using the GraphQL API, see:
 * [AUTOTITLE](/graphql/guides)
-* [AUTOTITLE](/graphql/overview/explorer)
 
 ### Re-provisioning SCIM for users through your identity provider
 
@@ -95,6 +94,10 @@ You can re-provision SCIM for users manually through your IdP. For example, to r
 To confirm that a user's SCIM identity is created, we recommend testing this process with a single organization member whom you have confirmed doesn't have a SCIM external identity. After manually updating the users in your IdP, you can check if the user's SCIM identity was created using the SCIM API or on {% data variables.product.prodname_dotcom %}. For more information, see [Auditing users for missing SCIM metadata](#auditing-users-for-missing-scim-metadata) or [AUTOTITLE](/rest/scim/scim#get-scim-provisioning-information-for-a-user).
 
 If re-provisioning SCIM for users doesn't help, please contact {% data variables.product.prodname_dotcom %} Support.
+
+## Conflicting SAML identity error
+
+{% data reusables.saml.conflicting-identity %}
 
 ## Further reading
 

@@ -9,7 +9,7 @@ versions:
   ghec: '*'
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Dependency review
   - Vulnerabilities
   - Dependencies
@@ -38,7 +38,7 @@ Here is a list of common configuration options. For more information, and a full
 | `deny-licenses` | {% octicon "x" aria-label="Optional" %} | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|
 | {% endif %} |
 | `fail-on-scopes` | {% octicon "x" aria-label="Optional" %} | Contains a list of strings representing the build environments you want to support (`development`, `runtime`, `unknown`). </br>The action will fail on pull requests that introduce vulnerabilities in the scopes that match the list.|
-| `comment-summary-in-pr` | {% octicon "x" aria-label="Optional" %} | Enable or disable the reporting of the review summary as a comment in the pull request. If enabled, you must give the workflow or job the `pull-requests: write` permission. |
+| `comment-summary-in-pr` | {% octicon "x" aria-label="Optional" %} | Enable or disable the reporting of the review summary as a comment in the pull request. If enabled, you must give the workflow or job the `pull-requests: write` permission. With each execution, a new comment will overwrite the existing one.|
 | `allow-ghsas` | {% octicon "x" aria-label="Optional" %} | Contains a list of {% data variables.product.prodname_advisory_database %} IDs that can be skipped during detection. You can find the possible values for this parameter in the [{% data variables.product.prodname_advisory_database %}](https://github.com/advisories). |
 | `config-file` | {% octicon "x" aria-label="Optional" %} | Specifies a path to a configuration file. The configuration file can be local to the repository or a file located in an external repository.|
 | `external-repo-token` | {% octicon "x" aria-label="Optional" %} | Specifies a token for fetching the configuration file, if the file resides in a private external repository. The token must have read access to the repository.|

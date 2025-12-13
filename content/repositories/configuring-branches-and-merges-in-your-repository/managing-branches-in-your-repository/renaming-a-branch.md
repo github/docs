@@ -30,13 +30,13 @@ Organizational rulesets that apply to branches of a repository will no longer al
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. Next to the branch you want to rename, select the {% octicon "kebab-horizontal" aria-label="More" %} dropdown menu, then click **{% octicon "pencil" aria-hidden="true" %} Rename branch**.
+1. Next to the branch you want to rename, select the {% octicon "kebab-horizontal" aria-label="More" %} dropdown menu, then click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Rename branch**.
 1. Type a new name for the branch.
 1. Review the information about local environments, then click **Rename branch**.
 
 ## Updating a local clone after a branch name changes
 
-After you rename a branch in a repository on {% data variables.product.product_name %}, any collaborator with a local clone of the repository will need to update the clone.
+After you rename a branch in a repository on {% data variables.product.github %}, any collaborator with a local clone of the repository will need to update the clone.
 
 From the local clone of the repository on a computer, run the following commands to update the name of the default branch.
 

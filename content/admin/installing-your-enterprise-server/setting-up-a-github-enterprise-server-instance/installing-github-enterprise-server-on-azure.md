@@ -30,7 +30,7 @@ You can deploy {% data variables.product.prodname_ghe_server %} on global Azure 
 
 ## Determining the virtual machine type
 
-Before launching {% data variables.location.product_location %} on Azure, you'll need to determine the machine type that best fits the needs of your organization. For more information about memory optimized machines, see [Memory optimized virtual machine sizes](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes-memory) in the Microsoft Azure documentation. To review the minimum resource requirements for {% data variables.product.product_name %}, see [Minimum recommended requirements](#minimum-recommended-requirements).
+Before launching {% data variables.location.product_location %} on Azure, you'll need to determine the machine type that best fits the needs of your organization. For more information about memory optimized machines, see [Memory optimized virtual machine sizes](https://docs.microsoft.com/en-gb/azure/virtual-machines/sizes-memory) in the Microsoft Azure documentation. To review the minimum resource requirements for {% data variables.product.prodname_ghe_server %}, see [Minimum recommended requirements](#minimum-recommended-requirements).
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
@@ -64,7 +64,10 @@ Before launching {% data variables.location.product_location %} on Azure, you'll
 
    {% data reusables.enterprise_installation.necessary_ports %}
 
-1. Create and attach a new unencrypted data disk to the VM, and configure the size based on your user license count. For more information, see [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) in the Microsoft documentation.
+1. Create and attach a new data disk to the VM, and configure the size based on your user license count. For more information, see [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) in the Microsoft documentation.
+
+   > [!NOTE]
+   > All Azure managed disks created since June 10, 2017 are encrypted at rest by default with [Azure Storage Encryption](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption#about-azure-storage-service-side-encryption). Enabling Azure Disk Encryption for GitHub Enterprise Server is not supported.
 
    Pass in options for the name of your VM (for example, `ghe-acme-corp`), the resource group, the premium storage SKU, the size of the disk (for example, `200`), and a name for the resulting VHD.
 
@@ -102,13 +105,13 @@ To configure the instance, you must confirm the instance's status, upload a lice
 
 ## Azure extension features
 
-{% data variables.product.product_name %} does not support the installation of Azure extension features. The {% data variables.product.prodname_ghe_server %} image is shipped with a customized `waagent` package which only supports basic VM management functions and blocks advanced VM management functions.
+{% data variables.product.prodname_ghe_server %} does not support the installation of Azure extension features. The {% data variables.product.prodname_ghe_server %} image is shipped with a customized `waagent` package which only supports basic VM management functions and blocks advanced VM management functions.
 
 To avoid system instability of your {% data variables.product.prodname_ghe_server %} instance, the `walinuxagent` service is intentionally run in {% data variables.product.prodname_ghe_server %} in a restricted mode, explicitly disallowing the agent from being able to install other agents. VM management features that rely on additional agents and extensions beyond that which ships with {% data variables.product.prodname_ghe_server %} image, such as the Monitoring Agent extension for Azure Insights or Azure Backups, are unsupported.
 
-Because {% data variables.product.product_name %} runs a customized Linux operating system with only the necessary applications and services, installing or updating operating system packages manually will overwrite these customizations and can cause unexpected behavior. For more information, see [AUTOTITLE](/admin/overview/system-overview).
+Because {% data variables.product.prodname_ghe_server %} runs a customized Linux operating system with only the necessary applications and services, installing or updating operating system packages manually will overwrite these customizations and can cause unexpected behavior. For more information, see [AUTOTITLE](/admin/overview/system-overview).
 
 ## Further reading
 
-* [AUTOTITLE](/admin/overview/system-overview){% ifversion ghes %}
-* [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases){% endif %}
+* [AUTOTITLE](/admin/overview/system-overview)
+* [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)

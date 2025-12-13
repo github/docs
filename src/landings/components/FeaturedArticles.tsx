@@ -1,8 +1,8 @@
 import cx from 'classnames'
 
-import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { ArticleList } from 'src/landings/components/ArticleList'
+import { useProductLandingContext } from '@/landings/components/ProductLandingContext'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { ArticleList } from '@/landings/components/ArticleList'
 
 export const FeaturedArticles = () => {
   const { featuredArticles = [], whatsNewChangelog, changelogUrl } = useProductLandingContext()

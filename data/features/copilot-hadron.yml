@@ -1,6 +1,0 @@
-# Reference: #15094
-# Copilot Workspace for PRs (the Hadron editor)
-
-versions:
-  fpt: '*'
-  ghec: '*'

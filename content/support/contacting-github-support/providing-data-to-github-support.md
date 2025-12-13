@@ -90,9 +90,8 @@ After you submit your support request, we may ask you to share a support bundle 
 * `babeld-logs/babeld.log`: Git proxy logs
 * `system-logs/haproxy.log`: HAProxy logs
 * `elasticsearch-logs/github-enterprise.log`: Elasticsearch logs
-* `configuration-logs/{% ifversion unique-config-run-logs %}{% else %}ghe-config.log{% endif %}`: {% data variables.product.prodname_ghe_server %} configuration logs
-{%- ifversion unique-config-run-logs %}
-{%- endif %}
+* `configuration-logs/`: {% data variables.product.prodname_ghe_server %} configuration logs
+
 * `collectd/logs/collectd.log`: Collectd logs
 * `mail-logs/mail.log`: SMTP email delivery logs
 
@@ -135,10 +134,10 @@ You can use these steps to create and share a support bundle if you have SSH acc
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
+{% data reusables.enterprise-accounts.license-tab-ghes %}
 1. Under "{% data variables.product.prodname_enterprise %} Help", click **Upload a support bundle**.
 
-   ![Screenshot of the "GitHub Enterprise help" section of the enterprise settings page. The "Upload a support bundle link" is highlighted with a dark orange rectangle.](/assets/images/enterprise/support/upload-support-bundle.png)
+   ![Screenshot of the "GitHub Enterprise help" section of the enterprise settings page. The "Upload a support bundle link" is outlined in orange.](/assets/images/enterprise/support/upload-support-bundle.png)
 1. Under "Select an enterprise account", use the drop-down menu to select the support bundle's associated account.
 1. Under "Upload a support bundle for {% data variables.contact.enterprise_support %}", to select your support bundle, click **Choose file**, or drag your support bundle file onto **Choose file**.
 1. Click **Upload**.

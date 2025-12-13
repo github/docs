@@ -1,6 +1,6 @@
 ---
 title: Searching users
-intro: 'You can search for users on {% data variables.product.product_name %} and narrow the results using these user search qualifiers in any combination.'
+intro: 'You can search for users on {% data variables.product.github %} and narrow the results using these user search qualifiers in any combination.'
 redirect_from:
   - /articles/searching-users
   - /github/searching-for-information-on-github/searching-users
@@ -12,7 +12,9 @@ versions:
 topics:
   - GitHub search
 ---
-You can search for users globally across all of {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
+You can search for users globally across a {% data variables.product.github %} platform, for example: across {% data variables.product.prodname_dotcom_the_website %} or across {% data variables.product.prodname_ghe_server %}.
+
+For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 
 {% data reusables.search.syntax_tips %}
 
@@ -68,7 +70,7 @@ Using the `language` qualifier you can search for users based on the languages o
 
 ## Search by when a personal account was created
 
-You can filter users based on when they joined {% data variables.product.product_name %} with the `created` qualifier. This takes a date as its parameter. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
+You can filter users based on when they joined {% data variables.product.github %} with the `created` qualifier. This takes a date as its parameter. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
 {% data reusables.search.date_gt_lt %}
 

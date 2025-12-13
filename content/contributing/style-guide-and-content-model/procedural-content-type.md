@@ -1,8 +1,10 @@
 ---
 title: Procedural content type
-intro: 'Procedural content gives context on how a task fits into someone''s larger goal.'
+intro: Procedural content gives context on how a task fits into someone's larger goal.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 Procedural content helps people complete a task from start to finish while they are using {% data variables.product.prodname_dotcom %}.
@@ -31,6 +33,5 @@ For the procedural content template, see [AUTOTITLE](/contributing/writing-for-g
 
 ## Examples of procedural content
 
-* [AUTOTITLE](/free-pro-team@latest/billing/managing-your-github-billing-settings/adding-information-to-your-receipts)
 * [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)
 * [AUTOTITLE](/actions/using-workflows/using-starter-workflows)

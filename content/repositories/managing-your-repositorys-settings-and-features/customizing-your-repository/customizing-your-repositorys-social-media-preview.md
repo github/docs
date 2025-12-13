@@ -17,7 +17,7 @@ Until you add an image, repository links expand to show basic information about 
 
 ## Adding an image to customize the social media preview of your repository
 
-{% ifversion repo-rules %}You can upload an image to a public repository, or to a private repository to which you have previously uploaded an image. Your image can only be shared from a public repository.{% else %}You can upload an image to a private repository, but your image can only be shared from a public repository.{% endif %}
+You can upload an image to a public repository, or to a private repository to which you have previously uploaded an image. Your image can only be shared from a public repository.
 
 > [!TIP]
 > Your image should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend a size of at least 640 by 320 pixels (1280 by 640 pixels for best display).

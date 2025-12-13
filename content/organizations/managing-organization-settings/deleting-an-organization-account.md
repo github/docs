@@ -23,10 +23,12 @@ shortTitle: Delete organization
 > If you want to cancel your paid subscription, you can [downgrade your organization to {% data variables.product.prodname_free_team %}](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan) instead of deleting the organization and its content.
 
 {% endif %}
-Deleting your organization account removes all repositories, forks of private repositories, wikis, issues, pull requests, and project or organization pages. {% ifversion fpt or ghec %}Your billing will end and, after 90 days, the organization name becomes available for use on a new user or organization account.
+Deleting your organization account permanently removes all repositories, forks of private repositories, wikis, issues, pull requests, and project or organization pages. **This action is irreversible.**
+
+{% ifversion fpt or ghec %}Billing for the organization will end. {% ifversion ghec %}If the organization is part of an enterprise account, billing will stop through the enterprise agreement.{% endif %} **Upon deletion, the organization name will not be available to use for another organization or user account for 90 days.** After the 90 days pass, the organization name will automatically become available for use on a new user or organization account.
 
 > [!TIP]
-> If you rename an organization, you can create a new organization with the same name immediately. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/renaming-an-organization).
+> If you would like to make your organization name available for reuse immediately, rename your organization instead of deleting it. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/renaming-an-organization).
 
 {% endif %}
 
@@ -38,13 +40,11 @@ Deleting your organization account removes all repositories, forks of private re
 
 {% data reusables.package_registry.delete-account-namespace-retirement %}
 
-{% ifversion archive-organizations %}
 You can also archive an organization, instead of deleting it. Archiving an organization will make it read-only. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/archiving-an-organization).
-{% endif %}
 
 ## Backing up your organization content
 
-{% ifversion not ghes %} After you delete an organization, {% data variables.product.company_short %} **cannot restore your content**. Therefore, before{% else %}Before{% endif %} you delete your organization, make sure you have a copy of all repositories, wikis, issues, and projects from the account.
+{% ifversion not ghes %} After you delete an organization, {% data variables.product.company_short %} **cannot restore your content**. Therefore, before{% else %}Before{% endif %} you delete your organization, make sure you have a copy of all repositories, wikis, issues, and projects from the account. See [AUTOTITLE](/repositories/archiving-a-github-repository/backing-up-a-repository).
 
 {% ifversion ghes %}
 

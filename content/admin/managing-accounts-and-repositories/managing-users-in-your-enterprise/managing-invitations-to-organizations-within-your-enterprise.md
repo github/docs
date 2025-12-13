@@ -26,7 +26,7 @@ Invitations expire after 7 days. You can retry or cancel expired invitations, ei
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. Under "{% octicon "person" aria-hidden="true" %} People", click **Failed invitations**.
+1. Under "{% octicon "person" aria-hidden="true" aria-label="person" %} People", click **Failed invitations**.
 1. Optionally, retry or cancel a single invitation.
    * To the right of the invitation you want to cancel or retry, select the {% octicon "kebab-horizontal" aria-label="Show actions" %} dropdown menu and click **Retry invitation** or **Cancel invitation**.
 

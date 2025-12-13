@@ -3,7 +3,9 @@ title: Content design principles
 shortTitle: Content design principles
 intro: 'We share these principles to design and create the best content for people who use {% data variables.product.prodname_dotcom %}.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About {% data variables.product.prodname_dotcom %}'s content design principles

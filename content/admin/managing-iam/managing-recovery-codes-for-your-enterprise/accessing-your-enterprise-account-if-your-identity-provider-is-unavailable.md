@@ -1,7 +1,7 @@
 ---
 title: Accessing your enterprise account if your identity provider is unavailable
 shortTitle: Access your enterprise account
-intro: 'You can sign into {% data variables.product.product_name %} even if your identity provider is unavailable by bypassing single sign-on (SSO) with a recovery code.'
+intro: 'You can sign into {% data variables.product.github %} even if your identity provider is unavailable by bypassing single sign-on (SSO) with a recovery code.'
 versions:
   ghec: '*'
 type: how_to

@@ -14,7 +14,7 @@ versions:
 topics:
   - API
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
 shortTitle: Partner program
 ---
 
@@ -103,6 +103,8 @@ The list of valid values for `source` are:
 * Commit_comment
 * Gist_content
 * Gist_comment
+* Wiki_content
+* Wiki_commit
 * Npm
 * Unknown
 

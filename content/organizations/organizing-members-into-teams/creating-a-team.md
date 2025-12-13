@@ -1,5 +1,5 @@
 ---
-title: Creating a team
+title: Creating an organization team
 intro: You can create independent or nested teams to manage repository permissions and mentions for groups of people.
 redirect_from:
   - /articles/creating-a-team-early-access-program
@@ -16,6 +16,7 @@ permissions: 'Organization owners can create teams and can control whether all o
 topics:
   - Organizations
   - Teams
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.organizations.team-synchronization %}

@@ -2,7 +2,7 @@
 title: REST API endpoints for team members
 intro: >-
   Use the REST API to create and manage membership of teams in your {% data
-  variables.product.product_name %} organization.
+  variables.product.github %} organization.
 allowTitleToDifferFromFilename: true
 shortTitle: Members
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖

@@ -8,7 +8,9 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags-in-github-desktop
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 ## About tags in {% data variables.product.prodname_desktop %}
 

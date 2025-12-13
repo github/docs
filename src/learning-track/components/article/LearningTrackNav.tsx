@@ -1,6 +1,6 @@
-import { Link } from 'src/frame/components/Link'
-import type { LearningTrack } from 'src/frame/components/context/ArticleContext'
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { Link } from '@/frame/components/Link'
+import type { LearningTrack } from '@/frame/components/context/ArticleContext'
+import { useTranslation } from '@/languages/components/useTranslation'
 
 type Props = {
   track: LearningTrack

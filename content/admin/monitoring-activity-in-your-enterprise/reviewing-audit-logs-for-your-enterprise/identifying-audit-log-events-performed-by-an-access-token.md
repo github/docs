@@ -3,7 +3,8 @@ title: Identifying audit log events performed by an access token
 shortTitle: Identify events by token
 intro: 'You can identify the actions performed by a specific token in your enterprise.'
 versions:
-  feature: token-audit-log
+  ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Authentication

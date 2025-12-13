@@ -13,6 +13,6 @@ children:
   - /authorizing-oauth-apps
   - /reviewing-your-authorized-oauth-apps
   - /connecting-with-third-party-applications
-  - /internal-oauth-apps
+  - /privileged-oauth-apps
 ---
 

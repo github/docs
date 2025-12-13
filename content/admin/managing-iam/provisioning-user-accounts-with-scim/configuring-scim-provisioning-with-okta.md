@@ -39,10 +39,10 @@ Alternatively, if you only intend to use Okta for SAML authentication and you wa
 
 | Feature | Description |
 | --- | --- |
-| Push New Users | Users that are assigned to {% ifversion ghec %}the {% data variables.product.prodname_emu_idp_application %}{% else %}{% data variables.product.company_short %}'s{% endif %} application in Okta are automatically created in the enterprise on {% data variables.product.product_name %}. |
-| Push Profile Update | Updates made to the user's profile in Okta will be pushed to {% data variables.product.product_name %}. |
-| Push Groups | Groups in Okta that are assigned to the {% ifversion ghec %}the {% data variables.product.prodname_emu_idp_application %}{% else %}{% data variables.product.company_short %}'s{% endif %} application as Push Groups are automatically created in the enterprise on {% data variables.product.product_name %}. |
-| Push User Deactivation | Unassigning the user from {% ifversion ghec %}the {% data variables.product.prodname_emu_idp_application %}{% else %}{% data variables.product.company_short %}'s{% endif %} application in Okta will disable the user on {% data variables.product.product_name %}. The user will not be able to sign in, but the user's information is maintained. |
+| Push New Users | Users that are assigned to {% ifversion ghec %}the {% data variables.product.prodname_emu_idp_application %}{% else %}{% data variables.product.company_short %}'s{% endif %} application in Okta are automatically created in the enterprise on {% data variables.product.github %}. |
+| Push Profile Update | Updates made to the user's profile in Okta will be pushed to {% data variables.product.github %}. |
+| Push Groups | Groups in Okta that are assigned to {% ifversion ghec %}the {% data variables.product.prodname_emu_idp_application %}{% else %}{% data variables.product.company_short %}'s{% endif %} application as Push Groups are automatically created in the enterprise on {% data variables.product.github %}. |
+| Push User Deactivation | Unassigning the user from {% ifversion ghec %}the {% data variables.product.prodname_emu_idp_application %}{% else %}{% data variables.product.company_short %}'s{% endif %} application in Okta will disable the user on {% data variables.product.github %}. The user will not be able to sign in, but the user's information is maintained. |
 | Reactivate Users | Users in Okta whose Okta accounts are reactivated and who are assigned back to {% ifversion ghec %}the {% data variables.product.prodname_emu_idp_application %}{% else %}{% data variables.product.company_short %}'s{% endif %} application on Okta will be enabled. |
 
 {% ifversion ghec %}
@@ -55,7 +55,7 @@ Alternatively, if you only intend to use Okta for SAML authentication and you wa
 ## Prerequisites
 
 {% ifversion ghes %}
-The general prerequisites for using SCIM on {% data variables.product.product_name %} apply. See the "Prerequisites" section in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#prerequisites).
+The general prerequisites for using SCIM on {% data variables.product.prodname_ghe_server %} apply. See the "Prerequisites" section in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#prerequisites).
 
 In addition:
 
@@ -90,7 +90,7 @@ Before starting this section, ensure you have followed steps **1 and 2** in [AUT
 1. On the right side of the page, click **View SAML setup instructions**.
 1. Make a note of the "Sign on URL" and the "Issuer" URL.
 
-### On {% data variables.product.product_name %}
+### On {% data variables.product.prodname_ghe_server %}
 
 1. Sign in to {% data variables.location.product_location %} as a user with access to the Management Console.
 1. Configure SAML using the information you have gathered. See [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso).
@@ -120,7 +120,16 @@ Before starting this section, ensure you have followed steps **1 to 4** in [AUTO
 1. Click **Configure API integration**.
 1. In the "API Token" field, enter the {% data variables.product.pat_v1 %} belonging to the setup user.
 
-   {% data reusables.scim.import-groups-unsupported %}
+    {% data reusables.scim.import-groups-unsupported %}
+
+    {% ifversion ghec %}
+
+    > [!IMPORTANT]
+    > For an enterprise on {% data variables.enterprise.data_residency %} (GHE.com), please enter the following URL in the **Base URL** field: {% raw %}`https://api.{subdomain}.ghe.com/scim/v2/enterprises/{subdomain}`{% endraw %} (ensuring to replace {% raw %}`{subdomain}`{% endraw %} with your enterprise's subdomain).
+    >
+    > **For example**: if your enterprise's subdomain is {% raw %}`acme`{% endraw %}, the base URL would be {% raw %}`https://api.acme.ghe.com/scim/v2/enterprises/acme`{% endraw %}.
+
+    {% endif %}
 
 1. Click **Test API Credentials**. If the test is successful, a verification message will appear at the top of the screen.
 1. To save the token, click **Save**.
@@ -150,4 +159,4 @@ You can also automatically manage organization membership by adding groups to th
 
 ## How do I deprovision users and groups?
 
-To remove a user or group from {% data variables.product.product_name %}, remove the user or group from both the "Assignments" tab and the "Push groups" tab in Okta. For users, make sure the user is removed from all groups in the "Push Groups" tab.
+To remove a user or group from {% data variables.product.github %}, remove the user or group from both the "Assignments" tab and the "Push groups" tab in Okta. For users, make sure the user is removed from all groups in the "Push Groups" tab.

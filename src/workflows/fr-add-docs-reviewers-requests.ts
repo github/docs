@@ -7,7 +7,7 @@ import {
   findFieldID,
   findSingleSelectID,
   generateUpdateProjectV2ItemFieldMutation,
-} from './projects.js'
+} from './projects'
 
 async function getAllOpenPRs() {
   let prsRemaining = true
@@ -177,12 +177,13 @@ async function run() {
   // this is how we (roughly) avoid overwriting PRs that are already on the board
   const newItemIDs: any[] = []
   const newItemAuthors: any[] = []
-  itemIDs.forEach((id, index) => {
+  for (let index = 0; index < itemIDs.length; index++) {
+    const id = itemIDs[index]
     if (!existingItemIDs.includes(id)) {
       newItemIDs.push(id)
       newItemAuthors.push(prAuthors[index])
     }
-  })
+  }
 
   if (newItemIDs.length === 0) {
     console.log('All found PRs are already on the project. Exiting.')
@@ -225,7 +226,9 @@ async function run() {
   return newItemIDs
 }
 
-run().catch((error) => {
+try {
+  await run()
+} catch (error) {
   console.log(`#ERROR# ${error}`)
   process.exit(1)
-})
+}

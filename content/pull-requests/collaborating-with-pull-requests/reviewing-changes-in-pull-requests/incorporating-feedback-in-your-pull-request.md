@@ -20,15 +20,6 @@ Other people can suggest specific changes to your pull request. You can apply th
 
 To quickly incorporate more than one suggested change into a single commit, you can also apply suggested changes as a batch. Applying one suggested change or a batch of suggested changes creates a single commit on the compare branch of the pull request.
 
-{% ifversion copilot-hadron %}
-
->[!NOTE]
->If you are part of the {% data variables.release-phases.public_preview %} of {% data variables.product.prodname_copilot_workspace %}, suggested changes from people on your team, {% data variables.product.prodname_copilot_short %}, or {% data variables.product.prodname_copilot_autofix %} can all be applied and edited in {% data variables.product.prodname_copilot_workspace %}. Click **Open in {% data variables.product.prodname_copilot_workspace_short %}** on a suggested change to get started.
->
->For more information about {% data variables.product.prodname_copilot_workspace %} and joining the {% data variables.release-phases.public_preview %}, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
-
-{% endif %}
-
 Each person who suggested a change included in the commit will be a co-author of the commit. The person who applies the suggested changes will be a co-author and the committer of the commit. For more information about the term committer in Git, see [Git Basics - Viewing the Commit History](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History) from the _Pro Git_ book site.
 
 {% data reusables.repositories.sidebar-pr %}
@@ -47,7 +38,8 @@ Each person who suggested a change included in the commit will be a co-author of
 
 ## Re-requesting a review
 
-{% data reusables.pull_requests.re-request-review %}
+You can re-request a review, for example, after you've made substantial changes to your pull request.
+To request a fresh review from a reviewer, in the sidebar of the **Conversation** tab, click the {% octicon "sync" aria-label="The sync icon" %} icon.
 
 ## Opening an issue for an out-of-scope suggestion
 

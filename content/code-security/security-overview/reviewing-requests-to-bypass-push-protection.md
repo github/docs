@@ -3,10 +3,11 @@ title: Reviewing requests to bypass push protection
 shortTitle: Review bypass requests
 intro: 'You can use security overview to review requests to bypass push protection from contributors pushing to repositories across your organization.'
 permissions: '{% data reusables.permissions.security-overview %}'
+product: '{% data reusables.gated-features.security-overview-fpt-sp-only %}'
 type: how_to
 topics:
   - Security overview
-  - Advanced Security
+  - Secret Protection
   - Organizations
   - Teams
   - Secret scanning
@@ -19,7 +20,7 @@ versions:
 
 If your organization has configured delegated bypass for push protection, a designated team of reviewers controls which organization members can push secrets to repositories in your organization, and which members must first make a "bypass request" in order to push the secret.
 
-On the "Bypass requests" page in security overview, reviewers can find, review (approve or deny) and manage these requests.
+On the "Push protection bypass" page in security overview, reviewers can find, review (approve or deny) and manage these requests.
 
 For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/managing-requests-to-bypass-push-protection).
 
@@ -27,7 +28,7 @@ For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advan
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. In the sidebar, under "Requests", click **{% octicon "key" aria-hidden="true" %} Push protection bypass**.
+1. In the sidebar, under "Requests", click **{% octicon "key" aria-hidden="true" aria-label="key" %} Push protection bypass**.
 1. Select the **All statuses** dropdown menu, then click **Open** to view requests that are awaiting review, or that have been approved but for which the commits haven't been pushed to the repository yet.
 1. Click the request that you want to review.
 1. Review the details of the request.
@@ -46,11 +47,14 @@ The following statuses are assigned to a request:
 
 |Status|Description|
 |---------|-----------|
-|`Cancelled`| The request has been cancelled by the contributor.|
-|`Completed`|The request has been approved and the commit(s) have been pushed to the repository.|
+|{% ifversion fpt or ghec or ghes > 3.16 %}|
+|`Approved`|The request has been approved, but the commit(s) have not yet been pushed to the repository.|
+|{% endif %}|
+|`Cancelled`|The request has been cancelled by the contributor.|
+|`Completed`|The request has been approved and the commit(s) have been pushed to the repository{% ifversion fpt or ghec or ghes > 3.16 %}, or the request was rejected{% endif %}.|
 |`Denied`|The request has been reviewed and denied.|
-|`Expired`| The request has expired. Requests are valid for 7 days. |
-|`Open`| The request has either not yet been reviewed, or has been approved but the commit(s) have not been pushed to the repository.  |
+|`Expired`|The request has expired. Requests are valid for 7 days.|
+|`Open`|The request has {% ifversion ghes < 3.17 %}either not yet been reviewed, or has been approved but the commit(s) have not been pushed to the repository{% else %}not yet been reviewed{% endif %}.|
 
 ## Further reading
 

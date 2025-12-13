@@ -1,6 +1,6 @@
 ---
 title: About large files on GitHub
-intro: '{% data variables.product.product_name %} limits the size of files you can track in regular Git repositories. Learn how to track or remove files that are beyond the limit.'
+intro: '{% data variables.product.github %} limits the size of files you can track in regular Git repositories. Learn how to track or remove files that are beyond the limit.'
 redirect_from:
   - /articles/distributing-large-binaries
   - /github/managing-large-files/distributing-large-binaries
@@ -23,18 +23,18 @@ versions:
 shortTitle: Large files
 ---
 
-## About size limits on {% data variables.product.product_name %}
+## About size limits on {% data variables.product.github %}
 
-{% data variables.product.product_name %} tries to provide abundant storage for all Git repositories, although there are hard limits for file {% ifversion fpt or ghec %}and repository sizes{% else %} sizes and recommendations for repository sizes{% endif %}. {% ifversion fpt or ghec %}To ensure performance and reliability for our users, we actively monitor signals of overall repository health. Repository health is a function of various interacting factors, including size, commit frequency, contents, and structure.{% endif %}
+{% data variables.product.github %} tries to provide abundant storage for all Git repositories, although there are hard limits for file {% ifversion fpt or ghec %}and repository sizes{% else %} sizes and recommendations for repository sizes{% endif %}. {% ifversion fpt or ghec %}To ensure performance and reliability for our users, we actively monitor signals of overall repository health. Repository health is a function of various interacting factors, including size, commit frequency, contents, and structure.{% endif %}
 
 ### File size limits
 
-{% data variables.product.product_name %} limits the size of files allowed in repositories. If you attempt to add or update a file that is larger than {% data variables.large_files.warning_size %}, you will receive a warning from Git. The changes will still successfully push to your repository, but you can consider removing the commit to minimize performance impact. For more information, see [Removing files from a repository's history](#removing-files-from-a-repositorys-history).
+{% data variables.product.github %} limits the size of files allowed in repositories. If you attempt to add or update a file that is larger than {% data variables.large_files.warning_size %}, you will receive a warning from Git. The changes will still successfully push to your repository, but you can consider removing the commit to minimize performance impact. For more information, see [Removing files from a repository's history](#removing-files-from-a-repositorys-history).
 
 > [!NOTE]
 > If you add a file to a repository via a browser, the file can be no larger than {% data variables.large_files.max_github_browser_size %}. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
 
-{% ifversion ghes %}By default, {% endif %}{% data variables.product.product_name %} blocks files larger than {% data variables.large_files.max_github_size %}. {% ifversion ghes %}However, a site administrator can configure a different limit for {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise).{% endif %}
+{% ifversion ghes %}By default, {% data variables.product.prodname_ghe_server %}{% else %}{% data variables.product.github %}{% endif %} blocks files larger than {% data variables.large_files.max_github_size %}. {% ifversion ghes %}However, a site administrator can configure a different limit for {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise).{% endif %}
 
 To track files beyond this limit, you must use {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage).
 

@@ -24,16 +24,24 @@ For more information, see [AUTOTITLE](/authentication/securing-your-account-with
 
 ## Requirements for enforcing two-factor authentication
 
-Before you can require organization members and outside collaborators to use 2FA, you must [enable two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa) for your own personal account.
+Before you can require organization members and outside collaborators to use two-factor authentication, you must [enable 2FA](/authentication/securing-your-account-with-two-factor-authentication-2fa) for your own personal account.
 
-Before you require use of two-factor authentication, we recommend notifying organization members and outside collaborators and asking them to set up 2FA for their accounts. You can [see if members and outside collaborators already use 2FA](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled) on an organization's People tab.
+Before you require use of 2FA, we recommend notifying organization members and outside collaborators and asking them to set up 2FA for their accounts. You can [see if members and outside collaborators already use 2FA](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled) on an organization's People tab.
 
 {% data reusables.two_fa.ghes_ntp %}
 
+{% ifversion ghes < 3.17 %}
 > [!WARNING]
-> * When you require two-factor authentication, members and outside collaborators (including bot accounts) who do not use 2FA will be removed from the organization and lose access to its repositories, including their forks of private repositories. If they enable 2FA for their personal account within three months of being removed from the organization, you can reinstate their access privileges and settings, see [AUTOTITLE](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization).
+> * When you require 2FA, members and outside collaborators (including bot accounts) who do not use 2FA will be removed from the organization and lose access to its repositories, including their forks of private repositories. If they enable 2FA for their personal account within three months of being removed from the organization, you can reinstate their access privileges and settings, see [AUTOTITLE](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization).
 > * When 2FA is required, organization members or outside collaborators who disable 2FA will automatically be removed from the organization.
-> * If you're the sole owner of an organization that requires two-factor authentication, you won't be able to disable 2FA for your personal account without disabling required two-factor authentication for the organization.
+> * If you're the sole owner of an organization that requires 2FA, you won't be able to disable 2FA for your personal account without disabling required two-factor authentication for the organization.
+{% else %}
+> [!WARNING]
+> * When you require 2FA, members who do not use 2FA will not be able to access your enterprise resources until they enable 2FA on their account. They will retain membership even without 2FA, including occupying seats in your enterprise and organizations.
+> * When your require 2FA, outside collaborators (including bot accounts) who do not use 2FA will be removed from the enterprise and its organization and lose access to repositories, including their forks of private repositories. If they enable 2FA for their personal account within three months of being removed from the organization, you can [reinstate their access privileges and settings](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization).
+> * When 2FA is required, outside collaborators who disable 2FA will automatically be removed from the enterprise and its organizations. Members who disable 2FA will not be able to access your enterprise and organization resources until they re-enable it.
+> * If you're the sole owner of an organization that requires 2FA, you won't be able to disable 2FA for your personal account without disabling required 2FA for the organization.
+{% endif %}
 
 ## Requiring two-factor authentication for an organization
 

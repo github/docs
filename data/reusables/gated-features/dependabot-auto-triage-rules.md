@@ -1,5 +1,14 @@
-{% data variables.dependabot.auto_triage_rules %} are available for the following repository types:
+{% data reusables.dependabot.github-presets-availability %}
 
-* All repositories for {% data variables.dependabot.github_presets %}{% ifversion fpt %}
-* Public repositories for {% data variables.dependabot.custom_rules %}{% elsif ghec or ghes %}
-* Organization-owned repositories with [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) enabled for {% data variables.dependabot.custom_rules %}{% endif %}
+**{% data variables.dependabot.custom_rules_caps %}** are available for the following repository types:
+
+{% ifversion fpt %}
+* Public repositories on {% data variables.product.prodname_dotcom_the_website %}
+* Organization-owned repositories on {% data variables.product.prodname_team %} with [{% data variables.product.prodname_GH_code_security %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% endif %}
+
+{% ifversion ghec %}
+* Public repositories on {% data variables.product.prodname_dotcom_the_website %}
+* Organization-owned repositories on {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} with [{% data variables.product.prodname_GH_code_security %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% endif %}
+
+{% ifversion ghes %}
+* Organization-owned repositories with [{% data variables.product.prodname_GH_code_security %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% endif %}

@@ -65,7 +65,7 @@ You can use the {% data variables.product.company_short %} web interface or the 
 
 ## Editing a {% data variables.product.prodname_marketplace %} webhook
 
-You can edit a webhook that was created for an app that you published in {% data variables.product.prodname_marketplace %}. Only the owner of the app, or an app manager for the organization that owns the app, can edit a {% data variables.product.prodname_marketplace %} webhook. For more information, see [AUTOTITLE](/apps/publishing-apps-to-github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api).
+You can edit a webhook that was created for an app that you published in {% data variables.product.prodname_marketplace %}. Only the owner of the app, or an app manager for the app, can edit a {% data variables.product.prodname_marketplace %} webhook. For more information, see [AUTOTITLE](/apps/publishing-apps-to-github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api).
 
 1. Navigate to your [{% data variables.product.prodname_marketplace %} listing page](https://github.com/marketplace/manage).
 1. Next to the {% data variables.product.prodname_marketplace %} listing that you want to view webhook deliveries for, click **Manage listing**.
@@ -77,7 +77,7 @@ You can edit a webhook that was created for an app that you published in {% data
 
 You can edit a webhook that was created for a {% data variables.product.prodname_sponsors %} account. Only the owner of the sponsored account can edit sponsorship webhooks for that account.
 
-1. In the upper-right corner of any page, click your profile photo, then click **Your sponsors**.
+1. In the upper-right corner of any page, click your profile picture, then click **Your sponsors**.
 1. Next to the account you want to edit a webhook for, click **Dashboard**.
 1. In the left sidebar, click **Webhooks**.
 {% data reusables.webhooks.edit_webhook %}
@@ -90,7 +90,7 @@ You can edit a webhook that was created for a {% data variables.product.prodname
 
 Each {% data variables.product.prodname_github_app %} has one webhook. You cannot delete the webhook, but you can activate or deactivate the webhook, change the webhook events that the webhook subscribes to, or make changes to other basic settings for the webhook.
 
-The owner of a {% data variables.product.prodname_github_app %} can edit the webhook configuration for the app. If an organization has designated any app managers for a {% data variables.product.prodname_github_app %} owned by the organization, the app managers can also edit the webhook configuration. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps).
+The owner of a {% data variables.product.prodname_github_app %} can edit the webhook configuration for the app. If the app owner has designated any app managers for a {% data variables.product.prodname_github_app %}, the app managers can also edit the webhook configuration. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps).
 
 {% data reusables.apps.settings-step %}
 {% data reusables.user-settings.developer_settings %}

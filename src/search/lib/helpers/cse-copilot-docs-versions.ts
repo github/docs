@@ -1,5 +1,5 @@
 // Versions used by cse-copilot
-import { allVersions } from '@/versions/lib/all-versions'
+import { versionToIndexVersionMap } from '../elasticsearch-versions'
 const CSE_COPILOT_DOCS_VERSIONS = ['dotcom', 'ghec', 'ghes']
 
 // Languages supported by cse-copilot
@@ -8,37 +8,22 @@ export function supportedCSECopilotLanguages() {
   return DOCS_LANGUAGES
 }
 
-export function getCSECopilotSource(
-  version: (typeof CSE_COPILOT_DOCS_VERSIONS)[number],
-  language: (typeof DOCS_LANGUAGES)[number],
-) {
-  const cseCopilotDocsVersion = getMiscBaseNameFromVersion(version)
-  if (!CSE_COPILOT_DOCS_VERSIONS.includes(cseCopilotDocsVersion)) {
+export function getCSECopilotSource(version: (typeof CSE_COPILOT_DOCS_VERSIONS)[number]) {
+  if (!version) {
+    throw new Error(`Missing required key 'version' in request body`)
+  }
+
+  let mappedVersion = versionToIndexVersionMap[version]
+  // CSE-Copilot uses 'dotcom' as the version name for free-pro-team
+  if (mappedVersion === 'fpt') {
+    mappedVersion = 'dotcom'
+  }
+
+  if (!CSE_COPILOT_DOCS_VERSIONS.includes(mappedVersion) && !mappedVersion?.startsWith('ghes-')) {
     throw new Error(
       `Invalid 'version' in request body: '${version}'. Must be one of: ${CSE_COPILOT_DOCS_VERSIONS.join(', ')}`,
     )
   }
-  if (!DOCS_LANGUAGES.includes(language)) {
-    throw new Error(
-      `Invalid 'language' in request body '${language}'. Must be one of: ${DOCS_LANGUAGES.join(', ')}`,
-    )
-  }
-  return `docs_${version}_${language}`
-}
-
-function getMiscBaseNameFromVersion(Version: string): string {
-  const miscBaseName =
-    Object.values(allVersions).find(
-      (info) =>
-        info.shortName === Version ||
-        info.plan === Version ||
-        info.miscVersionName === Version ||
-        info.currentRelease === Version,
-    )?.miscBaseName || ''
-
-  if (!miscBaseName) {
-    return ''
-  }
-
-  return miscBaseName
+  // cse-copilot uses version names in the form `docs_<version-shortName>`, e.g. `docs_ghes-3.16`
+  return `docs_${mappedVersion}`
 }

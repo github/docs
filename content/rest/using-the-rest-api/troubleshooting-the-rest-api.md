@@ -89,17 +89,15 @@ Basic authentication with your username and password is not supported. Instead, 
 
 ## Timeouts
 
-If {% data variables.product.product_name %} takes more than 10 seconds to process an API request, {% data variables.product.product_name %} will terminate the request and you will receive a timeout response and a "Server Error" message.
+If {% data variables.product.github %} takes more than 10 seconds to process an API request, {% data variables.product.github %} will terminate the request and you will receive a timeout response and a "Server Error" message.
 
-{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
+{% data variables.product.github %} reserves the right to change the timeout window to protect the speed and reliability of the API.
 
 You can check the status of the REST API at [githubstatus.com](https://www.githubstatus.com/) to determine whether the timeout is due to a problem with the API. You can also try to simplify your request or try your request later. For example, if you are requesting 100 items on a page, you can try requesting fewer items.
 
 ## Resource not accessible
 
 If you are using a {% data variables.product.prodname_github_app %} or {% data variables.product.pat_v2 %} and you receive a "Resource not accessible by integration" or "Resource not accessible by {% data variables.product.pat_generic %}" error, then your token has insufficient permissions. For more information about the required permissions, see the documentation for the endpoint.
-
-{% ifversion rest-permissions-header %}
 
 You can use the `X-Accepted-GitHub-Permissions` header to identify the permissions that are required to access the REST API endpoint.
 
@@ -110,8 +108,6 @@ For example:
 * `X-Accepted-GitHub-Permissions: contents=read` means that your {% data variables.product.prodname_github_app %} or {% data variables.product.pat_v2 %} needs read access to the contents permission.
 * `X-Accepted-GitHub-Permissions: pull_requests=write,contents=read` means that your {% data variables.product.prodname_github_app %} or {% data variables.product.pat_v2 %} needs write access to the pull request permission and read access to the contents permission.
 * `X-Accepted-GitHub-Permissions: pull_requests=read,contents=read; issues=read,contents=read` means that your {% data variables.product.prodname_github_app %} or {% data variables.product.pat_v2 %} needs either read access to the pull request permission and read access to the contents permission, or read access to the issues permission and read access to the contents permission.
-
-{% endif %}
 
 ## Problems parsing JSON
 

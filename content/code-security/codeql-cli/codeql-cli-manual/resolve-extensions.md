@@ -5,7 +5,7 @@ versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -18,6 +18,9 @@ redirect_from:
   - /code-security/codeql-cli/manual/resolve-extensions
 ---
 
+<!-- markdownlint-disable GHD053 -->
+
+<!-- markdownlint-disable GHD030 -->
 
 <!-- Content after this section is automatically generated -->
 
@@ -31,12 +34,10 @@ codeql resolve extensions <options>... -- <query|dir|suite|pack>...
 
 ## Description
 
-\[Deep plumbing] Determine accessible extensions. This includes machine
-learning models and data extensions.
+\[Deep plumbing] Determine accessible data extensions.
 
-This plumbing command resolves the set of data extensions and
-GitHub-created machine learning models that are available to the query
-specifiers passed in as command line arguments.
+This plumbing command resolves the set of data extensions that are
+available to the query specifiers passed in as command line arguments.
 
 ## Options
 

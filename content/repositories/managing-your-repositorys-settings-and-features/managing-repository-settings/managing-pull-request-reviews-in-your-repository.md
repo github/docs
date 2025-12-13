@@ -22,6 +22,6 @@ You can also enable code review limits for an organization. If you enable limits
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under **Access**, click **{% octicon "comment-discussion" aria-hidden="true" %} Moderation options**.
+1. Under **Access**, click **{% octicon "comment-discussion" aria-hidden="true" aria-label="comment-discussion" %} Moderation options**.
 1. Under **Moderation options**, click **Code review limits**.
 1. Select or deselect **Limit to users explicitly granted read or higher access**.

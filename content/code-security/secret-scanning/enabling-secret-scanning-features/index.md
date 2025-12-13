@@ -10,12 +10,13 @@ versions:
   ghec: '*'
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Repositories
 children:
   - /enabling-secret-scanning-for-your-repository
   - /enabling-push-protection-for-your-repository
   - /enabling-validity-checks-for-your-repository
+  - /enabling-extended-metadata-checks-for-your-repository
 redirect_from:
   - /github/administering-a-repository/configuring-secret-scanning-for-private-repositories
   - /github/administering-a-repository/configuring-secret-scanning-for-your-repositories

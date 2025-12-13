@@ -19,9 +19,9 @@ topics:
 shortTitle: Configure a cluster network
 ---
 
-## About networking for a {% data variables.product.product_name %} cluster
+## About networking for a {% data variables.product.prodname_ghe_server %} cluster
 
-Each node in your {% data variables.product.product_name %} cluster must be able to communicate with all of the other nodes in the cluster over the network. You can review the required ports and protocols for end users, administration, and communication between nodes. To distribute traffic among front-end nodes, {% data variables.product.company_short %} recommends that you configure an external load balancer.
+Each node in your {% data variables.product.prodname_ghe_server %} cluster must be able to communicate with all of the other nodes in the cluster over the network. You can review the required ports and protocols for end users, administration, and communication between nodes. To distribute traffic among front-end nodes, {% data variables.product.company_short %} recommends that you configure an external load balancer.
 
 ## Network considerations
 

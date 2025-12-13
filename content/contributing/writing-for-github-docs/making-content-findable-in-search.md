@@ -3,7 +3,9 @@ title: Making content findable in search
 shortTitle: Make content findable
 intro: 'Follow these SEO best practices to help users find {% data variables.product.company_short %} documentation using search engines.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About search engine optimization (SEO)

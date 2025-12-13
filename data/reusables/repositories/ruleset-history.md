@@ -1,4 +1,4 @@
-1. To view the history of changes to the ruleset, select {% octicon "kebab-horizontal" aria-label="Open additional options" %} to the right of the ruleset's name, then click **{% octicon "history" aria-hidden="true" %} History**.
+1. To view the history of changes to the ruleset, select {% octicon "kebab-horizontal" aria-label="Open additional options" %} to the right of the ruleset's name, then click **{% octicon "history" aria-hidden="true" aria-label="history" %} History**.
 
    ![Screenshot of the page for repository rulesets. Below a button labeled with three dots, an option labeled "History" is outlined in orange.](/assets/images/help/repository/ruleset-history.png)
 

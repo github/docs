@@ -1,12 +1,13 @@
 import type { Response, NextFunction } from 'express'
 
-import { defaultCacheControl } from '@/frame/middleware/cache-control.js'
+import { defaultCacheControl } from '@/frame/middleware/cache-control'
 import { ExtendedRequest } from '@/types'
 
 // We'll check if the current request path is one of these, or ends with
 // one of these.
 // These are clearly intentional "guesses" made by some sort of
 // pen-testing bot.
+const JUNK_STARTS = ['///', '/\\', '/\\.']
 const JUNK_ENDS = [
   '/package.json',
   '/package-lock.json',
@@ -36,6 +37,12 @@ const JUNK_BASENAMES = new Set([
 
 function isJunkPath(path: string) {
   if (JUNK_PATHS.has(path)) return true
+
+  for (const junkPath of JUNK_STARTS) {
+    if (path.startsWith(junkPath)) {
+      return true
+    }
+  }
 
   for (const junkPath of JUNK_ENDS) {
     if (path.endsWith(junkPath)) {
@@ -73,19 +80,27 @@ export default function handleInvalidPaths(
     // they're not going to suddenly work in the next deployment.
     defaultCacheControl(res)
     res.setHeader('content-type', 'text/plain')
-    return res.status(404).send('Not found')
+    res.status(404).send('Not found')
+    return
   }
 
-  if (req.path.endsWith('/index.md') || req.path.endsWith('.md')) {
+  if (req.path.endsWith('/index.md')) {
     defaultCacheControl(res)
     // The originalUrl is the full URL including query string.
     // E.g. `/en/foo.md?bar=baz`
-    const newUrl = req.originalUrl.replace(
-      req.path,
-      req.path.replace(/\/index\.md$/, '').replace(/\.md$/, ''),
-    )
+    const newUrl = req.originalUrl.replace(req.path, req.path.replace(/\/index\.md$/, ''))
     return res.redirect(newUrl)
+  } else if (req.path.endsWith('.md')) {
+    // encode the query params but also make them pretty so we can see
+    // them as `/` and `@` in the address bar
+    // e.g. /api/article/body?pathname=/en/enterprise-server@3.16/admin...
+    // NOT: /api/article/body?pathname=%2Fen%2Fenterprise-server%403.16%2Fadmin...
+    const encodedPath = encodeURIComponent(req.path.replace(/\.md$/, ''))
+      .replace(/%2F/g, '/')
+      .replace(/%40/g, '@')
+    const newUrl = `/api/article/body?pathname=${encodedPath}`
+    res.redirect(newUrl)
+    return
   }
-
   return next()
 }

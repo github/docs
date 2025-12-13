@@ -5,7 +5,7 @@ versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -16,6 +16,9 @@ redirect_from:
   - /code-security/codeql-cli/manual/test-run
 ---
 
+<!-- markdownlint-disable GHD053 -->
+
+<!-- markdownlint-disable GHD030 -->
 
 <!-- Content after this section is automatically generated -->
 
@@ -112,7 +115,7 @@ Set total amount of RAM the test runner should be allowed to use.
 #### `--slice=<N/M>`
 
 \[Advanced] Divide the test cases into _M_ roughly equal-sized slices
-and process only the _N_th of them. This can be used for manual
+and process only the _&#x4E;_&#x74;h of them. This can be used for manual
 parallelization of the testing process.
 
 #### `--[no-]strict-test-discovery`
@@ -275,7 +278,7 @@ timed parts are "RA layers" of the optimized query, but that might
 change in the future.
 
 If no timeout is specified, or is given as 0, no timeout will be set
-(except for [codeql test run](/code-security/codeql-cli/codeql-cli-manual/test-run), where the default timeout is 5 minutes).
+(except for codeql test run, where the default timeout is 5 minutes).
 
 #### `-j, --threads=<num>`
 

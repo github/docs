@@ -1,6 +1,6 @@
 ---
 title: Downloading your organization's SAML single sign-on recovery codes
-intro: 'Organization owners should download their organization''s SAML single sign-on recovery codes to ensure that they can access {% data variables.product.product_name %} even if the identity provider for the organization is unavailable.'
+intro: 'Organization owners should download their organization''s SAML single sign-on recovery codes to ensure that they can access {% data variables.product.github %} even if the identity provider for the organization is unavailable.'
 redirect_from:
   - /articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes
   - /articles/downloading-your-organizations-saml-single-sign-on-recovery-codes
@@ -23,9 +23,9 @@ Recovery codes should not be shared or distributed. We recommend saving them wit
 1. To save your recovery codes, click **Download**, **Print**, or **Copy**.
 
    > [!NOTE]
-   > Your recovery codes will help get you back into {% data variables.product.product_name %} if your IdP is unavailable. If you generate new recovery codes the recovery codes displayed on the "Single sign-on recovery codes" page are automatically updated.
+   > Your recovery codes will help get you back into {% data variables.product.github %} if your IdP is unavailable. If you generate new recovery codes the recovery codes displayed on the "Single sign-on recovery codes" page are automatically updated.
 
-1. Once you use a recovery code to regain access to {% data variables.product.product_name %}, it cannot be reused. Access to {% data variables.product.product_name %} will only be available for 24 hours before you'll be asked to sign in using single sign-on.
+1. Once you use a recovery code to regain access to {% data variables.product.github %}, it cannot be reused. Access will only be available for 24 hours before you'll be asked to sign in using single sign-on.
 
 ## Further reading
 

@@ -4,7 +4,7 @@ allowTitleToDifferFromFilename: true
 shortTitle: Users
 intro: >-
   Use the REST API to review, backup, or migrate your user data stored on {%
-  data variables.product.product_name %}.com.
+  data variables.product.github %}.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'

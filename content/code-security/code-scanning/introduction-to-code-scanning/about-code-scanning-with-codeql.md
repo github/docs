@@ -12,7 +12,7 @@ versions:
   ghec: '*'
 type: overview
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 ---
@@ -47,17 +47,16 @@ For information about {% data variables.product.prodname_code_scanning %} alerts
 
 {% data variables.product.prodname_codeql %} supports both compiled and interpreted languages, and can find vulnerabilities and errors in code that's written in the supported languages.
 
+{% data variables.product.prodname_codeql %} supports the following languages:
+
 {% data reusables.code-scanning.codeql-languages-bullets %}
 
-{% data reusables.code-scanning.beta-actions-analysis %}
-
-{% ifversion fpt or ghec or ghes > 3.10 %}
+> [!IMPORTANT]
+> {% data variables.product.prodname_codeql %} does **not** support languages that are not listed above. This includes, but is not limited to, **PHP**, **Scala**, and others. Attempting to use {% data variables.product.prodname_codeql %} with unsupported languages may result in no alerts being generated and incomplete analysis.
 
 ## Modeling custom or niche frameworks
 
 {% data variables.product.github %} experts, security researchers, and community contributors write libraries to model the flow of data in popular frameworks and libraries. If you use custom dependencies that aren't modeled, then you can use the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %} to create models for these dependencies and use them to extend your analysis. For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor).
-
-{% endif %}
 
 ## {% data variables.product.prodname_codeql %} queries
 

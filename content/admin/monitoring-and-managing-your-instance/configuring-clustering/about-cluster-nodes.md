@@ -1,7 +1,7 @@
 ---
 title: About cluster nodes
 product: '{% data reusables.gated-features.cluster %}'
-intro: 'In a {% data variables.product.product_name %} cluster, nodes are individual virtual machines (VMs) running the {% data variables.product.prodname_ghe_server %} software that comprise the instance. Each node runs a set of services.'
+intro: 'In a {% data variables.product.prodname_ghe_server %} cluster, nodes are individual virtual machines (VMs) running the {% data variables.product.prodname_ghe_server %} software that comprise the instance. Each node runs a set of services.'
 redirect_from:
   - /enterprise/admin/clustering/about-cluster-nodes
   - /enterprise/admin/enterprise-management/about-cluster-nodes
@@ -16,9 +16,9 @@ topics:
   - Enterprise
 ---
 
-## About {% data variables.product.product_name %} cluster nodes
+## About {% data variables.product.prodname_ghe_server %} cluster nodes
 
-Each node in a {% data variables.product.product_name %} cluster is a virtual machine (VM) that runs the {% data variables.product.product_name %} software. Before you deploy a cluster, you can review hardware requirements, required services, and design recommendations.
+Each node in a {% data variables.product.prodname_ghe_server %} cluster is a virtual machine (VM) that runs the {% data variables.product.prodname_ghe_server %} software. Before you deploy a cluster, you can review hardware requirements, required services, and design recommendations.
 
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 

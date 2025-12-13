@@ -37,12 +37,13 @@ async function main() {
   }
 
   const graph: Record<string, any> = await github.graphql(mutation, variables)
-  console.log('GraphQL mutation result:\n' + JSON.stringify(graph))
+  console.log(`GraphQL mutation result:\n${JSON.stringify(graph)}`)
 
   if (graph.errors && graph.errors.length > 0) {
     console.error(
-      'ERROR! Failed to enable auto-merge:\n - ' +
-        graph.errors.map((error: any) => error.message).join('\n - '),
+      `ERROR! Failed to enable auto-merge:\n - ${graph.errors
+        .map((error: any) => error.message)
+        .join('\n - ')}`,
     )
   } else {
     console.log('Auto-merge enabled!')

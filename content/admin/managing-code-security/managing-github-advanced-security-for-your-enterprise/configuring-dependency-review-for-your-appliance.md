@@ -21,13 +21,13 @@ redirect_from:
 
 Some additional features, such as license checks, blocking of pull requests, and CI/CD integration, are available with the [dependency review action](https://github.com/actions/dependency-review-action).
 
-## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
+## Checking whether your license includes {% data variables.product.prodname_AS %}
 
 {% data reusables.advanced-security.check-for-ghas-license %}
 
 ## Prerequisites for dependency review
 
-* A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)).{% endif %}
+* A license for {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} or {% endif %}{% data variables.product.prodname_GHAS %} (see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)).
 
 * The dependency graph enabled for the instance. Site administrators can enable the dependency graph via the management console or the administrative shell (see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)).
 
@@ -43,7 +43,7 @@ For more information, see [AUTOTITLE](/admin/code-security/managing-supply-chain
 
 {% data reusables.dependency-review.dependency-review-action-beta-note %}
 
-The dependency review action is included in your installation of {% data variables.product.prodname_ghe_server %}. It is available for all repositories that have {% data variables.product.prodname_GH_advanced_security %} and dependency graph enabled.
+The dependency review action is included in your installation of {% data variables.product.prodname_ghe_server %}. It is available for all repositories that have {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} or {% endif %}{% data variables.product.prodname_GHAS %} and dependency graph enabled.
 
 {% data reusables.dependency-review.dependency-review-action-overview %}
 

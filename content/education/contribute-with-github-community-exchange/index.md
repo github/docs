@@ -1,7 +1,7 @@
 ---
 title: Contribute with GitHub Community Exchange
 shortTitle: '{% data variables.product.prodname_community_exchange %}'
-intro: 'With {% data variables.product.prodname_community_exchange %}, you can use {% data variables.product.product_name %} to contribute to open source and build your portfolio.'
+intro: 'With {% data variables.product.prodname_community_exchange %}, you can use {% data variables.product.github %} to contribute to open source and build your portfolio.'
 versions:
   fpt: '*'
 children:

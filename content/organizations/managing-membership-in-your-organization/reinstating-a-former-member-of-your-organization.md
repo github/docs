@@ -51,7 +51,7 @@ When you reinstate a former organization member, the following items can be rest
 
 The correct way to reinstate a former member depends on your organization's identity and access management configuration.
 
-* If the user was removed via SCIM because they were unassigned from the {% data variables.product.product_name %} application in your IdP, re-invite the user via SCIM by re-assigning them to the application. The user's organization membership will be reinstated after they sign into {% data variables.product.prodname_dotcom %} and accept the invitation.
+* If the user was removed via SCIM because they were unassigned from the {% data variables.product.prodname_ghe_cloud %} application in your IdP, re-invite the user via SCIM by re-assigning them to the application. The user's organization membership will be reinstated after they sign into {% data variables.product.prodname_dotcom %} and accept the invitation.
 * If your organization uses SAML but not SCIM, ask the user to authenticate via SAML single sign-on, via your IP or by signing into {% data variables.product.prodname_dotcom %}, navigating to the organization, and clicking the banner to authenticate via SAML single sign-on. The user's organization membership will be reinstated after they successfully authenticate.
 * Otherwise, invite the user to rejoin your organization on {% data variables.product.prodname_dotcom %}, following the steps below.
 

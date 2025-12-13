@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 import purgeEdgeCache from './purge-edge-cache'
 

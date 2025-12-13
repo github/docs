@@ -31,7 +31,7 @@ Before configuring {% data variables.product.prodname_dependabot %}, install Doc
 
 1. On {% data variables.product.prodname_ghe_server %}, navigate to the `github/dependabot-action` repository and retrieve information about the `dependabot-updater` and `dependabot-proxy` container images from the `containers.json` file.
 
-   Each release of {% data variables.product.product_name %} includes an updated `containers.json` file at: `https://HOSTNAME/github/dependabot-action/blob/ghes-VERSION/docker/containers.json`. You can see the {% data variables.product.prodname_dotcom_the_website %} version of the file at: [containers.json](https://github.com/github/dependabot-action/blob/main/docker/containers.json).
+   Each release of {% data variables.product.prodname_ghe_server %} includes an updated `containers.json` file at: `https://HOSTNAME/github/dependabot-action/blob/ghes-VERSION/docker/containers.json`. You can see the {% data variables.product.prodname_dotcom_the_website %} version of the file at: [containers.json](https://github.com/github/dependabot-action/blob/main/docker/containers.json).
 
 1. Preload all the container images from the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %} onto the {% data variables.product.prodname_dependabot %} runner using the `docker pull` command. {% ifversion ghes %}Alternatively, preload the `dependabot-proxy` image and then preload only the container images for the ecosystems you require.
 
@@ -46,7 +46,7 @@ Before configuring {% data variables.product.prodname_dependabot %}, install Doc
    {%- endif %}
 
    > [!NOTE]
-   > You will need to repeat this step when you upgrade to a new minor version of {% data variables.product.product_name %}, or if you manually update the {% data variables.product.prodname_dependabot %} action from {% data variables.product.prodname_dotcom_the_website %}. For more information, see [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom).
+   > You will need to repeat this step when you upgrade to a new minor version of {% data variables.product.prodname_ghe_server %}, or if you manually update the {% data variables.product.prodname_dependabot %} action from {% data variables.product.prodname_dotcom_the_website %}. For more information, see [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom).
 
 1. When you have finished adding these images to the runner, you are ready to restrict internet access to the {% data variables.product.prodname_dependabot %} runner, ensuring that it can still access your private registries for the required ecosystems and for {% data variables.product.prodname_ghe_server %}.
 

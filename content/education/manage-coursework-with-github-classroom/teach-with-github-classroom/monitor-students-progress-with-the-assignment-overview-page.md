@@ -45,7 +45,7 @@ You can search and sort the assignment overview page to find specific students o
 1. To find a specific student or team on the assignment overview page, in the search bar, type the student's {% data variables.product.prodname_dotcom %} handle, the student's identifier, or the team's name, then press <kbd>Enter</kbd> or <kbd>Return</kbd>.
 
    If the search term you enter matches multiple students or teams, each student or team will be shown in the search results. For example, if you have two students with the {% data variables.product.prodname_dotcom %} handles "@octocat" and "@monacat", and you search for "cat", both "@octocat" and "@monacat" will appear in the search results.
-1. To sort the students or teams displayed on an assignment overview page, select **Sort by:** {% octicon "triangle-down" aria-hidden="true" %}, then click **Alphabetical A-Z**, **Alphabetical Z-A**, **Newest**, or **Oldest**.
+1. To sort the students or teams displayed on an assignment overview page, select **Sort by:** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %}, then click **Alphabetical A-Z**, **Alphabetical Z-A**, **Newest**, or **Oldest**.
 
    The **Newest** sort orders the results from the most recently updated assignment to the least recently updated assignment, while the **Oldest** sort does the opposite.
 {% data reusables.classroom.clear-all-assignment-overview %}
@@ -54,11 +54,11 @@ You can search and sort the assignment overview page to find specific students o
 
 Using a series of dropdown menus, you can apply multiple filters to the assignment overview page to search for students or teams based on specific criteria. You can even apply multiple filters from a single dropdown menu to include all students or teams that match the criteria.
 
-1. To filter for students with unlinked accounts, select the **Unlinked accounts** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Student identifiers** or **{% data variables.product.prodname_dotcom %} accounts**.
-1. To filter by which students have or haven't accepted the assignment, select the **Accepted** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Accepted** or **Unaccepted**.
-1. To filter by the submission status for each student's assignment repository, select the **Submitted** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Submitted**, **On-time**, **Late**, or **Not submitted**.
-1. To filter for students by passing or failing grades, select the **Passing** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Passing** or **Failing**.
-1. To unapply a filter, select the associated dropdown menu, then click the filter once more. A {% octicon "check" aria-hidden="true" %} is displayed alongside the name of an applied filter, while unapplied filters only display their names.
+1. To filter for students with unlinked accounts, select the **Unlinked accounts** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Student identifiers** or **{% data variables.product.prodname_dotcom %} accounts**.
+1. To filter by which students have or haven't accepted the assignment, select the **Accepted** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Accepted** or **Unaccepted**.
+1. To filter by the submission status for each student's assignment repository, select the **Submitted** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Submitted**, **On-time**, **Late**, or **Not submitted**.
+1. To filter for students by passing or failing grades, select the **Passing** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Passing** or **Failing**.
+1. To unapply a filter, select the associated dropdown menu, then click the filter once more. A {% octicon "check" aria-hidden="true" aria-label="check" %} is displayed alongside the name of an applied filter, while unapplied filters only display their names.
 {% data reusables.classroom.clear-all-assignment-overview %}
 
 ## Downloading assignment details

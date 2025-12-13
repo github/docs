@@ -48,7 +48,7 @@ shortTitle: Repository management policies
 
 ## About policies for repository management in your enterprise
 
-You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} manage repositories. You can also allow organization owners to manage policies for repository management.
+You can enforce policies to control how members of your enterprise manage repositories. You can also allow organization owners to manage policies for repository management.
 
 {% ifversion repo-policy-rules %}
 >[!NOTE] This page describes the policies you can set on the "Member privileges" page in your enterprise settings. Certain restrictions, such as who can create, delete, or transfer repositories, are also available in a **repository policy**. Repository policies give you more flexibility over which users are affected and which organizations and repositories are targeted. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/governing-how-people-use-repositories-in-your-enterprise).
@@ -63,11 +63,8 @@ Each time someone creates a new repository within your enterprise, that person m
 If an enterprise owner disallows members from creating certain types of repositories, members will not be able to create that type of repository even if the visibility setting defaults to that type. For more information, see [Enforcing a policy for repository creation](#enforcing-a-policy-for-repository-creation).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
+
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "Default repository visibility", use the drop-down menu and select a default visibility.
 {% indented_data_reference reusables.enterprise_installation.image-urls-viewable-warning spaces=3 %}
@@ -82,6 +79,9 @@ Across all organizations owned by your enterprise, you can set a base repository
 {% data reusables.enterprise-accounts.repositories-tab %}
 1. Under "Base permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 1. Under "Base permissions", select the dropdown menu and click a policy.
+
+> [!NOTE]
+> Internal repositories have a minimum visibility level of read, even if the base permission has been set to none.
 
 ## Enforcing a policy for repository creation
 
@@ -209,8 +209,6 @@ By default, when you enforce repository upload limits, people cannot add or upda
 
    ![Screenshot of the "Repository upload limit" policy section. The "Enforce on all repositories" checkbox is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
 
-{% ifversion ghes %}
-
 ## Enforcing a policy for the display of member names in your repositories
 
 Across all organizations owned by your enterprise, you can allow members to see a comment author's profile name, in addition to their username, in issues and pull requests for public and internal repositories.
@@ -228,18 +226,13 @@ Across all organizations owned by your enterprise, you can allow members to see 
 
    ![Screenshot of the policy option for the display of member names in your repositories. The "Enforce on all repositories" checkbox is outlined.](/assets/images/enterprise/site-admin-settings/enforce-for-all-repositories-option.png)
 
-{% endif %}
-
 ## Configuring the merge conflict editor for pull requests between repositories
 
 Requiring users to resolve merge conflicts locally on their computer can prevent people from inadvertently writing to an upstream repository from a fork.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
+
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "Conflict editor for pull requests between repositories", use the drop-down menu, and click **Disabled**.
 
@@ -294,7 +287,7 @@ You can override the default inherited settings by configuring the settings for 
 
 If you have [enabled private mode](/admin/configuration/configuring-your-enterprise/enabling-private-mode) for {% data variables.location.product_location %}, you can allow repository administrators to enable anonymous Git read access to public repositories.
 
-Enabling anonymous Git read access allows users to bypass authentication for custom tools on your enterprise. When you or a repository administrator enable this access setting for a repository, unauthenticated Git operations (and anyone with network access to {% data variables.product.product_name %}) will have read access to the repository without authentication.
+Enabling anonymous Git read access allows users to bypass authentication for custom tools on your enterprise. When you or a repository administrator enable this access setting for a repository, unauthenticated Git operations (and anyone with network access to {% data variables.location.product_location_enterprise %}) will have read access to the repository without authentication.
 
 Anonymous Git read access is disabled by default.
 
@@ -307,11 +300,8 @@ If necessary, you can prevent repository administrators from changing anonymous 
 ### Setting anonymous Git read access for all repositories
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
+
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "Anonymous Git read access", use the drop-down menu, and click **Enabled**.
 1. Optionally, to prevent repository admins from changing anonymous Git read access settings in all repositories on your enterprise, select **Prevent repository admins from changing anonymous Git read access**.

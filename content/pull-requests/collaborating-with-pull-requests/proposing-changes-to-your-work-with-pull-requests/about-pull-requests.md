@@ -1,6 +1,6 @@
 ---
 title: About pull requests
-intro: 'Learn about pull requests and draft pull requests on {% data variables.product.product_name %}. Pull requests communicate changes to a branch in a repository. Once a pull request is opened, you can review changes with collaborators and add follow-up commits.'
+intro: 'Learn about pull requests and draft pull requests on {% data variables.product.github %}. Pull requests communicate changes to a branch in a repository. Once a pull request is opened, you can review changes with collaborators and add follow-up commits.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
   - /articles/using-pull-requests
@@ -30,7 +30,7 @@ After initializing a pull request, you'll see a review page that shows a high-le
 
 Once you've created a pull request, you can push commits from your topic branch to add them to your existing pull request. These commits will appear in chronological order within your pull request and the changes will be visible in the "Files changed" tab.
 
-Other contributors can review your proposed changes, add review comments, contribute to the pull request discussion, and even add commits to the pull request. {% ifversion pull-request-approval-limit %}{% data reusables.pull_requests.code-review-limits %}{% endif %}
+Other contributors can review your proposed changes, add review comments, contribute to the pull request discussion, and even add commits to the pull request. {% ifversion pull-request-approval-limit %}By default, in public repositories, any user can submit reviews that approve or request changes to a pull request. Organization owners and repository admins can limit who is able to give approving pull request reviews or request changes. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization) and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-pull-request-reviews-in-your-repository).{% endif %}
 
 {% ifversion fpt or ghec %}
 You can see information about the branch's current deployment status and past deployment activity on the "Conversation" tab. See [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository).
@@ -49,8 +49,6 @@ After you're happy with the proposed changes, you can merge the pull request. If
 You can visit your dashboard to quickly find links to recently updated pull requests you're working on or subscribed to. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard).
 
 ## Draft pull requests
-
-{% data reusables.gated-features.draft-prs %}
 
 When you create a pull request, you can choose to create a pull request that is ready for review or a draft pull request. Draft pull requests cannot be merged, and code owners are not automatically requested to review draft pull requests. See [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) and [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
 

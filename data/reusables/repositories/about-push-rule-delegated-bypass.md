@@ -1,5 +1,3 @@
->[!NOTE] Delegated bypass for push rules is currently in {% data variables.release-phases.public_preview %} and subject to change.
-
 Delegated bypass for push rulesets lets you control who can bypass push protection and which blocked pushes should be allowed.
 
  With delegated bypass, contributors to a repository must request "bypass privileges" when pushing commits that contain restricted content. The request is sent to a designated group of reviewers, who either approve or deny the request to bypass push rules.

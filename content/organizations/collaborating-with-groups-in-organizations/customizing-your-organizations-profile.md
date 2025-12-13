@@ -46,6 +46,8 @@ If you manage multiple organizations with an enterprise account, you can help me
 
 ## Adding a public organization profile README
 
+>[!NOTE] Public organizations are not available with {% data variables.product.prodname_emus %}.
+
 The content of public `README.md` will appear on your organization's public profile.
 
 1. If your organization does not already have a public `.github` repository, create a public `.github` repository.
@@ -65,7 +67,7 @@ The content of a member-only `README.md` will be displayed in the member view of
 You can pin repositories that you want to feature, such as those that are frequently used, to your organization's profile page. To choose which repositories to pin to your organization's profile, you must be an organization owner.
 
 1. Navigate to your organization's profile page.
-1. In the right sidebar of the page, select the **{% octicon "eye" aria-hidden="true" %} View as** dropdown menu, then click **Public** or **Member**.
+1. In the right sidebar of the page, select the **{% octicon "eye" aria-hidden="true" aria-label="eye" %} View as** dropdown menu, then click **Public** or **Member**.
 
    ![Screenshot of an organization's profile page. In the left sidebar, a dropdown menu, labeled "View as: public" is outlined in dark orange.](/assets/images/help/organizations/org-profile-view.png)
 1. Navigate to the settings for pinned repositories.
@@ -83,7 +85,7 @@ You can pin repositories that you want to feature, such as those that are freque
 
 ## Changing your organization's profile picture
 
-When you create an organization, {% data variables.product.product_name %} provides you with a randomly generated "identicon." The identicon is generated from a hash of your organization's user ID, so there's no way to control its color or pattern.
+When you create an organization, {% data variables.product.github %} provides you with a randomly generated "identicon." The identicon is generated from a hash of your organization's user ID, so there's no way to control its color or pattern.
 
 You can replace the identicon with an image that represents your organization. To replace the image, you can upload a new image or use a Gravatar image.
 

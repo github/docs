@@ -51,6 +51,15 @@ In your organization's repositories, blocked users also cannot:
 
 ## Blocking a user in the organization settings
 
+{% ifversion ghec %}
+
+> [!WARNING]
+> To completely block a user when your enterprise or organization enforces SAML single sign-on (SSO) through an identity provider (IdP), in addition to blocking the user on {% data variables.product.github %}, you should also **remove the user's assignment to the {% data variables.product.github %} application in your IdP**.
+>
+> Not revoking access in your IdP configuration means the user could potentially regain access to the enterprise or organization via SSO.
+
+{% endif %}
+
 1. To block an organization member, first [remove the user](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization) from the organization.
 
 {% data reusables.profile.access_org %}

@@ -28,7 +28,7 @@ jobs:
     steps:
       - name: Remove issue from FR v2 project
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           PR_NUMBER: ${{ github.event.pull_request.number || inputs.PR_NUMBER }}
           PROJECT_NUMBER: 11672
         run: |

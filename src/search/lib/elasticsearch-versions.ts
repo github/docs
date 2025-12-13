@@ -100,11 +100,11 @@ export function getPlanVersionFromIndexVersion(indexVersion: string): string {
 // This is needed for scraping since the pages use the 'allVersions' key as their version
 export function getAllVersionsKeyFromIndexVersion(indexVersion: string): string {
   const key = Object.keys(allVersions).find(
-    (key) =>
-      key === indexVersion ||
-      allVersions[key].shortName === indexVersion ||
-      allVersions[key].plan === indexVersion ||
-      allVersions[key].miscVersionName === indexVersion,
+    (versionKey) =>
+      versionKey === indexVersion ||
+      allVersions[versionKey].shortName === indexVersion ||
+      allVersions[versionKey].plan === indexVersion ||
+      allVersions[versionKey].miscVersionName === indexVersion,
   )
 
   if (!key) {

@@ -28,14 +28,19 @@ This article contains recommendations and advice to help you configure {% data v
 
 You'll find detailed guidance for the setup of the following package managers:
 
-* [Bundler](#bundler){% ifversion dependabot-updates-cargo-private-registry-support %}
-* [Cargo](#cargo){% endif %}
-* [Docker](#docker)
-* [Gradle](#gradle)
+{% ifversion dependabot-bun-support %}
+* [Bun](#bun){% endif %}
+* [Bundler](#bundler)
+* [Cargo](#cargo)
+* [Docker](#docker){% ifversion dependabot-docker-compose-support %}
+* [Docker Compose](#docker-compose){% endif %}
+* [Go](#go)
+* [Gradle](#gradle){% ifversion dependabot-helm-support %}
+* [Helm Charts](#helm-charts){% endif %}
 * [Maven](#maven)
 * [npm](#npm)
-* [NuGet](#nuget){% ifversion dependabot-updates-pub-private-registry %}
-* [pub](#pub){% endif %}
+* [NuGet](#nuget)
+* [pub](#pub)
 * [Python](#python)
 * [Yarn](#yarn)
 
@@ -51,6 +56,14 @@ You'll also find recommendations for the setup of the following registry hosts:
 {% data reusables.dependabot.dependabot-on-actions-self-hosted-link %}
 
 ## Configuring package managers
+
+{% ifversion dependabot-bun-support %}
+
+### Bun
+
+Bun adheres to the same configuration guidelines as npm. Note that the `.npmrc` file is not required, but can be provided in order to customize the configuration. For detailed steps, see [npm](#npm).
+
+{% endif %}
 
 ### Bundler
 
@@ -91,8 +104,6 @@ registries:
 
 {% data reusables.dependabot.access-private-dependencies-link %}
 
-{% ifversion dependabot-updates-cargo-private-registry-support %}
-
 ### Cargo
 
 Cargo supports username, password and token-based authentication. For more information, see `cargo-registry` in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#cargo-registry).
@@ -100,8 +111,6 @@ Cargo supports username, password and token-based authentication. For more infor
 The snippet below shows a `dependabot.yml` file configuration that uses a token.
 
 {% data reusables.dependabot.cargo-private-registry-config-example %}
-
-{% endif %}
 
 ### Docker
 
@@ -149,8 +158,52 @@ registries:
 * Dockerfiles may only receive a version update to the first `FROM` directive.
 * Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see [{% data variables.product.prodname_dependabot %} ignores image references in COPY Dockerfile statement](https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920) in the `dependabot/dependabot-core` repository.
 * {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see [Support for Docker multi-stage builds](https://github.com/dependabot/dependabot-core/issues/7640) in the `dependabot/dependabot-core` repository.
-* Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see [{% data variables.product.prodname_dependabot %} ignores image references in COPY Dockerfile statement](https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920) in the `dependabot/dependabot-core` repository.
-* {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see [Support for Docker multi-stage builds](https://github.com/dependabot/dependabot-core/issues/7640) in the `dependabot/dependabot-core` repository.
+
+{% ifversion dependabot-docker-compose-support %}
+
+### Docker Compose
+
+Docker Compose adheres to the same configuration guidelines as Docker. For more information, see [Docker](#docker).
+
+{% endif %}
+
+{% ifversion dependabot-helm-support %}
+
+### Helm Charts
+
+Helm supports using a username and password for registries. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#helm-registry).
+
+Snippet of `dependabot.yml` file using a username and password.
+
+{% raw %}
+
+```yaml copy
+registries:
+  helm_registry:
+    type: helm-registry
+    url: https://registry.example.com
+    username: octocat
+    password: ${{secrets.MY_REGISTRY_PASSWORD}}
+```
+
+{% endraw %}
+
+#### Notes
+
+The `helm-registry` type only supports HTTP Basic Auth and does not support OCI-compliant registries. If you need to access an OCI-compliant registry for Helm charts, configure a [`docker-registry`](#docker) instead. For more information on basic authentication, see [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
+
+When configuring {% data variables.product.prodname_dependabot %} for Helm charts, it will also automatically update the Docker images referenced within those charts, ensuring that both the chart versions and their contained images stay up to date.
+
+#### Limitations and workarounds
+
+* {% data variables.product.prodname_dependabot %} only updates dependencies in `Chart.yaml` files.
+* Images in `values.yaml` files and `Chart.yaml` files are updated.
+* Helm dependency updates are first attempted via the Helm CLI, with fallback to searching `index.yaml`.
+* Images that have an array of versions in the YAML cannot be updated.
+* Image names may not always be detected in Helm files or YAML files.
+* For Helm v2 updates, use the [Docker ecosystem](#docker).
+
+{% endif %}
 
 ### Gradle
 
@@ -183,6 +236,47 @@ updates:
 #### Notes
 
 {% data reusables.dependabot.dependency-submission-api-build-time-dependencies %}
+
+### Go
+
+Supported by Jfrog Artifactory and Nexus.
+
+Go supports using a username and password for private registries.
+
+Configure your private registry using the `dependabot.yml` file with the `goproxy-server` type:
+
+{% raw %}
+
+```yaml copy
+registries:
+  my-private-registry:
+    type: goproxy-server
+    url: https://acme.jfrog.io/artifactory/api/go/my-repo
+    username: octocat
+    password: ${{secrets.MY_GO_REGISTRY_TOKEN}}
+```
+
+{% endraw %}
+
+You can also optionally configure how the Go toolchain accesses your proxy server by creating a `go.env` file in your repository root. This file allows you to set environment variables like `GOPROXY`, `GOPRIVATE`, `GONOSUMDB`, and `GOSUMDB` to control how Go modules are resolved:
+
+```text copy
+GOPROXY=https://acme.jfrog.io/artifactory/api/go/my-repo
+GOPRIVATE=my-company.com/*
+GONOSUMDB=my-company.com/*
+```
+
+#### Notes
+
+This feature enables unified dependency management for both public and private Go modules within a single {% data variables.product.prodname_dependabot %} workflow, making it ideal for organizations using corporate artifact management systems like JFrog Artifactory or Nexus.
+
+**Private Proxy Serving All Modules**: All module requests go through your proxy first. For public modules fetching failures, your proxy returns 404/410 and Go falls back to direct version control system (VCS) access. For private modules, such as those published only to a private repository like JFrog Artifactory, the VCS fall back will not work since they are only accessible through the proxy.
+
+**Private Proxy Serving Private Modules**: Add a go.env to your repository root, and set up a GONOSUMDB matching the private modules pattern (for example, `GONOSUMDB=my-company.com/*` for all private modules starting with my-company.com/). Doing this will disable the public checksum validation of your private modules because the public checksum database does not have those private modules.
+
+**Direct Access to Private Modules**: Set `GOPRIVATE=my-company.com/*` to bypass proxies and fetch directly from VCS. This setting only works if private modules are properly published with semantic version tags in your source control.
+
+{% data reusables.dependabot.access-private-dependencies-link %}
 
 ### Maven
 
@@ -373,8 +467,6 @@ registries:
 
 {% endraw %}
 
-{% ifversion dependabot-updates-pub-private-registry %}
-
 ### pub
 
 You can define the private registry configuration in a `dependabot.yml` file using the `pub-repository` type. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#pub-repository).
@@ -405,8 +497,6 @@ updates:
 pub supports URL and token authentication. The URL used for the registry should match the pub-hosted URL. For more information, see [Hosted Pub Repository Specification Version 2](https://github.com/dart-lang/pub/blob/master/doc/repository-spec-v2.md#hosted-url) in the `github/dart-lang/pub` repository.
 
 {% data variables.product.prodname_dependabot %} doesn't support overrides to the default package registry. For more information about overrides and why some users may implement them, see [Overriding the default package repository](https://dart.dev/tools/pub/custom-package-repositories#default-override) in the Dart documentation.
-
-{% endif %}
 
 ### Python
 
@@ -594,14 +684,6 @@ If you use the `replace-base` setting, you should also configure a remote reposi
 #### Virtual registry
 
 You can use a virtual registry to group together all private and public dependencies under a single domain. For more information, see [npm Registry](https://jfrog.com/help/r/jfrog-artifactory-documentation/npm-registry) in the JFrog Artifactory documentation.
-
-{% ifversion dependabot-updates-reference-private-registries %}{% else %}
-
-#### Limitations and workarounds
-
-The `target branch` setting does not work with {% data variables.product.prodname_dependabot_security_updates %}
- on Artifactory. If you get a 401 authentication error, you need to remove the `target-branch` property from your `dependabot.yml` file. For more information, see [ARTIFACTORY: Why GitHub Dependabot security updates are failing with 401 Authentication error, when it initiates a connection with Artifactory npm private registry for security updates](https://jfrog.com/help/r/artifactory-why-github-dependabot-security-updates-are-failing-with-401-authentication-error-when-it-initiates-a-connection-with-artifactory-npm-private-registry-for-security-updates/issue-description) in the JFrog Artifactory documentation.
-{% endif %}
 
 ### Azure Artifacts
 

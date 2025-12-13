@@ -1,16 +1,16 @@
 ---
-title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
+title: '{% data variables.product.github %}{% ifversion fpt or ghec %}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
-    - /get-started/getting-started-with-git/set-up-git
+    - /get-started/git-basics/set-up-git
     - /authentication/connecting-to-github-with-ssh
     - /repositories/creating-and-managing-repositories
     - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
-    - /get-started/getting-started-with-git/managing-remote-repositories
+    - /copilot/how-tos/get-code-suggestions/get-ide-code-suggestions
+    - /get-started/git-basics/managing-remote-repositories
     - /pages
 redirect_from:
   - /github
@@ -51,7 +51,9 @@ versions:
 children:
   - search
   - get-started
+  - enterprise-onboarding
   - account-and-profile
+  - subscriptions-and-notifications
   - authentication
   - repositories
   - admin
@@ -64,6 +66,7 @@ children:
   - actions
   - copilot
   - codespaces
+  - integrations
   - migrations
   - packages
   - search-github
@@ -83,6 +86,7 @@ children:
   - video-transcripts
   - contributing
   - github-models
+  - nonprofit
 childGroups:
   - name: Get started
     octicon: RocketIcon
@@ -90,6 +94,7 @@ childGroups:
       - get-started
       - migrations
       - account-and-profile
+      - subscriptions-and-notifications
       - authentication
       - billing
       - site-policy
@@ -100,30 +105,31 @@ childGroups:
       - repositories
       - pull-requests
       - discussions
+      - integrations
   - name: GitHub Copilot
     octicon: CopilotIcon
     children:
       - copilot
-      - copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
-      - copilot/using-github-copilot/prompt-engineering-for-github-copilot
-      - copilot/example-prompts-for-github-copilot-chat
-      - copilot/using-github-copilot/asking-github-copilot-questions-in-github
-      - copilot/using-github-copilot/guides-on-using-github-copilot/refactoring-code-with-github-copilot
+      - copilot/get-started/plans
+      - copilot/how-tos/get-code-suggestions/get-ide-code-suggestions
+      - copilot/how-tos/use-copilot-agents/coding-agent
+      - copilot/tutorials
+      - copilot/tutorials/copilot-chat-cookbook
+      - copilot/tutorials/customization-library
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:
       - actions
       - packages
       - pages
-  - name: Security
+  - name: Security and quality
     octicon: ShieldLockIcon
     children:
-      - code-security
+      - code-security/secret-scanning
       - code-security/supply-chain-security
-      - code-security/security-advisories
       - code-security/dependabot
       - code-security/code-scanning
-      - code-security/secret-scanning
+      - code-security/code-quality
   - name: Client apps
     octicon: DeviceMobileIcon
     children:
@@ -136,13 +142,13 @@ childGroups:
       - issues
       - issues/planning-and-tracking-with-projects
       - search-github
-  - name: Enterprise and Teams
+  - name: Enterprise and teams
     octicon: OrganizationIcon
     children:
       - organizations
       - code-security/securing-your-organization
+      - enterprise-onboarding
       - admin
-      - gh-wa
   - name: Developers
     octicon: CodeSquareIcon
     children:
@@ -150,7 +156,6 @@ childGroups:
       - rest
       - graphql
       - webhooks
-      - copilot/building-copilot-extensions
       - github-models
   - name: Community
     octicon: GlobeIcon
@@ -158,6 +163,7 @@ childGroups:
       - communities
       - sponsors
       - education
+      - nonprofit
       - support
       - contributing
   - name: More docs
@@ -166,6 +172,7 @@ childGroups:
       - codeql
       - electron
       - npm
+      - gh-wa
 externalProducts:
   electron:
     id: electron

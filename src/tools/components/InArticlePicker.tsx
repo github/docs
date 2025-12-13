@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react'
-import Cookies from 'src/frame/components/lib/cookies'
+import React, { useEffect, useState } from 'react'
+import Cookies from '@/frame/components/lib/cookies'
 import { UnderlineNav } from '@primer/react'
-import { sendEvent } from 'src/events/components/events'
-import { EventType } from 'src/events/types'
+import { sendEvent } from '@/events/components/events'
+import { EventType } from '@/events/types'
 import { useRouter } from 'next/router'
+
+import styles from './InArticlePicker.module.scss'
 
 type Option = {
   value: string
@@ -141,7 +143,7 @@ export const InArticlePicker = ({
   const params = new URLSearchParams(asPathQuery)
 
   return (
-    <div data-testid={`${queryStringKey}-picker`}>
+    <div data-testid={`${queryStringKey}-picker`} className={styles.container}>
       {/* The key attribute is required for a bug in UnderlineNav that doesn't render the component when there are changes to the items. */}
       <UnderlineNav key={router.asPath} {...sharedContainerProps}>
         {options.map((option) => {
@@ -154,7 +156,7 @@ export const InArticlePicker = ({
               href={`?${params}`}
               key={option.value}
               aria-current={option.value === currentValue ? 'page' : undefined}
-              onSelect={(event) => {
+              onSelect={(event: React.MouseEvent | React.KeyboardEvent) => {
                 event.preventDefault()
                 onClickChoice(option.value)
               }}

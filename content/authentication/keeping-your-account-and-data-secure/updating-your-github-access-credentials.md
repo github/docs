@@ -1,6 +1,6 @@
 ---
 title: Updating your GitHub access credentials
-intro: '{% data variables.product.github %} credentials include not only your password, but also the access tokens, SSH keys, and application API tokens you use to communicate with {% data variables.product.github %}. Should you have the need, you can reset all of these access credentials yourself.'
+intro: '{% data variables.product.github %} credentials include your password, access tokens, SSH keys, and application API tokens used to communicate with {% data variables.product.github %}. You can reset all of these access credentials yourself.'
 redirect_from:
   - /articles/rolling-your-credentials
   - /articles/how-can-i-reset-my-password
@@ -24,22 +24,19 @@ shortTitle: Update access credentials
 
 ## Requesting a new password
 
-1. To request a new password, visit {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
-1. Enter the email address associated with your account, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured.
-1. We'll email you a link that will allow you to reset your password. You must click on this link within 3 hours of receiving the email. If you didn't receive an email from us, make sure to check your spam folder.
+{% data reusables.accounts.request-password-reset-link %}
+
 1. If you have enabled two-factor authentication, you will be prompted for your 2FA credentials:
-{% ifversion fpt or ghec %}
-   * If you have {% data variables.product.prodname_mobile %}, you will be sent a push notification to verify your identity. Open the push notification or the {% data variables.product.prodname_mobile %} app and enter the two-digit code shown to you on the password reset page in your browser.
-      * To skip using {% data variables.product.prodname_mobile %} to verify, click **Enter two-factor authentication or recovery code**.
-{% endif %}
-   * Type your authentication code or one of your recovery codes and click **Verify**.
-     * If you have added a security key to your account, click **Use security key** instead of typing an authentication code.
-     {% ifversion fpt or ghec %}
-     * If you have set up [{% data variables.product.prodname_mobile %}](https://github.com/mobile), click **Authenticate with {% data variables.product.prodname_mobile %}** instead.
-     {% endif %}
-     {% ifversion 2fa-recovery-flow %}
-     * If you have forgotten your password and you've lost access to your two-factor authentication credentials, click **Start a 2FA recovery request**. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials).
-     {% endif %}
+   * If you have added a passkey or a security key to your account, click **Use passkey or security key**.
+   {% ifversion fpt or ghec %}
+   * If you have set up [{% data variables.product.prodname_mobile %}](https://github.com/mobile), you will be sent a push notification to verify your identity. If you didn't receive a notification, click "More options", then **Authenticate with {% data variables.product.prodname_mobile %}**.
+   {% endif %}
+   * Alternatively, type your TOTP or SMS authentication code, or one of your recovery codes, and click **Verify**.
+
+   {% ifversion 2fa-recovery-flow %}
+   > [!NOTE]
+   > If you've lost access to your two-factor authentication credentials and your recovery codes, you can start account recovery request. See [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials#recovering-without-your-password-or-two-factor-authentication-credentials).
+   {% endif %}
 1. In the text field under **Password**, type a new password. Then, in the text field under **Confirm password**, type the password again.
 1. Click **Change password**. For help creating a strong password, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password).
 

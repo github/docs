@@ -1,0 +1,9 @@
+.container {
+  // target the ActionList dropdown that appears when UnderlineNav overflows
+  ul[class*="prc-ActionList-ActionList"] {
+    background-color: var(
+      --overlay-bgColor,
+      var(--color-canvas-overlay, #ffffff)
+    ) !important;
+  }
+}

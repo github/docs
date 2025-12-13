@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-# [start-readme]
-#
-# This script is run on a writer's machine to begin developing Early Access content locally.
-#
-# [end-readme]
+# @purpose Writer tool
+# @description Clone the docs-early-access repo
 
 set -e
 

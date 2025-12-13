@@ -8,7 +8,7 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
 * Access to premium content
 * Health checks
 {%- ifversion ghes %}
-* Crisis prevention: Guided incident simulations that help you prepare for—and experience—an incident without risk. ({% data variables.product.premium_plus_support_plan %} only)
+* Crisis prevention: Guided incident simulations that help you prepare for—and experience—an incident without risk. ({% data variables.product.premium_plus_support_plan %} / {% data variables.product.microsoft_premium_plus_support_plan %} only)
 {%- endif %}
-* Application upgrade assistance: Before your upgrade, we review your upgrade plans, playbooks, and other documentation and answer questions specific to your environment ({% data variables.product.premium_plus_support_plan %} only)
-* Technical advisory hours ({% data variables.product.premium_plus_support_plan %} only)
+* Application upgrade assistance: Before your upgrade, we review your upgrade plans, playbooks, and other documentation and answer questions specific to your environment ({% data variables.product.premium_plus_support_plan %} / {% data variables.product.microsoft_premium_plus_support_plan %} only)
+* Technical advisory hours ({% data variables.product.premium_plus_support_plan %} / {% data variables.product.microsoft_premium_plus_support_plan %} only)

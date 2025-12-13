@@ -2,7 +2,7 @@
 title: About reserved usernames for GitHub Enterprise Server
 shortTitle: Reserved usernames
 intro: Certain words are reserved for internal use and cannot be used as usernames.
-permissions: Enterprise owners can view usernames reserved by {% data variables.product.product_name %}.
+permissions: Enterprise owners
 versions:
   ghes: '*'
 type: reference
@@ -13,7 +13,7 @@ topics:
 
 ## About reserved usernames
 
- {% data variables.product.product_name %} reserves certain usernames for internal use. You cannot assign reserved usernames to users or organizations on your instance. For example, the following words are reserved:
+{% data variables.product.prodname_ghe_server %} reserves certain usernames for internal use. You cannot assign reserved usernames to users or organizations on your instance. For example, the following words are reserved:
 
 * `admin`
 * `enterprise`

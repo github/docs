@@ -98,7 +98,7 @@ If you disable automatic inheritance of access permissions, new packages scoped 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the sidebar, in the "Code, planning, and automation" section, click **{% octicon "package" aria-hidden="true" %} Packages**.
+1. In the sidebar, in the "Code, planning, and automation" section, click **{% octicon "package" aria-hidden="true" aria-label="package" %} Packages**.
 1. Under "Default Package Settings", deselect **Inherit access from source repository**.
 1. Click **Save**.
 
@@ -192,6 +192,8 @@ For registries that support granular permissions, you can choose the visibility 
     * To enable organization members to create public packages, click **Public**.
     * To enable organization members to create private packages that are only visible to other organization members, click **Private**. You can further customize the visibility of private packages.
     * To enable organization members to create internal packages that are visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the packages will be visible to all enterprise members.
+
+   {% data reusables.package_registry.maven-package-visibility %}
 
 ## Configuring visibility of packages for an organization
 

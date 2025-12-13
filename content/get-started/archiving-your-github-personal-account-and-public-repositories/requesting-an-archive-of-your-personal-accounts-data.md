@@ -15,11 +15,11 @@ topics:
 shortTitle: Request account archive
 ---
 
-{% data variables.product.product_name %} stores repository and profile metadata from your personal account's activity. You can export your personal account's data through your account settings on {% data variables.product.prodname_dotcom %} or with the User Migration API.
+{% data variables.product.github %} stores repository and profile metadata from your personal account's activity. You can export your personal account's data through your account settings on {% data variables.product.prodname_dotcom %} or with the User Migration API.
 
-For more information about the data {% data variables.product.product_name %} stores that is available for exporting, see [AUTOTITLE](/rest/migrations#download-a-user-migration-archive).
+For more information about the data {% data variables.product.github %} stores that is available for exporting, see [AUTOTITLE](/rest/migrations#download-a-user-migration-archive).
 
-When you request an export of your personal data through your account settings on {% data variables.product.prodname_dotcom %}, {% data variables.product.product_name %} packages your personal data in a `tar.gz` file and sends you an email to your primary email address with a download link.
+When you request an export of your personal data through your account settings on {% data variables.product.github %}, {% data variables.product.github %} packages your personal data in a `tar.gz` file and sends you an email to your primary email address with a download link.
 
 By default, the download link expires after seven days. At any time before the download link expires, you can disable the link from your user settings. For more information, see [AUTOTITLE](/get-started/archiving-your-github-personal-account-and-public-repositories/requesting-an-archive-of-your-personal-accounts-data#deleting-access-to-an-archive-of-your-personal-accounts-data).
 
@@ -32,7 +32,7 @@ The generated `tar.gz` file reflects the data stored at the time you started the
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.account_settings %}
 1. Under "Export account data", click **Start export** or **New export**.
-1. Once the export is ready to download, {% data variables.product.product_name %} will send you a download link to your primary email address.
+1. Once the export is ready to download, {% data variables.product.github %} will send you a download link to your primary email address.
 1. Click the download link in your email and re-enter your password if prompted.
 1. You'll be redirected to a `tar.gz` file that you can download.
 

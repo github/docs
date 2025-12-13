@@ -3,7 +3,9 @@ title: Using videos in GitHub Docs
 shortTitle: Use videos
 intro: 'This guide explains how to create videos that support user needs for {% data variables.product.prodname_docs %}.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About videos in {% data variables.product.prodname_docs %}

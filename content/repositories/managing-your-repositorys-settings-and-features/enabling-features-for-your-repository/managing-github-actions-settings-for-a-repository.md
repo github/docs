@@ -120,13 +120,13 @@ By default, when you create a new repository in your personal account, workflows
 You can use the steps below to configure whether {% ifversion internal-actions %}actions and {% endif %}reusable workflows in an internal repository can be accessed from outside the repository.{% ifversion internal-actions %} For more information, see [AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise). Alternatively, you can use the REST API to set, or get details of the level of access. For more information, see [AUTOTITLE](/rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository) and [AUTOTITLE](/rest/actions/permissions#set-the-level-of-access-for-workflows-outside-of-the-repository).{% endif %}
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the internal repository.
-1. Under your repository name, click **{% octicon "gear" aria-hidden="true" %} Settings**.
+1. Under your repository name, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under **Access**, choose one of the access settings:
 
    * **Not accessible** - Workflows in other repositories cannot access this repository.
-   * **Accessible from repositories in the 'ORGANIZATION NAME' organization** - {% ifversion ghes or ghec %}Workflows in other repositories that are part of the 'ORGANIZATION NAME' organization can access the actions and reusable workflows in this repository. Access is allowed only from private or internal repositories.{% else %}Workflows in other repositories can use workflows in this repository if they are part of the same organization and their visibility is private or internal.{% endif %}
-   * **Accessible from repositories in the 'ENTERPRISE NAME' enterprise** - {% ifversion ghes or ghec %}Workflows in other repositories that are part of the 'ENTERPRISE NAME' enterprise can access the actions and reusable workflows in this repository. Access is allowed only from private or internal repositories.{% else %}Workflows in other repositories can use workflows in this repository if they are part of the same enterprise and their visibility is private or internal.{% endif %}
+   * **Accessible from repositories in the 'ORGANIZATION NAME' organization** - Workflows in other repositories that are part of the 'ORGANIZATION NAME' organization can access the actions and reusable workflows in this repository. Access is allowed only from private or internal repositories.
+   * **Accessible from repositories in the 'ENTERPRISE NAME' enterprise** - Workflows in other repositories that are part of the 'ENTERPRISE NAME' enterprise can access the actions and reusable workflows in this repository. Access is allowed only from private or internal repositories.
 1. Click **Save** to apply the settings.
 {% endif %}
 
@@ -141,7 +141,7 @@ You can use the steps below to configure whether actions and reusable workflows 
 ### Managing access for a private repository
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the private repository.
-1. Under your repository name, click **{% octicon "gear" aria-hidden="true" %} Settings**.
+1. Under your repository name, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under **Access**, choose one of the access settings:
 
@@ -156,7 +156,7 @@ You can use the steps below to configure whether actions and reusable workflows 
 ### Managing access for a private repository in an organization
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the private repository.
-1. Under your repository name, click **{% octicon "gear" aria-hidden="true" %} Settings**.
+1. Under your repository name, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under **Access**, choose one of the access settings:
 
@@ -169,13 +169,34 @@ You can use the steps below to configure whether actions and reusable workflows 
 {% ifversion fpt %}{% else %}
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the private repository.
-1. Under your repository name, click **{% octicon "gear" aria-hidden="true" %} Settings**.
+1. Under your repository name, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under **Access**, choose one of the access settings:
    * **Not accessible** - Workflows in other repositories cannot access this repository.
    * **Accessible from repositories in the 'ORGANIZATION NAME' organization** - Workflows in other repositories that are part of the 'ORGANIZATION NAME' organization can access the actions and reusable workflows in this repository. Access is allowed only from private repositories.
    * **Accessible from repositories in the 'ENTERPRISE NAME' enterprise** - Workflows in other repositories that are part of the 'ENTERPRISE NAME' enterprise can access the actions and reusable workflows in this repository. Access is allowed only from private repositories.
 1. Click **Save** to apply the settings.
+{% endif %}
+
+{% ifversion fpt or ghec %}
+
+## Configuring cache settings for your repository
+
+You can configure cache retention and size settings for your repository. This feature is opt-in and available to users with a payment method on file, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %} plans.
+
+If your repository is owned by an organization that has configured cache settings, you can configure limits up to the maximum set by the organization. If your repository is user-owned, you can configure up to the global maximums.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.settings-sidebar-actions-general %}
+
+1. In the "Cache settings" section, configure the following settings:
+   * **Cache retention**: The number of days to retain caches before automatic deletion. The default is 7 days. You can configure up to 90 days for public repositories or 365 days for private and internal repositories (or up to the limit set by your organization).
+   * **Cache size eviction limit**: The maximum total size of all caches in your repository. The default is 10 GB. You can configure up to 10,000 GB per repository (or up to the limit set by your organization). When this limit is exceeded, older caches will be evicted to make room for new caches.
+1. Click **Save** to apply the settings.
+
+For more information about cache eviction, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#usage-limits-and-eviction-policy).
+
 {% endif %}
 
 ## Configuring the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository
@@ -186,7 +207,7 @@ You can configure the retention period for {% data variables.product.prodname_ac
 
 You can also define a custom retention period for a specific artifact created by a workflow. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact).
 
-## Setting the retention period for a repository
+## Setting the Artifact and Log retention period for a repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

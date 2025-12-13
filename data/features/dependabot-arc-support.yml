@@ -1,0 +1,7 @@
+# References:
+# Issue #17954 - Dependabot adds ARC (Actions Runner Controller) support for security and version updates
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.17'

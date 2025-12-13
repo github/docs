@@ -40,6 +40,12 @@ sections:
         - |
           ...
 
+    - heading: APIs
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
     - heading: Migrations
       notes:
         # LINK TO RELEASE ISSUE
@@ -76,7 +82,7 @@ sections:
         - |
           ...
 
-    - heading: Code security
+    - heading: Secure coding features
       notes:
         # LINK TO RELEASE ISSUE
         - |

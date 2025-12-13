@@ -24,17 +24,10 @@ If you're an organization owner or you have team maintainer permissions in both 
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
 1. In the list of teams, click the name of the team where you'd like to add the child team.
-1. At the top of the team page, click **{% octicon "people" aria-hidden="true" %} Teams**.
-
-{% ifversion global-nav-update %}
+1. At the top of the team page, click **{% octicon "people" aria-hidden="true" aria-label="people" %} Teams**.
 
    ![Screenshot of the header of a team's page. A tab, labeled with a people icon and "Teams", is outlined in dark orange.](/assets/images/help/teams/teams-tab-global-nav-update.png)
 
-{% else %}
-
-   ![Screenshot of the header of a team's page. A tab, labeled with a people icon and "Teams", is outlined in dark orange.](/assets/images/help/teams/team-teams-tab.png)
-
-{% endif %}
 1. Click **Add a team**.
 1. Type the name of the team you'd like to add as a child team, and click the team in the results.
 {% data reusables.repositories.changed-repository-access-permissions %}

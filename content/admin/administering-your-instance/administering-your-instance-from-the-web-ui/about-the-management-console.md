@@ -24,11 +24,7 @@ To access the {% data variables.enterprise.management_console %}, you can use th
 
 The {% data variables.enterprise.management_console %} password hash is stored in `/data/user/common/secrets.conf`. If high availability or clustering is configured, the file is automatically synced from the primary node to any additional nodes. Any change to the primary's password will automatically be replicated to all of the instance's nodes. For more information about high availability, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration).
 
-{% ifversion management-console-events-audit-log %}
-
 When someone performs an action in the {% data variables.enterprise.management_console %} via the web interface or REST API, an event appears in the audit log. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise).
-
-{% endif %}
 
 ## Examples of activities in the {% data variables.enterprise.management_console %}
 
@@ -36,8 +32,7 @@ In the {% data variables.enterprise.management_console %}, you can perform admin
 
 * **Initial setup:** Walk through the initial setup process when first launching {% data variables.location.product_location %} by visiting {% data variables.location.product_location %}'s IP address in your browser.
 
-* **Identity and access management:** Improve the security of {% data variables.location.product_location %} by creating dedicated user accounts for the {% data variables.enterprise.management_console %}. {% ifversion management-console-editor %}The root site administrator account can control these user accounts' access by assigning either the editor or operator role. {% endif %}For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console).{% ifversion management-console-editor %}
-  {% data reusables.enterprise.editor-role-note %}{% endif %}
+* **Identity and access management:** Improve the security of {% data variables.location.product_location %} by creating dedicated user accounts for the {% data variables.enterprise.management_console %}. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console).
 
 * **Configuring authentication policies for the {% data variables.enterprise.management_console %}:** Set rate limits for login attempts, and the lockout duration if someone exceeds the rate limit. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#configuring-rate-limits-for-authentication-to-the-management-console).
 * **Configuring basic settings for your instance:** Configure DNS, hostname, SSL, user authentication, email, monitoring services, and log forwarding on the Settings page.

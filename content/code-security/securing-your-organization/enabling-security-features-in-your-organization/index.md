@@ -5,7 +5,8 @@ intro: '{% ifversion security-configurations-cloud %}Enable the {% data variable
 versions:
   feature: security-configurations
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Organizations
   - Security
 children:

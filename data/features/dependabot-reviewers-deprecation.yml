@@ -1,0 +1,6 @@
+# Reference: #17818
+# Closing Down: Dependabot Reviewers Feature [Closing Down]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.19'

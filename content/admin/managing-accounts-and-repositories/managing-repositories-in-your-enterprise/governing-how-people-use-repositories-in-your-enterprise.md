@@ -71,6 +71,14 @@ Choose which repositories (current or future) to target in the selected organiza
 
 {% data reusables.enterprise.repo-policy-rules-policies-section %}
 
+### Delegating bypass of policies
+
+{% data reusables.enterprise.repo-policy-rules-delegated-bypass %}
+
+#### Managing bypass requests
+
+{% data reusables.enterprise.repo-policy-rules-manage-bypass-request %}
+
 ## Further reading
 
 To set additional policies for repository management, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise).

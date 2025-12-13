@@ -1,6 +1,0 @@
-# Issue 9056
-# Ability to sort roadmaps and boards too
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.9'

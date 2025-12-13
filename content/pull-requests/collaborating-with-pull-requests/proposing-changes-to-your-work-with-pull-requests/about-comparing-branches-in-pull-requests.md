@@ -42,6 +42,8 @@ To simplify reviewing changes in a large pull request, you can filter the diff t
 
 ![Screenshot of the file filter dropdown menu. The menu is expanded and outlined in dark orange.](/assets/images/help/pull_requests/file-filter-menu.png)
 
+You can also use the diff view to see which dependencies you are introducing or changing with your pull request, and whether the dependency versions contain security vulnerabilities. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request#reviewing-dependencies-in-a-pull-request).
+
 ## Reasons diffs will not display
 
 * You've exceeded the total limit of files or certain file types. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/repository-limits#diff-limits).

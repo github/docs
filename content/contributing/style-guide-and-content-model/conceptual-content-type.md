@@ -1,8 +1,10 @@
 ---
 title: Conceptual content type
-intro: 'People most often use conceptual content when they are learning about something new to them.'
+intro: People most often use conceptual content when they are learning about something new to them.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 Conceptual content helps people understand a feature or topic by providing a clear, high-level overview, explanation of how the feature or topic can help them on their journey, and context like use cases or examples.

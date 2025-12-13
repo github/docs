@@ -63,7 +63,7 @@ You can access the sponsorships dashboard through your organization's profile.
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-1. Under your organization name, click **{% octicon "heart" aria-hidden="true" %} Sponsoring**.
+1. Under your organization name, click **{% octicon "heart" aria-hidden="true" aria-label="heart" %} Sponsoring**.
 
 ## Sponsorship fees
 

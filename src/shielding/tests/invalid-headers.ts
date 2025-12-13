@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import { get } from '@/tests/helpers/e2etest.js'
+import { get } from '@/tests/helpers/e2etest'
 
 describe('invalid headers', () => {
   test('400 if containing x-invoke-status (instead of redirecting)', async () => {

@@ -1,10 +1,10 @@
 import type { Response, NextFunction } from 'express'
 
 import { ExtendedRequest } from '@/types'
-import statsd from '@/observability/lib/statsd.js'
-import { allTools } from '@/tools/lib/all-tools.js'
-import { allPlatforms } from '@/tools/lib/all-platforms.js'
-import { defaultCacheControl } from '@/frame/middleware/cache-control.js'
+import statsd from '@/observability/lib/statsd'
+import { allTools } from '@/tools/lib/all-tools'
+import { allPlatforms } from '@/tools/lib/all-platforms'
+import { defaultCacheControl } from '@/frame/middleware/cache-control'
 
 const STATSD_KEY = 'middleware.handle_invalid_querystring_values'
 
@@ -19,7 +19,7 @@ const STATSD_KEY = 'middleware.handle_invalid_querystring_values'
 // that the values of `?platform=...` should be none when the path is
 // something like `/en/search`.
 const RECOGNIZED_VALUES = {
-  platform: allPlatforms,
+  platform: allPlatforms as string[],
   tool: Object.keys(allTools),
 }
 // So we can look up if a key in the object is actually present
@@ -42,9 +42,9 @@ export default function handleInvalidQuerystringValues(
     for (const [key, value] of Object.entries(query)) {
       if (RECOGNIZED_VALUES_KEYS.has(key)) {
         const validValues = RECOGNIZED_VALUES[key as keyof typeof RECOGNIZED_VALUES]
-        const value = query[key]
-        const values = Array.isArray(value) ? value : [value]
-        if (values.some((value) => typeof value === 'string' && !validValues.includes(value))) {
+        const queryValue = query[key]
+        const values = Array.isArray(queryValue) ? queryValue : [queryValue]
+        if (values.some((val) => typeof val === 'string' && !validValues.includes(val))) {
           if (process.env.NODE_ENV === 'development') {
             console.warn(
               'Warning! Invalid query string *value* detected. %O is not one of %O',
@@ -62,13 +62,7 @@ export default function handleInvalidQuerystringValues(
           if (sp.toString()) newURL += `?${sp}`
           res.redirect(302, newURL)
 
-          const tags = [
-            'response:302',
-            `url:${req.url}`,
-            `ip:${req.ip}`,
-            `path:${req.path}`,
-            `key:${key}`,
-          ]
+          const tags = ['response:302', `url:${req.url}`, `path:${req.path}`, `key:${key}`]
           statsd.increment(STATSD_KEY, 1, tags)
 
           return

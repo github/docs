@@ -49,8 +49,6 @@ The docs in the sidebar are generated from the {% data variables.product.prodnam
 
 * Schema-defined types: [scalars](/graphql/reference/scalars), [objects](/graphql/reference/objects), [enums](/graphql/reference/enums), [interfaces](/graphql/reference/interfaces), [unions](/graphql/reference/unions), and [input objects](/graphql/reference/input-objects).
 
-You can access this same content via the [Explorer Docs sidebar](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs). Note that you may need to rely on both the docs and the schema validation to successfully call the GraphQL API.
-
 For other information, such as authentication and rate limit details, check out the [guides](/graphql/guides).
 
 ## Requesting support

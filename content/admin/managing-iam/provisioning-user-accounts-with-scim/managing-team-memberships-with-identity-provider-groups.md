@@ -51,7 +51,17 @@ If you are connecting an existing team to an IdP group, you must first remove an
 
 If you use Microsoft Entra ID (previously known as Azure AD) as your IdP, you can only connect a team to a security group. Nested group memberships and Microsoft 365 groups are not supported.
 
-## Creating a new team connected to an IdP group
+{% ifversion enterprise-teams %}
+
+## Syncing an enterprise team
+
+Enterprise owners can create teams at the enterprise level.
+
+Most of the instructions in this article apply to organization-level teams. For instructions on creating an enterprise team and syncing it with an IdP group, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams).
+
+{% endif %}
+
+## Creating a new organization team connected to an IdP group
 
 Any member of an organization can create a new team and connect the team to an IdP group.
 
@@ -64,7 +74,7 @@ Any member of an organization can create a new team and connect the team to an I
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create_team %}
 
-## Managing the connection between an existing team and an IdP group
+## Managing the connection between an existing organization team and an IdP group
 
 Organization owners {% ifversion ghes %}and team maintainers {% endif %}can manage the existing connection between an IdP group and a team.{% ifversion ghec %} If your enterprise does not use {% data variables.enterprise.prodname_managed_users %}, team maintainers can also manage the connection.{% endif %}
 

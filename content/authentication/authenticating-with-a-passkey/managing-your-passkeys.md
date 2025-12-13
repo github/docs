@@ -3,7 +3,9 @@ title: Managing your passkeys
 intro: 'You may be prompted to register a passkey during sign-in, or you can choose to register a new passkey in your account settings. For 2FA users, you can upgrade existing eligible security keys into passkeys.'
 permissions: '{% ifversion fpt or ghec%}Personal account owners who manage their own credentials{% endif %}'
 versions:
-  feature: passkeys
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: how_to
 shortTitle: Manage your passkeys
 ---
@@ -34,7 +36,7 @@ Before starting the upgrade procedure, make sure that you are using the device t
 {% data reusables.user-settings.security %}
 {% data reusables.passkeys.add-passkey-settings-page %}
 1. If prompted, authenticate with your password, or use another existing authentication method.
-1. Under “Configure passwordless authentication”, under "Upgrade your security key registration to a passkey", review the information that confirms the name of the security key to be upgraded, then click **Upgrade to passkey**.
+1. Under “Configure passwordless authentication”, under "Upgrade your security key registration to a passkey," review the information that confirms the name of the security key to be upgraded, then click **Upgrade to passkey**.
 1. At the prompt, follow the steps outlined by the passkey provider.
 {% data reusables.passkeys.passkey-success-done %}
 
@@ -49,7 +51,7 @@ Before starting the upgrade procedure, make sure that you are using the device t
 
 Many passkeys support syncing, where your passkey is backed up by the provider's account system (iCloud, Google account, password manager, etc.). If you ever lose your device, you can recover your synced passkeys by signing in to your passkey provider.
 
-In some cases, your passkey may be "device-bound", which means the passkey cannot be synced and is not backed up to the cloud. For example, you can register FIDO2 hardware security keys (such as a YubiKey) as a passkey, but that passkey will not be synced. If your passkey is device-bound, and you lose or wipe the device, the passkey cannot be recovered. If you are only using device-bound passkeys, it is a best practice to register passkeys on at least two different devices, in case you lose access to one.
+In some cases, your passkey may be "device-bound," which means the passkey cannot be synced and is not backed up to the cloud. For example, you can register FIDO2 hardware security keys (such as a YubiKey) as a passkey, but that passkey will not be synced. If your passkey is device-bound, and you lose or wipe the device, the passkey cannot be recovered. If you are only using device-bound passkeys, it is a best practice to register passkeys on at least two different devices, in case you lose access to one.
 
 You can see which of your passkeys are synced, and which are device-bound, under "Passkeys" in your account security settings. Synced passkeys will include a blue `Synced` label next to their name.
 

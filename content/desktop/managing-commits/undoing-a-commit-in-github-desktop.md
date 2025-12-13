@@ -1,9 +1,11 @@
 ---
 title: Undoing a commit in GitHub Desktop
 shortTitle: Undoing a commit
-intro: 'You can undo a commit before you have pushed it to the remote branch.'
+intro: You can undo a commit before you have pushed it to the remote branch.
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About undoing a commit

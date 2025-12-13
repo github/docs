@@ -1,6 +1,7 @@
 ---
 title: Publishing a repository security advisory
 intro: You can publish a security advisory to alert your community about a security vulnerability in your project.
+permissions: '{% data reusables.permissions.security-repo-enable %}'
 redirect_from:
   - /articles/publishing-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/publishing-a-maintainer-security-advisory
@@ -20,8 +21,6 @@ topics:
 shortTitle: Publish repository advisories
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Publishing a security advisory".-->
-
-Anyone with admin permissions to a security advisory can publish the security advisory.
 
 {% data reusables.security-advisory.repository-level-advisory-note %}
 

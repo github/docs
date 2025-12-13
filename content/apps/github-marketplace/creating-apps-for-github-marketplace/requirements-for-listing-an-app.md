@@ -37,8 +37,11 @@ All listings should meet the following requirements, regardless of whether they 
 * Listings must include valid contact information for the publisher.
 * Listings must have a relevant description of the application.
 * Listings must specify a pricing plan.
+* Listings must have a valid link to a privacy policy.
+* Listings must provide a method to receive support through a valid support link and/or a support email address.
+* All additional links in a listing, such as Terms of Service or a Status Page, must work and resolve to a relevant page.
 * Apps must provide value to customers and integrate with the platform in some way beyond authentication.
-* Apps must be publicly available in {% data variables.product.prodname_marketplace %} and cannot be in {% data variables.release-phases.public_preview %} or available by invite only, with the exception of {% data variables.product.prodname_copilot_extensions_short %}.
+* Apps must be publicly available in {% data variables.product.prodname_marketplace %} and cannot be in {% data variables.release-phases.public_preview %} or available by invite only.
 * Apps must have webhook events set up to notify the publisher of any plan changes or cancellations using the {% data variables.product.prodname_marketplace %} API. For more information, see [AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app).
 
 For more information on providing a good customer experience, see [AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps).
@@ -54,23 +57,6 @@ To protect your customers, we recommend that you also follow security best pract
 ## Considerations for free apps
 
 {% data reusables.marketplace.free-apps-encouraged %}
-
-## Requirements for {% data variables.product.prodname_copilot_extensions %}
-
-{% data variables.product.prodname_copilot_extensions_short %} are essentially {% data variables.product.prodname_github_apps %} with additional read access to {% data variables.product.prodname_copilot_chat_short %}, integration with the {% data variables.product.prodname_copilot_short %} API, and optional integration into other LLMs.
-
-To publish an extension, it must be owned by an organization account with Verified Creator status. For more information about the verification process or transferring ownership of your app, see [AUTOTITLE](/apps/github-marketplace/github-marketplace-overview/applying-for-publisher-verification-for-your-organization).
-
-The requirements to publish a {% data variables.product.prodname_copilot_extension_short %} are the same as the requirements for free apps, with the following exceptions:
-* Your extension must provide a clear and descriptive response to a prompt like "What can you do?" or "List your capabilities".
-* Your extension can be in {% data variables.release-phases.public_preview %} as long as that is clearly communicated in the listing description. If you are using a waitlist, you must also include a link to sign up at the top of the description. Someone from the {% data variables.product.github %} review team will join the waitlist and email your technical lead requesting access for testing.
-* You must include links to two videos that demonstrate the following:
-    * A few example prompts and responses from your extension
-    * A net new user installing, authenticating, and sending their first prompt to your extension
-
-  These videos are private to {% data variables.product.github %} and are used solely for reviewing your listing submission. The videos can be brief, and you don't need to edit them.
-* Your extension must provide a stable and reliable user experience, and be able to perform the capabilities listed in the description.
-* You must provide a pathway for new users to install, set up, and authorize your extension with minimal friction. If the {% data variables.product.github %} review team is not able to successfully test your extension, it will not be approved for publishing.
 
 ## Requirements for paid apps
 
@@ -91,7 +77,7 @@ When you are ready to publish the app on {% data variables.product.prodname_mark
 
 ## Billing requirements for paid apps
 
-Your app does not need to handle payments but does need to use {% data variables.product.prodname_marketplace %} purchase events to manage new purchases, upgrades, downgrades, cancellations, and free trials. For information about how integrate these events into your app, see [AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app).
+Your app does not need to handle payments but does need to use {% data variables.product.prodname_marketplace %} purchase events to manage new purchases, upgrades, downgrades, cancellations, and free trials. For information about how to integrate these events into your app, see [AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app).
 
 Using {% data variables.product.github %}'s billing API allows customers to purchase an app without leaving {% data variables.product.github %} and to pay for the service with the payment method already attached to their account on {% data variables.product.github %}.
 

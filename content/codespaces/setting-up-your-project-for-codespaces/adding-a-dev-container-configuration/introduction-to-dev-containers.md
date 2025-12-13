@@ -31,7 +31,7 @@ Alternatively, you can add your own custom configuration files. See [Creating a 
 
 You can define a single dev container configuration for a repository, different configurations for different branches, or multiple configurations. When multiple configurations are available, users can choose their preferred configuration when they create a codespace. This is particularly useful for large repositories that contain source code in different programming languages or for different projects. You can create a choice of configurations that allow different teams to work in a codespace that's set up appropriately for the work they are doing.
 
-When you create a codespace from a template, you might start with one or more dev container configuration files in your workspace. To configure your environment further, you can add or remove settings from these files and rebuild the container to apply the changes to the codespace you're working in. If you publish your codespace to a repository on {% data variables.product.product_name %}, then any codespaces created from that repository will share the configuration you've defined. See [Applying configuration changes to a codespace](#applying-configuration-changes-to-a-codespace) and [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template#publishing-to-a-remote-repository).
+When you create a codespace from a template, you might start with one or more dev container configuration files in your workspace. To configure your environment further, you can add or remove settings from these files and rebuild the container to apply the changes to the codespace you're working in. If you publish your codespace to a repository on {% data variables.product.github %}, then any codespaces created from that repository will share the configuration you've defined. See [Applying configuration changes to a codespace](#applying-configuration-changes-to-a-codespace) and [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template#publishing-to-a-remote-repository).
 
 ### devcontainer.json
 
@@ -125,7 +125,7 @@ If you don't add a dev container configuration to your repository, or if your co
 The default configuration is a good option if you're working on a small project that uses the languages and tools that {% data variables.product.prodname_github_codespaces %} provides.
 
 > [!NOTE]
-> {% data variables.product.prodname_dotcom %} does not charge for storage of containers built from the default dev container image. For more information about billing for codespace storage, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage). {% data reusables.codespaces.check-for-default-image %}
+> {% data variables.product.prodname_dotcom %} does not charge for storage of containers built from the default dev container image. For more information about billing for codespace storage, see [AUTOTITLE](/billing/concepts/product-billing/github-codespaces). {% data reusables.codespaces.check-for-default-image %}
 
 ## Using a predefined dev container configuration
 
@@ -176,7 +176,7 @@ If none of the predefined configurations meets your needs, you can create a cust
 ### Adding a `devcontainer.json` file
 
 If you don't already have a `devcontainer.json` file in your repository, you can quickly add one from {% data variables.product.github %}.
-1. Navigate to your repository and click the **{% octicon "code" aria-hidden="true" %} Code** dropdown.
+1. Navigate to your repository and click the **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** dropdown.
 1. In the **Codespaces** tab, click the ellipsis (**...**), then select **Configure dev container**.
 
    ![Screenshot of the "Code" dropdown, and, within it, another dropdown with the "Configure dev container" option highlighted.](/assets/images/help/codespaces/configure-dev-container.png)

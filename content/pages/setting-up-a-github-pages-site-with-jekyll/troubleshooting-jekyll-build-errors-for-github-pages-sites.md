@@ -37,7 +37,7 @@ shortTitle: Troubleshoot Jekyll errors
 
 ## Troubleshooting build errors
 
-If Jekyll encounters an error building your {% data variables.product.prodname_pages %} site locally or on {% data variables.product.product_name %}, you can use error messages to troubleshoot. For more information about error messages and how to view them, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-jekyll-build-errors-for-github-pages-sites).
+If Jekyll encounters an error building your {% data variables.product.prodname_pages %} site locally or on {% data variables.product.github %}, you can use error messages to troubleshoot. For more information about error messages and how to view them, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-jekyll-build-errors-for-github-pages-sites).
 
 If you received a generic error message, check for common issues.
 * You're using unsupported plugins. For more information, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins).{% ifversion fpt or ghec %}
@@ -150,7 +150,7 @@ If you do want to use a submodule, initialize the submodule. For more informatio
 
 ## Relative permalinks configured
 
-This errors means that you have relative permalinks, which are not supported by {% data variables.product.prodname_pages %}, in your `_config.yml` file.
+This error means that you have relative permalinks, which are not supported by {% data variables.product.prodname_pages %}, in your `_config.yml` file.
 
 Permalinks are permanent URLs that reference a particular page on your site. Absolute permalinks begin with the root of the site, while relative permalinks begin with the folder containing the referenced page. {% data variables.product.prodname_pages %} and Jekyll no longer support relative permalinks. For more information about permalinks, see [Permalinks](https://jekyllrb.com/docs/permalinks/) in the Jekyll documentation.
 
@@ -180,4 +180,4 @@ This error means that your code contains an unrecognized Liquid tag.
 
 To troubleshoot, make sure all Liquid tags in the file in the error message match Jekyll's default variables and there are no typos in the tag names. For a list of default variables, see [Variables](https://jekyllrb.com/docs/variables/) in the Jekyll documentation.
 
-Unsupported plugins are a common source of unrecognized tags. If you use an unsupported plugin in your site by generating your site locally and pushing your static files to {% data variables.product.product_name %}, make sure the plugin is not introducing tags that are not in Jekyll's default variables. For a list of supported plugins, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins).
+Unsupported plugins are a common source of unrecognized tags. If you use an unsupported plugin in your site by generating your site locally and pushing your static files to {% data variables.product.github %}, make sure the plugin is not introducing tags that are not in Jekyll's default variables. For a list of supported plugins, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins).

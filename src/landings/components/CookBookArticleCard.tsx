@@ -1,37 +1,9 @@
 import { Label, LabelGroup, Link } from '@primer/react'
-import {
-  BugIcon,
-  LightBulbIcon,
-  CodeIcon,
-  GearIcon,
-  RocketIcon,
-  BeakerIcon,
-  CopilotIcon,
-  HubotIcon,
-  LogIcon,
-  TerminalIcon,
-  BookIcon,
-  ShieldLockIcon,
-  LockIcon,
-} from '@primer/octicons-react'
+import { ValidOcticon, getOcticonComponent } from '../lib/octicons'
 
-const Icons = {
-  bug: BugIcon,
-  lightbulb: LightBulbIcon,
-  code: CodeIcon,
-  gear: GearIcon,
-  rocket: RocketIcon,
-  beaker: BeakerIcon,
-  copilot: CopilotIcon,
-  hubot: HubotIcon,
-  log: LogIcon,
-  terminal: TerminalIcon,
-  book: BookIcon,
-  'shield-lock': ShieldLockIcon,
-  lock: LockIcon,
-}
+import styles from './CookBookArticleCard.module.scss'
 
-type IconType = keyof typeof Icons
+type IconType = ValidOcticon
 
 type Props = {
   title: string
@@ -45,19 +17,7 @@ type Props = {
 }
 
 function setImage(image: string, alt: string) {
-  return image ? (
-    <img
-      src={image}
-      alt={alt}
-      style={{
-        backgroundColor: 'gray',
-        marginBottom: 20,
-        borderRadius: 5,
-        width: '100%',
-        height: 'auto',
-      }}
-    />
-  ) : null
+  return image ? <img src={image} alt={alt} className={styles.spotlightImage} /> : null
 }
 const spotlightClasses = 'd-flex flex-column align-items-center'
 export const CookBookArticleCard = ({
@@ -69,16 +29,11 @@ export const CookBookArticleCard = ({
   url,
   spotlight = false,
 }: Props) => {
-  const setIcon = (icon: keyof typeof Icons) => {
-    return Icons[icon] || CopilotIcon
-  }
-
-  const IconComponent = setIcon(icon as keyof typeof Icons)
+  const IconComponent = getOcticonComponent(icon)
   return (
     <div className="m-2">
       <div
-        style={{ minHeight: 200 }}
-        className={spotlight ? spotlightClasses : 'd-flex pb-3 border-bottom'}
+        className={`${styles.cardContainer} ${spotlight ? spotlightClasses : 'd-flex pb-3 border-bottom'}`}
       >
         {spotlight ? setImage(image, title) : null}
         {spotlight
@@ -90,13 +45,13 @@ export const CookBookArticleCard = ({
               />
             )}
         <div>
-          <h3 className="h4">
+          <h3 className="h4 fgColor-accent">
             <Link href={url}>{title}</Link>
           </h3>
           <div className="fgColor-muted mb-3 mt-2">{description}</div>
           <LabelGroup>
             {tags.map((tag, index) => (
-              <Label key={index} variant="accent" sx={{ mr: 1 }} size="small">
+              <Label key={index} variant="accent" className={styles.label} size="small">
                 {tag}
               </Label>
             ))}

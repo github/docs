@@ -18,7 +18,7 @@ When you create a codespace it's assigned an auto-generated display name. If you
 
 To find the display name of a codespace:
 
-* On {% data variables.product.product_name %}, view your list of codespaces at https://github.com/codespaces.
+* On {% data variables.product.github %}, view your list of codespaces at https://github.com/codespaces.
 
    ![Screenshot of a list of three codespaces on the https://github.com/codespaces page."](/assets/images/help/codespaces/your-codespaces-list.png)
 

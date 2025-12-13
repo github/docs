@@ -49,7 +49,7 @@ The following sections will lead you through setting up the following components
 1. Create a repository to store the code for your app. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository).
 1. Clone your repository from the previous step. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository). You may use a local clone or {% data variables.product.prodname_github_codespaces %}.
 1. In a terminal, navigate to the directory where your clone is stored.
-1. If the directory doesn't already include a `.gitignore` file, add a `.gitignore` file. You will add content to this file later. For more information about `.gitignore` files, see [AUTOTITLE](/get-started/getting-started-with-git/ignoring-files).
+1. If the directory doesn't already include a `.gitignore` file, add a `.gitignore` file. You will add content to this file later. For more information about `.gitignore` files, see [AUTOTITLE](/get-started/git-basics/ignoring-files).
 
 You will add more code to this repository in later steps.
 
@@ -221,9 +221,9 @@ const localWebhookUrl = `http://${host}:${port}${path}`;
 //
 // Octokit's `createNodeMiddleware` function takes care of generating this middleware function for you. The resulting middleware function will:
 //
-//    - Check the signature of the incoming webhook event to make sure that it matches your webhook secret. This verifies that the incoming webhook event is a valid {% data variables.product.company_short %} event.
-//    - Parse the webhook event payload and identify the type of event.
-//    - Trigger the corresponding webhook event handler.
+// - Check the signature of the incoming webhook event to make sure that it matches your webhook secret. This verifies that the incoming webhook event is a valid {% data variables.product.company_short %} event.
+// - Parse the webhook event payload and identify the type of event.
+// - Trigger the corresponding webhook event handler.
 const middleware = createNodeMiddleware(app.webhooks, {path});
 
 // This creates a Node.js server that listens for incoming HTTP requests (including webhook payloads from {% data variables.product.company_short %}) on the specified port. When the server receives a request, it executes the `middleware` function that you defined earlier. Once the server is running, it logs messages to the console to indicate that it is listening.

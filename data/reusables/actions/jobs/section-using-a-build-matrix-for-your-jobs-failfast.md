@@ -1,6 +1,6 @@
 You can control how job failures are handled with `jobs.<job_id>.strategy.fail-fast` and `jobs.<job_id>.continue-on-error`.
 
-`jobs.<job_id>.strategy.fail-fast` applies to the entire matrix. If `jobs.<job_id>.strategy.fail-fast` is set to `true` or its expression evaluates to `true`, {% data variables.product.product_name %} will cancel all in-progress and queued jobs in the matrix if any job in the matrix fails. This property defaults to `true`.
+`jobs.<job_id>.strategy.fail-fast` applies to the entire matrix. If `jobs.<job_id>.strategy.fail-fast` is set to `true` or its expression evaluates to `true`, {% data variables.product.github %} will cancel all in-progress and queued jobs in the matrix if any job in the matrix fails. This property defaults to `true`.
 
 `jobs.<job_id>.continue-on-error` applies to a single job. If `jobs.<job_id>.continue-on-error` is `true`, other jobs in the matrix will continue running even if the job with `jobs.<job_id>.continue-on-error: true` fails.
 

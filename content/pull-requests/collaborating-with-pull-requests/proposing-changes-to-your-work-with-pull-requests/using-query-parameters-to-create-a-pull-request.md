@@ -11,10 +11,7 @@ topics:
   - Pull requests
 ---
 
-You can use query parameters to open pull requests. Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results or a pull request template on {% data variables.product.prodname_dotcom %}. To create your own query parameters, you must match the key and value pair.
-
-> [!TIP]
-> You can also create pull request templates that open with default labels, assignees, and a pull request title. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests).
+You can use query parameters to open pull requests. Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results or a pull request template on {% data variables.product.prodname_dotcom %}. To create your own query parameters, you must match the key and value pair. For more information on creating pull request templates, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository).
 
 You must have the proper permissions for any action to use the equivalent query parameter. For example, you must have permission to add a label to a pull request to use the `labels` query parameter. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
 

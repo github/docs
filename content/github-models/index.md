@@ -5,8 +5,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+introLinks:
+  overview: /github-models/about-github-models
+  quickstart: /github-models/quickstart
 children:
-  - /prototyping-with-ai-models
-  - /integrating-ai-models-into-your-development-workflow
+  - /about-github-models
+  - /quickstart
+  - /use-github-models
+  - /github-models-at-scale
   - /responsible-use-of-github-models
 ---

@@ -3,28 +3,88 @@ import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider } from '@primer/react'
+import { useRouter } from 'next/router'
 
-import { initializeEvents } from 'src/events/components/events'
-import { initializeExperiments } from 'src/events/components/experiment'
+import { initializeEvents } from '@/events/components/events'
+import {
+  initializeExperiments,
+  initializeForwardFeatureUrlParam,
+} from '@/events/components/experiments/experiment'
 import {
   LanguagesContext,
   LanguagesContextT,
   LanguageItem,
-} from 'src/languages/components/LanguagesContext'
-import { useTheme } from 'src/color-schemes/components/useTheme'
+} from '@/languages/components/LanguagesContext'
+import { useTheme } from '@/color-schemes/components/useTheme'
+import { SharedUIContextProvider } from '@/frame/components/context/SharedUIContext'
+import { CTAPopoverProvider } from '@/frame/components/context/CTAContext'
+import type { ExtendedRequest } from '@/types'
 
 type MyAppProps = AppProps & {
   isDotComAuthenticated: boolean
   languagesContext: LanguagesContextT
+  stagingName?: string
 }
 
-const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
+const stagingNames = new Set([
+  'balsam',
+  'boxwood',
+  'cedar',
+  'cypress',
+  'fir',
+  'hemlock',
+  'hinoki',
+  'holly',
+  'juniper',
+  'laurel',
+  'pine',
+  'redwood',
+  'sequoia',
+  'spruce',
+  'yew',
+])
+
+function getFaviconHref(stagingName?: string) {
+  /* The value in these "/cb-xxxxx" prefixes aren't important. They
+      just need to be present. They help the CDN cache the asset
+      for infinity.
+      Just remember, if you edit these images on disk, remember to
+      change these numbers
+   */
+  if (stagingName) {
+    return `/assets/cb-345/images/site/evergreens/${stagingName}.png`
+  }
+  return '/assets/cb-345/images/site/favicon.png'
+}
+
+const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppProps) => {
   const { theme } = useTheme()
+  const router = useRouter()
 
   useEffect(() => {
     initializeEvents()
-    initializeExperiments()
+    if (pageProps.mainContext) {
+      try {
+        initializeExperiments(
+          router.locale || 'en',
+          pageProps.mainContext.currentVersion,
+          pageProps.mainContext.allVersions,
+        )
+      } catch (e) {
+        console.error('Error initializing experiments:', e)
+      }
+    }
   }, [])
+
+  useEffect(() => {
+    if (pageProps.mainContext) {
+      try {
+        initializeForwardFeatureUrlParam(router, pageProps.mainContext.currentVersion)
+      } catch (e) {
+        console.error('Error initializing feature param forwarding:', e)
+      }
+    }
+  }, [router, router.query, pageProps.mainContext])
 
   useEffect(() => {
     // The CSS from primer looks something like this:
@@ -64,13 +124,7 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
         <title>GitHub Docs</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        {/* The value in these "/cb-xxxxx" prefixes aren't important. They
-            just need to be present. They help the CDN cache the asset
-            for infinity.
-            Just remember, if you edit these images on disk, remember to
-            change these numbers
-         */}
-        <link rel="icon" type="image/png" href="/assets/cb-345/images/site/favicon.png" />
+        <link rel="icon" type="image/png" href={getFaviconHref(stagingName)} />
 
         <link href="/manifest.json" rel="manifest" />
 
@@ -90,7 +144,11 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
         preventSSRMismatch
       >
         <LanguagesContext.Provider value={languagesContext}>
-          <Component {...pageProps} />
+          <SharedUIContextProvider>
+            <CTAPopoverProvider>
+              <Component {...pageProps} />
+            </CTAPopoverProvider>
+          </SharedUIContextProvider>
         </LanguagesContext.Provider>
       </ThemeProvider>
     </>
@@ -101,7 +159,7 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   const { ctx } = appContext
   // calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext)
-  const req: any = ctx.req
+  const req = ctx.req as unknown as ExtendedRequest
 
   // Have to define the type manually here because `req.context.languages`
   // comes from Node JS and is not type-aware.
@@ -115,9 +173,8 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   // Note, `req` will be undefined if this is the client-side rendering
   // of a 500 page ("Ooops! It looks like something went wrong.")
   if (req?.context?.languages) {
-    for (const [langCode, langObj] of Object.entries(
-      req.context.languages as Record<string, LanguageItem>,
-    )) {
+    const languageEntries = Object.entries(req.context.languages as Record<string, LanguageItem>)
+    for (const [langCode, langObj] of languageEntries) {
       // Only pick out the keys we actually need
       languagesContext.languages[langCode] = {
         name: langObj.name,
@@ -132,10 +189,14 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
       }
     }
   }
-
+  const headerValue = req.headers['x-ong-external-url']
+  const stagingName = (typeof headerValue === 'string' ? headerValue : headerValue?.[0])?.match(
+    /staging-(\w+)\./,
+  )?.[1]
   return {
     ...appProps,
     languagesContext,
+    stagingName: stagingName && stagingNames.has(stagingName) ? stagingName : undefined,
   }
 }
 

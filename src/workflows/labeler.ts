@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // [start-readme]
 //
 // This script adds labels to issues or pull requests.
@@ -7,9 +5,9 @@
 // [end-readme]
 
 import { program } from 'commander'
-import label from '../../.github/actions/labeler/labeler.js'
+import label from '../../.github/actions/labeler/labeler'
 import { getCoreInject } from '@/links/scripts/action-injections'
-import github from '@/workflows/github.js'
+import github from '@/workflows/github'
 
 program
   .description('Add labels to an issue or PR.')

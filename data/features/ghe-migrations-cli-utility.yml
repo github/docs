@@ -1,5 +1,0 @@
-# Reference: #9926
-# ghe-migrations CLI utility
-
-versions:
-  ghes: '>=3.9'

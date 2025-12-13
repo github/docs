@@ -16,7 +16,7 @@ versions:
 
 ## About published packages
 
-You can help people understand and use your package by providing a description and other details like installation and usage instructions on the package page. {% data variables.product.product_name %} provides metadata for each version, such as the publication date, download activity, and recent versions. For an example package page, see [@Codertocat/hello-world-npm](https://github.com/Codertocat/hello-world-npm/packages/10696?version=1.0.1).
+You can help people understand and use your package by providing a description and other details like installation and usage instructions on the package page. {% data variables.product.github %} provides metadata for each version, such as the publication date, download activity, and recent versions. For an example package page, see [@Codertocat/hello-world-npm](https://github.com/Codertocat/hello-world-npm/packages/10696?version=1.0.1).
 
 {% data reusables.package_registry.public-or-private-packages %} A repository can be connected to more than one package. To prevent confusion, make sure the README and description clearly provide information about each package.
 

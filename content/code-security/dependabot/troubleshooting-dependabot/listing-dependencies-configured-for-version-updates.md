@@ -36,15 +36,4 @@ After you've enabled version updates, you can confirm that your configuration is
 
 If any dependencies are missing, check the log files for errors. If any package managers are missing, review the configuration file.
 
-{% ifversion dependabot-job-log %}
-
 For information about {% data variables.product.prodname_dependabot %} job logs, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/viewing-dependabot-job-logs).
-
-{% else %}
-
-## Viewing {% data variables.product.prodname_dependabot %} log files
-
-1. On the **{% data variables.product.prodname_dependabot %}** tab, click **Last checked _TIME_ ago** to see the log file that {% data variables.product.prodname_dependabot %} generated during the last check for version updates.
-1. Optionally, to rerun the version check, click **Check for updates**.
-
-{% endif %}

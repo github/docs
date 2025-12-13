@@ -1,7 +1,7 @@
 ---
 title: Downloading your enterprise account's single sign-on recovery codes
 shortTitle: Download recovery codes
-intro: 'To ensure that you can access {% data variables.product.product_name %} if your identity provider (IdP) is unavailable, you should download your enterprise account''s single sign-on (SSO) recovery codes.'
+intro: 'To ensure that you can access {% data variables.product.github %} if your identity provider (IdP) is unavailable, you should download your enterprise account''s single sign-on (SSO) recovery codes.'
 versions:
   ghec: '*'
 type: how_to

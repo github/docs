@@ -1,7 +1,7 @@
 ---
 title: About the OpenAPI description for the REST API
 shortTitle: OpenAPI description
-intro: 'The {% data variables.product.product_name %} REST API is fully described in an OpenAPI compliant document.'
+intro: 'The {% data variables.product.github %} REST API is fully described in an OpenAPI compliant document.'
 versions:
   fpt: '*'
   ghes: '*'

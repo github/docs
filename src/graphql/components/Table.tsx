@@ -1,6 +1,6 @@
-import { Link } from 'src/frame/components/Link'
+import { Link } from '@/frame/components/Link'
 import { Notice } from './Notice'
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { useTranslation } from '@/languages/components/useTranslation'
 import { FieldT } from './types'
 
 type Props = {
@@ -26,7 +26,7 @@ export function Table({ fields }: Props) {
             <td>
               <p>
                 <code>{field.name}</code> (
-                <code>
+                <code className="color-bg-transparent">
                   <Link
                     href={field.href}
                     makeAbsolute
@@ -75,7 +75,7 @@ export function Table({ fields }: Props) {
                       <li className="border-top mt-2">
                         <p className="mt-2">
                           <code>{argument.name}</code> (
-                          <code>
+                          <code className="color-bg-transparent">
                             <Link href={argument.type.href} makeAbsolute>
                               {argument.type.name}
                             </Link>

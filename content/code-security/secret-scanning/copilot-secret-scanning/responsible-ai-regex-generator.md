@@ -2,14 +2,13 @@
 title: Responsible generation of regular expressions with Copilot secret scanning
 shortTitle: Generate regular expressions with AI
 intro: 'Learn about the capabilities and limitations of the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} in helping you to define custom patterns to extend the capabilities of {% data variables.product.prodname_secret_scanning %}.'
-product: '{% data reusables.gated-features.copilot-secret-scanning %}'
+product: '{% data reusables.rai.secret-scanning.copilot-secret-scanning-gated-feature %}'
 allowTitleToDifferFromFilename: true
 versions:
   feature: secret-scanning-custom-pattern-ai-generated
-  fpt: '*'
 type: rai
 topics:
-  - Advanced Security
+  - Secret Protection
   - Secret scanning
   - AI
   - Copilot
@@ -43,7 +42,7 @@ The model returns up to three regular expressions for you to review. You can cli
 
 Some results may be quite similar, and some results may not find every instance of the secret that the pattern is intended to detect. It is also possible that the regular expression generator may produce results which are invalid or inappropriate.
 
-When you click **Use result** on a regular expression, the expression and any examples inputted will be copied over to the main custom pattern form. There, you can perform a dry run of the pattern to see how it performs across your repository or organization.{% ifversion secret-scanning-custom-pattern-ai-generated %} For more information on how to define a custom pattern for your repository or organization, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning). {% endif %}
+When you click **Use result** on a regular expression, the expression and any examples inputted will be copied over to the main custom pattern form. There, you can perform a dry run of the pattern to see how it performs across your repository or organization. For more information on how to define a custom pattern for your repository or organization, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).
 
 ## Improving performance when generating regular expressions with AI
 
@@ -61,22 +60,14 @@ Also, the model used by the {% data variables.secret-scanning.custom-pattern-reg
 
 Note that {% data variables.secret-scanning.copilot-secret-scanning %}'s {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} is only suitable for creating regular expressions to detect structured patterns.
 
-{% ifversion secret-scanning-custom-pattern-ai-generated %}
-
 ## Next steps
 
 * [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/generating-regular-expressions-for-custom-patterns-with-copilot-secret-scanning)
 * [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)
-{% endif %}
 
 ## Further reading
 
-{% ifversion fpt %}
 * [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)
 * [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)
-{% endif %}
-
-{% ifversion secret-scanning-custom-pattern-ai-generated %}
 * [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)
 * [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)
-{% endif %}

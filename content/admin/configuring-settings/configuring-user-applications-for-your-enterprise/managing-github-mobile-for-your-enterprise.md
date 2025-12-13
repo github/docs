@@ -1,7 +1,7 @@
 ---
 title: Managing GitHub Mobile for your enterprise
 intro: 'You can decide whether people can use {% data variables.product.prodname_mobile %} to connect to {% data variables.location.product_location %}.'
-permissions: 'Enterprise owners can manage {% data variables.product.prodname_mobile %} for a {% data variables.product.product_name %} instance.'
+permissions: 'Enterprise owners'
 versions:
   ghes: '*'
 type: how_to

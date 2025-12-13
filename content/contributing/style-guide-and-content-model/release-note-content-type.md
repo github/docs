@@ -2,7 +2,9 @@
 title: Release note content type
 intro: 'Release notes enable readers to understand and prepare for the user-facing changes in each release of {% data variables.product.prodname_dotcom %}''s versioned enterprise products.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 Good release notes provide administrators the necessary information to plan system upgrades in environments that require change control, and support end users who want to understand and prepare to use new {% data variables.product.prodname_dotcom %} features and functionality.

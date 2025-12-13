@@ -7,7 +7,7 @@ versions:
   ghes: '*'
 product: '{% data reusables.gated-features.codeql %}'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference

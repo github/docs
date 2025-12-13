@@ -20,7 +20,7 @@ jobs:
     if: github.repository == 'github/docs' && github.event.pull_request.merged && github.event.pull_request.base.ref == github.event.repository.default_branch && github.event.pull_request.user.login != 'docs-bot'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
+      - uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
         with:
           script: |
             github.rest.issues.createComment({

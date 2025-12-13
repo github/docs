@@ -5,7 +5,7 @@ versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -18,6 +18,9 @@ redirect_from:
   - /code-security/codeql-cli/manual/database-create
 ---
 
+<!-- markdownlint-disable GHD053 -->
+
+<!-- markdownlint-disable GHD030 -->
 
 <!-- Content after this section is automatically generated -->
 
@@ -286,6 +289,9 @@ predicates.
 `fit`: Simply make sure the defined size limits for the disk cache are
 observed, deleting as many intermediates as necessary.
 
+`overlay`: Trim to just the data that will be useful when evaluating
+against an overlay.
+
 #### `--cleanup-upgrade-backups`
 
 Delete any backup directories resulting from database upgrades.
@@ -300,7 +306,7 @@ produce all necessary data directly.
 #### `--extra-tracing-config=<tracing-config.lua>`
 
 \[Advanced] The path to a tracer configuration file. It may be used to
-modify the behaviour of the build tracer. It may be used to pick out
+modify the behavior of the build tracer. It may be used to pick out
 compiler processes that run as part of the build command, and trigger
 the execution of other tools. The extractors will provide default tracer
 configuration files that should work in most situations.
@@ -311,7 +317,7 @@ configuration files that should work in most situations.
 
 \[Advanced] The directory in which the specified command should be
 executed. If this argument is not provided, the command is executed in
-the value of `--source-root` passed to [codeql database create](/code-security/codeql-cli/codeql-cli-manual/database-create), if one exists. If no `--source-root` argument is provided, the command is executed in the
+the value of `--source-root` passed to codeql database create, if one exists. If no `--source-root` argument is provided, the command is executed in the
 current working directory.
 
 #### `--no-run-unnecessary-builds`
@@ -336,7 +342,7 @@ be any string that does not contain a newline.
 
 You can use this command-line option repeatedly to set multiple
 extractor options. If you provide multiple values for the same extractor
-option, the behaviour depends on the type that the extractor option
+option, the behavior depends on the type that the extractor option
 expects. String options will use the last value provided. Array options
 will use all the values provided, in order. Extractor options specified
 using this command-line option are processed after extractor options
@@ -362,7 +368,7 @@ string and array options are map entries with string and array values.
 
 Extractor option bundle files are read in the order they are specified.
 If different extractor option bundle files specify the same extractor
-option, the behaviour depends on the type that the extractor option
+option, the behavior depends on the type that the extractor option
 expects. String options will use the last value provided. Array options
 will use all the values provided, in order. Extractor options specified
 using this command-line option are processed before extractor options

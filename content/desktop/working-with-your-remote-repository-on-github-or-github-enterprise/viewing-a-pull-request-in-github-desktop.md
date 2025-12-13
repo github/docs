@@ -8,7 +8,9 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/viewing-a-pull-request-in-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-a-pull-request-in-github-desktop
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About pull requests in {% data variables.product.prodname_desktop %}
@@ -39,7 +41,7 @@ You cannot comment on a pull request from {% data variables.product.prodname_des
 
 {% data reusables.repositories.sidebar-pr %}
 1. In the list of pull requests, click the pull request that you would like to open in {% data variables.product.prodname_desktop %}.
-1. To the right of the title of the pull request, click **{% octicon "code" aria-hidden="true" %} Code**, then, on the **Local** tab, click **Checkout with GitHub Desktop**.
+1. To the right of the title of the pull request, click **{% octicon "code" aria-hidden="true" aria-label="code" %} Code**, then, on the **Local** tab, click **Checkout with GitHub Desktop**.
 
    ![Screenshot of a pull request on GitHub. The "Code" dropdown menu is expanded, and the "Checkout with GitHub Desktop" button is outlined in orange.](/assets/images/help/desktop/open-pr-in-desktop-button.png)
 

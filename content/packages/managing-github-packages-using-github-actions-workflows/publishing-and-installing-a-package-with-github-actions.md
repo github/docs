@@ -6,6 +6,8 @@ redirect_from:
   - /github/managing-packages-with-github-packages/using-github-packages-with-github-actions
   - /packages/using-github-packages-with-your-projects-ecosystem/using-github-packages-with-github-actions
   - /packages/guides/using-github-packages-with-github-actions
+  - /actions/use-cases-and-examples/publishing-packages/about-packaging-with-github-actions
+  - /actions/concepts/use-cases/about-packaging-with-github-actions
 versions:
   fpt: '*'
   ghes: '*'
@@ -32,7 +34,7 @@ Some {% data variables.product.prodname_registry %} registries support granular 
 
 Some {% data variables.product.prodname_registry %} registries only support repository-scoped permissions, and do not support granular permissions. For a list of these registries, see [AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages).
 
-If you want your workflow to access a {% data variables.product.prodname_registry %} registry that does not support granular permissions, then we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %}. You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication).
+If you want your workflow to access a {% data variables.product.prodname_registry %} registry that does not support granular permissions, then we recommend using the `GITHUB_TOKEN` that {% data variables.product.github %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %}. You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication).
 
 You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} context. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication).
 
@@ -140,11 +142,11 @@ jobs:
 # This job publishes the package. `needs: run-npm-test` makes this job dependent on the `run-npm-test` job.
   build-and-push-image:
     runs-on: ubuntu-latest
-    needs: run-npm-test {% ifversion ghes %}
+    needs: run-npm-test 
     # Sets the permissions granted to the `GITHUB_TOKEN` for the actions in this job.
     permissions:
       contents: read
-      packages: write {% endif %}
+      packages: write 
       #
     steps:
       - name: Checkout

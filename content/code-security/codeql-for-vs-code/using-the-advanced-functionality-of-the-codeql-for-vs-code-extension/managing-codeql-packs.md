@@ -6,7 +6,7 @@ versions:
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -56,12 +56,8 @@ For more information about creating and editing {% data variables.product.prodna
 
    * Otherwise, you will see the definition stored in your package cache, where downloaded dependencies are saved. The package cache is a shared location that is stored in your home directory by default.
 
-{% ifversion codeql-model-packs %}
-
 ## Working with {% data variables.product.prodname_codeql %} model packs
 
 {% data reusables.code-scanning.beta-model-packs %}
 
 {% data variables.product.prodname_codeql %} model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to include dependencies that are not supported by default. The {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %} includes a dedicated editor for creating and editing model packs. For information on using the model editor, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor).
-
-{% endif %}

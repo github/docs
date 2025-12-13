@@ -3,7 +3,9 @@ title: 'Adding items to your {% data variables.projects.project_v2 %}'
 shortTitle: Adding items
 intro: 'Learn how to add pull requests, issues, and draft issues to your projects individually or in bulk.'
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Projects
@@ -11,7 +13,7 @@ allowTitleToDifferFromFilename: true
 ---
 
 > [!NOTE]
-> A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. To learn more about automatically archiving items when they meet specific criteria, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically).
+> A project can contain a maximum of{% ifversion projects-single-limit %} {% data variables.projects.item_limit %} items across both active views and the archive page{% else %} {% data variables.projects.legacy_item_limit %} items and {% data variables.projects.legacy_archived_item_limit %} archived items{% endif %}. To learn more about automatically archiving items when they meet specific criteria, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically).
 
 ## Adding issues and pull requests to a project
 
@@ -26,11 +28,7 @@ When you add an issue or pull request to your project, an event will be added to
 
 {% endif %}
 
-{% ifversion projects-v2-bulk-table-editing %}
-
 For more information about making bulk changes to your items after adding them, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/editing-items-in-your-project).
-
-{% endif %}
 
 ### Automatically adding issues and pull requests
 
@@ -55,7 +53,7 @@ If you know the issue or pull request number or if you know part of the title, y
 
 You can add multiple issues and pull requests from your project and use filters, such as `label:bug`, to narrow down your search.
 
-1. In the bottom row of the project, click {% octicon "plus" aria-hidden="true" %}.
+1. In the bottom row of the project, click {% octicon "plus" aria-hidden="true" aria-label="plus" %}.
    ![Screenshot showing the bottom row of a table view. The "+" button is highlighted with an orange outline.](/assets/images/help/projects-v2/omnibar-add.png)
 1. Click **Add item from repository**.
 {% data reusables.projects.bulk-add %}
@@ -95,15 +93,11 @@ You can use the command palette when viewing your project to quickly add items.
 1. Start typing "Add items" and press <kbd>Return</kbd>.
 {% data reusables.projects.bulk-add %}
 
-{% ifversion projects-v2-create-issue-modal %}
-
 ## Creating issues
 
 {% data reusables.projects.about-issue-modal %}
 
 {% data reusables.projects.create-issue-modal %}
-
-{% endif %}
 
 ## Creating draft issues
 

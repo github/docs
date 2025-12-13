@@ -77,7 +77,13 @@ If you select **Request user authorization (OAuth) during installation**, you wi
 
 You can change the access permissions that are granted to your {% data variables.product.prodname_github_app %} using the following steps.
 
-When you change the **repository** or **organization** permissions of an app, each account where the app is installed will need to approve the new permissions. When you change the **account** permissions of an app, each user that has authorized the app will need to approve the permission changes. In both cases, {% data variables.product.prodname_dotcom %} will send an email to each organization owner or user, notifying them of the request to update the app's permissions. Updated permissions won't take effect on an installation or user authorization until the new permissions are approved. You can use the [installation webhook](/webhooks-and-events/webhooks/webhook-events-and-payloads?actionType=new_permissions_accepted#installation) to find out when people accept new permissions for your app.
+When you add new **repository**{% ifversion enterprise-installed-apps %}, **organization**, or **enterprise**{% else %} or **organization**{% endif %} permissions for an app, each account where the app is installed will need to approve the new permissions. When you add **account** permissions for an app, each user that has authorized the app will need to approve the permission changes. In both cases, {% data variables.product.prodname_dotcom %} will send an email to each organization owner or user, notifying them of the request to update the app's permissions. Updated permissions won't take effect on an installation or user authorization until the new permissions are approved. You can use the [installation webhook](/webhooks-and-events/webhooks/webhook-events-and-payloads?actionType=new_permissions_accepted#installation) to find out when people accept new permissions for your app.
+
+If you remove permissions or webhooks from your {% data variables.product.prodname_github_app %}, the changes will take effect immediately. If you remove permissions that were previously granted to your app, the app will no longer be able to access those resources.
+
+{% ifversion enterprise-apps-public-beta %}If you change the permissions of an app owned by an enterprise, the changes will take effect immediately for all installations of the app within the enterprise{% ifversion enterprise-app-manager %} if you are an enterprise owner. If you are an app manager, the changes will only be automatically accepted in organizations where you are an organization owner{% endif %}.
+
+Updates cannot be automatically accepted if you add repository permissions to an app for the first time. In that case, each organization owner will need to approve the update so that they can choose which repositories the app has access to.{% endif %}
 
 Changing the permissions of an app may also change the webhooks that your app can subscribe to and the actions that your app can take with the API. See [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app).
 
@@ -114,7 +120,7 @@ You can change the webhook events that a {% data variables.product.prodname_gith
 You can change the visibility settings of your {% data variables.product.prodname_github_app %} to control who can install it. Public apps cannot be made private if they're installed on other accounts. See [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/making-a-github-app-public-or-private).
 
 {% ifversion enterprise-apps-public-beta %}
-You can't change the visibility of an {% data variables.product.prodname_github_app %} owned by an enterprise. {% data variables.product.prodname_github_apps %} owned by an enterprise can only be installed on organizations within the enterprise.
+You can't change the visibility of an {% data variables.product.prodname_github_app %} owned by an enterprise. {% data variables.product.prodname_github_apps %} owned by an enterprise can only be installed on organizations within the enterprise{% ifversion enterprise-installed-apps %} or the enterprise itself{% endif %}.
 {% endif %}
 
 {% data reusables.apps.navigate-to-app-settings-this-article %}

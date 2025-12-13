@@ -1,6 +1,6 @@
 ---
 title: Creating and deleting branches within your repository
-intro: 'You can create or delete branches directly on {% data variables.product.product_name %}.'
+intro: 'You can create or delete branches directly on {% data variables.product.github %}.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository
   - /articles/deleting-branches-in-a-pull-request
@@ -17,7 +17,7 @@ shortTitle: Create & delete branches
 
 ## Creating a branch
 
-You can create a branch in different ways on {% data variables.product.product_name %}.
+You can create a branch in different ways on {% data variables.product.github %}.
 
 > [!NOTE]
 > You can only create a branch in a repository to which you have push access.
@@ -38,23 +38,10 @@ You can create a branch in different ways on {% data variables.product.product_n
 ### Creating a branch using the branch dropdown
 
 {% data reusables.repositories.navigate-to-repo %}
-{% ifversion code-view-ui %}
-1. Select the {% octicon "git-branch" aria-hidden="true" %} branch dropdown menu, in the file tree view or at the top of the integrated file editor.
+1. Select the {% octicon "git-branch" aria-hidden="true" aria-label="git-branch" %} branch dropdown menu, in the file tree view or at the top of the integrated file editor.
 
    ![Screenshot of the file tree view for a repository. A dropdown menu for branches is outlined in dark orange.](/assets/images/help/branches/file-tree-view-branch-dropdown.png)
-{% else %}
-1. Select the branch selector dropdown menu.
 
-{% ifversion global-nav-update %}
-
-   ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown-global-nav-update.png)
-
-{% else %}
-
-   ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown.png)
-
-{% endif %}
-{% endif %}
 1. Optionally, if you want to create the new branch from a branch other than the default branch of the repository, click another branch, then select the branch dropdown menu again.
 1. In the "Find or create a branch..." text field, type a unique name for your new branch, then click **Create branch**.
 

@@ -47,7 +47,7 @@ Most programming languages have a package that can generate a JWT. In all cases,
 > [!NOTE]
 > You must run `gem install jwt` to install the `jwt` package in order to use this script.
 
-In the following example, replace `YOUR_PATH_TO_PEM` with the file path where your private key is stored. Replace `YOUR_APP_ID` with the ID of your app. Make sure to enclose the values for `YOUR_PATH_TO_PEM` and `YOUR_APP_ID` in double quotes.
+In the following example, replace `YOUR_PATH_TO_PEM` with the file path where your private key is stored. Replace {% ifversion client-id-for-app %}`YOUR_CLIENT_ID`{% else %}`YOUR_APP_ID`{% endif %} with the ID of your app. Make sure to enclose the values for `YOUR_PATH_TO_PEM` and {% ifversion client-id-for-app %}`YOUR_CLIENT_ID`{% else %}`YOUR_APP_ID`{% endif %} in double quotes.
 
 ```ruby
 require 'openssl'
@@ -77,7 +77,7 @@ puts jwt
 ### Example: Using Python to generate a JWT
 
 > [!NOTE]
-> You must run `pip install PyJWT` to install the `PyJWT` package in order to use this script.
+> You must run `pip install PyJWT cryptography` to install the `PyJWT` and the `cryptography` packages in order to use this script.
 
 ```python copy
 #!/usr/bin/env python3
@@ -121,6 +121,7 @@ payload = {
     'iss': client_id{% else %}
     # {% data variables.product.prodname_github_app %}'s app ID
     'iss': app_id{% endif %}
+
 }
 
 # Create JWT
@@ -139,7 +140,6 @@ This script will prompt you for the file path where your private key is stored a
 ```bash copy
 #!/usr/bin/env bash
 
-set -o pipefail
 {% ifversion client-id-for-app %}
 client_id=$1 # Client ID as first argument
 {% else %}
@@ -202,7 +202,7 @@ $header = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((Conve
 $payload = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((ConvertTo-Json -InputObject @{
   iat = [System.DateTimeOffset]::UtcNow.AddSeconds(-10).ToUnixTimeSeconds()
   exp = [System.DateTimeOffset]::UtcNow.AddMinutes(10).ToUnixTimeSeconds()
-  {% ifversion client-id-for-app %} iss = $client_id {% else %} iss = $app_id {% endif %}
+  {% ifversion client-id-for-app %}iss = $client_id{% else %}iss = $app_id{% endif %}
 }))).TrimEnd('=').Replace('+', '-').Replace('/', '_');
 
 $rsa = [System.Security.Cryptography.RSA]::Create()

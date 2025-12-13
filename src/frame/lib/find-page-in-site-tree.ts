@@ -1,5 +1,5 @@
 import type { Tree } from '@/types'
-import { getLanguageCode } from './patterns.js'
+import { getLanguageCode } from './patterns'
 
 // This module recursively searches a given part of the site tree by iterating through child
 // pages and finding a path that matches the original path provided.

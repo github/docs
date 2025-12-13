@@ -113,6 +113,13 @@ If your instance has subdomain isolation disabled:
 
 ## Publishing a package
 
+{% ifversion packages-nuget-v2 %}
+
+> [!NOTE]
+> The `nupkg` archive for a NuGet package version must be smaller than 2.147 GB in size.
+
+{% endif %}
+
 You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a _nuget.config_ file, using the `--api-key` command line option with your {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %} or by using command that can be run directly from the command line using the `dotnet` command-line interface (CLI).
 
 Replace `OWNER` with your username or company name, and `YOUR_GITHUB_PAT` with your {% data variables.product.pat_generic %}.

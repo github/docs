@@ -1,5 +1,5 @@
-import { useProductGuidesContext } from 'src/landings/components/ProductGuidesContext'
-import { Lead } from 'src/frame/components/ui/Lead'
+import { useProductGuidesContext } from '@/landings/components/ProductGuidesContext'
+import { Lead } from '@/frame/components/ui/Lead'
 
 export function GuidesHero() {
   const { title, intro } = useProductGuidesContext()

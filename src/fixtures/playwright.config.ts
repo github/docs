@@ -113,7 +113,7 @@ export default defineConfig({
     {
       name: 'Google Chrome',
       use: {
-        channel: 'chrome',
+        channel: 'chromium',
         viewport: {
           width: 1400,
           height: 720,

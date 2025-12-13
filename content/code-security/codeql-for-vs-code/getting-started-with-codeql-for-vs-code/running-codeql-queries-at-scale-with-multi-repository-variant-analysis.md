@@ -4,7 +4,7 @@ shortTitle: Queries at scale
 versions:
     feature: codeql-vs-code-mrva
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -178,3 +178,21 @@ You can add a maximum of 1,000 repositories to a custom list per search.
 You can view the progress of your search in the bottom right corner of the application in a box with the text `Searching for repositories...`. If you click **Cancel**, no repositories will be added to your list. Once complete, you will see the resulting repositories appear in the dropdown under your custom list in the Variant Analysis Repositories view.
 
 Some of the resulting repositories will not have {% data variables.product.prodname_codeql %} databases and some may not allow access by the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %}. When you run an analysis on the list, the "Variant Analysis Results" view will show you which repositories were analyzed, which denied access, and which had no {% data variables.product.prodname_codeql %} database.
+
+## Running {% data variables.product.prodname_codeql %} queries with multi-repository variant analysis on self-hosted runners
+
+To run {% data variables.product.prodname_codeql %} queries with multi-repository variant analysis on self-hosted runners, you first need to ensure that you have added a self-hosted runner to your controller repository, or ensure that the controller repository has access to an organization- or enterprise-level runner.
+
+You then need to add a new Actions repository variable in your controller repository with the name `MRVA_RUNNER_OS` containing a JSON-formatted list of the labels of the self-hosted runner you wish to use. For example:
+
+```json
+["self-hosted", "macOS", "ARM64"]
+```
+
+> [!NOTE]
+> You must set the `MRVA_RUNNER_OS` variable under the Actions repository variables in your controller repository's settings, and not an environment variable or Actions secret under your Actions settings or in your workflow's `.yml` file.
+> See [AUTOTITLE](/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables#creating-configuration-variables-for-a-repository).
+
+For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#changing-which-repositories-can-access-a-runner-group).
+
+When you run a query with multi-repository variant analysis on a self-hosted runner, the analysis is run entirely on the self-hosted runner. You don't need to create any new workflows, but you must specify which repository the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension should use as a controller repository. As the analysis of each repository completes, the results are sent to {% data variables.product.prodname_vscode_shortname %} for you to view.
