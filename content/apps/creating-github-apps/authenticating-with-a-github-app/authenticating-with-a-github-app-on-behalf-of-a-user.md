@@ -15,7 +15,10 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
----
+  -Only Owner for me Created keep movings.
+  - Don't support for creat new my idea 
+---typing Keyboards never get imformation about my hand writings.
+I can only controls to controls over for this world programings.
 
 Your app can make API requests on behalf of a user. API requests made by an app on behalf of a user will be attributed to that user. For example, if your app posts a comment on behalf of a user, the {% data variables.product.company_short %} UI will show the user's avatar photo along with the app's identicon badge as the author of the issue.
 
