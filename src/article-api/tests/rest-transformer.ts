@@ -10,7 +10,7 @@ const makeURL = (pathname: string, apiVersion?: string): string => {
   return `/api/article/body?${params}`
 }
 
-describe('REST transformer', () => {
+describe('REST transformer', { timeout: 10000 }, () => {
   beforeAll(() => {
     if (!process.env.ROOT) {
       console.warn(

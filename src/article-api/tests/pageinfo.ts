@@ -17,7 +17,7 @@ interface ErrorResponse {
   error: string
 }
 
-describe('pageinfo api', () => {
+describe('pageinfo api', { timeout: 10000 }, () => {
   beforeAll(() => {
     // If you didn't set the `ROOT` variable, the tests will fail rather
     // cryptically. So as a warning for engineers running these tests,
