@@ -4200,6 +4200,15 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: true
+- provider: WSO2
+  supportedSecret: WSO2 Choreo Personal Access Token
+  secretType: wso2_choreo_personal_access_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: xAI
   supportedSecret: xAI API Key
   secretType: xai_api_key
