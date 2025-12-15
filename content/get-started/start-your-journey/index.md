@@ -1,6 +1,6 @@
 ---
 title: Start your journey
-intro: 'Learn the basics of {% data variables.product.github %}.'
+intro: "Brand new to {% data variables.product.github %}? Learn the basics here."
 versions:
   fpt: '*'
   ghes: '*'
@@ -22,4 +22,18 @@ children:
 redirect_from:
   - /github/getting-started-with-github/quickstart
   - /get-started/quickstart
+layout: journey-landing
+journeyTracks:
+  - id: 'learn_the_basics'
+    title: 'Get started'
+    description: 'Master the fundamentals of {% data variables.product.github %} and Git.'
+    guides:
+      - '/get-started/start-your-journey/about-github-and-git'
+      - '/get-started/start-your-journey/creating-an-account-on-github'
+      - '/get-started/start-your-journey/hello-world'
+      - '/get-started/start-your-journey/setting-up-your-profile'
+      - '/get-started/start-your-journey/finding-inspiration-on-github'
+      - '/get-started/start-your-journey/downloading-files-from-github'
+      - '/get-started/start-your-journey/uploading-a-project-to-github'
+      - '/get-started/start-your-journey/git-and-github-learning-resources'
 ---

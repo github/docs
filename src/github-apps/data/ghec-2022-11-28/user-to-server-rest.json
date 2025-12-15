@@ -2419,6 +2419,30 @@
       "requestPath": "/orgs/{org}/copilot/metrics"
     },
     {
+      "slug": "get-copilot-organization-usage-metrics-for-a-specific-day",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-1-day"
+    },
+    {
+      "slug": "get-copilot-organization-usage-metrics",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-28-day/latest"
+    },
+    {
+      "slug": "get-copilot-organization-users-usage-metrics-for-a-specific-day",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/users-1-day"
+    },
+    {
+      "slug": "get-copilot-organization-users-usage-metrics",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/users-28-day/latest"
+    },
+    {
       "slug": "get-copilot-seat-assignment-details-for-a-user",
       "subcategory": "copilot-user-management",
       "verb": "get",
@@ -2519,6 +2543,12 @@
       "requestPath": "/orgs/{org}/dependabot/secrets/{secret_name}/repositories/{repository_id}"
     },
     {
+      "slug": "list-dismissal-requests-for-dependabot-alerts-for-an-organization",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/dismissal-requests/dependabot"
+    },
+    {
       "slug": "list-dependabot-alerts-for-a-repository",
       "subcategory": "alerts",
       "verb": "get",
@@ -2565,6 +2595,36 @@
       "subcategory": "secrets",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/dependabot/secrets/{secret_name}"
+    },
+    {
+      "slug": "list-dismissal-requests-for-dependabot-alerts-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot"
+    },
+    {
+      "slug": "get-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}"
+    },
+    {
+      "slug": "create-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}"
+    },
+    {
+      "slug": "review-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}"
+    },
+    {
+      "slug": "cancel-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}"
     }
   ],
   "dependency-graph": [
@@ -5378,13 +5438,13 @@
     },
     {
       "slug": "create-an-attestation",
-      "subcategory": "repos",
+      "subcategory": "attestations",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/attestations"
     },
     {
       "slug": "list-attestations",
-      "subcategory": "repos",
+      "subcategory": "attestations",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/attestations/{subject_digest}"
     },

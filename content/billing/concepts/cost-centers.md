@@ -32,7 +32,7 @@ For more details, see [AUTOTITLE](/billing/reference/cost-center-allocation).
 ## Cost center limitations
 
 * The maximum number of active cost centers per enterprise is 250.
-* The maximum number of resources per cost center is 10,000.
+* The maximum number of resources per cost center is 25,000.
 * A maximum of 50 resources can be added to or removed from a cost center at a time.
 * Azure subscriptions can only be added to or removed from cost centers through the UI.
 * Outside collaborators can only be added to cost centers via the cost center API. For more information, see [AUTOTITLE](/billing/tutorials/control-costs-at-scale#add-resources-to-the-cost-center).

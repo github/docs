@@ -15,4 +15,8 @@ shortTitle: OpenTelemetry metrics
 
 {% data reusables.enterprise.opentelemetry-migration %}
 
+{% ifversion ghes = 3.18 %}
+
 {% data reusables.enterprise.opentelemetry-preview %}
+
+{% endif %}

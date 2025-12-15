@@ -33,6 +33,7 @@ journeyTracks:
       - '/enterprise-onboarding/setting-up-organizations-and-teams/about-teams-in-an-enterprise'
       - '/enterprise-onboarding/setting-up-organizations-and-teams/creating-teams'
       - '/enterprise-onboarding/setting-up-organizations-and-teams/assigning-roles-to-teams-and-users'
+      - '/enterprise-onboarding/setting-up-organizations-and-teams/use-innersource'
   - id: 'support_for_your_enterprise'
     title: 'Creating a support model for your enterprise'
     description: 'Find out how to get help and choose who will be able to contact Support.'

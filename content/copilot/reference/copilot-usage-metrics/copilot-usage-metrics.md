@@ -17,6 +17,9 @@ topics:
 
 The {% data variables.product.prodname_copilot_short %} usage metrics dashboard and APIs display and export data using a consistent set of fields. This reference lists all available metrics and describes how to interpret their values in both dashboard visuals and NDJSON or API exports. To retrieve this data programmatically, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics).
 
+* The {% data variables.product.prodname_copilot_short %} usage metrics dashboard reports data at the **enterprise** level.
+* The {% data variables.product.prodname_copilot_short %} usage metrics APIs support **enterprise-, organization-, and user-level** records.
+
 For guidance on how to read and interpret these metrics, see [AUTOTITLE](/copilot/concepts/copilot-metrics).
 
 ## {% data variables.product.prodname_copilot_short %} usage dashboard metrics
@@ -60,14 +63,15 @@ These metrics appear in the code generation dashboard and provide a breakdown of
 
 ## API and export fields
 
-These fields appear in the exported NDJSON reports and in the {% data variables.product.prodname_copilot_short %} usage metrics APIs. They provide granular daily records for each user in the enterprise.
+These fields appear in the exported NDJSON reports and in the {% data variables.product.prodname_copilot_short %} usage metrics APIs. They provide granular daily records for each user included in the requested enterprise or organization scope.
 
 | Field | Description |
 |:--|:--|
 | `agent_edit` | A dedicated bucket in the API and reports. Captures lines added and deleted directly by {% data variables.product.prodname_copilot_short %} Agent and Edit mode.<br>These are not included in suggested metrics, since agent edits don’t follow a simple suggestion to acceptance flow. |
 | `report_start_day` / `report_end_day` | Start and end dates for the 28-day reporting period. |
 | `day` | Calendar day this record represents. |
-| `enterprise_id` | Unique ID of the enterprise or organization. |
+| `enterprise_id` | Unique ID of the enterprise. |
+| `organization_id` (API only) | Unique ID of the organization. |
 | `user_id` / `user_login` | Unique identifier and {% data variables.product.github %} username for the user. |
 | `user_initiated_interaction_count` | Number of explicit prompts sent to {% data variables.product.prodname_copilot_short %}.<br><br> Only counts messages or prompts actively sent to the model. Does **not** include opening the chat panel, switching modes (for example, Ask, Edit, or Agent), using keyboard shortcuts to open the inline UI, or making configuration changes. |
 | `code_generation_activity_count` | Number of distinct {% data variables.product.prodname_copilot_short %} output events generated. <br><br> **Includes:** All generated content, including comments and docstrings. <br> **Multiple blocks:** Each distinct code block from a single user prompt counts as a separate generation. <br> **Note:** This metric is not directly comparable to `user_initiated_interaction_count`, since one prompt can produce multiple generations. |

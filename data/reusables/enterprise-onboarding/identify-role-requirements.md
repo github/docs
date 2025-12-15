@@ -59,3 +59,9 @@ Not all tasks are best-suited to humans. Identify frequent, time-consuming, and 
 * They have their own identity, which you can trace in audit logs.
 
 For more information about what apps can do, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps#understanding-what-type-of-github-app-to-build).
+
+## 6. Assign tasks to agents
+
+Another way to delegate frequent, time-consuming tasks is to assign work to {% data variables.copilot.copilot_coding_agent %}. You can define custom agents for specific roles in your enterprise. Custom agents are created using Markdown files called "agent profiles," which define the instructions and tools the agent needs to perform a task. For example, you could create a custom agent for writing README files or generating unit tests.
+
+For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents).
