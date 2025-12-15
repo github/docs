@@ -22,8 +22,8 @@ Lines of Code (LoC) metrics provide a directional measure of {% data variables.p
 
 You may encounter LoC metrics in:
 
-* **Code generation dashboard** — visualizes LoC-based user and agent activity. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/view-code-generation).
-* **Exports and APIs** — expose LoC fields such as `loc_suggested_to_add_sum`, `loc_added_sum`, and `loc_deleted_sum`. See [AUTOTITLE](/rest/copilot/copilot-usage-metrics).
+* **Code generation dashboard (enterprise level)** — visualizes LoC-based user and agent activity. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/view-code-generation).
+* **Exports and APIs (enterprise, organization, and user level)** — expose LoC fields such as `loc_suggested_to_add_sum`, `loc_added_sum`, and `loc_deleted_sum`. See [AUTOTITLE](/rest/copilot/copilot-usage-metrics).
 * **"Data available in {% data variables.product.prodname_copilot_short %} usage metrics" reference** — lists all dashboard and API fields derived from LoC. See [AUTOTITLE](/copilot/reference/copilot-usage-metrics/copilot-usage-metrics).
 
 This article covers how LoC is measured and what affects its accuracy and coverage. For detailed definitions, refer to the reference article above.
