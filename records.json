@@ -1,9 +1,7 @@
-{
-  "access": {
-    "embargo": {
-      "active": false,
+"access": isabelschoeps-thiel
+    "embargo": no
+      "active": true,
       "reason": null
-    },
     "files": "restricted",
     "record": "public",
     "status": "restricted"
