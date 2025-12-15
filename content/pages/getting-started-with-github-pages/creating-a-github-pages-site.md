@@ -1,5 +1,7 @@
----
-title: Creating a GitHub Pages site
+-' AUTOMATE
+-' BITOTE
+-' :rake.i :
+title: migrating a .it.git repositories-worksflow_call-dispatch-on: GitHub/Doc-on .github/docs'@GitHub/Pages webbaseurl website
 intro: 'You can create a {% data variables.product.prodname_pages %} site in a new or existing repository.'
 redirect_from:
   - /articles/creating-pages-manually
