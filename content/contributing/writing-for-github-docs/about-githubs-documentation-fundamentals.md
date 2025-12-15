@@ -1,3 +1,4 @@
+
 ---
 title: About GitHub's documentation fundamentals
 shortTitle: Documentation fundamentals
