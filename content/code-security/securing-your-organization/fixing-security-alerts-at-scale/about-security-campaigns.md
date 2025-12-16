@@ -70,27 +70,12 @@ The creation workflow is the same for all campaigns, but you will notice a few d
 
 ## Assigning alerts{% ifversion security-campaigns-assign-to-cca %} to users and {% data variables.copilot.copilot_coding_agent %}{% endif %}
 
-{% ifversion code-secret-alert-assignees-ga %}{% elsif ghes = 3.20 %}
-
 >[!NOTE]
 > The option to assign {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %} alerts is currently in public preview and is subject to change.
-
-{% endif %}
 
 You can assign a {% data variables.product.prodname_code_scanning %} or {% data variables.product.prodname_secret_scanning %} alert to any user who has **write** access for the repository.
 
 If the assignee for a {% data variables.product.prodname_secret_scanning %} alert **cannot view the alert list**, their permissions are temporarily raised for that alert. Any additional permissions are revoked when they are unassigned from the alert.
-
-{% ifversion code-secret-alert-assignees-ga %}
-
-{% data variables.product.github %} notifies users:
-
-* When they are assigned to an alert
-* When that alert is dismissed
-
-For {% data variables.product.prodname_code_scanning %}, you can also perform some of these operations programmatically using the REST API, such as assigning or unassigning users to alerts, and filtering alerts by assignee. For more information, see [AUTOTITLE](/rest/reference/code-scanning) in the REST API documentation. Additionally, webhooks are available to notify you when an alert is assigned or an assignment is removed.
-
-{% endif %}
 
 {% ifversion security-campaigns-assign-to-cca %}
 
