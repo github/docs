@@ -26,6 +26,7 @@ children:
   - /review-ai-generated-code
   - /learn-a-new-language
   - /modernize-legacy-code
+  - /modernize-java-applications
   - /migrate-a-project
   - /plan-a-project
   - /vibe-coding
