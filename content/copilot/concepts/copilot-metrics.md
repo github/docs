@@ -51,10 +51,14 @@ License and seat management data are not included in {% data variables.product.p
 
 ## How are metrics attributed across organizations?
 
+> [!NOTE]
+> You can grant **organization-only visibility** into {% data variables.product.prodname_copilot_short %} usage metrics without providing enterprise-level access.
+>
+> You can do this by creating an organization custom role that includes the "View organization {% data variables.product.prodname_copilot_short %} metrics" permission, and assigning that role to users who need visibility into metrics for a single organization. See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).
+
 Organization-level {% data variables.product.prodname_copilot_short %} usage metrics are based on organization membership, not on where individual actions occur. To appear in an enterprise’s metrics, a user must have an active {% data variables.product.prodname_copilot_short %} seat assigned within that enterprise (in any organization that belongs to the enterprise). As a result, a single user’s usage may appear in multiple organization dashboards, while that same user is counted only once in the enterprise-level total. Organization-level analytics are intended for visibility into adoption and usage within an organization and are not designed to be directly compared to enterprise-level totals.
 
-Organization-level {% data variables.product.prodname_copilot_short %} analytics are available starting December 12, 2025. This is the first date for which organization-level reports are provided. 
-
+Organization-level {% data variables.product.prodname_copilot_short %} analytics are available starting December 12, 2025. This is the first date for which organization-level reports are provided.
 
 Once a user has a seat in the enterprise, their usage is attributed to **every organization they belong to**, regardless of where the seat is assigned.
 
