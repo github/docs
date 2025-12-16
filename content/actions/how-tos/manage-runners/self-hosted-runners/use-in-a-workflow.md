@@ -15,6 +15,8 @@ versions:
   ghec: '*'
 ---
 
+{% data reusables.actions.self-hosted-price-note %}
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% ifversion repository-actions-runners %}
