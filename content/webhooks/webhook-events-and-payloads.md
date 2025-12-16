@@ -44,6 +44,15 @@ HTTP POST payloads that are delivered to your webhook's configured URL endpoint 
 * `X-Hub-Signature-256`: This header is sent if the webhook is configured with a `secret`. This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the `secret` as the HMAC `key`. For more information, see [AUTOTITLE](/webhooks/using-webhooks/securing-your-webhooks).
 * `User-Agent`: This header will always have the prefix `GitHub-Hookshot/`.
 * `X-GitHub-Hook-Installation-Target-Type`: The type of resource where the webhook was created.
+     Possible values:
+
+  | Value | Description |
+  | ----- | ----------- |
+  | `repository` | Webhooks created at the repository level |
+  | `organization` | Webhooks created at the organization level |
+  | `app` | Webhooks created by GitHub Apps |
+
+  This header can be used to distinguish between repository, organization, and GitHub App webhooks without relying solely on the webhook payload.
 * `X-GitHub-Hook-Installation-Target-ID`: The unique identifier of the resource where the webhook was created.
 
 To see what each header might look like in a webhook payload, see [Example webhook delivery](#example-webhook-delivery).
