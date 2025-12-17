@@ -37,9 +37,28 @@ This article provides an overview of {% data variables.copilot.copilot_code-revi
 * Xcode
 * JetBrains IDEs
 
-{% data variables.copilot.copilot_code-review_short %} is a premium feature, available with the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} plans. See [Copilot plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text).
+{% data variables.copilot.copilot_code-review_short %} is a premium feature, available with the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} plans. See [{% data variables.product.prodname_copilot_short %} plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text).
 
 If you receive {% data variables.product.prodname_copilot_short %} from an organization then, to be able to request a pull request review from {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_mobile %}, the **{% data variables.copilot.copilot_code-review_short %}** option must be enabled in the {% data variables.product.prodname_copilot_short %} policy settings for the organization. See [AUTOTITLE](/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization).
+
+## {% data variables.copilot.copilot_code-review_short %} without a {% data variables.product.prodname_copilot_short %} license
+
+{% data variables.copilot.copilot_code-review_short %} is also available on {% data variables.product.prodname_dotcom_the_website %} for organization members **without a {% data variables.product.prodname_copilot_short %} license**, when enabled by an enterprise administrator or organization owner. This capability is available to organizations on the **{% data variables.copilot.copilot_business_short %}** and **{% data variables.copilot.copilot_enterprise_short %}** plans.
+
+To allow organization members without a {% data variables.product.prodname_copilot_short %} license to use {% data variables.copilot.copilot_code-review_short %}, you must enable two policies:
+
+1. **Premium request paid usage**. This must be enabled first. It allows the enterprise or organization to incur charges for {% data variables.copilot.copilot_code-review_short %} premium request usage.
+1. **Allow members without a {% data variables.product.prodname_copilot_short %} license to use {% data variables.copilot.copilot_code-review_short %} in {% data variables.product.prodname_dotcom_the_website %}**. This sub-policy enables {% data variables.copilot.copilot_code-review_short %} for users without a license.
+
+   * This policy is **disabled by default**.
+   * Once this policy is set at the enterprise level, it becomes **visible (but not editable)** at the organization level.
+   * The policy is **most restrictive**, meaning {% data variables.copilot.copilot_code-review_short %} is only available in repositories where the policy is explicitly enabled.
+
+When both policies are enabled, users without a {% data variables.product.prodname_copilot_short %} license can request a {% data variables.copilot.copilot_code-review_short %} review on their pull requests in the organization’s repositories.
+
+In addition, in repositories where automatic code review is enabled, {% data variables.product.prodname_copilot_short %} automatically reviews all pull requests, regardless of whether the author has a {% data variables.product.prodname_copilot_short %} license.
+
+{% data variables.copilot.copilot_code-review_short %} for users without a license is **not available in IDEs** or in organizations that do not have these policies enabled.
 
 ## Excluded files
 
@@ -52,10 +71,11 @@ For more information, see [AUTOTITLE](/copilot/reference/review-excluded-files).
 > [!NOTE]
 >
 > * The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of this product.
-> * These tools are enabled automatically for {% data variables.copilot.copilot_pro %} or {% data variables.copilot.copilot_pro_plus %} plans.
-> * If you get a {% data variables.product.prodname_copilot_short %} subscription from an organization, you will only be able to participate in the {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website if an owner of your organization or enterprise has enabled **Copilot in GitHub.com > Opt in to preview features** in the **{% data variables.product.prodname_copilot %} policies** page of the organization or enterprise settings. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
+> * {% data variables.copilot.copilot_code-review_short %} has several new tools that are in {% data variables.release-phases.public_preview %} and subject to change.
 
-{% data variables.copilot.copilot_code-review_short %} has several new tools that are in {% data variables.release-phases.public_preview %} and subject to change.
+These new tools are enabled automatically for {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plans.
+
+If you get a {% data variables.product.prodname_copilot_short %} subscription from an organization, you will only be able to participate in the {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website if an owner of your organization or enterprise has enabled **{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %} > Opt in to preview features** in the **{% data variables.product.prodname_copilot %} policies** page of the organization or enterprise settings. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
 
 * **Full project context gathering** to provide more specific, accurate, and contextually aware code reviews.
 * **Support for static analysis tools like {% data variables.product.prodname_codeql %}, ESLint, and PMD** to deliver more high-signal, consistent findings for security and quality.
@@ -73,11 +93,17 @@ In the event that {% data variables.product.prodname_actions %} is unavailable o
 
 ## Code review monthly quota
 
-Each time {% data variables.product.prodname_copilot_short %} reviews a pull request, or reviews code in your IDE, your monthly quota of Copilot premium requests is reduced by one.
+Each time {% data variables.product.prodname_copilot_short %} reviews a pull request, or reviews code in your IDE, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one.
 
 If a repository is configured to automatically request a code review from {% data variables.product.prodname_copilot_short %} for all new pull requests, the premium request usage is applied to the quota of the pull request author. If a pull request is created by {% data variables.product.prodname_actions %} or by a bot, the usage will apply to the user who triggered the workflow (if identifiable), or to a designated billing owner.
 
 When you reach your monthly quota you will not be able to get a code review from {% data variables.product.prodname_copilot_short %} until your quota resets—unless you upgrade your {% data variables.product.prodname_copilot_short %} plan or enable additional premium requests.
+
+### Quota for users without a {% data variables.product.prodname_copilot_short %} license
+
+Users without a {% data variables.product.prodname_copilot_short %} license do not have a monthly premium request quota. When {% data variables.copilot.copilot_code-review_short %} is enabled for these users through the “Allow members without a {% data variables.product.prodname_copilot_short %} license to use {% data variables.copilot.copilot_code-review_short %} in {% data variables.product.prodname_dotcom_the_website %}” policy, any premium requests they generate—either by manually requesting a review or through automatic code review—are billed directly to the organization or enterprise as paid overage usage.
+
+Premium requests generated by users without a license are not attributed to any {% data variables.product.prodname_copilot_short %} plan quota and appear as overage usage in billing reports and premium request analytics. Users with a {% data variables.product.prodname_copilot_short %} license continue to consume premium requests from their assigned plan quota.
 
 ## Model usage
 
