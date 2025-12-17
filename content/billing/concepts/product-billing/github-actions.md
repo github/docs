@@ -106,9 +106,10 @@ The following amounts of time for standard {% data variables.product.github %}-h
 
 {% data reusables.billing.actions-included-quotas %}
 
-The use of standard {% data variables.product.github %}-hosted runners is free:
+Standard {% data variables.product.github %}-hosted or self-hosted runner usage **on public repositories will remain free**.
 
-* In public repositories
+The use of standard {% data variables.product.github %}-hosted runners is also free:
+
 * For {% data variables.product.prodname_pages %}
 * For {% data variables.product.prodname_dependabot %}
 * For the agentic features ({% data variables.release-phases.public_preview %}) in {% data variables.copilot.copilot_code-review %}

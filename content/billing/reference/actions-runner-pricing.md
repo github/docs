@@ -69,7 +69,7 @@ These runners will use minutes included in your quota to run workflows in privat
 | Windows 16-core       | `windows_16_core_arm` | $0.080            | $0.050        | -38% |
 | Windows 32-core       | `windows_32_core_arm` | $0.160            | $0.098        | -39% |
 | Windows 64-core       | `windows_64_core_arm` | $0.320            | $0.194        | -39% |
-| macOS 6-core (M1)     | `macos_xl`            | $0.160            | $0.102        | -36% |
+| macOS 5-core (M2 Pro) | `macos_xl`            | $0.160            | $0.102        | -36% |
 
 ## GPU-powered {% data variables.actions.hosted_runners %}
 
