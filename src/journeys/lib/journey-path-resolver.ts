@@ -68,6 +68,13 @@ type ContentContext = {
 
 // Cache for journey pages so we only filter all pages once
 let cachedJourneyPages: JourneyPage[] | null = null
+// Cache for guide paths to quickly check if a page is part of any journey
+let cachedGuidePaths: Set<string> | null = null
+let hasDynamicGuides = false
+
+function needsRendering(str: string): boolean {
+  return str.includes('{{') || str.includes('{%') || str.includes('[') || str.includes('<')
+}
 
 function getJourneyPages(pages: Pages): JourneyPage[] {
   if (!cachedJourneyPages) {
@@ -76,6 +83,27 @@ function getJourneyPages(pages: Pages): JourneyPage[] {
     ) as JourneyPage[]
   }
   return cachedJourneyPages
+}
+
+function getGuidePaths(pages: Pages): Set<string> {
+  if (!cachedGuidePaths) {
+    cachedGuidePaths = new Set()
+    const journeyPages = getJourneyPages(pages)
+    for (const page of journeyPages) {
+      if (!page.journeyTracks) continue
+      for (const track of page.journeyTracks) {
+        if (!track.guides) continue
+        for (const guide of track.guides) {
+          if (needsRendering(guide.href)) {
+            hasDynamicGuides = true
+          } else {
+            cachedGuidePaths.add(normalizeGuidePath(guide.href))
+          }
+        }
+      }
+    }
+  }
+  return cachedGuidePaths
 }
 
 function normalizeGuidePath(path: string): string {
@@ -133,6 +161,16 @@ export async function resolveJourneyContext(
 ): Promise<JourneyContext | null> {
   const normalizedPath = normalizeGuidePath(articlePath)
 
+  // Optimization: Fast path check
+  // If we are not forcing a specific journey page, check our global cache
+  if (!currentJourneyPage) {
+    const guidePaths = getGuidePaths(pages)
+    // If we have no dynamic guides and this path isn't in our known guides, return null early.
+    if (!hasDynamicGuides && !guidePaths.has(normalizedPath)) {
+      return null
+    }
+  }
+
   // Use the current journey page if provided, otherwise find all journey pages
   const journeyPages = currentJourneyPage ? [currentJourneyPage] : getJourneyPages(pages)
 
@@ -165,15 +203,17 @@ export async function resolveJourneyContext(
         let renderedGuidePath = guidePath
 
         // Handle Liquid conditionals in guide paths
-        try {
-          renderedGuidePath = await executeWithFallback(
-            context,
-            () => renderContent(guidePath, context, { textOnly: true }),
-            () => guidePath,
-          )
-        } catch {
-          // If rendering fails, use the original path rather than erroring
-          renderedGuidePath = guidePath
+        if (needsRendering(guidePath)) {
+          try {
+            renderedGuidePath = await executeWithFallback(
+              context,
+              () => renderContent(guidePath, context, { textOnly: true }),
+              () => guidePath,
+            )
+          } catch {
+            // If rendering fails, use the original path rather than erroring
+            renderedGuidePath = guidePath
+          }
         }
 
         const normalizedGuidePath = normalizeGuidePath(renderedGuidePath)
@@ -189,15 +229,17 @@ export async function resolveJourneyContext(
         let renderedAlternativeNextStep = alternativeNextStep
 
         // Handle Liquid conditionals in branching text which likely has links
-        try {
-          renderedAlternativeNextStep = await executeWithFallback(
-            context,
-            () => renderContent(alternativeNextStep, context),
-            () => alternativeNextStep,
-          )
-        } catch {
-          // If rendering fails, use the original branching text rather than erroring
-          renderedAlternativeNextStep = alternativeNextStep
+        if (needsRendering(alternativeNextStep)) {
+          try {
+            renderedAlternativeNextStep = await executeWithFallback(
+              context,
+              () => renderContent(alternativeNextStep, context),
+              () => alternativeNextStep,
+            )
+          } catch {
+            // If rendering fails, use the original branching text rather than erroring
+            renderedAlternativeNextStep = alternativeNextStep
+          }
         }
 
         result = {
@@ -278,10 +320,14 @@ export async function resolveJourneyTracks(
   const result = await Promise.all(
     journeyTracks.map(async (track) => {
       // Render Liquid templates in title and description
-      const renderedTitle = await renderContent(track.title, context, { textOnly: true })
-      const renderedDescription = track.description
-        ? await renderContent(track.description, context, { textOnly: true })
-        : undefined
+      const renderedTitle = needsRendering(track.title)
+        ? await renderContent(track.title, context, { textOnly: true })
+        : track.title
+
+      const renderedDescription =
+        track.description && needsRendering(track.description)
+          ? await renderContent(track.description, context, { textOnly: true })
+          : track.description
 
       const guides = await Promise.all(
         track.guides.map(async (guide: { href: string; alternativeNextStep?: string }) => {
