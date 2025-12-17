@@ -18,8 +18,6 @@ versions:
 type: overview
 ---
 
-{% data reusables.actions.self-hosted-price-note %}
-
 ## Requirements for self-hosted runner machines
 
 You can use a machine as a self-hosted runner as long as it meets these requirements:

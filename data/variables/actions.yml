@@ -7,5 +7,3 @@ github_hosted_runner: 'GitHub-hosted runner'
 github_hosted_runners: 'GitHub-hosted runners'
 github_hosted_larger_runner: 'GitHub-hosted larger runner'
 github_hosted_larger_runners: 'GitHub-hosted larger runners'
-# Date when the new billing changes for self-hosted runners on GitHub Cloud will ship
-self_hosted_runner_charge_date: 'March 1, 2026'
