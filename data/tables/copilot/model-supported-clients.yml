@@ -112,7 +112,7 @@
 - name: GPT-5.1
   dotcom: true
   vscode: true
-  vs: false
+  vs: true
   eclipse: true
   xcode: true
   jetbrains: true
