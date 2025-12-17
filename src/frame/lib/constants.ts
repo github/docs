@@ -35,5 +35,5 @@ export const minimumNotFoundHtml = `
 </small>
 `.replace(/\n/g, '')
 
-export const ANALYTICS_ENABLED = false
-export const HOVERCARDS_ENABLED = false
+export const ANALYTICS_ENABLED = true
+export const HOVERCARDS_ENABLED = true
