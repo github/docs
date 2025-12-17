@@ -60,6 +60,9 @@ You can assign an issue to {% data variables.product.prodname_copilot_short %}:
 
 ### Assigning an issue to {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}
 
+> [!NOTE]
+> This feature is in {% data variables.release-phases.public_preview %} and subject to change.
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
 
@@ -113,9 +116,32 @@ You can also assign issues to {% data variables.product.prodname_copilot_short %
 
 ### Assigning an issue to {% data variables.product.prodname_copilot_short %} via the {% data variables.product.github %} API
 
-You can assign issues to {% data variables.product.prodname_copilot_short %} using the GraphQL API.
+> [!NOTE]
+> This feature is in {% data variables.release-phases.public_preview %} and subject to change.
 
-#### Creating and assigning a new issue
+You can assign issues to {% data variables.product.prodname_copilot_short %} using either the GraphQL API or the REST API. Both APIs support an optional Agent Assignment input to customize the task:
+
+| GraphQL parameter | REST parameter | Description |
+| --- | --- | --- |
+| `targetRepositoryId` | `target_repo` | The repository where {% data variables.product.prodname_copilot_short %} will work |
+| `baseRef` | `base_branch` | The branch that {% data variables.product.prodname_copilot_short %} will branch from |
+| `customInstructions` | `custom_instructions` | Additional instructions for {% data variables.product.prodname_copilot_short %} |
+| `customAgent` | `custom_agent` | A custom agent to use for the task |
+| `model` | `model` | The model for {% data variables.product.prodname_copilot_short %} to use |
+
+#### Using the GraphQL API
+
+> [!NOTE]
+> You must include the `GraphQL-Features` header with the values `issues_copilot_assignment_api_support` and `coding_agent_model_selection`.
+
+You can use the following GraphQL mutations to assign issues to {% data variables.product.prodname_copilot_short %}:
+
+* [`updateIssue`](/graphql/reference/mutations#updateissue)
+* [`createIssue`](/graphql/reference/mutations#createissue)
+* [`addAssigneesToAssignable`](/graphql/reference/mutations#addassigneestoassignable)
+* [`replaceActorsForAssignable`](/graphql/reference/mutations#replaceactorsforassignable)
+
+##### Creating and assigning a new issue
 
 1. Make sure you're authenticating with the API using a user token, for example a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user-to-server token.
 
@@ -163,11 +189,23 @@ You can assign issues to {% data variables.product.prodname_copilot_short %} usi
     }
     ```
 
-1. Create the issue with the `createIssue` mutation. Replace `REPOSITORY_ID` with the ID returned from the previous step, and `BOT_ID` with the ID returned from the step before that.
+1. Create the issue with the `createIssue` mutation. Replace `REPOSITORY_ID` with the ID returned from the previous step, and `BOT_ID` with the ID returned from the step before that. You can optionally include the `agentAssignment` input to customize the task.
 
-    ```graphql copy
-    mutation {
-      createIssue(input: {repositoryId: "REPOSITORY_ID", title: "Implement comprehensive unit tests", body: "DETAILS", assigneeIds: ["BOT_ID"]}) {
+    ```shell copy
+    gh api graphql -f query='mutation {
+      createIssue(input: {
+        repositoryId: "REPOSITORY_ID",
+        title: "Implement comprehensive unit tests",
+        body: "DETAILS",
+        assigneeIds: ["BOT_ID"],
+        agentAssignment: {
+          targetRepositoryId: "REPOSITORY_ID",
+          baseRef: "main",
+          customInstructions: "Add comprehensive test coverage",
+          customAgent: "",
+          model: ""
+        }
+      }) {
         issue {
           id
           title
@@ -178,10 +216,10 @@ You can assign issues to {% data variables.product.prodname_copilot_short %} usi
           }
         }
       }
-    }
+    }' -H 'GraphQL-Features: issues_copilot_assignment_api_support,coding_agent_model_selection'
     ```
 
-#### Assigning an existing issue
+##### Assigning an existing issue
 
 1. Make sure you're authenticating with the API using a user token, for example a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user-to-server token.
 1. Verify that {% data variables.copilot.copilot_coding_agent %} is enabled in the repository by checking if the repository's `suggestedActors` in the GraphQL API includes {% data variables.product.prodname_copilot_short %}. Replace `octo-org` with the repository owner, and `octo-repo` with the repository name.
@@ -222,11 +260,21 @@ You can assign issues to {% data variables.product.prodname_copilot_short %} usi
     }
     ```
 
-1. Assign the existing issue to {% data variables.product.prodname_copilot_short %} using the `replaceActorsForAssignable` mutation. Replace `ISSUE_ID` with the ID returned from the previous step, and `BOT_ID` with the ID returned from the step before that.
+1. Assign the existing issue to {% data variables.product.prodname_copilot_short %} using the `replaceActorsForAssignable` mutation. Replace `ISSUE_ID` with the ID returned from the previous step, `BOT_ID` with the ID returned from the step before that, and `REPOSITORY_ID` with the repository ID. You can optionally include the `agentAssignment` input to customize the task.
 
-    ```graphql copy
-    mutation {
-      replaceActorsForAssignable(input: {assignableId: "ISSUE_ID", actorIds: ["BOT_ID"]}) {
+    ```shell copy
+    gh api graphql -f query='mutation {
+      replaceActorsForAssignable(input: {
+        assignableId: "ISSUE_ID",
+        actorIds: ["BOT_ID"],
+        agentAssignment: {
+          targetRepositoryId: "REPOSITORY_ID",
+          baseRef: "main",
+          customInstructions: "Fix the reported bug",
+          customAgent: "",
+          model: ""
+        }
+      }) {
         assignable {
           ... on Issue {
             id
@@ -239,8 +287,136 @@ You can assign issues to {% data variables.product.prodname_copilot_short %} usi
           }
         }
       }
-    }
+    }' -H 'GraphQL-Features: issues_copilot_assignment_api_support,coding_agent_model_selection'
     ```
+
+1. Alternatively, you can use the `updateIssue` mutation to update an existing issue and assign it to {% data variables.product.prodname_copilot_short %}. Replace `ISSUE_ID` with the issue ID and `BOT_ID` with the bot ID.
+
+    ```shell copy
+    gh api graphql -f query='mutation {
+      updateIssue(input: {
+        id: "ISSUE_ID",
+        assigneeIds: ["BOT_ID"],
+        agentAssignment: {
+          targetRepositoryId: "REPOSITORY_ID",
+          baseRef: "main",
+          customInstructions: "Update feature implementation",
+          customAgent: "",
+          model: ""
+        }
+      }) {
+        issue {
+          id
+          title
+          assignees(first: 10) {
+            nodes {
+              login
+            }
+          }
+        }
+      }
+    }' -H 'GraphQL-Features: issues_copilot_assignment_api_support,coding_agent_model_selection'
+    ```
+
+1. You can also use the `addAssigneesToAssignable` mutation to add {% data variables.product.prodname_copilot_short %} to an existing issue while keeping other assignees. Replace `ISSUE_ID` with the issue ID and `BOT_ID` with the bot ID.
+
+    ```shell copy
+    gh api graphql -f query='mutation {
+      addAssigneesToAssignable(input: {
+        assignableId: "ISSUE_ID",
+        assigneeIds: ["BOT_ID"],
+        agentAssignment: {
+          targetRepositoryId: "REPOSITORY_ID",
+          baseRef: "main",
+          customInstructions: "Collaborate on this task",
+          customAgent: "",
+          model: ""
+        }
+      }) {
+        assignable {
+          ... on Issue {
+            id
+            title
+            assignees(first: 10) {
+              nodes {
+                login
+              }
+            }
+          }
+        }
+      }
+    }' -H 'GraphQL-Features: issues_copilot_assignment_api_support,coding_agent_model_selection'
+    ```
+
+#### Using the REST API
+
+You can use the following REST API endpoints to assign issues to {% data variables.product.prodname_copilot_short %}:
+
+* [Add assignees to an issue](/rest/issues/assignees#add-assignees-to-an-issue)
+* [Create an issue](/rest/issues/issues#create-an-issue)
+* [Update an issue](/rest/issues/issues#update-an-issue)
+
+##### Adding assignees to an existing issue
+
+```shell copy
+gh api \
+  --method POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  /repos/OWNER/REPO/issues/ISSUE_NUMBER/assignees \
+  --input - <<< '{
+  "assignees": ["copilot-swe-agent[bot]"],
+  "agent_assignment": {
+    "target_repo": "OWNER/REPO",
+    "base_branch": "main",
+    "custom_instructions": "",
+    "custom_agent": "",
+    "model": ""
+  }
+}'
+```
+
+##### Creating a new issue
+
+```shell copy
+gh api \
+  --method POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  /repos/OWNER/REPO/issues \
+  --input - <<< '{
+  "title": "Issue title",
+  "body": "Issue description.",
+  "assignees": ["copilot-swe-agent[bot]"],
+  "agent_assignment": {
+    "target_repo": "OWNER/REPO",
+    "base_branch": "main",
+    "custom_instructions": "",
+    "custom_agent": "",
+    "model": ""
+  }
+}'
+```
+
+##### Updating an existing issue
+
+```shell copy
+gh api \
+  --method PATCH \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  /repos/OWNER/REPO/issues/ISSUE_NUMBER \
+  --input - <<< '{
+  "assignees": ["copilot-swe-agent[bot]"],
+  "agent_assignment": {
+    "target_repo": "OWNER/REPO",
+    "base_branch": "main",
+    "custom_instructions": "",
+    "custom_agent": "",
+    "model": ""
+  }
+}'
+```
 
 ## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from the agents tab or panel
 

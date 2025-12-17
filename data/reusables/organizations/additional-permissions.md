@@ -9,7 +9,7 @@
 
 For more information, see [AUTOTITLE](/discussions).
 
-### Issue and Pull Requests
+### Issue and pull requests
 
 * Assign or remove a user
 * Add or remove a label
@@ -21,14 +21,14 @@ For more information, see [AUTOTITLE](/discussions).
 * Delete an issue
 * Mark an issue as a duplicate
 
-### Merge Queue
+### Merge queue
 
 * Request a solo merge
 * Jump to the front of the queue
 
 For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue).
 
-### Pull Request
+### Pull request
 
 * Close a pull request
 * Reopen a closed pull request

@@ -13,7 +13,7 @@ children:
   - /set-up-budgets
   - /control-costs-at-scale
   - /estimate-spending
+  - /estimate-actions-costs
   - /gather-insights
 contentType: tutorials
 ---
-

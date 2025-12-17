@@ -31,7 +31,7 @@ You can find information for the last response of all service hooks deliveries o
 
 ## Viewing past deliveries
 
-Deliveries are stored for 15 days.
+Deliveries are stored for {% data variables.webhooks.retention %} days.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_user_management.service-hooks-sidebar-navigation %}
