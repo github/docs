@@ -436,6 +436,8 @@ function initPrintEvent() {
 }
 
 export function initializeEvents() {
+  return
+  // eslint-disable-next-line no-unreachable
   if (initialized) return
   initialized = true
   initPageAndExitEvent() // must come first
