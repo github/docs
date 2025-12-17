@@ -1139,6 +1139,53 @@ test.describe('Journey Tracks', () => {
     expect(trackContent).not.toContain('{%')
     expect(trackContent).not.toContain('%}')
   })
+
+  test('journey navigation components show on article pages', async ({ page }) => {
+    // go to an article that's part of a journey track
+    await page.goto('/get-started/start-your-journey/hello-world')
+
+    // journey card should be visible in sidebar
+    const journeyCard = page.locator('[data-testid="journey-track-card"]')
+    await expect(journeyCard).toBeVisible()
+
+    // journey footer nav should be visible
+    const journeyNav = page.locator('[data-testid="journey-track-nav"]')
+    await expect(journeyNav).toBeVisible()
+  })
+
+  test('journey footer nav component links to first article in next track from last article in previous track', async ({
+    page,
+  }) => {
+    await page.goto('/get-started/foo/bar')
+
+    const journeyNav = page.locator('[data-testid="journey-track-nav"]')
+    await expect(journeyNav).toBeVisible()
+
+    // Link should display the next track's title and go to its first article
+    const nextTrackLink = journeyNav.locator('a').filter({ hasText: 'Advanced topics' })
+    await expect(nextTrackLink).toBeVisible()
+
+    const href = await nextTrackLink.getAttribute('href')
+    expect(href).toContain('/get-started/foo/autotitling')
+  })
+
+  test('journey card displays branching text when present', async ({ page }) => {
+    await page.goto('/get-started/foo/journey-test-article')
+
+    const journeyCard = page.locator('[data-testid="journey-track-card"]')
+    await expect(journeyCard).toBeVisible()
+
+    // Branching text should be rendered with markdown links
+    await expect(journeyCard).toContainText('Want to skip ahead?')
+
+    // AUTOTITLE should be resolved to actual article title
+    const branchingLink = journeyCard.locator('a').filter({ hasText: 'Hello World' })
+    await expect(branchingLink).toBeVisible()
+    await expect(journeyCard).not.toContainText('AUTOTITLE')
+
+    const href = await branchingLink.getAttribute('href')
+    expect(href).toContain('/get-started/start-your-journey/hello-world')
+  })
 })
 
 test.describe('LandingArticleGridWithFilter component', () => {
