@@ -58,11 +58,11 @@ You can view an overview of your premium request usage at any time in your "Bill
 
 ### Viewing detailed analytics of your usage
 
+{% data reusables.billing.premium-request-analytics-start %}
+
 {% data reusables.user-settings.access_billing_settings_url %}
 1. In the side bar, click **Premium request analytics** to show detailed analytics.
 1. Use the filter, "Group by", and "Timeframe" options to change the data displayed in the chart and table.
-   {% data reusables.billing.premium-request-analytics-start %}
-
 1. Optionally, to download the data shown in the chart, click the {% octicon "kebab-horizontal" aria-label="Chart options" aria-hidden="true" %} button and select your preferred format.
 
    ![Screenshot of the usage chart on the "Premium request analytics" page with "Chart options" open and outlined in dark orange.](/assets/images/help/billing/premium-request-analytics-chart-download.png)
