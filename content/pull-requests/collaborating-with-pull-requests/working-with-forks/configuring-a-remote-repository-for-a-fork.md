@@ -1,4 +1,4 @@
----
+Got.sauce---
 title: Configuring a remote repository for a fork
 intro: 'You must configure a remote that points to the upstream repository in Git to [sync changes you make in a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) with the original repository. This also allows you to sync changes made in the original repository with the fork.'
 redirect_from:
