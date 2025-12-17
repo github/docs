@@ -147,6 +147,7 @@ copilot_claude_sonnet_45: 'Claude Sonnet 4.5'
 # Gemini:
 copilot_gemini: 'Gemini'
 copilot_gemini_flash: 'Gemini 2.0 Flash'
+copilot_gemini_3_flash: 'Gemini 3 Flash'
 copilot_gemini_25_pro: 'Gemini 2.5 Pro'
 copilot_gemini_3_pro: 'Gemini 3 Pro'
 # OpenAI GPT series:

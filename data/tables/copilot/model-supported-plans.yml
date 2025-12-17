@@ -54,6 +54,13 @@
   business: true
   enterprise: true
 
+- name: Gemini 3 Flash
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
 - name: Gemini 3 Pro
   free: false
   pro: true
