@@ -18,6 +18,9 @@ sections:
         # https://github.com/github/releases/issues/6908
         - |
           Starting 3.19, new installations of GHES will have OpenTelemetry metrics enabled and Collectd metrics disabled by default. You have the option to toggle between the two. Upgraded instances will retain their current settings. In about two to three releases, OpenTelemetry metrics will become the only supported metrics. To learn about OTel metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics).
+        # https://github.com/github/releases/issues/6922
+        - |
+          `ghe-repl-start` can now be executed without requiring a maintenance window when setting up a new replica, as long as `ghe-repl-setup` is immediately followed by `ghe-config-apply`. [Updated: 2025-12-17]
 
     - heading: Migrations
       notes:
@@ -199,14 +202,12 @@ sections:
         # https://github.com/github/releases/issues/6385
         - |
           Enterprises using IP allowlists should verify and update their network settings to include the newly required IP ranges for importer migrations. Failure to allow these addresses prevents successful migrations.
-        # https://github.com/github/releases/issues/6019  
+        # https://github.com/github/releases/issues/6019
         - |
           Projects now support up to 50,000 active items and 10,000 archived items. The previous limit was 1,200 items total. There is no option to opt out of this increased limit.
 
   known_issues:
     # INCLUDE NOTES FOR RELEASE FROM "GHES Release Note Tracking" PROJECT'S "Known Issues" TAB
-    - |
-      **Note:** This list is not complete. Any new known issues that are identified for the 3.19 release will be added between now and the general availability release.
     - |
       Custom firewall rules are removed during the upgrade process.
     - |
@@ -253,4 +254,4 @@ sections:
     - |
       Starting 3.21, networking-related syscalls will be disabled by default in the pre-receive hook environment. For enhanced security, hook environments will be placed in dedicated network namespaces. You will be able to override the default setting by setting pre-receive-hook-networking to enabled. As an alternative to many pre-receive hooks, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#push-rulesets).
     - |
-      In 3.20, we will be retiring `Telegraf`. For context, this was a dark-shipped service running in the background and not part of any customer workflows. If you have discovered it and notice it is missing in a future release, we want to you to know we have intentionally removed it. 
+      In 3.20, we will be retiring `Telegraf`. For context, this was a dark-shipped service running in the background and not part of any customer workflows. If you have discovered it and notice it is missing in a future release, we want to you to know we have intentionally removed it.
