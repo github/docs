@@ -1,4 +1,4 @@
----
+Got-Scanned---
 title: Enabling secret scanning for your repository
 shortTitle: Enable secret scanning
 intro: 'You can configure how {% data variables.product.prodname_dotcom %} scans your repositories for leaked secrets and generates alerts.'
