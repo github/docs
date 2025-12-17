@@ -23,19 +23,14 @@ shortTitle: GitHub Actions
 contentType: concepts
 ---
 
-{% data reusables.billing.actions-price-changes %}
-
 ## How use of {% data variables.product.prodname_actions %} is measured
 
-{% data variables.product.prodname_actions %} usage is measured and charged according to runner type and repository visibility.
+{% data variables.product.prodname_actions %} usage is **free** for **self-hosted runners** and for **public repositories** that use standard {% data variables.product.github %}-hosted runners. See [AUTOTITLE](/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories).
 
-* **Standard, {% data variables.product.github %}-hosted runners**
-  * Public repositories: Free to use, see [AUTOTITLE](/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories).
-  * Private and internal repositories: Free until your plan quota is empty, then billed for minutes and storage use
-* **Larger, {% data variables.product.github %}-hosted runners**: Billed for minutes and storage
-* **Self-hosted runners on the {% data variables.product.prodname_actions %} cloud platform**: Free until your plan quota is empty, then billed for cloud platform use{% ifversion actions-cloud-platform-march %}<!--Nothing to display-->{% elsif fpt or ghec %} from {% data variables.actions.self_hosted_runner_charge_date %}{% endif %}
+For **private repositories**, each {% data variables.product.github %} account receives a quota of free minutes, artifact storage, and cache storage for use with {% data variables.product.github %}-hosted runners, depending on the account's plan. Any usage beyond the included amounts is billed to your account.
 
-Each {% data variables.product.github %} account receives a quota of free minutes, artifact storage, and cache storage for use with {% data variables.product.github %}-hosted runners, depending on the account's plan. Any usage beyond the included amounts is billed to your account. Minutes reset every month, while artifact and cache storage usage do not.
+* **Minutes:** Your free minutes reset to the full amount at the start of each billing cycle. Minutes usage is charged to the repository owner, not the person who triggered the workflow runs.
+* **Storage:** Storage charges accumulate throughout the month based on hourly usage. Your accrued storage charges reset to zero at the start of each billing cycle.
 
 > [!TIP]
 > Anyone with write access to a repository can run actions. Any costs of running the actions are billed to the repository owner.
@@ -84,41 +79,28 @@ Your monthly bill converts GB-Hours to GB-Months by dividing by the hours in the
 
 ### Examples of how usage is measured
 
-{% data variables.product.github %}-hosted runners:
-
 * If you run a workflow on a Linux runner and it takes 10 minutes to complete, you'll use 10 minutes of the repository owner's allowance. If the workflow generates a 10 MB artifact, then you'll also use 10 MB of the repository owner's artifact storage allowance.
 * If you run a workflow that normally takes 10 minutes and it fails after 5 minutes because a dependency isn't available, you'll use 5 minutes of the repository owner's allowance. If you fix the problem and re-run the workflow successfully, in total you'll use 15 minutes of the repository owner's allowance.
 * If you run a workflow that generates many log files and a long job summary, these files do not count towards the repository owner's artifact storage allowance.
 * Cache storage usage is measured by the peak usage for each hour. Included usage is 10 GB per repository. For a given hour, if a repository has a peak cache usage of 15 GB, then the repository owner will be charged for the 5 GB of usage above the 10 GB included for that hour. The repository owner will only be charged if the repository cache storage limit has been configured higher than the included usage.
 * Additional cache storage is $0.07 per GiB, per month.
 
-Self-hosted runners:
-
-{% ifversion actions-cloud-platform-march %}
-* If you run a workflow on a self-hosted runner and it takes 10 minutes to complete, the repository owner will be billed for 10 minutes use of the {% data variables.product.prodname_actions %} cloud platform.{% elsif fpt or ghec %}
-* Currently, all use of self-hosted runners is free.
-* From {% data variables.actions.self_hosted_runner_charge_date %}, if you run a workflow on a self-hosted runner and it takes 10 minutes to complete, the repository owner will be billed for 10 minutes use of the {% data variables.product.prodname_actions %} cloud platform.
-{% endif %}
-
 ## Free use of {% data variables.product.prodname_actions %}
 
-The following amounts of time for standard {% data variables.product.github %}-hosted runners, artifact storage, and cache storage are included in your {% data variables.product.github %} plan. At the start of each month, the minutes used by the account are reset to zero.
+The following amounts of time for standard runners, artifact storage, and cache storage are included in your {% data variables.product.github %} plan. At the start of each month, the minutes used by the account are reset to zero.
 
 {% data reusables.billing.actions-included-quotas %}
 
-Standard {% data variables.product.github %}-hosted or self-hosted runner usage **on public repositories will remain free**.
-
-The use of standard {% data variables.product.github %}-hosted runners is also free:
-
+The use of standard {% data variables.product.github %}-hosted runners is free:
+* In public repositories
 * For {% data variables.product.prodname_pages %}
 * For {% data variables.product.prodname_dependabot %}
 * For the agentic features ({% data variables.release-phases.public_preview %}) in {% data variables.copilot.copilot_code-review %}
 
 > [!NOTE]
 >
-> * **Self-hosted runners:** {% ifversion actions-cloud-platform-march %}Use minutes from your plan until your quota is exhausted. You are then charged for additional processing time used.{% elsif fpt or ghec %}Are free to use until {% data variables.actions.self_hosted_runner_charge_date %}.{% endif %}
-> * **Larger runners:** Are always charged for, even when used by public repositories or when you have quota available from your plan.
-> * * The storage amounts shown are **shared** with {% data variables.product.prodname_registry %}. This means your total storage across Actions artifacts, Actions caches, and Packages cannot exceed the included amount for your plan.
+> * Larger runners are always charged for, even when used by public repositories or when you have quota available from your plan.
+> * The storage amounts shown are **shared** with {% data variables.product.prodname_registry %}. This means your total storage across Actions artifacts, Actions caches, and Packages cannot exceed the included amount for your plan.
 
 ## Using more than your included quota
 
@@ -130,12 +112,6 @@ You pay for any additional use above your quota using the payment method set up 
 
 For {% data variables.product.github %}-hosted runners, storage is billed based on hourly usage of artifacts and caches throughout the month. Minutes are calculated based on the total processing time used by each runner type during the month.
 
-{% ifversion actions-cloud-platform-march %}
-For self-hosted runners, use of the {% data variables.product.prodname_actions %} cloud platform is based on the total processing time used across all workflows during the month.
-{% elsif fpt or ghec %}
-From {% data variables.actions.self_hosted_runner_charge_date %}, use of the {% data variables.product.prodname_actions %} cloud platform by self-hosted runners will be based on the total processing time used across all workflows during the month.
-{% endif %}
-
 * To estimate costs for paid usage, use the {% data variables.product.github %} [pricing calculator](https://github.com/pricing/calculator?feature=actions).
 * To view your current costs, see [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage).
 
@@ -144,7 +120,7 @@ From {% data variables.actions.self_hosted_runner_charge_date %}, use of the {% 
 
 ### Baseline minute costs
 
-Each type of runner hosted by {% data variables.product.github %} has a cost per-minute that is determined by the operating system and processing power.{% ifversion actions-cloud-platform-march %} Self-hosted runners have a flat cost per-minute of $0.002 USD for use of the cloud platform.{% endif %}
+Each type of runner hosted by {% data variables.product.github %} has a cost per-minute that is determined by the operating system and processing power.
 
 For example, jobs that run on Windows and macOS runners hosted by {% data variables.product.github %} cost more to run than jobs on Linux runners.
 
@@ -161,18 +137,7 @@ For example, if your organization uses {% data variables.product.prodname_team %
   * 2,000 Windows minutes at $0.016 USD per minute = $32 USD.
 
 >[!TIP]
-> The cost for these runners will reduce from {% data variables.actions.self_hosted_runner_charge_date %}.
-
-### Example minutes cost calculation for self-hosted runners
-
-{% ifversion actions-cloud-platform-march %}
-For example, if you use 5,000 minutes of processing time on self-hosted runners this will cost $10 USD for using the {% data variables.product.prodname_actions %} cloud platform.
-
-{% elsif fpt or ghec %}
-From **{% data variables.actions.self_hosted_runner_charge_date %}**, regardless of your plan, using 5,000 minutes on self-hosted runners would have a total actions minutes cost of $10 USD for using the {% data variables.product.prodname_actions %} cloud platform.
-{% endif %}
-
-Calculation: 5,000 * $0.002 USD per minute = $10 USD
+> The cost for these runners will reduce from January 1, 2026.
 
 ### Example artifact storage cost calculation
 

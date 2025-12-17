@@ -1,7 +1,7 @@
 ---
 title: Actions runner pricing
 shortTitle: Actions runner pricing
-intro: Reference information for calculating the cost of using different types of runners.
+intro: Reference information for calculating the cost of using different {% data variables.product.github %}-hosted runners.
 versions:
   fpt: "*"
   ghec: "*"
@@ -14,23 +14,7 @@ redirect_from:
   - /billing/reference/actions-minute-multipliers
 ---
 
-{% data reusables.billing.actions-price-changes %}
-
 {% data variables.product.github %} rounds the minutes and partial minutes each job uses up to the nearest whole minute.
-
-## Self-hosted runners
-
-{% ifversion actions-cloud-platform-march %}
-The cost of using a self-hosted runner on the {% data variables.product.prodname_actions %} cloud platform is $0.002 USD per minute.
-{% elsif fpt or ghec %}
-From {% data variables.actions.self_hosted_runner_charge_date %}, the cost of using a self-hosted runner on the {% data variables.product.prodname_actions %} cloud platform will be $0.002 USD per minute.
-{% endif %}
-
-The cost of using the {% data variables.product.prodname_actions %} cloud platform is included in the per-minute cost of all {% data variables.product.github %}-hosted runners.
-
-## Standard {% data variables.product.github %}-hosted runners
-
-These runners will use minutes included in your quota to run workflows in private and internal repositories until the quota is used up.
 
 {% data reusables.billing.actions-standard-runner-prices %}
 

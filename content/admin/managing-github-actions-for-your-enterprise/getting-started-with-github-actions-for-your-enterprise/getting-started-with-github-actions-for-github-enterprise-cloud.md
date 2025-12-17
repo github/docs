@@ -27,15 +27,7 @@ You can use policies to control how enterprise members use {% data variables.pro
 
 ## Adding runners
 
-To run {% data variables.product.prodname_actions %} workflows, you need to use runners. {% data reusables.actions.about-runners %} You can use {% data variables.product.github %}-hosted runners or add self-hosted runners.
-
-* **{% data variables.product.github %}-hosted runners:** Available immediately. Your plan includes some free usage of standard runners, after this you pay for processing time and storage.
-* **Self-hosted runners:** You need to add and maintain them. {% ifversion actions-cloud-platform-march %}These runners add little to your bill for actions usage because you are charged only for using the {% data variables.product.prodname_actions %} cloud platform. After you have used the free minutes included in your plan, you pay $0.002 USD per minute of processing time.{% elsif fpt or ghec %}Use is currently free. From {% data variables.actions.self_hosted_runner_charge_date %}, you will pay a per-minute fee for using the cloud platform.{% endif %}
-
-For more information:
-
-* [AUTOTITLE](/billing/concepts/product-billing/github-actions)
-* [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)
+To run {% data variables.product.prodname_actions %} workflows, you need to use runners. {% data reusables.actions.about-runners %} If you use {% data variables.product.company_short %}-hosted runners, you will be billed based on consumption after exhausting the minutes included in your plan, whereas self-hosted runners are free. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
 
 If you choose self-hosted runners, you can add runners at the enterprise, organization, or repository levels. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
 

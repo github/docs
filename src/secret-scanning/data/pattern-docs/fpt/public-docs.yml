@@ -3958,6 +3958,24 @@
   base64Supported: false
   isduplicate: false
 - provider: Supabase
+  supportedSecret: Supabase Personal Access Token
+  secretType: supabase_personal_access_token
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Supabase
+  supportedSecret: Supabase Secret Key
+  secretType: supabase_secret_key
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Supabase
   supportedSecret: Supabase Service Key
   secretType: supabase_service_key
   isPublic: true
