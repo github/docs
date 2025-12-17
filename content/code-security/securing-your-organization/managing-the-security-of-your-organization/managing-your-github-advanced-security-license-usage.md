@@ -57,12 +57,14 @@ To learn about licensing for {% data variables.product.prodname_GHAS_cs_and_sp %
 
 The simplest way to turn off all {% data variables.product.prodname_cs_or_sp %} features for one or more repositories is to create a security configuration where the product is disabled at the top level. You can apply this custom configuration to repositories where you want to turn off paid features.
 
-To prevent future enablement of security features, we recommend you ask your enterprise administrator to set the enterprise account's {% data variables.product.prodname_AS %} policies so that:
-* {% data variables.product.prodname_AS %} is **not available**.
-* Repository administrators are **not allowed** to enable or disable {% data variables.product.prodname_AS %} features for their repositories.
-See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
-
 > [!TIP]
 > Ensure that you give your custom configuration a very clear name, for example: "No Code Security" or "Secret Protection and Supply chain only" to avoid confusion.
 
 For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration) and [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
+
+{% ifversion ghec or ghes %}
+To prevent future enablement of security features, we recommend you ask your enterprise administrator to set the enterprise account's {% data variables.product.prodname_AS %} policies so that:
+* {% data variables.product.prodname_AS %} is **not available**.
+* Repository administrators are **not allowed** to enable or disable {% data variables.product.prodname_AS %} features for their repositories.
+See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
+{% endif %}
