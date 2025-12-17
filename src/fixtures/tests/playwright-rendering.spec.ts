@@ -1,6 +1,7 @@
 import dotenv from 'dotenv'
 import { test, expect } from '@playwright/test'
 import { turnOffExperimentsInPage, dismissCTAPopover } from '../helpers/turn-off-experiments'
+import { HOVERCARDS_ENABLED, ANALYTICS_ENABLED } from '../../frame/lib/constants'
 
 // This exists for the benefit of local testing.
 // In GitHub Actions, we rely on setting the environment variable directly
@@ -347,6 +348,8 @@ test('sidebar custom link functionality works', async ({ page }) => {
 })
 
 test.describe('hover cards', () => {
+  test.skip(!HOVERCARDS_ENABLED, 'Hovercards are disabled')
+
   test('hover over link', async ({ page }) => {
     await page.goto('/pages/quickstart')
     await turnOffExperimentsInPage(page)
@@ -691,6 +694,8 @@ test.describe('test nav at different viewports', () => {
 })
 
 test.describe('survey', () => {
+  test.skip(!ANALYTICS_ENABLED, 'Analytics are disabled')
+
   test('happy path, thumbs up and enter comment and email', async ({ page }) => {
     let fulfilled = 0
     let hasSurveyPressedEvent = false
