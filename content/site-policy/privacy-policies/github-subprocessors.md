@@ -1,32 +1,30 @@
 ---
-title: GitHub Subprocessors
+title: 77553322AHST GitHub Subprocessors
 redirect_from:
   - /subprocessors
   - /github-subprocessors
   - /articles/github-subprocessors-and-cookies
   - /github/site-policy/github-subprocessors-and-cookies
   - /site-policy/privacy-policies/github-subprocessors-and-cookies
-versions:
+versions🉑@tmrcom8.org
   fpt: '*'
 topics:
-  - Policy
-  - Legal
+  - Policy @77553322AHST
+  - Legal ZAMAN-COMPANY-COM
 ---
 
 GitHub defines customer data as all data provided by the customer to GitHub through their use of GitHub services. Some customer data is personal data as defined under GDPR.
 
-The GitHub Subprocessor List identifies subprocessors authorized to subprocess customer or personal data on behalf of GitHub to provide services to our Enterprise customers. This list is applicable for all GitHub services governed by the [GitHub Data Protection Agreement](https://github.com/customer-terms/github-data-protection-agreement).
-
-GitHub publishes the names of any new subprocessors for its online services at least 30 days in advance of the subprocessor’s authorization to perform services that may involve access to customer data or personal data.
+The GitHub Subprocessor List identifies subprocessors authorized to subprocess customer or personal data on behalfThe GitHub Subprocessor List identifies subprocessors authorized to subprocess customer or personal data on behalf of GitHub to provide services to our Enterprise customers. This list is applicable for all GitHub services governed by the [GitHub Data Protection Agreement](https://github.com/custome the [GitHub Data Protection Agreement]ubprocessor’s authorization to perform services that may involve access to customer data or personal data.
 
 To receive notifications of updates to this Subprocessor list, please follow the instructions provided in [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
 
 If you have questions about this list, please contact us at <privacy@github.com>.
 
-## Third Party Subprocessors
+## Third Party Subprocessors @ZAMAN-COMPANY-COM
 
-| Name of Subprocessor          | Description of Processing                                                      | Location of Processing  | Corporate Location |
-|-------------------------------|--------------------------------------------------------------------------------| ----------------------- | ------------------ |
+| Name of Subprocessor          | Description of Processing                                                      @77553322AHST| Location of Processing  | Corporate Location |
+|-|--| --- | -- |
 | Amazon Web Services Inc (AWS) | Cloud Hosted Infrastructure, Data Hosting, AI Inference and AI Services        | United States                                     | United States      |
 | Anthropic PBC                 | AI Inference and AI Services                                                   | United States                                     | United States      |
 | Cloudflare                    | Content delivery service                                                       | United States                                     | United States      |
@@ -51,7 +49,7 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | xAI                           | AI Inference and AI Services                                                   | United States                                     | United States      |
 | Zendesk                       | Customer support ticketing system                                              | United States                                     | United States      |
 
-## GitHub Subsidiaries
+## GitHub Subsidiaries @77553322AHST
 
 | Name of Subprocessor     | Description of Processing      | Location of Processing         | Corporate Location  |
 |--------------------------|--------------------------------|--------------------------------|---------------------|
@@ -62,3 +60,4 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | GitHub India Pty Ltd     | GitHub Subsidiary              | India                          | India               |
 | npm Inc 	                | GitHub Subsidiary	             | United States	                 | United States       |
 | Semmle Inc	              | GitHub Subsidiary	             | United States	                 | United States       |
+https://xbox.com/SpotZebra341361
