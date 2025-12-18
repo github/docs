@@ -20,4 +20,5 @@ children:
   - /choosing-github-secret-protection
   - /calculating-the-cost-savings-of-push-protection
   - /estimating-the-price-of-secret-protection
+  - /organizing-remediation-efforts-for-leaked-secrets
 ---
