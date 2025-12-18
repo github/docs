@@ -1,7 +1,7 @@
 ---
 title: CodeQL query suites
 shortTitle: CodeQL query suites
-intro: 'You can choose from different built-in {% data variables.product.prodname_codeql %} query suites to use in your {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} setup.'
+intro: You can choose from different built-in {% data variables.product.prodname_codeql %} query suites to use in your {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} setup.
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
@@ -14,6 +14,7 @@ type: reference
 topics:
   - Code scanning
   - CodeQL
+contentType: other
 ---
 
 ## About {% data variables.product.prodname_codeql %} query suites
@@ -43,11 +44,7 @@ The built-in {% data variables.product.prodname_codeql %} query suites, `default
 * Relative to the `default` query suite, the `security-extended` suite may return a greater number of false positive {% data variables.product.prodname_code_scanning %} results.
 * This query suite is available for use with default setup for {% data variables.product.prodname_code_scanning %}, and is referred to as the "Extended" query suite on {% data variables.product.prodname_dotcom %}.
 
-## Query lists for the default query suites
-
-For each language, the following article lists which queries are included in the `default` and the `security-extended` suites. {% ifversion code-scanning-autofix %}Where {% data variables.copilot.copilot_autofix_short %} is available for a language, details of which queries are supported are also included.{% endif %}
-
-{% data reusables.code-scanning.codeql-query-tables.links-to-all-tables %}
+For a complete list of queries included in each query suite for every language, see [AUTOTITLE](/code-security/code-scanning/reference).
 
 ## Further reading
 
