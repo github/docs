@@ -34,6 +34,11 @@ Metrics are available through:
 
 Organization-level metrics are **only available through the APIs**. Both dashboards provide enterprise-level reporting.
 
+To access organization-level metrics, the "{% data variables.product.prodname_copilot_short %} usage metrics" policy must be enabled for the enterprise or organization:
+
+* For information on how to enable the "{% data variables.product.prodname_copilot_short %} usage metrics" policy at the enterprise level, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies#defining-policies-for-your-enterprise).
+* For information on how to enable the "{% data variables.product.prodname_copilot_short %} usage metrics" policy for organizations on a {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %} plan that do not belong to an enterprise, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies#enabling-copilot-features-and-models-in-your-organization).
+
 For a complete list of available metrics and data fields, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics).
 
 ## Which usage is included?
