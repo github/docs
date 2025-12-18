@@ -42,9 +42,6 @@ Use the labels in the table below to run your workflows on the corresponding mac
 
 {% data reusables.actions.larger-runners-table %}
 
-> [!NOTE]
-> For macOS {% data variables.actions.hosted_runner %}s, the `-latest` runner label uses the macOS 12 runner image. For macOS Xlarge, the `-latest` runner label uses the macOS 13 runner image
-
 {% endmac %}
 
 {% ifversion repository-actions-runners %}
