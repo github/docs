@@ -25,7 +25,7 @@ In this tutorial, you'll organize remediation efforts for leaked secrets. You'll
 
 ## Prerequisites
 
-* You must have both {% data variables.product.prodname_GH_secret_protection %} and {% data variables.product.prodname_secret_scanning %} enabled for your organization. See [Enabling {% data variables.product.prodname_GH_secret_protection %}](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/choosing-github-secret-protection#enabling-secret-protection).
+* You must have both {% data variables.product.prodname_GH_secret_protection %} and {% data variables.product.prodname_secret_scanning %} enabled for your organization. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/protect-your-secrets).
 * You must have existing {% data variables.product.prodname_secret_scanning %} alerts available.
 
 ## Step 1: Review your {% data variables.secret-scanning.alerts %}
