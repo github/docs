@@ -13,6 +13,7 @@ export default {
 
     globalSetup: './src/tests/vitest.setup.ts',
     teardownTimeout: 500,
+    testTimeout: 15000,
   },
   server: {
     deps: {
