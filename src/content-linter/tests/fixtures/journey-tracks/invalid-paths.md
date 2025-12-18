@@ -11,9 +11,9 @@ journeyTracks:
   - id: track-1
     title: "Track with Invalid Guides"
     guides:
-      - /article-one
-      - /nonexistent/guide
-      - /another/invalid/path
+      - href: /article-one
+      - href: /nonexistent/guide
+      - href: /another/invalid/path
 ---
 
 # Journey with Invalid Paths

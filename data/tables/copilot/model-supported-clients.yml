@@ -61,6 +61,14 @@
   xcode: true
   jetbrains: true
 
+- name: Gemini 3 Flash
+  dotcom: true
+  vscode: true
+  vs: false
+  eclipse: false
+  xcode: false
+  jetbrains: false
+
 - name: Gemini 3 Pro
   dotcom: true
   vscode: true
@@ -104,7 +112,7 @@
 - name: GPT-5.1
   dotcom: true
   vscode: true
-  vs: false
+  vs: true
   eclipse: true
   xcode: true
   jetbrains: true
@@ -128,18 +136,18 @@
 - name: GPT-5.1-Codex-Max
   dotcom: true
   vscode: true
-  vs: false
-  eclipse: false
-  xcode: false
-  jetbrains: false
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
 
 - name: GPT-5.2
   dotcom: true
   vscode: true
-  vs: false
-  eclipse: false
-  xcode: false
-  jetbrains: false
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
 
 - name: Grok Code Fast 1
   dotcom: true

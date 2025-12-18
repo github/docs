@@ -124,12 +124,17 @@ If a user is a member or owner of any organization, they are listed as an **orga
 
 ### Unaffiliated users
 
-If a user is not a member of any organization, they are listed as an **unaffiliated user**. These users:
+If a user is not a member of any organization, and doesn't have the enterprise owner or billing manager role, the user is listed as an unaffiliated user.
 
-* Do not consume a {% data variables.product.prodname_enterprise %} license.
+Unaffiliated users:
+
+* Do not consume a {% data variables.product.prodname_enterprise %} license, unless they meet another criterion listed in [AUTOTITLE](/billing/reference/github-license-users#organizations-on-github-enterprise-cloud).
 * Cannot access private or internal repositories.
 * Can be added as members of enterprise teams.
-* Can receive a {% data variables.product.prodname_copilot_short %} license directly from your enterprise.
+* Can receive a {% data variables.product.prodname_copilot_short %} license or custom role directly from your enterprise.
+* Can remove themselves from the enterprise at any time, unless you use {% data variables.product.prodname_emus %}.
+
+If you have an enterprise with personal accounts, you can disable this role. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/control-offboarding).
 
 {% endif %}
 

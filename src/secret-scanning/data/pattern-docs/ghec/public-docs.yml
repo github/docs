@@ -3958,6 +3958,24 @@
   base64Supported: false
   isduplicate: false
 - provider: Supabase
+  supportedSecret: Supabase Personal Access Token
+  secretType: supabase_personal_access_token
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Supabase
+  supportedSecret: Supabase Secret Key
+  secretType: supabase_secret_key
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Supabase
   supportedSecret: Supabase Service Key
   secretType: supabase_service_key
   isPublic: true
@@ -4200,6 +4218,15 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: true
+- provider: WSO2
+  supportedSecret: WSO2 Choreo Personal Access Token
+  secretType: wso2_choreo_personal_access_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: xAI
   supportedSecret: xAI API Key
   secretType: xai_api_key

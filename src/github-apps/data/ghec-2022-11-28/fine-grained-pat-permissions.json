@@ -2408,6 +2408,48 @@
       }
     ]
   },
+  "organization_copilot_metrics": {
+    "title": "Organization Copilot metrics",
+    "displayTitle": "Organization permissions for \"Organization Copilot metrics\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "get-copilot-organization-usage-metrics-for-a-specific-day",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-1-day",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-organization-usage-metrics",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-28-day/latest",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-organization-users-usage-metrics-for-a-specific-day",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/metrics/reports/users-1-day",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-organization-users-usage-metrics",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/metrics/reports/users-28-day/latest",
+        "additional-permissions": false,
+        "access": "read"
+      }
+    ]
+  },
   "organization_announcement_banners": {
     "title": "Organization announcement banners",
     "displayTitle": "Organization permissions for \"Organization announcement banners\"",
@@ -2750,6 +2792,15 @@
         "slug": "review-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
         "subcategory": "alert-dismissal-requests",
         "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "dependabot",
+        "slug": "cancel-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
         "additional-permissions": true,
         "access": "write"
@@ -6884,9 +6935,27 @@
       },
       {
         "category": "dependabot",
+        "slug": "create-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "dependabot",
         "slug": "review-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
         "subcategory": "alert-dismissal-requests",
         "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "dependabot",
+        "slug": "cancel-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
         "additional-permissions": true,
         "access": "read"

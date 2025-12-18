@@ -48,14 +48,14 @@
 
 - name: 'GPT-5.1'
   provider: 'OpenAI'
-  release_status: 'Public preview'
+  release_status: 'GA'
   agent_mode: true
   ask_mode: true
   edit_mode: true
 
 - name: 'GPT-5.1-Codex'
   provider: 'OpenAI'
-  release_status: 'Public preview'
+  release_status: 'GA'
   agent_mode: true
   ask_mode: true
   edit_mode: true
@@ -69,7 +69,7 @@
 
 - name: 'GPT-5.1-Codex-Max'
   provider: 'OpenAI'
-  release_status: 'Public preview'
+  release_status: 'GA'
   agent_mode: true
   ask_mode: true
   edit_mode: true
@@ -122,6 +122,13 @@
 - name: 'Gemini 2.5 Pro'
   provider: 'Google'
   release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'Gemini 3 Flash'
+  provider: 'Google'
+  release_status: 'Public preview'
   agent_mode: true
   ask_mode: true
   edit_mode: true
