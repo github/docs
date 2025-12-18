@@ -142,7 +142,9 @@ If the source of your migration is {% data variables.product.prodname_ghe_server
 
 ### IP ranges for {% data variables.enterprise.data_residency_site %}
 
-{% data reusables.enterprise-migration-tool.ip-ranges-ghecom %}
+You can get an up-to-date list of IP ranges used by {% data variables.product.prodname_importer_proper_name %} at any time with the "Get {% data variables.product.github %} meta information" endpoint of the REST API.
+
+The `github_enterprise_importer` key in the response contains a list of IP ranges used for migrations.
 
 In addition, if you are migrating from {% data variables.product.prodname_ghe_server %} and using a blob storage account with firewall rules:
 

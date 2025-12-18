@@ -89,7 +89,7 @@ For more information about filtering alerts, see [AUTOTITLE](/code-security/secu
 
 In addition to the core filters, you will usually want to add a filter to limit results to a specific rule name, severity, or tag.
 
-* `is:open autofilter:true {% ifversion security-campaigns-autofix %}autofix:supported {% endif %}rule:java/log-injection` to show only alerts for log injection in Java code. See [Query lists for the default query suites](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#query-lists-for-the-default-query-suites).
+* `is:open autofilter:true {% ifversion security-campaigns-autofix %}autofix:supported {% endif %}rule:java/log-injection` to show only alerts for log injection in Java code. See [AUTOTITLE](/code-security/code-scanning/reference/code-ql-built-in-queries).
 * `is:open autofilter:true {% ifversion security-campaigns-autofix %}autofix:supported {% endif %}tag:external/cwe/cwe-117` to show only alerts for "CWE 117: Improper Output Neutralization for Logs". This includes log injection in Java and other languages.
 * `is:open autofilter:true {% ifversion security-campaigns-autofix %}autofix:supported {% endif %}severity:critical` to show only alerts with a security severity of critical.
 

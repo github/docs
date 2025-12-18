@@ -205,6 +205,8 @@ sections:
         # https://github.com/github/releases/issues/6019
         - |
           Projects now support up to 50,000 active items and 10,000 archived items. The previous limit was 1,200 items total. There is no option to opt out of this increased limit.
+        - |
+          YJIT, Ruby's Just-In-Time (JIT) compiler, is enabled by default. Users may experience faster application performance and improved resource efficiency across their instance. [Updated: 2025-12-17]
 
   known_issues:
     # INCLUDE NOTES FOR RELEASE FROM "GHES Release Note Tracking" PROJECT'S "Known Issues" TAB
