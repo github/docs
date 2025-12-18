@@ -1,24 +1,16 @@
-export default {
-  test: {
-    // Default is `['**/*.{test,spec}.?(c|m)[jt]s?(x)']`
-    include: ['**/*.{test}.?(c|m)[jt]s?(x)', 'src/**/tests/*.[jt]s', 'src/**/tests/**/*.[jt]s'],
-    exclude: ['**/tests/playwright-*.spec.ts'],
-    // Default is `!process.env.CI`
-    watch: false,
-    // vitest doesn't account for tsconfig.json `paths` settings so we have to
-    // manually set this alias to resolve our TS @-imports
-    alias: {
-      '@/': new URL('./src/', import.meta.url).pathname,
-    },
+import { defineConfig } from 'vitest/config';
+import vue from '@vitejs/plugin-vue';
+import path from 'path';
 
-    globalSetup: './src/tests/vitest.setup.ts',
-    teardownTimeout: 500,
-    testTimeout: 15000,
+export default defineConfig({
+  plugins: [vue()],
+  test: {
+    globals: true,
+    environment: 'jsdom',
   },
-  server: {
-    deps: {
-      // Externalize @horizon-rs/language-guesser to avoid import assertion issues with vitest 4
-      external: ['@horizon-rs/language-guesser'],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
     },
   },
-}
+});
