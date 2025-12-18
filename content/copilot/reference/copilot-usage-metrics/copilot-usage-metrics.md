@@ -63,7 +63,7 @@ These metrics appear in the code generation dashboard and provide a breakdown of
 
 ## API and export fields
 
-These fields appear in the exported NDJSON reports and in the {% data variables.product.prodname_copilot_short %} usage metrics APIs. They provide granular daily records for each user included in the requested enterprise or organization scope.
+These fields appear in the exported NDJSON reports and in the {% data variables.product.prodname_copilot_short %} usage metrics APIs. They provide daily records at the enterprise, organization, or user scope, depending on the metric.
 
 | Field | Description |
 |:--|:--|
@@ -85,3 +85,14 @@ These fields appear in the exported NDJSON reports and in the {% data variables.
 | `totals_by_language_feature` | Breakdown combining language and feature dimensions. |
 | `totals_by_model_feature` / `totals_by_language_model` | Model-specific breakdowns for chat activity (not completions). |
 | `last_known_ide_version` / `last_known_plugin_version` | The most recent IDE and {% data variables.copilot.copilot_chat_short %} extension version detected for each user. |
+
+### Pull request activity fields (API only)
+
+These fields capture daily pull request creation and review activity across the enterprise, including activity performed by {% data variables.product.prodname_copilot_short %}.
+
+| Field | Description |
+|:--|:--|
+| `pull_requests.total_created` | Total number of pull requests created across the enterprise on this specific day. <br/><br/>Creation is a one-time event. Each pull request is counted only on the day it is created. |
+| `pull_requests.total_reviewed` | Total number of pull requests reviewed across the enterprise on this specific day. <br/><br/>The same pull request may be counted on multiple days if it receives reviews on multiple days. Within a single day, each pull request is counted once, even if multiple review actions occur. |
+| `pull_requests.total_created_by_copilot` | Number of pull requests created by {% data variables.product.prodname_copilot_short %} across the enterprise on this specific day. |
+| `pull_requests.total_reviewed_by_copilot` | Number of pull requests reviewed by {% data variables.product.prodname_copilot_short %} across the enterprise on this specific day. <br/><br/>A pull request may be counted on multiple days if {% data variables.product.prodname_copilot_short %} reviews it on multiple days. |

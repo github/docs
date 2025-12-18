@@ -2490,6 +2490,15 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
+- provider: Limbar
+  supportedSecret: Limbar Token
+  secretType: limbar_token
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: Linear
   supportedSecret: Linear API Key
   secretType: linear_api_key
