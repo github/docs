@@ -76,7 +76,7 @@
 
 - name: 'GPT-5.2'
   provider: 'OpenAI'
-  release_status: 'Public preview'
+  release_status: 'GA'
   agent_mode: true
   ask_mode: true
   edit_mode: true
