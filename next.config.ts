@@ -65,6 +65,12 @@ const config: NextConfig = {
       async_hooks: {
         browser: './empty.ts', // Point to empty module when async_hooks is requested for browser
       },
+      '@/observability/logger': {
+        browser: './empty.ts',
+      },
+      '@/observability/logger/lib/logger-context': {
+        browser: './empty.ts',
+      },
     },
   },
 

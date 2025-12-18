@@ -1,16 +1,8 @@
-import React, { useState, useRef, RefObject, useEffect, SetStateAction, useMemo } from 'react'
+import React, { useState, useRef, RefObject, useEffect, useMemo } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
-import { ActionList, IconButton, Overlay, Spinner, Stack, TextInput, Banner } from '@primer/react'
-import {
-  SearchIcon,
-  XCircleFillIcon,
-  CommentIcon,
-  CopilotIcon,
-  FileIcon,
-  ArrowRightIcon,
-  ArrowLeftIcon,
-} from '@primer/octicons-react'
+import { ActionList, IconButton, Overlay, Stack, TextInput, Banner } from '@primer/react'
+import { SearchIcon, XCircleFillIcon, CopilotIcon, ArrowLeftIcon } from '@primer/octicons-react'
 import { focusTrap } from '@primer/behaviors'
 
 import { useTranslation } from '@/languages/components/useTranslation'
@@ -21,7 +13,6 @@ import {
   GENERAL_SEARCH_CONTEXT,
 } from '../helpers/execute-search-actions'
 import { useCombinedSearchResults } from '@/search/components/hooks/useAISearchAutocomplete'
-import { AskAIResults } from './AskAIResults'
 import { sendEvent, uuidv4 } from '@/events/components/events'
 import { EventType } from '@/events/types'
 import { ASK_AI_EVENT_GROUP, SEARCH_OVERLAY_EVENT_GROUP } from '@/events/components/event-groups'
@@ -32,6 +23,13 @@ import type { AutocompleteSearchHit, GeneralSearchHit } from '@/search/types'
 
 import { sanitizeSearchQuery } from '@/search/lib/sanitize-search-query'
 
+import {
+  SearchContext,
+  SearchContextType,
+  AutocompleteSearchHitWithUserQuery,
+  GeneralSearchHitWithOptions,
+} from './SearchContext'
+import { SearchGroups } from './SearchGroups'
 import styles from './SearchOverlay.module.scss'
 
 type Props = {
@@ -532,7 +530,6 @@ export function SearchOverlay({
   }
 
   // We render the AI Result in the searchGroups call, so we pass the props down via an object
-  // TODO: Move stateful logic to Context since we now have so many props:
   const askAIState = {
     isAskAIState,
     aiQuery,
@@ -556,6 +553,21 @@ export function SearchOverlay({
     setAICouldNotAnswer,
   }
 
+  const searchContextValue: SearchContextType = {
+    t,
+    generalSearchOptions: generalOptionsWithViewStatus,
+    aiOptionsWithUserInput,
+    generalSearchResultOnSelect,
+    aiAutocompleteOnSelect: aiSearchOptionOnSelect,
+    performGeneralSearch,
+    selectedIndex,
+    listElementsRef: listElementsRef as RefObject<Array<HTMLLIElement | null>>,
+    askAIState,
+    showSpinner,
+    searchLoading,
+    previousSuggestionsListHeight,
+  }
+
   // We display different content in the overlay based:
   // 1. If either search (autocomplete results or ask AI) has an error
   // 2. The user has selected an AI query and we are showing the ask AI results
@@ -566,7 +578,12 @@ export function SearchOverlay({
   const inErrorState = aiSearchError || (autoCompleteSearchError && !isAskAIState)
   if (inErrorState) {
     OverlayContents = (
-      <>
+      <SearchContext.Provider
+        value={{
+          ...searchContextValue,
+          aiOptionsWithUserInput: aiSearchError ? [] : aiOptionsWithUserInput,
+        }}
+      >
         <ActionList
           aria-label={t('search.overlay.suggestions_list_aria_label')}
           id="search-suggestions-list"
@@ -613,50 +630,26 @@ export function SearchOverlay({
               )}
             </>
           )}
-          {renderSearchGroups(
-            t,
-            generalOptionsWithViewStatus,
-            aiSearchError ? [] : aiOptionsWithUserInput,
-            generalSearchResultOnSelect,
-            aiSearchOptionOnSelect,
-            performGeneralSearch,
-            selectedIndex,
-            listElementsRef,
-            askAIState,
-            showSpinner,
-            searchLoading,
-            previousSuggestionsListHeight,
-          )}
+          <SearchGroups />
         </ActionList>
-      </>
+      </SearchContext.Provider>
     )
   } else {
     OverlayContents = (
-      <ActionList
-        id="search-suggestions-list"
-        aria-label={t('search.overlay.suggestions_list_aria_label')}
-        showDividers
-        className={styles.suggestionsList}
-        ref={suggestionsListHeightRef}
-        style={{
-          minHeight: `${previousSuggestionsListHeight}px`,
-        }}
-      >
-        {renderSearchGroups(
-          t,
-          generalOptionsWithViewStatus,
-          aiOptionsWithUserInput,
-          generalSearchResultOnSelect,
-          aiSearchOptionOnSelect,
-          performGeneralSearch,
-          selectedIndex,
-          listElementsRef,
-          askAIState,
-          showSpinner,
-          searchLoading,
-          previousSuggestionsListHeight,
-        )}
-      </ActionList>
+      <SearchContext.Provider value={searchContextValue}>
+        <ActionList
+          id="search-suggestions-list"
+          aria-label={t('search.overlay.suggestions_list_aria_label')}
+          showDividers
+          className={styles.suggestionsList}
+          ref={suggestionsListHeightRef}
+          style={{
+            minHeight: `${previousSuggestionsListHeight}px`,
+          }}
+        >
+          <SearchGroups />
+        </ActionList>
+      </SearchContext.Provider>
     )
   }
 
@@ -757,268 +750,6 @@ export function SearchOverlay({
       </Overlay>
     </>
   )
-}
-
-interface AutocompleteSearchHitWithUserQuery extends AutocompleteSearchHit {
-  isUserQuery?: boolean
-}
-
-interface GeneralSearchHitWithOptions extends GeneralSearchHit {
-  isViewAllResults?: boolean
-  isNoResultsFound?: boolean
-  isSearchDocsOption?: boolean
-}
-
-// Render the autocomplete suggestions with AI suggestions first, headings, and a divider between the two
-function renderSearchGroups(
-  t: any,
-  generalSearchOptions: GeneralSearchHitWithOptions[],
-  aiOptionsWithUserInput: AutocompleteSearchHitWithUserQuery[],
-  generalSearchResultOnSelect: (selectedOption: GeneralSearchHit) => void,
-  aiAutocompleteOnSelect: (selectedOption: AutocompleteSearchHit) => void,
-  performGeneralSearch: () => void,
-  selectedIndex: number,
-  listElementsRef: RefObject<Array<HTMLLIElement | null>>,
-  askAIState: {
-    isAskAIState: boolean
-    aiQuery: string
-    debug: boolean
-    currentVersion: string
-    setAISearchError: () => void
-    references: AIReference[]
-    setReferences: (value: SetStateAction<AIReference[]>) => void
-    referencesIndexOffset: number
-    referenceOnSelect: (url: string) => void
-    askAIEventGroupId: React.MutableRefObject<string>
-    aiSearchError: boolean
-    aiCouldNotAnswer: boolean
-    setAICouldNotAnswer: (value: boolean) => void
-  },
-  showSpinner: boolean,
-  searchLoading: boolean,
-  previousSuggestionsListHeight: number | string,
-) {
-  const groups = []
-
-  const isInAskAIState = askAIState?.isAskAIState && !askAIState.aiSearchError
-  const isInAskAIStateButNoAnswer = isInAskAIState && askAIState.aiCouldNotAnswer
-
-  // This spinner is for both the AI search and the general search results.
-  // We already show a spinner when streaming AI response, so don't want to show 2 here
-  if (showSpinner && !isInAskAIState) {
-    groups.push(
-      <div
-        key="loading"
-        role="status"
-        className={styles.loadingContainer}
-        style={{
-          height: `${previousSuggestionsListHeight}px`,
-        }}
-      >
-        <Spinner />
-      </div>,
-    )
-    return groups
-  }
-
-  // We want to show general search suggestions above the AI Response section if the AI could not answer
-  if (generalSearchOptions.length || isInAskAIStateButNoAnswer) {
-    const items = []
-    for (let index = 0; index < generalSearchOptions.length; index++) {
-      const option = generalSearchOptions[index]
-      if (option.isNoResultsFound) {
-        items.push(
-          <ActionList.Item
-            key={`general-${index}`}
-            id={`search-option-general-${index}`}
-            className={styles.noResultsFound}
-            tabIndex={-1}
-            aria-label={t('search.overlay.no_results_found')}
-            disabled
-          >
-            {option.title}
-          </ActionList.Item>,
-        )
-        // There should be no more items after the no results found item
-        break
-        // This is a special case where there is an error loading search results and we want to be able to search the docs using the user's query
-      } else if (option.isSearchDocsOption) {
-        const isActive = selectedIndex === index
-        items.push(
-          <ActionList.Item
-            key={`general-${index}`}
-            id={`search-option-general-${index}`}
-            tabIndex={-1}
-            active={isActive}
-            onSelect={() => performGeneralSearch()}
-            aria-label={t('search.overlay.search_docs_with_query').replace('{query}', option.title)}
-            ref={(element: HTMLLIElement | null) => {
-              if (listElementsRef.current) {
-                listElementsRef.current[index] = element
-              }
-            }}
-          >
-            <ActionList.LeadingVisual aria-hidden>
-              <SearchIcon />
-            </ActionList.LeadingVisual>
-            {option.title}
-            <ActionList.TrailingVisual
-              aria-hidden
-              className={isActive ? styles.trailingVisualActive : styles.trailingVisualHidden}
-            >
-              <ArrowRightIcon />
-            </ActionList.TrailingVisual>
-          </ActionList.Item>,
-        )
-      } else if (option.title) {
-        const isActive = selectedIndex === index
-        items.push(
-          <ActionList.Item
-            key={`general-${index}`}
-            id={`search-option-general-${index}`}
-            aria-describedby="search-suggestions-list"
-            onSelect={() =>
-              option.isViewAllResults ? performGeneralSearch() : generalSearchResultOnSelect(option)
-            }
-            className={option.isViewAllResults ? styles.viewAllSearchResults : ''}
-            active={isActive}
-            tabIndex={-1}
-            ref={(element: HTMLLIElement | null) => {
-              if (listElementsRef.current) {
-                listElementsRef.current[index] = element
-              }
-            }}
-          >
-            {!option.isNoResultsFound && (
-              <ActionList.LeadingVisual
-                aria-hidden
-                className={
-                  option.isViewAllResults ? styles.leadingVisualHidden : styles.leadingVisualVisible
-                }
-              >
-                <FileIcon />
-              </ActionList.LeadingVisual>
-            )}
-            {option.title}
-            <ActionList.TrailingVisual
-              aria-hidden
-              className={isActive ? styles.trailingVisualActive : styles.trailingVisualHidden}
-            >
-              <ArrowRightIcon />
-            </ActionList.TrailingVisual>
-          </ActionList.Item>,
-        )
-      }
-    }
-
-    groups.push(
-      <ActionList.Group key="general" data-testid="general-autocomplete-suggestions">
-        <ActionList.GroupHeading as="h3" tabIndex={-1}>
-          {t('search.overlay.general_suggestions_list_heading')}
-        </ActionList.GroupHeading>
-        {searchLoading && isInAskAIState ? (
-          <div
-            role="status"
-            className={styles.loadingContainer}
-            style={{
-              height: `${previousSuggestionsListHeight}px`,
-            }}
-          >
-            <Spinner />
-          </div>
-        ) : (
-          items
-        )}
-      </ActionList.Group>,
-    )
-
-    if (isInAskAIState || isInAskAIStateButNoAnswer) {
-      groups.push(<ActionList.Divider key="no-answer-divider" />)
-    }
-
-    if (isInAskAIState) {
-      groups.push(
-        <ActionList.Group key="ai" data-testid="ask-ai">
-          <li tabIndex={-1}>
-            <AskAIResults
-              query={askAIState.aiQuery}
-              debug={askAIState.debug}
-              version={askAIState.currentVersion}
-              setAISearchError={askAIState.setAISearchError}
-              references={askAIState.references}
-              setReferences={askAIState.setReferences}
-              referencesIndexOffset={askAIState.referencesIndexOffset}
-              referenceOnSelect={askAIState.referenceOnSelect}
-              selectedIndex={selectedIndex}
-              askAIEventGroupId={askAIState.askAIEventGroupId}
-              aiCouldNotAnswer={askAIState.aiCouldNotAnswer}
-              setAICouldNotAnswer={askAIState.setAICouldNotAnswer}
-              listElementsRef={listElementsRef}
-            />
-          </li>
-        </ActionList.Group>,
-      )
-    }
-
-    // Don't show the bottom divider if:
-    // 1. We are in the AI could not answer state
-    // 2. We are in the AI Search error state
-    // 3. There are no AI suggestions to show in suggestions state
-    if (
-      !isInAskAIState &&
-      !askAIState.aiSearchError &&
-      generalSearchOptions.filter((option) => !option.isViewAllResults && !option.isNoResultsFound)
-        .length &&
-      aiOptionsWithUserInput.length
-    ) {
-      groups.push(<ActionList.Divider key="bottom-divider" />)
-    }
-  }
-
-  if (aiOptionsWithUserInput.length && !isInAskAIState) {
-    groups.push(
-      <ActionList.Group key="ai-suggestions" data-testid="ai-autocomplete-suggestions">
-        <ActionList.GroupHeading as="h3" id="copilot-suggestions" tabIndex={-1}>
-          <CopilotIcon className="mr-1" />
-          {t('search.overlay.ai_autocomplete_list_heading')}
-        </ActionList.GroupHeading>
-        {aiOptionsWithUserInput.map((option: AutocompleteSearchHitWithUserQuery, index: number) => {
-          // Since general search comes first, we need to add an offset for AI suggestions
-          const indexWithOffset = generalSearchOptions.length + index
-          const isActive = selectedIndex === indexWithOffset
-          const item = (
-            <ActionList.Item
-              key={`ai-${indexWithOffset}`}
-              id={`search-option-ai-${indexWithOffset}`}
-              aria-describedby="copilot-suggestions"
-              onSelect={() => aiAutocompleteOnSelect(option)}
-              active={isActive}
-              tabIndex={-1}
-              ref={(element: HTMLLIElement | null) => {
-                if (listElementsRef.current) {
-                  listElementsRef.current[index] = element
-                }
-              }}
-            >
-              <ActionList.LeadingVisual aria-hidden>
-                <CommentIcon />
-              </ActionList.LeadingVisual>
-              {option.term}
-              <ActionList.TrailingVisual
-                aria-hidden
-                className={isActive ? styles.trailingVisualActive : styles.trailingVisualHidden}
-              >
-                <ArrowRightIcon />
-              </ActionList.TrailingVisual>
-            </ActionList.Item>
-          )
-          return item
-        })}
-      </ActionList.Group>,
-    )
-  }
-
-  return groups
 }
 
 function sendKeyboardEvent(

@@ -38,6 +38,10 @@ Setting clear goals makes it easier to interpret results and communicate value t
 
 ## Step 2: View adoption and engagement metrics in the dashboard
 
+> [!NOTE]
+> * The {% data variables.product.prodname_copilot_short %} usage metrics dashboard reports data at the enterprise level.
+> * Organization-level metrics are available through the {% data variables.product.prodname_copilot_short %} usage metrics APIs and exports.
+
 {% data reusables.copilot.access-copilot-metrics-dashboard %}
 
 The dashboard shows 28 days of aggregated IDE telemetry data for all licensed users in your enterprise. Focus on these **key metrics** during your trial:

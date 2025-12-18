@@ -91,6 +91,42 @@
     "displayTitle": "Organization permissions for \"Administration\"",
     "permissions": [
       {
+        "category": "actions",
+        "slug": "get-github-actions-cache-retention-limit-for-an-organization",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/actions/cache/retention-limit",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
+        "slug": "set-github-actions-cache-retention-limit-for-an-organization",
+        "subcategory": "cache",
+        "verb": "put",
+        "requestPath": "/organizations/{org}/actions/cache/retention-limit",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "get-github-actions-cache-storage-limit-for-an-organization",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/actions/cache/storage-limit",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
+        "slug": "set-github-actions-cache-storage-limit-for-an-organization",
+        "subcategory": "cache",
+        "verb": "put",
+        "requestPath": "/organizations/{org}/actions/cache/storage-limit",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
         "category": "dependabot",
         "slug": "lists-the-repositories-dependabot-can-access-in-an-organization",
         "subcategory": "repository-access",
@@ -2282,6 +2318,15 @@
       },
       {
         "category": "projects",
+        "slug": "add-a-field-to-an-organization-owned-project",
+        "subcategory": "fields",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "projects",
         "slug": "get-project-field-for-organization",
         "subcategory": "fields",
         "verb": "get",
@@ -2758,60 +2803,6 @@
         "access": "write"
       },
       {
-        "category": "reactions",
-        "slug": "list-reactions-for-a-team-discussion-comment",
-        "subcategory": "reactions",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "reactions",
-        "slug": "create-reaction-for-a-team-discussion-comment",
-        "subcategory": "reactions",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "reactions",
-        "slug": "delete-team-discussion-comment-reaction",
-        "subcategory": "reactions",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions/{reaction_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "reactions",
-        "slug": "list-reactions-for-a-team-discussion",
-        "subcategory": "reactions",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "reactions",
-        "slug": "create-reaction-for-a-team-discussion",
-        "subcategory": "reactions",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "reactions",
-        "slug": "delete-team-discussion-reaction",
-        "subcategory": "reactions",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions/{reaction_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
         "category": "teams",
         "slug": "list-discussions-legacy",
         "subcategory": "discussions",
@@ -2898,42 +2889,6 @@
         "subcategory": "discussion-comments",
         "verb": "delete",
         "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "reactions",
-        "slug": "list-reactions-for-a-team-discussion-comment-legacy",
-        "subcategory": "reactions",
-        "verb": "get",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "reactions",
-        "slug": "create-reaction-for-a-team-discussion-comment-legacy",
-        "subcategory": "reactions",
-        "verb": "post",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "reactions",
-        "slug": "list-reactions-for-a-team-discussion-legacy",
-        "subcategory": "reactions",
-        "verb": "get",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/reactions",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "reactions",
-        "slug": "create-reaction-for-a-team-discussion-legacy",
-        "subcategory": "reactions",
-        "verb": "post",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/reactions",
         "additional-permissions": false,
         "access": "write"
       }
@@ -3579,6 +3534,42 @@
         "subcategory": "repos",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "get-github-actions-cache-retention-limit-for-a-repository",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/cache/retention-limit",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
+        "slug": "set-github-actions-cache-retention-limit-for-a-repository",
+        "subcategory": "cache",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/actions/cache/retention-limit",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "get-github-actions-cache-storage-limit-for-a-repository",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
+        "slug": "set-github-actions-cache-storage-limit-for-a-repository",
+        "subcategory": "cache",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit",
         "additional-permissions": false,
         "access": "write"
       },
@@ -4803,7 +4794,7 @@
       {
         "category": "repos",
         "slug": "create-an-attestation",
-        "subcategory": "repos",
+        "subcategory": "attestations",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/attestations",
         "additional-permissions": false,
@@ -4812,7 +4803,7 @@
       {
         "category": "repos",
         "slug": "list-attestations",
-        "subcategory": "repos",
+        "subcategory": "attestations",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/attestations/{subject_digest}",
         "additional-permissions": false,

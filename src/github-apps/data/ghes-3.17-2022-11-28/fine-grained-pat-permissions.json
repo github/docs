@@ -1810,60 +1810,6 @@
         "access": "write"
       },
       {
-        "category": "reactions",
-        "slug": "list-reactions-for-a-team-discussion-comment",
-        "subcategory": "reactions",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "reactions",
-        "slug": "create-reaction-for-a-team-discussion-comment",
-        "subcategory": "reactions",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "reactions",
-        "slug": "delete-team-discussion-comment-reaction",
-        "subcategory": "reactions",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions/{reaction_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "reactions",
-        "slug": "list-reactions-for-a-team-discussion",
-        "subcategory": "reactions",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "reactions",
-        "slug": "create-reaction-for-a-team-discussion",
-        "subcategory": "reactions",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "reactions",
-        "slug": "delete-team-discussion-reaction",
-        "subcategory": "reactions",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions/{reaction_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
         "category": "teams",
         "slug": "list-discussions-legacy",
         "subcategory": "discussions",
@@ -1950,42 +1896,6 @@
         "subcategory": "discussion-comments",
         "verb": "delete",
         "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "reactions",
-        "slug": "list-reactions-for-a-team-discussion-comment-legacy",
-        "subcategory": "reactions",
-        "verb": "get",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "reactions",
-        "slug": "create-reaction-for-a-team-discussion-comment-legacy",
-        "subcategory": "reactions",
-        "verb": "post",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "reactions",
-        "slug": "list-reactions-for-a-team-discussion-legacy",
-        "subcategory": "reactions",
-        "verb": "get",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/reactions",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "reactions",
-        "slug": "create-reaction-for-a-team-discussion-legacy",
-        "subcategory": "reactions",
-        "verb": "post",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/reactions",
         "additional-permissions": false,
         "access": "write"
       }

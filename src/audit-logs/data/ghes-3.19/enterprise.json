@@ -301,7 +301,8 @@
       "pricing_target_type",
       "pricing_target_id",
       "budget_limit_type",
-      "alert_recipient_user_ids"
+      "alert_recipient_user_ids",
+      "exclude_cost_center_usage"
     ]
   },
   {
@@ -2365,23 +2366,6 @@
       "alert_numbers"
     ],
     "docs_reference_titles": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
-  },
-  {
-    "action": "code.search",
-    "description": "A code search was run targeting an organization. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
-    "docs_reference_links": "/search-github/github-code-search",
-    "fields": [
-      "@timestamp",
-      "action",
-      "actor_id",
-      "business_id",
-      "query",
-      "org_id",
-      "user_id",
-      "_document_id",
-      "search_string"
-    ],
-    "docs_reference_titles": "/search-github/github-code-search"
   },
   {
     "action": "codespaces.allow_permissions",

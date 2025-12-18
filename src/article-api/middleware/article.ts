@@ -172,11 +172,19 @@ function incrementArticleLookup(
 
   // logs the source of the request, if it's for hovercards it'll have the header X-Request-Source.
   // see src/links/components/LinkPreviewPopover.tsx
-  const source =
-    req.get('X-Request-Source') ||
-    (req.get('Referer')
-      ? `external-${new URL(req.get('Referer') || '').hostname || 'unknown'}`
-      : 'external')
+  let source = req.get('X-Request-Source')
+  if (!source) {
+    const referer = req.get('Referer')
+    if (referer) {
+      try {
+        source = `external-${new URL(referer).hostname || 'unknown'}`
+      } catch {
+        source = 'external'
+      }
+    } else {
+      source = 'external'
+    }
+  }
 
   const tags = [
     // According to https://docs.datadoghq.com/getting_started/tagging/#define-tags

@@ -31,7 +31,7 @@ If you believe that {% data variables.product.prodname_secret_scanning %} should
 
 ## Supported secrets
 
-This table lists the secrets supported by {% data variables.product.prodname_secret_scanning %}. You can see the types of alert that get generated for each token, as well as whether a validity check is performed on the token.
+The tables list the secrets supported by {% data variables.product.prodname_secret_scanning %} for each secret type. Information in the tables may include this data:
 
 * **Provider:** Name of the token provider.{% ifversion fpt or ghec %}
 * **Partner:** Token for which leaks are reported to the relevant token partner. Applies to public repositories and all gists, including secret gists. Secret gists are not private and can be accessed by anyone with the URL. See [About gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists#about-gists).
@@ -44,8 +44,8 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
   * Applies to private repositories where {% data variables.product.prodname_GH_secret_protection %} and {% data variables.product.prodname_secret_scanning %} are enabled.
   * Includes {% ifversion secret-scanning-alert-experimental-list %}default{% else %}high confidence{% endif %} tokens, which relate to supported patterns and specified custom patterns, as well as non-provider tokens such as private keys, which often result in false positives.{% endif %}
 * **Push protection:** Token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}. Applies to repositories with {% data variables.product.prodname_secret_scanning %} and push protection enabled.
-
 * **Validity check:** Token for which a validity check is implemented. {% ifversion secret-scanning-validity-check-partner-patterns %}For partner tokens, {% data variables.product.prodname_dotcom %} sends the token to the relevant partner. Note that not all partners are based in the United States. For more information, see [{% data variables.product.prodname_AS %}](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security) in the Site Policy documentation.{% else %} Currently only applies to {% data variables.product.prodname_dotcom %} tokens.{% endif %}
+* **Base64:** Token for which Base64-encoded versions are supported.
 
 ### Non-provider patterns
 

@@ -75,16 +75,38 @@ export const journeyTracksLiquid = {
 
       if (track.guides && Array.isArray(track.guides)) {
         for (let guideIndex = 0; guideIndex < track.guides.length; guideIndex++) {
-          const guide: string = track.guides[guideIndex]
-          if (typeof guide === 'string') {
+          const guideObj = track.guides[guideIndex]
+
+          // Validate guide is an object with expected properties
+          if (!guideObj || typeof guideObj !== 'object') continue
+
+          // Validate href property
+          if ('href' in guideObj && typeof guideObj.href === 'string') {
             try {
-              liquid.parse(guide)
+              liquid.parse(guideObj.href)
             } catch (error: any) {
               addError(
                 onError,
                 trackLineNumber,
-                `Invalid Liquid syntax in journey track guide (track ${trackIndex + 1}, guide ${guideIndex + 1}): ${error.message}`,
-                guide,
+                `Invalid Liquid syntax in journey track guide href (track ${trackIndex + 1}, guide ${guideIndex + 1}): ${error.message}`,
+                guideObj.href,
+              )
+            }
+          }
+
+          // Validate alternativeNextStep property if present
+          if (
+            'alternativeNextStep' in guideObj &&
+            typeof guideObj.alternativeNextStep === 'string'
+          ) {
+            try {
+              liquid.parse(guideObj.alternativeNextStep)
+            } catch (error: any) {
+              addError(
+                onError,
+                trackLineNumber,
+                `Invalid Liquid syntax in journey track guide alternativeNextStep (track ${trackIndex + 1}, guide ${guideIndex + 1}): ${error.message}`,
+                guideObj.alternativeNextStep,
               )
             }
           }

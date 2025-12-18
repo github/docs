@@ -28,7 +28,6 @@ topics:
 
 > [!NOTE]
 > You can only generate a secret risk assessment report once every 90 days.
-
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 {% data reusables.security-overview.open-assessments-view %}

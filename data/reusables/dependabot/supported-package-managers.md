@@ -24,6 +24,9 @@ Composer       | `composer`       | {% ifversion dependabot-updates-composerv1-c
 | {% endif %} |
 [Helm Charts](#helm-charts)    | `helm`         | {% ifversion dependabot-helm-support %}v3{% else %}Not supported{% endif %} | {% ifversion dependabot-helm-support %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | {% octicon "x" aria-label="Not supported" %} | {% ifversion dependabot-helm-support %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | {% ifversion dependabot-helm-support %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | Not applicable |
 Hex            | `mix`            | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% ifversion dependabot-julia-support %} |
+[Julia](#julia) | `julia`         | >=v1.10              | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% endif %} |
 elm-package    | `elm`            | v0.19            | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 git submodule  | `gitsubmodule`   | Not applicable | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
 [{% data variables.product.prodname_actions %}](#github-actions)   | `github-actions` | Not applicable | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
@@ -32,6 +35,9 @@ Go modules     | `gomod`          | v1               | {% octicon "check" aria-l
 [Maven](#maven)       | `maven`          | Not applicable   | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 npm            | `npm`            | v7, v8, v9, v10, v11   | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 [NuGet](#nuget-cli)          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% endif %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% ifversion dependabot-opentofu-support %} |
+[OpenTofu](#opentofu)    | `opentofu`      | Not applicable  | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | Not applicable |
+| {% endif %} |
 [pip](#pip-and-pip-compile) | `pip`            | v21.1.2          | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 pipenv         | `pip`            | <= 2021-05-29    | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 [pip-compile](#pip-and-pip-compile) | `pip`            | 6.1.0            | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
@@ -117,6 +123,7 @@ For more information about using {% data variables.product.prodname_dependabot_v
 {% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to the following files:
 * `build.gradle`, `build.gradle.kts` (for Kotlin projects)
 * `gradle/libs.versions.toml` (for projects using a standard Gradle version catalog)
+* `gradle.lockfile` (for projects using Gradle dependency locking)
 * Files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
 
 {% data variables.product.prodname_dependabot %} uses information from the `pom.xml` file of dependencies to add links to release information in update pull requests. If the information is omitted from the `pom.xml` file, then it cannot be included in {% data variables.product.prodname_dependabot %} pull requests, see [AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/optimizing-java-packages-dependabot).
@@ -164,12 +171,6 @@ pnpm is supported for {% data variables.product.prodname_dependabot_version_upda
 
 The PEP 621 `project` section isn't currently supported for `poetry`.
 
-#### pub
-
-{% data variables.product.prodname_dependabot %} won't perform an update for `pub` when the version that it tries to update to is ignored, even if an earlier version is available.
-
-You can use {% data variables.product.prodname_dependabot %} to keep Dart dependencies up-to-date if you use private hosted pub repositories. For information about allowing {% data variables.product.prodname_dependabot %} to access private {% data variables.product.prodname_dotcom %} dependencies, see [Allowing {% data variables.product.prodname_dependabot %} to access private dependencies](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private{% ifversion ghec or ghes %}-or-internal{% endif %}-dependencies).
-
 {% ifversion dependabot-rust-toolchain-support %}
 
 #### Rust toolchain
@@ -205,3 +206,37 @@ vcpkg support includes updating the `builtin-baseline` commit SHA from the vcpkg
 #### yarn
 
 Dependabot supports vendored dependencies for v2 onwards.
+
+{% ifversion dependabot-community-ecosystems %}
+
+### Community-maintained ecosystems
+
+{% data reusables.dependabot.community-maintained-intro %} {% ifversion dependabot-julia-support %}
+
+* [Julia](#julia) - Maintained by the Julia community{% endif %}{% ifversion dependabot-julia-support %}
+* [OpenTofu](#opentofu) - Maintained by the OpenTofu community{% endif %}
+* [Pub](#pub) - Maintained by The Dart Community
+
+{% ifversion dependabot-julia-support %}
+
+#### Julia
+
+{% data variables.product.prodname_dependabot %} supports Julia projects that include `Project.toml`/`Manifest.toml` files. {% data variables.product.prodname_dependabot %} uses Julia's package manager to resolve and update dependencies.
+
+{% endif %}
+
+{% ifversion dependabot-opentofu-support %}
+
+#### OpenTofu
+
+{% data variables.product.prodname_dependabot %} supports updating OpenTofu modules and providers in `.tf` and `.tofu` configuration files, including `terragrunt.hcl` files. If the `.terraform.lock.hcl` lockfile for provider checksums is present, {% data variables.product.prodname_dependabot %} will also update it.
+
+{% endif %}
+
+{% endif %}
+
+#### Pub
+
+{% data variables.product.prodname_dependabot %} won't perform an update for `pub` when the version that it tries to update to is ignored, even if an earlier version is available.
+
+You can use {% data variables.product.prodname_dependabot %} to keep Dart dependencies up-to-date if you use private hosted pub repositories. For information about allowing {% data variables.product.prodname_dependabot %} to access private {% data variables.product.prodname_dotcom %} dependencies, see [Allowing {% data variables.product.prodname_dependabot %} to access private dependencies](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private{% ifversion ghec or ghes %}-or-internal{% endif %}-dependencies).

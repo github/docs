@@ -1,6 +1,54 @@
 {
   "actions": [
     {
+      "slug": "get-github-actions-cache-retention-limit-for-an-enterprise",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-retention-limit-for-an-enterprise",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "get-github-actions-cache-storage-limit-for-an-enterprise",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/actions/cache/storage-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-storage-limit-for-an-enterprise",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/actions/cache/storage-limit"
+    },
+    {
+      "slug": "get-github-actions-cache-retention-limit-for-an-organization",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-retention-limit-for-an-organization",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/organizations/{org}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "get-github-actions-cache-storage-limit-for-an-organization",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/actions/cache/storage-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-storage-limit-for-an-organization",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/organizations/{org}/actions/cache/storage-limit"
+    },
+    {
       "slug": "get-github-actions-cache-usage-for-an-organization",
       "subcategory": "cache",
       "verb": "get",
@@ -539,6 +587,30 @@
       "subcategory": "artifacts",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}"
+    },
+    {
+      "slug": "get-github-actions-cache-retention-limit-for-a-repository",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-retention-limit-for-a-repository",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "get-github-actions-cache-storage-limit-for-a-repository",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-storage-limit-for-a-repository",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit"
     },
     {
       "slug": "get-github-actions-cache-usage-for-a-repository",
@@ -2123,6 +2195,30 @@
       "requestPath": "/orgs/{org}/copilot/metrics"
     },
     {
+      "slug": "get-copilot-organization-usage-metrics-for-a-specific-day",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-1-day"
+    },
+    {
+      "slug": "get-copilot-organization-usage-metrics",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-28-day/latest"
+    },
+    {
+      "slug": "get-copilot-organization-users-usage-metrics-for-a-specific-day",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/users-1-day"
+    },
+    {
+      "slug": "get-copilot-organization-users-usage-metrics",
+      "subcategory": "copilot-usage-metrics",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/metrics/reports/users-28-day/latest"
+    },
+    {
       "slug": "get-copilot-seat-assignment-details-for-a-user",
       "subcategory": "copilot-user-management",
       "verb": "get",
@@ -2215,6 +2311,12 @@
       "requestPath": "/orgs/{org}/dependabot/secrets/{secret_name}/repositories/{repository_id}"
     },
     {
+      "slug": "list-dismissal-requests-for-dependabot-alerts-for-an-organization",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/dismissal-requests/dependabot"
+    },
+    {
       "slug": "list-dependabot-alerts-for-a-repository",
       "subcategory": "alerts",
       "verb": "get",
@@ -2261,6 +2363,36 @@
       "subcategory": "secrets",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/dependabot/secrets/{secret_name}"
+    },
+    {
+      "slug": "list-dismissal-requests-for-dependabot-alerts-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot"
+    },
+    {
+      "slug": "get-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}"
+    },
+    {
+      "slug": "create-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}"
+    },
+    {
+      "slug": "review-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}"
+    },
+    {
+      "slug": "cancel-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}"
     }
   ],
   "dependency-graph": [
@@ -3999,6 +4131,12 @@
       "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields"
     },
     {
+      "slug": "add-a-field-to-an-organization-owned-project",
+      "subcategory": "fields",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields"
+    },
+    {
       "slug": "get-project-field-for-organization",
       "subcategory": "fields",
       "verb": "get",
@@ -4201,42 +4339,6 @@
   ],
   "reactions": [
     {
-      "slug": "list-reactions-for-a-team-discussion-comment",
-      "subcategory": "reactions",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions"
-    },
-    {
-      "slug": "create-reaction-for-a-team-discussion-comment",
-      "subcategory": "reactions",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions"
-    },
-    {
-      "slug": "delete-team-discussion-comment-reaction",
-      "subcategory": "reactions",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions/{reaction_id}"
-    },
-    {
-      "slug": "list-reactions-for-a-team-discussion",
-      "subcategory": "reactions",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions"
-    },
-    {
-      "slug": "create-reaction-for-a-team-discussion",
-      "subcategory": "reactions",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions"
-    },
-    {
-      "slug": "delete-team-discussion-reaction",
-      "subcategory": "reactions",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions/{reaction_id}"
-    },
-    {
       "slug": "list-reactions-for-a-commit-comment",
       "subcategory": "reactions",
       "verb": "get",
@@ -4307,30 +4409,6 @@
       "subcategory": "reactions",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}"
-    },
-    {
-      "slug": "list-reactions-for-a-team-discussion-comment-legacy",
-      "subcategory": "reactions",
-      "verb": "get",
-      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions"
-    },
-    {
-      "slug": "create-reaction-for-a-team-discussion-comment-legacy",
-      "subcategory": "reactions",
-      "verb": "post",
-      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions"
-    },
-    {
-      "slug": "list-reactions-for-a-team-discussion-legacy",
-      "subcategory": "reactions",
-      "verb": "get",
-      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/reactions"
-    },
-    {
-      "slug": "create-reaction-for-a-team-discussion-legacy",
-      "subcategory": "reactions",
-      "verb": "post",
-      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/reactions"
     }
   ],
   "releases": [
@@ -4446,13 +4524,13 @@
     },
     {
       "slug": "create-an-attestation",
-      "subcategory": "repos",
+      "subcategory": "attestations",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/attestations"
     },
     {
       "slug": "list-attestations",
-      "subcategory": "repos",
+      "subcategory": "attestations",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/attestations/{subject_digest}"
     },

@@ -77,10 +77,10 @@ function run(languageCode: string, site: Site, englishReusables: Reusables) {
   const illegalTags = new Map<string, number>()
 
   function countError(error: TokenizationError, where: string) {
-    const originalError = (error as any).originalError
+    const originalError = (error as { originalError?: Error }).originalError
     const errorString = originalError ? originalError.message : error.message
     if (errorString.includes('illegal tag syntax')) {
-      const illegalTag = (error as any).token.content
+      const illegalTag = (error as unknown as { token: { content: string } }).token.content
       illegalTags.set(illegalTag, (illegalTags.get(illegalTag) || 0) + 1)
     }
     errors.set(errorString, (errors.get(errorString) || 0) + 1)

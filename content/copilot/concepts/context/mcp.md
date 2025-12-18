@@ -46,6 +46,14 @@ To learn how to configure and use MCP servers with {% data variables.copilot.cop
 
 {% data reusables.copilot.mcp.mcp-policy %}
 
+## Availability
+
+There is currently broad support for local MCP servers in clients such as {% data variables.product.prodname_vscode %}, JetBrains IDEs, XCode, and others.
+
+Support for remote MCP servers is growing, with editors like {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Xcode, Eclipse, and Cursor providing this functionality with OAuth or PAT, and Windsurf supporting PAT only.
+
+To find out if your preferred editor supports remote MCP servers, check the documentation for your specific editor.
+
 ## About the {% data variables.product.github %} MCP server
 
 The {% data variables.product.github %} MCP server is a Model Context Protocol (MCP) server provided and maintained by {% data variables.product.github %}.
@@ -57,15 +65,30 @@ The {% data variables.product.github %} MCP server is a Model Context Protocol (
 * Enable cloud-based workflows that work from any device, without local setup.
 * Invoke {% data variables.product.github %} tools, such as {% data variables.copilot.copilot_coding_agent %} (requires {% data variables.product.prodname_copilot %} subscription) and {% data variables.product.prodname_code_scanning %} (requires {% data variables.product.prodname_GHAS %} subscription), to assist with code generation and security analysis.
 
-For all public repositories, and private repositories covered by {% data variables.product.prodname_GHAS %}, interactions with the {% data variables.product.github %} MCP server are secured by push protection, which blocks secrets from being included in AI-generated responses and prevents you from exposing secrets through any actions you perform using the server, such as creating an issue. See [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-and-the-github-mcp-server).
-
-You can access the {% data variables.product.github %} MCP server remotely through {% data variables.copilot.copilot_chat_short %} in {% data variables.product.github %}, {% data variables.product.prodname_vscode %}, or other editors that support remote MCP; or you can run it locally in any MCP-compatible editor, allowing you to choose between the convenience of a hosted solution or the customizability of a self-hosted setup.
-
-If you want to utilize the remote {% data variables.product.github %} MCP server, you can do so in a few steps, without any local setup. This is particularly useful for users who want to quickly leverage {% data variables.product.github %}’s AI capabilities without the overhead of managing a local MCP server.
-
-Running the {% data variables.product.github %} MCP server locally requires a bit more setup, but it allows for greater customization and control over your AI interactions.
-
 To learn how to set up and use the {% data variables.product.github %} MCP server, see [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/using-the-github-mcp-server).
+
+### Remote access
+
+You can access the {% data variables.product.github %} MCP server remotely through {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %} without any local setup. The remote server has access to additional toolsets only available in the remote {% data variables.product.github %} MCP server. For a list of such tools, see [Additional toolsets](https://github.com/github/github-mcp-server?tab=readme-ov-file#additional-toolsets-in-remote-github-mcp-server) in the `github/github-mcp-server` repository.
+
+The {% data variables.product.github %} MCP server can also run locally in any MCP-compatible editor, if necessary.
+
+### Toolset customization
+
+> [!IMPORTANT]
+> Always review the {% data variables.product.github %} MCP server repository at [github/github-mcp-server](https://github.com/github/github-mcp-server) for the latest toolsets and authoritative configuration guidance.
+
+The {% data variables.product.github %} MCP server supports enabling or disabling specific groups of functionalities via toolsets. Toolsets allow you to control which {% data variables.product.github %} API capabilities are available to your AI tools.
+
+Enabling only the toolsets you need improves your AI assistant's performance and security. Fewer tools means better tool selection accuracy and fewer errors. Disabling unused toolsets also frees up tokens in the AI's context window.
+
+Toolsets do not only include tools, but also relevant MCP resources and prompts where applicable.
+
+To learn how to configure toolsets for the {% data variables.product.github %} MCP server, see [AUTOTITLE](/copilot/how-tos/context/use-mcp/configure-toolsets).
+
+### Security
+
+For all public repositories, and private repositories covered by {% data variables.product.prodname_GHAS %}, interactions with the {% data variables.product.github %} MCP server are secured by push protection, which blocks secrets from being included in AI-generated responses and prevents you from exposing secrets through any actions you perform using the server, such as creating an issue. For more information, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-and-the-github-mcp-server).
 
 ## About the {% data variables.product.github %} MCP Registry
 
@@ -73,14 +96,6 @@ The {% data variables.product.github %} MCP Registry is a curated list of MCP se
 
 >[!NOTE]
 > The {% data variables.product.github %} MCP Registry is currently in {% data variables.release-phases.public_preview %} and subject to change.
-
-## Availability
-
-There is currently broad support for local MCP servers in clients such as {% data variables.product.prodname_vscode %}, JetBrains IDEs, XCode, and others.
-
-Support for remote MCP servers is growing, with editors like {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Xcode, Eclipse, and Cursor providing this functionality with OAuth or PAT, and Windsurf supporting PAT only.
-
-To find out if your preferred editor supports remote MCP servers, check the documentation for your specific editor.
 
 ## Next steps
 
