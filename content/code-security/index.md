@@ -6,7 +6,7 @@ redirect_from:
   - /code-security/guides
 introLinks:
   overview: '{% ifversion ghes %}/code-security/getting-started/github-security-features{% endif %}'
-  generate_secret_risk_assessment_report_for_free: '{% ifversion secret-risk-assessment %}/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization#generating-an-initial-secret-risk-assessment{% endif %}'
+  generate_secret_risk_assessment_report_for_free: '{% ifversion secret-risk-assessment %}/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/assess-your-secret-risk{% endif %}'
 featuredLinks:
   startHere: # Links aimed at the builder audience
     - '{% ifversion fpt or ghec %}/code-security/getting-started/github-security-features{% endif %}'
