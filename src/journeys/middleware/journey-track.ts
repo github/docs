@@ -1,20 +1,22 @@
 import type { Response, NextFunction } from 'express'
 import type { ExtendedRequest, Context } from '@/types'
 
+import { resolveJourneyTracks, resolveJourneyContext } from '../lib/journey-path-resolver'
+
 export default async function journeyTrack(
   req: ExtendedRequest & { context: Context },
   res: Response,
   next: NextFunction,
 ) {
+  if (req.method !== 'GET' && req.method !== 'HEAD') return next()
+
   if (!req.context) throw new Error('request is not contextualized')
   if (!req.context.page) return next()
 
   try {
-    const journeyResolver = await import('../lib/journey-path-resolver')
-
     // If this page has journey tracks defined, resolve them for the landing page
     if ((req.context.page as any).journeyTracks) {
-      const resolvedTracks = await journeyResolver.resolveJourneyTracks(
+      const resolvedTracks = await resolveJourneyTracks(
         (req.context.page as any).journeyTracks,
         req.context,
       )
@@ -24,7 +26,7 @@ export default async function journeyTrack(
     }
 
     // Always try to resolve journey context (for navigation on guide articles)
-    const journeyContext = await journeyResolver.resolveJourneyContext(
+    const journeyContext = await resolveJourneyContext(
       req.pagePath || '',
       req.context.pages || {},
       req.context,
