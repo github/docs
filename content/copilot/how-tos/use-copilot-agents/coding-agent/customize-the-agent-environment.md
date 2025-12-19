@@ -26,6 +26,7 @@ You can customize {% data variables.product.prodname_copilot_short %}'s environm
 * [Preinstall tools or dependencies in {% data variables.product.prodname_copilot_short %}'s environment](#preinstalling-tools-or-dependencies-in-copilots-environment)
 * [Set environment variables in {% data variables.product.prodname_copilot_short %}'s environment](#setting-environment-variables-in-copilots-environment)
 * [Upgrade from standard {% data variables.product.github %}-hosted {% data variables.product.prodname_actions %} runners to larger runners](#upgrading-to-larger-github-hosted-github-actions-runners)
+* [Run on your ARC-based {% data variables.product.prodname_actions %} self-hosted runners](#using-self-hosted-github-actions-runners-with-arc)
 * [Enable Git Large File Storage (LFS)](#enabling-git-large-file-storage-lfs)
 * [Disable or customize the agent's firewall](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
 
@@ -140,20 +141,26 @@ jobs:
 
 > [!NOTE]
 > * {% data variables.copilot.copilot_coding_agent %} is only compatible with Ubuntu x64 Linux runners. Runners with Windows, macOS or other operating systems are not supported.
-> * Self-hosted {% data variables.product.prodname_actions %} runners are not supported.
 
 ## Using self-hosted {% data variables.product.prodname_actions %} runners with ARC
 
-You can use ARC (Actions Runner Controller) to run {% data variables.copilot.copilot_coding_agent %} on self-hosted runners. You must first set up ARC-managed scale sets in your environment. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller).
+You can run {% data variables.copilot.copilot_coding_agent %} on self-hosted runners powered by ARC (Actions Runner Controller). You must first set up ARC-managed scale sets in your environment. For more information on ARC, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller).
 
 > [!WARNING]
-> Persistent runners are not recommended for autoscaling scenarios with {% data variables.copilot.copilot_coding_agent %}.
+> ARC is the only officially supported solution for self-hosting {% data variables.copilot.copilot_coding_agent %}. For security reasons, we do not recommend using non-ARC self-hosted runners with {% data variables.copilot.copilot_coding_agent %}.
 
 > [!NOTE]
-> * ARC is the only officially supported solution for self-hosting {% data variables.copilot.copilot_coding_agent %}.
-> * {% data variables.copilot.copilot_coding_agent %} is only compatible with Ubuntu x64 Linux runners. Runners with Windows, macOS or other operating systems are not supported.
-> * For more information about ARC, see [AUTOTITLE](/actions/concepts/runners/actions-runner-controller).
+> {% data variables.copilot.copilot_coding_agent %} is only compatible with Ubuntu x64 Linux runners. Runners with Windows, macOS or other operating systems are not supported.
 
+1. Configure network security controls for your {% data variables.product.prodname_actions %} runners to ensure that {% data variables.copilot.copilot_coding_agent %} does not have open access to your network or the public internet. 
+
+    You must configure your firewall to allow connections to the [standard hosts required for {% data variables.product.prodname_actions %} self-hosted runners](/actions/reference/runners/self-hosted-runners#accessible-domains-by-function), plus the following hosts:
+
+    * `api.githubcopilot.com`
+    * `uploads.github.com`
+    * `user-images.githubusercontent.com`
+
+1. Disable {% data variables.copilot.copilot_coding_agent %}'s integrated firewall in your repository settings. The firewall is not compatible with self-hosted runners. Unless this is disabled, use of {% data variables.copilot.copilot_coding_agent %} will be blocked. For more information, see [AUTOTITLE](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
 1. In your `copilot-setup-steps.yml` file, set the `runs-on` attribute to your ARC-managed scale set name:
 
    ```yaml
@@ -165,20 +172,13 @@ You can use ARC (Actions Runner Controller) to run {% data variables.copilot.cop
        # ...
    ```
 
-1. Disable {% data variables.copilot.copilot_coding_agent %}'s integrated firewall in your repository settings, as it is not compatible with self-hosted runners. Without disabling the firewall, runners will not be able to connect to {% data variables.product.prodname_copilot_short %}. You must configure your own network security controls before disabling the built-in firewall. For more information, see [AUTOTITLE](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
-    
-    > [!WARNING]
-    > Disabling the firewall reduces isolation between {% data variables.product.prodname_copilot_short %} and your self-hosted environment. You must implement alternative network security controls to protect your environment.
+1. If you want to configure a proxy server for {% data variables.copilot.copilot_coding_agent %}'s connections to the internet, configure the following environment variables as appropriate:
 
-### Security considerations for self-hosted runners
+    {% data reusables.actions.actions-proxy-environment-variables-table %}
+    | `ssl_cert_file`    | The path to the SSL certificate presented by your proxy server. You will need to configure this if your proxy intercepts SSL connections. | `/path/to/key.pem`                               |
+    | `node_extra_ca_certs`    | The path to the SSL certificate presented by your proxy server. You will need to configure this if your proxy intercepts SSL connections. | `/path/to/key.pem`                               |
 
-When using self-hosted runners, especially with the firewall disabled, ensure your hosting environment has strict network communication controls. The following endpoints must be reachable from your runners:
-
-* `api.githubcopilot.com`
-* `uploads.github.com`
-* `user-images.githubusercontent.com`
-
-For a comprehensive list of other hosts that must also be allowlisted for {% data variables.product.prodname_actions %} self-hosted runners, see [AUTOTITLE](/actions/reference/runners/self-hosted-runners#accessible-domains-by-function).
+    You can set these environment variables by following the [instructions above](#setting-environment-variables-in-copilots-environment), or by baking the environment variables into your custom runner image. For more information on building a custom image, see [AUTOTITLE](/actions/concepts/runners/actions-runner-controller#creating-your-own-runner-image).
 
 ## Enabling Git Large File Storage (LFS)
 

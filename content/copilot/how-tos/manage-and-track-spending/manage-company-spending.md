@@ -15,7 +15,7 @@ redirect_from:
   - /copilot/how-tos/spending/managing-your-companys-spending-on-github-copilot
   - /copilot/how-tos/spending/manage-company-spending
 contentType: how-tos
-category: 
+category:
   - Manage Copilot for a team
 ---
 
@@ -69,7 +69,7 @@ You can understand your spending trends by viewing graphs of {% data variables.p
 For more detailed insights, you can group usage by the type of {% data variables.product.prodname_copilot_short %} plan, and enterprises can filter the results by cost center.
 
 1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
-1. In the left sidebar, click **Usage** (organizations) or **Usage** and then **Metered usage** (enterprises).
+{% data reusables.billing.display-usage-view %}
 1. In the "Metered usage" section, in the search field, enter `product:copilot`. To filter by cost center, add a query like `cost_center:ce-pilot-group`.
 1. To understand spending differences between {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} plans, select the **Group: None** dropdown menu and click **Group by: SKU**.
 

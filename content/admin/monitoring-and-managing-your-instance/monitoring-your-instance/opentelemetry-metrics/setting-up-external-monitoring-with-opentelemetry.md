@@ -13,7 +13,11 @@ type: how_to
 shortTitle: External monitoring OpenTelemetry
 ---
 
+{% ifversion ghes = 3.18 %}
+
 {% data reusables.enterprise.opentelemetry-preview %}
+
+{% endif %}
 
 ## External monitoring approaches
 
@@ -126,7 +130,7 @@ scrape_configs:
     scheme: https
     tls_config:
       # Set `true` only when testing with self-signed certificates
-      insecure_skip_verify: false  
+      insecure_skip_verify: false
 ```
 
 #### Other monitoring tools

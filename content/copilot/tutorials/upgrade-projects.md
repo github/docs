@@ -29,7 +29,7 @@ You can upgrade a Git-based Maven or Gradle Java project using {% data variables
 * For Maven-based projects, access to the public Maven Central repository.
 * Installed versions of both the source and target JDKs.
 
-For the next steps, see [Quickstart: upgrade a Java project with GitHub Copilot App Modernization - upgrade for Java](https://learn.microsoft.com/en-gb/java/upgrade/quickstart-upgrade) on Microsoft Learn.
+For an overview of the modernization workflow, see [AUTOTITLE](/copilot/tutorials/modernize-java-applications).
 
 ## Upgrading .NET projects
 

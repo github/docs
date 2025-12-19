@@ -16,9 +16,9 @@ redirect_from:
 
 >[!NOTE] The {% data variables.product.prodname_copilot_short %} usage metrics dashboard is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
-After you’ve viewed usage data in the {% data variables.product.prodname_copilot_short %} usage metrics dashboard, you can use this article to interpret what each chart means and identify opportunities to increase adoption and engagement across your enterprise.
+After you’ve viewed the {% data variables.product.prodname_copilot_short %} usage metrics dashboard, you can use this article to interpret each chart and identify opportunities to increase adoption and engagement.
 
-You can also access these metrics programmatically through the {% data variables.product.prodname_copilot_short %} usage metrics REST API, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics).
+> [!NOTE] The dashboard reports enterprise-level data. Organization-level views are available through the {% data variables.product.prodname_copilot_short %} usage metrics APIs.
 
 ## Reviewing overall usage trends
 
@@ -73,7 +73,6 @@ Use trends in usage, feature adoption, and language activity to guide enablement
 > [!TIP]
 > Consider combining dashboard trends with feedback from surveys or retrospectives to get a full picture of {% data variables.product.prodname_copilot_short %}’s impact on developer productivity.
 
-## Further reading
+## Next steps
 
-* [AUTOTITLE](/copilot/reference/copilot-usage-metrics/reconciling-usage-metrics)
-* [AUTOTITLE](/copilot/reference/copilot-usage-metrics/lines-of-code-metrics)
+* To access metrics programmatically, including enterprise, organization, and user-level records, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics).

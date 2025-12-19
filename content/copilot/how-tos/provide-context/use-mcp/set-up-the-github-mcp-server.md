@@ -22,6 +22,8 @@ category:
 
 The {% data variables.product.github %} MCP server is available to all {% data variables.product.github %} users regardless of plan type. However, specific tools within the MCP server inherit the same access requirements as their corresponding {% data variables.product.github %} features. If a feature requires a paid {% data variables.product.github %} or {% data variables.product.prodname_copilot_short %} license, the equivalent MCP tool will require the same subscription. For example, tools that interact with {% data variables.product.prodname_copilot_short %} Coding Agent require a paid {% data variables.product.prodname_copilot_short %} license.
 
+For the latest information and updates, see the [{% data variables.product.github %} MCP server repository](https://github.com/github/github-mcp-server).
+
 {% vscode %}
 
 {% data reusables.copilot.mcp.about-github-mcp-server %}
@@ -47,10 +49,6 @@ For information on manually configuring the remote or local {% data variables.pr
 1. On the {% data variables.product.github %} MCP server configuration page, click **Install**.
 1. To check that the {% data variables.product.github %} MCP server is configured correctly, open the command palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
 1. Type and select **MCP: List Servers**. You should see `github` listed as a configured server.
-
-## Tool configuration
-
-The {% data variables.product.github %} MCP server supports installing individual toolsets, either in read-only mode or with full read/write access, via the `--toolsets` flag. For more information, see [Tool Configuration](https://github.com/mcp/io.github.github/github-mcp-server#tool-configuration) in the GitHub MCP server documentation.
 
 {% endvscode %}
 
@@ -309,6 +307,11 @@ To configure the remote {% data variables.product.github %} MCP server with a PA
 
 {% endeclipse %}
 
+## Enterprise configuration
+
+If you are using {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_cloud %} with data residency, additional configuration is required. For more information, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/enterprise-configuration).
+
 ## Next steps
 
-To learn how to use the {% data variables.product.github %} MCP server in {% data variables.product.prodname_vscode %}, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/use-the-github-mcp-server).
+* To learn how to use the {% data variables.product.github %} MCP server in {% data variables.product.prodname_vscode %}, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/use-the-github-mcp-server).
+* For information on configuring individual toolsets with read-only or read/write access, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/configure-toolsets).

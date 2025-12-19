@@ -1,0 +1,6 @@
+# Reference: #20482
+# Delegated alert dismissal for Dependabot
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.20'
