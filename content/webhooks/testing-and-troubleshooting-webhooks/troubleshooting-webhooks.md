@@ -50,7 +50,7 @@ The `failed to connect to host` error occurs when {% data variables.product.comp
 
 To check whether a host name resolves to an IP address, you can use `nslookup`. For example, if your payload URL is `https://octodex.github.com/webhooks`, you can run `nslookup octodex.github.com`. If the host name could not be resolved to an IP address, the nslookup command will indicate that the server can't find the host name.
 
-You should make sure that your server allows connections from {% data variables.product.company_short %}'s IP addresses. You can use the `GET /meta` endpoint to find the current list of {% data variables.product.company_short %}'s IP addresses. See [AUTOTITLE](/rest/meta/meta#get-github-meta-information). Ensure connectivity is allowed from the IP addresses listed in the `hooks` section. {% data variables.product.company_short %} occasionally makes changes to its IP addresses, so you should update your IP allow list periodically.
+You should make sure that your server allows connections from {% data variables.product.company_short %}'s IP addresses. You can use the `GET /meta` endpoint to find the current list of {% data variables.product.company_short %}'s IP addresses. For more information, see [AUTOTITLE](/rest/meta/meta#get-github-meta-information). {% data variables.product.company_short %} occasionally makes changes to its IP addresses, so you should update your IP allow list periodically.
 
 ## Failed to connect to network
 

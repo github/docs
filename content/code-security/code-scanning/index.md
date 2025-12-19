@@ -25,4 +25,5 @@ children:
   - /integrating-with-code-scanning
   - /troubleshooting-code-scanning
   - /troubleshooting-sarif-uploads
+  - /reference
 ---

@@ -24,6 +24,8 @@ The code generation dashboard shows how {% data variables.product.prodname_copil
 {% data reusables.copilot.access-copilot-metrics-dashboard %}
 1. In the left sidebar, click **Code generation**.
 
+{% data reusables.copilot.org-copilot-usage-metrics %}
+
 ## What you can view
 
 The dashboard shows aggregated code generation activity across your enterprise, including:
@@ -39,4 +41,4 @@ For a full list of available metrics and definitions, see [AUTOTITLE](/copilot/r
 
 * To explore adoption and usage trends across your enterprise, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/view-usage-and-adoption).
 * To understand how Lines of Code (LoC) metrics are measured and what affects their accuracy and coverage, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/lines-of-code-metrics).
-* To access usage data programmatically, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics).
+* To access enterprise-, organization-, and user-level usage data programmatically, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics).

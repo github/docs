@@ -15,5 +15,6 @@ children:
   - /estimate-spending
   - /gather-insights
 contentType: tutorials
+redirect_from:
+  - /billing/tutorials/estimate-actions-costs
 ---
-

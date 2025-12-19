@@ -21,14 +21,14 @@ journeyTracks:
     title: 'Getting started'
     description: 'Learn the basics of our platform.'
     guides:
-      - '/get-started/start-your-journey/hello-world'
-      - '/get-started/foo/bar'
+      - href: '/get-started/start-your-journey/hello-world'
+      - href: '/get-started/foo/bar'
   - id: 'advanced'
     title: 'Advanced topics'
     description: 'Dive deeper into advanced features.'
     guides:
-      - '/get-started/foo/autotitling'
-      - '/get-started/start-your-journey/hello-world'
+      - href: '/get-started/foo/autotitling'
+      - href: '/get-started/start-your-journey/hello-world'
 children:
   - /start-your-journey
   - /foo
