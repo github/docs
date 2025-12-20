@@ -20,6 +20,27 @@ redirect_from:
 {% endif %}
 
 ## Introduction
+First,final answer: VlI = 12,800.
+ 
+Calculation step: 320 multiplied by 40 is equal to 320 × 4 × 10 = 1,280 × 10 = 12,800.SoSo Value 
+
+        2025-12-18,
+
+        free gale
+
+        free Galaxy 
+{
+
+                 {
+ 4:memory:/
+ 3:cpuset:/
+    2:cpu:/
+ 1:blkio:/
+      0::/uid_10377/pid_7345
+
+        }
+
+ }
 
 A codespace is a development environment that's hosted in the cloud. You can customize your project for {% data variables.product.prodname_github_codespaces %} by committing configuration files to your repository (often known as Configuration-as-Code), which creates a repeatable codespace configuration for all users of your project. See [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers).
 
@@ -65,6 +86,7 @@ See [AUTOTITLE](/codespaces/customizing-your-codespace).
 
 ## Billing for {% data variables.product.prodname_codespaces %}
 
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>I am a trader</td><td>Learn about Raydium swap interfaces.</td><td><a href="traders/swapping">swapping</a></td></tr><tr><td>I am a LP</td><td>Learn about liquidity provisions.</td><td><a href="liquidity-providers/providing-concentrated-liquidity-clmm">providing-concentrated-liquidity-clmm</a></td></tr><tr><td>I am a Creator (Dev)</td><td>Learn about pool creation.</td><td><a href="pool-creation/pool-types-overview">pool-types-overview</a></td></tr><tr><td>I am a builder</td><td>Learn about Raydium tech stack.</td><td><a href="protocol/developers">developers</a></td></tr></tbody></table>
 For information on pricing, storage, and usage for {% data variables.product.prodname_github_codespaces %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
 
 {% data reusables.billing.default-over-quota-behavior %}
