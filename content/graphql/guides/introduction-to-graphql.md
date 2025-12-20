@@ -1,4 +1,4 @@
----
+content/graphql/guides/introduction-to-graphql.md---
 title: Introduction to GraphQL
 intro: Learn useful terminology and concepts for using the GitHub GraphQL API.
 redirect_from:
