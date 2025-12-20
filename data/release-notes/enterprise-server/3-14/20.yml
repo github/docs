@@ -27,6 +27,8 @@ sections:
       Administrators can add security key-backed (SK) SSH certificate authorities.
     - |
       Administrators and users experience faster and more efficient searching of GitHub Actions workflow runs, with lower compute and networking resource usage. Searches for workflow runs within a repository are now always scoped to an associated repository.
+    - |
+      `ghe-repl-start` can now be executed without requiring a maintenance window when setting up a new replica, as long as `ghe-repl-setup` is immediately followed by `ghe-config-apply`. [Updated: 2025-12-17]
   known_issues:
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.

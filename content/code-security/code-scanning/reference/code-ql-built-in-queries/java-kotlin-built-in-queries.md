@@ -1,7 +1,7 @@
 ---
 title: Java and Kotlin queries for CodeQL analysis
-shortTitle: Java and Kotlin CodeQL queries
-intro: 'Explore the queries that {% data variables.product.prodname_codeql %} uses to analyze code written in Java or Kotlin when you select the `default` or the `security-extended` query suite.'
+shortTitle: Java and Kotlin queries
+intro: Explore the queries that {% data variables.product.prodname_codeql %} uses to analyze code written in Java or Kotlin when you select the `default` or the `security-extended` query suite.
 product: '{% data reusables.gated-features.codeql %}'
 allowTitleToDifferFromFilename: true
 versions:
@@ -12,6 +12,9 @@ type: reference
 topics:
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/code-scanning/managing-your-code-scanning-configuration/java-kotlin-built-in-queries
+contentType: other
 ---
 
 {% data variables.product.prodname_codeql %} includes many queries for analyzing Java and Kotlin code. {% data reusables.code-scanning.codeql-query-tables.query-suite-behavior %}

@@ -3097,42 +3097,6 @@
   ],
   "reactions": [
     {
-      "slug": "list-reactions-for-a-team-discussion-comment",
-      "subcategory": "reactions",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions"
-    },
-    {
-      "slug": "create-reaction-for-a-team-discussion-comment",
-      "subcategory": "reactions",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions"
-    },
-    {
-      "slug": "delete-team-discussion-comment-reaction",
-      "subcategory": "reactions",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions/{reaction_id}"
-    },
-    {
-      "slug": "list-reactions-for-a-team-discussion",
-      "subcategory": "reactions",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions"
-    },
-    {
-      "slug": "create-reaction-for-a-team-discussion",
-      "subcategory": "reactions",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions"
-    },
-    {
-      "slug": "delete-team-discussion-reaction",
-      "subcategory": "reactions",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions/{reaction_id}"
-    },
-    {
       "slug": "list-reactions-for-a-commit-comment",
       "subcategory": "reactions",
       "verb": "get",
@@ -3203,30 +3167,6 @@
       "subcategory": "reactions",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}"
-    },
-    {
-      "slug": "list-reactions-for-a-team-discussion-comment-legacy",
-      "subcategory": "reactions",
-      "verb": "get",
-      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions"
-    },
-    {
-      "slug": "create-reaction-for-a-team-discussion-comment-legacy",
-      "subcategory": "reactions",
-      "verb": "post",
-      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions"
-    },
-    {
-      "slug": "list-reactions-for-a-team-discussion-legacy",
-      "subcategory": "reactions",
-      "verb": "get",
-      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/reactions"
-    },
-    {
-      "slug": "create-reaction-for-a-team-discussion-legacy",
-      "subcategory": "reactions",
-      "verb": "post",
-      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/reactions"
     }
   ],
   "releases": [
