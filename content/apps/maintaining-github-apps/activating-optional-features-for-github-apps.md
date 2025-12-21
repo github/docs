@@ -1,5 +1,5 @@
 ---
-title: Activating optional features for GitHub Apps
+---title: Activating optional features for GitHub Apps
 intro: 'You can test new optional features for your {% data variables.product.prodname_github_apps %}.'
 redirect_from:
   - /developers/apps/activating-beta-features-for-apps
