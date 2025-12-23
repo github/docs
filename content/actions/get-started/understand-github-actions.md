@@ -1,4 +1,4 @@
----
+https://github.com/github/docs/blob/a93e027d33b716740231f52ce5d659ac1044dc63/content/actions/get-started/understand-github-actions.md---
 title: Understanding GitHub Actions
 shortTitle: Understand GitHub Actions
 intro: 'Learn the basics of core concepts and essential terminology in {% data variables.product.prodname_actions %}.'
