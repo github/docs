@@ -1,3 +1,4 @@
+
 ---
 title: Scalars
 intro: 'Scalars are primitive values Int, Float, String, Boolean, or ID.'
