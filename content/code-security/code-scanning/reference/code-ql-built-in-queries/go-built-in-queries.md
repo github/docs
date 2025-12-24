@@ -1,7 +1,7 @@
 ---
 title: Go queries for CodeQL analysis
-shortTitle: Go CodeQL queries
-intro: 'Explore the queries that {% data variables.product.prodname_codeql %} uses to analyze code written in Go (Golang) when you select the `default` or the `security-extended` query suite.'
+shortTitle: Go queries
+intro: Explore the queries that {% data variables.product.prodname_codeql %} uses to analyze code written in Go (Golang) when you select the `default` or the `security-extended` query suite.
 product: '{% data reusables.gated-features.codeql %}'
 allowTitleToDifferFromFilename: true
 versions:
@@ -12,6 +12,9 @@ type: reference
 topics:
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/code-scanning/managing-your-code-scanning-configuration/go-built-in-queries
+contentType: other
 ---
 
 {% data variables.product.prodname_codeql %} includes many queries for analyzing Go code. {% data reusables.code-scanning.codeql-query-tables.query-suite-behavior %}
