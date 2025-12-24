@@ -1,0 +1,34 @@
+نام: مسائل جدید را حل کنید:  مسائل جدید را حل کنید
+
+on:
+ مسائل :
+        انواع        : [باز] :  [باز شد]
+
+شغل:
+  خلاصه :
+       در حال     : ubuntu-آخرین :  آخرین بار
+  اجازه :
+ مسائل  :  نوشتن   :  بنویسید
+ مدل ها  :  خواندن   :  می خواند
+ محتویات      :     خواندن      :  می خواند
+
+ قدم ها :
+  نام: مخزن بازرسی name:  مخزن بازرسی
+ استفاده      : اقدامات/checkout@v4 :  اقدامات/checkout@v4
+
+  نام: عفونت هوش مصنوعی name:  عفونت هوش مصنوعی
+ id: عفونت :  عفونت
+ استفاده       : اقدامات/ai-inference@v1 :  اقدامات/ai-inference@v1
+ با :
+ فوری : |
+            Summarize the following GitHub issue in one paragraph:
+            Title: ${{ github.event.issue.title }}
+            Body: ${{ github.event.issue.body }}
+
+  نام: ارتباط با خلاصه هوش مصنوعی name: Comment with AI summary
+        run: |
+          gh issue comment $ISSUE_NUMBER --body '${{ steps.inference.outputs.response }}'
+        env:
+ GH_TOKEN: {\ اسرار.  : ${{ secrets.GITHUB_TOKEN }}
+ شماره شماره شماره : ${\ github.event.issue. : ${{ github.event.issue.number }}
+ پاسخ : ${{ steps.inference.outputs.response }}
