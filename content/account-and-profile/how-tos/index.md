@@ -17,12 +17,12 @@ redirect_from:
   - /account-and-profile/setting-up-and-managing-your-personal-account-on-github
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github
 children:
-  - /account-management
-  - /account-settings
-  - /profile-customization
-  - /contribution-settings
-  - /organization-membership
-  - /email-preferences
+  - account-management
+  - account-settings
+  - profile-customization
+  - contribution-settings
+  - organization-membership
+  - email-preferences
 contentType: how-tos
 ---
 
