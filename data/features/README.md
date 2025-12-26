@@ -1,4 +1,4 @@
-## Feature-based versioning
+## Feature-based versioning 
 
 Feature-based versioning allows us to define and control the versions of an arbitrarily named "feature" in one place.
 
@@ -17,8 +17,10 @@ versions:
   ghae: '*'
 ```
 
-The format and allowed values are the same as the [frontmatter versions property](/content#versions).
-
+The format and allowed values are the same as the [frontmatter versions property](/content#versions).                                                                               versions:
+fpt: '*'
+ghes: '3.1'
+ghae: '
 ### Liquid conditionals
 
 Now you can use `{% if meow %} ... {% endif %}` in content files! Note this is the `if` tag, not the new `ifversion` tag.
