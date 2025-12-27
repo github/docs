@@ -1,0 +1,166 @@
+@BUNDESKRIMINALAMT 
+Adresse
+Adresse in Computernetzwerken
+Eine IP-Adresse ist eine Adresse in Computernetzen, die – wie das Internet – auf dem Internetprotokoll (IP) basieren. Sie wird Geräten zugewiesen, die an das Netz angebunden sind, macht die Geräte so adressierbar und damit erreichbar. Die IP-Adresse kann einen einzelnen Empfänger oder eine Gruppe von Empfängern (Multicast, Broadcast) bezeichnen. Umgekehrt können einem Computer mehrere IP-Adressen zugeordnet sein.
+Die IP-Adresse wird vor allem verwendet, um Daten von ihrem Absender zum vorgesehenen Empfänger zu transportieren. Ähnlich der Postanschrift auf einem Briefumschlag werden Datenpakete mit einer IP-Adresse versehen, die den Empfänger eindeutig identifiziert. Aufgrund dieser Adresse können die „Poststellen“, die Router, entscheiden, in welche Richtung das Paket weitertransportiert werden soll. Im Gegensatz zu Postadressen sind IP-Adressen nicht an einen bestimmten Ort gebunden.
+Die bekannteste Notation der heute geläufigen IPv4-Adressen besteht aus vier Zahlen, die Werte von 0 bis 255 annehmen können und mit einem Punkt getrennt werden, beispielsweise 192.0.2.42. Technisch gesehen ist die Adresse eine 32-stellige (IPv4) oder 128-stellige (IPv6) Binärzahl.
+Grundlagen
+Um eine Kommunikation zwischen zwei technischen Geräten aufzubauen, muss jedes der Geräte in der Lage sein, dem anderen Gerät Daten zu senden. Damit diese Daten bei der richtigen Gegenstelle ankommen, muss diese eindeutig benannt (adressiert) werden. Dies geschieht in IP-Netzen mit einer IP-Adresse. So wird zum Beispiel ein Webserver von einem Webbrowser direkt über seine IP-Adresse angesprochen. Der Browser fragt dazu bei einem Nameserver die IP-Adresse ab, die einer Domain (zum Beispiel „www.example.com“) zugeordnet ist. Anschließend nutzt er diese IP-Adresse, um Daten an den Webserver zu senden.
+IP-Adresse in IP-Datenpaketen
+Jedes IP-Datenpaket beginnt mit einem Informationsbereich für die Beförderung durch die IP-Schicht, dem IP-Header. Dieser Header enthält auch zwei Felder, in welche die IP-Adressen sowohl des Senders als auch des Empfängers eingetragen werden, bevor das Datenpaket verschickt wird. Die Vermittlung geschieht auf der Schicht 3 im OSI-Modell, der Vermittlungsschicht.
+Aufbau
+Frühere Versionen
+Das Internet wurde anfangs als Netz konzipiert, um mehrere bestehende Datennetze miteinander zu verbinden. Eine Organisation wie die IANA, die Institutionen IP-Bereiche nach Bedarf zuweist, gibt es seit 1988. In den Headern der früheren Varianten des Internetprotokolls gab es getrennte Felder, in denen eine Netz-Adresse und eine Host-Adresse unabhängig voneinander definiert waren. Die Netz-Adresse war eine Netz-Kennziffer in Form eines 8-Bit-Wertes, die Quell- und Zielnetz des jeweiligen Datenpaketes kennzeichnet. Die für Arpanet, Cyclades und weitere Netze verwendeten Kennziffern waren festgelegt. Die Host-Adresse hatte in der ersten Version des Internetprotokolls von 1974 eine Länge von 16 Bit, wurde aber bereits in der ersten Überarbeitung des Internetprotokolls auf 24 Bit erweitert. So war es theoretisch bereits seit 1975 möglich, im Internet die gleiche Anzahl an Hosts zu adressieren, wie es noch auf Basis von IPv4 möglich ist. Die Trennung von Netz- und Host-Adresse entfiel, als im Jahre 1981 das IPv4-Protokoll eingeführt wurde und die IANA durch Einführung der Netzklassen dann IP-Adressbereiche in unterschiedlichen Größen vergab.[1] Durch komplexere Routing-Methoden und die Tatsache, dass es IP-Netze in unterschiedlichen Größen gab, wurde die Trennung von Netz- und Hostadresse obsolet, sodass die Adressen schlichtweg als IP-Adressen bezeichnet wurden, die lediglich abhängig von den jeweiligen Netzgrößen einen individuellen Netz- und Host-Teil haben.[2]
+IPv4
+→ Hauptartikel: IPv4
+Die seit der Einführung der Version 4 des Internetprotokolls überwiegend verwendeten IPv4-Adressen bestehen aus 32 Bits, also 4 Oktetten (Bytes). Damit sind 232, also 4.294.967.296 Adressen darstellbar. In der dotted decimal notation werden die 4 Oktette als vier durch Punkte voneinander getrennte ganze Zahlen in Dezimaldarstellung im Bereich von 0 bis 255 geschrieben.
+Beispiel: 203.0.113.195
+IPv6
+→ Hauptartikel: IPv6
+Durch den rasch steigenden Bedarf an IP-Adressen ist absehbar, dass der nutzbare Adressraum von IPv4 früher oder später erschöpft sein wird. Vor allem aus diesem Grund wurde IPv6 entwickelt. Es verwendet 128 Bit zur Speicherung von Adressen, damit sind 2128 = 25616 (= 340.282.366.920.938.463.463.374.607.431.768.211.456 ≈ 3,4 · 1038) Adressen darstellbar. Diese Anzahl reicht aus, um für jeden Quadratmillimeter der Erdoberfläche mindestens 665.570.793.348.866.944 (= 6,65 · 1017)[3] IP-Adressen bereitzustellen. Wenn es in jeder der ca. 2 Billionen Galaxien des bekannten Universums 100 Milliarden Planetensysteme mit je einem bewohnten Planeten gäbe, dann könnte man je Planet 1,7 · 1015 IP-Adressen vergeben. Wenn die Planeten Erdgröße haben, wären das etwa 3 Adressen je m² der Planetenoberfläche.
+Da die Dezimaldarstellung ddd.ddd.ddd.ddd.ddd.ddd.ddd.ddd.ddd.ddd.ddd.ddd.ddd.ddd.ddd.ddd unübersichtlich und schlecht handhabbar wäre, stellt man IPv6-Adressen hexadezimal dar. Um diese Darstellung weiter zu vereinfachen, werden jeweils zwei Oktette der Adresse zusammengefasst und in Gruppen durch Doppelpunkt getrennt dargestellt. XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX:XXXX.
+Beispiel: 2001:0db8:85a3:0000:0000:8a2e:0370:7344
+Zur weiteren Verkürzung können Nullen am Beginn eines Blocks weggelassen werden. Ein oder mehrere aufeinanderfolgende Blöcke, die nur aus Nullen bestehen, können durch :: ersetzt werden – jedoch höchstens einmal in der Adresse, so dass eindeutig auf acht Blöcke aufgefüllt werden kann.
+Beispiel: 2001:db8:85a3::8a2e:370:7344
+Netzadressteil und Geräteadressteil
+Jede 32 Bit lange IPv4-Adresse wird durch eine Netzmaske, jede 128 Bit lange IPv6-Adresse durch die Angabe der Präfixlänge in einen Netz- und einen Geräteadressteil („Hostteil“) getrennt. Die Netzmaske bzw. die Präfixlänge gibt jeweils an, an welcher Bit-Position die Adresse logisch geteilt werden muss. Die durch die Netzmaske maskierten oder die Präfixlänge bestimmten Bits (Netzadressteil) sind bei allen Hosts (Rechnern) eines Subnetzes identisch. Dieser Teil der Adresse, auf 32 bzw. 128 Bits aufgefüllt mit 0-Bits, bildet die Netzadresse des Subnetzes. Die Information, ob ein Gerät im selben Subnetz liegt wie ein anderes (d. h. gleicher Netzadressteil in der IP-Adresse), wird von einem Host benötigt, um Routing-Entscheidungen treffen zu können (siehe folgenden Abschnitt).
+Beispiel: (klassenlose) IPv4-Adresse 203.0.113.195/27
+             Dezimal          Binär                                Berechnung
+IP-Adresse   203.000.113.195  11001011 00000000 01110001 11000011  ip-adresse
+Netzmaske    255.255.255.224  11111111 11111111 11111111 11100000  AND netzmaske
+Netzadr.     203.000.113.192  11001011 00000000 01110001 11000000  = netzadressteil
+             Dezimal          Binär                                Berechnung
+IP-Adresse   203.000.113.195  11001011 00000000 01110001 11000011  ip-adresse
+Netzmaske    255.255.255.224  11111111 11111111 11111111 11100000
+                              00000000 00000000 00000000 00011111  AND (NOT netzmaske)
+Geräteteil   000.000.000.003  00000000 00000000 00000000 00000011  = geräteadressteil
+Bei einer Netzmaske mit 27 gesetzten Bits ergibt sich eine Netzadresse von 203.0.113.192. Es verbleiben 5 Bits und damit 25 = 32 Adressen für den Geräteteil. Hiervon werden noch je eine Adresse für das Netz selbst und für den Broadcast benötigt, so dass 30 Adressen für Geräte zur Verfügung stehen.
+Routing
+→ Hauptartikel: Routing
+Wird ein IP-Paket versendet, werden die Netzadressteile der Quell-IP-Adresse und Ziel-IP-Adresse verglichen. Stimmen sie überein, befindet sich der Ziel-Host im selben Netz, und das Paket wird direkt an den Empfänger gesendet. Im Falle von Ethernet-Netzen dient das ARP (Address Resolution Protocol) zum Auffinden der Hardwareadresse. ARP arbeitet auf der zweiten Schicht des OSI-Modells und stellt die Verbindung zur ersten Schicht her.
+Stimmen die Netzadressteile dagegen nicht überein, so wird über eine Routingtabelle die IP-Adresse eines Routers (next hop) gesucht und das Paket an diesen Router gesendet. Dieser hat über eine oder mehrere Schnittstellen Kontakt zu anderen Netzen und routet das Paket mit demselben Verfahren weiter – er konsultiert dazu seinerseits seine eigene Routingtabelle und sendet das Paket gegebenenfalls an den nächsten Router oder an das Ziel. Bis zum Endgerät kann das Paket viele Netze und Router durchlaufen. Das Durchlaufen eines Routers wird auch Hop (Sprung) genannt, das Routingverfahren Next Hop Routing.
+
+Routing eines HTTP-Pakets über drei Netze
+Ein Router hat dabei für jede seiner Schnittstellen eine eigene IP-Adresse und Netzmaske, die zum jeweiligen Netz gehört. Jedes IP-Paket wird einzeln geroutet. Die Quell- und Zieladresse im IP-Header werden vom Sender gesetzt und bleiben, wenn keine IP-Adress-Umsetzung stattfindet, während des gesamten Weges unverändert.
+Besondere IP-Adressen
+Besondere IPv4-Adressen nach RFC 6890:[4]
+Weitere Informationen CIDR-Adressblock, Adressbereich ...
+Nach dieser Liste erfüllen 622.199.809 von rund 4,3 Milliarden IPv4-Adressen bzw. 14,5 % aller möglichen IPv4-Adressen einen besonderen Zweck.
+Das Netz 127.0.0.0/8 bezieht sich auf den lokalen Computer (loopback address). Aus diesem Netzbereich ist oftmals die Adresse 127.0.0.1 mit dem Hostnamen localhost ansprechbar. Adressen aus diesem Bereich dienen zur Kommunikation eines Client- mit einem Server-Prozess auf demselben Computer. Mit Kommandozeilenbefehlen wie ssh localhost oder ftp 127.0.0.1 können die Server auf einem lokalen Rechner angesprochen werden, etwa um ihr Funktionieren zu testen.
+Die spezielle Adresse 255.255.255.255 kann neben der höchsten Geräteadresse im Netz ebenfalls als Broadcastadresse verwendet werden. Dadurch ist das Versenden von Broadcasts ohne Kenntnis weiterer Netzparameter möglich. Dies ist für Protokolle wie BOOTP und DHCP wichtig.
+Damit gibt es drei IP-Adresstypen:
+Unicast: Senden an einen bestimmten Empfänger im Internet (normale Adressierung).
+Broadcast: Senden an alle Geräte im selben Netz (Subnetz). Dieses wird bei IPv6 durch Multicast ersetzt.
+Multicast: Senden an einige Geräte im selben Netz (oder Geräte im Multicastbackbone-Netz).
+Nicht mehr reservierte IP-Adressen
+Mit dem RFC 5737[14] wurden ca. 50 Millionen IP-Adressen freigegeben. Die Reservierung der folgenden Adressbereiche wurde aufgehoben und zur Verteilung freigegeben.
+Weitere Informationen CIDR-Adressblock, Adressbereich ...
+DNS – Übersetzung von Rechnernamen in IP-Adressen
+Über das weltweit verfügbare Domain Name System (DNS) können Namen in IP-Adressen (und umgekehrt) aufgelöst werden. Der Name www.example.com wird zum Beispiel in die IPv4-Adresse 93.184.216.34 und die IPv6-Adresse 2606:2800:220:1:248:1893:25c8:1946 übersetzt.
+Vergabe von IP-Adressen und Netzbereichen
+IANA – Internet Assigned Numbers Authority
+Die Vergabe von IP-Netzen im Internet wird von der IANA geregelt. In den Anfangsjahren des Internets wurden IPv4-Adressen bzw. -Netze in großen Blöcken direkt von der IANA an Organisationen, Firmen oder Universitäten vergeben. Beispielsweise wurde der Bereich 13.0.0.0/8 und damit 16.777.216 Adressen der Xerox Corporation zugeteilt, ebenso erhielten Merck & Co. (54.0.0.0/8) und IBM (9.0.0.0/8) einen solch großen Bereich zugeteilt. Die einzige deutsche Firma, die einen /8 Bereich zugeteilt bekommen hat, ist die debis AG (53.0.0.0/8). Heute vergibt die IANA Blöcke an regionale Vergabestellen.
+RIR – Regional Internet Registry
+
+Zuständigkeitsbereiche der fünf RIR
+Seit Februar 2005 gibt es fünf regionale Vergabestellen, die Regional Internet Registries (RIR) genannt werden:
+AfriNIC (African Network Information Centre) – zuständig für Afrika
+APNIC (Asia-Pacific Network Information Centre) – zuständig für die Region Asien-Pazifik
+ARIN (American Registry for Internet Numbers) – Nordamerika
+LACNIC (Latin America and Caribbean Network Information Centre) – Lateinamerika und Karibik
+RIPE NCC (Réseaux IP Européens Network Coordination Centre) – Europa, Naher Osten, Zentralasien.
+Unter anderem für Deutschland, Liechtenstein, Österreich und die Schweiz ist also das RIPE NCC zuständig.
+Die Regional Internet Registries vergeben die ihnen von der IANA zugeteilten Netze an lokale Vergabestellen.
+LIR – Local Internet Registry
+Die Local Internet Registries (LIR) genannten lokalen Vergabestellen geben die ihnen von den RIRs zugeteilten Adressen an ihre Kunden weiter. Die Aufgabe der LIR erfüllen in der Regel Internet Service Provider. Kunden der LIR können entweder Endkunden oder weitere (Sub-)Provider sein.
+Die Adressen können dem Kunden entweder permanent zugewiesen werden (static IP address, feste IP-Adresse) oder beim Aufbau der Internetverbindung dynamisch zugeteilt werden (dynamic IP address, dynamische IP-Adresse). Fest zugewiesene Adressen werden vor allem bei Standleitungen verwendet oder wenn Server auf der IP-Adresse betrieben werden sollen.
+Welchem Endkunden oder welcher Local Internet Registry eine IP-Adresse bzw. ein Netz zugewiesen wurde, lässt sich über das Whois-Protokoll ermitteln.
+Private Netze
+→ Hauptartikel: Private IP-Adresse
+In privaten, lokalen Netzen (LAN) können selbst IP-Adressen vergeben werden. Dafür sollten für IPv4-Adressen aus den in RFC 1918[6] genannten privaten Netzen verwendet werden (zum Beispiel 192.168.1.1, 192.168.1.2, …). Diese Adressen werden von der IANA nicht weiter vergeben und im Internet nicht geroutet. Um trotzdem eine Internet-Verbindung zu ermöglichen, werden in einem Router mittels Network Address Translation (NAT) die LAN-internen Adressen in öffentliche, im Internet gültige IPv4-Adressen übersetzt. Bei Paketen, die an die öffentliche Adresse gerichtet ankommen, wird die öffentliche Adresse wiederum in die privaten Adressen zurückübersetzt. Zusätzlich ermöglicht NAT, dass alle Computer des lokalen Netzes nach außen unter derselben (also nur einer) im Internet gültigen IPv4-Adresse erscheinen, was den Bedarf an öffentlichen IP-Adressen reduziert („Adressen spart“). Die Zuordnung einer Kommunikation zwischen einem lokalen Computer mit privater Adresse und dem Server im Internet geschieht dann über die Portnummer.
+Netzklassen
+Ursprünglich wurden IPv4-Adressen aufgrund ihres 1, 2 oder 3 Bit langen Präfix in Netzklassen von A bis C mit jeweils spezifischer Aufteilung in Netz- und Geräteadresse eingeteilt.[1] Später kamen die – ebenfalls mit einem speziellen Präfix versehenen – Klassen D und E für spezielle Zwecke hinzu.[19] Zur Erhöhung der Flexibilität wurde 1985 ein Schema zur Unterteilung von Netzen spezifiziert: Subnetting.[20] Aufgrund der immer größer werdenden Routing-Tabellen wurde 1993 schließlich das klassenlose Routing (CIDR, Classless Inter-Domain Routing) eingeführt.[21][22][23] Damit spielt es – bis auf wenige Sondersituationen – keine Rolle mehr, welcher Netzklasse eine IPv4-Adresse angehört, sondern ihre logische Aufteilung in Netz- und Geräteadresse wird durch die dazu gehörende Netzmaske bestimmt.
+Gerätekonfiguration
+Manuelle Konfiguration
+Für Administratoren gibt es Konfigurationsprogramme. Unter Linux ist dies ip, unter Windows netsh, und andere unixoide Betriebssysteme verwenden ifconfig. Zur Anzeige können selbige verwendet werden, wobei unter Windows auch noch ipconfig oder winipcfg (je nach Version) zur Verfügung stehen.
+Beispiel: Anzeige der laufenden Konfiguration
+Linux: ip addr; ip route show table all
+Windows: netsh dump
+Beispiel: Der Netzschnittstelle eth0/LAN-Verbindung 1 wird die IPv6-Adresse 2a01:db8::123 in einem /64-Subnetz zugewiesen.
+Linux: ip addr add 2001:db8::123/64 dev eth0
+Windows: netsh interface ipv6 add address interface="LAN-Verbindung 1" address=2001:db8::123
+Beispiel: Zuweisung der IPv4-Adresse 192.168.0.254/27:
+Linux: ip addr add 192.168.0.254/27 brd + dev eth0
+Unix (FreeBSD, Mac OS X): ifconfig eth0 192.168.0.254/27
+ältere ifconfig: ifconfig eth0 192.168.0.254 netmask 255.255.255.224 broadcast 192.168.0.255
+Die Angabe der Teile „broadcast 192.168.0.255“ bzw. „brd +“ sind optional. („brd +“ steht hier für die automatische Berechnung der Broadcast-Adresse, es kann auch eine spezifische Adresse angegeben werden. ifconfig berechnet die Broadcast-Adresse in neueren Versionen automatisch).
+Automatische Konfiguration
+Über Protokolle wie BOOTP oder DHCP können IP-Adressen beim Hochfahren des Rechners durch einen entsprechenden Server zugewiesen werden. Auf dem Server wird dazu vom Administrator ein Bereich von IP-Adressen definiert, aus dem sich weitere Rechner beim Hochfahren eine Adresse entnehmen können. Diese Adresse wird an den Rechner geleast. Rechner, die feste Adressen benötigen, können im Ethernet-Netz über ihre MAC-Adresse identifiziert werden und eine dauerhafte Adresse erhalten.
+Vorteil hierbei ist die zentrale Verwaltung der Adressen. Ist nach der Installation des Betriebssystems die automatische Konfiguration vorgesehen, müssen keine weiteren Einstellungen für den Netzzugriff mehr vorgenommen werden. Mobilgeräte wie Laptops können sich Adressen teilen, wenn nicht alle Geräte gleichzeitig ans Netz angeschlossen werden. Daneben können sie ohne Änderung der Konfiguration bei Bedarf in verschiedene Netze (zum Beispiel Firma, Kundennetz, Heimnetz) integriert werden.
+Für IPv6 gibt es zusätzlich noch die Möglichkeit der Autokonfiguration, die ohne Server auskommt.
+Dynamische Adressierung
+Wenn einem Host bei jeder neuen Verbindung mit einem Netz eine neue IP-Adresse zugewiesen wird, spricht man von dynamischer oder wechselnder Adressierung. Im LAN-Bereich ist die dynamische Adressierung per DHCP verbreitet, im Internetzugangsbereich wird dynamische Adressierung vor allem von Internet-Service-Providern (ISP) eingesetzt, die Internet-Zugänge über Wählleitungen anbieten. Sie nutzen die dynamische Adressierung via PPP oder PPPoE.
+Vorteil der dynamischen Adressierung ist, dass im Durchschnitt deutlich weniger als eine IP-Adresse pro Kunde benötigt wird, da nie alle Kunden gleichzeitig online sind. Ein Verhältnis zwischen 1:10 und 1:20 ist üblich. Das RIPE NCC verlangt von seinen LIRs einen Nachweis über die Verwendung der ihnen zugewiesenen IP-Adressen. Eine feste Zuordnung von Adressen wird nur in begründeten Fällen akzeptiert, zum Beispiel für den Betrieb von Servern oder für Abrechnungszwecke.
+Bei DSL-Anbindung des Kunden verwenden die Provider meist ebenfalls dynamisch vergebene IPs.
+Statische Adressierung
+Statische Adressierung wird prinzipiell überall dort verwendet, wo eine dynamische Adressierung technisch nicht möglich oder nicht sinnvoll ist. So erhalten in LANs zum Beispiel Gateways, Server oder Netz-Drucker in der Regel feste IP-Adressen. Im Internet-Zugangsbereich wird statische Adressierung vor allem für Router an Standleitungen verwendet. Auch für Machine-to-Machine-Kommunikation wird insbesondere im Mobilfunkbereich (GPRS) zunehmend statische Adressierung verwendet. Statische Adressen werden meist manuell konfiguriert, können aber auch über automatische Adressierung (siehe oben) zugewiesen werden.
+Mehrere Adressen auf einer Netzwerkkarte
+Meist wird jeder Netzwerkschnittstelle (zum Beispiel Netzwerkkarte) eines Hosts genau eine IPv4-Adresse zugewiesen. In einigen Fällen (siehe unten) ist es allerdings notwendig, einer Schnittstelle mehrere IPv4-Adressen zuzuweisen. Dies wird auch als IP-Aliasing bezeichnet. Mehrere IPv4-Adressen auf einer Netzwerkkarte werden unter anderem verwendet, um mehrere gleiche Services dort parallel zu betreiben, um einen Host aus verschiedenen Subnetzen erreichbar zu machen oder um einen Service logisch vom Host zu trennen, sodass er – mit seiner IPv4-Adresse und transparent für die Clients – auf eine andere Hardware verschoben werden kann.
+Beispiel (FreeBSD)
+Die Netzschnittstelle fxp0 bekommt die IPv4-Adresse 192.168.2.254 mit einem /26-Subnetz als Alias
+ifconfig fxp0 alias 192.168.2.254 netmask 255.255.255.192
+Beispiel (Linux)
+Unter Linux wird einfach derselbe Befehl wie unter der manuellen Konfiguration verwendet, um weitere Adressen hinzuzufügen.
+ip addr add 192.168.2.254/26 dev eth0
+Bei IPv6 ist die Bindung mehrerer Adressen an eine Netzschnittstelle die Regel, um beispielsweise eine link-lokale neben einer globalen Adresse und dynamisch vergebene Präfixe neben festen zu betreiben, oder um IPv6-Adressen mehrerer Internetprovider auf demselben Host zur Verfügung zu haben. Außerdem gelten die oben genannten Gründe wie für IPv4.
+Speicherung von IP-Adressen
+Technische Funktionen
+Alle Aufrufe von Webseiten mittels eines Domainnamens haben eine DNS-Anfrage zur Folge, die die IP-Adresse des angefragten Servers ermittelt; diese muss also gespeichert sein, wenn der Aufruf funktionieren soll. Auf einigen Servern wird zudem eine Logdatei mit den zugreifenden IP-Adressen geführt. Gespeichert wird, zu welcher Zeit welche IP-Adresse für eine Internetverbindung verwendet wurde. Eine IP-Adresse ist die unterste Ebene der Identifizierung. Sie identifiziert jeden Teilnehmer im Internet, meistens einzelne Geräte. Die Identifizierung erfolgt über den IANA-Eintrag zum Internetzugangsanbieter und über diesen kann der Internetanschlussbesitzer mit der gesuchten IP-Adresse ermittelt werden.
+Rechtliche Fragen
+	
+Dieser Abschnitt stellt die Situation in Deutschland dar. Bitte hilf uns dabei, die Situation in anderen Staaten zu schildern.
+Siehe auch: Vorratsdatenspeicherung → IP-Vorratsdatenspeicherung
+Das Amtsgericht Mitte (Berlin) erklärte im März 2007 IP-Adressen zu personenbezogenen Daten im Sinne von § 3 BDSG.[24] Somit sei ihre Speicherung unzulässig. Das Amtsgericht München dagegen entschied Ende September 2008, dass IP-Adressen nicht als personenbezogene Daten zu werten sind. Somit sei deren Speicherung grundsätzlich zulässig.[25] Das Gericht knüpfte dies jedoch an Vorgaben: Die Zulässigkeit der Speicherung hänge von den Möglichkeiten dessen ab, der die Daten speichert. Kann er eine Person anhand der IP-Adresse identifizieren (etwa mit einem personalisierten Benutzerkonto), dann ist die automatische Speicherung unzulässig bzw. nur erlaubt, wenn der Benutzer zuvor seine ausdrückliche Erlaubnis gab. Beide Urteile ergingen für IPv4-Adressen. Aufgrund des größeren Adressbereiches sind IPv6-Adressen unter Umständen rechtlich anders einzuordnen.[26]
+Das deutsche Bundesverfassungsgericht urteilte am 2. März 2010, dass die Regelung zur Speicherung von IP-Adressen in Deutschland in ihrer bisherigen Form verfassungswidrig sei, da das Gesetz zur anlasslosen Speicherung umfangreicher Daten aller Nutzer elektronischer Kommunikationsdienste keine konkreten Maßnahmen zur Datensicherheit vorsehe. Das Gericht hat zudem die Hürden für den Abruf dieser Daten als zu niedrig bewertet. Das Urteil verpflichtete deutsche Telekommunikationsanbieter zur sofortigen Löschung gesammelter Daten. Die Vorratsdatenspeicherung sei nur unter schärferen Sicherheits- und Transparenzvorkehrungen sowie begrenzten Abrufmöglichkeiten für Sicherheitsbehörden grundsätzlich zulässig.
+Einem Auskunftsgesuch der Staatsanwaltschaft ist nachzukommen bei Ermittlungsverfahren über schwere Straftaten.[27] Die Speicherung von IP-Adressen zu anderen Zwecken (beispielsweise beim Besuch einer Internetseite, etwa in einer Logdatei) ist rechtlich ungeklärt.
+Hinzu kommt die Frage nach der Beweiskraft einer IP-Adresse aufgrund möglicher Fehlbedienungen oder Routen-Entführungen. Als im Jahre 2010 durch Einstellungsfehler beim Border Gateway Protocol (BGP) IP-Adressen von 37000 Netzen (nicht Nutzern) nach China geleitet wurden, entstand die Frage, welche Beweiskraft IP-Adressen zur Verfolgung von Straftaten zukommen könne. Zudem nahmen auch Geheimdienste BGP-Entführungen in ihr Werkzeug-Arsenal auf. An sich müssten alle Provider die Routingtabellen ihrer Kunden bei ihrem regionalen Internet-Registrar (in Europa RIPE NCC) hinterlegen und jede falsche Route ablehnen. Falsche Routen wären dann auf ohnehin unsichere Teilnetze begrenzt. Nach einer EuGH-Entscheidung ist die Anschlussinhaberhaftung nicht allein an IP-Adressen festzumachen. Es bedarf weiterer Angaben vom Internetzugangsanbieter. Über die Beweiskraft dieser Informationen urteilen deutsche Gerichte verschieden, da nur der Anschlussinhaber ermittelt werden kann, nicht aber, welche Person zum fraglichen Zeitpunkt aktiv war. Um Routen-Entführungen zu unterbinden, gibt es Vorschläge zur Speicherung der Routingtabellen sowie zur Einführung des 2017 entwickelten BGPsec, der Border Gateway Protocol Security Extension. Auch wurde die Zertifizierung per Resource Public Key Infrastructure (RPKI) für das BGP eingeführt. Nicht alle Internetprovider nutzen dies, wie Tests mit IsBGPsafeyet.com zeigen. In Deutschland unterstützen weder die Telekom noch Vodafone diese Sicherheitsmaßnahme.[28]
+Rückgewinnung von Zusatzinformationen
+Mit Hilfe einer IP-Adresse können weitere Angaben über deren Benutzer mit einer bestimmten Wahrscheinlichkeit angenommen werden:
+Geotargeting versucht, auf den Aufenthaltsort (zumindest Staat, Region) rückzuschließen (Ortsbestimmung).
+Inhalte von einer nicht dynamischen IP-Adresse eines Unternehmens oder einer Behörde können mit hoher Wahrscheinlichkeit als von dort stammend angenommen werden; Seitenaufrufe von dort stammen vmtl. von einem Mitarbeiter.
+Wer mit einer IP-Adresse eines Mobilfunkanbieter-Netzes Webseiten eines Servers abruft, ist mit hoher Wahrscheinlichkeit eine Person, die mit dem Handy/Smartphone surft.
+Siehe auch
+Datenkapselung (Netzwerktechnik)
+Fully-Qualified Host Name (FQHN), ein Oberbegriff für IP-Adresse und Fully-Qualified Domain Name (FQDN)
+Internet Control Message Protocol (ICMP)
+IP-Telefonie
+Internet Protocol Television (IPTV)
+Mobile IP
+Internetprotokollfamilie
+Literatur
+Marc Störing: Gefährliches Adressgedächtnis – Rechtsunsicherheit bei Speicherung und Weitergabe von IP-Daten. In: c’t, Nr. 25/2008, S. 190–191; heise.de
+Bernhard J. Hauser: Fachwissen Netzwerktechnik. 2. Auflage. Europa-Lehrmittel-Verlag, Haan 2015, ISBN 978-3-8085-5402-9
+Weblinks
+Wiktionary: IP-Adresse – Bedeutungserklärungen, Wortherkunft, Synonyme, Übersetzungen
+iana.org –IANA – Internet Assigned Numbers Authority (Mit Informationen zu IP-Adressen, englisch)
+IANA – Ipv4-address-space (Zuordnungen der IP-Bereiche)
+What is My IP Location? (Geolocation). iplocation.net (englisch).
+ripe.net – RIPE – Réseaux IP Européens, gibt unter anderem registrierte IP-Adress-Eigentümer aus (englisch).
+RFC: 3330 – Special-Use IP Addresses. September 2002 (englisch).
+jodies.de – Webinterface zur Berechnung von Netzmasken, Netzgrenzen usw. (englisch).
+Wie lautet meine IP Adresse? – Gibt die eigene IP-Adresse sowie Informationen über den Browser aus (Verwendet weder Cookies noch Werbung).
+Einzelnachweise
+ÜBER DIESEN ARTIKEL
+Diskussionsseite ansehen
+Diskutiere Verbesserungen zu diesem Artikel
+Vollständige Versionsgeschichte
+Vor 54 Tagen aktualisiert
+MEHR LESEN
+Subnetz
+Teilnetz eines Netzwerkes beim Internetprotokoll (IP)
+IPv4
+Internetprotokoll
+Classless Inter-Domain Routing
+Netzwerkprotokoll
+Der Inhalt ist verfügbar unter CC BY-SA 4.0, sofern nicht anders angegeben.
+Artikel im Browser ansehen
