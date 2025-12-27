@@ -1,1 +1,0 @@
-export { BumpLink } from './BumpLink'
