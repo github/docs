@@ -180,6 +180,12 @@ In the case of naming conflicts, a system-level agent overrides a repository-lev
 
 For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents).
 
+### Use skills
+
+You can create skills to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources.
+
+For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
+
 ### Add an MCP server
 
 {% data variables.copilot.copilot_cli_short %} comes with the {% data variables.product.github %} MCP server already configured. This MCP server allows you to interact with resources on {% data variables.product.prodname_dotcom_the_website %}—for example, allowing you to merge pull requests from the CLI.

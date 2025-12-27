@@ -1,6 +1,54 @@
 {
   "actions": [
     {
+      "slug": "get-github-actions-cache-retention-limit-for-an-enterprise",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-retention-limit-for-an-enterprise",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "get-github-actions-cache-storage-limit-for-an-enterprise",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/actions/cache/storage-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-storage-limit-for-an-enterprise",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/actions/cache/storage-limit"
+    },
+    {
+      "slug": "get-github-actions-cache-retention-limit-for-an-organization",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-retention-limit-for-an-organization",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/organizations/{org}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "get-github-actions-cache-storage-limit-for-an-organization",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/actions/cache/storage-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-storage-limit-for-an-organization",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/organizations/{org}/actions/cache/storage-limit"
+    },
+    {
       "slug": "get-github-actions-cache-usage-for-an-organization",
       "subcategory": "cache",
       "verb": "get",
@@ -539,6 +587,30 @@
       "subcategory": "artifacts",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}"
+    },
+    {
+      "slug": "get-github-actions-cache-retention-limit-for-a-repository",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-retention-limit-for-a-repository",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/actions/cache/retention-limit"
+    },
+    {
+      "slug": "get-github-actions-cache-storage-limit-for-a-repository",
+      "subcategory": "cache",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit"
+    },
+    {
+      "slug": "set-github-actions-cache-storage-limit-for-a-repository",
+      "subcategory": "cache",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit"
     },
     {
       "slug": "get-github-actions-cache-usage-for-a-repository",
@@ -1190,97 +1262,61 @@
   "billing": [
     {
       "slug": "get-all-budgets-for-an-organization",
-      "subcategory": "enhanced-billing",
+      "subcategory": "budgets",
       "verb": "get",
       "requestPath": "/organizations/{org}/settings/billing/budgets"
     },
     {
       "slug": "get-a-budget-by-id-for-an-organization",
-      "subcategory": "enhanced-billing",
+      "subcategory": "budgets",
       "verb": "get",
       "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}"
     },
     {
       "slug": "update-a-budget-for-an-organization",
-      "subcategory": "enhanced-billing",
+      "subcategory": "budgets",
       "verb": "patch",
       "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}"
     },
     {
       "slug": "delete-a-budget-for-an-organization",
-      "subcategory": "enhanced-billing",
+      "subcategory": "budgets",
       "verb": "delete",
       "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}"
     },
     {
       "slug": "get-billing-premium-request-usage-report-for-an-organization",
-      "subcategory": "enhanced-billing",
+      "subcategory": "usage",
       "verb": "get",
       "requestPath": "/organizations/{org}/settings/billing/premium_request/usage"
     },
     {
       "slug": "get-billing-usage-report-for-an-organization",
-      "subcategory": "enhanced-billing",
+      "subcategory": "usage",
       "verb": "get",
       "requestPath": "/organizations/{org}/settings/billing/usage"
     },
     {
       "slug": "get-billing-usage-summary-for-an-organization",
-      "subcategory": "enhanced-billing",
+      "subcategory": "usage",
       "verb": "get",
       "requestPath": "/organizations/{org}/settings/billing/usage/summary"
     },
     {
-      "slug": "get-github-actions-billing-for-an-organization",
-      "subcategory": "billing",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/settings/billing/actions"
-    },
-    {
-      "slug": "get-github-packages-billing-for-an-organization",
-      "subcategory": "billing",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/settings/billing/packages"
-    },
-    {
-      "slug": "get-shared-storage-billing-for-an-organization",
-      "subcategory": "billing",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/settings/billing/shared-storage"
-    },
-    {
-      "slug": "get-github-actions-billing-for-a-user",
-      "subcategory": "billing",
-      "verb": "get",
-      "requestPath": "/users/{username}/settings/billing/actions"
-    },
-    {
-      "slug": "get-github-packages-billing-for-a-user",
-      "subcategory": "billing",
-      "verb": "get",
-      "requestPath": "/users/{username}/settings/billing/packages"
-    },
-    {
       "slug": "get-billing-premium-request-usage-report-for-a-user",
-      "subcategory": "enhanced-billing",
+      "subcategory": "usage",
       "verb": "get",
       "requestPath": "/users/{username}/settings/billing/premium_request/usage"
     },
     {
-      "slug": "get-shared-storage-billing-for-a-user",
-      "subcategory": "billing",
-      "verb": "get",
-      "requestPath": "/users/{username}/settings/billing/shared-storage"
-    },
-    {
       "slug": "get-billing-usage-report-for-a-user",
-      "subcategory": "enhanced-billing",
+      "subcategory": "usage",
       "verb": "get",
       "requestPath": "/users/{username}/settings/billing/usage"
     },
     {
       "slug": "get-billing-usage-summary-for-a-user",
-      "subcategory": "enhanced-billing",
+      "subcategory": "usage",
       "verb": "get",
       "requestPath": "/users/{username}/settings/billing/usage/summary"
     }
@@ -4397,6 +4433,12 @@
       "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields"
     },
     {
+      "slug": "add-a-field-to-an-organization-owned-project",
+      "subcategory": "fields",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields"
+    },
+    {
       "slug": "get-project-field-for-organization",
       "subcategory": "fields",
       "verb": "get",
@@ -4431,56 +4473,6 @@
       "subcategory": "items",
       "verb": "delete",
       "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}"
-    }
-  ],
-  "projects-classic": [
-    {
-      "slug": "get-a-project-column",
-      "subcategory": "columns",
-      "verb": "get",
-      "requestPath": "/projects/columns/{column_id}"
-    },
-    {
-      "slug": "update-an-existing-project-column",
-      "subcategory": "columns",
-      "verb": "patch",
-      "requestPath": "/projects/columns/{column_id}"
-    },
-    {
-      "slug": "delete-a-project-column",
-      "subcategory": "columns",
-      "verb": "delete",
-      "requestPath": "/projects/columns/{column_id}"
-    },
-    {
-      "slug": "move-a-project-column",
-      "subcategory": "columns",
-      "verb": "post",
-      "requestPath": "/projects/columns/{column_id}/moves"
-    },
-    {
-      "slug": "list-project-collaborators",
-      "subcategory": "collaborators",
-      "verb": "get",
-      "requestPath": "/projects/{project_id}/collaborators"
-    },
-    {
-      "slug": "add-project-collaborator",
-      "subcategory": "collaborators",
-      "verb": "put",
-      "requestPath": "/projects/{project_id}/collaborators/{username}"
-    },
-    {
-      "slug": "remove-user-as-a-collaborator",
-      "subcategory": "collaborators",
-      "verb": "delete",
-      "requestPath": "/projects/{project_id}/collaborators/{username}"
-    },
-    {
-      "slug": "get-project-permission-for-a-user",
-      "subcategory": "collaborators",
-      "verb": "get",
-      "requestPath": "/projects/{project_id}/collaborators/{username}/permission"
     }
   ],
   "pulls": [
@@ -4657,42 +4649,6 @@
   ],
   "reactions": [
     {
-      "slug": "list-reactions-for-a-team-discussion-comment",
-      "subcategory": "reactions",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions"
-    },
-    {
-      "slug": "create-reaction-for-a-team-discussion-comment",
-      "subcategory": "reactions",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions"
-    },
-    {
-      "slug": "delete-team-discussion-comment-reaction",
-      "subcategory": "reactions",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions/{reaction_id}"
-    },
-    {
-      "slug": "list-reactions-for-a-team-discussion",
-      "subcategory": "reactions",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions"
-    },
-    {
-      "slug": "create-reaction-for-a-team-discussion",
-      "subcategory": "reactions",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions"
-    },
-    {
-      "slug": "delete-team-discussion-reaction",
-      "subcategory": "reactions",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions/{reaction_id}"
-    },
-    {
       "slug": "list-reactions-for-a-commit-comment",
       "subcategory": "reactions",
       "verb": "get",
@@ -4781,30 +4737,6 @@
       "subcategory": "reactions",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}"
-    },
-    {
-      "slug": "list-reactions-for-a-team-discussion-comment-legacy",
-      "subcategory": "reactions",
-      "verb": "get",
-      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions"
-    },
-    {
-      "slug": "create-reaction-for-a-team-discussion-comment-legacy",
-      "subcategory": "reactions",
-      "verb": "post",
-      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions"
-    },
-    {
-      "slug": "list-reactions-for-a-team-discussion-legacy",
-      "subcategory": "reactions",
-      "verb": "get",
-      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/reactions"
-    },
-    {
-      "slug": "create-reaction-for-a-team-discussion-legacy",
-      "subcategory": "reactions",
-      "verb": "post",
-      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/reactions"
     }
   ],
   "releases": [
@@ -4920,13 +4852,13 @@
     },
     {
       "slug": "create-an-attestation",
-      "subcategory": "repos",
+      "subcategory": "attestations",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/attestations"
     },
     {
       "slug": "list-attestations",
-      "subcategory": "repos",
+      "subcategory": "attestations",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/attestations/{subject_digest}"
     },
@@ -5609,30 +5541,6 @@
       "subcategory": "members",
       "verb": "delete",
       "requestPath": "/orgs/{org}/teams/{team_slug}/memberships/{username}"
-    },
-    {
-      "slug": "list-team-projects",
-      "subcategory": "teams",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/projects"
-    },
-    {
-      "slug": "check-team-permissions-for-a-project",
-      "subcategory": "teams",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
-    },
-    {
-      "slug": "add-or-update-team-project-permissions",
-      "subcategory": "teams",
-      "verb": "put",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
-    },
-    {
-      "slug": "remove-a-project-from-a-team",
-      "subcategory": "teams",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
     },
     {
       "slug": "list-team-repositories",

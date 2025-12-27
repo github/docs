@@ -29,9 +29,6 @@ Changing the model used by {% data variables.copilot.copilot_chat_short %} does 
 
 {% webui %}
 
-> [!NOTE]
-> You can only use an alternative AI model in the immersive view of {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %}. This is the full-page version of {% data variables.copilot.copilot_chat_short %} that's displayed at [https://github.com/copilot](https://github.com/copilot). The {% data variables.copilot.copilot_chat_short %} panel always uses the default model.
-
 ### Limitations of AI models for {% data variables.copilot.copilot_chat_short %}
 
 Experimental pre-release versions of the models may not interact with all filters correctly, including the setting to block suggestions matching public code (see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code)).
@@ -48,7 +45,7 @@ These instructions are for {% data variables.product.prodname_copilot_short %} o
 
    ![Screenshot of the 'Copilot' button, highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-icon-top-right.png)
 
-1. At the bottom of the immersive view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
+1. At the bottom of {% data variables.copilot.copilot_chat_short %}, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
 
 1. Optionally, after submitting a prompt, you can regenerate the same prompt using a different model by clicking the retry icon ({% octicon "sync" aria-label="The re-run icon" %}) below the response. The new response will use your selected model and maintain the full context of the conversation.
 
@@ -140,6 +137,8 @@ These instructions are for the JetBrains IDEs. For instructions on different cli
 1. In the popup menu, click **Open {% data variables.copilot.copilot_chat %}**.
 1. In the bottom right of the chat view, select an AI model of your choice from the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
 
+{% data reusables.copilot.auto-model-option %}
+
 {% endjetbrains %}
 
 {% eclipse %}
@@ -153,6 +152,8 @@ These instructions are for the Eclipse IDE. For instructions on different client
 1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the status bar.
 1. In the popup menu, click **Open Chat**.
 1. In the bottom right of the chat panel, click the currently selected AI model, then select an alternative model from the popup menu.
+
+{% data reusables.copilot.auto-model-option %}
 
 {% endeclipse %}
 
@@ -168,6 +169,8 @@ To use multi-model {% data variables.copilot.copilot_chat_short %}, you must ins
 
 1. To open the chat view, click **Editor** in the menu bar, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then **Open Chat**. {% data variables.copilot.copilot_chat_short %} opens in a new window.
 1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click the AI model of your choice.
+
+{% data reusables.copilot.auto-model-option %}
 
 {% endxcode %}
 

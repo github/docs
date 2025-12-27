@@ -22,6 +22,8 @@ Gists can be public or secret. Public gists show up in {% data variables.gists.d
 
 Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable unless you are logged in and are the author of the secret gist. Secret gists aren't private. If you send the URL of a secret gist to a friend, they'll be able to see it. However, if someone you don't know discovers the URL, they'll also be able to see your gist. If you need to keep your code away from prying eyes, you may want to [create a private repository](/repositories/creating-and-managing-repositories/creating-a-new-repository) instead.
 
+For {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.github %} automatically scans _secret gists_ for partner secrets and informs the relevant partner whenever one of their secrets is leaked.{% ifversion fpt or ghec %} See [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning-for-partners).{% endif %}
+
 {% data reusables.gist.cannot-convert-public-gists-to-secret %} However, a secret gist can be made public by editing the gist and updating the visibility to public.
 
 {% ifversion ghes %}

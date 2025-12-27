@@ -46,9 +46,9 @@ By default, issues are enabled for new repositories. If you would like to use an
 
 With the repository set up, you can use {% data variables.product.prodname_copilot_short %} to turn your project vision into a set of actionable issues.
 
-### Start in the {% data variables.product.prodname_copilot_short %} immersive view
+### Start in {% data variables.product.prodname_copilot_short %} in {% data variables.product.github %}
 
-{% data reusables.copilot.immersive-mode-instructions %}
+{% data reusables.copilot.access-chat-instructions %}
 1. Using the chat panel, attach the repository for the shopping website. This allows {% data variables.product.prodname_copilot_short %} to access the repository and create issues directly within it.
 
 ### Create an epic issue
@@ -57,7 +57,7 @@ With the repository set up, you can use {% data variables.product.prodname_copil
    ```I’m planning to create a shopping website in React and Node.js. The site should allow users to browse products by category, search for items, add products to a cart, and complete checkout. Please help me plan the project by creating issues and breaking it down into epics, features, and tasks.```
 1. Submit your prompt. {% data variables.product.prodname_copilot_short %} will generate an issue tree, typically with an epic at the top and sub-issues for each main feature or task
 
-![Screenshot of Copilot Chat in immersive mode. Copilot chat displays a list of issues with an epic at the top and several sub-issues beneath it.](/assets/images/help/copilot/copilot-creates-sub-issues.png)
+![Screenshot of Copilot Chat. Copilot chat displays a list of issues with an epic at the top and several sub-issues beneath it.](/assets/images/help/copilot/copilot-creates-sub-issues.png)
 
 ## Navigate the issue tree
 

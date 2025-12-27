@@ -4,6 +4,7 @@ shortTitle: About integrations
 intro: 'Learn how to connect, extend, and customize GitHub with apps and tools.'
 redirect_from:
   - /get-started/exploring-integrations/about-integrations
+  - /get-started/exploring-integrations/about-using-integrations
 versions:
     fpt: '*'
     ghes: '*'

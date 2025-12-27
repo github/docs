@@ -75,6 +75,10 @@ sections:
       [Updated: 2025-03-19]
     - |
       After a restore, existing outside collaborators are unable to be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
+    - |
+      Upgrading to this version from GHES 3.14.19 and higher will cause the upgrade to fail due to this version containing an older version of MySQL. To avoid this issue please upgrade to GHES 3.15.14 or higher.
+
+      [Updated: 2025-11-24]
   errata:
     - |
       The release notes previously did not mention VMware ESXi 8.0 support. [Updated: 2025-04-02]

@@ -93,4 +93,4 @@ Finally, look for the following indicators, which may require additional prevent
 
 ## Next steps
 
-{% data variables.product.prodname_GH_secret_protection %} provides continuous monitoring and push protection to help remediate any remaining secrets and prevent future leaks. To help you evaluate whether {% data variables.product.prodname_GH_secret_protection %} is right for your organization, you can estimate the cost before enabling it. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/estimating-the-price-of-secret-protection).
+For stronger secret security and additional insights, {% data variables.product.github %} recommends enabling {% data variables.product.prodname_GH_secret_protection %} for all of your repositories. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/protect-your-secrets).

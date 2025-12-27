@@ -7596,6 +7596,12 @@ upcoming_changes:
     date: '2026-04-01T00:00:00+00:00'
     criticality: breaking
     owner: audit_logs
+  - location: ReviewRequest.requestedBy
+    description: '`requestedBy` will be removed. Use `requestedByActor` instead.'
+    reason: '`requestedBy` will be removed.'
+    date: '2026-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/client-apps-platform
   - location: TeamAddMemberAuditEntry.action
     description: '`action` will be removed.'
     reason: The GraphQL audit-log is deprecated. Please use the REST API instead.

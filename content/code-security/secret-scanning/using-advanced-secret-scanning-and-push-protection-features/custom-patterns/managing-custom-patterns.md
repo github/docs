@@ -39,6 +39,8 @@ When you remove a custom pattern, {% data variables.product.github %} gives you 
 1. Review the confirmation, and select a method for dealing with any open alerts relating to the custom pattern.
 1. Click **Yes, delete this pattern**.
 
+If you choose to close the alerts when removing a custom pattern, you need to be aware that the deletion process happens asynchronously in the background. For custom patterns that have generated a high volume of alerts (thousands or more), the deletion process may take several minutes to hours to complete. You can continue working while the process completes.
+
 ## Enabling push protection for a custom pattern
 
 You can enable {% data variables.product.prodname_secret_scanning %} as a push protection for custom patterns stored at the enterprise, organization, or repository level.

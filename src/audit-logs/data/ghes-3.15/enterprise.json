@@ -1832,23 +1832,6 @@
     ]
   },
   {
-    "action": "code.search",
-    "description": "A code search was run targeting an organization. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
-    "docs_reference_links": "/search-github/github-code-search",
-    "fields": [
-      "@timestamp",
-      "action",
-      "actor_id",
-      "business_id",
-      "query",
-      "org_id",
-      "user_id",
-      "_document_id",
-      "search_string"
-    ],
-    "docs_reference_titles": "/search-github/github-code-search"
-  },
-  {
     "action": "codespaces.allow_permissions",
     "description": "A codespace using custom permissions from its devcontainer.json file was launched.",
     "docs_reference_links": "N/A",

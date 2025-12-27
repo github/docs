@@ -64,14 +64,14 @@ You can set budgets and receive alerts when your usage of a product reaches 75%,
    >[!IMPORTANT] If you do not select **Stop usage when budget limit is reached**, you will be notified by email if you exceed your budget, but usage **will not** be stopped.
 
 1. To receive an alert if your budget has reached 75%, 90% and 100% thresholds, select **Receive budget threshold alerts** under "Alerts". When the budget has reached the specific threshold, you will be notified via email and a banner on {% data variables.product.github %}. You may opt out at any time.
-1. Click **Create budget**.
+{% data reusables.billing.budget-create-button %}
 
 To edit or delete a budget, on the "Budget and alerts" page, click **Edit** or **Delete** next to the budget you want to edit or delete. Follow the prompts.
 
 ## Managing budgets for your organization or enterprise
 
 > [!IMPORTANT]
-> * {% data reusables.billing.pru-sku-split-notice %} 
+> * {% data reusables.billing.pru-sku-split-notice %}
 > * Existing {% data variables.product.prodname_copilot_short %} premium request budgets will automatically migrate to a **bundled premium requests budget** on November 1, 2025. This ensures that your budget continues to account for all of your premium request usage.
 
 You can set budgets and receive alerts when your usage of a product or license type reaches 75%, 90%, or 100% of a defined budget. For budgets that control metered use of a product, you can also block further use when the budget is exhausted. Each budget has a scope.
@@ -85,13 +85,8 @@ You can set budgets and receive alerts when your usage of a product or license t
 
 If you are an organization owner, enterprise owner, or billing manager, any account-level budget is listed at the top of the "Budgets and alerts" page, followed by budgets for smaller scopes.
 
-1. Display the settings for the organization or enterprise account you want to view data for. For example, using the context switcher shown on all personal and organization account settings pages.
-
-   ![Screenshot of the "Public profile" settings for The Octocat. Next to "Your personal profile," a "Switch settings context" link is outlined in orange.](/assets/images/help/settings/context-switcher-button.png)
-
-1. Click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing** to display the billing and licensing overview for the account:
-   * **Organization** accounts: under "Access" in the sidebar for settings.
-   * **Enterprise** accounts: a separate tab at the top of the page.
+{% data reusables.billing.nav-to-org-or-ent %}
+{% data reusables.billing.access-org-or-ent-page %}
 
 1. Click **Budgets and alerts**.
 1. Optionally, in the enterprise view only, to filter by scope, select **Scope**, then choose a scope.
@@ -117,7 +112,7 @@ To limit spending on premium requests across all features, enable "Bundled premi
 
    Under "Alert Recipients", select the people who will receive the alerts.
 
-1. Click **Create budget**.
+{% data reusables.billing.budget-create-button %}
 
 ### Editing or deleting a budget
 

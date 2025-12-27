@@ -27,8 +27,6 @@ export default async function learningTrack(
   const trackName = req.query.learn as string
 
   let trackProduct = req.context.currentProduct as string
-  // TODO: Once getDeepDataByLanguage is ported to TS
-  // a more appropriate API would be to use `getDeepDataByLanguage<LearningTracks)(...)`
   const allLearningTracks = getDeepDataByLanguage(
     'learning-tracks',
     req.language!,

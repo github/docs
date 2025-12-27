@@ -190,11 +190,9 @@ registries:
 
 #### Notes
 
-{% data variables.product.prodname_dependabot %} works with any OCI-compliant registries that implement the Open Container Initiative (OCI) Distribution Specification. For more information, see [Helm Registry Login](https://helm.sh/docs/helm/helm_registry_login/) in the Helm docs.
+The `helm-registry` type only supports HTTP Basic Auth and does not support OCI-compliant registries. If you need to access an OCI-compliant registry for Helm charts, configure a [`docker-registry`](#docker) instead. For more information on basic authentication, see [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
 
-{% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For more information, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
-
-When configuring Dependabot for Helm charts, it will also automatically update the Docker images referenced within those charts, ensuring that both the chart versions and their contained images stay up to date.
+When configuring {% data variables.product.prodname_dependabot %} for Helm charts, it will also automatically update the Docker images referenced within those charts, ensuring that both the chart versions and their contained images stay up to date.
 
 #### Limitations and workarounds
 

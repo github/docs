@@ -38,7 +38,7 @@ These limits are subject to change.
 | All {% data variables.product.github %}-hosted runners | Storage limits | Varies | For more information, see [Storage limits for all {% data variables.product.github %}-hosted runners](#storage-limits-for-all-github-hosted-runners). | {% octicon "x" aria-label="No" %} |
 | {% endif %} |
 | Larger runners | Per runner concurrency limit | Varies by runner type | Established when setting up a runner. Normally 1,000 max for Linux CPU runners, but varies by type. See [Job concurrency limits for {% data variables.product.github %}-hosted runners](#job-concurrency-limits-for-github-hosted-runners). | {% octicon "check" aria-label="Yes" %} Support ticket |
-| Larger runners | Static IP limits | 10-50 IPs | 10 IPs for team plans, 50 IPs for enterprise, and the limit is configurable. | {% octicon "check" aria-label="Yes" %} Support ticket |
+| Larger runners | Static IP limits | 10 IPs | 10 IPs per enterprise and organization. | {% octicon "check" aria-label="Yes" %} Support ticket |
 | Larger runners | Private IP scaling for vnet injection | 30% buffer | You need a buffer to accommodate the maximum job concurrency you anticipate. See [Private IP scaling for vnet injection on larger runners](#private-ip-scaling-for-vnet-injection-on-larger-runners). | {% octicon "check" aria-label="Yes" %} Configurable Azure virtual network |
 
 ### Job concurrency limits for {% data variables.product.github %}-hosted runners
@@ -61,13 +61,13 @@ These limits are subject to change.
 
 {% data variables.product.github %} Support **cannot** increase storage limits for {% data variables.product.prodname_actions %}.
 
-| {% data variables.product.github %} plan | Storage | Minutes (per month)|
-|------- | ------- | ---------|
-| {% data variables.product.prodname_free_user %} | 500 MB | 2,000 |
-| {% data variables.product.prodname_pro %} | 1 GB | 3,000 |
-| {% data variables.product.prodname_free_team %} for organizations | 500 MB | 2,000 |
-| {% data variables.product.prodname_team %} | 2 GB | 3,000 |
-| {% data variables.product.prodname_ghe_cloud %} | 50 GB | 50,000 |
+{% data reusables.billing.actions-included-quotas %}
+
+{% ifversion fpt or ghec %}
+
+For information about cache storage limits and how to increase them, see [Usage limits and eviction policy](/actions/reference/workflows-and-actions/dependency-caching#usage-limits-and-eviction-policy).
+
+{% endif %}
 
 ### Private IP scaling for vnet injection on larger runners
 
@@ -83,3 +83,9 @@ When using larger runners with vnet injection, you need to determine the appropr
 * **OAuth apps \-** {% data reusables.rest-api.primary-rate-limit-oauth-apps %}
 * **GITHUB TOKEN** \- {% data reusables.rest-api.primary-rate-limit-github-token-in-actions %}
 * **Secondary rate limits** \- In addition to primary rate limits, {% data variables.product.github %} enforces secondary rate limits in order to prevent abuse and keep the API available for all users, these are not configurable with GHEC. For more information, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28#about-secondary-rate-limits).
+
+### Docker Hub's rate limit for {% data variables.product.prodname_actions %}
+
+* **{% data variables.product.github %}-hosted runners pulling public images:** Docker Hub's rate limit is not applied.
+* **{% data variables.product.github %}-hosted runners pulling private images:** Pulling private images from Docker Hub is subject to the rate limit.
+* **Self-hosted runners pulling public or private images:** Pulling images from Docker Hub is always subject to the rate limit.

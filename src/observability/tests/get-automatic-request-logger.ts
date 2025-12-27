@@ -2,6 +2,9 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { getAutomaticRequestLogger } from '@/observability/logger/middleware/get-automatic-request-logger'
 import type { Request, Response, NextFunction } from 'express'
 
+// Type alias for mock response with overridden end function
+type MockResponseWithEnd = Partial<Response> & { end: () => unknown }
+
 describe('getAutomaticRequestLogger', () => {
   let originalEnv: typeof process.env
   let originalConsoleLog: typeof console.log
@@ -43,7 +46,7 @@ describe('getAutomaticRequestLogger', () => {
     }
 
     // Override res.end to simulate response completion
-    function endOverride(this: any, chunk?: any, encoding?: any) {
+    function endOverride(this: Response, chunk?: unknown, encoding?: unknown): Response {
       if (!responseEnded) {
         responseEnded = true
         // Simulate a small delay for response time
@@ -54,7 +57,7 @@ describe('getAutomaticRequestLogger', () => {
       return this
     }
 
-    ;(mockRes as any).end = endOverride
+    ;(mockRes as { end: typeof endOverride }).end = endOverride
 
     mockNext = vi.fn()
 
@@ -86,7 +89,7 @@ describe('getAutomaticRequestLogger', () => {
       middleware(mockReq as Request, mockRes as Response, mockNext)
 
       // Simulate response completion
-      ;(mockRes as any).end()
+      ;(mockRes as MockResponseWithEnd).end()
 
       // Wait for async logging
       await new Promise((resolve) => setTimeout(resolve, 20))
@@ -143,7 +146,7 @@ describe('getAutomaticRequestLogger', () => {
         }
 
         // Override res.end to simulate response completion
-        function endOverride(this: any, chunk?: any, encoding?: any) {
+        function endOverride(this: Response, chunk?: unknown, encoding?: unknown): Response {
           if (!responseEnded) {
             responseEnded = true
             // Simulate a small delay for response time
@@ -154,7 +157,7 @@ describe('getAutomaticRequestLogger', () => {
           return this
         }
 
-        ;(freshMockRes as any).end = endOverride
+        ;(freshMockRes as { end: typeof endOverride }).end = endOverride
 
         const freshMockNext = vi.fn()
 
@@ -165,7 +168,7 @@ describe('getAutomaticRequestLogger', () => {
             freshMockRes as Partial<Response> as Response,
             freshMockNext,
           )
-          ;(freshMockRes as any).end()
+          ;(freshMockRes as MockResponseWithEnd).end()
 
           // Wait for async logging with longer timeout for CI
           await new Promise((resolve) => setTimeout(resolve, 50))
@@ -187,7 +190,7 @@ describe('getAutomaticRequestLogger', () => {
 
       const middleware = getAutomaticRequestLogger()
       middleware(mockReq as Request, mockRes as Response, mockNext)
-      ;(mockRes as any).end()
+      ;(mockRes as MockResponseWithEnd).end()
 
       await new Promise((resolve) => setTimeout(resolve, 20))
 
@@ -202,7 +205,7 @@ describe('getAutomaticRequestLogger', () => {
 
       const middleware = getAutomaticRequestLogger()
       middleware(mockReq as Request, mockRes as Response, mockNext)
-      ;(mockRes as any).end()
+      ;(mockRes as MockResponseWithEnd).end()
 
       await new Promise((resolve) => setTimeout(resolve, 20))
 
@@ -215,7 +218,7 @@ describe('getAutomaticRequestLogger', () => {
 
       const middleware = getAutomaticRequestLogger()
       middleware(mockReq as Request, mockRes as Response, mockNext)
-      ;(mockRes as any).end()
+      ;(mockRes as MockResponseWithEnd).end()
 
       await new Promise((resolve) => setTimeout(resolve, 20))
 
@@ -233,7 +236,7 @@ describe('getAutomaticRequestLogger', () => {
       const middleware = getAutomaticRequestLogger()
 
       middleware(mockReq as Request, mockRes as Response, mockNext)
-      ;(mockRes as any).end()
+      ;(mockRes as MockResponseWithEnd).end()
 
       await new Promise((resolve) => setTimeout(resolve, 20))
 
@@ -252,7 +255,7 @@ describe('getAutomaticRequestLogger', () => {
       const middleware = getAutomaticRequestLogger()
 
       middleware(mockReq as Request, mockRes as Response, mockNext)
-      ;(mockRes as any).end()
+      ;(mockRes as MockResponseWithEnd).end()
 
       await new Promise((resolve) => setTimeout(resolve, 20))
 
@@ -291,7 +294,7 @@ describe('getAutomaticRequestLogger', () => {
         const middleware = getAutomaticRequestLogger()
 
         middleware(mockReq as Request, mockRes as Response, mockNext)
-        ;(mockRes as any).end()
+        ;(mockRes as MockResponseWithEnd).end()
 
         // Wait for any potential async logging with longer timeout for CI
         await new Promise((resolve) => setTimeout(resolve, 50))
@@ -309,7 +312,7 @@ describe('getAutomaticRequestLogger', () => {
       const middleware = getAutomaticRequestLogger()
 
       middleware(mockReq as Request, mockRes as Response, mockNext)
-      ;(mockRes as any).end()
+      ;(mockRes as MockResponseWithEnd).end()
 
       await new Promise((resolve) => setTimeout(resolve, 20))
 
@@ -320,11 +323,13 @@ describe('getAutomaticRequestLogger', () => {
 
   describe('edge cases', () => {
     it('should handle missing content-length header', async () => {
-      ;(mockRes as any).getHeader = vi.fn(() => undefined)
+      ;(mockRes as Partial<Response> & { getHeader: () => undefined }).getHeader = vi.fn(
+        () => undefined,
+      )
 
       const middleware = getAutomaticRequestLogger()
       middleware(mockReq as Request, mockRes as Response, mockNext)
-      ;(mockRes as any).end()
+      ;(mockRes as MockResponseWithEnd).end()
 
       await new Promise((resolve) => setTimeout(resolve, 20))
 
@@ -333,11 +338,11 @@ describe('getAutomaticRequestLogger', () => {
     })
 
     it('should handle missing status code', async () => {
-      delete (mockRes as any).statusCode
+      delete (mockRes as Partial<Response> & { statusCode?: number }).statusCode
 
       const middleware = getAutomaticRequestLogger()
       middleware(mockReq as Request, mockRes as Response, mockNext)
-      ;(mockRes as any).end()
+      ;(mockRes as MockResponseWithEnd).end()
 
       await new Promise((resolve) => setTimeout(resolve, 20))
 
@@ -351,7 +356,7 @@ describe('getAutomaticRequestLogger', () => {
 
       const middleware = getAutomaticRequestLogger()
       middleware(mockReq as Request, mockRes as Response, mockNext)
-      ;(mockRes as any).end()
+      ;(mockRes as MockResponseWithEnd).end()
 
       await new Promise((resolve) => setTimeout(resolve, 20))
 
@@ -368,7 +373,7 @@ describe('getAutomaticRequestLogger', () => {
 
       // Simulate some processing time
       await new Promise((resolve) => setTimeout(resolve, 50))
-      ;(mockRes as any).end()
+      ;(mockRes as MockResponseWithEnd).end()
       await new Promise((resolve) => setTimeout(resolve, 20))
 
       const endTime = Date.now()

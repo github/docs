@@ -4,6 +4,7 @@ import { LandingHero } from '@/landings/components/shared/LandingHero'
 import { ArticleGrid } from '@/landings/components/shared/LandingArticleGridWithFilter'
 import { UtmPreserver } from '@/frame/components/UtmPreserver'
 import { LandingCarousel } from '@/landings/components/shared/LandingCarousel'
+import { useMultiQueryParams } from '@/search/components/hooks/useMultiQueryParams'
 
 export const BespokeLanding = () => {
   const {
@@ -16,6 +17,10 @@ export const BespokeLanding = () => {
     includedCategories,
     landingType,
   } = useLandingContext()
+  const { params, updateParams } = useMultiQueryParams({
+    useHistory: true,
+    excludeFromHistory: ['articles-filter'],
+  })
 
   return (
     <DefaultLayout>
@@ -29,6 +34,8 @@ export const BespokeLanding = () => {
             tocItems={tocItems}
             includedCategories={includedCategories}
             landingType={landingType}
+            params={params}
+            updateParams={updateParams}
           />
         </div>
       </div>

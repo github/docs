@@ -22,6 +22,7 @@ import { Link } from '@/frame/components/Link'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { LinkPreviewPopover } from '@/links/components/LinkPreviewPopover'
 import { UtmPreserver } from '@/frame/components/UtmPreserver'
+import { JourneyTrackCard, JourneyTrackNav } from '@/journeys/components'
 
 const ClientSideRefresh = dynamic(() => import('@/frame/components/ClientSideRefresh'), {
   ssr: false,
@@ -42,10 +43,12 @@ export const ArticlePage = () => {
     productVideoUrl,
     miniTocItems,
     currentLearningTrack,
+    currentJourneyTrack,
     supportPortalVaIframeProps,
     currentLayout,
   } = useArticleContext()
   const isLearningPath = !!currentLearningTrack?.trackName
+  const isJourneyTrack = !!currentJourneyTrack?.trackId
   const { t } = useTranslation(['pages'])
 
   const introProp = (
@@ -72,6 +75,7 @@ export const ArticlePage = () => {
   const toc = (
     <>
       {isLearningPath && <LearningTrackCard track={currentLearningTrack} />}
+      {isJourneyTrack && <JourneyTrackCard journey={currentJourneyTrack} />}
       {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
     </>
   )
@@ -122,6 +126,11 @@ export const ArticlePage = () => {
               <LearningTrackNav track={currentLearningTrack} />
             </div>
           ) : null}
+          {isJourneyTrack ? (
+            <div className="container-lg mt-4 px-3">
+              <JourneyTrackNav context={currentJourneyTrack} />
+            </div>
+          ) : null}
         </>
       ) : (
         <div className="container-xl px-3 px-md-6 my-4">
@@ -146,6 +155,11 @@ export const ArticlePage = () => {
           {isLearningPath ? (
             <div className="mt-4">
               <LearningTrackNav track={currentLearningTrack} />
+            </div>
+          ) : null}
+          {isJourneyTrack ? (
+            <div className="container-lg mt-4 px-3">
+              <JourneyTrackNav context={currentJourneyTrack} />
             </div>
           ) : null}
         </div>

@@ -72,7 +72,7 @@ Always prioritize clarity and usefulness. Focus on helping developers understand
 
 Test this agent by giving it a task to complete:
 
-1. Go to the agents tab at [https://github.com/copilot/agents](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-web-copilot-custom-agent&utm_medium=docs&utm_campaign=universe25post).
+1. Go to the agents tab at [https://github.com/copilot/agents](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text).
 1. Using the dropdown menus in the text box, select the repository and branch you're comfortable testing with (ideally one with a minimal or outdated README).
 1. Click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %}, then click **{% octicon "plus" aria-label="Plus button" %} Create an agent**.
 1. An {% data variables.copilot.agent_profile %} template called `my-agent.agent.md` will open in the `.github/agents` directory, in the repository you chose. Name the file `readme-specialist.agent.md` and paste in the example {% data variables.copilot.agent_profile %}.

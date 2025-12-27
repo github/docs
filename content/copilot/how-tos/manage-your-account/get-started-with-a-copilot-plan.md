@@ -65,8 +65,8 @@ You can also chat with {% data variables.product.prodname_copilot_short %} in {%
 To use {% data variables.copilot.copilot_free_short %} in other IDEs, you'll need to activate it from your {% data variables.product.github %} account settings first.
 
 {% data reusables.user-settings.copilot-settings %}
-1. Click **Start using {% data variables.copilot.copilot_free_short %}** to activate {% data variables.copilot.copilot_free_short %} and open immersive mode.
-1. To the right of "Install {% data variables.product.prodname_copilot_short %} in your favorite code editor", select the {% octicon "triangle-down" aria-label="More edit options" %} dropdown menu and click your preferred editor.
+1. Click **Start using {% data variables.copilot.copilot_free_short %}** to activate {% data variables.copilot.copilot_free_short %} and open [https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=free).
+1. In the top right corner, next to **Download**, select the {% octicon "triangle-down" aria-label="More edit options" %} dropdown menu and click your preferred editor.
 
 ## Upgrading from {% data variables.copilot.copilot_free_short %}
 

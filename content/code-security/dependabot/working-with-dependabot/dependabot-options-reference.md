@@ -205,6 +205,9 @@ The table below shows the package managers for which SemVer is supported.
 
 | Package manager        | SemVer supported |
 |-----------------------|------------------|
+| {% ifversion dependabot-bazel-support %} |
+| Bazel               | {% octicon "x" aria-label="Not supported" %}              |
+| {% endif %} |
 | Bundler               | {% octicon "check" aria-label="Supported" %}              |
 | Bun                   | {% octicon "check" aria-label="Supported" %}              |
 | Cargo                 | {% octicon "check" aria-label="Supported" %}              |
@@ -220,9 +223,15 @@ The table below shows the package managers for which SemVer is supported.
 | Gradle                | {% octicon "check" aria-label="Supported" %}              |
 | Helm                  | {% octicon "x" aria-label="Not supported" %}              |
 | Hex (Hex)             | {% octicon "check" aria-label="Supported" %}              |
+| {% ifversion dependabot-julia-support %} |
+| Julia                 | {% octicon "check" aria-label="Supported" %}              |
+| {% endif %} |
 | Maven                 | {% octicon "check" aria-label="Supported" %}              |
 | NPM and Yarn          | {% octicon "check" aria-label="Supported" %}              |
 | NuGet                 | {% octicon "check" aria-label="Supported" %}              |
+| {% ifversion dependabot-opentofu-support %} |
+| OpenTofu              | {% octicon "check" aria-label="Supported" %}              |
+| {% endif %} |
 | Pip                   | {% octicon "check" aria-label="Supported" %}              |
 | Pub                   | {% octicon "check" aria-label="Supported" %}              |
 | Swift                 | {% octicon "check" aria-label="Supported" %}              |
@@ -475,6 +484,9 @@ When `open-pull-requests-limit` is defined:
 
 Package manager | YAML value      | Supported versions |
 ---------------|------------------|:------------------:|
+| {% ifversion dependabot-bazel-support %} |
+| Bazel         | `bazel`          | v7, v8, v9               |
+| {% endif %} |
 | {% ifversion dependabot-bun-support %} |
 | Bun | `bun`         | >=v1.2.5              |
 | {% endif %} |
@@ -496,6 +508,9 @@ Package manager | YAML value      | Supported versions |
 | Helm Charts            | `helm`            | v3               |
 | {% endif %} |
 | Hex            | `mix`            | v1               |
+| {% ifversion dependabot-julia-support %} |
+| Julia                  | `julia`           | >=v1.10               |
+| {% endif %} |
 | elm-package    | `elm`            | v0.19            |
 | git submodule  | `gitsubmodule`   | Not applicable |
 | {% data variables.product.prodname_actions %}  | `github-actions` | Not applicable |
@@ -504,6 +519,9 @@ Package manager | YAML value      | Supported versions |
 | Maven      | `maven`          | Not applicable   |
 | npm            | `npm`            |  v7, v8, v9, v10   |
 | NuGet          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% endif %} |
+| {% ifversion dependabot-opentofu-support %} |
+| OpenTofu     | `opentofu`       | Not applicable     |
+| {% endif %} |
 | pip| `pip`            | v24.2          |
 | pip-compile | `pip`            | 7.4.1            |
 | pipenv         | `pip`            | <= 2024.4.1    |

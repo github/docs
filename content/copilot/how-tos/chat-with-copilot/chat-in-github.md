@@ -34,7 +34,7 @@ You can open {% data variables.copilot.copilot_chat_short %} from any page on {%
 
 Depending on the question you ask, and your enterprise and organization settings, {% data variables.product.prodname_copilot_short %} may respond using information based on the results of a Bing search. By using Bing search, {% data variables.product.prodname_copilot_short %} can answer a broad range of tech-related questions with up-to-date details based on information currently available on the internet. For information on how to enable or disable Bing search integration, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-web-search-for-github-copilot-chat) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
 
-{% data reusables.copilot.immersive-mode-instructions %}
+{% data reusables.copilot.access-chat-instructions %}
 1. In the prompt box, type a question and press <kbd>Enter</kbd>.
 
    Some examples of general questions you could ask are:
@@ -61,11 +61,11 @@ Depending on the question you ask, and your enterprise and organization settings
 > [!NOTE]
 > This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
-When you ask a question, {% data variables.product.prodname_copilot_short %} may generate one or more files as part of its response. In the {% data variables.copilot.copilot_chat_short %} panel, the files are displayed inline, within the chat response. In immersive view (that is, at [https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text)), the generated files are displayed in a side panel. You can view and edit the files in the panel, or download them to your computer.
+When you ask a question, {% data variables.product.prodname_copilot_short %} may generate one or more files as part of its response. The generated files are displayed in a side panel. You can view and edit the files in the panel, or download them to your computer.
 
 For example, asking {% prompt %}Generate a simple calculator using HTML, CSS, and JavaScript{% endprompt %} may generate multiple files, such as `index.html`, `styles.css`, and `script.js`.
 
-In immersive view, you can also preview how some file formats, such as Markdown, render by toggling to the "Preview" tab in the side panel.
+You can also preview how some file formats, such as Markdown, render by toggling to the "Preview" tab in the side panel.
 
 ### Regenerating a response with a different model
 
@@ -79,9 +79,9 @@ For help deciding which model to use, see [AUTOTITLE](/copilot/reference/ai-mode
 
 Subthreads are branches of a conversation that are created from a point in a conversation where you asked a question. Subthreads offer more control and flexibility for exploring aspects of a topic, or new topics, all within the same thread.
 
-You can create and navigate through subthreads in {% data variables.copilot.copilot_chat_short %}'s immersive view. In the {% data variables.copilot.copilot_chat_short %} panel, if you open a conversation that contains subthreads, only the most recently edited subthread is displayed.
+You can create and navigate through subthreads in {% data variables.copilot.copilot_chat_short %}.
 
-You can create a subthread in immersive mode by either editing or retrying any of your questions in the conversation.
+You can create a subthread in {% data variables.copilot.copilot_chat_short %} by either editing or retrying any of your questions in the conversation.
 
 To edit a question:
 
@@ -136,7 +136,6 @@ You can ask {% data variables.copilot.copilot_chat_short %} different types of q
 
 > [!NOTE]
 > * Attaching images to chat prompts is currently in {% data variables.release-phases.public_preview %} and is subject to change.
-> * You can only attach an image in the immersive view of {% data variables.copilot.copilot_chat_short %} ([https://github.com/copilot](https://github.com/copilot)), not in the chat panel.
 
 You can attach an image to {% data variables.product.prodname_copilot_short %} and then ask about the image. For example, you can attach:
 
@@ -144,7 +143,7 @@ You can attach an image to {% data variables.product.prodname_copilot_short %} a
 
 ### Attaching an image to your chat prompt
 
-1. Go to the immersive view of {% data variables.copilot.copilot_chat_short %} ([https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text).
+1. Go to {% data variables.copilot.copilot_chat_short %} ([https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text)).
 1. If you see the AI model picker at the top of the page, select one of the models that supports adding images to prompts:
 
    ![Screenshot of the model picker with the list of models expanded.](/assets/images/help/copilot/model-picker-copilot-immersive.png)
@@ -181,14 +180,14 @@ You can ask {% data variables.product.prodname_copilot_short %} a question about
 
 ## Accessing {% data variables.copilot.copilot_chat_short %} from the dashboard
 
-You can access {% data variables.product.prodname_copilot_short %}'s immersive view from the dashboard. The dashboard is your personalized overview of your activity on {% data variables.product.github %}, seen when you visit https://github.com while logged in.
+You can access {% data variables.copilot.copilot_chat_short %} from the dashboard. The dashboard is your personalized overview of your activity on {% data variables.product.github %}, seen when you visit https://github.com while logged in.
 
 1. Go to the dashboard at [https://github.com](https://github.com).
 1. In the prompt box, type a question and press <kbd>Enter</kbd>.
 
    ![Screenshot of the dashboard with the Copilot Chat prompt box.](/assets/images/help/copilot/copilot-chat-dashboard.png)
 
-   You will be taken to the immersive view where {% data variables.product.prodname_copilot_short %} responds to your request.
+   You will be taken to {% data variables.copilot.copilot_chat_short %} where {% data variables.product.prodname_copilot_short %} responds to your request.
 
 > [!NOTE]
 > If you don't see the {% data variables.copilot.copilot_chat_short %} prompt box on your dashboard, check that **Dashboard entry point** in enabled in your {% data variables.product.prodname_copilot %} settings.
@@ -197,11 +196,11 @@ You can access {% data variables.product.prodname_copilot_short %}'s immersive v
 
 > [!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and subject to change. During the {% data variables.release-phases.public_preview %}, this feature is only available to users without enterprise or team memberships.
 
-You can share {% data variables.copilot.copilot_chat_short %} conversations from the immersive view ([https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text)). Shared conversations are public or private (i.e. permission-based), depending on the referenced content, for example, a conversation about a private repository. If you share a private conversation, the recipient must have the necessary permissions to view the content.
+Shared conversations are public or private (i.e. permission-based), depending on the referenced content, for example, a conversation about a private repository. If you share a private conversation, the recipient must have the necessary permissions to view the content.
 
 Once you share a conversation, the conversation and future messages will be visible to anyone with the link.
 
-{% data reusables.copilot.immersive-mode-instructions %}
+{% data reusables.copilot.access-chat-instructions %}
 1. After you submit your first prompt, a share button is displayed in the upper right corner.
 1. Click **{% octicon "lock" aria-hidden="true" aria-label="lock" %} Share** to open the share dialog.
 

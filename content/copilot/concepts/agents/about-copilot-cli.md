@@ -142,6 +142,15 @@ The following sections provide examples of tasks you can complete with {% data v
 
   `Branch off from main and create a {% data variables.product.prodname_actions %} workflow that will run on pull requests, or can be run manually. The workflow should run eslint to check for problems in the changes made in the PR. If warnings or errors are found these should be shown as messages in the diff view of the PR. I want to prevent code with errors from being merged into main so, if any errors are found, the workflow should cause the PR check to fail. Push the new branch and create a pull request.`
 
+## Customizing {% data variables.copilot.copilot_cli %}
+
+You can customize {% data variables.copilot.copilot_cli %} in a number of ways:
+
+* **Custom instructions**: Custom instructions allow you to give {% data variables.product.prodname_copilot_short %} additional context on your project and how to build, test and validate its changes. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-instructions).
+* **Model Context Protocol (MCP) servers**: MCP servers allow you to give {% data variables.product.prodname_copilot_short %} access to different data sources and tools. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server).
+* **{% data variables.copilot.custom_agents_caps_short %}**: {% data variables.copilot.custom_agents_caps_short %} allow you to create different specialized versions of {% data variables.product.prodname_copilot_short %} for different tasks. For example, you could customize {% data variables.product.prodname_copilot_short %} to be an expert frontend engineer following your team's guidelines. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-agents).
+* **Skills**: Skills allow you to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
+
 ## Security considerations
 
 When you use {% data variables.copilot.copilot_cli_short %}, {% data variables.product.prodname_copilot_short %} can perform tasks on your behalf, such as executing or modifying files, or running shell commands.
@@ -263,14 +272,11 @@ You can mitigate the risks associated with using the automatic approval options 
 
 ## Model usage
 
-> [!NOTE]
-> {% data variables.copilot.copilot_claude_sonnet_45 %} is available in {% data variables.copilot.copilot_cli %} version 0.0.329 and later.
+The default model used by {% data variables.copilot.copilot_cli %} is {% data variables.copilot.copilot_claude_sonnet_45 %}. {% data variables.product.github %} reserves the right to change this model.
 
-The default model used by {% data variables.copilot.copilot_cli %} is {% data variables.copilot.cca_current_model %}. {% data variables.product.github %} reserves the right to change this model.
+You can change the model used by {% data variables.copilot.copilot_cli %} by using the `/model` slash command. Enter this command, then select a model from the list.
 
-You can change the model used by {% data variables.copilot.copilot_cli %} by using the `/model` slash command. Enter this command and select a model from the list.
-
-Each time you submit a prompt to {% data variables.product.prodname_copilot_short %} in {% data variables.copilot.copilot_cli_short %}'s interactive mode, and each time you use {% data variables.copilot.copilot_cli_short %} in programmatic mode, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one. For information about premium requests, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
+Each time you submit a prompt to {% data variables.product.prodname_copilot_short %} in {% data variables.copilot.copilot_cli_short %}'s interactive mode, and each time you use {% data variables.copilot.copilot_cli_short %} in programmatic mode, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one, multiplied by the multiplier shown in parentheses in the model list. For example, `Claude Sonnet 4.5 (1x)` indicates that with this model each time you submit a prompt your quota of premium requests is reduced by one. For information about premium requests, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
 
 {% data reusables.cli.feedback %}
 

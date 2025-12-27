@@ -1,4 +1,5 @@
 import Cookies from '@/frame/components/lib/cookies'
+import { ANALYTICS_ENABLED } from '@/frame/lib/constants'
 import { parseUserAgent } from './user-agent'
 import { Router } from 'next/router'
 import { isLoggedIn } from '@/frame/components/hooks/useHasAccount'
@@ -436,6 +437,7 @@ function initPrintEvent() {
 }
 
 export function initializeEvents() {
+  if (!ANALYTICS_ENABLED) return
   if (initialized) return
   initialized = true
   initPageAndExitEvent() // must come first

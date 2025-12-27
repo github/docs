@@ -19,5 +19,6 @@ children:
   - /add-copilot-coding-agent
   - /prepare-for-custom-agents
   - /review-activity
+  - /use-your-own-api-keys
 contentType: how-tos
 ---

@@ -153,6 +153,29 @@ For each repository in your organization, you can see how much cache storage a r
 1. In the left sidebar, click **{% octicon "play" aria-hidden="true" aria-label="play" %} Actions**, then click **Caches**.
 1. Review the list of repositories for information about their {% data variables.product.prodname_actions %} caches. You can click on a repository name to see more detail about the repository's caches.
 
+{% ifversion fpt or ghec %}
+
+### Configuring {% data variables.product.prodname_actions %} cache settings for your organization
+
+You can configure cache retention and size settings that will apply to all repositories in your organization. This feature is opt-in and available to users with a payment method on file.
+
+If your organization is owned by an enterprise that has configured cache settings, you can only configure limits up to the maximum set by the enterprise. If your organization is not owned by an enterprise (or the enterprise hasn't configured cache settings), you can configure up to the global maximums.
+
+Repository administrators can opt in to configure limits for their repositories, but cannot exceed the limits set at the organization level.
+
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
+
+1. In the "Cache" section, configure and save your changes to the following settings:
+   * **Cache retention**: The maximum number of days to retain caches before automatic deletion. The default is 7 days. You can configure up to 365 days (or up to the limit set by your enterprise). Click **Save** to apply any changes you make.
+   * **Cache size eviction limit**: The maximum total size of all caches in a repository. The default is 10 GB. You can configure up to 10,000 GB per repository (or up to the limit set by your enterprise). When this limit is exceeded, older caches will be evicted to make room for new caches. Click **Save** to apply any changes you make.
+
+For more information about cache eviction, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#usage-limits-and-eviction-policy).
+
+{% endif %}
+
 {% ifversion ghes %}
 
 ### Configuring {% data variables.product.prodname_actions %} cache storage for your organization

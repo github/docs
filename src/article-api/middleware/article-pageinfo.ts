@@ -100,7 +100,7 @@ export async function getPageInfoFromCache(page: Page, pathname: string) {
       cacheInfo = 'initial-load'
     } catch (error) {
       cacheInfo = 'initial-fail'
-      if (error instanceof Error && (error as any).code !== 'ENOENT') {
+      if (error instanceof Error && (error as NodeJS.ErrnoException).code !== 'ENOENT') {
         throw error
       }
       _cache = {}
