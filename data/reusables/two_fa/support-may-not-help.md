@@ -1,1 +1,0 @@
-For security reasons, {% data variables.contact.github_support %} [will not be able to restore access to accounts](/free-pro-team@latest/site-policy/other-site-policies/github-account-recovery-policy) with two-factor authentication enabled if you lose your two-factor authentication credentials or lose access to your account recovery methods.

@@ -1,5 +1,0 @@
-# Issue 15008
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.18'

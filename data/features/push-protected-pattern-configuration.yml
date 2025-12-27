@@ -1,6 +1,0 @@
-# Issue 16897
-# Configuration for push protected patterns in secret scanning [Public Preview]
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>3.18'

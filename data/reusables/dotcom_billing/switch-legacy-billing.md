@@ -1,1 +1,0 @@
-If your organization is using a legacy per-repository billing plan, you can switch to per-user pricing at any time. You will not be able to switch back to repository pricing once you've upgraded to per-user pricing.

@@ -1,1 +1,0 @@
-We strongly recommend that you perform a trial run of your migration and complete your production migration soon after. To learn more about trial runs, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/overview-of-a-migration-between-github-products#running-your-migrations).

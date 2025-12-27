@@ -1,1 +1,0 @@
-{% data variables.product.prodname_GHAS %} is available for accounts on {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_cloud %}, and {% data variables.product.prodname_ghe_server %}

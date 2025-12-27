@@ -1,5 +1,0 @@
-# Reference: #13545
-# Documentation for audit log streaming health check
-versions:
-  ghec: '*'
-  ghes: '>= 3.14'

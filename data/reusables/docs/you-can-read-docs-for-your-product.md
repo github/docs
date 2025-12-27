@@ -1,1 +1,0 @@
-You can read documentation that reflects the {% data variables.product.github %} product you're currently using. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs).

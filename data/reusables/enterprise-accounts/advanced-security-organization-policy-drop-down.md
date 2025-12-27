@@ -1,1 +1,0 @@
-1. On the "Policies" tab of the "{% data variables.product.prodname_AS %}{% ifversion ghes = 3.16 %} policies{% endif %}" page, select the dropdown menu, then click a policy for the organizations owned by your enterprise.

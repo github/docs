@@ -1,1 +1,0 @@
-When you issue each client certificate, you must include an extension that specifies which {% data variables.product.github %} user the certificate is for. For more information, see [AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities).

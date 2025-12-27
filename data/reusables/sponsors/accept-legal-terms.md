@@ -1,1 +1,0 @@
-1. Review the [{% data variables.product.prodname_sponsors %} Additional Terms](/free-pro-team@latest/site-policy/github-terms/github-sponsors-additional-terms) and [{% data variables.product.prodname_dotcom %} Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement), then click **Submit**.

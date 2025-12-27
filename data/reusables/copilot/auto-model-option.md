@@ -1,1 +1,0 @@
-> [!NOTE] If you select **Auto**, {% data variables.copilot.copilot_auto_model_selection %} will select the best model based on availability and to help reduce rate limiting. See [AUTOTITLE](/copilot/concepts/auto-model-selection).

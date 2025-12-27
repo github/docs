@@ -1,1 +1,0 @@
-> [!NOTE] The list of available models will change over time. When only one inline suggestion model is available, the model picker will only show that model. Preview models and additional inline suggestion models will be added to the picker as they become available.

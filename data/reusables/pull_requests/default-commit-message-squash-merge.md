@@ -1,1 +1,0 @@
-For information about the default commit messages for squash merges, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges#merge-message-for-a-squash-merge).

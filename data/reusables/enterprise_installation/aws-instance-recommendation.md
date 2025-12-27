@@ -1,1 +1,0 @@
-{% data variables.product.company_short %} recommends a memory-optimized instance for {% data variables.product.prodname_ghe_server %}. For more information, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/#Memory_Optimized) on the Amazon EC2 website.

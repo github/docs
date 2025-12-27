@@ -1,1 +1,0 @@
-You can connect with developers around the world to ask and answer questions, learn, and interact directly with {% data variables.product.company_short %} staff. To get the conversation started, see [{% data variables.product.prodname_gcf %}](https://github.com/orgs/community/discussions/).

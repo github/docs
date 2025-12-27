@@ -1,1 +1,0 @@
-Users with **write** access

@@ -1,1 +1,0 @@
-{% data variables.product.prodname_copilot_short %} policies are also managed at the enterprise level. If your organization is part of an enterprise, and explicit settings have been selected at the enterprise level, you cannot override those settings at the organization level. For information on how policies combine, see [AUTOTITLE](/copilot/concepts/policies).

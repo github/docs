@@ -1,1 +1,0 @@
-{% data variables.product.prodname_security_configurations_caps %} are collections of enablement settings for {% data variables.product.company_short %}'s security features that you can apply to any repository within your organization.

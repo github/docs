@@ -1,5 +1,0 @@
-# Reference: https://github.com/github/docs-content/issues/13535
-# SSH CA support for access to EMU namespace repos
-versions:
-  ghec: '*'
-  ghes: '>= 3.14'

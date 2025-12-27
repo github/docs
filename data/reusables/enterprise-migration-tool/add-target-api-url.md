@@ -1,1 +1,0 @@
-If you're migrating to {% data variables.enterprise.data_residency_site %}, add `--target-api-url TARGET-API-URL`, where TARGET-API-URL is the base API URL for your enterprise's subdomain. For example: `https://api.{% data variables.enterprise.data_residency_example_domain %}`.

@@ -1,4 +1,0 @@
-# Reference: Issue #7044 Update repository settings for Dependabot to include shortcut for Version updates
-versions:
-  fpt: '*'
-  ghec: '*'

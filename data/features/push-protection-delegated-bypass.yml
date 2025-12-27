@@ -1,6 +1,0 @@
-# Issue 10362 - Push protection delegated bypass
-# Ref 17108 Advanced Security available to Team plans
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.14'

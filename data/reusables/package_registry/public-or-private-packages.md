@@ -1,1 +1,0 @@
-You can publish packages in a public repository (public packages) to share with {% ifversion fpt or ghec %}all of {% data variables.product.prodname_dotcom %}{% else %}everyone on your enterprise{% endif %}, or in a private repository (private packages) to share with collaborators or an organization.

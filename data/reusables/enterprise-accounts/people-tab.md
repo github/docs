@@ -1,1 +1,0 @@
-1. {% ifversion horizontal-nav %}At the top of the page, click **{% octicon "person" aria-hidden="true" aria-label="person" %} People**.{% else %}On the left side of the page, in the enterprise account sidebar, click **{% octicon "person" aria-hidden="true" aria-label="person" %} People**.{% endif %}
