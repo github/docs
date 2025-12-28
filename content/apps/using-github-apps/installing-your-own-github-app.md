@@ -1,26 +1,27 @@
 ---
-title: Installing your own GitHub App
-intro: 'You can install a {% data variables.product.prodname_github_app %} that you created on the account that owns the app. If your app is public, the {% data variables.product.prodname_github_app %} can also be installed on other accounts.'
-redirect_from:
+---title: Installing your own GitHub App
+---intro: 'You can install a {% data variables.product.prodname_github_app %} that you created on the account that owns the app. If your app is public, the {% data variables.product.prodname_github_app %} can also be installed on other accounts.'
+---redirect_from:
   - /apps/installing-github-apps
   - /developers/apps/installing-github-apps
-  - /developers/apps/managing-github-apps/installing-github-apps
-  - /apps/maintaining-github-apps/installing-github-apps
-  - /apps/maintaining-github-apps/installing-your-own-github-app
+  --- /developers/apps/managing-github-apps/installing-github-apps
+  --- /apps/maintaining-github-apps/installing-github-apps
+  --- /apps/maintaining-github-apps/installing-your-own-github-app
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 topics:
-  - GitHub Apps
+- GitHub Apps '*'
 shortTitle: Install your own app
 ---
 
 ## About installing your own {% data variables.product.prodname_github_app %}
 
-After creating a {% data variables.product.prodname_github_app %}, you can install it based on its visibility.
+## After creating a {% data variables.product.prodname_github_app %}, you can install it based on its visibility.
 
-* **Only on this account:** The {% data variables.product.prodname_github_app %} can only be installed on the account that created it.{% ifversion enterprise-apps-public-beta %} This visibility is not available for apps{% ifversion ghec %} created by a {% data variables.enterprise.prodname_managed_user %} or{% endif %} registered by an enterprise.{% endif %}
+* **Only on this account:** The {%  data
+variables.product.prodname_github_app %} can only be installed on the account that created it.{% ifversion enterprise-apps-public-beta %} This visibility is not available for apps{% ifversion ghec %} created by a {% data variables.enterprise.prodname_managed_user %} or{% endif %} registered by an enterprise.{% endif %}
 * **Any account:** You can install this {% data variables.product.prodname_github_app %} on any account you control.{% ifversion enterprise-apps-public-beta %} This visibility is not available for apps registered by an enterprise.
 * **Only enterprise organizations:** If the {% data variables.product.prodname_github_app %} is owned by an enterprise, you can only install the app on{% ifversion enterprise-installed-apps %} that enterprise or{% endif %} organizations within the enterprise. Organizations where you are an organization owner will appear in the installation options.{% endif %}{% ifversion ghec %}
 
