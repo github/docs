@@ -13,26 +13,31 @@ topics:
   - Integration
 ---
 
-Building an application that integrates with {% data variables.product.prodname_dotcom %}? Register for our Developer Program! The possibilities are endless, and you enjoy the kudos. [Register now](https://github.com/developer/register).
+Building an application that integrates with {% data variables.product.prodname_dotcom %}? Register for our Developer Program.  
+This includes personal projects, open-source tools, and commercial products at any stage of development.  
+You can publicly showcase that your product works with GitHub.  
+[Register now](https://github.com/developer/register).
 
-## Scratch an itch
+## Build a personal or open-source tool
 
-Build your own tools that seamlessly integrate with the place you push code every day.
+Create tools that seamlessly integrate with the platform where you push code every day.
 
 ## Take on the enterprise
 
-Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request developer licenses to build and test your application against {% data variables.product.prodname_ghe_server %}.
+Contact <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request developer licenses to build and test your application against {% data variables.product.prodname_ghe_server %}.
 
 ## Have an integration that works with GitHub?
 
-Awesome! Here’s how you can spread the word:
+Great! Here’s how you can share it with others:
 
-* Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with GitHub.
-* Post a video or a blog on your website about your integration.
+- Use the [Octocat or GitHub logo](https://github.com/logos) to indicate that your product works with GitHub.
+- Publish a blog post or video on your website explaining how your integration works.
+
+Examples of integrations include GitHub Apps, OAuth apps, GitHub Actions, or tools that use the GitHub REST or GraphQL APIs.
 
 ## Ready to join the GitHub Developer Program?
 
 Membership is open to individual developers and companies who have:
 
-* An integration in production or development using the GitHub API.
-* An email address where GitHub users can contact you for support.
+- An integration in production or in development using the GitHub API.
+- An email address where GitHub users can contact you for support.
