@@ -256,7 +256,6 @@ updates:
   schedule:
     interval: daily
   open-pull-requests-limit: 20
-  rebase-strategy: "disabled"
   # Increase the version requirements for pip
   # only when required
   versioning-strategy: increase-if-necessary
