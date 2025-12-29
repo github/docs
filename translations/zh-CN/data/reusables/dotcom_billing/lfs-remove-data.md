@@ -1,1 +1,0 @@
-1. 在"{% data variables.large_files.product_name_short %} 数据"旁边，使用 **Edit（编辑）**下拉菜单，然后单击 **Remove data packs（删除数据包）**。 ![降级您的 Git LFS 数据计划](/assets/images/help/large_files/downgrade_lfs_data_packs.png)

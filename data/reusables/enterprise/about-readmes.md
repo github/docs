@@ -1,0 +1,1 @@
+To help people understand what is happening in your enterprise, you should create a README. For example, you can use a README to help members learn about different organizations in the enterprise, to share links to important resources, or to communicate information about the settings and policies of your enterprise.

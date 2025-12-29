@@ -1,1 +1,0 @@
-Para prevenir que los alumnos acepten o emitan una tarea, deselecciona **Habilitar la URL de invitación a las tareas**. Para editar la tarea, da clic en {% octicon "pencil" aria-label="The pencil icon" %} **Editar tarea**.

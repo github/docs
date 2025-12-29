@@ -15,7 +15,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -29,12 +28,12 @@ children:
   - /managing-code-review-settings-for-your-team
   - /renaming-a-team
   - /changing-team-visibility
+  - /configuring-team-notifications
   - /synchronizing-a-team-with-an-identity-provider-group
   - /moving-a-team-in-your-organizations-hierarchy
   - /requesting-to-add-a-child-team
   - /requesting-to-add-or-change-a-parent-team
   - /removing-organization-members-from-a-team
-  - /disabling-team-discussions-for-your-organization
   - /managing-scheduled-reminders-for-your-team
   - /deleting-a-team
 shortTitle: Organize members into teams

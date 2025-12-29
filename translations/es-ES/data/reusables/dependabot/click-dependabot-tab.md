@@ -1,1 +1,0 @@
-4. Debajo de "Gráfica de dependencias", da clic en **{% data variables.product.prodname_dependabot %}**. ![Gráfica de dependencias, pestaña de {% data variables.product.prodname_dependabot %}](/assets/images/help/dependabot/dependabot-tab.png)

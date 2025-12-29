@@ -1,1 +1,0 @@
-{% ifversion fpt or ghes or ghae or ghec %}直線状のコミット履歴を必要とする保護されたブランチのルールがリポジトリ中にあるなら、squashマージ、リベースマージ、あるいはその両方を許可しなければなりません。 詳しい情報については、「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)」を参照してください。{% endif %}

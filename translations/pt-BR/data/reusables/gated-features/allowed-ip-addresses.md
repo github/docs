@@ -1,1 +1,0 @@
-Os endereços IP permitidos estão disponíveis com {% data variables.product.prodname_ghe_cloud %} e {% data variables.product.prodname_ghe_managed %}. Para obter mais informações, consulte os "[Produtos da {% data variables.product.prodname_dotcom %}](/articles/github-s-products)".

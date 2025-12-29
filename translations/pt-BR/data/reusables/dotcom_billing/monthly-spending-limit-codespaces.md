@@ -1,1 +1,0 @@
-1. Under "Monthly spending limit", scroll down to "Codespaces" and choose to limit spending or allow unlimited spending. ![Botões de rádio para limitar gastos ou permitir gastos ilimitados](/assets/images/help/billing/limit-or-unlimited-codespaces.png)

@@ -1,3 +1,0 @@
-{% ifversion fpt or ghae or ghec %}
-{% ifversion fpt %}Organizaciones que utilizan {% data variables.product.prodname_ghe_cloud%}{% else %}Puedes{% endif %} utilizar la sincronización de equipos para agregar y eliminar automáticamente a los miembros o equipos de la organización mediante un proveedor de identidad. Para obtener más información, consulta la sección "[Sincronizar a un equipo con un grupo de proveedor de identidad]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}
-{% endif %}

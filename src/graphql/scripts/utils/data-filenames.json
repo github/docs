@@ -1,0 +1,17 @@
+{
+  "schemas": {
+    "fpt": "schema.docs.graphql",
+    "ghec": "schema.docs.graphql",
+    "ghes": "schema.docs-enterprise.graphql"
+  },
+  "previews": {
+    "fpt": "graphql_previews.yml",
+    "ghec": "graphql_previews.yml",
+    "ghes": "graphql_previews.enterprise.yml"
+  },
+  "upcomingChanges": {
+    "fpt": "graphql_upcoming_changes.public.yml",
+    "ghec": "graphql_upcoming_changes.public.yml",
+    "ghes": "graphql_upcoming_changes.public-enterprise.yml"
+  }
+}

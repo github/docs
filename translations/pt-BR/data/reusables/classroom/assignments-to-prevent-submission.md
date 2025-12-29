@@ -1,1 +1,0 @@
-Para impedir a aceitação ou submissão de uma atividade por alunos, desmarque **Habilitar a URL do convite da atividade**. Para editar a atividade, clique em {% octicon "pencil" aria-label="The pencil icon" %} **Editar atividade**.

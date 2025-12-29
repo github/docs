@@ -1,1 +1,0 @@
-1. Opcionalmente, para receber mensagens do Slack assim que certos eventos ocorrerem, selecione **Habilitar os alertas em tempo real** e selecione os eventos para os quais deseja receber alertas em tempo real.

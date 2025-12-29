@@ -1,1 +1,0 @@
-启用团队同步后，团队维护员和组织所有者可在 {% data variables.product.prodname_dotcom %} 上或通过 API 将团队连接至 IdP 组。 更多信息请参阅“[同步团队与身份提供程序组](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)”和“[团队同步](/rest/reference/teams#team-sync)”。

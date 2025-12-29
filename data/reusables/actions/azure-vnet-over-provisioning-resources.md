@@ -1,0 +1,1 @@
+Starting in November 2025, NICs created by the {% data variables.product.prodname_actions %} service will no longer appear in your Azure subscriptions. Moving forward, NICs are now provisioned in a service subscription and assigned IP addresses from your subnet.

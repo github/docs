@@ -1,1 +1,0 @@
-{% data variables.product.prodname_github_apps %} making server-to-server requests use the installation's minimum rate limit of 5,000 requests per hour. 20ユーザ以上を持つOrganizationのインストールは、ユーザごとにⅠ時間あたり50リクエストが追加されます。 20以上のリポジトリを持つインストールでは、リポジトリごとにⅠ時間あたり50リクエストが追加されます。 インストールに対する最大のレート制限は、Ⅰ時間あたり12,500リクエストです。

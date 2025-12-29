@@ -1,1 +1,0 @@
-1. （可选）如果您选择 **Allow for selected organizations（允许选定的组织）**，请在组织右侧选择下拉菜单，以允许或不允许组织 {% data variables.product.prodname_advanced_security %} 。 ![下拉以为企业帐户中的个别组织选择高级安全性策略](/assets/images/help/enterprises/select-advanced-security-individual-organization-policy.png)

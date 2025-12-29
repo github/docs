@@ -1,1 +1,0 @@
-1. En {% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% else %}{% data variables.product.prodname_ghe_managed %}{% endif %}, en la esquina superior derecha de cualquier página, haz clic en tu foto de perfil y luego en **Ajustes**. ![Icono Settings (Parámetros) en la barra de usuario](/assets/images/help/settings/userbar-account-settings.png)

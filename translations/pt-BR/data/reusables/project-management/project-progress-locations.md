@@ -1,1 +1,0 @@
-Se o rastreamento de progresso estiver habilitado, uma barra de progresso aparecerá acima do quadro de projetos, na página de listagem do projeto, na barra lateral de questões e em referências ao projeto em outros quadros de projetos.

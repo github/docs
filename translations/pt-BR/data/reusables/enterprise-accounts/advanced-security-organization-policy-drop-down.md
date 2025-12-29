@@ -1,1 +1,0 @@
-1. Em "Segurança avançada do GitHub", selecione o menu suspenso e clique em uma política para as organizações pertencentes à sua empresa. ![Menu suspenso para selecionar a política avançada de segurança para as organizações na conta corporativa](/assets/images/help/enterprises/select-advanced-security-organization-policy.png)

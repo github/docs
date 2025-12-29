@@ -1,1 +1,0 @@
-1. À direita de "Gerenciar acesso", clique em **Invite teams or people** (Convidar equipes ou pessoas). !["Botão para convidar equipes ou pessoas"](/assets/images/help/repository/manage-access-invite-button.png)

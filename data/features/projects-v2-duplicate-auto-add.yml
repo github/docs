@@ -1,0 +1,4 @@
+# Issue 9608
+versions:
+  fpt: '*'
+  ghec: '*'

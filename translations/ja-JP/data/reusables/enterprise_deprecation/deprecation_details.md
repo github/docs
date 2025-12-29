@@ -1,1 +1,0 @@
-重大なセキュリティの問題に対してであっても、パッチリリースは作成されません。 パフォーマンスの向上、セキュリティの改善、新機能のためには、<a href="/enterprise/admin/guides/installation/upgrading-github-enterprise/">最新バージョンのGitHub Enterpriseにアップグレード</a>してください。 アップグレードに関する支援については、<a href="https://enterprise.github.com/support">GitHub Enterprise supportに連絡</a>してください。

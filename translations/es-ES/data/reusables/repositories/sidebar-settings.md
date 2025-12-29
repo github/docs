@@ -1,1 +1,0 @@
-1. Debajo de tu nombre de repositorio, da clic en {% octicon "gear" aria-label="The gear icon" %} **Configuración**. ![Botón de configuración del repositorio](/assets/images/help/repository/repo-actions-settings.png)

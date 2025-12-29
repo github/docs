@@ -1,1 +1,1 @@
-{% data variables.product.prodname_dotcom %} has a great support community where you can ask for help and talk to people from around the world. Join the conversation on [Github Support Community](https://github.community/).
+{% data variables.product.prodname_dotcom %} has a great support community where you can ask for help and talk to people from around the world. Join the conversation on [{% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions).

@@ -1,1 +1,0 @@
-{% data variables.product.prodname_dotcom %} は不正な使用を一切認めていません。{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} のポリシーに関する詳しい情報については、GitHub の[利用規約](/free-pro-team@latest/github/site-policy/github-terms-of-service)および[コミュニティガイドライン](/free-pro-team@latest/github/site-policy/github-community-guidelines)を参照してください。{% endif %}

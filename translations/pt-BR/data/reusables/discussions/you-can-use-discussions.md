@@ -1,1 +1,0 @@
-You can use {% data variables.product.prodname_discussions %} to ask and answer questions, share information, make announcements, and conduct or participate in conversations about a project. Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".

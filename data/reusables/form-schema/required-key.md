@@ -1,1 +1,1 @@
-| `required` | Prevents form submission until element is completed. | Optional | Boolean | false | {% octicon "dash" aria-label="The dash icon" %} | 
+| `required` | Prevents form submission until element is completed. Only for public repositories. | {% octicon "x" aria-label="Optional" %} | Boolean | false | {% octicon "dash" aria-label="Not applicable" %} |

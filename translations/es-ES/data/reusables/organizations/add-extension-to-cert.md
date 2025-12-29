@@ -1,1 +1,0 @@
-Cuando emites cada uno de los certificados de cliente, debes incluir una extensión que especifique para cuál usuario de {% data variables.product.product_name %} es cada uno de ellos. Para obtener más información, consulta [Acerca de las autoridades de certificación de SSH](/articles/about-ssh-certificate-authorities)".

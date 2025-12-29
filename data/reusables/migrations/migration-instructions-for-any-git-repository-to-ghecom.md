@@ -1,0 +1,1 @@
+If an expert-led migration isn't right for you, you can perform a "source and history" migration of the affected repositories instead. For more information, see [Migrations from any Git repository to {% data variables.enterprise.data_residency_site %}](#any-git-repository-to-ghecom).

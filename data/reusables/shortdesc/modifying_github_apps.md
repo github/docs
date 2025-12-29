@@ -1,1 +1,1 @@
-After creating a GitHub App, you can make changes to it.
+After registering a {% data variables.product.prodname_github_app %}, you can make changes to it.

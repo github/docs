@@ -1,0 +1,56 @@
+name: Add maintenance PRs to the docs-content FR project v2
+
+# **What it does**: Adds docs-internal pull requests authored by docs-bot to the docs-content FR project v2
+# **Why we have it**: So we don't lose track of maintenance pull requests for docs-content to review
+# **Who does it impact**: Docs content
+
+on:
+  pull_request:
+    types:
+      - reopened
+      - opened
+      - ready_for_review
+
+permissions:
+  contents: read
+  pull-requests: write
+  repository-projects: write
+
+jobs:
+  first-responder-triage-pr:
+    name: Add maintenance PR to FR project v2
+    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.pull_request.user.id == 77750099 && github.event.pull_request.head.ref != 'repo-sync' && !contains(github.event.pull_request.labels.*.name, 'skip FR board')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6.0.1
+
+      # Add to the FR project
+      # and set type to "Maintenance"
+      # and set date to now
+      - name: Triage to docs-content FR project
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PROJECT_NUMBER: 11672
+          PROJECT_ID: PVT_kwDNJr_OAGNkBg
+          TYPE_FIELD_ID: PVTSSF_lADNJr_OAGNkBs4D-Nyn
+          DATE_FIELD_ID: PVTF_lADNJr_OAGNkBs4D-N1h
+          TYPE_FIELD_VALUE: 3f142cf2
+        run: |
+          echo "Adding item to project..."
+
+          ITEM_ID=$(gh project item-add $PROJECT_NUMBER --owner github --url $PR_URL --format json | jq .id)
+
+          echo "Editing type..."
+
+          gh project item-edit --project-id $PROJECT_ID --id $ITEM_ID --field-id $TYPE_FIELD_ID --single-select-option-id $TYPE_FIELD_VALUE
+
+          echo "Editing date..."
+
+          DATE=$(date '+%Y-%m-%d')
+
+          gh project item-edit --project-id $PROJECT_ID --id $ITEM_ID --field-id $DATE_FIELD_ID --date $DATE
+
+          echo "done editing"

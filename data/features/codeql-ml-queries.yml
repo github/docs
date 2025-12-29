@@ -1,0 +1,7 @@
+# Reference: #5604.
+# Documentation for the beta release of CodeQL queries boosted by machine learning
+# to generate experimental alerts in code scanning.
+# Now deprecated and sunset. Reference: #12391
+versions:
+  fpt: '*'
+  ghec: '*'

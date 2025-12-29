@@ -1,0 +1,5 @@
+# Reference: #12703.
+# Migration of CodeQL for VS Code documentation
+versions:
+  fpt: '*'
+  ghec: '*'

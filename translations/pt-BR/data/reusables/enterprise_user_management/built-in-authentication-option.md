@@ -1,1 +1,0 @@
-Opcionalmente, selecione **Allow built-in authentication** para convidar usuários a utilizar a autenticação integrada se eles não pertencerem ao provedor de identidade do {% data variables.product.product_location %}.

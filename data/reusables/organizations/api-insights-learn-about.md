@@ -1,0 +1,1 @@
+{% ifversion api-insights %}To learn about viewing an organization's API activity, including which requests exceeded primary rate limits, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/viewing-api-insights-in-your-organization).{% endif %}

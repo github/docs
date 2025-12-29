@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -15,26 +14,45 @@ topics:
 shortTitle: Restrict repository creation
 ---
 
-You can choose whether members can create repositories in your organization. If you allow members to create repositories, you can choose which types of repositories members can create.{% ifversion fpt or ghec %} To allow members to create private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}.{% endif %}{% ifversion fpt %} For more information, see "[About repositories](/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories)" in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+{% ifversion repo-policy-rules %}
 
-Organization owners can always create any type of repository.
-{% ifversion ghec or ghae or ghes %}
-{% ifversion ghec or ghae %}Enterprise owners{% elsif ghes %}Site administrators{% endif %} can restrict the options you have available for your organization's repository creation policy.{% ifversion ghec or ghes or ghae %} For more information, see "[Restricting repository creation in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% endif %}{% endif %}
+## Setting a blanket policy
 
-{% warning %}
+{% endif %}
 
-**Warning**: This setting only restricts the visibility options available when repositories are created and does not restrict the ability to change repository visibility at a later time. For more information about restricting changes to existing repositories' visibilities, see "[Restricting repository visibility changes in your organization](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
+You can choose whether members and {% data variables.product.prodname_github_apps %} can create repositories in your organization. {% ifversion ghec or ghes %}If you allow members and {% data variables.product.prodname_github_apps %} to create repositories, you can choose which types of repositories they can create.{% elsif fpt %}If you allow members and {% data variables.product.prodname_github_apps %} to create repositories, you can choose whether they can create both public and private repositories or public repositories only.{% endif %} Organization owners can always create any type of repository.
 
-{% endwarning %}
+{% ifversion fpt %}
+Organizations using {% data variables.product.prodname_ghe_cloud %} can also restrict members to creating private repositories only. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization).
+{% endif %}
+
+{% ifversion ghec or ghes %}
+Enterprise owners can restrict the options you have available for your organization's repository creation policy. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation).
+{% endif %}
+
+Organization owners can restrict the type of repositories members can create to private {% ifversion ghec or ghes %}or internal{% endif %} to help prevent sensitive information from being exposed. For more information, see [AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization).
+
+> [!WARNING]
+> This setting restricts the visibility options available when repositories are _created_, but does not prevent changing the visibility of _existing_ repositories. For more information about restricting changes to existing repositories' visibilities, see [AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Under "Repository creation", select one or more options.
+1. Under "Repository creation", select one or more options. <br><br>
 
-   {%- ifversion ghes or ghec or ghae %}
-   ![Repository creation options](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
-   {%- elsif fpt %}
-   ![Repository creation options](/assets/images/help/organizations/repo-creation-perms-radio-buttons-fpt.png)
+   {% ifversion fpt or ghec %}
+
+   > [!NOTE]
+   > To restrict members to creating private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
    {%- endif %}
-6. Click **Save**.
+
+1. Click **Save**.
+
+{% ifversion repo-policy-rules %}
+
+## Setting a more flexible policy ({% data variables.release-phases.public_preview %})
+
+{% data reusables.enterprise.repo-policy-rules-more-flexible %}
+
+{% endif %}

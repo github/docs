@@ -1,0 +1,5 @@
+# Reference: #11605
+# Required workflows on GitHub Actions are moving to Repository Rules
+versions:
+  ghec: '*'
+  ghes: '>=3.12'

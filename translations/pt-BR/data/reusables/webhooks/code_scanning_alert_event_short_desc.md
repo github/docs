@@ -1,1 +1,0 @@
-Atividade relacionada a alertas de varredura de código em um repositório. O tipo de atividade é especificado na propriedade ação do objeto da carga. Para obter mais informações, consulte "[Sobre a varredura de código](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)".

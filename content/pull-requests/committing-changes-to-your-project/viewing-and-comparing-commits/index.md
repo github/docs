@@ -7,11 +7,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
-  - /commit-branch-and-tag-labels
   - /comparing-commits
   - /differences-between-commit-views
 shortTitle: View & compare commits
 ---
+

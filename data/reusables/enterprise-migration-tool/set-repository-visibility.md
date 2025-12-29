@@ -1,0 +1,1 @@
+Repositories are migrated with private visibility by default. To set the visibility, you can add the `--target-repo-visibility` flag, specifying `private`, `public`, or `internal`. If you're migrating to an {% data variables.enterprise.prodname_emu_enterprise %}, public repositories are not available.

@@ -1,2 +1,1 @@
-1. Type the name of the tag.
-  ![Enter a tag name](/assets/images/help/desktop/enter-tag-name.png)
+1. In the "Create a Tag" dialog window, type the name of the tag.

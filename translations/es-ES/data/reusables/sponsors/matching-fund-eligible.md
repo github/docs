@@ -1,1 +1,0 @@
-El periodo de elegibilidad para el {% data variables.product.prodname_matching_fund %} ha terminado. Las aplicaciones que se reciban después de la fecha límite del 1 de enero de 2020 no serán elegibles para el {% data variables.product.prodname_matching_fund %}.

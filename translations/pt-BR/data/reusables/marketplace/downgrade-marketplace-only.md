@@ -1,1 +1,0 @@
-Cancelar um aplicativo ou fazer o downgrade de um aplicativo para gratuito não afeta [outras assinaturas pagas](/articles/about-billing-on-github) em {% data variables.product.prodname_dotcom %}. Se você quiser cessar todas as assinaturas pagas do {% data variables.product.prodname_dotcom %}, precisa fazer downgrade de cada uma delas separadamente.

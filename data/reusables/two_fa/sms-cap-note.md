@@ -1,0 +1,2 @@
+> [!NOTE]
+> Organizations and enterprises have the ability to prevent content access to members who have SMS 2FA configured. If you are a member of any organization or enterprise that has made this decision, you should enable TOTP application-configured 2FA instead. Outside collaborators may not enable SMS 2FA if their organization or enterprise has disallowed it. To continue working on content within an organization, enable 2FA with a TOTP application and disable SMS 2FA.

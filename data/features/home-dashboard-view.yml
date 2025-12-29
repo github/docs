@@ -1,0 +1,6 @@
+# Reference: #19595
+# Home dashboard public preview
+
+versions:
+  fpt: '*'
+  ghec: '*'

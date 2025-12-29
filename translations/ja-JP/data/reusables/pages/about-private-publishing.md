@@ -1,1 +1,0 @@
-プロジェクトサイトが{% data variables.product.prodname_ghe_cloud %}を使用するOrganizationが所有するプライベートもしくはインターナルリポジトリから公開されるなら、そのサイトのアクセス制御を管理できます。 In an {% data variables.product.prodname_emu_enterprise %}, all {% data variables.product.prodname_pages %} sites are privately published.

@@ -1,0 +1,1 @@
+The first step recommended by the ESSP is to develop a clear understanding of the obstacles preventing improvements in your company. By understanding your current baseline, your desired future state, and the barriers preventing you from making progress, you can ensure changes are targeted and effective.

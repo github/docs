@@ -1,1 +1,0 @@
-1. Em {% octicon "law" aria-label="The law icon" %} **Políticas**, clique em "Segurança Avançada". ![Políticas de "Segurança avançada" na barra lateral](/assets/images/help/enterprises/click-advanced-security.png)

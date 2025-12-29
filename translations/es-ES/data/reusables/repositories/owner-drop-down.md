@@ -1,1 +1,0 @@
-1. Utiliza el menú desplegable de **Propietario** y selecciona la cuenta que quieres sea propietaria del repositorio. ![Menú desplegable Propietario](/assets/images/help/repository/create-repository-owner.png)

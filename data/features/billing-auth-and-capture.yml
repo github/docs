@@ -1,0 +1,5 @@
+# Reference: #9744.
+# Documentation for Auth & Capture
+versions:
+  fpt: '*'
+  ghec: '*'

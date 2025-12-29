@@ -1,1 +1,0 @@
-La ruta a un directorio temporal en el ejecutor. Este directorio se vacía al inicio y al final de cada job. Nota que los archivos no se eliminarán si la cuenta de usuario del ejecutor no tiene permisos para borrarlos.

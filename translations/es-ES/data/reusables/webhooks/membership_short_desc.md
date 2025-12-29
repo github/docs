@@ -1,1 +1,0 @@
-La actividad relacionada con la membrecía del equipo. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la API de REST de "[miembros del equipo](/rest/reference/teams#members)".

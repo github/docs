@@ -1,1 +1,0 @@
-3. {% data variables.product.prodname_registry %}がプロジェクトを見つけられるリポジトリに*.npmrc*ファイルを追加してください。 詳細は「[ファイルをリポジトリに追加する](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)」を参照してください。

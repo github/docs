@@ -1,1 +1,0 @@
-1. Ao lado do aplicativo que você deseja cancelar, use o menu suspenso **Editar** e clique em **Cancelar plano**. ![Cancelar o link na seção Compras no Marketplace das configurações de faturamento da sua conta pessoal](/assets/images/help/marketplace/marketplace-edit-app-billing-settings.png)

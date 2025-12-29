@@ -1,0 +1,1 @@
+ARCHIVE-DOWNLOAD-HOST | The host to use to connect to the Bitbucket Server/Data Center instance via SSH or SMB. You only need to specify this if you are running a [Bitbucket Data Center cluster](https://confluence.atlassian.com/bitbucketserver/set-up-a-bitbucket-data-center-cluster-996641208.html) or your Bitbucket Server is behind a load balancer.

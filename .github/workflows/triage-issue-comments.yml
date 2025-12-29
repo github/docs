@@ -1,8 +1,8 @@
 name: Triage new issue comments
 
-# **What it does**:
-# **Why we have it**:
-# **Who does it impact**:
+# **What it does**: Adds label triage to new issue comments in the open source repository.
+# **Why we have it**: Update open source project board for review.
+# **Who does it impact**: Docs open source.
 
 on:
   issue_comment:
@@ -10,8 +10,8 @@ on:
       - created
 
 permissions:
+  contents: read
   issues: write
-  repository-projects: write
 
 jobs:
   triage-issue-comments:
@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Check if the event originated from a team member
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
         id: is-internal-contributor
         with:
           result-encoding: string
@@ -41,15 +41,34 @@ jobs:
               console.log(`This issue was commented on by an external contributor.`)
               return 'false'
             }
+
+      - name: Check out repo
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Check issue exists
+        id: exists
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          if gh issue view $ISSUE_URL > /dev/null 2>&1
+          then
+            echo "exists=y" >> $GITHUB_OUTPUT
+          else
+            echo "exists=n" >> $GITHUB_OUTPUT
+          fi
+
       - name: Label issues with new comments with 'triage'
-        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
-        if: ${{ steps.is-internal-contributor.outputs.result == 'false' }}
+        uses: ./.github/actions/labeler
+        if: ${{ steps.is-internal-contributor.outputs.result == 'false' && steps.exists.outputs.exists == 'y' }}
         with:
-          add-labels: 'triage'
-          ignore-if-labeled: true
-      - name: Triage to project board
-        uses: rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9
+          addLabels: 'triage'
+          ignoreIfLabeled: true
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() }}
         with:
-          action-token: ${{ secrets.GITHUB_TOKEN }}
-          project-url: 'https://github.com/github/docs/projects/1'
-          column-name: 'Triage'
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

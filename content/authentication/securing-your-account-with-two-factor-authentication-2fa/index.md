@@ -1,6 +1,6 @@
 ---
 title: Securing your account with two-factor authentication (2FA)
-intro: 'You can set up your account on {% data variables.product.product_location %} to require an authentication code in addition to your password when you sign in.'
+intro: 'You can set up your account on {% data variables.product.prodname_dotcom %} to require an authentication code in addition to your password when you sign in.'
 redirect_from:
   - /categories/84/articles
   - /categories/two-factor-authentication-2fa
@@ -14,13 +14,18 @@ topics:
   - 2FA
 children:
   - /about-two-factor-authentication
+  - /about-mandatory-two-factor-authentication
   - /configuring-two-factor-authentication
   - /configuring-two-factor-authentication-recovery-methods
   - /accessing-github-using-two-factor-authentication
-  - /recovering-your-account-if-you-lose-your-2fa-credentials
-  - /changing-two-factor-authentication-delivery-methods-for-your-mobile-device
   - /countries-where-sms-authentication-is-supported
+  - /changing-your-two-factor-authentication-method
+  - /troubleshooting-two-factor-authentication-issues
+  - /recovering-your-account-if-you-lose-your-2fa-credentials
   - /disabling-two-factor-authentication-for-your-personal-account
 shortTitle: Secure your account with 2FA
 ---
 
+{% ifversion mandatory-2fa-dotcom-contributors %}
+{% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
+{% endif %}

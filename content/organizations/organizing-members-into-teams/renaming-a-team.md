@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -15,9 +14,9 @@ topics:
 ---
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-5. Type a new name or description for the team.
-  ![Fields for team name and description](/assets/images/help/teams/team-name-description.png)
-6. Click **Update**.
+1. In the "Team name" field, type a new name for the team.
+1. Optionally, in the "Description" field, type a new description of the team.
+1. Click **Update**.

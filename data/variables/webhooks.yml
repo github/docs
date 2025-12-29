@@ -1,0 +1,1 @@
+retention: '{% ifversion fpt or ghec %}3{% else %}7{% endif %}'

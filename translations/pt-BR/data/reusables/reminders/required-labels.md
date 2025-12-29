@@ -1,1 +1,0 @@
-1. Em "Etiquetas obrigatórias", digite uma lista de etiquetas, separada por vírgulas. Os lembretes agendados incluirão apenas pull requests que ainda não foram ignorados, se tiverem uma ou mais dessas etiquetas. ![Campo de etiquetas obrigatórias](/assets/images/help/settings/scheduled-reminders-required-labels-field.png)

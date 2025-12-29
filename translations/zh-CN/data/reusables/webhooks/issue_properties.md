@@ -1,1 +1,0 @@
-`issue`|`object` | [议题](/rest/reference/issues)本身。 `changes`|`object` | 对议题的更改，如果操作为 `edited`。 `changes[title][from]` |`string` | 标题的前版本，如果操作为 `edited`。 `changes[body][from]`|`string` | 正文的前版本，如果操作为 `edited`。 `assignee`|`object` | 为此议题分配或取消分配的可选用户。 `label`|`object` | 为此议题添加或删除的可选标签。

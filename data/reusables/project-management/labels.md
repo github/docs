@@ -1,2 +1,3 @@
 1. Above the list of issues or pull requests, click **Labels**.
-![Labels tab on a repository's issues or pull requests page](/assets/images/help/issues/issues_labels_button.png)
+
+   ![Screenshot of the list of issues for a repository. Above the list, a button, labeled with a label icon and "Labels", is outlined in dark orange.](/assets/images/help/issues/issues-labels-button.png)

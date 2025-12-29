@@ -1,0 +1,4 @@
+# Reference: issue #9651
+# Dependabot Alerts enablement at the enterprise level
+versions:
+  ghec: '*'

@@ -1,1 +1,0 @@
-1. Para borrar permanentemente la entrada, da clic en **Sí, borrar esta lista de direcciones IP permitidas**. ![Botón Permanently delete IP allow list entry (Borrar permanentemente la entrada de la lista de IP permitida)](/assets/images/help/security/perm-delete-allowlist-entry-button.png)

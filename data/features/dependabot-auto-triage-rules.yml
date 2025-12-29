@@ -1,0 +1,9 @@
+# References:
+# Issue #10052 - Safe auto-dismissals for Dependabot alerts (low impact npm devDependencies) [Public Beta]
+# Issue #10089 - Alert rules: user-configured dismiss rules for Dependabot alerts
+# Issue #10068 - Dependabot alert custom rules updates (option to create a PR, org level rules)
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.11'

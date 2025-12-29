@@ -1,1 +1,0 @@
-1. Dentro de "Resumen de actualización", elige si quieres pagar mensualmente o anualmente. ![Botones de selección con opción de facturación mensual o anual](/assets/images/help/billing/choose-monthly-or-yearly-billing.png)

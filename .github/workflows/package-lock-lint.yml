@@ -22,18 +22,23 @@ concurrency:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     steps:
       - name: Check out repo
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
-      - name: Setup Node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+      - name: Setup Node.js
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
         with:
-          node-version: 16.x
+          node-version-file: 'package.json'
+          cache: npm
 
       - name: Run check
         run: |
           npm --version
+
+          # Save the current top-level dependencies from package-lock.json
+          node -e "console.log(JSON.stringify(require('./package-lock.json').packages['']))" > /tmp/before.json
 
           # From https://docs.npmjs.com/cli/v7/commands/npm-install
           #
@@ -41,11 +46,18 @@ jobs:
           #   package-lock.json, instead of checking node_modules and
           #   downloading dependencies.
           #
-          npm install --package-lock-only --ignore-scripts
+          npm install --package-lock-only --ignore-scripts --include=optional
 
-          # If the package.json (dependencies and devDependencies) is
-          # in correct sync with package-lock.json running the above command
-          # should *not* make an edit to the package-lock.json. I.e.
-          # running `git status` should
-          # say "nothing to commit, working tree clean".
-          git diff --exit-code
+          # Extract the top-level dependencies after regeneration
+          node -e "console.log(JSON.stringify(require('./package-lock.json').packages['']))" > /tmp/after.json
+
+          # Compare only the top-level package dependencies
+          # This ignores platform-specific differences in nested dependency resolution
+          # (like "peer" flags) that don't affect actual installed versions
+          if ! diff /tmp/before.json /tmp/after.json; then
+            echo "ERROR: Top-level dependencies in package-lock.json are out of sync with package.json"
+            echo "Please run 'npm install' locally and commit the updated package-lock.json"
+            exit 1
+          fi
+
+          echo "✓ Top-level dependencies are in sync"

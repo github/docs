@@ -1,5 +1,0 @@
-{% data variables.product.prodname_ghe_server %} アプライアンスは、プレミアムストレージのデータディスクを必要としており、プレミアムストレージをサポートするあらゆる Azure VM でサポートされます。 接尾辞が `s` の Azure VM タイプは、プレミアムストレージをサポートしています。 詳しい情報については、Azure ドキュメントの「[Azure で使用できるディスクの種類](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)」および「[Azure プレミアムストレージ: 高性能の設計](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)」を参照してください。
-
-{% data variables.product.company_short %} は、{% data variables.product.prodname_ghe_server %} にメモリ最適化された VM を推奨しています。 詳しい情報については、Azure ドキュメントの「[メモリに最適化された仮想マシンのサイズ](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-memory)」を参照してください。
-
-{% data variables.product.prodname_ghe_server %} は、VM タイプをサポートするあらゆる地域をサポートします。 各 VM でサポートされているリージョンの詳細については、Azure の「[リージョン別の利用可能な製品](https://azure.microsoft.com/regions/services/)」を参照してください。

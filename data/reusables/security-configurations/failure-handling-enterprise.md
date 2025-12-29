@@ -1,0 +1,1 @@
+If {% data variables.product.prodname_security_configurations %} fail to apply to some organizations in your enterprise, {% data variables.product.prodname_dotcom %} will display a banner on the UI to let you know. You can click the links on the banner to get more information about the organizations and repositories involved.

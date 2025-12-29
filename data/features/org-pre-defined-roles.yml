@@ -1,0 +1,6 @@
+# Issue #13617
+# Documentation for Built-in organization roles
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.15'

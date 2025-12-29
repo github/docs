@@ -1,1 +1,0 @@
-1. En la esquina superior derecha de cualquier página, da clic en {% octicon "bell" aria-label="The notifications bell" %}. ![Notificación que indica cualquier mensaje no leído](/assets/images/help/notifications/notifications_general_existence_indicator.png)

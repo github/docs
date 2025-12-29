@@ -1,1 +1,0 @@
-`changes`|`object` | Los cambios al comentario en caso de que la acción sea `edited`. `changes[body][from]` |`string` | La versión previa del cuerpo si la acción aparece como `edited`. `issue`|`object` | El [issue](/rest/reference/issues) al cual pertenece el comentario. `comment`|`object` | El [comment](/rest/reference/issues#comments) mismo.

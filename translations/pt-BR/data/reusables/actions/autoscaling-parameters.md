@@ -1,3 +1,0 @@
-- Opcionalmente, os parâmetros de dimensionamento automático para cada grupo.
-  - Número mínimo de executores ociosos para o pool
-  - Tempo-limite ativo: O número de minutos que um executor deve permanecer ativo no pool antes que este seja reduzido para o número ocioso

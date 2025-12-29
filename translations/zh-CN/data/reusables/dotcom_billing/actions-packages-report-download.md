@@ -1,1 +1,0 @@
-1. （可选）在“Usage this month（本月使用情况）”旁边，单击 **Get usage report（获取使用报告）**向帐户主电子邮件地址发送关于 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_registry %} 存储使用情况的 CSV 报告。 ![下载 CSV 报告](/assets/images/help/billing/actions-packages-report-download.png)

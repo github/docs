@@ -1,5 +1,5 @@
 1. Publish the package:
 
-  ```shell
-  $ npm publish
-  ```
+   ```shell
+   npm publish
+   ```

@@ -1,0 +1,1 @@
+| Unified search | Allow users to include repositories on {% data variables.product.prodname_ghe_cloud %} in their search results when searching from {% data variables.location.product_location %}. | [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise) |

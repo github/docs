@@ -1,1 +1,0 @@
-The branch or tag name that triggered the workflow run.

@@ -1,6 +1,5 @@
 1. On the right, click **Add a domain**.
-  ![Add domain button on Pages settings](/assets/images/help/pages/verify-add-domain.png)
-1. Under "What domain would you like to add?", enter the domain you wish to verify and click **Add domain**.
-  ![Domain text field and Add domain button on Pages settings](/assets/images/help/pages/verify-enter-domain.png)
+1. Under "What domain would you like to add?," enter the domain you wish to verify and select **Add domain**.
+    ![Screenshot of the field to add a verified domain for your {% data variables.product.prodname_pages %} site. A green "Add domain" button is shown below the field.](/assets/images/help/pages/verify-enter-domain.png)
 1. Follow the instructions under "Add a DNS TXT record" to create the TXT record with your domain hosting service.
-  ![DNS TXT record information on Pages settings](/assets/images/help/pages/verify-dns.png)
+    ![Screenshot of {% data variables.product.prodname_pages %} instructions to add a TXT record to the DNS configuration of example.com.](/assets/images/help/pages/verify-dns.png)

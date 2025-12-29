@@ -1,1 +1,0 @@
-{% ifversion fpt or ghes or ghae or ghec %}If there is a protected branch rule in your repository that requires a linear commit history, you must allow squash merging, rebase merging, or both. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."{% endif %}

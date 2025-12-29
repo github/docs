@@ -1,0 +1,1 @@
+{% data variables.product.company_short %}-reviewed advisories are security vulnerabilities that have been mapped to packages in ecosystems we support. We carefully review each advisory for validity and ensure that they have a full description, and contain both ecosystem and package information.

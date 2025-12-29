@@ -1,1 +1,0 @@
-1. "{% data variables.product.prodname_sponsors %}"の下で、スポンサードアカウントの右のあなたの層の額の隣にある{% octicon "triangle-down" aria-label="The down triangle octicon" %}をクリックし、**Change tier（層の変更）**をクリックしてください。 ![層の変更ボタン](/assets/images/help/billing/edit-sponsor-billing.png)

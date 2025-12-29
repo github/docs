@@ -1,0 +1,3 @@
+# Migrating from projects (classic)
+versions:
+  ghes: '>=3.13 <=3.16'

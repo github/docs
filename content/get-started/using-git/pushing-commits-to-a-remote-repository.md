@@ -10,11 +10,11 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Push commits to a remote
 ---
 ## About `git push`
+
 The `git push` command takes two arguments:
 
 * A remote name, for example, `origin`
@@ -23,7 +23,7 @@ The `git push` command takes two arguments:
 For example:
 
 ```shell
-git push <em> &lt;REMOTENAME> &lt;BRANCHNAME> </em>
+git push REMOTE-NAME BRANCH-NAME
 ```
 
 As an example, you usually run `git push origin main` to push your local changes
@@ -35,10 +35,10 @@ To rename a branch, you'd use the same `git push` command, but you would add
 one more argument: the name of the new branch. For example:
 
 ```shell
-git push <em> &lt;REMOTENAME> &lt;LOCALBRANCHNAME></em>:<em>&lt;REMOTEBRANCHNAME> </em>
+git push REMOTE-NAME LOCAL-BRANCH-NAME:REMOTE-BRANCH-NAME
 ```
 
-This pushes the `LOCALBRANCHNAME` to your `REMOTENAME`, but it is renamed to `REMOTEBRANCHNAME`.
+This pushes the `LOCAL-BRANCH-NAME` to your `REMOTE-NAME`, but it is renamed to `REMOTE-BRANCH-NAME`.
 
 ## Dealing with "non-fast-forward" errors
 
@@ -47,7 +47,21 @@ repository you're pushing to, you'll get a message saying `non-fast-forward upda
 This means that you must retrieve, or "fetch," the upstream changes, before
 you are able to push your local changes.
 
-For more information on this error, see "[Dealing with non-fast-forward errors](/github/getting-started-with-github/dealing-with-non-fast-forward-errors)."
+For more information on this error, see [AUTOTITLE](/get-started/using-git/dealing-with-non-fast-forward-errors).
+
+{% ifversion secret-scanning-push-protection-for-users %}
+
+## Resolving blocked commits
+
+To maintain the security of the repository you're pushing to, {% data variables.product.github %}'s push protection automatically protects you from accidentally committing secrets to public repositories on {% data variables.product.prodname_dotcom_the_website %}. Exposed secrets can pose serious security risks to your repository and your supply chain.
+If {% data variables.product.github %} detects that the commit you're attempting to push contains a supported secret, it blocks the push. In order to resolve the block, you should either:
+
+* **Remove the secret** from your commit(s). For more information, see [Resolving a blocked push](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push).
+* **Follow the provided URL** to see options to allow the push. For more information, see [Bypassing push protection](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#bypassing-push-protection)
+
+To learn more about push protection, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users).
+
+{% endif %}
 
 ## Pushing tags
 
@@ -57,13 +71,13 @@ that have the same names as remote branches.
 To push a single tag, you can issue the same command as pushing a branch:
 
 ```shell
-git push <em> &lt;REMOTENAME> &lt;TAGNAME> </em>
+git push REMOTE-NAME TAG-NAME
 ```
 
 To push all your tags, you can type the command:
 
 ```shell
-git push <em> &lt;REMOTENAME></em> --tags
+git push REMOTE-NAME --tags
 ```
 
 ## Deleting a remote branch or tag
@@ -71,12 +85,12 @@ git push <em> &lt;REMOTENAME></em> --tags
 The syntax to delete a branch is a bit arcane at first glance:
 
 ```shell
-git push <em> &lt;REMOTENAME></em> :<em>&lt;BRANCHNAME> </em>
+git push REMOTE-NAME :BRANCH-NAME
 ```
 
 Note that there is a space before the colon. The command resembles the same steps
 you'd take to rename a branch. However, here, you're telling Git to push _nothing_
-into `BRANCHNAME` on `REMOTENAME`. Because of this, `git push` deletes the branch
+into `BRANCH-NAME` on `REMOTE-NAME`. Because of this, `git push` deletes the branch
 on the remote repository.
 
 ## Remotes and forks
@@ -89,10 +103,10 @@ repository, you'd add a new remote URL, typically called `upstream`, to
 your local Git clone:
 
 ```shell
-git remote add upstream <em> &lt;THEIR_REMOTE_URL> </em>
+git remote add upstream THEIR_REMOTE_URL
 ```
 
-Now, you can fetch updates and branches from *their* fork:
+Now, you can fetch updates and branches from _their_ fork:
 
 ```shell
 git fetch upstream
@@ -101,19 +115,20 @@ git fetch upstream
 > remote: Compressing objects: 100% (53/53), done.
 > remote: Total 62 (delta 27), reused 44 (delta 9)
 > Unpacking objects: 100% (62/62), done.
-> From https://{% data variables.command_line.codeblock %}/<em>octocat</em>/<em>repo</em>
+> From https://{% data variables.product.product_url %}/OCTOCAT/REPO
 >  * [new branch]      main     -> upstream/main
 ```
 
 When you're done making local changes, you can push your local branch to GitHub
 and [initiate a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
-For more information on working with forks, see "[Syncing a fork](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)".
+For more information on working with forks, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork).
 
 ## Further reading
 
-- [The "Remotes" chapter from the "Pro Git" book](https://git-scm.com/book/ch5-2.html)
-- [`git remote` main page](https://git-scm.com/docs/git-remote.html)
-- "[Git cheatsheet](/articles/git-cheatsheet)"
-- "[Git workflows](/github/getting-started-with-github/git-workflows)"
-- "[Git Handbook](https://guides.github.com/introduction/git-handbook/)"
+* [The "Remotes" chapter from the "Pro Git" book](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)
+* [`git remote` main page](https://git-scm.com/docs/git-remote.html)
+* [AUTOTITLE](/get-started/git-basics/git-cheatsheet)
+* [AUTOTITLE](/get-started/git-basics/git-workflows)
+* [Git Handbook](https://guides.github.com/introduction/git-handbook/){% ifversion fpt or ghec %}
+* [AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit){% endif %}

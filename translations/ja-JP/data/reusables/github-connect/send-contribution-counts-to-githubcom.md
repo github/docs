@@ -1,1 +1,0 @@
-1. [Contributions] の下で、[**Send my contribution counts to {% data variables.product.prodname_dotcom_the_website %}**] を選択し、[**Update contributions**] をクリックします。 ![コントリビューションを送信するチェックボックスとコントリビューション更新ボタン](/assets/images/help/settings/send-and-update-contributions.png)

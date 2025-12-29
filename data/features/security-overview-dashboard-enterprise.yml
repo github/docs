@@ -1,0 +1,5 @@
+# Reference: #11289
+# Documentation for the security overview dashboard, including for Enterprise-level
+versions:
+  ghec: '*'
+  ghes: '>3.13'

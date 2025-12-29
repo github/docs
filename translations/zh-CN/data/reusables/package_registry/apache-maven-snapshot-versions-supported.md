@@ -1,1 +1,0 @@
-{% data variables.product.prodname_registry %} 支持 Apache Maven 的 `SNAPSHOT` 版本。 要使用 {% data variables.product.prodname_registry %} 仓库下载 `SNAPSHOT` 工件，请在所用项目的 POM 或  *~/.m2/settings.xml* 文件中启用 SNAPSHOTS。

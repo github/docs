@@ -1,1 +1,0 @@
-1. En la barra lateral izquierda, haz clic en **Secrets** (Secretos).

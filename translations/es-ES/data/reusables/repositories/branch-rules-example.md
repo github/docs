@@ -1,1 +1,0 @@
-Puedes crear una regla de protección de rama en un repositorio para la rama específica, todas las ramas, o cualquier rama que coincida con un patrón de nombre que especifiques con la sintaxis `fnmatch`. Por ejemplo, para proteger cualquier rama que contenga la palabra `release`, puedes crear una regla de rama de `*release*`.

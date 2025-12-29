@@ -1,1 +1,0 @@
-如果您使用的是 {% data variables.product.prodname_actions %} 工作流程，可以使用 `GITHUB_TOKEN` 发布和使用 {% data variables.product.prodname_registry %} 中的软件包，而无需存储和管理个人访问令牌。 更多信息请参阅“[使用 `GITHUB_TOKEN`](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token) 验证身份”。

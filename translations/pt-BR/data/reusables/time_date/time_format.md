@@ -1,1 +1,0 @@
-Você também pode adicionar informações de tempo opcionais `THH:MM:SS+00:00` após a data, para pesquisar por hora, minuto e segundo. Isso se faz adicionando `T`, seguido de `HH:MM:SS` (hora-minutos-segundos) e um intervalo de UTC (`+00:00`). 

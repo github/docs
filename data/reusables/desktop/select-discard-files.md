@@ -1,2 +1,1 @@
 1. In the list of changed files, select the files where you want to discard the changes since the last commit. To select multiple files, click `shift` and click on the range of files you want to discard changes from.
-  ![Select multiple files with changes to discard](/assets/images/help/desktop/select-multiple-files-discard.png)

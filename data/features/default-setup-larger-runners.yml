@@ -1,0 +1,6 @@
+# Default setup can now run on larger runners
+# Reference: #13175
+
+versions:
+  fpt: '*'
+  ghec: '*'

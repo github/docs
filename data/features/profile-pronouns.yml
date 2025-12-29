@@ -1,0 +1,6 @@
+# Reference: #9659
+# Pronouns in user profiles
+
+versions:
+  fpt: '*'
+  ghec: '*'

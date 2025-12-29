@@ -1,0 +1,2 @@
+* **A specific repository**. This enables you to share MCP servers with anyone who opens the project in {% data variables.product.prodname_vscode %}. To do this, create a `.vscode/mcp.json` file in the root of your repository.
+* **Your personal instance of {% data variables.product.prodname_vscode %}**. You will be the only person who has access to configured MCP servers. To do this, add the configuration to your `settings.json` file in {% data variables.product.prodname_vscode %}. MCP servers configured this way will be available in all workspaces.

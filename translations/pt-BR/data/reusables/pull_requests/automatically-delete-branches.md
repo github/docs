@@ -1,1 +1,0 @@
-É possível excluir branches head automaticamente após o merge de pull requests no repositório. Para obter mais informações, consulte "[Gerenciar a exclusão automática de branches](/articles/managing-the-automatic-deletion-of-branches)".

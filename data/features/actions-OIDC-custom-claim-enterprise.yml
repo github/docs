@@ -1,0 +1,5 @@
+# Reference: #9725
+# Adding new OIDC claim - enterprise
+versions:
+  ghec: '*'
+  ghes: '>=3.8'

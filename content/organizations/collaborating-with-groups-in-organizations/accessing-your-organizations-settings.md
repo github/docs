@@ -13,7 +13,6 @@ intro: 'The organization account settings page provides several ways to manage t
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -22,11 +21,8 @@ shortTitle: Access organization settings
 ---
 {% ifversion fpt or ghec %}
 
-{% tip %}
-
-**Tip:** Only organization owners and billing managers can see and change the billing information and account settings for an organization. {% data reusables.organizations.new-org-permissions-more-info %}
-
-{% endtip %}
+> [!TIP]
+> Only organization owners and billing managers can see and change the billing information and the full set of account settings for an organization. Organization moderators only see moderation settings. {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endif %}
 

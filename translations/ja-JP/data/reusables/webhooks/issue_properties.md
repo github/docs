@@ -1,1 +1,0 @@
-`issue`|`object` | [Issue](/rest/reference/issues)自体。 `changes`|`object`| アクションが`edited`の場合、Issueへの変更。 `changes[title][from]`|`string` | アクションが`edited`の場合、以前のバージョンのタイトル。 `changes[body][from]`|`string` | アクションが`edited`の場合、以前のバージョンのボディ。 `assignee`|`object` | Issueに割り当てられた、あるいは割り当てを解除されたオプションのユーザ。 `label`|`object` | Issueに追加された、あるいはIssueから削除されたオプションのラベル。

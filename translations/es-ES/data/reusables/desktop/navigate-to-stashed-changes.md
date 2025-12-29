@@ -1,1 +1,0 @@
-1. Si no es que ya estás en la rama en donde los cambios están acumulados, haz clic en {% octicon "git-branch" aria-label="The branch icon" %} **Rama Actual** y luego en la rama con los cambios acumulados. ![Lista de ramas en el repositorio](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)

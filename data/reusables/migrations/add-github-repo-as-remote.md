@@ -1,0 +1,1 @@
+1. To add your {% data variables.product.prodname_dotcom %} repository as a remote, run `git remote add origin URL`, replacing `URL` with the URL for the {% data variables.product.prodname_dotcom %} repository you created earlier, such as `https://github.com/octocat/example-repository.git`.

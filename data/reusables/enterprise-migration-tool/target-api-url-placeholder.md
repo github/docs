@@ -1,0 +1,1 @@
+TARGET-API-URL | The base API URL for your enterprise's subdomain of {% data variables.enterprise.data_residency_site %}. For example: `https://api.{% data variables.enterprise.data_residency_example_domain %}`.

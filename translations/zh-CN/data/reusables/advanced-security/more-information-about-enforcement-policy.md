@@ -1,1 +1,0 @@
-更多信息请参阅“[在企业中执行 {% data variables.product.prodname_advanced_security %} 的策略]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)”。

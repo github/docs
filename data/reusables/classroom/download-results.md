@@ -1,0 +1,1 @@
+You can download a CSV with details of your students' assignments using the "Download" button on the overview page. This will generate and download a CSV containing a link to the student's repository, their {% data variables.product.prodname_dotcom %} handle, roster identifier, submission timestamp, and autograding score.

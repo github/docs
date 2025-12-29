@@ -1,0 +1,6 @@
+# Reference: #6672
+# The new code search and symbols pane experience
+# For the new code view UI, see code-view-ui.yml
+versions:
+  fpt: '*'
+  ghec: '*'

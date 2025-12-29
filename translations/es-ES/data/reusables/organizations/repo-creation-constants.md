@@ -1,1 +1,0 @@
-Los propietarios de las organizaciones siempre podrán crear cualquier tipo de repositorio, y los colaboradores externos jamás podrán crear algún tipo de repositorio. Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".

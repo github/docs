@@ -1,1 +1,0 @@
-`changes`|`object`| 对评论的更改，如果操作为 `edited`。 `changes[body][from]`|`string` | 正文的前版本，如果操作为 `edited`。 `pull_request`|`object` | 评论所属的[拉取请求](/rest/reference/pulls)。 `comment`|`object` | [评论](/rest/reference/pulls#comments)本身。

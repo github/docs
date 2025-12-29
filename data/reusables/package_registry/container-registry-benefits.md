@@ -1,0 +1,1 @@
+The {% data variables.product.prodname_container_registry %} stores container images within your organization or personal account, and allows you to associate an image with a repository. You can choose whether to inherit permissions from a repository, or set granular permissions independently of a repository. You can also access public container images anonymously.

@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -18,3 +17,4 @@ children:
   - /resolving-a-merge-conflict-using-the-command-line
 shortTitle: Address merge conflicts
 ---
+

@@ -9,7 +9,6 @@ intro: 'After a pull request has been opened, you can review and discuss the set
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -27,3 +26,4 @@ children:
   - /checking-out-pull-requests-locally
 shortTitle: Review changes
 ---
+

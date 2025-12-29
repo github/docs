@@ -1,0 +1,33 @@
+.sidebarFull {
+  // Fixed width for consistent sidebar layout
+  width: 326px;
+  // 65px accounts for the header height
+  height: calc(100vh - 65px);
+  top: 65px;
+}
+
+.sidebarContentFull {
+  width: 326px;
+  // 175px accounts for header (65px) + sidebar header (110px)
+  height: calc(100vh - 175px);
+}
+
+.sidebarContentOverlay {
+  // Padding to account for header + sidebar header so content isn't cut off
+  padding-bottom: 185px;
+}
+
+.sidebarContentOverlayRest {
+  // Extra padding for REST pages (includes API version picker)
+  padding-bottom: 250px;
+}
+
+.sidebarContentFullWithPadding {
+  // Padding to account for header + sidebar header so content isn't cut off
+  padding-bottom: 185px;
+}
+
+.sidebarContentFullWithPaddingRest {
+  // Extra padding for REST pages (includes API version picker)
+  padding-bottom: 250px;
+}

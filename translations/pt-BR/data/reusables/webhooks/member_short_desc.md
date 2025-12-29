@@ -1,1 +1,0 @@
-Atividade relacionada aos colaboradores do repositório. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte a APTI REST dos [colaboradores](/rest/reference/repos#collaborators)".

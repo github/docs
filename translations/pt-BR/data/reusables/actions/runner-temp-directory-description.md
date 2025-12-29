@@ -1,1 +1,0 @@
-O caminho para um diretório temporário no executor. Este diretório é esvaziado no início e no final de cada trabalho. Observe que os arquivos não serão removidos se a conta de usuário do executor não tiver permissão para excluí-los.

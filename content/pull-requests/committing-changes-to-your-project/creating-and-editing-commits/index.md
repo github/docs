@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /about-commits
@@ -16,3 +15,4 @@ children:
   - /changing-a-commit-message
 shortTitle: Create & edit commits
 ---
+

@@ -1,0 +1,6 @@
+# References:
+# Issue #15659 - EPSS Scores for Dependabot Alerts [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.16'

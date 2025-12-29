@@ -1,3 +1,12 @@
-{% ifversion fpt or ghec %}Dependency review is available for all public repositories, as well as well as private repositories owned by organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
-{% ifversion ghes > 3.1 %}Dependency review is available for organization-owned repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled.
-{% endif %} {% data reusables.advanced-security.more-info-ghas %}
+Dependency review is available for the following repository types:
+
+{%- ifversion fpt %}
+* Public repositories on {% data variables.product.prodname_dotcom_the_website %}
+* Organization-owned repositories on {% data variables.product.prodname_team %} with [{% data variables.product.prodname_GH_code_security %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% endif %}
+
+{%- ifversion ghec %}
+* Public repositories on {% data variables.product.prodname_dotcom_the_website %}
+* Organization-owned repositories on {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} with [{% data variables.product.prodname_GH_code_security %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% endif %}
+
+{%- ifversion ghes %}
+* Organization-owned repositories with [{% data variables.product.prodname_GH_code_security %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% endif %}

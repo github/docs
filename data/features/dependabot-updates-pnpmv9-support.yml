@@ -1,0 +1,5 @@
+# Reference: Issue #3970 from dependabot-core repo - DG-API supports PNPM v9 lockfile format
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.14'

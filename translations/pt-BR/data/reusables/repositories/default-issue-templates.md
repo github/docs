@@ -1,2 +1,0 @@
-Você pode criar modelos de problemas-padrão{% ifversion fpt or ghes or ghae or ghec %} e um arquivo de configuração-padrão para os modelos de problema{% endif %} para a sua organização{% ifversion fpt or ghes or ghae or ghec %} ou conta de usuário{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
-

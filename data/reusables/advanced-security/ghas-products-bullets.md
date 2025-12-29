@@ -1,0 +1,2 @@
+* **{% data variables.product.prodname_GH_secret_protection %}**, which includes features that help you detect and prevent secret leaks, such as {% data variables.product.prodname_secret_scanning %} and push protection.
+* **{% data variables.product.prodname_GH_code_security %}**, which includes features that help you find and fix vulnerabilities, like {% data variables.product.prodname_code_scanning %}, premium {% data variables.product.prodname_dependabot %} features, and dependency review.
