@@ -12,6 +12,8 @@ redirect_from:
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/skipping-workflow-runs
 ---
 
+{% data reusables.actions.workflow-run-statuses-2 %}
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 > [!NOTE]
