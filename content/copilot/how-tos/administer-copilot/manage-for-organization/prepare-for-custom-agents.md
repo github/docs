@@ -29,6 +29,7 @@ Before following this article, you should understand what {% data variables.copi
      * To **manually grant access after creation**, or if internal visibility is not an option, click {% octicon "lock" aria-hidden="true" aria-label="lock" %} **Private**.
 {% data reusables.repositories.create-repo %}
 1. Update the template README as needed. Consider including creation guidelines for {% data variables.copilot.custom_agents_short %} or compliance considerations specific to your organization.
+1. Create folder `agents` in the root folder.  This is where your organization agents will be defined.
 
 ## Next steps
 
