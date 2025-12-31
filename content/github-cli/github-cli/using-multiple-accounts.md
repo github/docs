@@ -25,7 +25,7 @@ The {% data variables.product.prodname_cli %} **can't automatically detect** you
 
 * The {% data variables.product.prodname_cli %} will default to {% data variables.product.prodname_dotcom_the_website %}.
 * You can set the `GH_HOST` environment variable to change the default target for these kinds of requests. See [gh environment](https://cli.github.com/manual/gh_help_environment) in the {% data variables.product.prodname_cli %} manual.
-* Some commands allow you allow you to specify your target environment with the `--hostname` option, such as `gh api`, or pass the full URL for a repository, such as `gh pr view`.
+* Some commands allow you to specify your target environment with the `--hostname` option, such as `gh api`, or pass the full URL for a repository, such as `gh pr view`.
 
 ## Can I use multiple accounts on the same platform?
 
