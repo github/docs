@@ -1,44 +1,44 @@
 ---
-title: Transcript - "Codespaces - Your instant dev box in the cloud"
-intro: Audio and visual transcript.
-shortTitle: Codespaces
-allowTitleToDifferFromFilename: true
-product_video: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc'
-topics:
-  - Transcripts
-versions:
-  fpt: '*'
-  ghec: '*'
+عنوان: Translation - "Codespas - جعبه ی دم دم در ابر"
+داخل: صدای و تصویر.
+کوتاه تر: Codespaats
+به عنوان عنوان تودیفر فر فیلم: درست
+محصول_video: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc'
+موضوعات:
+  - ترجمه
+نسخه ها:
+  با صدای بلند: *'
+  گِک *'
 ---
 
-[A developer wearing a blue t-shirt sits at home, behind a mic and a pop shield decorated with GitHub's Octocat logo. The developer shares their screen while still showing on webcam in the upper-right corner. On their screen, they are looking at a GitHub repository called "js-project".]
+[یک توسعه دهنده با تی شرت آبی در خانه، پشت یک یک و یک سپر پاپ که با لوگوی اکتکات گیتهاب تزیینشده است. توسعه دهنده صفحه نمایش خود را در حالی که هنوز در در گوشه سمت بالا نشان می دهد، به اشتراک می گذارد. آن ها در حال تماشای یک مخزن جیت هاب به نام "ج-پروژه" هستند.]
 
-Developer: So, today we're gonna run my JavaScript project in GitHub Codespaces.
+توسعه دهنده: پس، امروز ما پروژه جاواس اسکریپت خود را در جیتهاب Codespaas اجرا می کنیم.
 
-[On the repository page, above the list of files, the developer selects the "Code" button to open a dropdown menu. They click "Open with Codespaces", then click "New codespace".]
+[در صفحهٔ مخزن، در بالای لیست فایل ها، توسعه دهنده دکمه "Code" را برای باز کردن یک منوی در قالب انتخاب می کند. آنها "باز با Codespaas" را کلیک می کنند، سپس "فضای کد جدید" را کلیک می کنند.]
 
-Developer: So while we're creating our codespace, you might have the question, "What even is a codespace?"
+توسعه دهنده: بنابراین، هنگامی که ما در حال ایجاد فضای کد هستیم، ممکن است این سؤال را داشته باشید: "حتی یک فضای کد چیست".
 
-[In the browser, the codespace loads. On a white background, the text "Preparing your codespace" is displayed below GitHub's Octocat logo and a VS Code logo.]
+[در مرورگر، فضای کد بار می شود. در یک پس زمینه سفید، متن "پیش سازی فضای کد شما" در زیر لوگوی اکتکات گیتهاب و یک لوگوی کد VS نمایش داده می شود.]
 
-Developer: A codespace is an instant cloud developer environment, where we can run, test, debug, push: everything that we're used to doing in a development environment, but without any of the machine setup we're used to doing locally.
+توسعه دهنده: یک فضای کد یک محیط توسعه دهندهٔ ابری است که در آن می توانیم اجرا، آزمایش، بازی، فشار، هر کاری که ما در یک محیط توسعه به انجام می دهیم، اما بدون هیچ یک از تنظیم ماشین ها به صورت محلی عادت داریم.
 
-[The codespace opens in the VS Code web editor in the browser, running with the dark theme. Directories and files from the repository are displayed in the left sidebar. In an integrated terminal, a message says, "Welcome to Codespaces," and lists included runtimes and tools.]
+[فضای کد در ویرایشگر وب وی اس کد در مرورگر باز می شود و با تم تیره اجرا می شود. در قسمت چپ، و پرونده های این مخزن در قسمت چپ نمایش داده می شود. در یک ترمینال یکپارچه، یک پیام می گوید: "به Codespaas" و لیست ها شامل دویدن و ابزار بود.]
 
-Developer: So when we create this codespace, you'll see we land in a machine that is already set up, and it has Python, Node, Docker, and even more, so it has tools like Java and Rust and Go and C++.
+توسعه دهنده: بنابراین وقتی این فضای کد را ایجاد می کنیم، می بینید که ما در یک ماشین که قبلاً راه اندازی شده است فرود می آید و این آن پایتون، نوده، داکر و حتی بیشتر، بنابراین ابزارهایی مانند جاوا و روست و گو و سی++ دارد.
 
-But you'll see we landed in the default image. The great thing about Codespaces is you can fully customize your setup, not only for you, but for everyone else who comes along in this repository. So you can have a "config-as-code" setup that allows you to use your own image, or Dockerfile, or Docker Compose.
+اما تو می بینی که ما در تصویر پیش فرض فرود آمده ایم. مهم ترین موضوع در مورد Codespaها این است که شما می توانید به طور کامل تنظیم خود را نه تنها برای شما بلکه برای هر کس دیگری که در این مخزن آمده اند، به طور کامل سفارشی کنید. بنابراین می توانید یک مجموعه "کد" را داشته باشید که به شما اجازه می دهد از تصویر خود یا داکر فایل یا داکر کامپوز استفاده کنید.
 
-So for our app, we're actually just gonna go ahead and start it up. So I'm gonna run `npm start` here, and you'll see that we're told our app is running on port 3000, and we can open it in the browser and connect securely to a forwarded port that has our app fully up and running.
+برای برنامه ما، ما واقعاً می خواهیم جلو برویم و شروع کنیم. پس می روم  `شروع به کار`  اینجا و شما می بینید که به ما گفته می شود که برنامه ما در پورت 3000 اجرا می شود و می توانیم آن را در مرورگر باز کنیم و به طور امن به یک پورت در حال جلو متصل کنیم که برنامه ما را به طور کامل بالا و در حال اجرا است.
 
-[A popup is displayed for the forwarded port. On the popup, the developer clicks a button labeled "Open in browser". A new browser tab opens showing a web page titled "Haikus for Mona". On the web page, a cartoon image shows a grinning Mona the Octocat skipping over a puddle with a purple umbrella. Below the image, a haiku: "Rain in Seattle. Don't forget an umbrella, or it will be gloom."]
+[یک پاپ آپ برای پورت جلو نمایش داده می شود. در پاپ آپ، توسعه دهنده یک دکمه را که برچسب "باز در مرورگر" است. یک وب مرورگر جدید باز می شود که یک صفحه وب تحت عنوان "هایکوس برای مونا" را نشان می دهد. در صفحهٔ وب، یک تصویر کارتونی نشان می دهد که مونا اکتکات در حال حرکت بر روی یک گودال با چتر بنفش است. در زیر تصویر، یک "رین در سیاتل". یک چتر را فراموش نکنید، یا تیره خواهد شد".]
 
-Developer: So you'll see here's my Node app, up and running, connected to in a codespace. And this took us about 60 seconds to get set up in Codespaces.
+توسعه دهنده: پس شما می بینید که این برنامه نود من است، بالا و در حال، که در یک فضای کد متصل شده است. این کار برای ما حدود ۶۰ ثانیه طول کشید تا در کوییسیاس راه اندازی کنیم.
 
-[The developer scrolls to an image of Mona poking a record player with her tentacle.]
+[توسعه دهنده به تصویر مونا که یک بازیکن ضبط را با او می کند، می پردازد.]
 
-Developer: So you can imagine this fully customized, to really bring down the setup time for really every repository you have.
+توسعه دهنده: پس می توانید این کاملاً سفارشی را تصور کنید که واقعاً زمان تنظیم را برای هر مخزن که دارید، پایین بیاورید.
 
-And that's a quick look at GitHub Codespaces.
+این یک نگاه سریع به گیتهاب کوییسس است.
 
-End of transcript. For more information about {% data variables.product.prodname_github_codespaces %}, see the [{% data variables.product.prodname_github_codespaces %} documentation](/codespaces).
+پایان ترجمه. برای کسب اطلاعات بیشتر در مورد {٪ متغیر های داده.product.prodname_github_codespaces %}  [{٪ متغیرهای داده.product.prodname_github_codespaces %} مستندسازی](/ فضاهای کد).
