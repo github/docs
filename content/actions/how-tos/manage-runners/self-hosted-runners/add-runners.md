@@ -29,8 +29,6 @@ Before you add a self-hosted runner, you should understand what they are and how
 Additionally, you must meet the following requirements:
 {% data reusables.actions.self-hosted-runners-prerequisites %}
 
-{% data reusables.actions.self-hosted-price-note %}
-
 ## Adding a self-hosted runner to a repository
 
 You can add self-hosted runners to a single repository. To add a self-hosted runner to a user repository, you must be the repository owner. For an organization repository, {% ifversion custom-org-roles %}you must be an organization owner, have admin access to the repository, or have the “Manage organization runners and runner groups” permission.{% else %}you must be an organization owner or have admin access to the repository.{% endif %}

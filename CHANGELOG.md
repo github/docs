@@ -1,5 +1,11 @@
 # Docs changelog
 
+**18 December 2025**
+
+The documentation has been updated to reflect the general availability of direct organization billing for premium request usage in Copilot Code Review. Organization members without a Copilot plan can now use Copilot Code Review on GitHub.com, with premium request usage billed directly to their organization or enterprise. See [Copilot code review without a Copilot license](https://docs.github.com/en/copilot/concepts/agents/code-review#copilot-code-review-without-a-copilot-license).
+
+<hr>
+
 **16 December 2025**
 
 We've added [a tutorial](https://docs.github.com/copilot/tutorials/modernize-java-applications) on how Copilot can help modernize and migrate Java applications by assessing your codebase, identifying upgrade paths, and automating remediation and containerization tasks.
