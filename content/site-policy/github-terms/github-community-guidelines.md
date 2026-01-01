@@ -18,7 +18,7 @@ Our diverse user base brings different perspectives, ideas, and experiences, and
 
 By outlining what we think a [safe, welcoming, and productive community](https://opensource.guide/building-community/) looks like at GitHub, we hope to help you understand how best to interact and collaborate on our platform in line with our [Terms of Service](/site-policy/github-terms/github-terms-of-service) and [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies).
 
-We encourage our community members to communicate expectations clearly, [moderate](#what-if-something-or-someone-offends-you) their projects where possible, and [report](https://github.com/contact/report-abuse) any content that may violate our [policies](/site-policy/github-terms/github-terms-of-service). GitHub Staff will investigate any reports of abuse, and may moderate public content on our site that we determine to be in violation of our Terms of Service.
+We encourage our community members to communicate expectations clearly, [moderate](#what-if-something-or-someone-offends-you) their projects where possible, and [report](https://github.com/contact/report-abuse) any content that may violate our [policies](/site-policy/github-terms/github-terms-of-service). GitHub Staff will investigate any reports of abuse and may moderate public content on our site that we determine to violate our Terms of Service.
 
 ## Maintaining a strong community
 
@@ -26,7 +26,7 @@ The primary purpose of the GitHub community is to collaborate on software projec
 
 * **Be welcoming and open-minded** - New users join our community each day. Some are well-established developers, while others are just beginning. Be open to other ideas and experience levels. Make room for opinions other than your own and be welcoming to new collaborators and those just getting started.
 
-* **Be respectful** - Working in a collaborative environment means disagreements may happen. But remember to criticize ideas, not people. Share thoughtful, constructive criticism and be courteous to those you interact with. If you’re unable to engage respectfully, consider taking a step back or using some of our moderation tools to deescalate a tense situation.
+* **Be respectful** - Working in a collaborative environment means disagreements may happen. But remember to criticize ideas, not people. Share thoughtful, constructive criticism and be courteous to those you interact with. If you’re unable to engage respectfully, consider taking a step back or using some of our moderation tools to de-escalate a tense situation.
 
 * **Be empathetic** - GitHub is a global community with people from a wide variety of backgrounds and perspectives, many of which may not be your own. Try to put yourself in others’ shoes and understand their feelings before you address them. Do your best to help make GitHub a community where others feel safe to make contributions, participate in discussions, and share different ideas.
 
@@ -40,19 +40,19 @@ While some disagreements can be resolved with direct, respectful communication b
 
 * **Lock Conversations**  - If a discussion in an issue, pull request, or commit gets out of hand, off topic, or violates your project’s code of conduct or GitHub’s policies, owners, collaborators, and anyone else with write access can put a temporary or permanent lock on the conversation. For more information, see [AUTOTITLE](/communities/moderating-comments-and-conversations/locking-conversations).
 
-* **Block Users**  - If you encounter a specific user who you would rather not engage with, you can [block the user from your personal account](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account) or [from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization).
+* **Block Users**  - If you encounter a specific user whom you would rather not engage with, you can [block the user from your personal account](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account) or [from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization).
 
 * **Limit Interactions** - If your public project is getting unwanted attention, being trolled, spammed, or otherwise, you have the option of setting [temporary interaction limits](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository) to keep certain users from interacting with your repository. You can even set [code review limits](https://github.blog/2021-11-01-github-keeps-getting-better-for-open-source-maintainers/#preventing-drive-by-pull-request-approvals-and-requested-changes) to ensure quality contributions on your projects.
 
-While we are passionate about empowering maintainers to moderate their own projects, please contact {% data variables.contact.contact_support %} if you need additional support in dealing with a situation.
+While we are passionate about empowering maintainers to moderate their own projects, please contact {% data variables. contact.contact_support %} if you need additional support in dealing with a situation.
 
 ## What happens if someone violates GitHub's policies?
 
 We rely on reports from the community, as well as proactive detection, to help ensure that GitHub is a safe, welcoming, and productive platform for software developers. There are a variety of factors we consider when we’re made aware of behavior or content not in line with GitHub’s policies. However, our policy enforcement and content moderation approach prioritizes our vision to be the home for all developers. This means:
 
-* We optimize for code collaboration. We recognize that code can have multiple uses and we distinguish between how the code is being used on the platform and other possible uses. We also think about how our enforcement actions can affect a potentially complicated web of interdependencies across the platform and aim to restrict as little legitimate content as possible.
+* We optimize for code collaboration. We recognize that code can have multiple uses, and we distinguish between how the code is being used on the platform and other possible uses. We also think about how our enforcement actions can affect a potentially complicated web of interdependencies across the platform and aim to restrict as little legitimate content as possible.
 
-* We take a human-centered approach to content moderation and we tailor our responses to meet the needs of a specific situation. Our global team investigates the reports we receive on a case-by-case basis—considering context and the surrounding facts—before taking action. This could include taking into account potentially offensive content being posted in a way that lacks context or makes it easy for other users to unwittingly view or interact with while using GitHub. In those instances, we may favor moderation in order to safeguard our community.
+* We take a human-centered approach to content moderation, and we tailor our responses to meet the needs of a specific situation. Our global team investigates the reports we receive on a case-by-case basis—considering context and the surrounding facts—before taking action. This could include taking into account potentially offensive content being posted in a way that lacks context or makes it easy for other users to unwittingly view or interact with while using GitHub. In those instances, we may favor moderation in order to safeguard our community.
 
 * Our decisions are rooted in our core belief that serving an interconnected community and empowering human progress through developer collaboration requires a commitment to diversity, inclusion, and belonging.
 
