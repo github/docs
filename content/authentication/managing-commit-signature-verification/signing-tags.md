@@ -1,4 +1,4 @@
----
+-content/authentication/managing-commit-signature-verification/signing-tags.md-
 title: Signing tags
 intro: 'You can sign tags locally using GPG, SSH, or S/MIME.'
 redirect_from:
