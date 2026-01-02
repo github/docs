@@ -180,16 +180,6 @@ You can run {% data variables.copilot.copilot_coding_agent %} on self-hosted run
 
     You can set these environment variables by following the [instructions above](#setting-environment-variables-in-copilots-environment), or by baking the environment variables into your custom runner image. For more information on building a custom image, see [AUTOTITLE](/actions/concepts/runners/actions-runner-controller#creating-your-own-runner-image).
 
-### Security considerations for self-hosted runners
-
-When using self-hosted runners, especially with the firewall disabled, ensure your hosting environment has strict network communication controls. The following endpoints must be reachable from your runners:
-
-* `api.githubcopilot.com`
-* `uploads.github.com`
-* `user-images.githubusercontent.com`
-
-For a comprehensive list of other hosts that must also be allowlisted for {% data variables.product.prodname_actions %} self-hosted runners, see [AUTOTITLE](/actions/reference/runners/self-hosted-runners#accessible-domains-by-function).
-
 ## Enabling Git Large File Storage (LFS)
 
 If you use Git Large File Storage (LFS) to store large files in your repository, you will need to customize {% data variables.product.prodname_copilot_short %}'s environment to install Git LFS and fetch LFS objects.
