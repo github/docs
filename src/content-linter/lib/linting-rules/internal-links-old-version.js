@@ -1,6 +1,6 @@
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 
-import { getRange } from '../helpers/utils.js'
+import { getRange } from '../helpers/utils'
 
 export const internalLinksOldVersion = {
   names: ['GHD006', 'internal-links-old-version'],

@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
-import { Link } from 'src/frame/components/Link'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
+import { Link } from '@/frame/components/Link'
 import { ProgAccessT } from './types'
 
 // Documentation paths may be moved around by content team in the future

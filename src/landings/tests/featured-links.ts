@@ -1,7 +1,7 @@
 import { describe, expect, test, vi } from 'vitest'
 
-import { getDOM } from '@/tests/helpers/e2etest.js'
-import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
+import { getDOM } from '@/tests/helpers/e2etest'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 
 describe('featuredLinks', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })

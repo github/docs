@@ -345,7 +345,7 @@ The language guide introduction should include the following in a short paragrap
 
 {% comment %}
 Language guides typically walk through and build upon a workflow template. If that format doesn't work, you can include a boilerplate workflow.
-- Link to the GitHub Actions CI workflow template as the boilerplate reference code and then walk through and build on that code in this guide - https://github.com/actions/starter-workflows/tree/master/ci
+- Link to the GitHub Actions CI workflow template as the boilerplate reference code and then walk through and build on that code in this guide - https://github.com/actions/starter-workflows/tree/main/ci
 - Provide instructions for adding the workflow template to a repository.
 - Include the starter template workflow code.
 {% endcomment %}

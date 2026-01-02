@@ -62,6 +62,7 @@ Follow the steps below to create a gist.
 
 1. Sign in to {% data variables.product.github %}.
 1. Navigate to your {% data variables.gists.gist_homepage %}.
+1. On the top right, click on the "+" icon to create new gist.
 1. Optionally, in the "Gist description" field, type a description for your gist.
 1. In the "Filename including extension" field, type a file name for your gist, including the file extensions.
 1. In the file contents field, type the text of your gist.

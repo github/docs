@@ -41,7 +41,7 @@ Administrators for the enterprise account can:
 * Configure security, such as single sign-on, IP allow lists, SSH certificate authorities, and two-factor authentication
 * Stream audit and Git events data
 * Use internal repositories
-* Access features like {% data variables.product.prodname_copilot_enterprise %} and {% data variables.product.prodname_AS %}{% ifversion ghas-products %} products{% endif %}
+* Access features like {% data variables.copilot.copilot_enterprise %} and {% data variables.product.prodname_AS %}{% ifversion ghas-products %} products{% endif %}
 * Enforce policies. See [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies).
 
 {% ifversion ghec %}

@@ -1,6 +1,6 @@
 import { filterTokens } from 'markdownlint-rule-helpers'
 
-import { addFixErrorDetail, getRange } from '../helpers/utils.js'
+import { addFixErrorDetail, getRange } from '../helpers/utils'
 
 export const internalLinksSlash = {
   names: ['GHD003', 'internal-links-slash'],

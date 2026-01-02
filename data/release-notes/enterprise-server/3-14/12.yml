@@ -86,6 +86,8 @@ sections:
     - |
       After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
     - |
-      Repository cache replicas return `Repository not found` when changes have been pushed to the primary instance that have not yet synchronized to the cache replica. This issue can also occur in all previous patches of this release.
-    - |
       Unexpected elements may appear in the UI on the repository overview page for locked repositories.
+
+  errata:
+    - |
+      The [Known issues](/admin/release-notes#3.14.12-known-issues) section previously indicated that `repository cache replicas return "Repository not found" when changes have been pushed to the primary instance that have not yet synchronized to the cache replica` is still an issue. The issue is resolved and is documented in the [Bug fixes](/admin/release-notes#3.14.12-bugs) section. [Updated: 2025-06-19]

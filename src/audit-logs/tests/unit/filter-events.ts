@@ -3,8 +3,8 @@ import { describe, expect, test } from 'vitest'
 import { filterByAllowlistValues, filterAndUpdateGhesDataByAllowlistValues } from '../../lib'
 import type { RawAuditLogEventT, VersionedAuditLogData } from '../../types'
 
-describe('audit log event fitering', () => {
-  test('matches single allowlist value', () => {
+describe('audit log event filtering', () => {
+  test('matches single allowlist value', async () => {
     const eventsToProcess: RawAuditLogEventT[] = [
       {
         action: 'repo.create',
@@ -15,14 +15,19 @@ describe('audit log event fitering', () => {
       },
     ]
 
-    const filteredEvents = filterByAllowlistValues(eventsToProcess, 'user', [], {
-      sha: '',
-      appendedDescriptions: {},
+    const filteredEvents = await filterByAllowlistValues({
+      eventsToCheck: eventsToProcess,
+      allowListValues: 'user',
+      currentEvents: [],
+      pipelineConfig: {
+        sha: '',
+        appendedDescriptions: {},
+      },
     })
     expect(filteredEvents[0].action).toEqual('repo.create')
   })
 
-  test('matches multiple allowlist values', () => {
+  test('matches multiple allowlist values', async () => {
     const eventsToProcess: RawAuditLogEventT[] = [
       {
         action: 'repo.create',
@@ -40,15 +45,20 @@ describe('audit log event fitering', () => {
       },
     ]
 
-    const filteredEvents = filterByAllowlistValues(eventsToProcess, ['user', 'organization'], [], {
-      sha: '',
-      appendedDescriptions: {},
+    const filteredEvents = await filterByAllowlistValues({
+      eventsToCheck: eventsToProcess,
+      allowListValues: ['user', 'organization'],
+      currentEvents: [],
+      pipelineConfig: {
+        sha: '',
+        appendedDescriptions: {},
+      },
     })
     expect(filteredEvents[0].action).toEqual('repo.create')
     expect(filteredEvents.length).toEqual(2)
   })
 
-  test('does not match non-matching allowlist value', () => {
+  test('does not match non-matching allowlist value', async () => {
     const eventsToProcess: RawAuditLogEventT[] = [
       {
         action: 'repo.create',
@@ -59,14 +69,19 @@ describe('audit log event fitering', () => {
       },
     ]
 
-    const filteredEvents = filterByAllowlistValues(eventsToProcess, 'organization', [], {
-      sha: '',
-      appendedDescriptions: {},
+    const filteredEvents = await filterByAllowlistValues({
+      eventsToCheck: eventsToProcess,
+      allowListValues: 'organization',
+      currentEvents: [],
+      pipelineConfig: {
+        sha: '',
+        appendedDescriptions: {},
+      },
     })
     expect(filteredEvents.length).toBe(0)
   })
 
-  test('ghes filters and updates multiple ghes versions', () => {
+  test('ghes filters and updates multiple ghes versions', async () => {
     const eventsToProcess: RawAuditLogEventT[] = [
       {
         action: 'repo.create',
@@ -106,16 +121,16 @@ describe('audit log event fitering', () => {
 
     // this function mutates `currentEvents` so is updated as new GHES versioned
     // events from `eventToProcess` are processed and added.
-    filterAndUpdateGhesDataByAllowlistValues(
-      eventsToProcess,
-      'user',
-      currentEvents,
-      {
+    await filterAndUpdateGhesDataByAllowlistValues({
+      eventsToCheck: eventsToProcess,
+      allowListValue: 'user',
+      currentGhesEvents: currentEvents,
+      pipelineConfig: {
         sha: '',
         appendedDescriptions: {},
       },
       auditLogPage,
-    )
+    })
     const getActions = (version: string) =>
       currentEvents[version][auditLogPage].map((event) => event.action)
     expect(getActions('ghes-3.10').includes('repo.create')).toBe(true)

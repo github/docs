@@ -19,11 +19,11 @@ import path from 'path'
 import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest, UnversionedTree, SiteTree } from '@/types'
-import languages, { languageKeys } from '@/languages/lib/languages.js'
-import createTree from '@/frame/lib/create-tree.js'
+import languages, { languageKeys } from '@/languages/lib/languages'
+import createTree from '@/frame/lib/create-tree'
 import warmServer from '@/frame/lib/warm-server'
-import { loadSiteTree, loadPages, loadPageMap } from '@/frame/lib/page-data.js'
-import loadRedirects from '@/redirects/lib/precompile.js'
+import { loadSiteTree, loadPages, loadPageMap } from '@/frame/lib/page-data'
+import loadRedirects from '@/redirects/lib/precompile'
 
 const languagePrefixRegex = new RegExp(`^/(${languageKeys.join('|')})(/|$)`)
 const englishPrefixRegex = /^\/en(\/|$)/

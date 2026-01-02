@@ -1,6 +1,6 @@
 import markdownlint from 'markdownlint'
 
-import { defaultConfig } from './default-markdownlint-options.js'
+import { defaultConfig } from './default-markdownlint-options'
 
 export async function runRule(module, { strings, files, ruleConfig, markdownlintOptions = {} }) {
   if ((!strings && !files) || (strings && files))

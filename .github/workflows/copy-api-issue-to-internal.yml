@@ -45,7 +45,7 @@ jobs:
 
       - name: Create an issue in the docs-content repo
         run: |
-          new_issue_url="$(gh issue create --title "$ISSUE_TITLE" --body "$ISSUE_BODY" --repo github/docs-content)"
+          new_issue_url="$(gh issue create --title "$ISSUE_TITLE" --body "$ISSUE_BODY" --repo github/docs-content --label "workflow-generated")"
           echo 'NEW_ISSUE='$new_issue_url >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_BASE}}
@@ -73,7 +73,7 @@ jobs:
 
       - name: Check out repo
         if: ${{ failure() && github.event_name != 'workflow_dispatch' && github.repository == 'github/docs-internal' }}
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' && github.repository == 'github/docs-internal' }}
         with:

@@ -1,6 +1,6 @@
-import type { EnterpriseDeprecation } from 'src/frame/components/context/MainContext'
-import { useMainContext } from 'src/frame/components/context/MainContext'
-import { useVersion } from 'src/versions/components/useVersion'
+import type { EnterpriseDeprecation } from '@/frame/components/context/MainContext'
+import { useMainContext } from '@/frame/components/context/MainContext'
+import { useVersion } from '@/versions/components/useVersion'
 import { Flash } from '@primer/react'
 import cx from 'classnames'
 

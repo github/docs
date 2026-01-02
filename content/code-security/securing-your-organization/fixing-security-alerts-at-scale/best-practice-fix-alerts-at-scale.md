@@ -18,10 +18,10 @@ topics:
 Successful security campaigns to fix alerts at scale have many features in common, including:
 
 * Selecting a related group of security alerts for remediation.
-* Using {% data variables.product.prodname_copilot_autofix_short %} suggestions where possible to help developers remediate alerts faster and more effectively.
+* Using {% data variables.copilot.copilot_autofix_short %} suggestions where possible to help developers remediate alerts faster and more effectively.
 * Making sure that the campaign managers are available for collaboration, reviews, and questions about fixes.
 * Providing access to educational information about the type of alerts included in the campaign.{% ifversion ghec %}
-* Making {% data variables.product.prodname_copilot_chat %} available for developers to use to learn about the vulnerabilities highlighted by the security alerts in the campaign. {% endif %}
+* Making {% data variables.copilot.copilot_chat %} available for developers to use to learn about the vulnerabilities highlighted by the security alerts in the campaign. {% endif %}
 * Defining a realistic deadline for campaign, bearing in mind the number of alerts you aim to fix.
 * Publicizing the collaboration to developer teams and identifying the best way to engage them for your organization.
 
@@ -29,7 +29,7 @@ For information about the developer experience, see [AUTOTITLE](/code-security/c
 
 ## Selecting security alerts for remediation
 
-Your first thought may be to identify all the most urgent alerts and create a security campaign to fix them. If your developers already have a good understanding of secure coding and are keen to remediate potential vulnerabilities, this could be a successful approach for your company. However, if you need to build up knowledge of secure coding and common vulnerabilities, you will benefit from a more stategic approach.
+Your first thought may be to identify all the most urgent alerts and create a security campaign to fix them. If your developers already have a good understanding of secure coding and are keen to remediate potential vulnerabilities, this could be a successful approach for your company. However, if you need to build up knowledge of secure coding and common vulnerabilities, you will benefit from a more strategic approach.
 
 For example, if you have many alerts for cross-site scripting vulnerabilities, you could:
 
@@ -38,9 +38,9 @@ For example, if you have many alerts for cross-site scripting vulnerabilities, y
 * Hold a training session or other event to highlight this opportunity to gain confidence in secure coding while fixing real bugs.
 * Make sure that the security team members assigned to manage the campaign are available to review the pull requests created to fix the campaign alerts, collaborating as needed.
 
-### Using {% data variables.product.prodname_copilot_autofix_short %} to help remediate security alerts
+### Using {% data variables.copilot.copilot_autofix_short %} to help remediate security alerts
 
-{% data variables.product.prodname_copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help fix {% data variables.product.prodname_code_scanning %} alerts. When you select alerts to include in a security campaign, you can preferentially include alerts that are eligible to be fixed with the help of {% data variables.product.prodname_copilot_autofix %} using the `autofix:supported` filter.
+{% data variables.copilot.copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help fix {% data variables.product.prodname_code_scanning %} alerts. When you select alerts to include in a security campaign, you can preferentially include alerts that are eligible to be fixed with the help of {% data variables.copilot.copilot_autofix %} using the `autofix:supported` filter.
 
 ### Campaign filter templates
 
@@ -85,7 +85,7 @@ The OWASP Foundation provides many resources for learning about the most common 
 
 ## Providing AI support for learning about security vulnerabilities
 
-{% data variables.product.prodname_copilot_autofix %} is automatically triggered to suggest a resolution for each security alert. However, developers will often want more information about why the original code is insecure and how to test that the fix is correct and doesn't break other components.
+{% data variables.copilot.copilot_autofix %} is automatically triggered to suggest a resolution for each security alert. However, developers will often want more information about why the original code is insecure and how to test that the fix is correct and doesn't break other components.
 
 {% data variables.product.prodname_copilot %} is an important tool for developers who have questions about secure coding, how to fix security alerts, and test their fix. Check that all developers in your organization have access to {% data variables.product.prodname_copilot_short %} in both their IDE and {% data variables.product.github %}, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
 

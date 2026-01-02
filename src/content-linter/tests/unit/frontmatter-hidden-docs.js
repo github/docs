@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { frontmatterHiddenDocs } from '../../lib/linting-rules/frontmatter-hidden-docs.js'
+import { runRule } from '../../lib/init-test'
+import { frontmatterHiddenDocs } from '../../lib/linting-rules/frontmatter-hidden-docs'
 
 const ACTIONS_FIXTURE = 'src/content-linter/tests/fixtures/actions/hidden.md'
 const EARLY_ACCESS_FIXTURE = 'src/fixtures/fixtures/content/early-access/secrets/early-days.md'

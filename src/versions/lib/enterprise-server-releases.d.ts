@@ -43,9 +43,9 @@ export const deprecatedReleasesOnDeveloperSite: string[]
 export const firstReleaseNote: string
 export const firstRestoredAdminGuides: string
 
-export declare function findReleaseNumberIndex(releaseNum: number): number
-export declare function getNextReleaseNumber(releaseNum: number): string
-export declare function getPreviousReleaseNumber(releaseNum: number): string
+export declare function findReleaseNumberIndex(releaseNum: string): number
+export declare function getNextReleaseNumber(releaseNum: string): string
+export declare function getPreviousReleaseNumber(releaseNum: string): string
 
 const allExports = {
   dates,

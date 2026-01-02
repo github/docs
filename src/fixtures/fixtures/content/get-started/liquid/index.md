@@ -18,5 +18,6 @@ children:
   - /links-with-liquid
   - /tool-specific
   - /tool-platform-switcher
+  - /tool-picker-issue
   - /data
 ---

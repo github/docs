@@ -1,15 +1,15 @@
 import { useEffect } from 'react'
 
-import { DefaultLayout } from 'src/frame/components/DefaultLayout'
-import { MarkdownContent } from 'src/frame/components/ui/MarkdownContent'
-import { Lead } from 'src/frame/components/ui/Lead'
-import { PermissionsStatement } from 'src/frame/components/ui/PermissionsStatement'
+import { DefaultLayout } from '@/frame/components/DefaultLayout'
+import { MarkdownContent } from '@/frame/components/ui/MarkdownContent'
+import { Lead } from '@/frame/components/ui/Lead'
+import { PermissionsStatement } from '@/frame/components/ui/PermissionsStatement'
 import { RestOperation } from './RestOperation'
-import { useAutomatedPageContext } from 'src/automated-pipelines/components/AutomatedPageContext'
+import { useAutomatedPageContext } from '@/automated-pipelines/components/AutomatedPageContext'
 import { Operation } from './types'
-import { ClientSideRedirects } from 'src/rest/components/ClientSideRedirects'
-import { RestRedirect } from 'src/rest/components/RestRedirect'
-import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
+import { ClientSideRedirects } from '@/rest/components/ClientSideRedirects'
+import { RestRedirect } from '@/rest/components/RestRedirect'
+import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
 
 export type StructuredContentT = {
   restOperations: Operation[]

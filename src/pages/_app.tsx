@@ -1,3 +1,4 @@
-import 'src/frame/stylesheets/index.scss'
+import '@/frame/stylesheets/index.scss'
+import '@/frame/stylesheets/primer-react-global.css'
 
-export { default } from 'src/frame/pages/app'
+export { default } from '@/frame/pages/app'

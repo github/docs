@@ -1,1 +1,1 @@
-export { default, getServerSideProps } from 'src/graphql/pages/explorer'
+export { default, getServerSideProps } from '@/graphql/pages/explorer'

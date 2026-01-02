@@ -23,7 +23,7 @@ permissions:
   repository-projects: read
 
 jobs:
-  codeowners-legal:
+  reviewers-legal:
     if: >-
       ${{ github.repository == 'github/docs-internal' &&
           !github.event.pull_request.draft &&
@@ -31,8 +31,8 @@ jobs:
           github.event.pull_request.head.ref != 'repo-sync' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Get changed files
         id: changed_files
@@ -52,11 +52,11 @@ jobs:
           CHANGED_FILE_PATHS: ${{ steps.changed_files.outputs.filtered_changed_files }}
           CONTENT_TYPE: 'rai'
 
-      - name: Check for reviewers-legal label, add if missing and request review
+      - name: Add legal as a reviewer
         if: steps.checkContentType.outputs.containsContentType == 'true'
+        uses: ./.github/actions/retry-command
         env:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           PR: ${{ github.event.pull_request.html_url }}
-        run: |
-          gh pr edit $PR --add-reviewer github/legal-product
-          gh pr edit $PR --add-label reviewers-legal
+        with:
+          command: gh pr edit $PR --add-reviewer github/legal-product --add-label reviewers-legal

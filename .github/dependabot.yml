@@ -5,7 +5,7 @@ registries:
     type: docker-registry
     url: ghcr.io
     username: PAT
-    password: ${{secrets.CONTAINER_BUILDER_TOKEN}}
+    password: ${{secrets.BASE_CONTAINER_IMAGE_READER_DEPENDABOT}}
 
 updates:
   - package-ecosystem: npm

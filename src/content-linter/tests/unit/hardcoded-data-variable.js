@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { hardcodedDataVariable } from '../../lib/linting-rules/hardcoded-data-variable.js'
+import { runRule } from '../../lib/init-test'
+import { hardcodedDataVariable } from '../../lib/linting-rules/hardcoded-data-variable'
 
 describe(hardcodedDataVariable.names.join(' - '), () => {
   test('Using hardcoded personal access token string causes error', async () => {

@@ -1,6 +1,6 @@
 {% rowheaders %}
 
-| Query name | Related CWEs | Default | Extended | {% data variables.product.prodname_copilot_autofix_short %} |
+| Query name | Related CWEs | Default | Extended | {% data variables.copilot.copilot_autofix_short %} |
 | --- | --- | --- | --- | --- |
 | ['input' function used in Python 2](https://codeql.github.com/codeql-query-help/python/py-use-of-input/) | 094, 095 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Accepting unknown SSH host keys when using Paramiko](https://codeql.github.com/codeql-query-help/python/py-paramiko-missing-host-key-validation/) | 295 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
@@ -42,7 +42,6 @@
 | [XML internal entity expansion](https://codeql.github.com/codeql-query-help/python/py-xml-bomb/) | 776, 400 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [XPath query built from user-controlled sources](https://codeql.github.com/codeql-query-help/python/py-xpath-injection/) | 643 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Arbitrary file write during tarfile extraction](https://codeql.github.com/codeql-query-help/python/py-tarslip/) | 022 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| [Hard-coded credentials](https://codeql.github.com/codeql-query-help/python/py-hardcoded-credentials/) | 259, 321, 798 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Jinja2 templating with autoescape=False](https://codeql.github.com/codeql-query-help/python/py-jinja2-autoescape-false/) | 079 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Log Injection](https://codeql.github.com/codeql-query-help/python/py-log-injection/) | 117 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Overly permissive file permissions](https://codeql.github.com/codeql-query-help/python/py-overly-permissive-file/) | 732 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |

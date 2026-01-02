@@ -163,16 +163,16 @@ You can also use URL query parameters to fill custom text fields that you have d
 
 {% ifversion copilot %}
 
-## Creating an issue with {% data variables.product.prodname_copilot_chat_short %} on {% data variables.product.github %}
+## Creating an issue with {% data variables.copilot.copilot_chat_short %} on {% data variables.product.github %}
 
 > [!NOTE]
 > This feature is in {% data variables.release-phases.public_preview %} and subject to change.
 
 Creating issues manually can be repetitive and time-consuming. With {% data variables.product.prodname_copilot_short %}, you can create issues faster by prompting in natural language, or even by uploading a screenshot. {% data variables.product.prodname_copilot_short %} fills out the title, body, labels, assignees, and more, using your repository’s templates and structure. See [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-to-create-issues).
 
-## Creating an issue from {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}
+## Creating an issue from {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}
 
-You can also create an issue directly from {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}, using the Model Context Protocol (MCP). See [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp).
+You can also create an issue directly from {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}, using the Model Context Protocol (MCP). See [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp).
 
 {% endif %}
 

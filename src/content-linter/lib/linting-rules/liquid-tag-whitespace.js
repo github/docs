@@ -1,7 +1,7 @@
 import { TokenKind } from 'liquidjs'
 
-import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils.js'
-import { addFixErrorDetail } from '../helpers/utils.js'
+import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils'
+import { addFixErrorDetail } from '../helpers/utils'
 
 /*
 Liquid tags should start and end with one whitespace. For example:

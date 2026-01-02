@@ -1,0 +1,4 @@
+# Reference: #docs-content/issues/16388
+# GitHub Apps can now be installed at the enterprise level in addition to organizations
+versions:
+  ghec: '*'

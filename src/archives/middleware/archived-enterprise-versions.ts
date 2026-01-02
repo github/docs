@@ -1,25 +1,22 @@
 import type { Response, NextFunction } from 'express'
 import got from 'got'
 
-import statsd from '@/observability/lib/statsd.js'
+import statsd from '@/observability/lib/statsd'
 import {
   firstVersionDeprecatedOnNewSite,
   lastVersionWithoutArchivedRedirectsFile,
   deprecatedWithFunctionalRedirects,
   firstReleaseStoredInBlobStorage,
-} from '@/versions/lib/enterprise-server-releases.js'
-import patterns from '@/frame/lib/patterns.js'
-import versionSatisfiesRange from '@/versions/lib/version-satisfies-range.js'
+} from '@/versions/lib/enterprise-server-releases'
+import patterns from '@/frame/lib/patterns'
+import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
 import { isArchivedVersion } from '@/archives/lib/is-archived-version'
-import {
-  setFastlySurrogateKey,
-  SURROGATE_ENUMS,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
-import { readCompressedJsonFileFallbackLazily } from '@/frame/lib/read-json-file.js'
-import { archivedCacheControl, languageCacheControl } from '@/frame/middleware/cache-control.js'
-import { pathLanguagePrefixed, languagePrefixPathRegex } from '@/languages/lib/languages.js'
-import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect.js'
-import getRemoteJSON from '@/frame/lib/get-remote-json.js'
+import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import { readCompressedJsonFileFallbackLazily } from '@/frame/lib/read-json-file'
+import { archivedCacheControl, languageCacheControl } from '@/frame/middleware/cache-control'
+import { pathLanguagePrefixed, languagePrefixPathRegex } from '@/languages/lib/languages'
+import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect'
+import getRemoteJSON from '@/frame/lib/get-remote-json'
 import { ExtendedRequest } from '@/types'
 
 const OLD_PUBLIC_AZURE_BLOB_URL = 'https://githubdocs.azureedge.net'
@@ -75,7 +72,7 @@ const cacheAggressively = (res: Response) => {
 //   3. ~4000ms
 //
 // ...if the limit we set is 3.
-// Our own timeout, in #src/frame/middleware/timeout.js defaults to 10 seconds.
+// Our own timeout, in @/frame/middleware/timeout.js defaults to 10 seconds.
 // So there's no point in trying more attempts than 3 because it would
 // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
 const retryConfiguration = { limit: 3 }
@@ -106,7 +103,7 @@ export default async function archivedEnterpriseVersions(
 
   // Redirects for releases 3.0+
   if (deprecatedWithFunctionalRedirects.includes(requestedVersion)) {
-    const redirectTo = getRedirect(req.path, req.context)
+    const redirectTo = req.context ? getRedirect(req.path, req.context) : undefined
     if (redirectTo) {
       if (redirectCode === 302) {
         languageCacheControl(res) // call first to get `vary`

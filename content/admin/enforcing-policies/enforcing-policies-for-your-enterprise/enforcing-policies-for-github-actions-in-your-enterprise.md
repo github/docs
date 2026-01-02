@@ -77,6 +77,8 @@ When specifying actions{% ifversion actions-workflow-policy %} and reusable work
    * To allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} in organizations that start with `space-org`, use `space-org*/*`.
    * To allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} in repositories that start with octocat, use `*/octocat**@*`.
 
+Policies never restrict access to local actions on the runner filesystem (where the `uses:` path start with `./`).
+
 ## Runners
 
 By default, anyone with admin access to a repository can add a self-hosted runner for the repository, and self-hosted runners come with risks:

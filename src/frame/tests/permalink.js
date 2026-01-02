@@ -1,9 +1,9 @@
 import { describe, expect, test } from 'vitest'
 
-import Permalink from '#src/frame/lib/permalink.js'
-import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
-import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
-import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
+import Permalink from '@/frame/lib/permalink'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 
 // Permalink constructor requires: languageCode, pageVersion, relativePath, title
 // Permalink.derive requires: languageCode, relativePath, title, versions (<- FM prop)

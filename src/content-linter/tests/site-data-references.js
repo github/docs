@@ -2,8 +2,8 @@ import path from 'path'
 import { isEqual, uniqWith } from 'lodash-es'
 import { describe, expect, test, vi } from 'vitest'
 
-import patterns from '#src/frame/lib/patterns.js'
-import { getDataByLanguage, getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
+import patterns from '@/frame/lib/patterns'
+import { getDataByLanguage, getDeepDataByLanguage } from '@/data-directory/lib/get-data'
 
 // Given syntax like {% data foo.bar %} or {% indented_data_reference foo.bar spaces=3 %},
 // the following regex returns just the dotted path: foo.bar

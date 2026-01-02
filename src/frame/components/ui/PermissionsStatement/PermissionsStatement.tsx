@@ -1,7 +1,7 @@
 import { Box } from '@primer/react'
 import { PersonIcon, BriefcaseIcon } from '@primer/octicons-react'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { useTranslation } from '@/languages/components/useTranslation'
 
 type Props = {
   product?: string
@@ -18,13 +18,13 @@ export function PermissionsStatement({ product, permissions }: Props) {
           <h2 className="f4">{t('permissions_callout_title')}</h2>
         </div>
         {permissions && (
-          <div className="d-flex" data-testid="permissions-statement">
+          <div className="d-flex permissions-statement" data-testid="permissions-statement">
             <PersonIcon className="mt-1" />
             <div className="pl-2" dangerouslySetInnerHTML={{ __html: permissions }} />
           </div>
         )}
         {product && (
-          <div className="d-flex" data-testid="product-statement">
+          <div className="d-flex product-statement" data-testid="product-statement">
             <BriefcaseIcon className="mt-1" />
             <div className="pl-2" dangerouslySetInnerHTML={{ __html: product }} />
           </div>

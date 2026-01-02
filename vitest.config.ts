@@ -12,5 +12,6 @@ export default {
     },
 
     globalSetup: './src/tests/vitest.setup.ts',
+    teardownTimeout: 500,
   },
 }

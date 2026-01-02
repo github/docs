@@ -23,7 +23,9 @@ To receive webhook events in your {% data variables.product.prodname_github_app 
 
 If your {% data variables.product.prodname_github_app %} does not need to respond to webhooks or will only be used for authentication, you can turn off the webhook function for your {% data variables.product.prodname_github_app %} registration. You do not need to specify a webhook URL.
 
-For more information about registering a {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app). For more information about changing the webhooks that a {% data variables.product.prodname_github_app %} registration subscribes to, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app).
+For more information about registering a {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app). For more information about changing the webhooks that a {% data variables.product.prodname_github_app %} registration subscribes to, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app).{% ifversion enterprise-installed-apps %}
+
+Apps installed on an enterprise do not support webhooks at this time. They must be installed on organizations in order to receive webhooks.{% endif %}
 
 ## Choosing a webhook URL
 

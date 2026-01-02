@@ -1,11 +1,9 @@
-import { Suspense } from 'react'
 import cx from 'classnames'
 import { KebabHorizontalIcon, LinkExternalIcon } from '@primer/octicons-react'
 import { IconButton, ActionMenu, ActionList } from '@primer/react'
 
 import { LanguagePicker } from '@/languages/components/LanguagePicker'
 import { useTranslation } from '@/languages/components/useTranslation'
-import DomainNameEdit from '@/links/components/DomainNameEdit'
 import { VersionPicker } from '@/versions/components/VersionPicker'
 import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
 import { useHasAccount } from '../hooks/useHasAccount'
@@ -25,8 +23,6 @@ export function HeaderSearchAndWidgets({ width, isSearchOpen, SearchButton }: Pr
   const signupCTAVisible =
     hasAccount === false && // don't show if `null`
     (currentVersion === DEFAULT_VERSION || currentVersion === 'enterprise-cloud@latest')
-
-  const showDomainNameEdit = currentVersion.startsWith('enterprise-server@')
 
   return (
     <>
@@ -105,14 +101,6 @@ export function HeaderSearchAndWidgets({ width, isSearchOpen, SearchButton }: Pr
                     <>
                       <VersionPicker xs={true} />
                       <ActionList.Divider />
-                      {showDomainNameEdit && (
-                        <>
-                          <Suspense>
-                            <DomainNameEdit xs={true} />
-                          </Suspense>
-                          <ActionList.Divider />
-                        </>
-                      )}
                     </>
                   )}
                   {signupCTAVisible && (

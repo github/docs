@@ -1,13 +1,17 @@
 import path from 'path'
 
-import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file.js'
-import { getOpenApiVersion } from '@/versions/lib/all-versions.js'
+import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file'
+import { getOpenApiVersion } from '@/versions/lib/all-versions'
+import findPage from '@/frame/lib/find-page'
 import type {
   AuditLogEventT,
   CategorizedEvents,
   VersionedAuditLogData,
   RawAuditLogEventT,
+  CategoryNotes,
+  AuditLogConfig,
 } from '../types'
+import config from './config.json'
 
 export const AUDIT_LOG_DATA_DIR = 'src/audit-logs/data'
 
@@ -18,6 +22,67 @@ const categorizedAuditLogEventsCache = new Map<string, Map<string, CategorizedEv
 type PipelineConfig = {
   sha: string
   appendedDescriptions: Record<string, string>
+}
+
+// get category notes from config
+export function getCategoryNotes(): CategoryNotes {
+  const auditLogConfig = config as AuditLogConfig
+  return auditLogConfig.categoryNotes || {}
+}
+
+type TitleResolutionContext = {
+  pages: Record<string, any>
+  redirects: Record<string, string>
+}
+
+// Resolves docs_reference_links URLs to page titles
+async function resolveReferenceLinksToTitles(
+  docsReferenceLinks: string,
+  context: TitleResolutionContext,
+): Promise<string> {
+  if (!docsReferenceLinks || docsReferenceLinks === 'N/A') {
+    return ''
+  }
+
+  // Handle multiple comma-separated or space-separated links
+  const links = docsReferenceLinks
+    .split(/[,\s]+/)
+    .map((link) => link.trim())
+    .filter((link) => link && link !== 'N/A')
+
+  const titles = []
+  for (const link of links) {
+    try {
+      const page = findPage(link, context.pages, context.redirects)
+      if (page) {
+        // Create a minimal context for rendering the title
+        const renderContext = {
+          currentLanguage: 'en',
+          currentVersion: 'free-pro-team@latest',
+          pages: context.pages,
+          redirects: context.redirects,
+        }
+        const title = await page.renderProp('title', renderContext, { textOnly: true })
+        titles.push(title)
+      } else {
+        // If we can't resolve the link, use the original URL
+        titles.push(link)
+      }
+    } catch (error) {
+      // If resolution fails, use the original URL
+      console.warn(
+        `Failed to resolve title for link: ${link}`,
+        error instanceof Error
+          ? error instanceof Error
+            ? error.message
+            : String(error)
+          : String(error),
+      )
+      titles.push(link)
+    }
+  }
+
+  return titles.join(', ')
 }
 
 // get audit log event data for the requested page and version
@@ -87,17 +152,19 @@ export function getCategorizedAuditLogEvents(page: string, version: string) {
 }
 
 // Filters audit log events based on allowlist values.
-//
-// * eventsToCheck: events to consider
-// * allowListvalues: allowlist values to filter by
-// * currentEvents: events already collected
-// * pipelineConfig: audit log pipeline config data
-export function filterByAllowlistValues(
-  eventsToCheck: RawAuditLogEventT[],
-  allowListValues: string | string[],
-  currentEvents: AuditLogEventT[],
-  pipelineConfig: PipelineConfig,
-) {
+export async function filterByAllowlistValues({
+  eventsToCheck,
+  allowListValues,
+  currentEvents = [],
+  pipelineConfig,
+  titleContext,
+}: {
+  eventsToCheck: RawAuditLogEventT[]
+  allowListValues: string | string[]
+  currentEvents?: AuditLogEventT[]
+  pipelineConfig: PipelineConfig
+  titleContext?: TitleResolutionContext
+}) {
   if (!Array.isArray(allowListValues)) allowListValues = [allowListValues]
   if (!currentEvents) currentEvents = []
 
@@ -112,10 +179,26 @@ export function filterByAllowlistValues(
       if (seen.has(event.action)) continue
       seen.add(event.action)
 
-      const minimal = {
+      const minimal: AuditLogEventT = {
         action: event.action,
         description: processAndGetEventDescription(event, eventAllowlists, pipelineConfig),
         docs_reference_links: event.docs_reference_links,
+        fields: event.fields,
+      }
+
+      // Resolve reference link titles if context is provided
+      if (titleContext && event.docs_reference_links && event.docs_reference_links !== 'N/A') {
+        try {
+          minimal.docs_reference_titles = await resolveReferenceLinksToTitles(
+            event.docs_reference_links,
+            titleContext,
+          )
+        } catch (error) {
+          console.warn(
+            `Failed to resolve titles for event ${event.action}:`,
+            error instanceof Error ? error.message : String(error),
+          )
+        }
       }
 
       minimalEvents.push(minimal)
@@ -132,6 +215,7 @@ export function filterByAllowlistValues(
 // * currentEvents: events already collected
 // * pipelineConfig: audit log pipeline config data
 // * auditLogPage: the audit log page the event belongs to
+// * titleContext: optional context for resolving reference link titles
 //
 // Mutates `currentGhesEvents` and updates it with any new filtered for audit
 // log events, the object maps GHES versions to page events for that version e.g.:
@@ -148,13 +232,21 @@ export function filterByAllowlistValues(
 //     user: [...],
 //   },
 // }
-export function filterAndUpdateGhesDataByAllowlistValues(
-  eventsToCheck: RawAuditLogEventT[],
-  allowListValue: string,
-  currentGhesEvents: VersionedAuditLogData,
-  pipelineConfig: PipelineConfig,
-  auditLogPage: string,
-) {
+export async function filterAndUpdateGhesDataByAllowlistValues({
+  eventsToCheck,
+  allowListValue,
+  currentGhesEvents,
+  pipelineConfig,
+  auditLogPage,
+  titleContext,
+}: {
+  eventsToCheck: RawAuditLogEventT[]
+  allowListValue: string
+  currentGhesEvents: VersionedAuditLogData
+  pipelineConfig: PipelineConfig
+  auditLogPage: string
+  titleContext?: TitleResolutionContext
+}) {
   if (!currentGhesEvents) currentGhesEvents = {}
 
   const seenByGhesVersion = new Map()
@@ -173,10 +265,26 @@ export function filterAndUpdateGhesDataByAllowlistValues(
       if (seenByGhesVersion.get(fullGhesVersion)?.has(event.action)) continue
 
       if (ghesVersionAllowlists.includes(allowListValue)) {
-        const minimal = {
+        const minimal: AuditLogEventT = {
           action: event.action,
           description: processAndGetEventDescription(event, ghesVersionAllowlists, pipelineConfig),
           docs_reference_links: event.docs_reference_links,
+          fields: event.ghes[ghesVersion].fields || event.fields,
+        }
+
+        // Resolve reference link titles if context is provided
+        if (titleContext && event.docs_reference_links && event.docs_reference_links !== 'N/A') {
+          try {
+            minimal.docs_reference_titles = await resolveReferenceLinksToTitles(
+              event.docs_reference_links,
+              titleContext,
+            )
+          } catch (error) {
+            console.warn(
+              `Failed to resolve titles for event ${event.action}:`,
+              error instanceof Error ? error.message : String(error),
+            )
+          }
         }
 
         // we need to initialize as we go to build up the `minimalEvents`

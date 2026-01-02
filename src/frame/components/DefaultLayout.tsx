@@ -1,19 +1,19 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-import { SidebarNav } from 'src/frame/components/sidebar/SidebarNav'
-import { Header } from 'src/frame/components/page-header/Header'
-import { LegalFooter } from 'src/frame/components/page-footer/LegalFooter'
-import { ScrollButton } from 'src/frame/components/ui/ScrollButton'
-import { SupportSection } from 'src/frame/components/page-footer/SupportSection'
-import { DeprecationBanner } from 'src/versions/components/DeprecationBanner'
-import { RestBanner } from 'src/rest/components/RestBanner'
-import { useMainContext } from 'src/frame/components/context/MainContext'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
-import { useLanguages } from 'src/languages/components/LanguagesContext'
+import { SidebarNav } from '@/frame/components/sidebar/SidebarNav'
+import { Header } from '@/frame/components/page-header/Header'
+import { LegalFooter } from '@/frame/components/page-footer/LegalFooter'
+import { ScrollButton } from '@/frame/components/ui/ScrollButton'
+import { SupportSection } from '@/frame/components/page-footer/SupportSection'
+import { DeprecationBanner } from '@/versions/components/DeprecationBanner'
+import { RestBanner } from '@/rest/components/RestBanner'
+import { useMainContext } from '@/frame/components/context/MainContext'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
+import { useLanguages } from '@/languages/components/LanguagesContext'
 import { ClientSideLanguageRedirect } from './ClientSideLanguageRedirect'
-import { DomainNameEditProvider } from 'src/links/components/useEditableDomainContext'
+import { SearchOverlayContextProvider } from '@/search/components/context/SearchOverlayContext'
 
 const MINIMAL_RENDER = Boolean(JSON.parse(process.env.MINIMAL_RENDER || 'false'))
 
@@ -75,7 +75,7 @@ export const DefaultLayout = (props: Props) => {
   }
 
   return (
-    <DomainNameEditProvider>
+    <SearchOverlayContextProvider>
       <Head>
         {error === '404' ? (
           <title>{t('oops')}</title>
@@ -166,6 +166,6 @@ export const DefaultLayout = (props: Props) => {
           </footer>
         </div>
       </div>
-    </DomainNameEditProvider>
+    </SearchOverlayContextProvider>
   )
 }

@@ -66,7 +66,7 @@ Now, you're ready to paste the code snippet into your project. While you'll some
 
 Let's say we want to quickly calculate the factorials of 5, 7, 9, and 10. Instead of copying and pasting the entire program for each number, we can move our calculator into a **function** that takes a number as an argument.
 
-Use [{% data variables.product.prodname_copilot_chat_short %}](https://github.com/copilot) to suggest and explain an implementation. Paste our current code into the chat window, followed by this prompt:
+Use [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot) to suggest and explain an implementation. Paste our current code into the chat window, followed by this prompt:
 
 ```text copy
 Wrap the Python code above in a function.
@@ -122,9 +122,9 @@ print(calculate_factorial(10))
 
 ### 1. Finding a library
 
-Once you know what functionality you want to add to your project, you can search for a library with relevant code. {% data variables.product.prodname_copilot_chat_short %} is an easy way to search for libraries, since you can use natural language to describe exactly what you're looking for.
+Once you know what functionality you want to add to your project, you can search for a library with relevant code. {% data variables.copilot.copilot_chat_short %} is an easy way to search for libraries, since you can use natural language to describe exactly what you're looking for.
 
-Finding a factorial is a pretty common function, and there's a good chance someone included that function in an existing library. Open [{% data variables.product.prodname_copilot_chat_short %}](https://github.com/copilot), then ask:
+Finding a factorial is a pretty common function, and there's a good chance someone included that function in an existing library. Open [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot), then ask:
 
 ```text copy
 Is there a Python library with a function for calculating a factorial?
@@ -142,7 +142,7 @@ Thankfully, there are some steps you can take to best protect your project. Let'
 
 Popular libraries are more likely to be secure, because they are actively maintained and used by many developers. One good marker of popularity is the number of **stars** a repository has. If you can't find the {% data variables.product.github %} repository for a dependency, you can ask {% data variables.product.prodname_copilot_short %} for help.
 
-Open [{% data variables.product.prodname_copilot_chat_short %}](https://github.com/copilot), then ask:
+Open [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot), then ask:
 
 ```text copy
 Find the GitHub repository containing the code for the math module in Python.
@@ -162,7 +162,7 @@ Turn {% data variables.product.prodname_dependabot_alerts %} on for your reposit
 
 Now you're ready to import the library into your project, then use its contents in your code. You can read the documentation for the library to learn how to do it yourself, or you can ask {% data variables.product.prodname_copilot_short %} to suggest and explain an implementation for you.
 
-Open [{% data variables.product.prodname_copilot_chat_short %}](https://github.com/copilot), then ask:
+Open [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot), then ask:
 
 ```text copy
 How do I use the factorial function of the math module in my Python project?

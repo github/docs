@@ -1,6 +1,6 @@
 import { addError } from 'markdownlint-rule-helpers'
 
-import { getFrontmatter } from '../helpers/utils.js'
+import { getFrontmatter } from '../helpers/utils'
 
 export const frontmatterHiddenDocs = {
   names: ['GHD010', 'frontmatter-hidden-docs'],

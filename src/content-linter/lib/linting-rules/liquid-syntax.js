@@ -1,8 +1,8 @@
 import { addError } from 'markdownlint-rule-helpers'
 
-import { getFrontmatter } from '../helpers/utils.js'
-import { liquid } from '#src/content-render/index.js'
-import { isLiquidError } from '#src/languages/lib/render-with-fallback.js'
+import { getFrontmatter } from '../helpers/utils'
+import { liquid } from '@/content-render/index'
+import { isLiquidError } from '@/languages/lib/render-with-fallback'
 
 /*
   Attempts to parse all liquid in the frontmatter of a file

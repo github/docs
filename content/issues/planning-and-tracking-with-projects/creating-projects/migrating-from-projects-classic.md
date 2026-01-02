@@ -12,7 +12,7 @@ allowTitleToDifferFromFilename: true
 ---
 
 > [!NOTE]
-> * If the project you are migrating contains more than {% data variables.projects.item_limit %} items, open issues will be prioritized followed by open pull requests and then notes. Remaining space will be used for closed issues, merged pull requested, and closed pull requests. Items that cannot be migrated due to this limit will be moved to the archive. If the archive limit of {% data variables.projects.archived_item_limit %} items is reached, additional items will not be migrated.
+> * If the project you are migrating contains more than {% data variables.projects.legacy_item_limit %} items, open issues will be prioritized followed by open pull requests and then notes. Remaining space will be used for closed issues, merged pull requested, and closed pull requests. Items that cannot be migrated due to this limit will be moved to the archive. If the archive limit of {% data variables.projects.legacy_archived_item_limit %} items is reached, additional items will not be migrated.
 > * Note cards are converted to draft issues, and the contents are saved to the body of the draft issue. If information appears to be missing, make any hidden fields visible. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#showing-and-hiding-fields).
 > * Automation will not be migrated.
 > * Triage, archive, and activity will not be migrated.
@@ -33,9 +33,9 @@ You can migrate your {% data variables.projects.projects_v1_boards %} to the new
 
 ## Migrating a user {% data variables.projects.projects_v1_board %}
 
-1. In the upper-right corner of {% data variables.product.prodname_dotcom %}, select your profile photo, then click **Your projects**.
+1. In the upper-right corner of {% data variables.product.prodname_dotcom %}, click your profile picture, then click **Your projects**.
 
-   ![Screenshot showing the profile photo menu. The "Your projects" link is highlighted with an orange outline.](/assets/images/help/projects-v2/projects-profile-menu.png)
+   ![Screenshot showing the profile picture menu. The "Your projects" link is highlighted with an orange outline.](/assets/images/help/projects-v2/projects-profile-menu.png)
 
 1. On the top of your profile page, in the main navigation, click **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects**.
    ![Screenshot showing the tabs on a user profile. The 'Projects' tab is highlighted with an orange outline.](/assets/images/help/projects-v2/tab-projects.png)

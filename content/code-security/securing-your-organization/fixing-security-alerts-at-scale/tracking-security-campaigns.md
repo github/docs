@@ -46,7 +46,7 @@ The tracking view shows you a summary of:
 
 * **Campaign progress**: how many alerts are closed (fixed or dismissed), in progress, or still left to review.
 * **Status**: how the campaign is progressing towards its due date.
-* **{% data variables.product.prodname_copilot_autofix_short %}**: number of alerts where {% data variables.product.prodname_copilot_autofix_short %} can generate a fix to resolve the alert.
+* **{% data variables.copilot.copilot_autofix_short %}**: number of alerts where {% data variables.copilot.copilot_autofix_short %} can generate a fix to resolve the alert.
 
 You can also explore the campaign repositories and alerts to see where teams are engaging in the campaign, and where teams might need some extra encouragement to take part.
 

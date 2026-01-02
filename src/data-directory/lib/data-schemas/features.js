@@ -1,4 +1,4 @@
-import { schema } from '#src/frame/lib/frontmatter.js'
+import { schema } from '@/frame/lib/frontmatter'
 
 // Copy the properties from the frontmatter schema.
 const featureVersions = {

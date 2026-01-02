@@ -1,8 +1,8 @@
 import type { Response } from 'express'
 
-import { Context } from '#src/types.js'
-import { ExtendedRequestWithPageInfo } from '../types'
-import contextualize from '#src/frame/middleware/context/context.js'
+import { Context } from '@/types'
+import { ExtendedRequestWithPageInfo } from '@/article-api/types'
+import contextualize from '@/frame/middleware/context/context'
 
 export async function getArticleBody(req: ExtendedRequestWithPageInfo) {
   // req.pageinfo is set from pageValidationMiddleware and pathValidationMiddleware

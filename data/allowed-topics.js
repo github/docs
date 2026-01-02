@@ -115,6 +115,7 @@ export default [
   'Pages',
   'Performance',
   'Permissions',
+  'Personal account',
   'Policies',
   'Policy',
   'PowerShell',

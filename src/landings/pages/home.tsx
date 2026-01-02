@@ -6,14 +6,14 @@ import {
   MainContext,
   getMainContext,
   addUINamespaces,
-} from 'src/frame/components/context/MainContext'
+} from '@/frame/components/context/MainContext'
 
-import { DefaultLayout } from 'src/frame/components/DefaultLayout'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { ArticleList } from 'src/landings/components/ArticleList'
-import { HomePageHero } from 'src/landings/components/HomePageHero'
-import type { ProductGroupT } from 'src/landings/components/ProductSelections'
-import { ProductSelections } from 'src/landings/components/ProductSelections'
+import { DefaultLayout } from '@/frame/components/DefaultLayout'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { ArticleList } from '@/landings/components/ArticleList'
+import { HomePageHero } from '@/landings/components/HomePageHero'
+import type { ProductGroupT } from '@/landings/components/ProductSelections'
+import { ProductSelections } from '@/landings/components/ProductSelections'
 
 type FeaturedLink = {
   href: string

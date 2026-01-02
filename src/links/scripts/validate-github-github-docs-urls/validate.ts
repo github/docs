@@ -7,6 +7,7 @@ type Options = {
   failOnWarning?: boolean
   failOnError?: boolean
   output?: string
+  ignoreNotFound?: boolean
 }
 
 export async function validate(filePath: string, options: Options) {
@@ -26,8 +27,13 @@ export async function validate(filePath: string, options: Options) {
         console.log(prefix, `✅ ${check.url} (${check.identifier})`)
       }
     } else {
-      if (options.failOnError) exitCode++
-      console.log(prefix, `❌ ${check.url} (${check.identifier})`)
+      // This is a 404 - page not found
+      if (options.ignoreNotFound) {
+        console.log(prefix, `⚠️  ${check.url} (${check.identifier})`)
+      } else {
+        if (options.failOnError) exitCode++
+        console.log(prefix, `❌ ${check.url} (${check.identifier})`)
+      }
     }
     if (check.fragment) {
       if (check.fragmentFound) {
@@ -58,7 +64,16 @@ export async function validate(filePath: string, options: Options) {
     chalk.yellow(T('Redirects')),
     checks.filter((check) => check.found && check.redirect).length,
   )
-  console.log(chalk.red(T('Failures')), checks.filter((check) => !check.found).length)
+  const notFoundChecks = checks.filter((check) => !check.found)
+
+  if (options.ignoreNotFound) {
+    console.log(chalk.red(T('Failures')), 0)
+    if (notFoundChecks.length > 0) {
+      console.log(chalk.yellow(T('Ignored (404s)')), notFoundChecks.length)
+    }
+  } else {
+    console.log(chalk.red(T('Failures')), notFoundChecks.length)
+  }
   console.log(
     chalk.red(T('Failing fragments')),
     checks.filter((check) => check.found && check.fragment && !check.fragmentFound).length,

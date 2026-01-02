@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
-import Cookies from 'src/frame/components/lib/cookies'
+import Cookies from '@/frame/components/lib/cookies'
 import { parseUserAgent } from './user-agent'
 import { Router } from 'next/router'
-import { isLoggedIn } from 'src/frame/components/hooks/useHasAccount'
+import { isLoggedIn } from '@/frame/components/hooks/useHasAccount'
 import { getExperimentVariationForContext } from './experiments/experiment'
 import { EventType, EventPropsByType } from '../types'
 import { isHeadless } from './is-headless'

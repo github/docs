@@ -2,8 +2,6 @@ date: '2025-04-17'
 sections:
   security_fixes:
     - |
-      **HIGH**: An attacker could execute arbitrary code, potentially leading to privilege escalation and system compromise, by exploiting the pre-receive hook functionality to bind to dynamically allocated ports that become temporarily available, such as during a hot patch upgrade. This vulnerability is only exploitable under specific operational conditions, such as during the hot patching process, and requires either site administrator permissions or a user with privileges to modify repositories containing pre-receive hooks. GitHub has requested CVE ID: [CVE-2025-3509](https://www.cve.org/cverecord?id=CVE-2025-3509) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
-    - |
       **MEDIUM:** An attacker could view private repository names, which the signed-in user is not authorized to see, in the GitHub Advanced Security Overview. This was due to a missing authorization check and occurred when filtering with _only_ `archived:`. GitHub has requested CVE ID [CVE-2025-3124](https://www.cve.org/CVERecord?id=CVE-2025-3124) for this vulnerability.
   bugs:
     - |

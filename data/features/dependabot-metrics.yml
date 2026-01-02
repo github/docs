@@ -1,0 +1,6 @@
+# Reference: #17734
+# Dependabot Metrics page [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.18'

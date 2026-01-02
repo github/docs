@@ -16,6 +16,12 @@ redirect_from:
   - /get-started/quickstart/contributing-to-projects
 ---
 
+Contributing to a project on {% data variables.product.github %} is an essential skill for developers and collaborators working together to achieve shared goals. Whether you're fixing bugs, adding features, or improving documentation, the process of contributing ensures structured and efficient collaboration.
+
+By following the {% data variables.product.github %} flow of forking repositories, creating branches, and submitting pull requests, you can propose changes to a project and get feedback without disrupting other people's work.
+
+This guide provides instructions on contributing to a project using the GitHub UI and the command line. For more information on contributing with GitHub Desktop, see [AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop). For the same with GitHub CLI (Command Line Interface), see [AUTOTITLE](/github-cli/github-cli/quickstart).
+
 ## About forking
 
 If you want to contribute to someone else's project but don’t have permission to make changes directly, you can create your own copy of the project, make updates, and then suggest those updates for inclusion in the main project. This process is often called a "fork and pull request" workflow.
@@ -50,11 +56,9 @@ You've successfully forked the Spoon-Knife repository, but so far, it only exist
 
 You can clone your fork with the command line, {% data variables.product.prodname_cli %}, or {% data variables.product.prodname_desktop %}.
 
-{% webui %}
-
 1. On {% data variables.product.github %}, navigate to **your fork** of the Spoon-Knife repository.
 {% data reusables.repositories.copy-clone-url %}
-{% data reusables.command_line.open_the_multi_os_terminal %}
+1. On Mac or Linux, open Terminal. On Windows, open Git Bash.
 {% data reusables.command_line.change-current-directory-clone %}
 1. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.github %} username instead of `YOUR-USERNAME`:
 
@@ -73,57 +77,14 @@ You can clone your fork with the command line, {% data variables.product.prodnam
    > Unpacking objects: 100% (10/10), done.
    ```
 
-{% endwebui %}
-
-{% cli %}
-
-{% data reusables.cli.cli-learn-more %}
-
-To create a clone of your fork, use the `--clone` flag.
-
-```shell
-gh repo fork REPOSITORY --clone=true
-```
-
-{% endcli %}
-
-{% desktop %}
-
-{% data reusables.desktop.choose-clone-repository %}
-{% data reusables.desktop.cloning-location-tab %}
-{% data reusables.desktop.cloning-repository-list %}
-{% data reusables.desktop.choose-local-path %}
-{% data reusables.desktop.click-clone %}
-
-{% enddesktop %}
-
 ## Creating a branch to work on
 
 Before making changes to the project, you should create a new branch and check it out. By keeping changes in their own branch, you follow {% data variables.product.github %} flow and ensure that it will be easier to contribute to the same project again in the future. See [AUTOTITLE](/get-started/using-github/github-flow#following-github-flow).
 
-{% webui %}
-
 ```shell
 git branch BRANCH-NAME
 git checkout BRANCH-NAME
 ```
-
-{% endwebui %}
-
-{% cli %}
-
-```shell
-git branch BRANCH-NAME
-git checkout BRANCH-NAME
-```
-
-{% endcli %}
-
-{% desktop %}
-
-For more information about how to create and manage branches in {% data variables.product.prodname_desktop %}, see [AUTOTITLE](/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop).
-
-{% enddesktop %}
 
 ## Making and pushing changes
 
@@ -131,74 +92,28 @@ Go ahead and make a few changes to the project using your favorite text editor, 
 
 When you're ready to submit your changes, stage and commit your changes. `git add .` tells Git that you want to include all of your changes in the next commit. `git commit` takes a snapshot of those changes.
 
-{% webui %}
-
 ```shell
 git add .
 git commit -m "a short description of the change"
 ```
 
-{% endwebui %}
-
-{% cli %}
-
-```shell
-git add .
-git commit -m "a short description of the change"
-```
-
-{% endcli %}
-
-{% desktop %}
-
-For more information about how to stage and commit changes in {% data variables.product.prodname_desktop %}, see [AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#selecting-changes-to-include-in-a-commit).
-
-{% enddesktop %}
-
-When you stage and commit files, you essentially tell Git, "Okay, take a snapshot of my changes!" You can continue to make more changes, and take more commit snapshots.
+When you stage and commit files, you essentially tell Git, "Take a snapshot of my changes." You can continue to make more changes and take more commit snapshots.
 
 Right now, your changes only exist locally. When you're ready to push your changes up to {% data variables.product.github %}, push your changes to the remote.
 
-{% webui %}
-
 ```shell
 git push
 ```
-
-{% endwebui %}
-
-{% cli %}
-
-```shell
-git push
-```
-
-{% endcli %}
-
-{% desktop %}
-
-For more information about how to push changes in {% data variables.product.prodname_desktop %}, see [AUTOTITLE](/desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop).
-
-{% enddesktop %}
 
 ## Making a pull request
 
-At last, you're ready to propose changes into the main project! This is the final step in producing a fork of someone else's project, and arguably the most important. If you've made a change that you feel would benefit the community as a whole, you should definitely consider contributing back.
+Creating a pull request is the final step in producing a fork of someone else's project. When you've made a beneficial change and want to propose it to the original repository, you'll create a pull request for a maintainer to review.
 
-To do so, head on over to the repository on {% data variables.product.github %} where your project lives. For this example, it would be at `https://github.com/<your_username>/Spoon-Knife`. You'll see a banner indicating that your branch is one commit ahead of `octocat:main`. Click **Contribute** and then **Open a pull request**.
+To do so, navigate to the repository on {% data variables.product.github %} where your project lives. For this example, it would be at `https://github.com/<your_username>/Spoon-Knife`. You'll see a banner indicating that your branch is one commit ahead of `octocat:main`. Click **Contribute** and then **Open a pull request**.
 
 {% data variables.product.github %} will bring you to a page that shows the differences between your fork and the `octocat/Spoon-Knife` repository. Click **Create pull request**.
 
 {% data variables.product.github %} will bring you to a page where you can enter a title and a description of your changes. It's important to provide as much useful information and a rationale for why you're making this pull request in the first place. The project owner needs to be able to determine whether your change is as useful to everyone as you think it is. Finally, click **Create pull request**.
-
-## Managing feedback
-
-Pull requests are an area for discussion. Don't be offended if the project owner rejects your pull request, or asks for more information on why it's been made. Even if the project owner chooses not to merge your pull request, your changes still exist in your fork. It could be that someone else will find your fork much more valuable than the original project.
-
-## Finding projects
-
-You've successfully forked and contributed back to a repository. Go forth, and
-contribute some more!{% ifversion fpt %} For more information, see [AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github).{% endif %}
 
 {% ifversion copilot %}
 

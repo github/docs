@@ -69,26 +69,24 @@ To migrate your repositories from {% data variables.product.prodname_ghe_server 
 
 ## Step 3: Set up blob storage
 
-Because many {% data variables.product.prodname_ghe_server %} instances sit behind firewalls, for {% data variables.product.prodname_ghe_server %} versions 3.8 or higher, we use blob storage as an intermediate location to store your data that {% data variables.product.prodname_dotcom %} can access.
-
-You must first set up blob storage with a supported cloud provider, then configure your settings in the {% data variables.enterprise.management_console %} of {% data variables.location.product_location_enterprise %}.
+{% data reusables.enterprise-migration-tool.blob-storage-intro %}
 
 > [!NOTE]
 > You only need to configure blob storage if you use {% data variables.product.prodname_ghe_server %} versions 3.8 or higher. If you use {% data variables.product.prodname_ghe_server %} versions 3.7 or lower, skip to [Step 4: Set up a migration source in {% data variables.product.prodname_ghe_cloud %}](#step-4-set-up-a-migration-source-in-github-enterprise-cloud).
 >
 > Blob storage is required to migrate repositories with large Git source or metadata. If you use {% data variables.product.prodname_ghe_server %} versions 3.7 or lower, you will not be able to perform migrations where your Git source or metadata exports exceed 2GB. To perform these migrations, update to {% data variables.product.prodname_ghe_server %} versions 3.8 or higher.
 
-### Setting up blob storage with a supported cloud provider
-
-{% data reusables.enterprise-migration-tool.supported-blob-storage-providers %}
-
-#### Setting up an AWS S3 storage bucket
+### Setting up an AWS S3 storage bucket
 
 {% data reusables.enterprise-migration-tool.set-up-aws-bucket %}
 
-#### Setting up an Azure Blob Storage account
+### Setting up an Azure Blob Storage account
 
 {% data reusables.enterprise-migration-tool.set-up-azure-storage-account %}
+
+### Using local storage (GHES 3.16+)
+
+{% data reusables.enterprise-migration-tool.local-storage-steps %}
 
 ### Configuring blob storage in the {% data variables.enterprise.management_console %} of {% data variables.location.product_location_enterprise %}
 
@@ -330,25 +328,23 @@ For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migr
 
 ## Step 4: Set up blob storage
 
-Because many {% data variables.product.prodname_ghe_server %} instances sit behind firewalls, we use blob storage as an intermediate location to store your data that {% data variables.product.prodname_dotcom %} can access.
+{% data reusables.enterprise-migration-tool.blob-storage-intro %}
 
-First, you must set up blob storage with a supported cloud provider. Then, you must configure your credentials for the storage provider in the {% data variables.enterprise.management_console %} or {% data variables.product.prodname_cli %}.
-
-### Setting up blob storage with a supported cloud provider
-
-{% data reusables.enterprise-migration-tool.supported-blob-storage-providers %}
-
-#### Setting up an AWS S3 storage bucket
+### Setting up an AWS S3 storage bucket
 
 {% data reusables.enterprise-migration-tool.set-up-aws-bucket %}
 
-#### Setting up an Azure Blob Storage storage account
+### Setting up an Azure Blob Storage storage account
 
 {% data reusables.enterprise-migration-tool.set-up-azure-storage-account %}
 
+### Using local storage (GHES 3.16+)
+
+{% data reusables.enterprise-migration-tool.local-storage-steps %}
+
 ### Configuring your blob storage credentials
 
-After you set up blob storage with a supported cloud provider, you must configure your credentials for the storage provider in {% data variables.product.prodname_dotcom %}:
+If you set up blob storage with a **cloud provider** (as opposed to local storage), you must configure your credentials for the storage provider in {% data variables.product.prodname_dotcom %}:
 
 * If you use {% data variables.product.prodname_ghe_server %} 3.8 or higher, configure your credentials in the {% data variables.enterprise.management_console %}.
 * If you use {% data variables.product.prodname_ghe_server %} 3.7 or lower, configure the credentials in the {% data variables.product.prodname_cli %}.

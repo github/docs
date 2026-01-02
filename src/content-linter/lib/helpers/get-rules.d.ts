@@ -1,7 +1,7 @@
 // get-rules.d.ts
 // This is a declaration file for get-rules.js
 
-import type { Rule, RuleConfig } from '../../types.ts'
+import type { Rule, RuleConfig } from '../../types'
 
 export const customRules: Rule[]
 export const allRules: Rule[]

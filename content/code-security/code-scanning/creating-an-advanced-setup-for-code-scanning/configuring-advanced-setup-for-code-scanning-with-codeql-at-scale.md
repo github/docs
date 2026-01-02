@@ -37,8 +37,6 @@ For repositories that are not eligible for default setup, you can use a bulk con
    * NodeJS example: [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) repository
    * PowerShell example: [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository
 
-{% ifversion codeql-model-packs-org %}
-
 ### Extending {% data variables.product.prodname_codeql %} coverage with model packs
 
 {% data reusables.code-scanning.beta-model-packs %}
@@ -46,5 +44,3 @@ For repositories that are not eligible for default setup, you can use a bulk con
 If your codebase depends on a library or framework that is not recognized by the standard queries in {% data variables.product.prodname_codeql %}, you can extend the {% data variables.product.prodname_codeql %} coverage in your bulk configuration script by specifying published {% data variables.product.prodname_codeql %} model packs. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#extending-codeql-coverage-with-codeql-model-packs).
 
 Alternatively, if you do not need granular control over the {% data variables.product.prodname_code_scanning %} configuration for many repositories in your organization, you can quickly and easily configure model packs with {% data variables.product.prodname_code_scanning %} at scale with default setup. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup).
-
-{% endif %}

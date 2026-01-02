@@ -5,6 +5,6 @@ With SCIM, you manage the lifecycle of user accounts from your IdP:
 * When you unassign the user from the IdP application or deactivate a user's account on your IdP, your IdP will communicate with {% data variables.product.prodname_dotcom %} to invalidate any sessions and disable the member's account. The disabled account's information is maintained and their username is changed to a hash of their original username{% ifversion ghec %}, with the short code appended if applicable{% endif %}.
 * If you reassign a user to the IdP application or reactivate their account on your IdP, the user account will be reactivated, and the username will be restored.
 
-{% ifversion ghec or ghes > 3.13 %}
+{% ifversion ghec or ghes %}
 To configure team and organization membership, repository access, and permissions, you can use groups on your IdP. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups).
 {% endif %}

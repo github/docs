@@ -19,6 +19,9 @@ redirect_from:
   - /code-security/codeql-cli/manual/pack-download
 ---
 
+<!-- markdownlint-disable GHD053 -->
+
+<!-- markdownlint-disable GHD030 -->
 
 <!-- Content after this section is automatically generated -->
 

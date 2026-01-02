@@ -26,7 +26,7 @@ export default function parsePageSectionsIntoRecords(page: any): Record {
   // On an article page, we the breadcrumbs array will be something
   // like:
   //
-  //   ['Product short title', 'Map topic', 'Article title']
+  //   ['Product short title', 'Subcategory', 'Article title']
   //
   // But on a product landing page, it'll just be:
   //

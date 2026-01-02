@@ -58,7 +58,8 @@ export default function mockVaPortal(req: ExtendedRequest, res: Response, next: 
 
   if (req.url.startsWith('/iframe/docs_va')) {
     res.removeHeader('content-security-policy')
-    return res.status(200).type('text/html').send(HTML)
+    res.status(200).type('text/html').send(HTML)
+    return
   }
 
   next()

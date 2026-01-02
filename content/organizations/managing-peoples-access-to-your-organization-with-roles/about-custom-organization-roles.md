@@ -65,6 +65,9 @@ Manage organization OAuth app policies | Access to the "OAuth app policy" settin
 |  {% ifversion push-protection-bypass-fine-grained-permissions %} |
 | Review and manage {% data variables.product.prodname_secret_scanning %} bypass requests | Review and manage {% data variables.product.prodname_secret_scanning %} bypass requests for your organization. | [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection) |
 |  {% endif %} |
+| {% ifversion secret-scanning-alert-dismiss-custom-role %} |
+| Review and manage {% data variables.product.prodname_secret_scanning %} alert dismissal requests | Review and manage {% data variables.product.prodname_secret_scanning %} alert dismissal requests for your organization. | [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning) |
+|  {% endif %} |
 
 {% endrowheaders %}
 

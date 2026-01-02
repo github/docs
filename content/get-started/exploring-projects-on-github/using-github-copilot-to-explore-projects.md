@@ -9,7 +9,7 @@ topics:
 shortTitle: Use Copilot to explore projects
 ---
 
-In this guide, you’ll learn how to use {% data variables.product.prodname_copilot_chat_dotcom_short %} to understand a repository’s purpose, examine files, and dive into specific lines of code. By following these steps, you’ll gain insights into any project faster—making onboarding, code review, and project exploration easier and more efficient.
+In this guide, you’ll learn how to use {% data variables.copilot.copilot_chat_dotcom_short %} to understand a repository’s purpose, examine files, and dive into specific lines of code. By following these steps, you’ll gain insights into any project faster—making onboarding, code review, and project exploration easier and more efficient.
 
 ## Prerequisites
 
@@ -37,6 +37,10 @@ You can also use {% data variables.product.prodname_copilot_short %} to understa
 When you’re exploring a project, you might want to understand the contents of a specific file. {% data variables.product.prodname_copilot_short %} can help you quickly understand the purpose of a file, for example, by providing a summary of the file’s contents. You can also ask {% data variables.product.prodname_copilot_short %} to explain specific lines of code within a file.
 
 {% data reusables.copilot.chat-about-specific-lines %}
+
+## Further reading
+
+* [AUTOTITLE](/copilot/tutorials/using-copilot-to-explore-a-codebase)
 
 ## Next steps
 

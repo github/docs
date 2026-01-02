@@ -1,11 +1,11 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
+import { runRule } from '../../lib/init-test'
 import {
   expiredContent,
   expiringSoon,
   DAYS_TO_WARN_BEFORE_EXPIRED,
-} from '../../lib/linting-rules/expired-content.js'
+} from '../../lib/linting-rules/expired-content'
 
 describe(expiredContent.names.join(' - '), () => {
   test('Date in the past triggers error', async () => {

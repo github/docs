@@ -2,7 +2,7 @@
 title: 'About the secret risk assessment'
 shortTitle: 'Secret risk assessment'
 intro: 'Learn why it''s so important to understand your organization''s exposure to data leaks and how the {% data variables.product.prodname_secret_risk_assessment %} report gives an overview of your organization’s secret leak footprint.'
-product: '{% data reusables.gated-features.secret-risk-assessment-report %}'
+product: '{% data reusables.gated-features.secret-risk-assessment-report %}<br>{% data variables.secret-scanning.secret-risk-assessment-cta-product %}'
 allowTitleToDifferFromFilename: true
 type: overview
 versions:
@@ -19,7 +19,7 @@ topics:
 
 Assessing your exposure to leaked secrets is crucial if you want to prevent:
 
-* **Exploitation by bad actors**. Malicious actors can use leaked secrets such as API keys, passwords, and tokens to gain unauthorized access to systems, databases, and sensitive information. Leaked secrets can lead to data breaches, compromising user data and potentially causing significant financial and reputational damage. See industry examples and in-depth discussion in [Understanding your organization's exposure to secret leaks](https://resources.github.com/enterprise/understanding-secret-leak-exposure) in {% data variables.product.github %} Executive Insights.
+* **Exploitation by bad actors**. Malicious actors can use leaked secrets such as API keys, passwords, and tokens to gain unauthorized access to systems, databases, and sensitive information. Leaked secrets can lead to data breaches, compromising user data and potentially causing significant financial and reputational damage.
 
 * **Regulatory problems**. Many industries have strict regulatory requirements for data protection, and leaked secrets can result in non-compliance with regulations, leading to legal penalties and fines.
 
@@ -29,7 +29,7 @@ Assessing your exposure to leaked secrets is crucial if you want to prevent:
 
 * **Costly fallout**. Addressing the fallout from leaked secrets can be costly, involving incident response efforts, security audits, and potential compensation for affected parties.
 
-Regularly assessing your exposure to leaked secrets is good practice to help identify vulnerabilities, implement necessary security measures, and ensure that any compromised secrets are promptly rotated and invalidated.
+Regularly assessing your exposure to leaked secrets is good practice to help identify vulnerabilities, implement necessary security measures, and ensure that any compromised secrets are promptly rotated and invalidated. See industry examples and in-depth discussion in [Understanding your organization's exposure to secret leaks](https://resources.github.com/enterprise/understanding-secret-leak-exposure) in {% data variables.product.github %} Executive Insights.
 
 ## About {% data variables.product.prodname_secret_risk_assessment %}
 
@@ -60,6 +60,6 @@ Because the {% data variables.product.prodname_secret_risk_assessment %} report 
 
 Now that you know about the {% data variables.product.prodname_secret_risk_assessment %} report, you may want to learn how to:
 
-* Generate the report to see your organization risk. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization).
+* Generate the report to see your organization risk. Navigate to {% data reusables.security-overview.navigate-to-risk-assessment %}.
 * Interpret the results of the report. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/interpreting-secret-risk-assessment-results).
 * Enable {% data variables.product.prodname_GH_secret_protection %} to improve your secret leak footprint. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/choosing-github-secret-protection#enabling-secret-protection).

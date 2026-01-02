@@ -41,4 +41,4 @@ When you delete a {% data variables.product.prodname_github_app %} registration,
 1. In the confirmation box, type the name of the {% data variables.product.prodname_github_app %} to confirm you want to delete it.
 1. Click **I understand the consequences, delete this {% data variables.product.prodname_github_app %}**.
 
-These steps only delete your {% data variables.product.prodname_github_app %} registration, and all of the organization and account installations it may have. They do not delete any code that you wrote for your app. However, any code that relies on your {% data variables.product.prodname_github_app %}'s credentials will no longer function.
+These steps only delete your {% data variables.product.prodname_github_app %} registration, and all of the installations it may have. They do not delete any code that you wrote for your app. However, any code that relies on your {% data variables.product.prodname_github_app %}'s credentials will no longer function.

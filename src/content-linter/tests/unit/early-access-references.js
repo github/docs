@@ -1,10 +1,10 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
+import { runRule } from '../../lib/init-test'
 import {
   earlyAccessReferences,
   frontmatterEarlyAccessReferences,
-} from '../../lib/linting-rules/early-access-references.js'
+} from '../../lib/linting-rules/early-access-references'
 
 const FIXTURE_FILEPATH_NON_EA = 'src/content-linter/tests/fixtures/not-secret.md'
 const FIXTURE_FILEPATH_EA = 'src/content-linter/tests/fixtures/early-access/secret.md'

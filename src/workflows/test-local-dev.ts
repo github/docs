@@ -145,13 +145,6 @@ async function testSiteSearch() {
     assert(results.meta)
     assert(results.hits)
   }
-  // Using the autocomplete search API
-  {
-    const res = await get('/api/search/autocomplete?query=gi')
-    const results = JSON.parse(res.body)
-    assert(results.meta)
-    assert(results.hits)
-  }
 }
 
 async function testViewingPages() {

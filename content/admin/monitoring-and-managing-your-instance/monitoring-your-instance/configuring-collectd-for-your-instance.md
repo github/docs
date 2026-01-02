@@ -64,18 +64,6 @@ By default, `collectd` forwarding is disabled on {% data variables.product.prodn
 1. In the **Cryptographic setup** dropdown menu, select the security level of communications with the `collectd` server. (None, signed packets, or encrypted packets.)
 {% data reusables.enterprise_management_console.save-settings %}
 
-## Exporting collectd data with `ghe-export-graphs`
-
-The command-line tool `ghe-export-graphs` will export the data that `collectd` stores in RRD databases. This command turns the data into XML and exports it into a single tarball (`.tgz`).
-
-Its primary use is to provide the {% data variables.contact.contact_ent_support %} team with data about a VM's performance, without the need for downloading a full Support Bundle. It shouldn't be included in your regular backup exports and there is no import counterpart. If you contact us through {% data variables.contact.contact_ent_support %}, we may ask for this data to assist with troubleshooting.
-
-### Usage
-
-```shell
-ssh -p 122 admin@[hostname] -- 'ghe-export-graphs' && scp -P 122 admin@[hostname]:~/graphs.tar.gz .
-```
-
 ## Troubleshooting
 
 ### Central collectd server receives no data

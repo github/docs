@@ -4,26 +4,23 @@ import { useRouter } from 'next/router'
 import { Dialog, IconButton } from '@primer/react'
 import { MarkGithubIcon, ThreeBarsIcon } from '@primer/octicons-react'
 
-import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
-import { Link } from 'src/frame/components/Link'
-import { useMainContext } from 'src/frame/components/context/MainContext'
-import { HeaderNotifications } from 'src/frame/components/page-header/HeaderNotifications'
-import { ApiVersionPicker } from 'src/rest/components/ApiVersionPicker'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
-import { VersionPicker } from 'src/versions/components/VersionPicker'
-import { SidebarNav } from 'src/frame/components/sidebar/SidebarNav'
-import { AllProductsLink } from 'src/frame/components/sidebar/AllProductsLink'
+import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
+import { Link } from '@/frame/components/Link'
+import { useMainContext } from '@/frame/components/context/MainContext'
+import { HeaderNotifications } from '@/frame/components/page-header/HeaderNotifications'
+import { ApiVersionPicker } from '@/rest/components/ApiVersionPicker'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
+import { VersionPicker } from '@/versions/components/VersionPicker'
+import { SidebarNav } from '@/frame/components/sidebar/SidebarNav'
+import { AllProductsLink } from '@/frame/components/sidebar/AllProductsLink'
 import { SearchBarButton } from '@/search/components/input/SearchBarButton'
-import { OldHeaderSearchAndWidgets } from './OldHeaderSearchAndWidgets'
 import { HeaderSearchAndWidgets } from './HeaderSearchAndWidgets'
 import { useInnerWindowWidth } from './hooks/useInnerWindowWidth'
-import { EXPERIMENTS } from '@/events/components/experiments/experiments'
-import { useShouldShowExperiment } from '@/events/components/experiments/useShouldShowExperiment'
-import { useQueryParam } from '@/frame/components/hooks/useQueryParam'
 import { useMultiQueryParams } from '@/search/components/hooks/useMultiQueryParams'
 import { SearchOverlayContainer } from '@/search/components/input/SearchOverlayContainer'
 import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
+import { useSearchOverlayContext } from '@/search/components/context/SearchOverlayContext'
 
 import styles from './Header.module.scss'
 
@@ -34,10 +31,6 @@ export const Header = () => {
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header'])
   const isRestPage = currentProduct && currentProduct.id === 'rest'
-  const { queryParam: isSearchOpen, setQueryParam: setIsSearchOpen } = useQueryParam(
-    'search-overlay-open',
-    true,
-  )
   const { params, updateParams } = useMultiQueryParams()
   const [scroll, setScroll] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -52,22 +45,30 @@ export const Header = () => {
   const returnFocusRef = useRef(null)
   const searchButtonRef = useRef<HTMLButtonElement>(null)
   const { initializeCTA } = useCTAPopoverContext()
+  const { isSearchOpen, setIsSearchOpen } = useSearchOverlayContext()
 
-  const { showExperiment: showNewSearch, experimentLoading: newSearchLoading } =
-    useShouldShowExperiment(EXPERIMENTS.ai_search_experiment)
-  let SearchButton: JSX.Element | null = (
+  const SearchButtonLarge: JSX.Element = (
     <SearchBarButton
       isSearchOpen={isSearchOpen}
       setIsSearchOpen={setIsSearchOpen}
       params={params}
       searchButtonRef={searchButtonRef}
+      instanceId="large"
     />
   )
-  if (!showNewSearch) {
-    SearchButton = null
-  } else {
-    initializeCTA()
-  }
+
+  const SearchButtonSmall: JSX.Element = (
+    <SearchBarButton
+      isSearchOpen={isSearchOpen}
+      setIsSearchOpen={setIsSearchOpen}
+      params={params}
+      searchButtonRef={searchButtonRef}
+      instanceId="small"
+    />
+  )
+
+  // Initialize the CTA(s)
+  initializeCTA()
 
   useEffect(() => {
     function onScroll() {
@@ -178,22 +179,14 @@ export const Header = () => {
             <div className="hide-sm border-left pl-3 d-flex flex-items-center">
               <VersionPicker />
               {/* In larger viewports, we want to show the search bar next to the version picker */}
-              {!newSearchLoading && <div className={styles.displayOverLarge}>{SearchButton}</div>}
+              <div className={styles.displayOverLarge}>{SearchButtonLarge}</div>
             </div>
           </div>
-          {newSearchLoading ? null : showNewSearch ? (
-            <HeaderSearchAndWidgets
-              isSearchOpen={isSearchOpen}
-              SearchButton={SearchButton}
-              width={width}
-            />
-          ) : (
-            <OldHeaderSearchAndWidgets
-              isSearchOpen={isSearchOpen}
-              setIsSearchOpen={setIsSearchOpen}
-              width={width}
-            />
-          )}
+          <HeaderSearchAndWidgets
+            isSearchOpen={isSearchOpen}
+            SearchButton={SearchButtonSmall}
+            width={width}
+          />
         </div>
         {!isHomepageVersion && !isSearchResultsPage && (
           <div className="d-flex flex-items-center d-xxl-none mt-2" data-testid="header-subnav">
@@ -236,7 +229,7 @@ export const Header = () => {
                   >
                     <AllProductsLink />
                     {error === '404' || !currentProduct || isSearchResultsPage ? null : (
-                      <div className="mt-3">
+                      <h2 className="mt-3">
                         <Link
                           data-testid="sidebar-product-dialog"
                           href={currentProduct.href}
@@ -244,7 +237,7 @@ export const Header = () => {
                         >
                           {currentProductName || currentProduct.name}
                         </Link>
-                      </div>
+                      </h2>
                     )}
                     {isRestPage && <ApiVersionPicker />}
                   </Dialog.Header>
@@ -257,15 +250,13 @@ export const Header = () => {
             </div>
           </div>
         )}
-        {showNewSearch && (
-          <SearchOverlayContainer
-            isSearchOpen={isSearchOpen}
-            setIsSearchOpen={setIsSearchOpen}
-            params={params}
-            updateParams={updateParams}
-            searchButtonRef={searchButtonRef}
-          />
-        )}
+        <SearchOverlayContainer
+          isSearchOpen={isSearchOpen}
+          setIsSearchOpen={setIsSearchOpen}
+          params={params}
+          updateParams={updateParams}
+          searchButtonRef={searchButtonRef}
+        />
       </header>
     </div>
   )

@@ -50,7 +50,7 @@ You can create a webhook to subscribe to events that occur in a specific organiz
 
 You can use the {% data variables.product.github %} web interface or the REST API to create an organization webhook. For more information about using the REST API to create an organization webhook, see [AUTOTITLE](/rest/orgs/webhooks#create-an-organization-webhook).
 
-1. In the upper-right corner of any page on {% data variables.product.github %}, click your profile photo.
+1. In the upper-right corner of any page on {% data variables.product.github %}, click your profile picture.
 1. Click **Your organizations**.
 1. To the right of the organization, click **Settings**.
 {% data reusables.webhooks.sidebar_webhooks %}
@@ -98,7 +98,7 @@ You can use the {% data variables.product.company_short %} web interface or the 
 
 ## Creating a {% data variables.product.prodname_marketplace %} webhook
 
-You can create a webhook to subscribe to events relating to an app that you published in {% data variables.product.prodname_marketplace %}. Only the owner of the app, or an app manager for the organization that owns the app, can create a {% data variables.product.prodname_marketplace %} webhook.
+You can create a webhook to subscribe to events relating to an app that you published in {% data variables.product.prodname_marketplace %}. Only the owner of the app, or an app manager for the app, can create a {% data variables.product.prodname_marketplace %} webhook.
 
 1. Navigate to your [{% data variables.product.prodname_marketplace %} listing page](https://github.com/marketplace/manage).
 1. Next to the {% data variables.product.prodname_marketplace %} listing that you want to view webhook deliveries for, click **Manage listing**.
@@ -114,7 +114,7 @@ After you create a new webhook, {% data variables.product.github %} will send yo
 
 You can create a webhook to subscribe to events relating to your sponsorships. Only the owner of the sponsored account can create sponsorship webhooks for that account. For more information about the event that a sponsorship webhook is subscribed to, see the [`sponsorship` webhook event](/webhooks-and-events/webhooks/webhook-events-and-payloads#sponsorship).
 
-1. In the upper-right corner of any page, click your profile photo, then click **Your sponsors**.
+1. In the upper-right corner of any page, click your profile picture, then click **Your sponsors**.
 1. Next to the account you want to create a webhook for, click **Dashboard**.
 1. In the left sidebar, click **Webhooks**.
 {% data reusables.webhooks.add_webhook_button %}
@@ -127,7 +127,7 @@ You can create a webhook to subscribe to events relating to your sponsorships. O
 
 ## Creating webhooks for a {% data variables.product.prodname_github_app %}
 
-The owner of a {% data variables.product.prodname_github_app %} can subscribe the app to webhook events to receive notifications whenever certain events occur. If an organization has designated any app managers for a {% data variables.product.prodname_github_app %} owned by the organization, the app managers can also subscribe the app to webhook events. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps).
+The owner of a {% data variables.product.prodname_github_app %} can subscribe the app to webhook events to receive notifications whenever certain events occur. If the app owner has designated any app managers for a {% data variables.product.prodname_github_app %}, the app managers can also subscribe the app to webhook events. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps).
 
 Each {% data variables.product.prodname_github_app %} has one webhook. You can configure the webhook when you register a {% data variables.product.prodname_github_app %}, or you can edit the webhook configuration for an existing {% data variables.product.prodname_github_app %} registration.
 

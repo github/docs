@@ -1,7 +1,7 @@
 import { diff, ChangeType } from '@graphql-inspector/core'
 import { loadSchema } from '@graphql-tools/load'
 import fs from 'fs'
-import { renderContent } from '#src/content-render/index.js'
+import { renderContent } from '@/content-render/index'
 
 /**
  * Tag `changelogEntry` with `date: YYYY-mm-dd`, then prepend it to the JSON
@@ -50,20 +50,33 @@ export async function createChangelogEntry(
   // Generate changes between the two schemas
   const changes = await diff(oldSchema, newSchema)
   const changesToReport = []
+  const ignoredChanges = []
   changes.forEach((change) => {
     if (CHANGES_TO_REPORT.includes(change.type)) {
       changesToReport.push(change)
-    } else if (CHANGES_TO_IGNORE.includes(change.type)) {
-      // Do nothing
     } else {
-      console.error('Change object causing error:')
-      console.error(change)
-      throw new Error(
-        'This change type should be added to CHANGES_TO_REPORT or CHANGES_TO_IGNORE: ' +
-          change.type,
-      )
+      // Track ignored changes for visibility
+      ignoredChanges.push(change)
     }
   })
+
+  // Log warnings for ignored change types to provide visibility
+  if (ignoredChanges.length > 0) {
+    const ignoredTypes = [...new Set(ignoredChanges.map((change) => change.type))]
+    console.warn(
+      `⚠️  GraphQL changelog: Ignoring ${ignoredChanges.length} changes of ${ignoredTypes.length} type(s):`,
+    )
+    ignoredTypes.forEach((type) => {
+      const count = ignoredChanges.filter((change) => change.type === type).length
+      console.warn(`   - ${type} (${count} change${count > 1 ? 's' : ''})`)
+    })
+    console.warn(
+      '   These change types are not in CHANGES_TO_REPORT and will not appear in the changelog.',
+    )
+  }
+
+  // Store ignored changes for potential workflow outputs
+  createChangelogEntry.lastIgnoredChanges = ignoredChanges
 
   const { schemaChangesToReport, previewChangesToReport } = segmentPreviewChanges(
     changesToReport,
@@ -273,42 +286,39 @@ const CHANGES_TO_REPORT = [
   ChangeType.SchemaQueryTypeChanged,
   ChangeType.SchemaMutationTypeChanged,
   ChangeType.SchemaSubscriptionTypeChanged,
+  ChangeType.DirectiveUsageFieldDefinitionRemoved,
 ]
 
-const CHANGES_TO_IGNORE = [
-  ChangeType.FieldArgumentDescriptionChanged,
-  ChangeType.DirectiveRemoved,
-  ChangeType.DirectiveAdded,
-  ChangeType.DirectiveDescriptionChanged,
-  ChangeType.DirectiveLocationAdded,
-  ChangeType.DirectiveLocationRemoved,
-  ChangeType.DirectiveArgumentAdded,
-  ChangeType.DirectiveArgumentRemoved,
-  ChangeType.DirectiveArgumentDescriptionChanged,
-  ChangeType.DirectiveArgumentDefaultValueChanged,
-  ChangeType.DirectiveArgumentTypeChanged,
-  ChangeType.DirectiveUsageArgumentDefinitionRemoved,
-  ChangeType.EnumValueDescriptionChanged,
-  ChangeType.EnumValueDeprecationReasonChanged,
-  ChangeType.EnumValueDeprecationReasonAdded,
-  ChangeType.EnumValueDeprecationReasonRemoved,
-  ChangeType.FieldDescriptionChanged,
-  ChangeType.FieldDescriptionAdded,
-  ChangeType.FieldDescriptionRemoved,
-  ChangeType.FieldDeprecationAdded,
-  ChangeType.FieldDeprecationRemoved,
-  ChangeType.FieldDeprecationReasonChanged,
-  ChangeType.FieldDeprecationReasonAdded,
-  ChangeType.FieldDeprecationReasonRemoved,
-  ChangeType.InputFieldDescriptionAdded,
-  ChangeType.InputFieldDescriptionRemoved,
-  ChangeType.InputFieldDescriptionChanged,
-  ChangeType.TypeDescriptionChanged,
-  ChangeType.TypeDescriptionRemoved,
-  ChangeType.TypeDescriptionAdded,
-  ChangeType.DirectiveUsageFieldDefinitionAdded,
-  ChangeType.DirectiveUsageArgumentDefinitionAdded,
-  ChangeType.DirectiveUsageEnumValueAdded,
-]
+// CHANGES_TO_IGNORE list removed - now we only process changes explicitly listed
+// in CHANGES_TO_REPORT and silently ignore all others for future compatibility
+
+/**
+ * Get the ignored change types from the last changelog entry creation
+ * @returns {Array} Array of ignored change objects
+ */
+export function getLastIgnoredChanges() {
+  return createChangelogEntry.lastIgnoredChanges || []
+}
+
+/**
+ * Get summary of ignored change types for workflow outputs
+ * @returns {Object} Summary with counts and types
+ */
+export function getIgnoredChangesSummary() {
+  const ignored = getLastIgnoredChanges()
+  if (ignored.length === 0) return null
+
+  const types = [...new Set(ignored.map((change) => change.type))]
+  const summary = {
+    totalCount: ignored.length,
+    typeCount: types.length,
+    types: types.map((type) => ({
+      type,
+      count: ignored.filter((change) => change.type === type).length,
+    })),
+  }
+
+  return summary
+}
 
 export default { createChangelogEntry, cleanPreviewTitle, previewAnchor, prependDatedEntry }

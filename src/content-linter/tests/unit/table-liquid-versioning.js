@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { tableLiquidVersioning } from '../../lib/linting-rules/table-liquid-versioning.js'
+import { runRule } from '../../lib/init-test'
+import { tableLiquidVersioning } from '../../lib/linting-rules/table-liquid-versioning'
 
 const FIXTURE_FILEPATH = 'src/content-linter/tests/fixtures/tables.md'
 

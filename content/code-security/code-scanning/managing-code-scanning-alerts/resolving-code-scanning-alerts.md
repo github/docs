@@ -26,9 +26,9 @@ topics:
 
 {% ifversion copilot-chat-ghas-alerts %}
 
-## Asking {% data variables.product.prodname_copilot_chat %} about {% data variables.product.prodname_code_scanning %} alerts
+## Asking {% data variables.copilot.copilot_chat %} about {% data variables.product.prodname_code_scanning %} alerts
 
-With a {% data variables.product.prodname_copilot_enterprise %} license, you can ask {% data variables.product.prodname_copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_code_scanning %} alerts, in repositories in your organization. For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
+With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_code_scanning %} alerts, in repositories in your organization. For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
 
 {% endif %}
 
@@ -36,7 +36,7 @@ With a {% data variables.product.prodname_copilot_enterprise %} license, you can
 
 ## Generating suggested fixes for {% data variables.product.prodname_code_scanning %} alerts
 
-{% data variables.product.prodname_copilot_autofix %} can generate fixes for alerts identified by {% data variables.product.prodname_code_scanning %} analysis. Most {% data variables.product.prodname_codeql %} alert types are supported and also some alerts from third-party tools. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
+{% data variables.copilot.copilot_autofix %} can generate fixes for alerts identified by {% data variables.product.prodname_code_scanning %} analysis. Most {% data variables.product.prodname_codeql %} alert types are supported and also some alerts from third-party tools. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
 
 {% data reusables.rai.code-scanning.copilot-autofix-note %}
 
@@ -44,7 +44,7 @@ With a {% data variables.product.prodname_copilot_enterprise %} license, you can
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 1. Click the name of an alert.
-1. If {% data variables.product.prodname_copilot_autofix_short %} can suggest a fix, at the top of the page, click **{% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} Generate fix**.
+1. If {% data variables.copilot.copilot_autofix_short %} can suggest a fix, at the top of the page, click **{% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} Generate fix**.
 1. Once the suggested fix has been generated, at the bottom of the page, you can click **Create PR with fix** to automatically generate a pull request with the suggested fix.
 A new branch is created from the default branch, the generated fix is committed and a draft pull request is created. You can test and edit the suggested fix as you would with any other fix.
 
@@ -64,9 +64,9 @@ Anyone with write permission for a repository can fix an alert by committing a c
 
 You can use the free text search or the filters to display a subset of alerts and then in turn mark all matching alerts as closed.
 
-Alerts may be fixed in one branch but not in another. You can use the "Branch" filter, on the summary of alerts, to check whether an alert is fixed in a particular branch.
+Alerts may be fixed in one branch but not in another. You can use the "branch" filter, on the summary of alerts, to check whether an alert is fixed in a particular branch.
 
-![Screenshot of alerts view with the "Branch" dropdown menu expanded. The "Branch" button is outlined in dark orange.](/assets/images/help/repository/code-scanning-branch-filter.png)
+![Screenshot of alerts view with the branch options expanded. The "branch" filter is underlined with dark orange.](/assets/images/help/repository/code-scanning-branch-filter.png)
 
 {% data reusables.code-scanning.filter-non-default-branches %}
 
@@ -136,6 +136,3 @@ You may have multiple code scanning configurations on a single repository. When 
 * [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)
 * [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)
 * [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning)
-{%- ifversion copilot-hadron %}
-* [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request)
-{%- endif %}

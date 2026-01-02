@@ -33,7 +33,7 @@ export function formatAjvErrors(errors = []) {
     // The two most common errors are required and additionalProperties.
     // This catches any other with a generic detail that uses the AJV wording.
     error.detail = `Frontmatter ${errorObj.message}.`
-    error.context = Object.values(errorObj.params.join(''))
+    error.context = Object.values(errorObj.params).join('')
     error.errorProperty = error.context
     error.searchProperty = error.errorProperty
     return error

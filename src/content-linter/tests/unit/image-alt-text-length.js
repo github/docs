@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { incorrectAltTextLength } from '../../lib/linting-rules/image-alt-text-length.js'
+import { runRule } from '../../lib/init-test'
+import { incorrectAltTextLength } from '../../lib/linting-rules/image-alt-text-length'
 
 describe(incorrectAltTextLength.names.join(' - '), () => {
   test('image with incorrect alt text length fails', async () => {

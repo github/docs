@@ -13,9 +13,9 @@
 
 import { expect, test, vi } from 'vitest'
 
-import { describeIfElasticsearchURL } from '@/tests/helpers/conditional-runs.js'
-import { get, getDOM } from '@/tests/helpers/e2etest-ts'
-import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key.js'
+import { describeIfElasticsearchURL } from '@/tests/helpers/conditional-runs'
+import { get, getDOM } from '@/tests/helpers/e2etest'
+import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 
 if (!process.env.ELASTICSEARCH_URL) {
   console.warn(

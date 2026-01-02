@@ -44,7 +44,7 @@ You can use the {% data variables.product.company_short %} web interface or the 
 
 ## Redelivering {% data variables.product.prodname_github_app %} webhooks
 
-The owner of a {% data variables.product.prodname_github_app %} can redeliver webhooks for the app. If an organization has designated any app managers for a {% data variables.product.prodname_github_app %} owned by the organization, the app managers can also redeliver webhooks.
+The owner of a {% data variables.product.prodname_github_app %} can redeliver webhooks for the app. If the app owner has designated any app managers for a {% data variables.product.prodname_github_app %}, the app managers can also redeliver webhooks.
 
 You can use the {% data variables.product.company_short %} web interface or the REST API to redeliver webhooks for a {% data variables.product.prodname_github_app %}. For more information about using the REST API redeliver, see [AUTOTITLE](/rest/apps/webhooks).
 
@@ -59,7 +59,7 @@ You can use the {% data variables.product.company_short %} web interface or the 
 
 ## Redelivering {% data variables.product.prodname_marketplace %} webhooks
 
-The owner of a {% data variables.product.prodname_github_app %} can redeliver {% data variables.product.prodname_marketplace %} webhooks for that app. If an organization has designated any app managers for a {% data variables.product.prodname_github_app %} owned by the organization, the app managers can also redeliver webhooks.
+The owner of a {% data variables.product.prodname_github_app %} can redeliver {% data variables.product.prodname_marketplace %} webhooks for that app. If the app owner has designated any app managers for a {% data variables.product.prodname_github_app %}, the app managers can also redeliver webhooks.
 
 1. Navigate to your [{% data variables.product.prodname_marketplace %} listing page](https://github.com/marketplace/manage).
 1. Next to the {% data variables.product.prodname_marketplace %} listing for which you want to redeliver webhooks, click **Manage listing**.
@@ -75,7 +75,7 @@ The owner of a {% data variables.product.prodname_github_app %} can redeliver {%
 
 Only the owner of the sponsored account can redeliver sponsorship webhooks for that account.
 
-1. In the upper-right corner of any page, click your profile photo, then click **Your sponsors**.
+1. In the upper-right corner of any page, click your profile picture, then click **Your sponsors**.
 1. Next to the account for which you want to redeliver webhooks, click **Dashboard**.
 1. In the sidebar, click **Webhooks**.
 {% data reusables.webhooks.webhook_url_list_redeliver %}

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import { MarkGithubIcon, CommentDiscussionIcon } from '@primer/octicons-react'
-import { Lead } from 'src/frame/components/ui/Lead'
+import { Lead } from '@/frame/components/ui/Lead'
 
 export function GenericError() {
   return (

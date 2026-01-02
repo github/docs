@@ -1,13 +1,10 @@
 import got from 'got'
 import type { Response, NextFunction } from 'express'
 
-import patterns from '@/frame/lib/patterns.js'
+import patterns from '@/frame/lib/patterns'
 import { isArchivedVersion } from '@/archives/lib/is-archived-version'
-import {
-  setFastlySurrogateKey,
-  SURROGATE_ENUMS,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
-import { archivedCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control.js'
+import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import { archivedCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control'
 import type { ExtendedRequest } from '@/types'
 
 // This module handles requests for the CSS and JS assets for
@@ -51,6 +48,22 @@ export default async function archivedEnterpriseVersionsAssets(
   // asset came from a page
   const { isArchived, requestedVersion } = isArchivedVersion(req)
   if (!isArchived || !requestedVersion) return next()
+
+  // If this looks like a Next.js chunk or build manifest request from an archived page,
+  // just return 204 No Content instead of trying to proxy it.
+  // This suppresses noise from hydration requests that don't affect
+  // content viewing since archived pages render fine server-side.
+  // Only target specific problematic asset types, not all _next/static assets.
+  if (
+    (req.path.includes('/_next/static/chunks/') ||
+      req.path.includes('/_buildManifest.js') ||
+      req.path.includes('/_ssgManifest.js')) &&
+    (req.get('referrer') || '').match(/enterprise(-server@|\/)[\d.]+/)
+  ) {
+    archivedCacheControl(res)
+    setFastlySurrogateKey(res, SURROGATE_ENUMS.MANUAL)
+    return res.sendStatus(204) // No Content - silently ignore
+  }
 
   // In all of the `docs-ghes-<relase number` repos, the asset directories
   // are at the root. This removes the version and release number from the

@@ -1,7 +1,7 @@
 import cheerio from 'cheerio'
 import { describe, expect, test } from 'vitest'
 
-import { renderContent } from '#src/content-render/index.js'
+import { renderContent } from '@/content-render/index'
 import { EOL } from 'os'
 
 // Use platform-specific line endings for realistic tests when templates have
@@ -242,5 +242,19 @@ var a = 1
     const el = $('button.js-btn-copy')
     expect(el.data('clipboard')).toBe(2967273189)
     // Generates a murmurhash based ID that matches a <pre>
+  })
+
+  test('renders alerts with data-container attribute for analytics', async () => {
+    const template = nl(`
+> [!NOTE]
+> This is a note with a [link](https://example.com)
+    `)
+    const html = await renderContent(template, { alertTitles: { NOTE: 'Note' } })
+    const $ = cheerio.load(html)
+    const alertEl = $('.ghd-alert')
+    expect(alertEl.length).toBe(1)
+    expect(alertEl.attr('data-container')).toBe('alert')
+    expect(alertEl.hasClass('ghd-alert-accent')).toBe(true)
+    expect(alertEl.find('a[href="https://example.com"]').length).toBe(1)
   })
 })

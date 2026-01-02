@@ -1,0 +1,7 @@
+There are limits to what {% data variables.product.prodname_importer_proper_name %} can migrate. Some are due to limitations of {% data variables.product.prodname_dotcom %}, while others are limitations of {% data variables.product.prodname_importer_proper_name %} itself.
+
+### Limitations of {% data variables.product.prodname_dotcom %}
+
+* **2 GB size limit for a single Git commit:** No single commit in your Git repository can be larger than 2 GB. If any of your commits are larger than 2 GB, you will need to split the commit into smaller commits that are each 2 GB or smaller.
+* **255 byte limit for Git references:** No single [Git reference](https://git-scm.com/book/en/v2/Git-Internals-Git-References), commonly known as a "ref", can have a name larger than 255 bytes. Usually, this means that your references cannot be more than 255 characters long, but any non-[ASCII](https://en.wikipedia.org/wiki/ASCII) characters, such as emojis, may consume more than one byte. If any of your Git references are too large, we'll return a clear error message.
+* **100 MB file size limit:** After you complete your migration, no single file in your Git repository can be larger than 100 MB. During repository migration this limit is increased to 400 MB. Consider using {% data variables.large_files.product_name_short %} to store large files. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files).

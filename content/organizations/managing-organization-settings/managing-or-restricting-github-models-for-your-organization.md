@@ -24,4 +24,6 @@ allowTitleToDifferFromFilename: true
 
 ## Enabling or restricting models in your organization
 
+{% data reusables.models.enable-select-models-intro %}
+
 {% data reusables.models.enable-select-models-in-org %}

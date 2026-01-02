@@ -1,6 +1,6 @@
-import { renderLiquid } from './liquid/index.js'
-import { renderMarkdown, renderUnified } from './unified/index.js'
-import { engine } from './liquid/engine.js'
+import { renderLiquid } from './liquid/index'
+import { renderMarkdown, renderUnified } from './unified/index'
+import { engine } from './liquid/engine'
 
 const globalCache = new Map()
 

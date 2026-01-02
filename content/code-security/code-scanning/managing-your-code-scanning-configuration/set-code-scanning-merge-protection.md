@@ -5,7 +5,9 @@ intro: 'You can use rulesets to set {% data variables.product.prodname_code_scan
 permissions: '{% data reusables.permissions.security-org-enable %}'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  feature: code-scanning-merge-protection-rulesets
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Code scanning

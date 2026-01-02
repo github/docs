@@ -52,6 +52,10 @@ Use the Comparisons view to evaluate the outputs of multiple prompt configuratio
 
 Use the Playground to quickly explore models and test prompt ideas in real time. The Playground is ideal for early experimentation, helping you understand a model’s behavior, capabilities, and response style. You can interactively select models, adjust parameters, and compare responses side by side.
 
+## Billing
+
+For more information about billing for {% data variables.product.prodname_github_models %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/about-billing-for-github-models).
+
 ## Join the community
 
 To ask questions and share feedback, see this [GitHub Models discussion post](https://github.com/orgs/community/discussions/159087).  
@@ -62,3 +66,4 @@ To learn how others are using {% data variables.product.prodname_github_models %
 * [AUTOTITLE](/github-models/use-github-models/prototyping-with-ai-models)
 * [AUTOTITLE](/github-models/use-github-models/optimizing-your-ai-powered-app-with-github-models)
 * [AUTOTITLE](/github-models/use-github-models/evaluating-ai-models)
+* [AUTOTITLE](/billing/managing-billing-for-your-products/about-billing-for-github-models)

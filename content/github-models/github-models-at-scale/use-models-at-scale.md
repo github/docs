@@ -20,12 +20,13 @@ allowTitleToDifferFromFilename: true
 
 * **Centralized model management:** Control which AI models and providers are available to developers across your organization.
 * **AI development at speed:** Quickly prototype, evaluate, and optimize prompts and models.
+* **API access:** Use the {% data variables.product.prodname_github_models %} REST API to automate and integrate with enterprise workflows.
+* **Custom model integration:** Bring your own LLM API keys to connect external or custom models, giving your organization greater flexibility and control over which models are available in {% data variables.product.prodname_github_models %}, whilst keeping aligned with your existing payment methods, credits, and providers.
 * **Governance and compliance controls:** Enforce your organization's standards and monitor model usage.
 * **Cost optimization:** Avoid unexpected costs from high-priced models.
 * **Collaboration:** Share prompts and results using standard {% data variables.product.github %} development practices.
 * **Security-focused architecture:** Rest assured that your data remains within {% data variables.product.github %} and Azure and is not shared with model providers.
 * **Visual interface:** Allow non-technical team members to contribute alongside developers.
-* **API access:** Use the {% data variables.product.prodname_github_models %} REST API to automate and integrate with enterprise workflows.
 * **Version control:** All prompt and model changes go through a standard {% data variables.product.github %} commit and pull request flow so you know when and why a prompt changed.
 
 See [AUTOTITLE](/github-models/about-github-models).
@@ -65,7 +66,7 @@ To more efficiently manage resources across all teams, you can leverage the {% d
 
 You can also use these extensions to run inference requests and manage prompts:
 * {% data variables.product.prodname_github_models %} extension for {% data variables.product.prodname_cli %}
-* {% data variables.product.prodname_github_models %} extension for {% data variables.product.prodname_copilot_chat %}
+* {% data variables.product.prodname_github_models %} extension for {% data variables.copilot.copilot_chat %}
 * {% data variables.product.prodname_github_models %} VS Code extension
 
 ### Monitor, iterate, and integrate

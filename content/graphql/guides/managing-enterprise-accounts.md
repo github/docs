@@ -80,6 +80,7 @@ The next steps will use Insomnia.
 1. Add the base url and `POST` method to your GraphQL client. When using GraphQL to request information (queries), change information (mutations), or transfer data using the GitHub API, the default HTTP method is `POST` and the base url follows this syntax:
     * For your enterprise instance: `https://<HOST>/api/graphql`
     * For GitHub Enterprise Cloud: `https://api.github.com/graphql`
+    * For GitHub Enterprise Cloud with Data Residency: `https://api.SUBDOMAIN.ghe.com/graphql`
 
 1. Select the "Auth" menu and click **Bearer Token**. If you've previously selected a different authentication method, the menu will be labeled with that method, such as "Basic Auth", instead.
    ![Screenshot of the expanded "Auth" menu in Insomnia. The menu label, "Auth", and the "Bearer Token" option are outlined in dark orange.](/assets/images/developer/graphql/insomnia-bearer-token-option.png)

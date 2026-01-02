@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'vitest'
 
-import { loadPages, loadPageMap } from '#src/frame/lib/page-data.js'
-import loadRedirects from '#src/redirects/lib/precompile.js'
-import { checkURL } from '#src/tests/helpers/check-url.js'
+import { loadPages, loadPageMap } from '@/frame/lib/page-data'
+import loadRedirects from '@/redirects/lib/precompile'
+import { checkURL } from '@/tests/helpers/check-url'
 
 const pageList = await loadPages(undefined, ['en'])
 const pages = await loadPageMap(pageList)

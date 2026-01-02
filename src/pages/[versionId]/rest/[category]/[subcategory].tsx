@@ -1,1 +1,1 @@
-export { default, getServerSideProps } from 'src/rest/pages/subcategory'
+export { default, getServerSideProps } from '@/rest/pages/subcategory'

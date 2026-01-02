@@ -1,4 +1,4 @@
-import { GeneralSearchResponse, SearchValidationErrorEntry } from 'src/search/types'
+import { GeneralSearchResponse, SearchValidationErrorEntry } from '@/search/types'
 
 export interface SearchContextT {
   search: {

@@ -1,9 +1,9 @@
 import { useRef } from 'react'
 import dayjs from 'dayjs'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { useTranslation } from '@/languages/components/useTranslation'
 import { PatchNotes } from './PatchNotes'
-import { Link } from 'src/frame/components/Link'
+import { Link } from '@/frame/components/Link'
 import { CurrentVersion, ReleaseNotePatch, GHESMessage } from './types'
 
 type Props = {

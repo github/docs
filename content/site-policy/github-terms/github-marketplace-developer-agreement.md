@@ -13,7 +13,7 @@ topics:
 
 **These terms and conditions (the "Agreement") govern your participation in GitHub’s Marketplace. By enrolling to participate in the Marketplace or by clicking “I Accept” below, you are confirming that you understand this agreement, and that you accept all of its terms and conditions. If you are entering into this Agreement on behalf of a company or other legal entity, you represent that you have the legal authority to bind the entity to this agreement, in which case “You” will mean the entity you represent.**
 
-Effective Date: May 17, 2024
+Effective Date: May 27, 2025
 
 ## 1.	DEFINITIONS
 
@@ -65,16 +65,16 @@ Notwithstanding any of the requirements set forth in Section 2 (Purpose and Lice
 
 **3.3**	Developer will not engage in any activity with Marketplace, including attempting to distribute any Developer Product, that violates GitHub's Terms of Service including [Acceptable Use Policies](https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies). Additionally, Developer will not attempt to distribute any Developer Product that:
 
-* 1\. Contains or installs any active malware or exploits, or uses our platform for exploit delivery (such as part of a command and control system);
-* 2\. Enables the unauthorized download of streaming content or media; or
-* 3\. Diverts End Users or provides links to any other site that mimics Marketplace or passes itself off as Marketplace
+* (i) Contains or installs any active malware or exploits, or uses our platform for exploit delivery (such as part of a command and control system);
+* (ii) Enables the unauthorized download of streaming content or media; or
+* (iii) Diverts End Users or provides links to any other site that mimics Marketplace or passes itself off as Marketplace
 
 **3.4** With respect to Developer Products that interact with generative AI technology, including GitHub Copilot Extensions, Developer will:
 
-* 1\. Test the Developer Product using various inputs to ensure that outputs do not violate this Agreement;
-* 2\. Notify users when they are interacting with generative AI content;
-* 3\. Have a mechanism for End Users to report feedback to GitHub and Developer related to errors, bugs, improper, or undesired outputs; and
-* 4\. Inform End Users the appropriate use cases, best practices, and limitations of the Developer Product.
+* (i) Test the Developer Product using various inputs to ensure that outputs do not violate this Agreement;
+* (ii) Notify users when they are interacting with generative AI content;
+* (iii) Have a mechanism for End Users to report feedback to GitHub and Developer related to errors, bugs, improper, or undesired outputs; and
+* (iv) Inform End Users the appropriate use cases, best practices, and limitations of the Developer Product.
   
 **3.5**	Developer shall not by any means repackage or resell Marketplace, a GitHub API, Personal Data, or Usage Data. Developer is not permitted to use a GitHub API or any Personal Data or Usage Data in any manner that does or could undermine the security of the Service, a GitHub API, Usage Data or any other data or information stored or transmitted using Marketplace. In addition, Developer shall not (a) interfere with, modify or disable any features, functionality or security controls of Marketplace or a GitHub API; (b) circumvent in any fashion any protection mechanisms for Marketplace or a GitHub API; or (c) reverse engineer, decompile, disassemble or derive the source code, underlying ideas, algorithms, structure or organizational form from Marketplace or a GitHub API.
 
@@ -98,10 +98,10 @@ Notwithstanding any of the requirements set forth in Section 2 (Purpose and Lice
 
 If GitHub is notified by you or otherwise becomes aware and determines, in its sole discretion, that a Listing or any portion thereof or your Brand Features:
 
-* (a) violates the terms of this Agreement or the ToS;
-* (b) the display of the Listing is impacting the integrity of GitHub servers (i.e., users are unable to access such content or otherwise experience difficulty);
-* (c) is deemed by GitHub to add undue risk to Marketplace End Users’ data or impair the user experience of Marketplace or GitHub; or
-* (d) is subject to End User complaints in regards to your breach of your EULA,
+* (i) violates the terms of this Agreement or the ToS;
+* (ii) the display of the Listing is impacting the integrity of GitHub servers (i.e., users are unable to access such content or otherwise experience difficulty);
+* (iii) is deemed by GitHub to add undue risk to Marketplace End Users’ data or impair the user experience of Marketplace or GitHub; or
+* (iv) is subject to End User complaints in regards to your breach of your EULA,
 
 GitHub may: suspend the transfer of Personal Data to your Developer Product; prohibit the collection and processing of Personal Data via your Developer Product; remove the Listing from Marketplace; flag, filter, or modify related materials (including but not limited to descriptions, screenshots, or metadata); or reclassify the Listing at its sole discretion. If GitHub takes any of these actions on your Listing, you may appeal GitHub's action through the [GitHub Appeal and Reinstatement Process](https://docs.github.com/en/site-policy/acceptable-use-policies/github-appeal-and-reinstatement)
 
@@ -130,10 +130,11 @@ Developer shall maintain and handle all Personal Data in accordance with privacy
 
 **6.1**	GitHub will be the merchant of record for Developer Products purchased by End Users via Marketplace.
 
-**6.2**	 Registration. Developer will be required to provide information about yourself (such as identification or contact details) as part of the registration process for Marketplace, or as part of your continued use of Marketplace including, but not limited to: (i) name, (ii) address, (iii) telephone number, (iv) e-mail address, and (v) payment account details. GitHub may publicize Developer’s information on Marketplace and retain Developer’s registration information as required by applicable law.
-**6.3** Pricing. Prices for Listings of Developer Applications will be set in US Dollars (USD). Developer has complete control over setting pricing for each Listing. The prices you set for Developer Products will determine the amount of payment you will receive. GitHub will remit 95% of the sale price in USD without reduction for Taxes except for any withholding taxes that are required under applicable law. The remaining 5% of the sales price will be allotted to and retained by GitHub. At the end of each month and upon reaching a minimum value of $500 USD, GitHub will remit your share of payments.
+**6.2**	 Registration. Developer will be required to provide information about yourself (such as identification or contact details) as part of the registration and onboarding process for Marketplace, or as part of your continued use of Marketplace including, but not limited to: (i) name, (ii) address, (iii) telephone number, (iv) e-mail address, and (v) payment account details. GitHub may publicize Developer’s information on Marketplace and retain Developer’s registration information as required by applicable law.
 
-**6.3**	Refunds. You will be responsible for specifying the terms and conditions regarding refunds to your End Users. In no event shall GitHub be responsible for providing any support for refunds, nor shall GitHub be liable for payment of any refund.
+**6.3** Pricing. Prices for Listings of Developer Applications will be set in US Dollars (USD). Developer has complete control over setting pricing for each Listing. The prices you set for Developer Products will determine the amount of payment you will receive. GitHub will remit 95% of the sale price in USD without reduction for Taxes except for any withholding taxes that are required under applicable law. The remaining 5% of the sales price will be allotted to and retained by GitHub. GitHub will remit your share of first payment within 90 days of completed Registration. Following the first remittance, GitHub will remit your share of payments at the end of the month.
+
+**6.4**	Refunds. You will be responsible for specifying the terms and conditions regarding refunds to your End Users. In no event shall GitHub be responsible for providing any support for refunds, nor shall GitHub be liable for payment of any refund.
 
 ## 7.	OWNERSHIP
 
@@ -179,7 +180,7 @@ The parties are independent contractors. This Agreement does not create a partne
 
 ## 15. NOTICE
 
-Notices to GitHub may be submitted via email to legal@support.github.com. If Customer wishes to formally service notice on GitHub, it must be made through GitHub’s registered agent: GitHub, Inc. c/o Corporation Service Company 2710 Gateway Oaks Drive, Suite 150N Sacramento, CA 95833-3505. Notices must be in writing and will be treated as delivered on the date received at the address, date shown on the return receipt, email transmission date, or date on the courier confirmation of delivery. All notices to be provided by GitHub to Developer under this Agreement may be delivered in writing (i) by nationally recognized overnight delivery service (“Courier”) or U.S. mail to the contact mailing address provided by Developer to GitHub; or (ii) electronic mail to the electronic mail address provided by Developer.
+Notices to GitHub may be submitted via email to legal-support@github.com. If Customer wishes to formally service notice on GitHub, it must be made through GitHub’s registered agent: GitHub, Inc. c/o Corporation Service Company 2710 Gateway Oaks Drive, Suite 150N Sacramento, CA 95833-3505. Notices must be in writing and will be treated as delivered on the date received at the address, date shown on the return receipt, email transmission date, or date on the courier confirmation of delivery. All notices to be provided by GitHub to Developer under this Agreement may be delivered in writing (i) by nationally recognized overnight delivery service (“Courier”) or U.S. mail to the contact mailing address provided by Developer to GitHub; or (ii) electronic mail to the electronic mail address provided by Developer.
 
 ## 16. GOVERNING LAW
 

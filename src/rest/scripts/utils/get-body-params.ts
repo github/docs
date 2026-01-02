@@ -74,6 +74,19 @@ async function getTopLevelOneOfProperty(
 }
 
 // Gets the body parameters for a given schema recursively.
+// Helper function to handle oneOf fields where all items are objects
+async function handleObjectOnlyOneOf(
+  param: Schema,
+  paramType: string[],
+): Promise<TransformedParam[]> {
+  if (param.oneOf && param.oneOf.every((object: TransformedParam) => object.type === 'object')) {
+    paramType.push('object')
+    param.oneOfObject = true
+    return await getOneOfChildParams(param)
+  }
+  return []
+}
+
 export async function getBodyParams(schema: Schema, topLevel = false): Promise<TransformedParam[]> {
   const bodyParametersParsed: TransformedParam[] = []
   const schemaObject = schema.oneOf && topLevel ? await getTopLevelOneOfProperty(schema) : schema
@@ -161,38 +174,45 @@ export async function getBodyParams(schema: Schema, topLevel = false): Promise<T
       }
     } else if (paramType.includes('object')) {
       if (param.oneOf) {
-        if (param.oneOf.every((object: TransformedParam) => object.type === 'object')) {
-          param.oneOfObject = true
-          childParamsGroups.push(...(await getOneOfChildParams(param)))
+        const oneOfChildren = await handleObjectOnlyOneOf(param, paramType)
+        if (oneOfChildren.length > 0) {
+          childParamsGroups.push(...oneOfChildren)
         }
       } else {
         childParamsGroups.push(...(await getBodyParams(param, false)))
       }
     } else if (param.oneOf) {
-      const descriptions: { type: string; description: string }[] = []
-      for (const childParam of param.oneOf) {
-        paramType.push(childParam.type)
-        if (!param.description) {
-          if (childParam.type === 'array') {
-            if (childParam.items.description) {
-              descriptions.push({
-                type: childParam.type,
-                description: childParam.items.description,
-              })
+      // Check if all oneOf items are objects - if so, treat this as a oneOfObject case
+      const oneOfChildren = await handleObjectOnlyOneOf(param, paramType)
+      if (oneOfChildren.length > 0) {
+        childParamsGroups.push(...oneOfChildren)
+      } else {
+        // Handle mixed types or non-object oneOf cases
+        const descriptions: { type: string; description: string }[] = []
+        for (const childParam of param.oneOf) {
+          paramType.push(childParam.type)
+          if (!param.description) {
+            if (childParam.type === 'array') {
+              if (childParam.items.description) {
+                descriptions.push({
+                  type: childParam.type,
+                  description: childParam.items.description,
+                })
+              }
+            } else {
+              if (childParam.description) {
+                descriptions.push({ type: childParam.type, description: childParam.description })
+              }
             }
           } else {
-            if (childParam.description) {
-              descriptions.push({ type: childParam.type, description: childParam.description })
-            }
+            descriptions.push({ type: param.type, description: param.description })
           }
-        } else {
-          descriptions.push({ type: param.type, description: param.description })
         }
+        // Occasionally, there is no parent description and the description
+        // is in the first child parameter.
+        const oneOfDescriptions = descriptions.length ? descriptions[0].description : ''
+        if (!param.description) param.description = oneOfDescriptions
       }
-      // Occasionally, there is no parent description and the description
-      // is in the first child parameter.
-      const oneOfDescriptions = descriptions.length ? descriptions[0].description : ''
-      if (!param.description) param.description = oneOfDescriptions
 
       // This is a workaround for an operation that incorrectly defines anyOf
       // for a body parameter. We use the first object in the list of the anyOf array.

@@ -2,11 +2,11 @@ import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
 
-import { renderLiquid } from '#src/content-render/liquid/index.js'
-import shortVersionsMiddleware from '#src/versions/middleware/short-versions.js'
+import { renderLiquid } from '@/content-render/liquid/index'
+import shortVersionsMiddleware from '@/versions/middleware/short-versions'
 
-const { loadPages } = await import('#src/frame/lib/page-data.js')
-const { allVersions } = await import('#src/versions/lib/all-versions.js')
+const { loadPages } = await import('@/frame/lib/page-data.js')
+const { allVersions } = await import('@/versions/lib/all-versions.js')
 
 const contentCopilotDir = path.join(process.cwd(), 'content-copilot')
 

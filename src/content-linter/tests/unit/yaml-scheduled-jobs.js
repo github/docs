@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { yamlScheduledJobs } from '../../lib/linting-rules/yaml-scheduled-jobs.js'
+import { runRule } from '../../lib/init-test'
+import { yamlScheduledJobs } from '../../lib/linting-rules/yaml-scheduled-jobs'
 
 describe(yamlScheduledJobs.names.join(' - '), () => {
   test('yaml scheduled jobs in markdown do not start on the hour', async () => {

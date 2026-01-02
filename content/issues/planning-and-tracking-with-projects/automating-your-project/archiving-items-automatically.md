@@ -38,7 +38,7 @@ Additionally, items are also marked as updated when field values in your project
 
 When you enable automatic archiving for issues or pull requests, items in your project that already meet your criteria will also be archived. There may be some delay in archiving large numbers of items that already meet the criteria.
 
-{% ifversion projects-single-limit %}Your project can contain up to {% data variables.projects.item_limit %} items across both active views and the archive page. Once that limit has been reached, you will need to delete items from your project to free up more space.{% else %} Projects also have a limit on the number of archived items they can contain. Your project can contain up to {% data variables.projects.archived_item_limit %} archived items.{% endif %} For more information on permanently deleting items, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project#deleting-items).
+{% ifversion projects-single-limit %}Your project can contain up to {% data variables.projects.item_limit %} items across both active views and the archive page. Once that limit has been reached, you will need to delete items from your project to free up more space.{% else %} Projects also have a limit on the number of archived items they can contain. Your project can contain up to {% data variables.projects.legacy_archived_item_limit %} archived items.{% endif %} For more information on permanently deleting items, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project#deleting-items).
 
 ## Configuring automatic archiving in your project
 

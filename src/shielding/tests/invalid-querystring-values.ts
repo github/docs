@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import { get } from '@/tests/helpers/e2etest.js'
+import { get } from '@/tests/helpers/e2etest'
 
 describe('invalid query string values', () => {
   test.each(['platform', 'tool'])('%a key', async (key) => {

@@ -1,0 +1,56 @@
+date: '2025-07-15'
+intro: |
+  {% warning %}
+
+  **Warning**: We have received a few reports of performance issues with GitHub Enterprise Server versions 3.15, 3.16, and 3.17. Out of an abundance of caution, we recommend holding off on upgrading to these versions until further notice. [Updated: 2025-08-01]
+
+  {% endwarning %}
+sections:
+  security_fixes:
+    - |
+      **HIGH**: An incorrect authorization vulnerability allowed unauthorized read access to the contents of internal repositories for contractor accounts when the Contractors API feature was enabled. The Contractors API is a rarely-enabled feature in private preview. Following this fix, contractor account access to internal repositories via the API will be correctly blocked unless they have an alternate grant. GitHub has requested CVE ID [CVE-2025-6981](https://www.cve.org/cverecord?id=CVE-2025-6981) for this vulnerability.
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - |
+      Applying a new GitHub Enterprise Server license using the Management Console would sometimes fail with a HTTP 500 error.
+    - |
+      During Git push operations in a HA configuration, it was possible under rare circumstances for the primary voting replica of a repository to become incorrectly marked as out of sync with the other replicas and in need of repair, causing the repository to become unavailable.
+  changes:
+    - |
+      Site administrators can now set `innodb_buffer_pool_size` in megabytes for MySQL using `ghe-config mysql.innodb-buffer-pool-size VALUE`.
+    - |
+      Site administrators running migrations on GitHub Enterprise Server benefit from optimized performance for code scanning, as garbage collection-related `ts_analyses` migrations are combined into a single step. This reduces migration time and minimizes operational disruption during upgrades.
+  known_issues:
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
+    - |
+      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
+    - |
+      In the header bar displayed to site administrators, some icons are not available.
+    - |
+      When enabling automatic update checks for the first time in the Management Console, the status is not dynamically reflected until the "Updates" page is reloaded.
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      Admins setting up cluster high availability (HA) may encounter a spokes error when running `ghe-cluster-repl-status` if a new organization and repositories are created before using the `ghe-cluster-repl-bootstrap` command. To avoid this issue, complete the cluster HA setup with `ghe-cluster-repl-bootstrap` before creating new organizations and repositories.
+    - |
+      After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.

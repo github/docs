@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { frontmatterSchema } from '../../lib/linting-rules/frontmatter-schema.js'
+import { runRule } from '../../lib/init-test'
+import { frontmatterSchema } from '../../lib/linting-rules/frontmatter-schema'
 
 // Configure the test figure to not split frontmatter and content
 const fmOptions = { markdownlintOptions: { frontMatter: null } }
@@ -47,5 +47,53 @@ describe(frontmatterSchema.names.join(' - '), () => {
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(1)
     expect(errors[0].errorRange).toEqual(null)
+  })
+
+  test('sidebarLink with valid object properties passes', async () => {
+    const markdown = [
+      '---',
+      'title: Title',
+      'versions:',
+      "  fpt: '*'",
+      'sidebarLink:',
+      '  text: "All prompts"',
+      '  href: "/copilot/copilot-chat-cookbook"',
+      '---',
+    ].join('\n')
+    const result = await runRule(frontmatterSchema, { strings: { markdown }, ...fmOptions })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
+
+  test('sidebarLink with missing text property fails', async () => {
+    const markdown = [
+      '---',
+      'title: Title',
+      'versions:',
+      "  fpt: '*'",
+      'sidebarLink:',
+      '  href: "/copilot/copilot-chat-cookbook"',
+      '---',
+    ].join('\n')
+    const result = await runRule(frontmatterSchema, { strings: { markdown }, ...fmOptions })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].lineNumber).toBe(5)
+  })
+
+  test('sidebarLink with missing href property fails', async () => {
+    const markdown = [
+      '---',
+      'title: Title',
+      'versions:',
+      "  fpt: '*'",
+      'sidebarLink:',
+      '  text: "All prompts"',
+      '---',
+    ].join('\n')
+    const result = await runRule(frontmatterSchema, { strings: { markdown }, ...fmOptions })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].lineNumber).toBe(5)
   })
 })

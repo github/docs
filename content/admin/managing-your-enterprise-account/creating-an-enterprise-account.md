@@ -38,7 +38,7 @@ You'll **need help** creating an enterprise account if you require:
 * {% data variables.product.prodname_ghe_server %}
 * {% data variables.enterprise.data_residency %}
 * Invoicing
-* A dedicated enterprise for managing {% data variables.product.prodname_copilot_for_business %} licenses without adopting {% data variables.product.prodname_enterprise %}
+* A dedicated enterprise for managing {% data variables.copilot.copilot_for_business %} licenses without adopting {% data variables.product.prodname_enterprise %}
 
 In these cases, contact {% data variables.contact.contact_enterprise_sales %}.
 

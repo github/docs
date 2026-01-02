@@ -78,10 +78,11 @@ Enterprise owners do not have access to organization settings or content by defa
 
 ## Billing managers
 
-Billing managers only have access to your enterprise's billing settings. They can:
-* View and manage user licenses, usage-based billing, and other billing settings
-* View a list of billing managers
-* Add or remove other billing managers
+Billing managers only have access to your enterprise's billing settings. They can view and manage:
+
+* User licenses
+* Usage-based billing
+* Other billing settings
 
 Billing managers do not have access to organization settings or content by default except for internal repositories within an enterprise in which they are a member.
 

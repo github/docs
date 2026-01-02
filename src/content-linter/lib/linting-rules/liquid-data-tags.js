@@ -1,13 +1,13 @@
 import { TokenKind } from 'liquidjs'
 import { addError } from 'markdownlint-rule-helpers'
 
-import { getDataByLanguage } from '#src/data-directory/lib/get-data.js'
+import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import {
   getLiquidTokens,
   getPositionData,
   OUTPUT_OPEN,
   OUTPUT_CLOSE,
-} from '../helpers/liquid-utils.js'
+} from '../helpers/liquid-utils'
 
 /*
   Checks for instances where a Liquid data or indented_data_reference

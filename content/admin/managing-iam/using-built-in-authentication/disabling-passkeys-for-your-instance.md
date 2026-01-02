@@ -1,9 +1,9 @@
 ---
 title: Disabling passkeys for your instance
-intro: 'Learn how to disable passkeys for all users on your instance.'
-permissions: 'Site administrators'
+intro: Learn how to disable passkeys for all users on your instance.
+permissions: Site administrators
 versions:
-  ghes: '>=3.14'
+  ghes: '*'
 type: how_to
 topics:
   - Accounts

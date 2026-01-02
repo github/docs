@@ -6,11 +6,11 @@ import chalk from 'chalk'
 import { TokenizationError } from 'liquidjs'
 import walk from 'walk-sync'
 
-import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils.js'
-import languages from '@/languages/lib/languages.js'
+import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
+import languages from '@/languages/lib/languages'
 import warmServer from '@/frame/lib/warm-server'
 import type { Site } from '@/types'
-import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content.js'
+import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
 
 program
   .description('Tally the number of liquid corruptions in a translation')

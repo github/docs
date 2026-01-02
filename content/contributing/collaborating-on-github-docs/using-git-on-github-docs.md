@@ -131,7 +131,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
   > [!NOTE]
   > We generally don't close an issue via a commit. To close an issue, open a pull request and add "Closes #1234" to the description. The linked issue will be closed when the pull request is merged. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
 
-* Make commit messages clear, detailed, and imperative. For example: "Adds a conceptual article about 2FA," not "Add info."
+* Make commit messages clear, detailed, and imperative. For example: "Add conceptual article about 2FA," not "Add info."
 * Try not to leave uncommitted changes in your local branch when you finish working for the day. Get to a good stopping point and commit and push your changes so your work is backed up to the remote repository.
 * Only push up to {% data variables.product.prodname_dotcom %} after you've made a few commits. Pushing after every commit adds noise to our ops channels on Slack and causes unnecessary builds to run.
 
@@ -140,6 +140,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 When you try to merge two branches that contain different changes to the same part of a file, you will get a merge conflict. In our workflow, this most often occurs when merging `main` down into a local topic branch.
 
 There are two ways to handle merge conflicts:
+
 * Edit the file in your text editor and choose which changes to keep. Then commit the updated file to your topic branch from the command line.
 * [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github).
 

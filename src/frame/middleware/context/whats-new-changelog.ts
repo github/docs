@@ -1,7 +1,7 @@
 import type { Response, NextFunction } from 'express'
 
-import { getChangelogItems } from '@/changelogs/lib/changelog.js'
-import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
+import { getChangelogItems } from '@/changelogs/lib/changelog'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import type { ExtendedRequest } from '@/types'
 
 export default async function whatsNewChangelog(

@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router'
 
-import { Link } from 'src/frame/components/Link'
+import { Link } from '@/frame/components/Link'
 import { ArrowRightIcon } from '@primer/octicons-react'
-import { useMainContext } from 'src/frame/components/context/MainContext'
+import { useMainContext } from '@/frame/components/context/MainContext'
 
-import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
-import { GuideCard } from 'src/landings/components/GuideCard'
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { useProductLandingContext } from '@/landings/components/ProductLandingContext'
+import { GuideCard } from '@/landings/components/GuideCard'
+import { useTranslation } from '@/languages/components/useTranslation'
 
 export const GuideCards = () => {
   const router = useRouter()

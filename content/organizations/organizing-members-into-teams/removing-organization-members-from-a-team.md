@@ -15,6 +15,14 @@ topics:
 shortTitle: Remove members
 ---
 
+Removing a member from a team revokes their access to all repositories and related resources granted through the team. This includes:
+
+* Removal from assignee fields in issues, pull requests, and project cards.
+* Loss of access to repository-specific tools such as {% data variables.product.prodname_discussions %}, {% data variables.product.prodname_projects_v2 %}, and Wikis.
+* Inability to contribute to any repositories the team has access to.
+
+If the member is assigned to any ongoing tasks, you should reassign them or grant them individual repository permissions, as required.
+
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
 {% data reusables.profile.access_org %}

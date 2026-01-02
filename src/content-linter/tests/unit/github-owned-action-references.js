@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { githubOwnedActionReferences } from '../../lib/linting-rules/github-owned-action-references.js'
+import { runRule } from '../../lib/init-test'
+import { githubOwnedActionReferences } from '../../lib/linting-rules/github-owned-action-references'
 
 describe(githubOwnedActionReferences.names.join(' - '), () => {
   test('Using hardcoded GitHub-owned actions causes error', async () => {

@@ -3,11 +3,11 @@ import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { LinkExternalIcon, NoteIcon } from '@primer/octicons-react'
 
-import { Link } from 'src/frame/components/Link'
-import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { useVersion } from 'src/versions/components/useVersion'
-import { Lead } from 'src/frame/components/ui/Lead'
+import { Link } from '@/frame/components/Link'
+import { useProductLandingContext } from '@/landings/components/ProductLandingContext'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { useVersion } from '@/versions/components/useVersion'
+import { Lead } from '@/frame/components/ui/Lead'
 
 export const LandingHero = () => {
   const {

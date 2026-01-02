@@ -21,7 +21,9 @@ topics:
 
 {% data reusables.secret-protection.product-list %}
 
-In addition, {% data variables.product.prodname_secret_protection %} includes a free scanning feature, the **risk assessment** report, to help organizations understand their secret leak footprint across their {% data variables.product.github %} perimeter. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).
+In addition, {% data variables.product.prodname_secret_protection %} includes a free scanning feature, the **risk assessment** report, to help organizations understand their secret leak footprint across their {% data variables.product.github %} perimeter.
+
+To generate a {% data variables.product.prodname_secret_risk_assessment %} report, navigate to {% data reusables.security-overview.navigate-to-risk-assessment %}.
 
 {% data variables.product.prodname_secret_protection %} is billed per active committer to the repositories where it is enabled. It is available to users with a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
 
@@ -29,7 +31,7 @@ In addition, {% data variables.product.prodname_secret_protection %} includes a 
 
 {% data variables.product.github %} recommends enabling {% data variables.product.prodname_GH_secret_protection %} products for all repositories, in order to protect your organization from the risk of secret leaks and exposures.  {% data variables.product.prodname_GH_secret_protection %} is free to enable for public repositories, and available as a purchasable add-on for private and internal repositories.
 
-* {% data reusables.secret-risk-assessment.what-is-scanned %}. See [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)
+* {% data reusables.secret-risk-assessment.what-is-scanned %}. See [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
 
 * The {% data variables.product.prodname_secret_risk_assessment %} and {% data variables.product.prodname_secret_scanning %} _scan code that has already been committed_ into your repositories. With **push protection**, your code is scanned for secrets _before_ commits are saved on {% data variables.product.github %}, during the push process, and the push is blocked if any secrets are detected. See [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
 

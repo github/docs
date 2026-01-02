@@ -31,7 +31,7 @@ A security campaign has many benefits over other ways of encouraging developers 
 * Developers are notified about any security campaigns taking place in repositories they work in or subscribe to by email.
 * Developers can see the alerts you've highlighted for remediation without leaving their normal workflows.
 * Each campaign has a named point of contact for questions, reviews, and collaboration.  {% ifversion security-campaigns-autofix %}
-* {% data variables.product.prodname_copilot_autofix %} is automatically triggered to suggest a resolution for each security alert. {% endif %}
+* {% data variables.copilot.copilot_autofix %} is automatically triggered to suggest a resolution for each security alert. {% endif %}
 
 You can use one of the templates to select a group of closely related alerts for a campaign. This allows developers to build on the knowledge gained by resolving one alert and use it to fix several more, providing them with an incentive to fix multiple alerts.
 

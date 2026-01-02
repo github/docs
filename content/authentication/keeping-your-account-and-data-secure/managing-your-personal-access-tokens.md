@@ -164,6 +164,8 @@ Username: YOUR-USERNAME
 Password: YOUR-PERSONAL-ACCESS-TOKEN
 ```
 
+Although you are required to enter your username along with your {% data variables.product.pat_generic %}, the username is not used to authenticate you. Instead, the {% data variables.product.pat_generic %} is used to authenticate you. If you do not enter a username, you will receive an error message that your credentials are invalid.
+
 {% data variables.product.pat_generic_caps %}s can only be used for HTTPS Git operations. If your repository uses an SSH remote URL, you will need to [switch the remote from SSH to HTTPS](/get-started/git-basics/managing-remote-repositories#switching-remote-urls-from-ssh-to-https).
 
 If you are not prompted for your username and password, your credentials may be cached on your computer. You can [update your credentials in the Keychain](/get-started/git-basics/updating-credentials-from-the-macos-keychain) to replace your old password with the token.

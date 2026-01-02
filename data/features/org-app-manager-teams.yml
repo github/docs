@@ -1,0 +1,5 @@
+# Issue https://github.com/github/releases/issues/6052
+versions:
+  ghec: '*'
+  fpt: '*'
+  ghes: '>=3.18'

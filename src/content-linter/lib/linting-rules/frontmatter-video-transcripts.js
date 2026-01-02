@@ -1,7 +1,7 @@
 import { addError } from 'markdownlint-rule-helpers'
 import path from 'path'
 
-import { getFrontmatter } from '../helpers/utils.js'
+import { getFrontmatter } from '../helpers/utils'
 
 export const frontmatterVideoTranscripts = {
   names: ['GHD011', 'frontmatter-video-transcripts'],

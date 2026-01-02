@@ -4,9 +4,9 @@ import coreLib from '@actions/core'
 import { type Octokit } from '@octokit/rest'
 import { CoreInject } from '@/links/scripts/action-injections'
 
-import github from '#src/workflows/github.ts'
-import { getActionContext } from '#src/workflows/action-context.ts'
-import { boolEnvVar } from '#src/workflows/get-env-inputs.ts'
+import github from '@/workflows/github'
+import { getActionContext } from '@/workflows/action-context'
+import { boolEnvVar } from '@/workflows/get-env-inputs'
 
 type Options = {
   addLabels?: string[]

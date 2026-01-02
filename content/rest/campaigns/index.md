@@ -1,6 +1,6 @@
 ---
 title: REST API endpoints for security campaigns
-shortTitle: Security campaigns
+shortTitle: Campaigns
 intro: Use the REST API to create and manage security campaigns for your organization.
 topics:
   - API

@@ -1,8 +1,8 @@
 import { addError } from 'markdownlint-rule-helpers'
 
-import { liquid } from '#src/content-render/index.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
-import { forEachInlineChild, getRange } from '../helpers/utils.js'
+import { liquid } from '@/content-render/index'
+import { allVersions } from '@/versions/lib/all-versions'
+import { forEachInlineChild, getRange } from '../helpers/utils'
 
 export const incorrectAltTextLength = {
   names: ['GHD033', 'incorrect-alt-text-length'],

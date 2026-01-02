@@ -1,5 +1,5 @@
-import { getLanguageCode } from './patterns.js'
-import getRedirect from '#src/redirects/lib/get-redirect.js'
+import { getLanguageCode } from './patterns'
+import getRedirect from '@/redirects/lib/get-redirect'
 
 export default function findPage(href, pages, redirects) {
   if (Array.isArray(pages)) throw new Error("'pages' is not supposed to be an array")

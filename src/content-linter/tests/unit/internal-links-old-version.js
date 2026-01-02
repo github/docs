@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { internalLinksOldVersion } from '../../lib/linting-rules/internal-links-old-version.js'
+import { runRule } from '../../lib/init-test'
+import { internalLinksOldVersion } from '../../lib/linting-rules/internal-links-old-version'
 
 describe(internalLinksOldVersion.names.join(' - '), () => {
   test('links with old hardcoded versioning fail', async () => {

@@ -31,7 +31,7 @@ The {% data variables.product.prodname_github_security_configuration %} offers a
 * It is the quickest {% data variables.product.prodname_security_configuration %} to apply to all repositories in your organization.
 * It is designed to effectively secure both low- and high-impact repositories.
 
-The {% data variables.product.prodname_github_security_configuration %} includes {% data variables.product.prodname_GH_code_security %} and {% data variables.product.prodname_GH_secret_protection %} features. Applying the configuration to repositories in your organization will incur usage costs or require licenses.
+The {% data variables.product.prodname_github_security_configuration %} includes {% data variables.product.prodname_GH_code_security %} and {% data variables.product.prodname_GH_secret_protection %} features. Applying the configuration to private and internal repositories in your organization will incur usage costs or require licenses.
 
 To start securing repositories in your organization with the {% data variables.product.prodname_github_security_configuration %}, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization).
 

@@ -4,7 +4,7 @@ import {
   getRange,
   isStringQuoted,
   isStringPunctuated,
-} from '../helpers/utils.js'
+} from '../helpers/utils'
 
 export const imageAltTextEndPunctuation = {
   names: ['GHD032', 'image-alt-text-end-punctuation'],

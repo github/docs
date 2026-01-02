@@ -40,12 +40,6 @@ export async function populateIndex(
   options: Options,
 ) {
   console.log(chalk.yellow(`\nIndexing ${chalk.bold(indexName)}`))
-  const bulkOperations = records.flatMap((doc) => [{ index: { _index: indexAlias } }, doc])
-
-  const bulkOptions = {
-    refresh: false,
-    timeout: '5m',
-  }
 
   const attempts = options.retries || 0
   const sleepTime = options.sleepTime || DEFAULT_SLEEPTIME_SECONDS * 1000
@@ -57,7 +51,16 @@ export async function populateIndex(
   const t0 = new Date()
   const bulkResponse = await retryOnErrorTest(
     (error) => error instanceof errors.ResponseError && error.meta.statusCode === 429,
-    () => client.bulk({ operations: bulkOperations, ...bulkOptions }),
+    () =>
+      client.helpers.bulk({
+        datasource: records,
+        onDocument: () => ({ index: { _index: indexAlias } }),
+        flushBytes: 4 * 1024 * 1024, // 4MB - Prevents too large of a bulk request which results in a 429 from ES
+        concurrency: 2,
+        refreshOnCompletion: true,
+        timeout: '5m',
+        // We could use `retries` and `wait` here, but then we don't have as granular control over logging and when to retry
+      }),
     {
       attempts,
       sleepTime,

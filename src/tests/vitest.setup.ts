@@ -1,4 +1,4 @@
-import { main } from 'src/frame/start-server'
+import { main } from '@/frame/start-server'
 import { overrideEnvForTesting } from './mocks/start-mock-server'
 
 let teardownHappened = false

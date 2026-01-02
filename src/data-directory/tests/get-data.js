@@ -3,13 +3,13 @@ import path from 'path'
 
 import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
-import languages from '#src/languages/lib/languages.js'
+import languages from '@/languages/lib/languages'
 import {
   getDataByLanguage,
   getDeepDataByLanguage,
   getUIDataMerged,
-} from '#src/data-directory/lib/get-data.js'
-import { DataDirectory } from '#src/tests/helpers/data-directory.js'
+} from '@/data-directory/lib/get-data'
+import { DataDirectory } from '@/tests/helpers/data-directory'
 
 describe('get-data', () => {
   let dd

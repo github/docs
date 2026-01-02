@@ -1,1 +1,1 @@
-{% data variables.product.prodname_secret_risk_assessment_caps %} is available for free for organization-owned repositories on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}
+{% data variables.product.prodname_secret_risk_assessment_caps %} is available for free in organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}

@@ -3,49 +3,49 @@ import { useRouter } from 'next/router'
 
 // "legacy" javascript needed to maintain existing functionality
 // typically operating on elements **within** an article.
-import copyCode from 'src/frame/components/lib/copy-code'
-import toggleAnnotation from 'src/frame/components/lib/toggle-annotations'
-import wrapCodeTerms from 'src/frame/components/lib/wrap-code-terms'
+import copyCode from '@/frame/components/lib/copy-code'
+import toggleAnnotation from '@/frame/components/lib/toggle-annotations'
+import wrapCodeTerms from '@/frame/components/lib/wrap-code-terms'
 
 import {
   MainContextT,
   MainContext,
   getMainContext,
   addUINamespaces,
-} from 'src/frame/components/context/MainContext'
+} from '@/frame/components/context/MainContext'
 
 import {
   getProductLandingContextFromRequest,
   ProductLandingContextT,
   ProductLandingContext,
-} from 'src/landings/components/ProductLandingContext'
+} from '@/landings/components/ProductLandingContext'
 import {
   getProductGuidesContextFromRequest,
   ProductGuidesContextT,
   ProductGuidesContext,
-} from 'src/landings/components/ProductGuidesContext'
+} from '@/landings/components/ProductGuidesContext'
 
 import {
   getArticleContextFromRequest,
   ArticleContextT,
   ArticleContext,
-} from 'src/frame/components/context/ArticleContext'
-import { ArticlePage } from 'src/frame/components/article/ArticlePage'
+} from '@/frame/components/context/ArticleContext'
+import { ArticlePage } from '@/frame/components/article/ArticlePage'
 
-import { ProductLanding } from 'src/landings/components/ProductLanding'
-import { ProductGuides } from 'src/landings/components/ProductGuides'
-import { TocLanding } from 'src/landings/components/TocLanding'
-import { CategoryLanding } from 'src/landings/components/CategoryLanding'
+import { ProductLanding } from '@/landings/components/ProductLanding'
+import { ProductGuides } from '@/landings/components/ProductGuides'
+import { TocLanding } from '@/landings/components/TocLanding'
+import { CategoryLanding } from '@/landings/components/CategoryLanding'
 import {
   getTocLandingContextFromRequest,
   TocLandingContext,
   TocLandingContextT,
-} from 'src/frame/components/context/TocLandingContext'
+} from '@/frame/components/context/TocLandingContext'
 import {
   getCategoryLandingContextFromRequest,
   CategoryLandingContext,
   CategoryLandingContextT,
-} from 'src/frame/components/context/CategoryLandingContext'
+} from '@/frame/components/context/CategoryLandingContext'
 import { useEffect } from 'react'
 
 function initiateArticleScripts() {

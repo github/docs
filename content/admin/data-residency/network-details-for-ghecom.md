@@ -97,20 +97,6 @@ If you use Azure private networking for {% data variables.product.company_short 
 
 If you're running a migration to your enterprise with {% data variables.product.prodname_importer_proper_name %}, you may need to add certain ranges to an IP allow list. See [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations).
 
-You must allow:
-
-* Ranges required for everyone
-* Additional ranges that depend on your data residency region
-
-### Required for everyone
-
-* 192.30.252.0/22
-* 185.199.108.0/22
-* 140.82.112.0/20
-* 143.55.64.0/20
-* 2a0a:a440::/29
-* 2606:50c0::/32
-
 ### Required in the EU
 
 * 4.231.155.80/29
@@ -130,8 +116,6 @@ You must allow:
 
 ### Required in Australia
 
-* 20.213.236.72/29
-* 20.53.178.216/29
 * 20.213.241.72/29
 * 20.11.90.48/29
 * 20.5.34.240/28

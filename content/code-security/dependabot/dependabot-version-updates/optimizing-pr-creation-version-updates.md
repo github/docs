@@ -33,7 +33,9 @@ By default, {% data variables.product.prodname_dependabot %} balances its worklo
 
 However, to reduce distraction, or to better organize time and resources for reviewing and addressing version updates, you might find it useful to modify the frequency and timings. For example, you may prefer {% data variables.product.prodname_dependabot %} to run weekly rather than daily checks for updates, and at a time that ensures pull requests are raised before for your team's triage session.
 
-You can use `schedule` with a combination of options to modify the frequency and timings of when {% data variables.product.prodname_dependabot %} checks for version updates
+### Modifying the frequency and timings for dependency updates
+
+You can use `schedule` with a combination of options to modify the frequency and timings of when {% data variables.product.prodname_dependabot %} checks for version updates.
 
 The example `dependabot.yml` file below changes the npm configuration to specify that {% data variables.product.prodname_dependabot %} should check for version updates to npm dependencies every Tuesday at 02:00 Japanese Standard Time (UTC +09:00).
 
@@ -56,14 +58,57 @@ updates:
 
 See also [schedule](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#schedule-).
 
+### Setting up a cooldown period for dependency updates
+
+You can use  `cooldown` with a combination of options to control when {% data variables.product.prodname_dependabot %} creates pull requests for **version updates**.
+
+The example `dependabot.yml` file below shows a cooldown period being applied to the dependencies `requests`, `numpy`, and those prefixed with `pandas` or `django`, but not to the dependency called `pandas` (exact match), which is excluded via the **exclude** list.
+
+```yaml copy
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    cooldown:
+      default-days: 5
+      semver-major-days: 30
+      semver-minor-days: 7
+      semver-patch-days: 3
+      include:
+        - "requests"
+        - "numpy"
+        - "pandas*"
+        - "django"
+      exclude:
+        - "pandas"
+```
+
+* The number of cooldown days must be between 1 and 90.
+* The maximum allowed items limit in `include` and `exclude` lists, which can be used with `cooldown`, is 150 each.
+
+> [!NOTE]
+> To consider **all dependencies** for a cooldown period, you can:
+> * Omit the `include` option which applies cooldown to all dependencies.
+> * Use `"*"` in `include` to apply the cooldown settings to everything.
+> We recommend the use of `exclude` to **only** exclude **specific dependencies** from cooldown settings.
+
+SemVer is supported for most package managers. Updates to new versions for dependencies in cooldown are deferred as follows:
+
+* Major updates: Delayed by 30 days (`semver-major-days: 30`).
+* Minor updates: Delayed by 7 days (`semver-minor-days: 7`).
+* Patch updates: Delayed by 3 days (`semver-patch-days: 3`).
+
+See also [`cooldown`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#cooldown-).
+
 ## Prioritizing meaningful updates
 
 You can use `groups` to consolidate updates for multiple dependencies into a single pull request. This helps you focus your review time on higher risk updates, and minimize the time spent reviewing minor version updates. For example, you can combine updates for minor or patch updates for development dependencies into a single pull request, and have a dedicated group for security or version updates that impact a key area of your codebase.
 
 You must configure groups per individual package ecosystem, then you can create multiple groups per package ecosystem using a combination of criteria:
 
-{% ifversion dependabot-grouped-security-updates-config %}
-* {% data variables.product.prodname_dependabot %} update type: `applies-to`{% endif %}
+* {% data variables.product.prodname_dependabot %} update type: `applies-to`
 * Type of dependency: `dependency-type`.
 * Dependency name: `patterns` and `exclude-patterns`
 * Semantic versioning levels: `update-types`

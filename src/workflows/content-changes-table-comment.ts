@@ -17,11 +17,11 @@ import walk from 'walk-sync'
 import { Octokit } from '@octokit/rest'
 import { retry } from '@octokit/plugin-retry'
 
-import { getContents } from './git-utils.js'
-import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
-import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version.js'
-import { allVersionShortnames } from '@/versions/lib/all-versions.js'
-import readFrontmatter from '@/frame/lib/read-frontmatter.js'
+import { getContents } from './git-utils'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+import { allVersionShortnames } from '@/versions/lib/all-versions'
+import readFrontmatter from '@/frame/lib/read-frontmatter'
 import { inLiquid } from './lib/in-liquid'
 
 const { GITHUB_TOKEN, APP_URL, BASE_SHA, HEAD_SHA } = process.env

@@ -1,7 +1,7 @@
 import cheerio from 'cheerio'
 import { range } from 'lodash-es'
 
-import { renderContent } from '#src/content-render/index.js'
+import { renderContent } from '@/content-render/index'
 
 // Keep maxHeadingLevel=2 for accessibility reasons, see docs-engineering#2701 for more info
 export default function getMiniTocItems(html, maxHeadingLevel = 2, headingScope = '') {

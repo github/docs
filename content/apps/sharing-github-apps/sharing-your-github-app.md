@@ -25,9 +25,9 @@ For more information about how users can install your app from {% data variables
 ## Sharing your {% data variables.product.prodname_github_app %} via an install link
 
 {% ifversion fpt or ghec %}
-If your {% data variables.product.prodname_github_app %} is public, other users and organizations {% ifversion ghec %}within your enterprise {% endif %}can install your app. For more information about making your app public, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/making-a-github-app-public-or-private).
+If your {% data variables.product.prodname_github_app %} is public, other users and organizations can install your app. For more information about making your app public, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/making-a-github-app-public-or-private).
 
-{% ifversion ghec %}If you are an {% data variables.product.prodname_emu %}, you can only share your app with users or organizations within your enterprise.{% endif %}
+{% ifversion ghec %}If you are an {% data variables.product.prodname_emu %}{% ifversion enterprise-apps-public-beta %} or your app is owned by your enterprise account{% endif %}, you can only share your app with accounts within your enterprise.{% endif %}
 
 {% else %}
 {% endif %}

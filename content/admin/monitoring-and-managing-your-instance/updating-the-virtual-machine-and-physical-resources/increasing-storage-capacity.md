@@ -68,7 +68,6 @@ Root storage refers to the total size of your instance's root disk. The availabl
 > [!WARNING]
 > Before increasing the root partition size, you must put your instance in maintenance mode. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
 
-{% ifversion ghes > 3.13 %}
 Before resizing the root partition, determine whether the appliance has a GUID partition table.
 
 On instances created from GHES releases 3.14 and later, follow the instructions for [Increasing the root partition size on a GUID partition table](#increasing-the-root-partition-size-on-a-guid-partition-table).
@@ -81,12 +80,8 @@ To verify the partition table type, run the following command. The result should
    sudo lsblk -no pttype $(findmnt -no source /)
    ```
 
-{% endif %}
-
 1. Attach a new disk to your {% data variables.product.prodname_ghe_server %} appliance.
 1. Run the `lsblk` command to identify the new disk's device name.
-
-{% ifversion ghes > 3.13 %}
 
 ### Increasing the root partition size on a GUID partition table
 
@@ -142,8 +137,6 @@ To verify the partition table type, run the following command. The result should
 If your appliance is configured for high-availability or geo-replication, remember to start replication on each replica node using `ghe-repl-start` after the storage on all nodes has been upgraded.
 
 ### Increasing the root partition size on a legacy partition table
-
-{% endif %}
 
 1. Run the `parted` command to format the disk, substituting your device name for `/dev/xvdg`:
 

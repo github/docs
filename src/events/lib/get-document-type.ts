@@ -1,7 +1,7 @@
 /**
  * Document types used by the system
  */
-type DocumentType = 'homepage' | 'product' | 'category' | 'mapTopic' | 'article' | 'early-access'
+type DocumentType = 'homepage' | 'product' | 'category' | 'subcategory' | 'article' | 'early-access'
 
 /**
  * This function derives the document type from the *relative path* segment length,
@@ -20,17 +20,17 @@ export default function getDocumentType(relativePath: string): DocumentType {
   // Early Access has an extra tree segment, so it has a different number of segments.
   const isEarlyAccess = relativePath.startsWith('early-access')
 
-  const publicDocs: DocumentType[] = ['homepage', 'product', 'category', 'mapTopic']
+  const publicDocs: DocumentType[] = ['homepage', 'product', 'category', 'subcategory']
 
   const earlyAccessDocs: DocumentType[] = [
     'homepage',
     'early-access',
     'product',
     'category',
-    'mapTopic',
+    'subcategory',
   ]
 
-  // Anything beyond the largest depth is assumed to be a mapTopic
+  // Anything beyond the largest depth is assumed to be a subcategory
   return isEarlyAccess
     ? earlyAccessDocs[Math.min(segmentLength, earlyAccessDocs.length) - 1]
     : publicDocs[Math.min(segmentLength, publicDocs.length) - 1]

@@ -28,5 +28,6 @@ children:
   - /javascript-typescript-built-in-queries
   - /python-built-in-queries
   - /ruby-built-in-queries
+  - /rust-built-in-queries
   - /swift-built-in-queries
 ---

@@ -16,6 +16,9 @@ redirect_from:
   - /code-security/codeql-cli/manual/dataset-import
 ---
 
+<!-- markdownlint-disable GHD053 -->
+
+<!-- markdownlint-disable GHD030 -->
 
 <!-- Content after this section is automatically generated -->
 
@@ -96,7 +99,7 @@ takes up a lot of space in the dataset.
 
 #### `--[no-]linkage-aware-import`
 
-\[Advanced] Controls whether [codeql dataset import](/code-security/codeql-cli/codeql-cli-manual/dataset-import) is linkage-aware _(default)_ or not. On projects where this part of database creation
+\[Advanced] Controls whether codeql dataset import is linkage-aware _(default)_ or not. On projects where this part of database creation
 consumes too much memory, disabling this option may help them progress
 at the expense of database completeness.
 

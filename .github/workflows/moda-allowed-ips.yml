@@ -49,6 +49,7 @@ jobs:
           gh pr create \
             --title "Update list of allowed IPs" \
             --body 'This PR updates the list of allowed IPs in Moda. It is automatically generated.' \
+            --label "workflow-generated" \
             --head=$branchname
           echo "Pull request created"
 

@@ -22,7 +22,7 @@ Security campaigns are created and managed from the **Security** tab for your or
 
 You choose the alerts that you want to include in the campaign by using either:
 
- * **Campaign templates**: Campaign templates contain filters for the most common alert selections. {% ifversion security-campaigns-autofix %}They also all include the requirement that {% data variables.product.prodname_copilot_autofix %} is supported for all the alert types included (that is, `autofix:supported`).{% endif %}
+ * **Campaign templates**: Campaign templates contain filters for the most common alert selections. {% ifversion security-campaigns-autofix %}They also all include the requirement that {% data variables.copilot.copilot_autofix %} is supported for all the alert types included (that is, `autofix:supported`).{% endif %}
  * **Custom filters**: Creating a campaign using custom filters lets you define your own criteria for selecting alerts for the campaign, and lets you tailor your campaign to your organization's specific needs.
 
 {% data reusables.code-scanning.campaigns-api %}
@@ -70,7 +70,7 @@ All the template filters include the following useful filters:
 
 * `is:open` includes only alerts that are open in the default branch.
 * `autofilter:true` includes only alerts that appear to be in application code. {% ifversion security-campaigns-autofix %}
-* `autofix:supported` includes only alerts that are for rules that are supported for {% data variables.product.prodname_copilot_autofix %}.{% endif %}
+* `autofix:supported` includes only alerts that are for rules that are supported for {% data variables.copilot.copilot_autofix %}.{% endif %}
 
 Once you include these core filters, you will usually want to add a filter to limit results to a specific rule name, severity, or tag. For example:
 
@@ -88,7 +88,7 @@ For more information about filtering alerts, see [AUTOTITLE](/code-security/secu
 
 {% ifversion security-campaigns-autofix %}
 
-When you create a campaign, all the alerts are automatically submitted to {% data variables.product.prodname_copilot_autofix %} to be processed as capacity allows. This ensures that suggestions for alerts found in pull requests aren't delayed by a new campaign. In most cases, you should find that all suggestions that can be created are ready within an hour. At busy times of day, or for particularly complex alerts, it will take longer.
+When you create a campaign, all the alerts are automatically submitted to {% data variables.copilot.copilot_autofix %} to be processed as capacity allows. This ensures that suggestions for alerts found in pull requests aren't delayed by a new campaign. In most cases, you should find that all suggestions that can be created are ready within an hour. At busy times of day, or for particularly complex alerts, it will take longer.
 
 {% endif %}
 

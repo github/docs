@@ -97,9 +97,9 @@ By following these practices, you can significantly reduce the risk posed by out
 
    * **{% data variables.product.prodname_dependabot_security_updates %}**: Automatically opens pull requests to update vulnerable dependencies to versions that do not have known vulnerabilities. This allows you to quickly review and merge fixes. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).
 
-   * **{% data variables.product.prodname_dependabot_version_updates %}**: Can also be configured to automatically open pull requests to update your dependencies to their latest versions regularly, ensuring you are always using current packages. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates).{% ifversion dependabot-grouped-security-updates-config %}
+   * **{% data variables.product.prodname_dependabot_version_updates %}**: Can also be configured to automatically open pull requests to update your dependencies to their latest versions regularly, ensuring you are always using current packages. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates).
 
-   * **Grouped updates**: Makes it easier to review and deploy pull requests for {% data variables.product.prodname_dependabot_updates %} by grouping several updates into a single pull request, see [About grouped security updates](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates) and examples in [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates#reducing-the-volume-of-dependabot-pull-requests){% endif %}
+   * **Grouped updates**: Makes it easier to review and deploy pull requests for {% data variables.product.prodname_dependabot_updates %} by grouping several updates into a single pull request, see [About grouped security updates](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates) and examples in [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates#reducing-the-volume-of-dependabot-pull-requests)
 
 **Security Advisories**{% ifversion fpt or ghec %}
 

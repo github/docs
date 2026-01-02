@@ -26,13 +26,13 @@ By default, {% data variables.product.prodname_code_scanning %} analyzes your co
 
 {% ifversion code-scanning-autofix %}
 
-You can use {% data variables.product.prodname_copilot_autofix %} to generate fixes automatically for {% data variables.product.prodname_code_scanning %} alerts, including {% data variables.product.prodname_codeql %} alerts. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts#generating-suggested-fixes-for-code-scanning-alerts).
+You can use {% data variables.copilot.copilot_autofix %} to generate fixes automatically for {% data variables.product.prodname_code_scanning %} alerts, including {% data variables.product.prodname_codeql %} alerts. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts#generating-suggested-fixes-for-code-scanning-alerts).
 
 {% endif %}
 
 {% ifversion copilot-chat-ghas-alerts %}
 
-With a {% data variables.product.prodname_copilot_enterprise %} license, you can also ask {% data variables.product.prodname_copilot_chat %} for help to better understand {% data variables.product.prodname_code_scanning %} alerts in repositories in your organization. For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
+With a {% data variables.copilot.copilot_enterprise %} license, you can also ask {% data variables.copilot.copilot_chat %} for help to better understand {% data variables.product.prodname_code_scanning %} alerts in repositories in your organization. For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
 
 {% endif %}
 
@@ -113,21 +113,11 @@ When an alert has a security severity level, {% data variables.product.prodname_
 
 ### Pull request check failures for {% data variables.product.prodname_code_scanning %} alerts
 
-{% ifversion code-scanning-merge-protection-rulesets %}
-
 You can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
 
 {% data reusables.code-scanning.merge-protection-rulesets-conditions %}
 
 For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection). For more general information about rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
-
-{% else %}
-
-{% data reusables.code-scanning.pull-request-checks %}
-
-You can edit which severity and security severity alert levels cause a check failure. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#defining-the-alert-severities-that-cause-a-check-failure-for-a-pull-request).
-
-{% endif %}
 
 ### Calculation of security severity levels
 

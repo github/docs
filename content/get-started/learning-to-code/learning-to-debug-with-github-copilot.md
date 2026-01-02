@@ -69,7 +69,7 @@ Unfortunately, we get some error text in our terminal ending with the following 
 
 #### Debugging the file
 
-To understand what this error means, [open {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat), then paste and send the following prompt: <!-- markdownlint-disable-line GHD003 -->
+To understand what this error means, [open {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat), then paste and send the following prompt: <!-- markdownlint-disable-line GHD003 -->
 
 ```text copy
 Explain in depth why my code produces the following error and how I can fix it:
@@ -111,7 +111,7 @@ Unfortunately, the code isn't working as expected. We want it to return `720`, t
 
 #### Debugging the file
 
-To understand what went wrong, [open {% data variables.product.prodname_copilot_chat_short %}](vscode://GitHub.Copilot-Chat) and send the following prompt: <!-- markdownlint-disable-line GHD003 -->
+To understand what went wrong, [open {% data variables.copilot.copilot_chat_short %}](vscode://GitHub.Copilot-Chat) and send the following prompt: <!-- markdownlint-disable-line GHD003 -->
 
 ```text copy
 Why is the output of this code so much higher than expected? Please explain in depth and suggest a solution.
@@ -139,4 +139,4 @@ With these tactics, you're well equipped to start squashing bugs in your project
 
 ## Next steps
 
-As you continue coding, you'll likely encounter specific problem scenarios and errors that are difficult to debug. For a list of potential issues and example {% data variables.product.prodname_copilot_chat_short %} prompts to fix them, see [AUTOTITLE](/copilot/copilot-chat-cookbook/debugging-errors).
+As you continue coding, you'll likely encounter specific problem scenarios and errors that are difficult to debug. For a list of potential issues and example {% data variables.copilot.copilot_chat_short %} prompts to fix them, see [AUTOTITLE](/copilot/copilot-chat-cookbook/debugging-errors).

@@ -2,8 +2,8 @@ import React from 'react'
 import cx from 'classnames'
 
 import { ActionList } from '@primer/react'
-import { Link } from 'src/frame/components/Link'
-import type { TocItem } from 'src/landings/components/ProductLandingContext'
+import { Link } from '@/frame/components/Link'
+import type { TocItem } from '@/landings/types'
 
 type Props = {
   items: Array<TocItem>

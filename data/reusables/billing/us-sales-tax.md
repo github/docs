@@ -1,1 +1,0 @@
-If you're a customer in the United States and you're exempt from sales tax, you will need to upload a sales tax exemption certificate to your account. See [AUTOTITLE](/billing/managing-your-billing/adding-a-sales-tax-certificate).

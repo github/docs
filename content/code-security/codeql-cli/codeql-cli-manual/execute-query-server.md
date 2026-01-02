@@ -16,6 +16,9 @@ redirect_from:
   - /code-security/codeql-cli/manual/execute-query-server
 ---
 
+<!-- markdownlint-disable GHD053 -->
+
+<!-- markdownlint-disable GHD030 -->
 
 <!-- Content after this section is automatically generated -->
 
@@ -32,7 +35,7 @@ codeql execute query-server <options>...
 \[Deprecated] \[Plumbing] Support for running queries from IDEs.
 
 The
-[codeql execute query-server](/code-security/codeql-cli/codeql-cli-manual/execute-query-server) subcommand is unsupported and no longer works. If you are using the official CodeQL extension for Visual Studio Code, please upgrade the extension to 1.7.6 or a later version. Otherwise please migrate your CodeQL IDE integration to the `codeql execute query-server2` subcommand.
+codeql execute query-server subcommand is unsupported and no longer works. If you are using the official CodeQL extension for Visual Studio Code, please upgrade the extension to 1.7.6 or a later version. Otherwise please migrate your CodeQL IDE integration to the `codeql execute query-server2` subcommand.
 
 ## Options
 

@@ -1,7 +1,7 @@
 import { addError } from 'markdownlint-rule-helpers'
 import yaml from 'js-yaml'
 
-import { getRange, getFrontmatter } from '../helpers/utils.js'
+import { getRange, getFrontmatter } from '../helpers/utils'
 
 const ERROR_MESSAGE =
   'An early access reference appears to be used in a non-early access doc. Remove early access references or disable this rule.'
@@ -62,7 +62,9 @@ export const frontmatterEarlyAccessReferences = {
 
     // The landing page must link to early-access content so the
     // children property doesn't need to be checked in that case.
-    if (filepath === 'content/index.md') delete fm.children
+    // Also exclude fixture index files.
+    if (filepath === 'content/index.md' || filepath.includes('fixtures/content/index.md'))
+      delete fm.children
 
     // Convert updated frontmatter back to a string
     // to search for 'early-access'.'

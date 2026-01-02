@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import NextLink from 'next/link'
 import { ComponentProps } from 'react'
 
-import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
+import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
 
 const { NODE_ENV } = process.env
 

@@ -54,5 +54,5 @@ jobs:
             - Reviewer stating they'll need to get back to us at a later time
             - Review provided was unclear or missing key information, and a follow-up is necessary
             `,
-              labels: ['on track','open source', 'sme-review'],
+              labels: ['on track','open source', 'sme-review', 'workflow-generated'],
             });

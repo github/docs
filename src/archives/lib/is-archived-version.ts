@@ -1,5 +1,5 @@
-import patterns from '@/frame/lib/patterns.js'
-import { deprecated } from '@/versions/lib/enterprise-server-releases.js'
+import patterns from '@/frame/lib/patterns'
+import { deprecated } from '@/versions/lib/enterprise-server-releases'
 import type { ExtendedRequest } from '@/types'
 
 type IsArchivedInfo = {

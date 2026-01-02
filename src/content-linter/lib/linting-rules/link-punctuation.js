@@ -1,6 +1,6 @@
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 
-import { doesStringEndWithPeriod, getRange, isStringQuoted } from '../helpers/utils.js'
+import { doesStringEndWithPeriod, getRange, isStringQuoted } from '../helpers/utils'
 
 export const linkPunctuation = {
   names: ['GHD001', 'link-punctuation'],

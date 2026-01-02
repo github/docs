@@ -53,4 +53,4 @@ We track Appeals and Reinstatements in our [Transparency Center](https://transpa
 
 ### Legal Rights
 
-If you believe that a final decision made on Appeal is still incorrect you may, in certain circumstances, have additional rights to seek review of the decision under your local law. For example, if you are located in the European Union, it might be possible to access an out-of-court dispute settlement process under the [Digital Services Act](https://eur-lex.europa.eu/eli/reg/2022/2065/oj#d1e2819-1-1).
+If you believe that a final decision made on Appeal is still incorrect you may, in certain circumstances, have additional rights to seek review of the decision under your local law. For example, if you are located in the European Union, it might be possible to access an out-of-court dispute settlement process under the [Digital Services Act](https://eur-lex.europa.eu/eli/reg/2022/2065/oj#d1e2819-1-1). This process reflects GitHub's commitment to internationally recognized human rights set out in the United Nations Guiding Principles on Business and Human Rights (UNGPs), privacy, and free expression.

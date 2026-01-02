@@ -23,7 +23,7 @@ You may authorize a {% data variables.product.prodname_github_app %} to give the
 
 You should periodically review the {% data variables.product.prodname_github_apps %} that you have authorized. If you no longer use an app, consider revoking your authorization for that app.
 
-The authorization can only be revoked by the person who authorized the {% data variables.product.prodname_github_app %}. Organization owners cannot revoke {% data variables.product.prodname_github_app %} authorizations for their organization members. However, organization owners can uninstall the {% data variables.product.prodname_github_app %} from their organization, which will prevent the app from accessing organization-owned resources. For more information, see [AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps).
+The authorization can only be revoked by the person who authorized the {% data variables.product.prodname_github_app %}. Organization{% ifversion enterprise-installed-apps %} and enterprise{% endif %} owners cannot revoke {% data variables.product.prodname_github_app %} authorizations for their members. However, organization{% ifversion enterprise-installed-apps %} and enterprise{% endif %} owners can uninstall the {% data variables.product.prodname_github_app %} from the account, which will prevent the app from accessing resources in that account. For more information, see [AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps).
 
 ## Reviewing your authorized {% data variables.product.prodname_github_apps %}
 

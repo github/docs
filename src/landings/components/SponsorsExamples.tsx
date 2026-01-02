@@ -1,5 +1,5 @@
-import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
-import { UserCard } from 'src/landings/components/UserCard'
+import { useProductLandingContext } from '@/landings/components/ProductLandingContext'
+import { UserCard } from '@/landings/components/UserCard'
 
 export const SponsorsExamples = () => {
   const { productUserExamples } = useProductLandingContext()

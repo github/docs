@@ -21,7 +21,7 @@ The aim is to enable all the security features you want to trial quickly, as a s
 
 When you planned your trial, you identified the features that you want to test and any enforcement needs. You should create one or more security configurations for your enterprise that enable these features and set any enforcement levels you require.
 
-1. In the top-right corner of {% data variables.product.prodname_dotcom %}, click your profile photo.
+1. In the top-right corner of {% data variables.product.prodname_dotcom %}, click your profile picture.
 1. Depending on your environment, click **Your enterprise**, or click **Your enterprises** then click your trial enterprise.
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.advanced-security-tab %}
@@ -39,7 +39,7 @@ The new enterprise security configuration is now available for use at the enterp
 
 You can apply an enterprise security configuration either at the enterprise level or at the organization level. The best option for you will depend on whether or not you want to apply the configuration to all repositories in the enterprise, or to a subset of repositories.
 
-> [!NOTE] Although {% data variables.product.prodname_cs_and_sp %} are free of charge during trials, you will be charged for any actions minutes that you use. This includes actions minutes used by the default {% data variables.product.prodname_code_scanning %} setup or by any other workflows you run.
+> [!NOTE] {% data variables.product.prodname_cs_and_sp %} are free of charge during trials. However, you will be charged for Actions minutes used by the default {% data variables.product.prodname_code_scanning %} setup if you have exhausted your allocation of Actions minutes.
 
 * Enterprise-level application:
    * Add an enterprise configuration to all repositories in the enterprise, or all repositories without an existing configuration in the enterprise.

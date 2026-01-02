@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { imageFileKebabCase } from '../../lib/linting-rules/image-file-kebab-case.js'
+import { runRule } from '../../lib/init-test'
+import { imageFileKebabCase } from '../../lib/linting-rules/image-file-kebab-case'
 
 describe(imageFileKebabCase.names.join(' - '), () => {
   test('image file not using lowercase kebab case fails', async () => {

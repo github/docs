@@ -39,11 +39,11 @@
   <li style="margin: 3px 0 0 30px;">
     <a title="{{ categoryPage.page.documentType }}" href="{{ docsRoot }}{{ categoryPage.href }}">{{ categoryPage.renderedFullTitle }}</a>
       <ul>
-        {% for maptopicPage in categoryPage.childPages %}
+        {% for subcategoryPage in categoryPage.childPages %}
             <li style="margin: 3px 0 0 30px;">
-              <a title="{{ maptopicPage.page.documentType }}" href="{{ docsRoot }}{{ maptopicPage.href }}">{{ maptopicPage.renderedFullTitle }}</a>
+              <a title="{{ subcategoryPage.page.documentType }}" href="{{ docsRoot }}{{ subcategoryPage.href }}">{{ subcategoryPage.renderedFullTitle }}</a>
               <ul>
-                {% for articlePage in maptopicPage.childPages %}
+                {% for articlePage in subcategoryPage.childPages %}
                 <li style="margin: 3px 0 0 30px;">
                   <a title="{{ articlePage.page.documentType }}" href="{{ docsRoot }}{{ articlePage.href }}">{{ articlePage.renderedFullTitle }}</a>
                 </li>
@@ -61,7 +61,17 @@
 {% endfor %}
 {% endif %}
 
-<script src="../../index.js"></script>
+<script>
+const expandBtn = document.querySelector('.js-expand');
+expandBtn?.addEventListener('click', function() {
+  const details = document.querySelectorAll('details');
+  const shouldExpand = expandBtn.textContent.trim() === 'Expand All';
+  details.forEach(detail => {
+    detail.open = shouldExpand;
+  });
+  expandBtn.textContent = shouldExpand ? 'Collapse All' : 'Expand All';
+});
+</script>
 </main>
 </body>
 </html>

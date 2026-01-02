@@ -23,7 +23,7 @@ The metrics overview for {% data variables.product.prodname_codeql %} pull reque
 
 The overview shows you a summary of how many vulnerabilities prevented by {% data variables.product.prodname_codeql %} have been caught in pull requests. The metrics are only tracked for pull requests that have been merged into the default branches of repositories in your organizations.
 
-You can also find more granular metrics, such as how many alerts were fixed{% ifversion code-scanning-autofix %} with and without {% data variables.product.prodname_copilot_autofix_short %} suggestions{% endif %}, how many were unresolved and merged, and how many were dismissed as false positive or as risk accepted.
+You can also find more granular metrics, such as how many alerts were fixed{% ifversion code-scanning-autofix %} with and without {% data variables.copilot.copilot_autofix_short %} suggestions{% endif %}, how many were unresolved and merged, and how many were dismissed as false positive or as risk accepted.
 
 You can also view:
 
@@ -32,17 +32,19 @@ You can also view:
 * The number of alerts that were merged into the default branch without resolution, and the number of alerts dismissed as an acceptable risk.
 
 {% ifversion code-scanning-autofix %}
-* The number of alerts that were fixed with an accepted {% data variables.product.prodname_copilot_autofix_short %} suggestion, displayed as a fraction of how many total {% data variables.product.prodname_copilot_autofix_short %} suggestions were available.
+* The number of alerts that were fixed with an accepted {% data variables.copilot.copilot_autofix_short %} suggestion, displayed as a fraction of how many total {% data variables.copilot.copilot_autofix_short %} suggestions were available.
 
-* Remediation rates, in a graph showing the percentage of alerts that were remediated with an available {% data variables.product.prodname_copilot_autofix_short %} suggestion, and the percentage of alerts that were remediated without a {% data variables.product.prodname_copilot_autofix_short %} suggestion.
+* Remediation rates, in a graph showing the percentage of alerts that were remediated with an available {% data variables.copilot.copilot_autofix_short %} suggestion, and the percentage of alerts that were remediated without a {% data variables.copilot.copilot_autofix_short %} suggestion.
+
+* Mean time to remediate, in a graph showing the average age of closed alerts that were remediated with an available {% data variables.copilot.copilot_autofix_short %} suggestion, and the average age of closed alerts that were remediated without a {% data variables.copilot.copilot_autofix_short %} suggestion.
 {% endif %}
 
 You can apply filters to the data. The metrics are based on activity from the default period or your selected period.
 
 {% ifversion code-scanning-autofix %}
-> [!NOTE] Metrics for {% data variables.product.prodname_copilot_autofix_short %} will be shown only for repositories where {% data variables.product.prodname_copilot_autofix_short %} is enabled.
+> [!NOTE] Metrics for {% data variables.copilot.copilot_autofix_short %} will be shown only for repositories where {% data variables.copilot.copilot_autofix_short %} is enabled.
 {% else %}
-> [!NOTE] Metrics for {% data variables.product.prodname_copilot_autofix_short %} are omitted because {% data variables.product.prodname_copilot_autofix_short %} is available only on {% data variables.product.github %} cloud platforms.
+> [!NOTE] Metrics for {% data variables.copilot.copilot_autofix_short %} are omitted because {% data variables.copilot.copilot_autofix_short %} is available only on {% data variables.product.github %} cloud platforms.
 {% endif %}
 
 ## Viewing {% data variables.product.prodname_codeql %} pull request alerts metrics for an organization

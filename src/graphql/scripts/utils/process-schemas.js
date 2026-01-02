@@ -1,6 +1,6 @@
 import { sortBy } from 'lodash-es'
 import { parse, buildASTSchema } from 'graphql'
-import helpers from './schema-helpers.js'
+import helpers from './schema-helpers'
 import fs from 'fs/promises'
 import path from 'path'
 

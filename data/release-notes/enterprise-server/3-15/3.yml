@@ -2,6 +2,11 @@ date: '2025-02-18'
 intro: |
   {% warning %}
 
+  **Warning**: We have received a few reports of performance issues with GitHub Enterprise Server versions 3.15, 3.16, and 3.17. Out of an abundance of caution, we recommend holding off on upgrading to these versions until further notice. [Updated: 2025-08-01]
+
+  {% endwarning %}
+  {% warning %}
+
   **Warning**: For instances installed on Google Cloud Platform (GCP), hotpatches to GitHub Enterprise Server version `3.15.3` will result in errors being reported in the upgrade log. We recommend hotpatching to a newer 3.15 version instead. [Updated: 2025-03-11]
 
   {% endwarning %}

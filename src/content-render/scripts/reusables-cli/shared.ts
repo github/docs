@@ -100,14 +100,17 @@ export function resolveReusablePath(reusablePath: string): string {
   }
 }
 
+let paths: string[]
 export function getAllReusablesFilePaths(): string[] {
-  return filterFiles(
+  if (paths) return paths!
+  paths = filterFiles(
     walk(reusablesDirectory, {
       includeBasePath: true,
       directories: false,
       ignore: ['**/README.md', 'enterprise_deprecation/**'],
     }),
   )
+  return paths
 }
 
 export function findIndicesOfSubstringInString(substr: string, str: string): number[] {

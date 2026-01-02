@@ -1,9 +1,9 @@
 import { describe, expect, test, vi } from 'vitest'
 
-import { languageKeys } from '@/languages/lib/languages.js'
+import { languageKeys } from '@/languages/lib/languages'
 import { blockIndex } from '@/frame/middleware/block-robots'
-import { get, getDOMCached as getDOM } from '@/tests/helpers/e2etest.js'
-import Page from '@/frame/lib/page.js'
+import { get, getDOMCached as getDOM } from '@/tests/helpers/e2etest'
+import Page from '@/frame/lib/page'
 
 const langs = languageKeys.filter((lang) => lang !== 'en')
 

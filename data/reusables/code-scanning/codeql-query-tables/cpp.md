@@ -1,6 +1,6 @@
 {% rowheaders %}
 
-| Query name | Related CWEs | Default | Extended | {% data variables.product.prodname_copilot_autofix_short %} |
+| Query name | Related CWEs | Default | Extended | {% data variables.copilot.copilot_autofix_short %} |
 | --- | --- | --- | --- | --- |
 | [Bad check for overflow of integer addition](https://codeql.github.com/codeql-query-help/cpp/cpp-bad-addition-overflow-check/) | 190, 192 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Badly bounded write](https://codeql.github.com/codeql-query-help/cpp/cpp-badly-bounded-write/) | 120, 787, 805 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |

@@ -2,8 +2,13 @@ import fs from 'fs'
 import path from 'path'
 
 import frontmatter from 'gray-matter'
-import { languageKeys } from '#src/languages/lib/languages.js'
-import { ROOT } from '#src/frame/lib/constants.js'
+import { getLogLevelNumber } from '#src/observability/logger/lib/log-levels.js'
+
+// Replace imports with hardcoded values
+const ROOT = process.env.ROOT || '.'
+
+// Hard-coded language keys to avoid TypeScript import in config file
+const languageKeys = ['en', 'es', 'ja', 'pt', 'zh', 'ru', 'fr', 'ko', 'de']
 
 const homepage = path.posix.join(ROOT, 'content/index.md')
 const { data } = frontmatter(fs.readFileSync(homepage, 'utf8'))
@@ -24,7 +29,19 @@ export default {
   },
   sassOptions: {
     quietDeps: true,
+    silenceDeprecations: [
+      'legacy-js-api',
+      'import',
+      'global-builtin',
+      'color-4-api',
+      'mixed-decls',
+    ],
+    // Allow resolving our local stubs for removed @primer/view-components sass partials
+    includePaths: [path.join(process.cwd(), 'src/frame/stylesheets/vendor')],
   },
+  // Don't use automatic Next.js logging in dev unless the log level is `debug` or higher
+  // See `src/observability/logger/README.md` for log levels
+  logging: getLogLevelNumber() < 3 ? false : {},
   async rewrites() {
     const DEFAULT_VERSION = 'free-pro-team@latest'
     return productIds.map((productId) => {
@@ -37,7 +54,17 @@ export default {
   webpack: (config) => {
     config.experiments = config.experiments || {}
     config.experiments.topLevelAwait = true
-    config.resolve.fallback = { fs: false }
+    config.resolve.fallback = { fs: false, async_hooks: false }
+    // Alias missing Ruby view-components SCSS imports to local empty stubs
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      '@primer/view-components': path.join(
+        process.cwd(),
+        'src/frame/stylesheets/vendor/@primer/view-components',
+      ),
+      // Force ESM build of @primer/react so restored TabNav export is used and to avoid CJS CSS requires
+      '@primer/react$': path.join(process.cwd(), 'node_modules/@primer/react/lib-esm/index.js'),
+    }
     return config
   },
 

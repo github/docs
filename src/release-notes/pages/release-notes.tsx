@@ -7,10 +7,10 @@ import {
   MainContext,
   getMainContext,
   addUINamespaces,
-} from 'src/frame/components/context/MainContext'
-import { DefaultLayout } from 'src/frame/components/DefaultLayout'
-import { GHESReleaseNotes } from 'src/release-notes/components/GHESReleaseNotes'
-import { GHESReleaseNotesContextT } from 'src/release-notes/components/types'
+} from '@/frame/components/context/MainContext'
+import { DefaultLayout } from '@/frame/components/DefaultLayout'
+import { GHESReleaseNotes } from '@/release-notes/components/GHESReleaseNotes'
+import { GHESReleaseNotesContextT } from '@/release-notes/components/types'
 
 const liquid = new Liquid()
 type Props = {

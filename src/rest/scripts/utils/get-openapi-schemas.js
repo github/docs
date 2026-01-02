@@ -2,7 +2,7 @@ import { readFile, readdir } from 'fs/promises'
 import yaml from 'js-yaml'
 import path from 'path'
 
-import { allVersions } from '#src/versions/lib/all-versions.js'
+import { allVersions } from '@/versions/lib/all-versions'
 
 const OPEN_API_RELEASES_DIR = '../github/app/api/description/config/releases'
 const configData = JSON.parse(await readFile('src/rest/lib/config.json', 'utf8'))

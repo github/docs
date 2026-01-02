@@ -4,7 +4,9 @@ shortTitle: Kotlin detected in no build
 allowTitleToDifferFromFilename: true
 intro: '{% data variables.product.prodname_codeql %} databases can be created for Java without building the code, but Kotlin files are excluded unless the code is built.'
 versions:
-  feature: codeql-no-build
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About this warning
@@ -55,6 +57,5 @@ Update your calls to run the {% data variables.product.prodname_codeql_cli %} fo
 ## Further reading
 
 * [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning)
-* [Building Java and Kotlin](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#building-java-and-kotlin){% ifversion codeql-no-build %}
-* [CodeQL build modes](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes){% elsif ghes %}
-* [Adding build steps for a compiled language](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#adding-build-steps-for-a-compiled-language){% endif %}
+* [Building Java and Kotlin](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#building-java-and-kotlin)
+* [CodeQL build modes](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes)

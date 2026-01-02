@@ -1,6 +1,6 @@
 import cx from 'classnames'
 
-import { MarkdownContent } from 'src/frame/components/ui/MarkdownContent'
+import { MarkdownContent } from '@/frame/components/ui/MarkdownContent'
 import { GHESReleaseNotesContextT } from './types'
 import { GHESReleaseNotePatch } from './GHESReleaseNotePatch'
 

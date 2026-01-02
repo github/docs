@@ -35,7 +35,7 @@ permissions:
   repository-projects: read
 
 jobs:
-  codeowners-docs-engineering:
+  reviewers-docs-engineering:
     if: >-
       ${{ github.repository == 'github/docs-internal' &&
           !github.event.pull_request.draft &&
@@ -47,7 +47,10 @@ jobs:
       GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Add docs engineering as a reviewer
-        run: |
-          gh pr edit $PR --add-reviewer github/docs-engineering
-          gh pr edit $PR --add-label reviewers-docs-engineering
+        uses: ./.github/actions/retry-command
+        with:
+          command: gh pr edit $PR --add-reviewer github/docs-engineering --add-label reviewers-docs-engineering

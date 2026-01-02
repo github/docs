@@ -36,8 +36,7 @@ To create a custom configuration URL for a {% data variables.product.prodname_gi
 
 * To register an app on a personal account, add URL parameters to: `{% data variables.product.oauth_host_code %}/settings/apps/new`
 * To register an app on an organization account, add URL parameters to: `{% data variables.product.oauth_host_code %}/organizations/ORGANIZATION/settings/apps/new`. Replace `ORGANIZATION` with the name of the organization where you'd like the customer to register the app. {% ifversion enterprise-apps-public-beta %}
-
-  >[!NOTE] The URL parameters for registering a {% data variables.product.prodname_github_app %} are also available for apps owned by enterprises. Since you can only install enterprise-owned apps on organizations within that enterprise, you can use the custom configuration URL for organizations.{% endif %}
+* To register an app on an enterprise account, add URL parameters to: `{% data variables.product.oauth_host_code %}/enterprises/ENTERPRISE/settings/apps/new`. Replace `ENTERPRISE` with the name of the enterprise where you'd like the customer to register the app.{% endif %}
 
 On the app registration page, the person registering the app can edit the preselected values before submitting the app. If you do not include parameters for required values (like `name`) in the URL query string, the person registering the app will need to input a value before they can register the app.
 
@@ -71,7 +70,9 @@ Parameter name | Type | Description
 
 You can use query parameters to select the permissions for the {% data variables.product.prodname_github_app %} registration. For the URL query parameter, use the permission name as the query parameter name, and set the query value to one of the possible values for that permission set.
 
-For example, to select "Read & write" permissions in the user interface for `contents`, your query string would include `contents=write`. To select "Read-only" permissions in the user interface for `blocking`, your query string would include `blocking=read`. To select "No access" in the user interface for `checks`, your query string would not include the `checks` permission.
+For example, to select "Read & write" permissions in the user interface for `contents`, your query string would include `contents=write`. To select "Read-only" permissions in the user interface for `blocking`, your query string would include `blocking=read`. To select "No access" in the user interface for `checks`, your query string would not include the `checks` permission.{% ifversion enterprise-installed-apps %}
+
+If the owning account is not an enterprise or an enterprise-owned organization, it cannot request enterprise permissions.{% endif %}
 
 For more information about permissions and {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app).
 

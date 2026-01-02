@@ -1,5 +1,5 @@
-import { allTools } from '#src/tools/lib/all-tools.ts'
-import { allPlatforms } from '#src/tools/lib/all-platforms.ts'
+import { allTools } from '@/tools/lib/all-tools'
+import { allPlatforms } from '@/tools/lib/all-platforms'
 
 export const tags = Object.keys(allTools).concat(allPlatforms).concat(['rowheaders'])
 

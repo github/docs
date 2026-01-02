@@ -76,7 +76,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
        steps:
          - name: Generate token
            id: generate-token
-           uses: actions/create-github-app-token@v1
+           uses: actions/create-github-app-token@v2
            with:
              app-id: {% raw %}${{ vars.APP_ID }}{% endraw %}
              private-key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
@@ -227,7 +227,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 
          - name: Generate token
            id: generate-token
-           uses: actions/create-github-app-token@v1
+           uses: actions/create-github-app-token@v2
            with:
              app-id: {% raw %}${{ vars.APP_ID }}{% endraw %}
              private-key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
@@ -321,7 +321,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
        steps:
          - name: Generate token
            id: generate-token
-           uses: actions/create-github-app-token@v1
+           uses: actions/create-github-app-token@v2
            with:
              app-id: {% raw %}${{ vars.APP_ID }}{% endraw %}
              private-key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}

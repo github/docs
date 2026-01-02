@@ -8,7 +8,9 @@ redirect_from:
   - /github-models/prototyping-with-ai-models
 ---
 
-If you want to develop a generative AI application, you can use {% data variables.product.prodname_github_models %} to find and experiment with AI models for free. Once you are ready to bring your application to production, you can switch to a token from a paid Azure account. See the [Azure AI](https://aka.ms/azureai/github-models) documentation.
+If you want to develop a generative AI application, you can use {% data variables.product.prodname_github_models %} to find and experiment with AI models for free. Once you are ready to bring your application to production, [opt in to paid usage](/billing/managing-billing-for-your-products/about-billing-for-github-models) for your enterprise.
+
+Organization owners can integrate their preferred custom models into {% data variables.product.prodname_github_models %}, by using an organization's own LLM API keys. See [AUTOTITLE](/github-models/github-models-at-scale/set-up-custom-model-integration-models-byok).
 
 See also [AUTOTITLE](/github-models/responsible-use-of-github-models).
 
@@ -71,7 +73,7 @@ The steps to use each model are similar. In general, you will need to:
 1. Optionally, use the language dropdown to select the programming language.
 1. Optionally, use the SDK dropdown to select which SDK to use.
 
-   All models can be used with the Azure AI Inference SDK, and some models support additional SDKs. If you want to easily switch between models, you should select "Azure AI Inference SDK". If you selected "REST" as the language, you won't use an SDK. Instead, you will use the API endpoint directly. {% ifversion fpt %} See [{% data variables.product.prodname_github_models %} REST API](/rest/models?apiVersion=2022-11-28). {% endif %}
+   All models can be used with the Azure AI Inference SDK, and some models support additional SDKs. If you want to easily switch between models, you should select "Azure AI Inference SDK." If you selected "REST" as the language, you won't use an SDK. Instead, you will use the API endpoint directly. {% ifversion fpt %} See [{% data variables.product.prodname_github_models %} REST API](/rest/models?apiVersion=2022-11-28). {% endif %}
 1. Either open a codespace, or set up your local environment:
    * To run in a codespace, click **{% octicon "codespaces" aria-hidden="true" aria-label="codespaces" %} Run codespace**, then click **Create new codespace**.
    * To run locally:
@@ -129,15 +131,19 @@ If you prefer to experiment with AI models in your IDE, you can install the AI T
 
 ## Going to production
 
-The rate limits for the playground and free API usage are intended to help you experiment with models and develop your AI application. Once you are ready to bring your application to production, you can use a token from a paid Azure account instead of your {% data variables.product.company_short %} {% data variables.product.pat_generic %}. You don't need to change anything else in your code.
-
-For more information, see the [Azure AI](https://aka.ms/azureai/github-models) documentation.
+The free rate limits provided in the playground and API usage are intended to help you get started with experimentation. When you are ready to move beyond the free offering, you have two options for accessing AI models beyond the free limits:
+* You can opt in to paid usage for {% data variables.product.prodname_github_models %}, allowing your organization to access increased rate limits, larger context windows, and additional features. See [AUTOTITLE](/billing/managing-billing-for-your-products/about-billing-for-github-models).
+* If you have an existing OpenAI or Azure subscription, you can bring your own API keys (BYOK) to access custom models. Billing and usage are managed directly through your provider account, such as your Azure Subscription ID. See [AUTOTITLE](/github-models/github-models-at-scale/set-up-custom-model-integration-models-byok).
 
 ## Rate limits
+
+{% data reusables.github-models.production-rate-limits-note %}
 
 The playground and free API usage are rate limited by requests per minute, requests per day, tokens per request, and concurrent requests. If you get rate limited, you will need to wait for the rate limit that you hit to reset before you can make more requests.
 
 Low, high, and embedding models have different rate limits. To see which type of model you are using, refer to the model's information in {% data variables.product.prodname_marketplace %}.
+
+For custom models accessed with your own API keys, rate limits are set and enforced by your model provider.
 
 <table>
   <tr>
@@ -323,7 +329,7 @@ Low, high, and embedding models have different rate limits. To see which type of
     <td>1</td>
   </tr>
   <tr>
-    <th rowspan="4" scope="rowgroup"><b>DeepSeek-R1 and MAI-DS-R1</b></th>
+    <th rowspan="4" scope="rowgroup"><b>DeepSeek-R1, DeepSeek-R1-0528, and MAI-DS-R1</b></th>
     <th style="padding-left: 0"><b>Requests per minute</b></th>
     <td>1</td>
     <td>1</td>
@@ -415,5 +421,5 @@ These limits are subject to change without notice.
 
 ## Leaving feedback
 
-To ask questions and share feedback, see this [GitHub Models discussion post](https://github.com/orgs/community/discussions/159087).  
+To ask questions and share feedback, see this [GitHub Models discussion post](https://github.com/orgs/community/discussions/159087).
 To learn how others are using {% data variables.product.prodname_github_models %}, visit the [GitHub Community discussions for Models](https://github.com/orgs/community/discussions/categories/models).

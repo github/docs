@@ -288,8 +288,10 @@ ghe-reactivate-admin-login
 ### ghe-saml-mapping-csv
 
 {% ifversion scim-for-ghes-ga %}
+
 > [!NOTE]
 > This utility does not work with configurations that use SAML with SCIM provisioning. For the SCIM version of this tool, please refer to [`ghe-scim-identities-csv` utility](#ghe-scim-identities-csv).
+
 {% endif %}
 
 This utility allows administrators to output or update the SAML `NameID` mappings for users on an instance. The utility can output a CSV file that lists all existing mappings. You can also update mappings for users on your instance by editing the resulting file, then using the utility to assign new mappings from the file.
@@ -849,7 +851,7 @@ nes set-node-adminaction approved HOSTNAME
 To revoke {% data variables.product.prodname_nes %}'s ability to take the node with hostname HOSTNAME offline:
 
 ```shell
-nes set-node-adminaction approved HOSTNAME
+nes set-node-adminaction none HOSTNAME
 ```
 
 To manually update a node's eligibility for re-addition to the cluster:
@@ -1072,8 +1074,6 @@ This utility completely disables replication on an existing replica node, removi
 ghe-repl-teardown
 ```
 
-{% ifversion ghes > 3.13 %}
-
 ### ghe-repl-stop-all
 
 This utility disables replication of all datastores on all replica nodes. Run this utility from the primary node before upgrading replicas. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package).
@@ -1081,7 +1081,6 @@ This utility disables replication of all datastores on all replica nodes. Run th
 ### ghe-repl-start-all
 
 This utility begins replication of all datastores on all replica nodes. Run this utility from the primary node after upgrading replicas. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package).
-{% endif %}
 
 ## Import and export
 

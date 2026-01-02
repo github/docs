@@ -2,13 +2,13 @@
 | --- | --- | --- | --- | --- | ---|
 | Cargo | Rust | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | `Cargo.lock` | `Cargo.toml` |
 | Composer             | PHP           | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | `composer.lock` | `composer.json` |
-| NuGet | .NET languages (C#, F#, VB), C++  | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` | `packages.config` |
+| NuGet | .NET languages (C#, F#, VB), C++  | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` | `packages.config` |
 | {% data variables.product.prodname_actions %} workflows | YAML | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | `.yml`, `.yaml` | {% octicon "x" aria-label="None" %} |
 | Go modules | Go | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |  `go.mod`| {% octicon "x" aria-label="None" %} |
 | Gradle | Java  | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |  {% octicon "x" aria-label="None" %} | {% octicon "x" aria-label="None" %} |
 | Maven | Java, Scala | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | `pom.xml`  | {% octicon "x" aria-label="None" %}  |
 | npm | JavaScript | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | `package-lock.json` | `package.json`|
-| pip             | Python                    | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | `requirements.txt`, `pipfile.lock` | `pipfile`, `setup.py` |
+| pip             | Python                    | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | `requirements.txt`, `pipfile.lock` | `pipfile`, `setup.py` |
 | pnpm             | JavaScript                    | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | `pnpm-lock.yaml` | `package.json` |
 | pub             | Dart                    | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | `pubspec.lock` | `pubspec.yaml` |
 | Poetry | Python                    | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | `poetry.lock` | `pyproject.toml` |

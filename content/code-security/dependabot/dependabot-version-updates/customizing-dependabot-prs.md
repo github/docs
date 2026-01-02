@@ -19,17 +19,36 @@ shortTitle: Customize Dependabot PRs
 
 There are various ways to customize your {% data variables.product.prodname_dependabot %} pull requests so that they better suit your own internal processes.
 
+{% ifversion dependabot-reviewers-deprecation %}
+
+For example, to integrate {% data variables.product.prodname_dependabot %}'s pull requests into your CI/CD pipelines, it can apply **custom labels** to pull requests, which you can then use to trigger action workflows.
+
+{% else %}
+
 For example:
 * To maximize efficiency, {% data variables.product.prodname_dependabot %} can automatically add specific individuals or teams as **reviewers** to its pull requests for a particular package ecosystem.
 * To integrate {% data variables.product.prodname_dependabot %}'s pull requests into your CI/CD pipelines, it can apply **custom labels** to pull requests, which you can then use to trigger action workflows.
 
+{% endif %}
+
 There are several different customization options which can all be used in combination, and tailored per package ecosystem.
+
+{% ifversion dependabot-reviewers-deprecation %}
+
+## Automatically adding reviewers
+
+To ensure your project's security updates get addressed promptly by the appropriate team, you can automatically add reviewers to Dependabot pull requests using a CODEOWNERS file. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
+
+{% else %}
 
 ## Automatically adding reviewers and assignees
 
 By default, {% data variables.product.prodname_dependabot %} raises pull requests without any reviewers or assignees.
 
 However, you may want pull requests to be consistently reviewed or dealt with by a specific individual or team that has expertise in that package ecosystem, or automatically assigned to a designated security team. In which case, you can use `reviewers` and `assignees` to set these values per package ecosystem.
+
+> [!NOTE]
+> The `reviewers` property is closing down and will be removed in a future release of GitHub Enterprise Server.
 
 The example `dependabot.yml` file below changes the npm configuration so that all pull requests opened with version and security updates for npm have:
 * A team ("`my-org/team-name`") and an individual ("`octocat`") automatically added as reviewers to the pull requests.
@@ -58,6 +77,8 @@ updates:
 {% data reusables.dependabot.option-affects-security-updates %}
 
 See also [`assignees`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#assignees--) and [`reviewers`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#reviewers--).
+
+{% endif %}
 
 ## Labeling pull requests with custom labels
 
@@ -207,7 +228,7 @@ updates:
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
-See also [`pull-request-branch-name.separator`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#pull-request-branch-name.separator--).
+See also [`pull-request-branch-name.separator`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#pull-request-branch-nameseparator--).
 
 ## Targeting pull requests against a non-default branch
 

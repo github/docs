@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { linkPunctuation } from '../../lib/linting-rules/link-punctuation.js'
+import { runRule } from '../../lib/init-test'
+import { linkPunctuation } from '../../lib/linting-rules/link-punctuation'
 
 describe(linkPunctuation.names.join(' - '), () => {
   test('inline links without quotes or a period should not error', async () => {

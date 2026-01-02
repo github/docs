@@ -88,7 +88,6 @@ includeGuides:
   - /admin/managing-your-enterprise-account/about-enterprise-accounts
   - /admin/getting-started-with-enterprise/about-upgrades-to-new-releases
   - /admin/configuring-packages/configuring-package-ecosystem-support-for-your-enterprise
-  - /admin/configuring-packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages
   - /admin/enforcing-policies/enforcing-policy-with-pre-receive-hooks/about-pre-receive-hooks
   - /admin/enforcing-policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment
   - /admin/enforcing-policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-script

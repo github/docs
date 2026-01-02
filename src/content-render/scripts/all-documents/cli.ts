@@ -43,8 +43,8 @@ import { writeFileSync, statSync } from 'fs'
 
 import { program, Option } from 'commander'
 
-import { languageKeys } from '@/languages/lib/languages.js'
-import { allVersions } from '@/versions/lib/all-versions.js'
+import { languageKeys } from '@/languages/lib/languages'
+import { allVersions } from '@/versions/lib/all-versions'
 import { allDocuments, POSSIBLE_FIELDS, type AllDocument } from './lib'
 
 // E.g. enteprise-server@3.12, free-pro-team@latest, etc

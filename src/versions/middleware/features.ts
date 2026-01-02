@@ -2,9 +2,9 @@ import path from 'path'
 import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest, FrontmatterVersions } from '@/types'
-import { ROOT } from '@/frame/lib/constants.js'
-import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
-import { getDeepDataByLanguage } from '@/data-directory/lib/get-data.js'
+import { ROOT } from '@/frame/lib/constants'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions'
+import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
 
 export default function features(req: ExtendedRequest, res: Response, next: NextFunction) {
   if (!req.context) throw new Error('request is not contextualized')

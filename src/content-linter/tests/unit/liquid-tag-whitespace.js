@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { liquidTagWhitespace } from '../../lib/linting-rules/liquid-tag-whitespace.js'
+import { runRule } from '../../lib/init-test'
+import { liquidTagWhitespace } from '../../lib/linting-rules/liquid-tag-whitespace'
 
 describe(liquidTagWhitespace.names.join(' - '), () => {
   test('liquid tags with correct whitespace pass', async () => {

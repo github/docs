@@ -5,8 +5,8 @@ import robotsParser, { type Robot } from 'robots-parser'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
-import { get } from '@/tests/helpers/e2etest.js'
+} from '@/frame/middleware/set-fastly-surrogate-key'
+import { get } from '@/tests/helpers/e2etest'
 
 describe('robots.txt', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })

@@ -53,7 +53,7 @@ Issues and pull requests in public repositories, and in private repositories for
 
 ## Assigning an issue to {% data variables.product.prodname_copilot_short %}
 
-If you assign an issue to {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_copilot_short %} will work autonomously on the issue, creating a pull request and, when it has finished, requesting that you review the pull request. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
+If you assign an issue to {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_copilot_short %} will work autonomously on the issue, creating a pull request and, when it has finished, requesting that you review the pull request. See [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
 {% endif %}
 

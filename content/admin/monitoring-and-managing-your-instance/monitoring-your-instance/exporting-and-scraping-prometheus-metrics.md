@@ -53,7 +53,7 @@ curl -L -H "Content-Type: application/json" -X PUT -u "api_key:xxxxxxx" https://
 To verify that the Prometheus metrics exporter is enabled, use `curl` to query the `/metrics` endpoint on port 9103. For more information about the administrative ports, see [AUTOTITLE](/admin/configuring-settings/configuring-network-settings/network-ports#administrative-ports).
 
 ```shell
-curl localhost:9103/metrics
+curl 127.0.0.1:9103/metrics
 ```
 
 If successful, the response will include metrics with the `collectd_` prefix.

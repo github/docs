@@ -1,8 +1,8 @@
 import { TextInput, ActionMenu, ActionList, Button, Box } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
 import { useRef, useEffect, useState } from 'react'
-import { ArticleCardItems } from '#src/landings/types.ts'
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { ArticleCardItems } from '@/landings/types'
+import { useTranslation } from '@/languages/components/useTranslation'
 
 type Props = {
   tokens: ArticleCardItems

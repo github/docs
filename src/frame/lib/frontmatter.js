@@ -1,7 +1,10 @@
-import parse from './read-frontmatter.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
-import { allTools } from '#src/tools/lib/all-tools.ts'
-import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
+// when updating to typescript,
+// update links in content/contributing as well
+
+import parse from '@/frame/lib/read-frontmatter'
+import { allVersions } from '@/versions/lib/all-versions'
+import { allTools } from '@/tools/lib/all-tools'
+import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
 
 const layoutNames = [
   'default',
@@ -14,7 +17,23 @@ const layoutNames = [
   false,
 ]
 
+// DEPRECATED: Use 'contentType' instead of 'type' for new content.
+// 'type' exists on ~40% of files but is used only for internal analytics.
+// Migration tool: src/content-render/scripts/add-content-type.ts
 const guideTypes = ['overview', 'quick_start', 'tutorial', 'how_to', 'reference', 'rai']
+
+// As of July 2025, use 'contentType' rather than 'type'.
+export const contentTypesEnum = [
+  'get-started',
+  'concepts',
+  'how-tos',
+  'reference',
+  'tutorials',
+  'homepage', // Only applies to the sole 'content/index.md' file (the homepage).
+  'landing', // Only applies to 'content/<product>/index.md' files (product landings).
+  'rai', // Only applies to files that live in directories with 'responsible-use' in the name.
+  'other', // Everything else.
+]
 
 export const schema = {
   type: 'object',
@@ -53,7 +72,7 @@ export const schema = {
       minimum: 2,
       maximum: 4,
     },
-    mapTopic: {
+    subcategory: {
       type: 'boolean',
     },
     // allow hidden articles under `early-access`
@@ -65,7 +84,7 @@ export const schema = {
       type: 'boolean',
     },
     // specify whether an Early Access product should have a table of contents
-    // (EA categories and map topics have them by default, but products don't)
+    // (EA categories and subcategories have them by default, but products don't)
     earlyAccessToc: {
       type: 'boolean',
     },
@@ -117,6 +136,7 @@ export const schema = {
         // allows you to use an alternate heading for the popular column
         popularHeading: {
           type: 'string',
+          translatable: true,
         },
         videos: {
           type: 'array',
@@ -146,9 +166,17 @@ export const schema = {
         prefix: { type: 'string' },
       },
     },
+    // DEPRECATED: Use 'contentType' instead of 'type' for new content.
+    // 'type' exists on ~40% of files but is used only for internal analytics.
+    // Migration tool: src/content-render/scripts/add-content-type.ts
     type: {
       type: 'string',
       enum: guideTypes,
+    },
+    // As of July 2025, use 'contentType' rather than 'type'.
+    contentType: {
+      type: 'string',
+      enum: contentTypesEnum,
     },
     topics: {
       type: 'array',
@@ -263,6 +291,40 @@ export const schema = {
       type: 'string',
     },
     // END category landing tags
+    // Custom sidebar link for category pages
+    sidebarLink: {
+      type: 'object',
+      required: ['text', 'href'],
+      properties: {
+        text: {
+          type: 'string',
+          translatable: true,
+        },
+        href: {
+          type: 'string',
+        },
+      },
+    },
+    // Spotlight configuration for category landing pages
+    spotlight: {
+      type: 'array',
+      items: {
+        type: 'object',
+        required: ['article', 'image'],
+        properties: {
+          article: {
+            type: 'string',
+            description: 'Path to the article to spotlight',
+          },
+          image: {
+            type: 'string',
+            description: 'Path to image for the spotlight card',
+          },
+        },
+        additionalProperties: false,
+      },
+      description: 'Array of articles to feature in the spotlight section',
+    },
   },
 }
 

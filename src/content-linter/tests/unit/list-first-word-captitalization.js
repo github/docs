@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { listFirstWordCapitalization } from '../../lib/linting-rules/list-first-word-capitalization.js'
+import { runRule } from '../../lib/init-test'
+import { listFirstWordCapitalization } from '../../lib/linting-rules/list-first-word-capitalization'
 
 describe(listFirstWordCapitalization.names.join(' - '), () => {
   test('ensure multi-level lists catch incorrect capitalization errors', async () => {
@@ -75,5 +75,26 @@ describe(listFirstWordCapitalization.names.join(' - '), () => {
     const result = await runRule(listFirstWordCapitalization, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(0)
+  })
+
+  test('skips site-policy directory files', async () => {
+    const markdown = [
+      '- list item should normally be flagged',
+      '- another uncapitalized item',
+      '- a. this is alphabetic numbering',
+      '- b. this is also alphabetic numbering',
+    ].join('\n')
+
+    // Test normal behavior (should flag errors)
+    const normalResult = await runRule(listFirstWordCapitalization, { strings: { markdown } })
+    expect(normalResult.markdown.length).toBeGreaterThan(0)
+
+    // Test site-policy exclusion (should skip all errors)
+    const sitePolicyResult = await runRule(listFirstWordCapitalization, {
+      strings: {
+        'content/site-policy/some-policy.md': markdown,
+      },
+    })
+    expect(sitePolicyResult['content/site-policy/some-policy.md'].length).toBe(0)
   })
 })

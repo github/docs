@@ -75,10 +75,10 @@ To update private dependencies of repositories in your organization, {% data var
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_code_scanning %}:
 
 {% ifversion code-scanning-autofix %}
-* [Enabling {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_codeql %}](#enabling-copilot-autofix-for-codeql)
-* [Enabling {% data variables.product.prodname_copilot_autofix_short %} for third-party {% data variables.product.prodname_code_scanning %} tools](#enabling-copilot-autofix-for-third-party-code-scanning-tools) {% endif %}
+* [Enabling {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_codeql %}](#enabling-copilot-autofix-for-codeql)
+* [Enabling {% data variables.copilot.copilot_autofix_short %} for third-party {% data variables.product.prodname_code_scanning %} tools](#enabling-copilot-autofix-for-third-party-code-scanning-tools) {% endif %}
 * [Recommending the extended query suite for default setup](#recommending-the-extended-query-suite-for-default-setup){% ifversion ghes < 3.17 %}
-* [Setting a failure threshold for {% data variables.product.prodname_code_scanning %} checks in pull requests](#setting-a-failure-threshold-for-code-scanning-checks-in-pull-requests){% endif %}
+* [Setting a failure threshold for {% data variables.product.prodname_code_scanning %} checks in pull requests](#setting-a-failure-threshold-for-code-scanning-checks-in-pull-requests)
 
 {% endif %}
 
@@ -88,16 +88,16 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 
 {% ifversion code-scanning-autofix %}
 
-### Enabling {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_codeql %}
+### Enabling {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_codeql %}
 
-You can select **{% data variables.product.prodname_copilot_autofix_short %}** to enable {% data variables.product.prodname_copilot_autofix_short %} for all the repositories in your organization that use {% data variables.product.prodname_codeql %} default setup or {% data variables.product.prodname_codeql %} advanced setup. {% data variables.product.prodname_copilot_autofix_short %} is an expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
+You can select **{% data variables.copilot.copilot_autofix_short %}** to enable {% data variables.copilot.copilot_autofix_short %} for all the repositories in your organization that use {% data variables.product.prodname_codeql %} default setup or {% data variables.product.prodname_codeql %} advanced setup. {% data variables.copilot.copilot_autofix_short %} is an expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
 
-### Enabling {% data variables.product.prodname_copilot_autofix_short %} for third-party {% data variables.product.prodname_code_scanning %} tools
+### Enabling {% data variables.copilot.copilot_autofix_short %} for third-party {% data variables.product.prodname_code_scanning %} tools
 
 >[!NOTE]
 > Third-party {% data variables.product.prodname_code_scanning %} tool support is in {% data variables.release-phases.public_preview %}, and subject to change. Currently, the third-party tool ESLint is supported. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
 
-You can select **{% data variables.product.prodname_copilot_autofix_short %} for third-party tools** to enable {% data variables.product.prodname_copilot_autofix_short %} for all the repositories in your organization that use third-party tools. {% data variables.product.prodname_copilot_autofix_short %} is an expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts.
+You can select **{% data variables.copilot.copilot_autofix_short %} for third-party tools** to enable {% data variables.copilot.copilot_autofix_short %} for all the repositories in your organization that use third-party tools. {% data variables.copilot.copilot_autofix_short %} is an expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts.
 
 {% endif %}
 
@@ -116,7 +116,8 @@ You can choose the severity levels at which {% data variables.product.prodname_c
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_secret_scanning %}:
 
 * [Adding a resource link for blocked commits](#adding-a-resource-link-for-blocked-commits)
-* [Defining custom patterns](#defining-custom-patterns)
+* [Defining custom patterns](#defining-custom-patterns){% endif %}{% ifversion push-protected-pattern-configuration %}
+* [Specifying patterns to include in push protection](#specifying-patterns-to-include-in-push-protection){% endif %}
 
 ### Adding a resource link for blocked commits
 
@@ -125,6 +126,20 @@ To provide context for developers when {% data variables.product.prodname_secret
 ### Defining custom patterns
 
 You can define custom patterns for {% data variables.product.prodname_secret_scanning %} with regular expressions. Custom patterns can identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. To create a custom pattern, click **New pattern**, then enter the details for your pattern and click **Save and dry run**. For more information on custom patterns, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).
+
+{% ifversion push-protected-pattern-configuration %}
+
+### Specifying patterns to include in push protection
+
+{% data reusables.secret-scanning.push-protected-pattern-configuration-org-enterprise-preview %}
+
+You can customize which secret patterns are included in push protection, giving security teams greater control over what types of secrets are blocked in the repositories in your organization.
+
+1. Under "Additional settings", in the "{% data variables.product.prodname_secret_scanning_caps %}" section and to the right of "Pattern configurations", click **{% octicon "gear" aria-label="The Gear icon" %}**.
+1. In the page that gets displayed, make the desired changes in the "Organization setting" column.
+{% data reusables.secret-scanning.pattern-enablement-org-enterprise %}
+
+{% endif %}
 
 ## Creating security managers for your organization
 

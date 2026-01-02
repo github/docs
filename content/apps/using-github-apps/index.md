@@ -16,6 +16,7 @@ children:
   - /installing-a-github-app-from-github-marketplace-for-your-organizations
   - /installing-a-github-app-from-a-third-party
   - /installing-your-own-github-app
+  - /installing-a-github-app-on-your-enterprise
   - /requesting-a-github-app-from-your-organization-owner
   - /authorizing-github-apps
   - /approving-updated-permissions-for-a-github-app

@@ -20,11 +20,11 @@ jobs:
       # need to use a token from a user with access to github/github for this step
       GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
       REPORT_AUTHOR: docs-bot
-      REPORT_LABEL: github github broken link report
+      REPORT_LABEL: github github broken link report,workflow-generated
       REPORT_REPOSITORY: github/docs-content
     steps:
       - name: Checkout
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'

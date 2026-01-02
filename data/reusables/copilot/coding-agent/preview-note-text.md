@@ -1,1 +1,1 @@
-{% data variables.copilot.copilot_coding_agent %} is in {% data variables.release-phases.public_preview %} and subject to change.
+{% data variables.copilot.copilot_coding_agent %} is in {% data variables.release-phases.public_preview %} and subject to change. During the preview, use of the feature is subject to [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms).

@@ -118,7 +118,7 @@ Some linting rules return warnings or errors based on HTML comments that you can
 
 #### Syntax for expiring and expired content
 
-Rules `GHD038` and `GHD039` check for content that has been manually given an expiration date. Fourteen days before the specified date, the content linter will return a warning that the content is expiring soon. Starting on the specified date, the content linter will return an error and flag the content for remediation.
+Rules `GHD038` and `GHD039` check for content that has been manually given an expiration date. Fourteen days before the specified date, the content linter will return a warning that the content is expiring soon. Starting on the specified date, the content linter will return a warning and flag the content for remediation.
 
 You can add an expiration date to content by wrapping it in HTML tags that contain an expiration date in the format: `<!-- expires yyyy-mm-dd --> <!-- end expires yyyy-mm-dd -->`
 

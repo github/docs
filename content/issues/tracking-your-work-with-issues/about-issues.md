@@ -23,7 +23,7 @@ Issues can be created in a variety of ways, so you can choose the most convenien
 
 {% ifversion copilot %}
 
-> [!TIP] You can also use {% data variables.product.prodname_copilot_chat_short %} to generate ideas, outlines, or drafts for discussions or blog posts, based on your issues. See [AUTOTITLE](/copilot/copilot-chat-cookbook/documenting-code/writing-discussions-or-blog-posts).
+> [!TIP] You can also use {% data variables.copilot.copilot_chat_short %} to generate ideas, outlines, or drafts for discussions or blog posts, based on your issues. See [AUTOTITLE](/copilot/copilot-chat-cookbook/documenting-code/writing-discussions-or-blog-posts).
 
 {% endif %}
 

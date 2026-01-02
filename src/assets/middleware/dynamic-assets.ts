@@ -4,11 +4,8 @@ import type { Response, NextFunction } from 'express'
 import sharp from 'sharp'
 
 import type { ExtendedRequest } from '@/types'
-import { assetCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control.js'
-import {
-  setFastlySurrogateKey,
-  SURROGATE_ENUMS,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
+import { assetCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control'
+import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 
 /**
  * This is the indicator that is a virtual part of the URL.

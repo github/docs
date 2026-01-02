@@ -51,39 +51,6 @@ export function getGeneralSearchSettings(
   return settings
 }
 
-export function getGeneralAutocompleteSettings(
-  language: string,
-  verbose = false,
-): estypes.IndicesIndexSettings {
-  const settings: estypes.IndicesIndexSettings = {
-    analysis: {
-      analyzer: {
-        text_analyzer: {
-          filter: ['lowercase'],
-          tokenizer: 'standard',
-          type: 'custom',
-        } as AnalysisCustomAnalyzer,
-      },
-      filter: {},
-    },
-  }
-
-  const snowballLanguage = SNOWBALL_LANGUAGES[language]
-  if (snowballLanguage) {
-    const textAnalyzer = settings.analysis!.analyzer!.text_analyzer as AnalysisCustomAnalyzer
-    textAnalyzer.filter!.push('languaged_snowball')
-
-    settings.analysis!.filter!['languaged_snowball'] = {
-      type: 'snowball',
-      language: snowballLanguage as AnalysisSnowballLanguage,
-    }
-  } else if (verbose) {
-    console.warn(`No snowball language for '${language}'`)
-  }
-
-  return settings
-}
-
 export function getAISearchAutocompleteSettings(
   language: string,
   verbose = false,

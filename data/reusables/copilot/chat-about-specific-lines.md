@@ -7,7 +7,7 @@
    * To ask a question about **specific lines** within the file:
 
      1. Click the line number for the first line you want to ask about, hold down <kbd>Shift</kbd>, then click the line number for the last line you want to select.
-     1. To ask your own question about the selected lines, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) to the right of your selection, then type your question in the {% data variables.product.prodname_copilot_chat %} panel.
+     1. To ask your own question about the selected lines, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) to the right of your selection, then type your question in the {% data variables.copilot.copilot_chat %} panel.
      1. To ask a predefined question, click the drop-down menu beside the {% data variables.product.prodname_copilot_short %} icon, then choose one of the options.
 
      ![Screenshot of the {% data variables.product.prodname_copilot_short %} buttons, highlighted with a dark orange outline, to the right of some selected code.](/assets/images/help/copilot/copilot-buttons-inline-code.png)

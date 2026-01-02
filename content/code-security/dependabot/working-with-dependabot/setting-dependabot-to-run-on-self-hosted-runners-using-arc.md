@@ -17,8 +17,6 @@ shortTitle: Configure ARC
 
 ## Working with the {% data variables.product.prodname_actions_runner_controller %} (ARC)
 
-{% data reusables.dependabot.arc-support-private-preview-note %}
-
 This article provides step-by-step instructions for setting up ARC on a Kubernetes cluster and configuring {% data variables.product.prodname_dependabot %} to run on self-hosted action runners. The article:
 
 * Contains an overview of the ARC and {% data variables.product.prodname_dependabot %} integration.

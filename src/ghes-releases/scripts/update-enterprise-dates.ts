@@ -9,7 +9,7 @@ import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs/promises'
 
-import { getContents } from '#src/workflows/git-utils.ts'
+import { getContents } from '@/workflows/git-utils'
 
 interface EnterpriseDates {
   [releaseNumber: string]: {

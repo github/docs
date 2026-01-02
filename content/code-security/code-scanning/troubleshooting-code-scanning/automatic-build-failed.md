@@ -13,10 +13,9 @@ redirect_from:
 
 {% data reusables.code-scanning.codeql-action-version-ghes %}
 
-If an automatic build of code for a compiled language within your project fails, you can try {% ifversion codeql-no-build %}changing to the `manual` build mode or {% endif %}removing the `autobuild` step from your {% data variables.product.prodname_code_scanning %} workflow and adding specific build steps. If you're not already using advanced setup, you'll need to enable it first to create a workflow you can edit.
+If an automatic build of code for a compiled language within your project fails, you can try changing to the `manual` build mode or removing the `autobuild` step from your {% data variables.product.prodname_code_scanning %} workflow and adding specific build steps. If you're not already using advanced setup, you'll need to enable it first to create a workflow you can edit.
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning).{% ifversion codeql-no-build %}
-* [CodeQL build modes](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes){% elsif ghes %}
-* [Adding build steps for a compiled language](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#adding-build-steps-for-a-compiled-language).{% endif %}
+* [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning).
+* [CodeQL build modes](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes)

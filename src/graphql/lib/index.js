@@ -1,10 +1,10 @@
 import {
   readCompressedJsonFileFallbackLazily,
   readCompressedJsonFileFallback,
-} from '#src/frame/lib/read-json-file.js'
-import { getAutomatedPageMiniTocItems } from '#src/frame/lib/get-mini-toc-items.js'
-import languages from '#src/languages/lib/languages.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
+} from '@/frame/lib/read-json-file'
+import { getAutomatedPageMiniTocItems } from '@/frame/lib/get-mini-toc-items'
+import languages from '@/languages/lib/languages'
+import { allVersions } from '@/versions/lib/all-versions'
 
 export const GRAPHQL_DATA_DIR = 'src/graphql/data'
 /* ADD LANGUAGE KEY */

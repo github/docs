@@ -3,7 +3,9 @@ title: Managing requests to bypass push protection
 intro: 'As a member of the bypass list for an organization or repository, you can review bypass requests from other members of the organization or repository.'
 permissions: '{% data reusables.permissions.delegated-bypass-list %}'
 versions:
-  feature: push-protection-delegated-bypass
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Secret scanning
@@ -18,6 +20,10 @@ shortTitle: Manage bypass requests
 {% data reusables.secret-scanning.push-protection-delegate-bypass-beta-note %}
 
 When enabling delegated bypass for push protection, organization owners or repository administrators decide which {% ifversion push-protection-bypass-fine-grained-permissions %}individuals, {% endif %}roles or teams can review (approve or deny) requests to bypass push protection.
+
+>[!NOTE]
+> You can also use {% data variables.product.prodname_github_apps %} with fine-grained permissions to programmatically review and approve push protection bypass requests. This enables your organization to streamline security request reviews and enforce policies, or integrate with external security tools, ensuring that all reviews meet established standards. _For {% data variables.product.prodname_ghe_server %}, the use of {% data variables.product.prodname_github_apps %} to review bypass requests is available from version 3.19._
+> For more information about permissions, see [Organization permissions for "Organization bypass requests for secret scanning"](/enterprise-cloud@latest/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28#organization-permissions-for-organization-bypass-requests-for-secret-scanning).
 
 When a contributor requests bypass privileges to push a commit containing a secret, this designated group of reviewers:
 

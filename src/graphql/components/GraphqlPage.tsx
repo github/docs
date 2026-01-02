@@ -19,7 +19,7 @@ import type {
   ScalarT,
   UnionT,
 } from './types'
-import styles from 'src/frame/components/ui/MarkdownContent/MarkdownContent.module.scss'
+import styles from '@/frame/components/ui/MarkdownContent/MarkdownContent.module.scss'
 
 type Props = {
   schema: Object

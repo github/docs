@@ -1,6 +1,6 @@
 import { addError } from 'markdownlint-rule-helpers'
 
-import { forEachInlineChild, getRange } from '../helpers/utils.js'
+import { forEachInlineChild, getRange } from '../helpers/utils'
 
 const excludeStartWords = ['image', 'graphic']
 

@@ -1,10 +1,10 @@
 import { addError } from 'markdownlint-rule-helpers'
 import { intersection } from 'lodash-es'
 
-import { getFrontmatter } from '../helpers/utils.js'
-import { formatAjvErrors } from '../helpers/schema-utils.js'
-import { frontmatter, deprecatedProperties } from '#src/frame/lib/frontmatter.js'
-import readFrontmatter from '#src/frame/lib/read-frontmatter.js'
+import { getFrontmatter } from '../helpers/utils'
+import { formatAjvErrors } from '../helpers/schema-utils'
+import { frontmatter, deprecatedProperties } from '@/frame/lib/frontmatter'
+import readFrontmatter from '@/frame/lib/read-frontmatter'
 
 export const frontmatterSchema = {
   names: ['GHD012', 'frontmatter-schema'],
