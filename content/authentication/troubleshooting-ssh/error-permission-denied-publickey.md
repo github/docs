@@ -45,6 +45,62 @@ You should see this output:
 
 The connection should be made on port 22{% ifversion fpt or ghec %}, unless you're overriding settings to use [SSH over HTTPS](/authentication/troubleshooting-ssh/using-ssh-over-the-https-port){% endif %}.
 
+## Manually specify the SSH key file
+
+If you've created an SSH key file following the [GitHub documentation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), chances are it was created with the default filename of `id_ed25519/id_ed25519.pub`, or similar. If, however, you chose to use a non-default filename, then the commands to SSH into GitHub to test the connection will fail.  This is because, by default and without any additional configuration, SSH will try to connect using default/standardized filenames. This can be seen in the following debug output below:
+
+```
+user@host:~/.ssh $ ssh -vT git@github.com
+debug1: OpenSSH_10.0p2 Raspbian-7, OpenSSL 3.5.4 30 Sep 2025
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: Reading configuration data /etc/ssh/ssh_config.d/20-systemd-ssh-proxy.conf
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to github.com [140.82.112.3] port 22.
+debug1: Connection established.
+<----truncated---->
+debug1: Will attempt key: /home/your_username/.ssh/id_rsa
+debug1: Will attempt key: /home/your_username/.ssh/id_ecdsa
+debug1: Will attempt key: /home/your_username/.ssh/id_ecdsa_sk
+debug1: Will attempt key: /home/your_username/.ssh/id_ed25519
+debug1: Will attempt key: /home/your_username/.ssh/id_ed25519_sk
+debug1: Will attempt key: /home/your_username/.ssh/id_xmss
+debug1: Trying private key: /home/your_username/.ssh/id_rsa
+debug1: Trying private key: /home/your_username/.ssh/id_ecdsa
+debug1: Trying private key: /home/your_username/.ssh/id_ecdsa_sk
+debug1: Trying private key: /home/your_username/.ssh/id_ed25519
+debug1: Trying private key: /home/your_username/.ssh/id_ed25519_sk
+debug1: Trying private key: /home/your_username/.ssh/id_xmss
+debug1: No more authentication methods to try.
+git@github.com: Permission denied (publickey)
+```
+
+To resolve this error, modify the test SSH command as follows:
+
+`ssh -vT git@github.com -i <filename>`
+
+Where `filename` is the filename of the *private key*, **not** the public key.  Successful output will be shown as follows:
+
+```
+user@host:~/.ssh $ ssh -vT git@github.com -i my_key
+debug1: OpenSSH_10.0p2 Raspbian-7, OpenSSL 3.5.4 30 Sep 2025
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: Reading configuration data /etc/ssh/ssh_config.d/20-systemd-ssh-proxy.conf
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to github.com [140.82.112.3] port 22.
+debug1: Connection established.
+<-----TRUNCATED----->
+debug1: Host 'github.com' is known and matches the ED25519 host key.
+debug1: Found key in /home/user/.ssh/known_hosts:1
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+Hi github_user! You've successfully authenticated, but GitHub does not provide shell access.
+debug1: channel 0: free: client-session, nchannels 1
+Transferred: sent 4024, received 4272 bytes, in 0.1 seconds
+Bytes per second: sent 30574.9, received 32459.2
+debug1: Exit status 1
+```
+
+This command was issued from within the directory where the private and public key files are stored; this is typically `~/.ssh`, but might be different on your system. Be sure to modify the command to include the relative filepath, if applicable.
+
 ## Always use the "git" user
 
 All connections, including those for remote URLs, must be made as the "git" user. If you try to connect with your {% data variables.product.github %} username, it will fail:
