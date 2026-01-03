@@ -785,6 +785,14 @@
       "owner": "audit_logs"
     },
     {
+      "location": "ReviewRequest.requestedBy",
+      "description": "<p><code>requestedBy</code> will be removed. Use <code>requestedByActor</code> instead.</p>",
+      "reason": "<p><code>requestedBy</code> will be removed.</p>",
+      "date": "2026-04-01",
+      "criticality": "breaking",
+      "owner": "github/client-apps-platform"
+    },
+    {
       "location": "RepositoryVisibilityChangeEnableAuditEntry.userUrl",
       "description": "<p><code>userUrl</code> will be removed.</p>",
       "reason": "<p>The GraphQL audit-log is deprecated. Please use the REST API instead.</p>",

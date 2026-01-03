@@ -378,7 +378,8 @@
       "pricing_target_type",
       "pricing_target_id",
       "budget_limit_type",
-      "alert_recipient_user_ids"
+      "alert_recipient_user_ids",
+      "exclude_cost_center_usage"
     ]
   },
   {
@@ -3571,23 +3572,6 @@
     "docs_reference_titles": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
-    "action": "code.search",
-    "description": "A code search was run targeting an organization. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
-    "docs_reference_links": "/search-github/github-code-search",
-    "fields": [
-      "@timestamp",
-      "action",
-      "actor_id",
-      "business_id",
-      "query",
-      "org_id",
-      "user_id",
-      "_document_id",
-      "search_string"
-    ],
-    "docs_reference_titles": "/search-github/github-code-search"
-  },
-  {
     "action": "codespaces.allow_permissions",
     "description": "A codespace using custom permissions from its devcontainer.json file was launched.",
     "docs_reference_links": "N/A",
@@ -4251,78 +4235,6 @@
     ]
   },
   {
-    "action": "copilot.knowledge_base_created",
-    "description": "A knowledge base was created in the organization.",
-    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases",
-    "fields": [
-      "actor",
-      "actor_id",
-      "user_agent",
-      "request_id",
-      "knowledge_base_name",
-      "org_id",
-      "org",
-      "action",
-      "_document_id",
-      "@timestamp",
-      "created_at",
-      "operation_type",
-      "business",
-      "business_id",
-      "actor_is_bot",
-      "request_access_security_header"
-    ],
-    "docs_reference_titles": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
-  },
-  {
-    "action": "copilot.knowledge_base_deleted",
-    "description": "A knowledge base was deleted from the organization.",
-    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases",
-    "fields": [
-      "actor",
-      "actor_id",
-      "user_agent",
-      "request_id",
-      "knowledge_base_name",
-      "org_id",
-      "org",
-      "action",
-      "_document_id",
-      "@timestamp",
-      "created_at",
-      "operation_type",
-      "business",
-      "business_id",
-      "actor_is_bot",
-      "request_access_security_header"
-    ],
-    "docs_reference_titles": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
-  },
-  {
-    "action": "copilot.knowledge_base_updated",
-    "description": "A knowledge base was updated in the organization.",
-    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases",
-    "fields": [
-      "actor",
-      "actor_id",
-      "user_agent",
-      "request_id",
-      "knowledge_base_name",
-      "org_id",
-      "org",
-      "action",
-      "_document_id",
-      "@timestamp",
-      "created_at",
-      "operation_type",
-      "business",
-      "business_id",
-      "actor_is_bot",
-      "request_access_security_header"
-    ],
-    "docs_reference_titles": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
-  },
-  {
     "action": "copilot.plan_changed",
     "description": "The plan for GitHub Copilot was updated.",
     "docs_reference_links": "/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot",
@@ -4671,6 +4583,118 @@
       "_document_id"
     ],
     "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-automatically-when-new-repositories-are-added"
+  },
+  {
+    "action": "dependabot_closure_request.approve",
+    "description": "Dismissal of Dependabot alerts was approved.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "number",
+      "alert_number",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+  },
+  {
+    "action": "dependabot_closure_request.cancel",
+    "description": "Dismissal request for Dependabot alerts was canceled.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "number",
+      "alert_number",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+  },
+  {
+    "action": "dependabot_closure_request.create",
+    "description": "Dismissal of Dependabot alerts was requested.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "number",
+      "alert_number",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+  },
+  {
+    "action": "dependabot_closure_request.deny",
+    "description": "Dismissal of Dependabot alerts was denied.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "number",
+      "alert_number",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
   },
   {
     "action": "dependabot_repository_access.default_access_level_updated",

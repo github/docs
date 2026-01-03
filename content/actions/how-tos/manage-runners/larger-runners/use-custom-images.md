@@ -8,6 +8,8 @@ product: '{% data variables.actions.github_hosted_larger_runners %} are only ava
 
 ---
 
+{% data reusables.actions.custom-images-public-preview-note %}
+
 ## Custom images
 
 You can create a custom image to define the exact environment that your {% data variables.actions.github_hosted_larger_runners %} use. Custom images let you preinstall tools, dependencies, and configurations to speed up workflows and improve consistency across jobs.

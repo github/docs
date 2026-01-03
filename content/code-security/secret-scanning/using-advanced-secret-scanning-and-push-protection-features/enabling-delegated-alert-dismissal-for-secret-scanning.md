@@ -51,3 +51,7 @@ To learn more about security configurations, see [AUTOTITLE](/code-security/secu
 1. Apply the security configuration to all (or selected) repositories in your enterprise. See [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/applying-a-custom-security-configuration-to-your-enterprise).
 
 {% endif %}
+
+## Next steps
+
+Now that you have enabled delegated alert dismissal for {% data variables.product.prodname_secret_scanning %}, you should regularly review alert dismissal requests to maintain an accurate alert count and unblock your developers. See [AUTOTITLE](/code-security/security-overview/review-alert-dismissal-requests).

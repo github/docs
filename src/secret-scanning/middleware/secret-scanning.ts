@@ -30,6 +30,10 @@ export default async function secretScanning(
 
   const { isEnterpriseCloud, isEnterpriseServer } = getVersionInfo(currentVersion)
 
+  if (isEnterpriseServer && !allVersions[currentVersion]) {
+    return next()
+  }
+
   const versionPath = isEnterpriseCloud
     ? 'ghec'
     : isEnterpriseServer

@@ -1,4 +1,6 @@
 const modelsCompletionsEndpoint = 'https://models.github.ai/inference/chat/completions'
+const API_TIMEOUT_MS = 180000 // 3 minutes
+const DEFAULT_MODEL = 'openai/gpt-4o'
 
 interface ChatMessage {
   role: string
@@ -42,16 +44,16 @@ export async function callModelsApi(
 
   // Set default model if none specified
   if (!promptWithContent.model) {
-    promptWithContent.model = 'openai/gpt-4o'
+    promptWithContent.model = DEFAULT_MODEL
     if (verbose) {
-      console.log('⚠️  No model specified, using default: openai/gpt-4o')
+      console.log(`⚠️  No model specified, using default: ${DEFAULT_MODEL}`)
     }
   }
 
   try {
     // Create an AbortController for timeout handling
     const controller = new AbortController()
-    const timeoutId = setTimeout(() => controller.abort(), 180000) // 3 minutes
+    const timeoutId = setTimeout(() => controller.abort(), API_TIMEOUT_MS)
 
     const startTime = Date.now()
     if (verbose) {
@@ -123,7 +125,7 @@ export async function callModelsApi(
   } catch (error) {
     if (error instanceof Error) {
       if (error.name === 'AbortError') {
-        throw new Error('API call timed out after 3 minutes')
+        throw new Error(`API call timed out after ${API_TIMEOUT_MS / 1000} seconds`)
       }
       console.error('Error calling GitHub Models REST API:', error.message)
     }

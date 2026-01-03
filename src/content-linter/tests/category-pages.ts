@@ -50,13 +50,16 @@ describe.skip('category pages', () => {
   // otherwise, if one of them has no categories, the tests will fail.
   for (const tuple of productTuples) {
     const [, productIndex] = tuple
+
+    const productDir = path.dirname(productIndex)
+
     // Get links included in product index page.
     // Each link corresponds to a product subdirectory (category).
     // Example: "getting-started-with-github"
+    // Note: We need to read this synchronously here because vitest's describe.each
+    // can't asynchronously define tests
     const contents = fs.readFileSync(productIndex, 'utf8')
     const data = getFrontmatterData(contents)
-
-    const productDir = path.dirname(productIndex)
 
     const children: string[] = data.children
     const categoryLinks = children
@@ -118,15 +121,19 @@ describe.skip('category pages', () => {
           await contextualize(req as ExtendedRequest, res as Response, next)
           await shortVersions(req as ExtendedRequest, res as Response, next)
 
-          // Save the index title for later testing
-          indexTitle = data.title.includes('{')
-            ? await renderContent(data.title, req.context, { textOnly: true })
-            : data.title
+          // Read the product index data for rendering
+          const productIndexContents = await fs.promises.readFile(productIndex, 'utf8')
+          const productIndexData = getFrontmatterData(productIndexContents)
 
-          if (data.shortTitle) {
-            indexShortTitle = data.shortTitle.includes('{')
-              ? await renderContent(data.shortTitle, req.context, { textOnly: true })
-              : data.shortTitle
+          // Save the index title for later testing
+          indexTitle = productIndexData.title.includes('{')
+            ? await renderContent(productIndexData.title, req.context, { textOnly: true })
+            : productIndexData.title
+
+          if (productIndexData.shortTitle) {
+            indexShortTitle = productIndexData.shortTitle.includes('{')
+              ? await renderContent(productIndexData.shortTitle, req.context, { textOnly: true })
+              : productIndexData.shortTitle
           } else {
             indexShortTitle = ''
           }

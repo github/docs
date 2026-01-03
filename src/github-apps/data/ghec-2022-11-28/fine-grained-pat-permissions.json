@@ -2408,6 +2408,48 @@
       }
     ]
   },
+  "organization_copilot_metrics": {
+    "title": "Organization Copilot metrics",
+    "displayTitle": "Organization permissions for \"Organization Copilot metrics\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "get-copilot-organization-usage-metrics-for-a-specific-day",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-1-day",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-organization-usage-metrics",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/metrics/reports/organization-28-day/latest",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-organization-users-usage-metrics-for-a-specific-day",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/metrics/reports/users-1-day",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-organization-users-usage-metrics",
+        "subcategory": "copilot-usage-metrics",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/metrics/reports/users-28-day/latest",
+        "additional-permissions": false,
+        "access": "read"
+      }
+    ]
+  },
   "organization_announcement_banners": {
     "title": "Organization announcement banners",
     "displayTitle": "Organization permissions for \"Organization announcement banners\"",
@@ -2727,6 +2769,39 @@
         "subcategory": "secrets",
         "verb": "delete",
         "requestPath": "/orgs/{org}/dependabot/secrets/{secret_name}/repositories/{repository_id}",
+        "additional-permissions": true,
+        "access": "write"
+      }
+    ]
+  },
+  "organization_dependabot_dismissal_requests": {
+    "title": "Organization dismissal requests for Dependabot",
+    "displayTitle": "Organization permissions for \"Organization dismissal requests for Dependabot\"",
+    "permissions": [
+      {
+        "category": "dependabot",
+        "slug": "list-dismissal-requests-for-dependabot-alerts-for-an-organization",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/dismissal-requests/dependabot",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "dependabot",
+        "slug": "review-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "dependabot",
+        "slug": "cancel-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
         "additional-permissions": true,
         "access": "write"
       }
@@ -3394,60 +3469,6 @@
         "access": "write"
       },
       {
-        "category": "reactions",
-        "slug": "list-reactions-for-a-team-discussion-comment",
-        "subcategory": "reactions",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "reactions",
-        "slug": "create-reaction-for-a-team-discussion-comment",
-        "subcategory": "reactions",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "reactions",
-        "slug": "delete-team-discussion-comment-reaction",
-        "subcategory": "reactions",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions/{reaction_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "reactions",
-        "slug": "list-reactions-for-a-team-discussion",
-        "subcategory": "reactions",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "reactions",
-        "slug": "create-reaction-for-a-team-discussion",
-        "subcategory": "reactions",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "reactions",
-        "slug": "delete-team-discussion-reaction",
-        "subcategory": "reactions",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions/{reaction_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
         "category": "teams",
         "slug": "list-discussions-legacy",
         "subcategory": "discussions",
@@ -3534,42 +3555,6 @@
         "subcategory": "discussion-comments",
         "verb": "delete",
         "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "reactions",
-        "slug": "list-reactions-for-a-team-discussion-comment-legacy",
-        "subcategory": "reactions",
-        "verb": "get",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "reactions",
-        "slug": "create-reaction-for-a-team-discussion-comment-legacy",
-        "subcategory": "reactions",
-        "verb": "post",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "reactions",
-        "slug": "list-reactions-for-a-team-discussion-legacy",
-        "subcategory": "reactions",
-        "verb": "get",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/reactions",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "reactions",
-        "slug": "create-reaction-for-a-team-discussion-legacy",
-        "subcategory": "reactions",
-        "verb": "post",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/reactions",
         "additional-permissions": false,
         "access": "write"
       }
@@ -5475,7 +5460,7 @@
       {
         "category": "repos",
         "slug": "create-an-attestation",
-        "subcategory": "repos",
+        "subcategory": "attestations",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/attestations",
         "additional-permissions": false,
@@ -5484,7 +5469,7 @@
       {
         "category": "repos",
         "slug": "list-attestations",
-        "subcategory": "repos",
+        "subcategory": "attestations",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/attestations/{subject_digest}",
         "additional-permissions": false,
@@ -6839,6 +6824,51 @@
         "requestPath": "/repos/{owner}/{repo}/dependabot/alerts/{alert_number}",
         "additional-permissions": false,
         "access": "write"
+      },
+      {
+        "category": "dependabot",
+        "slug": "list-dismissal-requests-for-dependabot-alerts-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "dependabot",
+        "slug": "get-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "dependabot",
+        "slug": "create-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "dependabot",
+        "slug": "review-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "dependabot",
+        "slug": "cancel-a-dismissal-request-for-a-dependabot-alert-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/dependabot/{alert_number}",
+        "additional-permissions": true,
+        "access": "read"
       }
     ]
   },

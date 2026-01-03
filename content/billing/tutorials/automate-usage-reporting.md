@@ -27,11 +27,12 @@ You need to use different endpoints to gather data depending on your account typ
 
 | Account | Report | Access | Endpoint | More information |
 |---------|--------|--------|----------|------------------|
-| Users | Usage data for all paid products | Account holder | `/users/{username}/settings/billing/usage` | [AUTOTITLE](/rest/billing/enhanced-billing?apiVersion=2022-11-28#get-billing-usage-report-for-a-user) |
-| Organizations | Premium request consumption, with details of quota and billed usage | Organization owners and billing managers | `/organizations/{org}/settings/billing/premium_request/usage` | [AUTOTITLE](/rest/billing/enhanced-billing?apiVersion=2022-11-28#get-billing-premium-request-usage-report-for-an-organization) |
-| Organizations | Usage data for all paid products | Organization owners and billing managers | `/organizations/{org}/settings/billing/usage` | [AUTOTITLE](/rest/billing/enhanced-billing?apiVersion=2022-11-28#get-billing-usage-report-for-an-organization) |
-| Enterprises | Premium request consumption, with details of quota and billed usage | Enterprise owners and billing managers | `/enterprises/{enterprise}/settings/billing/premium_request/usage` | [AUTOTITLE](/rest/enterprise-admin/billing?apiVersion=2022-11-28#get-billing-premium-request-usage-report-for-an-enterprise) |
-| Enterprises | Usage data for all paid products | Enterprise owners and billing managers | `/enterprises/{enterprise}/settings/billing/usage` | [AUTOTITLE](/rest/enterprise-admin/billing?apiVersion=2022-11-28#get-billing-usage-report-for-an-enterprise) |
+| Users | Premium request consumption, with details of quota and billed usage | Account holder | `/users/{username}/settings/billing/premium_request/usage` | [AUTOTITLE](/rest/billing/usage?apiVersion=2022-11-28#get-billing-premium-request-usage-report-for-a-user) |
+| Users | Usage data for all paid products | Account holder | `/users/{username}/settings/billing/usage/summary` | [AUTOTITLE](/rest/billing/usage?apiVersion=2022-11-28#get-billing-usage-summary-for-a-user) |
+| Organizations | Premium request consumption, with details of quota and billed usage | Organization owners and billing managers | `/organizations/{org}/settings/billing/premium_request/usage` | [AUTOTITLE](/rest/billing/usage?apiVersion=2022-11-28#get-billing-premium-request-usage-report-for-an-organization) |
+| Organizations | Usage data for all paid products | Organization owners and billing managers | `/organizations/{org}/settings/billing/usage/summary` | [AUTOTITLE](/rest/billing/usage?apiVersion=2022-11-28#get-billing-usage-summary-for-an-organization) |
+| Enterprises | Premium request consumption, with details of quota and billed usage | Enterprise owners and billing managers | `/enterprises/{enterprise}/settings/billing/premium_request/usage` | [AUTOTITLE](/rest/billing/usage?apiVersion=2022-11-28#get-billing-premium-request-usage-report-for-an-enterprise) |
+| Enterprises | Usage data for all paid products | Enterprise owners and billing managers | `/enterprises/{enterprise}/settings/billing/usage/summary` | [AUTOTITLE](/rest/billing/usage?apiVersion=2022-11-28#get-billing-usage-summary-for-an-enterprise) |
 
 {% endrowheaders %}
 

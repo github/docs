@@ -69,6 +69,9 @@ Organization permissions do not grant read, write, or administrator access to an
 | {% ifversion secret-scanning-alert-dismiss-custom-role %}                                        |
 | Review and manage {% data variables.product.prodname_secret_scanning %} alert dismissal requests | Review and manage {% data variables.product.prodname_secret_scanning %} alert dismissal requests for your organization. | [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning) |
 | {% endif %}                                                                                      |
+| {% ifversion copilot %}                                  |
+| View organization {% data variables.product.prodname_copilot_short %} metrics                    | View {% data variables.product.prodname_copilot_short %} usage metrics for your organization. | [AUTOTITLE](/copilot/concepts/copilot-metrics) |
+| {% endif %}                                                                                    |
 
 {% endrowheaders %}
 

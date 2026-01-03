@@ -69,6 +69,57 @@ Once enabled, automatic dependency submission jobs will run on the self-hosted r
 
 >[!NOTE] For Maven or Gradle projects that use self-hosted runners with private Maven registries, you need to modify the Maven server settings file to allow the dependency submission workflows to connect to the registries. For more information about the Maven server settings file, see [Security and Deployment Settings](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#transitive-dependencies) in the Maven documentation.
 
+### Configuring network access for self-hosted runners
+
+If your self-hosted runners operate behind a firewall with restricted outbound internet access, you must add certain URLs to the allowlist for automatic dependency submission. The required URLs depend on the ecosystems your repositories use.
+
+#### Required URLs for all ecosystems
+
+These URLs are required for all automatic dependency submission workflows:
+
+* `https://github.com`—Required for accessing {% data variables.product.github %} and downloading actions.
+* `https://api.github.com`—Required for {% data variables.product.github %} API access.
+* `https://*.githubusercontent.com`—Required for downloading action source code and releases (including `raw.githubusercontent.com`, `github-releases.githubusercontent.com`, and `objects.githubusercontent.com`).
+
+#### Ecosystem-specific URLs
+
+Depending on the ecosystems you use, you may need to allowlist additional URLs.
+
+##### Go
+
+* `https://go.dev`—For downloading the Go toolchain.
+* `https://golang.org`—Alternate domain for Go downloads.
+* `https://proxy.golang.org`—Official Go module proxy for downloading Go modules during dependency detection.
+
+> [!NOTE]
+> The `actions/go-versions` repository is accessed via `https://raw.githubusercontent.com`, which is already covered in the general requirements.
+
+##### Java (Maven and Gradle)
+
+* `https://repo.maven.apache.org`—Maven Central repository for downloading dependencies.
+* `https://api.adoptium.net`—For downloading Adoptium/Temurin JDK distributions (default distribution used by `actions/setup-java`).
+
+If you use a different JDK distribution, you may also need:
+* `https://aka.ms` and `https://download.microsoft.com`—For Microsoft Build of OpenJDK (note: `aka.ms` is also used for .NET downloads).
+* `https://download.oracle.com`—For Oracle JDK.
+* `https://api.azul.com`—For Azul Zulu OpenJDK.
+
+##### .NET (C#, F#, Visual Basic)
+
+* `https://aka.ms`—Microsoft URL shortener that redirects to .NET download locations.
+* `https://builds.dotnet.microsoft.com`—Primary feed for .NET SDK and runtime downloads.
+* `https://ci.dot.net`—Secondary feed for .NET builds.
+
+> [!NOTE]
+> The `microsoft/component-detection` tool used by .NET autosubmission is downloaded from  {% data variables.product.github %}  releases, which is already covered in the general requirements (`https://github.com` and `https://*.githubusercontent.com`).
+
+##### Python
+
+* `https://python.org`—For downloading Python interpreters.
+
+> [!NOTE]
+> The `actions/python-versions` repository and `microsoft/component-detection` releases are accessed via URLs already covered in the general requirements (`https://*.githubusercontent.com` and `https://github.com`).
+
 ## Using {% data variables.product.company_short %}-hosted {% data variables.actions.hosted_runners %} for automatic dependency submission
 
 {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} users can use {% data variables.actions.hosted_runners %} to run automatic dependency submissions jobs.

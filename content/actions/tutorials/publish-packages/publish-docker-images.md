@@ -191,8 +191,6 @@ jobs:
     permissions:
       packages: write
       contents: read
-      {% ifversion artifact-attestations %}attestations: write{% endif %}
-      {% ifversion artifact-attestations %}id-token: write{% endif %}
     steps:
       - name: Check out the repo
         uses: {% data reusables.actions.action-checkout %}
@@ -226,18 +224,15 @@ jobs:
           push: true
           tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
-
-{% ifversion artifact-attestations %}
-      - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v3
-        with:
-          subject-name: {% data reusables.package_registry.container-registry-hostname %}/{% raw %}${{ github.repository }}{% endraw %}
-          subject-digest: {% raw %}${{ steps.push.outputs.digest }}{% endraw %}
-          push-to-registry: true
-{% endif -%}
 ```
 
 The above workflow checks out the {% data variables.product.github %} repository, uses the `login-action` twice to log in to both registries and generates tags and labels with the `metadata-action` action.
 Then the `build-push-action` action builds and pushes the Docker image to Docker Hub and the {% data variables.product.prodname_container_registry %}.
 
-{% ifversion artifact-attestations %}{% data reusables.actions.artifact-attestations-step-explanation %}{% endif %}
+{% ifversion artifact-attestations %}> [!NOTE]
+> When pushing to multiple registries:
+> 
+> * Image digests may differ between registries, making attestation verification difficult.
+> * To maintain a consistent digest and allow a single attestation to verify all copies, push to one registry first and use a tool like [`crane copy`](https://github.com/google/go-containerregistry/blob/main/cmd/crane/doc/crane_copy.md) to replicate the image elsewhere.
+> * If you choose to build and push to each registry separately instead, you must generate a distinct attestation for each one to ensure your artifacts remain verifiable.
+{% endif %}

@@ -30,7 +30,7 @@
     "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon --inspect src/frame/server.ts",
     "delete-orphan-translation-files": "tsx src/workflows/delete-orphan-translation-files.ts",
     "docsaudit": "tsx src/metrics/scripts/docsaudit.ts",
-    "docstat": "tsx src/metrics/scripts/docstat.ts",
+    "docstat": "tsx --disable-warning=DEP0190 src/metrics/scripts/docstat.ts",
     "deleted-assets-pr-comment": "tsx src/assets/scripts/deleted-assets-pr-comment.ts",
     "deleted-features-pr-comment": "tsx src/data-directory/scripts/deleted-features-pr-comment.ts",
     "deprecate-ghes": "tsx src/ghes-releases/scripts/deprecate/index.ts",
@@ -59,7 +59,8 @@
     "lint-translation": "vitest src/content-linter/tests/lint-files.ts",
     "liquid-markdown-tables": "tsx src/tools/scripts/liquid-markdown-tables/index.ts",
     "generate-article-api-docs": "tsx src/article-api/scripts/generate-api-docs.ts",
-    "generate-code-scanning-query-list": "tsx src/code-scanning/scripts/generate-code-scanning-query-list.ts",
+    "generate-code-scanning-query-list": "tsx src/codeql-queries/scripts/generate-code-scanning-query-list.ts",
+    "generate-code-quality-query-list": "tsx src/codeql-queries/scripts/generate-code-quality-query-list.ts",
     "generate-content-linter-docs": "tsx src/content-linter/scripts/generate-docs.ts",
     "move-content": "tsx src/content-render/scripts/move-content.ts",
     "openapi-docs": "tsx src/rest/docs.ts",
@@ -77,6 +78,7 @@
     "release-banner": "tsx src/ghes-releases/scripts/release-banner.ts",
     "repo-sync": "./src/workflows/local-repo-sync.sh",
     "reusables": "tsx src/content-render/scripts/reusables-cli.ts",
+    "resolve-liquid": "tsx src/content-render/scripts/resolve-liquid.ts",
     "rendered-content-link-checker": "tsx src/links/scripts/rendered-content-link-checker.ts",
     "rendered-content-link-checker-cli": "tsx src/links/scripts/rendered-content-link-checker-cli.ts",
     "rest-dev": "tsx src/rest/scripts/update-files.ts",
@@ -112,7 +114,7 @@
   },
   "nodemonConfig": {
     "ext": "ts,json,yml,md,html,scss",
-    "exec": "tsx",
+    "exec": "tsx --import ./src/observability/lib/handle-package-not-found.ts",
     "ignore": [
       "assets",
       "script",
@@ -211,7 +213,7 @@
     "mdast-util-to-hast": "^13.2.1",
     "mdast-util-to-markdown": "2.1.2",
     "mdast-util-to-string": "^4.0.0",
-    "next": "^16.0.7",
+    "next": "^16.0.10",
     "ora": "^9.0.0",
     "parse5": "7.1.2",
     "quick-lru": "7.0.1",
@@ -245,7 +247,7 @@
     "walk-sync": "^4.0.1"
   },
   "devDependencies": {
-    "@actions/core": "^1.10.1",
+    "@actions/core": "^2.0.0",
     "@actions/github": "^6.0.0",
     "@axe-core/playwright": "^4.10.1",
     "@eslint/js": "^9.33.0",

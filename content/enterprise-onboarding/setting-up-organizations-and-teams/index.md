@@ -17,5 +17,6 @@ children:
   - /about-teams-in-an-enterprise
   - /creating-teams
   - /assigning-roles-to-teams-and-users
+  - /use-innersource
 ---
 

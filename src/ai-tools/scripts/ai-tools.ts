@@ -1,123 +1,36 @@
-import { fileURLToPath } from 'url'
 import { Command } from 'commander'
 import fs from 'fs'
-import yaml from 'js-yaml'
 import path from 'path'
 import ora from 'ora'
-import { execSync } from 'child_process'
-import { callModelsApi } from '@/ai-tools/lib/call-models-api'
+import { execFileSync } from 'child_process'
 import dotenv from 'dotenv'
-import readFrontmatter from '@/frame/lib/read-frontmatter'
-import { schema } from '@/frame/lib/frontmatter'
+import { findMarkdownFiles, mergeFrontmatterProperties } from '@/ai-tools/lib/file-utils'
+import {
+  getPromptsDir,
+  getAvailableEditorTypes,
+  getRefinementDescriptions,
+  callEditor,
+} from '@/ai-tools/lib/prompt-utils'
+import { fetchCopilotSpace, convertSpaceToPrompt } from '@/ai-tools/lib/spaces-utils'
+import { ensureGitHubToken } from '@/ai-tools/lib/auth-utils'
 dotenv.config({ quiet: true })
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const promptDir = path.join(__dirname, '../prompts')
-const promptTemplatePath = path.join(promptDir, 'prompt-template.yml')
+const promptDir = getPromptsDir()
 
-if (!process.env.GITHUB_TOKEN) {
-  // Try to find a token via the CLI before throwing an error
-  const token = execSync('gh auth token').toString()
-  if (token.startsWith('gh')) {
-    process.env.GITHUB_TOKEN = token
-  } else {
-    console.warn(`🔑 A token is needed to run this script. Please do one of the following and try again:
+// Ensure GitHub token is available
+ensureGitHubToken()
 
-1. Add a GITHUB_TOKEN to a local .env file.
-2. Install https://cli.github.com and authenticate via 'gh auth login'.
-    `)
-    process.exit(1)
-  }
-}
-
-// Dynamically discover available editor types from prompt files
-const getAvailableEditorTypes = (): string[] => {
-  const editorTypes: string[] = []
-
-  try {
-    const promptFiles = fs.readdirSync(promptDir)
-    for (const file of promptFiles) {
-      if (file.endsWith('.md')) {
-        const editorName = path.basename(file, '.md')
-        editorTypes.push(editorName)
-      }
-    }
-  } catch {
-    console.warn('Could not read prompts directory, using empty editor types')
-  }
-
-  return editorTypes
-}
-
-const editorTypes = getAvailableEditorTypes()
-
-// Enhanced recursive markdown file finder with symlink, depth, and root path checks
-const findMarkdownFiles = (
-  dir: string,
-  rootDir: string,
-  depth: number = 0,
-  maxDepth: number = 20,
-  visited: Set<string> = new Set(),
-): string[] => {
-  const markdownFiles: string[] = []
-  let realDir: string
-  try {
-    realDir = fs.realpathSync(dir)
-  } catch {
-    // If we can't resolve real path, skip this directory
-    return []
-  }
-  // Prevent escaping root directory
-  if (!realDir.startsWith(rootDir)) {
-    return []
-  }
-  // Prevent symlink loops
-  if (visited.has(realDir)) {
-    return []
-  }
-  visited.add(realDir)
-  // Prevent excessive depth
-  if (depth > maxDepth) {
-    return []
-  }
-  let entries: fs.Dirent[]
-  try {
-    entries = fs.readdirSync(realDir, { withFileTypes: true })
-  } catch {
-    // If we can't read directory, skip
-    return []
-  }
-  for (const entry of entries) {
-    const fullPath = path.join(realDir, entry.name)
-    let realFullPath: string
-    try {
-      realFullPath = fs.realpathSync(fullPath)
-    } catch {
-      continue
-    }
-    // Prevent escaping root directory for files
-    if (!realFullPath.startsWith(rootDir)) {
-      continue
-    }
-    if (entry.isDirectory()) {
-      markdownFiles.push(...findMarkdownFiles(realFullPath, rootDir, depth + 1, maxDepth, visited))
-    } else if (entry.isFile() && entry.name.endsWith('.md')) {
-      markdownFiles.push(realFullPath)
-    }
-  }
-  return markdownFiles
-}
-
-const refinementDescriptions = (): string => {
-  return editorTypes.join(', ')
-}
+const editorTypes = getAvailableEditorTypes(promptDir)
 
 interface CliOptions {
   verbose?: boolean
   prompt?: string[]
   refine?: string[]
-  files: string[]
+  files?: string[]
   write?: boolean
+  exportSpace?: string
+  space?: string
+  output?: string
 }
 
 const program = new Command()
@@ -130,38 +43,112 @@ program
     '-w, --write',
     'Write changes back to the original files (default: output to console only)',
   )
-  .option('-p, --prompt <type...>', `Specify one or more prompt type: ${refinementDescriptions()}`)
+  .option(
+    '-p, --prompt <type...>',
+    `Specify one or more prompt type: ${getRefinementDescriptions(editorTypes)}`,
+  )
   .option(
     '-r, --refine <type...>',
-    `(Deprecated: use --prompt) Specify one or more prompt type: ${refinementDescriptions()}`,
+    `(Deprecated: use --prompt) Specify one or more prompt type: ${getRefinementDescriptions(editorTypes)}`,
   )
-  .requiredOption(
-    '-f, --files <files...>',
-    'One or more content file paths in the content directory',
+  .option(
+    '--export-space <url>',
+    'Export a Copilot Space to a prompt file (format: https://api.github.com/orgs/{org}/copilot-spaces/{id})',
   )
+  .option(
+    '--space <url>',
+    'Use a Copilot Space as prompt source (format: https://api.github.com/orgs/{org}/copilot-spaces/{id})',
+  )
+  .option(
+    '--output <filename>',
+    'Output filename for exported Space prompt (use with --export-space)',
+  )
+  .option('-f, --files <files...>', 'One or more content file paths in the content directory')
   .action((options: CliOptions) => {
     ;(async () => {
+      // Handle export-space workflow (standalone, doesn't process files)
+      if (options.exportSpace) {
+        if (!options.output) {
+          console.error('Error: --export-space requires --output option')
+          process.exit(1)
+        }
+
+        const spinner = ora('Fetching Copilot Space...').start()
+        try {
+          const space = await fetchCopilotSpace(options.exportSpace)
+          spinner.text = `Converting Space "${space.name}" to prompt format...`
+
+          const promptContent = convertSpaceToPrompt(space)
+          const outputPath = path.join(promptDir, options.output)
+
+          fs.writeFileSync(outputPath, promptContent, 'utf8')
+          spinner.succeed(`Exported Space to: ${outputPath}`)
+          console.log(`\nSpace: ${space.name}`)
+          console.log(`Resources: ${space.resources_attributes?.length || 0} items`)
+          console.log(`\nYou can now use it with: --prompt ${path.basename(options.output, '.md')}`)
+          return
+        } catch (error) {
+          spinner.fail(`Failed to export Space: ${(error as Error).message}`)
+          process.exit(1)
+        }
+      }
+
+      // Validate mutually exclusive options
+      if (options.space && options.prompt) {
+        console.error('Error: Cannot use both --space and --prompt options')
+        process.exit(1)
+      }
+
+      // Files are required for processing workflows
+      if (!options.files || options.files.length === 0) {
+        console.error('Error: --files option is required (unless using --export-space)')
+        process.exit(1)
+      }
+
       const spinner = ora('Starting AI review...').start()
 
       const files = options.files
-      // Handle both --prompt and --refine options for backwards compatibility
-      const prompts = options.prompt || options.refine
+      let prompts: string[] = []
+      let promptContent: string | undefined
 
-      if (!prompts || prompts.length === 0) {
-        spinner.fail('No prompt type specified. Use --prompt or --refine with one or more types.')
-        process.exitCode = 1
-        return
-      }
+      // Handle Space workflow (in-memory)
+      if (options.space) {
+        try {
+          spinner.text = 'Fetching Copilot Space...'
+          const space = await fetchCopilotSpace(options.space)
+          promptContent = convertSpaceToPrompt(space)
+          prompts = [space.name] // Use space name for display
 
-      // Validate that all requested editor types exist
-      const availableEditors = editorTypes
-      for (const editor of prompts) {
-        if (!availableEditors.includes(editor)) {
-          spinner.fail(
-            `Unknown prompt type: ${editor}. Available types: ${availableEditors.join(', ')}`,
-          )
+          if (options.verbose) {
+            console.log(`Using Space: ${space.name} (ID: ${space.number})`)
+            console.log(`Resources: ${space.resources_attributes?.length || 0} items`)
+          }
+        } catch (error) {
+          spinner.fail(`Failed to fetch Space: ${(error as Error).message}`)
+          process.exit(1)
+        }
+      } else {
+        // Handle local prompt workflow
+        prompts = options.prompt || options.refine || []
+
+        if (prompts.length === 0) {
+          spinner.fail('No prompt type specified. Use --prompt, --refine, or --space.')
           process.exitCode = 1
           return
+        }
+      }
+
+      // Validate local prompt types exist (skip for Space workflow)
+      if (!options.space) {
+        const availableEditors = editorTypes
+        for (const editor of prompts) {
+          if (!availableEditors.includes(editor)) {
+            spinner.fail(
+              `Unknown prompt type: ${editor}. Available types: ${availableEditors.join(', ')}`,
+            )
+            process.exitCode = 1
+            return
+          }
         }
       }
 
@@ -208,12 +195,20 @@ program
               const relativePath = path.relative(process.cwd(), fileToProcess)
               spinner.text = `Processing: ${relativePath}`
               try {
+                // Resolve Liquid references before processing
+                if (options.verbose) {
+                  console.log(`Resolving Liquid references in: ${relativePath}`)
+                }
+                runResolveLiquid('resolve', [fileToProcess], options.verbose || false)
+
                 const content = fs.readFileSync(fileToProcess, 'utf8')
                 const answer = await callEditor(
                   editorType,
                   content,
+                  promptDir,
                   options.write || false,
                   options.verbose || false,
+                  promptContent, // Pass Space prompt content if using --space
                 )
                 spinner.stop()
 
@@ -235,10 +230,26 @@ program
                   }
                   console.log(answer)
                 }
+
+                // Always restore Liquid references after processing (even in non-write mode)
+                if (options.verbose) {
+                  console.log(`Restoring Liquid references in: ${relativePath}`)
+                }
+                runResolveLiquid('restore', [fileToProcess], options.verbose || false)
               } catch (err) {
                 const error = err as Error
                 spinner.fail(`Error processing ${relativePath}: ${error.message}`)
                 process.exitCode = 1
+
+                // Still try to restore Liquid references on error
+                try {
+                  runResolveLiquid('restore', [fileToProcess], false)
+                } catch (restoreError) {
+                  // Log restore failures in verbose mode for debugging
+                  if (options.verbose) {
+                    console.error(`Warning: Failed to restore Liquid references: ${restoreError}`)
+                  }
+                }
               } finally {
                 spinner.stop()
               }
@@ -263,6 +274,39 @@ program
 
 program.parse(process.argv)
 
+/**
+ * Run resolve-liquid command on specified file paths
+ */
+function runResolveLiquid(
+  command: 'resolve' | 'restore',
+  filePaths: string[],
+  verbose: boolean = false,
+): void {
+  const args = [command, '--paths', ...filePaths]
+  if (command === 'resolve') {
+    args.push('--recursive')
+  }
+  if (verbose) {
+    args.push('--verbose')
+  }
+
+  try {
+    // Run resolve-liquid via tsx
+    const resolveLiquidPath = path.join(
+      process.cwd(),
+      'src/content-render/scripts/resolve-liquid.ts',
+    )
+    execFileSync('npx', ['tsx', resolveLiquidPath, ...args], {
+      stdio: verbose ? 'inherit' : 'pipe',
+    })
+  } catch (error) {
+    if (verbose) {
+      console.error(`Error running resolve-liquid ${command}:`, error)
+    }
+    // Don't fail the entire process if resolve-liquid fails
+  }
+}
+
 // Handle graceful shutdown
 process.on('SIGINT', () => {
   console.log('\n\n🛑 Process interrupted by user')
@@ -273,124 +317,3 @@ process.on('SIGTERM', () => {
   console.log('\n\n🛑 Process terminated')
   process.exit(0)
 })
-
-interface PromptMessage {
-  content: string
-  role: string
-}
-
-interface PromptData {
-  messages: PromptMessage[]
-  model?: string
-  temperature?: number
-  max_tokens?: number
-}
-
-// Function to merge new frontmatter properties into existing file while preserving formatting
-function mergeFrontmatterProperties(filePath: string, newPropertiesYaml: string): string {
-  const content = fs.readFileSync(filePath, 'utf8')
-  const parsed = readFrontmatter(content)
-
-  if (parsed.errors && parsed.errors.length > 0) {
-    throw new Error(
-      `Failed to parse frontmatter: ${parsed.errors.map((e) => e.message).join(', ')}`,
-    )
-  }
-
-  if (!parsed.content) {
-    throw new Error('Failed to parse content from file')
-  }
-
-  try {
-    // Clean up the AI response - remove markdown code blocks if present
-    let cleanedYaml = newPropertiesYaml.trim()
-    cleanedYaml = cleanedYaml.replace(/^```ya?ml\s*\n/i, '')
-    cleanedYaml = cleanedYaml.replace(/\n```\s*$/i, '')
-    cleanedYaml = cleanedYaml.trim()
-
-    interface FrontmatterProperties {
-      intro?: string
-      [key: string]: unknown
-    }
-    const newProperties = yaml.load(cleanedYaml) as FrontmatterProperties
-
-    // Security: Validate against prototype pollution using the official frontmatter schema
-    const allowedKeys = Object.keys(schema.properties)
-
-    const sanitizedProperties = Object.fromEntries(
-      Object.entries(newProperties).filter(([key]) => {
-        if (allowedKeys.includes(key)) {
-          return true
-        }
-        console.warn(`Filtered out potentially unsafe frontmatter key: ${key}`)
-        return false
-      }),
-    )
-
-    // Merge new properties with existing frontmatter
-    const mergedData: FrontmatterProperties = { ...parsed.data, ...sanitizedProperties }
-
-    // Manually ensure intro is wrapped in single quotes in the final output
-    let result = readFrontmatter.stringify(parsed.content, mergedData)
-
-    // Post-process to ensure intro field has single quotes
-    if (newProperties.intro) {
-      const introValue = newProperties.intro.toString()
-      // Replace any quote style on intro with single quotes
-      result = result.replace(
-        /^intro:\s*(['"`]?)([^'"`\n\r]+)\1?\s*$/m,
-        `intro: '${introValue.replace(/'/g, "''")}'`, // Escape single quotes by doubling them
-      )
-    }
-    return result
-  } catch (error) {
-    console.error('Failed to parse AI response as YAML:')
-    console.error('Raw AI response:', JSON.stringify(newPropertiesYaml))
-    throw new Error(`Failed to parse new frontmatter properties: ${error}`)
-  }
-}
-
-async function callEditor(
-  editorType: string,
-  content: string,
-  writeMode: boolean,
-  verbose = false,
-): Promise<string> {
-  const markdownPromptPath = path.join(promptDir, `${String(editorType)}.md`)
-
-  if (!fs.existsSync(markdownPromptPath)) {
-    throw new Error(`Prompt file not found: ${markdownPromptPath}`)
-  }
-
-  const markdownPrompt = fs.readFileSync(markdownPromptPath, 'utf8')
-
-  const prompt = yaml.load(fs.readFileSync(promptTemplatePath, 'utf8')) as PromptData
-
-  // Validate the prompt template has required properties
-  if (!prompt.messages || !Array.isArray(prompt.messages)) {
-    throw new Error('Invalid prompt template: missing or invalid messages array')
-  }
-
-  for (const msg of prompt.messages) {
-    msg.content = msg.content.replace('{{markdownPrompt}}', markdownPrompt)
-    msg.content = msg.content.replace('{{input}}', content)
-    // Replace writeMode template variable with simple string replacement
-    msg.content = msg.content.replace(
-      /<!-- IF_WRITE_MODE -->/g,
-      writeMode ? '' : '<!-- REMOVE_START -->',
-    )
-    msg.content = msg.content.replace(
-      /<!-- ELSE_WRITE_MODE -->/g,
-      writeMode ? '<!-- REMOVE_START -->' : '',
-    )
-    msg.content = msg.content.replace(
-      /<!-- END_WRITE_MODE -->/g,
-      writeMode ? '' : '<!-- REMOVE_END -->',
-    )
-
-    // Remove sections marked for removal
-    msg.content = msg.content.replace(/<!-- REMOVE_START -->[\s\S]*?<!-- REMOVE_END -->/g, '')
-  }
-
-  return callModelsApi(prompt, verbose)
-}
