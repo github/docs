@@ -1,0 +1,50 @@
+<!DOCTYPE html> <html> <head> <title>My Website</title> </head> <body> <h1>Hello World</h1> <p>This is my website</p> </body> </html>
+<!DOCTYPE html> <html> <head> <style> body { background-color: black; color: white; font-family: Arial; text-align: center; } button {
+padding: 10px 20px; background: red; color: white; border: none; } </style> </head> <body> <h1>Welcome</h1> <button>Click Me</button> </body> </html>
+<button onclick="hello()">Click</button> <script> function hello() { alert("Hello!"); } </script>
+<form> <input type="text" placeholder="Username"><br> <input type="password" placeholder="Password"><br> <button>Login</button> </form>
+<!DOCTYPE html> <html> <body> <h1>My GitHub Website</h1> </body> </html>
+let name = "Subhan"; let age = 18; console.log(name, age);
+if (age >= 18) { console.log("Adult"); } else { console.log("Minor"); }
+<p id="text">Hello</p> <button onclick="change()">Change</button> <script> function change() { document.getElementById("text").innerHTML = "Changed"; } </script>
+<input id="p" type="password"> <button onclick="check()">Check</button> <p id="r"></p> <script> function check(){ let
+p=document.getElementById("p").value; let s=0; if(p.length>=8)s++; if(/[A-Z]/.test(p))s++; if(/[0-9]/.test(p))s++; if(/[^A-Za-z0-
+9]/.test(p))s++; document.getElementById("r").innerText=["Weak","OK","Good","Strong","Very Strong"][s]; } </script>
+<script> let password="1234"; for(let i=0;i<=9999;i++){ let guess=i.toString().padStart(4,"0"); if(guess===password){
+console.log("FOUND:",guess); break; } } </script>
+<input id="t"> <button onclick="hash()">Hash</button> <pre id="o"></pre> <script> async function hash(){ let e=new
+TextEncoder().encode(t.value); let b=await crypto.subtle.digest("SHA-256",e); let h=[...new
+Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join(""); o.textContent=h; } </script>
+user = "admin' OR '1'='1" query = "SELECT * FROM users WHERE name = ?" print("Safe with parameterized query:", query)
+<input id="x"> <button onclick="show()">Show</button> <div id="out"></div> <script> function show(){ let
+v=document.getElementById("x").value; out.innerText=v; // SAFE (not innerHTML) } </script>
+let tries=0; function login(){ tries++; if(tries>3){console.log("LOCKED");} }
+function allow(ip){ let banned=["192.168.1.5"]; return !banned.includes(ip); }
+ports=[22,80,443] for p in ports: print(f"Port {p}: CLOSED (SIMULATION)")
+<input id="p" type="password"> <button onclick="check()">Check</button> <p id="r"></p> <script> function check(){ let
+p=document.getElementById("p").value; let s=0; if(p.length>=8)s++; if(/[A-Z]/.test(p))s++; if(/[0-9]/.test(p))s++; if(/[^A-Za-z0-
+9]/.test(p))s++; document.getElementById("r").innerText=["Weak","OK","Good","Strong","Very Strong"][s]; } </script>
+<script> let password="1234"; for(let i=0;i<=9999;i++){ let guess=i.toString().padStart(4,"0"); if(guess===password){
+console.log("FOUND:",guess); break; } } </script>
+<input id="t"> <button onclick="hash()">Hash</button> <pre id="o"></pre> <script> async function hash(){ let e=new
+TextEncoder().encode(t.value); let b=await crypto.subtle.digest("SHA-256",e); let h=[...new
+Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join(""); o.textContent=h; } </script>
+user = "admin' OR '1'='1" query = "SELECT * FROM users WHERE name = ?" print("Safe with parameterized query:", query)
+<input id="x"> <button onclick="show()">Show</button> <div id="out"></div> <script> function show(){ let
+v=document.getElementById("x").value; out.innerText=v; // SAFE (not innerHTML) } </script>
+let tries=0; function login(){ tries++; if(tries>3){console.log("LOCKED");} }
+function allow(ip){ let banned=["192.168.1.5"]; return !banned.includes(ip); }
+ports=[22,80,443] for p in ports: print(f"Port {p}: CLOSED (SIMULATION)")
+<script> let logs=[]; function attempt(user){ logs.push({user,time:new Date()}); console.log(logs); } </script>
+<p id="c"></p> <input id="i"> <button onclick="v()">Verify</button> <script> let n=Math.floor(Math.random()*9000+1000); c.innerText=n;
+function v(){ alert(i.value==n?"OK":"FAIL"); } </script>
+<script> document.addEventListener("keydown",e=>{ console.log("KEY:",e.key); }); </script>
+let start=Date.now(); setInterval(()=>{ if(Date.now()-start>10000){ console.log("SESSION EXPIRED"); } },1000);
+let blocked=["127.0.0.1"]; function check(ip){ console.log(blocked.includes(ip)?"BLOCKED":"ALLOWED"); }
+function scan(file){ if(file.includes(".exe")){ console.log("SUSPICIOUS FILE"); } }
+<input id="token" value="ABC123" hidden> <script> function send(t){ console.log(t==="ABC123"?"VALID":"INVALID"); } </script>
+ackets=["TCP","UDP","ICMP"] for p in packets: print("Captured:",p)
+let leaked=["123456","password"]; function check(p){ console.log(leaked.includes(p)?"LEAKED":"SAFE"); }
+file="secret.txt" permission="read-only" print(file,permission)
+function isAdmin(role){ return role==="admin"; }
+<script> let code=Math.floor(100000+Math.random()*900000); console.log(code); </script>
