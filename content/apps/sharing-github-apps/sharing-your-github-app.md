@@ -46,3 +46,4 @@ If your {% data variables.product.prodname_github_app %} is public, other users 
 ## Sharing your {% data variables.product.prodname_github_app %} with {% data variables.product.prodname_ghe_server %} instances
 
 If you want to share your {% data variables.product.prodname_github_app %} with {% data variables.product.prodname_ghe_server %} instances that you are not part of, you need to take additional steps. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/making-your-github-app-available-for-github-enterprise-server).
+@rasoulnouri78
