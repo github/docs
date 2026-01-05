@@ -1,7 +1,7 @@
 # GitHub Docs <!-- omit in toc -->
-
+stestephnewme100-cloud/docs
 Welcome to GitHub Docs! GitHub’s documentation is open source, meaning anyone from inside or outside the company can contribute. For full contributing guidelines, visit our [contributing guide](https://docs.github.com/en/contributing)
-
+stephnewme100-cloud/docs
 ## Quick links by contributor type
 
 * **Hubbers (GitHub employees):** See [CONTRIBUTING.md](https://github.com/github/docs-content/blob/main/CONTRIBUTING.md) in the `docs-content` repository for GitHub-specific processes.
@@ -32,6 +32,6 @@ Here are some resources to help you get started with open source contributions:
 ## License
 
 This project is dual-licensed under:
-
+stephnewme100-cloud/docs
 * **Creative Commons Attribution 4.0** - for documentation and content in the assets, content, and data folders (see [LICENSE](LICENSE))
 * **MIT License** - for code (see [LICENSE-CODE](LICENSE-CODE))
