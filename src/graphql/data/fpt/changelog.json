@@ -3,6 +3,33 @@
     "schemaChanges": [
       {
         "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>CreateTeamDiscussionCommentInput</code> was removed</p>",
+          "<p>Type <code>CreateTeamDiscussionCommentPayload</code> was removed</p>",
+          "<p>Type <code>DeleteTeamDiscussionCommentInput</code> was removed</p>",
+          "<p>Type <code>DeleteTeamDiscussionCommentPayload</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionComment</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionCommentConnection</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionCommentEdge</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionCommentOrder</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionCommentOrderField</code> was removed</p>",
+          "<p>Type <code>UpdateTeamDiscussionCommentInput</code> was removed</p>",
+          "<p>Type <code>UpdateTeamDiscussionCommentPayload</code> was removed</p>",
+          "<p>Field <code>createTeamDiscussionComment</code> was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>deleteTeamDiscussionComment</code> was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>updateTeamDiscussionComment</code> was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>comments</code> (deprecated) was removed from object type <code>TeamDiscussion</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-01-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
         "changes": []
       }
     ],
