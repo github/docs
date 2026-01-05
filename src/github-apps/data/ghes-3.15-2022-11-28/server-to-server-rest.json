@@ -3955,36 +3955,6 @@
       "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}"
     },
     {
-      "slug": "list-discussion-comments",
-      "subcategory": "discussion-comments",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments"
-    },
-    {
-      "slug": "create-a-discussion-comment",
-      "subcategory": "discussion-comments",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments"
-    },
-    {
-      "slug": "get-a-discussion-comment",
-      "subcategory": "discussion-comments",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}"
-    },
-    {
-      "slug": "update-a-discussion-comment",
-      "subcategory": "discussion-comments",
-      "verb": "patch",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}"
-    },
-    {
-      "slug": "delete-a-discussion-comment",
-      "subcategory": "discussion-comments",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}"
-    },
-    {
       "slug": "list-a-connection-between-an-external-group-and-a-team",
       "subcategory": "external-groups",
       "verb": "get",
@@ -4103,36 +4073,6 @@
       "subcategory": "discussions",
       "verb": "delete",
       "requestPath": "/teams/{team_id}/discussions/{discussion_number}"
-    },
-    {
-      "slug": "list-discussion-comments-legacy",
-      "subcategory": "discussion-comments",
-      "verb": "get",
-      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments"
-    },
-    {
-      "slug": "create-a-discussion-comment-legacy",
-      "subcategory": "discussion-comments",
-      "verb": "post",
-      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments"
-    },
-    {
-      "slug": "get-a-discussion-comment-legacy",
-      "subcategory": "discussion-comments",
-      "verb": "get",
-      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}"
-    },
-    {
-      "slug": "update-a-discussion-comment-legacy",
-      "subcategory": "discussion-comments",
-      "verb": "patch",
-      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}"
-    },
-    {
-      "slug": "delete-a-discussion-comment-legacy",
-      "subcategory": "discussion-comments",
-      "verb": "delete",
-      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}"
     },
     {
       "slug": "list-team-members-legacy",
