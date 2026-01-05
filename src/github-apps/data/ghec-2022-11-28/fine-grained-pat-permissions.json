@@ -3011,6 +3011,15 @@
         "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}",
         "additional-permissions": false,
         "access": "write"
+      },
+      {
+        "category": "projects",
+        "slug": "list-items-for-an-organization-project-view",
+        "subcategory": "items",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/projectsV2/{project_number}/views/{view_number}/items",
+        "additional-permissions": false,
+        "access": "read"
       }
     ]
   },
@@ -3425,51 +3434,6 @@
       },
       {
         "category": "teams",
-        "slug": "list-discussion-comments",
-        "subcategory": "discussion-comments",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "teams",
-        "slug": "create-a-discussion-comment",
-        "subcategory": "discussion-comments",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "teams",
-        "slug": "get-a-discussion-comment",
-        "subcategory": "discussion-comments",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "teams",
-        "slug": "update-a-discussion-comment",
-        "subcategory": "discussion-comments",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "teams",
-        "slug": "delete-a-discussion-comment",
-        "subcategory": "discussion-comments",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "teams",
         "slug": "list-discussions-legacy",
         "subcategory": "discussions",
         "verb": "get",
@@ -3510,51 +3474,6 @@
         "subcategory": "discussions",
         "verb": "delete",
         "requestPath": "/teams/{team_id}/discussions/{discussion_number}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "teams",
-        "slug": "list-discussion-comments-legacy",
-        "subcategory": "discussion-comments",
-        "verb": "get",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "teams",
-        "slug": "create-a-discussion-comment-legacy",
-        "subcategory": "discussion-comments",
-        "verb": "post",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "teams",
-        "slug": "get-a-discussion-comment-legacy",
-        "subcategory": "discussion-comments",
-        "verb": "get",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "teams",
-        "slug": "update-a-discussion-comment-legacy",
-        "subcategory": "discussion-comments",
-        "verb": "patch",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "teams",
-        "slug": "delete-a-discussion-comment-legacy",
-        "subcategory": "discussion-comments",
-        "verb": "delete",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}",
         "additional-permissions": false,
         "access": "write"
       }
