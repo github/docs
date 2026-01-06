@@ -402,6 +402,46 @@ upcoming_changes:
     date: '2024-04-01T00:00:00+00:00'
     criticality: breaking
     owner: calvinchilds
+  - location: CreateTeamDiscussionInput.body
+    description:
+      '`body` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: CreateTeamDiscussionInput.private
+    description:
+      '`private` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: CreateTeamDiscussionInput.teamId
+    description:
+      '`teamId` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: CreateTeamDiscussionInput.title
+    description:
+      '`title` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: CreateTeamDiscussionPayload.teamDiscussion
+    description:
+      '`teamDiscussion` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
   - location: OrganizationInvitation.inviter
     description: '`inviter` will be removed. `inviter` will be replaced by `inviterActor`.'
     reason: '`inviter` will be removed.'
@@ -432,6 +472,102 @@ upcoming_changes:
     date: '2024-07-01T00:00:00+00:00'
     criticality: breaking
     owner: JanKoszewski
+  - location: TeamDiscussion.authorAssociation
+    description:
+      '`authorAssociation` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.bodyVersion
+    description:
+      '`bodyVersion` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.commentsResourcePath
+    description:
+      '`commentsResourcePath` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.commentsUrl
+    description:
+      '`commentsUrl` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.isPinned
+    description:
+      '`isPinned` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.isPrivate
+    description:
+      '`isPrivate` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.number
+    description:
+      '`number` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.resourcePath
+    description:
+      '`resourcePath` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.team
+    description:
+      '`team` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.title
+    description:
+      '`title` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.url
+    description:
+      '`url` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
+  - location: TeamDiscussion.viewerCanPin
+    description:
+      '`viewerCanPin` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
   - location: Workflow.hasWorkflowDispatchTrigger
     description:
       '`hasWorkflowDispatchTrigger` will be removed. Use `has_workflow_dispatch_trigger_for_branch(branch_ref)`
