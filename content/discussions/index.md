@@ -11,6 +11,7 @@ redirect_from:
   - /organizations/collaborating-with-your-team/pinning-a-team-discussion
   - /organizations/collaborating-with-your-team
   - /rest/teams/discussion-comments
+  - /rest/teams/discussions
 featuredLinks:
   startHere:
     - /discussions/collaborating-with-your-community-using-discussions/about-discussions

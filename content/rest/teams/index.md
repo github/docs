@@ -15,7 +15,6 @@ versions:
 topics:
   - API
 children:
-  - /discussions
   - /external-groups
   - /members
   - /team-sync
