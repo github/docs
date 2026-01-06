@@ -4,6 +4,7 @@ import { SecretScanningTransformer } from './secret-scanning-transformer'
 import { CodeQLCliTransformer } from './codeql-cli-transformer'
 import { AuditLogsTransformer } from './audit-logs-transformer'
 import { GraphQLTransformer } from './graphql-transformer'
+import { GithubAppsTransformer } from './github-apps-transformer'
 import { WebhooksTransformer } from './webhooks-transformer'
 
 /**
@@ -17,6 +18,7 @@ transformerRegistry.register(new SecretScanningTransformer())
 transformerRegistry.register(new CodeQLCliTransformer())
 transformerRegistry.register(new AuditLogsTransformer())
 transformerRegistry.register(new GraphQLTransformer())
+transformerRegistry.register(new GithubAppsTransformer())
 transformerRegistry.register(new WebhooksTransformer())
 
 export { TransformerRegistry } from './types'
