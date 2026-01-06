@@ -1,45 +1,52 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import http from 'http'
+import { Socket } from 'net'
 
 import { describe, expect, test } from 'vitest'
 import type { Response } from 'express'
 
 import Page from '@/frame/lib/page'
 import findPage from '@/frame/middleware/find-page'
-import type { ExtendedRequest } from '@/types'
+import type { ExtendedRequest, Context } from '@/types'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+type TestResponse = Response & { _status?: number; _message?: string }
 
 function makeRequestResponse(
   url: string,
   currentVersion = 'free-pro-team@latest',
-): [ExtendedRequest, Response & { _status?: number; _message?: string }] {
-  const req = new http.IncomingMessage(null as any) as ExtendedRequest
+): [ExtendedRequest, TestResponse] {
+  const req = new http.IncomingMessage(new Socket()) as ExtendedRequest
+
+  Object.defineProperty(req, 'path', {
+    value: url,
+    writable: true,
+  })
+
   req.method = 'GET'
   req.url = url
-  // @ts-expect-error - path is read-only but we need to set it for testing
-  req.path = url
   req.cookies = {}
   req.headers = {}
 
-  // Custom keys on the request
-  req.pagePath = url
-  req.context = {}
-  req.context.currentVersion = currentVersion
-  req.context.pages = {}
-
-  const res = new http.ServerResponse(req) as Response & {
-    _status?: number
-    _message?: string
+  const context: Context = {
+    currentVersion,
+    pages: {},
   }
-  res.status = function (code: number) {
+
+  req.pagePath = url
+  req.context = context
+
+  const res = new http.ServerResponse(req) as TestResponse
+  res.status = function status(this: TestResponse, code: number) {
     this._status = code
-    return {
+    return Object.assign(this, {
       send: (message: string) => {
         this._message = message
+        return this
       },
-    } as any
+    })
   }
 
   return [req, res]
@@ -56,7 +63,7 @@ describe('find page middleware', () => {
     })
     if (page && req.context) {
       req.context.pages = {
-        '/en/foo/bar': page as any,
+        '/en/foo/bar': page,
       }
     }
 
@@ -88,7 +95,7 @@ describe('find page middleware', () => {
     })
     if (page && req.context) {
       req.context.pages = {
-        '/en/page-with-redirects': page as any,
+        '/en/page-with-redirects': page,
       }
     }
 
@@ -98,6 +105,7 @@ describe('find page middleware', () => {
     })
     expect(req.context?.page).toBeInstanceOf(Page)
   })
+
   test('finds it for non-fpt version URLS', async () => {
     const [req, res] = makeRequestResponse('/en/page-with-redirects', 'enterprise-cloud@latest')
     const page = await Page.init({
@@ -107,7 +115,7 @@ describe('find page middleware', () => {
     })
     if (page && req.context) {
       req.context.pages = {
-        '/en/page-with-redirects': page as any,
+        '/en/page-with-redirects': page,
       }
     }
 
@@ -129,7 +137,7 @@ describe('find page middleware', () => {
     })
     if (page && req.context) {
       req.context.pages = {
-        '/en/page-with-redirects': page as any,
+        '/en/page-with-redirects': page,
       }
     }
 

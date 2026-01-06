@@ -54,3 +54,81 @@ Templates in `src/ghes-releases/lib/release-templates` are Markdown, YAML frontm
 ## GHES deprecations
 
 Every day a workflow runs to check whether it's time to create new deprecation tracking issues. New deprecation tracking issues get opened 7 days before the deprecation date. There is only one template used to generate the deprecation tracking issue (`src/ghes-releases/lib/deprecation-steps.md`).
+
+## Script Commands
+
+### Running scripts
+
+The following scripts are available for manual execution:
+
+| Script                        | Description                                      |
+|-------------------------------|--------------------------------------------------|
+| `npm run create-enterprise-issue`   | Create new release tracking issues for GHES.      |
+| `npm run deprecate-ghes`            | Create new deprecation tracking issues for GHES.  |
+| `npm run deprecate-ghes-archive`    | Archive deprecation tracking issues.              |
+| `npm run release-banner`            | Update the release banner.                        |
+| `npm run update-enterprise-dates`   | Update enterprise release dates.                  |
+
+For example, to create new release tracking issues, run:
+```bash
+npm run create-enterprise-issue
+```
+
+Run tests:
+```bash
+npm run test -- src/ghes-releases/tests
+```
+
+### Manual operations
+
+The scripts in `src/ghes-releases/scripts/` support manual execution for:
+- Creating release tracking issues
+- Creating deprecation tracking issues
+- Validating release dates
+- Testing issue generation
+
+## Connection to Related Subjects
+
+### `src/versions`
+
+The GHES release process is tightly coupled with versioning:
+- Release numbers in `src/versions/lib/enterprise-server-releases.ts`
+- New releases add to `supported` array
+- Deprecated releases move to `deprecated` array
+- Version detection logic uses these arrays
+
+### `src/archives`
+
+When a GHES version is deprecated:
+1. Content is archived from `docs-internal` to `docs-ghes-X.XX` repos
+2. Archive middleware proxies requests to archived content
+3. See `src/archives/` for archival process
+
+Release and deprecation are coordinated:
+- Release: Add new version to supported list
+- Deprecation: Move old version to deprecated, trigger archival
+- Both processes have tracking issues with checklists
+
+## Known Limitations
+
+### Automated workflow timing
+- Workflows check daily for release/deprecation dates
+- Issues created on code freeze date (releases) or 7 days before (deprecations)
+- No manual trigger for early issue creation
+
+### Template system
+- Liquid variables are custom (not same as content Liquid)
+- Template changes require understanding of issue linking
+- No preview mode for template rendering
+
+### Coordination requirements
+- Multiple teams involved (Docs, Enterprise, Release Engineering)
+- Manual checklist completion required
+- Dependencies between issues must be manually tracked
+
+### Release schedule changes
+- Dates in `enterprise-dates.json` must be manually updated
+- No automated sync with Enterprise release calendar
+- Changes require code update and deployment
+
+We are not expecting significant new investment here, but we will continue to support GHES releases as needed.

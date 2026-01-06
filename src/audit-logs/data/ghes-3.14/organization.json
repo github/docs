@@ -4279,7 +4279,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests#enabling-or-disabling-integration-access-requests"
+    "docs_reference_titles": "Limiting OAuth app and GitHub App access requests and installations"
   },
   {
     "action": "org.allow_third_party_access_requests_from_outside_collaborators_enabled",
