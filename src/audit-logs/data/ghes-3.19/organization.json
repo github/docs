@@ -4454,7 +4454,9 @@
       "selected_service",
       "network_settings_ids",
       "previous_settings_ids",
-      "network_configuration_id"
+      "network_configuration_id",
+      "failover_network_settings_ids",
+      "failover_network_enabled"
     ],
     "docs_reference_titles": "About networking for hosted compute products in your enterprise"
   },
@@ -4498,7 +4500,9 @@
       "actor_is_bot",
       "selected_service",
       "network_settings_ids",
-      "previous_settings_ids"
+      "previous_settings_ids",
+      "failover_network_settings_ids",
+      "failover_network_enabled"
     ],
     "docs_reference_titles": "About networking for hosted compute products in your enterprise"
   },
@@ -16417,7 +16421,7 @@
   },
   {
     "action": "staff.dependabot_debug_credentials_generated",
-    "description": "N/A",
+    "description": "Dependabot encrypted config was read.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
