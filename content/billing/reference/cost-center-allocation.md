@@ -12,7 +12,7 @@ contentType: reference
 product: '{% data variables.product.prodname_ghe_cloud %}'
 ---
 
-This article contains reference information for how spending is assigned to cost centers. To create and manage cost centers, see [AUTOTITLE](/billing/tutorials/use-cost-centers).
+This article contains reference information for how spending is assigned to cost centers. To create and manage cost centers, see [AUTOTITLE](/billing/how-tos/products/use-cost-centers).
 
 ## Overview
 

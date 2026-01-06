@@ -7,10 +7,13 @@ import { getDataByLanguage } from '@/data-directory/lib/get-data'
 const Syntax = /([a-z0-9/\\_.\-[\]]+)/i
 const SyntaxHelp = "Syntax Error in 'data' - Valid syntax: data [path]"
 
-// Using any for scope because it has custom environments property not in Liquid's Scope type
+// Using unknown for scope because it has custom environments property not in Liquid's Scope type
 interface CustomScope {
-  environments: any
-  [key: string]: any
+  environments: {
+    currentLanguage?: string
+    [key: string]: unknown
+  }
+  [key: string]: unknown
 }
 
 interface DataTag {
@@ -32,7 +35,7 @@ export default {
   },
 
   async render(scope: CustomScope) {
-    let text = getDataByLanguage(this.path, scope.environments.currentLanguage)
+    let text = getDataByLanguage(this.path, scope.environments.currentLanguage || '')
     if (text === undefined) {
       if (scope.environments.currentLanguage === 'en') {
         const message = `Can't find the key 'data ${this.path}' in the scope.`

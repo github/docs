@@ -1,6 +1,7 @@
 ---
-title: CodeQL detection of code quality problems
-shortTitle: CodeQL detection
+title: CodeQL-powered analysis for Code Quality
+shortTitle: CodeQL analysis
+allowTitleToDifferFromFilename: true
 intro: 'Information on how CodeQL-powered analysis for {% data variables.product.prodname_code_quality_short %} works, the workflow used, and the status checks reported on pull requests.'
 versions:
   feature: code-quality
@@ -11,11 +12,30 @@ contentType: reference
 
 {% data reusables.code-quality.code-quality-preview-note %}
 
-## {% data variables.product.prodname_codeql %} detection
+## {% data variables.product.prodname_codeql %}-powered analysis
 
-{% data variables.product.prodname_code_quality_short %} performs rule-based analysis of pull requests and your default branch using {% data variables.product.prodname_codeql %}. Each rule is written as a query in {% data variables.product.prodname_codeql %} and then run using {% data variables.product.prodname_actions %}.
+{% data variables.product.prodname_code_quality_short %} uses {% data variables.product.prodname_codeql %} to perform rule-based analysis of pull requests and your default branch.
 
-The rules are continually refined by both {% data variables.product.github %} and open source developers. See [https://github.com/github/codeql](https://github.com/github/codeql?utm_source=docs-codeql-code-quality&utm_medium=docs&utm_campaign=universe25post).
+* Findings for your **default branch** appear under the "{% data variables.code-quality.all_findings %}" dashboard under your repository's Security tab.
+
+* Findings **on pull requests** appear as comments made by `{% data variables.code-quality.pr_commenter %}`.
+
+{% data variables.copilot.copilot_autofix_short %} suggestions are provided for findings where possible.
+
+### Query lists for supported languages
+
+Each {% data variables.product.prodname_code_quality_short %} rule is written as a query in {% data variables.product.prodname_codeql %} and then run using {% data variables.product.prodname_actions %}.
+
+The rules are continually refined by both {% data variables.product.github %} and open source developers.
+
+* [AUTOTITLE](/code-security/code-quality/reference/codeql-queries/csharp-queries)
+* [AUTOTITLE](/code-security/code-quality/reference/codeql-queries/go-queries)
+* [AUTOTITLE](/code-security/code-quality/reference/codeql-queries/java-queries)
+* [AUTOTITLE](/code-security/code-quality/reference/codeql-queries/javascript-queries)
+* [AUTOTITLE](/code-security/code-quality/reference/codeql-queries/python-queries)
+* [AUTOTITLE](/code-security/code-quality/reference/codeql-queries/ruby-queries)
+
+For more information about the {% data variables.product.prodname_codeql %} project, see [https://codeql.github.com/](https://codeql.github.com/).
 
 ## Workflow used for code quality analysis
 

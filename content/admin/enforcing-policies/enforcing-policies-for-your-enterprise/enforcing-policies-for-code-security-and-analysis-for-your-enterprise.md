@@ -51,6 +51,9 @@ Disallowing {% data variables.product.prodname_GH_sp_cs_and_cq_or_as %} for an o
 {% data reusables.enterprise-accounts.advanced-security-organization-policy-drop-down %}
 {% data reusables.enterprise-accounts.advanced-security-individual-organization-policy-drop-down %}
 
+> [!NOTE]
+> If {% data variables.product.prodname_actions %} is not available for an organization, {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_code_quality %} will be unable to run even if they are made available with this policy. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#policies).
+
 {% ifversion ghec %}
 
 ## Enforcing a policy for visibility of dependency insights

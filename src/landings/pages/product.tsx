@@ -172,11 +172,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const additionalUINamespaces: string[] = []
 
   // This looks a little funky, but it's so we only send one context's data to the client
-  // TODO: TEMP: This is a temporary solution to turn off/on new landing pages while we develop them
-  if (currentLayoutName === 'bespoke-landing' || req.query?.feature === 'bespoke-landing') {
+  if (currentLayoutName === 'bespoke-landing') {
     props.bespokeContext = await getLandingContextFromRequest(req, 'bespoke')
     additionalUINamespaces.push('product_landing')
-  } else if (currentLayoutName === 'journey-landing' || req.query?.feature === 'journey-landing') {
+  } else if (currentLayoutName === 'journey-landing') {
     props.journeyContext = await getLandingContextFromRequest(req, 'journey')
 
     // journey tracks are resolved in middleware and added to the request
@@ -186,10 +185,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     }
 
     additionalUINamespaces.push('journey_landing', 'product_landing')
-  } else if (
-    currentLayoutName === 'discovery-landing' ||
-    req?.query?.feature === 'discovery-landing'
-  ) {
+  } else if (currentLayoutName === 'discovery-landing') {
     props.discoveryContext = await getLandingContextFromRequest(req, 'discovery')
     additionalUINamespaces.push('product_landing')
   } else if (currentLayoutName === 'product-landing') {

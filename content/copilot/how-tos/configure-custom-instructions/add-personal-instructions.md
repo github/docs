@@ -32,7 +32,7 @@ You can add custom instructions for {% data variables.copilot.copilot_chat %} in
 
 ## Adding personal custom instructions
 
-You can add personal custom instructions in {% data variables.copilot.copilot_chat_short %}'s immersive view.
+You can add personal custom instructions in {% data variables.copilot.copilot_chat_short %} in {% data variables.product.github %}.
 
 1. Open [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text).
 1. In the bottom left corner, click your profile picture, then click **{% octicon "note" aria-hidden="true" aria-label="note" %} Personal instructions**.

@@ -26,9 +26,9 @@ Catching code quality issues early keeps your team's codebase in shape. {% data 
 
 ## 1. Understand how {% data variables.product.prodname_code_quality %} works on pull requests
 
-When you open a pull request, {% data variables.product.prodname_code_quality %} automatically scans your changes for quality issues like those described above.
+When you open a pull request, {% data variables.product.prodname_code_quality %} uses {% data variables.product.prodname_codeql %} to automatically scan your changes for quality issues like those described above.
 
-The results of the scan are reported as comments on your pull request, left by the `{% data variables.code-quality.pr_commenter %}`. Each comment corresponds to a specific code quality problem that was detected in your changes, and comes with a suggested autofix.
+The results of the {% data variables.product.prodname_codeql %} scan are reported as comments on your pull request, left by the `{% data variables.code-quality.pr_commenter %}`. Each comment corresponds to a specific code quality problem that was detected in your changes, and comes with a suggested autofix.
 
 Comments are labeled by severity (**Error**, **Warning**, **Note**), so you can see which findings are the most critical to address.
 
@@ -72,4 +72,4 @@ By resolving issues before merging your pull request, you've directly contribute
 ## Next steps
 
 * Address code quality findings in your default branch and understand your repository’s reliability and maintainability ratings. See [AUTOTITLE](/code-security/code-quality/tutorials/improve-your-codebase).
-* Provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488?utm_source=docs-discussions-code-quality&utm_medium=docs&utm_campaign=universe25post).
+* Provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488).

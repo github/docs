@@ -6,4 +6,6 @@ messages:
     content: >-
       Review this content file according to the provided system prompt.
       {{input}}
-model: openai/gpt-5
+model: openai/gpt-4o # Reliable model that works
+temperature: 0.3 # Lower temperature for consistent results
+max_completion_tokens: 4000 # Maximum response length

@@ -16,7 +16,7 @@ redirect_from:
   - /copilot/how-tos/use-chat/get-started-with-chat
 shortTitle: Get started with Chat
 contentType: how-tos
-category: 
+category:
   - Author and optimize with Copilot
 ---
 
@@ -274,14 +274,6 @@ You can ask {% data variables.copilot.copilot_chat_short %} questions about a sp
 * `what sorting algorithm does this function use`
 * `how are these files related`
 * `what is the purpose of this function`
-
-## Ask questions about a knowledge base
-
-You can ask {% data variables.copilot.copilot_chat_short %} questions about a knowledge base. For example:
-
-* `How do I deploy a new application?`
-* `What's the process for creating a new REST API?`
-* `What are our best practices for logging?`
 
 ## Ask questions about a specific piece of code
 

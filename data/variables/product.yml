@@ -96,7 +96,7 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.15 %}2.17.6{% elsif ghes < 3.16 %}2.18.4{% elsif ghes < 3.17 %}2.20.3{% elsif ghes < 3.18 %}2.20.7{% elsif ghes < 3.19 %}2.21.4{% endif %}
+  {% ifversion ghes < 3.15 %}2.17.6{% elsif ghes < 3.16 %}2.18.4{% elsif ghes < 3.17 %}2.20.3{% elsif ghes < 3.18 %}2.20.7{% elsif ghes < 3.19 %}2.21.4{% elsif ghes < 3.20 %}2.22.4{% endif %}
 codeql_cli_version_min_version_create_bundle: '2.17.6'
 # Projects v2
 prodname_projects_v2: 'Projects'
@@ -149,7 +149,7 @@ prodname_unfurls: 'Content Attachments'
 prodname_actions: 'GitHub Actions'
 prodname_actions_runner_controller: 'Actions Runner Controller'
 runner_required_version: >-
-  {% ifversion ghes < 3.15 %}2.317.0{% elsif ghes < 3.16 %}2.319.1{% elsif ghes < 3.17 %}2.321.0{% elsif ghes < 3.18 %}2.322.0{% elsif ghes < 3.19 %}2.324.0{% endif %}
+  {% ifversion ghes < 3.15 %}2.317.0{% elsif ghes < 3.16 %}2.319.1{% elsif ghes < 3.17 %}2.321.0{% elsif ghes < 3.18 %}2.322.0{% elsif ghes < 3.19 %}2.324.0{% elsif ghes < 3.20 %}2.328.0{% endif %}
 
 # GitHub Debug
 prodname_debug: 'GitHub Debug'
@@ -248,8 +248,8 @@ prodname_roadmap_link: 'https://github.com/github/roadmap#github-public-roadmap'
 # GitHub Support plans
 standard_support_plan: 'Standard plan'
 premium_support_plan: 'Premium plan'
-premium_plus_support_plan: 'Premium Plus plan / GitHub Engineering Direct'
-microsoft_premium_plus_support_plan: 'GitHub Engineering Direct'
+premium_plus_support_plan: 'Premium Plus plan'
+microsoft_premium_plus_support_plan: 'Mission Critical Services for GitHub plan'
 support_ticket_priority_urgent: 'Urgent'
 support_ticket_priority_high: 'High'
 support_ticket_priority_normal: 'Normal'

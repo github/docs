@@ -14,4 +14,5 @@ versions:
 children:
   - /getting-started
   - /guides
+  - /codeql-cli
 ---

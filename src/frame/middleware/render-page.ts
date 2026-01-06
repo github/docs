@@ -106,7 +106,7 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
       req.context.currentVersion === 'free-pro-team@latest' ||
       !allVersions[req.context.currentVersion!]
     ) {
-      page.fullTitle += ` - ${context.site!.data.ui.header.github_docs}`
+      page.fullTitle += ` - ${get(context.site!.data.ui, 'header.github_docs')}`
     } else {
       const { versionTitle } = allVersions[req.context.currentVersion!]
       page.fullTitle += ' - '

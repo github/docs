@@ -118,6 +118,22 @@ Alternatively, you can open the log folder for {% data variables.product.prodnam
       * Use: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
 1. Type "Logs", and then select **Developer: Open Extension Logs Folder** from the list.
 
+## Enabling debug mode
+
+If you find the log file doesn't contain enough information to resolve an issue, it may help to enable debug logging temporarily. This can be especially helpful for debugging network-related issues.
+
+1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %}
+   * For Mac:
+      * Use: <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>
+   * For Windows or Linux:
+      * Use: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
+1. Type "Developer", then select **Developer: Set Log Level**.
+1. Type "{% data variables.product.github %}", then select the {% data variables.product.github %} extension you're troubleshooting:
+    * **{% data variables.copilot.copilot_chat %}** for the {% data variables.copilot.copilot_chat_short %} extension.
+    * **{% data variables.product.github %}** for the {% data variables.copilot.copilot_extension %}.
+1. Select **Trace** from the dropdown list.
+1. When you have the information you need, disable debug mode by repeating steps 1 through 4 and returning the logging level to **Info**.
+
 ## Viewing network connectivity diagnostics logs
 
 If you encounter problems connecting to {% data variables.product.prodname_copilot %} due to network restrictions, firewalls, or your proxy setup, use the following troubleshooting steps.

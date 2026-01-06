@@ -6,7 +6,7 @@ The following table shows which {% data variables.product.prodname_copilot_short
 
 | | Eclipse | JetBrains IDEs | {% data variables.product.prodname_vs %} | {% data variables.product.prodname_vscode_shortname %} | {% data variables.product.prodname_dotcom_the_website %} | Xcode |
 | --- | --- | --- | --- | --- | --- | --- |
-| {% data variables.copilot.copilot_chat_short %} | {% octicon "check" aria-label="Included" %} <sup>1</sup> | {% octicon "check" aria-label="Included" %} <sup>1</sup> | {% octicon "check" aria-label="Included" %} <sup>1</sup> | {% octicon "check" aria-label="Included" %} <sup>3</sup> | {% octicon "check" aria-label="Included" %} <sup>1</sup> | {% octicon "check" aria-label="Included" %} <sup>1</sup> |
+| {% data variables.copilot.copilot_chat_short %} | {% octicon "check" aria-label="Included" %} <sup>1</sup> | {% octicon "check" aria-label="Included" %} <sup>1</sup> | {% octicon "check" aria-label="Included" %} <sup>2</sup> | {% octicon "check" aria-label="Included" %} <sup>3</sup> | {% octicon "check" aria-label="Included" %} <sup>1</sup> | {% octicon "check" aria-label="Included" %} <sup>1</sup> |
 | {% data variables.copilot.copilot_coding_agent %} | N/A | N/A | N/A | {% octicon "check" aria-label="Included" %} <sup>4</sup> | {% octicon "check" aria-label="Included" %} <sup>4</sup> | N/A |
 | {% data variables.copilot.copilot_code-review_short %} | N/A | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} <sup>1</sup> | {% octicon "check" aria-label="Included" %} <sup>1</sup> | {% octicon "check" aria-label="Included" %} <sup>2</sup> | {% octicon "x" aria-label="Not included" %} |
 

@@ -18,6 +18,10 @@ shortTitle: Secret scanning for partners
 
 > [!NOTE]You cannot change the configuration of {% data variables.product.prodname_secret_scanning %} for partner patterns on public repositories.
 
+{% data variables.secret-scanning.partner_alerts_caps %} scans:
+
+{% data reusables.secret-scanning.what-is-scanned %}
+
 The reason partner alerts are directly sent to the secret providers whenever a leak is detected for one of their secrets is that this enables the provider to take immediate action to protect you and protect their resources. The notification process for regular alerts is different. Regular alerts are displayed on the repository's **Security** tab on {% data variables.product.prodname_dotcom %} for you to resolve.
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}

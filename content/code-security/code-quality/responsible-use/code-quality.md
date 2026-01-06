@@ -92,7 +92,7 @@ For more information on the limitations of {% data variables.copilot.copilot_aut
 
 ## Provide feedback
 
-You can provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488?utm_source=docs-discussions-code-quality&utm_medium=docs&utm_campaign=universe25post).
+You can provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488).
 
 ## Next steps
 

@@ -29,8 +29,9 @@ Alongside {% data variables.product.prodname_security_configurations %}, which d
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_dependabot %}:
 
 * [Creating and managing {% data variables.dependabot.auto_triage_rules %}](#creating-and-managing-dependabot-auto-triage-rules)
-* [Grouping {% data variables.product.prodname_dependabot %} security updates](#grouping-dependabot-security-updates){% ifversion fpt or ghec %}
-* [Enabling dependency updates on {% data variables.product.prodname_actions %} runners](#enabling-dependency-updates-on-github-actions-runners){% endif %}{% ifversion fpt %}
+* [Grouping {% data variables.product.prodname_dependabot %} security updates](#grouping-dependabot-security-updates){% ifversion dependabot-on-actions-opt-in %}
+* [Enabling dependency updates on {% data variables.product.prodname_actions %} runners](#enabling-dependency-updates-on-github-actions-runners){% endif %}{% ifversion dependabot-arc-support %}
+* [Configuring the runner type for {% data variables.product.prodname_dependabot %}](#configuring-the-runner-type-for-dependabot){% endif %}{% ifversion fpt %}
 * [Granting {% data variables.product.prodname_dependabot %} access to private repositories](#granting-dependabot-access-to-private-repositories){% else %}
 * [Granting {% data variables.product.prodname_dependabot %} access to private and internal repositories](#granting-dependabot-access-to-private-and-internal-repositories){% endif %}
 
@@ -56,7 +57,35 @@ Otherwise, to allow {% data variables.product.prodname_dependabot %} to use {% d
 
 For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
 
-{% data reusables.dependabot.dependabot-on-actions-self-hosted-link %}
+{% endif %}
+
+{% ifversion dependabot-arc-support %}
+
+### Configuring the runner type for {% data variables.product.prodname_dependabot %}
+
+You can configure which type of runner {% data variables.product.prodname_dependabot %} uses to scan for version and security updates. By default, {% data variables.product.prodname_dependabot %} uses standard **{% data variables.product.company_short %}-hosted runners**. You can configure {% data variables.product.prodname_dependabot %} to use **self-hosted runners** with custom labels, which allows you to integrate with existing runner infrastructure such as {% data variables.product.prodname_actions_runner_controller %} (ARC).
+
+> [!NOTE]
+> * For security reasons, {% data variables.product.prodname_dependabot %} uses {% data variables.product.company_short %}-hosted runners for public repositories, even when you configure labeled runners. 
+> * Labeled runners **do not work** for public repositories.
+
+To configure the runner type:
+
+1. Under "{% data variables.product.prodname_dependabot %}", next to "Runner type", select {% octicon "pencil" aria-label="Edit runner type" %}.
+1. In the "Edit runner type for {% data variables.product.prodname_dependabot %}" dialog, select the runner type you want {% data variables.product.prodname_dependabot %} to use:
+   * **Standard {% data variables.product.company_short %} runner**.
+   * **Labeled runner**: If you select this option, {% data variables.product.prodname_dependabot %} will use self-hosted runners that match the label you specify.
+1. If you selected **Labeled runner**:
+   * In "Runner label", enter the label assigned to your self-hosted runners. {% data variables.product.prodname_dependabot %} will use runners with this label. By default, the `dependabot` label is used, but you can specify a custom label to match your existing runner infrastructure.
+   * Optionally, in "Runner group name", enter the name of a runner group if you want to target a specific group of runners.
+1. Click **Save runner selection**.
+
+
+{% endif %}
+
+{% ifversion dependabot-on-actions-self-hosted %}
+
+For more information about configuring self-hosted runners for {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/code-security/dependabot/maintain-dependencies/managing-dependabot-on-self-hosted-runners).
 
 {% endif %}
 

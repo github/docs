@@ -144,7 +144,11 @@ export default async function dynamicAssets(
       assetCacheControl(res)
       return res.type('image/webp').send(buffer)
     } catch (catchError) {
-      if (catchError instanceof Error && (catchError as any).code !== 'ENOENT') {
+      if (
+        catchError instanceof Error &&
+        'code' in catchError &&
+        (catchError as NodeJS.ErrnoException).code !== 'ENOENT'
+      ) {
         throw catchError
       }
     }

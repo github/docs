@@ -6,7 +6,7 @@ import { contentTypesEnum } from '@/frame/lib/frontmatter'
 describe('POST /events', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
-  async function checkEvent(data: any) {
+  async function checkEvent(data: unknown) {
     if (!Array.isArray(data)) {
       data = [data]
     }

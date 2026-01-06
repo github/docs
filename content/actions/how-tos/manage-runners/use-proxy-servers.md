@@ -22,11 +22,7 @@ contentType: how-tos
 
 If your runner needs to communicate via a proxy server, you can configure proxy settings using environment variables or system-level configurations.
 
-| Variable      | Description                                                                                           | Example                                                                                     |
-| ------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `https_proxy` | Proxy URL for HTTPS traffic. You can include basic authentication if required.                        | `http://proxy.local`<br>`http://192.168.1.1:8080`<br>`http://username:password@proxy.local` |
-| `http_proxy`  | Proxy URL for HTTP traffic. You can include basic authentication if required.                         | `http://proxy.local`<br>`http://192.168.1.1:8080`<br>`http://username:password@proxy.local` |
-| `no_proxy`    | A comma-separated list of hosts or IP addresses that should bypass the proxy. Some clients only honor IP addresses when connections are made directly to the IP rather than a hostname. | `example.com`<br>`example.com,myserver.local:443,example.org`                               |
+{% data reusables.actions.actions-proxy-environment-variables-table %}
 
 The proxy environment variables are read when the runner application starts, so you must set the environment variables before configuring or starting the runner application. If your proxy configuration changes, you must restart the runner application.
 
@@ -50,7 +46,7 @@ export no_proxy=example.com,localhost,127.0.0.1
 
 #### Windows
 
-On Windows, you can configure proxy settings either by setting environment variables or by using the [netsh command](https://learn.microsoft.com/en-us/windows/win32/winhttp/netsh-exe-commands&utm_source=docs-microsoft-proxy-servers&utm_medium=docs&utm_campaign=universe25post#set-advproxy).
+On Windows, you can configure proxy settings either by setting environment variables or by using the [netsh command](https://learn.microsoft.com/en-us/windows/win32/winhttp/netsh-exe-commands#set-advproxy).
 The netsh approach applies to applications and services that rely on the WinHTTP API.
 
 Setting environment variables is still required for runners that use private networking. Whether you also need to configure netsh depends on the applications used in your workflows.
@@ -88,8 +84,8 @@ If your runner is hosted in Azure, either as a self-hosted runner or a GitHub-ho
 You should add Azure metadata and management IPs to your `no_proxy` list to ensure the runner can access required Azure services. These endpoints allow Azure VMs to retrieve configuration and identity information needed for proper operation.
 
 The two Azure IPs are:
-* 168.63.129.16 (see [Azure IP address 168.63.129.16 overview](https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16?tabs=linux&utm_source=docs-microsoft-proxy-servers&utm_medium=docs&utm_campaign=universe25post))
-* 169.254.169.254 (see [Azure Instance Metadata Service](https://learn.microsoft.com/en-us/azure/virtual-machines/instance-metadata-service?tabs=linux&utm_source=docs-microsoft-proxy-servers&utm_medium=docs&utm_campaign=universe25post))
+* 168.63.129.16 (see [Azure IP address 168.63.129.16 overview](https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16?tabs=linux))
+* 169.254.169.254 (see [Azure Instance Metadata Service](https://learn.microsoft.com/en-us/azure/virtual-machines/instance-metadata-service?tabs=linux))
 
 ## Using a .env file to set the proxy configuration
 
@@ -109,4 +105,4 @@ no_proxy=example.com,myserver.local:443
 
 If you use Docker container actions or service containers in your workflows, you might also need to configure Docker to use your proxy server in addition to setting the above environment variables.
 
-For information on the required Docker configuration, see [Configure Docker to use a proxy server](https://docs.docker.com/network/proxy/?utm_source=docs-microsoft-proxy-servers&utm_medium=docs&utm_campaign=universe25post) in the Docker documentation.
+For information on the required Docker configuration, see [Configure Docker to use a proxy server](https://docs.docker.com/network/proxy/) in the Docker documentation.

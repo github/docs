@@ -5,6 +5,6 @@
       <td>14 GB</td>
       <td> x64 </td>
       <td>
-        <code>ubuntu-slim</code> ({% data variables.release-phases.public_preview %})
+        <code>ubuntu-slim</code>
       </td>
     </tr>

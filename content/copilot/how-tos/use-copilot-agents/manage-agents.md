@@ -2,7 +2,7 @@
 title: Managing Copilot coding agents
 shortTitle: Manage agents
 intro: View your agent's progress and keep {% data variables.product.prodname_copilot_short %} on task.
-product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-signup-copilot-coding-agent&utm_medium=docs&utm_campaign=universe25post" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 topics:
@@ -16,8 +16,8 @@ contentType: how-tos
 
 1. Start a new agent task.
 
-    * Open the [Agents tab](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-web-copilot-coding-agent&utm_medium=docs&utm_campaign=universe25post).
-    * Use the **Task** button or `/task` command from [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-web-copilot-chat&utm_medium=docs&utm_campaign=universe25post).
+    * Open the [Agents tab](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text).
+    * Use the **Task** button or `/task` command from [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text).
     * Open the Agents panel by clicking the {% octicon "agent" aria-label="The Agents icon" %} at the top of any page on {% data variables.product.github %}
 1. Using the dropdown menu, select the repository you want {% data variables.product.prodname_copilot_short %} to work in.
 1. Optionally, select a base branch for {% data variables.product.prodname_copilot_short %}'s pull request.

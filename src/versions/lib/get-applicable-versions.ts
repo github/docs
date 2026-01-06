@@ -14,8 +14,14 @@ interface GetApplicableVersionsOptions {
   includeNextVersion?: boolean
 }
 
-// Using any for feature data as it's dynamically loaded from YAML files
-let featureData: any = null
+interface FeatureData {
+  [featureName: string]: {
+    versions: VersionsObject
+  }
+}
+
+// Feature data is dynamically loaded from YAML files
+let featureData: FeatureData | null = null
 
 const allVersionKeys = Object.keys(allVersions)
 
@@ -55,13 +61,13 @@ function getApplicableVersions(
       ? {}
       : reduce(
           versionsObj,
-          (result: any, value, key) => {
+          (result: VersionsObject, value, key) => {
             if (key === 'feature') {
               if (typeof value === 'string') {
-                Object.assign(result, { ...featureData[value]?.versions })
+                Object.assign(result, { ...featureData?.[value]?.versions })
               } else if (Array.isArray(value)) {
                 for (const str of value) {
-                  Object.assign(result, { ...featureData[str].versions })
+                  Object.assign(result, { ...featureData?.[str]?.versions })
                 }
               }
               delete result[key]

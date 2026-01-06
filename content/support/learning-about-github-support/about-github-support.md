@@ -131,7 +131,7 @@ For pricing, licensing, renewals, quotes, payments, and other related questions,
 To learn more about training options, including customized trainings, see [{% data variables.product.company_short %}'s training site](https://services.github.com/).
 
 > [!NOTE]
-> Training is included in the {% data variables.product.premium_plus_support_plan %}. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-github-premium-support).
+> Training is included in the {% data variables.product.premium_plus_support_plan %} / {% data variables.product.microsoft_premium_plus_support_plan %}. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-github-premium-support).
 
 {% endif %}
 

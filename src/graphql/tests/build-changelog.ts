@@ -19,8 +19,8 @@ interface Preview {
   title: string
   description: string
   toggled_by: string
-  announcement: any
-  updates: any
+  announcement: unknown
+  updates: unknown
   toggled_on: string[]
   owning_teams: string[]
 }
@@ -33,7 +33,7 @@ interface UpcomingChange {
 
 interface IgnoredChange {
   type: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 interface IgnoredChangesSummary {
@@ -285,7 +285,7 @@ describe('ignored changes tracking', () => {
     // This should generate a TypeDescriptionAdded change type that gets ignored
     await createChangelogEntry(oldSchemaString, newSchemaString, [], [], [])
 
-    const ignoredChanges: IgnoredChange[] = getLastIgnoredChanges()
+    const ignoredChanges: IgnoredChange[] = getLastIgnoredChanges() as unknown as IgnoredChange[]
     expect(ignoredChanges.length).toBe(1)
     expect(ignoredChanges[0].type).toBe('TYPE_DESCRIPTION_ADDED')
   })

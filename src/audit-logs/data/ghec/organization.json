@@ -246,7 +246,8 @@
       "pricing_target_type",
       "pricing_target_id",
       "budget_limit_type",
-      "alert_recipient_user_ids"
+      "alert_recipient_user_ids",
+      "exclude_cost_center_usage"
     ]
   },
   {
@@ -1319,78 +1320,6 @@
     ]
   },
   {
-    "action": "copilot.knowledge_base_created",
-    "description": "A knowledge base was created in the organization.",
-    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases",
-    "fields": [
-      "actor",
-      "actor_id",
-      "user_agent",
-      "request_id",
-      "knowledge_base_name",
-      "org_id",
-      "org",
-      "action",
-      "_document_id",
-      "@timestamp",
-      "created_at",
-      "operation_type",
-      "business",
-      "business_id",
-      "actor_is_bot",
-      "request_access_security_header"
-    ],
-    "docs_reference_titles": "Creating and managing GitHub Copilot knowledge bases"
-  },
-  {
-    "action": "copilot.knowledge_base_deleted",
-    "description": "A knowledge base was deleted from the organization.",
-    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases",
-    "fields": [
-      "actor",
-      "actor_id",
-      "user_agent",
-      "request_id",
-      "knowledge_base_name",
-      "org_id",
-      "org",
-      "action",
-      "_document_id",
-      "@timestamp",
-      "created_at",
-      "operation_type",
-      "business",
-      "business_id",
-      "actor_is_bot",
-      "request_access_security_header"
-    ],
-    "docs_reference_titles": "Creating and managing GitHub Copilot knowledge bases"
-  },
-  {
-    "action": "copilot.knowledge_base_updated",
-    "description": "A knowledge base was updated in the organization.",
-    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases",
-    "fields": [
-      "actor",
-      "actor_id",
-      "user_agent",
-      "request_id",
-      "knowledge_base_name",
-      "org_id",
-      "org",
-      "action",
-      "_document_id",
-      "@timestamp",
-      "created_at",
-      "operation_type",
-      "business",
-      "business_id",
-      "actor_is_bot",
-      "request_access_security_header"
-    ],
-    "docs_reference_titles": "Creating and managing GitHub Copilot knowledge bases"
-  },
-  {
     "action": "copilot.plan_changed",
     "description": "The plan for GitHub Copilot was updated.",
     "docs_reference_links": "/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot",
@@ -1830,6 +1759,118 @@
       "_document_id"
     ],
     "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-automatically-when-new-repositories-are-added"
+  },
+  {
+    "action": "dependabot_closure_request.approve",
+    "description": "Dismissal of Dependabot alerts was approved.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "number",
+      "alert_number",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+  },
+  {
+    "action": "dependabot_closure_request.cancel",
+    "description": "Dismissal request for Dependabot alerts was canceled.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "number",
+      "alert_number",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+  },
+  {
+    "action": "dependabot_closure_request.create",
+    "description": "Dismissal of Dependabot alerts was requested.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "number",
+      "alert_number",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+  },
+  {
+    "action": "dependabot_closure_request.deny",
+    "description": "Dismissal of Dependabot alerts was denied.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "number",
+      "alert_number",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
   },
   {
     "action": "dependabot_repository_access.default_access_level_updated",
@@ -5010,12 +5051,12 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests#enabling-or-disabling-integration-access-requests"
+    "docs_reference_titles": "Limiting OAuth app and GitHub App access requests and installations"
   },
   {
     "action": "org.allow_third_party_access_requests_from_outside_collaborators_enabled",
     "description": "Third-party application access for outside collaborators was enabled for the organization.",
-    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests#enabling-or-disabling-integration-access-requests",
+    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests-and-installations#enabling-or-disabling-app-access-requests",
     "fields": [
       "actor",
       "actor_id",
@@ -5029,7 +5070,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests#enabling-or-disabling-integration-access-requests"
+    "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests-and-installations#enabling-or-disabling-app-access-requests"
   },
   {
     "action": "org.archive",
@@ -15159,6 +15200,29 @@
     "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
   },
   {
+    "action": "secret_scanning_alert.delete",
+    "description": "A secret scanning alert was deleted by GitHub.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning",
+    "fields": [
+      "repo_id",
+      "repo",
+      "actor_id",
+      "actor",
+      "org_id",
+      "org",
+      "business",
+      "business_id",
+      "number",
+      "secret_type",
+      "secret_type_display_name",
+      "publicly_leaked",
+      "multi_repo",
+      "created_at",
+      "reason"
+    ],
+    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+  },
+  {
     "action": "secret_scanning_alert.public_leak",
     "description": "A secret scanning alert was leaked in a public repo.",
     "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning",
@@ -15756,7 +15820,8 @@
       "security_configuration_secret_scanning_delegated_alert_dismissal",
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
-      "security_configuration_secret_protection_sku_enabled"
+      "security_configuration_secret_protection_sku_enabled",
+      "security_configuration_dependabot_delegated_alert_dismissal"
     ]
   },
   {
@@ -15846,7 +15911,8 @@
       "security_configuration_secret_scanning_delegated_alert_dismissal",
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
-      "security_configuration_secret_protection_sku_enabled"
+      "security_configuration_secret_protection_sku_enabled",
+      "security_configuration_dependabot_delegated_alert_dismissal"
     ]
   },
   {
@@ -15907,7 +15973,8 @@
       "security_configuration_secret_scanning_delegated_alert_dismissal",
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
-      "security_configuration_secret_protection_sku_enabled"
+      "security_configuration_secret_protection_sku_enabled",
+      "security_configuration_dependabot_delegated_alert_dismissal"
     ]
   },
   {

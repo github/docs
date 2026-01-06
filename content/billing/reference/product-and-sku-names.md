@@ -36,7 +36,7 @@ For **SkuPricing** budgets or to query usage by SKU, use one of the following va
 * `actions_beta_custom_runner_azure` - Actions beta custom runner (Azure)
 * `actions_beta_macos_xl_runner` - Actions beta macOS XL runner
 * `actions_beta_public_repository` - Actions beta public repository
-* `actions_beta_self_hosted_runner` - Actions beta self-hosted runner <!-- markdownlint-enable GHD046 -->
+* `actions_beta_self_hosted_runner` - Actions beta self-hosted runner
 * `actions_cache_storage` - Actions cache storage
 * `actions_custom_image_storage` - Actions custom image storage
 * `actions_linux` - Actions Linux runners
@@ -91,6 +91,8 @@ For **SkuPricing** budgets or to query usage by SKU, use one of the following va
 * `actions_windows_a100_24_core_gpu` - Actions Windows A100 24-core GPU
 * `actions_windows_a10_36_core_gpu` - Actions Windows A10 36-core GPU
 * `actions_windows_arm` - Actions Windows ARM
+
+ <!-- markdownlint-enable GHD046 -->
 
 ### {% data variables.product.prodname_github_codespaces %} SKUs
 

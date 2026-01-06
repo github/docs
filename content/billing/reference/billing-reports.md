@@ -30,7 +30,6 @@ The following report types are available.
    * **Detailed usage report**: A detailed usage report for all paid products for a maximum period of 31 days.
 * Premium request analytics page:
    * **Premium requests usage report**: A detailed per-user breakdown of premium requests consumed for a maximum period of 31 days.
-   * **Legacy premium request usage report**: A detailed, user-based report of premium request usage for the last 45 days.
 
 ### Summarized usage report
 
@@ -49,12 +48,6 @@ This report sums the `quantity`, `gross_amount`, `discount_amount`, and `net_amo
 This report includes additional detail about premium request usage. The report sums the `quantity`, `gross_amount`, `discount_amount`, and `net_amount` fields based on the combination of the following values: `date`, `model`, `username`.
 
 This report contains usage beginning October 01, 2025 00:00 UTC.
-
-### Legacy premium request usage report
-
-This report includes each recorded use of a premium request and includes the following fields: `Timestamp`,`User`,`Model`,`Requests Used`,`Exceeds Monthly Quota`, and `Total Monthly Quota`. The time period of the report is the most recent 45 days.
-
-This report will be closing down on December 1, 2025, at which point all premium request usage activity will be available via the Premium requests usage report.
 
 ## Usage report fields
 
