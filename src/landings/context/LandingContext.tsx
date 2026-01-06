@@ -18,7 +18,7 @@ export type LandingContextT = {
   variant?: 'compact' | 'expanded'
   featuredLinks: Record<string, Array<FeaturedLink>>
   renderedPage: string
-  currentLearningTrack?: LearningTrack
+  currentLearningTrack?: LearningTrack | null
   currentLayout: string
   heroImage?: string
   // For landing pages with carousels
@@ -99,7 +99,7 @@ export const getLandingContextFromRequest = async (
     variant: context.genericTocFlat ? 'expanded' : 'compact',
     featuredLinks: getFeaturedLinksFromReq(req),
     renderedPage: context.renderedPage ?? '',
-    currentLearningTrack: context.currentLearningTrack ?? undefined,
+    currentLearningTrack: context.currentLearningTrack ?? null,
     currentLayout: context.currentLayoutName ?? '',
     heroImage: page.heroImage || '/assets/images/banner-images/hero-1',
     introLinks: page.introLinks || null,
