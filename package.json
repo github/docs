@@ -298,7 +298,7 @@
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-primer-react": "^8.0.0",
     "event-to-promise": "^0.8.0",
-    "globals": "^16.3.0",
+    "globals": "^17.0.0",
     "graphql": "^16.9.0",
     "http-status-code": "^2.1.0",
     "husky": "^9.1.7",
