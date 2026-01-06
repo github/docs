@@ -16,6 +16,8 @@ versions:
 shortTitle: Featured integrations
 topics: 
   - Integration
+category:
+  - Learn about integrations
 ---
 
 {% ifversion fpt or ghec %}
