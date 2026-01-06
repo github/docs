@@ -1,5 +1,6 @@
 import { TransformerRegistry } from './types'
 import { RestTransformer } from './rest-transformer'
+import { SecretScanningTransformer } from './secret-scanning-transformer'
 import { CodeQLCliTransformer } from './codeql-cli-transformer'
 import { AuditLogsTransformer } from './audit-logs-transformer'
 import { GraphQLTransformer } from './graphql-transformer'
@@ -11,6 +12,7 @@ import { GraphQLTransformer } from './graphql-transformer'
 export const transformerRegistry = new TransformerRegistry()
 
 transformerRegistry.register(new RestTransformer())
+transformerRegistry.register(new SecretScanningTransformer())
 transformerRegistry.register(new CodeQLCliTransformer())
 transformerRegistry.register(new AuditLogsTransformer())
 transformerRegistry.register(new GraphQLTransformer())
