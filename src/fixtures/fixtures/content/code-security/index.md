@@ -14,5 +14,6 @@ versions:
 children:
   - /getting-started
   - /guides
+  - /secret-scanning
   - /codeql-cli
 ---
