@@ -1657,18 +1657,6 @@
   ],
   "enterprise-admin": [
     {
-      "slug": "get-the-audit-log-for-an-enterprise",
-      "subcategory": "audit-log",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/audit-log"
-    },
-    {
-      "slug": "get-github-advanced-security-active-committers-for-an-enterprise",
-      "subcategory": "licensing",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/settings/billing/advanced-security"
-    },
-    {
       "slug": "list-pre-receive-hooks-for-an-organization",
       "subcategory": "org-pre-receive-hooks",
       "verb": "get",
