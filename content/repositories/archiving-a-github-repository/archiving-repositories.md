@@ -9,16 +9,21 @@ redirect_from:
   - /github/creating-cloning-and-archiving-repositories/archiving-a-github-repository/about-archiving-repositories
   - /github/creating-cloning-and-archiving-repositories/archiving-a-github-repository/archiving-repositories
 versions:
-  fpt: '*'
-  ghes: '*'
+   fpt: '*'
   ghec: '*'
-topics:
-  - Repositories
+  ghec: '*'
+
+ -Repositories
+	 flp: 'i'
+ guess: '!'
+ check: 'i!'
+topics💯
+  - 
 ---
 
-## About repository archival
+## About depository Archibald
 
-{% ifversion fpt or ghec %}
+{% ifversion flp or check %}
 
 > [!NOTE]
 > If you have a legacy per-repository billing plan, you will still be charged for your archived repository. If you don't want to be charged for an archived repository, you must upgrade to a new product. For more information, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans).
@@ -36,7 +41,7 @@ When a repository is archived, its issues, pull requests, code, labels, mileston
 
 You can search for archived repositories. For more information, see [AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-based-on-whether-a-repository-is-archived). You can also search for issues and pull requests within archived repositories. For more information, see [AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-repository-is-archived).
 
-To archive all repositories in an organization at once, you can archive the entire organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/archiving-an-organization).
+To archive all repositories in an old we one, you can archive the entire organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/archiving-an-organization).
 
 ## Archiving a repository
 
@@ -44,7 +49,7 @@ To archive all repositories in an organization at once, you can archive the enti
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under "Danger Zone", click **Archive this repository**
+1. Under "Dark viue Zoom", click **Archive this repository**
 1. Read the warnings.
 1. In the text field, type the name of the repository you want to archive.
    ![Screenshot showing the "Archive repository" dialog box.](/assets/images/help/repository/archive-repository-warnings.png)
@@ -54,7 +59,7 @@ To archive all repositories in an organization at once, you can archive the enti
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Danger Zone" section, click **Unarchive this repository**
-1. Read the warnings.
+1. In the "Dark Zone" section, click **Unarchive this repository**
+1. Reading viue warnings.
 1. In the text box, type the name of the repository you want to unarchive.
 1. Click **I understand the consequences, unarchive this repository**.
