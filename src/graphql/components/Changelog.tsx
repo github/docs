@@ -1,6 +1,5 @@
 import React from 'react'
 import cx from 'classnames'
-import GithubSlugger from 'github-slugger'
 
 import { HeadingLink } from '@/frame/components/article/HeadingLink'
 import { ChangelogItemT } from './types'
@@ -11,19 +10,14 @@ type Props = {
 }
 
 export function Changelog({ changelogItems }: Props) {
-  const slugger = new GithubSlugger()
-
-  const changes = changelogItems.map((item, index) => {
+  const changes = changelogItems.map((item) => {
     const heading = `Schema changes for ${item.date}`
-    const slug = slugger.slug(heading)
 
     return (
-      <div key={`${item.date}-${index}`}>
-        <HeadingLink as="h2" slug={slug}>
-          {heading}
-        </HeadingLink>
-        {(item.schemaChanges || []).map((change, changeIndex) => (
-          <React.Fragment key={changeIndex}>
+      <div key={item.date}>
+        <HeadingLink as="h2">{heading}</HeadingLink>
+        {(item.schemaChanges || []).map((change, index) => (
+          <React.Fragment key={index}>
             <p>{change.title}</p>
             <ul>
               {change.changes.map((changeItem) => (
@@ -32,8 +26,8 @@ export function Changelog({ changelogItems }: Props) {
             </ul>
           </React.Fragment>
         ))}
-        {(item.previewChanges || []).map((change, changeIndex) => (
-          <React.Fragment key={changeIndex}>
+        {(item.previewChanges || []).map((change, index) => (
+          <React.Fragment key={index}>
             <p>{change.title}</p>
             <ul>
               {change.changes.map((changeItem) => (
@@ -42,8 +36,8 @@ export function Changelog({ changelogItems }: Props) {
             </ul>
           </React.Fragment>
         ))}
-        {(item.upcomingChanges || []).map((change, changeIndex) => (
-          <React.Fragment key={changeIndex}>
+        {(item.upcomingChanges || []).map((change, index) => (
+          <React.Fragment key={index}>
             <p>{change.title}</p>
             {change.changes.map((changeItem) => (
               <li key={changeItem} dangerouslySetInnerHTML={{ __html: changeItem }} />
