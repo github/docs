@@ -43,10 +43,10 @@ You can enable or disable {% data variables.product.prodname_dependabot_alerts %
 
 You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories owned by your personal account.
 
+<a href="https://github.com/settings/security_analysis?ref_product=github&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Go to your security settings</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+
 ### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for existing repositories
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security-analysis %}
 1. Under "{% data variables.product.UI_advanced_security %}", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Disable all** or **Enable all**.
 1. Optionally, to enable {% data variables.product.prodname_dependabot_alerts %} by default for new repositories that you create, in the dialog box, select "Enable by default for new repositories".
 1. Click **Disable {% data variables.product.prodname_dependabot_alerts %}** or **Enable {% data variables.product.prodname_dependabot_alerts %}** to disable or enable {% data variables.product.prodname_dependabot_alerts %} for all the repositories you own.
@@ -55,8 +55,6 @@ When you enable {% data variables.product.prodname_dependabot_alerts %} for exis
 
 ### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for new repositories
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security-analysis %}
 1. Under "{% data variables.product.UI_advanced_security %}", to the right of {% data variables.product.prodname_dependabot_alerts %}, select **Automatically enable for new repositories**.
 
 {% else %}

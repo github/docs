@@ -64,10 +64,10 @@
 - name: Gemini 3 Flash
   dotcom: true
   vscode: true
-  vs: false
-  eclipse: false
-  xcode: false
-  jetbrains: false
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
 
 - name: Gemini 3 Pro
   dotcom: true
