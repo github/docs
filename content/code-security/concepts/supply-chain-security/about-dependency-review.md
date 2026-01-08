@@ -1,6 +1,6 @@
 ---
 title: About dependency review
-intro: 'Dependency review lets you catch insecure dependencies before you introduce them to your environment, and provides information on license, dependents, and age of dependencies.'
+intro: Dependency review lets you catch insecure dependencies before you introduce them to your environment, and provides information on license, dependents, and age of dependencies.
 product: '{% data reusables.gated-features.dependency-review %}'
 shortTitle: Dependency review
 versions:
@@ -16,6 +16,8 @@ topics:
   - Pull requests
 redirect_from:
   - /code-security/supply-chain-security/about-dependency-review
+  - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review
+contentType: concepts
 ---
 
 ## About dependency review

@@ -42,13 +42,13 @@ dependabot_alerts:
     Set up Dependabot to alert you to new vulnerabilities or malware in your
     dependencies.
   guides:
-    - /code-security/dependabot/dependabot-alerts/about-dependabot-alerts
+    - /code-security/concepts/supply-chain-security/about-dependabot-alerts
     - >-
       /repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository
     - >-
       /code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts
     - >-
-      /code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules
+      /code-security/concepts/supply-chain-security/about-dependabot-auto-triage-rules
     - >-
       /code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts
     - >-
@@ -64,7 +64,7 @@ dependabot_security_updates:
     reported.
   guides:
     - >-
-      /code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates
+      /code-security/concepts/supply-chain-security/about-dependabot-security-updates
     - >-
       /code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
     - >-
@@ -82,7 +82,7 @@ dependency_version_updates:
     your dependencies.
   guides:
     - >-
-      /code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates
+      /code-security/concepts/supply-chain-security/about-dependabot-version-updates
     - >-
       /code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates
     - >-

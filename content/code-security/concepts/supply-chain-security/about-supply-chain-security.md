@@ -1,9 +1,10 @@
 ---
 title: About supply chain security
 intro: '{% data variables.product.github %} helps you secure your supply chain, from understanding the dependencies in your environment, to knowing about vulnerabilities in those dependencies, and patching them.'
-shortTitle: Supply chain security
+shortTitle: Supply chain features
 redirect_from:
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies
+  - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,6 +18,7 @@ topics:
   - Dependencies
   - Pull requests
   - Repositories
+contentType: concepts
 ---
 
 ## About supply chain security at GitHub

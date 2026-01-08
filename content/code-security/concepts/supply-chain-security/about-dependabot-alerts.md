@@ -8,6 +8,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies
   - /code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies
+  - /code-security/dependabot/dependabot-alerts/about-dependabot-alerts
 versions:
   fpt: '*'
   ghes: '*'
@@ -20,6 +21,7 @@ topics:
   - Repositories
   - Dependencies
 shortTitle: Dependabot alerts
+contentType: concepts
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About alerts for vulnerable dependencies ".-->
 

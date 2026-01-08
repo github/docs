@@ -1,6 +1,6 @@
 ---
 title: Best practices for maintaining dependencies
-intro: 'Guidance and recommendations for maintaining the dependencies you use, including {% data variables.product.github %}''s security products that can help.'
+intro: Guidance and recommendations for maintaining the dependencies you use, including {% data variables.product.github %}'s security products that can help.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -14,7 +14,10 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: Dependency management best practices
+shortTitle: Dependency best practices
+redirect_from:
+  - /code-security/dependabot/maintain-dependencies/best-practices-for-maintaining-dependencies
+contentType: concepts
 ---
 
 ## Best practices for maintaining dependencies

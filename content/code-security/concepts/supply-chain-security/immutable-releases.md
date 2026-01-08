@@ -1,6 +1,6 @@
 ---
 title: Immutable releases
-intro: 'Learn about immutable releases and how they can help you maintain the integrity of your software supply chain.'
+intro: Learn about immutable releases and how they can help you maintain the integrity of your software supply chain.
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,6 +9,9 @@ topics:
   - Code Security
   - Vulnerabilities
   - Dependencies
+redirect_from:
+  - /code-security/supply-chain-security/understanding-your-software-supply-chain/immutable-releases
+contentType: concepts
 ---
 
 **Immutable releases** are releases where the assets and associated Git tag cannot be changed after publication. The use of this type of release increases security by blocking supply chain attacks. Attackers cannot:

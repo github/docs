@@ -13,10 +13,12 @@ topics:
   - Vulnerabilities
   - Repositories
   - Dependencies
-shortTitle: About auto-triage rules
+shortTitle: Dependabot auto-triage rules
 redirect_from:
   - /code-security/dependabot/dependabot-alerts/using-alert-rules-to-prioritize-dependabot-alerts
   - /code-security/dependabot/dependabot-alert-rules/about-dependabot-alert-rules
+  - /code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules
+contentType: concepts
 ---
 
 ## About {% data variables.dependabot.auto_triage_rules %}

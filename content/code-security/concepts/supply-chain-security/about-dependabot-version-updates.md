@@ -1,6 +1,6 @@
 ---
 title: About Dependabot version updates
-intro: 'You can use {% data variables.product.prodname_dependabot %} to keep the packages you use updated to the latest versions.'
+intro: You can use {% data variables.product.prodname_dependabot %} to keep the packages you use updated to the latest versions.
 product: '{% data reusables.gated-features.dependabot-version-updates %}'
 redirect_from:
   - /github/administering-a-repository/about-dependabot
@@ -10,6 +10,7 @@ redirect_from:
   - /code-security/supply-chain-security/about-dependabot-version-updates
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/upgrading-from-dependabotcom-to-github-native-dependabot
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
+  - /code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates
 versions:
   fpt: '*'
   ghec: '*'
@@ -22,6 +23,7 @@ topics:
   - Dependencies
   - Pull requests
 shortTitle: Dependabot version updates
+contentType: concepts
 ---
 
 {% data reusables.dependabot.enterprise-enable-dependabot %}
