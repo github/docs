@@ -70,11 +70,15 @@ describe('GitHub Apps transformer', () => {
     })
 
     test('endpoints are formatted as bullet lists', async () => {
-      const res = await get(
-        makeURL(
-          '/en/rest/authentication/endpoints-available-for-github-app-installation-access-tokens',
-        ),
+      const DEBUG = process.env.RUNNER_DEBUG === '1' || process.env.DEBUG === '1'
+      const url = makeURL(
+        '/en/rest/authentication/endpoints-available-for-github-app-installation-access-tokens',
       )
+      const startTime = DEBUG ? Date.now() : 0
+      if (DEBUG) console.log(`[DEBUG] Test sending request to ${url}`)
+      const res = await get(url)
+      if (DEBUG)
+        console.log(`[DEBUG] Test response: ${res.statusCode} in ${Date.now() - startTime}ms`)
       expect(res.statusCode).toBe(200)
 
       // Check for bullet list items with asterisks (per content guidelines)
