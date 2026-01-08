@@ -6,7 +6,7 @@ import { execSync } from 'child_process'
 const rootDir = path.join(__dirname, '../../..')
 const testContentDir = path.join(rootDir, 'content/test-integration')
 
-describe('resolve-liquid script integration tests', () => {
+describe('liquid-tags script integration tests', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
   beforeEach(async () => {
@@ -20,12 +20,12 @@ describe('resolve-liquid script integration tests', () => {
   })
 
   // Helper function to run script commands
-  async function runResolveScript(args: string): Promise<{ output: string; exitCode: number }> {
+  async function runScript(args: string): Promise<{ output: string; exitCode: number }> {
     let output = ''
     let exitCode = 0
 
     try {
-      output = execSync(`tsx src/content-render/scripts/resolve-liquid.ts ${args}`, {
+      output = execSync(`tsx src/content-render/scripts/liquid-tags.ts ${args}`, {
         encoding: 'utf8',
         cwd: rootDir,
         stdio: 'pipe',
@@ -39,7 +39,7 @@ describe('resolve-liquid script integration tests', () => {
     return { output, exitCode }
   }
 
-  test('resolve command should complete successfully with basic content', async () => {
+  test('expand command should complete successfully with basic content', async () => {
     // Create a test file with liquid reference
     const testFile = path.join(testContentDir, 'basic-test.md')
     const testContent = `---
@@ -51,16 +51,16 @@ This uses {% data variables.product.prodname_dotcom %} in content.
 
     await fs.writeFile(testFile, testContent)
 
-    const { output, exitCode } = await runResolveScript(`resolve --paths "${testFile}"`)
+    const { output, exitCode } = await runScript(`expand --paths "${testFile}"`)
 
     // Should complete without error
     expect(exitCode, `Script failed with output: ${output}`).toBe(0)
     expect(output.length).toBeGreaterThan(0)
 
     // Check that the file was modified
-    const resolvedContent = await fs.readFile(testFile, 'utf8')
-    expect(resolvedContent).not.toBe(testContent)
-    expect(resolvedContent).toContain('GitHub') // Should resolve to actual fixture value
+    const expandedContent = await fs.readFile(testFile, 'utf8')
+    expect(expandedContent).not.toBe(testContent)
+    expect(expandedContent).toContain('GitHub') // Should expand to actual fixture value
   })
 
   test('restore command should complete successfully', async () => {
@@ -74,11 +74,11 @@ This uses {% data variables.product.prodname_dotcom %} in content.
 
     await fs.writeFile(testFile, originalContent)
 
-    // First resolve
-    await runResolveScript(`resolve --paths "${testFile}"`)
+    // First expand
+    await runScript(`expand --paths "${testFile}"`)
 
     // Then restore
-    const { output, exitCode } = await runResolveScript(`restore --paths "${testFile}"`)
+    const { output, exitCode } = await runScript(`restore --paths "${testFile}"`)
 
     expect(exitCode, `Restore script failed with output: ${output}`).toBe(0)
     expect(output.length).toBeGreaterThan(0)
@@ -90,7 +90,7 @@ This uses {% data variables.product.prodname_dotcom %} in content.
   })
 
   test('help command should display usage information', async () => {
-    const { output, exitCode } = await runResolveScript('resolve --help')
+    const { output, exitCode } = await runScript('expand --help')
 
     expect(exitCode, `Help command failed with output: ${output}`).toBe(0)
     expect(output).toMatch(/resolve|usage|help|command/i)
