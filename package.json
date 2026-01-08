@@ -63,6 +63,7 @@
     "generate-code-quality-query-list": "tsx src/codeql-queries/scripts/generate-code-quality-query-list.ts",
     "generate-content-linter-docs": "tsx src/content-linter/scripts/generate-docs.ts",
     "move-content": "tsx src/content-render/scripts/move-content.ts",
+    "move-by-content-type": "tsx src/content-render/scripts/move-by-content-type.ts",
     "openapi-docs": "tsx src/rest/docs.ts",
     "playwright-test": "playwright test --config src/fixtures/playwright.config.ts --project=\"Google Chrome\"",
     "lint-report": "tsx src/content-linter/scripts/lint-report.ts",
