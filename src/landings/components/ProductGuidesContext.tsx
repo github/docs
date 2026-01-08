@@ -7,7 +7,7 @@ export type LearningTrack = {
   trackProduct: string
   title: string
   description: string
-  guides?: Array<{ href: string; page?: { type: string }; title: string; intro: string }>
+  guides?: Array<{ href: string; type: string | null; title: string; intro: string }>
 }
 
 export type ArticleGuide = {
@@ -60,7 +60,7 @@ export const getProductGuidesContextFromRequest = (req: ExtendedRequest): Produc
           title: (guide.title as string) || '',
           intro: (guide.intro as string) || '',
           href: (guide.href as string) || '',
-          page: guide.page as { type: string } | undefined,
+          type: ((guide.page as any)?.type as string) || null,
         }),
       ),
     }),

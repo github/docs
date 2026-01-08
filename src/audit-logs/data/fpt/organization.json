@@ -246,7 +246,8 @@
       "pricing_target_type",
       "pricing_target_id",
       "budget_limit_type",
-      "alert_recipient_user_ids"
+      "alert_recipient_user_ids",
+      "exclude_cost_center_usage"
     ]
   },
   {
@@ -1758,6 +1759,118 @@
       "_document_id"
     ],
     "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-automatically-when-new-repositories-are-added"
+  },
+  {
+    "action": "dependabot_closure_request.approve",
+    "description": "Dismissal of Dependabot alerts was approved.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "number",
+      "alert_number",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "About Dependabot alerts"
+  },
+  {
+    "action": "dependabot_closure_request.cancel",
+    "description": "Dismissal request for Dependabot alerts was canceled.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "number",
+      "alert_number",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "About Dependabot alerts"
+  },
+  {
+    "action": "dependabot_closure_request.create",
+    "description": "Dismissal of Dependabot alerts was requested.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "number",
+      "alert_number",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "About Dependabot alerts"
+  },
+  {
+    "action": "dependabot_closure_request.deny",
+    "description": "Dismissal of Dependabot alerts was denied.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "number",
+      "alert_number",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "About Dependabot alerts"
   },
   {
     "action": "dependabot_repository_access.default_access_level_updated",
@@ -4408,7 +4521,9 @@
       "selected_service",
       "network_settings_ids",
       "previous_settings_ids",
-      "network_configuration_id"
+      "network_configuration_id",
+      "failover_network_settings_ids",
+      "failover_network_enabled"
     ],
     "docs_reference_titles": "About networking for hosted compute products in your enterprise"
   },
@@ -4452,7 +4567,9 @@
       "actor_is_bot",
       "selected_service",
       "network_settings_ids",
-      "previous_settings_ids"
+      "previous_settings_ids",
+      "failover_network_settings_ids",
+      "failover_network_enabled"
     ],
     "docs_reference_titles": "About networking for hosted compute products in your enterprise"
   },
@@ -4938,7 +5055,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests#enabling-or-disabling-integration-access-requests"
+    "docs_reference_titles": "Limiting OAuth app and GitHub App access requests and installations"
   },
   {
     "action": "org.allow_third_party_access_requests_from_outside_collaborators_enabled",
@@ -13171,7 +13288,7 @@
       "org_id",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories"
+    "docs_reference_titles": "About repository security advisories"
   },
   {
     "action": "repository_advisory.cve_request",
@@ -14628,7 +14745,7 @@
       "alert_number",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+    "docs_reference_titles": "About Dependabot alerts"
   },
   {
     "action": "repository_vulnerability_alert.dismiss",
@@ -15707,7 +15824,8 @@
       "security_configuration_secret_scanning_delegated_alert_dismissal",
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
-      "security_configuration_secret_protection_sku_enabled"
+      "security_configuration_secret_protection_sku_enabled",
+      "security_configuration_dependabot_delegated_alert_dismissal"
     ]
   },
   {
@@ -15797,7 +15915,8 @@
       "security_configuration_secret_scanning_delegated_alert_dismissal",
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
-      "security_configuration_secret_protection_sku_enabled"
+      "security_configuration_secret_protection_sku_enabled",
+      "security_configuration_dependabot_delegated_alert_dismissal"
     ]
   },
   {
@@ -15858,7 +15977,8 @@
       "security_configuration_secret_scanning_delegated_alert_dismissal",
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
-      "security_configuration_secret_protection_sku_enabled"
+      "security_configuration_secret_protection_sku_enabled",
+      "security_configuration_dependabot_delegated_alert_dismissal"
     ]
   },
   {
@@ -16368,7 +16488,7 @@
   },
   {
     "action": "staff.dependabot_debug_credentials_generated",
-    "description": "N/A",
+    "description": "Dependabot encrypted config was read.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",

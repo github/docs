@@ -1,4 +1,5 @@
 import Cookies from '@/frame/components/lib/cookies'
+import { ANALYTICS_ENABLED } from '@/frame/lib/constants'
 import { parseUserAgent } from './user-agent'
 import { Router } from 'next/router'
 import { isLoggedIn } from '@/frame/components/hooks/useHasAccount'
@@ -166,7 +167,9 @@ function flushQueue() {
   eventQueue = []
 
   try {
-    navigator.sendBeacon(endpoint, new Blob([eventsBody], { type: 'application/json' }))
+    if (ANALYTICS_ENABLED) {
+      navigator.sendBeacon(endpoint, new Blob([eventsBody], { type: 'application/json' }))
+    }
   } catch (err) {
     console.warn(`sendBeacon to '${endpoint}' failed.`, err)
   }
@@ -436,6 +439,7 @@ function initPrintEvent() {
 }
 
 export function initializeEvents() {
+  if (!ANALYTICS_ENABLED) return
   if (initialized) return
   initialized = true
   initPageAndExitEvent() // must come first

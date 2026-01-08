@@ -1,14 +1,14 @@
 ---
 title: Security and code quality documentation
 shortTitle: Security and code quality
-intro: 'Build security and code quality into your {% data variables.product.github %} workflow to secure your software supply chain, prevent data leaks, and automatically find and fix vulnerabilities and code health issues in your codebase.'
+intro: Build security and code quality into your {% data variables.product.github %} workflow to secure your software supply chain, prevent data leaks, and automatically find and fix vulnerabilities and code health issues in your codebase.
 redirect_from:
   - /code-security/guides
 introLinks:
   overview: '{% ifversion ghes %}/code-security/getting-started/github-security-features{% endif %}'
-  generate_secret_risk_assessment_report_for_free: '{% ifversion secret-risk-assessment %}/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization#generating-an-initial-secret-risk-assessment{% endif %}'
+  generate_secret_risk_assessment_report_for_free: '{% ifversion secret-risk-assessment %}/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/assess-your-secret-risk{% endif %}'
 featuredLinks:
-  startHere: # Links aimed at the builder audience
+  startHere:
     - '{% ifversion fpt or ghec %}/code-security/getting-started/github-security-features{% endif %}'
     - /code-security/getting-started/quickstart-for-securing-your-repository
     - '{% ifversion ghes %}/code-security/secret-scanning/working-with-secret-scanning-and-push-protection{% endif %}'
@@ -20,13 +20,13 @@ featuredLinks:
     - /code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning
     - /code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
     - /code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates
-  popular: # Links aimed at the driver audience
+  popular:
     - '{% ifversion secret-risk-assessment %}/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment{% endif %}'
     - '{% ifversion ghes %}/admin/release-notes{% endif %}'
-    - /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/about-coordinated-disclosure-of-security-vulnerabilities
+    - /code-security/concepts/vulnerability-reporting-and-management/about-coordinated-disclosure-of-security-vulnerabilities
     - /code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization
     - /code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale
-    - /code-security/dependabot/maintain-dependencies/best-practices-for-maintaining-dependencies
+    - /code-security/concepts/supply-chain-security/best-practices-for-maintaining-dependencies
 changelog:
   label: security-and-compliance
   versions:
@@ -55,4 +55,10 @@ children:
   - /supply-chain-security
   - /dependabot
   - /security-overview
+  - /concepts
+  - /how-tos
+  - /reference
+  - /tutorials
+  - /responsible-use
 ---
+

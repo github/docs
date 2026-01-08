@@ -301,7 +301,8 @@
       "pricing_target_type",
       "pricing_target_id",
       "budget_limit_type",
-      "alert_recipient_user_ids"
+      "alert_recipient_user_ids",
+      "exclude_cost_center_usage"
     ]
   },
   {
@@ -14695,7 +14696,7 @@
       "alert_number",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+    "docs_reference_titles": "About Dependabot alerts"
   },
   {
     "action": "repository_vulnerability_alert.dismiss",
@@ -15412,7 +15413,8 @@
       "security_configuration_secret_scanning_delegated_alert_dismissal",
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
-      "security_configuration_secret_protection_sku_enabled"
+      "security_configuration_secret_protection_sku_enabled",
+      "security_configuration_dependabot_delegated_alert_dismissal"
     ]
   },
   {
@@ -15502,7 +15504,8 @@
       "security_configuration_secret_scanning_delegated_alert_dismissal",
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
-      "security_configuration_secret_protection_sku_enabled"
+      "security_configuration_secret_protection_sku_enabled",
+      "security_configuration_dependabot_delegated_alert_dismissal"
     ]
   },
   {
@@ -15563,7 +15566,8 @@
       "security_configuration_secret_scanning_delegated_alert_dismissal",
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
-      "security_configuration_secret_protection_sku_enabled"
+      "security_configuration_secret_protection_sku_enabled",
+      "security_configuration_dependabot_delegated_alert_dismissal"
     ]
   },
   {

@@ -43,9 +43,7 @@ To delegate tasks to {% data variables.copilot.copilot_coding_agent %}, you can:
 
 While working on a coding task, {% data variables.copilot.copilot_coding_agent %} has access to its own ephemeral development environment, powered by {% data variables.product.prodname_actions %}, where it can explore your code, make changes, execute automated tests and linters and more.
 
-You can also create {% data variables.copilot.custom_agents_short %} to tailor {% data variables.product.prodname_copilot_short %}'s behavior for specific workflows, coding conventions, or specialized tasks. {% data variables.copilot.custom_agents_caps_short %} allow you to define multiple specialized versions of the coding agent—such as a frontend reviewer, test generator, or security auditor—each with their own prompts, tools, and capabilities. For more information, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents).
-
-## Benefits over traditional AI workflows
+### Benefits over traditional AI workflows
 
 When used effectively, {% data variables.copilot.copilot_coding_agent %} offers productivity benefits over traditional AI assistants in IDEs:
 
@@ -100,6 +98,15 @@ For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding
 Within your monthly usage allowance for {% data variables.product.prodname_actions %} and premium requests, you can ask {% data variables.copilot.copilot_coding_agent %} to work on coding tasks without incurring any additional costs.
 
 For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot#allowance-usage-for-copilot-coding-agent).
+
+## Customizing {% data variables.copilot.copilot_coding_agent %}
+
+You can customize {% data variables.copilot.copilot_coding_agent %} in a number of ways:
+
+* **Custom instructions**: Custom instructions allow you to give {% data variables.product.prodname_copilot_short %} additional context on your project and how to build, test and validate its changes. For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
+* **Model Context Protocol (MCP) servers**: MCP servers allow you to give {% data variables.product.prodname_copilot_short %} access to different data sources and tools. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp).
+* **{% data variables.copilot.custom_agents_caps_short %}**: {% data variables.copilot.custom_agents_caps_short %} allow you to create different specialized versions of {% data variables.product.prodname_copilot_short %} for different tasks. For example, you could customize {% data variables.product.prodname_copilot_short %} to be an expert frontend engineer following your team's guidelines. For more information, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents).
+* **Skills**: Skills allow you to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
 
 ## Built-in security protections
 
@@ -161,7 +168,6 @@ Users can include hidden messages in issues assigned to {% data variables.copilo
 ### Limitations in {% data variables.copilot.copilot_coding_agent %}'s compatibility with other features
 
 * **{% data variables.product.prodname_copilot_short %} isn't able to comply with certain rules that may be configured for your repository**. If you have configured a ruleset or branch protection rule that isn't compatible with {% data variables.copilot.copilot_coding_agent %} (for example the "Require signed commits" rule), access to the agent will be blocked. If the rule is configured using rulesets, you can add {% data variables.product.prodname_copilot_short %} as a bypass actor to enable access. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#granting-bypass-permissions-for-your-branch-or-tag-ruleset).
-* **{% data variables.copilot.copilot_coding_agent %} does not work in personal repositories owned by {% data variables.enterprise.prodname_managed_users %}**. This is because {% data variables.copilot.copilot_coding_agent %} requires {% data variables.product.company_short %}-hosted runners, which are not available to personal repositories owned by {% data variables.enterprise.prodname_managed_users %}. See [AUTOTITLE](/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners).
 * **{% data variables.copilot.copilot_coding_agent %} doesn't account for content exclusions**. Content exclusions allow administrators to configure {% data variables.product.prodname_copilot_short %} to ignore certain files. When using {% data variables.copilot.copilot_coding_agent %}, {% data variables.product.prodname_copilot_short %} will not ignore these files, and will be able to see and update them. See [AUTOTITLE](/copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot).
 * **{% data variables.copilot.copilot_coding_agent %} only works with repositories hosted on {% data variables.product.github %}**. If your repository is stored using a different code hosting platform, {% data variables.product.prodname_copilot_short %} won't be able to work on it.
 
