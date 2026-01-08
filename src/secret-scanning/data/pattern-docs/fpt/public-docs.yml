@@ -3823,6 +3823,24 @@
   base64Supported: false
   isduplicate: false
 - provider: Snowflake
+  supportedSecret: SFPG Connection String
+  secretType: snowflake_postgres_connection_string
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Snowflake
+  supportedSecret: SFPG Host
+  secretType: snowflake_postgres_host, </br>snowflake_postgres_password
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Snowflake
   supportedSecret: Snowflake Programmatic Access Token
   secretType: snowflake_programmatic_access_token
   isPublic: true
