@@ -1,6 +1,8 @@
 ---
-title: Estimating spending
-intro: Use the new billing platform to understand where your spending is trending based on the usage across products.
+title: Viewing and estimating your spending
+shortTitle: View and estimate spending
+allowTitleToDifferFromFilename: true
+intro: 'View current usage and spending trends across paid {% data variables.product.github %} products, so you can estimate costs and make informed budgeting decisions.'
 versions:
   feature: enhanced-billing-platform
 redirect_from:
@@ -8,21 +10,21 @@ redirect_from:
   - /billing/using-the-new-billing-platform/estimating-spending-for-your-enterprise
   - /billing/using-the-new-billing-platform/estimating-spending
   - /billing/managing-your-billing/estimating-spending
+  - /billing/tutorials/estimate-spending
 topics:
   - Billing
   - Enterprise
   - Team
 permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
-shortTitle: Estimate spending
-contentType: tutorials
+contentType: how-tos
 ---
 
 The new billing platform provides a high-level view of your spending trends based on the usage across products. You can use this information to estimate your spending and make informed decisions about your budget.
 
 {% ifversion fpt %}
 
-## Viewing your spending for your personal account
+## Viewing spending for your personal account
 
 {% data reusables.user-settings.access_settings %}
 1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
@@ -41,7 +43,7 @@ At the top of the page, under "Next payment due", you can see the date of your n
 
 {% endif %}
 
-## Viewing your spending for your {% data variables.enterprise.enterprise_or_org %}
+## Viewing spending for your {% data variables.enterprise.enterprise_or_org %}
 
 The "Overview" page provides a high-level view of your spending and budgets.
 
