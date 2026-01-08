@@ -1,30 +1,6 @@
 {
   "actions": [
     {
-      "slug": "get-github-actions-cache-retention-limit-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/retention-limit"
-    },
-    {
-      "slug": "set-github-actions-cache-retention-limit-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/retention-limit"
-    },
-    {
-      "slug": "get-github-actions-cache-storage-limit-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/storage-limit"
-    },
-    {
-      "slug": "set-github-actions-cache-storage-limit-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/storage-limit"
-    },
-    {
       "slug": "get-github-actions-cache-retention-limit-for-an-organization",
       "subcategory": "cache",
       "verb": "get",
@@ -2129,30 +2105,6 @@
   ],
   "copilot": [
     {
-      "slug": "get-copilot-enterprise-usage-metrics-for-a-specific-day",
-      "subcategory": "copilot-usage-metrics",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/enterprise-1-day"
-    },
-    {
-      "slug": "get-copilot-enterprise-usage-metrics",
-      "subcategory": "copilot-usage-metrics",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/enterprise-28-day/latest"
-    },
-    {
-      "slug": "get-copilot-users-usage-metrics-for-a-specific-day",
-      "subcategory": "copilot-usage-metrics",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/users-1-day"
-    },
-    {
-      "slug": "get-copilot-users-usage-metrics",
-      "subcategory": "copilot-usage-metrics",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/users-28-day/latest"
-    },
-    {
       "slug": "get-copilot-seat-information-and-settings-for-an-organization",
       "subcategory": "copilot-user-management",
       "verb": "get",
@@ -2567,86 +2519,6 @@
       "subcategory": "protection-rules",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}"
-    }
-  ],
-  "enterprise-admin": [
-    {
-      "slug": "get-the-audit-log-for-an-enterprise",
-      "subcategory": "audit-log",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/audit-log"
-    },
-    {
-      "slug": "get-organization-custom-properties-schema-for-an-enterprise",
-      "subcategory": "custom-properties-for-orgs",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/org-properties/schema"
-    },
-    {
-      "slug": "create-or-update-organization-custom-property-definitions-on-an-enterprise",
-      "subcategory": "custom-properties-for-orgs",
-      "verb": "patch",
-      "requestPath": "/enterprises/{enterprise}/org-properties/schema"
-    },
-    {
-      "slug": "get-an-organization-custom-property-definition-from-an-enterprise",
-      "subcategory": "custom-properties-for-orgs",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/org-properties/schema/{custom_property_name}"
-    },
-    {
-      "slug": "create-or-update-an-organization-custom-property-definition-on-an-enterprise",
-      "subcategory": "custom-properties-for-orgs",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/org-properties/schema/{custom_property_name}"
-    },
-    {
-      "slug": "remove-an-organization-custom-property-definition-from-an-enterprise",
-      "subcategory": "custom-properties-for-orgs",
-      "verb": "delete",
-      "requestPath": "/enterprises/{enterprise}/org-properties/schema/{custom_property_name}"
-    },
-    {
-      "slug": "list-custom-property-values-for-organizations-in-an-enterprise",
-      "subcategory": "custom-properties-for-orgs",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/org-properties/values"
-    },
-    {
-      "slug": "create-or-update-custom-property-values-for-organizations-in-an-enterprise",
-      "subcategory": "custom-properties-for-orgs",
-      "verb": "patch",
-      "requestPath": "/enterprises/{enterprise}/org-properties/values"
-    },
-    {
-      "slug": "create-an-enterprise-repository-ruleset",
-      "subcategory": "rules",
-      "verb": "post",
-      "requestPath": "/enterprises/{enterprise}/rulesets"
-    },
-    {
-      "slug": "get-an-enterprise-repository-ruleset",
-      "subcategory": "rules",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}"
-    },
-    {
-      "slug": "update-an-enterprise-repository-ruleset",
-      "subcategory": "rules",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}"
-    },
-    {
-      "slug": "delete-an-enterprise-repository-ruleset",
-      "subcategory": "rules",
-      "verb": "delete",
-      "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}"
-    },
-    {
-      "slug": "get-github-advanced-security-active-committers-for-an-enterprise",
-      "subcategory": "licensing",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/settings/billing/advanced-security"
     }
   ],
   "gists": [

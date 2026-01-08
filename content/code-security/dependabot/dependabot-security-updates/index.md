@@ -14,7 +14,7 @@ topics:
   - Pull requests
 shortTitle: Dependabot security updates
 children:
-  - /about-dependabot-security-updates
   - /configuring-dependabot-security-updates
   - /customizing-dependabot-security-prs
 ---
+

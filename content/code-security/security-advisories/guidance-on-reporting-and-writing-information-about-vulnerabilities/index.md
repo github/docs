@@ -13,8 +13,8 @@ topics:
   - Repositories
   - CVEs
 children:
-  - /about-coordinated-disclosure-of-security-vulnerabilities
   - /best-practices-for-writing-repository-security-advisories
   - /privately-reporting-a-security-vulnerability
   - /managing-privately-reported-security-vulnerabilities
 ---
+

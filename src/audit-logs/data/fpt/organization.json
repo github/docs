@@ -1786,7 +1786,7 @@
       "business_id",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+    "docs_reference_titles": "About Dependabot alerts"
   },
   {
     "action": "dependabot_closure_request.cancel",
@@ -1814,7 +1814,7 @@
       "business_id",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+    "docs_reference_titles": "About Dependabot alerts"
   },
   {
     "action": "dependabot_closure_request.create",
@@ -1842,7 +1842,7 @@
       "business_id",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+    "docs_reference_titles": "About Dependabot alerts"
   },
   {
     "action": "dependabot_closure_request.deny",
@@ -1870,7 +1870,7 @@
       "business_id",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+    "docs_reference_titles": "About Dependabot alerts"
   },
   {
     "action": "dependabot_repository_access.default_access_level_updated",
@@ -13288,7 +13288,7 @@
       "org_id",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories"
+    "docs_reference_titles": "About repository security advisories"
   },
   {
     "action": "repository_advisory.cve_request",
@@ -14745,7 +14745,7 @@
       "alert_number",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+    "docs_reference_titles": "About Dependabot alerts"
   },
   {
     "action": "repository_vulnerability_alert.dismiss",

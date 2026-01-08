@@ -195,11 +195,11 @@ program
               const relativePath = path.relative(process.cwd(), fileToProcess)
               spinner.text = `Processing: ${relativePath}`
               try {
-                // Resolve Liquid references before processing
+                // Expand Liquid references before processing
                 if (options.verbose) {
-                  console.log(`Resolving Liquid references in: ${relativePath}`)
+                  console.log(`Expanding Liquid references in: ${relativePath}`)
                 }
-                runResolveLiquid('resolve', [fileToProcess], options.verbose || false)
+                runLiquidTagsScript('expand', [fileToProcess], options.verbose || false)
 
                 const content = fs.readFileSync(fileToProcess, 'utf8')
                 const answer = await callEditor(
@@ -235,7 +235,7 @@ program
                 if (options.verbose) {
                   console.log(`Restoring Liquid references in: ${relativePath}`)
                 }
-                runResolveLiquid('restore', [fileToProcess], options.verbose || false)
+                runLiquidTagsScript('restore', [fileToProcess], options.verbose || false)
               } catch (err) {
                 const error = err as Error
                 spinner.fail(`Error processing ${relativePath}: ${error.message}`)
@@ -243,7 +243,7 @@ program
 
                 // Still try to restore Liquid references on error
                 try {
-                  runResolveLiquid('restore', [fileToProcess], false)
+                  runLiquidTagsScript('restore', [fileToProcess], false)
                 } catch (restoreError) {
                   // Log restore failures in verbose mode for debugging
                   if (options.verbose) {
@@ -275,35 +275,32 @@ program
 program.parse(process.argv)
 
 /**
- * Run resolve-liquid command on specified file paths
+ * Run liquid-tags command on specified file paths
  */
-function runResolveLiquid(
-  command: 'resolve' | 'restore',
+function runLiquidTagsScript(
+  command: 'expand' | 'restore',
   filePaths: string[],
   verbose: boolean = false,
 ): void {
   const args = [command, '--paths', ...filePaths]
-  if (command === 'resolve') {
-    args.push('--recursive')
-  }
   if (verbose) {
     args.push('--verbose')
   }
 
   try {
-    // Run resolve-liquid via tsx
-    const resolveLiquidPath = path.join(
+    // Run liquid-tags script via tsx
+    const liquidTagsScriptPath = path.join(
       process.cwd(),
-      'src/content-render/scripts/resolve-liquid.ts',
+      'src/content-render/scripts/liquid-tags.ts',
     )
-    execFileSync('npx', ['tsx', resolveLiquidPath, ...args], {
+    execFileSync('npx', ['tsx', liquidTagsScriptPath, ...args], {
       stdio: verbose ? 'inherit' : 'pipe',
     })
   } catch (error) {
     if (verbose) {
-      console.error(`Error running resolve-liquid ${command}:`, error)
+      console.error(`Error running liquid-tags ${command}:`, error)
     }
-    // Don't fail the entire process if resolve-liquid fails
+    // Don't fail the entire process if liquid-tags fails
   }
 }
 

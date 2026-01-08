@@ -14013,7 +14013,7 @@
       "alert_number",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+    "docs_reference_titles": "About Dependabot alerts"
   },
   {
     "action": "repository_vulnerability_alert.dismiss",
