@@ -1,5 +1,11 @@
 # Docs changelog
 
+**8 January 2026**
+
+We've added information about permissions to the article [Using GitHub Copilot CLI](https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli#permissions).
+
+<hr>
+
 **18 December 2025**
 
 The documentation has been updated to reflect the general availability of direct organization billing for premium request usage in Copilot Code Review. Organization members without a Copilot plan can now use Copilot Code Review on GitHub.com, with premium request usage billed directly to their organization or enterprise. See [Copilot code review without a Copilot license](https://docs.github.com/en/copilot/concepts/agents/code-review#copilot-code-review-without-a-copilot-license).

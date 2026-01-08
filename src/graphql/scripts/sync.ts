@@ -29,6 +29,27 @@ interface IgnoredChange {
   types: Array<{ type: string }>
 }
 
+interface RawPreview {
+  title: string
+  toggled_on: string[]
+  toggled_by: string
+  announcement?: unknown
+  updates?: unknown
+}
+
+interface UpcomingChangeEntry {
+  location: string
+  date: string
+  description: string
+  [key: string]: unknown
+}
+
+interface UpcomingChangesDocument {
+  upcoming_changes: UpcomingChangeEntry[]
+}
+
+type SchemaPreview = Omit<RawPreview, 'toggled_by'> & { toggled_by: string[] }
+
 const graphqlStaticDir = 'src/graphql/data'
 const dataFilenames = JSON.parse(
   await fs.readFile('src/graphql/scripts/utils/data-filenames.json', 'utf8'),
@@ -54,11 +75,10 @@ async function main() {
 
     // 1. UPDATE PREVIEWS
     const previewsPath = getDataFilepath('previews', graphqlVersion)
-    // GraphQL preview data structure - complex nested object from YAML
-    // Using any because processPreviews is an external utility without type definitions
-    const safeForPublicPreviews = yaml.load(
+    const rawPreviews = yaml.load(
       await getRemoteRawContent(previewsPath, graphqlVersion),
-    ) as any
+    ) as RawPreview[]
+    const safeForPublicPreviews: RawPreview[] = Array.isArray(rawPreviews) ? rawPreviews : []
     const previewsJson = processPreviews(safeForPublicPreviews)
     await updateStaticFile(
       previewsJson,
@@ -67,10 +87,9 @@ async function main() {
 
     // 2. UPDATE UPCOMING CHANGES
     const upcomingChangesPath = getDataFilepath('upcomingChanges', graphqlVersion)
-    // GraphQL upcoming changes data - contains upcoming_changes array
-    const previousUpcomingChanges = yaml.load(await fs.readFile(upcomingChangesPath, 'utf8')) as {
-      upcoming_changes: unknown[]
-    }
+    const previousUpcomingChanges = yaml.load(
+      await fs.readFile(upcomingChangesPath, 'utf8'),
+    ) as UpcomingChangesDocument
     const safeForPublicChanges = await getRemoteRawContent(upcomingChangesPath, graphqlVersion)
     await updateFile(upcomingChangesPath, safeForPublicChanges)
     const upcomingChangesJson = await processUpcomingChanges(safeForPublicChanges)
@@ -85,10 +104,13 @@ async function main() {
     const previousSchemaString = await fs.readFile(previewFilePath, 'utf8')
     const latestSchema = await getRemoteRawContent(previewFilePath, graphqlVersion)
     await updateFile(previewFilePath, latestSchema)
-    // Using any because processSchemas returns complex GraphQL schema structures
-    const schemaJsonPerVersion = await processSchemas(latestSchema, safeForPublicPreviews) // This is slow!
+    const previewsForSchema: SchemaPreview[] = safeForPublicPreviews.map((preview) => ({
+      ...preview,
+      toggled_by: [preview.toggled_by].flat(),
+    }))
+    const schemaJsonPerVersion = await processSchemas(latestSchema, previewsForSchema) // This is slow!
     await updateStaticFile(
-      schemaJsonPerVersion as any,
+      schemaJsonPerVersion,
       path.join(graphqlStaticDir, graphqlVersion, 'schema.json'),
     )
 
@@ -99,9 +121,8 @@ async function main() {
         previousSchemaString,
         latestSchema,
         safeForPublicPreviews,
-        previousUpcomingChanges.upcoming_changes as any,
-        (yaml.load(safeForPublicChanges) as { upcoming_changes: unknown[] })
-          .upcoming_changes as any,
+        previousUpcomingChanges.upcoming_changes,
+        (yaml.load(safeForPublicChanges) as UpcomingChangesDocument).upcoming_changes,
       )
       if (changelogEntry) {
         prependDatedEntry(
@@ -225,8 +246,8 @@ async function updateFile(filepath: string, content: string) {
 }
 
 // JSON data from GraphQL schema processing - complex nested structures
-// Using any because the structure varies (arrays, objects, nested schemas, etc.)
-async function updateStaticFile(json: any, filepath: string) {
+// Serialize unknown shapes because the structure varies (arrays, objects, nested schemas, etc.)
+async function updateStaticFile(json: unknown, filepath: string) {
   console.log(`Updating static file ${filepath}`)
   const jsonString = JSON.stringify(json, null, 2)
   return updateFile(filepath, jsonString)

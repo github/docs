@@ -8288,7 +8288,9 @@
       "selected_service",
       "network_settings_ids",
       "previous_settings_ids",
-      "network_configuration_id"
+      "network_configuration_id",
+      "failover_network_settings_ids",
+      "failover_network_enabled"
     ],
     "docs_reference_titles": "About networking for hosted compute products in your enterprise"
   },
@@ -8332,7 +8334,9 @@
       "actor_is_bot",
       "selected_service",
       "network_settings_ids",
-      "previous_settings_ids"
+      "previous_settings_ids",
+      "failover_network_settings_ids",
+      "failover_network_enabled"
     ],
     "docs_reference_titles": "About networking for hosted compute products in your enterprise"
   },
@@ -19220,7 +19224,8 @@
       "security_configuration_secret_scanning_delegated_alert_dismissal",
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
-      "security_configuration_secret_protection_sku_enabled"
+      "security_configuration_secret_protection_sku_enabled",
+      "security_configuration_dependabot_delegated_alert_dismissal"
     ]
   },
   {
@@ -19310,7 +19315,8 @@
       "security_configuration_secret_scanning_delegated_alert_dismissal",
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
-      "security_configuration_secret_protection_sku_enabled"
+      "security_configuration_secret_protection_sku_enabled",
+      "security_configuration_dependabot_delegated_alert_dismissal"
     ]
   },
   {
@@ -19371,7 +19377,8 @@
       "security_configuration_secret_scanning_delegated_alert_dismissal",
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
-      "security_configuration_secret_protection_sku_enabled"
+      "security_configuration_secret_protection_sku_enabled",
+      "security_configuration_dependabot_delegated_alert_dismissal"
     ]
   },
   {

@@ -4454,7 +4454,9 @@
       "selected_service",
       "network_settings_ids",
       "previous_settings_ids",
-      "network_configuration_id"
+      "network_configuration_id",
+      "failover_network_settings_ids",
+      "failover_network_enabled"
     ],
     "docs_reference_titles": "About networking for hosted compute products in your enterprise"
   },
@@ -4498,7 +4500,9 @@
       "actor_is_bot",
       "selected_service",
       "network_settings_ids",
-      "previous_settings_ids"
+      "previous_settings_ids",
+      "failover_network_settings_ids",
+      "failover_network_enabled"
     ],
     "docs_reference_titles": "About networking for hosted compute products in your enterprise"
   },
@@ -4984,7 +4988,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests#enabling-or-disabling-integration-access-requests"
+    "docs_reference_titles": "Limiting OAuth app and GitHub App access requests and installations"
   },
   {
     "action": "org.allow_third_party_access_requests_from_outside_collaborators_enabled",
@@ -15753,7 +15757,8 @@
       "security_configuration_secret_scanning_delegated_alert_dismissal",
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
-      "security_configuration_secret_protection_sku_enabled"
+      "security_configuration_secret_protection_sku_enabled",
+      "security_configuration_dependabot_delegated_alert_dismissal"
     ]
   },
   {
@@ -15843,7 +15848,8 @@
       "security_configuration_secret_scanning_delegated_alert_dismissal",
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
-      "security_configuration_secret_protection_sku_enabled"
+      "security_configuration_secret_protection_sku_enabled",
+      "security_configuration_dependabot_delegated_alert_dismissal"
     ]
   },
   {
@@ -15904,7 +15910,8 @@
       "security_configuration_secret_scanning_delegated_alert_dismissal",
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
-      "security_configuration_secret_protection_sku_enabled"
+      "security_configuration_secret_protection_sku_enabled",
+      "security_configuration_dependabot_delegated_alert_dismissal"
     ]
   },
   {
@@ -16414,7 +16421,7 @@
   },
   {
     "action": "staff.dependabot_debug_credentials_generated",
-    "description": "N/A",
+    "description": "Dependabot encrypted config was read.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
