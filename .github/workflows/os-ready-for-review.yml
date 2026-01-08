@@ -54,7 +54,7 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install @octokit/graphql
+        run: npm ci
 
       - name: Run script
         run: |

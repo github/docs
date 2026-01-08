@@ -75,7 +75,7 @@ type Options = {
   verboseUrl?: string
   bail?: boolean
   commentLimitToExternalLinks?: boolean
-  actionContext?: any
+  actionContext?: ReturnType<typeof getActionContext> & { pull_request?: { number?: number } }
   concurrency?: number
 }
 
@@ -277,7 +277,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
  */
 
 async function main(
-  core: any,
+  core: CoreInject,
   octokit: Octokit,
   uploadArtifact: UploadArtifact,
   opts: Options = {},
@@ -337,9 +337,14 @@ async function main(
     shuffle(pageList)
   }
 
-  debugTimeStart(core, 'getPages')
+  const coreForDebug = core as {
+    warning: (message: string | Error, properties?: { [key: string]: unknown }) => void
+    debug: (message: string) => void
+  }
+
+  debugTimeStart(coreForDebug, 'getPages')
   const pages = getPages(pageList, languages, filters, files, max)
-  debugTimeEnd(core, 'getPages')
+  debugTimeEnd(coreForDebug, 'getPages')
 
   if (checkExternalLinks && pages.length >= 100) {
     core.warning(
@@ -371,7 +376,7 @@ async function main(
     )
   }
 
-  debugTimeStart(core, 'processPages')
+  debugTimeStart(coreForDebug, 'processPages')
   const t0 = new Date().getTime()
   const flawsGroups = await limitConcurrency(
     pages,
@@ -388,7 +393,7 @@ async function main(
     concurrency, // Limit concurrent page checks
   )
   const t1 = new Date().getTime()
-  debugTimeEnd(core, 'processPages')
+  debugTimeEnd(coreForDebug, 'processPages')
 
   await externalLinkCheckerDB.write()
 
@@ -413,7 +418,7 @@ async function main(
     if (createReport) {
       core.info(`Creating issue for flaws...`)
       const reportProps = {
-        core,
+        core: coreLib,
         octokit,
         reportTitle: `${uniqueHrefs.size} broken links found`,
         reportBody: flawIssueDisplay(flaws, opts),
@@ -424,7 +429,7 @@ async function main(
 
       if (linkReports) {
         const linkProps = {
-          core,
+          core: coreLib,
           octokit,
           newReport,
           reportRepository,
@@ -465,7 +470,7 @@ async function main(
 }
 
 async function commentOnPR(core: CoreInject, octokit: Octokit, flaws: LinkFlaw[], opts: Options) {
-  const { actionContext = {} } = opts
+  const { actionContext = {} as Options['actionContext'] } = opts
   const { owner, repo } = actionContext
   const pullNumber = actionContext?.pull_request?.number
   if (!owner || !repo || !pullNumber) {
@@ -718,7 +723,7 @@ async function processPage(
 }
 
 async function processPermalink(
-  core: any,
+  core: CoreInject,
   permalink: Permalink,
   page: Page,
   pageMap: PageMap,
@@ -925,7 +930,7 @@ let globalCacheHitCount = 0
 let globalCacheMissCount = 0
 
 async function checkHrefLink(
-  core: any,
+  core: CoreInject,
   href: string,
   $: cheerio.Root,
   redirects: Redirects,
@@ -1302,7 +1307,7 @@ function summarizeCounts(core: CoreInject, pages: Page[], tookSeconds: number) {
   core.info(`~${pagesPerSecond.toFixed(1)} pages per second.`)
 }
 
-function shuffle(array: any[]) {
+function shuffle<T>(array: T[]) {
   let currentIndex = array.length
   let randomIndex
 

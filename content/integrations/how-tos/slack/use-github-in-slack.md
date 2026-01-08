@@ -8,6 +8,8 @@ versions:
     ghec: '*'
 topics:
     - Integration
+category:
+  - Use integrations
 ---
 
 The {% data variables.product.github %} integration for Slack allows you to connect your {% data variables.product.github %} account to the {% data variables.product.github %} app in Slack. Once connected, you can use slash commands to interact with {% data variables.product.github %}, receive notifications about repository activity, and collaborate with your team directly within Slack.
