@@ -107,7 +107,8 @@ You can recommend that repositories in your organization use the "Extended" quer
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_code_scanning %}:
 
 {% ifversion code-scanning-autofix %}* [Enabling {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_codeql %}](#enabling-copilot-autofix-for-codeql){% endif %}
-* [Recommending the extended query suite for default setup](#recommending-the-extended-query-suite-for-default-setup){% ifversion ghes < 3.17 %}
+* [Recommending the extended query suite for default setup](#recommending-the-extended-query-suite-for-default-setup)
+* [Expanding {% data variables.product.prodname_codeql %} analysis](#expanding-codeql-analysis){% ifversion ghes < 3.17 %}
 * [Setting a failure threshold for {% data variables.product.prodname_code_scanning %} checks in pull requests](#setting-a-failure-threshold-for-code-scanning-checks-in-pull-requests).{% endif %}
 
 {% endif %}
@@ -123,6 +124,10 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 You can select **{% data variables.copilot.copilot_autofix_short %}** to enable {% data variables.copilot.copilot_autofix_short %} for all the repositories in your organization that use {% data variables.product.prodname_codeql %} default setup or {% data variables.product.prodname_codeql %} advanced setup. {% data variables.copilot.copilot_autofix_short %} is an expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
 
 {% endif %}
+
+### Expanding {% data variables.product.prodname_codeql %} analysis
+
+You can expand {% data variables.product.prodname_codeql %} analysis coverage for all repositories in your organization that use default setup by configuring {% data variables.product.prodname_codeql %} model packs. Model packs extend the {% data variables.product.prodname_codeql %} analysis to recognize additional frameworks and libraries that are not included in the standard {% data variables.product.prodname_codeql %} libraries. This global configuration applies to repositories using default setup and allows you to specify model packs published via the container registry. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-coverage-for-all-repositories-in-an-organization).
 
 {% ifversion ghes < 3.17 %}
 
