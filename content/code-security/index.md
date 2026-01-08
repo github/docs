@@ -55,4 +55,9 @@ children:
   - /supply-chain-security
   - /dependabot
   - /security-overview
+  - /concepts
+  - /how-tos
+  - /reference
+  - /tutorials
+  - /responsible-use
 ---
