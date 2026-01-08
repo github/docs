@@ -15,4 +15,6 @@ topics:
   - Dependencies
   - Dependabot
 contentType: concepts
----
+children:
+  - /vulnerability-reporting-and-management
+  - supply-chain-security

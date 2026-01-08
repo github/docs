@@ -8,6 +8,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/about-dependabot-security-updates
   - /code-security/supply-chain-security/about-dependabot-security-updates
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates
+  - /code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates
 versions:
   fpt: '*'
   ghec: '*'
@@ -20,6 +21,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
+contentType: concepts
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About Dependabot security updates".-->

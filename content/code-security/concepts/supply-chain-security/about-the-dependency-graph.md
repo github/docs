@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.dependency-graph %}'
 redirect_from:
   - /github/visualizing-repository-data-with-graphs/about-the-dependency-graph
   - /code-security/supply-chain-security/about-the-dependency-graph
+  - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,6 +16,7 @@ topics:
   - Dependencies
   - Repositories
 shortTitle: Dependency graph
+contentType: concepts
 ---
 <!--Marketing-LINK: From /features/security and /features/security/software-supply-chain pages "How GitHub's dependency graph is generated".-->
 
