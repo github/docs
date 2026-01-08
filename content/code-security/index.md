@@ -23,7 +23,7 @@ featuredLinks:
   popular:
     - '{% ifversion secret-risk-assessment %}/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment{% endif %}'
     - '{% ifversion ghes %}/admin/release-notes{% endif %}'
-    - /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/about-coordinated-disclosure-of-security-vulnerabilities
+    - /code-security/concepts/vulnerability-reporting-and-management/about-coordinated-disclosure-of-security-vulnerabilities
     - /code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization
     - /code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale
     - /code-security/concepts/supply-chain-security/best-practices-for-maintaining-dependencies
