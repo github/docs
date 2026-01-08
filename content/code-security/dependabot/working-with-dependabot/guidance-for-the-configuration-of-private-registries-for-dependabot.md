@@ -211,7 +211,7 @@ When configuring {% data variables.product.prodname_dependabot %} for Helm chart
 
 Gradle supports the `maven-repository` registry type. For more information, see `maven-repository` in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#maven-repository).
 
-The `maven-repository` type supports username and password. {% data reusables.dependabot.password-definition %}
+The `maven-repository` type supports username, password and replaces-base. {% data reusables.dependabot.password-definition %}
 
 {% raw %}
 
@@ -222,6 +222,7 @@ registries:
     url: https://acme.jfrog.io/artifactory/my-gradle-registry
     username: octocat
     password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
+    replaces-base: true
 updates:
   - package-ecosystem: "gradle"
     directory: "/"
@@ -280,7 +281,7 @@ This feature enables unified dependency management for both public and private G
 
 ### Maven
 
-Maven supports username and password authentication. For more information, see `maven-repository` in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#maven-repository).
+Maven supports username, password and replaces-base. For more information, see `maven-repository` in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#maven-repository).
 
 {% raw %}
 
@@ -291,6 +292,7 @@ registries:
     url: https://acme.jfrog.io/artifactory/my-maven-registry
     username: octocat
     password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
+    replaces-base: true
 ```
 
 {% endraw %}
@@ -307,6 +309,7 @@ registries:
     url: https://maven.pkg.github.com/octocat
     username: octocat
     password: ${{secrets.OCTOCAT_GITHUB_PAT}}
+    replaces-base: true
 updates:
   - package-ecosystem: "maven"
     directory: "/"
