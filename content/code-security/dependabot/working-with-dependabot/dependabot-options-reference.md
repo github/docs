@@ -25,7 +25,7 @@ shortTitle: Dependabot options reference
 ## About the `dependabot.yml` file
 
 The `dependabot.yml` file defines how {% data variables.product.prodname_dependabot %} maintains dependencies using version updates. In addition, all options marked with a {% octicon "shield-check" aria-label="Security updates" height="16" %} icon also change how {% data variables.product.prodname_dependabot %} creates pull requests for security updates, except where `target-branch` is used.
-
+content/code-security/dependabot/working-with-dependabot/dependabot-options-reference.md
 The {% data variables.product.prodname_dependabot %} configuration file, `dependabot.yml`, uses YAML syntax. If you're new to YAML and want to learn more, see [Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes).
 
 You must store this file in the `.github` directory of your repository in the default branch. When you add or update the `dependabot.yml` file, this triggers an immediate check for version updates. For more information and an example, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates).
