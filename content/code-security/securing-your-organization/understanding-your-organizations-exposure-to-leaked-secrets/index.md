@@ -11,7 +11,6 @@ topics:
   - Code Security
   - Security
 children:
-  - /about-secret-security-with-github
   - /assess-your-secret-risk
   - /viewing-the-secret-risk-assessment-report-for-your-organization
   - /export-risk-report-csv

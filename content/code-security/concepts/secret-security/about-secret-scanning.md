@@ -12,6 +12,7 @@ redirect_from:
   - /github/administering-a-repository/about-secret-scanning
   - /code-security/secret-security/about-secret-scanning
   - /code-security/secret-scanning/about-secret-scanning
+  - /code-security/secret-scanning/introduction/about-secret-scanning
 versions:
   fpt: '*'
   ghes: '*'
@@ -21,6 +22,7 @@ topics:
   - Secret scanning
   - Secret Protection
 shortTitle: Secret scanning
+contentType: concepts
 ---
 
 ## About {% data variables.product.prodname_secret_scanning %}

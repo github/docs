@@ -1,6 +1,6 @@
 ---
 title: About secret scanning alerts
-intro: 'Learn about the different types of {% data variables.secret-scanning.alerts %}.'
+intro: Learn about the different types of {% data variables.secret-scanning.alerts %}.
 permissions: '{% data reusables.permissions.secret-scanning-alerts %}'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
@@ -13,8 +13,11 @@ topics:
   - Secret Protection
   - Alerts
   - Repositories
-shortTitle: About alerts
+shortTitle: Secret scanning alerts
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts
+contentType: concepts
 ---
 
 ## About types of alerts

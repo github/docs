@@ -16,6 +16,7 @@ topics:
   - Dependabot
 contentType: concepts
 children:
+  - /secret-security
   - /code-scanning
   - /about-code-quality
   - supply-chain-security

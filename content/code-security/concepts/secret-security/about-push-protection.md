@@ -1,6 +1,6 @@
 ---
 title: About push protection
-intro: 'Push protection blocks contributors from pushing secrets to a repository and generates an alert whenever a contributor bypasses the block.{% ifversion secret-scanning-push-protection-for-users %} Push protection can be applied at the repository, organization, and user account level{% else %} You can apply push protection at repository or organization level{% endif %}.'
+intro: Push protection blocks contributors from pushing secrets to a repository and generates an alert whenever a contributor bypasses the block.{% ifversion secret-scanning-push-protection-for-users %} Push protection can be applied at the repository, organization, and user account level{% else %} You can apply push protection at repository or organization level{% endif %}.
 product: '{% data reusables.gated-features.push-protection-for-repos %}'
 versions:
   fpt: '*'
@@ -10,6 +10,7 @@ redirect_from:
   - /early-access/code-security/secret-scanning/protecting-pushes-with-secret-scanning
   - /code-security/secret-scanning/protecting-pushes-with-secret-scanning
   - /code-security/secret-scanning/push-protection-for-repositories-and-organizations
+  - /code-security/secret-scanning/introduction/about-push-protection
 type: overview
 topics:
   - Secret scanning
@@ -17,6 +18,7 @@ topics:
   - Alerts
   - Repositories
 shortTitle: Push protection
+contentType: concepts
 ---
 
 ## About push protection

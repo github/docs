@@ -1,9 +1,9 @@
 ---
-title: 'About secret security with GitHub'
-shortTitle: 'Secret protection tools'
-intro: 'Learn how {% data variables.product.github %}''s security tools can help you identify, remediate, and prevent secret leaks.'
+title: About secret security with GitHub
+shortTitle: Secret protection tools
+intro: Learn how {% data variables.product.github %}'s security tools can help you identify, remediate, and prevent secret leaks.
 product: '{% data reusables.gated-features.secret-protection %}'
-permissions: 'Organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %}'
+permissions: Organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %}
 contentType: concepts
 versions:
   feature: secret-risk-assessment
@@ -15,6 +15,7 @@ topics:
   - Security
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment
+  - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-security-with-github
 ---
 
 {% data variables.product.github %} provides tools to help you understand and address your organization's exposure to leaked secrets:

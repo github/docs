@@ -1,8 +1,8 @@
 ---
 title: Working with push protection and the GitHub MCP server
 shortTitle: Push protection and the GitHub MCP server
-intro: 'Learn how you are protected from leaking secrets during interactions with the {% data variables.product.github %} MCP server, and how to bypass a push protection block if you need to.'
-product: 'Public repositories on {% data variables.product.prodname_dotcom_the_website %}'
+intro: Learn how you are protected from leaking secrets during interactions with the {% data variables.product.github %} MCP server, and how to bypass a push protection block if you need to.
+product: Public repositories on {% data variables.product.prodname_dotcom_the_website %}
 permissions: '{% data reusables.permissions.push-protection-resolve-block %}'
 versions:
   feature: copilot
@@ -13,6 +13,9 @@ topics:
   - Alerts
   - Repositories
   - Copilot
+redirect_from:
+  - /code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-and-the-github-mcp-server
+contentType: concepts
 ---
 
 ## About push protection and the {% data variables.product.github %} MCP server
