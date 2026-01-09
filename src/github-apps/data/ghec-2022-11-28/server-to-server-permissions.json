@@ -4980,6 +4980,17 @@
       },
       {
         "category": "actions",
+        "slug": "get-github-actions-cache-storage-limit-for-a-repository",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
         "slug": "get-github-actions-cache-usage-for-a-repository",
         "subcategory": "cache",
         "verb": "get",
@@ -5497,17 +5508,6 @@
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/cache/retention-limit",
         "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "actions",
-        "slug": "get-github-actions-cache-storage-limit-for-a-repository",
-        "subcategory": "cache",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit",
-        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false

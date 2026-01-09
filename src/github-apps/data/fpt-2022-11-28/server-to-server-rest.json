@@ -3003,18 +3003,6 @@
       "requestPath": "/organizations"
     },
     {
-      "slug": "get-all-custom-property-values-for-an-organization",
-      "subcategory": "custom-properties-for-orgs",
-      "verb": "get",
-      "requestPath": "/organizations/{org}/org-properties/values"
-    },
-    {
-      "slug": "create-or-update-custom-property-values-for-an-organization",
-      "subcategory": "custom-properties-for-orgs",
-      "verb": "patch",
-      "requestPath": "/organizations/{org}/org-properties/values"
-    },
-    {
       "slug": "get-an-organization",
       "subcategory": "orgs",
       "verb": "get",

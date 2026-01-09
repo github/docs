@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
+const DEBUG = process.env.RUNNER_DEBUG === '1' || process.env.DEBUG === '1'
 
 // GitHub Apps data types
 interface GitHubAppsOperation {
@@ -100,6 +101,9 @@ export class GithubAppsTransformer implements PageTransformer {
     context: Context,
     apiVersion?: string,
   ): Promise<string> {
+    const startTime = DEBUG ? Date.now() : 0
+    if (DEBUG) console.log(`[DEBUG] GitHubAppsTransformer: ${pathname}`)
+
     // Import getAppsData dynamically to avoid circular dependencies
     const { getAppsData } = await import('@/github-apps/lib/index')
 
@@ -216,6 +220,10 @@ export class GithubAppsTransformer implements PageTransformer {
       })
     }
 
+    if (DEBUG)
+      console.log(
+        `[DEBUG] GitHubAppsTransformer.transform completed in ${Date.now() - startTime}ms`,
+      )
     return finalContent
   }
 

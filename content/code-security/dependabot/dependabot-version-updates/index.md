@@ -20,10 +20,8 @@ topics:
   - Dependencies
   - Pull requests
 children:
-  - /configuring-dependabot-version-updates
   - /optimizing-pr-creation-version-updates
   - /customizing-dependabot-prs
-  - /controlling-dependencies-updated
 shortTitle: Dependabot version updates
 ---
 

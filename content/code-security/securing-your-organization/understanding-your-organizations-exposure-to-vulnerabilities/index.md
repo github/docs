@@ -12,7 +12,6 @@ topics:
   - Security
 children:
   - /prioritizing-dependabot-alerts-using-metrics
-  - /alerts-in-production-code
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites
 ---
