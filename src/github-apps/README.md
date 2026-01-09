@@ -68,3 +68,25 @@ Slack: `#docs-engineering`
 Repo: `github/docs-engineering`
 
 If you have a question about the GitHub Apps pipeline, you can ask in the `#docs-engineering` Slack channel. If you notice a problem with the GitHub Apps pipeline, you can open an issue in the `github/docs-engineering` repository.
+
+## Ownership & On-call
+
+### Ownership
+- **Team**: Docs Engineering
+- **Source data**: API Platform team (github/rest-api-description)
+
+### On-call procedures
+If the GitHub Apps pipeline fails:
+1. Check workflow logs in `.github/workflows/sync-openapi.yml`
+2. Verify access to `github/rest-api-description` repo
+3. Check for OpenAPI schema changes
+4. Escalate to #docs-engineering if stuck
+5. Contact API Platform team for source data issues
+
+### Monitoring
+- Pipeline runs automatically on schedule (shared with REST/Webhooks)
+- PRs created with `github-openapi-bot` label
+- Failures visible in GitHub Actions
+- SHA tracking in `config.json` for version history
+
+We are not expecting further significant development on this pipeline. We will continue to support incoming changes from the rest-api-description.

@@ -10,6 +10,7 @@ import { fastTextOnly } from '@/content-render/unified/text-only'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
+const DEBUG = process.env.RUNNER_DEBUG === '1' || process.env.DEBUG === '1'
 
 /**
  * Transformer for REST API pages
@@ -28,6 +29,9 @@ export class RestTransformer implements PageTransformer {
     context: Context,
     apiVersion?: string,
   ): Promise<string> {
+    const startTime = DEBUG ? Date.now() : 0
+    if (DEBUG) console.log(`[DEBUG] RestTransformer: ${pathname}`)
+
     // Import getRest dynamically to avoid circular dependencies
     const { default: getRest } = await import('@/rest/lib/index')
 
@@ -110,6 +114,7 @@ export class RestTransformer implements PageTransformer {
       markdownRequested: true,
     })
 
+    if (DEBUG) console.log(`[DEBUG] RestTransformer completed in ${Date.now() - startTime}ms`)
     return rendered
   }
 

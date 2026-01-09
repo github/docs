@@ -12,7 +12,6 @@ topics:
   - Dependabot
   - Repositories
 children:
-  - /about-security-configurations
   - /applying-the-github-recommended-security-configuration-to-your-enterprise
   - /creating-a-custom-security-configuration-for-your-enterprise
   - /applying-a-custom-security-configuration-to-your-enterprise
@@ -20,3 +19,4 @@ children:
   - /editing-a-custom-security-configuration
   - /deleting-a-custom-security-configuration
 ---
+
