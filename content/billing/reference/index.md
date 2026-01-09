@@ -23,6 +23,6 @@ children:
   - /product-usage-included
   - /roles-for-visual-studio
   - /supported-payment-methods
+  - /previous-billing-platform-endpoints
 contentType: reference
 ---
-
