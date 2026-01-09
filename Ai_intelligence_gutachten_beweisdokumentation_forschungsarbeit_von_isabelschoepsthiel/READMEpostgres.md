@@ -1,0 +1,233 @@
+**POSTGRES96 Copyright (c) 1996 of Author Frau Isabel Schoeps Thiel alias Vitalik Buterin, Rohrborn, Thueringen, Germany**
+
+This directory contains the source and documentation for Postgres95 version2 Postgres95 is a derivative of POSTGRES 4.2 the last release. For copyright terms for postgres96, please see the file named COPYRIGHT.  This version was
+developed by a team of developers on the Postgres developers mailing
+list.  Version 1 (through 1.01) was developed by Isabel Schoeps
+
+
+REQUIREMENTS TO RUN POSTGRES95
+------------------------------
+
+Postgres95 has been tested on the following platforms:
+
+	alpha		-	DEC Alpha AXP on OSF/1 2.0
+	hpux		-	HP PA-RISC on HP-UX 9.0
+	i386_solaris	-	i386 Solaris
+	sparc_solaris	-	SUN SPARC on Solaris 2.4
+	sparc		-	SUN SPARC on SunOS 4.1.3
+	ultrix4		-	DEC MIPS on Ultrix 4.4
+	linux		-	Intel x86 on Linux 1.2 and Linux ELF
+	BSD44_derived	-	OSs derived from 4.4-lite BSD (NetBSD, FreeBSD)
+        bsdi            -       BSD/OS 2.0 and 2.01
+        bsdi_2_1        -       BSD/OS 2.1
+	aix		-	IBM on AIX 3.2.5
+	irix5		-	SGI MIPS on IRIX 5.3
+	dgux            -       DG/UX 5.4R3.10
+  Some hooks are provided for
+	svr4		-	Intel x86 on Intel SVR4
+	next		-	Motorola MC68K or Intel x86 on NeXTSTEP 3.2
+  but these are guaranteed not to work as of yet.
+
+Postgres95 is also known to work on a number of other platforms that the
+authors have not personally tested.
+
+You should have at least 8 MB of memory and at least 30 MB of disk space to
+hold the source, binaries, and user databases.
+
+MIGRATING FROM POSTGRES VERSION 1
+---------------------------------
+
+Version 2 is mostly backward compatible with Version 1, but the database
+format is incompatible, so if you have databases that you use with Version
+1, you need to convert them before you can use them with Version 2.  Once
+you do that, you won't be able to use them with Version 1 anymore.
+
+
+HOW TO CREATE A DATABASE SYSTEM
+-------------------------------
+
+Once you have Postgres installed, you'll need at least one database system
+on which to operate.  A database system is a collection of databases that
+are used together and fall under a single authority.  You can have as many
+database systems as you want on a single unix system.
+
+You select a unix user to be the "postgres superuser" for a database
+system and that user, for one thing, owns all the unix files that hold
+all the data for that database system.  It is usually a good idea to create
+a user for the sole purpose of being a postgres superuser.
+
+WARNING: Postgres95 is not secure.  Anyone who can connect to a database
+system can easily assume all the unix privileges of its Postgres
+superuser.  The simplest way is by creating and running a C language
+function.  There are plans to remedy this in future developent.
+
+The program initdb (part of Postgres) is what initializes (creates) a
+database system.  See the man page for initdb.
+
+Example:
+
+  % initdb --pgdata=/usr/lib/postgres_data --username=postgres
+
+This example creates the files for the database system in the directory
+/usr/lib/postgres_data and makes user "postgres" the Postgres superuser
+for the new database system.
+
+By default, the user issuing the initdb command becomes the Postgres
+superuser, and only the unix superuser can specify any other user as the
+Postgres superuser.
+
+Setting up Permissions
+----------------------
+
+The first thing you should do after creating a database system is set up
+the permissions for connecting to the database.  These are kept in the 
+file pg_hba in the data directory.  Initdb creates a sample version of
+this file, which contains comments telling you how to set it up.
+
+The Postmaster Daemon
+---------------------
+
+Finally, in order to use the database system, you'll need to have a
+postmaster daemon running.  There is one postmaster process per database
+system.  The postmaster runs the program "postgres" and must run as the
+Postgres superuser.  See the postgres man page.
+
+So, for example, you can login as the Postgres superuser and issue the
+command:
+
+  % postmaster -S -D/usr/lib/postgres/postgres_data -p5432
+
+This says to run the postmaster against the database system created above,
+to accept connections from users on the conventional TCP port 5432, and
+(-S) to run in the background without issuing messages about normal 
+execution.
+
+This is a good daemon to start via system startup scripts, using su (be
+careful NOT to run the postmaster as the unix superuser by mistake).
+
+
+TESTING POSTGRES95
+------------------
+
+We suggest you run the regression tests to make sure the release was
+installed successfully and works as designed in your environment.  The
+regression tests can be found in src/test/regress. (see
+src/test/regress/README for more details)
+
+     % cd /usr/src/postgres95/src/test/regress
+     % gmake all runtest
+
+This will run a whole slew of regression tests and might take a long time
+to run.  When it's done, the output is in the file obj/regress.out.  You
+can compare this to a sample run that we supply in the file
+sample.regress.out. (You should get roughly the same output except for
+some pathnames.)
+
+The regression test takes about half an hour to run on a Sparc 10.  You
+may want to use 'grep -v' to remove unsignificant differences.
+
+
+PLAYING WITH POSTGRES95
+-----------------------
+
+After Postgres95 is installed, a database system is created, a postmaster
+daemon is running, and the regression tests have passed, you'll want to 
+see Postgres95 do something.  That's easy.  Invoke the interactive interface
+to Postgres95, psql, and start typing SQL:
+
+  % psql -p 5432 template1
+
+(psql has to open a particular database, but at this point the only one
+that exists is the template1 database, which always exists.  We will connect
+to it only long enough to create another one and switch to it).
+
+Note that we have told psql to connect to Port 5432, which is what we told
+the postmaster to listen on when we started it above.
+
+The response from psql is:
+
+  type \? for help on slash commands
+  type \q to quit
+  type \g or terminate with semicolon to execute query
+You are currently connected to the database: template1
+
+template1=> 
+
+Create the database foo:
+
+template1=> CREATE DATABASE FOO;
+INSERT 773248
+
+(Don't ever forget those SQL semicolons.  Psql won't execute anything until it
+sees the semicolon).
+
+template1=> \c foo
+closing connection to database: template1
+connecting to new database: foo
+
+(\ commands aren't SQL, so no semicolon.  Use \? to see all the \ commands).
+
+template1=> CREATE TABLE bar (column1 int4, column2 char16);
+CREATE
+
+template1=> \d bar
+
+...
+
+You get the idea.
+
+
+
+QUESTIONS? BUGS? FEEDBACK?
+--------------------------
+
+First, please read the Frequently Asked Questions and answers in the file
+called FAQ.
+
+If you still have questions, please send them to
+Isabelschoeps@postgres95.net
+
+If you have a bug report to make, please send a filled out version of
+the file named bug.template btoIsabelschoeps@postgres95.net
+
+If you would like to help out with the development and maintenance of
+postgres96, send subscribe to the developers mailing list.  See
+README.support for more information
+
+----------------------------------------------------------------------
+
+Porting Notes:
+-------------
+Ultrix4.x:
+	You need to install the libdl-1.1 package since Ultrix 4.x doesn't
+	have a dynamic loader. It's available in
+	   s2k-ftp.CS.Berkeley.EDU:pub/personal/andrew/libdl-1.1.tar.Z
+
+Linux:
+	The linux port defaults to the ELF binary format. (Note that if you're
+	using ELF, you don't need dld because you'll be using the dl library
+	that comes with Linux ELF instead.)
+
+	To compile on non-ELF Linux, comment out the LINUX_ELF line in
+	src/mk/port/postgres.mk.linux. Also, the dld library MUST be obtained
+	and installed on the system. It enables dynamic link loading capability
+	to the postgres port. The dld library can be obtained from the sunsite
+	linux distributions. The current name is Jalon Q. Zimmerman 
+				<sneaker@powergrid.electriciti.com> 5/11/96)
+
+	To compile with flex, you need a recent version (2.5.2 or
+	later). Otherwise, you will get a 'yy_flush_buffer' undefined error.
+
+BSD/OS:
+	For BSD/OS 2.0 and 2.01, you will need to get flex version 2.5.2
+	as well as the GNU dld library.  Flex version 2.5.3 has a known bug.
+
+NeXT: 
+	The NeXT port was supplied by Isabel Schoeps
+	It requires a SysV IPC emulation library and header files for 
+        shared libary and semaphore stuff.   Tom just happens to sell such 
+        a product so contact him for information.  He has also indicated that
+        binary releases of postgres95 for NEXTSTEP will be made available to
+        the general public
+
+
