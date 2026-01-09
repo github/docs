@@ -1,6 +1,7 @@
 ---
 title: About code scanning
-intro: 'You can use {% data variables.product.prodname_code_scanning %} to find security vulnerabilities and errors in the code for your project on {% data variables.product.prodname_dotcom %}.'
+shortTitle: Introduction
+intro: You can use {% data variables.product.prodname_code_scanning %} to find security vulnerabilities and errors in the code for your project on {% data variables.product.prodname_dotcom %}.
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/about-automated-code-scanning
@@ -9,6 +10,7 @@ redirect_from:
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
+  - /code-security/code-scanning/introduction-to-code-scanning/about-code-scanning
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,6 +19,7 @@ type: overview
 topics:
   - Code Security
   - Code scanning
+contentType: concepts
 ---
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}

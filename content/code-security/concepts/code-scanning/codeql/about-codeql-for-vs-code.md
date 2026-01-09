@@ -1,6 +1,6 @@
 ---
 title: About CodeQL for VS Code
-shortTitle: About the extension
+shortTitle: CodeQL for VS Code
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,9 +11,11 @@ topics:
   - Code scanning
   - CodeQL
 type: reference
-intro: 'You can write, run, and test {% data variables.product.prodname_codeql %} queries inside {% data variables.product.prodname_vscode %} with the {% data variables.product.prodname_codeql %} extension.'
+intro: You can write, run, and test {% data variables.product.prodname_codeql %} queries inside {% data variables.product.prodname_vscode %} with the {% data variables.product.prodname_codeql %} extension.
 redirect_from:
   - /code-security/codeql-for-vs-code/about-codeql-for-visual-studio-code
+  - /code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/about-codeql-for-vs-code
+contentType: concepts
 ---
 
 ## About {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %}

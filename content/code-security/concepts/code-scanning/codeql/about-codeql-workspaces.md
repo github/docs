@@ -1,5 +1,6 @@
 ---
 title: About CodeQL workspaces
+shortTitle: CodeQL workspaces
 intro: '{% data variables.product.prodname_codeql %} workspaces allow you to develop and maintain a group of {% data variables.product.prodname_codeql %} packs that depend on each other.'
 product: '{% data reusables.gated-features.codeql %}'
 versions:
@@ -13,6 +14,8 @@ topics:
 redirect_from:
   - /code-security/codeql-cli/about-codeql-workspaces
   - /code-security/codeql-cli/codeql-cli-reference/about-codeql-workspaces
+  - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/about-codeql-workspaces
+contentType: concepts
 ---
 
 ## About {% data variables.product.prodname_codeql %} workspaces

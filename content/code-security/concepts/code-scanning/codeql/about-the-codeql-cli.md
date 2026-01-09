@@ -1,6 +1,7 @@
 ---
 title: About the CodeQL CLI
-intro: 'You can use the {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_codeql %} processes locally on software projects or to generate {% data variables.product.prodname_code_scanning %} results for upload to {% data variables.product.github %}.'
+shortTitle: CodeQL CLI
+intro: You can use the {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_codeql %} processes locally on software projects or to generate {% data variables.product.prodname_code_scanning %} results for upload to {% data variables.product.github %}.
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
@@ -22,6 +23,8 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-code-scanning-in-your-ci-system
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system
+  - /code-security/codeql-cli/getting-started-with-the-codeql-cli/about-the-codeql-cli
+contentType: concepts
 ---
 
 Software developers and security researchers can secure their code

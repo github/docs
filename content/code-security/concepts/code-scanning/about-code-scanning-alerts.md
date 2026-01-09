@@ -1,5 +1,6 @@
 ---
 title: About code scanning alerts
+shortTitle: Code scanning alerts
 intro: Learn about the different types of code scanning alerts and the information that helps you understand the problem each alert highlights.
 permissions: '{% data reusables.permissions.code-scanning-all-alerts %}'
 product: '{% data reusables.gated-features.code-scanning %}'
@@ -9,11 +10,13 @@ versions:
   ghec: '*'
 redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts
+  - /code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts
 type: overview
 topics:
   - Code Security
   - Code scanning
   - CodeQL
+contentType: concepts
 ---
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}

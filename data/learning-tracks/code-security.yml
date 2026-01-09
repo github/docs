@@ -186,7 +186,7 @@ code_security_actions:
     errors out of your repository.
   guides:
     - >-
-      /code-security/code-scanning/introduction-to-code-scanning/about-code-scanning
+      /code-security/concepts/code-scanning/about-code-scanning
     - >-
       /code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning
     - >-
@@ -203,7 +203,7 @@ code_security_integration:
   description: Upload code analysis results from third-party systems to GitHub using SARIF.
   guides:
     - >-
-      /code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning
+      /code-security/concepts/code-scanning/about-integration-with-code-scanning
     - >-
       /code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github
     - >-

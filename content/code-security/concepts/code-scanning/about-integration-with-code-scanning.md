@@ -1,13 +1,14 @@
 ---
 title: About integration with code scanning
-shortTitle: About integration
-intro: 'You can perform {% data variables.product.prodname_code_scanning %} externally and then display the results in {% data variables.product.prodname_dotcom %}, or configure webhooks that listen to {% data variables.product.prodname_code_scanning %} activity in your repository.'
+shortTitle: Integration with code scanning
+intro: You can perform {% data variables.product.prodname_code_scanning %} externally and then display the results in {% data variables.product.prodname_dotcom %}, or configure webhooks that listen to {% data variables.product.prodname_code_scanning %} activity in your repository.
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-integration-with-code-scanning
   - /code-security/secure-coding/about-integration-with-code-scanning
   - /code-security/secure-coding/integrating-with-code-scanning/about-integration-with-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/integrating-with-code-scanning/about-integration-with-code-scanning
+  - /code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,6 +19,7 @@ topics:
   - Code scanning
   - Webhooks
   - Integration
+contentType: concepts
 ---
 
 ## About integration with code scanning

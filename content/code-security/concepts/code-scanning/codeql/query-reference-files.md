@@ -13,6 +13,8 @@ topics:
 redirect_from:
   - /code-security/codeql-cli/query-reference-files
   - /code-security/codeql-cli/codeql-cli-reference/query-reference-files
+  - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/query-reference-files
+contentType: concepts
 ---
 
 ## About query reference files

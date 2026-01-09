@@ -10,11 +10,12 @@ versions:
 redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/built-in-codeql-query-suites
   - /code-security/code-scanning/managing-your-code-scanning-configuration/built-in-codeql-query-suites
+  - /code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites
 type: reference
 topics:
   - Code scanning
   - CodeQL
-contentType: other
+contentType: concepts
 ---
 
 ## About {% data variables.product.prodname_codeql %} query suites
