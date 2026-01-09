@@ -18,3 +18,4 @@ contentType: concepts
 children:
   - /vulnerability-reporting-and-management
   - supply-chain-security
+  - /about-code-quality

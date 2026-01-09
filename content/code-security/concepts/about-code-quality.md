@@ -1,13 +1,17 @@
 ---
 title: About GitHub Code Quality
-shortTitle: About Code Quality
-intro: 'Use {% data variables.product.prodname_code_quality %} to flag code quality issues in pull requests and repository scans, apply {% data variables.product.prodname_copilot_short %}-powered autofixes, and enforce standards with rulesets.'
+shortTitle: GitHub Code Quality
+allowTitleToDifferFromFilename: true
+intro: Use {% data variables.product.prodname_code_quality %} to flag code quality issues in pull requests and repository scans, apply {% data variables.product.prodname_copilot_short %}-powered autofixes, and enforce standards with rulesets.
 product: '{% data reusables.gated-features.code-quality-availability %}'
 versions:
   feature: code-quality
 topics:
   - Code Quality
 contentType: concepts
+redirect_from:
+  - /code-security/code-quality/concepts/about-code-quality
+  - /code-security/code-quality/concepts
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}
