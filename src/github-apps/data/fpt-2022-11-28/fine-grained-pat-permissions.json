@@ -1073,30 +1073,6 @@
       }
     ]
   },
-  "custom_properties_for_organizations": {
-    "title": "Custom properties for organizations",
-    "displayTitle": "Organization permissions for \"Custom properties for organizations\"",
-    "permissions": [
-      {
-        "category": "orgs",
-        "slug": "get-all-custom-property-values-for-an-organization",
-        "subcategory": "custom-properties-for-orgs",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/org-properties/values",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "orgs",
-        "slug": "create-or-update-custom-property-values-for-an-organization",
-        "subcategory": "custom-properties-for-orgs",
-        "verb": "patch",
-        "requestPath": "/organizations/{org}/org-properties/values",
-        "additional-permissions": false,
-        "access": "write"
-      }
-    ]
-  },
   "organization_custom_properties": {
     "title": "Custom properties",
     "displayTitle": "Organization permissions for \"Custom properties\"",
@@ -2951,6 +2927,15 @@
       },
       {
         "category": "actions",
+        "slug": "get-github-actions-cache-storage-limit-for-a-repository",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
         "slug": "get-github-actions-cache-usage-for-a-repository",
         "subcategory": "cache",
         "verb": "get",
@@ -3377,15 +3362,6 @@
         "requestPath": "/repos/{owner}/{repo}/actions/cache/retention-limit",
         "additional-permissions": false,
         "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "get-github-actions-cache-storage-limit-for-a-repository",
-        "subcategory": "cache",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit",
-        "additional-permissions": false,
-        "access": "read"
       },
       {
         "category": "actions",
