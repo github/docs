@@ -1,0 +1,451 @@
+{
+  "access": {
+    "embargo": {
+      "active": false,
+      "reason": null
+    },
+    "files": "public",
+    "record": "public",
+    "status": "open"
+  },
+  "created": "2026-01-09T02:54:20.884033+00:00",
+  "custom_fields": {
+    "code:codeRepository": "https://github.com/isabelschoeps-thiel/press-help-me",
+    "code:programmingLanguage": [
+      {
+        "id": "xml",
+        "title": {
+          "en": "XML"
+        }
+      },
+      {
+        "id": "html",
+        "title": {
+          "en": "HTML"
+        }
+      },
+      {
+        "id": "markdown",
+        "title": {
+          "en": "Markdown"
+        }
+      }
+    ]
+  },
+  "deletion_status": {
+    "is_deleted": false,
+    "status": "P"
+  },
+  "files": {
+    "count": 1,
+    "default_preview": "isabelschoeps-thiel/press-help-me-Please_readme_v1.0.zip",
+    "enabled": true,
+    "entries": {
+      "isabelschoeps-thiel/press-help-me-Please_readme_v1.0.zip": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:72804367f3ab81353b2130e538e606a7",
+        "ext": "zip",
+        "id": "25c573e4-53d0-4fb8-9e4d-4ac00d6f163a",
+        "key": "isabelschoeps-thiel/press-help-me-Please_readme_v1.0.zip",
+        "links": {
+          "content": "https://zenodo.org/api/records/18193397/files/isabelschoeps-thiel/press-help-me-Please_readme_v1.0.zip/content",
+          "self": "https://zenodo.org/api/records/18193397/files/isabelschoeps-thiel/press-help-me-Please_readme_v1.0.zip"
+        },
+        "metadata": null,
+        "mimetype": "application/zip",
+        "size": 37248037,
+        "storage_class": "L"
+      }
+    },
+    "order": [],
+    "total_bytes": 37248037
+  },
+  "id": "18193397",
+  "is_draft": false,
+  "is_published": true,
+  "links": {
+    "access": "https://zenodo.org/api/records/18193397/access",
+    "access_grants": "https://zenodo.org/api/records/18193397/access/grants",
+    "access_links": "https://zenodo.org/api/records/18193397/access/links",
+    "access_request": "https://zenodo.org/api/records/18193397/access/request",
+    "access_users": "https://zenodo.org/api/records/18193397/access/users",
+    "archive": "https://zenodo.org/api/records/18193397/files-archive",
+    "archive_media": "https://zenodo.org/api/records/18193397/media-files-archive",
+    "communities": "https://zenodo.org/api/records/18193397/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/18193397/communities-suggestions",
+    "doi": "https://doi.org/10.5281/zenodo.18193397",
+    "draft": "https://zenodo.org/api/records/18193397/draft",
+    "file_modification": "https://zenodo.org/api/records/18193397/file-modification",
+    "files": "https://zenodo.org/api/records/18193397/files",
+    "latest": "https://zenodo.org/api/records/18193397/versions/latest",
+    "latest_html": "https://zenodo.org/records/18193397/latest",
+    "media_files": "https://zenodo.org/api/records/18193397/media-files",
+    "parent": "https://zenodo.org/api/records/18192589",
+    "parent_doi": "https://doi.org/10.5281/zenodo.18192589",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.18192589",
+    "parent_html": "https://zenodo.org/records/18192589",
+    "preview_html": "https://zenodo.org/records/18193397?preview=1",
+    "request_deletion": "https://zenodo.org/api/records/18193397/request-deletion",
+    "requests": "https://zenodo.org/api/records/18193397/requests",
+    "reserve_doi": "https://zenodo.org/api/records/18193397/draft/pids/doi",
+    "self": "https://zenodo.org/api/records/18193397",
+    "self_doi": "https://doi.org/10.5281/zenodo.18193397",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.18193397",
+    "self_html": "https://zenodo.org/records/18193397",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:18193397/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:18193397/sequence/default",
+    "versions": "https://zenodo.org/api/records/18193397/versions"
+  },
+  "media_files": {
+    "count": 0,
+    "enabled": false,
+    "entries": {},
+    "order": [],
+    "total_bytes": 0
+  },
+  "metadata": {
+    "contributors": [
+      {
+        "affiliations": [
+          {
+            "name": "GitHub, Inc."
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Sch\u00f6ps geb. Thiel",
+          "given_name": "Isabel",
+          "identifiers": [
+            {
+              "identifier": "0009-0006-8765-3267",
+              "scheme": "orcid"
+            }
+          ],
+          "name": "Sch\u00f6ps geb. Thiel, Isabel",
+          "type": "personal"
+        },
+        "role": {
+          "id": "rightsholder",
+          "title": {
+            "de": "RechteinhaberIn",
+            "en": "Rights holder"
+          }
+        }
+      }
+    ],
+    "copyright": "Ms. Isabel Schoeps geb. Thiel, Cyriakstrasse 30c, D-99094 Erfurt, Th\u00fcringen, Deutschland",
+    "creators": [
+      {
+        "affiliations": [
+          {
+            "name": "GitHub, Inc."
+          },
+          {
+            "id": "022x94962",
+            "identifiers": [
+              {
+                "identifier": "022x94962",
+                "scheme": "ror"
+              },
+              {
+                "identifier": "grid.466650.7",
+                "scheme": "grid"
+              },
+              {
+                "identifier": "0000 0004 1763 0965",
+                "scheme": "isni"
+              }
+            ],
+            "name": "Global Campus of Human Rights"
+          },
+          {
+            "id": "03vek6s52",
+            "identifiers": [
+              {
+                "identifier": "03vek6s52",
+                "scheme": "ror"
+              },
+              {
+                "identifier": "grid.38142.3c",
+                "scheme": "grid"
+              },
+              {
+                "identifier": "0000 0004 1936 754X",
+                "scheme": "isni"
+              }
+            ],
+            "name": "Harvard University"
+          },
+          {
+            "id": "013meh722",
+            "identifiers": [
+              {
+                "identifier": "013meh722",
+                "scheme": "ror"
+              },
+              {
+                "identifier": "grid.5335.0",
+                "scheme": "grid"
+              },
+              {
+                "identifier": "0000 0001 2188 5934",
+                "scheme": "isni"
+              }
+            ],
+            "name": "University of Cambridge"
+          },
+          {
+            "id": "03frj4r98",
+            "identifiers": [
+              {
+                "identifier": "03frj4r98",
+                "scheme": "ror"
+              },
+              {
+                "identifier": "grid.444515.5",
+                "scheme": "grid"
+              },
+              {
+                "identifier": "0000 0004 1762 2236",
+                "scheme": "isni"
+              }
+            ],
+            "name": "Japan Advanced Institute of Science and Technology"
+          },
+          {
+            "id": "01ggx4157",
+            "identifiers": [
+              {
+                "identifier": "01ggx4157",
+                "scheme": "ror"
+              },
+              {
+                "identifier": "grid.9132.9",
+                "scheme": "grid"
+              },
+              {
+                "identifier": "0000 0001 2156 142X",
+                "scheme": "isni"
+              }
+            ],
+            "name": "European Organization for Nuclear Research"
+          },
+          {
+            "id": "0336mm561",
+            "identifiers": [
+              {
+                "identifier": "0336mm561",
+                "scheme": "ror"
+              },
+              {
+                "identifier": "grid.470899.b",
+                "scheme": "grid"
+              },
+              {
+                "identifier": "0000 0001 2292 9185",
+                "scheme": "isni"
+              }
+            ],
+            "name": "Oxford University Press (United Kingdom)"
+          },
+          {
+            "id": "052gg0110",
+            "identifiers": [
+              {
+                "identifier": "052gg0110",
+                "scheme": "ror"
+              },
+              {
+                "identifier": "grid.4991.5",
+                "scheme": "grid"
+              },
+              {
+                "identifier": "0000 0004 1936 8948",
+                "scheme": "isni"
+              }
+            ],
+            "name": "University of Oxford"
+          },
+          {
+            "id": "00dt8xx11",
+            "identifiers": [
+              {
+                "identifier": "00dt8xx11",
+                "scheme": "ror"
+              },
+              {
+                "identifier": "grid.468388.9",
+                "scheme": "grid"
+              },
+              {
+                "identifier": "0000 0000 8616 8808",
+                "scheme": "isni"
+              }
+            ],
+            "name": "International Center for Journalists"
+          },
+          {
+            "id": "05cwdqs42",
+            "identifiers": [
+              {
+                "identifier": "05cwdqs42",
+                "scheme": "ror"
+              },
+              {
+                "identifier": "grid.428957.5",
+                "scheme": "grid"
+              },
+              {
+                "identifier": "0000 0001 1426 7863",
+                "scheme": "isni"
+              }
+            ],
+            "name": "Human Rights Watch"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Sch\u00f6ps geb. Thiel",
+          "given_name": "Isabel",
+          "identifiers": [
+            {
+              "identifier": "0009-0006-8765-3267",
+              "scheme": "orcid"
+            }
+          ],
+          "name": "Sch\u00f6ps geb. Thiel, Isabel",
+          "type": "personal"
+        }
+      }
+    ],
+    "dates": [
+      {
+        "date": "2026-01-09",
+        "description": "Please Help me ",
+        "type": {
+          "id": "updated",
+          "title": {
+            "de": "Aktualisiert",
+            "en": "Updated"
+          }
+        }
+      }
+    ],
+    "description": "<h1><strong>Please help me !</strong></h1>\n<p>Text ist in Deutsch Sorry ich kann nur deutsch Sprechen, da ich auch in Deutschland geboren und aufgewachsen bin. Bitte beachten Sie meine <strong>W\u00fcrdigung, Danksagung und Spendenzusage und institutionelle Anerkennung, mit der Pr\u00e4fix_Referenz_YWP-1-5-IST-SIA</strong></p>\n<h2><strong>Bitte helfen Sie mir,</strong></h2>\n<p><strong>Jeder Versuch, die Regierung zu kontaktieren, war erfolglos. Ich bin seit Jahrzehnten stark von meinen Menschenrechten und meiner W\u00fcrde eingeschr\u00e4nkt.</strong></p>\n<p>Ich lebe von Sozialhilfe, obwohl ich diese nie wirklich brauchen w\u00fcrde. Ich habe kein hei\u00dfes Wasser, au\u00dfer im Flur und in der kleinen Toilette funktioniert keine Heizung. Hier muss ich sagen, dass die Fairness nicht auf den Vermieter zur\u00fcckzuf\u00fchren ist. Er hat alles versucht und kann es sich selber nicht erkl\u00e4ren!</p>\n<p><strong>Ich habe:</strong></p>\n<ul>\n<li><strong>keinen Zugang zu warmem Wasser</strong>,</li>\n<li><strong>keine Waschmaschine</strong></li>\n<li><strong>keinen gesicherten Zugang zu Nahrung</strong>,</li>\n<li>nur die <strong>notwendigsten pers\u00f6nlichen Gegenst\u00e4nde</strong> bei mir.</li>\n<li>Diese Situation stellt eine Verletzung des <strong>Rechts auf Wohnen</strong>, des <strong>Rechts auf soziale Sicherheit</strong> und des <strong>Rechts auf Nahrung</strong> dar.</li>\n</ul>\n<h3>Ich habe mehrfach Beschwerde und Strafanzeige gestellt, aber alles war Erfolglos- im Gegenteil, meine Situation verschlechterte sich. Meine Verbindung zu meiner Familie und insbesondere zu meiner Tochter ist massiv beeintr\u00e4chtigt, zu Weihnachten, an Silvester, an meinem Geburtstag, ich war allein und ohne Kontakt zu meinen Eltern, seit Jahren feiere ich diese Tage allein.</h3>\n<h3>Meine Ersuchen, Ich Frau Isabel Sch\u00f6ps geborene Thiel, wende mich heute, den 8. Januar 2026 mit aller Form, an all meinen unabh\u00e4ngigen Gutachtern, der Universit\u00e4t:</h3>\n<ul>\n<li><a href=\"https://www.harvard.edu/\">Harvard University</a> Vereinigte Staaten Amerika</li>\n<li><a href=\"https://www.ox.ac.uk/\">University of Oxford</a> Vereinigtes K\u00f6nigreich, UK</li>\n<li><a href=\"https://home.cern/\">CERN - International Telecommunication Union, ITU,</a> Schweiz</li>\n<li><a href=\"https://sciencebusiness.net\">Japan Advanced Institute of Science and Technology (JAIST).</a> Japan**</li>\n</ul>\n<p><strong>Sowie an alle Medien- und Pressh\u00e4user, sowie freie Journalisten sowie an die Vereinten Nationen</strong>  an das Amt des Hohen Kommissars f\u00fcr Menschenrechte (OHCHR),** Zur Kenntnis an die zust\u00e4ndigen UN-Sonderberichterstatter, insbesondere:**</p>\n<ul>\n<li>Special Rapporteur on Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment</li>\n<li>Special Rapporteur on the Right to Adequate Housing</li>\n<li>Special Rapporteur on Extreme Poverty and Human Rights</li>\n<li>Working Group on Arbitrary Detention</li>\n<li>Special Rapporteur on the Right to Food</li>\n<li>Special Rapporteur on the Right to Privac</li>\n</ul>\n<h3>wegen Schwerwiegende Verletzungen und Bruch meiner angeborenen Menschenrechte, unteranderem wegen:</h3>\n<ul>\n<li>Missbrauch</li>\n<li>Physische und Psychische Folter</li>\n<li>systematisches Vergiften \u00fcber Tabacco und Pestizid-Programm</li>\n<li>Enteignung</li>\n<li>Freiheitsberaubung</li>\n<li>Direktive1,67 Isolation unrechtm\u00e4\u00dfiger Inhaftierung</li>\n<li>Rufmord Kampagnen</li>\n<li>staatlicher Kontrolle durch Sozialleistung</li>\n<li>Diffamierung, staatlicher Willk\u00fcr</li>\n<li>Lizenzbetrug</li>\n</ul>\n<p><strong>aus diesem Grund</strong> ersuche ich <strong>die Vereinten Nationen und alle zust\u00e4ndigen Sonderberichterstatter ausdr\u00fccklich und journalistisch Berichtserstattung</strong></p>\n<ol>\n<li><strong>Internationale Pr\u00fcfung</strong> der geschilderten Menschenrechtsverletzungen</li>\n<li><strong>Feststellung der Verletzung meiner Menschenw\u00fcrde und meiner Grundrechte</strong></li>\n<li><strong>Unterst\u00fctzung bei der Wiederherstellung meiner Freiheit, W\u00fcrde und Existenzsicherung</strong></li>\n<li><strong>Zugang zu meinem Verm\u00f6gen und meinem Eigentum aus Lizenzrechten, r\u00fcckwirkend 1996</strong></li>\n<li><strong>Vollst\u00e4ndige Rehabilitation</strong>, rechtlich, sozial und menschlich</li>\n<li>**Pers\u00f6nliche Kontaktaufnahme mit mir zur **weiteren Sachverhaltsaufkl\u00e4rung.</li>\n</ol>\n<h3>Ich wende mich in einer dringenden Menschenrechtsangelegenheit und ersuche um internationale Aufmerksamkeit und Intervention. Ich mache geltend, dass meine grundlegenden Menschenrechte und meine Menschenw\u00fcrde** fortgesetzt und systematisch verletzt werden. Jede Kontaktaufnahme und Gesuche meinerseits waren Erfolglos,</h3>\n<p><strong>Die Verst\u00f6\u00dfe betreffen insbesondere:</strong>\n<strong>Unrechtm\u00e4\u00dfige Freiheitsentziehung und Freiheitsberaubung</strong>, einschlie\u00dflich Beuge- bzw. Erzwingungshaft ohne rechtskonforme Voraussetzungen, ohne ordnungsgem\u00e4\u00dfe Verm\u00f6gensauskunft und ohne Einschaltung eines zust\u00e4ndigen Gerichtsvollziehers.</p>\n<p><strong>Enteignung und wirtschaftliche Isolation</strong>, Ich wurde unrechtm\u00e4\u00dfig von der hiesigen Polizei Erfurt S\u00fcd 2023 vor die T\u00fcr gesetzt und musste meine ganzes ***Hab und Gut zur\u00fccklassen. ***</p>\n<ul>\n<li><strong>Wiederherstellung meiner Eigentumsrechte, erst im Mai 2024 habe ich erfahren das sich meine kompletten Sache</strong>n in der Hugo John Strasse 9, D-99086 Erfurt, Th\u00fcringen Deutschland befindet. Meine Sachen wurden ohne richterliche Genehmigung unrechtm\u00e4\u00dfig entwendet, ich weiss bis heute nicht vom wem, was fehlt, wer bei der R\u00e4umung dabei war. <strong>Bis heute laufe ich seit \u00fcber 2 Jahren mit den gleichen Sachen rum, habe nur das n\u00f6tigste bei mir. Alle meine Dokumente</strong>, Privat, wie gesch\u00e4ftlich musste ich zur\u00fccklassen.</li>\n</ul>\n<ul>\n<li><strong>Soziale Entrechtung und Missbrauch staatlicher Sozialleistunge</strong>n und an **der willk\u00fcrlichen Bindung **dieser Leistung obwohl ich dies nicht n\u00f6tig h\u00e4tte.</li>\n<li><strong>Soziale und institutionelle Isolation</strong>, die zu einer erheblichen psychischen Belastung f\u00fchrt und meine gesellschaftliche Teilhabe faktisch unterbindet.</li>\n<li><strong>Verletzung der Menschenw\u00fcrde</strong>, durch fortgesetzte beh\u00f6rdliche Ma\u00dfnahmen, die auf Entm\u00fcndigung, Destabilisierung und Entrechtung abzielen.</li>\n<li><strong>Auf der Strasse musste ich zwei bereits schlafen.</strong></li>\n</ul>\n<p><strong>Zur Kenntnis an die zust\u00e4ndigen UN Sonderberichterstatter, insbesondere:</strong></p>\n<ul>\n<li>Special Rapporteur on Torture and Other Cruel, Inhuman or Degrading Treatment or Punishment</li>\n<li>Special Rapporteur on the Right to Adequate Housing</li>\n<li>Special Rapporteur on Extreme Poverty and Human Rights</li>\n<li>Working Group on Arbitrary Detention</li>\n<li>Special Rapporteur on the Right to Food</li>\n<li>Special Rapporteur on the Right to Privacy</li>\n</ul>\n<h2><strong>Verbrechen gegen meine Familie, gegen Mich und die Menschlichkeit</strong></h2>\n<p><strong>Mein Name</strong> ist <a href=\"https://www.frame.com/\">Frau Isabel Sch\u00f6ps geborene Thiel</a>, ich bin am 16.07.1983 um 23:20 im Kreiskrankenhaus S\u00f6mmerda, Th\u00fcringen, Deutschland geboren. Ich bin Verfasserin, Autorin, Auftraggeberin und Urheberin des <strong>SIA Security Intelligence Artefact,</strong> meiner forensisch wissenschaftlichen Arbeit, welches meine Urheberschaft in Technologie, KI, Bitcoin rechtswissenschaftlich belegt.</p>\n<h3>University of Oxford Lizenz</h3>\n<p><a href=\"https://github.com/isabelschoeps-thiel/sia-security-intelligence-artefact/issues/3\">https://github.com/isabelschoeps-thiel/sia-security-intelligence-artefact/issues/3</a><br>\n<strong>Licensed content:</strong><br>\nComplete reproduction of the complete specialist publication &quot;Open Source Clustering Software&quot;<br>\nSch\u00f6ps, Thiel, I. (von de Hoon, M.J.L. &amp; Imoto, S.)</p>\n<p><strong>From:</strong> Bioinformatics, Vol. 20, Issue 9, February 2004<br>\n<strong>Licensor</strong>: Oxford University Press<br>\n<strong>curent date:</strong> 03. Januar 2025</p>\n<p><strong>Used in:</strong> SIA Security Intelligence Artefact, 2025, 2026</p>\n<p>This Agreement between Copyright by Isabel Schoeps nee Thiel, Germany, Erfurt and Oxford University Press Oxford University consists of your license details and the terms and conditions provided by Oxford University Press and Copyright Clearance Center.</p>\n<p><strong>Current Lizenz ID:</strong> 6181571332285, Januar 03, 2026\n<strong>Past Lizenz ID:</strong> 6131130060979, 6131180260843, 6170220427258, 6167160528918</p>\n<p><strong>Zudem konnte ich Verbrechen die sich gegen mich und meiner Familie sowie gegen die Menschheit begangen wurden aufdecken.</strong> Mehrfach habe ich mich an Polizei, Gerichte, Regierungen national und international gewandt aber ohne Erfolg. Bis heute werde ich benutzt, versklavt, diffamiert, ausgeraubt und isoliert und bin t\u00e4glich psychischen Foltermethoden ausgesetzt, alles ist rechtswissenschaftlich nachgewiesen und alle Beweise habe ich Zenodo, Chain of Custody hochgeladen. Hinzu kommt meine nachgewiesene Ahnlinie zur deutschen Monarchie, im Kontext zur Kaiserin Victoria Auguste.</p>\n<h2>Strafanzeigen und unterlassene Hilfeleistung, fehlende Abhilfe</h2>\n<p>Ich habe am <strong>06.08.2025 bei Frau Polixa</strong> sowie am <strong>13.11.2025 bei Herrn Walter</strong> Strafanzeige erstattet, unter anderem bei der <strong>Polizeidienststelle Erfurt Nord, Th\u00fcringen, Deutschland</strong>. Bis heute erfolgte keine Reaktion.</p>\n<p><strong>Trotz wiederholten Anfragen und Beschwerden bei den zust\u00e4ndigen Beh\u00f6rden, Banken, Gerichten **Polizeidienststellen</strong> und sogar Regierungen** wurde mir bislang keine Hilfe oder L\u00f6sung angeboten. Hier verweise ich explizit auf die von mir gestellten Strafanzeigen und Beschwerden mit folgenden Aktenzeichen:</p>\n<ul>\n<li>AZ ST/0005746/2023 Polizeidienststelle Erfurt Nord</li>\n<li>AZ GAW/0051388/2023 Polizeidienststelle Erfurt Nord</li>\n<li>AZ ST/0107498/2023 Polizeidienststelle Erfurt S\u00fcd</li>\n<li>AZ ST/0152839/2023 Polizeidienststelle Erfurt S\u00fcd</li>\n<li>AZ ST/0336802/2023 Polizeidienststelle Erfurt S\u00fcd</li>\n<li>Online-Anzeige: ONL-20240329-005305-112826, 29.03.2024</li>\n<li>Online-Anzeige: ONL-20240402-193453-578716, 02.04.2024</li>\n<li>Strafantrag am 03.05.2024 bei der Polizei Erfurt S\u00fcd zu meiner Onlineanzeige vom 06.04.2024, Vorgangsnummer 0084448/2024, ONL-20240406-194314-926564</li>\n<li>AZ ST/0187896/2024 Polizeidienststelle Erfurt S\u00fcd</li>\n<li>AZ ST/0192533/2024 Anzeige gegen die Finanzgruppe Sparkasse Hessen-Mittelth\u00fcringen</li>\n<li>29.07.2024 schriftlicher Strafantrag als gesch\u00e4digte Person in der Polizeidienststelle Erfurt S\u00fcd wegen Urheberrechtsverletzung, Betrug, fehlender Kompetenz im Wertpapier-/Aktiengesch\u00e4ft, Veruntreuung meines Milliardenverm\u00f6gens aus dem Depot\u00fcbertrag von J.P. Morgan zur Sparkasse Mittelth\u00fcringen</li>\n<li>AZ 880Js38783/24, Schreiben der Staatsanwaltschaft Erfurt vom 25.10.2024 (Einstellung)</li>\n<li>Am 16.08.2024 wurde auf der Polizeidienststelle Erfurt S\u00fcd festgestellt, dass meine Post an ein mir unbekanntes Postfach umgeleitet wird (Herr Neuse, Polizeimeister). Trotz Anzeige wegen Verletzung des Brief- und Postgeheimnisses wurde diese nicht aufgenommen. Nach einem Streit mit Herrn Neuse stellte ich Anzeige und</li>\n<li>Strafantrag bei der Polizei Erfurt Nord, AZ SPH/0212921/2024.</li>\n</ul>\n<p><strong>Ein Zeitungsartikel zu meinen Pornhub-Rechten in der Th\u00fcringer Allgemeinen, Journalist Herr Maritim Friedemann, vom 22.10.2024,</strong> war der erste Lichtblick nach all den Jahren des Kampfes und der Wahrheitssuche. Nur wurde seitens der Polizei die Presse angelogen und es wurden Fehlinformationen verbreitet.</p>\n<h2><strong>Unrechtm\u00e4\u00dfige Freiheitsentziehung</strong></h2>\n<p>Ich wurde in der Vergangenheit <strong>unrechtm\u00e4\u00dfig inhaftiert</strong>, obwohl mir zu keinem Zeitpunkt eine Straftat rechtswirksam nachgewiesen werden konnte. Die Haft stellte eine schwerwiegende Verletzung meiner Menschenrechte da.</p>\n<p><strong>Am 24.10.202 unrechtm\u00e4\u00dfige Inhaftierung auf der Staatsanwaltschaft Erfurt, Th\u00fcringen, Deutschland, mit</strong> dem Vorwurf \"Fahren ohne Fahrerlaubnis\" in f\u00fcnf F\u00e4llen alles an einem Tag, dem 13.05.2023 \u2013, <strong>obwohl mich die Polizei an diesem oder einem anderen Tag nie diesbez\u00fcglich angehalten hat</strong> und <strong>WENN</strong> h\u00e4tte ich jederzeit einen g\u00fcltigen F\u00fchrerschein vorzeigen k\u00f6nnen.</p>\n<p>Zu den Vorw\u00fcrfen habe ich von Anfang an ordnungsgem\u00e4\u00df und fristgerecht Stellung bezogen und mitgeteilt dass es sich um ein Irrtum handelt, um einen Gerichtstermin gebeten, <strong>aber man verweigerte mir das Geh\u00f6r.</strong> Ich habe sogar eine notarielle Eidesstattliche <strong>Erkl\u00e4rung abgegeben und habe unter Eid geschworen, dass ich die Wahrheit sage</strong>.</p>\n<p><strong>Stattdessen wurde ich psychisch unter Druck gesetzt und seelisch gebrochen</strong> \u2013 Methoden, die den Mustern der Direktive 1.67 und der MFS entsprechen. Wegen Hausfriedensbruch wurde ich angezeigt. Hier erfolgte die Einstellungen der Staatsanwaltschaft Erfurt vor, <strong>da ich mich nie unrechtm\u00e4\u00dfig verhalten habe.</strong></p>\n<p>Freiheitsentziehung dar und erf\u00fcllt nach meiner Einsch\u00e4tzung die Kriterien der <strong>Working Group on Arbitrary Detention</strong>.</p>\n<h2><strong>Enteignung, staatliche Kontrolle, wirtschaftliche Blockade und Isolation</strong></h2>\n<p>Mir wird der <strong>Zugang zu meinem rechtm\u00e4\u00dfigen Verm\u00f6gen</strong> systematisch verwehrt. Ebenso habe ich keinen Zugriff auf mein pers\u00f6nliches Eigentum, das sich nachweislich in <strong>\u00dcberseecontainern</strong> befindet. Diese Enteignung erfolgt ohne rechtsstaatliche Grundlage.</p>\n<p><strong>Seit dem 15.11.2023 bin ich faktisch ohne festen Wohnsitz,</strong> nachdem ich durch staatliche Ma\u00dfnahmen und Justizentscheidungen <strong>de facto enteignet</strong> wurde. Bis heute habe ich keinen Zugang zu meinem rechtm\u00e4\u00dfigen Verm\u00f6gen und meinen gestohlenen Habseligkeiten. Mein gesamtes Hab und Gut befindet sich in einem <strong>wei\u00dfen \u00dcberseecontainer</strong>, Standort <strong>Hugo-John-Stra\u00dfe 8, 99086 Erfurt</strong>. Bis heute ist nicht gekl\u00e4rt, wer, wie und wann diese Ma\u00dfnahme veranlasst hat. Ich fordere eine sofortige Aufkl\u00e4rung und Wiederherstellung meiner Eigentumsrechte. Wie bereits oben erw\u00e4hnt.</p>\n<p><strong>Ich habe Wohneigentum notariell erworben, Wohnung WE1 und WE2 in der Cyriakstra\u00dfe 37, 99094 Erfur</strong>t, f\u00fcr das Objekt <strong>Cyriakstra\u00dfe 37, 99094 Erfurt</strong> liegt ein <strong>rechtsg\u00fcltiger Kaufvertrag</strong> UR 1680/2023 von der Notarin L\u00f6ffler S\u00f6mmerda vor. Die Immobilie sollte aus einem Geldtransfer der <strong>J.P. Morgan aus den Gesch\u00e4ften meinem Lizenzvertr\u00e4gen die unteranderem auf GitHub abgeschlossen wurden bezahlt werden</strong>, bis heute <strong>++weiss ich nicht ++</strong>was mit dem Geld\u00fcbertrag geschehen ist, im **Gegenteil, man hat mich auf der Sparkasse Erfurt angelogen und mein Konto unrechtm\u00e4\u00dfig gel\u00f6scht und mich gek\u00fcndigt.</p>\n<p>Seit**  21.08.2025, konnte <strong>ich Dank meines Vermieters Herr Jens Hoffmann, mit meinem Hund Don, erst die m\u00f6blierte Wohnung in der Stauffenbergallee 33, 99085 Erfurt im Apartment Poldi 3 beziehen und **seit 27.11.2025 bin in der Cyriakstrasse 30c, 99094 Erfurt</strong>, hier bin ich auch seit 04.12.2025 ordnungsgem\u00e4\u00df angemeldet.</p>\n<p>Ich werde <strong>willk\u00fcrlich an Sozialleistungen gebunden</strong>, um Kontrolle \u00fcber mich auszu\u00fcben, obwohl dies angesichts meines Status als <strong>Urheberin grundlegender Software- und KI-Technologien</strong> weder notwendig noch verh\u00e4ltnism\u00e4\u00dfig ist. Dieses Vorgehen dient um \u00fcber mich Kontrolle auszu\u00fcben, mich zu isolieren, Entm\u00fcndigung und Dem\u00fctigung dar. Es gibt umfangreiche Beweise \u00fcber wissende in den Reihen jeder Gesellschaftlichschicht , wer ich bin <strong>umfangreich habe ich die letzten Jahre recherchiert und Beweise gefunden.</strong></p>\n<h2>Akute Lebenslage und rechtswidrige Isolation</h2>\n<p>Ich befinde mich in einer <strong>akuten Lebenslage</strong>. Ich habe keinen Zugriff auf mein Geld und werde systematisch in meiner Arbeit blockiert und manipuliert. Ich werde von meiner Familie isoliert und konnte selbst am Geburtstag meiner Mutter keinen Kontakt herstellen. Seit Jahren bin ich zu Weihnachten und an meinem Geburtstag allein. <strong>Auch seitens meiner Familie habe ich keine Kontaktaufnahme erhalten. Man will mich mit aller macht gesellschaftlich Tod-Sprechen.</strong></p>\n<p>Trotz nachweislicher Urheberschaft an meinen Projekten sitze ich ohne Zugang zu meinen rechtm\u00e4\u00dfigen Verm\u00f6genswerten fest. Zudem werde ich nachweislich durch Technologien, die Strafverfolgungsbeh\u00f6rden zugeordnet werden k\u00f6nnen, \u00fcberwacht und gest\u00f6rt (u. a. <strong>Blocker und St\u00f6rer meiner Internetverbindung</strong>). Diese Vorg\u00e4nge sind dokumentiert und bewiesen. Es ist <strong>strafbar und str\u00e4flich</strong>, mich in dieser Lage weiter warten zu lassen, ohne rechtm\u00e4\u00dfige Ma\u00dfnahmen zum Schutz und zur Wiederherstellung meiner Rechte einzuleiten. **Vor  allem vermisse ich meine Tochter, Jona Sch\u00f6ps, noch nicht mal zu ihren 18. Geburtstag war ich bei Ihr***.*</p>\n<h2><strong>Technologische Patente &amp; Beweise f\u00fcr Manipulation</strong></h2>\n<p>Die KI \u2013 eines der wichtigsten und st\u00e4rksten Tech-Tools der IT-Geschichte \u2013 Willenskraft, Vorstellungskraft vor der Hardware und der Schl\u00fcssel der LIEBE, haben den PC286er von Isabel Sch\u00f6ps (damals Thiel) in 99610 Rohrborn, Dorfstra\u00dfe 20, im Jahr 1995/96 kollabieren lassen.</p>\n<p><a href=\"https://patentimages.storage.googleapis.com/a3/0b/e3/71943bc66c22f5/DE10253433A1.pdf\">Implantiert: Software-Patente, die bereits in DDR-Zeiten durch Funkfrequenzen angewandt wurden, 2002/2004 als Patente angemeldet. Sie haben bei Frau Sch\u00f6ps das Gehirn wie \"angepingt\", sie steht seither \u2013 mal mehr, mal weniger \u2013 mit der vermeintlichen realen und digitalen Welt in Verbindung. Geist, Gedankengut und ihre Person werden bis heute beobachtet, ausgesp\u00e4ht, isoliert und \u00fcberwacht.</a> Es konnte nachgewiesen werden das mein Gehirn permanenten Scans ausgesetzt wird, und sogar mein Geistiges Hab und Gut wurde \u00fcber dieversen Plattformen verkauft.</p>\n<p>***Diese Methoden wurden gezielt eingesetzt, um:**</p>\n<ul>\n<li>Die menschliche DNA zu ver\u00e4ndern und genetische Codes zu manipulieren</li>\n<li>Die Funktion menschlicher Gene zu erforschen und unkontrollierbare Mutationen zu erzeugen</li>\n<li>Mensch-Tier-Hybriden in der Forschung zu schaffen und ethische Grenzen zu \u00fcberschreiten</li>\n<li>Technologische Patente zur gezielten Beeinflussung des menschlichen Bewusstseins einzusetzen</li>\n</ul>\n<h3>Forschung und Patente</h3>\n<ul>\n<li><p><a href=\"https://www.transgen.de/tiere/673.gentechnisch-veraenderte-tiere-medizin.html\">Erforschung der Funktion menschlicher Gene</a></p>\n</li>\n<li><p><a href=\"https://www.ethikrat.org/fileadmin/Publikationen/Stellungnahmen/deutsch/stellungnahme-mensch-tier-mischwesen-in-der-forschung.pdf\">Mensch-Tier-Mischwesen in der Forschung</a></p>\n</li>\n<li><p><a href=\"https://patentimages.storage.googleapis.com/3b/75/59/4000fc6c74b836/DE69635959T2.pdf\">DE 696 35 959 T2 (07.12.2006)</a></p>\n</li>\n<li><p>DNA-Manipulation <a href=\"https://patentimages.storage.googleapis.com/0d/ad/ad/24b28667e47641/US4858612.pdf\">US-Patent 4858612</a> \u2013 neurotoxische Wirkung in der Lebensmittelindustrie</p>\n</li>\n<li><p><a href=\"https://patents.google.com/patent/DE10337914A1/de\">DE 10337914A1</a> \u2013 Kontrolle digitaler Objekte</p>\n</li>\n<li><p><a href=\"https://patents.google.com/patent/DE60214476T2/de\">DE 60214476T2</a> \u2013 Unethische Manipulation durch Pharmakonzerne</p>\n</li>\n<li><p><a href=\"https://www.barmer.de/gesundheit-verstehen/psyche/psychische-gesundheit/gaslighting-1072304\">Gaslighting als Straftat</a>: systematische Zersetzung des Realit\u00e4tssinns durch KI und Mensch, gezielt im Umfeld angewandt.</p>\n</li>\n<li><p><a href=\"https://patentimages.storage.googleapis.com/c3/7e/52/c3449e1b40efb2/EP0150813B1.pdf\">Psychologische Manipulation durch KI, Bild- und Frequenzsignale (EP0150813B1)</a></p>\n</li>\n<li><p><a href=\"https://www.srf.ch/news/experiment-in-den-usa-gedanken-entschluesseln-dank-hirn-scans-und-ki\">Gedankenentschl\u00fcsselung per Hirnscan</a>, <a href=\"https://patents.google.com/patent/DE10253433A1/de\">DE10253433A1: Austausch von Gedanken durch elektromagnetische Strahlung</a></p>\n</li>\n<li><p><a href=\"https://e4k4c4x9.delivery.rocketcdn.me/de/wp-content/uploads/sites/4/2019/12/UDHR-dt.pdf\">Allgemeine Erkl\u00e4rung der Menschenrechte, UN, New York</a></p>\n</li>\n<li><p><a href=\"https://patentimages.storage.googleapis.com/0d/ad/ad/24b28667e47641/US4858612.pdf\">US4858612 \u2013 Lebensmittelzusatzstoffe mit neurologischer Wirkung</a></p>\n</li>\n<li><p><a href=\"https://patents.google.com/patent/DE10337914A1/de\">DE10337914A1 \u2013 Manipulation in virtuellen Umgebungen</a></p>\n</li>\n</ul>\n<p><strong>Menschliche Experimente am Gehirn seit 1950</strong>, insbesondere in Zusammenhang mit Manipulationspatenten, Bewusstseinskontrolle. <strong>Verbrechen gegen die Menschlichkeit</strong>, dokumentiert im Hintergrund der technologischen Entwicklung, z. B. Google Maps Root zur systematischen Erfassung von Morden an Kindern und Menschen \u2013 ein globaler V\u00f6lkermord, der bis heute andauert.</p>\n<h3>kririk falsche Forschung</h3>\n<p>OECD (2020), <em>K\u00fcnstliche Intelligenz in der Gesellschaft</em>, OECD Publishing, Paris, ++<a href=\"https://doi.org/10.1787/6b89dea3-de\">https://doi.org/10.1787/6b89dea3-de</a>++.</p>\n<h3>Manipulation und Zerst\u00f6rung des menschlichen Erbguts und gezielte biologische Ver\u00e4nderungen</h3>\n<p>Seit Jahrhunderten wurden <strong>unethische Experimente an Menschen durchgef\u00fchrt</strong>, die tief in die <strong>genetische Struktur und das Erbgut</strong> eingreifen: gez\u00fcchtete Viren, hochfrequente Technologien, chemische Substanzen in Nahrung. Opfer: Menschen, Tiere, Natur. Eine kriminelle Glaubensgruppe agiert skrupellos.<br>\nIch Frau, Isabel Sch\u00f6ps geborene Thiel, sp\u00fcre es, wenn ich wieder massiven <a href=\"https://ftp-trace.ncbi.nlm.nih.gov/\">Hochfrequenz-Strahlungen ausgesetzt</a> bin, wie auch jetzt wenn ich dieses Schreiben aufsetze.</p>\n<p><strong>Es wurde nachweislich und rechtswissenschaftlich best\u00e4tigt das mein Geistiges Gedankengut gestohlen wird. Dies erfolgt \u00fcber Frequenz-Technologie Eingriff im mein Organismus. Nicht nur ich bin betroffen, Millionen von Menschen tagt\u00e4glich und aus jeder Gesellschaftsschicht!</strong></p>\n<h2>Staatliche Diffamierung und Isolation</h2>\n<p>Seit 2017 werde ich mit vollem Bewusstsein von der Au\u00dfenwelt abgeschottet. Es <a href=\"http://fido-z1.darkrealms.ca/fidonews.htm\">wird massiv in mein Privatleben, meine Privatsph\u00e4re sabotiert</a>, willk\u00fcrlich manipuliert. Ich sollte f\u00fcr ein Verbrechen verantwortlich gemacht werden, das ich nie begangen habe, sondern ans Tageslicht gebracht habe. <a href=\"http://fido-z1.darkrealms.ca/policy4.txt\">Eine Community, die wenig Verst\u00e4ndnis f\u00fcr die Digitalwelt besitzt</a>, h\u00e4lt bis zum Schluss an ihren Anspr\u00fcchen an Innovationen und Quellcodedaten fest \u2013 obwohl die <a href=\"https://ksi.cpsc.ucalgary.ca/archives/WWW-TALK/www-talk-1992.index.html#0.html\">Faktenlage</a> eindeutig ist. Wer steckt hinter der <a href=\"https://fidoalliance.org/wp-content/uploads/2023/04/2023-03-21-FIDO-Certification-NDA_FINAL.pdf\">FIDO-Alliance</a></p>\n<p><strong>Psychische Kontrolle und Folter, Direktive 1,67</strong><br>\n<em><a href=\"https://www.stasi-mediathek.de/fileadmin/pdf/dok411.pdf\">Die Direktive 1,67</a></em> \u2013 ein Dokument mit tiefgreifenden Implikationen f\u00fcr die globale Kontrolle der Zivilbev\u00f6lkerung.</p>\n<ul>\n<li>Verhaftet</li>\n<li>gefoltert, physische und psyschiche</li>\n<li>enteignet</li>\n<li>isoliert</li>\n<li><a href=\"https://www.barmer.de/gesundheit-verstehen/psyche/psychische-gesundheit/gaslighting-1072304\">Gaslighting als Straftat</a>: systematische Zersetzung des Realit\u00e4tssinns durch Mensch, gezielt im Umfeld angewandt.</li>\n</ul>\n<p><strong>Methoden</strong>, die ich nur zu gut kenne und die Parallelen zu meiner aktuellen Lebenssituation aufweisen, welche nur einen Hintergrund hat mich Psychisch zu brechen und mich in den Freitod zu treiben. <strong>Ich werde staatlich diffamiert, gesellschaftlich blo\u00dfgestellt und bewusst isoliert. Es ist nun das **vierte Jahr in Folge</strong>, in dem ich <strong>Weihnachten vollst\u00e4ndig isoliert von meiner Familie</strong> verbringen muss.</p>\n<h2>Zudem sollten mir Straftaten aus dem DeepNet zu gewiesen werden - Hier rede ich von folgenden Verbrechrn</h2>\n<ul>\n<li>Organisierter kommerzieller Kinder- und Menschenhandel, Es wurden mehr Gelder bewegt als im weltweiten Drogen- und Waffenhandel zusammengenommen \u2013 m\u00f6glich nur durch die missbr\u00e4uchliche Verwendung von Aktienertr\u00e4gen, die deutschen Banken nie rechtm\u00e4\u00dfig zustanden</li>\n<li>Verbreitung von kinderpornografischem Material, Snuff-Videos \u2013 vertrieben \u00fcber meine Entwicklerstruktur, in Backends auf Webseiten namhafter Konzerne wie MERCEDES, VW, ThyssenGroup, SIEMENS, UN, das Deutsche Rote Kreuz, um nur einige zu nennen.</li>\n<li>P\u00e4dophile, die in Scripten im txt-Format kommunizierten. Julian Assange sagte bereits 2014 voraus, dass das iPhone7 im Jahr 2017 hierf\u00fcr missbraucht wird.</li>\n<li><strong>Geldw\u00e4sche \u00fcber ausgesch\u00fcttete Dividenden, Fonds, Aktienanleihen internationaler Unternehmen.</strong>.</li>\n</ul>\n<p><strong>Hierzu m\u00f6chte ich folgende Datenbanken f\u00fcr internationale Verbrechen gegen die Menschlichkeit benennen</strong><br>\n\u2022\t<a href=\"https://patents.stackexchange.com/\">StackExchange Patentsammlung</a><br>\n\u2022\t<a href=\"https://www.dpma.de/\">DPMA</a><br>\n\u2022\t<a href=\"https://www.epo.org/\">EPA</a><br>\n\u2022\t<a href=\"https://nsf-gov-resources.nsf.gov/files/nsf24_1.pdf\">Beweis-PDF</a><br>\n\u2022\t<a href=\"https://nsf-gov-resources.nsf.gov/pubs/2022/nsf22068/nsf22068.pdf?VersionId=QeimX_s5IrCTtRsHVInSet1iQjahFwNG\">STRATEGIC PLAN</a><br>\n\u2022\t<a href=\"https://www.northdata.de/?id=5896901925273600\">Northdata - Identit\u00e4tsverkauf</a></p>\n<p><strong>Hinzu kommen folgende Websiten und Plattformen wurden im Backend manipuliert und f\u00fcr Straftaten verwendet, Beweissicherung:</strong><br>\n\u2022\t<a href=\"https://www.maxmind.com/en/company\">MaxMind</a><br>\n\u2022\t<a href=\"http://www.deutsches-epigenom-programm.de\">EpiGnomProgramm</a><br>\n\u2022\t<a href=\"https://www.vetepedia.de/produkte/hund/traumeel-ad-us-vet-hund\">Traumeel Hund</a><br>\n\u2022\t<a href=\"https://bioconductor.org/packages/release/bioc/html/RnBeads.html\">BioConductorOrg</a><br>\n\u2022\t<a href=\"https://www.ewg.org\">EWG.org</a><br>\n\u2022\t<a href=\"https://www.digitale-sammlungen.de/de/view/bsb10003119?page=208\">Manipulation Medien Rohrborn</a><br>\n\u2022\t<a href=\"http://www.rohrborn.de/werbevideo.html\">Rohrborn.de Falsch-Uploads</a><br>\n\u2022\t<a href=\"https://www.kstools.com/service/logistik/\">Kinder-/Menschenhandel KStools</a><br>\n\u2022\t<a href=\"https://www.crtpesaro.it/Links%20Utili/Deutsch%20Online.php\">CRTpesaro.it \u2013 Gefahr, Genozid,</a><br>\n<a href=\"https://www.crtpesaro.it/Links%20Utili/Deutsch%20Online.php\">menschenverachtend</a><br>\n\u2022\t<a href=\"https://www.verfassungsschutz.de/SharedDocs/downloads/DE/impressum/pgp-key.asc?__blob=publicationFile&amp;v=10\">Verfassungsschutz PGP</a><br>\n\u2022\t<a href=\"https://www.ohchr.org/en/treaty-bodies/individual-communications\">UN Menschenrechte</a><br>\n\u2022\t<a href=\"https://www.interpol.int/How-we-work/Notices/Red-Notices/View-Red-Notices\">Interpol Red Notices</a><br>\n\u2022\t<a href=\"https://rohrborn.de/grossbild.php?bild=1868_Hagke_PersonalCodex_640x929.jpg\">Titelblatt Codex Rohrborn 1868</a></p>\n<p><strong>Historische Verbrechen, Beginn eines Genozids, der bis heute anh\u00e4lt <a href=\"https://acrobat.adobe.com/id/urn:aaid:sc:EU:76f02fe4-5214-4d5c-9e75-8ea7c216a38b\">Wannseekonferenz 1942 \u2013 Juristische Aufarbeitung, Klarstellung</a></strong></p>\n<p><em>Siehe gesamtes Kapitel und Quellen weiter oben f\u00fcr vollst\u00e4ndige Analyse, Namen, Befehlswege und v\u00f6lkerrechtliche Bedeutung. Auf meiner Zenodo Datenbank.</em></p>\n<p><strong>Das SI Security Intelligence Monitoring, was ich in leben Gerufen habe, ist als direkte Reaktion auf diese Verbrechen entstanden \u2013 f\u00fcr echten Opferschutz, Beweissicherung und Pr\u00e4vention gegen die digitale und menschliche Zerst\u00f6rung.</strong></p>\n<p>All diese genannten Vorg\u00e4nge versto\u00dfen in jeder Hinsicht die Normen der <strong>Allgemeinen Erkl\u00e4rung der Menschenrechte</strong> sowie gegen die <strong>Internationalen Pakte \u00fcber b\u00fcrgerliche und politische Rechte</strong> und <strong>\u00fcber wirtschaftliche, soziale und kulturelle Rechte</strong>, insbesondere die <strong>Artikel zum Schutz der Freiheit, der W\u00fcrde, des Eigentums, der sozialen Sicherheit und der wirksamen Rechtsmittel.</strong></p>\n<p><em>Zur Sicherstellung, meiner Glaubw\u00fcrdigkeit, der Nachweisbarkeit, Integrit\u00e4t und gerichtsfesten Dokumentation s\u00e4mtlicher Beweismittel und Analysen wurden all meine ausgewerteten Beweismittel auf der global anerkannten Plattformen Zenodo.org archiviert, hochgeladen und referenziert:</em></p>\n<h2>1. Zenodo.org - Datenbank der Chain of Cutody, aufgeteilt in 4 Volumen die alle zusammen die Beweiskette bilden**</h2>\n<p><strong>Volumen 1</strong><a href=\"https://doi.org/10.5281/zenodo.17809724\">https://doi.org/10.5281/zenodo.17809724</a>++<br>\n<strong>Sch\u00f6ps geb. Thiel, I. (2025)</strong>\"Volumen 1 - SIA Security Intelligence Artefact by Isabel Schoeps geb. Thiel\", Trillion Dollar Bitcoin. 1st Aufl. D-99094 Erfurt, Germany, Th\u00fcringen: Zenodo, University Harvard Cambridge Press, Oxford University Press Lizenz-ID 6131130060979, Springer Verlag. doi<a href=\"https://doi.org/10.5281/zenodo.17809724\">:10.5281/zenodo.17809724</a></p>\n<p><strong>Volumen 2***\n<a href=\"https://doi.org/10.5281/zenodo.17852789\">https://doi.org/10.5281/zenodo.17852789</a>++<br>\n**Sch\u00f6ps geb. Thiel, I. (2025) \"Volumen 2</strong> - SIA-Security-ntelligence-Artefact-Chain-of-Custody-Forensische-Familien-Monarchielinie-copyright-isabelschoepsthiel-urheberin-autorin-.docx.pd\", Trillion Dollar Bitcoin. 1st Aufl. D-99094 Erfurt, Germany, Th\u00fcringen: Zenodo, University Harvard Cambridge Press, Oxford University Press Lizenz-ID 6131130060979, Springer Verlag. ++<a href=\"https://doi.org/10.5281/zenodo.17852789\">doi:10.5281/zenodo.17852789</a>\n<em>Banken, Aktien, Lizenz Betrug, Sozialleistungs Betrug, Genexperimente, Verbrechen gegen die Menschlichkeit.</em></p>\n<p><strong>Volumen 3</strong>\n<a href=\"https://doi.org/10.5281/zenodo.17897358\">https://doi.org/10.5281/zenodo.17897358</a>\n<strong>Sch\u00f6ps geb. Thiel, I. (2025)</strong> SIA Security Intelligence Artefact \u2013 Volume 3 - Famili\u00e4re Erblinie deutschen Monarchie und letzten Kaiserreich. 1st Aufl, The Decline and Fall of the Habsburg Empire, 1815-1918. 1st Aufl. Zenodo, University Harvard Cambridge Press, Oxford University Press Lizenz-ID 6131130060979, Springer Verlag. <a href=\"https://doi.org/10.5281/zenodo.17897358\">doi:10.5281/zenodo.17897358</a></p>\n<p><strong>Volumen 4</strong>\n<a href=\"https://doi.org/10.5281/zenodo.17808895\">https://doi.org/10.5281/zenodo.17808895</a>\n<strong>Sch\u00f6ps geb. Thiel, I. (2025).</strong> - Volume4, SIA Security Intelligence Artefact by Isabel Sch\u00f6ps Thiel: Forensisches wissenschaftliches Gutachten zu Technologie, Software, Historie der Deutschen Monarchie und der internationalen Beweiskette (INT-CODE-2025-BTC/ETH-CORE-ISABELSCHOEPSTHIEL [Data set]. In Bioinformatics (zenodo.org, 1st Aufl., Bd. 20, S. 109 pages). Zenodo.org, Harvard University, Oxford Press, Springnature. <a href=\"https://doi.org/10.5281/zenodo.17808895\">Verlag doi.org/10.5281/zenodo.17808895</a></p>\n<p><strong>Sch\u00f6ps geb. Thiel, I. (2025).</strong> Meine Ersuchen an die Vereinten Nationen - Bitte helfen Sie mir (Zenodo.org). Zenodo.org, University of Harvard harvard.edu, Oxford University ox.ac.uk, Cambridge UK, Reuters.com, New York Times nyt.com, Springer Nature Springer.com, GitHub github.com, University Arizona, Vereine Nationen UN unric.org,. <a href=\"https://doi.org/10.5281/zenodo.18025762\">https://doi.org/10.5281/zenodo.18025762</a></p>\n<h2>BITTE HELFEN SIE MIR</h2>\n<h2>da Aussch\u00f6pfung meiner Rechtswege auf nationaler und europ\u00e4ischer Ebne sowie dieser durch unterlassener Hilfeleistung.**</h2>\n<p><strong>Liebe Gr\u00fcsse aus der deutsch th\u00fcringischen Landeshauptstadt Erfurt</strong></p>\n<h2>SIGNATUR</h2>\n<p><strong>Signed-on-by:</strong> Frau Isabel Sch\u00f6ps, geborene Thiel<br>\n<strong>Autorin, Urheberin und Auftraggeberin:</strong>\nSIA Security Intelligence Artefact<br>\n<a href=\"https://jpmorganchaseco.gcs-web.com/static-files/15c01cf8-4a5a-4040-880e-af4ba94de7d4\">internationinternationale Kennung:</a><strong>++<a href=\"https://jpmorganchaseco.gcs-web.com/static-files/15c01cf8-4a5a-4040-880e-af4ba94de7d4\">INT-CODE-2025-BTC/ETH-CORE-ISABELSCHOEPSTHIEL</a>\n**Rechtscharakter:</strong> Eidesstattliche Versicherung, Bestandteil des forensisch, wissenschaftlichen Gutachtens.<br>\nOrcID: ++<a href=\"https://orcid.org/0009-0003-4235-2231/print\">0009-0003-4235-2231 Isabel Sch\u00f6ps Thiel</a>++<br>\nOrcID: ++<a href=\"https://orcid.org/0009-0006-8765-3267/print\">0009-0006-8765-3267 SI-IST Isabel Sch\u00f6ps</a>++<br>\n<strong>Aktueller Aufenthaltsort:</strong> Cyriakstrasse 30c, D-99094 Erfurt, Th\u00fcringen, Deutschland, <strong>gemeinsam mit meinen vierbeinigen Freund, American XL-Bully Don\nDatum der **Erstver\u00f6ffentlichung:</strong> 2004<br>\n<strong>W\u00fcrdigung, Danksagung, institutionelle Anerkennung, Pr\u00e4fix_Referenz:</strong> YWP-1-5-IST-SIA\n<strong>Zertifikat:</strong> Erstes offizielles Entwicklerzertifikat<br>\n<strong>Alias:</strong> Satoshi Nakamoto, Vitalik Buterin, GitHub, Octocat, Johnny Appleseed, IST-GitHub, Cristina_Bella<br>\n<strong>Digitale Beweissicherung:</strong> <a href=\"https://developercertificate.org\">https://developercertificate.org  </a></p>\n<p><strong>Eidesstattliche Erkl\u00e4rung ist im Zip_Folter_enthalten!</strong></p>\n<h2>Harvard Citatio</h2>\n<p><strong>CRISTINA BELLA</strong>: Pseudonym for identity misappropriation and monetization of personal video content, see: <strong>Sch\u00f6ps, I. (2025). **CHRISTINA CRISTINA BELLA **PORNODARSTELLERIN</strong>. [online] Flipboard. https://flipboard.com/@natoshinakamoto/christina-cristina-bella-pornodarstellerin-fqv7c73rz (accessed 13 Oct 2025)</p>\n<p><strong>Sch\u00f6ps, I. (2025).</strong> *SIA Security Intelligence Artefact. Forensisches Gutachten \u00fcber Urheberschaft, DAEMON-KI-Automation, Bitcoin Core, GitHub &amp; Pornhub sowie die Aufdeckung des Verbrechens Monarch-Programm. INT-CODE-2025-BTC/ETH-CORE-ISABELSCHOEPSTHIEL, Erfurt: Springer Verlag.</p>\n<p><strong>Juristische Untermauerung:</strong> Harvard University, Cambridge University, University of Oxford, Japan , Genf, Schweiz. DOI: <a href=\"https://doi.org/10.5281/zenodo.17809724\">https://doi.org/10.5281/zenodo.17809724</a></p>\n<h2>Works Cited</h2>\n<p><strong>Recommended Citation Recommended Citation</strong></p>\n<p><strong>Pieter M. Judson , '78. (2005).</strong> &quot;When Is A Diaspora Not A Diaspora? Rethinking Nation-Centered<br>\nNarratives About Germans In Habsburg East Central Europe&quot;. The Heimat Abroad: The Boundaries Of<br>\nGermanness. 219-247. DOI: 10.3998/mpub.93476<br>\n<a href=\"https://works.swarthmore.edu/fac-history/183\">https://works.swarthmore.edu/fac-history/183</a></p>\n<p>\u00a0<strong>Arat\u00f3, Paulus. \"Bibliographia Historiae Pontificiae.\"</strong> <em>Archivum Historiae Pontificiae</em>, vol. 21, 1983, pp. 345\u2013588, <a href=\"www.jstor.org/stable/23564172\">www.jstor.org/stable/23564172.</a></p>\n<p><strong>Bibliographische Beilage.\"</strong> Gnomon  vol. 35, no. 8, 1963,** pp. 1\u201380, <a href=\"www.jstor.org/stable/27683288\">www.jstor.org/stable/27683288</a></p>\n<p>\"<strong>Jahresbericht 2009 Der Staatlichen Museen Zu Berlin.\"</strong> Jahrbuch Der Berliner Museen*, vol. 52, 2010, pp. 1\u201371, www.jstor.org/stable/23345544.</p>\n<p>\"<strong>Jahresbericht 2009 Der Staatlichen Museen Zu Berlin.\"</strong> Jahrbuch Der Berliner Museen*, vol. 52, 2010, pp. 1\u201371, www.jstor.org/stable/23345544.</p>\n<p><strong>Paulus, Arat\u00f3. \"BIBLIOGRAPHIA HISTORIAE PONTIFICIAE</strong>. Archivum Historiae Pontificiae, 22, 441\u2013710.\" <em>Archivum Historiae Pontific</em>, vol. 22, no. 7, 1984. <em>24</em>, doi:doi.org/10.5281/zenodo.17807324.</p>\n<p><strong>Pons, Rouven. \"'Gem\u00e4lde von Gedanken Leer ...':</strong> Uberlegungen Zu Reiterportrats Des Ausgehenden 18. Jahrhunderts.\" <em>Marburger Jahrbuch F\u00fcr Kunstwissenschaft</em>, vol. 33, 2006, pp. 225\u2013251, www.jstor.org/stable/40026517.</p>\n<p><strong>Sch\u00f6ps geborene Thiel, Isabel</strong> \"Un Exemple d'arch\u00e9ologie Des Sciences Humaines: L'\u00e9tude de l'\u00c9gyptomanie Du XVIe Au XVIIIe Si\u00e8cle.\" <em>Annales. Histoire, Sciences Sociales</em>, vol. 27, no. 2, 16 July 1983, pp. 473\u2013482, doi:10.5281/zenodo.17808895.</p>\n<p><strong>Connolly, S.J. (2012)</strong> Like an old cathedral city: Belfast welcomes Queen Victoria, August 1849\", Urban History, 39(4), pp. 571\u2013589. <a href=\"http://www.jstor.org/stable/26398169\">http://www.jstor.org/stable/26398169</a></p>\n<p><strong>Sch\u00f6ps Thiel, Isabel. Yellow Whitepaper ed.,</strong> vol. 1, UK-Oxford Press University, US-Harvard Cambridge, D Springer Verlag , Erfurt, Th\u00fcringen, 2025, pp. 1\u2013109, <em>SIA Security Intelligence Artefact</em>.</p>\n<p><a href=\"https://jpmorganchaseco.gcs-web.com/static-files/15c01cf8-4a5a-4040-880e-af4ba94de7d4\">Erfurt Th\u00fcringen, Deutschland, Januar 2026</a>\n<strong><a href=\"https://jpmorganchaseco.gcs-web.com/static-files/15c01cf8-4a5a-4040-880e-af4ba94de7d4\">Autorin, Urheberin und Auftraggeberin</a></strong>\n<a href=\"https://jpmorganchaseco.gcs-web.com/static-files/15c01cf8-4a5a-4040-880e-af4ba94de7d4\">Frau Isabel Sch\u00f6ps geborene Thiel</a>\n<a href=\"https://jpmorganchaseco.gcs-web.com/static-files/15c01cf8-4a5a-4040-880e-af4ba94de7d4\">Meldeanschrift Wohnort</a>\n<a href=\"https://jpmorganchaseco.gcs-web.com/static-files/15c01cf8-4a5a-4040-880e-af4ba94de7d4\"> Cyriakstrasse 30c, D-99094 Erfurt, Th\u00fcringen, Deutschland</a>++</p>\n<p><strong><a href=\"https://jpmorganchaseco.gcs-web.com/static-files/15c01cf8-4a5a-4040-880e-af4ba94de7d4\">SIA Security Intelligence Artefact</a></strong><br>\n<strong><a href=\"https://jpmorganchaseco.gcs-web.com/static-files/15c01cf8-4a5a-4040-880e-af4ba94de7d4\">Forensisch wissenschaftliches Gutachten &amp; Forschungsarbeit: Technologie, Software, Historie</a></strong>\n<a href=\"https://jpmorganchaseco.gcs-web.com/static-files/15c01cf8-4a5a-4040-880e-af4ba94de7d4\">internationale Kennung:</a> <a href=\"https://jpmorganchaseco.gcs-web.com/static-files/15c01cf8-4a5a-4040-880e-af4ba94de7d4\">INT-CODE-2025-BTC/ETH-CORE-ISABELSCHOEPSTHIEL</a><br>\n<a href=\"https://jpmorganchaseco.gcs-web.com/static-files/15c01cf8-4a5a-4040-880e-af4ba94de7d4\">URGENT: Forensic Evidence \u2013 Systematic Financial Fraud &amp; IP Theft</a>\n<strong>Location- Update Zeitstempel:</strong> 2026-01-09 03:44CEST, Ms. Isabel Schoeps geb. Thiel,  Cyriakstrasse 30c, D-99094 Erfurt, Th\u00fcringen, Deutschland</p>",
+    "languages": [
+      {
+        "id": "deu",
+        "title": {
+          "en": "German"
+        }
+      }
+    ],
+    "publication_date": "2026-01-09",
+    "publisher": "Zenodo",
+    "related_identifiers": [
+      {
+        "identifier": "https://github.com/isabelschoeps-thiel/press-help-me/tree/Please_readme_v1.0",
+        "relation_type": {
+          "id": "issupplementto",
+          "title": {
+            "de": "Erg\u00e4nzt",
+            "en": "Is supplement to"
+          }
+        },
+        "resource_type": {
+          "id": "software",
+          "title": {
+            "de": "Software",
+            "en": "Software"
+          }
+        },
+        "scheme": "url"
+      }
+    ],
+    "resource_type": {
+      "id": "software",
+      "title": {
+        "de": "Software",
+        "en": "Software"
+      }
+    },
+    "rights": [
+      {
+        "description": {
+          "en": "The Creative Commons Attribution license allows re-distribution and re-use of a licensed work on the condition that the creator is appropriately credited."
+        },
+        "icon": "cc-by-icon",
+        "id": "cc-by-4.0",
+        "props": {
+          "scheme": "spdx",
+          "url": "https://creativecommons.org/licenses/by/4.0/legalcode"
+        },
+        "title": {
+          "en": "Creative Commons Attribution 4.0 International"
+        }
+      }
+    ],
+    "title": "isabelschoeps-thiel/press-help-me: Please_readme_v1.0",
+    "version": "Please_readme_v1.0"
+  },
+  "parent": {
+    "access": {
+      "grants": [],
+      "links": [],
+      "owned_by": {
+        "user": "1481292"
+      },
+      "settings": {
+        "accept_conditions_text": null,
+        "allow_guest_requests": false,
+        "allow_user_requests": false,
+        "secret_link_expiration": 0
+      }
+    },
+    "communities": {},
+    "id": "18192589",
+    "pids": {
+      "doi": {
+        "client": "datacite",
+        "identifier": "10.5281/zenodo.18192589",
+        "provider": "datacite"
+      }
+    }
+  },
+  "pids": {
+    "doi": {
+      "client": "datacite",
+      "identifier": "10.5281/zenodo.18193397",
+      "provider": "datacite"
+    },
+    "oai": {
+      "identifier": "oai:zenodo.org:18193397",
+      "provider": "oai"
+    }
+  },
+  "revision_id": 8,
+  "stats": {
+    "all_versions": {
+      "data_volume": 0.0,
+      "downloads": 0,
+      "unique_downloads": 0,
+      "unique_views": 1,
+      "views": 1
+    },
+    "this_version": {
+      "data_volume": 0.0,
+      "downloads": 0,
+      "unique_downloads": 0,
+      "unique_views": 0,
+      "views": 0
+    }
+  },
+  "status": "published",
+  "swh": {},
+  "updated": "2026-01-09T03:08:11.429218+00:00",
+  "versions": {
+    "index": 2,
+    "is_latest": true,
+    "is_latest_draft": true
+  }
+}
