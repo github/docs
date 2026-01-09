@@ -14,11 +14,7 @@ topics:
   - Dependencies
   - Pull requests
 children:
-  - /managing-pull-requests-for-dependency-updates
   - /automating-dependabot-with-github-actions
-  - /keeping-your-actions-up-to-date-with-dependabot
-  - /configuring-access-to-private-registries-for-dependabot
-  - /guidance-for-the-configuration-of-private-registries-for-dependabot
   - /configuring-multi-ecosystem-updates
   - /dependabot-options-reference
   - /setting-dependabot-to-run-on-self-hosted-runners-using-arc

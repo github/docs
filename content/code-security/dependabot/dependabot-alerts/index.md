@@ -14,9 +14,7 @@ topics:
   - Repositories
   - Dependencies
 children:
-  - /configuring-dependabot-alerts
   - /viewing-and-updating-dependabot-alerts
   - /enable-delegated-alert-dismissal
-  - /configuring-notifications-for-dependabot-alerts
 ---
 
