@@ -1,13 +1,16 @@
 ---
 title: About security configurations
 shortTitle: Security configurations
-intro: 'Security configurations are collections of security settings that you can apply across your enterprise.'
+intro: Security configurations are collections of security settings that you can apply across your enterprise.
 versions:
   feature: security-configuration-enterprise-level
 topics:
   - Advanced Security
   - Enterprise
   - Security
+redirect_from:
+  - /admin/managing-code-security/securing-your-enterprise/about-security-configurations
+contentType: concepts
 ---
 
 ## About {% data variables.product.prodname_security_configurations %}

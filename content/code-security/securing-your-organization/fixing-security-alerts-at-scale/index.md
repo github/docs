@@ -12,8 +12,6 @@ topics:
   - Organizations
   - Security
 children:
-  - /about-security-campaigns
   - /creating-managing-security-campaigns
   - /tracking-security-campaigns
 ---
-

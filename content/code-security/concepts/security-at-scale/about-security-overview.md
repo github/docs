@@ -1,6 +1,7 @@
 ---
 title: About security overview
-intro: 'You can gain insights into the overall security landscape of your organization or enterprise and identify repositories that require intervention using security overview.'
+shortTitle: Security overview
+intro: You can gain insights into the overall security landscape of your organization or enterprise and identify repositories that require intervention using security overview.
 product: |
   {% data reusables.gated-features.security-overview-general %}{% ifversion secret-risk-assessment %}
 
@@ -8,6 +9,7 @@ product: |
 redirect_from:
   - /code-security/security-overview/exploring-security-alerts
   - /code-security/security-overview/about-the-security-overview
+  - /code-security/security-overview/about-security-overview
 versions:
   fpt: '*'
   ghes: '*'
@@ -23,6 +25,7 @@ topics:
   - Organizations
   - Secret scanning
   - Teams
+contentType: concepts
 ---
 
 {% ifversion fpt %}

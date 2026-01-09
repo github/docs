@@ -14,6 +14,9 @@ topics:
   - Code Security
   - Secret Protection
 shortTitle: Audit security alerts
+redirect_from:
+  - /code-security/getting-started/auditing-security-alerts
+contentType: concepts
 ---
 
 ## About security tools for auditors

@@ -1,7 +1,7 @@
 ---
 title: About supply chain security for your enterprise
 intro: You can enable features that help your developers understand and update the dependencies their code relies on.
-shortTitle: About supply chain security
+shortTitle: Supply chain security
 permissions: ''
 versions:
   ghes: '*'
@@ -12,6 +12,8 @@ topics:
   - Dependency graph
 redirect_from:
   - /admin/code-security/managing-supply-chain-security-for-your-enterprise/about-supply-chain-security-for-your-enterprise
+  - /admin/managing-code-security/managing-supply-chain-security-for-your-enterprise/about-supply-chain-security-for-your-enterprise
+contentType: concepts
 ---
 
 You can allow users to identify their projects' dependencies by enabling the dependency graph for {% data variables.product.prodname_ghe_server %}. For more information, see [Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise).

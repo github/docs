@@ -1,7 +1,7 @@
 ---
-title: 'About security campaigns'
-shortTitle: 'About security campaigns'
-intro: 'You can fix security alerts at scale by creating security campaigns and collaborating with developers to burn down your security backlog.'
+title: About security campaigns
+shortTitle: Security campaigns
+intro: You can fix security alerts at scale by creating security campaigns and collaborating with developers to burn down your security backlog.
 product: '{% data reusables.gated-features.security-campaigns %}'
 allowTitleToDifferFromFilename: true
 type: overview
@@ -15,6 +15,8 @@ topics:
   - Secret Protection
   - Organizations
   - Security
+redirect_from:
+  - /code-security/securing-your-organization/fixing-security-alerts-at-scale/about-security-campaigns
 ---
 
 Once you have identified security alerts the next step is to identify the most urgent alerts and get them fixed. Security campaigns are a way to group alerts and share them with developers, so you can collaborate to remediate vulnerabilities in the code{% ifversion security-campaigns-secrets %} and any exposed secrets{% endif %}.

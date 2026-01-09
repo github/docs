@@ -17,7 +17,5 @@ children:
   - /quickstart-for-securing-your-repository
   - /quickstart-for-securing-your-organization
   - /adding-a-security-policy-to-your-repository
-  - /auditing-security-alerts
   - /understanding-github-secret-types
 ---
-

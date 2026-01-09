@@ -147,7 +147,7 @@ security_alerts:
   guides:
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/security-overview/about-security-overview {% endif %}
+      %}/code-security/concepts/security-at-scale/about-security-overview {% endif %}
     - >-
       {% ifversion ghec or ghes
       %}/code-security/security-overview/assessing-adoption-code-security {%
@@ -178,7 +178,7 @@ security_alerts:
       endif %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/getting-started/auditing-security-alerts {% endif %}
+      %}/code-security/concepts/security-at-scale/auditing-security-alerts {% endif %}
 code_security_actions:
   title: Run code scanning with GitHub Actions
   description: >-
