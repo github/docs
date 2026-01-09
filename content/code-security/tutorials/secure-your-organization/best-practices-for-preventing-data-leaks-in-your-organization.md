@@ -1,6 +1,6 @@
 ---
 title: Best practices for preventing data leaks in your organization
-intro: 'Learn guidance and recommendations to help you avoid private or sensitive data present in your organization from being exposed.'
+intro: Learn guidance and recommendations to help you avoid private or sensitive data present in your organization from being exposed.
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,6 +12,9 @@ topics:
   - Secret scanning
   - Secret Protection
 shortTitle: Prevent data leaks
+redirect_from:
+  - /code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization
+contentType: tutorials
 ---
 
 ## About this guide

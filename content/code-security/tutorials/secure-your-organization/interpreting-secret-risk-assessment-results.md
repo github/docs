@@ -1,8 +1,8 @@
 ---
-title: 'Interpreting secret risk assessment results'
-shortTitle: 'Interpret results'
-intro: 'Understand the results from your {% data variables.product.prodname_secret_risk_assessment %} and prioritize leak remediation.'
-permissions: 'Organization owners, security managers, and users with the **admin** role'
+title: Interpreting secret risk assessment results
+shortTitle: Interpret secret risk assessment
+intro: Understand the results from your {% data variables.product.prodname_secret_risk_assessment %} and prioritize leak remediation.
+permissions: Organization owners, security managers, and users with the **admin** role
 allowTitleToDifferFromFilename: true
 versions:
   feature: secret-risk-assessment
@@ -11,6 +11,8 @@ topics:
   - Organizations
   - Security
 contentType: tutorials
+redirect_from:
+  - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/interpreting-secret-risk-assessment-results
 ---
 
 ## Introduction

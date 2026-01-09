@@ -1,7 +1,7 @@
 ---
 title: Prioritizing Dependabot and code scanning alerts using production context
-shortTitle: Alerts in production code
-intro: 'Focus remediation on real risk by targeting {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} alerts in artifacts deployed to production, using metadata from external registries like JFrog Artifactory, your own CI/CD workflows, or from {% data variables.product.prodname_microsoft_defender %}.'
+shortTitle: Prioritize alerts in production code
+intro: Focus remediation on real risk by targeting {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} alerts in artifacts deployed to production, using metadata from external registries like JFrog Artifactory, your own CI/CD workflows, or from {% data variables.product.prodname_microsoft_defender %}.
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,6 +14,8 @@ topics:
   - Security
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/prioritizing-dependabot-alerts-using-production-context
+  - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/alerts-in-production-code
+  - /code-security/tutorials/secure-your-organization/alerts-in-production-code
 ---
 
 {% data reusables.security.production-context-mdc-preview %}

@@ -16,9 +16,9 @@ children:
   - /viewing-the-secret-risk-assessment-report-for-your-organization
   - /export-risk-report-csv
   - /risk-report-csv-contents
-  - /interpreting-secret-risk-assessment-results
   - /protect-your-secrets
   - /calculating-the-cost-savings-of-push-protection
   - /estimating-the-price-of-secret-protection
   - /organizing-remediation-efforts-for-leaked-secrets
 ---
+
