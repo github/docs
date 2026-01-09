@@ -1,0 +1,200 @@
+OJS 3.5.0 Release Notes
+Git tag: 3_5_0-3
+
+Release date: December 19, 2025
+===============================
+
+Configuration Changes
+---------------------
+
+The following changes should be applied to the config.inc.php configuration file. See config.TEMPLATE.inc.php for descriptions and examples of all supported configuration parameters.
+
+In the [general] section:
+    - app_key: A unique key used internally for encryption/decryption. It will be automatically added at upgrade.
+    - scheduled_tasks: This setting is no longer used and can be removed.
+
+In the [security] section:
+    - cipher: Algorithm used to generate app key and encryption purpose
+    - cookie_encryption: Allow cookie encryption when set
+
+In the newly added [schedule] section:
+    - task_runner (default value: On): Whether or not to run the schedule tasks through the web based task runner
+    - task_runner_interval (default value: 60): How often the web based task runner should run tasks (in seconds)
+    - scheduled_tasks_report_error_only (default value: On): Whether or not task execution failure details will be sent via mail
+
+In [queues]:
+    - process_jobs_at_task_scheduler (default value: Off): Controls whether queued jobs should be executed together with the scheduled tasks.
+
+In [cache]:
+    - default (default value: 'file'). Can be either 'file' or 'opcache' to indicate which Laravel cache should be used.
+    - path (default value: 'cache/opcache'). Use to specify a path for cache storage when using 'file' or 'opcache' drivers.
+
+3.5.0-3 Build
+-------------
+    #12144: Update ROR dataset filename and handle missing data
+    #12127: Unclear pre-flight warning during upgrade
+    #12100: Reviewer search is broken
+    #12099: Fatal error in editor workflow with disabled reviewer user account
+    #11697: Edit contributor deletes authenticated ORCID
+    #11693: TinyMCE modal-based controls are not clickable
+    #11657: View Submissions - Submissions Lists, Fatal error with disabled user account
+
+3.5.0-2 Build
+-------------
+    #11793: Plugins should always register hooks and check getEnabled(context) in the hook functions
+    #12002: Make a new submission - When a user doesn't have a role in a journal they are unable to make a new submission
+    #11621: DataCite exportAndDeposit does not save errors
+    #11658: Create Submission - New Submission, Chinese locale fails validation
+    #11496: Fix PHP warning about missing locale key {$loggedInUsername}
+    #11568: [Notifications] | Disable email notification for editor assignment for new submissions
+    #11303: [Queue Jobs] | Mail translation does not correspond to the defined locale using queue worker
+    #11396: PHP fatal error after upgrade when the current theme plugin is missing
+    #11703: [Native XML Import] | Can't import article without author
+    #11752: Issue page - Race conditions might lead to unexpected section sorting/data loss
+    #11862: Administration - View Failed Jobs, Payload data is incorrect
+    #11550: Make DataciteExportPlugin available to the jobs
+    #11886: When distribution for DOIs is set to never assign DOIs and DOI versioning is set to Yes it is being overridden
+    #11451: Exception when calling PKP\submission\DAO::getByPubId()
+    #10361: Migration from 3.1.2 to 3.4.0.6 : lost decision in activity log
+    #11951: Issues - Grid, 3.4 Unpublishing an issue changes the publication dates
+    #12039: Permit hrefs only for command-line based imports
+    #12022: Properly escape payment instructions
+    #11978: Log in form is missing a CSRF check
+    #11977: Properly escape keyword search contents in institution collector
+    #11974: Validate base colour setting in default theme
+    #11973: Sanitize imported issue file filenames
+    #11305: Add a Hook for PKPReviewerReviewStep3Form::saveForLater
+    #10941: Section policies are shown for inactive sections on Submissions page (3.3)
+    #10139: By Author search pulls in keywords too
+    #11663: Upgrade from 3.3: I7014_DoiMigration violation of foreign key
+    #11791: User management performs poorly with large databases
+    #12017: UserGroup::scopeWithUserUserGroupStatus does not work correctly, fix getting user that is active in a role
+    #11970: [Notifications] | PHP Fatal error - assocType is null
+    #12058: [Search Index] | Rebuilding search index fails due to missing $context orcidApiType
+    #11668: Fix notification bug: Cast notification type to integer
+    #12033: [Delete Issue] | Issues - Delete issue, when issue has published articles attached it throws an exception
+    #11558: [Accessibility] | Chart Component in Storybook throwing img needs alt text violation
+    #11567: [JATS OAI] | Metadata - Multilingual keywords should use submission locales
+    #11631: Add ability for plugin to attach authorization policies to API controller
+    #11642: Add "Change Language" translation for 3.5
+    #11653: [Quick Submit] | New Submission - Contributor Form, Affiliation is required
+    #11667: [Notifications] | New Notifications are no longer bold in 3.5
+    #11671: [Users & Roles] | Invite user to take a role - Enter Details, error when adding a role for an existing user
+    #11673: [Reviewer Suggestion] | Unable to fetch appropriate submission in multi context system
+    #11675: [Contributor Affiliations] | Upgrade - Multilingual non-ROR affiliations are migrated into separate affiliations
+    #11677: [Disabled user] | New submission workflow - final step, there is a fatal error when trying to complete a new submission
+    #11682: Improve performance
+    #11683: Monthly Statistics Report sent via email everyday
+    #11690: [Invitation] | Invitation request auto declined on opening email due to mail client's safe link feature
+    #11691: JS tooling dependencies update & adding Engine requirements
+    #11692: [New Submission] | Adding Keyword - Final Step summary, when reloading the page or selecting save and continue the keyword field is summarized incorrectly
+    #11693: TinyMCE modal-based controls are not clickable
+    #11730: [API] Fatal error if any request to submissions endpoints includes invalid submission ID
+    #11740: Misplaced Comma in InstitutionalSubscriptionDAO.php
+    #11756: Type Casting Error in /classes/subscription/form/SubscriptionForm.php
+    #11766: DMARC compliance logic ordering causes SES/SMTP failures
+    #11772: ReviewReminder diffInDays Parameter Order Bug in OJS 3.5.0.1
+
+3.5.0-1 Build
+-------------
+    #11603: User role assignment email template missing
+    #11559: Uncaught TypeError in NotificationsGridCellProvider.php for a deleted query
+    #11544: Author ORCID request email fails with new author
+    #11447: Add NLM Title Abbreviation to PubMed exports
+    #11529: Upgrade Fails with SQL Syntax Error 1064 on MariaDB/MySQL due to Incorrect Default Value Quoting
+    #11333: Highlights | Homepage - Long Descriptions ignores paragraph breaks
+    #11517: [Suggest Reviewers] | Various areas - small adjustments to 4787 feature, to align with design consistency
+    #9079: Different plugins use different licenses
+    #11532: Install form time zone is not considered during initial installation
+    #11536: Language settings, Submissions languages grid shows Reset defaults action which is not needed
+    #11460: Missing info from existing user invitation in journal A being added to a role in journal B
+    #11586: [DOI Deposit] | XML generated is not well-formed or does not validate
+    #11577: Top menu items are only clickable on text
+    #11613: Reviews - One Click Login for reviewers don't work when inviting a new reviewer
+    #11609: Remove API controller override mechanism for plugin
+    #11594: Reader profile language, UI Language change not possible if allowed_hosts is not enabled
+    #11548: Sitemap - Announcement id error when upgrade to 3.5.0
+    #11580: Review workflow - Step 3, Buttons are not in the correct order
+    #11551: 3.5.0 Annoucement sort asc by default
+    #11556: Edit existing announcement - Expiry Date, the announcement expiry date is not preserved after saving
+
+New Features
+------------
+    #10983, #10970, and many more: Redesigned dashboard and workflow pages
+    #10796, #10792, and many more: ORCiD integration and improvements
+    #3022, 10610, #10609, and many more: Allow Journal Managers to invite users to adopt a role
+    #10620, #9860: Editorial board management
+    #11273: Improve UserAccessManager extensibility
+    #11122: [Press Series | Press Series-Series, Submissions can be assigned under inactivated press series
+    #11044, #10651, #10489: Add user initials to UI
+    #10994: New showMore component with accessibility in mind
+    #10964: Retire the Resolver plugin
+    #10951: Personalise review round statuses for Recommend only editor
+    #10921: [OMP] Add option to show Press Summary on the home page
+    #10659: Update Crossref to 5.4.0
+    #10561: [OMP] Update Onix schema in export plugins
+    #10537, #10515, #10500, #10480, #10465, and many more: API additions
+    #10514: Increase resilience of the application against malfunctions on plugins
+    #10458, #10434, #7505, and many more: Add basic JATS support
+    #10447: Create new ButtonIcon component
+    #10444: Improve dialog component design
+    #10365: [OMP] Update the Onix schema version
+    #10363: Allow definition of minimum reviews required for a Submission
+    #10283: Add support for ALTCHA
+    #10178: Add search by DOI to DOI manager
+    #10163: Add support for catching registrants to removed hooks
+    #10158: Move publication to category relationship out of publication_settings
+    #10157: Move publication to issue_id relationship out of publication_settings table
+    #10053: Introduce Author::add::before hook
+    #10033: Add new dropdown menu component
+    #10001: Possibility to add Cancel button in the form
+    #9999: Track Editor Workload While Assigning Participants
+    #9914: Editorial History
+    #9910: Use UI Language in Web and Announcement RSS2 Feeds
+    #9895: Introduce APP KEY feature of Laravel
+    #9892: Upgrade to Laravel version 11.x
+    #9890: Implement side menu navigation component
+    #9887, #9197, and many more: Introduce general-purpose invitations toolset
+    #9857: Create FieldSlider component
+    #9823: Improve job runner configuration/execution
+    #9707: Align UI locales with Weblate locales
+    #9678: Replace task scheduler with Laravel scheduler
+    #9642: Create date picker in Vue
+    #9566: Convert session and cookie management to Laravel
+    #9453: In OJS, a reviewer cannot access his/her recommendations from a previous round.
+    #9434: Allow plugins to add/modify API endpoints of existing entity
+    #9425: Make submission language selection and metadata forms independent from website language settings
+    #9366: Upgrade to TinyMCE7
+    #9284: Display list of authors with reviewer assignment process
+    #9243: Performance & Optimization
+    #9239: 3.5 LTS Dependency maintenance and updates
+    #8884: New design for pagination component
+    #8883: Add a summary panel to the submissions list
+    #8881: Add review assignment progress and pop-ups to submissions table
+    #8365: Remove disable_path_info URL generation mode
+    #8350: Authors should be able to cancel in-progress submissions
+    #7698: Replace Slim with Laravel-based routing toolset
+    #7512: Use the Accept-Language header when assigning a default language to a new user session
+    #7504: Add UI tools to control HTML in submission titles
+    #7135: Multiple author affiliations and machine-readable affiliations
+    #6528: Ability to bulk-delete old incomplete submissions
+    #5953: Issue published notification email should include table of contents
+    #5504: Have option to restrict Editor access to Settings
+    #5502: Not possible to see or select publication language after submission
+    #5340: Distinguish different types of Decline in CSV export for editorial stats
+    #4787: Suggest Reviewers at the Time of Submission
+    #4396: Allow editors to have saved views for the submissions list
+    #4348: [OJS] Always show Delete button in submissions listing when user is assigned as editor
+    #3075: Submissions with completed review assignments should move to reviewer's archive list
+    #2887: Add quick actions from submissions list
+    #1550: Allow a journal to define a limited set of allowed keywords and reviewer interests
+    #699: Ensure that all languages are indexable by crawlers
+
+Bug fixes:
+----------
+    #11397: [Admin] | Creating a new Journal - Adding Locales, when there are multiple locales installed adding them to a new journal seems to cause errors.
+    #11393: QuickSubmit Plugin| Lingering Form field on Multilingual journals
+    #10232: REVIEW_ASSIGNMENT_CONSIDERED and REVIEW_ASSIGNMENT_NEW are never granted
+    #9290: 1061 Duplicate key name 'static_page_settings_static_page_id'
+    #7611: Assigned To Editor Filter on Submission dashboard picks up submissions by Editor
+

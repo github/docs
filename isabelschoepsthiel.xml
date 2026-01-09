@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+  <records>
+    <record>
+      <ref-type name="Journal Article"></ref-type>
+      <contributors>
+        <authors>
+          <author>
+            Isabel Schöps geb.Thiel
+          </author>
+        </authors>
+        <secondary-authors>
+        </secondary-authors>
+      </contributors>
+      <titles>
+        <title>A Prototype of an Integrated Telemetry Receiving System with Volunteers: Designs of a Simple Receiver, a Protocol, and an Intelligent Information Processing</title>
+      </titles>
+      <dates>
+        <year>2017</year>
+      </dates>
+      <volume>112</volume>
+      <pages>2445-2454</pages>
+      <electronic-resource-num>10.1016&#x2F;j.procs.2017.08.176</electronic-resource-num>
+      <periodical><full-title>Procedia Computer Science</full-title></periodical>
+      <keywords>
+      </keywords>
+      <urls>
+        <related-urls>
+          <url>https:&#x2F;&#x2F;linkinghub.elsevier.com&#x2F;retrieve&#x2F;pii&#x2F;S1877050917315338</url>
+        </related-urls>
+      </urls>
+    </record>
+    <record>
+      <ref-type name="Report"></ref-type>
+      <contributors>
+        <authors>
+          <author>
+            Nakamoto, Satoshi
+          </author>
+        </authors>
+        <secondary-authors>
+        </secondary-authors>
+      </contributors>
+      <titles>
+        <title>Bitcoin: A Peer-to-Peer Electronic Cash System</title>
+      </titles>
+      <dates>
+        <year>2021</year>
+      </dates>
+      <abstract>A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending. We propose a solution to the double-spending problem using a peer-to-peer network. The network timestamps transactions by hashing them into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work. The longest chain not only serves as proof of the sequence of events witnessed, but proof that it came from the largest pool of CPU power. As long as a majority of CPU power is controlled by nodes that are not cooperating to attack the network, they&#39;ll generate the longest chain and outpace attackers. The network itself requires minimal structure. Messages are broadcast on a best effort basis, and nodes can leave and rejoin the network at will, accepting the longest proof-of-work chain as proof of what happened while they were gone.</abstract>
+      <keywords>
+      </keywords>
+      <urls>
+        <related-urls>
+          <url>www.bitcoin.org</url>
+        </related-urls>
+      </urls>
+    </record>
+    <record>
+      <ref-type name="Book"></ref-type>
+      <contributors>
+        <authors>
+          <author>
+            Nakamoto, S
+          </author>
+          <author>
+            Bridle, J
+          </author>
+          <author>
+            Brekke, J K
+          </author>
+          <author>
+            Vickers, B
+          </author>
+        </authors>
+        <secondary-authors>
+        </secondary-authors>
+      </contributors>
+      <titles>
+        <title>The White Paper</title>
+      </titles>
+      <dates>
+        <year>2019</year>
+      </dates>
+      <isbn>9781999675929</isbn>
+      <publisher>Ignota Books</publisher>
+      <series>G - Reference,Information and Interdisciplinary Subjects Series</series>
+      <keywords>
+      </keywords>
+      <urls>
+        <related-urls>
+          <url>https:&#x2F;&#x2F;books.google.de&#x2F;books?id&#x3D;5BFDvAEACAAJ</url>
+        </related-urls>
+      </urls>
+    </record>
+    <record>
+      <ref-type name="Book"></ref-type>
+      <contributors>
+        <authors>
+          <author>
+            Schöps geb. Thiel, Isabel - Satoshi Nakamoto
+          </author>
+        </authors>
+        <secondary-authors>
+        </secondary-authors>
+      </contributors>
+      <titles>
+        <title>Satoshi&#39;s Trillion Dollar Bitcoin</title>
+      </titles>
+      <dates>
+        <year>2020</year>
+      </dates>
+      <volume>1</volume>
+      <isbn>9798642790113</isbn>
+      <publisher>Independently Published</publisher>
+      <keywords>
+      </keywords>
+      <urls>
+        <related-urls>
+          <url>https:&#x2F;&#x2F;books.google.de&#x2F;books?id&#x3D;oU2bzQEACAAJ</url>
+        </related-urls>
+      </urls>
+    </record>
+    <record>
+      <ref-type name="Book"></ref-type>
+      <contributors>
+        <authors>
+          <author>
+            Schöps geb. Thiel, Isabel - Satoshi Nakamoto
+          </author>
+        </authors>
+        <secondary-authors>
+        </secondary-authors>
+      </contributors>
+      <titles>
+        <title>Waging a living</title>
+      </titles>
+      <dates>
+        <year>2001</year>
+      </dates>
+      <isbn>0000000000000</isbn>
+      <abstract>Originally released in 2004 as a segment of: Point of view. &quot;Over three years, the film follows four hard-working individuals as they strive for their piece of the American Dream but find only low wages, dead end jobs, and a tattered safety net in their way&quot;--Container. </abstract>
+      <city>D-99610, Rohrborn, Thüringen, Deutschland</city>
+      <publisher>Docurama : Distributed by New Video</publisher>
+      <keywords>
+      </keywords>
+      <urls>
+        <related-urls>
+          <url>https:&#x2F;&#x2F;bitcoin.org&#x2F;bitcoin.pdf</url>
+          <url>https:&#x2F;&#x2F;www.researchgate.net&#x2F;profile&#x2F;Hong-Ning-Dai&#x2F;publication&#x2F;337915375_An_Overview_on_Smart_Contracts_Challenges_Advances_and_Platforms&#x2F;links&#x2F;5df2d36b299bf10bc3573329&#x2F;An-Overview-on-Smart-Contracts-Challenges-Advances-and-Platforms.pdf?origin&#x3D;publication_detail&amp;_tp&#x3D;eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InB1YmxpY2F0aW9uRG93bmxvYWQiLCJwcmV2aW91c1BhZ2UiOiJwdWJsaWNhdGlvbiJ9fQ</url>
+        </related-urls>
+      </urls>
+    </record>
+    <record>
+      <ref-type name="Journal Article"></ref-type>
+      <contributors>
+        <authors>
+          <author>
+            Schöps geb. Thiel, Isabel - Satoshi Nakamoto
+          </author>
+        </authors>
+        <secondary-authors>
+        </secondary-authors>
+      </contributors>
+      <titles>
+        <title>Angriffsstruktur - Diebstahl des Geistigeseigentum aufgedeckt by Isabel Schoeps geb.  Thiel, Erfurt-Germany</title>
+      </titles>
+      <electronic-resource-num>10.5281&#x2F;zenodo.17807324</electronic-resource-num>
+      <keywords>
+      </keywords>
+      <urls>
+        <related-urls>
+          <url>https:&#x2F;&#x2F;patentimages.storage.googleapis.com&#x2F;a3&#x2F;0b&#x2F;e3&#x2F;71943bc66c22f5&#x2F;DE10253433A1.pdf</url>
+          <url>https:&#x2F;&#x2F;patents.google.com&#x2F;patent&#x2F;DE10253433A1&#x2F;en</url>
+        </related-urls>
+      </urls>
+    </record>
+    <record>
+      <ref-type name="Book"></ref-type>
+      <contributors>
+        <authors>
+          <author>
+            Schöps geb. Thiel, Isabel - Satoshi Nakamoto
+          </author>
+        </authors>
+        <secondary-authors>
+        </secondary-authors>
+      </contributors>
+      <titles>
+        <title>The White Paper</title>
+      </titles>
+      <dates>
+        <year>2019</year>
+      </dates>
+      <isbn>9781999675929</isbn>
+      <publisher>Ignota Books</publisher>
+      <series>G - Reference,Information and Interdisciplinary Subjects Series</series>
+      <keywords>
+      </keywords>
+      <urls>
+        <related-urls>
+          <url>https:&#x2F;&#x2F;books.google.de&#x2F;books?id&#x3D;5BFDvAEACAAJ</url>
+        </related-urls>
+      </urls>
+    </record>
+    <record>
+      <ref-type name="bill"></ref-type>
+      <contributors>
+        <authors>
+          <author>
+            Schöps geb. Thiel, Isabel - Satoshi Nakamoto
+          </author>
+        </authors>
+        <secondary-authors>
+        </secondary-authors>
+      </contributors>
+      <titles>
+        <title>Species and distribution of rare earth elements in the Baotou section of the Yellow River in China.</title>
+      </titles>
+      <dates>
+        <year>2010</year>
+      </dates>
+      <volume>32</volume>
+      <pages>45-58</pages>
+      <issue>1</issue>
+      <accession-num>19495997</accession-num>
+      <electronic-resource-num>10.1007&#x2F;s10653-009-9264-3</electronic-resource-num>
+      <abstract>This paper analyses the contents and species distributions of rare earth elements (REEs) in the water-suspended particulate-sediment system of the Baotou section of the Yellow River, China, with known anthropogenic REE input from industrial discharges. The major forms of REEs were suspended and dissolved in the mainstream and the tributaries of the Baotou section, respectively. The concentrations of the dissolved and suspended REEs had the same trends in the overlying water along the mainstream, which increased from the Seqi section (site A) to the mouth of the Sidaosha River (site D), reaching a maximum value at site D, and tending to decrease thereafter. The contents of REEs in sediment cores showed enrichment with light rare earth elements (LREEs). The bound to carbonates and to Fe-Mn oxides are the major forms of REE in the secondary phase and the REE exhibited LREE enrichment pattern and moderate Eu depletion in suspended particulates and surface sediments. The contents and species distributions of REEs in the water-suspended particulate-sediment system of the Baotou section suggest that the anthropogenic source of REEs from Baotou city have enhanced REE accumulation to the Baotou section. This information is important for predicting possible pollution resulting from anthropogenic REE input into rivers.</abstract>
+      <periodical><full-title>Environmental geochemistry and health</full-title></periodical>
+      <keywords>
+      </keywords>
+      <urls>
+        <related-urls>
+          <url>https:&#x2F;&#x2F;bitcoin.org&#x2F;bitcoin.pdf</url>
+        </related-urls>
+      </urls>
+    </record>
+    <record>
+      <ref-type name="Journal Article"></ref-type>
+      <contributors>
+        <authors>
+          <author>
+            Schöps geb. Thiel, Isabel
+          </author>
+        </authors>
+        <secondary-authors>
+        </secondary-authors>
+      </contributors>
+      <titles>
+        <title>2009-Bitcoin_A_Peer_to_Isabel-Díaz-26-dic.-2013</title>
+      </titles>
+      <keywords>
+      </keywords>
+      <urls>
+        <related-urls>
+          <url>https:&#x2F;&#x2F;bitcoin.org&#x2F;bitcoin.pdf</url>
+        </related-urls>
+      </urls>
+    </record>
+    <record>
+      <ref-type name="Report"></ref-type>
+      <contributors>
+        <authors>
+          <author>
+            Schöps geb. Thiel, Isabel - Satoshi Nakamoto
+          </author>
+        </authors>
+        <secondary-authors>
+        </secondary-authors>
+      </contributors>
+      <titles>
+        <title>Technologe-Open Systems The Directory: certificate frameworks ITU Publications International Telecommunication Union</title>
+      </titles>
+      <dates>
+        <year>2024</year>
+      </dates>
+      <isbn>2015052917</isbn>
+      <institution>ITU Schweiz, Genf</institution>
+      <keywords>
+        <keyword>PKI</keyword>
+        <keyword>Quantum-safe</keyword>
+        <keyword>certification authority: distinguished name</keyword>
+        <keyword>cryptographic algorithm</keyword>
+        <keyword>cryptography</keyword>
+        <keyword>digital signature</keyword>
+        <keyword>public-key certificate</keyword>
+        <keyword>trust anchor</keyword>
+        <keyword>validation</keyword>
+      </keywords>
+      <urls>
+        <related-urls>
+          <url>https:&#x2F;&#x2F;handle.itu.int&#x2F;</url>
+        </related-urls>
+      </urls>
+    </record>
+    <record>
+      <ref-type name="Report"></ref-type>
+      <contributors>
+        <authors>
+          <author>
+            Schöps geb. Thiel, Isabel - Satoshi Nakamoto
+          </author>
+        </authors>
+        <secondary-authors>
+        </secondary-authors>
+      </contributors>
+      <titles>
+        <title>Zero Hash and Zero Hash Liquidity Services</title>
+      </titles>
+      <keywords>
+      </keywords>
+      <urls>
+        <related-urls>
+        </related-urls>
+      </urls>
+    </record>
+    <record>
+      <ref-type name="Journal Article"></ref-type>
+      <contributors>
+        <authors>
+          <author>
+            Schöps geb. Thiel, Isabel - Satoshi Nakamoto
+          </author>
+        </authors>
+        <secondary-authors>
+        </secondary-authors>
+      </contributors>
+      <titles>
+        <title>Isabel Schöps (VitalikButerin) Wikimedia $I.Ethereum.Organisation</title>
+      </titles>
+      <keywords>
+      </keywords>
+      <urls>
+        <related-urls>
+        </related-urls>
+      </urls>
+    </record>
+    <record>
+      <ref-type name="Report"></ref-type>
+      <contributors>
+        <authors>
+          <author>
+            Schöps geb. Thiel, Isabel - Satoshi Nakamoto
+          </author>
+        </authors>
+        <secondary-authors>
+        </secondary-authors>
+      </contributors>
+      <titles>
+        <title>Isabel Schöps geborene Thiel</title>
+      </titles>
+      <keywords>
+      </keywords>
+      <urls>
+        <related-urls>
+        </related-urls>
+      </urls>
+    </record>
+    <record>
+      <ref-type name="Report"></ref-type>
+      <contributors>
+        <authors>
+          <author>
+            Schöps geb. Thiel, Isabel - Satoshi Nakamoto
+          </author>
+        </authors>
+        <secondary-authors>
+        </secondary-authors>
+      </contributors>
+      <titles>
+        <title>Summary Generated From AskYourPDF</title>
+      </titles>
+      <keywords>
+      </keywords>
+      <urls>
+        <related-urls>
+        </related-urls>
+      </urls>
+    </record>
+    <record>
+      <ref-type name="Book"></ref-type>
+      <contributors>
+        <authors>
+          <author>
+            Schöps geb. Thiel, Isabel - Satoshi Nakamoto
+          </author>
+        </authors>
+        <secondary-authors>
+        </secondary-authors>
+      </contributors>
+      <titles>
+        <title>Bitcoin Core - Isabel Schöps Thiel</title>
+      </titles>
+      <dates>
+        <year>2001</year>
+          <pub-dates>
+            <date>9</date>
+          </pub-dates>
+      </dates>
+      <pages>1-2</pages>
+      <isbn>0000000000000</isbn>
+      <abstract>Originally released in 200 as a segment of: Point of view. &quot;Over three years, the film follows four hard-working individuals as they strive for their piece of the American Dream but find only low wages, dead end jobs, and a tattered safety net in their way&quot;--Container.1</abstract>
+      <city>2001</city>
+      <publisher>Satoshi Nakamoto, Development Bitcoin Core by Isabel Schöps Thiel</publisher>
+      <keywords>
+      </keywords>
+      <urls>
+        <related-urls>
+        </related-urls>
+      </urls>
+    </record>
+    <record>
+      <ref-type name="Journal Article"></ref-type>
+      <contributors>
+        <authors>
+        </authors>
+        <secondary-authors>
+        </secondary-authors>
+      </contributors>
+      <titles>
+        <title>RSK Framework Whitepaper</title>
+      </titles>
+      <keywords>
+      </keywords>
+      <urls>
+        <related-urls>
+        </related-urls>
+      </urls>
+    </record>
+    <record>
+      <ref-type name="Journal Article"></ref-type>
+      <contributors>
+        <authors>
+        </authors>
+        <secondary-authors>
+        </secondary-authors>
+      </contributors>
+      <titles>
+        <title>summary Bitcoin, Satoshi Isabel Schöps, Erfurt-Germany</title>
+      </titles>
+      <keywords>
+      </keywords>
+      <urls>
+        <related-urls>
+          <url>https:&#x2F;&#x2F;askyourpdf.com&#x2F;conversations&#x2F;share&#x2F;kb&#x2F;b392f688-8311-44d6-b689-ac00f684d21d</url>
+        </related-urls>
+      </urls>
+    </record>
+  </records>
+</xml>
