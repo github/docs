@@ -2672,8 +2672,8 @@
   },
   {
     "action": "discussion_post.destroy",
-    "description": "Triggered when a team discussion post is deleted.",
-    "docs_reference_links": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "request_id",
       "team",
@@ -2690,13 +2690,12 @@
       "user_agent",
       "operation_type",
       "_document_id"
-    ],
-    "docs_reference_titles": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment"
+    ]
   },
   {
     "action": "discussion_post_reply.destroy",
-    "description": "Triggered when a reply to a team discussion post is deleted.",
-    "docs_reference_links": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "actor_id",
       "action",
@@ -2710,13 +2709,12 @@
       "created_at",
       "request_id",
       "_document_id"
-    ],
-    "docs_reference_titles": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment"
+    ]
   },
   {
     "action": "discussion_post_reply.update",
-    "description": "Triggered when a reply to a team discussion post is edited.",
-    "docs_reference_links": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "action",
       "_document_id",
@@ -2733,13 +2731,12 @@
       "number",
       "team",
       "created_at"
-    ],
-    "docs_reference_titles": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment"
+    ]
   },
   {
     "action": "discussion_post.update",
-    "description": "Triggered when a team discussion post is edited.",
-    "docs_reference_links": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "created_at",
       "_document_id",
@@ -2757,8 +2754,7 @@
       "request_id",
       "user_id",
       "number"
-    ],
-    "docs_reference_titles": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment"
+    ]
   },
   {
     "action": "enterprise_announcement.create",
@@ -14224,7 +14220,7 @@
   },
   {
     "action": "team_discussions.clear",
-    "description": "An organization owner cleared the setting to allow team discussions for an organization or enterprise.",
+    "description": "N/A",
     "docs_reference_links": "N/A",
     "fields": [
       "business_id",
@@ -14244,8 +14240,8 @@
   },
   {
     "action": "team_discussions.disable",
-    "description": "Team discussions were disabled for an organization.",
-    "docs_reference_links": "/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "org_id",
       "action",
@@ -14260,12 +14256,11 @@
       "@timestamp",
       "user_agent",
       "_document_id"
-    ],
-    "docs_reference_titles": "Organizations and teams documentation"
+    ]
   },
   {
     "action": "team_discussions.enable",
-    "description": "Team discussions were enabled for an organization.",
+    "description": "N/A",
     "docs_reference_links": "N/A",
     "fields": [
       "actor_id",
