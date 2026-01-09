@@ -50,13 +50,13 @@ dependabot_alerts:
     - >-
       /code-security/concepts/supply-chain-security/about-dependabot-auto-triage-rules
     - >-
-      /code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts
+      /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-notifications-for-dependabot-alerts
     - >-
-      /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
+      /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/managing-pull-requests-for-dependency-updates
     - >-
-      /code-security/dependabot/troubleshooting-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
+      /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/troubleshooting-the-detection-of-vulnerable-dependencies
     - >-
-      /code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-errors
+      /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/troubleshooting-dependabot-errors
 dependabot_security_updates:
   title: Get pull requests to update your vulnerable dependencies
   description: >-
@@ -66,15 +66,15 @@ dependabot_security_updates:
     - >-
       /code-security/concepts/supply-chain-security/about-dependabot-security-updates
     - >-
-      /code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
+      /code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configuring-dependabot-security-updates
     - >-
-      /code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts
+      /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-notifications-for-dependabot-alerts
     - >-
       /repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository
     - >-
-      /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
+      /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/managing-pull-requests-for-dependency-updates
     - >-
-      /code-security/dependabot/troubleshooting-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
+      /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/troubleshooting-the-detection-of-vulnerable-dependencies
 dependency_version_updates:
   title: Keep your dependencies up-to-date
   description: >-
@@ -84,34 +84,34 @@ dependency_version_updates:
     - >-
       /code-security/concepts/supply-chain-security/about-dependabot-version-updates
     - >-
-      /code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates
+      /code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configuring-dependabot-version-updates
     - >-
       /code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs
     - >-
       /code-security/dependabot/working-with-dependabot/dependabot-options-reference
     - >-
-      /code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot
+      /code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/keeping-your-actions-up-to-date-with-dependabot
     - >-
       /code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
     - >-
-      /code-security/dependabot/troubleshooting-dependabot/listing-dependencies-configured-for-version-updates
+      /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/listing-dependencies-configured-for-version-updates
     - >-
-      /code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot
+      /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot
     - >-
-      /code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot
+      /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/guidance-for-the-configuration-of-private-registries-for-dependabot
     - >-
-      /code-security/dependabot/maintain-dependencies/removing-dependabot-access-to-public-registries
+      /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/removing-dependabot-access-to-public-registries
     - >-
-      /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
+      /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/managing-pull-requests-for-dependency-updates
     - >-
-      /code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-errors
+      /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/troubleshooting-dependabot-errors
 secret_scanning:
   title: Scan for secrets
   description: >-
     Set up secret scanning to guard against accidental check-ins of tokens,
     passwords, and other secrets to your repository.
   guides:
-    - /code-security/secret-scanning/introduction/about-secret-scanning
+    - /code-security/concepts/secret-security/about-secret-scanning
     - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository
     - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository
     - >-
@@ -125,7 +125,7 @@ secret_scanning:
     - /code-security/secret-scanning/introduction/supported-secret-scanning-patterns
     - >-
       {% ifversion secret-scanning-push-protection
-      %}/code-security/secret-scanning/introduction/about-push-protection{%
+      %}/code-security/concepts/secret-security/about-push-protection{%
       endif %}
     - >-
       {% ifversion secret-scanning-push-protection-for-users
@@ -186,7 +186,7 @@ code_security_actions:
     errors out of your repository.
   guides:
     - >-
-      /code-security/code-scanning/introduction-to-code-scanning/about-code-scanning
+      /code-security/concepts/code-scanning/about-code-scanning
     - >-
       /code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning
     - >-
@@ -203,7 +203,7 @@ code_security_integration:
   description: Upload code analysis results from third-party systems to GitHub using SARIF.
   guides:
     - >-
-      /code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning
+      /code-security/concepts/code-scanning/about-integration-with-code-scanning
     - >-
       /code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github
     - >-

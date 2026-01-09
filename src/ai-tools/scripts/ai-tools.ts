@@ -4,12 +4,14 @@ import path from 'path'
 import ora from 'ora'
 import { execFileSync } from 'child_process'
 import dotenv from 'dotenv'
+import readFrontmatter from '@/frame/lib/read-frontmatter'
 import { findMarkdownFiles, mergeFrontmatterProperties } from '@/ai-tools/lib/file-utils'
 import {
   getPromptsDir,
   getAvailableEditorTypes,
   getRefinementDescriptions,
   callEditor,
+  enrichIndexContext,
 } from '@/ai-tools/lib/prompt-utils'
 import { fetchCopilotSpace, convertSpaceToPrompt } from '@/ai-tools/lib/spaces-utils'
 import { ensureGitHubToken } from '@/ai-tools/lib/auth-utils'
@@ -196,12 +198,36 @@ program
               spinner.text = `Processing: ${relativePath}`
               try {
                 // Expand Liquid references before processing
+                let originalIntro = ''
+                if (editorType === 'intro') {
+                  const originalContent = fs.readFileSync(fileToProcess, 'utf8')
+                  const { data: originalData } = readFrontmatter(originalContent)
+                  originalIntro = originalData?.intro || ''
+                }
+
                 if (options.verbose) {
                   console.log(`Expanding Liquid references in: ${relativePath}`)
                 }
                 runLiquidTagsScript('expand', [fileToProcess], options.verbose || false)
 
-                const content = fs.readFileSync(fileToProcess, 'utf8')
+                let content = fs.readFileSync(fileToProcess, 'utf8')
+
+                // For intro prompt, add original intro and enrich context
+                if (editorType === 'intro') {
+                  if (originalIntro) {
+                    content = `\n\n---\nOriginal intro (unresolved): ${originalIntro}\n---\n\n${content}`
+                  }
+                  content = enrichIndexContext(fileToProcess, content)
+                }
+
+                // For content-type prompt, skip files that already have contentType
+                if (editorType === 'content-type' && content.includes('contentType:')) {
+                  spinner.stop()
+                  console.log(`⏭️  Skipping ${relativePath} (already has contentType)`)
+                  runLiquidTagsScript('restore', [fileToProcess], false)
+                  continue
+                }
+
                 const answer = await callEditor(
                   editorType,
                   content,
@@ -213,7 +239,7 @@ program
                 spinner.stop()
 
                 if (options.write) {
-                  if (editorType === 'intro') {
+                  if (editorType === 'intro' || editorType === 'content-type') {
                     // For frontmatter addition/modification, merge properties instead of overwriting entire file
                     const updatedContent = mergeFrontmatterProperties(fileToProcess, answer)
                     fs.writeFileSync(fileToProcess, updatedContent, 'utf8')

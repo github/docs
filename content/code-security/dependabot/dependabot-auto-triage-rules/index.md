@@ -12,8 +12,6 @@ topics:
   - Repositories
   - Dependencies
 children:
-  - /using-github-preset-rules-to-prioritize-dependabot-alerts
-  - /customizing-auto-triage-rules-to-prioritize-dependabot-alerts
   - /managing-automatically-dismissed-alerts
 redirect_from:
   - /code-security/dependabot/dependabot-alert-rules

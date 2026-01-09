@@ -15,4 +15,6 @@ topics:
   - Dependencies
   - Dependabot
 contentType: how-tos
+children:
+  - secure-your-supply-chain
 ---

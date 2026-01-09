@@ -15,4 +15,6 @@ topics:
   - Dependencies
   - Dependabot
 contentType: tutorials
+children:
+  - secure-your-organization
 ---

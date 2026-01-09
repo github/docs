@@ -6,6 +6,7 @@ import { AuditLogsTransformer } from './audit-logs-transformer'
 import { GraphQLTransformer } from './graphql-transformer'
 import { GithubAppsTransformer } from './github-apps-transformer'
 import { WebhooksTransformer } from './webhooks-transformer'
+import { TocTransformer } from './toc-transformer'
 
 /**
  * Global transformer registry
@@ -20,6 +21,7 @@ transformerRegistry.register(new AuditLogsTransformer())
 transformerRegistry.register(new GraphQLTransformer())
 transformerRegistry.register(new GithubAppsTransformer())
 transformerRegistry.register(new WebhooksTransformer())
+transformerRegistry.register(new TocTransformer())
 
 export { TransformerRegistry } from './types'
 export type { PageTransformer } from './types'
