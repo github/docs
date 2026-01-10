@@ -12,7 +12,7 @@ contentType: reference
 
 MCP allowlist enforcement currently has the following limitations:
 
-* Enforcement is based only on server name/ID matching, which can be bypassed by editing configuration files
+* Enforcement is based only on server name/ID, description and version matching, which can be bypassed by editing configuration files
 * Strict enforcement that prevents installation of non-registry servers is not yet available
 
 For the highest level of security, you can **disable MCP servers in {% data variables.product.prodname_copilot_short %}** until strict enforcement is available.
