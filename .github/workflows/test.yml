@@ -163,4 +163,7 @@ jobs:
           ENABLED_LANGUAGES: ${{ matrix.name == 'languages' && 'all' || '' }}
           ROOT: ${{ (matrix.name == 'fixtures' || matrix.name == 'article-api' || matrix.name == 'landings' ) && 'src/fixtures/fixtures' || '' }}
           TRANSLATIONS_FIXTURE_ROOT: ${{ (matrix.name == 'fixtures' || matrix.name == 'article-api') && 'src/fixtures/fixtures/translations' || '' }}
+          # Enable debug logging when "Re-run jobs with debug logging" is used in GitHub Actions UI
+          # This will output additional timing and path information to help diagnose timeout issues
+          RUNNER_DEBUG: ${{ runner.debug }}
         run: npm test -- src/${{ matrix.name }}/tests/
