@@ -103,3 +103,67 @@ Optionally, also set `DEBUG_MIDDLEWARE_TESTS` variable to get stacktraces for `5
 ```shell
 DEBUG_MIDDLEWARE_TESTS=true ROOT=src/fixtures/fixtures TRANSLATIONS_FIXTURE_ROOT=src/fixtures/fixtures/translations vitest src/fixtures/tests
 ```
+
+## Fixture Dependencies by Subject
+
+Which subjects rely on which fixtures:
+
+| Subject | Fixtures Used | Purpose |
+|---------|---------------|---------|
+| `src/content-render` | Liquid tags, Markdown files | Test custom tags and rendering |
+| `src/versions` | Version frontmatter | Test version conditionals |
+| `src/redirects` | Redirect frontmatter | Test redirect logic |
+| `src/search` | Search index content | Test search functionality |
+| `src/landings` | Landing page layouts | Test landing page rendering |
+| `src/rest` | REST API fixtures | Test REST docs rendering |
+| `src/graphql` | GraphQL schema fixtures | Test GraphQL docs rendering |
+| `src/webhooks` | Webhook fixtures | Test webhook docs rendering |
+
+### Adding fixtures for new subjects
+
+When adding new functionality:
+1. Create minimal content in `src/fixtures/fixtures/content/`
+2. Add any required data in `src/fixtures/fixtures/data/`
+3. Keep product names matching real content (top-level only)
+4. Run `./src/tests/scripts/copy-fixture-data.ts` to sync required files
+
+## Ownership & Escalation
+
+### Ownership
+- Team: Docs Engineering
+
+### Escalation
+Fixture content is maintained by the team. If tests break due to fixture issues:
+1. Check if fixture content needs updating
+2. Run `./src/tests/scripts/copy-fixture-data.ts` to sync
+3. Ask in #docs-engineering if unclear
+
+### Maintenance responsibilities
+- Keep fixtures minimal but functional
+- Update when adding new features
+- Don't let fixtures drift from real content structure
+- Document fixture-specific test patterns
+
+## Related Documentation
+
+- [Playwright tests](./PLAYWRIGHT.md) - Browser-based E2E tests
+- [Axe accessibility tests](./axe.md) - Accessibility testing with fixtures
+- [Test infrastructure](../tests/README.md) - Overall testing setup
+
+## Known Limitations
+
+### Fixture coverage
+- Not all subjects have comprehensive fixtures
+- Some complex scenarios may need real content for testing
+- Translation fixtures are minimal
+
+### Maintenance burden
+- Fixtures need updates when content structure changes
+- Some data files must be kept in sync with real content
+- Product names must exactly match real content
+
+### Best practices
+- Keep fixtures focused on one feature at a time
+- Don't replicate entire content structure unnecessarily
+- Use fixtures for functionality tests, not content validation
+- Update fixtures when breaking changes occur

@@ -473,7 +473,7 @@ Change the limit on the maximum number of pull requests for version updates open
 
 When `open-pull-requests-limit` is defined:
 
-* {% data variables.product.prodname_dependabot %} opens pull requests up to the defined integer value.
+* {% data variables.product.prodname_dependabot %} opens pull requests up to the defined integer value. A large value can be set to effectively remove the open pull request limit.
 * You can temporarily disable version updates for a package manager by setting this option to zero, see [Disabling {% data variables.product.prodname_dependabot_version_updates %}](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#disabling-dependabot-version-updates).
 
 ## `package-ecosystem` {% octicon "versions" aria-label="Version updates only" height="24" %}

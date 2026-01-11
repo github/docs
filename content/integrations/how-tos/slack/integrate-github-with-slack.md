@@ -8,7 +8,8 @@ versions:
     ghec: '*'
 topics:
     - Integration
-
+category:
+  - Administer integrations
 ---
 
 ## About the {% data variables.product.github %} integration for Slack
