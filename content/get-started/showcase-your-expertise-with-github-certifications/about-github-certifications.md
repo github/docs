@@ -1,4 +1,4 @@
----
+gh pr checkout 42336---
 title: 'About {% data variables.product.prodname_certifications %}'
 intro: 'Earn a {% data variables.product.prodname_certifications_singular %} to showcase your expertise in {% data variables.product.company_short %} technologies and workflows.'
 allowTitleToDifferFromFilename: true
