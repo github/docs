@@ -2,7 +2,7 @@
 title: Viewing security information for your organization or enterprise
 shortTitle: Security overview
 allowTitleToDifferFromFilename: true
-intro: 'Visualize adoption rates for {% data variables.product.prodname_GHAS %} features, alert discovery, and remediation for your organization or enterprise.'
+intro: Visualize adoption rates for {% data variables.product.prodname_GHAS %} features, alert discovery, and remediation for your organization or enterprise.
 product: '{% data reusables.gated-features.security-overview-general %}'
 versions:
   fpt: '*'
@@ -13,7 +13,6 @@ topics:
   - Code Security
   - Secret Protection
 children:
-  - /about-security-overview
   - /viewing-security-insights
   - /assessing-adoption-code-security
   - /assessing-code-security-risk
@@ -26,3 +25,4 @@ children:
   - /reviewing-requests-to-bypass-push-protection
   - /review-alert-dismissal-requests
 ---
+

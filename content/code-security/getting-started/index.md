@@ -2,7 +2,7 @@
 title: Getting started with secure coding
 shortTitle: Getting started
 allowTitleToDifferFromFilename: true
-intro: 'Introduction to secure coding with {% data variables.product.github %}.'
+intro: Introduction to secure coding with {% data variables.product.github %}.
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,7 +17,5 @@ children:
   - /quickstart-for-securing-your-repository
   - /quickstart-for-securing-your-organization
   - /adding-a-security-policy-to-your-repository
-  - /auditing-security-alerts
-  - /best-practices-for-preventing-data-leaks-in-your-organization
   - /understanding-github-secret-types
 ---

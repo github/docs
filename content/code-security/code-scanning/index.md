@@ -17,7 +17,6 @@ topics:
   - Code scanning
   - CodeQL
 children:
-  - /introduction-to-code-scanning
   - /enabling-code-scanning
   - /creating-an-advanced-setup-for-code-scanning
   - /managing-code-scanning-alerts
