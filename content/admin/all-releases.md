@@ -1,25 +1,4 @@
----
-title: GitHub Enterprise Server releases
-intro: "Review information for each version of {% data variables.product.prodname_ghe_server %}: {% data variables.release-phases.closing_down %} dates, links to documentation, and minimum recommended versions of supporting applications."
-allowTitleToDifferFromFilename: true
-versions:
-  ghes: '*'
-topics:
-  - Enterprise
-  - Upgrades
-shortTitle: Releases
----
-
-{% data reusables.enterprise.constantly-improving %} See [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases).
-
-## Releases of {% data variables.product.prodname_ghe_server %}
-
-{% data variables.product.company_short %} supports the **four** most recent feature releases.
-
-We provide documentation for both supported and unsupported versions of {% data variables.product.prodname_ghe_server %}. We do not maintain or update the documentation for unsupported versions.
-
-For information about the latest release, see the [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) website.
-
+[![Mark stale PRs](https://github.com/github/opensource.guide/actions/workflows/stale.yml/badge.svg?event=label)](https://github.com/github/opensource.guide/actions/workflows/stale.yml)
 | Version | Candidate | Release | {% data variables.release-phases.closing_down_caps %} date | Supported | Release notes | Docs |
 | :- | :- | :- | :- | :-: | :- | :- |
 {%- for version in enterpriseServerReleases.supported %}
