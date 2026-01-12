@@ -1,6 +1,6 @@
 ---
 title: Setting up a trial of GitHub Advanced Security
-intro: 'You can try the full set of {% data variables.product.prodname_GHAS %} features for free.'
+intro: You can try the full set of {% data variables.product.prodname_GHAS %} features for free.
 permissions: '{% data reusables.advanced-security.ghas-trial-permission %}'
 product: '{% data reusables.gated-features.ghas-trial %}'
 versions:
@@ -11,12 +11,13 @@ redirect_from:
   - /billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security
   - /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security
   - /billing/how-tos/products/trial-advanced-security
+  - /code-security/trialing-github-advanced-security/trial-advanced-security
 topics:
   - Billing
   - Advanced Security
   - Enterprise
 shortTitle: Trial Advanced Security
-contentType: how-tos
+contentType: tutorials
 ---
 
 ## Prerequisites

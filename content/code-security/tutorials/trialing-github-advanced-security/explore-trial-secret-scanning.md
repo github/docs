@@ -1,8 +1,8 @@
 ---
-title: 'Exploring your enterprise trial of {% data variables.product.prodname_GH_secret_protection_always %}'
-shortTitle: 'Trial Secret Protection'
+title: Exploring your enterprise trial of {% data variables.product.prodname_GH_secret_protection_always %}
+shortTitle: Trial Secret Protection
 allowTitleToDifferFromFilename: true
-intro: 'Introduction to the features available with {% data variables.product.prodname_GH_secret_protection_always %} in {% data variables.product.prodname_ghe_cloud %} so you can assess their fit to your business needs.'
+intro: Introduction to the features available with {% data variables.product.prodname_GH_secret_protection_always %} in {% data variables.product.prodname_ghe_cloud %} so you can assess their fit to your business needs.
 type: quick_start
 topics:
   - Secret Protection
@@ -10,6 +10,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '> 3.15'
+redirect_from:
+  - /code-security/trialing-github-advanced-security/explore-trial-secret-scanning
+contentType: tutorials
 ---
 
 This guide assumes that you have planned and started a trial of {% data variables.product.prodname_GHAS %} for an existing or trial {% data variables.product.github %} enterprise account. See [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas).

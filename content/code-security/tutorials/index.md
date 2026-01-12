@@ -17,6 +17,7 @@ topics:
 contentType: tutorials
 children:
   - secure-your-organization
+  - trialing-github-advanced-security
   - adopting-github-advanced-security-at-scale
   - manage-security-alerts
 ---
