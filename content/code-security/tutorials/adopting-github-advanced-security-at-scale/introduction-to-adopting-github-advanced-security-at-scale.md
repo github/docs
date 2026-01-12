@@ -1,6 +1,6 @@
 ---
-title: 'Introduction to adopting {% data variables.product.prodname_GHAS %} at scale'
-intro: 'You can adopt {% data variables.product.prodname_GHAS %} at scale in your company following industry and {% data variables.product.github %} best practices.'
+title: Introduction to adopting {% data variables.product.prodname_GHAS %} at scale
+intro: You can adopt {% data variables.product.prodname_GHAS %} at scale in your company following industry and {% data variables.product.github %} best practices.
 allowTitleToDifferFromFilename: true
 versions:
   ghes: '*'
@@ -14,6 +14,8 @@ redirect_from:
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/overview-of-github-advanced-security-deployment
   - /admin/advanced-security/deploying-github-advanced-security-in-your-enterprise
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/deploying-github-advanced-security-in-your-enterprise
+  - /code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale
+contentType: tutorials
 ---
 
 ## About these articles

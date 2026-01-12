@@ -45,7 +45,6 @@ children:
   - /getting-started
   - /trialing-github-advanced-security
   - /code-quality
-  - /adopting-github-advanced-security-at-scale
   - /securing-your-organization
   - /secret-scanning
   - /code-scanning

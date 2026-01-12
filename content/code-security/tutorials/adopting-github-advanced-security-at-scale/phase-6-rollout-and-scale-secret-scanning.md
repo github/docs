@@ -1,6 +1,6 @@
 ---
 title: 'Phase 6: Rollout and scale secret scanning'
-intro: 'For the final phase, you will focus on the rollout of {% data variables.product.prodname_secret_scanning %}. {% data variables.product.prodname_secret_scanning_caps %} is a more straightforward tool to rollout than {% data variables.product.prodname_code_scanning %}, as it involves less configuration, but it''s critical to have a strategy for handling new and old results.'
+intro: For the final phase, you will focus on the rollout of {% data variables.product.prodname_secret_scanning %}. {% data variables.product.prodname_secret_scanning_caps %} is a more straightforward tool to rollout than {% data variables.product.prodname_code_scanning %}, as it involves less configuration, but it's critical to have a strategy for handling new and old results.
 versions:
   ghes: '*'
   ghec: '*'
@@ -8,6 +8,9 @@ topics:
   - Code Security
   - Secret Protection
 shortTitle: 6. Rollout secret scanning
+redirect_from:
+  - /code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning
+contentType: tutorials
 ---
 
 >[!TIP]

@@ -1,5 +1,5 @@
 ---
-title: 'Adopting {% data variables.product.prodname_GHAS %} at scale'
+title: Adopting {% data variables.product.prodname_GHAS %} at scale
 shortTitle: Adopt GHAS at scale
 intro: A phased approach to rolling out {% data variables.product.prodname_GHAS %} at your company using industry and GitHub best practices.
 versions:
@@ -18,4 +18,8 @@ children:
   - /phase-4-create-internal-documentation
   - /phase-5-rollout-and-scale-code-scanning
   - /phase-6-rollout-and-scale-secret-scanning
+redirect_from:
+  - /code-security/adopting-github-advanced-security-at-scale
+contentType: tutorials
 ---
+

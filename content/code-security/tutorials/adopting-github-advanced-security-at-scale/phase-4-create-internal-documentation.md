@@ -1,6 +1,6 @@
 ---
 title: 'Phase 4: Create internal documentation'
-intro: 'You will create internal documentation and then communicate this to the consumers of {% data variables.product.prodname_GHAS %}.'
+intro: You will create internal documentation and then communicate this to the consumers of {% data variables.product.prodname_GHAS %}.
 versions:
   ghes: '*'
   ghec: '*'
@@ -8,6 +8,9 @@ topics:
   - Code Security
   - Secret Protection
 shortTitle: 4. Create internal documentation
+redirect_from:
+  - /code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation
+contentType: tutorials
 ---
 
 >[!TIP]

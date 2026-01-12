@@ -1,6 +1,6 @@
 ---
 title: 'Phase 2: Preparing to enable at scale'
-intro: 'In this phase you will prepare developers and collect data about your repositories to ensure your teams are ready and you have everything you need for pilot programs and rolling out {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}.'
+intro: In this phase you will prepare developers and collect data about your repositories to ensure your teams are ready and you have everything you need for pilot programs and rolling out {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}.
 versions:
   ghes: '*'
   ghec: '*'
@@ -8,6 +8,9 @@ topics:
   - Code Security
   - Secret Protection
 shortTitle: 2. Preparation
+redirect_from:
+  - /code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale
+contentType: tutorials
 ---
 
 > [!TIP]

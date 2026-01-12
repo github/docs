@@ -1,6 +1,6 @@
 ---
 title: 'Phase 5: Rollout and scale code scanning'
-intro: 'You can {% ifversion security-configuration-enterprise-level %}use security configurations{% else %}leverage the available APIs{% endif %} to rollout {% data variables.product.prodname_code_scanning %} across your enterprise{% ifversion security-configurations %}{% else %} using the repository data you collected earlier{% endif %}.'
+intro: You can {% ifversion security-configuration-enterprise-level %}use security configurations{% else %}leverage the available APIs{% endif %} to rollout {% data variables.product.prodname_code_scanning %} across your enterprise{% ifversion security-configurations %}{% else %} using the repository data you collected earlier{% endif %}.
 versions:
   ghes: '*'
   ghec: '*'
@@ -8,6 +8,9 @@ topics:
   - Code Security
   - Secret Protection
 shortTitle: 5. Rollout code scanning
+redirect_from:
+  - /code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning
+contentType: tutorials
 ---
 
 >[!TIP]

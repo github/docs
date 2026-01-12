@@ -1,6 +1,6 @@
 ---
 title: 'Phase 3: Pilot programs'
-intro: 'You may benefit from beginning with a few high-impact projects and teams with which to pilot an initial rollout. This will allow an initial group within your company to get familiar with GHAS, learn how to enable and configure GHAS, and build a solid foundation on GHAS before rolling out to the remainder of your company.'
+intro: You may benefit from beginning with a few high-impact projects and teams with which to pilot an initial rollout. This will allow an initial group within your company to get familiar with GHAS, learn how to enable and configure GHAS, and build a solid foundation on GHAS before rolling out to the remainder of your company.
 versions:
   ghes: '*'
   ghec: '*'
@@ -8,6 +8,9 @@ topics:
   - Code Security
   - Secret Protection
 shortTitle: 3. Pilot programs
+redirect_from:
+  - /code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs
+contentType: tutorials
 ---
 
 >[!TIP]
