@@ -12,9 +12,7 @@ redirect_from:
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/converting-a-user-into-an-organization
 intro: You can convert your personal account into an organization. This allows more granular permissions for repositories that belong to the organization.
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  ghes: '<3.21'
 topics:
   - Accounts
 shortTitle: Convert your account
@@ -25,9 +23,7 @@ contentType: how-tos
 
 The personal account you want to convert cannot be a member of any organizations. If the personal account you want to convert is a member of an organization, you must leave the organization before you can convert the account.
 
-{% ifversion ghes %}
-You may not be able to convert a personal account into an organization, if an enterprise owner has set a policy at the enterprise level. See, [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/preventing-users-from-creating-organizations).
-{% endif %}
+You may not be able to convert a personal account into an organization if an enterprise owner has set a policy at the enterprise level. See, [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/preventing-users-from-creating-organizations).
 
 ## Keep your personal account and create a new organization manually
 
@@ -56,7 +52,4 @@ To convert your personal account into an organization, follow these steps:
 
 * [AUTOTITLE](/account-and-profile/reference/personal-account-reference#side-effects-of-converting-an-account-to-an-organization)
 * [AUTOTITLE](/organizations/organizing-members-into-teams)
-{% ifversion fpt or ghec %}
-* [AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)
-{% endif %}
 * [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/accessing-an-organization)
