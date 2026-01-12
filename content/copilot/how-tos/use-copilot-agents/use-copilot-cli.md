@@ -74,6 +74,63 @@ Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot
 
    For example, if you ask {% data variables.product.prodname_copilot_short %} to create a bash script but you do not want to use the script {% data variables.product.prodname_copilot_short %} suggests, you can stop the current operation and enter a new prompt, such as: `Continue the previous task but include usage instructions in the script`.
 
+## CLI parameters
+
+You can pass options and flags to the `copilot` command. The following table lists the most commonly used parameters and examples.
+
+
+| Parameter | Description | Example |
+| --- | --- | --- |
+| `--agent=<name>` | Use a named custom agent for this run. | `copilot --agent=refactor-agent --prompt "Refactor this code block"` |
+| `-p "<text>"` or `--prompt "<text>"` | Provide a prompt non-interactively (non-interactive mode exits after completion). | `copilot -p "Run tests and fix failures"` |
+| `-i "<text>"` or `--interactive "<text>"` | Start interactive mode and automatically execute a prompt. | `copilot -i "Fix the bug in main.js"` |
+| `--resume` | Resume a previously saved interactive session (session picker). | `copilot --resume` |
+| `--continue` | Quickly resume the most recently closed session. | `copilot --continue` |
+| `--model <model>` | Start with a specific model. | `copilot --model gpt-5` |
+| `--add-dir <path>` (repeatable) | Allow access to one or more directories by repeating the flag. | `copilot --add-dir /home/user/projects --add-dir ~/workspace` |
+| `--allow-all-paths` | Disable path verification for this run (trust all filesystem paths). | `copilot --allow-all-paths` |
+| `--allow-tool '<tool>'` | Allow a specific tool or tool pattern. | `copilot --allow-tool 'write'` |
+| `--deny-tool '<tool>'` | Deny a specific tool (can be used alongside `--allow-tool`). | `copilot --deny-tool 'MyMCP(denied_tool)' --allow-tool 'MyMCP'` |
+| `--allow-all-tools` | Allow all tools without per-command approval for this run. | `copilot --allow-all-tools --resume` |
+| `--allow-url <domain>` (repeatable) | Pre-approve one or more domains for network access by repeating the flag. | `copilot --allow-url github.com --allow-url api.github.com` |
+| `--deny-url <url>` | Deny network access to a specific URL/domain. | `copilot --deny-url malicious-site.com` |
+| `--allow-all-urls` | Allow all URLs without confirmation. | `copilot --allow-all-urls` |
+| `--help` or `help` | Show CLI help and available commands. | `copilot help` |
+
+
+## In-session commands
+
+While in an interactive `copilot` session you can use slash commands and special prefixes to control behavior. Use the `?` command to list available in-session help.
+
+| Command | Description | Example |
+| --- | --- | --- |
+| `/add-dir <directory>` | Add a directory to the allowed list for file access | `/add-dir /path/to/directory` |
+| `/agent` | Browse and select from available agents (if any) | `/agent` |
+| `/clear` | Clear the conversation history | `/clear` |
+| `/compact` | Summarize conversation history to reduce context window usage | `/compact` |
+| `/context` | Show context window token usage and visualization | `/context` |
+| `/cwd [directory]` | Change working directory or show current directory | `/cwd /path/to/dir` |
+| `/delegate <prompt>` | Delegate changes to remote repository with an AI-generated PR | `/delegate complete the API integration tests` |
+| `/exit` or `/quit` | Exit the CLI | `/exit` |
+| `/share [file or gist] [path]` | Share session to a markdown file or GitHub Gist | `/share file session.md` |
+| `/feedback` | Provide feedback about the CLI | `/feedback` |
+| `/help` | Show help for interactive commands | `/help` |
+| `/list-dirs` | Display all allowed directories for file access | `/list-dirs` |
+| `/login` | Log in to Copilot | `/login` |
+| `/logout` | Log out of Copilot | `/logout` |
+| `/mcp [show, add, edit, delete, disable, enable] [server-name]` | Manage MCP servers and configurations | `/mcp add` |
+| `/model [model]` | Select AI model to use | `/model gpt-5-mini` |
+| `/reset-allowed-tools` | Reset the list of allowed tools during the session | `/reset-allowed-tools` |
+| `/session` | Show information about the current CLI session | `/session` |
+| `/skills [list, info, add, remove, reload] [args...]` | Manage skills for enhanced capabilities | `/skills list` |
+| `/terminal-setup` | Configure terminal for multiline input support | `/terminal-setup` |
+| `/theme [show, set, list] [auto, dark, light]` | View or configure terminal theme | `/theme set dark` |
+| `/usage` | Display session usage metrics and statistics | `/usage` |
+| `/user [show, list, switch]` | Manage GitHub user list | `/user list` |
+| `?` | Display interactive help and available commands | `?` |
+| `!<shell command>` | Run a shell command directly from the prompt without calling the model | `!git clone https://github.com/github/copilot-cli` |
+
+
 ## Permissions
 
 {% data variables.copilot.copilot_cli_short %} uses a permissions system to control access to paths and URLs. At times, path and URL permission checks utilize heuristic-based detection, which has limitations to be aware of.
