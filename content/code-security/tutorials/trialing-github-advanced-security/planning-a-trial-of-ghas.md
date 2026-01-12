@@ -1,8 +1,8 @@
 ---
-title: 'Planning a trial of {% data variables.product.prodname_GHAS %}'
-shortTitle: 'Plan GHAS trial'
+title: Planning a trial of {% data variables.product.prodname_GHAS %}
+shortTitle: Plan GHAS trial
 allowTitleToDifferFromFilename: true
-intro: 'Learn how to prepare for a successful trial of {% data variables.product.prodname_AS %}.'
+intro: Learn how to prepare for a successful trial of {% data variables.product.prodname_AS %}.
 type: overview
 topics:
   - Code Security
@@ -11,6 +11,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '> 3.15'
+redirect_from:
+  - /code-security/trialing-github-advanced-security/planning-a-trial-of-ghas
+contentType: tutorials
 ---
 
 ## Is a self-serve trial right for you?

@@ -2,7 +2,7 @@
 title: Enabling security features in your trial enterprise
 shortTitle: Enable security features in trial
 allowTitleToDifferFromFilename: true
-intro: 'Quickly create an enterprise-level configuration and apply {% data variables.product.prodname_cs_and_sp %} features across all repositories in your trial enterprise.'
+intro: Quickly create an enterprise-level configuration and apply {% data variables.product.prodname_cs_and_sp %} features across all repositories in your trial enterprise.
 type: quick_start
 permissions: '{% data reusables.permissions.security-configuration-enterprise-enable %}'
 topics:
@@ -12,6 +12,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '> 3.15'
+redirect_from:
+  - /code-security/trialing-github-advanced-security/enable-security-features-trial
+contentType: tutorials
 ---
 
 This article assumes that you have planned and then started a trial of {% data variables.product.prodname_GHAS %}. For more information, see [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas).

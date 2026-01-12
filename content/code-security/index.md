@@ -43,7 +43,6 @@ topics:
   - Vulnerabilities
 children:
   - /getting-started
-  - /trialing-github-advanced-security
   - /code-quality
   - /securing-your-organization
   - /secret-scanning
