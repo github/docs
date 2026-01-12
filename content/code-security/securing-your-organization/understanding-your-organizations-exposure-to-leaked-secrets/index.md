@@ -11,13 +11,8 @@ topics:
   - Code Security
   - Security
 children:
-  - /assess-your-secret-risk
-  - /viewing-the-secret-risk-assessment-report-for-your-organization
   - /export-risk-report-csv
   - /risk-report-csv-contents
-  - /protect-your-secrets
-  - /calculating-the-cost-savings-of-push-protection
   - /estimating-the-price-of-secret-protection
   - /organizing-remediation-efforts-for-leaked-secrets
 ---
-

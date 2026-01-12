@@ -6,7 +6,7 @@ redirect_from:
   - /code-security/guides
 introLinks:
   overview: '{% ifversion ghes %}/code-security/getting-started/github-security-features{% endif %}'
-  generate_secret_risk_assessment_report_for_free: '{% ifversion secret-risk-assessment %}/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/assess-your-secret-risk{% endif %}'
+  generate_secret_risk_assessment_report_for_free: '{% ifversion secret-risk-assessment %}/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/assess-your-secret-risk{% endif %}'
 featuredLinks:
   startHere:
     - '{% ifversion fpt or ghec %}/code-security/getting-started/github-security-features{% endif %}'
@@ -45,7 +45,6 @@ children:
   - /getting-started
   - /trialing-github-advanced-security
   - /code-quality
-  - /adopting-github-advanced-security-at-scale
   - /securing-your-organization
   - /secret-scanning
   - /code-scanning
@@ -61,4 +60,3 @@ children:
   - /tutorials
   - /responsible-use
 ---
-
