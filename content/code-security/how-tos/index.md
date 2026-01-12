@@ -16,5 +16,6 @@ topics:
   - Dependabot
 contentType: how-tos
 children:
-  - secure-your-supply-chain
+  - /secure-at-scale
+  - /secure-your-supply-chain
 ---
