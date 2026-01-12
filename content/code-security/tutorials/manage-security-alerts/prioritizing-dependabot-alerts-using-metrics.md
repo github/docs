@@ -1,7 +1,7 @@
 ---
 title: Prioritizing Dependabot alerts using metrics
 shortTitle: Prioritize Dependabot alerts using metrics
-intro: 'You can prioritize {% data variables.product.prodname_dependabot_alerts %} in your organization by analyzing the provided metrics. Using this approach, you can tell your developers to focus on the most important vulnerabilities first.'
+intro: You can prioritize {% data variables.product.prodname_dependabot_alerts %} in your organization by analyzing the provided metrics. Using this approach, you can tell your developers to focus on the most important vulnerabilities first.
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
 permissions: '{% data reusables.permissions.security-org-enable %}'
@@ -16,6 +16,8 @@ topics:
   - Security
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/prioritizing-dependabot-alerts-using-metrics
+  - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/prioritizing-dependabot-alerts-using-metrics
+  - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities
 ---
 
 ## Prioritizing {% data variables.product.prodname_dependabot_alerts %} using metrics

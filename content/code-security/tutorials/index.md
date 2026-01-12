@@ -17,4 +17,5 @@ topics:
 contentType: tutorials
 children:
   - secure-your-organization
+  - manage-security-alerts
 ---

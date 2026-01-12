@@ -1,11 +1,11 @@
 ---
 title: Best practices for participating in a code security campaign
 shortTitle: Best practices for campaigns
-intro: 'Learn how you can successfully take part in a security campaign for {% data variables.product.prodname_code_scanning %} alerts and how it can benefit your career as well as your code.'
+intro: Learn how you can successfully take part in a security campaign for {% data variables.product.prodname_code_scanning %} alerts and how it can benefit your career as well as your code.
 allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.code-scanning-all-alerts %}'
 product: '{% data reusables.gated-features.security-campaigns %}'
-type: how_to
+contentType: tutorials
 versions:
   feature: security-campaigns
 topics:
@@ -13,6 +13,8 @@ topics:
   - Code scanning
   - Alerts
   - Repositories
+redirect_from:
+  - /code-security/code-scanning/managing-code-scanning-alerts/best-practices-for-participating-in-a-security-campaign
 ---
 
 ## What is a code security campaign
