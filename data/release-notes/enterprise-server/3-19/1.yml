@@ -47,6 +47,9 @@ sections:
       Now, if an administrator sets the instance's `skip_rebase_commit_generation_from_rebase_merge_settings` configuration variable to `true`, the "Allow rebase merging" option in a repository's pull request settings becomes the source of truth for whether rebase commits are generated when mergeability is checked.
   known_issues:
     - |
+      Upgrading or hotpatching to 3.19.1 may fail on very old nodes that have been continuously upgraded from versions older than 2021 versions (i.e. 2.17). If this issue occurs, you will see log entries prefixed with `invalid secret` in ghe-config.log. If you are running nodes this old, it is recommended not to upgrade to 3.19.1.
+      If you must hotpatch to 3.19.1, first run `ghe-config 'secrets.session-manage' | tr -d '\n' | wc -c`. If the output is less than 64, run `ghe-config --unset 'secrets.session-manage'` and `ghe-config-apply` before you start the hotpatch. You can also run these same commands after the hotpatch to recover from the failure. [Updated: 2026-01-12]
+    - |
       During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
