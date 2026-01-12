@@ -11,7 +11,7 @@ topics:
   - Copilot
   - CLI
 contentType: how-tos
-category: 
+category:
   - Author and optimize with Copilot
 ---
 
@@ -171,7 +171,7 @@ You can enhance {% data variables.product.prodname_copilot_short %}’s performa
 {% data variables.copilot.copilot_cli_short %} supports:
 
 * Repository-wide instructions in the `.github/copilot-instructions.md` file.
-* Path-specific instructions files: `.github/copilot-instructions/**/*.instructions.md`.
+* Path-specific instructions files: `.github/instructions/**/*.instructions.md`.
 * Agent files such as `AGENTS.md`.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
@@ -201,11 +201,11 @@ In the case of naming conflicts, a system-level agent overrides a repository-lev
 * Calling out to {% data variables.copilot.copilot_custom_agent_short %} directly in a prompt:
 
   ```shell
-  Use the refactoring agent to refactor this code block 
+  Use the refactoring agent to refactor this code block
   ```
 
   {% data variables.product.prodname_copilot_short %} will automatically infer the agent you want to use.
-  
+
 * Specifying the {% data variables.copilot.copilot_custom_agent_short %} you want to use with the command-line option. For example:
 
   ```shell
