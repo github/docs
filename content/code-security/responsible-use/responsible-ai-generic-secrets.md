@@ -1,13 +1,12 @@
 ---
 title: Responsible detection of generic secrets with Copilot secret scanning
-shortTitle: Generic secret detection
-intro: 'Learn how {% data variables.secret-scanning.copilot-secret-scanning %} uses AI responsibly to scan and create alerts for unstructured secrets, such as passwords.'
+shortTitle: Copilot secret scanning
+intro: Learn how {% data variables.secret-scanning.copilot-secret-scanning %} uses AI responsibly to scan and create alerts for unstructured secrets, such as passwords.
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.rai.secret-scanning.copilot-secret-scanning-gated-feature %}'
 versions:
   feature: secret-scanning-ai-generic-secret-detection
   fpt: '*'
-type: rai
 topics:
   - Secret scanning
   - Secret Protection
@@ -17,6 +16,8 @@ redirect_from:
   - /code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/responsible-ai-generic-secrets
+  - /code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets
+contentType: rai
 ---
 
 <!--Note on the versioning above ^. This article is visible to free, pro, team users for transparency. They cannot use the feature so `fpt` is not included in the feature definition.-->

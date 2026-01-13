@@ -1,12 +1,11 @@
 ---
 title: Responsible use of Copilot Autofix for code scanning
 shortTitle: Copilot Autofix for code scanning
-intro: Learn how GitHub uses AI to suggest potential fixes for {% data variables.product.prodname_code_scanning %} alerts and find out how best to mitigate limitations in the AI suggestions.
+intro: Learn how {% data variables.product.github %} uses AI to suggest potential fixes for {% data variables.product.prodname_code_scanning %} alerts and find out how best to mitigate limitations in the AI suggestions.
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.rai.code-scanning.gated-feature-autofix %}'
 versions:
   feature: code-scanning-autofix
-type: rai
 topics:
   - Code Security
   - Code scanning
@@ -14,6 +13,8 @@ topics:
   - AI
 redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning
+  - /code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning
+contentType: rai
 ---
 
 ## About {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}

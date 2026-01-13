@@ -9,6 +9,4 @@ topics:
 children:
   - /get-started
   - /reference
-  - /responsible-use
 ---
-

@@ -1,12 +1,11 @@
 ---
 title: Responsible generation of regular expressions with Copilot secret scanning
-shortTitle: Generate regular expressions with AI
-intro: 'Learn about the capabilities and limitations of the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} in helping you to define custom patterns to extend the capabilities of {% data variables.product.prodname_secret_scanning %}.'
+shortTitle: Regular expressions generator
+intro: Learn about the capabilities and limitations of the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} in helping you to define custom patterns to extend the capabilities of {% data variables.product.prodname_secret_scanning %}.
 product: '{% data reusables.rai.secret-scanning.copilot-secret-scanning-gated-feature %}'
 allowTitleToDifferFromFilename: true
 versions:
   feature: secret-scanning-custom-pattern-ai-generated
-type: rai
 topics:
   - Secret Protection
   - Secret scanning
@@ -18,6 +17,8 @@ redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/about-generating-regular-expressions-with-ai
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/responsible-use-ai-regex-generator
   - /code-security/secret-scanning/copilot-secret-scanning/responsible-use-ai-regex-generator
+  - /code-security/secret-scanning/copilot-secret-scanning/responsible-ai-regex-generator
+contentType: rai
 ---
 
 <!--Note on the versioning above ^. This article is visible to free, pro, team users for transparency. They cannot use the feature so `fpt` is not included in the feature definition.-->
