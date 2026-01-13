@@ -12,19 +12,14 @@ topics:
   - Code scanning
   - CodeQL
 children:
-  - /advanced-setup-of-the-codeql-cli
-  - /using-custom-queries-with-the-codeql-cli
   - /creating-codeql-query-suites
   - /testing-custom-queries
-  - /testing-query-help-files
   - /creating-and-working-with-codeql-packs
   - /publishing-and-using-codeql-packs
-  - /specifying-command-options-in-a-codeql-configuration-file
   - /sarif-output
   - /csv-output
   - /extractor-options
   - /exit-codes
-  - /creating-database-bundle-for-troubleshooting
 redirect_from:
   - /code-security/codeql-cli/codeql-cli-reference
 ---

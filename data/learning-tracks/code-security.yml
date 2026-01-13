@@ -188,16 +188,16 @@ code_security_actions:
     - >-
       /code-security/concepts/code-scanning/about-code-scanning
     - >-
-      /code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning
+      /code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/configuring-default-setup-for-code-scanning
     - >-
-      /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning
+      /code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/customizing-your-advanced-setup-for-code-scanning
     - >-
-      /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages
+      /code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/codeql-code-scanning-for-compiled-languages
     - >-
       /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/running-codeql-code-scanning-in-a-container
-    - /code-security/code-scanning/troubleshooting-code-scanning
+    - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors
     - >-
-      /code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page
+      /code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/about-the-tool-status-page
 code_security_integration:
   title: Integrate with code scanning
   description: Upload code analysis results from third-party systems to GitHub using SARIF.
@@ -205,7 +205,7 @@ code_security_integration:
     - >-
       /code-security/concepts/code-scanning/about-integration-with-code-scanning
     - >-
-      /code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github
+      /code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github
     - >-
       /code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning
     - /rest/code-scanning

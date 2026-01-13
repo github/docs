@@ -11,10 +11,6 @@ topics:
   - Code Security
   - Code scanning
 children:
-  - /configuring-advanced-setup-for-code-scanning
-  - /customizing-your-advanced-setup-for-code-scanning
-  - /codeql-code-scanning-for-compiled-languages
   - /recommended-hardware-resources-for-running-codeql
   - /running-codeql-code-scanning-in-a-container
 ---
-

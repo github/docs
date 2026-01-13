@@ -18,6 +18,7 @@ contentType: how-tos
 children:
   - /secure-at-scale
   - /secure-your-supply-chain
+  - /scan-code-for-vulnerabilities
   - /maintain-quality-code
   - /report-and-fix-vulnerabilities
 ---

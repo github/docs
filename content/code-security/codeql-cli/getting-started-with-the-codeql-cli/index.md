@@ -12,7 +12,6 @@ topics:
   - Code scanning
   - CodeQL
 children:
-  - /setting-up-the-codeql-cli
   - /preparing-your-code-for-codeql-analysis
   - /analyzing-your-code-with-codeql-queries
   - /uploading-codeql-analysis-results-to-github
