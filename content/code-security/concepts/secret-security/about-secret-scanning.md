@@ -126,7 +126,6 @@ Define your own patterns for secrets used by your organization that {% data vari
 
 * [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository)
 * [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection)
-* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection)
 * [AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)
 * [AUTOTITLE](/code-security/getting-started/securing-your-repository)
 * [AUTOTITLE](/authentication/keeping-your-account-and-data-secure)

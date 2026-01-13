@@ -88,7 +88,7 @@ dependency_version_updates:
     - >-
       /code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs
     - >-
-      /code-security/dependabot/working-with-dependabot/dependabot-options-reference
+      /code-security/reference/supply-chain-security/dependabot-options-reference
     - >-
       /code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/keeping-your-actions-up-to-date-with-dependabot
     - >-
@@ -112,14 +112,14 @@ secret_scanning:
     passwords, and other secrets to your repository.
   guides:
     - /code-security/concepts/secret-security/about-secret-scanning
-    - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository
-    - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository
+    - /code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-your-repository
+    - /code-security/how-tos/secure-your-secrets/prevent-future-leaks/enabling-push-protection-for-your-repository
     - >-
       {% ifversion secret-scanning-validity-check-partner-patterns %}
-      /code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository{% endif %}
+      /code-security/how-tos/secure-your-secrets/customize-leak-detection/enabling-validity-checks-for-your-repository{% endif %}
     - >-
       {% ifversion not fpt
-      %}/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning{%
+      %}/code-security/how-tos/secure-your-secrets/customize-leak-detection/defining-custom-patterns-for-secret-scanning{%
       endif %}
     - /code-security/secret-scanning/managing-alerts-from-secret-scanning
     - /code-security/secret-scanning/introduction/supported-secret-scanning-patterns
@@ -129,15 +129,15 @@ secret_scanning:
       endif %}
     - >-
       {% ifversion secret-scanning-push-protection-for-users
-      %}/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users{%
+      %}/code-security/how-tos/secure-your-secrets/prevent-future-leaks/push-protection-for-users{%
       endif %}
     - >-
       {% ifversion secret-scanning-push-protection
-      %}/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line{%
+      %}/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/working-with-push-protection-from-the-command-line{%
       endif %}
     - >-
       {% ifversion secret-scanning-push-protection
-      %}/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui{%
+      %}/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/working-with-push-protection-in-the-github-ui{%
       endif %}
     - >-
       /code-security/secret-scanning/troubleshooting-secret-scanning-and-push-protection/troubleshooting-secret-scanning

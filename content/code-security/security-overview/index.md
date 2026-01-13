@@ -22,7 +22,6 @@ children:
   - /viewing-metrics-for-dependabot-alerts
   - /viewing-metrics-for-secret-scanning-push-protection
   - /viewing-metrics-for-pull-request-alerts
-  - /reviewing-requests-to-bypass-push-protection
   - /review-alert-dismissal-requests
 ---
 

@@ -7,6 +7,8 @@ import { GraphQLTransformer } from './graphql-transformer'
 import { GithubAppsTransformer } from './github-apps-transformer'
 import { WebhooksTransformer } from './webhooks-transformer'
 import { TocTransformer } from './toc-transformer'
+import { CategoryLandingTransformer } from './category-landing-transformer'
+import { DiscoveryLandingTransformer } from './discovery-landing-transformer'
 import { ProductGuidesTransformer } from './product-guides-transformer'
 import { ProductLandingTransformer } from './product-landing-transformer'
 
@@ -24,6 +26,8 @@ transformerRegistry.register(new GraphQLTransformer())
 transformerRegistry.register(new GithubAppsTransformer())
 transformerRegistry.register(new WebhooksTransformer())
 transformerRegistry.register(new TocTransformer())
+transformerRegistry.register(new CategoryLandingTransformer())
+transformerRegistry.register(new DiscoveryLandingTransformer())
 transformerRegistry.register(new ProductGuidesTransformer())
 transformerRegistry.register(new ProductLandingTransformer())
 
