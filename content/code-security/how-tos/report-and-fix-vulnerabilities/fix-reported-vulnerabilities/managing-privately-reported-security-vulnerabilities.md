@@ -5,13 +5,14 @@ permissions: '{% data reusables.permissions.security-repo-enable %}'
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Security advisories
   - Vulnerabilities
 shortTitle: Manage vulnerability reports
 redirect_from:
   - /code-security/security-advisories/guidance-on-reporting-and-writing/managing-privately-reported-security-vulnerabilities
+  - /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/managing-privately-reported-security-vulnerabilities
 ---
 
 {% data reusables.security-advisory.private-vulnerability-reporting-enable %}

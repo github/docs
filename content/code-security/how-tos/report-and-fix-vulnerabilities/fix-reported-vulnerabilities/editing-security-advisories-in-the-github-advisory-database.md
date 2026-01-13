@@ -1,17 +1,18 @@
 ---
 title: Editing security advisories in the GitHub Advisory Database
-intro: 'You can submit improvements to any advisory published in the {% data variables.product.prodname_advisory_database %} by making a community contribution.'
+intro: You can submit improvements to any advisory published in the {% data variables.product.prodname_advisory_database %} by making a community contribution.
 permissions: '{% data reusables.permissions.global-security-advisories-edit %}'
 redirect_from:
   - /code-security/security-advisories/editing-security-advisories-in-the-github-advisory-database
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database
   - /code-security/dependabot/dependabot-alerts/editing-security-advisories-in-the-github-advisory-database
   - /code-security/security-advisories/global-security-advisories/editing-security-advisories-in-the-github-advisory-database
+  - /code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Security advisories
   - Alerts

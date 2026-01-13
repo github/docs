@@ -1,6 +1,6 @@
 ---
 title: Browsing security advisories in the GitHub Advisory Database
-intro: 'You can browse the {% data variables.product.prodname_advisory_database %} to find CVEs and {% data variables.product.prodname_dotcom %}-originated advisories affecting the open source world.'
+intro: You can browse the {% data variables.product.prodname_advisory_database %} to find CVEs and {% data variables.product.prodname_dotcom %}-originated advisories affecting the open source world.
 shortTitle: Browse Advisory Database
 permissions: '{% data reusables.permissions.global-security-advisories-browse %}'
 redirect_from:
@@ -10,11 +10,12 @@ redirect_from:
   - /code-security/dependabot/dependabot-alerts/browsing-security-vulnerabilities-in-the-github-advisory-database
   - /code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database
   - /code-security/security-advisories/global-security-advisories/browsing-security-advisories-in-the-github-advisory-database
+  - /code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/browsing-security-advisories-in-the-github-advisory-database
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Security advisories
   - Alerts

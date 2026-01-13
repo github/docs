@@ -9,14 +9,15 @@ redirect_from:
   - /code-security/security-advisories/creating-a-security-advisory
   - /code-security/repository-security-advisories/creating-a-repository-security-advisory
   - /code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory
+  - /code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Security advisories
   - Vulnerabilities
-shortTitle: Create repository advisories
+shortTitle: Create repository advisory
 ---
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}

@@ -13,8 +13,5 @@ topics:
   - Vulnerabilities
   - Repositories
   - CVEs
-children:
-  - /browsing-security-advisories-in-the-github-advisory-database
-  - /editing-security-advisories-in-the-github-advisory-database
 ---
 

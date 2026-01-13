@@ -17,14 +17,5 @@ topics:
   - CVEs
 children:
   - /permission-levels-for-repository-security-advisories
-  - /configuring-private-vulnerability-reporting-for-a-repository
   - /configuring-private-vulnerability-reporting-for-an-organization
-  - /creating-a-repository-security-advisory
-  - /editing-a-repository-security-advisory
-  - /evaluating-the-security-settings-of-a-repository
-  - /publishing-a-repository-security-advisory
-  - /adding-a-collaborator-to-a-repository-security-advisory
-  - /removing-a-collaborator-from-a-repository-security-advisory
-  - /deleting-a-repository-security-advisory
 ---
-
