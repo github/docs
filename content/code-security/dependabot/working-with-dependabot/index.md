@@ -16,7 +16,6 @@ topics:
 children:
   - /automating-dependabot-with-github-actions
   - /configuring-multi-ecosystem-updates
-  - /dependabot-options-reference
   - /setting-dependabot-to-run-on-self-hosted-runners-using-arc
   - /setting-dependabot-to-run-on-github-hosted-runners-using-vnet
 ---

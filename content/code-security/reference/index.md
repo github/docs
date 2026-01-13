@@ -16,5 +16,6 @@ topics:
   - Dependabot
 contentType: reference
 children:
-  - code-scanning
+  - /code-scanning
+  - /supply-chain-security
 ---

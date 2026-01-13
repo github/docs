@@ -1,6 +1,6 @@
 ---
 title: Dependabot options reference
-intro: 'Detailed information for all the options you can use to customize how {% data variables.product.prodname_dependabot %} maintains your repositories.'
+intro: Detailed information for all the options you can use to customize how {% data variables.product.prodname_dependabot %} maintains your repositories.
 permissions: '{% data reusables.permissions.dependabot-yml-configure %}'
 allowTitleToDifferFromFilename: true
 redirect_from:
@@ -8,18 +8,19 @@ redirect_from:
   - /code-security/supply-chain-security/configuration-options-for-dependency-updates
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
   - /code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+  - /code-security/dependabot/working-with-dependabot/dependabot-options-reference
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: reference
 topics:
   - Dependabot
   - Version updates
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: Dependabot options reference
+shortTitle: Dependabot options
+contentType: reference
 ---
 
 ## About the `dependabot.yml` file

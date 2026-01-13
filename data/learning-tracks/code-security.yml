@@ -88,7 +88,7 @@ dependency_version_updates:
     - >-
       /code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs
     - >-
-      /code-security/dependabot/working-with-dependabot/dependabot-options-reference
+      /code-security/reference/supply-chain-security/dependabot-options-reference
     - >-
       /code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/keeping-your-actions-up-to-date-with-dependabot
     - >-

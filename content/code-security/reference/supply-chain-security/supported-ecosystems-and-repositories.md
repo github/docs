@@ -1,9 +1,8 @@
 ---
 title: Dependabot supported ecosystems and repositories
-shortTitle: Dependabot ecosystem support # Max 31 characters
+shortTitle: Dependabot ecosystems
 intro: '{% data variables.product.prodname_dependabot %} supports a variety of ecosystems and repositories'
 allowTitleToDifferFromFilename: true
-type: reference
 topics:
   - Dependabot
   - Dependencies
@@ -14,6 +13,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+redirect_from:
+  - /code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories
+contentType: reference
 ---
 
 ## About {% data variables.product.prodname_dependabot %}

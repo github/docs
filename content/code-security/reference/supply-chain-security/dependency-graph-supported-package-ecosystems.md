@@ -1,9 +1,8 @@
 ---
 title: Dependency graph supported package ecosystems
-shortTitle: Dependency graph ecosystem support # Max 31 characters
-intro: 'Dependency graph supports a variety of ecosystems.'
+shortTitle: Dependency graph ecosystems
+intro: Dependency graph supports a variety of ecosystems.
 allowTitleToDifferFromFilename: true
-type: reference
 topics:
   - Dependency graph
   - Dependencies
@@ -14,6 +13,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+redirect_from:
+  - /code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems
+contentType: reference
 ---
 
 ## About the dependency graph

@@ -10,7 +10,6 @@ topics:
   - Repositories
 shortTitle: Understand your supply chain
 children:
-  - /dependency-graph-supported-package-ecosystems
   - /customizing-your-dependency-review-action-configuration
   - /enforcing-dependency-review-across-an-organization
   - /troubleshooting-the-dependency-graph
