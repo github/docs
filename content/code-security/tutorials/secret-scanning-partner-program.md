@@ -9,6 +9,7 @@ redirect_from:
   - /developers/overview/secret-scanning-partner-program
   - /code-security/secret-scanning/secret-scanning-partner-program
   - /code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program
+  - /code-security/secret-scanning/secret-scanning-partnership-program
 versions:
   fpt: '*'
   ghec: '*'
