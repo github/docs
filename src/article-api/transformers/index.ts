@@ -3,7 +3,10 @@ import { RestTransformer } from './rest-transformer'
 import { SecretScanningTransformer } from './secret-scanning-transformer'
 import { CodeQLCliTransformer } from './codeql-cli-transformer'
 import { AuditLogsTransformer } from './audit-logs-transformer'
-import { GraphQLTransformer } from './graphql-transformer'
+import { GraphQLIndexTransformer } from './graphql-index-transformer'
+import { GraphQLReferenceTransformer } from './graphql-reference-transformer'
+import { GraphQLChangelogTransformer } from './graphql-changelog-transformer'
+import { GraphQLBreakingChangesTransformer } from './graphql-breaking-changes-transformer'
 import { GithubAppsTransformer } from './github-apps-transformer'
 import { WebhooksTransformer } from './webhooks-transformer'
 import { TocTransformer } from './toc-transformer'
@@ -24,7 +27,10 @@ transformerRegistry.register(new RestTransformer())
 transformerRegistry.register(new SecretScanningTransformer())
 transformerRegistry.register(new CodeQLCliTransformer())
 transformerRegistry.register(new AuditLogsTransformer())
-transformerRegistry.register(new GraphQLTransformer())
+transformerRegistry.register(new GraphQLIndexTransformer())
+transformerRegistry.register(new GraphQLReferenceTransformer())
+transformerRegistry.register(new GraphQLChangelogTransformer())
+transformerRegistry.register(new GraphQLBreakingChangesTransformer())
 transformerRegistry.register(new GithubAppsTransformer())
 transformerRegistry.register(new WebhooksTransformer())
 transformerRegistry.register(new TocTransformer())

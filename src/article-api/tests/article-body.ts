@@ -25,6 +25,15 @@ describe('article body api', () => {
     expect(res.headers['content-type']).toContain('text/markdown')
   })
 
+  test('body includes title and intro', async () => {
+    const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
+    expect(res.statusCode).toBe(200)
+    // Body should start with the page title as H1
+    expect(res.body).toMatch(/^# Hello World/)
+    // Body should include the intro after the title
+    expect(res.body).toContain('Follow this Hello World exercise to get started with')
+  })
+
   test('octicons auto-generate aria-labels', async () => {
     const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
     expect(res.statusCode).toBe(200)
