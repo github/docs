@@ -21,4 +21,6 @@ children:
   - trialing-github-advanced-security
   - adopting-github-advanced-security-at-scale
   - manage-security-alerts
+  - improve-code-quality
+  - fix-reported-vulnerabilities
 ---

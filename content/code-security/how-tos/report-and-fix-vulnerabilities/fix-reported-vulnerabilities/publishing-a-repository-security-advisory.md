@@ -9,16 +9,17 @@ redirect_from:
   - /code-security/security-advisories/publishing-a-security-advisory
   - /code-security/repository-security-advisories/publishing-a-repository-security-advisory
   - /code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory
+  - /code-security/security-advisories/working-with-repository-security-advisories/publishing-a-repository-security-advisory
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Security advisories
   - Vulnerabilities
   - CVEs
   - Repositories
-shortTitle: Publish repository advisories
+shortTitle: Publish repository advisory
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Publishing a security advisory".-->
 

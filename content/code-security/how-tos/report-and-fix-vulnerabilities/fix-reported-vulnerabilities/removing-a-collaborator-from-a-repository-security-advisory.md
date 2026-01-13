@@ -7,10 +7,11 @@ redirect_from:
   - /code-security/security-advisories/removing-a-collaborator-from-a-security-advisory
   - /code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
   - /code-security/security-advisories/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
+  - /code-security/security-advisories/working-with-repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Security advisories
   - Vulnerabilities

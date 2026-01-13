@@ -13,29 +13,29 @@ security_advisories:
     - >-
       /code-security/concepts/vulnerability-reporting-and-management/about-repository-security-advisories
     - >-
-      /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/best-practices-for-writing-repository-security-advisories
+      /code-security/tutorials/fix-reported-vulnerabilities/write-security-advisories
     - >-
-      /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability
+      /code-security/how-tos/report-and-fix-vulnerabilities/report-a-vulnerability/privately-reporting-a-security-vulnerability
     - >-
-      /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/managing-privately-reported-security-vulnerabilities
+      /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/managing-privately-reported-security-vulnerabilities
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository
+      /code-security/how-tos/report-and-fix-vulnerabilities/configure-vulnerability-reporting/configuring-private-vulnerability-reporting-for-a-repository
     - >-
       /code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-an-organization
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory
+      /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/creating-a-repository-security-advisory
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
+      /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/adding-a-collaborator-to-a-repository-security-advisory
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
+      /code-security/tutorials/fix-reported-vulnerabilities/collaborate-in-a-fork
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/publishing-a-repository-security-advisory
+      /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/publishing-a-repository-security-advisory
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory
+      /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/editing-a-repository-security-advisory
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/deleting-a-repository-security-advisory
+      /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/deleting-a-repository-security-advisory
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
+      /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/removing-a-collaborator-from-a-repository-security-advisory
 dependabot_alerts:
   title: Get notifications for insecure dependencies
   description: >-

@@ -1,7 +1,7 @@
 ---
 title: Improving the quality of your repository's code
 shortTitle: Improve your codebase
-intro: 'Assess and remediate code quality issues detected on your default branch so you can improve the quality of your codebase. As you progress, you''ll see your repository''s code quality rating rise as a result.'
+intro: Assess and remediate code quality issues detected on your default branch so you can improve the quality of your codebase. As you progress, you'll see your repository's code quality rating rise as a result.
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
@@ -9,6 +9,8 @@ permissions: '{% data reusables.permissions.code-quality-see-repo-findings %}'
 topics:
   - Code Quality
 contentType: tutorials
+redirect_from:
+  - /code-security/code-quality/tutorials/improve-your-codebase
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}

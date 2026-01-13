@@ -19,4 +19,5 @@ children:
   - /secure-at-scale
   - /secure-your-supply-chain
   - /maintain-quality-code
+  - /report-and-fix-vulnerabilities
 ---

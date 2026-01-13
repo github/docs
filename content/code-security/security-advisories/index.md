@@ -15,5 +15,4 @@ topics:
 children:
   - /working-with-global-security-advisories-from-the-github-advisory-database
   - /working-with-repository-security-advisories
-  - /guidance-on-reporting-and-writing-information-about-vulnerabilities
 ---

@@ -5,14 +5,16 @@ versions:
   fpt: '*'
   ghec: '*'
 permissions: '{% data reusables.permissions.security-repo-enable %}'
-type: how_to
+contentType: tutorials
 topics:
   - Security advisories
   - Vulnerabilities
-shortTitle: Best practices
+shortTitle: Write security advisories
 redirect_from:
   - /code-security/repository-security-advisories/best-practices-for-writing-repository-security-advisories
   - /code-security/security-advisories/guidance-on-reporting-and-writing/best-practices-for-writing-repository-security-advisories
+  - /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/best-practices-for-writing-repository-security-advisories
+  - /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities
 ---
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
