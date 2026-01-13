@@ -17,8 +17,8 @@ topics:
 contentType: tutorials
 children:
   - secure-your-organization
+  - remediate-leaked-secrets
   - trialing-github-advanced-security
   - adopting-github-advanced-security-at-scale
   - manage-security-alerts
 ---
-

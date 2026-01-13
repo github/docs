@@ -1,7 +1,7 @@
 ---
 title: Setting code quality thresholds for pull requests
 shortTitle: Set PR thresholds
-intro: 'Create a {% data variables.product.prodname_code_quality_short %} gate for pull requests to increase the quality of code merged into your repository.'
+intro: Create a {% data variables.product.prodname_code_quality_short %} gate for pull requests to increase the quality of code merged into your repository.
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
@@ -9,6 +9,8 @@ permissions: '{% data reusables.permissions.code-quality-repo-enable %}'
 topics:
   - Code Quality
 contentType: how-tos
+redirect_from:
+  - /code-security/code-quality/how-tos/set-pr-thresholds
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}

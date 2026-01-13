@@ -13,6 +13,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+redirect_from:
+  - /code-security/secret-scanning/working-with-secret-scanning-and-push-protection/remediating-a-leaked-secret
+contentType: tutorials
 ---
 
 ## Introduction
