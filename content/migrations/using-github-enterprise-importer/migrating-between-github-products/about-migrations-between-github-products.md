@@ -130,9 +130,7 @@ When you migrate a repository, either directly or as part of an organization mig
 
 Currently, the following data is **not** migrated.
 
-* {% data variables.product.prodname_codespaces %} secrets
 {% data reusables.enterprise-migration-tool.data-not-migrated %}
-* User access to the repository
 
 When you migrate a repository directly, teams and team access to repositories are not migrated.
 
