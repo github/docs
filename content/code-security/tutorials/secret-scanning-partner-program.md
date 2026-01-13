@@ -1,6 +1,6 @@
 ---
 title: Secret scanning partner program
-intro: 'As a service provider, you can partner with {% data variables.product.prodname_dotcom %} to have your secret token formats secured through secret scanning, which searches for accidental commits of your secret format and can be sent to a service provider''s verify endpoint.'
+intro: As a service provider, you can partner with {% data variables.product.prodname_dotcom %} to have your secret token formats secured through secret scanning, which searches for accidental commits of your secret format and can be sent to a service provider's verify endpoint.
 product: '{% data reusables.gated-features.secret-scanning-partner-alerts %}'
 redirect_from:
   - /partnerships/token-scanning
@@ -8,6 +8,7 @@ redirect_from:
   - /developers/overview/secret-scanning
   - /developers/overview/secret-scanning-partner-program
   - /code-security/secret-scanning/secret-scanning-partner-program
+  - /code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program
 versions:
   fpt: '*'
   ghec: '*'
@@ -16,6 +17,7 @@ topics:
   - Secret scanning
   - Secret Protection
 shortTitle: Partner program
+contentType: tutorials
 ---
 
 {% data variables.product.prodname_dotcom %} scans repositories for known secret formats to prevent fraudulent use of credentials that were committed accidentally. {% data variables.product.prodname_secret_scanning_caps %} happens by default on public repositories and public npm packages. Repository administrators and organization owners can also enable {% data variables.product.prodname_secret_scanning %} on private repositories. As a service provider, you can partner with {% data variables.product.prodname_dotcom %} so that your secret formats are included in our {% data variables.product.prodname_secret_scanning %}.

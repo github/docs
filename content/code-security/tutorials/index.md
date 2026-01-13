@@ -16,11 +16,13 @@ topics:
   - Dependabot
 contentType: tutorials
 children:
-  - secure-your-organization
-  - remediate-leaked-secrets
   - trialing-github-advanced-security
   - adopting-github-advanced-security-at-scale
+  - secure-your-organization
+  - remediate-leaked-secrets
+  - secret-scanning-partner-program
   - manage-security-alerts
   - improve-code-quality
   - fix-reported-vulnerabilities
 ---
+
