@@ -15,4 +15,6 @@ topics:
   - Dependencies
   - Dependabot
 contentType: reference
+children:
+  - code-scanning
 ---
