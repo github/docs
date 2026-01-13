@@ -4554,7 +4554,7 @@
       "business",
       "business_id"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
+    "docs_reference_titles": "Configuring default setup for code scanning at scale"
   },
   {
     "action": "org.codeql_enabled",
@@ -4577,7 +4577,7 @@
       "business",
       "business_id"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
+    "docs_reference_titles": "Configuring default setup for code scanning at scale"
   },
   {
     "action": "org.codespaces_access_updated",
