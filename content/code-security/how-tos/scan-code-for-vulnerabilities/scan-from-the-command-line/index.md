@@ -17,4 +17,7 @@ children:
   - /testing-query-help-files
   - /specifying-command-options-in-a-codeql-configuration-file
   - /creating-database-bundle-for-troubleshooting
+redirect_from:
+  - /code-security/codeql-cli/using-the-codeql-cli
+  - /code-security/codeql-cli/getting-started-with-the-codeql-cli
 ---

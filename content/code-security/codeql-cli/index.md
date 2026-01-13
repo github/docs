@@ -13,7 +13,6 @@ topics:
   - Code scanning
   - CodeQL
 children:
-  - /getting-started-with-the-codeql-cli
   - /using-the-advanced-functionality-of-the-codeql-cli
   - /codeql-cli-manual
 ---

@@ -194,7 +194,7 @@ code_security_actions:
     - >-
       /code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/codeql-code-scanning-for-compiled-languages
     - >-
-      /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/running-codeql-code-scanning-in-a-container
+      /code-security/tutorials/customize-code-scanning/running-codeql-code-scanning-in-a-container
     - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors
     - >-
       /code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/about-the-tool-status-page

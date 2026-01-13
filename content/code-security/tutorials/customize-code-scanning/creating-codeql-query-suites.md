@@ -1,6 +1,6 @@
 ---
 title: Creating CodeQL query suites
-intro: 'You can create query suites for queries you frequently use in your {% data variables.product.prodname_codeql %} analyses.'
+intro: You can create query suites for queries you frequently use in your {% data variables.product.prodname_codeql %} analyses.
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
@@ -13,6 +13,8 @@ topics:
 redirect_from:
   - /code-security/codeql-cli/creating-codeql-query-suites
   - /code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites
+  - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites
+contentType: tutorials
 ---
 
 ## About creating {% data variables.product.prodname_codeql %} query suites

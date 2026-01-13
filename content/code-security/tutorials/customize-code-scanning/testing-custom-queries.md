@@ -1,6 +1,6 @@
 ---
 title: Testing custom queries
-intro: 'You can set up tests for your {% data variables.product.prodname_codeql %} queries to ensure that they continue to return the expected results with new releases of the {% data variables.product.prodname_codeql_cli %}.'
+intro: You can set up tests for your {% data variables.product.prodname_codeql %} queries to ensure that they continue to return the expected results with new releases of the {% data variables.product.prodname_codeql_cli %}.
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
@@ -13,6 +13,8 @@ topics:
 redirect_from:
   - /code-security/codeql-cli/testing-custom-queries
   - /code-security/codeql-cli/using-the-codeql-cli/testing-custom-queries
+  - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/testing-custom-queries
+contentType: tutorials
 ---
 
 ## About testing custom queries

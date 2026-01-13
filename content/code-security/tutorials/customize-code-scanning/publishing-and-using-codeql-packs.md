@@ -1,6 +1,6 @@
 ---
 title: Publishing and using CodeQL packs
-intro: 'You can publish your own {% data variables.product.prodname_codeql %} packs and use packs published by other people.'
+intro: You can publish your own {% data variables.product.prodname_codeql %} packs and use packs published by other people.
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
@@ -13,6 +13,8 @@ topics:
 redirect_from:
   - /code-security/codeql-cli/publishing-and-using-codeql-packs
   - /code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs
+  - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs
+contentType: tutorials
 ---
 
 {% ifversion ghec or ghes %}

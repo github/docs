@@ -12,10 +12,6 @@ topics:
   - Code scanning
   - CodeQL
 children:
-  - /creating-codeql-query-suites
-  - /testing-custom-queries
-  - /creating-and-working-with-codeql-packs
-  - /publishing-and-using-codeql-packs
   - /sarif-output
   - /csv-output
   - /extractor-options

@@ -1,6 +1,6 @@
 ---
 title: Preparing your code for CodeQL analysis
-intro: 'You can build a {% data variables.product.prodname_codeql %} database containing the data needed to analyze your code.'
+intro: You can build a {% data variables.product.prodname_codeql %} database containing the data needed to analyze your code.
 shortTitle: Preparing code for analysis
 permissions: '{% data reusables.permissions.repo-checkout %}'
 product: '{% data reusables.gated-features.codeql %}'
@@ -19,6 +19,8 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-code-scanning-in-your-ci-system
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
+  - /code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis
+contentType: tutorials
 ---
 <!--The CodeQL CLI man pages include a link to a section in this article. If you rename this article,
 make sure that you also update the MS short link: https://aka.ms/codeql-docs/indirect-tracing.-->

@@ -12,5 +12,4 @@ topics:
   - Code scanning
 children:
   - /recommended-hardware-resources-for-running-codeql
-  - /running-codeql-code-scanning-in-a-container
 ---

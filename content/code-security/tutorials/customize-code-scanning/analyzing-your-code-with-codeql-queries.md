@@ -1,6 +1,6 @@
 ---
 title: Analyzing your code with CodeQL queries
-intro: 'You can run queries against a {% data variables.product.prodname_codeql %} database extracted from a codebase.'
+intro: You can run queries against a {% data variables.product.prodname_codeql %} database extracted from a codebase.
 product: '{% data reusables.gated-features.codeql %}'
 shortTitle: Analyzing code
 versions:
@@ -14,6 +14,8 @@ topics:
 redirect_from:
   - /code-security/codeql-cli/analyzing-databases-with-the-codeql-cli
   - /code-security/codeql-cli/using-the-codeql-cli/analyzing-databases-with-the-codeql-cli
+  - /code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries
+contentType: tutorials
 ---
 
 ## About analyzing databases with the {% data variables.product.prodname_codeql_cli %}

@@ -1,6 +1,6 @@
 ---
 title: Customizing analysis with CodeQL packs
-intro: 'You can use {% data variables.product.prodname_codeql %} packs to run {% data variables.product.prodname_codeql %} queries maintained by other people, or to share {% data variables.product.prodname_codeql %} queries that you''ve developed.'
+intro: You can use {% data variables.product.prodname_codeql %} packs to run {% data variables.product.prodname_codeql %} queries maintained by other people, or to share {% data variables.product.prodname_codeql %} queries that you've developed.
 shortTitle: Customizing analysis
 product: '{% data reusables.gated-features.codeql %}'
 versions:
@@ -14,6 +14,8 @@ topics:
 redirect_from:
   - /code-security/codeql-cli/about-codeql-packs
   - /code-security/codeql-cli/codeql-cli-reference/about-codeql-packs
+  - /code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs
+contentType: tutorials
 ---
 
 ## About {% data variables.product.prodname_codeql %} packs

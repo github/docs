@@ -1,7 +1,7 @@
 ---
 title: Uploading CodeQL analysis results to GitHub
 shortTitle: Uploading results to GitHub
-intro: 'You can use the {% data variables.product.prodname_codeql_cli %} to upload {% data variables.product.prodname_codeql %} analysis results to {% data variables.product.github %}.'
+intro: You can use the {% data variables.product.prodname_codeql_cli %} to upload {% data variables.product.prodname_codeql %} analysis results to {% data variables.product.github %}.
 permissions: '{% data reusables.permissions.code-scanning-all-alerts %}'
 product: '{% data reusables.gated-features.codeql %}'
 versions:
@@ -12,6 +12,9 @@ topics:
   - Code Security
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/codeql-cli/getting-started-with-the-codeql-cli/uploading-codeql-analysis-results-to-github
+contentType: tutorials
 ---
 
 ## About SARIF output
