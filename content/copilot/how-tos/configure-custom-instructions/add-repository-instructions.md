@@ -217,7 +217,7 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 * **Path-specific custom instructions**, which apply to requests made in the context of files that match a specified path.
 
-  These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions).
+  These are specified in one or more `NAME.instructions.md` files within or below the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions).
 
   If the path you specify matches a file that {% data variables.product.prodname_copilot_short %} is working on, and a repository-wide custom instructions file also exists, then the instructions from both files are used. You should avoid potential conflicts between instructions as {% data variables.product.prodname_copilot_short %}'s choice between conflicting instructions is non-deterministic.
 
@@ -253,7 +253,7 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 * **Path-specific custom instructions**, which apply to requests made in the context of files that match a specified path.
 
-  These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions-1).
+  These are specified in one or more `NAME.instructions.md` files within or below the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions-1).
 
   If the path you specify matches a file that {% data variables.product.prodname_copilot_short %} is working on, and a repository-wide custom instructions file also exists, then the instructions from both files are used.
 
@@ -290,7 +290,7 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 * **Path-specific custom instructions**, which apply to requests made in the context of files that match a specified path.
 
-  These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions-2).
+  These are specified in one or more `NAME.instructions.md` files within or below the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions-2).
 
   If the path you specify matches a file that {% data variables.product.prodname_copilot_short %} is working on, and a repository-wide custom instructions file also exists, then the instructions from both files are used.
 
@@ -320,7 +320,7 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 * **Path-specific custom instructions** apply to requests made in the context of files that match a specified path.
 
-  These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions-2).
+  These are specified in one or more `NAME.instructions.md` files within or below the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions-2).
 
   If the path you specify matches a file that {% data variables.product.prodname_copilot_short %} is working on, and a repository-wide custom instructions file also exists, then the instructions from both files are used.
 

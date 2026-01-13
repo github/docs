@@ -11,7 +11,7 @@ topics:
   - Copilot
   - CLI
 contentType: how-tos
-category: 
+category:
   - Author and optimize with Copilot
 ---
 
@@ -73,6 +73,40 @@ Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot
    {% data variables.product.prodname_copilot_short %} will not run the command. Instead, it ends the current operation and awaits your next prompt. You can tell {% data variables.product.prodname_copilot_short %} to continue the task but using a different approach.
 
    For example, if you ask {% data variables.product.prodname_copilot_short %} to create a bash script but you do not want to use the script {% data variables.product.prodname_copilot_short %} suggests, you can stop the current operation and enter a new prompt, such as: `Continue the previous task but include usage instructions in the script`.
+
+## Permissions
+
+{% data variables.copilot.copilot_cli_short %} uses a permissions system to control access to paths and URLs. At times, path and URL permission checks utilize heuristic-based detection, which has limitations to be aware of.
+
+### Path permissions
+
+Path permissions control which directories and files {% data variables.product.prodname_copilot_short %} can access. By default, {% data variables.copilot.copilot_cli_short %} can access the current working directory, its subdirectories, and the system temp directory.
+
+Path permissions apply to shell commands, file operations (create, edit, view), and search tools (such as `grep` and glob patterns). For shell commands, paths are heuristically extracted by tokenizing command text and identifying tokens that look like paths.
+
+> [!WARNING]
+> Path detection for shell commands has limitations:
+>
+> * Paths embedded in complex shell constructs may not be detected.
+> * Only a specific set of environment variables are expanded (`HOME`, `TMPDIR`, `PWD`, and similar). Custom variables like `$MY_PROJECT_DIR` are not expanded and may not be validated correctly.
+> * Symlinks are resolved for existing files, but not for files being created.
+
+To disable path verification, use the `--allow-all-paths` flag when starting {% data variables.copilot.copilot_cli_short %}.
+
+### URL permissions
+
+URL permissions control which external URLs {% data variables.product.prodname_copilot_short %} can access. By default, all URLs require approval before access is granted.
+
+URL permissions apply to the `web_fetch` tool and a curated list of shell commands that access the network (such as `curl`, `wget`, and `fetch`). For shell commands, URLs are extracted using regex patterns.
+
+> [!WARNING]
+> URL detection for shell commands has limitations:
+>
+> * URLs in file contents, config files, or environment variables read by commands are not detected.
+> * Obfuscated URLs (such as split strings or escape sequences) may not be detected.
+> * HTTP and HTTPS are treated as different protocols and require separate approval.
+
+To disable URL verification, use the `--allow-all-urls` flag. To pre-approve specific domains, use `--allow-url <domain>` (for example, `--allow-url github.com`).
 
 ## Tips
 
@@ -137,7 +171,7 @@ You can enhance {% data variables.product.prodname_copilot_short %}’s performa
 {% data variables.copilot.copilot_cli_short %} supports:
 
 * Repository-wide instructions in the `.github/copilot-instructions.md` file.
-* Path-specific instructions files: `.github/copilot-instructions/**/*.instructions.md`.
+* Path-specific instructions files: `.github/instructions/**/*.instructions.md`.
 * Agent files such as `AGENTS.md`.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
@@ -167,11 +201,11 @@ In the case of naming conflicts, a system-level agent overrides a repository-lev
 * Calling out to {% data variables.copilot.copilot_custom_agent_short %} directly in a prompt:
 
   ```shell
-  Use the refactoring agent to refactor this code block 
+  Use the refactoring agent to refactor this code block
   ```
 
   {% data variables.product.prodname_copilot_short %} will automatically infer the agent you want to use.
-  
+
 * Specifying the {% data variables.copilot.copilot_custom_agent_short %} you want to use with the command-line option. For example:
 
   ```shell

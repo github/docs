@@ -15,5 +15,5 @@ topics:
 shortTitle: Dependabot ecosystems
 children:
   - /supported-ecosystems-and-repositories
-  - /optimizing-java-packages-dependabot
 ---
+

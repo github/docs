@@ -86,7 +86,17 @@ export default async function learningTrack(
   const trackTitle = await executeWithFallback(
     req.context,
     () => renderContent(track.title, req.context, renderOpts),
-    () => '', // todo use english track.title
+    (enContext: Context) => {
+      const allEnglishLearningTracks = getDeepDataByLanguage(
+        'learning-tracks',
+        'en',
+      ) as LearningTracks
+      const enTrack = allEnglishLearningTracks[trackProduct]?.[trackName]
+      if (!enTrack) {
+        throw new Error(`English learning track not found: ${trackProduct}.${trackName}`)
+      }
+      return renderContent(enTrack.title, enContext, renderOpts)
+    },
   )
 
   const currentLearningTrack: CurrentLearningTrack = { trackName, trackProduct, trackTitle }
@@ -176,7 +186,7 @@ async function indexOfLearningTrackGuide(
     const renderedGuidePath = await executeWithFallback(
       context,
       () => renderContent(trackGuidePaths[i], context, renderOpts),
-      () => '', // todo use english trackGuidePaths[i]
+      (enContext: Context) => renderContent(trackGuidePaths[i], enContext, renderOpts),
     )
 
     if (!renderedGuidePath) continue

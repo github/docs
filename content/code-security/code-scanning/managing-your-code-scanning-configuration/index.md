@@ -12,12 +12,7 @@ topics:
   - Code scanning
   - CodeQL
 children:
-  - /about-the-tool-status-page
-  - /editing-your-configuration-of-default-setup
-  - /codeql-query-suites
-  - /set-code-scanning-merge-protection
   - /enabling-delegated-alert-dismissal-for-code-scanning
-  - /configuring-larger-runners-for-default-setup
   - /viewing-code-scanning-logs
 ---
 
