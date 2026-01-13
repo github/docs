@@ -15,6 +15,9 @@ topics:
   - Code Security
   - Secret Protection
   - Secret scanning
+redirect_from:
+  - /code-security/supply-chain-security/end-to-end-supply-chain/securing-code
+contentType: tutorials
 ---
 
 ## About this guide

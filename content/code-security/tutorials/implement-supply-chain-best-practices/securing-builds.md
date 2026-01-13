@@ -13,6 +13,9 @@ topics:
   - Security
   - CI
   - CD
+redirect_from:
+  - /code-security/supply-chain-security/end-to-end-supply-chain/securing-builds
+contentType: tutorials
 ---
 
 ## About this guide

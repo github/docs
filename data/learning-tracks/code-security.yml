@@ -216,9 +216,9 @@ end_to_end_supply_chain:
     process.
   guides:
     - >-
-      /code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview
+      /code-security/tutorials/implement-supply-chain-best-practices/end-to-end-supply-chain-overview
     - >-
-      /code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts
-    - /code-security/supply-chain-security/end-to-end-supply-chain/securing-code
+      /code-security/tutorials/implement-supply-chain-best-practices/securing-accounts
+    - /code-security/tutorials/implement-supply-chain-best-practices/securing-code
     - >-
-      /code-security/supply-chain-security/end-to-end-supply-chain/securing-builds
+      /code-security/tutorials/implement-supply-chain-best-practices/securing-builds
