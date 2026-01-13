@@ -1,7 +1,7 @@
 ---
 title: Enabling {% data variables.product.prodname_code_quality %}
 shortTitle: Enable Code Quality
-intro: 'Use {% data variables.product.prodname_code_quality_short %} to automatically catch, fix, and report on code quality issues in pull requests and on your default branch.'
+intro: Use {% data variables.product.prodname_code_quality_short %} to automatically catch, fix, and report on code quality issues in pull requests and on your default branch.
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
@@ -9,6 +9,8 @@ permissions: '{% data reusables.permissions.code-quality-repo-enable %}'
 topics:
   - Code Quality
 contentType: how-tos
+redirect_from:
+  - /code-security/code-quality/how-tos/enable-code-quality
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}

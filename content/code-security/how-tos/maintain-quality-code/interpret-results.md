@@ -2,7 +2,7 @@
 title: Interpreting the code quality results for your repository
 shortTitle: Interpret results
 allowTitleToDifferFromFilename: true
-intro: 'View {% data variables.product.prodname_code_quality %} findings for your default branch.'
+intro: View {% data variables.product.prodname_code_quality %} findings for your default branch.
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
@@ -10,6 +10,8 @@ permissions: '{% data reusables.permissions.code-quality-see-repo-findings %}'
 topics:
   - Code Quality
 contentType: how-tos
+redirect_from:
+  - /code-security/code-quality/how-tos/interpret-results
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}

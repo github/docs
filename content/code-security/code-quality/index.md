@@ -8,7 +8,6 @@ topics:
   - Code Quality
 children:
   - /get-started
-  - /how-tos
   - /reference
   - /tutorials
   - /responsible-use
