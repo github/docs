@@ -18,7 +18,6 @@ topics:
 shortTitle: Manage alerts
 children:
   - /viewing-alerts
-  - /evaluating-alerts
   - /resolving-alerts
   - /monitoring-alerts
 ---

@@ -13,7 +13,6 @@ topics:
   - Secret Protection
   - Repositories
 children:
-  - /remediating-a-leaked-secret
   - /push-protection-for-users
   - /working-with-push-protection-from-the-command-line
   - /working-with-push-protection-in-the-github-ui
