@@ -15,7 +15,6 @@ redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists
   - /code-security/code-scanning/managing-code-scanning-alerts/tracking-code-scanning-alerts-in-issues-using-task-lists
 children:
-  - /responsible-use-autofix-code-scanning
   - /disabling-autofix-for-code-scanning
   - /assessing-code-scanning-alerts-for-your-repository
   - /resolving-code-scanning-alerts

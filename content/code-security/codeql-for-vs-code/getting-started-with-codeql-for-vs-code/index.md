@@ -11,12 +11,6 @@ topics:
   - Code Security
   - Code scanning
   - CodeQL
-children:
-  - /installing-codeql-for-vs-code
-  - /managing-codeql-databases
-  - /running-codeql-queries
-  - /exploring-data-flow-with-path-queries
-  - /running-codeql-queries-at-scale-with-multi-repository-variant-analysis
 redirect_from:
   - /code-security/codeql-for-vs-code/setting-up-codeql-in-visual-studio-code
 ---

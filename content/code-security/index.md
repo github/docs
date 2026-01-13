@@ -13,11 +13,11 @@ featuredLinks:
     - /code-security/getting-started/quickstart-for-securing-your-repository
     - '{% ifversion ghes %}/code-security/secret-scanning/working-with-secret-scanning-and-push-protection{% endif %}'
     - /code-security/getting-started/dependabot-quickstart-guide
-    - /code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning
+    - /code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/configuring-default-setup-for-code-scanning
   guideCards:
     - /code-security/trialing-github-advanced-security/planning-a-trial-of-ghas
     - /code-security/secret-scanning/enabling-secret-scanning-features
-    - /code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning
+    - /code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/configuring-default-setup-for-code-scanning
     - /code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configuring-dependabot-security-updates
     - /code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configuring-dependabot-version-updates
   popular:

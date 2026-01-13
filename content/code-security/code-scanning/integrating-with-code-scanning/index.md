@@ -16,8 +16,6 @@ topics:
   - Code scanning
   - Integration
 children:
-  - /using-code-scanning-with-your-existing-ci-system
-  - /uploading-a-sarif-file-to-github
   - /sarif-support-for-code-scanning
 ---
 
