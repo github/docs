@@ -8,16 +8,17 @@ redirect_from:
   - /code-security/security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability
   - /code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
   - /code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
+  - /code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
   - Collaboration
   - Forks
-shortTitle: Temporary private forks
+shortTitle: Collaborate in a fork
+contentType: tutorials
 ---
 
 {% data reusables.security-advisory.repository-level-advisory-note %}
