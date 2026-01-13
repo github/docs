@@ -1,7 +1,7 @@
 ---
 title: Improving the quality of recently merged code with AI
 shortTitle: Improve recent merges
-intro: 'Explore {% data variables.product.prodname_code_quality %} findings for recently merged code and fix with {% data variables.copilot.copilot_autofix_short %} or delegate remediation work to {% data variables.copilot.copilot_coding_agent %}.'
+intro: Explore {% data variables.product.prodname_code_quality %} findings for recently merged code and fix with {% data variables.copilot.copilot_autofix_short %} or delegate remediation work to {% data variables.copilot.copilot_coding_agent %}.
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
@@ -11,6 +11,7 @@ topics:
 contentType: tutorials
 redirect_from:
   - /code-security/code-quality/tutorials/improve-active-code
+  - /code-security/code-quality/tutorials/improve-recent-merges
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}
