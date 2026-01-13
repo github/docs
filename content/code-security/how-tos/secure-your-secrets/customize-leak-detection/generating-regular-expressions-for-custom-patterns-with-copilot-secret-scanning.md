@@ -1,12 +1,12 @@
 ---
 title: Generating regular expressions for custom patterns with Copilot secret scanning
 shortTitle: Regular expression generator
-intro: 'You can use {% data variables.secret-scanning.copilot-secret-scanning %}''s {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} to write regular expressions for custom patterns. The generator uses an AI model to generate expressions that match your input, and optionally example strings.'
+intro: You can use {% data variables.secret-scanning.copilot-secret-scanning %}'s {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} to write regular expressions for custom patterns. The generator uses an AI model to generate expressions that match your input, and optionally example strings.
 permissions: '{% data reusables.permissions.security-repo-enable %}'
 allowTitleToDifferFromFilename: true
 versions:
   feature: secret-scanning-custom-pattern-ai-generated
-type: how_to
+contentType: how-tos
 topics:
   - Secret Protection
   - Secret scanning
@@ -16,6 +16,7 @@ redirect_from:
   - /code-security/secret-scanning/generating-regular-expressions-for-custom-patterns-with-ai
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/generating-regular-expressions-for-custom-patterns-with-ai
   - /code-security/secret-scanning/copilot-secret-scanning/generating-regular-expressions-for-custom-patterns-with-ai
+  - /code-security/secret-scanning/copilot-secret-scanning/generating-regular-expressions-for-custom-patterns-with-copilot-secret-scanning
 ---
 
 ## Generating a regular expression for a repository with {% data variables.secret-scanning.copilot-secret-scanning %}

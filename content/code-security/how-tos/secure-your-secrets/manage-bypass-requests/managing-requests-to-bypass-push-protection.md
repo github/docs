@@ -1,18 +1,20 @@
 ---
 title: Managing requests to bypass push protection
-intro: 'As a member of the bypass list for an organization or repository, you can review bypass requests from other members of the organization or repository.'
+intro: As a member of the bypass list for an organization or repository, you can review bypass requests from other members of the organization or repository.
 permissions: '{% data reusables.permissions.delegated-bypass-list %}'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Secret scanning
   - Secret Protection
   - Alerts
   - Repositories
 shortTitle: Manage bypass requests
+redirect_from:
+  - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/managing-requests-to-bypass-push-protection
 ---
 
 ## Managing requests to bypass push protection

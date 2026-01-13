@@ -1,18 +1,20 @@
 ---
 title: Enabling delegated bypass for push protection
-intro: 'You can use delegated bypass for your organization or repository to control who can push commits that contain secrets identified by {% data variables.product.prodname_secret_scanning %}.'
+intro: You can use delegated bypass for your organization or repository to control who can push commits that contain secrets identified by {% data variables.product.prodname_secret_scanning %}.
 permissions: '{% data reusables.permissions.delegated-bypass %}'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Secret scanning
   - Secret Protection
   - Alerts
   - Repositories
 shortTitle: Enable delegated bypass
+redirect_from:
+  - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection
 ---
 
 ## About enabling delegated bypass for push protection

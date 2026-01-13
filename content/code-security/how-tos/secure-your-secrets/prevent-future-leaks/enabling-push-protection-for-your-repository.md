@@ -1,17 +1,19 @@
 ---
 title: Enabling push protection for your repository
 shortTitle: Enable push protection
-intro: 'With push protection, {% data variables.product.prodname_secret_scanning %} blocks contributors from pushing secrets to a repository and generates an alert whenever a contributor bypasses the block.'
+intro: With push protection, {% data variables.product.prodname_secret_scanning %} blocks contributors from pushing secrets to a repository and generates an alert whenever a contributor bypasses the block.
 permissions: '{% data reusables.permissions.push-protection %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Secret scanning
   - Secret Protection
   - Alerts
+redirect_from:
+  - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository
 ---
 
 ## About enabling push protection

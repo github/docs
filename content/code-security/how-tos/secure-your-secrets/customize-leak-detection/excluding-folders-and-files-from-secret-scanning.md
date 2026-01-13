@@ -1,17 +1,19 @@
 ---
 title: Excluding folders and files from secret scanning
-intro: 'You can customize {% data variables.product.prodname_secret_scanning %} to automatically close alerts for secrets found in specific directories or files by configuring a `secret_scanning.yml` file in your repository.'
+intro: You can customize {% data variables.product.prodname_secret_scanning %} to automatically close alerts for secrets found in specific directories or files by configuring a `secret_scanning.yml` file in your repository.
 permissions: '{% data reusables.permissions.secret-scanning-alerts %}'
 shortTitle: Exclude folders and files
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Secret scanning
   - Secret Protection
   - Repositories
+redirect_from:
+  - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/excluding-folders-and-files-from-secret-scanning
 ---
 
 ## About {% data variables.product.prodname_secret_scanning %}

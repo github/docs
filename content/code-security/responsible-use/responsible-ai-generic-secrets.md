@@ -17,6 +17,7 @@ redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/responsible-ai-generic-secrets
   - /code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets
+  - /code-security/secret-scanning/copilot-secret-scanning
 contentType: rai
 ---
 

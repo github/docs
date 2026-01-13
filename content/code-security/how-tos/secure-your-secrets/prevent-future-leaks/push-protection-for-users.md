@@ -1,10 +1,11 @@
 ---
 title: Push protection for users
-intro: 'With push protection for users, you are automatically protected on all pushes to public repositories across {% data variables.product.github %}.'
+shortTitle: Push protection for users
+intro: With push protection for users, you are automatically protected on all pushes to public repositories across {% data variables.product.github %}.
 versions:
   feature: secret-scanning-push-protection-for-users
 product: '{% data reusables.gated-features.push-protection-for-users %}'
-type: how_to
+contentType: how-tos
 topics:
   - Secret scanning
   - Secret Protection
@@ -12,6 +13,7 @@ topics:
   - User account
 redirect_from:
   - /code-security/secret-scanning/push-protection-for-users
+  - /code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users
 ---
 
 ## About push protection for users

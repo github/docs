@@ -1,17 +1,19 @@
 ---
 title: Enabling secret scanning for your repository
 shortTitle: Enable secret scanning
-intro: 'You can configure how {% data variables.product.prodname_dotcom %} scans your repositories for leaked secrets and generates alerts.'
+intro: You can configure how {% data variables.product.prodname_dotcom %} scans your repositories for leaked secrets and generates alerts.
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Secret scanning
   - Secret Protection
   - Alerts
+redirect_from:
+  - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository
 ---
 
 ## About enabling {% data variables.secret-scanning.user_alerts %}

@@ -1,12 +1,12 @@
 ---
 title: Enabling Copilot secret scanning's generic secret detection
 shortTitle: Enable generic secret detection
-intro: 'You can enable {% data variables.secret-scanning.generic-secret-detection %} for your repository or organization. Alerts for generic secrets, such as passwords, are displayed in a separate list on the {% data variables.product.prodname_secret_scanning %} alerts page.'
+intro: You can enable {% data variables.secret-scanning.generic-secret-detection %} for your repository or organization. Alerts for generic secrets, such as passwords, are displayed in a separate list on the {% data variables.product.prodname_secret_scanning %} alerts page.
 allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.security-repo-enable %}'
 versions:
   feature: secret-scanning-ai-generic-secret-detection
-type: how_to
+contentType: how-tos
 topics:
   - Secret scanning
   - Secret Protection
@@ -15,6 +15,7 @@ topics:
 redirect_from:
   - /code-security/secret-scanning/enabling-ai-powered-generic-secret-detection
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/enabling-ai-powered-generic-secret-detection
+  - /code-security/secret-scanning/copilot-secret-scanning/enabling-ai-powered-generic-secret-detection
 ---
 
 ## Enabling {% data variables.secret-scanning.generic-secret-detection %}

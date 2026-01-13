@@ -1,17 +1,18 @@
 ---
 title: Enabling extended metadata checks for your repository
 shortTitle: Enable metadata checks
-intro: 'Learn how to enable extended metadata checks for detected secrets so alerts detected by {% data variables.product.prodname_secret_scanning %} include additional information that help you assess and remediate leaks faster.'
+intro: Learn how to enable extended metadata checks for detected secrets so alerts detected by {% data variables.product.prodname_secret_scanning %} include additional information that help you assess and remediate leaks faster.
 product: '{% data reusables.gated-features.metadata-checks-ghas %}'
 permissions: '{% data reusables.permissions.push-protection %}'
 versions:
   feature: secret-scanning-extended-metadata-checks
-type: how_to
+contentType: how-tos
 topics:
   - Secret scanning
   - Secret Protection
   - Alerts
-contentType: how-tos
+redirect_from:
+  - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-extended-metadata-checks-for-your-repository
 ---
 
 {% data reusables.secret-scanning.metadata-checks-public-preview %}

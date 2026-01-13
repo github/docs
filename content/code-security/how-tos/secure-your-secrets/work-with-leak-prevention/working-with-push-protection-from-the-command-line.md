@@ -1,18 +1,20 @@
 ---
 title: Working with push protection from the command line
 shortTitle: Push protection on the command line
-intro: 'Learn your options for unblocking your push from the command line to {% data variables.product.prodname_dotcom %} if {% data variables.product.prodname_secret_scanning %} detects a secret in your changes.'
+intro: Learn your options for unblocking your push from the command line to {% data variables.product.prodname_dotcom %} if {% data variables.product.prodname_secret_scanning %} detects a secret in your changes.
 permissions: '{% data reusables.permissions.push-protection-resolve-block %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Secret scanning
   - Secret Protection
   - Alerts
   - Repositories
+redirect_from:
+  - /code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line
 ---
 
 ## About push protection from the command line

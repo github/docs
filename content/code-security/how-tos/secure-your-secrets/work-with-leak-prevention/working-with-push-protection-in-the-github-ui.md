@@ -1,18 +1,20 @@
 ---
 title: Working with push protection in the GitHub UI
 shortTitle: Push protection in the GitHub UI
-intro: 'Learn your options for unblocking your commit when {% data variables.product.prodname_secret_scanning %} detects a secret in your changes.'
+intro: Learn your options for unblocking your commit when {% data variables.product.prodname_secret_scanning %} detects a secret in your changes.
 permissions: '{% data reusables.permissions.push-protection-resolve-block %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Secret scanning
   - Secret Protection
   - Alerts
   - Repositories
+redirect_from:
+  - /code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui
 ---
 
 ## About push protection in the {% data variables.product.prodname_dotcom %} UI
