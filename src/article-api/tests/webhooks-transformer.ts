@@ -93,8 +93,8 @@ describe('Webhooks transformer', () => {
     // Should show payload object parameters section
     expect(res.body).toContain('### Webhook payload object')
     expect(res.body).toContain('#### Webhook payload object parameters')
-    // Should have a markdown table with parameter columns
-    expect(res.body).toContain('| Name | Type | Description |')
+    // Should have a markdown table with parameter columns (may have extra spacing from formatting)
+    expect(res.body).toMatch(/\|\s*Name\s*\|\s*Type\s*\|\s*Description\s*\|/)
   })
 
   test('webhooks show descriptions', async () => {

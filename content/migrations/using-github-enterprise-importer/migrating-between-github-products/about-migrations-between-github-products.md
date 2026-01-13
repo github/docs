@@ -23,7 +23,7 @@ If your migration source is an account on {% data variables.product.prodname_dot
 The data that {% data variables.product.prodname_importer_proper_name %} migrates depends on the source of the migration and whether you are migrating a repository or organization.
 
 {% ifversion repo-rules-enterprise %}
-{% data reusables.enterprise-migration-tool.deploy-key-bypass %}
+{% data reusables.enterprise-migration-tool.repository-migrations-bypass %}
 {% endif %}
 
 ## Considerations for migrations to {% data variables.product.prodname_ghe_cloud %}
