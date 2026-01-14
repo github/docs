@@ -1,7 +1,7 @@
 ---
 title: Resolving code scanning alerts
 shortTitle: Resolve alerts
-intro: 'From the security view, you can view, fix, or dismiss alerts for potential vulnerabilities or errors in your project''s code.'
+intro: From the security view, you can view, fix, or dismiss alerts for potential vulnerabilities or errors in your project's code.
 permissions: '{% data reusables.permissions.code-scanning-all-alerts %}'
 versions:
   fpt: '*'
@@ -16,7 +16,8 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository
   - /code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository
-type: how_to
+  - /code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts
+contentType: how-tos
 topics:
   - Code Security
   - Code scanning

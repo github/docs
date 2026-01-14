@@ -1,17 +1,19 @@
 ---
 title: Enabling delegated alert dismissal for Dependabot
-intro: 'Increase your governance over your {% data variables.product.prodname_dependabot_alerts %} with delegated alert dismissal.'
+intro: Increase your governance over your {% data variables.product.prodname_dependabot_alerts %} with delegated alert dismissal.
 permissions: '{% data reusables.permissions.delegated-alert-dismissal %}'
 shortTitle: Enable delegated alert dismissal
 versions:
   feature: dependabot-delegated-alert-dismissal
-type: how_to
+contentType: how-tos
 topics:
   - Dependabot
   - Code Security
   - Security updates
   - Alerts
   - Dependencies
+redirect_from:
+  - /code-security/dependabot/dependabot-alerts/enable-delegated-alert-dismissal
 ---
 
 ## About enabling delegated alert dismissal

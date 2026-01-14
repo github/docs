@@ -128,7 +128,7 @@ childGroups:
       - code-security/secret-scanning
       - code-security/supply-chain-security
       - code-security/dependabot
-      - code-security/code-scanning
+      - code-security/how-tos/scan-code-for-vulnerabilities
       - code-security/code-quality
   - name: Client apps
     octicon: DeviceMobileIcon

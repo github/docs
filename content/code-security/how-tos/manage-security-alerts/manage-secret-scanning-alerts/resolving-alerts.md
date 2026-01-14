@@ -1,12 +1,12 @@
 ---
 title: Resolving alerts from secret scanning
-intro: 'After reviewing the details of a secret scanning alert, you should fix and then close the alert.'
-permissions: 'Repository owners, organization owners, security managers, users assigned to {% data variables.secret-scanning.alerts %}, commit authors, and users with the **admin** role'
+intro: After reviewing the details of a secret scanning alert, you should fix and then close the alert.
+permissions: Repository owners, organization owners, security managers, users assigned to {% data variables.secret-scanning.alerts %}, commit authors, and users with the **admin** role
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Secret scanning
   - Secret Protection
@@ -14,6 +14,8 @@ topics:
   - Repositories
 shortTitle: Resolve alerts
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /code-security/secret-scanning/managing-alerts-from-secret-scanning/resolving-alerts
 ---
 
 ## Fixing alerts

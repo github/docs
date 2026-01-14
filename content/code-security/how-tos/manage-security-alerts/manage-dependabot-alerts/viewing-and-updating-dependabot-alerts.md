@@ -1,18 +1,19 @@
 ---
 title: Viewing and updating Dependabot alerts
-intro: 'If {% data variables.product.github %} discovers insecure dependencies in your project, you can view details on the Dependabot alerts tab of your repository. Then, you can update your project to resolve or dismiss the alert.'
+intro: If {% data variables.product.github %} discovers insecure dependencies in your project, you can view details on the Dependabot alerts tab of your repository. Then, you can update your project to resolve or dismiss the alert.
 redirect_from:
   - /articles/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository
+  - /code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts
 permissions: '{% data reusables.permissions.dependabot-alerts %}'
 shortTitle: View Dependabot alerts
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Dependabot
   - Security updates

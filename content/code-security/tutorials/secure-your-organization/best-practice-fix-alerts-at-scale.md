@@ -17,6 +17,7 @@ topics:
   - Security
 redirect_from:
   - /code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale
+  - /code-security/securing-your-organization/fixing-security-alerts-at-scale
 ---
 
 ## Elements of a successful security campaign

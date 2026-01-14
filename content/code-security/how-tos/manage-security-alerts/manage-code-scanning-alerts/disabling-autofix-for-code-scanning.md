@@ -6,12 +6,14 @@ intro: You can block availability of {% data variables.copilot.copilot_autofix %
 product: '{% data reusables.rai.code-scanning.gated-feature-autofix %}'
 versions:
   feature: code-scanning-autofix
-type: how_to
+contentType: how-tos
 topics:
   - Code Security
   - Code scanning
   - CodeQL
   - AI
+redirect_from:
+  - /code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning
 ---
 
 ## About disabling {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}

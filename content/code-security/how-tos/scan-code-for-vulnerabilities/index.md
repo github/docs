@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+redirect_from:
+  - /code-security/code-scanning
 children:
   - /configure-code-scanning
   - /manage-your-configuration

@@ -7,12 +7,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Code Security
   - Code scanning
   - Alerts
   - Repositories
+redirect_from:
+  - /code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository
 ---
 
 Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests).

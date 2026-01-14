@@ -5,7 +5,7 @@ intro: You can use security overview to select a subset of repositories and enab
 permissions: '{% data reusables.permissions.security-org-enable %}'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: security-configurations-beta-and-pre-beta # Display article for old GHES versions only
+  feature: security-configurations-beta-and-pre-beta
 type: how_to
 topics:
   - Security overview
@@ -14,6 +14,9 @@ topics:
   - Alerts
   - Organizations
   - Teams
+redirect_from:
+  - /code-security/security-overview/enabling-security-features-for-multiple-repositories
+contentType: how-tos
 ---
 
 ## About enabling security features

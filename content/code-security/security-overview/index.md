@@ -13,7 +13,6 @@ topics:
   - Code Security
   - Secret Protection
 children:
-  - /filtering-alerts-in-security-overview
-  - /enabling-security-features-for-multiple-repositories
   - /review-alert-dismissal-requests
 ---
+

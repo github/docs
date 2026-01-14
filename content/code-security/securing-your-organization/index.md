@@ -12,5 +12,4 @@ topics:
 children:
   - /introduction-to-securing-your-organization-at-scale
   - /understanding-your-organizations-exposure-to-leaked-secrets
-  - /fixing-security-alerts-at-scale
 ---

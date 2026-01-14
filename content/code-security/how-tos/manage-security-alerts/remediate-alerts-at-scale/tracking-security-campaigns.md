@@ -1,11 +1,10 @@
 ---
 title: Tracking security campaigns
-shortTitle: Track security campaigns
-intro: 'You can monitor the progress of all your organization''s security campaigns, and track the status of individual campaigns.'
+shortTitle: Track security campaign
+intro: You can monitor the progress of all your organization's security campaigns, and track the status of individual campaigns.
 allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.security-org-enable %}'
 product: '{% data reusables.gated-features.security-campaigns %}'
-type: how_to
 audience:
   - driver
 contentType: how-tos
@@ -16,6 +15,8 @@ topics:
   - Secret Protection
   - Organizations
   - Security
+redirect_from:
+  - /code-security/securing-your-organization/fixing-security-alerts-at-scale/tracking-security-campaigns
 ---
 
 {% data reusables.security.secrets-campaign-preview %}

@@ -1,12 +1,12 @@
 ---
 title: Viewing and filtering alerts from secret scanning
-intro: 'Learn how to find and filter {% ifversion fpt or ghec %}{% data variables.secret-scanning.user_alerts %}{% else %}{% data variables.secret-scanning.user_alerts %} alerts{% endif %} for your repository.'
+intro: Learn how to find and filter {% ifversion fpt or ghec %}{% data variables.secret-scanning.user_alerts %}{% else %}{% data variables.secret-scanning.user_alerts %} alerts{% endif %} for your repository.
 permissions: '{% data reusables.permissions.secret-scanning-alerts %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Secret scanning
   - Secret Protection
@@ -14,6 +14,8 @@ topics:
   - Repositories
 shortTitle: View alerts
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts
 ---
 
 ## About the {% data variables.product.prodname_secret_scanning %} alerts page
