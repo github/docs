@@ -1,6 +1,6 @@
 ---
 title: Understanding GitHub secret types
-intro: 'Learn about the usage, scope, and access permissions for {% data variables.product.github %} secrets.'
+intro: Learn about the usage, scope, and access permissions for {% data variables.product.github %} secrets.
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,6 +12,9 @@ topics:
   - Vulnerabilities
   - Advanced Security
 shortTitle: GitHub secret types
+redirect_from:
+  - /code-security/getting-started/understanding-github-secret-types
+contentType: reference
 ---
 
 ## About {% data variables.product.github %}'s secret types

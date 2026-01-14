@@ -11,8 +11,6 @@ topics:
   - Code Security
   - Security
 children:
-  - /risk-report-csv-contents
   - /estimating-the-price-of-secret-protection
   - /organizing-remediation-efforts-for-leaked-secrets
 ---
-
