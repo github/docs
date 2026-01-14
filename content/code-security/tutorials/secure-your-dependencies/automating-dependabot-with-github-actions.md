@@ -1,12 +1,12 @@
 ---
 title: Automating Dependabot with GitHub Actions
-intro: 'Examples of how you can use {% data variables.product.prodname_actions %} to automate common {% data variables.product.prodname_dependabot %} related tasks.'
+intro: Examples of how you can use {% data variables.product.prodname_actions %} to automate common {% data variables.product.prodname_dependabot %} related tasks.
 permissions: '{% data reusables.permissions.dependabot-various-tasks %}'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
+contentType: tutorials
 topics:
   - Actions
   - Dependabot
@@ -18,6 +18,7 @@ topics:
 shortTitle: Use Dependabot with Actions
 redirect_from:
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
+  - /code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
 ---
 
 {% ifversion dependabot-on-actions-opt-in %}

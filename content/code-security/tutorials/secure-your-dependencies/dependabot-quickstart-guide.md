@@ -1,12 +1,12 @@
 ---
 title: Dependabot quickstart guide
-intro: 'Find and fix vulnerable dependencies you rely on with {% data variables.product.prodname_dependabot %}.'
+intro: Find and fix vulnerable dependencies you rely on with {% data variables.product.prodname_dependabot %}.
 product: '{% data reusables.gated-features.dependabot-alerts %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: quick_start
+contentType: tutorials
 topics:
   - Dependabot
   - Alerts
@@ -14,6 +14,8 @@ topics:
   - Repositories
   - Dependencies
 shortTitle: Dependabot quickstart
+redirect_from:
+  - /code-security/getting-started/dependabot-quickstart-guide
 ---
 
 ## About {% data variables.product.prodname_dependabot %}

@@ -16,7 +16,6 @@ topics:
 children:
   - /dependabot-alerts
   - /dependabot-auto-triage-rules
-  - /dependabot-version-updates
   - /working-with-dependabot
   - /troubleshooting-dependabot
 ---

@@ -86,13 +86,13 @@ dependency_version_updates:
     - >-
       /code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configuring-dependabot-version-updates
     - >-
-      /code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs
+      /code-security/tutorials/secure-your-dependencies/customizing-dependabot-prs
     - >-
       /code-security/reference/supply-chain-security/dependabot-options-reference
     - >-
       /code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/keeping-your-actions-up-to-date-with-dependabot
     - >-
-      /code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
+      /code-security/tutorials/secure-your-dependencies/automating-dependabot-with-github-actions
     - >-
       /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/listing-dependencies-configured-for-version-updates
     - >-
