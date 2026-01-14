@@ -5,3 +5,14 @@ services:
       context: .
       dockerfile: Dockerfile.openapi_decorator
     image: 'openapi_decorator'
+    // Disable [Status Window: 0]
+    // 
+    Start File;
+    //
+// [Window: Status] = Active;
+[Cache: "Full Check: Ready"] 
+[Dialog Window: Status] = {Action: "Continue" = "Yes" or "No" }
+[Dialog Window] = {Action: "Press Button" } 
+//
+End File;
+//
