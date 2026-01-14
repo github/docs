@@ -15,7 +15,6 @@ topics:
   - Secret Protection
   - Repositories
 children:
-  - /introduction
   - /managing-alerts-from-secret-scanning
   - /using-advanced-secret-scanning-and-push-protection-features
   - /troubleshooting-secret-scanning-and-push-protection

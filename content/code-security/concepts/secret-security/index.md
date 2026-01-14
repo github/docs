@@ -19,4 +19,6 @@ children:
   - /about-secret-scanning-for-partners
   - /working-with-push-protection-and-the-github-mcp-server
   - /working-with-push-protection-from-the-rest-api
+redirect_from:
+  - /code-security/secret-scanning/introduction
 ---

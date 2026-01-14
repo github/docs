@@ -122,7 +122,7 @@ secret_scanning:
       %}/code-security/how-tos/secure-your-secrets/customize-leak-detection/defining-custom-patterns-for-secret-scanning{%
       endif %}
     - /code-security/secret-scanning/managing-alerts-from-secret-scanning
-    - /code-security/secret-scanning/introduction/supported-secret-scanning-patterns
+    - /code-security/reference/secret-security/supported-secret-scanning-patterns
     - >-
       {% ifversion secret-scanning-push-protection
       %}/code-security/concepts/secret-security/about-push-protection{%

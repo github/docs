@@ -10,5 +10,5 @@ contentType: how-tos
 children:
   - /troubleshooting-dependabot-errors
   - /troubleshooting-the-detection-of-vulnerable-dependencies
+  - /dependabot-updates-stopped
 ---
-
