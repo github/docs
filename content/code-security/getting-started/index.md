@@ -13,7 +13,6 @@ topics:
   - Vulnerabilities
 children:
   - /github-security-features
-  - /dependabot-quickstart-guide
   - /quickstart-for-securing-your-repository
   - /quickstart-for-securing-your-organization
   - /understanding-github-secret-types

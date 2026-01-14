@@ -1,13 +1,13 @@
 ---
 title: Optimizing the creation of pull requests for Dependabot version updates
-intro: 'Learn how to streamline and efficiently manage your {% data variables.product.prodname_dependabot %} pull requests.'
+intro: Learn how to streamline and efficiently manage your {% data variables.product.prodname_dependabot %} pull requests.
 allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.dependabot-yml-configure %}'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
+contentType: tutorials
 topics:
   - Dependabot
   - Version updates
@@ -15,6 +15,8 @@ topics:
   - Dependencies
   - Pull requests
 shortTitle: Optimize PR creation
+redirect_from:
+  - /code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates
 ---
 
 By default, {% data variables.product.prodname_dependabot %} opens a new pull request to update each dependency. When you enable security updates, new pull requests are opened when a vulnerable dependency is found. When you configure version updates for one or more ecosystems, new pull requests are opened when new versions of dependencies are available, with the frequency defined in the `dependabot.yml` file.

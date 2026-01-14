@@ -12,7 +12,7 @@ featuredLinks:
     - '{% ifversion fpt or ghec %}/code-security/getting-started/github-security-features{% endif %}'
     - /code-security/getting-started/quickstart-for-securing-your-repository
     - '{% ifversion ghes %}/code-security/secret-scanning/working-with-secret-scanning-and-push-protection{% endif %}'
-    - /code-security/getting-started/dependabot-quickstart-guide
+    - /code-security/tutorials/secure-your-dependencies/dependabot-quickstart-guide
     - /code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/configuring-default-setup-for-code-scanning
   guideCards:
     - /code-security/trialing-github-advanced-security/planning-a-trial-of-ghas
@@ -59,3 +59,4 @@ children:
   - /tutorials
   - /responsible-use
 ---
+

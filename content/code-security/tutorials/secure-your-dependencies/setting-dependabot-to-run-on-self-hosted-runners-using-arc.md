@@ -11,8 +11,11 @@ topics:
   - Security updates
   - Dependencies
   - Pull requests
+contentType: tutorials
 allowTitleToDifferFromFilename: true
 shortTitle: Configure ARC
+redirect_from:
+  - /code-security/dependabot/working-with-dependabot/setting-dependabot-to-run-on-self-hosted-runners-using-arc
 ---
 
 ## Working with the {% data variables.product.prodname_actions_runner_controller %} (ARC)

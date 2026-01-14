@@ -1,13 +1,13 @@
 ---
 title: Customizing Dependabot pull requests to fit your processes
-intro: 'Learn how to tailor your Dependabot pull requests to better suit your own internal workflows.'
+intro: Learn how to tailor your Dependabot pull requests to better suit your own internal workflows.
 allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.dependabot-yml-configure %}'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
+contentType: tutorials
 topics:
   - Dependabot
   - Version updates
@@ -15,6 +15,8 @@ topics:
   - Dependencies
   - Pull requests
 shortTitle: Customize Dependabot PRs
+redirect_from:
+  - /code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs
 ---
 
 There are various ways to customize your {% data variables.product.prodname_dependabot %} pull requests so that they better suit your own internal processes.

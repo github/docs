@@ -22,6 +22,7 @@ children:
   - /remediate-leaked-secrets
   - /secret-scanning-partner-program
   - /customize-code-scanning
+  - /secure-your-dependencies
   - /implement-supply-chain-best-practices
   - /manage-security-alerts
   - /improve-code-quality

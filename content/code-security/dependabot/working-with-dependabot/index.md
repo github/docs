@@ -14,9 +14,6 @@ topics:
   - Dependencies
   - Pull requests
 children:
-  - /automating-dependabot-with-github-actions
-  - /configuring-multi-ecosystem-updates
-  - /setting-dependabot-to-run-on-self-hosted-runners-using-arc
   - /setting-dependabot-to-run-on-github-hosted-runners-using-vnet
 ---
 

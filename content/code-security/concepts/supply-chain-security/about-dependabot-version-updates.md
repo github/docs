@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/upgrading-from-dependabotcom-to-github-native-dependabot
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
   - /code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates
+  - /code-security/dependabot/dependabot-version-updates
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically
 versions:
   fpt: '*'
   ghec: '*'

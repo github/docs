@@ -1,9 +1,9 @@
 ---
 title: Configuring multi-ecosystem updates for Dependabot
-intro: 'Learn how to configure {% data variables.product.prodname_dependabot %} to group updates across different ecosystems so that you receive a single, consolidated pull request per group instead of one pull request for each ecosystem.'
+intro: Learn how to configure {% data variables.product.prodname_dependabot %} to group updates across different ecosystems so that you receive a single, consolidated pull request per group instead of one pull request for each ecosystem.
 permissions: '{% data reusables.permissions.dependabot-yml-configure %}'
 allowTitleToDifferFromFilename: true
-type: how_to
+contentType: tutorials
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,7 +14,9 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: Multi-ecosystem updates
+shortTitle: Configure multi-ecosystem updates
+redirect_from:
+  - /code-security/dependabot/working-with-dependabot/configuring-multi-ecosystem-updates
 ---
 
 ## About multi-ecosystem updates

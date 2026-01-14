@@ -1,17 +1,19 @@
 ---
 title: Customizing your dependency review action configuration
 shortTitle: Customize dependency review action
-intro: 'Learn how to add a basic customization to your dependency review action configuration.'
+intro: Learn how to add a basic customization to your dependency review action configuration.
 permissions: '{% data reusables.permissions.security-repo-enable %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
+contentType: tutorials
 topics:
   - Dependency graph
   - Dependencies
   - Repositories
+redirect_from:
+  - /code-security/supply-chain-security/understanding-your-software-supply-chain/customizing-your-dependency-review-action-configuration
 ---
 
 ## Introduction
