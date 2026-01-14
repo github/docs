@@ -150,11 +150,11 @@ security_alerts:
       %}/code-security/concepts/security-at-scale/about-security-overview {% endif %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/security-overview/assessing-adoption-code-security {%
+      %}/code-security/how-tos/view-and-interpret-data/analyze-organization-data/assessing-adoption-code-security{%
       endif %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/security-overview/assessing-code-security-risk {% endif
+      %}/code-security/how-tos/view-and-interpret-data/analyze-organization-data/assessing-code-security-risk{% endif
       %}
     - >-
       {% ifversion ghec or ghes

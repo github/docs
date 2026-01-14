@@ -16,6 +16,6 @@ topics:
   - Repositories
   - CVEs
 children:
-  - /permission-levels-for-repository-security-advisories
   - /configuring-private-vulnerability-reporting-for-an-organization
 ---
+

@@ -22,4 +22,5 @@ children:
   - /secure-your-supply-chain
   - /maintain-quality-code
   - /report-and-fix-vulnerabilities
+  - /view-and-interpret-data
 ---

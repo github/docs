@@ -1,11 +1,9 @@
 ---
 title: Securing your organization
 shortTitle: Secure your organization
-intro: 'Secure your organization at scale with {% data variables.product.company_short %}''s security products{% ifversion security-configurations %} through {% data variables.product.prodname_security_configurations %} and {% data variables.product.prodname_global_settings %}{% endif %}.{% ifversion secret-risk-assessment %}<br>{% data variables.secret-scanning.secret-risk-assessment-cta-product %}{% endif %}'
+intro: 'Secure your organization at scale with {% data variables.product.company_short %}''s security products through {% data variables.product.prodname_security_configurations %} and {% data variables.product.prodname_global_settings %}.{% ifversion secret-risk-assessment %}<br>{% data variables.secret-scanning.secret-risk-assessment-cta-product %}{% endif %}'
 versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
+  feature: secret-risk-assessment
 topics:
   - Code Security
   - Secret Protection
@@ -13,7 +11,6 @@ topics:
   - Security
 children:
   - /introduction-to-securing-your-organization-at-scale
-  - /managing-the-security-of-your-organization
   - /understanding-your-organizations-exposure-to-leaked-secrets
   - /fixing-security-alerts-at-scale
 ---

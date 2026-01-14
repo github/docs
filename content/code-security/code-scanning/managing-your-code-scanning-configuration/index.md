@@ -13,6 +13,4 @@ topics:
   - CodeQL
 children:
   - /enabling-delegated-alert-dismissal-for-code-scanning
-  - /viewing-code-scanning-logs
 ---
-
