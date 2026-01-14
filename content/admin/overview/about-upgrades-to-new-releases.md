@@ -1,9 +1,9 @@
 ---
 title: About upgrades to new releases
 shortTitle: About upgrades
-intro: Learn about how features and bug fixes are added to GitHub Enterprise Server through new releases.
-versions: 
-  - ghes
+intro: 'Learn about how features and bug fixes are added to {% data variables.product.prodname_ghe_server %} through new releases.'
+versions:
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
@@ -33,7 +33,7 @@ Release candidates are _proposed_ feature releases, with a complete feature set.
 
 For performance, stability, and security reasons, follow these guidelines when testing release candidates.
 
-As you test a release candidate, please provide feedback by contacting support. See [AUTOTITLE](https://github.com/github/docs/blob/main/support).
+As you test a release candidate, please provide feedback by contacting support. See [AUTOTITLE](/support).
 
 Each new release candidate adds bug fixes for issues found in prior versions. When the release is ready for widespread adoption, {% data variables.product.company_short %} publishes a stable feature release.
 
@@ -54,7 +54,7 @@ Between feature releases, you can benefit from patch releases, which:
 | **Release Candidate** | Testing new features | Minimal | Test/staging only |
 | **Patch** | Bug fixes between features | <5 minutes | Production ready |
 
-## Upgrading GitHub Enterprise Server
+## Upgrading {% data variables.product.prodname_ghe_server %}
 
 There are two ways to upgrade {% data variables.product.prodname_ghe_server %}:
 
@@ -62,17 +62,17 @@ There are two ways to upgrade {% data variables.product.prodname_ghe_server %}:
 Set up a **completely new {% data variables.product.prodname_ghe_server %} instance** and configure the instance however you like.
 
 **Steps:**
-- See [AUTOTITLE](https://github.com/github/docs/blob/main/admin/installation/setting-up-a-github-enterprise-server-instance)
-- Then see [AUTOTITLE](https://github.com/github/docs/blob/main/admin/configuration/configuring-your-enterprise)
+- See [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)
+- Then see [AUTOTITLE](/admin/configuration/configuring-your-enterprise)
 
 ### Option 2: Existing instance upgrade
 Upgrade your **existing instance** to a new release.
 
 **Steps:**
-- See [AUTOTITLE](https://github.com/github/docs/blob/main/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process)
+- See [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process)
 
 ## Further reading
 
 - [{% data variables.product.prodname_roadmap %}]({% data variables.product.prodname_roadmap_link %}) in the `github/roadmap` repository
-- [AUTOTITLE](https://github.com/github/docs/blob/main/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process)
-- [AUTOTITLE](https://github.com/github/docs/blob/main/admin/installation/setting-up-a-github-enterprise-server-instance)
+- [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process)
+- [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)
