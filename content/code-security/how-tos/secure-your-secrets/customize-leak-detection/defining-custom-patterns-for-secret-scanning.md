@@ -8,6 +8,7 @@ redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
   - /code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning
+  - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns
 versions:
   fpt: '*'
   ghes: '*'

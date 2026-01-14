@@ -143,7 +143,7 @@ If you're an owner of an {% data variables.enterprise.prodname_emu_enterprise %}
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/getting-started/securing-your-repository){% ifversion security-configurations %}
-* [AUTOTITLE](/code-security/securing-your-organization){% else %}
-* [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization){% endif %}
+* [AUTOTITLE](/code-security/getting-started/securing-your-repository){% ifversion fpt or ghec %}
+* [AUTOTITLE](/code-security/securing-your-organization){% elsif ghes %}
+* [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage){% endif %}
 * [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)

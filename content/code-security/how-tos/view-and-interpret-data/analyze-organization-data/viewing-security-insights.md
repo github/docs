@@ -1,14 +1,14 @@
 ---
 title: Viewing security insights
 shortTitle: View security insights
-intro: 'You can use the overview dashboard in security overview to monitor the security landscape of the repositories in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}.'
+intro: You can use the overview dashboard in security overview to monitor the security landscape of the repositories in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}.
 permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-both %}'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Security overview
   - Code Security
@@ -17,10 +17,9 @@ topics:
   - Organizations
 redirect_from:
   - /code-security/security-overview/viewing-security-insights-for-your-organization
+  - /code-security/security-overview/viewing-security-insights
 allowTitleToDifferFromFilename: true
 ---
-
-
 
 ## {% ifversion security-overview-dashboard-enterprise %}About security insights{% else %} About organization-level security insights{% endif %}
 

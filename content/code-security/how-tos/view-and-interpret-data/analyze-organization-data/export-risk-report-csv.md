@@ -1,10 +1,10 @@
 ---
-title: 'Exporting the secret risk assessment report to CSV'
-shortTitle: 'Export risk report CSV'
-intro: 'Export the {% data variables.product.prodname_secret_risk_assessment %} report to a CSV file for detailed investigation and stakeholder sharing.'
+title: Exporting the secret risk assessment report to CSV
+shortTitle: Export risk report CSV
+intro: Export the {% data variables.product.prodname_secret_risk_assessment %} report to a CSV file for detailed investigation and stakeholder sharing.
 product: '{% data reusables.gated-features.secret-risk-assessment-report %}'
 permissions: '{% data reusables.permissions.secret-risk-assessment-report-generation %}'
-type: how_to
+contentType: how-tos
 versions:
   feature: secret-risk-assessment
 topics:
@@ -13,6 +13,8 @@ topics:
   - Secret Protection
   - Organizations
   - Security
+redirect_from:
+  - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/export-risk-report-csv
 ---
 
 {% data reusables.organizations.navigate-to-org %}

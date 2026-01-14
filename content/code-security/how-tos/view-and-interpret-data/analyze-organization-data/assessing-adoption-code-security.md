@@ -2,21 +2,23 @@
 title: Assessing adoption of security features
 shortTitle: Assess adoption of features
 allowTitleToDifferFromFilename: true
-intro: 'You can use security overview to see which teams and repositories have already enabled features for secure coding, and identify any that are not yet protected.'
+intro: You can use security overview to see which teams and repositories have already enabled features for secure coding, and identify any that are not yet protected.
 permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-both %}'
-type: how_to
+contentType: how-tos
 topics:
   - Security overview
   - Code Security
   - Secret Protection
-  - 'Set up'
+  - Set up
   - Organizations
   - Teams
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+redirect_from:
+  - /code-security/security-overview/assessing-adoption-code-security
 ---
 
 ## About adoption of features for secure coding

@@ -13,6 +13,5 @@ topics:
   - Secret Protection
   - Repositories
 children:
-  - /custom-patterns
   - /enabling-delegated-alert-dismissal-for-secret-scanning
 ---

@@ -2,10 +2,10 @@
 title: Assessing the security risk of your code
 shortTitle: Assess security risk of code
 allowTitleToDifferFromFilename: true
-intro: 'You can use security overview to see which teams and repositories are affected by security alerts, and identify repositories for urgent remedial action.'
+intro: You can use security overview to see which teams and repositories are affected by security alerts, and identify repositories for urgent remedial action.
 permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-both %}'
-type: how_to
+contentType: how-tos
 topics:
   - Security overview
   - Code Security
@@ -19,6 +19,7 @@ versions:
   ghec: '*'
 redirect_from:
   - /code-security/security-overview/viewing-the-security-overview
+  - /code-security/security-overview/assessing-code-security-risk
 ---
 
 ## Exploring the security risks in your code

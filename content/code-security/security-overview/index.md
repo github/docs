@@ -13,15 +13,7 @@ topics:
   - Code Security
   - Secret Protection
 children:
-  - /viewing-security-insights
-  - /assessing-adoption-code-security
-  - /assessing-code-security-risk
   - /filtering-alerts-in-security-overview
   - /enabling-security-features-for-multiple-repositories
-  - /exporting-data-from-security-overview
-  - /viewing-metrics-for-dependabot-alerts
-  - /viewing-metrics-for-secret-scanning-push-protection
-  - /viewing-metrics-for-pull-request-alerts
   - /review-alert-dismissal-requests
 ---
-

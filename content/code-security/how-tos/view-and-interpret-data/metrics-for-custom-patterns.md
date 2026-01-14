@@ -1,16 +1,18 @@
 ---
 title: Metrics for custom patterns
 shortTitle: Custom pattern metrics
-intro: 'You can view alert metrics for custom patterns at the repository, organization, and enterprise levels.'
+intro: You can view alert metrics for custom patterns at the repository, organization, and enterprise levels.
 permissions: '{% data reusables.permissions.security-enterprise-enable %}'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Secret Protection
   - Secret scanning
+redirect_from:
+  - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/metrics-for-custom-patterns
 ---
 
 ## Metrics for custom patterns

@@ -6,7 +6,7 @@ permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-both %}'
 versions:
   feature: security-overview-export-data
-type: how_to
+contentType: how-tos
 topics:
   - Security overview
   - Code Security
@@ -16,6 +16,7 @@ topics:
   - Teams
 redirect_from:
   - /code-security/security-overview/exporting-data-from-the-risk-and-coverage-pages
+  - /code-security/security-overview/exporting-data-from-security-overview
 ---
 
 ## About exporting your security overview data

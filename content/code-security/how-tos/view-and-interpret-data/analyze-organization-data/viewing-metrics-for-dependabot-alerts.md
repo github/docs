@@ -2,12 +2,12 @@
 title: Viewing metrics for Dependabot alerts
 shortTitle: View Dependabot metrics
 allowTitleToDifferFromFilename: true
-intro: 'You can use security overview to see how many {% data variables.product.prodname_dependabot_alerts %} are in repositories across your organization, to prioritize the most critical alerts to fix, and to identify repositories where you may need to take action.'
+intro: You can use security overview to see how many {% data variables.product.prodname_dependabot_alerts %} are in repositories across your organization, to prioritize the most critical alerts to fix, and to identify repositories where you may need to take action.
 versions:
   feature: dependabot-metrics
 permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
-type: how_to
+contentType: how-tos
 topics:
   - Security overview
   - Code Security
@@ -15,6 +15,8 @@ topics:
   - Organizations
   - Alerts
   - Vulnerabilities
+redirect_from:
+  - /code-security/security-overview/viewing-metrics-for-dependabot-alerts
 ---
 
 ## About metrics for {% data variables.product.prodname_dependabot %}

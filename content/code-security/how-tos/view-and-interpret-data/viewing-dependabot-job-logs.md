@@ -1,13 +1,13 @@
 ---
 title: Viewing Dependabot job logs
-intro: 'To support debugging of {% data variables.product.prodname_dependabot %} pull requests, {% data variables.product.github %} provides logs of all {% data variables.product.prodname_dependabot %} jobs.'
-shortTitle: Viewing Dependabot logs
+intro: To support debugging of {% data variables.product.prodname_dependabot %} pull requests, {% data variables.product.github %} provides logs of all {% data variables.product.prodname_dependabot %} jobs.
+shortTitle: View Dependabot logs
 permissions: '{% data reusables.permissions.dependabot-various-tasks %}'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Dependabot
   - Troubleshooting
@@ -16,6 +16,7 @@ topics:
   - Dependencies
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/viewing-dependabot-job-logs
+  - /code-security/dependabot/troubleshooting-dependabot/viewing-dependabot-job-logs
 ---
 
 ## About {% data variables.product.prodname_dependabot %} job logs

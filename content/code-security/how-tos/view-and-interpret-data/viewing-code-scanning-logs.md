@@ -1,14 +1,16 @@
 ---
 title: Viewing code scanning logs
-intro: 'You can view the output generated during {% data variables.product.prodname_code_scanning %} analysis in {% data variables.product.github %}.'
+intro: You can view the output generated during {% data variables.product.prodname_code_scanning %} analysis in {% data variables.product.github %}.
 permissions: '{% data reusables.permissions.code-scanning-pr-alerts %}'
 redirect_from:
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs
+  - /code-security/code-scanning/managing-your-code-scanning-configuration/viewing-code-scanning-logs
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+contentType: how-tos
 topics:
   - Security
 shortTitle: View code scanning logs

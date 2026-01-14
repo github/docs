@@ -2,12 +2,13 @@
 title: Viewing metrics for secret scanning push protection
 shortTitle: View secret scanning metrics
 allowTitleToDifferFromFilename: true
-intro: 'You can use security overview to see how {% data variables.product.prodname_secret_scanning %} push protection is performing in repositories across your organization{% ifversion security-overview-enterprise-secret-scanning-metrics %} or enterprise{% endif %}, and to identify repositories where you may need to take action.'
+intro: You can use security overview to see how {% data variables.product.prodname_secret_scanning %} push protection is performing in repositories across your organization{% ifversion security-overview-enterprise-secret-scanning-metrics %} or enterprise{% endif %}, and to identify repositories where you may need to take action.
 permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-sp-only %}'
-type: how_to
+contentType: how-tos
 redirect_from:
-- /code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization
+  - /code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization
+  - /code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection
 topics:
   - Security overview
   - Secret Protection
