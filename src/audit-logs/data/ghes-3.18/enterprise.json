@@ -11542,7 +11542,7 @@
       "operation_type",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
+    "docs_reference_titles": "Configuring default setup for code scanning"
   },
   {
     "action": "repo.codeql_enabled",
@@ -11570,7 +11570,7 @@
       "languages",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
+    "docs_reference_titles": "Configuring default setup for code scanning"
   },
   {
     "action": "repo.codeql_updated",
@@ -11598,7 +11598,7 @@
       "business_id",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
+    "docs_reference_titles": "Configuring default setup for code scanning"
   },
   {
     "action": "repo.collaborators_only",
