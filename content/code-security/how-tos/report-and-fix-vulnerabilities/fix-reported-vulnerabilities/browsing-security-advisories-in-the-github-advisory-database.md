@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database
   - /code-security/security-advisories/global-security-advisories/browsing-security-advisories-in-the-github-advisory-database
   - /code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/browsing-security-advisories-in-the-github-advisory-database
+  - /code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database
+  - /code-security/security-advisories/global-security-advisories
 versions:
   fpt: '*'
   ghec: '*'

@@ -13,7 +13,6 @@ topics:
   - Code scanning
   - CodeQL
 children:
-  - /getting-started-with-codeql-for-vs-code
   - /using-the-advanced-functionality-of-the-codeql-for-vs-code-extension
   - /troubleshooting-codeql-for-vs-code
 ---

@@ -40,12 +40,12 @@ Use this table to find a suitable model quickly, see more detail in the sections
 
 Use these models for common development tasks that require a balance of quality, speed, and cost efficiency. These models are a good default when you don't have specific requirements.
 
-| Model                                            | Why it's a good fit                                                                                                                             |
-|--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| {% data variables.copilot.copilot_gpt_5_codex %} | Delivers higher-quality code on complex engineering tasks like features, tests, debugging, refactors, and reviews without lengthy instructions. |
-| {% data variables.copilot.copilot_gpt_5_mini %}  | Reliable default for most coding and writing tasks. Fast, accurate, and works well across languages and frameworks.                             |
-| {% data variables.copilot.copilot_grok_code %}   | Specialized for coding tasks. Performs well on code generation, and debugging across multiple languages.                                        |
-| {% data variables.copilot.copilot_raptor_mini %} | Specialized for fast, accurate inline suggestions and explanations.                                        |
+| Model                                             | Why it's a good fit                                                                                                                             |
+|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| {% data variables.copilot.copilot_gpt_51_codex %} | Delivers higher-quality code on complex engineering tasks like features, tests, debugging, refactors, and reviews without lengthy instructions. |
+| {% data variables.copilot.copilot_gpt_5_mini %}   | Reliable default for most coding and writing tasks. Fast, accurate, and works well across languages and frameworks.                             |
+| {% data variables.copilot.copilot_grok_code %}    | Specialized for coding tasks. Performs well on code generation, and debugging across multiple languages.                                        |
+| {% data variables.copilot.copilot_raptor_mini %}  | Specialized for fast, accurate inline suggestions and explanations.                                        |
 
 ### When to use these models
 
@@ -92,11 +92,11 @@ These models are designed for tasks that require step-by-step reasoning, complex
 
 | Model                                                 | Why it's a good fit                                                                                           |
 |-------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| {% data variables.copilot.copilot_gpt_5_mini %}            | Delivers deep reasoning and debugging with faster responses and lower resource usage than GPT-5. Ideal for interactive sessions and step-by-step code analysis. |
-| {% data variables.copilot.copilot_gpt_5 %}            | Great at complex reasoning, code analysis, and technical decision-making.                                     |
+| {% data variables.copilot.copilot_gpt_5_mini %}       | Delivers deep reasoning and debugging with faster responses and lower resource usage than GPT-5. Ideal for interactive sessions and step-by-step code analysis. |
+| {% data variables.copilot.copilot_gpt_52 %}           | Great at complex reasoning, code analysis, and technical decision-making.                                     |
 | {% data variables.copilot.copilot_claude_sonnet_40 %} | Improves on 3.7 with more reliable completions and smarter reasoning under pressure.                          |
-| {% data variables.copilot.copilot_claude_opus_41 %}   | Anthropic’s most powerful model. Improves on {% data variables.copilot.copilot_claude_opus %}.                |
-| {% data variables.copilot.copilot_gemini_25_pro %}    | Advanced reasoning across long contexts and scientific or technical analysis.                                 |
+| {% data variables.copilot.copilot_claude_opus_45 %}   | Anthropic’s most powerful model. Improves on {% data variables.copilot.copilot_claude_opus %}.                |
+| {% data variables.copilot.copilot_gemini_3_pro %}     | Advanced reasoning across long contexts and scientific or technical analysis.                                 |
 
 ### When to use these models
 
@@ -117,11 +117,11 @@ For general development workflows or content generation, see [General-purpose co
 
 Use these models when you want to ask questions about screenshots, diagrams, UI components, or other visual input. These models support multimodal input and are well suited for front-end work or visual debugging.
 
-| Model | Why it's a good fit |
-|-------|---------------------|
-| {% data variables.copilot.copilot_gpt_5_mini %} | Reliable default for most coding and writing tasks. Fast, accurate, and supports multimodal input for visual reasoning tasks. Works well across languages and frameworks. |
+| Model                                                 | Why it's a good fit |
+|-------------------------------------------------------|---------------------|
+| {% data variables.copilot.copilot_gpt_5_mini %}       | Reliable default for most coding and writing tasks. Fast, accurate, and supports multimodal input for visual reasoning tasks. Works well across languages and frameworks. |
 | {% data variables.copilot.copilot_claude_sonnet_40 %} | Improves on 3.7 with more reliable completions and smarter reasoning under pressure. |
-| {% data variables.copilot.copilot_gemini_25_pro %} | Deep reasoning and debugging, ideal for complex code generation, debugging, and research workflows. |
+| {% data variables.copilot.copilot_gemini_3_pro %}     | Deep reasoning and debugging, ideal for complex code generation, debugging, and research workflows. |
 
 ### When to use these models
 

@@ -14,6 +14,8 @@ intro: To get started with {% data variables.product.prodname_codeql %} for {% d
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/installing-codeql-for-vs-code
+  - /code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code
+  - /code-security/codeql-for-vs-code/setting-up-codeql-in-visual-studio-code
 contentType: how-tos
 ---
 
