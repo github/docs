@@ -1,12 +1,12 @@
 ---
 title: Monitoring alerts from secret scanning
-intro: 'Learn how and when {% data variables.product.github %} will notify you about a secret scanning alert.'
+intro: Learn how and when {% data variables.product.github %} will notify you about a secret scanning alert.
 permissions: '{% data reusables.permissions.secret-scanning-alerts %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Secret scanning
   - Secret Protection
@@ -14,6 +14,8 @@ topics:
   - Repositories
 shortTitle: Monitor alerts
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /code-security/secret-scanning/managing-alerts-from-secret-scanning/monitoring-alerts
 ---
 
 ## Configuring notifications for {% data variables.secret-scanning.alerts %}

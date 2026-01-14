@@ -1,16 +1,18 @@
 ---
 title: Enabling delegated alert dismissal for code scanning
-intro: 'You can use delegated alert dismissal to control who can dismiss an alert found by {% data variables.product.prodname_code_scanning %}.'
+intro: You can use delegated alert dismissal to control who can dismiss an alert found by {% data variables.product.prodname_code_scanning %}.
 permissions: '{% data reusables.permissions.delegated-alert-dismissal %}'
 versions:
   feature: security-delegated-alert-dismissal
-type: how_to
+contentType: how-tos
 topics:
   - Code scanning
   - Advanced Security
   - Alerts
   - Repositories
 shortTitle: Enable delegated alert dismissal
+redirect_from:
+  - /code-security/code-scanning/managing-your-code-scanning-configuration/enabling-delegated-alert-dismissal-for-code-scanning
 ---
 
 ## About enabling delegated alert dismissal

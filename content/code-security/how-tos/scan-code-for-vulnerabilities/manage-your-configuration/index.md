@@ -16,6 +16,8 @@ topics:
   - C#
   - Java
   - Kotlin
+redirect_from:
+  - /code-security/code-scanning/managing-your-code-scanning-configuration
 children:
   - /about-the-tool-status-page
   - /editing-your-configuration-of-default-setup

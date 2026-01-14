@@ -161,6 +161,7 @@ copilot_gpt_51_codex: 'GPT-5.1-Codex'
 copilot_gpt_51_codex_mini: 'GPT-5.1-Codex-Mini'
 copilot_gpt_51_codex_max: 'GPT-5.1-Codex-Max'
 copilot_gpt_52: 'GPT-5.2'
+copilot_gpt_52_codex: 'GPT-5.2-Codex'
 # OpenAI 'o' series:
 copilot_o3: 'o3'
 copilot_o4_mini: 'o4-mini'

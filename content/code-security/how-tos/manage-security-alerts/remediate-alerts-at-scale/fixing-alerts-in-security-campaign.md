@@ -1,11 +1,11 @@
 ---
 title: Fixing alerts in a security campaign
 shortTitle: Fix alerts in campaign
-intro: 'Learn how to find and fix alerts in a security campaign.'
+intro: Learn how to find and fix alerts in a security campaign.
 allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.code-scanning-all-alerts %}'
 product: '{% data reusables.gated-features.security-campaigns %}'
-type: how_to
+contentType: how-tos
 versions:
   feature: security-campaigns
 topics:
@@ -13,6 +13,8 @@ topics:
   - Code scanning
   - Alerts
   - Repositories
+redirect_from:
+  - /code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign
 ---
 
 ## Viewing alerts in a security campaign

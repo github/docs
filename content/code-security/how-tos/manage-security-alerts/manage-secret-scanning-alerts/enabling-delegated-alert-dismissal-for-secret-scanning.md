@@ -1,16 +1,18 @@
 ---
 title: Enabling delegated alert dismissal for secret scanning
-intro: 'You can use delegated alert dismissal to control who can dismiss an alert found by {% data variables.product.prodname_secret_scanning %}.'
+intro: You can use delegated alert dismissal to control who can dismiss an alert found by {% data variables.product.prodname_secret_scanning %}.
 permissions: '{% data reusables.permissions.delegated-alert-dismissal %}'
 versions:
   feature: security-delegated-alert-dismissal
-type: how_to
+contentType: how-tos
 topics:
   - Secret scanning
   - Advanced Security
   - Alerts
   - Repositories
 shortTitle: Delegated alert dismissal
+redirect_from:
+  - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning
 ---
 
 ## About enabling delegated alert dismissal

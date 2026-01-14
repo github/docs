@@ -46,7 +46,7 @@ dependabot_alerts:
     - >-
       /repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository
     - >-
-      /code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts
+      /code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/viewing-and-updating-dependabot-alerts
     - >-
       /code-security/concepts/supply-chain-security/about-dependabot-auto-triage-rules
     - >-
@@ -121,7 +121,7 @@ secret_scanning:
       {% ifversion not fpt
       %}/code-security/how-tos/secure-your-secrets/customize-leak-detection/defining-custom-patterns-for-secret-scanning{%
       endif %}
-    - /code-security/secret-scanning/managing-alerts-from-secret-scanning
+    - /code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts
     - /code-security/reference/secret-security/supported-secret-scanning-patterns
     - >-
       {% ifversion secret-scanning-push-protection
@@ -158,23 +158,23 @@ security_alerts:
       %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/secret-scanning/managing-alerts-from-secret-scanning {%
+      %}/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts {%
       endif %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository{%
+      %}/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository{%
       endif %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts{%
+      %}/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/resolving-code-scanning-alerts{%
       endif %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests{%
+      %}/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests{%
       endif %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts{%
+      %}/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/viewing-and-updating-dependabot-alerts{%
       endif %}
     - >-
       {% ifversion ghec or ghes

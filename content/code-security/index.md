@@ -46,7 +46,6 @@ children:
   - /code-quality
   - /securing-your-organization
   - /secret-scanning
-  - /code-scanning
   - /codeql-for-vs-code
   - /security-advisories
   - /supply-chain-security

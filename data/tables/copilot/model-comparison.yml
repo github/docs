@@ -52,6 +52,11 @@
   excels_at: Multi-step problem solving and architecture-level code analysis
   further_reading: '[GPT-5.2 model card](https://cdn.openai.com/pdf/3a4153c8-c748-4b71-8e31-aecbde944f8d/oai_5_2_system-card.pdf)'
 
+- name: GPT-5.2-Codex
+  task_area: Agentic software development
+  excels_at: Agentic tasks
+  further_reading: '[GPT-5.2-Codex model card](https://cdn.openai.com/pdf/ac7c37ae-7f4c-4442-b741-2eabdeaf77e0/oai_5_2_Codex.pdf)'
+
 # Anthropic
 - name: Claude Haiku 4.5
   task_area: Fast help with simple or repetitive tasks

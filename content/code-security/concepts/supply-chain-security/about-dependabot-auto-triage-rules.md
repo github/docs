@@ -18,6 +18,7 @@ redirect_from:
   - /code-security/dependabot/dependabot-alerts/using-alert-rules-to-prioritize-dependabot-alerts
   - /code-security/dependabot/dependabot-alert-rules/about-dependabot-alert-rules
   - /code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules
+  - /code-security/dependabot/dependabot-auto-triage-rules
 contentType: concepts
 ---
 

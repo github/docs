@@ -17,6 +17,7 @@ topics:
   - Repositories
 redirect_from:
   - /code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts
+  - /code-security/dependabot/dependabot-alerts
 contentType: how-tos
 ---
 

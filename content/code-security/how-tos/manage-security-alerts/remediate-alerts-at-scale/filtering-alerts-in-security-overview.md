@@ -8,7 +8,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 topics:
   - Security overview
   - Code Security
@@ -16,9 +16,10 @@ topics:
   - Alerts
   - Organizations
   - Teams
-shortTitle: Filter security overview
+shortTitle: Filter security alerts
 redirect_from:
   - /code-security/security-overview/filtering-alerts-in-the-security-overview
+  - /code-security/security-overview/filtering-alerts-in-security-overview
 ---
 
 ## About filtering security overview
