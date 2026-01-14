@@ -47,7 +47,6 @@ children:
   - /securing-your-organization
   - /secret-scanning
   - /code-scanning
-  - /codeql-cli
   - /codeql-for-vs-code
   - /security-advisories
   - /supply-chain-security
@@ -59,4 +58,3 @@ children:
   - /tutorials
   - /responsible-use
 ---
-

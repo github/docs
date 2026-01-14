@@ -11,6 +11,9 @@ topics:
   - Code scanning
   - Vulnerabilities
 contentType: reference
+redirect_from:
+  - /code-security/code-scanning/reference
 children:
+  - sarif-support-for-code-scanning
   - codeql
 ---

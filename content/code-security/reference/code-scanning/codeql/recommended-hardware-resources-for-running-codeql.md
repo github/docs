@@ -1,10 +1,11 @@
 ---
 title: Recommended hardware resources for running CodeQL
 shortTitle: Hardware resources for CodeQL
-intro: 'Recommended specifications (RAM, CPU cores, and disk) for running {% data variables.product.prodname_codeql %} analysis on self-hosted machines, based on the size of your codebase.'
+intro: Recommended specifications (RAM, CPU cores, and disk) for running {% data variables.product.prodname_codeql %} analysis on self-hosted machines, based on the size of your codebase.
 product: '{% data reusables.gated-features.codeql %}'
 redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/recommended-hardware-resources-for-running-codeql
+  - /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/recommended-hardware-resources-for-running-codeql
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,6 +17,7 @@ topics:
   - Repositories
   - Integration
   - CI
+contentType: reference
 ---
 You can configure {% data variables.product.prodname_codeql %} on {% data variables.product.prodname_actions %} or on an external CI system. {% data variables.product.prodname_codeql %} is fully compatible with {% data variables.product.prodname_dotcom %}-hosted runners on {% data variables.product.prodname_actions %}.
 

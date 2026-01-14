@@ -12,6 +12,9 @@ topics:
   - Vulnerabilities
 contentType: reference
 children:
+  - /recommended-hardware-resources-for-running-codeql
+  - /telemetry-in-codeql-for-visual-studio-code
+  - /codeql-queries
+  - /codeql-cli
   - /codeql-cli-manual
 ---
-

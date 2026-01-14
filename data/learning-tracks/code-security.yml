@@ -207,7 +207,7 @@ code_security_integration:
     - >-
       /code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github
     - >-
-      /code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning
+      /code-security/reference/code-scanning/sarif-support-for-code-scanning
     - /rest/code-scanning
 end_to_end_supply_chain:
   title: End-to-end supply chain

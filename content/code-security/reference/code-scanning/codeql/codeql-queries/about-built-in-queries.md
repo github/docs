@@ -13,7 +13,9 @@ topics:
   - Code Security
   - Code scanning
   - CodeQL
-contentType: other
+contentType: reference
+redirect_from:
+  - /code-security/code-scanning/reference/code-ql-built-in-queries/about-built-in-queries
 ---
 
 ## About built-in queries for CodeQL analysis

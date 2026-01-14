@@ -7,6 +7,7 @@ product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning
   - /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning
+  - /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning
 versions:
   fpt: '*'
   ghes: '*'
