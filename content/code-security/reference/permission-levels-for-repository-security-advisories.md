@@ -8,15 +8,16 @@ redirect_from:
   - /code-security/security-advisories/permission-levels-for-security-advisories
   - /code-security/repository-security-advisories/permission-levels-for-repository-security-advisories
   - /code-security/security-advisories/repository-security-advisories/permission-levels-for-repository-security-advisories
+  - /code-security/security-advisories/working-with-repository-security-advisories/permission-levels-for-repository-security-advisories
 versions:
   fpt: '*'
   ghec: '*'
-type: reference
 topics:
   - Security advisories
   - Vulnerabilities
   - Permissions
 shortTitle: Permission levels
+contentType: reference
 ---
 
 ## Permissions overview
