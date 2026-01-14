@@ -14,7 +14,6 @@ topics:
   - Repositories
 shortTitle: Troubleshoot Dependabot
 children:
-  - /dependabot-updates-stopped
   - /troubleshooting-dependabot-on-github-actions
 ---
 
