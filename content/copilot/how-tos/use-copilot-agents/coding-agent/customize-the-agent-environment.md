@@ -55,9 +55,6 @@ on:
   push:
     paths:
       - .github/workflows/copilot-setup-steps.yml
-  pull_request:
-    paths:
-      - .github/workflows/copilot-setup-steps.yml
 
 jobs:
   # The job MUST be called `copilot-setup-steps` or it will not be picked up by Copilot.
