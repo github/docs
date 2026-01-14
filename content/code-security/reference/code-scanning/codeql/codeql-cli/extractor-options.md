@@ -1,6 +1,6 @@
 ---
 title: Extractor options
-intro: 'You can use the {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_codeql %} processes locally on software projects.'
+intro: You can use the {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_codeql %} processes locally on software projects.
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
@@ -11,8 +11,10 @@ topics:
   - Code scanning
   - CodeQL
 redirect_from:
-    - /code-security/codeql-cli/extractor-options
-    - /code-security/codeql-cli/using-the-codeql-cli/extractor-options
+  - /code-security/codeql-cli/extractor-options
+  - /code-security/codeql-cli/using-the-codeql-cli/extractor-options
+  - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/extractor-options
+contentType: reference
 ---
 <!--The CodeQL CLI man pages include a link to this article. If you rename this article,
 make sure that you also update the MS short link: https://aka.ms/codeql-cli-docs/extractor-options.-->

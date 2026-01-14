@@ -1,7 +1,7 @@
 ---
 title: SARIF support for code scanning
 shortTitle: SARIF support
-intro: 'To display results from a third-party static analysis tool in your repository on {% data variables.product.prodname_dotcom %}, you''ll need your results stored in a SARIF file that supports a specific subset of the SARIF 2.1.0 JSON schema for {% data variables.product.prodname_code_scanning %}. If you use the default {% data variables.product.prodname_codeql %} static analysis engine, then your results will display in your repository on {% data variables.product.prodname_dotcom %} automatically.'
+intro: To display results from a third-party static analysis tool in your repository on {% data variables.product.prodname_dotcom %}, you'll need your results stored in a SARIF file that supports a specific subset of the SARIF 2.1.0 JSON schema for {% data variables.product.prodname_code_scanning %}. If you use the default {% data variables.product.prodname_codeql %} static analysis engine, then your results will display in your repository on {% data variables.product.prodname_dotcom %} automatically.
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning
@@ -9,6 +9,7 @@ redirect_from:
   - /code-security/secure-coding/sarif-support-for-code-scanning
   - /code-security/secure-coding/integrating-with-code-scanning/sarif-support-for-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/integrating-with-code-scanning/sarif-support-for-code-scanning
+  - /code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning
 versions:
   fpt: '*'
   ghes: '*'
@@ -19,6 +20,7 @@ topics:
   - Code scanning
   - Integration
   - SARIF
+contentType: reference
 ---
 
 ## About SARIF support

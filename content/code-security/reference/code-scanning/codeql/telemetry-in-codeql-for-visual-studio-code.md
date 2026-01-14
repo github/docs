@@ -11,9 +11,11 @@ topics:
   - CodeQL
 type: reference
 allowTitleToDifferFromFilename: true
-intro: 'If {% data variables.product.prodname_vscode_shortname %} telemetry is enabled, {% data variables.product.company_short %} will collect usage data and metrics for the purposes of helping the core developers to improve the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode_shortname %}.'
+intro: If {% data variables.product.prodname_vscode_shortname %} telemetry is enabled, {% data variables.product.company_short %} will collect usage data and metrics for the purposes of helping the core developers to improve the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode_shortname %}.
 redirect_from:
   - /code-security/codeql-for-vs-code/about-telemetry-in-codeql-for-visual-studio-code
+  - /code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/telemetry-in-codeql-for-visual-studio-code
+contentType: reference
 ---
 
 This data will not be shared with any parties outside of {% data variables.product.company_short %}. IP addresses and installation IDs will be retained for a maximum of 30 days. Anonymous data will be retained for a maximum of 180 days.

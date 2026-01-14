@@ -15,7 +15,8 @@ topics:
 redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration/actions-built-in-queries
   - /code-security/code-scanning/managing-your-code-scanning-configuration/github-actions-built-in-queries
-contentType: other
+  - /code-security/code-scanning/reference/code-ql-built-in-queries/actions-built-in-queries
+contentType: reference
 ---
 
 {% data variables.product.prodname_codeql %} includes many queries for analyzing {% data variables.product.prodname_actions %} workflows. {% data reusables.code-scanning.codeql-query-tables.query-suite-behavior %}

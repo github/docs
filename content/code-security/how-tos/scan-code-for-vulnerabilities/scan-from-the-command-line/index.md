@@ -20,4 +20,5 @@ children:
 redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli
   - /code-security/codeql-cli/getting-started-with-the-codeql-cli
+  - /code-security/codeql-cli
 ---

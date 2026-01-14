@@ -23,5 +23,8 @@ children:
   - /ruby-built-in-queries
   - /rust-built-in-queries
   - /swift-built-in-queries
+redirect_from:
+  - /code-security/code-scanning/reference/code-ql-built-in-queries
+contentType: reference
 ---
 

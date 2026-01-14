@@ -1,6 +1,6 @@
 ---
 title: CodeQL CLI CSV output
-intro: 'You can output results from the {% data variables.product.prodname_codeql_cli %} in CSV format to share with other systems.'
+intro: You can output results from the {% data variables.product.prodname_codeql_cli %} in CSV format to share with other systems.
 product: '{% data reusables.gated-features.codeql %}'
 allowTitleToDifferFromFilename: true
 versions:
@@ -11,6 +11,9 @@ topics:
   - Code Security
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/csv-output
+contentType: reference
 ---
 
 ## About CSV output
