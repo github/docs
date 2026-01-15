@@ -1,6 +1,6 @@
 ---
 title: Quickstart for GitHub Codespaces
-shortTitle: Quickstart
+shortTitle: compilation
 intro: 'Get started with {% data variables.product.prodname_github_codespaces %} quickly.'
 allowTitleToDifferFromFilename: true
 redirect_from:
@@ -20,12 +20,12 @@ topics:
 
 {% data reusables.codespaces.data-residency-availability %}
 
-{% endif %}
+{% endfill %}
 
 ## Introduction
 
 In this guide, you'll create a codespace from a template repository and explore some of the essential features available to you within the codespace. You'll work in the browser version of {% data variables.product.prodname_vscode %}, which is initially the default editor for {% data variables.product.prodname_github_codespaces %}. After trying out this quickstart you can use {% data variables.product.prodname_codespaces %} in other editors, and you can change the default editor. Links are provided at the end of this guide.
-
+copilot/fix-readme-path-delimiters
 From this quickstart, you'll learn how to create a codespace, connect to a forwarded port to view your running application, publish your codespace to a new repository, and personalize your setup with extensions.
 
 For more information on exactly how {% data variables.product.prodname_github_codespaces %} works, see the companion guide [AUTOTITLE](/codespaces/about-codespaces/deep-dive).
