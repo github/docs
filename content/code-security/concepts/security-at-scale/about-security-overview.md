@@ -14,7 +14,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
 topics:
   - Security overview
   - Code Security

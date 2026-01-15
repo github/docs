@@ -17,7 +17,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: overview
 topics:
   - Dependabot
   - Version updates

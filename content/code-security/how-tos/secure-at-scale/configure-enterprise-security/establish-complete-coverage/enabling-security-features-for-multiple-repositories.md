@@ -6,7 +6,6 @@ permissions: '{% data reusables.permissions.security-org-enable %}'
 allowTitleToDifferFromFilename: true
 versions:
   feature: security-configurations-beta-and-pre-beta
-type: how_to
 topics:
   - Security overview
   - Code Security

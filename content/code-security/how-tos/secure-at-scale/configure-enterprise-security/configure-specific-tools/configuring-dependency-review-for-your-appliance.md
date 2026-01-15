@@ -5,7 +5,6 @@ intro: To help users understand dependency changes when reviewing pull requests,
 product: '{% data reusables.gated-features.dependency-review %}'
 versions:
   ghes: '*'
-type: how_to
 topics:
   - Advanced Security
   - Enterprise

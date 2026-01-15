@@ -4,7 +4,6 @@ shortTitle: Assess your secret risk
 intro: Determine your organization's exposure to leaked secrets by generating a {% data variables.product.prodname_secret_risk_assessment %} report.
 product: '{% data reusables.gated-features.secret-risk-assessment-report %}'
 permissions: '{% data reusables.permissions.secret-risk-assessment-report-generation %}'
-type: how_to
 versions:
   feature: secret-risk-assessment
 topics:

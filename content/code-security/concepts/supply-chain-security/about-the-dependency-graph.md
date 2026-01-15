@@ -10,7 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
 topics:
   - Dependency graph
   - Dependencies

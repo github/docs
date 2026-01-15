@@ -3,7 +3,6 @@ title: Exploring your enterprise trial of {% data variables.product.prodname_GH_
 shortTitle: Trial Secret Protection
 allowTitleToDifferFromFilename: true
 intro: Introduction to the features available with {% data variables.product.prodname_GH_secret_protection_always %} in {% data variables.product.prodname_ghe_cloud %} so you can assess their fit to your business needs.
-type: quick_start
 topics:
   - Secret Protection
 versions:

@@ -8,7 +8,6 @@ redirect_from:
   - /code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale
 permissions: '{% data reusables.permissions.security-org-enable %}'
 product: '{% data reusables.gated-features.code-scanning %}'
-type: how_to
 topics:
   - Code Security
   - Code scanning

@@ -5,7 +5,6 @@ intro: You can manage security campaigns directly from the security overview for
 allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.security-org-enable %}'
 product: '{% data reusables.gated-features.security-campaigns %}'
-type: how_to
 audience:
   - driver
 contentType: how-tos

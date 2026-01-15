@@ -3,7 +3,6 @@ title: Exploring your enterprise trial of {% data variables.product.prodname_GH_
 shortTitle: Trial {% data variables.product.prodname_code_security %}
 allowTitleToDifferFromFilename: true
 intro: Introduction to the features of code and dependency scanning available with {% data variables.product.prodname_GH_code_security_always %} in {% data variables.product.prodname_ghe_cloud %} so you can assess their fit to your business needs.
-type: quick_start
 topics:
   - Code Security
 versions:
