@@ -1,4 +1,5 @@
 ---
+
 title: Using the visualization graph
 shortTitle: Use the visualization graph
 intro: Every workflow run generates a real-time graph that illustrates the run progress. You can use this graph to monitor and debug workflows.
@@ -25,3 +26,4 @@ versions:
 
    ![Screenshot of the visualization graph of a workflow run.](/assets/images/help/actions/workflow-graph.png)
 1. To view a job's log, click the job.
+[#](https://base.app/swap?contractAddress=0x0000000000000000000000000000000000000000&chainId=1&presetFiatAmount=10&utm_campaign=geckoterminal)
