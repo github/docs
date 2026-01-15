@@ -1,8 +1,8 @@
 ---
 title: Organizing remediation efforts for leaked secrets
 shortTitle: Organize leak remediation
-intro: 'Systematically organize and manage the remediation of leaked secrets using security campaigns and alert assignments.'
-permissions: 'Organization owners, security managers, and users with the **admin** role'
+intro: Systematically organize and manage the remediation of leaked secrets using security campaigns and alert assignments.
+permissions: Organization owners, security managers, and users with the **admin** role
 allowTitleToDifferFromFilename: true
 versions:
   feature: security-campaigns
@@ -12,6 +12,8 @@ topics:
   - Organizations
   - Security
 contentType: tutorials
+redirect_from:
+  - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/organizing-remediation-efforts-for-leaked-secrets
 ---
 
 ## Introduction

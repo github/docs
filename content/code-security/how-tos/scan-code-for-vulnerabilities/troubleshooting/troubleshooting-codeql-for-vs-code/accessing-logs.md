@@ -1,6 +1,6 @@
 ---
-title: 'Accessing logs'
-shortTitle: 'Access logs'
+title: Accessing logs
+shortTitle: Access logs
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,9 +9,11 @@ topics:
   - Code Security
   - Code scanning
   - CodeQL
-type: reference
-intro: 'If you need to troubleshoot problems with {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %}, there are several logs you can access.'
+intro: If you need to troubleshoot problems with {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %}, there are several logs you can access.
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /code-security/codeql-for-vs-code/troubleshooting-codeql-for-vs-code/accessing-logs
+contentType: how-tos
 ---
 
 ## About logs

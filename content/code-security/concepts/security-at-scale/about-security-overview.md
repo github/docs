@@ -10,6 +10,7 @@ redirect_from:
   - /code-security/security-overview/exploring-security-alerts
   - /code-security/security-overview/about-the-security-overview
   - /code-security/security-overview/about-security-overview
+  - /code-security/security-overview
 versions:
   fpt: '*'
   ghes: '*'

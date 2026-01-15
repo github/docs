@@ -8,6 +8,7 @@ topics:
   - Code Quality
 contentType: tutorials
 children:
+  - /quickstart
   - /fix-findings-in-prs
   - /improve-your-codebase
   - /improve-recent-merges

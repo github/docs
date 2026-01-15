@@ -1,13 +1,12 @@
 ---
 title: Troubleshooting the dependency graph
-intro: 'If the dependency information reported by the dependency graph is not what you expected, there are a number of points to consider, and various things you can check.'
+intro: If the dependency information reported by the dependency graph is not what you expected, there are a number of points to consider, and various things you can check.
 product: '{% data reusables.gated-features.dependency-graph %}'
 shortTitle: Troubleshoot dependency graph
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
 topics:
   - Troubleshooting
   - Errors
@@ -16,6 +15,9 @@ topics:
   - Dependency graph
   - CVEs
   - Repositories
+redirect_from:
+  - /code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph
+contentType: how-tos
 ---
 
 {% data reusables.dependabot.result-discrepancy %}

@@ -1,19 +1,21 @@
 ---
 title: Enforcing dependency review across an organization
-intro: 'Dependency review lets you catch insecure dependencies before you introduce them to your environment. You can enforce the use of the {% data variables.dependency-review.action_name %} across your organization.'
+intro: Dependency review lets you catch insecure dependencies before you introduce them to your environment. You can enforce the use of the {% data variables.dependency-review.action_name %} across your organization.
 shortTitle: Enforce dependency review
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: overview
 topics:
   - Code Security
   - Dependency review
   - Vulnerabilities
   - Dependencies
   - Pull requests
+redirect_from:
+  - /code-security/supply-chain-security/understanding-your-software-supply-chain/enforcing-dependency-review-across-an-organization
+contentType: how-tos
 ---
 
 ## About dependency review enforcement

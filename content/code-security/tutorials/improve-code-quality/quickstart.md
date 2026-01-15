@@ -1,6 +1,6 @@
 ---
 title: Quickstart for GitHub Code Quality
-intro: 'Review code quality findings, generate a {% data variables.copilot.copilot_autofix_short %}, and merge a pull request to improve reliability and maintainability with {% data variables.product.prodname_code_quality %}.'
+intro: Review code quality findings, generate a {% data variables.copilot.copilot_autofix_short %}, and merge a pull request to improve reliability and maintainability with {% data variables.product.prodname_code_quality %}.
 allowTitleToDifferFromFilename: true
 versions:
   feature: code-quality
@@ -9,7 +9,10 @@ product: '{% data reusables.gated-features.code-quality-availability %}'
 permissions: '{% data reusables.permissions.code-quality-see-repo-findings %}'
 topics:
   - Code Quality
-contentType: get-started
+contentType: tutorials
+redirect_from:
+  - /code-security/code-quality/get-started/quickstart
+  - /code-security/code-quality/get-started
 ---
 
 ## Introduction
