@@ -59,6 +59,10 @@ AI-generated text completion to help you write pull request descriptions quickly
 
 Enhance {% data variables.copilot.copilot_chat_short %} responses by providing contextual details on your preferences, tools, and requirements. See [AUTOTITLE](/copilot/concepts/about-customizing-github-copilot-chat-responses).
 
+### {% data variables.copilot.copilot_memory %} ({% data variables.release-phases.public_preview %})
+
+{% data variables.product.prodname_copilot_short %} can deduce and store useful information about a repository, which {% data variables.copilot.copilot_coding_agent %} and {% data variables.copilot.copilot_code-review_short %} can use to improve the quality of their output when working in that repository. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
+
 ### {% data variables.copilot.copilot_desktop_short %}
 
 Automatically generate commit messages and descriptions with {% data variables.copilot.copilot_desktop_short %} based on the changes you make to your project.

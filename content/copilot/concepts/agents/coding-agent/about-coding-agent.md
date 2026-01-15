@@ -17,7 +17,7 @@ redirect_from:
   - /copilot/concepts/coding-agent/about-copilot-coding-agent
   - /copilot/concepts/coding-agent/coding-agent
 contentType: concepts
-category: 
+category:
   - Learn about Copilot
 ---
 
@@ -90,6 +90,18 @@ For more information, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/mana
 Support for selecting a model is coming soon for {% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %} users. Until then, tor these users, {% data variables.copilot.copilot_coding_agent %} will use {% data variables.copilot.copilot_claude_sonnet_45 %}. {% data variables.product.company_short %} reserves the right to change the model used at any time.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/changing-the-ai-model).
+
+## Enhancing {% data variables.copilot.copilot_coding_agent %}'s knowledge of a repository
+
+The more {% data variables.copilot.copilot_coding_agent %} knows about the code in your repository, the tools you use, and your coding standards and practices, the more effective it will become. There are two ways you can enhance {% data variables.copilot.copilot_coding_agent %}'s knowledge of a repository.
+
+* **Custom instructions**
+
+  These are short, natural‑language statements that you write and store as one or more files in a repository. If you are the owner of an organization on {% data variables.product.github %} you can also define custom instructions in the settings for your organization. For more information, see [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=webui#about-repository-custom-instructions).
+
+* **{% data variables.copilot.copilot_memory %}** ({% data variables.release-phases.public_preview %})
+
+  If you have a {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan, you can enable {% data variables.copilot.copilot_memory %}. This allows {% data variables.product.prodname_copilot_short %} to store useful details it has worked out for itself about a repository. {% data variables.copilot.copilot_coding_agent %} can then use this information when it is working in that repository. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
 
 ## {% data variables.copilot.copilot_coding_agent %} usage costs
 

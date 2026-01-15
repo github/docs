@@ -101,6 +101,10 @@ Here are some common use cases and examples for each type of custom instructions
 * [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
 * [AUTOTITLE](/copilot/customizing-copilot/adding-organization-custom-instructions-for-github-copilot)
 
+## Further reading
+
+* [AUTOTITLE](/copilot/concepts/agents/copilot-memory)
+
 {% endwebui %}
 
 <!-- end of web browser tab -->
