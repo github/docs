@@ -14563,7 +14563,7 @@
       "publicly_leaked",
       "multi_repo"
     ],
-    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+    "docs_reference_titles": "Manage secret scanning alerts"
   },
   {
     "action": "secret_scanning_alert.public_leak",
@@ -14585,7 +14585,7 @@
       "multi_repo",
       "created_at"
     ],
-    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+    "docs_reference_titles": "Manage secret scanning alerts"
   },
   {
     "action": "secret_scanning_alert.reopen",
@@ -14631,7 +14631,7 @@
       "secret_type_provider",
       "report_result"
     ],
-    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning/resolving-alerts"
+    "docs_reference_titles": "Resolving alerts from secret scanning"
   },
   {
     "action": "secret_scanning_alert.resolve",
@@ -14710,7 +14710,7 @@
       "publicly_leaked",
       "multi_repo"
     ],
-    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+    "docs_reference_titles": "Manage secret scanning alerts"
   },
   {
     "action": "secret_scanning_closure_request.approve",
