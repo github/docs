@@ -52,7 +52,7 @@ By default, the title of your site is `username.github.io`. You can change the t
 
 ## Next Steps
 
-You've successfully created, personalized, and published your first {% data variables.product.prodname_pages %} website but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_pages %}:
+You've successfully created, personalized, and published your first {% data variables.product.prodname_pages %} website, but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_pages %}:
 
 * [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll#about-content-in-jekyll-sites): This guide explains how to add additional pages to your site.
 {% ifversion fpt or ghec %}* [AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site): You can host your site on {% data variables.product.prodname_dotcom %}'s `github.io` domain or your own custom domain.{% endif %}
