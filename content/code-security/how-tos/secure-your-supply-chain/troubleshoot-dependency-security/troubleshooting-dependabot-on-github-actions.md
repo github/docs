@@ -1,11 +1,10 @@
 ---
 title: Troubleshooting Dependabot on GitHub Actions
-intro: 'This article provides troubleshooting information for issues you may encounter when using {% data variables.product.prodname_dependabot %} with {% data variables.product.prodname_actions %}.'
+intro: This article provides troubleshooting information for issues you may encounter when using {% data variables.product.prodname_dependabot %} with {% data variables.product.prodname_actions %}.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
 topics:
   - Actions
   - Dependabot
@@ -17,6 +16,8 @@ topics:
 shortTitle: Troubleshoot Dependabot on Actions
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-on-github-actions
+  - /code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-on-github-actions
+contentType: how-tos
 ---
 
 ## Restrictions when {% data variables.product.prodname_dependabot %} triggers events

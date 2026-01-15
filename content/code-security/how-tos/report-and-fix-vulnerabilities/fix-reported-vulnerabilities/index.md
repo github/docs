@@ -11,6 +11,9 @@ topics:
   - Repositories
   - Health
 contentType: how-tos
+redirect_from:
+  - /code-security/security-advisories/working-with-repository-security-advisories
+  - /code-security/security-advisories
 children:
   - managing-privately-reported-security-vulnerabilities
   - creating-a-repository-security-advisory

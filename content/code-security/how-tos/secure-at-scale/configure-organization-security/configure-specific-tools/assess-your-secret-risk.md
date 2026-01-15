@@ -14,6 +14,7 @@ topics:
   - Security
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/assess-your-secret-risk
+  - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets
 contentType: how-tos
 ---
 

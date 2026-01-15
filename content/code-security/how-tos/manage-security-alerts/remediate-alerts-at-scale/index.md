@@ -22,4 +22,5 @@ children:
   - creating-managing-security-campaigns
   - tracking-security-campaigns
   - fixing-alerts-in-security-campaign
+  - review-alert-dismissal-requests
 ---

@@ -12,4 +12,5 @@ children:
   - /best-practice-fix-alerts-at-scale
   - /prioritize-alerts-in-production-code
   - /interpreting-secret-risk-assessment-results
+  - /organizing-remediation-efforts-for-leaked-secrets
 ---

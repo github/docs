@@ -21,7 +21,7 @@ security_advisories:
     - >-
       /code-security/how-tos/report-and-fix-vulnerabilities/configure-vulnerability-reporting/configuring-private-vulnerability-reporting-for-a-repository
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-an-organization
+      /code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/configuring-private-vulnerability-reporting-for-an-organization
     - >-
       /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/creating-a-repository-security-advisory
     - >-
@@ -140,7 +140,7 @@ secret_scanning:
       %}/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/working-with-push-protection-in-the-github-ui{%
       endif %}
     - >-
-      /code-security/secret-scanning/troubleshooting-secret-scanning-and-push-protection/troubleshooting-secret-scanning
+      /code-security/how-tos/secure-your-secrets/troubleshooting-secret-scanning
 security_alerts:
   title: Explore and manage security alerts
   description: Learn where to find and resolve security alerts.

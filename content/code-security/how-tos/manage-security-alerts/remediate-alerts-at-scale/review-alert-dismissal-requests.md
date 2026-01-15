@@ -1,10 +1,9 @@
 ---
 title: Reviewing alert dismissal requests
 shortTitle: Review alert dismissal requests
-intro: 'Triage and resolve security alerts in your organization or enterprise by regularly reviewing alert dismissal requests.'
+intro: Triage and resolve security alerts in your organization or enterprise by regularly reviewing alert dismissal requests.
 permissions: '{% data reusables.permissions.security-overview %}'
-product: 'Organizations or enterprises with {% data variables.product.prodname_GHAS_cs_or_sp %}'
-type: how_to
+product: Organizations or enterprises with {% data variables.product.prodname_GHAS_cs_or_sp %}
 topics:
   - Security overview
   - Organizations
@@ -15,6 +14,9 @@ topics:
   - Alerts
 versions:
   feature: security-delegated-alert-dismissal
+redirect_from:
+  - /code-security/security-overview/review-alert-dismissal-requests
+contentType: how-tos
 ---
 
 ## Prerequisites

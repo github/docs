@@ -10,6 +10,8 @@ topics:
   - Secret scanning
   - Secret Protection
 contentType: how-tos
+redirect_from:
+  - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/estimating-the-price-of-secret-protection
 ---
 
 ## What is the pricing calculator?

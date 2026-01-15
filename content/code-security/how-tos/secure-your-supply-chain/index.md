@@ -7,6 +7,12 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+redirect_from:
+  - /categories/managing-security-vulnerabilities
+  - /github/managing-security-vulnerabilities
+  - /code-security/supply-chain-security
+  - /code-security/dependabot/working-with-dependabot
+  - /code-security/dependabot
 children:
   - secure-your-dependencies
   - manage-your-dependency-security

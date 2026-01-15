@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting CodeQL for VS Code
-intro: 'Learn how to resolve problems with the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %}.'
+intro: Learn how to resolve problems with the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %}.
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
@@ -15,4 +15,7 @@ children:
   - /warning-problem-with-controller-repository
 redirect_from:
   - /code-security/codeql-for-vs-code/troubleshooting-codeql-for-visual-studio-code
+  - /code-security/codeql-for-vs-code/troubleshooting-codeql-for-vs-code
+contentType: how-tos
 ---
+
