@@ -51,8 +51,6 @@ Most automation requires you to know information about the contents of the pull 
 
 Example:
 
-{% raw %}
-
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 name: Dependabot fetch metadata
@@ -78,8 +76,6 @@ jobs:
       #  - steps.metadata.outputs.update-type
 ```
 
-{% endraw %}
-
 For more information, see the [`dependabot/fetch-metadata`](https://github.com/dependabot/fetch-metadata) repository.
 
 ## Labeling a pull request
@@ -87,8 +83,6 @@ For more information, see the [`dependabot/fetch-metadata`](https://github.com/d
 If you have other automation or triage workflows based on {% data variables.product.github %} labels, you can configure an action to assign labels based on the metadata provided.
 
 Example that flags all production dependency updates with a label:
-
-{% raw %}
 
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -116,15 +110,11 @@ jobs:
           PR_URL: ${{github.event.pull_request.html_url}}
 ```
 
-{% endraw %}
-
 ## Automatically approving a pull request
 
 You can automatically approve {% data variables.product.prodname_dependabot %} pull requests by using the {% data variables.product.prodname_cli %} in a workflow.
 
 Example:
-
-{% raw %}
 
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -151,8 +141,6 @@ jobs:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 ```
 
-{% endraw %}
-
 ## Enabling automerge on a pull request
 
 If you want to allow maintainers to mark certain pull requests for automerge, you can use {% data variables.product.prodname_dotcom %}'s automerge functionality. This enables the pull request to be merged when any tests and approvals required by the branch protection rules are successfully met.
@@ -160,8 +148,6 @@ If you want to allow maintainers to mark certain pull requests for automerge, yo
 For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request) and [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
 
 You can instead use {% data variables.product.prodname_actions %} and the {% data variables.product.prodname_cli %}. Here is an example that automerges all patch updates to `my-dependency`:
-
-{% raw %}
 
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -189,8 +175,6 @@ jobs:
           PR_URL: ${{github.event.pull_request.html_url}}
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 ```
-
-{% endraw %}
 
 > [!NOTE]
 > If you use status checks to test pull requests, you should enable **Require status checks to pass before merging** for the target branch for {% data variables.product.prodname_dependabot %} pull requests. This branch protection rule ensures that pull requests are not merged unless **all the required status checks pass**. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
