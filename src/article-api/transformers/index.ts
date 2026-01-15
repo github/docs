@@ -16,6 +16,7 @@ import { CategoryLandingTransformer } from './category-landing-transformer'
 import { DiscoveryLandingTransformer } from './discovery-landing-transformer'
 import { ProductGuidesTransformer } from './product-guides-transformer'
 import { ProductLandingTransformer } from './product-landing-transformer'
+import { SearchPageTransformer } from './search-page-transformer'
 
 /**
  * Global transformer registry
@@ -40,6 +41,7 @@ transformerRegistry.register(new CategoryLandingTransformer())
 transformerRegistry.register(new DiscoveryLandingTransformer())
 transformerRegistry.register(new ProductGuidesTransformer())
 transformerRegistry.register(new ProductLandingTransformer())
+transformerRegistry.register(new SearchPageTransformer())
 
 export { TransformerRegistry } from './types'
 export type { PageTransformer } from './types'
