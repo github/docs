@@ -11,6 +11,7 @@ children:
   - /ai-models
   - /keyboard-shortcuts
   - /custom-agents-configuration
+  - /hooks-configuration
   - /custom-instructions-support
   - /policy-conflicts
   - /copilot-allowlist-reference
