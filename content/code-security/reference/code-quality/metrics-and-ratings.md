@@ -1,12 +1,14 @@
 ---
 title: Metrics and ratings reference
 shortTitle: Metrics and ratings
-intro: 'Understand the terminology used by {% data variables.product.github %} to assess the quality of your repository''s code.'
+intro: Understand the terminology used by {% data variables.product.github %} to assess the quality of your repository's code.
 versions:
   feature: code-quality
 topics:
   - Code Quality
 contentType: reference
+redirect_from:
+  - /code-security/code-quality/reference/metrics-and-ratings
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}

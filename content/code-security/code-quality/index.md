@@ -8,5 +8,4 @@ topics:
   - Code Quality
 children:
   - /get-started
-  - /reference
 ---

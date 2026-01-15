@@ -1,12 +1,14 @@
 ---
 title: Go CodeQL queries for Code Quality
 shortTitle: Go queries
-intro: 'Explore the queries that {% data variables.product.prodname_codeql %} uses to analyze code quality for code written in Go.'
+intro: Explore the queries that {% data variables.product.prodname_codeql %} uses to analyze code quality for code written in Go.
 versions:
   feature: code-quality
 topics:
   - Code Quality
 contentType: reference
+redirect_from:
+  - /code-security/code-quality/reference/codeql-queries/go-queries
 ---
 
 {% data variables.product.prodname_code_quality_short %} uses the following {% data variables.product.prodname_codeql %} queries to analyze Go code and detect code quality issues on:
