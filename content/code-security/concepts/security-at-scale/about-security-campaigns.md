@@ -4,7 +4,6 @@ shortTitle: Security campaigns
 intro: You can fix security alerts at scale by creating security campaigns and collaborating with developers to burn down your security backlog.
 product: '{% data reusables.gated-features.security-campaigns %}'
 allowTitleToDifferFromFilename: true
-type: overview
 audience:
   - driver
 contentType: concepts

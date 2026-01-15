@@ -5,7 +5,6 @@ product: '{% data reusables.gated-features.secret-scanning-partner-alerts %}'
 versions:
   fpt: '*'
   ghec: '*'
-type: overview
 topics:
   - Secret scanning
   - Secret Protection

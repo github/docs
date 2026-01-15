@@ -14988,7 +14988,7 @@
       "business_id",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "Working with secret scanning and push protection"
+    "docs_reference_titles": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
   },
   {
     "action": "secret_scanning_push_protection_request.complete",
@@ -15015,7 +15015,7 @@
       "business_id",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "Working with secret scanning and push protection"
+    "docs_reference_titles": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
   },
   {
     "action": "secret_scanning_push_protection_request.deny",
@@ -15070,7 +15070,7 @@
       "actor_is_bot",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Working with secret scanning and push protection"
+    "docs_reference_titles": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
   },
   {
     "action": "secret_scanning_scan.completed",

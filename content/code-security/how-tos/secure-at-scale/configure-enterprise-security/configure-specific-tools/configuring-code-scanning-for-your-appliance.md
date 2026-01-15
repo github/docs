@@ -13,7 +13,6 @@ redirect_from:
 versions:
   ghes: '*'
   ghec: '*'
-type: how_to
 topics:
   - Advanced Security
   - Code scanning

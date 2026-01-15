@@ -2,12 +2,14 @@
 title: JavaScript CodeQL queries for Code Quality
 shortTitle: JavaScript queries
 allowTitleToDifferFromFilename: true
-intro: 'Explore the queries that {% data variables.product.prodname_codeql %} uses to analyze code quality for code written in JavaScript.'
+intro: Explore the queries that {% data variables.product.prodname_codeql %} uses to analyze code quality for code written in JavaScript.
 versions:
   feature: code-quality
 topics:
   - Code Quality
 contentType: reference
+redirect_from:
+  - /code-security/code-quality/reference/codeql-queries/javascript-queries
 ---
 
 {% data variables.product.prodname_code_quality_short %} uses the following {% data variables.product.prodname_codeql %} queries to analyze JavaScript code and detect code quality issues on:
