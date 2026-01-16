@@ -1,5 +1,13 @@
 # Docs changelog
 
+**13 January 2026**
+
+We've added a new reference article to clarify which of the various types of custom instructions for Copilot are supported by Copilot Chat, Copilot coding agent, and Copilot code review in GitHub.com, Visual Studio Code, Visual Studio, JetBrains IDEs, Eclipse, Xcode, and Copilot CLI.
+
+[Support for different types of custom instructions](https://docs.github.com/copilot/reference/custom-instructions-support)
+
+<hr>
+
 **8 January 2026**
 
 We've added information about permissions to the article [Using GitHub Copilot CLI](https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli#permissions).
