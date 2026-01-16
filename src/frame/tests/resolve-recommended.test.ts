@@ -1,6 +1,6 @@
 import { describe, test, expect, vi, beforeEach } from 'vitest'
 import type { Response, NextFunction } from 'express'
-import type { ExtendedRequest } from '@/types'
+import type { ExtendedRequest, Page, ResolvedArticle } from '@/types'
 import findPage from '@/frame/lib/find-page'
 import resolveRecommended from '../middleware/resolve-recommended'
 
@@ -17,23 +17,38 @@ vi.mock('@/content-render/index', () => ({
 describe('resolveRecommended middleware', () => {
   const mockFindPage = vi.mocked(findPage)
 
-  const createMockRequest = (pageData: any = {}, contextData: any = {}): ExtendedRequest =>
-    ({
-      context: {
-        page: pageData,
-        pages: {
+  type TestPage = Partial<Page> & {
+    rawRecommended?: string[]
+    spotlight?: Array<{ article: string }>
+  }
+
+  const createMockRequest = (
+    pageData: TestPage = {},
+    contextData: Partial<ExtendedRequest['context']> & { pages?: Record<string, Page> } = {},
+  ): ExtendedRequest => {
+    const { pages: pagesOverride, ...restContext } = contextData
+    const hasPagesOverride = Object.prototype.hasOwnProperty.call(contextData, 'pages')
+    const pages = hasPagesOverride
+      ? pagesOverride
+      : ({
           '/test-article': {
             title: 'Test Article',
             intro: 'Test intro',
             relativePath: 'test/article.md',
-          },
-        },
+          } as unknown as Page,
+        } as Record<string, Page>)
+
+    return {
+      context: {
+        page: pageData as Page,
+        pages,
         redirects: {},
         currentVersion: 'free-pro-team@latest',
         currentLanguage: 'en',
-        ...contextData,
+        ...restContext,
       },
-    }) as ExtendedRequest
+    } as unknown as ExtendedRequest
+  }
 
   const mockRes = {} as Response
   const mockNext = vi.fn() as NextFunction
@@ -86,7 +101,7 @@ describe('resolveRecommended middleware', () => {
       applicableVersions: ['free-pro-team@latest'],
     }
 
-    mockFindPage.mockReturnValue(testPage as any)
+    mockFindPage.mockReturnValue(testPage as unknown as Page)
 
     const req = createMockRequest({ rawRecommended: ['/copilot/tutorials/article'] })
 
@@ -97,7 +112,7 @@ describe('resolveRecommended middleware', () => {
       req.context!.pages,
       req.context!.redirects,
     )
-    expect((req.context!.page as any).recommended).toEqual([
+    expect((req.context!.page as Page & { recommended?: ResolvedArticle[] }).recommended).toEqual([
       {
         title: 'Test Article',
         intro: '<p>Test intro</p>',
@@ -116,7 +131,7 @@ describe('resolveRecommended middleware', () => {
       applicableVersions: ['free-pro-team@latest'],
     }
 
-    mockFindPage.mockReturnValueOnce(testPage as any)
+    mockFindPage.mockReturnValueOnce(testPage as unknown as Page)
 
     const req = createMockRequest({
       rawRecommended: ['/copilot/tutorials/article'],
@@ -131,7 +146,7 @@ describe('resolveRecommended middleware', () => {
       req.context!.pages,
       req.context!.redirects,
     )
-    expect((req.context!.page as any).recommended).toEqual([
+    expect((req.context!.page as Page & { recommended?: ResolvedArticle[] }).recommended).toEqual([
       {
         title: 'Test Article',
         intro: '<p>Test intro</p>',
@@ -154,7 +169,9 @@ describe('resolveRecommended middleware', () => {
       req.context!.pages,
       req.context!.redirects,
     )
-    expect((req.context!.page as any).recommended).toEqual([])
+    expect((req.context!.page as Page & { recommended?: ResolvedArticle[] }).recommended).toEqual(
+      [],
+    )
     expect(mockNext).toHaveBeenCalled()
   })
 
@@ -163,11 +180,13 @@ describe('resolveRecommended middleware', () => {
       throw new Error('Test error')
     })
 
-    const req = createMockRequest({ rawRecommended: ['/error-article'] })
+    const req = createMockRequest({ rawRecommended: ['/error-article'] as string[] })
 
     await resolveRecommended(req, mockRes, mockNext)
 
-    expect((req.context!.page as any).recommended).toEqual([])
+    expect((req.context!.page as Page & { recommended?: ResolvedArticle[] }).recommended).toEqual(
+      [],
+    )
     expect(mockNext).toHaveBeenCalled()
   })
 
@@ -179,13 +198,13 @@ describe('resolveRecommended middleware', () => {
       applicableVersions: ['free-pro-team@latest'],
     }
 
-    mockFindPage.mockReturnValueOnce(testPage as any).mockReturnValueOnce(undefined)
+    mockFindPage.mockReturnValueOnce(testPage as unknown as Page).mockReturnValueOnce(undefined)
 
     const req = createMockRequest({ rawRecommended: ['/valid-article', '/invalid-article'] })
 
     await resolveRecommended(req, mockRes, mockNext)
 
-    expect((req.context!.page as any).recommended).toEqual([
+    expect((req.context!.page as Page & { recommended?: ResolvedArticle[] }).recommended).toEqual([
       {
         title: 'Valid Article',
         intro: '<p>Valid intro</p>',
@@ -205,7 +224,7 @@ describe('resolveRecommended middleware', () => {
     }
 
     // Mock findPage to fail on first call (content-relative) and succeed on second (page-relative)
-    mockFindPage.mockReturnValueOnce(undefined).mockReturnValueOnce(testPage as any)
+    mockFindPage.mockReturnValueOnce(undefined).mockReturnValueOnce(testPage as unknown as Page)
 
     const req = createMockRequest({
       rawRecommended: ['relative-article'],
@@ -225,7 +244,7 @@ describe('resolveRecommended middleware', () => {
       req.context!.pages,
       req.context!.redirects,
     )
-    expect((req.context!.page as any).recommended).toEqual([
+    expect((req.context!.page as Page & { recommended?: ResolvedArticle[] }).recommended).toEqual([
       {
         title: 'Relative Article',
         intro: '<p>Relative intro</p>',
@@ -244,7 +263,7 @@ describe('resolveRecommended middleware', () => {
       applicableVersions: ['free-pro-team@latest'],
     }
 
-    mockFindPage.mockReturnValue(testPage as any)
+    mockFindPage.mockReturnValue(testPage as unknown as Page)
 
     const req = createMockRequest({ rawRecommended: ['/copilot/tutorials/tutorial-page'] })
 
@@ -258,7 +277,7 @@ describe('resolveRecommended middleware', () => {
 
     // Verify that the href is a clean path without language/version, that gets
     // added on the React side.
-    expect((req.context!.page as any).recommended).toEqual([
+    expect((req.context!.page as Page & { recommended?: ResolvedArticle[] }).recommended).toEqual([
       {
         title: 'Tutorial Page',
         intro: '<p>Tutorial intro</p>',
@@ -278,7 +297,7 @@ describe('resolveRecommended middleware', () => {
       applicableVersions: ['free-pro-team@latest'], // Not available in ghec
     }
 
-    mockFindPage.mockReturnValue(fptOnlyPage as any)
+    mockFindPage.mockReturnValue(fptOnlyPage as unknown as Page)
 
     // Create a request context where we're viewing the GHEC version
     const req = createMockRequest(
@@ -292,7 +311,9 @@ describe('resolveRecommended middleware', () => {
     await resolveRecommended(req, mockRes, mockNext)
 
     // The recommended array should be empty since the article isn't available in enterprise-cloud
-    expect((req.context!.page as any).recommended).toEqual([])
+    expect((req.context!.page as Page & { recommended?: ResolvedArticle[] }).recommended).toEqual(
+      [],
+    )
     expect(mockNext).toHaveBeenCalled()
   })
 })

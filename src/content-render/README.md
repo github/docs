@@ -1,11 +1,36 @@
-# Render content
+# Content render
 
-In this directory is the main pipeline that converts our content from Liquid, Markdown and YAML into HTML. This directory _does not include React components_.
+The content-render subject is the main pipeline that converts content from Liquid, Markdown, and YAML into HTML. It handles template processing, Markdown parsing, custom Liquid tags, and unified (remark/rehype) transformations. This directory does not include React components.
 
-## Usage
+## Purpose & Scope
+
+This subject is responsible for:
+- Rendering Liquid templates with context variables
+- Converting Markdown to HTML with unified (remark/rehype)
+- Custom Liquid tags for content and data references
+- Code block syntax highlighting and headers
+- Link rewriting (local paths, assets, anchors)
+- Image transformations and wrapping
+- Alert/note callout rendering
+- Table accessibility improvements
+- Text-only extraction for search indexing
+
+## Architecture & Key Assets
+
+### Key capabilities and their locations
+
+- `index.ts` - `renderContent()`: Main entry point for content rendering
+- `liquid/engine.ts` - Liquid engine with custom tag registration
+- `unified/processor.ts` - Unified pipeline with remark/rehype plugins
+- `liquid/*.ts` - Custom Liquid tags (data, ifversion, octicon, etc.)
+- `unified/*.ts` - Content transformation plugins
+
+## Setup & Usage
+
+### Basic usage
 
 ```javascript
-const renderContent = require('.')
+import { renderContent } from '@/content-render'
 
 const html = await renderContent(`
 # Beep
@@ -22,26 +47,25 @@ Creates:
 <p>bar</p>
 ```
 
-## API
+### API
 
-### renderContent(markdown, context = {}, options = {})
+#### renderContent(markdown, context = {}, options = {})
 
 Render a string of `markdown` with optional `context`. Returns a `Promise`.
 
-Liquid will be looking for includes in `${process.cwd()}/includes`.
+Liquid will look for includes in `${process.cwd()}/includes`.
 
 Options:
+- `fileName`: File name for debugging purposes
+- `textOnly`: Output text instead of HTML using cheerio (for search indexing)
 
-- `fileName`: File name for debugging purposes.
-- `textOnly`: Output text instead of html using [cheerio](https://ghub.io/cheerio).
+#### .liquid
 
-### .liquid
-
-The [Liquid](https://ghub.io/liquidjs) instance used internally.
+The Liquid instance used internally for direct access.
 
 ### Code block headers
 
-You can add a header to code blocks by adding the ` copy` annotation after the code fences, and a specified language:
+Add a header to code blocks with the `copy` annotation:
 
     ```js copy
     const copyMe = true
@@ -49,50 +73,113 @@ You can add a header to code blocks by adding the ` copy` annotation after the c
 
 The un-highlighted text is available as `button.js-btn-copy`'s `data-clipboard-text` attribute.
 
-## Liquid tags
+## Data & External Dependencies
 
-See also [contributing/liquid-helpers.md](../../contributing/liquid-helpers.md)
+### Data inputs
+- Markdown content with Liquid templates
+- Context object with variables and functions
+- Data from `data/` directory (reusables, variables, features)
+- Content includes from `includes/` directory
 
-This directory contains custom Liquid tags for outputting dynamic content. These custom tags exist for a few reasons:
+### Dependencies
+- **LiquidJS** - Template engine for Liquid processing
+- **unified/remark/rehype** - Markdown to HTML transformation
+- **cheerio** - HTML parsing for text-only mode
+- **highlight.js** - Syntax highlighting for code blocks
+- Custom plugins for GitHub-specific transformations
 
-- Content and styling should be separated. Writers should not be concerned with writing or maintaining stylistic markup.
-- Content should be localized to match the current language.
-- Styling and markup should be DRY and reusable.
+### Transformation pipeline
 
-## Using tags
+1. **Liquid rendering** - Process Liquid tags and variables
+2. **Markdown parsing** - Convert to syntax tree (remark)
+3. **Unified plugins** - Apply transformations
+4. **HTML generation** - Convert to final HTML (rehype)
+5. **Post-processing** - Additional cleanup if needed
+
+## Cross-links & Ownership
+
+### Related subjects
+- [`src/frame`](../frame/README.md) - Page rendering uses renderContent
+- [`src/data-directory`](../data-directory/README.md) - Data accessed via {% data %} tags
+- [`src/versions`](../versions/README.md) - {% ifversion %} tag logic
+- All content in `content/` - Source of Markdown to render
+- Includes in `includes/` - Reusable Liquid includes
+
+### Internal documentation
+- [Liquid helpers guide](../../contributing/liquid-helpers.md)
+- [Content style guide](../../contributing/) - Using Liquid tags in content
+
+### Ownership
+- Team: Docs Engineering
+
+## Current State & Next Steps
+
+### Supported Liquid tags
+
+Custom tags implemented:
+
+| Tag | Purpose |
+|-----|---------|
+| `{% data variables.product.product_name %}` | Access data variables |
+| `{% ifversion fpt %}...{% endif %}` | Conditional content by version |
+| `{% octicon "check" %}` | Render Octicons |
+| `{% indented_data_reference foo.bar spaces=2 %}` | Data reference with indentation |
+| `{% tool name %}` | Tool-specific content |
+| `{% prompt %}` | Command prompt styling |
+
+See [contributing/liquid-helpers.md](../../contributing/liquid-helpers.md) for complete list.
+
+### Using tags
 
 Tags can be used in:
-
 - Articles and TOCs (`content/**/*.md`)
 - Include files (`includes/*.html`)
 
-Tags always expect a single argument, a language agnostic href:
+Tags expect language-agnostic hrefs or data paths:
 
-```html
+```liquid
 {% data variables.product.product_name %}
+{% ifversion ghes > 3.9 %}...{% endif %}
 ```
 
-## Supported tags
+### Creating new Liquid tags
 
-| Markup | Renders |
-| -- | -- |
-| `{% indented_data_reference foo.bar spaces=NUMBER %}` | A data reference with the specified number of spaces prepended to each line. Defaults to 2 spaces if no spaces included. For example: `{% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}`
+1. Create TypeScript class in `liquid/my-tag.ts` and implement the rendering logic directly in the class (using inline HTML or template strings).
+2. Register in `liquid/engine.ts`:
+   ```typescript
+   import MyTag from './my-tag'
+   engine.registerTag('my_tag', MyTag)
+   ```
+3. Add tests in `tests/`
+4. Document in `contributing/liquid-helpers.md`
 
-## Creating tags
+See [LiquidJS docs](https://liquidjs.com/tutorials/register-filters-tags.html) for tag API.
 
-Each custom tag has the following:
+### Unified plugins
 
-- a JavaScript class in `lib/liquid-tags/`
-- an HTML template in `includes/liquid-tags/`
+Plugins transform the Markdown AST:
+- `rewrite-local-links` - Rewrites internal `/en/...` links
+- `rewrite-asset-urls` - Handles `/assets/...` paths
+- `heading-links` - Adds anchor links to headings
+- `alerts` - Converts `> [!NOTE]` to styled alerts
+- `code-header` - Adds copy buttons to code blocks
+- And many more...
 
-The class and the template should have corresponding names, like `lib/liquid-tags/my-tag.ts` and `includes/liquid-tags/my-tag.html`
+### Adding new unified plugins
 
-You must also register the new tag in `src/content-render/liquid/engine.ts` with a line like this:
+1. Create plugin in `unified/my-plugin.ts`
+2. Add to processor in `unified/processor.ts`
+3. Add tests
+4. Consider impact on performance (plugins run on every render)
 
-```
-engine.registerTag('my_tag', require('./liquid-tags/my-tag'))
-```
+### Known limitations
+- Liquid rendering happens before Markdown parsing (can't use Markdown in Liquid output easily)
+- Some transformations are performance-sensitive (cached where possible)
+- Text-only mode used for search has different output than HTML mode
+- Custom Liquid tags must be registered manually
 
-## Further reading
-
-- Liquid Docs: https://github.com/liquid-lang/liquid-node#registering-new-tags
+### Performance considerations
+- Rendering is cached at the page level
+- Liquid includes are resolved on every render
+- Heavy transformations should be avoided in hot paths
+- Use `textOnly` mode for search indexing (faster)
