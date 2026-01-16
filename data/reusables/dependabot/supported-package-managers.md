@@ -122,7 +122,7 @@ For more information about using {% data variables.product.prodname_dependabot_v
 
 {% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to the following files:
 * `build.gradle`, `build.gradle.kts` (for Kotlin projects)
-* `gradle/wrapper/gradle-wrapper.properties` (for Gradle wrapper)
+* `gradle/wrapper/gradle-wrapper.properties` (for the Gradle Wrapper)
 * `gradle/libs.versions.toml` (for projects using a standard Gradle version catalog)
 * `gradle.lockfile` (for projects using Gradle dependency locking)
 * Files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
