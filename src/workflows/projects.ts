@@ -181,7 +181,7 @@ export function calculateDueDate(datePosted: Date, turnaround = 2) {
 // generates a GraphQL mutation to populate:
 //   - "Status" (as variable passed with the request)
 //   - "Date posted" (as today)
-//   - "Target Date" (as today + {turnaround} weekdays)
+//   - "Review due date" (as today + {turnaround} weekdays)
 //   - "Contributor type" (as variable passed with the request)
 //   - "Feature" (as {feature})
 //   - "Author" (as {author})"
@@ -241,7 +241,7 @@ export function generateUpdateProjectV2ItemFieldMutation({
       $statusID: ID!
       $statusValueID: String!
       $datePostedID: ID!
-      $targetDateID: ID!
+      $reviewDueDateID: ID!
       $contributorTypeID: ID!
       $contributorType: String!
       $sizeTypeID: ID!
@@ -264,7 +264,7 @@ export function generateUpdateProjectV2ItemFieldMutation({
       })}
       ${generateMutationToUpdateField({
         item,
-        fieldID: '$targetDateID',
+        fieldID: '$reviewDueDateID',
         value: formatDateForProject(dueDate),
         fieldType: 'date',
         literal: true,
