@@ -6,7 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 permissions: '{% data reusables.permissions.dependency-graph-export-sbom %}'
-type: how_to
 topics:
   - Dependency graph
   - Dependencies

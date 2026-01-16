@@ -15,7 +15,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
 topics:
   - Code Security
   - Code scanning

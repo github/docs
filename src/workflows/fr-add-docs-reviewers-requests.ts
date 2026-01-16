@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { graphql } from '@octokit/graphql'
 
 import {
@@ -155,7 +154,7 @@ async function run() {
 
   // Get the ID of the fields that we want to populate
   const datePostedID = findFieldID('Date posted', projectData)
-  const reviewDueDateID = findFieldID('Review due date', projectData)
+  const targetDateID = findFieldID('Target Date', projectData)
   const statusID = findFieldID('Status', projectData)
   const featureID = findFieldID('Feature', projectData)
   const contributorTypeID = findFieldID('Contributor type', projectData)
@@ -209,7 +208,7 @@ async function run() {
       statusID,
       statusValueID: readyForReviewID,
       datePostedID,
-      reviewDueDateID,
+      targetDateID,
       contributorTypeID,
       contributorType,
       sizeTypeID,

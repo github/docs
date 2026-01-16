@@ -402,6 +402,14 @@ upcoming_changes:
     date: '2024-04-01T00:00:00+00:00'
     criticality: breaking
     owner: calvinchilds
+  - location: EnterpriseOwnerInfo.teamDiscussionsSetting
+    description:
+      '`teamDiscussionsSetting` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
+      to find a suitable replacement.'
+    reason: The Team Discussions feature is deprecated in favor of Organization Discussions.
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: deborah-digges
   - location: OrganizationInvitation.inviter
     description: '`inviter` will be removed. `inviter` will be replaced by `inviterActor`.'
     reason: '`inviter` will be removed.'
