@@ -6,7 +6,6 @@ product: Public repositories on {% data variables.product.prodname_dotcom_the_we
 permissions: '{% data reusables.permissions.push-protection-resolve-block %}'
 versions:
   feature: copilot
-type: how_to
 topics:
   - Secret scanning
   - Secret Protection

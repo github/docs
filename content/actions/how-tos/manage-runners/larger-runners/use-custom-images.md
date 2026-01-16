@@ -57,6 +57,9 @@ To configure a workflow for image generation:
   * Each job that includes the `snapshot` keyword creates a separate image. To generate only one image or image version, include all workflow steps in a single job.
   * Each successful run of a job that includes the `snapshot` keyword creates a new version of that image.
 
+ > [!NOTE]
+ > {% data variables.product.company_short %} recommends configuring image generation as a scheduled workflow on a weekly basis. This approach ensures dependencies remain up-to-date and have the latest security patches. For more information, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#schedule).
+
 It can take some time for your image to be fully generated and ready to use after the workflow completes. Provisioning time varies based on runner size and configuration, and may take several hours for larger runners.
 
 The image is generated only when the job completes successfully. This prevents new image versions from being created when a workflow fails or ends in an incomplete state.

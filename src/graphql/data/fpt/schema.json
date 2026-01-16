@@ -8520,48 +8520,6 @@
       ]
     },
     {
-      "name": "updateEnterpriseTeamDiscussionsSetting",
-      "kind": "mutations",
-      "id": "updateenterpriseteamdiscussionssetting",
-      "href": "/graphql/reference/mutations#updateenterpriseteamdiscussionssetting",
-      "description": "<p>Sets whether team discussions are enabled for an enterprise.</p>",
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "UpdateEnterpriseTeamDiscussionsSettingInput!",
-          "id": "updateenterpriseteamdiscussionssettinginput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#updateenterpriseteamdiscussionssettinginput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "enterprise",
-          "type": "Enterprise",
-          "id": "enterprise",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#enterprise",
-          "description": "<p>The enterprise with the updated team discussions setting.</p>"
-        },
-        {
-          "name": "message",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A message confirming the result of updating the team discussions setting.</p>"
-        }
-      ]
-    },
-    {
       "name": "updateEnterpriseTwoFactorAuthenticationDisallowedMethodsSetting",
       "kind": "mutations",
       "id": "updateenterprisetwofactorauthenticationdisallowedmethodssetting",
@@ -25746,77 +25704,9 @@
           "type": "EnterpriseEnabledDisabledSettingValue!",
           "id": "enterpriseenableddisabledsettingvalue",
           "kind": "enums",
-          "href": "/graphql/reference/enums#enterpriseenableddisabledsettingvalue"
-        },
-        {
-          "name": "teamDiscussionsSettingOrganizations",
-          "description": "<p>A list of enterprise organizations configured with the provided team discussions setting value.</p>",
-          "type": "OrganizationConnection!",
-          "id": "organizationconnection",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#organizationconnection",
-          "arguments": [
-            {
-              "name": "after",
-              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "before",
-              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "first",
-              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "last",
-              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "orderBy",
-              "description": "<p>Ordering options for organizations with this setting.</p>",
-              "type": {
-                "name": "OrganizationOrder",
-                "id": "organizationorder",
-                "kind": "input-objects",
-                "href": "/graphql/reference/input-objects#organizationorder"
-              }
-            },
-            {
-              "name": "value",
-              "description": "<p>The setting value to find organizations for.</p>",
-              "type": {
-                "name": "Boolean!",
-                "id": "boolean",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#boolean"
-              }
-            }
-          ]
+          "href": "/graphql/reference/enums#enterpriseenableddisabledsettingvalue",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "twoFactorDisallowedMethodsSetting",
@@ -109967,40 +109857,6 @@
         {
           "name": "settingValue",
           "description": "<p>The value for the repository projects setting on the enterprise.</p>",
-          "type": "EnterpriseEnabledDisabledSettingValue!",
-          "id": "enterpriseenableddisabledsettingvalue",
-          "kind": "enums",
-          "href": "/graphql/reference/enums#enterpriseenableddisabledsettingvalue"
-        }
-      ]
-    },
-    {
-      "name": "UpdateEnterpriseTeamDiscussionsSettingInput",
-      "kind": "inputObjects",
-      "id": "updateenterpriseteamdiscussionssettinginput",
-      "href": "/graphql/reference/input-objects#updateenterpriseteamdiscussionssettinginput",
-      "description": "<p>Autogenerated input type of UpdateEnterpriseTeamDiscussionsSetting.</p>",
-      "inputFields": [
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "enterpriseId",
-          "description": "<p>The ID of the enterprise on which to set the team discussions setting.</p>",
-          "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
-        },
-        {
-          "name": "settingValue",
-          "description": "<p>The value for the team discussions setting on the enterprise.</p>",
           "type": "EnterpriseEnabledDisabledSettingValue!",
           "id": "enterpriseenableddisabledsettingvalue",
           "kind": "enums",

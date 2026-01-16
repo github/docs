@@ -6,18 +6,18 @@ redirect_from:
   - /code-security/guides
 introLinks:
   overview: '{% ifversion ghes %}/code-security/getting-started/github-security-features{% endif %}'
-  generate_secret_risk_assessment_report_for_free: '{% ifversion secret-risk-assessment %}/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/assess-your-secret-risk{% endif %}'
+  generate_secret_risk_assessment_report_for_free: '{% ifversion secret-risk-assessment %}/code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/assess-your-secret-risk{% endif %}'
 featuredLinks:
   startHere:
     - '{% ifversion fpt or ghec %}/code-security/getting-started/github-security-features{% endif %}'
     - /code-security/getting-started/quickstart-for-securing-your-repository
     - '{% ifversion ghes %}/code-security/secret-scanning/working-with-secret-scanning-and-push-protection{% endif %}'
-    - /code-security/getting-started/dependabot-quickstart-guide
-    - /code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning
+    - /code-security/tutorials/secure-your-dependencies/dependabot-quickstart-guide
+    - /code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/configuring-default-setup-for-code-scanning
   guideCards:
     - /code-security/trialing-github-advanced-security/planning-a-trial-of-ghas
     - /code-security/secret-scanning/enabling-secret-scanning-features
-    - /code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning
+    - /code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/configuring-default-setup-for-code-scanning
     - /code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configuring-dependabot-security-updates
     - /code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configuring-dependabot-version-updates
   popular:
@@ -43,22 +43,9 @@ topics:
   - Vulnerabilities
 children:
   - /getting-started
-  - /trialing-github-advanced-security
-  - /code-quality
-  - /adopting-github-advanced-security-at-scale
-  - /securing-your-organization
-  - /secret-scanning
-  - /code-scanning
-  - /codeql-cli
-  - /codeql-for-vs-code
-  - /security-advisories
-  - /supply-chain-security
-  - /dependabot
-  - /security-overview
   - /concepts
   - /how-tos
   - /reference
   - /tutorials
   - /responsible-use
 ---
-
