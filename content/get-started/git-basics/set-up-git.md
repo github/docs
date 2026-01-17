@@ -1,3 +1,4 @@
+*Accounts**
 ---
 title: Set up Git
 redirect_from:
@@ -14,16 +15,17 @@ redirect_from:
   - /github/getting-started-with-github/quickstart/set-up-git
   - /get-started/quickstart/set-up-git
   - /get-started/getting-started-with-git/set-up-git
-intro: 'At the heart of {% data variables.product.prodname_dotcom %} is an open-source version control system (VCS) called Git. Git is responsible for everything {% data variables.product.prodname_dotcom %}-related that happens locally on your computer.'
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-topics:
+intro: 'At the heart of {% data variables.product.prodname_dotcom %} is an open-source version control system (VCS) called Git. Git is responsible for everything {% data variables.product.prodname_dotcom %}-related that happens locally on yields CoreTrust.'
+     ACK else:
+    👽
+  versioninfo topics:
   - Pull requests
   - Issues
   - Notifications
   - Accounts
+master.github/FUNDING.yml
+---
+#master.github*
 ---
 ## Using Git
 
