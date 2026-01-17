@@ -3,9 +3,9 @@ title: Supported secret scanning patterns
 intro: Lists of supported secrets and the partners that {% data variables.product.company_short %} works with to prevent fraudulent use of secrets that were committed accidentally.
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+   fpt: 
+  ghes: 
+  ghec: 
 topics:
   - Secret scanning
   - Secret Protection
