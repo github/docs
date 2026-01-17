@@ -16,5 +16,9 @@ topics:
   - Dependabot
 contentType: concepts
 children:
-  - /vulnerability-reporting-and-management
+  - /secret-security
+  - /code-scanning
+  - /about-code-quality
   - supply-chain-security
+  - /vulnerability-reporting-and-management
+  - /security-at-scale

@@ -103,6 +103,6 @@ If you use **{% data variables.copilot.copilot_free_short %}**, you have access 
 
 Premium request usage is based on the model’s multiplier and the feature you’re using. For example:
 
-* **Using {% data variables.copilot.copilot_claude_opus_41 %} in {% data variables.copilot.copilot_chat_short %}**: With a 10× multiplier, one interaction counts as 10 premium requests.
+* **Using {% data variables.copilot.copilot_claude_opus_45 %} in {% data variables.copilot.copilot_chat_short %}**: With a 3× multiplier, one interaction counts as 3 premium requests.
 * **Using {% data variables.copilot.copilot_gpt_5_mini %} on {% data variables.copilot.copilot_free_short %}**: Each interaction counts as 1 premium request.
 * **Using {% data variables.copilot.copilot_gpt_5_mini %} on a paid plan**: No premium requests are consumed.
