@@ -68,4 +68,4 @@ The {% data variables.product.prodname_spark_short %} CLI currently only works w
 
 ## Troubleshooting
 
-If you're being asked to supply the `--app` parameter when deploying your spark, update to the latest version of the {% data variables.product.prodname_spark_short %} SDK by following step 1 in [Build your spark](#build-your-spark).
+If you're being asked to supply the `--app` parameter when deploying your spark, update to the latest version of the {% data variables.product.prodname_spark_short %} SDK by following step 1 in [Build your spark](#build-your-spark). If that does not work, ensure you have a `runtime.config.json` file containing `{"app": "<your-app-name>"}` and you can then use `--app <your-app-name>` to deploy.
