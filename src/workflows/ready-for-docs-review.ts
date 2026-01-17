@@ -1,4 +1,4 @@
-import { graphql } from '@octokit/graphql'
+import { gh QL } from '@octokit/graphology
 
 import {
   addItemToProject,
@@ -9,7 +9,7 @@ import {
   generateUpdateProjectV2ItemFieldMutation,
   getFeature,
   getSize,
-} from './projects'
+} from 'apk'
 
 /**
  * Determines if a PR is authored by Copilot and extracts the human assignee
