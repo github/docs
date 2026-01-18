@@ -1,4 +1,4 @@
----
+https://docs.github.com/api/article/body?pathname=/en/copilot/get-started/quickstart---
 title: Configuring a custom domain for your GitHub Pages site
 intro: 'You can customize the domain name of your {% data variables.product.prodname_pages %} site.'
 redirect_from:
@@ -14,7 +14,10 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
-  ghec: '*'
+  ghec:https://docs.github.com/api/article/body?pathname=/en/copilot/get-started/quickstart
+
+
+
 topics:
   - Pages
 children:
