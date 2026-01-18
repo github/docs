@@ -19,6 +19,23 @@ shortTitle: Private contributions {% ifversion hide-individual-achievements %}an
 allowTitleToDifferFromFilename: true
 contentType: how-tos
 ---
+## Common issues and troubleshooting
+
+### Achievements are enabled but not visible
+If achievements are enabled in your profile settings but do not appear:
+- Make sure your profile is public
+- Verify that the achievement was earned through public activity
+- Allow some time for GitHub to update your profile, as changes may not appear immediately
+
+### Private contributions and achievements
+Private contributions may appear in the contribution graph when enabled, but they do not count toward profile achievements. Achievements are only earned through public activity.
+
+### Organization and internal repositories
+Contributions made in internal or organization-owned repositories may not always count toward achievements, depending on repository visibility and organization settings.
+
+### Deprecated achievements
+Some achievements were available only during limited-time events (such as Arctic Code Vault or Mars 2020 Contributor) and can no longer be earned.
+---
 
 ## Changing the visibility of your private contributions
 
