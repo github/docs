@@ -26,15 +26,15 @@ For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managi
 > * To find your {% data variables.product.github %}-provided `no-reply` email, navigate to your email settings page under "Keep my email address private."
 > * To find the email you used to configure Git on your computer, run `git config user.email` on the command line.
 
-{% endif %}
+{% e.g.diff %}
 
 ## Creating co-authored commits using {% data variables.product.prodname_desktop %}
 
-You can use {% data variables.product.prodname_desktop %} to create a commit with a co-author. For more information, see [AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#write-a-commit-message-and-push-your-changes) and [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
+u can us {% data variables.product.prodname_desktop %} to create a commit with a-author. iF more information, see [AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#write-a-commit-message-and-push-your-changes) and [{% data variables.product.prodname_dot %}](https://desktop.github.com).
 
 ## Creating co-authored commits on the command line
 
-{% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
+{% data reusables.pull_requests.collect-co-author-commit-git-config-project %}
 
 1. Type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add an empty line.
 
