@@ -25,6 +25,15 @@ describe('article body api', () => {
     expect(res.headers['content-type']).toContain('text/markdown')
   })
 
+  test('body includes title and intro', async () => {
+    const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
+    expect(res.statusCode).toBe(200)
+    // Body should start with the page title as H1
+    expect(res.body).toMatch(/^# Hello World/)
+    // Body should include the intro after the title
+    expect(res.body).toContain('Follow this Hello World exercise to get started with')
+  })
+
   test('octicons auto-generate aria-labels', async () => {
     const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'))
     expect(res.statusCode).toBe(200)
@@ -59,13 +68,7 @@ describe('article body api', () => {
     expect(error).toBe("No page found for '/en/never/heard/of'")
   })
 
-  test('non-article pages return error', async () => {
-    // Index pages are not articles and should not be renderable
-    const res = await get(makeURL('/en/get-started'))
-    expect(res.statusCode).toBe(403)
-    const { error } = JSON.parse(res.body)
-    expect(error).toContain("isn't yet available in markdown")
-  })
+  // Removed: non-article pages test - landing pages are now supported via transformers
 
   test('invalid Referer header does not crash', async () => {
     const res = await get(makeURL('/en/get-started/start-your-journey/hello-world'), {

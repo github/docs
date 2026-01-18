@@ -1305,34 +1305,6 @@
       }
     ]
   },
-  "custom_properties_for_organizations": {
-    "title": "Custom properties for organizations",
-    "displayTitle": "Organization permissions for \"Custom properties for organizations\"",
-    "permissions": [
-      {
-        "category": "orgs",
-        "slug": "get-all-custom-property-values-for-an-organization",
-        "subcategory": "custom-properties-for-orgs",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/org-properties/values",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "orgs",
-        "slug": "create-or-update-custom-property-values-for-an-organization",
-        "subcategory": "custom-properties-for-orgs",
-        "verb": "patch",
-        "requestPath": "/organizations/{org}/org-properties/values",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      }
-    ]
-  },
   "organization_custom_properties": {
     "title": "Custom properties",
     "displayTitle": "Organization permissions for \"Custom properties\"",
@@ -2985,6 +2957,17 @@
       },
       {
         "category": "projects",
+        "slug": "create-a-view-for-an-organization-owned-project",
+        "subcategory": "views",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/projectsV2/{project_number}/views",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "projects",
         "slug": "list-items-for-an-organization-project-view",
         "subcategory": "items",
         "verb": "get",
@@ -3675,6 +3658,17 @@
       },
       {
         "category": "actions",
+        "slug": "get-github-actions-cache-storage-limit-for-a-repository",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
         "slug": "get-github-actions-cache-usage-for-a-repository",
         "subcategory": "cache",
         "verb": "get",
@@ -4192,17 +4186,6 @@
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/cache/retention-limit",
         "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "actions",
-        "slug": "get-github-actions-cache-storage-limit-for-a-repository",
-        "subcategory": "cache",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit",
-        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false

@@ -48,8 +48,6 @@ You can use three types of repository custom instructions in {% data variables.p
 
 {% data reusables.copilot.custom-instructions-about %}
 
-{% data reusables.copilot.repository-custom-instructions-support %}
-
 ## About organization custom instructions
 
 {% data reusables.copilot.custom-instructions-org-support %}
@@ -71,7 +69,7 @@ The following list shows the complete order of precedence, with instructions hig
 
 * **Personal** instructions
 * **Repository** custom instructions:
-  * **Path-specific** instructions in any applicable `.github/instructions/**/NAME.instructions.md` file
+  * **Path-specific** instructions in any applicable `.github/instructions/**/*.instructions.md` file
   * **Repository-wide** instructions in the `.github/copilot-instructions.md` file
   * **Agent** instructions (for example, in an `AGENTS.md` file)
 * **Organization** custom instructions
@@ -103,6 +101,10 @@ Here are some common use cases and examples for each type of custom instructions
 * [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
 * [AUTOTITLE](/copilot/customizing-copilot/adding-organization-custom-instructions-for-github-copilot)
 
+## Further reading
+
+* [AUTOTITLE](/copilot/concepts/agents/copilot-memory)
+
 {% endwebui %}
 
 <!-- end of web browser tab -->
@@ -131,8 +133,6 @@ While custom instructions help to add codebase-wide context to each AI workflow,
 You can use three types of repository custom instructions in {% data variables.product.prodname_vscode_shortname %}:
 
 {% data reusables.copilot.custom-instructions-about %}
-
-{% data reusables.copilot.repository-custom-instructions-support %}
 
 ## About prompt files
 
@@ -225,15 +225,13 @@ You can use two types of repository custom instructions in {% data variables.pro
 
 * **Path-specific custom instructions**, which apply to requests made in the context of files that match a specified path.
 
-  These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository.
+  These are specified in one or more `NAME.instructions.md` files within or below the `.github/instructions` directory in the repository.
 
   By using path-specific instructions you can avoid overloading your repository-wide instructions with information that only applies to files of certain types, or in certain directories.
 
-See the table below for details of support for each of these types of repository custom instructions across different {% data variables.product.prodname_copilot_short %} features.
+For details of support for each of these types of repository custom instructions across different {% data variables.product.prodname_copilot_short %} features, see [AUTOTITLE](/copilot/reference/custom-instructions-support).
 
 For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions).
-
-{% data reusables.copilot.repository-custom-instructions-support %}
 
 ## About prompt files
 
@@ -317,7 +315,9 @@ While custom instructions help to add codebase-wide context to each AI workflow,
 
 In JetBrains IDEs, repository custom instructions consist of a single file, `.github/copilot-instructions.md`, that you create in a repository. The instructions you add to the file should be short, self-contained statements that add context or relevant information to supplement a {% data variables.product.prodname_copilot_short %} prompt.
 
-{% data reusables.copilot.repository-custom-instructions-support %}
+### Support for repository custom instructions
+
+For details of which types of custom instructions are supported across various environments, see [AUTOTITLE](/copilot/reference/custom-instructions-support).
 
 ### Use cases for custom instructions
 
@@ -411,7 +411,9 @@ For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customi
 
 In Xcode, repository custom instructions consist of a single file, `.github/copilot-instructions.md`, that you create in a repository. The instructions you add to the file should be short, self-contained statements that add context or relevant information to supplement a {% data variables.product.prodname_copilot_short %} prompt.
 
-{% data reusables.copilot.repository-custom-instructions-support %}
+### Support for repository custom instructions
+
+For details of which types of custom instructions are supported across various environments, see [AUTOTITLE](/copilot/reference/custom-instructions-support).
 
 ### Use cases for custom instructions
 
