@@ -5,7 +5,6 @@ shortTitle: Manage Dependabot on self-hosted runners
 permissions: '{% data reusables.permissions.dependabot-actions %}'
 versions:
   feature: dependabot-on-actions-self-hosted
-type: how_to
 topics:
   - Dependabot
   - Security updates

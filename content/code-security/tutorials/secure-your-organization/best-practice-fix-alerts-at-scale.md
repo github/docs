@@ -4,7 +4,6 @@ shortTitle: Fix alerts at scale
 intro: Guidance on how to create successful security campaigns that engage developers and help them grow their understanding of secure coding.
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.security-campaigns %}'
-type: reference
 audience:
   - driver
 contentType: tutorials
@@ -17,6 +16,7 @@ topics:
   - Security
 redirect_from:
   - /code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale
+  - /code-security/securing-your-organization/fixing-security-alerts-at-scale
 ---
 
 ## Elements of a successful security campaign

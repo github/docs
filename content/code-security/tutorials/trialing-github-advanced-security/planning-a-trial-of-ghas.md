@@ -3,7 +3,6 @@ title: Planning a trial of {% data variables.product.prodname_GHAS %}
 shortTitle: Plan GHAS trial
 allowTitleToDifferFromFilename: true
 intro: Learn how to prepare for a successful trial of {% data variables.product.prodname_AS %}.
-type: overview
 topics:
   - Code Security
   - Secret Protection

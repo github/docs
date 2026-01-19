@@ -5,7 +5,6 @@ shortTitle: Dependabot on Actions
 product: '{% data reusables.gated-features.dependabot-on-actions %}'
 versions:
   feature: dependabot-on-actions-opt-in
-type: how_to
 topics:
   - Dependabot
   - Security updates
