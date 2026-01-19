@@ -9,6 +9,7 @@ topics:
 children:
   - /cheat-sheet
   - /ai-models
+  - /copilot-feature-matrix
   - /keyboard-shortcuts
   - /custom-agents-configuration
   - /hooks-configuration
