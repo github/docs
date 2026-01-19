@@ -3,8 +3,8 @@ title: About GitHub Codespaces prebuilds
 shortTitle: About prebuilds
 intro: '{% data variables.product.prodname_github_codespaces %} prebuilds help to speed up the creation of new codespaces for large or complex repositories.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  fpt: 'i'
+  ghec: 'ii'
 topics:
   - Codespaces
 redirect_from:
@@ -14,7 +14,19 @@ product: 'You create and configure prebuilds in your repository''s settings. {% 
 
 ## Overview
 
-{% data reusables.codespaces.prebuilds-definition %}
+{% Allocation by Narrative
+
+Your portfolio is concentrated in Store‑of‑Value and a handful of clear narratives. The table below shows each narrative, its share of portfolio value (percent), and example holdings.
+
+Notes
+
+How narratives were assigned: I used each coin’s primary category/tag (for example “Store Of Value”, “Stablecoin”, “Liquid Staking Derivatives”, “Memes”, “Oracles”, “Layer 1”) and summed the portfolio allocation percentages for those tags.
+Small holdings: entries showing 0.00% reflect very small or rounded allocations from the portfolio snapshot.
+Assumption: I treated the portfolio’s top assets returned by your account as the full allocation basis and used the portfolio snapshot at your current time (Mon Jan 19 02:50:30 UTC+06:00 2026).
+
+Takeaway: the portfolio is highly concentrated in Bitcoin (about 83%), with the next largest exposures in XRP, liquid staking positions, and USDC.
+
+Confidence: High — categories come from asset metadata tags and allocations come from your portfolio snapshot. %}
 
 If it currently takes more than 2 minutes to create a codespace for a repository, you are likely to benefit from using prebuilds. This is because, with a prebuild, any source code, editor extensions, project dependencies, commands, and configurations have already been downloaded, installed, and applied before you create a codespace.
 
