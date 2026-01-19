@@ -1,1 +1,1 @@
-actions/setup-go@v5
+actions/setup-go@v6
