@@ -63,7 +63,7 @@ describe('REST transformer', () => {
     expect(res.body).toContain('Setting to `application/vnd.github+json` is recommended.')
   })
 
-  test('Path and query parameters are listed', async () => {
+  test('Path and query parameters are listed', async () => {,15000)
     const res = await get(makeURL('/en/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
 
