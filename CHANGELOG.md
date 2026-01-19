@@ -2,6 +2,15 @@
 
 **16 January 2026**
 
+The following new articles support the public preview release of Copilot Memory:
+
+* [About agentic memory for GitHub Copilot](https://docs.github.com/copilot/concepts/agents/copilot-memory)
+* [Enabling and curating Copilot Memory](https://docs.github.com/copilot/how-tos/use-copilot-agents/copilot-memory)
+
+<hr>
+
+**16 January 2026**
+
 We published [About user offboarding on GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/admin/concepts/identity-and-access-management/user-offboarding) to give enterprise customers clear guidance about offboarding processes. The article covers recommended offboarding methods, the effects of offboarding, and what happens when a user is removed from all organizations in an enterprise.
 
 We also updated [Removing a member from your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise) and [Removing a member from your organization](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization) to include instructions for enterprises that use Enterprise Managed Users or SCIM for organizations.
