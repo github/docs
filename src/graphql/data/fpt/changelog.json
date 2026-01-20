@@ -4,6 +4,59 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>UpdateEnterpriseTeamDiscussionsSettingInput</code> was removed</p>",
+          "<p>Type <code>UpdateEnterpriseTeamDiscussionsSettingPayload</code> was removed</p>",
+          "<p>Field <code>teamDiscussionsSettingOrganizations</code> was removed from object type <code>EnterpriseOwnerInfo</code></p>",
+          "<p>Field <code>updateEnterpriseTeamDiscussionsSetting</code> was removed from object type <code>Mutation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>EnterpriseOwnerInfo.teamDiscussionsSetting</code>:<code>teamDiscussionsSetting</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2026-01-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>CreateTeamDiscussionInput</code> was removed</p>",
+          "<p>Type <code>CreateTeamDiscussionPayload</code> was removed</p>",
+          "<p>Type <code>DeleteTeamDiscussionInput</code> was removed</p>",
+          "<p>Type <code>DeleteTeamDiscussionPayload</code> was removed</p>",
+          "<p>Type <code>TeamDiscussion</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionConnection</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionEdge</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionOrder</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionOrderField</code> was removed</p>",
+          "<p>Type <code>UpdateTeamDiscussionInput</code> was removed</p>",
+          "<p>Type <code>UpdateTeamDiscussionPayload</code> was removed</p>",
+          "<p>Field <code>createTeamDiscussion</code> was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>deleteTeamDiscussion</code> was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>updateTeamDiscussion</code> was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>discussion</code> was removed from object type <code>Team</code></p>",
+          "<p>Field <code>discussions</code> was removed from object type <code>Team</code></p>",
+          "<p>Field <code>discussionsResourcePath</code> was removed from object type <code>Team</code></p>",
+          "<p>Field <code>discussionsUrl</code> was removed from object type <code>Team</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-01-08"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>CreateTeamDiscussionInput</code> was added</p>",
           "<p>Input field <code>body</code> of type <code>String</code> was added to input object type <code>CreateTeamDiscussionInput</code></p>",
           "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>CreateTeamDiscussionInput</code></p>",
