@@ -21,7 +21,7 @@ redirect_from:
 
 {% data variables.product.github %} is a {% ifversion not ghes %}cloud-based {% endif %}platform where you can store, share, and work together with others to write code.
 
-Storing your code in a "repository" on {% data variables.product.github %} allows you to:
+Storing your code in a "repository" on {% data variables.product.github %} allows you to
 * **Showcase or share** your work.
 * **Track and manage** changes to your code over time.
 * Let others **review** your code, and make suggestions to improve it.
