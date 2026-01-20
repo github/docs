@@ -19,4 +19,5 @@ children:
   - about-dependabot-auto-triage-rules
   - about-dependabot-on-github-actions-runners
   - immutable-releases
+  - linked-artifacts
 ---
