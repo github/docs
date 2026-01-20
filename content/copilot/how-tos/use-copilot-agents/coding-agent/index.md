@@ -20,6 +20,7 @@ children:
   - /changing-the-ai-model
   - /customize-the-agent-environment
   - /customize-the-agent-firewall
+  - /use-hooks
   - /troubleshoot-coding-agent
 redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks

@@ -54,6 +54,19 @@ This means the data **does not include** activity from other {% data variables.p
 
 License and seat management data are not included in {% data variables.product.prodname_copilot_short %} usage metrics reports. To view or manage license assignments, use the {% data variables.product.prodname_copilot_short %} user management API, which is the source of truth for license and seat information. See [AUTOTITLE](/rest/copilot/copilot-user-management).
 
+## Why {% data variables.product.prodname_copilot_short %} usage metrics may differ across API resources
+
+The following API resources expose {% data variables.product.prodname_copilot_short %}-related data, but they are not interchangeable and should not be compared directly. Each API resource is designed for a specific use case and data model, and differences in totals or coverage are expected. Use this table to understand which API resource best fits your reporting needs.
+
+> [!NOTE]
+> We strongly recommend using the {% data variables.product.prodname_copilot_short %} usage metrics API for new integrations and analyses, as it provides the most complete and future-facing view of {% data variables.product.prodname_copilot_short %} usage.
+
+| API resource | Scope | Key capabilities |
+| --- | --- | --- |
+| [AUTOTITLE](/rest/copilot/copilot-usage-metrics) | Advanced enterprise- and user-level event telemetry | Provides unified telemetry across completions, chat, and agent modes. Includes usage and lines of code metrics across all IDE modes, languages, and models. Supports detailed breakdowns by feature, IDE, language, model, and user, and is the primary API resource being actively developed and maintained. |
+| [AUTOTITLE](/rest/copilot/copilot-user-management) | License and seat assignment | Lists assigned {% data variables.product.prodname_copilot_short %} seats for an organization or enterprise, including license state, user association, and `last_activity_at`. This API resource is the source of truth for license and seat information. |
+| [AUTOTITLE](/rest/copilot/copilot-metrics) | Enterprise-, organization-, and team-level usage metrics | Provides aggregated usage data for {% data variables.product.prodname_copilot_short %} features on {% data variables.product.prodname_dotcom_the_website %} (such as pull request summaries) and some IDE-based completions and chat. Does not include Agent or Edit mode telemetry. Offers enterprise-wide and per-feature breakdowns by IDE and language. Does not include individual-level data. |
+
 ## How are metrics attributed across organizations?
 
 > [!NOTE]

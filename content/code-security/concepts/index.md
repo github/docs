@@ -15,4 +15,10 @@ topics:
   - Dependencies
   - Dependabot
 contentType: concepts
----
+children:
+  - /secret-security
+  - /code-scanning
+  - /about-code-quality
+  - supply-chain-security
+  - /vulnerability-reporting-and-management
+  - /security-at-scale

@@ -1,15 +1,6 @@
 ---
 title: Enterprise onboarding
 intro: 'Onboard your company to {% data variables.product.prodname_ghe_cloud %} by following our recommended plan. You will set up teams with the access they need, create a policy framework to ensure compliance, and automate processes securely throughout your enterprise.'
-featuredLinks:
-  startHere:
-  - '/enterprise-onboarding/getting-started-with-your-enterprise'
-  - '/enterprise-onboarding/adding-users-to-your-enterprise'
-  - '/enterprise-onboarding/setting-up-organizations-and-teams'
-  - '/enterprise-onboarding/support-for-your-enterprise'
-  popular:
-  - '/enterprise-onboarding/govern-people-and-repositories'
-  - '/enterprise-onboarding/github-actions-for-your-enterprise'
 layout: journey-landing
 journeyTracks:
   - id: 'getting_started'
