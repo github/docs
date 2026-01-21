@@ -411,6 +411,7 @@ export type TitlesTree = {
   hidden?: boolean
   sidebarLink?: SidebarLink
   layout?: string
+  crossProductChild?: boolean
 }
 
 export type Tree = {
@@ -418,6 +419,7 @@ export type Tree = {
   children: string[] | undefined
   href: string
   childPages: Tree[]
+  crossProductChild?: boolean
 }
 export type VersionedTree = {
   [version: string]: Tree
@@ -431,6 +433,7 @@ export type UnversionedTree = {
   page: Page
   children: string[]
   childPages: UnversionedTree[]
+  crossProductChild?: boolean
 }
 
 export type UnversionLanguageTree = {

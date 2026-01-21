@@ -17,7 +17,7 @@ redirect_from:
   - /copilot/concepts/coding-agent/about-copilot-coding-agent
   - /copilot/concepts/coding-agent/coding-agent
 contentType: concepts
-category: 
+category:
   - Learn about Copilot
 ---
 
@@ -91,6 +91,18 @@ Support for selecting a model is coming soon for {% data variables.copilot.copil
 
 For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/changing-the-ai-model).
 
+## Enhancing {% data variables.copilot.copilot_coding_agent %}'s knowledge of a repository
+
+The more {% data variables.copilot.copilot_coding_agent %} knows about the code in your repository, the tools you use, and your coding standards and practices, the more effective it will become. There are two ways you can enhance {% data variables.copilot.copilot_coding_agent %}'s knowledge of a repository.
+
+* **Custom instructions**
+
+  These are short, natural‑language statements that you write and store as one or more files in a repository. If you are the owner of an organization on {% data variables.product.github %} you can also define custom instructions in the settings for your organization. For more information, see [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=webui#about-repository-custom-instructions).
+
+* **{% data variables.copilot.copilot_memory %}** ({% data variables.release-phases.public_preview %})
+
+  If you have a {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan, you can enable {% data variables.copilot.copilot_memory %}. This allows {% data variables.product.prodname_copilot_short %} to store useful details it has worked out for itself about a repository. {% data variables.copilot.copilot_coding_agent %} can then use this information when it is working in that repository. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
+
 ## {% data variables.copilot.copilot_coding_agent %} usage costs
 
 {% data variables.copilot.copilot_coding_agent %} uses {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_copilot_short %} premium requests.
@@ -106,6 +118,7 @@ You can customize {% data variables.copilot.copilot_coding_agent %} in a number 
 * **Custom instructions**: Custom instructions allow you to give {% data variables.product.prodname_copilot_short %} additional context on your project and how to build, test and validate its changes. For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
 * **Model Context Protocol (MCP) servers**: MCP servers allow you to give {% data variables.product.prodname_copilot_short %} access to different data sources and tools. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp).
 * **{% data variables.copilot.custom_agents_caps_short %}**: {% data variables.copilot.custom_agents_caps_short %} allow you to create different specialized versions of {% data variables.product.prodname_copilot_short %} for different tasks. For example, you could customize {% data variables.product.prodname_copilot_short %} to be an expert frontend engineer following your team's guidelines. For more information, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents).
+* **Hooks**: Hooks allow you to execute custom shell commands at key points during agent execution, enabling you to add validation, logging, security scanning, or workflow automation. For more information, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-hooks).
 * **Skills**: Skills allow you to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
 
 ## Built-in security protections
@@ -168,7 +181,6 @@ Users can include hidden messages in issues assigned to {% data variables.copilo
 ### Limitations in {% data variables.copilot.copilot_coding_agent %}'s compatibility with other features
 
 * **{% data variables.product.prodname_copilot_short %} isn't able to comply with certain rules that may be configured for your repository**. If you have configured a ruleset or branch protection rule that isn't compatible with {% data variables.copilot.copilot_coding_agent %} (for example the "Require signed commits" rule), access to the agent will be blocked. If the rule is configured using rulesets, you can add {% data variables.product.prodname_copilot_short %} as a bypass actor to enable access. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#granting-bypass-permissions-for-your-branch-or-tag-ruleset).
-* **{% data variables.copilot.copilot_coding_agent %} does not work in personal repositories owned by {% data variables.enterprise.prodname_managed_users %}**. This is because {% data variables.copilot.copilot_coding_agent %} requires {% data variables.product.company_short %}-hosted runners, which are not available to personal repositories owned by {% data variables.enterprise.prodname_managed_users %}. See [AUTOTITLE](/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners).
 * **{% data variables.copilot.copilot_coding_agent %} doesn't account for content exclusions**. Content exclusions allow administrators to configure {% data variables.product.prodname_copilot_short %} to ignore certain files. When using {% data variables.copilot.copilot_coding_agent %}, {% data variables.product.prodname_copilot_short %} will not ignore these files, and will be able to see and update them. See [AUTOTITLE](/copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot).
 * **{% data variables.copilot.copilot_coding_agent %} only works with repositories hosted on {% data variables.product.github %}**. If your repository is stored using a different code hosting platform, {% data variables.product.prodname_copilot_short %} won't be able to work on it.
 

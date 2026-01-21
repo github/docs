@@ -97,7 +97,7 @@ export default [
 
       // Disabled rules to review
       'no-console': 'off', // 800+
-      '@typescript-eslint/no-explicit-any': 'off', // 1000+
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
 
