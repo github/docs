@@ -10,8 +10,6 @@ topics:
   - Enterprise
 children:
   - /managing-github-advanced-security-for-your-enterprise
-  - /managing-supply-chain-security-for-your-enterprise
-  - /securing-your-enterprise
 redirect_from:
   - /admin/code-security
 ---

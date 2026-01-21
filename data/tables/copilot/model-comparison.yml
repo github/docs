@@ -1,0 +1,117 @@
+# Please keep this list sorted in the following order:
+# 1. By provider, in this order:
+#    - OpenAI
+#    - Anthropic
+#    - Google
+#    - xAI
+# 2. Within each provider group, alphabetically by model name.
+
+# OpenAI
+- name: GPT-4.1
+  task_area: General-purpose coding and writing
+  excels_at: Fast, accurate code completions and explanations
+  further_reading: '[GPT-4.1 model card](https://openai.com/index/gpt-4-1/)'
+
+- name: GPT-5
+  task_area: Deep reasoning and debugging
+  excels_at: Multi-step problem solving and architecture-level code analysis
+  further_reading: '[GPT-5 model card](https://cdn.openai.com/gpt-5-system-card.pdf)'
+
+- name: GPT-5-Codex
+  task_area: General-purpose coding and writing
+  excels_at: Fast, accurate code completions and explanations
+  further_reading: '[GPT-5-Codex model card](https://cdn.openai.com/pdf/97cc5669-7a25-4e63-b15f-5fd5bdc4d149/gpt-5-codex-system-card.pdf)'
+
+- name: GPT-5 mini
+  task_area: General-purpose coding and writing
+  excels_at: Fast, accurate code completions and explanations
+  further_reading: '[GPT-5 mini model card](https://cdn.openai.com/gpt-5-system-card.pdf)'
+
+- name: GPT-5.1
+  task_area: Deep reasoning and debugging
+  excels_at: Multi-step problem solving and architecture-level code analysis
+  further_reading: '[GPT-5.1 model card](https://cdn.openai.com/pdf/4173ec8d-1229-47db-96de-06d87147e07e/5_1_system_card.pdf)'
+
+- name: GPT-5.1-Codex
+  task_area: Deep reasoning and debugging
+  excels_at: Multi-step problem solving and architecture-level code analysis
+  further_reading: 'Not available'
+
+- name: GPT-5.1 Codex Max
+  task_area: Agentic software development
+  excels_at: Agentic tasks
+  further_reading: '[GPT-5.1-Codex-Max model card](https://cdn.openai.com/pdf/2a7d98b1-57e5-4147-8d0e-683894d782ae/5p1_codex_max_card_03.pdf)'
+
+- name: GPT-5.1-Codex-Mini
+  task_area: Deep reasoning and debugging
+  excels_at: Multi-step problem solving and architecture-level code analysis
+  further_reading: 'Not available'
+
+- name: GPT-5.2
+  task_area: Deep reasoning and debugging
+  excels_at: Multi-step problem solving and architecture-level code analysis
+  further_reading: '[GPT-5.2 model card](https://cdn.openai.com/pdf/3a4153c8-c748-4b71-8e31-aecbde944f8d/oai_5_2_system-card.pdf)'
+
+- name: GPT-5.2-Codex
+  task_area: Agentic software development
+  excels_at: Agentic tasks
+  further_reading: '[GPT-5.2-Codex model card](https://cdn.openai.com/pdf/ac7c37ae-7f4c-4442-b741-2eabdeaf77e0/oai_5_2_Codex.pdf)'
+
+# Anthropic
+- name: Claude Haiku 4.5
+  task_area: Fast help with simple or repetitive tasks
+  excels_at: Fast, reliable answers to lightweight coding questions
+  further_reading: '[Claude Haiku 4.5 model card](https://assets.anthropic.com/m/99128ddd009bdcb/Claude-Haiku-4-5-System-Card.pdf)'
+
+- name: Claude Opus 4.1
+  task_area: Deep reasoning and debugging
+  excels_at: Complex problem-solving challenges, sophisticated reasoning
+  further_reading: '[Claude Opus 4.1 model card](https://assets.anthropic.com/m/4c024b86c698d3d4/original/Claude-4-1-System-Card.pdf)'
+
+- name: Claude Opus 4.5
+  task_area: Deep reasoning and debugging
+  excels_at: Complex problem-solving challenges, sophisticated reasoning
+  further_reading: '[Claude Opus 4.5 model card](https://assets.anthropic.com/m/64823ba7485345a7/Claude-Opus-4-5-System-Card.pdf)'
+
+- name: Claude Sonnet 4.0
+  task_area: Deep reasoning and debugging
+  excels_at: Performance and practicality, perfectly balanced for coding workflows
+  further_reading: '[Claude Sonnet 4.0 model card](https://www-cdn.anthropic.com/6be99a52cb68eb70eb9572b4cafad13df32ed995.pdf)'
+
+- name: Claude Sonnet 4.5
+  task_area: General-purpose coding and agent tasks
+  excels_at: Complex problem-solving challenges, sophisticated reasoning
+  further_reading: '[Claude Sonnet 4.5 model card](https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf)'
+
+# Google
+- name: Gemini 2.5 Pro
+  task_area: Deep reasoning and debugging
+  excels_at: Complex code generation, debugging, and research workflows
+  further_reading: '[Gemini 2.5 Pro model card](https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro.pdf)'
+
+- name: Gemini 3 Flash
+  task_area: Fast help with simple or repetitive tasks
+  excels_at: Fast, reliable answers to lightweight coding questions
+  further_reading: '[Gemini 3 Flash model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Flash-Model-Card.pdf)'
+
+- name: Gemini 3 Pro
+  task_area: Deep reasoning and debugging
+  excels_at: Complex code generation, debugging, and research workflows
+  further_reading: '[Gemini 3 Pro model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Pro-Model-Card.pdf)'
+
+# xAI
+- name: Grok Code Fast 1
+  task_area: General-purpose coding and writing
+  excels_at: Fast, accurate code completions and explanations
+  further_reading: '[Grok Code Fast 1 model card](https://data.x.ai/2025-08-20-grok-4-model-card.pdf)'
+
+# Other providers (alphabetized by model name)
+- name: Qwen2.5
+  task_area: General-purpose coding and writing
+  excels_at: Code generation, reasoning, and code repair / debugging
+  further_reading: '[Qwen2.5 model card](https://arxiv.org/pdf/2409.12186)'
+
+- name: Raptor mini
+  task_area: General-purpose coding and writing
+  excels_at: Fast, accurate code completions and explanations
+  further_reading: 'Coming soon'
