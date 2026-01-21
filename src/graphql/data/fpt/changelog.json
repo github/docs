@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Argument <code>query: String</code> added to field <code>PullRequest.suggestedReviewerActors</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-01-21"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>UpdateEnterpriseTeamDiscussionsSettingInput</code> was removed</p>",
           "<p>Type <code>UpdateEnterpriseTeamDiscussionsSettingPayload</code> was removed</p>",
           "<p>Field <code>teamDiscussionsSettingOrganizations</code> was removed from object type <code>EnterpriseOwnerInfo</code></p>",
