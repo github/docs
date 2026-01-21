@@ -208,7 +208,7 @@
     "js-yaml": "^4.1.1",
     "liquidjs": "^10.16.7",
     "lodash": "^4.17.21",
-    "lodash-es": "^4.17.21",
+    "lodash-es": "^4.17.23",
     "lowdb": "7.0.1",
     "lowlight": "^3.3.0",
     "markdownlint-rule-helpers": "^0.25.0",
