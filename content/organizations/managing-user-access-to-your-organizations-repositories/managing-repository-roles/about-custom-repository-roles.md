@@ -1,6 +1,6 @@
 ---
 title: About custom repository roles
-intro: You can more granularly control access to your organization's repositories with custom repository roles.
+intro: You can have more granularly control access to your organization's repositories with custom repository roles.
 versions:
   ghes: '*'
   ghec: '*'
