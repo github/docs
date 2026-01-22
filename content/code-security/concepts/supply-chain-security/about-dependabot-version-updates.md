@@ -13,6 +13,7 @@ redirect_from:
   - /code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates
   - /code-security/dependabot/dependabot-version-updates
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically
+  - /administering-a-repository/keeping-your-dependencies-updated-automatically
 versions:
   fpt: '*'
   ghec: '*'
