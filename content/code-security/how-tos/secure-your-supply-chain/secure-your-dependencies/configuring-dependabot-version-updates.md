@@ -24,18 +24,6 @@ contentType: how-tos
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-## About version updates for dependencies
-
-You enable {% data variables.product.prodname_dependabot_version_updates %} by checking a `dependabot.yml` configuration file in to your repository's `.github` directory. {% data variables.product.prodname_dependabot %} then raises pull requests to keep the dependencies you configure up-to-date. For each package manager's dependencies that you want to update, you must specify the location of the package manifest files and how often to check for updates to the dependencies listed in those files. For information about enabling security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates).
-
-{% data reusables.dependabot.initial-updates %} For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates).
-
-{% data reusables.dependabot.version-updates-skip-scheduled-runs %}
-
-By default only direct dependencies that are explicitly defined in a manifest are kept up to date by {% data variables.product.prodname_dependabot_version_updates %}. You can choose to receive updates for indirect dependencies defined in lock files. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#allowing-specific-dependencies-to-be-updated).
-
-{% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see [AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories) and [AUTOTITLE](/get-started/learning-about-github/github-language-support).
-
 ## Enabling {% data variables.product.prodname_dependabot_version_updates %}
 
 You enable {% data variables.product.prodname_dependabot_version_updates %} by committing a `dependabot.yml` configuration file to your repository.
@@ -109,7 +97,7 @@ updates:
 
 In the example above, if the Docker dependencies were very outdated, you might want to start with a `daily` schedule until the dependencies are up-to-date, and then drop back to a weekly schedule.
 
-### Enabling version updates on forks
+## Enabling version updates on forks
 
 If you want to enable version updates on forks, there's an extra step. Version updates are not automatically enabled on forks when a `dependabot.yml` configuration file is present. This ensures that fork owners don't unintentionally enable version updates when they pull changes including a `dependabot.yml` configuration file from the original repository.
 
@@ -119,6 +107,16 @@ On a fork, you also need to explicitly enable {% data variables.product.prodname
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. Under "{% ifversion ghas-products %}{% data variables.product.prodname_dependabot %}{% else %}{% data variables.product.UI_advanced_security %}{% endif %}," to the right of "{% data variables.product.prodname_dependabot_version_updates %}," click **Enable** to allow {% data variables.product.prodname_dependabot %} to initiate version updates.
+
+## Receiving updates for indirect dependencies
+
+By default, only direct dependencies that are explicitly defined in a manifest are kept up to date by {% data variables.product.prodname_dependabot_version_updates %}. You can choose to receive updates for indirect dependencies defined in lock files. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#allowing-specific-dependencies-to-be-updated).
+
+## Enabling access to private dependencies
+
+{% data reusables.dependabot.private-dependencies-note %}
+
+Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see [AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories) and [AUTOTITLE](/get-started/learning-about-github/github-language-support).
 
 ## Checking the status of version updates
 
