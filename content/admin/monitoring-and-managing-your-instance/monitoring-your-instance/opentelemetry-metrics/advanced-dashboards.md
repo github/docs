@@ -1,6 +1,8 @@
 ---
-title: Enabling advanced dashboards of OpenTelemetry metrics
+title: Advanced dashboards of OpenTelemetry metrics
 intro: 'After enabling OpenTelemetry metrics collection on your {% data variables.product.prodname_ghe_server %} instance, you have access to additional dashboards with enhanced visualization and monitoring capabilities.'
+redirect_from:
+  - /enterprise/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/enable-advanced-dashboards
 versions:
   feature: ghes-opentelemetry
 topics:
@@ -10,7 +12,7 @@ topics:
   - Monitoring
   - Performance
 type: how_to
-shortTitle: Enable advanced dashboards
+shortTitle: Advanced dashboards
 ---
 
 {% data reusables.enterprise.opentelemetry-migration %}
@@ -21,9 +23,18 @@ shortTitle: Enable advanced dashboards
 
 {% endif %}
 
+## Prerequisites
+
+* OpenTelemetry metrics are enabled for your {% data variables.product.prodname_ghe_server %} instance
+
+
 ## Additional dashboards
 
+{% ifversion ghes < 3.19 %}
 When OpenTelemetry metrics are enabled, you can turn on advanced Grafana dashboards with enhanced visualization and monitoring capabilities.
+{% else %}
+When OpenTelemetry metrics are enabled, you will have access to advanced Grafana dashboards with enhanced visualization and monitoring capabilities.
+{% endif %}
 
 * **Elasticsearch** - Detailed metrics for search performance, indexing operations, and cluster health
 * **Nomad** - In-depth monitoring of job scheduling, resource allocation, and service orchestration
@@ -33,12 +44,15 @@ When OpenTelemetry metrics are enabled, you can turn on advanced Grafana dashboa
 
 These dashboards provide more granular insights into your {% data variables.product.prodname_ghe_server %} instance's performance and can help with advanced troubleshooting and capacity planning.
 
-## Prerequisites
+{% ifversion ghes < 3.19 %}
+## Enabling advanced dashboards
 
-* OpenTelemetry metrics are enabled for your {% data variables.product.prodname_ghe_server %} instance
+### Prerequisites
+
 * SSH access to your {% data variables.product.prodname_ghe_server %} instance
 
-## Enabling advanced dashboards
+---
+
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. Run the following command to enable advanced dashboards:
@@ -50,3 +64,4 @@ These dashboards provide more granular insights into your {% data variables.prod
 {% data reusables.enterprise.apply-configuration %}
 
 After running these commands, your external Grafana instance will have access to additional pre-configured dashboards.
+{% endif %}
