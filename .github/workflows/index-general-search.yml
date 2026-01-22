@@ -26,9 +26,11 @@ on:
 permissions:
   contents: read
 
-# This allows a subsequently queued workflow run to cancel previous runs
+# This allows a subsequently queued workflow run to cancel previous runs.
+# Include the triggering workflow's conclusion in the group so that runs triggered
+# by skipped Purge Fastly workflows don't cancel runs triggered by successful ones.
 concurrency:
-  group: '${{ github.workflow }} @ ${{ github.head_ref }} ${{ github.event_name }}'
+  group: '${{ github.workflow }} @ ${{ github.head_ref }} ${{ github.event_name }} ${{ github.event.workflow_run.conclusion }}'
   cancel-in-progress: true
 
 env:
@@ -40,7 +42,9 @@ env:
 
 jobs:
   figureOutMatrix:
-    if: ${{ github.repository == 'github/docs-internal' }}
+    # Skip immediately if triggered by a non-successful Purge Fastly run.
+    # This prevents skipped runs from canceling valid indexing runs via concurrency.
+    if: ${{ github.repository == 'github/docs-internal' && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') }}
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.set-matrix.outputs.result }}
@@ -55,11 +59,13 @@ jobs:
             const allPossible = ["en", ...allNonEnglish]
 
             if (context.eventName === "workflow_run") {
+              // Job-level `if` already ensures we only get here for successful runs,
+              // but keep this as a safety check.
               if (context.payload.workflow_run.conclusion === "success") {
                 return ["en"]
               }
-              console.warn(`NOTE! It was a workflow_run but not success ('${context.payload.workflow_run.conclusion}')`)
-              console.warn("This means we're not going to index anything in the next dependent step.")
+              // This shouldn't happen due to job-level filter, but handle gracefully.
+              console.warn(`Unexpected: workflow_run with conclusion '${context.payload.workflow_run.conclusion}'`)
               return []
             }
 
