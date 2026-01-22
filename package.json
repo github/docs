@@ -207,7 +207,7 @@
     "js-cookie": "^3.0.5",
     "js-yaml": "^4.1.1",
     "liquidjs": "^10.16.7",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "lodash-es": "^4.17.23",
     "lowdb": "7.0.1",
     "lowlight": "^3.3.0",
