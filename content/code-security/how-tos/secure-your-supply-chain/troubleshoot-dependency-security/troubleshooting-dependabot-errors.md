@@ -13,7 +13,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
 topics:
   - Dependabot
   - Security updates

@@ -53,6 +53,7 @@ import { journeyTracksGuidePathExists } from './journey-tracks-guide-path-exists
 import { journeyTracksUniqueIds } from './journey-tracks-unique-ids'
 import { frontmatterHeroImage } from './frontmatter-hero-image'
 import { frontmatterIntroLinks } from './frontmatter-intro-links'
+import { frontmatterChildren } from './frontmatter-children'
 
 // Using any type because @github/markdownlint-github doesn't provide TypeScript declarations
 // The elements in the array have a 'names' property that contains rule identifiers
@@ -117,6 +118,7 @@ export const gitHubDocsMarkdownlint = {
     journeyTracksUniqueIds, // GHD060
     frontmatterHeroImage, // GHD061
     frontmatterIntroLinks, // GHD062
+    frontmatterChildren, // GHD063
 
     // Search-replace rules
     searchReplace, // Open-source plugin

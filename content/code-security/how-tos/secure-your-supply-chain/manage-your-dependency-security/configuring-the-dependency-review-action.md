@@ -7,7 +7,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
 topics:
   - Code Security
   - Dependency review

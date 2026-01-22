@@ -7,7 +7,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
 topics:
   - Dependabot
   - Security updates
@@ -17,20 +16,11 @@ topics:
   - Repositories
 redirect_from:
   - /code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts
+  - /code-security/dependabot/dependabot-alerts
 contentType: how-tos
 ---
 
-## About {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies
-
-{% data reusables.repositories.a-vulnerability-is %}
-
-{% data variables.product.prodname_dependabot %} scans code when a new advisory is added to the {% data variables.product.prodname_advisory_database %} or the dependency graph for a repository changes. When vulnerable dependencies are detected, {% data variables.product.prodname_dependabot_alerts %} are generated. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
-
-{% data reusables.dependabot.dependabot-alert-create-PR %}
-
-{% ifversion ghes %}
-> [!NOTE]
-> An enterprise owner must first set up {% data variables.product.prodname_dependabot %} for your enterprise before you can configure {% data variables.product.prodname_dependabot_alerts %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).{% endif %}
+When {% data variables.product.prodname_dependabot %} detects vulnerable dependencies in a repository, it generates alerts. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
 
 You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for:
 * Your personal account
@@ -38,7 +28,10 @@ You can enable or disable {% data variables.product.prodname_dependabot_alerts %
 * Your organization{% ifversion dependabot-alerts-enterprise-enablement or ghes %}
 * Your enterprise{% endif %}
 
-{% data reusables.dependabot.dependabot-alert-rules %}
+{% ifversion ghes %}
+> [!NOTE]
+> An enterprise owner must first set up {% data variables.product.prodname_dependabot %} for your enterprise before you can configure {% data variables.product.prodname_dependabot_alerts %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).
+{% endif %}
 
 ## Managing {% data variables.product.prodname_dependabot_alerts %} for your personal account
 
@@ -129,3 +122,7 @@ You can enable or disable {% data variables.product.prodname_dependabot_alerts %
 {% endif %}
 
 {% endif %}
+
+## Managing {% data variables.product.prodname_dependabot_alerts %} at scale with rules
+
+{% data reusables.dependabot.dependabot-alert-rules %}

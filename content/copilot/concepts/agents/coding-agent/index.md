@@ -11,6 +11,7 @@ children:
   - /about-coding-agent
   - /agent-management
   - /about-custom-agents
+  - /about-hooks
   - /access-management
   - /mcp-and-coding-agent
 contentType: concepts

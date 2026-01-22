@@ -11,7 +11,7 @@ topics:
   - Copilot
   - CLI
 contentType: how-tos
-category: 
+category:
   - Author and optimize with Copilot
 ---
 
@@ -162,7 +162,9 @@ You can delegate a task using the slash command, followed by a prompt:
 
 ### Resume an interactive session
 
-You can return to a previous interactive session, and continue your conversation with {% data variables.product.prodname_copilot_short %}, by using the `--resume` command line option, then choosing the session you want to resume from the list that's displayed. You can quickly resume the most recently closed session by using the `--continue` command line option.
+You can use the `--resume` command line option to cycle through and resume local and remote interactive sessions, allowing you to pick up right where you left off with your existing context. You can kick off a {% data variables.copilot.copilot_coding_agent %} session on {% data variables.product.github %}, and then use {% data variables.copilot.copilot_cli %} to bring that session to your local environment.
+
+You can quickly resume the most recently closed local session by using the `--continue` command line option.
 
 ### Use custom instructions
 
@@ -171,16 +173,25 @@ You can enhance {% data variables.product.prodname_copilot_short %}’s performa
 {% data variables.copilot.copilot_cli_short %} supports:
 
 * Repository-wide instructions in the `.github/copilot-instructions.md` file.
-* Path-specific instructions files: `.github/copilot-instructions/**/*.instructions.md`.
+* Path-specific instructions files: `.github/instructions/**/*.instructions.md`.
 * Agent files such as `AGENTS.md`.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
 
-### Use custom agents
+### Use {% data variables.copilot.custom_agents_short %}
 
 {% data variables.copilot.custom_agents_caps_short %} are specialized versions of {% data variables.copilot.copilot_coding_agent %} that you can tailor to your unique workflows, coding conventions, and use cases. {% data variables.copilot.custom_agents_caps_short %} are defined using Markdown files, called {% data variables.copilot.agent_profiles %}, that specify prompts, tools, and MCP servers.
 
-{% data variables.copilot.copilot_cli_short %} supports loading {% data variables.copilot.custom_agents_short %} from the following locations:
+{% data variables.copilot.copilot_cli %} includes a default group of {% data variables.copilot.custom_agents_short %} for common tasks:
+
+| Agent | Description |
+| --- | --- |
+| Explore | Performs quick codebase analysis, allowing you to ask questions about your code without adding to your main context. |
+| Task | Executes commands such as tests and builds, providing brief summaries on success and full output on failure. |
+| Plan | Analyzes dependencies and structure to create implementation plans, helping you to understand how to approach a complex feature or refactoring task before making changes. |
+| Code-review | Reviews changes with a focus on surfacing only genuine issues, minimizing noise. |
+
+When creating your own {% data variables.copilot.custom_agents_short %}, {% data variables.copilot.copilot_cli_short %} supports loading {% data variables.copilot.custom_agents_short %} from the following locations:
 
 | Type | Location | Scope |
 | --- | --- | --- |
@@ -201,11 +212,11 @@ In the case of naming conflicts, a system-level agent overrides a repository-lev
 * Calling out to {% data variables.copilot.copilot_custom_agent_short %} directly in a prompt:
 
   ```shell
-  Use the refactoring agent to refactor this code block 
+  Use the refactoring agent to refactor this code block
   ```
 
   {% data variables.product.prodname_copilot_short %} will automatically infer the agent you want to use.
-  
+
 * Specifying the {% data variables.copilot.copilot_custom_agent_short %} you want to use with the command-line option. For example:
 
   ```shell
@@ -237,9 +248,20 @@ To extend the functionality available to you in {% data variables.copilot.copilo
 
 Details of your configured MCP servers are stored in the `mcp-config.json` file, which is located, by default, in the `~/.copilot` directory. This location can be changed by setting the `XDG_CONFIG_HOME` environment variable. For information about the JSON structure of a server definition, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
 
-### View context and usage statistics for the current session
+### Context management
 
-You can use the `/usage` slash command to view how many premium requests you've used in the current session, the duration of the session, how many lines of code have been edited, and the breakdown of token usage per model. When you have less than 20% of a model's token limit remaining, {% data variables.copilot.copilot_cli_short %} will display a warning that the context will be truncated when the token limit is reached.
+{% data variables.copilot.copilot_cli_short %} provides several slash commands to help you monitor and manage your context window:
+
+* `/usage`: Lets you view your session statistics, including:
+  * The amount of premium requests used in the current session
+  * The session duration
+  * The total lines of code edited
+  * A breakdown of token usage per model
+
+* `/context`: Provides a visual overview of your current token usage
+* `/compact`: Manually compresses your conversation history to free up context space
+
+{% data variables.copilot.copilot_cli %} automatically compresses your history when approaching 95% of the token limit. When you have less than 20% of a model's token limit remaining, a warning will be displayed indicating the context will be truncated when the limit is reached.
 
 ## Find out more
 

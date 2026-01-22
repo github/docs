@@ -88,7 +88,7 @@
       "created_at",
       "_document_id"
     ],
-    "docs_reference_titles": "/code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory"
+    "docs_reference_titles": "Editing a repository security advisory"
   },
   {
     "action": "advisory_credit.create",
@@ -5329,7 +5329,7 @@
       "business",
       "business_id"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
+    "docs_reference_titles": "Configuring default setup for code scanning at scale"
   },
   {
     "action": "org.codeql_enabled",
@@ -5352,7 +5352,7 @@
       "business",
       "business_id"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
+    "docs_reference_titles": "Configuring default setup for code scanning at scale"
   },
   {
     "action": "org.codespaces_access_updated",
@@ -11723,7 +11723,7 @@
       "operation_type",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
+    "docs_reference_titles": "Configuring default setup for code scanning"
   },
   {
     "action": "repo.codeql_enabled",
@@ -11751,7 +11751,7 @@
       "languages",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
+    "docs_reference_titles": "Configuring default setup for code scanning"
   },
   {
     "action": "repo.codeql_updated",
@@ -11779,7 +11779,7 @@
       "business_id",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
+    "docs_reference_titles": "Configuring default setup for code scanning"
   },
   {
     "action": "repo.codespaces_trusted_repo_access_granted",
@@ -15109,7 +15109,7 @@
       "multi_repo",
       "created_at"
     ],
-    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+    "docs_reference_titles": "Manage secret scanning alerts"
   },
   {
     "action": "secret_scanning_alert.create",
@@ -15130,7 +15130,7 @@
       "publicly_leaked",
       "multi_repo"
     ],
-    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+    "docs_reference_titles": "Manage secret scanning alerts"
   },
   {
     "action": "secret_scanning_alert.delete",
@@ -15153,7 +15153,7 @@
       "created_at",
       "reason"
     ],
-    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+    "docs_reference_titles": "Manage secret scanning alerts"
   },
   {
     "action": "secret_scanning_alert.public_leak",
@@ -15175,7 +15175,7 @@
       "multi_repo",
       "created_at"
     ],
-    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+    "docs_reference_titles": "Manage secret scanning alerts"
   },
   {
     "action": "secret_scanning_alert.reopen",
@@ -15221,7 +15221,7 @@
       "secret_type_provider",
       "report_result"
     ],
-    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning/resolving-alerts"
+    "docs_reference_titles": "Resolving alerts from secret scanning"
   },
   {
     "action": "secret_scanning_alert.resolve",
@@ -15298,7 +15298,7 @@
       "multi_repo",
       "created_at"
     ],
-    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+    "docs_reference_titles": "Manage secret scanning alerts"
   },
   {
     "action": "secret_scanning_alert.validate",
@@ -15322,7 +15322,7 @@
       "publicly_leaked",
       "multi_repo"
     ],
-    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+    "docs_reference_titles": "Manage secret scanning alerts"
   },
   {
     "action": "secret_scanning_closure_request.approve",
@@ -15600,7 +15600,7 @@
       "business_id",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "Working with secret scanning and push protection"
+    "docs_reference_titles": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
   },
   {
     "action": "secret_scanning_push_protection_request.complete",
@@ -15627,7 +15627,7 @@
       "business_id",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "Working with secret scanning and push protection"
+    "docs_reference_titles": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
   },
   {
     "action": "secret_scanning_push_protection_request.deny",
@@ -15682,7 +15682,7 @@
       "actor_is_bot",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Working with secret scanning and push protection"
+    "docs_reference_titles": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
   },
   {
     "action": "secret_scanning_scan.completed",

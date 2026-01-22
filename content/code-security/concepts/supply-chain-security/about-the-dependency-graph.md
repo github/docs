@@ -10,7 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
 topics:
   - Dependency graph
   - Dependencies
@@ -65,7 +64,7 @@ For more information on how {% data variables.product.github %} helps you unders
 
 For public repositories, only public repositories that depend on it or on packages that it publishes are reported. This information is not reported for private repositories.{% endif %}
 
-## Using the dependency graph
+## What you can do with the dependency graph
 
 You can use the dependency graph to:
 
