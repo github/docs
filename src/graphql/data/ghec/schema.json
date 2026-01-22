@@ -6614,6 +6614,56 @@
       ]
     },
     {
+      "name": "requestReviewsByLogin",
+      "kind": "mutations",
+      "id": "requestreviewsbylogin",
+      "href": "/graphql/reference/mutations#requestreviewsbylogin",
+      "description": "<p>Set review requests on a pull request using login strings instead of IDs.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RequestReviewsByLoginInput!",
+          "id": "requestreviewsbylogininput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#requestreviewsbylogininput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "actor",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor",
+          "description": "<p>Identifies the actor who performed the event.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "pullRequest",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest",
+          "description": "<p>The pull request that is getting requests.</p>"
+        },
+        {
+          "name": "requestedReviewersEdge",
+          "type": "UserEdge",
+          "id": "useredge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#useredge",
+          "description": "<p>The edge from the pull request to the requested reviewers.</p>"
+        }
+      ]
+    },
+    {
       "name": "rerequestCheckSuite",
       "kind": "mutations",
       "id": "rerequestchecksuite",
@@ -8516,48 +8566,6 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "description": "<p>A message confirming the result of updating the repository projects setting.</p>"
-        }
-      ]
-    },
-    {
-      "name": "updateEnterpriseTeamDiscussionsSetting",
-      "kind": "mutations",
-      "id": "updateenterpriseteamdiscussionssetting",
-      "href": "/graphql/reference/mutations#updateenterpriseteamdiscussionssetting",
-      "description": "<p>Sets whether team discussions are enabled for an enterprise.</p>",
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "UpdateEnterpriseTeamDiscussionsSettingInput!",
-          "id": "updateenterpriseteamdiscussionssettinginput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#updateenterpriseteamdiscussionssettinginput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "enterprise",
-          "type": "Enterprise",
-          "id": "enterprise",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#enterprise",
-          "description": "<p>The enterprise with the updated team discussions setting.</p>"
-        },
-        {
-          "name": "message",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A message confirming the result of updating the team discussions setting.</p>"
         }
       ]
     },
@@ -25746,77 +25754,9 @@
           "type": "EnterpriseEnabledDisabledSettingValue!",
           "id": "enterpriseenableddisabledsettingvalue",
           "kind": "enums",
-          "href": "/graphql/reference/enums#enterpriseenableddisabledsettingvalue"
-        },
-        {
-          "name": "teamDiscussionsSettingOrganizations",
-          "description": "<p>A list of enterprise organizations configured with the provided team discussions setting value.</p>",
-          "type": "OrganizationConnection!",
-          "id": "organizationconnection",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#organizationconnection",
-          "arguments": [
-            {
-              "name": "after",
-              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "before",
-              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "first",
-              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "last",
-              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "orderBy",
-              "description": "<p>Ordering options for organizations with this setting.</p>",
-              "type": {
-                "name": "OrganizationOrder",
-                "id": "organizationorder",
-                "kind": "input-objects",
-                "href": "/graphql/reference/input-objects#organizationorder"
-              }
-            },
-            {
-              "name": "value",
-              "description": "<p>The setting value to find organizations for.</p>",
-              "type": {
-                "name": "Boolean!",
-                "id": "boolean",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#boolean"
-              }
-            }
-          ]
+          "href": "/graphql/reference/enums#enterpriseenableddisabledsettingvalue",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "twoFactorDisallowedMethodsSetting",
@@ -55351,6 +55291,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>Search actors with query on user name and login.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
               }
             }
           ]
@@ -106943,6 +106893,64 @@
       ]
     },
     {
+      "name": "RequestReviewsByLoginInput",
+      "kind": "inputObjects",
+      "id": "requestreviewsbylogininput",
+      "href": "/graphql/reference/input-objects#requestreviewsbylogininput",
+      "description": "<p>Autogenerated input type of RequestReviewsByLogin.</p>",
+      "inputFields": [
+        {
+          "name": "botLogins",
+          "description": "<p>The logins of the bots to request reviews from, including the [bot] suffix (e.g., 'copilot-pull-request-reviewer[bot]').</p>",
+          "type": "[String!]",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pullRequestId",
+          "description": "<p>The Node ID of the pull request to modify.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "teamSlugs",
+          "description": "<p>The slugs of the teams to request reviews from (format: 'org/team-slug').</p>",
+          "type": "[String!]",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "union",
+          "description": "<p>Add users to the set rather than replace.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "userLogins",
+          "description": "<p>The login strings of the users to request reviews from.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "RequestReviewsInput",
       "kind": "inputObjects",
       "id": "requestreviewsinput",
@@ -109967,40 +109975,6 @@
         {
           "name": "settingValue",
           "description": "<p>The value for the repository projects setting on the enterprise.</p>",
-          "type": "EnterpriseEnabledDisabledSettingValue!",
-          "id": "enterpriseenableddisabledsettingvalue",
-          "kind": "enums",
-          "href": "/graphql/reference/enums#enterpriseenableddisabledsettingvalue"
-        }
-      ]
-    },
-    {
-      "name": "UpdateEnterpriseTeamDiscussionsSettingInput",
-      "kind": "inputObjects",
-      "id": "updateenterpriseteamdiscussionssettinginput",
-      "href": "/graphql/reference/input-objects#updateenterpriseteamdiscussionssettinginput",
-      "description": "<p>Autogenerated input type of UpdateEnterpriseTeamDiscussionsSetting.</p>",
-      "inputFields": [
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "enterpriseId",
-          "description": "<p>The ID of the enterprise on which to set the team discussions setting.</p>",
-          "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
-        },
-        {
-          "name": "settingValue",
-          "description": "<p>The value for the team discussions setting on the enterprise.</p>",
           "type": "EnterpriseEnabledDisabledSettingValue!",
           "id": "enterpriseenableddisabledsettingvalue",
           "kind": "enums",

@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { graphql } from '@octokit/graphql'
 
 // Shared functions for managing projects (memex)

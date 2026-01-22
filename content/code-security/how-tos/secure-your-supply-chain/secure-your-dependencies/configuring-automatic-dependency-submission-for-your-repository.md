@@ -8,7 +8,6 @@ redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository
 versions:
   feature: maven-transitive-dependencies
-type: how_to
 topics:
   - Dependency graph
   - Dependencies

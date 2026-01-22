@@ -11,7 +11,6 @@ redirect_from:
   - /code-security/secret-scanning/protecting-pushes-with-secret-scanning
   - /code-security/secret-scanning/push-protection-for-repositories-and-organizations
   - /code-security/secret-scanning/introduction/about-push-protection
-type: overview
 topics:
   - Secret scanning
   - Secret Protection

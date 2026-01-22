@@ -2357,6 +2357,15 @@
       },
       {
         "category": "projects",
+        "slug": "create-a-view-for-an-organization-owned-project",
+        "subcategory": "views",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/projectsV2/{project_number}/views",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "projects",
         "slug": "list-items-for-an-organization-project-view",
         "subcategory": "items",
         "verb": "get",
