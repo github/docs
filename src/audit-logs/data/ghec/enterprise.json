@@ -1792,7 +1792,7 @@
   },
   {
     "action": "business.invite_billing_manager",
-    "description": "An invitation for someone to be an billing manager of an enterprise was sent.",
+    "description": "An invitation for someone to be a billing manager of an enterprise was sent.",
     "docs_reference_links": "N/A",
     "fields": [
       "user",
@@ -19887,17 +19887,19 @@
     "description": "SSO lockdown for users was disabled.",
     "docs_reference_links": "N/A",
     "fields": [
-      "user_agent",
-      "request_id",
       "actor",
       "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
       "business",
       "business_id",
       "action",
       "_document_id",
       "@timestamp",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "actor_is_bot"
     ]
   },
   {
@@ -19905,17 +19907,19 @@
     "description": "SSO lockdown for users was enabled.",
     "docs_reference_links": "N/A",
     "fields": [
-      "user_agent",
-      "request_id",
       "actor",
       "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
       "business",
       "business_id",
       "action",
       "_document_id",
       "@timestamp",
       "created_at",
-      "operation_type"
+      "operation_type",
+      "actor_is_bot"
     ]
   },
   {
