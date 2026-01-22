@@ -166,4 +166,5 @@ jobs:
           # Enable debug logging when "Re-run jobs with debug logging" is used in GitHub Actions UI
           # This will output additional timing and path information to help diagnose timeout issues
           RUNNER_DEBUG: ${{ runner.debug }}
-        run: npm test -- src/${{ matrix.name }}/tests/
+          VITEST_FLAGS: ${{ matrix.name == 'article-api' && '--no-file-parallelism --maxWorkers=1' || '' }}
+        run: npm test -- $VITEST_FLAGS src/${{ matrix.name }}/tests/
