@@ -36,7 +36,7 @@ If {% data variables.product.prodname_code_scanning %} finds a potential vulnera
 {% endif %}
 
 To monitor results from {% data variables.product.prodname_code_scanning %} across your repositories or your organization, you can use webhooks and the {% data variables.product.prodname_code_scanning %} API. For information about the webhooks for {% data variables.product.prodname_code_scanning %}, see
-[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#code_scanning_alert). For information about API endpoints, see [AUTOTITLE](/rest/code-scanning).
+[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#code_scanning_alert). For information about API endpoints, see [AUTOTITLE](/rest/code-scanning/code-scanning).
 
 {% ifversion fpt or ghec %}
 
