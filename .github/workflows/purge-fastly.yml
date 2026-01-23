@@ -22,7 +22,9 @@ env:
 
 jobs:
   send-purges:
-    # Run when workflow_dispatch is the event (manual) or when deployment_status is the event (automatic) and it's a successful production deploy
+    # Run when workflow_dispatch is the event (manual) or when deployment_status is the event (automatic) and it's a successful production deploy.
+    # NOTE: This workflow triggers on all deployment_status events (including staging), but only runs for production.
+    # Non-production deploys will show as "skipped" - this is expected behavior.
     if: >-
       ${{
         github.repository == 'github/docs-internal' &&

@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
 topics:
   - Repositories
   - Dependencies

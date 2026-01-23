@@ -10,7 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
+contentType: get-started
 topics:
   - Repositories
   - Dependencies

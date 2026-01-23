@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
+redirect_from:
+  - /code-security/supply-chain-security/understanding-your-software-supply-chain
 children:
   - about-supply-chain-security
   - best-practices-for-maintaining-dependencies
@@ -17,5 +19,5 @@ children:
   - about-dependabot-auto-triage-rules
   - about-dependabot-on-github-actions-runners
   - immutable-releases
+  - linked-artifacts
 ---
-

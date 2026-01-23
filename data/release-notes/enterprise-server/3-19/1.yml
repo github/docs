@@ -45,6 +45,8 @@ sections:
       To help large instances run more efficiently, enterprise administrators can more easily opt out of the behavior where GitHub generates a rebase commit every time we check whether a pull request can be merged. This change consolidates prior handling of multiple repository rule variables and backend feature flags.
 
       Now, if an administrator sets the instance's `skip_rebase_commit_generation_from_rebase_merge_settings` configuration variable to `true`, the "Allow rebase merging" option in a repository's pull request settings becomes the source of truth for whether rebase commits are generated when mergeability is checked.
+    - |
+      You can configure multiple data disks to host MySQL and repository data. This capability is currently in public preview and is applicable only for standalone and high availability topologies. It does not apply to cluster topologies. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/multiple-data-disks/configuring-multiple-data-disks). [Updated: 2026-01-19]
   known_issues:
     - |
       Upgrading or hotpatching to 3.19.1 may fail on very old nodes that have been continuously upgraded from versions older than 2021 versions (i.e. 2.17). If this issue occurs, you will see log entries prefixed with `invalid secret` in ghe-config.log. If you are running nodes this old, it is recommended not to upgrade to 3.19.1.
@@ -87,3 +89,5 @@ sections:
       When publishing npm packages in a workflow after restoring from a backup to GitHub Enterprise Server 3.13.5.gm4 or 3.14.2.gm3, you may encounter a `401 Unauthorized` error from the GitHub Packages service. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token is valid and includes the correct scopes for publishing to GitHub Packages.
     - |
       The setting to define private registries at the organization level for code scanning is only available if Dependabot is enabled for the instance.
+    - |
+      In patch 3.19.1, we identified an issue in the Management Console where the Backups (Preview) and Updates tabs may fail to open and instead return an Internal Server Error. We recommend using the command line interface (CLI) for backups and updates until an updated patch is released. [Updated: 2026-01-13]

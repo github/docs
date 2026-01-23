@@ -5,7 +5,6 @@ shortTitle: Enable dependency graph
 permissions: Site administrators can enable the dependency graph.
 versions:
   ghes: '*'
-type: how_to
 topics:
   - Enterprise
   - Security

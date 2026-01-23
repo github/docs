@@ -62,25 +62,25 @@ For further information about ecosystem support for {% data variables.product.pr
 
 {% ifversion dependabot-bun-support %}
 
-#### Bun
+### Bun
 
 {% data variables.product.prodname_dependabot %} supports the current default text-based `bun.lock` file, but not the legacy binary `bun.lockb` file. The `bun.lock` file is supported in version 1.1.39 and above. For more information, see [Lockfile](https://bun.sh/docs/install/lockfile) in the Bun documentation.
 
 {% endif %}
 
-#### Cargo
+### Cargo
 
 Private registry support includes cargo registries, so you can use {% data variables.product.prodname_dependabot %} to keep your Rust dependencies up-to-date. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot#cargo).
 
 {% ifversion dependabot-conda-support %}
 
-#### Conda
+### Conda
 
 {% data variables.product.prodname_dependabot %} support for Conda does **not include private registries, vendoring, or lock file updates**.
 
 {% endif %}
 
-#### Dev containers
+### Dev containers
 
 You can use `devcontainers` as a `package-ecosystem` in your `dependabot.yml` file to update Features in your `devcontainer.json` configuration files. For more information about this support, and for configuration file examples, see [General Availability of {% data variables.product.prodname_dependabot %} Integration](https://containers.dev/guide/dependabot) in the Development Containers documentation.
 
@@ -90,7 +90,7 @@ This updater ensures Features are pinned to the latest `major` version in the as
 
 Features in any valid dev container location will be updated in a single pull request. For more information about the dev container specification, see [Specification](https://containers.dev/implementors/spec/#devcontainerjson) in the Development Containers documentation.
 
-#### Docker
+### Docker
 
 {% data variables.product.prodname_dependabot %} can add metadata from Docker images to pull requests for version updates. The metadata includes release notes, changelogs and the commit history. Repository administrators can use the metadata to quickly evaluate the stability risk of the dependency update.
 
@@ -104,13 +104,13 @@ In order for {% data variables.product.prodname_dependabot %} to fetch Docker me
 
 {% ifversion dependabot-docker-compose-support %}
 
-#### Docker Compose
+### Docker Compose
 
 {% data variables.product.prodname_dependabot %} supports Docker Compose in a similar way to Docker. For more information, see [Docker](#docker).
 
 {% endif %}
 
-#### {% data variables.product.prodname_actions %}
+### {% data variables.product.prodname_actions %}
 
 {% data variables.product.prodname_dependabot %} supports version updates for {% data variables.product.prodname_actions %} with the following caveats.
 
@@ -118,7 +118,7 @@ In order for {% data variables.product.prodname_dependabot %} to fetch Docker me
 
 For more information about using {% data variables.product.prodname_dependabot_version_updates %} with {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/security-guides/using-githubs-security-features-to-secure-your-use-of-github-actions#keeping-the-actions-in-your-workflows-secure-and-up-to-date).
 
-#### Gradle
+### Gradle
 
 {% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to the following files:
 * `build.gradle`, `build.gradle.kts` (for Kotlin projects)
@@ -134,7 +134,7 @@ For {% data variables.product.prodname_dependabot_security_updates %}, Gradle su
 > * When you upload Gradle dependencies to the dependency graph using the {% data variables.dependency-submission-api.name %}, all project dependencies are uploaded, even transitive dependencies that aren't explicitly mentioned in any dependency file. When an alert is detected in a transitive dependency, {% data variables.product.prodname_dependabot %} isn't able to find the vulnerable dependency in the repository, and therefore won't create a security update for that alert.
 > * {% data variables.product.prodname_dependabot_version_updates %} will, however, create pull requests when the parent dependency is explicitly declared as a direct dependency in the project's manifest file.
 
-#### Helm Charts
+### Helm Charts
 
 {% data variables.product.prodname_dependabot %} supports using a username and password for registries. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#helm-registry).
 
@@ -142,17 +142,17 @@ The `helm-registry` type only supports HTTP Basic Auth and does not support OCI-
 
 When configuring {% data variables.product.prodname_dependabot %} for Helm charts, it will also automatically update the Docker images referenced within those charts, ensuring that both the chart versions and their contained images stay up to date.
 
-#### Maven
+### Maven
 
 {% data variables.product.prodname_dependabot %} doesn't run Maven but supports updates to `pom.xml` files.
 
 {% data variables.product.prodname_dependabot %} uses information from the `pom.xml` file of dependencies to add links to release information in update pull requests. If the information is omitted from the `pom.xml` file, then it cannot be included in {% data variables.product.prodname_dependabot %} pull requests, see [AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/optimizing-java-packages-dependabot).
 
-#### NuGet CLI
+### NuGet CLI
 
 {% data variables.product.prodname_dependabot %} doesn't run the NuGet CLI but does support most features up until version 6.8.0.
 
-#### pip and pip-compile
+### pip and pip-compile
 
 {% data variables.product.prodname_dependabot %} supports updates to any `.txt` file.
 
@@ -162,18 +162,18 @@ In addition, {% data variables.product.prodname_dependabot %} supports updates t
 
 {% else %}
 
-#### pnpm
+### pnpm
 
 pnpm is supported for {% data variables.product.prodname_dependabot_version_updates %} (on v7, v8, v9, v10) and {% data variables.product.prodname_dependabot_security_updates %} (on v7 and v8 only).
 {% endif %}
 
-#### poetry
+### poetry
 
 The PEP 621 `project` section isn't currently supported for `poetry`.
 
 {% ifversion dependabot-rust-toolchain-support %}
 
-#### Rust toolchain
+### Rust toolchain
 
 {% data variables.product.prodname_dependabot %} supports automatic updates for Rust toolchain versions defined in `rust-toolchain.toml` and `rust-toolchain` files.
 
@@ -184,11 +184,11 @@ Supported update patterns {% data variables.product.prodname_dependabot %} can u
 
 {% endif %}
 
-#### Swift
+### Swift
 
 Private registry support applies to git registries only. Swift registries are not supported. Non-declarative manifests are not supported. For more information on non-declarative manifests, see [Editing Non-Declarative Manifests](https://github.com/apple/swift-evolution/blob/7003da1439ad60896ec14657dfce829f04b0632c/proposals/0301-package-editing-commands.md#editing-non-declarative-manifests) in the Swift Evolution documentation.
 
-#### Terraform
+### Terraform
 
 Terraform support includes:
 * Modules hosted on Terraform Registry or a publicly reachable Git repository.
@@ -197,19 +197,19 @@ Terraform support includes:
 
 {% ifversion dependabot-vcpkg-support %}
 
-#### vcpkg
+### vcpkg
 
 vcpkg support includes updating the `builtin-baseline` commit SHA from the vcpkg ports repository in your `vcpkg.json` manifest file. For more information visit the [`microsoft/vcpkg` repository](https://github.com/microsoft/vcpkg) on  {% data variables.product.prodname_dotcom_the_website %} and see [What is manifest mode?](https://learn.microsoft.com/vcpkg/concepts/manifest-mode) in the Microsoft documentation.
 
 {% endif %}
 
-#### yarn
+### yarn
 
 Dependabot supports vendored dependencies for v2 onwards.
 
 {% ifversion dependabot-community-ecosystems %}
 
-### Community-maintained ecosystems
+## Supported community-maintained ecosystems
 
 {% data reusables.dependabot.community-maintained-intro %} {% ifversion dependabot-julia-support %}
 
@@ -219,7 +219,7 @@ Dependabot supports vendored dependencies for v2 onwards.
 
 {% ifversion dependabot-julia-support %}
 
-#### Julia
+### Julia
 
 {% data variables.product.prodname_dependabot %} supports Julia projects that include `Project.toml`/`Manifest.toml` files. {% data variables.product.prodname_dependabot %} uses Julia's package manager to resolve and update dependencies.
 
@@ -227,7 +227,7 @@ Dependabot supports vendored dependencies for v2 onwards.
 
 {% ifversion dependabot-opentofu-support %}
 
-#### OpenTofu
+### OpenTofu
 
 {% data variables.product.prodname_dependabot %} supports updating OpenTofu modules and providers in `.tf` and `.tofu` configuration files, including `terragrunt.hcl` files. If the `.terraform.lock.hcl` lockfile for provider checksums is present, {% data variables.product.prodname_dependabot %} will also update it.
 
@@ -235,7 +235,7 @@ Dependabot supports vendored dependencies for v2 onwards.
 
 {% endif %}
 
-#### Pub
+### Pub
 
 {% data variables.product.prodname_dependabot %} won't perform an update for `pub` when the version that it tries to update to is ignored, even if an earlier version is available.
 
