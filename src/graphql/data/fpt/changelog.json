@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Input field <code>actorLogins</code> of type '[String!]<code>was added to input object type</code>ReplaceActorsForAssignableInput'</p>",
+          "<p>Input field <code>ReplaceActorsForAssignableInput.actorIds</code> changed type from '[ID!]!<code>to</code>[ID!]'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-01-23"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>RequestReviewsByLoginInput</code> was added</p>",
           "<p>Input field <code>botLogins</code> of type '[String!]<code>was added to input object type</code>RequestReviewsByLoginInput'</p>",
           "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>RequestReviewsByLoginInput</code></p>",

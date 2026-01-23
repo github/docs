@@ -70,7 +70,7 @@ You can use the API to list and interact with security alerts, for example, gett
 
 You can list all {% data variables.product.prodname_dependabot %} alerts for a repository, organization, or enterprise, or use path parameters to list only alerts that meet a specific set of criteria. For example, you might only want to list {% data variables.product.prodname_dependabot %} alerts for Maven that were dismissed. Alternatively, you can get full details for an alert or update the alert.
 
-For more information, see [{% data variables.product.prodname_dependabot %} alerts](/rest/dependabot/alerts#about-dependabot-alerts).
+For more information, see [AUTOTITLE](/rest/dependabot/alerts#about-dependabot-alerts).
 
 ### {% data variables.product.prodname_secret_scanning_caps %} alerts API
 
@@ -78,13 +78,13 @@ You can list all {% data variables.product.prodname_secret_scanning %} alerts fo
 
 To see which {% data variables.product.prodname_secret_scanning %} alerts were the result of a push protection bypass, filter the results for `"push_protection_bypassed": true`.
 
-For more information, see [{% data variables.product.prodname_secret_scanning_caps %}](/rest/secret-scanning).
+For more information, see [AUTOTITLE](/rest/secret-scanning).
 
 ### {% data variables.product.prodname_code_scanning_caps %} alerts API
 
 You can list all {% data variables.product.prodname_code_scanning %} alerts for a repository, organization, or enterprise, or use path parameters to list only alerts that meet a specific set of criteria. Alternatively, you can get full details for an alert or update the alert.
 
-For more information, see [{% data variables.product.prodname_code_scanning_caps %}](/rest/code-scanning).
+For more information, see [AUTOTITLE](/rest/code-scanning/code-scanning).
 
 ## Further reading
 

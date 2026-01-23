@@ -19,6 +19,7 @@ redirect_from:
   - /billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages
   - /billing/managing-billing-for-your-products/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages
   - /billing/managing-your-billing/using-budgets-control-spending
+  - /billing/tutorials/set-up-budgets
 topics:
   - Billing
   - Enterprise
@@ -27,14 +28,14 @@ topics:
   - User account
 permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
 shortTitle: Set up budgets
-contentType: tutorials
+contentType: how-tos
 ---
 
 Budgets help you track and control spending on different products. To learn more, see [AUTOTITLE](/billing/concepts/budgets-and-alerts).
 
-## Deciding on the type and scope for a budget
+## Plan your budget type and scope
 
-When deciding on the type and scope for a budget, remember that the use of metered products is applied towards **all applicable** budgets. If any applicable budget with "Stop usage when budget limit is reached" enabled is exhausted, additional usage is blocked.
+Before you create a budget, it’s important to understand how budget types and scopes interact. Usage of metered products can count toward multiple applicable budgets at the same time, and if any budget with **Stop usage when budget limit is reached** enabled is exhausted, additional usage is blocked.
 
 ![Screenshot of budgets for "octo-org": "Actions" budget is $50 and "Actions Linux 96-core" budget is $100. All the "Actions" budget has been used.](/assets/images/help/billing/org-budget-example.png)
 

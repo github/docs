@@ -1,6 +1,7 @@
 ---
-title: Permission levels for repository security advisories
+title: Repository security advisories
 intro: The actions you can take in a repository security advisory depend on whether you have admin or write permissions to the security advisory.
+allowTitleToDifferFromFilename: true
 redirect_from:
   - /articles/permission-levels-for-maintainer-security-advisories
   - /github/managing-security-vulnerabilities/permission-levels-for-maintainer-security-advisories
@@ -9,6 +10,7 @@ redirect_from:
   - /code-security/repository-security-advisories/permission-levels-for-repository-security-advisories
   - /code-security/security-advisories/repository-security-advisories/permission-levels-for-repository-security-advisories
   - /code-security/security-advisories/working-with-repository-security-advisories/permission-levels-for-repository-security-advisories
+  - /code-security/reference/permission-levels-for-repository-security-advisories
 versions:
   fpt: '*'
   ghec: '*'
@@ -16,7 +18,6 @@ topics:
   - Security advisories
   - Vulnerabilities
   - Permissions
-shortTitle: Permission levels
 contentType: reference
 ---
 
