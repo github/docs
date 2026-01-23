@@ -11,10 +11,10 @@ topics:
 children:
   - /automate-usage-reporting
   - /soft-budgets
-  - /set-up-budgets
   - /control-costs-at-scale
   - /gather-insights
 contentType: tutorials
 redirect_from:
   - /billing/tutorials/estimate-actions-costs
 ---
+
