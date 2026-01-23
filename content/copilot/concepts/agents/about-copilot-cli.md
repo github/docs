@@ -25,7 +25,7 @@ The command-line interface (CLI) for {% data variables.product.prodname_copilot 
 
 * Linux
 * macOS
-* Windows from within [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about). Native Windows support in Powershell is available, but experimental.
+* Windows from within Powershell and [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about)
 
 For installation instructions, see [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-cli).
 
