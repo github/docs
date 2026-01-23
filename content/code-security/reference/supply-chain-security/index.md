@@ -18,6 +18,8 @@ topics:
 contentType: reference
 children:
   - /dependabot-options-reference
+  - /dependabot-alerts-filters
+  - /supported-ecosystems-and-manifests-for-dependency-scope
   - /dependabot-pull-request-comment-commands
   - /supported-ecosystems-and-repositories
   - /dependency-graph-supported-package-ecosystems
