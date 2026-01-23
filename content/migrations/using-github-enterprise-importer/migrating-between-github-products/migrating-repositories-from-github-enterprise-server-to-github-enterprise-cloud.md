@@ -47,6 +47,10 @@ To migrate your repositories from {% data variables.product.prodname_ghe_server 
 
 {% endapi %}
 
+{% ifversion repo-rules-enterprise %}
+{% data reusables.enterprise-migration-tool.repository-migrations-bypass %}
+{% endif %}
+
 ## Prerequisites
 
 * {% data reusables.enterprise-migration-tool.github-trial-prerequisite %}

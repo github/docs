@@ -63,7 +63,7 @@
 
   // Lifecycle commands
   // Start a web server and keep it running
-  "postStartCommand": "nohup bash -c 'npm start &'",
+  "postStartCommand": "nohup bash -c 'npm ci && npm start &'",
   // Set port 4000 to be public
   "postAttachCommand": "gh cs ports visibility 4000:public -c \"$CODESPACE_NAME\"",
   

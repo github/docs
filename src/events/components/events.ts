@@ -167,7 +167,9 @@ function flushQueue() {
   eventQueue = []
 
   try {
-    navigator.sendBeacon(endpoint, new Blob([eventsBody], { type: 'application/json' }))
+    if (ANALYTICS_ENABLED) {
+      navigator.sendBeacon(endpoint, new Blob([eventsBody], { type: 'application/json' }))
+    }
   } catch (err) {
     console.warn(`sendBeacon to '${endpoint}' failed.`, err)
   }
