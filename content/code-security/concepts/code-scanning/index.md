@@ -15,7 +15,7 @@ contentType: concepts
 children:
   - /about-code-scanning
   - /about-code-scanning-alerts
-  - /evaluating-default-setup-for-code-scanning
+  - /setup-types
   - /about-integration-with-code-scanning
   - /codeql
 ---
