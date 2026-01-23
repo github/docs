@@ -11,28 +11,24 @@ topics:
 
 ## About {% data variables.copilot.custom_agents_short %}
 
-{% data variables.copilot.custom_agents_caps_short %} are specialized versions of {% data variables.copilot.copilot_coding_agent %}. You can tailor them to your workflows, coding conventions, and use cases.
+{% data variables.copilot.custom_agents_caps_short %} are specialized versions of {% data variables.copilot.copilot_coding_agent %} that you can tailor to your unique workflows, coding conventions, and use cases. Instead of repeatedly providing the same instructions and context, {% data variables.copilot.custom_agents_short %} allow you to define specialized agents that act like tailored teammates—following standards, using the right tools, and implementing team-specific practices.
 
-With {% data variables.copilot.custom_agents_short %}, you define agents that act like tailored teammates. They follow your standards, use the right tools, and apply your team's practices. You don't need to repeat the same instructions each time.
-
-You define {% data variables.copilot.custom_agents_short %} using Markdown files called {% data variables.copilot.agent_profiles %}. These files specify prompts, tools, and MCP servers. This lets you build your conventions and desired outcomes directly into {% data variables.product.prodname_copilot_short %}.
-
-The {% data variables.copilot.agent_profile %} defines the {% data variables.copilot.copilot_custom_agent_short %}'s behavior. When you assign the agent to a task or issue, it starts working.
+{% data variables.copilot.custom_agents_caps_short %} are defined using Markdown files, called {% data variables.copilot.agent_profiles %}, that specify prompts, tools, and MCP servers. This allows individuals and teams to encode their conventions, frameworks, and desired outcomes directly into {% data variables.product.prodname_copilot_short %}. The {% data variables.copilot.agent_profile %} serves as the artifact that defines the {% data variables.copilot.copilot_custom_agent_short %}'s behavior, and assigning the agent to a task or issue instantiates the {% data variables.copilot.copilot_custom_agent_short %}.
 
 ## {% data variables.copilot.agent_profile_caps %} format
 
-{% data variables.copilot.agent_profiles_caps %} are Markdown files with YAML frontmatter. A basic profile includes:
+{% data variables.copilot.agent_profiles_caps %} are Markdown files with YAML frontmatter. In their simplest form, they include:
 
 * **Name**: A unique identifier for the {% data variables.copilot.copilot_custom_agent_short %}
-* **Description**: The agent's purpose and what it can do
-* **Prompt**: Instructions that define the agent's behavior and expertise
-* **Tools** (optional): Specific tools the agent can access—by default, agents can use all available tools
+* **Description**: Explains the agent's purpose and capabilities
+* **Prompt**: Custom instructions that define the agent's behavior and expertise
+* **Tools**: Specific tools the agent can access. This is optional, and the default is access to all available tools, including built-in tools and MCP server tools.
 
-At the organization and enterprise level, {% data variables.copilot.agent_profiles %} can also include MCP server settings. Use the `mcp-server` property to add these.
+Organization and enterprise-level {% data variables.copilot.agent_profiles %} can also include MCP server configurations within the {% data variables.copilot.agent_profile %}, using the `mcp-server` property.
 
 ### Example {% data variables.copilot.agent_profile %}
 
-The following example shows a basic {% data variables.copilot.agent_profile %} with a name, description, and prompt.
+This is a basic {% data variables.copilot.agent_profile %} with name, description, and prompt configured.
 
 ```text
 ---
@@ -53,26 +49,17 @@ Focus on the following instructions:
 
 ## Where you can configure {% data variables.copilot.custom_agents_short %}
 
-You can define {% data variables.copilot.agent_profiles %} at different levels:
-
-* **Repository level**: Create `.github/agents/CUSTOM-AGENT-NAME.md` in your repository for project-specific agents
-* **Organization or enterprise level**: Create `/agents/CUSTOM-AGENT-NAME.md` in a `.github-private` repository for broader access
-
-For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/prepare-for-custom-agents) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents).
+You can define {% data variables.copilot.agent_profiles %} at the repository level (`.github/agents/CUSTOM-AGENT-NAME.md` in your repository) for project-specific agents, or at the organization or enterprise level (`/agents/CUSTOM-AGENT-NAME.md` in a `.github-private` repository) for broader availability. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/prepare-for-custom-agents) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents).
 
 ## Where you can use {% data variables.copilot.custom_agents_short %}
 
 {% data reusables.copilot.custom-agents-ide-preview %}
 
-After you create {% data variables.copilot.custom_agents_short %}, you can use them wherever {% data variables.copilot.copilot_coding_agent %} is available:
+Once created, your {% data variables.copilot.custom_agents_short %} are available wherever you can use {% data variables.copilot.copilot_coding_agent %}, including {% data variables.product.prodname_dotcom_the_website %} (the agents tab and panel, issue assignment, pull requests), the {% data variables.copilot.copilot_cli %}, and in {% data variables.product.prodname_vscode %}, JetBrains IDEs, Eclipse, and Xcode.
 
-* **{% data variables.product.prodname_dotcom_the_website %}**: The agents tab and panel, issue assignment, and pull requests
-* **Command line**: The {% data variables.copilot.copilot_cli %}
-* **IDEs**: {% data variables.product.prodname_vscode %}, JetBrains IDEs, Eclipse, and Xcode
+{% data variables.copilot.agent_profiles_caps %} can be used directly in {% data variables.product.prodname_vscode %}, JetBrains IDEs, Eclipse, and Xcode, though some properties may function differently, or be ignored, between environments. 
 
-You can use {% data variables.copilot.agent_profiles %} directly in these IDEs. Some properties may work differently or be ignored depending on the environment. 
-
-For more information about using {% data variables.copilot.custom_agents_short %} in {% data variables.product.prodname_vscode %}, see [{% data variables.copilot.custom_agents_caps_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/customization/custom-agents) in the {% data variables.product.prodname_vscode_shortname %} documentation.
+For more information on using {% data variables.copilot.custom_agents_short %} in {% data variables.product.prodname_vscode %} specifically, see [{% data variables.copilot.custom_agents_caps_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/customization/custom-agents) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ## Next steps
 

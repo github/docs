@@ -36,6 +36,8 @@ The {% data variables.product.prodname_github_security_configuration %} offers a
 
 The {% data variables.product.prodname_github_security_configuration %} includes {% data variables.product.prodname_GH_code_security %} and {% data variables.product.prodname_GH_secret_protection %} features. Applying the configuration to private and internal repositories in your organization will incur usage costs or require licenses.
 
+To start securing repositories in your organization with the {% data variables.product.prodname_github_security_configuration %}, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization).
+
 ## Choosing a {% data variables.product.prodname_custom_security_configuration %}
 
 If you are familiar with {% data variables.product.company_short %}'s security products, and you have specific security needs that the {% data variables.product.prodname_github_security_configuration %} can't meet, you can create and apply {% data variables.product.prodname_custom_security_configurations %}. With {% data variables.product.prodname_custom_security_configurations %}, you can:
