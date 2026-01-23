@@ -7,6 +7,7 @@ versions:
   ghec: '*'
 contentType: how-tos
 children:
+  - /applying-the-github-recommended-security-configuration-in-your-organization
   - /creating-a-custom-security-configuration
   - /applying-a-custom-security-configuration
   - /configuring-global-security-settings-for-your-organization
