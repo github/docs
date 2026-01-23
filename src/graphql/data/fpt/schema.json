@@ -106498,12 +106498,20 @@
       "inputFields": [
         {
           "name": "actorIds",
-          "description": "<p>The ids of the actors to replace the existing assignees.</p>",
-          "type": "[ID!]!",
+          "description": "<p>The ids of the actors to replace the existing assignees. May be used as an\nalternative to or in conjunction with actorLogins.</p>",
+          "type": "[ID!]",
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        },
+        {
+          "name": "actorLogins",
+          "description": "<p>The usernames of the actors to replace the existing assignees. May be used as\nan alternative to or in conjunction with actorIds. For bots, use the login\nformat with [bot] suffix (e.g., 'my-app[bot]').</p>",
+          "type": "[String!]",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "assignableId",
