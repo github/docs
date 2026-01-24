@@ -11883,7 +11883,7 @@
       "fields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -15179,7 +15179,7 @@
       "fields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -16008,7 +16008,7 @@
       "fields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -16049,7 +16049,7 @@
       "fields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -75696,7 +75696,7 @@
       "fields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -98653,7 +98653,7 @@
       "inputFields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -99591,7 +99591,7 @@
       "inputFields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -99682,7 +99682,7 @@
       "inputFields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -99756,7 +99756,7 @@
       "inputFields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -108261,7 +108261,7 @@
       "inputFields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
