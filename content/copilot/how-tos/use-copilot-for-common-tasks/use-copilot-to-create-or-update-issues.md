@@ -96,6 +96,7 @@ Click the parent issue to view its details in the workbench. The parent issue di
 {% data variables.product.prodname_copilot_short %} can modify the tree, by unlinking issues or by attaching new drafts.
 
 For example, you can:
+
 * Remove a sub-issue from the issue tree:
    `Remove sub-issue NAME_OF_ISSUE from the issue tree`
 * Add an additional sub-issue to the issue tree:
@@ -118,6 +119,7 @@ For example:
 You can use {% data variables.product.prodname_copilot_short %} to connect new issues with issues that already exist in your repository.
 
 For example, you can:
+
 * Add a sub-issue to an existing parent issue:
    `Create a sub-issue for octo-org/octo-repo issue #456.`
 * Add a parent issue to an existing issue:
