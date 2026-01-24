@@ -216,9 +216,10 @@ With issue and pull request search terms, you can:
 * Filter out search terms by using `-` before the term: `state:open is:issue -author:octocat`
 
 > [!TIP]
-> You can filter issues by label using logical OR or using logical AND.
-> * To filter issues using logical OR, use the comma syntax: `label:"bug","wip"`.
-> * To filter issues using logical AND, use separate label filters: `label:"bug" label:"wip"`.
+> * You can filter issues by label using logical OR or using logical AND.
+>   * To filter issues using logical OR, use the comma syntax: `label:"bug","wip"`.
+>   * To filter issues using logical AND, use separate label filters: `label:"bug" label:"wip"`.
+> * You can use `@copilot` with qualifiers like `assignee:` and `author:` to search for issues and pull requests assigned to or authored by {% data variables.product.prodname_copilot_short %}. For example, `assignee:@copilot` or `author:@copilot`.
 
 For issues, you can also use search to:
 

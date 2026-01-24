@@ -18,7 +18,7 @@ category:
 
 ## Overview
 
-The use of AI tools is increasingly becoming a standard part of a software developer's daily workflow. To be competitive in the job market, it's important to to know which AI tools to use for each task you face as a developer.
+The use of AI tools is increasingly becoming a standard part of a software developer's daily workflow. To be competitive in the job market, it's important to know which AI tools to use for each task you face as a developer.
 
 {% data variables.product.github %}'s AI tools assist with every phase of the software development lifecycle (SDLC):
 

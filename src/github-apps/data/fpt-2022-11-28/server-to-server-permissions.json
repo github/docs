@@ -1305,34 +1305,6 @@
       }
     ]
   },
-  "custom_properties_for_organizations": {
-    "title": "Custom properties for organizations",
-    "displayTitle": "Organization permissions for \"Custom properties for organizations\"",
-    "permissions": [
-      {
-        "category": "orgs",
-        "slug": "get-all-custom-property-values-for-an-organization",
-        "subcategory": "custom-properties-for-orgs",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/org-properties/values",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "orgs",
-        "slug": "create-or-update-custom-property-values-for-an-organization",
-        "subcategory": "custom-properties-for-orgs",
-        "verb": "patch",
-        "requestPath": "/organizations/{org}/org-properties/values",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      }
-    ]
-  },
   "organization_custom_properties": {
     "title": "Custom properties",
     "displayTitle": "Organization permissions for \"Custom properties\"",
@@ -2982,6 +2954,28 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
+      },
+      {
+        "category": "projects",
+        "slug": "create-a-view-for-an-organization-owned-project",
+        "subcategory": "views",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/projectsV2/{project_number}/views",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "projects",
+        "slug": "list-items-for-an-organization-project-view",
+        "subcategory": "items",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/projectsV2/{project_number}/views/{view_number}/items",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
       }
     ]
   },
@@ -3382,232 +3376,6 @@
       }
     ]
   },
-  "team_discussions": {
-    "title": "Team discussions",
-    "displayTitle": "Organization permissions for \"Team discussions\"",
-    "permissions": [
-      {
-        "category": "teams",
-        "slug": "list-discussions",
-        "subcategory": "discussions",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "create-a-discussion",
-        "subcategory": "discussions",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "get-a-discussion",
-        "subcategory": "discussions",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "update-a-discussion",
-        "subcategory": "discussions",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "delete-a-discussion",
-        "subcategory": "discussions",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "list-discussion-comments",
-        "subcategory": "discussion-comments",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "create-a-discussion-comment",
-        "subcategory": "discussion-comments",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "get-a-discussion-comment",
-        "subcategory": "discussion-comments",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "update-a-discussion-comment",
-        "subcategory": "discussion-comments",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "delete-a-discussion-comment",
-        "subcategory": "discussion-comments",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "list-discussions-legacy",
-        "subcategory": "discussions",
-        "verb": "get",
-        "requestPath": "/teams/{team_id}/discussions",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "create-a-discussion-legacy",
-        "subcategory": "discussions",
-        "verb": "post",
-        "requestPath": "/teams/{team_id}/discussions",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "get-a-discussion-legacy",
-        "subcategory": "discussions",
-        "verb": "get",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "update-a-discussion-legacy",
-        "subcategory": "discussions",
-        "verb": "patch",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "delete-a-discussion-legacy",
-        "subcategory": "discussions",
-        "verb": "delete",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "list-discussion-comments-legacy",
-        "subcategory": "discussion-comments",
-        "verb": "get",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "create-a-discussion-comment-legacy",
-        "subcategory": "discussion-comments",
-        "verb": "post",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "get-a-discussion-comment-legacy",
-        "subcategory": "discussion-comments",
-        "verb": "get",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "update-a-discussion-comment-legacy",
-        "subcategory": "discussion-comments",
-        "verb": "patch",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "teams",
-        "slug": "delete-a-discussion-comment-legacy",
-        "subcategory": "discussion-comments",
-        "verb": "delete",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      }
-    ]
-  },
   "organization_actions_variables": {
     "title": "Variables",
     "displayTitle": "Organization permissions for \"Variables\"",
@@ -3883,6 +3651,17 @@
         "subcategory": "artifacts",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "get-github-actions-cache-storage-limit-for-a-repository",
+        "subcategory": "cache",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -4407,17 +4186,6 @@
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/cache/retention-limit",
         "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "actions",
-        "slug": "get-github-actions-cache-storage-limit-for-a-repository",
-        "subcategory": "cache",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/actions/cache/storage-limit",
-        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
