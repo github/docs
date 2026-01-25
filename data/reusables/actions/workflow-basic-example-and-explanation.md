@@ -53,7 +53,7 @@ jobs:
 # Groups together all the steps that run in the `check-bats-version` job. Each item nested under this section is a separate action or shell script.
     steps:
 
-# The `uses` keyword specifies that this step will run `v4` of the `actions/checkout` action. This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will use the repository's code.
+# The `uses` keyword specifies that this step will run `v5` of the `actions/checkout` action. This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will use the repository's code.
       - uses: {% data reusables.actions.action-checkout %}
 
 # This step uses the `{% data reusables.actions.action-setup-node %}` action to install the specified version of the Node.js. (This example uses version 20.) This puts both the `node` and `npm` commands in your `PATH`.
