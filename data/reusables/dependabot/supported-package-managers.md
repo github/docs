@@ -124,6 +124,7 @@ For more information about using {% data variables.product.prodname_dependabot_v
 * `build.gradle`, `build.gradle.kts` (for Kotlin projects)
 * `gradle/libs.versions.toml` (for projects using a standard Gradle version catalog)
 * `gradle.lockfile` (for projects using Gradle dependency locking)
+* `gradle/wrapper/gradle-wrapper.properties` (for the Gradle Wrapper)
 * Files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
 
 {% data variables.product.prodname_dependabot %} uses information from the `pom.xml` file of dependencies to add links to release information in update pull requests. If the information is omitted from the `pom.xml` file, then it cannot be included in {% data variables.product.prodname_dependabot %} pull requests, see [AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/optimizing-java-packages-dependabot).
