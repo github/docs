@@ -128,7 +128,7 @@
 
 - name: 'Gemini 2.5 Pro'
   provider: 'Google'
-  release_status: 'Closing down: 2026-02-17'
+  release_status: 'GA'
   agent_mode: true
   ask_mode: true
   edit_mode: true

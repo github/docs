@@ -1345,3 +1345,80 @@ test.describe('LandingArticleGridWithFilter component', () => {
     await expect(articleGrid).toBeVisible()
   })
 })
+
+test.describe('Non-child page resolution', () => {
+  test('category page with local children renders properly', async ({ page }) => {
+    // The local-category has local children (local-article-one, local-article-two)
+    // and an external article reference via children frontmatter
+    await page.goto('/get-started/non-child-resolution/local-category')
+
+    // Should have a title
+    await expect(page).toHaveTitle(/Local category test/)
+
+    // The page should load without errors and have main content
+    await expect(page.locator('main')).toBeVisible()
+  })
+
+  test('cross-product children page loads correctly', async ({ page }) => {
+    // The articles-only fixture now uses /content/ prefix in children for cross-product paths
+    await page.goto('/get-started/non-child-resolution/articles-only')
+
+    await expect(page).toHaveTitle(/Cross-product children test/)
+    await expect(page.locator('main')).toBeVisible()
+  })
+
+  test('children-only page with /content/ path loads correctly', async ({ page }) => {
+    // The children-only fixture uses /content/ prefix for cross-product paths
+    await page.goto('/get-started/non-child-resolution/children-only')
+
+    await expect(page).toHaveTitle(/Children only test/)
+    await expect(page.locator('main')).toBeVisible()
+  })
+
+  test('standalone article is accessible', async ({ page }) => {
+    await page.goto('/get-started/non-child-resolution/standalone-article')
+
+    await expect(page).toHaveTitle(/Standalone article/)
+    await expect(page.locator('main')).toBeVisible()
+  })
+
+  test('versioned cross-product children - fpt shows only fpt article', async ({ page }) => {
+    // In fpt version, only the only-fpt article should be available
+    await page.goto('/get-started/non-child-resolution/versioned-cross-product')
+
+    await expect(page).toHaveTitle(/Versioned cross-product test/)
+    await expect(page.locator('main')).toBeVisible()
+
+    // Check TOC has the fpt-only article
+    const tocLinks = page.locator('[data-testid="table-of-contents"] a')
+    await expect(tocLinks).toHaveCount(1)
+    await expect(tocLinks.first()).toHaveAttribute('href', /only-fpt/)
+  })
+
+  test('versioned cross-product children - ghec shows ghec articles', async ({ page }) => {
+    // In ghec version, only-ghec and only-ghec-and-ghes should be available
+    await page.goto(
+      '/enterprise-cloud@latest/get-started/non-child-resolution/versioned-cross-product',
+    )
+
+    await expect(page).toHaveTitle(/Versioned cross-product test/)
+    await expect(page.locator('main')).toBeVisible()
+
+    // Check TOC has ghec articles (only-ghec and only-ghec-and-ghes)
+    const tocLinks = page.locator('[data-testid="table-of-contents"] a')
+    await expect(tocLinks).toHaveCount(2)
+  })
+
+  test('cross-product children excluded from sidebar in Japanese translation', async ({ page }) => {
+    // The Japanese translation should work with cross-product children
+    await page.goto('/ja/get-started/non-child-resolution')
+
+    // Verify page loads correctly with Japanese site context
+    // Note: The title may not be fully translated in test fixtures, but the page should render
+    await expect(page).toHaveTitle(/GitHub Docs/)
+    await expect(page.locator('main')).toBeVisible()
+
+    // Verify page loads correctly - the cross-product children don't prevent the page from working
+    // The detailed sidebar filtering is tested by the survey test which verifies no duplicate entries
+  })
+})

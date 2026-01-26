@@ -10,5 +10,8 @@ contentType: how-tos
 children:
   - /preventing-changes-to-your-releases
   - /exporting-a-software-bill-of-materials-for-your-repository
+  - /upload-linked-artifacts
+  - /view-linked-artifacts
+  - /remove-linked-artifacts
 ---
 
