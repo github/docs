@@ -13,7 +13,7 @@ export const BespokeLanding = () => {
     heroImage,
     introLinks,
     tocItems,
-    carousels,
+    recommended,
     includedCategories,
     landingType,
   } = useLandingContext()
@@ -29,16 +29,7 @@ export const BespokeLanding = () => {
         <LandingHero title={title} intro={intro} heroImage={heroImage} introLinks={introLinks} />
 
         <div className="container-xl px-3 px-md-6 mt-6 mb-4">
-          {/* Render carousels */}
-          {carousels &&
-            Object.entries(carousels).map(([carouselKey, articles]) => (
-              <LandingCarousel
-                key={carouselKey}
-                carouselKey={carouselKey}
-                carouselArticles={articles}
-              />
-            ))}
-
+          <LandingCarousel recommended={recommended} />
           <ArticleGrid
             tocItems={tocItems}
             includedCategories={includedCategories}

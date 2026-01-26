@@ -19,7 +19,6 @@ interface SchemaProperty {
   properties?: Record<string, any>
   required?: string[]
   additionalProperties?: boolean
-  patternProperties?: Record<string, any>
   format?: string
   description?: string
   minItems?: number
@@ -423,20 +422,12 @@ category:
       },
       description: 'Array of articles to feature in the spotlight section',
     },
-    // Carousels configuration for category landing pages (supports multiple carousels)
-    carousels: {
-      type: 'object',
-      description: 'Multiple named carousels with articles to feature',
-      patternProperties: {
-        '^[a-zA-Z_][a-zA-Z0-9_]*$': {
-          type: 'array',
-          minItems: 3,
-          maxItems: 9,
-          items: {
-            type: 'string',
-          },
-        },
-      },
+    // Recommended configuration for category landing pages
+    recommended: {
+      type: 'array',
+      minItems: 3,
+      maxItems: 9,
+      description: 'Array of articles to feature in the carousel section',
     },
     // Included categories for article grid filtering
     includedCategories: {

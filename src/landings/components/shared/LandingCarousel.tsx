@@ -9,8 +9,7 @@ import styles from './LandingCarousel.module.scss'
 
 type LandingCarouselProps = {
   heading?: string
-  carouselKey?: string // Optional key for translation lookup (e.g., "recommended")
-  carouselArticles?: ResolvedArticle[]
+  recommended?: ResolvedArticle[]
 }
 
 // Hook to get current items per view based on screen size
@@ -40,32 +39,14 @@ const useResponsiveItemsPerView = () => {
   return itemsPerView
 }
 
-export const LandingCarousel = ({
-  heading = '',
-  carouselKey,
-  carouselArticles,
-}: LandingCarouselProps) => {
+export const LandingCarousel = ({ heading = '', recommended }: LandingCarouselProps) => {
   const [currentPage, setCurrentPage] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
   const itemsPerView = useResponsiveItemsPerView()
-  const { t } = useTranslation('carousels')
+  const { t } = useTranslation('product_landing')
   const router = useRouter()
   const { currentVersion } = useVersion()
-
-  // Determine heading text
-  let headingText = heading
-  if (!headingText && carouselKey) {
-    // Try to get translation for the carousel key
-    const translated = t(carouselKey)
-
-    // Check if we got a real translation or a fallback
-    const looksLikeFallback = !translated || translated === carouselKey
-
-    if (!looksLikeFallback) {
-      headingText = translated
-    }
-  }
-
+  const headingText = heading || t('carousel.recommended')
   // Ref to store timeout IDs for cleanup
   const animationTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -74,7 +55,7 @@ export const LandingCarousel = ({
     setCurrentPage(0)
   }, [itemsPerView])
 
-  const processedItems: ResolvedArticle[] = carouselArticles || []
+  const processedItems: ResolvedArticle[] = recommended || []
 
   // Cleanup timeout on unmount
   useEffect(() => {
@@ -135,12 +116,9 @@ export const LandingCarousel = ({
   }
 
   return (
-    <div
-      className={cx(styles.carousel, { [styles.noHeading]: !headingText })}
-      data-testid="landing-carousel"
-    >
+    <div className={styles.carousel} data-testid="landing-carousel">
       <div className={styles.header}>
-        {headingText && <h2 className={styles.heading}>{headingText}</h2>}
+        <h2 className={styles.heading}>{headingText}</h2>
         {totalItems > itemsPerView && (
           <div className={styles.navigation}>
             <button

@@ -3,10 +3,9 @@ title: Test Priority Validation
 layout: product-landing
 versions:
   fpt: '*'
-carousels:
-  recommended:
-    - /article-one
-    - /nonexistent-absolute
+recommended:
+  - /article-one
+  - /nonexistent-absolute
 ---
 
 # Test Priority Validation  

@@ -6,11 +6,10 @@ versions:
   ghes: "*"
   ghec: "*"
 layout: discovery-landing
-carousels:
-  recommended:
-    - /grid-category-one/grid-article-one
-    - /grid-category-one/grid-article-two
-    - /grid-category-two/grid-article-three
+recommended:
+  - /grid-category-one/grid-article-one
+  - /grid-category-one/grid-article-two
+  - /grid-category-two/grid-article-three
 spotlight:
   - article: /grid-category-one/grid-article-one
     image: /assets/images/placeholder.png

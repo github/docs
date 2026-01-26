@@ -39,11 +39,10 @@ layout: bespoke-landing
 sidebarLink:
   text: All tutorials
   href: /copilot/tutorials
-carousels:
-  recommended:
-    - /copilot/tutorials/copilot-chat-cookbook
-    - /copilot/tutorials/customization-library
-    - /copilot/tutorials/roll-out-at-scale
+recommended:
+  - /copilot/tutorials/copilot-chat-cookbook
+  - /copilot/tutorials/customization-library
+  - /copilot/tutorials/roll-out-at-scale
 includedCategories:
   - Accelerate PR velocity
   - Automate simple user stories

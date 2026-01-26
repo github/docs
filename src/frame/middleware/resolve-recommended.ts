@@ -6,7 +6,7 @@ import Permalink from '@/frame/lib/permalink'
 
 import { createLogger } from '@/observability/logger/index'
 
-const logger = createLogger('middleware:resolve-carousels')
+const logger = createLogger('middleware:resolve-recommended')
 
 /**
  * Build an article path by combining language, optional base path, and article path
@@ -94,78 +94,77 @@ function getPageHref(page: any): string {
 }
 
 /**
- * Middleware to resolve carousel articles from rawCarousels object
+ * Middleware to resolve recommended articles from rawRecommended paths and legacy spotlight field
  */
-async function resolveCarousels(
+async function resolveRecommended(
   req: ExtendedRequest,
   res: Response,
   next: NextFunction,
 ): Promise<void> {
   try {
     const page = req.context?.page
-    const rawCarousels = (page as any)?.rawCarousels
+    const rawRecommended = (page as any)?.rawRecommended
+    const spotlight = (page as any)?.spotlight
+    // Collect article paths from rawRecommended or spotlight if there are no
+    // recommended articles
+    let articlePaths: string[] = []
 
-    // Handle carousels format
-    if (rawCarousels && typeof rawCarousels === 'object') {
-      const resolvedCarousels: Record<string, ResolvedArticle[]> = {}
+    // Add paths from rawRecommended
+    if (rawRecommended && Array.isArray(rawRecommended)) {
+      articlePaths.push(...rawRecommended)
+    }
 
-      for (const [carouselKey, articlePaths] of Object.entries(rawCarousels)) {
-        if (!Array.isArray(articlePaths) || articlePaths.length === 0) {
-          continue
+    // Add paths from spotlight (legacy field) if no recommended articles
+    if (articlePaths.length === 0 && spotlight && Array.isArray(spotlight)) {
+      const spotlightPaths = spotlight
+        .filter((item: any) => item && typeof item.article === 'string')
+        .map((item: any) => item.article)
+      articlePaths.push(...spotlightPaths)
+    }
+
+    if (articlePaths.length === 0) {
+      return next()
+    }
+
+    // remove duplicate articles
+    articlePaths = [...new Set(articlePaths)]
+    const resolved: ResolvedArticle[] = []
+
+    for (const rawPath of articlePaths) {
+      try {
+        const foundPage = tryResolveArticlePath(rawPath, page?.relativePath, req)
+
+        if (
+          foundPage &&
+          (!req.context?.currentVersion ||
+            foundPage.applicableVersions.includes(req.context.currentVersion))
+        ) {
+          const href = getPageHref(foundPage)
+          const category = foundPage.relativePath
+            ? foundPage.relativePath.split('/').slice(0, -1).filter(Boolean)
+            : []
+
+          resolved.push({
+            title: foundPage.title,
+            intro: await renderContent(foundPage.intro, req.context),
+            href,
+            category,
+          })
         }
-
-        // Remove duplicate articles
-        const uniquePaths = [...new Set(articlePaths)]
-        const resolved: ResolvedArticle[] = []
-
-        for (const rawPath of uniquePaths) {
-          try {
-            const foundPage = tryResolveArticlePath(rawPath, page?.relativePath, req)
-
-            if (
-              foundPage &&
-              (!req.context?.currentVersion ||
-                foundPage.applicableVersions.includes(req.context.currentVersion))
-            ) {
-              const href = getPageHref(foundPage)
-              const category = foundPage.relativePath
-                ? foundPage.relativePath.split('/').slice(0, -1).filter(Boolean)
-                : []
-
-              resolved.push({
-                title: await renderContent(foundPage.title, req.context, { textOnly: true }),
-                intro: await renderContent(foundPage.intro, req.context, { textOnly: true }),
-                href,
-                category,
-              })
-            }
-          } catch (error) {
-            logger.warn(`Failed to resolve carousel article: ${rawPath}`, { error })
-          }
-        }
-
-        if (resolved.length > 0) {
-          // Prevent prototype pollution by rejecting __proto__ keys
-          if (
-            carouselKey !== '__proto__' &&
-            carouselKey !== 'constructor' &&
-            carouselKey !== 'prototype'
-          ) {
-            resolvedCarousels[carouselKey] = resolved
-          }
-        }
-      }
-
-      // Store resolved carousels on the page
-      if (page && Object.keys(resolvedCarousels).length > 0) {
-        ;(page as any).carousels = resolvedCarousels
+      } catch (error) {
+        logger.warn(`Failed to resolve recommended article: ${rawPath}`, { error })
       }
     }
+
+    // Replace the rawRecommended with resolved articles
+    if (page) {
+      ;(page as any).recommended = resolved
+    }
   } catch (error) {
-    logger.error('Error in resolveCarousels middleware:', { error })
+    logger.error('Error in resolveRecommended middleware:', { error })
   }
 
   next()
 }
 
-export default resolveCarousels
+export default resolveRecommended

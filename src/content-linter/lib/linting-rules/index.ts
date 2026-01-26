@@ -46,7 +46,7 @@ import { liquidIfversionVersions } from '@/content-linter/lib/linting-rules/liqu
 import { outdatedReleasePhaseTerminology } from '@/content-linter/lib/linting-rules/outdated-release-phase-terminology'
 import { frontmatterVersionsWhitespace } from '@/content-linter/lib/linting-rules/frontmatter-versions-whitespace'
 import { thirdPartyActionsReusable } from '@/content-linter/lib/linting-rules/third-party-actions-reusable'
-import { frontmatterLandingCarousels } from '@/content-linter/lib/linting-rules/frontmatter-landing-carousels'
+import { frontmatterLandingRecommended } from '@/content-linter/lib/linting-rules/frontmatter-landing-recommended'
 import { ctasSchema } from '@/content-linter/lib/linting-rules/ctas-schema'
 import { journeyTracksLiquid } from './journey-tracks-liquid'
 import { journeyTracksGuidePathExists } from './journey-tracks-guide-path-exists'
@@ -111,7 +111,7 @@ export const gitHubDocsMarkdownlint = {
     tableColumnIntegrity, // GHD047
     frontmatterVersionsWhitespace, // GHD051
     thirdPartyActionsReusable, // GHD054
-    frontmatterLandingCarousels, // GHD056
+    frontmatterLandingRecommended, // GHD056
     ctasSchema, // GHD057
     journeyTracksLiquid, // GHD058
     journeyTracksGuidePathExists, // GHD059

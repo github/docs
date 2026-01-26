@@ -1,10 +1,9 @@
 ---
 title: Test Discovery Landing Page
 intro: This is a test discovery landing page
-carousels:
-  recommended:
-    - /get-started/quickstart
-    - /actions/learn-github-actions
+recommended:
+  - /get-started/quickstart
+  - /actions/learn-github-actions
 ---
 
 # Test Discovery Landing Page
