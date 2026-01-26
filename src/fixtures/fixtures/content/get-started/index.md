@@ -45,6 +45,7 @@ children:
   - /carousel
   - /article-grid-discovery
   - /article-grid-bespoke
+  - /multi-carousel
   - /non-child-resolution
 communityRedirect:
   name: Provide HubGit Feedback

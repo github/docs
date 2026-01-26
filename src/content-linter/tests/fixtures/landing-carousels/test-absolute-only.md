@@ -3,8 +3,9 @@ title: Test Absolute Only Path
 layout: product-landing
 versions:
   fpt: '*'
-recommended:
-  - /article-two
+carousels:
+  recommended:
+    - /article-two
 ---
 
 # Test Absolute Only Path
