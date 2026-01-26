@@ -16,7 +16,6 @@ children:
   - about-dependabot-alerts
   - about-dependabot-security-updates
   - about-dependabot-version-updates
-  - about-dependabot-pull-requests
   - about-the-dependabot-yml-file
   - about-dependabot-auto-triage-rules
   - about-dependabot-on-github-actions-runners

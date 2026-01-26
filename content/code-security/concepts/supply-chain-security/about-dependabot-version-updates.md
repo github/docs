@@ -62,6 +62,16 @@ For each action in the file, {% data variables.product.prodname_dependabot %} ch
 
 To enable this feature, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/keeping-your-actions-up-to-date-with-dependabot).
 
+## Frequency of {% data variables.product.prodname_dependabot %} pull requests
+
+You specify how often to check each ecosystem for new versions in the configuration file: daily, weekly, or monthly.
+
+{% data reusables.dependabot.initial-updates %} For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates).
+
+If you've enabled security updates, you'll sometimes see extra pull requests for security updates. These are triggered by a {% data variables.product.prodname_dependabot %} alert for a dependency on your default branch. {% data variables.product.prodname_dependabot %} automatically raises a pull request to update the vulnerable dependency.
+
+{% data reusables.dependabot.version-updates-skip-scheduled-runs %}
+
 ## About automatic deactivation of {% data variables.product.prodname_dependabot_updates %}
 
 {% data reusables.dependabot.automatic-deactivation-link %}

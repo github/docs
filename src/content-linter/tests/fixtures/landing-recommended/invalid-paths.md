@@ -7,13 +7,12 @@ versions:
   ghes: '*'
 topics:
   - Testing
-carousels:
-  recommended:
-    - /article-one
-    - /nonexistent/path
-    - /another/invalid/path
+recommended:
+  - /article-one
+  - /nonexistent/path
+  - /another/invalid/path
 ---
 
 # Landing with Invalid Paths
 
-This landing page has some invalid carousel article paths.
+This landing page has some invalid recommended article paths.

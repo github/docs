@@ -19,13 +19,20 @@ redirect_from:
 contentType: how-tos
 ---
 
-## Preparing to customize pull requests
+## About customizing pull requests for security updates
+
+You can customize how {% data variables.product.prodname_dependabot %} raises pull requests for security updates, so that they best fit your project's security priorities and processes. For example:
+* **Optimize {% data variables.product.prodname_dependabot %} pull requests to prioritize meaningful updates** by grouping multiple updates into a single pull request.
+* Applying custom labels to **integrate {% data variables.product.prodname_dependabot %}'s pull requests** into your existing workflows.
+
+Similar to version updates, customization options for security updates are defined in the `dependabot.yml` file. If you have already customized the `dependabot.yml` for version updates, then many of the configuration options that you have defined could automatically apply to security updates, too. However, there's a couple of important points to note:
+* {% data variables.product.prodname_dependabot_security_updates %} are **always triggered by a security advisory**, rather than running according to the `schedule` you have set in the `dependabot.yml` for version updates.
+* {% data variables.product.prodname_dependabot %} raises pull requests for security updates against the **default branch only**. If your configuration sets a value for `target-branch`, then the customization for that package ecosystem will only apply to version updates by default.
 
 If you haven't yet configured a `dependabot.yml` file for your repository and you want to customize pull requests for security updates, you must first:
-
-1. Check in a `dependabot.yml` file into the `.github` directory of your repository. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates).
-1. Set all the required keys. For more information, see [Required keys](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#required-keys).
-1. If you want the customization for a package ecosystem to **only apply to security updates** (and exclude version updates), set the `open-pull-requests-limit` key to `0`.
+* Check in a `dependabot.yml` file into the `.github` directory of your repository. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates).
+* Set all the required keys. For more information, see [Required keys](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#required-keys).
+* If you want the customization for a package ecosystem to **only apply to security updates** (and exclude version updates), set the `open-pull-requests-limit` key to `0`.
 
 You can then consider what your needs and priorities are for security updates, and apply a combination of the customization options outlined below.
 
