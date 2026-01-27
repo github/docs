@@ -37,7 +37,7 @@ Some information that {% data variables.contact.github_support %} will request c
 * A copy of your workflow run logs for an example workflow run failure. For more information about workflow run logs, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#downloading-logs).
 * {% ifversion ghes %}A copy of your runner logs, {% else %}If you are running this workflow on a self-hosted runner, self-hosted runner logs{% endif %} which can be found under the `_diag` folder within the runner. For more information about self-hosted runners, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#reviewing-the-self-hosted-runner-application-log-files).
 
-  Self-hosted runner log file names are be formatted: `Runner_YYYY####-xxxxxx-utc.log` and `Worker_YYYY####-xxxxxx-utc.log`.
+  Self-hosted runner log file names are formatted: `Runner_YYYY####-xxxxxx-utc.log` and `Worker_YYYY####-xxxxxx-utc.log`.
 
 > [!NOTE]
 > Attach files to your support ticket by changing the file's extension to `.txt` or `.zip`. If you include textual data such as log or workflow file snippets inline in your ticket, ensure they are formatted correctly as Markdown code blocks. For more information about proper Markdown formatting, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#quoting-code).
