@@ -41,7 +41,7 @@ These metrics appear directly in the {% data variables.product.prodname_copilot_
 | Model usage per day | Daily breakdown of chat model usage. |
 | Model usage per chat mode | Model usage by {% data variables.product.prodname_copilot_short %} feature (Ask, Edit, Agent). |
 | Model usage per language | Distribution of languages broken down by model. |
-| Most used chat model | The most frequently used chat model in the current calendar month. |
+| Most used chat model | The most frequently used chat model in the last 28 days. |
 | Requests per chat mode | Number of chat requests by mode (Ask, Edit, Agent). |
 
 ## Code generation dashboard metrics
@@ -50,8 +50,8 @@ These metrics appear in the code generation dashboard and provide a breakdown of
 
 | Metric | Description |
 |:--|:--|
-| Lines of code changed with AI | Total lines of code added and deleted across all modes during the current calendar month. |
-| Agent contribution | Percentage of lines of code added and deleted by agents (including Edit, Agent, and custom modes) during the current calendar month. |
+| Lines of code changed with AI | Total lines of code added and deleted across all modes in the last 28 days. |
+| Agent contribution | Percentage of lines of code added and deleted by agents (including Edit, Agent, and custom modes) in the last 28 days. |
 | Average lines deleted by agent | Average number of lines automatically deleted by agents on behalf of active users during the current calendar month. |
 | Daily total of lines added and deleted | Total number of lines added to and deleted from the codebase across all modes for each day. |
 | User-initiated code changes | Lines suggested or manually added by users through code completions and chat panel actions (insert, copy, or apply). |

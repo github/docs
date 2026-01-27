@@ -31,7 +31,7 @@ codeql generate overlay-changes [--source-root=<dir>] [--output=<file>] <options
 
 \[Plumbing] Generate a file that can be used for the
 `--overlay-changes` option to
-[codeql database create](/code-security/codeql-cli/codeql-cli-manual/database-create) when extracting an overlay database.
+[codeql database create](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-create) when extracting an overlay database.
 
 This command is intended to be used mostly for manual or automated
 testing. It is not particularly efficient. For production use, consider

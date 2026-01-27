@@ -1,8 +1,5 @@
 date: '2026-01-06'
 sections:
-  security_fixes:
-    - |
-      Developers and administrators interacting with filter suggestions in the UI will see suggestion text rendered as plain text by default. Previously, display names could be shown as raw HTML, which risked displaying unintended formatting or unsafe content.
   bugs:
     - |
       On instances with GitHub Actions enabled, when administrators deleted a self-hosted runner from the service, the runner process continued running on the host and did not exit automatically.

@@ -252,7 +252,7 @@ codeql database analyze <cpp-database> codeql/cpp-queries:codeql-suites/cpp-code
 
 This command downloads the `codeql/cpp-queries` {% data variables.product.prodname_codeql %} query pack, runs the analysis, and generates a file in the SARIF version 2.1.0 format that is supported by all versions of {% data variables.product.prodname_dotcom %}. This file can be uploaded to {% data variables.product.prodname_dotcom %} by executing `codeql github upload-results` or the code scanning API.
 For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/uploading-codeql-analysis-results-to-github)
-or [AUTOTITLE](/rest/code-scanning).
+or [AUTOTITLE](/rest/code-scanning/code-scanning).
 
 {% data variables.product.prodname_codeql %} query suites are `.qls` files that use directives to select queries to run
 based on certain metadata properties. The standard {% data variables.product.prodname_codeql %} packs have metadata that specify

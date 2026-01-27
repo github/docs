@@ -1,4 +1,1 @@
-When utilizing {% data variables.product.github %}'s agentic features, you can use the [Agents tab](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text) as a centralized control page where you can initiate, monitor, and manage agent tasks across {% data variables.product.github %}.
-
->[!NOTE]
-> The Agents tab is in public preview and subject to change.
+When utilizing {% data variables.product.github %}'s agentic features, you can use the **Agents** tab within a repository that has {% data variables.copilot.copilot_coding_agent %} enabled to initiate, monitor, and manage agent sessions without leaving your workflow. You can also use the [Agents page](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text) to view and start agent sessions. To learn how to enable {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/access-management).
