@@ -8,7 +8,6 @@ redirect_from:
   - /code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale
 permissions: '{% data reusables.permissions.security-org-enable %}'
 product: '{% data reusables.gated-features.code-scanning %}'
-type: how_to
 topics:
   - Code Security
   - Code scanning
@@ -19,37 +18,9 @@ versions:
 contentType: how-tos
 ---
 
-## About configuring default setup at scale
+With default setup for {% data variables.product.prodname_code_scanning %}, you can quickly secure code in repositories across your organization. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/setup-types).
 
-With default setup for {% data variables.product.prodname_code_scanning %}, you can quickly secure code in repositories across your organization.
-
-You can enable {% data variables.product.prodname_code_scanning %} for all repositories in your organization that are eligible for default setup. After enabling default setup, the code written in {% data variables.product.prodname_codeql %}-supported languages in repositories in the organization will be scanned:
-
-* On each push to the repository's default branch, or any protected branch. For more information on protected branches, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches).
-* When creating or committing to a pull request based against the repository's default branch, or any protected branch, excluding pull requests from forks.
-* On a weekly schedule.
-
-For more information, see [Configuring default setup for all eligible repositories in an organization](#configuring-default-setup-for-all-eligible-repositories-in-an-organization).
-
-{% ifversion pre-security-configurations %}
-
-You can also use security overview to find a set of repositories in your organization and enable or disable default setup for all of them at the same time. For more information, see [Configuring default setup for a subset of repositories in an organization](#configuring-default-setup-for-a-subset-of-repositories-in-an-organization).
-
-{% endif %}
-
-For repositories that are not eligible for default setup, you can configure advanced setup at the repository level, or at the organization level using a script. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning-with-codeql-at-scale).
-
-<!-- Anchor to maintain the UI link to this heading -->
-<a name="eligible-repositories-default-setup"></a>
-
-### Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale
-
-A repository must meet all the following criteria to be eligible for default setup, otherwise you need to use advanced setup.
-
-* Advanced setup for {% data variables.product.prodname_code_scanning %} is not already enabled.
-{% data reusables.code-scanning.require-actions-ghcs %}
-
-{% data reusables.code-scanning.default-setup-pre-enablement-explanation %}
+For repositories that are not suitable for default setup, you can configure advanced setup at the repository level, or at the organization level using a script.
 
 {% ifversion pre-security-configurations %}
 
@@ -58,23 +29,18 @@ A repository must meet all the following criteria to be eligible for default set
 
 {% endif %}
 
-### About adding languages to an existing default setup configuration
+## Prerequisites
 
-If the code in a repository changes to include a {% data variables.product.prodname_codeql %}-supported language, {% data variables.product.prodname_dotcom %} will automatically update the {% data variables.product.prodname_code_scanning %} configuration to include the new language. If {% data variables.product.prodname_code_scanning %} fails with the new configuration, {% data variables.product.prodname_dotcom %} will resume the previous configuration automatically so the repository does not lose {% data variables.product.prodname_code_scanning %} coverage.
+A repository must meet all the following criteria to be eligible for default setup:
 
-{% ifversion org-private-registry %}
-
-### Providing default setup access to private registries
-
-When a repository uses code stored in a private registry, default setup needs access to the registry to work effectively. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries).
-
-{% endif %}
+* Advanced setup for {% data variables.product.prodname_code_scanning %} is not already enabled.
+{% data reusables.code-scanning.require-actions-ghcs %}
 
 ## Configuring default setup for all eligible repositories in an organization
 
 {% ifversion security-configurations %} You can enable default setup for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale).
 {% else %}
-Through the "{% data variables.product.UI_advanced_security %}" page of your organization's settings, you can enable default setup for all eligible repositories in your organization. For more information on repository eligibility, see [Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale](#eligible-repositories-default-setup).
+Through the "{% data variables.product.UI_advanced_security %}" page of your organization's settings, you can enable default setup for all eligible repositories in your organization.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -105,7 +71,7 @@ You can filter for specific repositories you would like to configure default set
 
 {% ifversion pre-security-configurations %}
 
-Through security overview for your organization, you can find eligible repositories for default setup, then enable default setup across each of those repositories simultaneously. For more information on repository eligibility, see [Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale](#eligible-repositories-default-setup).
+Through security overview for your organization, you can find eligible repositories for default setup, then enable default setup across each of those repositories simultaneously.
 
 ### Finding repositories that are eligible for default setup
 
@@ -154,6 +120,14 @@ You can select all of the displayed repositories, or a subset of them, and enabl
   ![Screenshot of the "Security coverage" view with the side panel open. The "Apply changes" button is highlighted in a dark orange outline.](/assets/images/help/security-overview/security-coverage-view-multi-repo-side-panel.png)
 
   If you're blocked from enabling {% data variables.product.prodname_code_scanning %} due to an enterprise policy, you will still be able to see the affected repository in the "Security Coverage" view and access the side panel from the **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Security settings** button. However, you will see a message in the side panel indicating that you cannot enable {% data variables.product.prodname_code_scanning %} for the selected repositories. For more information about enterprise policies, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
+
+{% endif %}
+
+{% ifversion org-private-registry %}
+
+## Providing default setup access to private registries
+
+When a repository uses code stored in a private registry, default setup needs access to the registry to work effectively. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries).
 
 {% endif %}
 

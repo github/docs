@@ -4,7 +4,6 @@ intro: Learn about immutable releases and how they can help you maintain the int
 versions:
   fpt: '*'
   ghec: '*'
-type: overview
 topics:
   - Code Security
   - Vulnerabilities

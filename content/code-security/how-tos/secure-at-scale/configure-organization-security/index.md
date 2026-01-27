@@ -14,4 +14,5 @@ children:
 redirect_from:
   - /code-security/securing-your-organization/enabling-security-features-in-your-organization
   - /code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations
+  - /code-security/securing-your-organization
 ---

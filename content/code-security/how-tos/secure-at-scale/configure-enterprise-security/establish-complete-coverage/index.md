@@ -7,6 +7,7 @@ versions:
   ghec: '*'
 contentType: how-tos
 children:
+  - /enabling-security-features-for-multiple-repositories
   - /enabling-github-advanced-security-for-your-enterprise
   - /applying-the-github-recommended-security-configuration-to-your-enterprise
   - /creating-a-custom-security-configuration-for-your-enterprise

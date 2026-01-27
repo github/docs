@@ -8,6 +8,10 @@ You will use a script to automate configuring your Azure resources.
 
 * To ensure resource availability/data residency, resources must be created in the same Azure region.
 
+* Outbound network traffic from the subnet **must not** be subject to TLS interception as our Virtual Machines will not be configured to trust intermediate certificates that your network uses to perform TLS interception. For more details, see [Certificates used by Azure Firewall Premium](https://learn.microsoft.com/en-us/azure/firewall/premium-certificates#certificates-used-by-azure-firewall-premium) in the Microsoft documentation.
+   
+   If you need to use TLS interception, you can install intermediate certificates via a custom image. See [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/use-custom-images).
+
 * Save the following `.bicep` file. Name the file `actions-nsg-deployment.bicep`.
 
   The `.bicep` file we provide contains the minimal set of rules to use {% data variables.product.company_short %}-hosted runners with Azure VNET. You may need to add rules for your specific use case.

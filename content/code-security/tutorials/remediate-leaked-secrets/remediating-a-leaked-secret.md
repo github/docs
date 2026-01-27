@@ -3,7 +3,6 @@ title: Remediating a leaked secret in your repository
 shortTitle: Remediate a leaked secret
 allowTitleToDifferFromFilename: true
 intro: Learn how to respond effectively to a leaked secret in your {% data variables.product.github %} repository.
-type: how_to
 topics:
   - Secret scanning
   - Secret Protection
@@ -24,7 +23,7 @@ Secrets, such as API keys, tokens and credentials, can pose significant security
 
 You should consider any leaked secret to be immediately compromised and it is essential that you undertake proper remediation steps, such as revoking the secret. Simply removing the secret from the codebase, pushing a new commit, or deleting and recreating the repository do not prevent the secret from being exploited.
 
-This how-to walks you through what to do if you've accidentally committed a secret to your repository, or if you've been alerted to a secret leak in your repository.
+This tutorial walks you through what to do if you've accidentally committed a secret to your repository, or if you've been alerted to a secret leak in your repository.
 
 ### Prerequisites
 

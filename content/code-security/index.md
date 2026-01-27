@@ -43,15 +43,6 @@ topics:
   - Vulnerabilities
 children:
   - /getting-started
-  - /code-quality
-  - /securing-your-organization
-  - /secret-scanning
-  - /code-scanning
-  - /codeql-for-vs-code
-  - /security-advisories
-  - /supply-chain-security
-  - /dependabot
-  - /security-overview
   - /concepts
   - /how-tos
   - /reference

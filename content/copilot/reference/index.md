@@ -9,8 +9,10 @@ topics:
 children:
   - /cheat-sheet
   - /ai-models
+  - /copilot-feature-matrix
   - /keyboard-shortcuts
   - /custom-agents-configuration
+  - /hooks-configuration
   - /custom-instructions-support
   - /policy-conflicts
   - /copilot-allowlist-reference

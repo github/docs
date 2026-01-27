@@ -14,4 +14,5 @@ children:
   - /configuring-secret-scanning-for-your-appliance
   - /viewing-the-vulnerability-data-for-your-enterprise
   - /configuring-dependabot-to-work-with-limited-internet-access
+  - /setting-dependabot-to-run-on-github-hosted-runners-using-vnet
 ---

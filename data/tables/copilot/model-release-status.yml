@@ -81,6 +81,13 @@
   ask_mode: true
   edit_mode: true
 
+- name: 'GPT-5.2-Codex'
+  provider: 'OpenAI'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
 # Anthropic models
 - name: 'Claude Haiku 4.5'
   provider: 'Anthropic'
@@ -121,7 +128,7 @@
 
 - name: 'Gemini 2.5 Pro'
   provider: 'Google'
-  release_status: 'Closing down: 2026-02-17'
+  release_status: 'GA'
   agent_mode: true
   ask_mode: true
   edit_mode: true

@@ -229,14 +229,14 @@ For example, if a pull request contains a `feature` branch and targets the defau
 
 If you are caching the package managers listed below, using their respective setup-* actions requires minimal configuration and will create and restore dependency caches for you.
 
-| Package managers | setup-* action for caching |
-|---|---|
-| npm, Yarn, pnpm | [setup-node](https://github.com/actions/setup-node#caching-global-packages-data) |
-| pip, pipenv, Poetry | [setup-python](https://github.com/actions/setup-python#caching-packages-dependencies) |
-| Gradle, Maven | [setup-java](https://github.com/actions/setup-java#caching-packages-dependencies) |
-| RubyGems | [setup-ruby](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically) |
-| Go `go.sum` | [setup-go](https://github.com/actions/setup-go#caching-dependency-files-and-build-outputs) |
-| .NET NuGet | [setup-dotnet](https://github.com/actions/setup-dotnet?tab=readme-ov-file#caching-nuget-packages) |
+| Package managers    | setup-* action for caching                                                                        |
+| ------------------- | ------------------------------------------------------------------------------------------------- |
+| npm, Yarn, pnpm     | [setup-node](https://github.com/actions/setup-node#caching-global-packages-data)                  |
+| pip, pipenv, Poetry | [setup-python](https://github.com/actions/setup-python#caching-packages-dependencies)             |
+| Gradle, Maven       | [setup-java](https://github.com/actions/setup-java#caching-packages-dependencies)                 |
+| RubyGems            | [setup-ruby](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically)             |
+| Go `go.sum`         | [setup-go](https://github.com/actions/setup-go#caching-dependency-files-and-build-outputs)        |
+| .NET NuGet          | [setup-dotnet](https://github.com/actions/setup-dotnet?tab=readme-ov-file#caching-nuget-packages) |
 
 ## Restrictions for accessing a cache
 
@@ -274,6 +274,8 @@ Multiple workflow runs in a repository can share caches. A cache created for a b
 
 {% endif %}
 {% ifversion fpt or ghec %}
+
+You can create cache entries at a rate of up to 200 uploads per minute per repository. If you exceed this rate, subsequent cache upload attempts will fail until the rate limit resets. The time until the rate limit resets is returned in the `Retry-After` header of the response.
 
 ### Increasing cache size
 

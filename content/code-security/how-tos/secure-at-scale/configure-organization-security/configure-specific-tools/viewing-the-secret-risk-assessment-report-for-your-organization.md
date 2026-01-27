@@ -5,7 +5,6 @@ intro: Understand your organization's exposure to leaked secrets at a glance by 
 product: '{% data reusables.gated-features.secret-risk-assessment-report %}'
 permissions: '{% data reusables.permissions.secret-risk-assessment-report-generation %}'
 allowTitleToDifferFromFilename: true
-type: how_to
 versions:
   feature: secret-risk-assessment
 topics:

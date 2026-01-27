@@ -8,7 +8,6 @@ versions:
   fpt: '*'
   ghes: '>3.17'
   ghec: '*'
-type: reference
 topics:
   - Code scanning
   - CodeQL

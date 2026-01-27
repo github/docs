@@ -13,9 +13,11 @@ topics:
   - Troubleshooting
   - SARIF
 children:
+  - /troubleshooting-codeql-for-vs-code
   - /troubleshooting-analysis-errors
   - /troubleshooting-sarif-uploads
 redirect_from:
   - /code-security/code-scanning/troubleshooting-sarif
   - /code-security/code-scanning/troubleshooting-sarif-uploads
 ---
+

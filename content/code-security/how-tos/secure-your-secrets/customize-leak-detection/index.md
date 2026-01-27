@@ -10,6 +10,8 @@ topics:
   - Secret Protection
   - Secret scanning
 contentType: how-tos
+redirect_from:
+  - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features
 children:
   - /defining-custom-patterns-for-secret-scanning
   - /generating-regular-expressions-for-custom-patterns-with-copilot-secret-scanning

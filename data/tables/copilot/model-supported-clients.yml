@@ -149,6 +149,14 @@
   xcode: true
   jetbrains: true
 
+- name: GPT-5.2-Codex
+  dotcom: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
 - name: Grok Code Fast 1
   dotcom: true
   vscode: true

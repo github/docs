@@ -174,7 +174,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // This looks a little funky, but it's so we only send one context's data to the client
   if (currentLayoutName === 'bespoke-landing') {
     props.bespokeContext = await getLandingContextFromRequest(req, 'bespoke')
-    additionalUINamespaces.push('product_landing')
+    additionalUINamespaces.push('product_landing', 'carousels')
   } else if (currentLayoutName === 'journey-landing') {
     props.journeyContext = await getLandingContextFromRequest(req, 'journey')
 
@@ -187,7 +187,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     additionalUINamespaces.push('journey_landing', 'product_landing')
   } else if (currentLayoutName === 'discovery-landing') {
     props.discoveryContext = await getLandingContextFromRequest(req, 'discovery')
-    additionalUINamespaces.push('product_landing')
+    additionalUINamespaces.push('product_landing', 'carousels')
   } else if (currentLayoutName === 'product-landing') {
     props.productLandingContext = await getProductLandingContextFromRequest(req)
     additionalUINamespaces.push('product_landing')
