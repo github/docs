@@ -155,7 +155,7 @@
     ]
   },
   "dependencies": {
-    "@elastic/elasticsearch": "8.13.1",
+    "@elastic/elasticsearch": "8.19.1",
     "@github/failbot": "0.8.3",
     "@gr2m/gray-matter": "4.0.3-with-pr-137",
     "@horizon-rs/language-guesser": "0.1.1",
@@ -217,7 +217,7 @@
     "mdast-util-to-hast": "^13.2.1",
     "mdast-util-to-markdown": "2.1.2",
     "mdast-util-to-string": "^4.0.0",
-    "next": "^16.0.10",
+    "next": "^16.1.5",
     "ora": "^9.0.0",
     "parse5": "7.1.2",
     "quick-lru": "7.0.1",
@@ -252,7 +252,7 @@
   },
   "devDependencies": {
     "@actions/core": "^2.0.0",
-    "@actions/github": "^7.0.0",
+    "@actions/github": "^8.0.1",
     "@axe-core/playwright": "^4.10.1",
     "@eslint/js": "^9.33.0",
     "@github/markdownlint-github": "^0.6.3",
