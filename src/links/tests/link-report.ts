@@ -269,9 +269,9 @@ describe('generatePRComment', () => {
 
     const comment = generatePRComment(links)
 
-    expect(comment).toContain('Redirect')
-    expect(comment).toContain('`/old`')
-    expect(comment).toContain('`/new`')
+    // Redirects now show a compact summary with info icon
+    expect(comment).toContain('redirect')
+    expect(comment).toContain('ℹ️')
   })
 
   test('limits occurrences to 3 per group', () => {

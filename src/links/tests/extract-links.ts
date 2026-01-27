@@ -3,6 +3,8 @@ import {
   extractLinksFromMarkdown,
   normalizeLinkPath,
   checkInternalLink,
+  checkAssetLink,
+  isAssetLink,
 } from '../lib/extract-links'
 
 describe('extractLinksFromMarkdown', () => {
@@ -207,5 +209,33 @@ describe('checkInternalLink', () => {
     const result = checkInternalLink('/does/not/exist', pageMap, redirects)
     expect(result.exists).toBe(false)
     expect(result.isRedirect).toBe(false)
+  })
+})
+
+describe('isAssetLink', () => {
+  test('returns true for asset paths', () => {
+    expect(isAssetLink('/assets/images/help/test.png')).toBe(true)
+    expect(isAssetLink('/assets/cb-12345/images/help/test.png')).toBe(true)
+  })
+
+  test('returns false for non-asset paths', () => {
+    expect(isAssetLink('/actions/getting-started')).toBe(false)
+    expect(isAssetLink('/repositories/overview')).toBe(false)
+    expect(isAssetLink('https://example.com/assets/image.png')).toBe(false)
+  })
+})
+
+describe('checkAssetLink', () => {
+  test('returns true for existing asset files', () => {
+    // Use a known existing asset file
+    expect(checkAssetLink('/assets/images/help/writing/headings-rendered.png')).toBe(true)
+  })
+
+  test('returns false for non-existent asset files', () => {
+    expect(checkAssetLink('/assets/images/does-not-exist-12345.png')).toBe(false)
+  })
+
+  test('returns false for non-asset paths', () => {
+    expect(checkAssetLink('/actions/getting-started')).toBe(false)
   })
 })
