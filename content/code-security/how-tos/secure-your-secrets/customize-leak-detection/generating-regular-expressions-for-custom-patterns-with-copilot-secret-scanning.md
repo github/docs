@@ -1,6 +1,6 @@
 ---
 title: Generating regular expressions for custom patterns with Copilot secret scanning
-shortTitle: Regular expression generator
+shortTitle: Generate regular expressions
 intro: You can use {% data variables.secret-scanning.copilot-secret-scanning %}'s {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} to write regular expressions for custom patterns. The generator uses an AI model to generate expressions that match your input, and optionally example strings.
 permissions: '{% data reusables.permissions.security-repo-enable %}'
 allowTitleToDifferFromFilename: true
