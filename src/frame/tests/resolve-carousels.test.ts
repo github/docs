@@ -2,7 +2,7 @@ import { describe, test, expect, vi, beforeEach } from 'vitest'
 import type { Response, NextFunction } from 'express'
 import type { ExtendedRequest, Page, ResolvedArticle } from '@/types'
 import findPage from '@/frame/lib/find-page'
-import resolveRecommended from '../middleware/resolve-recommended'
+import resolveCarousels from '../middleware/resolve-carousels'
 
 // Mock the findPage function
 vi.mock('@/frame/lib/find-page', () => ({
@@ -11,15 +11,20 @@ vi.mock('@/frame/lib/find-page', () => ({
 
 // Mock the renderContent function
 vi.mock('@/content-render/index', () => ({
-  renderContent: vi.fn((content) => `<p>${content}</p>`),
+  renderContent: vi.fn((content, _context, options) => {
+    // When textOnly is true, return plain text (no HTML wrapper)
+    if (options?.textOnly) {
+      return content
+    }
+    return `<p>${content}</p>`
+  }),
 }))
 
-describe('resolveRecommended middleware', () => {
+describe('resolveCarousels middleware', () => {
   const mockFindPage = vi.mocked(findPage)
 
   type TestPage = Partial<Page> & {
-    rawRecommended?: string[]
-    spotlight?: Array<{ article: string }>
+    rawCarousels?: Record<string, string[]>
   }
 
   const createMockRequest = (
@@ -60,7 +65,7 @@ describe('resolveRecommended middleware', () => {
   test('should call next when no context', async () => {
     const req = {} as ExtendedRequest
 
-    await resolveRecommended(req, mockRes, mockNext)
+    await resolveCarousels(req, mockRes, mockNext)
 
     expect(mockNext).toHaveBeenCalled()
     expect(mockFindPage).not.toHaveBeenCalled()
@@ -69,31 +74,34 @@ describe('resolveRecommended middleware', () => {
   test('should call next when no page', async () => {
     const req = { context: {} } as ExtendedRequest
 
-    await resolveRecommended(req, mockRes, mockNext)
+    await resolveCarousels(req, mockRes, mockNext)
 
     expect(mockNext).toHaveBeenCalled()
     expect(mockFindPage).not.toHaveBeenCalled()
   })
 
   test('should call next when no pages collection', async () => {
-    const req = createMockRequest({ rawRecommended: ['/test-article'] }, { pages: undefined })
+    const req = createMockRequest(
+      { rawCarousels: { recommended: ['/test-article'] } },
+      { pages: undefined },
+    )
 
-    await resolveRecommended(req, mockRes, mockNext)
+    await resolveCarousels(req, mockRes, mockNext)
 
     expect(mockNext).toHaveBeenCalled()
     expect(mockFindPage).not.toHaveBeenCalled()
   })
 
-  test('should call next when no rawRecommended', async () => {
+  test('should call next when no rawCarousels', async () => {
     const req = createMockRequest()
 
-    await resolveRecommended(req, mockRes, mockNext)
+    await resolveCarousels(req, mockRes, mockNext)
 
     expect(mockNext).toHaveBeenCalled()
     expect(mockFindPage).not.toHaveBeenCalled()
   })
 
-  test('should resolve recommended articles when they exist', async () => {
+  test('should resolve carousel articles when they exist', async () => {
     const testPage: Partial<import('@/types').Page> = {
       title: 'Test Article',
       intro: 'Test intro',
@@ -103,75 +111,100 @@ describe('resolveRecommended middleware', () => {
 
     mockFindPage.mockReturnValue(testPage as unknown as Page)
 
-    const req = createMockRequest({ rawRecommended: ['/copilot/tutorials/article'] })
+    const req = createMockRequest({
+      rawCarousels: { recommended: ['/copilot/tutorials/article'] },
+    })
 
-    await resolveRecommended(req, mockRes, mockNext)
+    await resolveCarousels(req, mockRes, mockNext)
 
     expect(mockFindPage).toHaveBeenCalledWith(
       '/en/copilot/tutorials/article',
       req.context!.pages,
       req.context!.redirects,
     )
-    expect((req.context!.page as Page & { recommended?: ResolvedArticle[] }).recommended).toEqual([
-      {
-        title: 'Test Article',
-        intro: '<p>Test intro</p>',
-        href: '/copilot/tutorials/article',
-        category: ['copilot', 'tutorials'],
-      },
-    ])
+    expect(
+      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
+    ).toEqual({
+      recommended: [
+        {
+          title: 'Test Article',
+          intro: 'Test intro',
+          href: '/copilot/tutorials/article',
+          category: ['copilot', 'tutorials'],
+        },
+      ],
+    })
     expect(mockNext).toHaveBeenCalled()
   })
 
-  test('should not resolve spotlight articles when there are recommended articles', async () => {
-    const testPage: Partial<import('@/types').Page> = {
-      title: 'Test Article',
-      intro: 'Test intro',
-      relativePath: 'copilot/tutorials/article.md',
+  test('should resolve multiple carousels', async () => {
+    const testPage1: Partial<import('@/types').Page> = {
+      title: 'Article One',
+      intro: 'Intro one',
+      relativePath: 'test/article-one.md',
+      applicableVersions: ['free-pro-team@latest'],
+    }
+    const testPage2: Partial<import('@/types').Page> = {
+      title: 'Article Two',
+      intro: 'Intro two',
+      relativePath: 'test/article-two.md',
       applicableVersions: ['free-pro-team@latest'],
     }
 
-    mockFindPage.mockReturnValueOnce(testPage as unknown as Page)
+    mockFindPage
+      .mockReturnValueOnce(testPage1 as unknown as Page)
+      .mockReturnValueOnce(testPage2 as unknown as Page)
 
     const req = createMockRequest({
-      rawRecommended: ['/copilot/tutorials/article'],
-      spotlight: [{ article: '/copilot/tutorials/spotlight-article' }],
+      rawCarousels: {
+        recommended: ['/test/article-one'],
+        featured: ['/test/article-two'],
+      },
     })
 
-    await resolveRecommended(req, mockRes, mockNext)
+    await resolveCarousels(req, mockRes, mockNext)
 
-    expect(mockFindPage).toHaveBeenCalledTimes(1)
-    expect(mockFindPage).toHaveBeenCalledWith(
-      '/en/copilot/tutorials/article',
-      req.context!.pages,
-      req.context!.redirects,
-    )
-    expect((req.context!.page as Page & { recommended?: ResolvedArticle[] }).recommended).toEqual([
-      {
-        title: 'Test Article',
-        intro: '<p>Test intro</p>',
-        href: '/copilot/tutorials/article',
-        category: ['copilot', 'tutorials'],
-      },
-    ])
+    expect(
+      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
+    ).toEqual({
+      recommended: [
+        {
+          title: 'Article One',
+          intro: 'Intro one',
+          href: '/test/article-one',
+          category: ['test'],
+        },
+      ],
+      featured: [
+        {
+          title: 'Article Two',
+          intro: 'Intro two',
+          href: '/test/article-two',
+          category: ['test'],
+        },
+      ],
+    })
     expect(mockNext).toHaveBeenCalled()
   })
 
   test('should handle articles not found', async () => {
     mockFindPage.mockReturnValue(undefined)
 
-    const req = createMockRequest({ rawRecommended: ['/nonexistent-article'] })
+    const req = createMockRequest({
+      rawCarousels: { recommended: ['/nonexistent-article'] },
+    })
 
-    await resolveRecommended(req, mockRes, mockNext)
+    await resolveCarousels(req, mockRes, mockNext)
 
     expect(mockFindPage).toHaveBeenCalledWith(
       '/en/nonexistent-article',
       req.context!.pages,
       req.context!.redirects,
     )
-    expect((req.context!.page as Page & { recommended?: ResolvedArticle[] }).recommended).toEqual(
-      [],
-    )
+    // Carousel should not be added if all articles are not found
+    expect(
+      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
+    ).toBeUndefined()
     expect(mockNext).toHaveBeenCalled()
   })
 
@@ -180,13 +213,13 @@ describe('resolveRecommended middleware', () => {
       throw new Error('Test error')
     })
 
-    const req = createMockRequest({ rawRecommended: ['/error-article'] as string[] })
+    const req = createMockRequest({
+      rawCarousels: { recommended: ['/error-article'] },
+    })
 
-    await resolveRecommended(req, mockRes, mockNext)
+    await resolveCarousels(req, mockRes, mockNext)
 
-    expect((req.context!.page as Page & { recommended?: ResolvedArticle[] }).recommended).toEqual(
-      [],
-    )
+    // Should still call next even on error
     expect(mockNext).toHaveBeenCalled()
   })
 
@@ -200,18 +233,24 @@ describe('resolveRecommended middleware', () => {
 
     mockFindPage.mockReturnValueOnce(testPage as unknown as Page).mockReturnValueOnce(undefined)
 
-    const req = createMockRequest({ rawRecommended: ['/valid-article', '/invalid-article'] })
+    const req = createMockRequest({
+      rawCarousels: { recommended: ['/valid-article', '/invalid-article'] },
+    })
 
-    await resolveRecommended(req, mockRes, mockNext)
+    await resolveCarousels(req, mockRes, mockNext)
 
-    expect((req.context!.page as Page & { recommended?: ResolvedArticle[] }).recommended).toEqual([
-      {
-        title: 'Valid Article',
-        intro: '<p>Valid intro</p>',
-        href: '/test/valid',
-        category: ['test'],
-      },
-    ])
+    expect(
+      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
+    ).toEqual({
+      recommended: [
+        {
+          title: 'Valid Article',
+          intro: 'Valid intro',
+          href: '/test/valid',
+          category: ['test'],
+        },
+      ],
+    })
     expect(mockNext).toHaveBeenCalled()
   })
 
@@ -227,11 +266,11 @@ describe('resolveRecommended middleware', () => {
     mockFindPage.mockReturnValueOnce(undefined).mockReturnValueOnce(testPage as unknown as Page)
 
     const req = createMockRequest({
-      rawRecommended: ['relative-article'],
+      rawCarousels: { recommended: ['relative-article'] },
       relativePath: 'copilot/index.md',
     })
 
-    await resolveRecommended(req, mockRes, mockNext)
+    await resolveCarousels(req, mockRes, mockNext)
 
     expect(mockFindPage).toHaveBeenCalledTimes(2)
     expect(mockFindPage).toHaveBeenCalledWith(
@@ -244,14 +283,18 @@ describe('resolveRecommended middleware', () => {
       req.context!.pages,
       req.context!.redirects,
     )
-    expect((req.context!.page as Page & { recommended?: ResolvedArticle[] }).recommended).toEqual([
-      {
-        title: 'Relative Article',
-        intro: '<p>Relative intro</p>',
-        href: '/copilot/relative-article', // Updated to clean path
-        category: ['copilot'],
-      },
-    ])
+    expect(
+      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
+    ).toEqual({
+      recommended: [
+        {
+          title: 'Relative Article',
+          intro: 'Relative intro',
+          href: '/copilot/relative-article',
+          category: ['copilot'],
+        },
+      ],
+    })
     expect(mockNext).toHaveBeenCalled()
   })
 
@@ -265,9 +308,11 @@ describe('resolveRecommended middleware', () => {
 
     mockFindPage.mockReturnValue(testPage as unknown as Page)
 
-    const req = createMockRequest({ rawRecommended: ['/copilot/tutorials/tutorial-page'] })
+    const req = createMockRequest({
+      rawCarousels: { recommended: ['/copilot/tutorials/tutorial-page'] },
+    })
 
-    await resolveRecommended(req, mockRes, mockNext)
+    await resolveCarousels(req, mockRes, mockNext)
 
     expect(mockFindPage).toHaveBeenCalledWith(
       '/en/copilot/tutorials/tutorial-page',
@@ -275,16 +320,19 @@ describe('resolveRecommended middleware', () => {
       req.context!.redirects,
     )
 
-    // Verify that the href is a clean path without language/version, that gets
-    // added on the React side.
-    expect((req.context!.page as Page & { recommended?: ResolvedArticle[] }).recommended).toEqual([
-      {
-        title: 'Tutorial Page',
-        intro: '<p>Tutorial intro</p>',
-        href: '/copilot/tutorials/tutorial-page',
-        category: ['copilot', 'tutorials', 'tutorial-page'],
-      },
-    ])
+    // Verify that the href is a clean path without language/version
+    expect(
+      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
+    ).toEqual({
+      recommended: [
+        {
+          title: 'Tutorial Page',
+          intro: 'Tutorial intro',
+          href: '/copilot/tutorials/tutorial-page',
+          category: ['copilot', 'tutorials', 'tutorial-page'],
+        },
+      ],
+    })
     expect(mockNext).toHaveBeenCalled()
   })
 
@@ -301,19 +349,51 @@ describe('resolveRecommended middleware', () => {
 
     // Create a request context where we're viewing the GHEC version
     const req = createMockRequest(
-      { rawRecommended: ['/test/fpt-only'] },
+      { rawCarousels: { recommended: ['/test/fpt-only'] } },
       {
         currentVersion: 'enterprise-cloud@latest', // Current context is GHEC, not FPT
         currentLanguage: 'en',
       },
     )
 
-    await resolveRecommended(req, mockRes, mockNext)
+    await resolveCarousels(req, mockRes, mockNext)
 
-    // The recommended array should be empty since the article isn't available in enterprise-cloud
-    expect((req.context!.page as Page & { recommended?: ResolvedArticle[] }).recommended).toEqual(
-      [],
-    )
+    // The carousels should not be added since the article isn't available in enterprise-cloud
+    expect(
+      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
+    ).toBeUndefined()
+    expect(mockNext).toHaveBeenCalled()
+  })
+
+  test('should deduplicate articles within a carousel', async () => {
+    const testPage: Partial<import('@/types').Page> = {
+      title: 'Duplicate Article',
+      intro: 'Duplicate intro',
+      relativePath: 'test/duplicate.md',
+      applicableVersions: ['free-pro-team@latest'],
+    }
+
+    mockFindPage.mockReturnValue(testPage as unknown as Page)
+
+    const req = createMockRequest({
+      rawCarousels: { recommended: ['/test/duplicate', '/test/duplicate', '/test/duplicate'] },
+    })
+
+    await resolveCarousels(req, mockRes, mockNext)
+
+    // Should only have one article, not three duplicates
+    expect(
+      (req.context!.page as Page & { carousels?: Record<string, ResolvedArticle[]> }).carousels,
+    ).toEqual({
+      recommended: [
+        {
+          title: 'Duplicate Article',
+          intro: 'Duplicate intro',
+          href: '/test/duplicate',
+          category: ['test'],
+        },
+      ],
+    })
     expect(mockNext).toHaveBeenCalled()
   })
 })

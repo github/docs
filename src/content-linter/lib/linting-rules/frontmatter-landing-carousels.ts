@@ -6,7 +6,7 @@ import { getFrontmatter } from '../helpers/utils'
 import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
 interface Frontmatter {
-  recommended?: string[]
+  carousels?: Record<string, string[]>
   layout?: string
   [key: string]: unknown
 }
@@ -52,42 +52,48 @@ function isValidArticlePath(articlePath: string, currentFilePath: string): boole
   }
 }
 
-export const frontmatterLandingRecommended = {
-  names: ['GHD056', 'frontmatter-landing-recommended'],
+export const frontmatterLandingCarousels = {
+  names: ['GHD056', 'frontmatter-landing-carousels'],
   description:
-    'Only landing pages can have recommended articles, there should be no duplicate recommended articles, and all recommended articles must exist',
-  tags: ['frontmatter', 'landing', 'recommended'],
+    'Only landing pages can have carousels, there should be no duplicate articles, and all articles must exist',
+  tags: ['frontmatter', 'landing', 'carousels'],
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     // Using any for frontmatter as it's a dynamic YAML object with varying properties
     const fm = getFrontmatter(params.lines) as Frontmatter | null
-    if (!fm || !fm.recommended) return
+    if (!fm) return
 
-    const recommendedLine: string | undefined = params.lines.find((line) =>
-      line.startsWith('recommended:'),
+    const hasCarousels = fm.carousels && typeof fm.carousels === 'object'
+
+    if (!hasCarousels) return
+
+    const carouselsLine: string | undefined = params.lines.find((line) =>
+      line.startsWith('carousels:'),
     )
 
-    if (!recommendedLine) return
+    if (!carouselsLine) return
 
-    const lineNumber: number = params.lines.indexOf(recommendedLine) + 1
+    const lineNumber: number = params.lines.indexOf(carouselsLine) + 1
 
     if (!fm.layout || !fm.layout.includes('landing')) {
       addError(
         onError,
         lineNumber,
-        'recommended frontmatter key is only valid for landing pages',
-        recommendedLine,
-        [1, recommendedLine.length],
+        'carousels frontmatter key is only valid for landing pages',
+        carouselsLine,
+        [1, carouselsLine.length],
         null,
       )
     }
 
-    // Check for duplicate recommended items and invalid paths
-    if (Array.isArray(fm.recommended)) {
+    // Check each carousel for duplicates and invalid paths
+    for (const [carouselKey, articles] of Object.entries(fm.carousels!)) {
+      if (!Array.isArray(articles)) continue
+
       const seen = new Set<string>()
       const duplicates: string[] = []
       const invalidPaths: string[] = []
 
-      for (const item of fm.recommended) {
+      for (const item of articles) {
         if (seen.has(item)) {
           duplicates.push(item)
         } else {
@@ -104,9 +110,9 @@ export const frontmatterLandingRecommended = {
         addError(
           onError,
           lineNumber,
-          `Found duplicate recommended articles: ${duplicates.join(', ')}`,
-          recommendedLine,
-          [1, recommendedLine.length],
+          `Found duplicate articles in carousel '${carouselKey}': ${duplicates.join(', ')}`,
+          carouselsLine,
+          [1, carouselsLine.length],
           null,
         )
       }
@@ -115,9 +121,9 @@ export const frontmatterLandingRecommended = {
         addError(
           onError,
           lineNumber,
-          `Found invalid recommended article paths: ${invalidPaths.join(', ')}`,
-          recommendedLine,
-          [1, recommendedLine.length],
+          `Found invalid article paths in carousel '${carouselKey}': ${invalidPaths.join(', ')}`,
+          carouselsLine,
+          [1, carouselsLine.length],
           null,
         )
       }
