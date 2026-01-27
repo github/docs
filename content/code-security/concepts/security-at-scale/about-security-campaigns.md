@@ -38,6 +38,9 @@ A security campaign has many benefits over other ways of encouraging developers 
 * Developers can see the alerts you've highlighted for remediation without leaving their normal workflows.
 * Each campaign has a named point of contact for questions, reviews, and collaboration.  {% ifversion security-campaigns-autofix %}
 * For {% data variables.product.prodname_code_scanning %} alerts, {% data variables.copilot.copilot_autofix %} is automatically triggered to suggest a resolution. {% endif %}
+{%- ifversion code-secret-alert-assignees %}
+* For both {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, you can assign alerts in a campaign to users with write access{% ifversion copilot %} or to {% data variables.copilot.copilot_coding_agent %} to automatically generate pull requests with fixes{% endif %}.
+{%- endif %}
 
 You can use one of the templates to select a group of closely related alerts for a campaign. This allows developers to build on the knowledge gained by resolving one alert and use it to fix several more, providing them with an incentive to fix multiple alerts.
 
@@ -69,7 +72,7 @@ The creation workflow is the same for all campaigns, but you will notice a few d
 
 {% ifversion code-secret-alert-assignees %}
 
-## Assigning alerts{% ifversion security-campaigns-assign-to-cca %} to users and {% data variables.copilot.copilot_coding_agent %}{% endif %}
+## About assigning alerts{% ifversion security-campaigns-assign-to-cca %} to users and {% data variables.copilot.copilot_coding_agent %}{% endif %}
 
 {% ifversion code-secret-alert-assignees-ga %}{% elsif ghes = 3.20 %}
 
