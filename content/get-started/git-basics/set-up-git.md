@@ -69,7 +69,8 @@ If you clone with SSH, you must generate SSH keys on each computer you use to pu
 
 ## Next steps
 
-You now have Git and {% data variables.product.github %} all set up. You may now choose to create a repository where you can put your projects. Saving your code in a repository allows you to back up your code and share it around the world.
+You now have Git and {% data variables.product.github %} all set up. You can now choose to create a repository where you can store your projects. Saving your code in a repository allows you to back up your work and share it around the world.
+
 
 * {% data reusables.getting-started.create-a-repository %}
 
