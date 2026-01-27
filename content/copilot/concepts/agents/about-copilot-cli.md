@@ -47,7 +47,7 @@ For installation instructions, see [AUTOTITLE](/copilot/how-tos/set-up/install-c
   Alternatively, you can use a script to output command-line options and pipe this to `copilot`. For example:
 
   ```bash copy
-  echo ./script-outputting-options.sh | copilot
+  ./script-outputting-options.sh | copilot
   ```
 
 > [!CAUTION]
