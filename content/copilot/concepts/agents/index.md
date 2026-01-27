@@ -11,7 +11,9 @@ children:
   - /coding-agent
   - /code-review
   - /about-copilot-cli
+  - /copilot-memory
   - /openai-codex
+  - /about-agent-skills
   - /enterprise-management
 contentType: concepts
 ---

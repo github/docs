@@ -32,11 +32,11 @@ topics:
 
 ## {% data variables.contact.premium_support %} plans
 
-There are two {% data variables.contact.premium_support %} plans: Premium and Premium Plus / {% data variables.product.microsoft_premium_plus_support_plan %}.
+There are two {% data variables.contact.premium_support %} plans: Premium and {% data variables.product.premium_plus_support_plan %} / {% data variables.product.microsoft_premium_plus_support_plan %}.
 
 {% rowheaders %}
 
-| | {% data variables.product.premium_support_plan %} | {% data variables.product.premium_plus_support_plan %} |
+| | {% data variables.product.premium_support_plan %} | {% data variables.product.premium_plus_support_plan %} / {% data variables.product.microsoft_premium_plus_support_plan %} |
 |---|---|------|
 | Hours of operation | 24 x 7 | 24 x 7 |
 | Initial response time | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %} (including initial troubleshooting)</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li><li>48 hours for {% data variables.product.support_ticket_priority_normal %}</li><li>48 hours for {% data variables.product.support_ticket_priority_low %}</li></ul> | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %} (including initial troubleshooting)</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li><li>24 hours for {% data variables.product.support_ticket_priority_normal %}</li><li>48 hours for {% data variables.product.support_ticket_priority_low %}</li></ul> |
@@ -65,7 +65,7 @@ How you are charged for {% data variables.contact.premium_support %} will depend
 
 * If you are a **licensed billing** customer, the support fee percentage is applied to the cost of licenses for the current year.
 
-* If you are a **metered billing** customer, the support fee percentage for **{% data variables.product.premium_support_plan %}**, **Premium Plus plan**, and **{% data variables.product.microsoft_premium_plus_support_plan %}** is calculated as either a percentage of your estimated metered spending or a set minimum annual fee—whichever amount is higher. For {% data variables.product.microsoft_premium_plus_support_plan %} customers, this is in addition to the Unified Support contract fee.
+* If you are a **metered billing** customer, the support fee percentage for **{% data variables.product.premium_support_plan %}**, **{% data variables.product.premium_plus_support_plan %}**, and **{% data variables.product.microsoft_premium_plus_support_plan %}** is calculated as either a percentage of your estimated metered spending or a set minimum annual fee—whichever amount is higher. For {% data variables.product.microsoft_premium_plus_support_plan %} customers, this is in addition to the Unified Support contract fee.
 
   The support fee for metered billing is estimated from the previous 12 months' spending. If you have less than 12 months of spending history, {% data variables.product.github %} will take a 12-month run rate based on your spending history. If your last 3 to 6 months spending is vastly different to the last 6 to 9 months, the last 3 to 6 month period will be used.
 
@@ -73,7 +73,7 @@ How you are charged for {% data variables.contact.premium_support %} will depend
 
 * If you are both a licensed and metered billing customer (hybrid), your charge will be calculated from the support fee percentage applied to the current year's license purchases **plus** the support fee percentage applied to your estimated metered billing spend.
 
-New {% data variables.product.github %} customers who are only planning to use metered products will be required to pay the annual minimum for {% data variables.product.premium_support_plan %} or {% data variables.product.premium_plus_support_plan %}.
+New {% data variables.product.github %} customers who are only planning to use metered products will be required to pay the annual minimum for {% data variables.product.premium_support_plan %} or {% data variables.product.premium_plus_support_plan %} / {% data variables.product.microsoft_premium_plus_support_plan %}.
 
 If you would like a quote for {% data variables.contact.premium_support %}, contact [{% data variables.product.github %}'s Sales team](https://github.com/enterprise/contact?scid=&utm_campaign=2023q3-site-ww-PremiumSupport&utm_content=Premium+Support&utm_medium=referral&utm_source=github).
 
@@ -101,7 +101,7 @@ For tickets you submit, support is available 24 hours a day, 7 days per week. Th
 
 | | Urgent Response Time | High Response Time | Normal Response Time | Low Response Time |
 | --- | ---| --- | --- | --- |
-| {% data variables.product.premium_plus_support_plan %} | 30 minutes | 4 hours | 24 hours | 48 hours |
+| {% data variables.product.premium_plus_support_plan %} / {% data variables.product.microsoft_premium_plus_support_plan %} | 30 minutes | 4 hours | 24 hours | 48 hours |
 | {% data variables.product.premium_support_plan %} | 30 minutes | 4 hours | 48 hours | 48 hours |
 
 {% endrowheaders %}

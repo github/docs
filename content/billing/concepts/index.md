@@ -20,4 +20,3 @@ children:
   - /third-party-payments
 contentType: concepts
 ---
-

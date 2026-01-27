@@ -27,6 +27,9 @@ Used for:
 * {% data variables.copilot.copilot_gpt_51 %}
 * {% data variables.copilot.copilot_gpt_51_codex %}
 * {% data variables.copilot.copilot_gpt_51_codex_mini %}
+* {% data variables.copilot.copilot_gpt_51_codex_max %}
+* {% data variables.copilot.copilot_gpt_52 %}
+* {% data variables.copilot.copilot_gpt_52_codex %}
 
 These models are hosted by OpenAI and {% data variables.product.github %}'s Azure infrastructure.
 
@@ -45,14 +48,6 @@ Used for:
 {% data variables.copilot.copilot_raptor_mini %} is deployed on {% data variables.product.github %} managed Azure OpenAI tenant.
 
 ## Anthropic models
-
-<!-- expires 2025-12-05 -->
-
-<!-- When this expires, check with the stakeholder for release #20458 on whether or not this note can be removed -->
-
-{% data reusables.copilot.claude-promo-period %} See [Model multipliers](/copilot/reference/ai-models/supported-models#model-multipliers).
-
-<!-- end expires 2025-12-05 -->
 
 Used for:
 
@@ -78,8 +73,9 @@ Used for:
 
 * {% data variables.copilot.copilot_gemini_25_pro %}
 * {% data variables.copilot.copilot_gemini_3_pro %}
+* {% data variables.copilot.copilot_gemini_3_flash %}
 
-{% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_gemini_3_pro %} and {% data variables.copilot.copilot_gemini_25_pro %} hosted on Google Cloud Platform (GCP). When using {% data variables.copilot.copilot_gemini %} models, prompts and metadata are sent to GCP, which makes the [following data commitment](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance): _{% data variables.copilot.copilot_gemini %} doesn't use your prompts, or its responses, as data to train its models._
+{% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_gemini_3_pro %}, {% data variables.copilot.copilot_gemini_3_flash %}, and {% data variables.copilot.copilot_gemini_25_pro %} hosted on Google Cloud Platform (GCP). When using {% data variables.copilot.copilot_gemini %} models, prompts and metadata are sent to GCP, which makes the [following data commitment](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance): _{% data variables.copilot.copilot_gemini %} doesn't use your prompts, or its responses, as data to train its models._
 
 To provide better service quality and reduce latency, {% data variables.product.github %} uses [prompt caching](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance#customer_data_retention_and_achieving_zero_data_retention).
 

@@ -7,7 +7,7 @@ import type { RuleParams, RuleErrorCallback, Rule } from '@/content-linter/types
 
 interface Frontmatter {
   heroImage?: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 // Get the list of valid hero images (without extensions)

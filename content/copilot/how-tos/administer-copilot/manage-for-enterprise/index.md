@@ -13,6 +13,7 @@ children:
   - /manage-agents
   - /manage-spark
   - /view-usage-and-adoption
+  - /view-code-generation
   - /use-your-own-api-keys
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise

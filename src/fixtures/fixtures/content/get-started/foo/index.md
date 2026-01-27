@@ -18,4 +18,5 @@ children:
   - /page-with-permissions-and-product-callout
   - /table-with-ifversions
   - /code-snippet-with-hashbang
+  - /journey-test-article
 ---

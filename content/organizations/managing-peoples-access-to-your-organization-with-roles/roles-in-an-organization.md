@@ -205,6 +205,10 @@ Some of the features listed below are limited to organizations using {% data var
 | {% ifversion security-delegated-alert-dismissal %} |
 | Review and manage {% data variables.product.prodname_code_scanning %} dismissal requests (see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/enabling-delegated-alert-dismissal-for-code-scanning)) | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
 | {% endif %} |
+| {% ifversion dependabot-delegated-alert-dismissal %} |
+| Review {% data variables.product.prodname_dependabot %} alert dismissal requests (see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/enable-delegated-alert-dismissal)) | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
+| Bypass {% data variables.product.prodname_dependabot %} alert dismissal requests (see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/enable-delegated-alert-dismissal)) | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
+| {% endif %} |
 
 {% endrowheaders %}
 
@@ -241,6 +245,10 @@ Some of the features listed below are limited to organizations using {% data var
 | {% endif %} |
 | {% ifversion security-delegated-alert-dismissal %} |
 | Review and manage {% data variables.product.prodname_code_scanning %} dismissal requests | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
+| {% endif %} |
+| {% ifversion dependabot-delegated-alert-dismissal %} |
+| Review {% data variables.product.prodname_dependabot %} alert dismissal requests | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
+| Bypass {% data variables.product.prodname_dependabot %} alert dismissal requests | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
 | {% endif %} |
 | Manage {% data variables.product.prodname_dependabot_security_updates %} (see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)) | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
 | Manage an organization's SSH certificate authorities (see [AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)) | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> |

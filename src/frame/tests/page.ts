@@ -439,17 +439,16 @@ describe('catches errors thrown in Page class', () => {
     await expect(getPage).rejects.toThrowError('versions')
   })
 
-  // TODO - UNSKIP WHEN GHAE IS UPDATED WITH SEMVER VERSIONING
-  test.skip('invalid versions frontmatter', async () => {
+  test('missing children frontmatter in index file', async () => {
     async function getPage() {
       return await Page.init({
-        relativePath: 'page-with-invalid-product-version.md',
+        relativePath: 'index.md',
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
         languageCode: 'en',
       })
     }
 
-    await expect(getPage).rejects.toThrowError('versions')
+    await expect(getPage).rejects.toThrowError(/must contain 'children' frontmatter/)
   })
 
   test('English page with a version in frontmatter that its parent product is not available in', async () => {

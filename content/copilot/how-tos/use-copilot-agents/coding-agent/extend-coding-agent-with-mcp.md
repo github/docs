@@ -303,20 +303,26 @@ If you want to allow {% data variables.product.prodname_copilot_short %} to acce
 1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **{% data variables.copilot.copilot_coding_agent_short_cap_c %}**.
 1. Add your configuration in the **MCP configuration** section. For example, you can add the following:
 
-  ```javascript copy
+   ```javascript copy
     // If you copy and paste this example, you will need to remove the comments prefixed with `//`, which are not valid JSON.
     {
       "mcpServers": {
         "github-mcp-server": {
           "type": "http",
           // Remove "/readonly" to enable wider access to all tools.
-          // Then, use the "tools" key to specify the subset of tools you'd like to include.
+          // Then, use the "X-MCP-Toolsets" header to specify which toolsets you'd like to include.
+          // Use the "tools" field to select individual tools from the toolsets.
           "url": "https://api.githubcopilot.com/mcp/readonly",
-          "tools": ["*"]
+          "tools": ["*"],
+          "headers": {
+            "X-MCP-Toolsets": "repos,issues,users,pull_requests,code_security,secret_protection,actions,web_search"
+          }
         }
       }
     }
    ```
+
+   For more information on toolsets, refer to the [README](https://github.com/github/github-mcp-server?tab=readme-ov-file#available-toolsets) in the {% data variables.product.github %} Remote MCP Server documentation.
 
 1. Click **Save**.
 {% data reusables.actions.sidebar-environment %}

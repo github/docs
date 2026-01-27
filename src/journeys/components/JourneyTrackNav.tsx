@@ -8,7 +8,7 @@ type Props = {
 
 export function JourneyTrackNav({ context }: Props) {
   const { t } = useTranslation('journey_track_nav')
-  const { prevGuide, nextGuide, trackTitle, currentGuideIndex, numberOfGuides } = context
+  const { prevGuide, nextGuide, nextTrackFirstGuide } = context
 
   return (
     <div
@@ -26,24 +26,22 @@ export function JourneyTrackNav({ context }: Props) {
         )}
       </span>
 
-      <span className="f5 d-flex flex-column flex-items-center">
-        <span className="color-fg-muted">{trackTitle}</span>
-        <span className="color-fg-muted">
-          {t('current_progress')
-            .replace('{n}', `${numberOfGuides}`)
-            .replace('{i}', `${currentGuideIndex + 1}`)}
-        </span>
-      </span>
-
       <span className="f5 d-flex flex-column flex-items-end">
-        {nextGuide && (
+        {nextGuide ? (
           <>
             <span className="color-fg-default">{t('next_article')}</span>
             <Link href={nextGuide.href} className="text-bold color-fg text-right">
               {nextGuide.title}
             </Link>
           </>
-        )}
+        ) : nextTrackFirstGuide ? (
+          <>
+            <span className="color-fg-default">{t('next_article')}</span>
+            <Link href={nextTrackFirstGuide.href} className="text-bold color-fg text-right">
+              {nextTrackFirstGuide.trackTitle}
+            </Link>
+          </>
+        ) : null}
       </span>
     </div>
   )

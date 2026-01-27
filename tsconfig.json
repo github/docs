@@ -35,7 +35,8 @@
   "exclude": [
     "node_modules",
     "docs-internal-data",
-    "src/code-scanning/scripts/generate-code-scanning-query-list.ts"
+    "src/codeql-queries/scripts/generate-code-scanning-query-list.ts",
+    "src/codeql-queries/scripts/generate-code-quality-query-list.ts"
   ],
   "include": [
     "**/*.ts",

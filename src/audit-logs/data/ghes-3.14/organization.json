@@ -88,7 +88,7 @@
       "created_at",
       "_document_id"
     ],
-    "docs_reference_titles": "/code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory"
+    "docs_reference_titles": "Editing a repository security advisory"
   },
   {
     "action": "advisory_credit.create",
@@ -361,23 +361,6 @@
       "repo",
       "programmatic_access_type"
     ]
-  },
-  {
-    "action": "code.search",
-    "description": "A code search was run targeting an organization. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
-    "docs_reference_links": "/search-github/github-code-search",
-    "fields": [
-      "@timestamp",
-      "action",
-      "actor_id",
-      "business_id",
-      "query",
-      "org_id",
-      "user_id",
-      "_document_id",
-      "search_string"
-    ],
-    "docs_reference_titles": "/search-github/github-code-search"
   },
   {
     "action": "codespaces.allow_permissions",
@@ -967,14 +950,13 @@
   },
   {
     "action": "copilot.knowledge_base_created",
-    "description": "A knowledge base was created in the organization.",
-    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "actor",
       "actor_id",
       "user_agent",
       "request_id",
-      "knowledge_base_name",
       "org_id",
       "org",
       "action",
@@ -986,19 +968,17 @@
       "business_id",
       "actor_is_bot",
       "request_access_security_header"
-    ],
-    "docs_reference_titles": "Creating and managing GitHub Copilot knowledge bases"
+    ]
   },
   {
     "action": "copilot.knowledge_base_deleted",
-    "description": "A knowledge base was deleted from the organization.",
-    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "actor",
       "actor_id",
       "user_agent",
       "request_id",
-      "knowledge_base_name",
       "org_id",
       "org",
       "action",
@@ -1010,19 +990,17 @@
       "business_id",
       "actor_is_bot",
       "request_access_security_header"
-    ],
-    "docs_reference_titles": "Creating and managing GitHub Copilot knowledge bases"
+    ]
   },
   {
     "action": "copilot.knowledge_base_updated",
-    "description": "A knowledge base was updated in the organization.",
-    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "actor",
       "actor_id",
       "user_agent",
       "request_id",
-      "knowledge_base_name",
       "org_id",
       "org",
       "action",
@@ -1034,8 +1012,7 @@
       "business_id",
       "actor_is_bot",
       "request_access_security_header"
-    ],
-    "docs_reference_titles": "Creating and managing GitHub Copilot knowledge bases"
+    ]
   },
   {
     "action": "copilot.plan_changed",
@@ -1614,8 +1591,8 @@
   },
   {
     "action": "discussion_post.destroy",
-    "description": "Triggered when a team discussion post is deleted.",
-    "docs_reference_links": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "request_id",
       "team",
@@ -1632,13 +1609,12 @@
       "user_agent",
       "operation_type",
       "_document_id"
-    ],
-    "docs_reference_titles": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment"
+    ]
   },
   {
     "action": "discussion_post_reply.destroy",
-    "description": "Triggered when a reply to a team discussion post is deleted.",
-    "docs_reference_links": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "actor_id",
       "action",
@@ -1652,13 +1628,12 @@
       "created_at",
       "request_id",
       "_document_id"
-    ],
-    "docs_reference_titles": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment"
+    ]
   },
   {
     "action": "discussion_post_reply.update",
-    "description": "Triggered when a reply to a team discussion post is edited.",
-    "docs_reference_links": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "action",
       "_document_id",
@@ -1675,13 +1650,12 @@
       "number",
       "team",
       "created_at"
-    ],
-    "docs_reference_titles": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment"
+    ]
   },
   {
     "action": "discussion_post.update",
-    "description": "Triggered when a team discussion post is edited.",
-    "docs_reference_links": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "created_at",
       "_document_id",
@@ -1699,8 +1673,7 @@
       "request_id",
       "user_id",
       "number"
-    ],
-    "docs_reference_titles": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment"
+    ]
   },
   {
     "action": "enterprise_announcement.create",
@@ -3819,7 +3792,9 @@
       "selected_service",
       "network_settings_ids",
       "previous_settings_ids",
-      "network_configuration_id"
+      "network_configuration_id",
+      "failover_network_settings_ids",
+      "failover_network_enabled"
     ],
     "docs_reference_titles": "About networking for hosted compute products in your enterprise"
   },
@@ -3863,7 +3838,9 @@
       "actor_is_bot",
       "selected_service",
       "network_settings_ids",
-      "previous_settings_ids"
+      "previous_settings_ids",
+      "failover_network_settings_ids",
+      "failover_network_enabled"
     ],
     "docs_reference_titles": "About networking for hosted compute products in your enterprise"
   },
@@ -4302,12 +4279,12 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests#enabling-or-disabling-integration-access-requests"
+    "docs_reference_titles": "Limiting OAuth app and GitHub App access requests and installations"
   },
   {
     "action": "org.allow_third_party_access_requests_from_outside_collaborators_enabled",
     "description": "Third-party application access for outside collaborators was enabled for the organization.",
-    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests#enabling-or-disabling-integration-access-requests",
+    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests-and-installations#enabling-or-disabling-app-access-requests",
     "fields": [
       "actor",
       "actor_id",
@@ -4321,7 +4298,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests#enabling-or-disabling-integration-access-requests"
+    "docs_reference_titles": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests-and-installations#enabling-or-disabling-app-access-requests"
   },
   {
     "action": "org.archive",
@@ -4553,7 +4530,7 @@
       "business",
       "business_id"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
+    "docs_reference_titles": "Configuring default setup for code scanning at scale"
   },
   {
     "action": "org.codeql_enabled",
@@ -4576,7 +4553,7 @@
       "business",
       "business_id"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
+    "docs_reference_titles": "Configuring default setup for code scanning at scale"
   },
   {
     "action": "org.codespaces_access_updated",
@@ -10224,7 +10201,7 @@
       "operation_type",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
+    "docs_reference_titles": "Configuring default setup for code scanning"
   },
   {
     "action": "repo.codeql_enabled",
@@ -10252,7 +10229,7 @@
       "languages",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
+    "docs_reference_titles": "Configuring default setup for code scanning"
   },
   {
     "action": "repo.codeql_updated",
@@ -10280,7 +10257,7 @@
       "business_id",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
+    "docs_reference_titles": "Configuring default setup for code scanning"
   },
   {
     "action": "repo.codespaces_trusted_repo_access_granted",
@@ -11614,7 +11591,7 @@
       "org_id",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories"
+    "docs_reference_titles": "About repository security advisories"
   },
   {
     "action": "repository_advisory.cve_request",
@@ -12860,7 +12837,7 @@
       "alert_number",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+    "docs_reference_titles": "About Dependabot alerts"
   },
   {
     "action": "repository_vulnerability_alert.dismiss",
@@ -13271,7 +13248,7 @@
       "publicly_leaked",
       "multi_repo"
     ],
-    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+    "docs_reference_titles": "Manage secret scanning alerts"
   },
   {
     "action": "secret_scanning_alert.reopen",
@@ -13374,7 +13351,7 @@
       "publicly_leaked",
       "multi_repo"
     ],
-    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+    "docs_reference_titles": "Manage secret scanning alerts"
   },
   {
     "action": "secret_scanning.disable",
@@ -13566,7 +13543,7 @@
       "actor_is_bot",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Working with secret scanning and push protection"
+    "docs_reference_titles": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
   },
   {
     "action": "sponsors.agreement_sign",
@@ -14075,7 +14052,7 @@
   },
   {
     "action": "staff.dependabot_debug_credentials_generated",
-    "description": "N/A",
+    "description": "Dependabot encrypted config was read.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -14309,7 +14286,7 @@
   },
   {
     "action": "team_discussions.clear",
-    "description": "An organization owner cleared the setting to allow team discussions for an organization or enterprise.",
+    "description": "N/A",
     "docs_reference_links": "N/A",
     "fields": [
       "business_id",
@@ -14329,8 +14306,8 @@
   },
   {
     "action": "team_discussions.disable",
-    "description": "Team discussions were disabled for an organization.",
-    "docs_reference_links": "/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "org_id",
       "action",
@@ -14345,12 +14322,11 @@
       "@timestamp",
       "user_agent",
       "_document_id"
-    ],
-    "docs_reference_titles": "Organizations and teams documentation"
+    ]
   },
   {
     "action": "team_discussions.enable",
-    "description": "Team discussions were enabled for an organization.",
+    "description": "N/A",
     "docs_reference_links": "N/A",
     "fields": [
       "actor_id",

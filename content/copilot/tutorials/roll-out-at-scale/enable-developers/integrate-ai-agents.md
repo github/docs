@@ -158,7 +158,7 @@ To integrate agentic AI features effectively into your workstreams, you'll need 
 | Custom instructions | [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=vscode) |
 | {% data variables.copilot.copilot_code-review_short %} | [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/automatic-code-review) |
 | {% data variables.copilot.copilot_custom_agents %} | [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents) |
-| {% data variables.copilot.copilot_coding_agent %} ({% data variables.release-phases.public_preview %}) | [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/enabling-developers/using-copilot-coding-agent-in-org) |
+| {% data variables.copilot.copilot_coding_agent %} | [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/enabling-developers/using-copilot-coding-agent-in-org) |
 | {% data variables.copilot.copilot_autofix_short %} | [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning) |
 
 {% endrowheaders %}

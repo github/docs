@@ -38,7 +38,28 @@ Once you've accessed space context from your IDE:
 
 ### Prerequisites
 
-To use {% data variables.copilot.copilot_spaces_short %} in your IDE, you need to install the {% data variables.product.github %} MCP server. For setup instructions, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/use-the-github-mcp-server).
+To use {% data variables.copilot.copilot_spaces_short %} in your IDE, you need to:
+
+* Set up the remote {% data variables.product.github %} MCP server for your IDE. For more information, see [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server) and [Remote {% data variables.product.github %} MCP Server](https://github.com/github/github-mcp-server/blob/main/docs/remote-server.md) in the {% data variables.product.github %} MCP server documentation.
+* Configure the set up of the remote {% data variables.product.github %} MCP server so that the {% data variables.copilot.copilot_spaces_short %} toolset is enabled.
+
+  The {% data variables.copilot.copilot_spaces_short %} toolset is not included in the default configuration, so you must explicitly enable it using the `X-MCP-Toolsets` header. The following example configuration enables both the default tools and {% data variables.copilot.copilot_spaces_short %}:
+
+   ```json copy
+   {
+     "servers": {
+       "github": {
+         "type": "http",
+         "url": "https://api.githubcopilot.com/mcp/",
+         "headers": {
+           "X-MCP-Toolsets": "default,copilot_spaces"
+         }
+       }
+     }
+   }
+   ```
+
+   Alternatively, you can use the dedicated {% data variables.copilot.copilot_spaces_short %} toolset URL: `https://api.githubcopilot.com/mcp/x/copilot_spaces`. Note that this configuration provides _only_ {% data variables.copilot.copilot_spaces_short %} tools, without other default {% data variables.product.github %} MCP server functionality.
 
 ### Accessing space context from your IDE
 

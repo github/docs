@@ -22,7 +22,8 @@ import yaml from 'js-yaml'
 import { program } from 'commander'
 
 import { loadPages, loadUnversionedTree } from '@/frame/lib/page-data'
-import { TokenizationError } from 'liquidjs'
+import { TokenizationError, TokenKind } from 'liquidjs'
+import type { TagToken } from 'liquidjs'
 
 import readFrontmatter from '@/frame/lib/read-frontmatter'
 import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
@@ -137,7 +138,10 @@ function getReusableFiles(root = 'data') {
 
 function checkString(string: string, variables: Map<string, string>) {
   try {
-    for (const token of getLiquidTokens(string)) {
+    const tokens = getLiquidTokens(string).filter(
+      (token): token is TagToken => token.kind === TokenKind.Tag,
+    )
+    for (const token of tokens) {
       if (token.name === 'data') {
         const { args } = token
         variables.delete(args)

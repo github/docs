@@ -9,6 +9,7 @@ children:
   - /fields
   - /items
   - /projects
+  - /views
 versions:
   fpt: '*'
   ghec: '*'

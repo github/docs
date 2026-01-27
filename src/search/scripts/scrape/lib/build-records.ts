@@ -130,12 +130,15 @@ export default async function buildRecords(
     })
     .on('error', (err) => {
       // Track the failure
-      const url = (err as any).url
-      const relativePath = (err as any).relativePath
+      const url = (err as unknown as { url?: string }).url
+      const relativePath = (err as unknown as { relativePath?: string }).relativePath
 
       // Check for HTTPError by name since it may come from a different module
-      if ((err instanceof HTTPError || err?.name === 'HTTPError') && (err as any).response) {
-        const httpErr = err as any
+      if (
+        (err instanceof HTTPError || err?.name === 'HTTPError') &&
+        (err as unknown as HTTPError).response
+      ) {
+        const httpErr = err as unknown as HTTPError
         failedPages.push({
           url: httpErr.request?.requestUrl?.pathname || url,
           relativePath,
@@ -146,7 +149,7 @@ export default async function buildRecords(
         if (!noMarkers) process.stdout.write(chalk.red('✗'))
       } else if (err instanceof Error) {
         // Enhanced error handling for timeout and network errors
-        const errorType = (err.cause as any)?.code || err.name
+        const errorType = (err.cause as unknown as { code?: string })?.code || err.name
         const isTimeout =
           errorType === 'UND_ERR_HEADERS_TIMEOUT' ||
           errorType === 'UND_ERR_CONNECT_TIMEOUT' ||

@@ -19,13 +19,7 @@ topics:
 shortTitle: GitHub's IP addresses
 ---
 
-You can retrieve a list of the IP addresses for {% data variables.product.prodname_dotcom_the_website %} from the [meta](https://api.github.com/meta) API endpoint. For more information, see [AUTOTITLE](/rest/meta).
-
-{% ifversion ghec %}
-
-If you access {% data variables.product.github %} on a subdomain of {% data variables.enterprise.data_residency_site %}, the meta endpoint does not return IP ranges for your subdomain. See [AUTOTITLE](/admin/data-residency/network-details-for-ghecom#githubs-ip-addresses).
-
-{% endif %}
+You can retrieve a list of the IP addresses for your {% data variables.product.github %} environment from the [meta](https://api.github.com/meta) API endpoint. For more information, see [AUTOTITLE](/rest/meta).
 
 > [!NOTE]
 > The list of {% data variables.product.prodname_dotcom %} IP addresses returned by the Meta API is not intended to be an exhaustive list. For example, IP addresses for some {% data variables.product.prodname_dotcom %} services might not be listed, such as LFS or {% data variables.product.prodname_registry %}.
@@ -36,7 +30,7 @@ These ranges are in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inte
 
 We make changes to our IP addresses from time to time. We do not recommend allowing by IP address, but if you use these IP ranges we strongly encourage regular monitoring of our API.
 
-For applications to function, you must allow TCP ports 22, 80, and 443 via our IP ranges for `github.com`.
+For applications to function, you must allow TCP ports 22, 80, and 443 via our IP ranges for `github.com` and `{% data variables.enterprise.data_residency_domain %}`.
 
 ## Further reading
 

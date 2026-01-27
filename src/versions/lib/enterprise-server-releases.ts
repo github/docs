@@ -29,11 +29,11 @@ const rawDates: RawDatesData = JSON.parse(
 // ============================================================================
 
 // Upcoming GHES release numbers (used in frontmatter and release planning)
-export const next = '3.19'
-export const nextNext = '3.20'
+export const next = '3.20'
+export const nextNext = '3.21'
 
 // Currently supported GHES versions (in descending order, latest first)
-export const supported = ['3.18', '3.17', '3.16', '3.15', '3.14']
+export const supported = ['3.19', '3.18', '3.17', '3.16', '3.15', '3.14']
 
 // Set to version number when in RC phase, null when no RC is active
 export const releaseCandidate = null
@@ -127,6 +127,12 @@ export const isOldestReleaseDeprecated = nextDeprecationDate
   ? new Date() > new Date(nextDeprecationDate)
   : false
 
+// Find any other releases that may share the oldest deprecation date
+// We'll want to display the deprecation banner on all of these releases (not just oldest)
+export const releasesWithOldestDeprecationDate = Object.entries(dates)
+  .filter(([, versionData]) => versionData.deprecationDate === nextDeprecationDate)
+  .map(([version]) => version)
+
 // Filtered version arrays for different use cases
 export const deprecatedOnNewSite = deprecated.filter((version) =>
   versionSatisfiesRange(version, '>=2.13'),
@@ -210,6 +216,7 @@ export default {
   oldestSupported,
   nextDeprecationDate,
   isOldestReleaseDeprecated,
+  releasesWithOldestDeprecationDate,
   deprecatedOnNewSite,
   dates,
   firstVersionDeprecatedOnNewSite,

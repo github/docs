@@ -51,11 +51,11 @@ This table lists the AI models available in {% data variables.product.prodname_c
 
 ## Model retirement history
 
-The following table lists AI models that have been retired from {% data variables.product.prodname_copilot_short %}, along with their retirement dates and suggested alternatives.
+The following table lists AI models that are retired or scheduled for retirement from {% data variables.product.prodname_copilot_short %}, along with their retirement dates and suggested alternatives.
 
 {% rowheaders %}
 
-| Model name                                                  | Retired date                | Suggested alternative             |
+| Model name                                                  | Retirement date             | Suggested alternative             |
 |-------------------------------------------------------------|-----------------------------|-----------------------------------|
 | {% for model in tables.copilot.model-deprecation-history %} |
 | {{ model.name }}                                            | {{ model.retirement_date }} | {{ model.suggested_alternative }} |
@@ -97,14 +97,6 @@ The following table shows which AI models are available in each {% data variable
 Each model has a premium request multiplier, based on its complexity and resource usage. If you are on a paid {% data variables.product.prodname_copilot_short %} plan, your premium request allowance is deducted according to this multiplier.
 
 For more information about premium requests, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
-
-<!-- expires 2025-12-05 -->
-
-<!-- When this expires, check with the stakeholder for release #20458 on whether or not this note can be removed and table updated -->
-
-{% data reusables.copilot.claude-promo-period %}
-
-<!-- end expires 2025-12-05 -->
 
 {% data reusables.copilot.model-multipliers %}
 
