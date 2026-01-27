@@ -20,5 +20,5 @@ children:
   - /code-scanning
   - /supply-chain-security
   - /code-quality
-  - /permission-levels-for-repository-security-advisories
+  - /permissions
 ---

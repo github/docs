@@ -21,6 +21,8 @@ sections:
         # https://github.com/github/releases/issues/6922
         - |
           `ghe-repl-start` can now be executed without requiring a maintenance window when setting up a new replica, as long as `ghe-repl-setup` is immediately followed by `ghe-config-apply`. [Updated: 2025-12-17]
+        - |
+          You can configure multiple data disks to host MySQL and repository data. This capability is currently in public preview and is applicable only for standalone and high availability topologies. It does not apply to cluster topologies. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/multiple-data-disks/configuring-multiple-data-disks). [Updated: 2026-01-19]
 
     - heading: Migrations
       notes:

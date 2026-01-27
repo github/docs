@@ -1792,7 +1792,7 @@
   },
   {
     "action": "business.invite_billing_manager",
-    "description": "An invitation for someone to be an billing manager of an enterprise was sent.",
+    "description": "An invitation for someone to be a billing manager of an enterprise was sent.",
     "docs_reference_links": "N/A",
     "fields": [
       "user",
@@ -1810,6 +1810,29 @@
       "actor_id",
       "business_id",
       "created_at"
+    ]
+  },
+  {
+    "action": "business.invite_unaffiliated_member",
+    "description": "An invitation for someone to join an enterprise was sent.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "name",
+      "invitation_id",
+      "email",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
     ]
   },
   {
@@ -1873,6 +1896,29 @@
       "user_agent",
       "request_id",
       "user_id"
+    ]
+  },
+  {
+    "action": "business.organizations_limit_warning",
+    "description": "An enterprise is approaching its organizations limit.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "name",
+      "limit",
+      "count",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
     ]
   },
   {
@@ -17546,6 +17592,34 @@
     ]
   },
   {
+    "action": "repository_secret_scanning_extended_metadata.disabled",
+    "description": "Metadata for secret scanning alerts has been disabled at the repository level",
+    "docs_reference_links": "/code-security/secret-scanning/enabling-secret-scanning-features/enabling-extended-metadata-checks-for-your-repository",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "user",
+      "user_id",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "Enabling extended metadata checks for your repository"
+  },
+  {
     "action": "repository_secret_scanning_generic_secrets.disabled",
     "description": "Generic secrets have been disabled at the repository level",
     "docs_reference_links": "N/A",
@@ -19830,6 +19904,46 @@
       "user_agent"
     ],
     "docs_reference_titles": "Managing your organization's SSH certificate authorities, Enforcing policies for security settings in your enterprise"
+  },
+  {
+    "action": "sso_lockdown.disable",
+    "description": "SSO lockdown for users was disabled.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "sso_lockdown.enable",
+    "description": "SSO lockdown for users was enabled.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
   },
   {
     "action": "sso_redirect.disable",

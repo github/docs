@@ -1,6 +1,6 @@
 ---
 title: Creating CodeQL CLI database bundles
-shortTitle: Createting CodeQL CLI database bundles
+shortTitle: Creating CodeQL CLI database bundles
 intro: You can create a database bundle with {% data variables.product.prodname_codeql %} troubleshooting information.
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codeql %}'

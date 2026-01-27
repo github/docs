@@ -6614,6 +6614,56 @@
       ]
     },
     {
+      "name": "requestReviewsByLogin",
+      "kind": "mutations",
+      "id": "requestreviewsbylogin",
+      "href": "/graphql/reference/mutations#requestreviewsbylogin",
+      "description": "<p>Set review requests on a pull request using login strings instead of IDs.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RequestReviewsByLoginInput!",
+          "id": "requestreviewsbylogininput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#requestreviewsbylogininput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "actor",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor",
+          "description": "<p>Identifies the actor who performed the event.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "pullRequest",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest",
+          "description": "<p>The pull request that is getting requests.</p>"
+        },
+        {
+          "name": "requestedReviewersEdge",
+          "type": "UserEdge",
+          "id": "useredge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#useredge",
+          "description": "<p>The edge from the pull request to the requested reviewers.</p>"
+        }
+      ]
+    },
+    {
       "name": "rerequestCheckSuite",
       "kind": "mutations",
       "id": "rerequestchecksuite",
@@ -11833,7 +11883,7 @@
       "fields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -15129,7 +15179,7 @@
       "fields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -15958,7 +16008,7 @@
       "fields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -15999,7 +16049,7 @@
       "fields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -55242,6 +55292,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "query",
+              "description": "<p>Search actors with query on user name and login.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
             }
           ]
         },
@@ -75636,7 +75696,7 @@
       "fields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -98593,7 +98653,7 @@
       "inputFields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -99531,7 +99591,7 @@
       "inputFields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -99622,7 +99682,7 @@
       "inputFields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -99696,7 +99756,7 @@
       "inputFields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -106438,12 +106498,20 @@
       "inputFields": [
         {
           "name": "actorIds",
-          "description": "<p>The ids of the actors to replace the existing assignees.</p>",
-          "type": "[ID!]!",
+          "description": "<p>The ids of the actors to replace the existing assignees. May be used as an\nalternative to or in conjunction with actorLogins.</p>",
+          "type": "[ID!]",
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        },
+        {
+          "name": "actorLogins",
+          "description": "<p>The usernames of the actors to replace the existing assignees. May be used as\nan alternative to or in conjunction with actorIds. For bots, use the login\nformat with [bot] suffix (e.g., 'my-app[bot]').</p>",
+          "type": "[String!]",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "assignableId",
@@ -106829,6 +106897,64 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "RequestReviewsByLoginInput",
+      "kind": "inputObjects",
+      "id": "requestreviewsbylogininput",
+      "href": "/graphql/reference/input-objects#requestreviewsbylogininput",
+      "description": "<p>Autogenerated input type of RequestReviewsByLogin.</p>",
+      "inputFields": [
+        {
+          "name": "botLogins",
+          "description": "<p>The logins of the bots to request reviews from, including the [bot] suffix (e.g., 'copilot-pull-request-reviewer[bot]').</p>",
+          "type": "[String!]",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pullRequestId",
+          "description": "<p>The Node ID of the pull request to modify.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "teamSlugs",
+          "description": "<p>The slugs of the teams to request reviews from (format: 'org/team-slug').</p>",
+          "type": "[String!]",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "union",
+          "description": "<p>Add users to the set rather than replace.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "userLogins",
+          "description": "<p>The login strings of the users to request reviews from.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -108135,7 +108261,7 @@
       "inputFields": [
         {
           "name": "name",
-          "description": "<p>How this rule will appear to users.</p>",
+          "description": "<p>How this rule appears when configuring it.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",

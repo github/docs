@@ -23,16 +23,9 @@ shortTitle: Dependabot options
 contentType: reference
 ---
 
-## About the `dependabot.yml` file
+This article provides reference information for the configuration options available in the `dependabot.yml` file. Use these options to customize how {% data variables.product.prodname_dependabot %} monitors package ecosystems, schedules updates, and creates pull requests. For an overview of the `dependabot.yml` file and how it works, see [AUTOTITLE](/code-security/concepts/supply-chain-security/about-the-dependabot-yml-file).
 
-The `dependabot.yml` file defines how {% data variables.product.prodname_dependabot %} maintains dependencies using version updates. In addition, all options marked with a {% octicon "shield-check" aria-label="Security updates" height="16" %} icon also change how {% data variables.product.prodname_dependabot %} creates pull requests for security updates, except where `target-branch` is used.
-
-The {% data variables.product.prodname_dependabot %} configuration file, `dependabot.yml`, uses YAML syntax. If you're new to YAML and want to learn more, see [Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes).
-
-You must store this file in the `.github` directory of your repository in the default branch. When you add or update the `dependabot.yml` file, this triggers an immediate check for version updates. For more information and an example, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates).
-
-> [!NOTE]
-> {% data variables.product.prodname_dependabot_alerts %} are configured in the repository or organization "Settings" tab and not in the `dependabot.yml` file, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts).
+All options marked with a {% octicon "shield-check" aria-label="Security updates" height="16" %} icon also change how {% data variables.product.prodname_dependabot %} creates pull requests for security updates, except where `target-branch` is used.
 
 ### Required keys
 
