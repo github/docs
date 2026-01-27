@@ -24,6 +24,8 @@ import {
   extractLinksWithLiquid,
   createLiquidContext,
   checkInternalLink,
+  checkAssetLink,
+  isAssetLink,
   getRelativePath,
 } from '@/links/lib/extract-links'
 import { type BrokenLink, generatePRComment, groupBrokenLinks } from '@/links/lib/link-report'
@@ -74,6 +76,20 @@ async function checkFile(
   totalLinksChecked = internalLinks.length
 
   for (const link of internalLinks) {
+    // Check if this is an asset link (images, etc.) - verify file exists on disk
+    if (isAssetLink(link.href)) {
+      if (!checkAssetLink(link.href)) {
+        brokenLinks.push({
+          href: link.href,
+          file: getRelativePath(filePath),
+          lines: [link.line],
+          text: link.text,
+          isAutotitle: link.isAutotitle,
+        })
+      }
+      continue
+    }
+
     const result = checkInternalLink(link.href, pageMap, redirects)
 
     if (!result.exists) {

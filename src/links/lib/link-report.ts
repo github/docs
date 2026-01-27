@@ -122,9 +122,7 @@ ${errors
 
     const warningSection =
       warnings.length > 0
-        ? `### ⚠️ ${warnings.length} Redirect${warnings.length === 1 ? '' : 's'} to Update
-
-${warnings.map((group) => `- \`${group.target}\` → \`${group.occurrences[0]?.redirectTarget || '?'}\``).join('\n')}
+        ? `### ℹ️ ${warnings.length} redirect${warnings.length === 1 ? '' : 's'} to update
 
 `
         : ''

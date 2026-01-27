@@ -337,3 +337,21 @@ export function checkInternalLink(
 
   return { exists: false, isRedirect: false }
 }
+
+/**
+ * Check if an asset link points to an existing file on disk
+ */
+export function checkAssetLink(href: string): boolean {
+  if (!href.startsWith('/assets/')) {
+    return false // Not an asset link
+  }
+  const assetPath = path.resolve(href.slice(1)) // Remove leading /
+  return fs.existsSync(assetPath)
+}
+
+/**
+ * Check if a link is an asset link (starts with /assets/)
+ */
+export function isAssetLink(href: string): boolean {
+  return href.startsWith('/assets/')
+}

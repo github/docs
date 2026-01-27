@@ -89,12 +89,13 @@ jobs:
         run: npm run check-links-internal
 
       - name: Upload report artifact
-        if: failure()
+        if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: link-report-${{ matrix.version }}-${{ matrix.language }}
           path: artifacts/link-report-*.md
           retention-days: 5
+          if-no-files-found: ignore
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

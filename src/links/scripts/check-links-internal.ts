@@ -26,7 +26,12 @@ import warmServer from '@/frame/lib/warm-server'
 import { renderContent } from '@/content-render/index'
 import { allVersions, allVersionKeys } from '@/versions/lib/all-versions'
 import languages from '@/languages/lib/languages-server'
-import { normalizeLinkPath, checkInternalLink } from '@/links/lib/extract-links'
+import {
+  normalizeLinkPath,
+  checkInternalLink,
+  checkAssetLink,
+  isAssetLink,
+} from '@/links/lib/extract-links'
 import {
   type BrokenLink,
   generateInternalLinkReport,
@@ -182,6 +187,19 @@ async function checkVersion(
     // Check each link
     for (const link of links) {
       if (isExcludedLink(link.href)) continue
+
+      // Check if this is an asset link (images, etc.) - verify file exists on disk
+      if (isAssetLink(link.href)) {
+        if (!checkAssetLink(link.href)) {
+          brokenLinks.push({
+            href: link.href,
+            file: page.relativePath,
+            lines: [0],
+            text: link.text,
+          })
+        }
+        continue
+      }
 
       const normalized = normalizeLinkPath(link.href)
       const result = checkInternalLink(normalized, pageMap, redirects)
@@ -346,10 +364,14 @@ async function main() {
     console.log(`Created report issue: ${newReport.html_url}`)
   }
 
-  // Exit with error if broken links found
-  if (result.brokenLinks.length > 0) {
-    process.exit(1)
-  }
+  // Don't exit with error - the issue report is the mechanism for docs-content to act on broken links
+  // Exiting with error would trigger docs-alerts which only engineering monitors
+  console.log('')
+  console.log(
+    chalk.yellow(
+      'Note: Report generated. Broken links should be fixed via the issue created in docs-content.',
+    ),
+  )
 }
 
 // Run if invoked directly
