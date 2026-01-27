@@ -57,7 +57,7 @@ If you do not need to work with files locally, {% data variables.product.github 
 When you connect to a {% data variables.product.github %} repository from Git, you need to authenticate with {% data variables.product.github %} using either HTTPS or SSH.
 
 > [!NOTE]
-> You can authenticate to {% data variables.product.github %} using {% data variables.product.prodname_cli %}, for either HTTP or SSH. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+> You can authenticate to {% data variables.product.github %} using {% data variables.product.prodname_cli %}, for either HTTPS or SSH. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
 ### Connecting over HTTPS (recommended)
 
