@@ -54,11 +54,11 @@ Each team has its own page within an organization. On a team's page, you can vie
 
 ## Nested teams
 
-You can reflect your group or company's hierarchy within your {% data variables.product.github %} organization with multiple levels of nested teams. A parent team can have multiple child teams, while each child team only has one parent team. You cannot nest secret teams.
+You can reflect your group or company's hierarchy within your {% data variables.product.github %} organization with multiple levels of nested teams. A parent team can have multiple child teams, while each child team only has one parent team. You cannot nest secret teams. Each nested team functions as a distinct entity with its own unique URL and directory within your organization.
 
 Child teams inherit the parent's access permissions, simplifying permissions management for large groups. Members of child teams also receive notifications when the parent team is @mentioned, simplifying communication with multiple groups of people.
 
-For example, if your team structure is Employees > Engineering > Application Engineering > Identity, granting Engineering write access to a repository means Application Engineering and Identity also get that access. If you @mention the Identity Team or any team at the bottom of the organization hierarchy, they're the only ones who will receive a notification.
+For example, if your team structure is Employees > Engineering > Application Engineering > Identity, granting Engineering write access to a repository means Application Engineering and Identity also get that access. If you @mention the Identity Team or any team at the bottom of the organization hierarchy, they're the only ones who will receive a notification. When mentioning a team, you do not need to include the full hierarchical path. Even though a team is nested, it retains a flat handle for mentions.
 
 To easily understand who shares a parent team's permissions and mentions, you can see all of the members of a parent team's child teams on the Members tab of the parent team's page. Members of a child team are not direct members of the parent team.
 
