@@ -16,6 +16,10 @@ This subject is responsible for:
 
 Note: This tracks system health, not user behavior. User behavior tracking is in [`src/events`](../events/README.md).
 
+## Logging
+
+Please see the [logger README](./logger/README.md) for details on using the logger.
+
 ## Architecture & Key Assets
 
 ### Key capabilities and their locations
