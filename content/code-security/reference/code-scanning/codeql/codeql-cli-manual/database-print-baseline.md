@@ -36,7 +36,7 @@ codeql database print-baseline <options>... -- <database>
 \[Plumbing] Print a summary of the baseline lines of code seen.
 
 This command will print to standard out the baseline lines of code seen
-within the source root specified at [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init) time for each language present in the database.
+within the source root specified at [codeql database init](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-init) time for each language present in the database.
 
 The baseline is an estimate of the non-empty, non-comment lines of code
 in a database. This count is different from the lines of code counted by
@@ -53,7 +53,7 @@ source root.
 #### `<database>`
 
 \[Mandatory] Path to the CodeQL database under construction. This must
-have been prepared for extraction with [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init).
+have been prepared for extraction with [codeql database init](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-init).
 
 If the `--db-cluster` option is given, this is not a database itself,
 but a directory that _contains_ databases, and all of those databases

@@ -616,13 +616,13 @@ Reviewers must have at least read access to the repository.
 
 | Parameters | Purpose |
 |------------|---------|
-| `interval` | **Required.** Defines the frequency for {% data variables.product.prodname_dependabot %}. |
-| `day` | Specify the day to run for a **weekly** interval. |
-| `time` | Specify the time to run. |
+| [`interval`](#interval) | **Required.** Defines the frequency for {% data variables.product.prodname_dependabot %}. |
+| [`day`](#day) | Specify the day to run for a **weekly** interval. |
+| [`time`](#time) | Specify the time to run. |
 | {% ifversion dependabot-schedule-updates %} |
-| `cronjob` | Defines the cron expression if the interval type is `cron`. |
+| [`cronjob`](#cronjob) | Defines the cron expression if the interval type is `cron`. |
 | {% endif %} |
-| `timezone` | Specify the timezone of the `time` value.  |
+| [`timezone`](#timezone) | Specify the timezone of the `time` value.  |
 
 {% ifversion fpt or ghec %}
 
@@ -704,7 +704,7 @@ updates:
 
 ### `timezone`
 
-Specify a time zone for the `time` value.
+Specify a time zone for the `time` value. The default time zone is `UTC`.
 
 The time zone identifier must match a timezone in the database maintained by [iana](https://www.iana.org/time-zones), see [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 

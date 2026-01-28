@@ -1813,6 +1813,29 @@
     ]
   },
   {
+    "action": "business.invite_unaffiliated_member",
+    "description": "An invitation for someone to join an enterprise was sent.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "name",
+      "invitation_id",
+      "email",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
     "action": "business.members_can_update_protected_branches.clear",
     "description": "An enterprise owner unset a policy for whether members of an enterprise can update protected branches on repositories for individual organizations. Organization owners can choose whether to allow updating protected branches settings.",
     "docs_reference_links": "N/A",

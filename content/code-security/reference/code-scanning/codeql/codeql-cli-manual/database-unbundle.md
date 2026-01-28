@@ -35,7 +35,7 @@ codeql database unbundle <options>... -- <archive>
 
 Extracts a CodeQL database archive.
 
-This command extracts a CodeQL database archive created by [codeql database bundle](/code-security/codeql-cli/codeql-cli-manual/database-bundle). It is similar to using unzip to extract the database, but performs better in certain scenarios (for instance, unzip is very slow on Windows) and supports additional options such as setting the name of the database extracted.
+This command extracts a CodeQL database archive created by [codeql database bundle](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-bundle). It is similar to using unzip to extract the database, but performs better in certain scenarios (for instance, unzip is very slow on Windows) and supports additional options such as setting the name of the database extracted.
 
 ## Options
 
