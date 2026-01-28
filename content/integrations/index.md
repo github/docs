@@ -1,6 +1,6 @@
 ---
 title: GitHub integrations
-intro: 'Learn how to connect, extend, and customize GitHub with apps and tools.'
+intro: 'Learn how to connect, extend, and customize {% data variables.product.github %} with apps and tools.'
 shortTitle: Integrations
 layout: discovery-landing
 heroImage: /assets/images/banner-images/hero-2
