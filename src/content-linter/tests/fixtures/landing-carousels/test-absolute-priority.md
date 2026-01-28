@@ -3,9 +3,10 @@ title: Test Absolute Path Priority
 layout: product-landing
 versions:
   fpt: '*'
-recommended:
-  - /article-one
-  - /subdir/article-three
+carousels:
+  recommended:
+    - /article-one
+    - /subdir/article-three
 ---
 
 # Test Absolute Path Priority
