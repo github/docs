@@ -25,7 +25,6 @@ shortTitle: Quickstart
 > [!NOTE]
 > When you use some commands for the first time - for example, `gh codespace SUBCOMMAND` - you'll be prompted to add extra scopes to your authentication token. Follow the onscreen instructions.
 
-
 ### Viewing your status
 
 Enter `gh status` to see details of your current work on {% data variables.product.prodname_dotcom %} across all the repositories you're subscribed to.
