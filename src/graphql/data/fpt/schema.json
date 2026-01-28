@@ -30102,7 +30102,7 @@
         {
           "name": "projectItems",
           "description": "<p>List of project items associated with this issue.</p>",
-          "type": "ProjectV2ItemConnection!",
+          "type": "ProjectV2ItemConnection",
           "id": "projectv2itemconnection",
           "kind": "objects",
           "href": "/graphql/reference/objects#projectv2itemconnection",
@@ -54714,7 +54714,7 @@
         {
           "name": "projectItems",
           "description": "<p>List of project items associated with this pull request.</p>",
-          "type": "ProjectV2ItemConnection!",
+          "type": "ProjectV2ItemConnection",
           "id": "projectv2itemconnection",
           "kind": "objects",
           "href": "/graphql/reference/objects#projectv2itemconnection",

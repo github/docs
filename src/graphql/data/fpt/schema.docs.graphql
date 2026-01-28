@@ -19282,7 +19282,7 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
     Returns the last _n_ elements from the list.
     """
     last: Int
-  ): ProjectV2ItemConnection!
+  ): ProjectV2ItemConnection
 
   """
   Find a project by number.
@@ -41103,7 +41103,7 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     Returns the last _n_ elements from the list.
     """
     last: Int
-  ): ProjectV2ItemConnection!
+  ): ProjectV2ItemConnection
 
   """
   Find a project by number.
