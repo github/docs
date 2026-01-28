@@ -325,3 +325,4 @@ You can find many examples of JavaScript actions on {% data variables.product.pr
 
 * [DevExpress/testcafe-action](https://github.com/DevExpress/testcafe-action)
 * [duckduckgo/privacy-configuration](https://github.com/duckduckgo/privacy-configuration)
+* [tailscale/github-action](https://github.com/tailscale/github-action)
