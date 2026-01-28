@@ -140,8 +140,6 @@ When customizing your dependency review configuration, there are some best pract
 
 * Choose block lists over allow lists. It is more practical to compile a list of the "really bad" dependencies you want to block than to create an inclusive list of all the libraries you want to allow.
 
-* Choose to block licenses instead of specifying which licenses to allow. There are a wide variety of licenses out there, so it's usually more practical to exclude those you know are incompatible with current licenses than it is to compile a complete list of compatible licenses.
-
 * Choose `fail-on-severity`. Failing based on the severity of a vulnerability is a good way to balance the need for security with the need to create low-friction experiences for developers.
 
 ## Further reading
