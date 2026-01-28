@@ -65,14 +65,6 @@ If you enable _{% data variables.product.prodname_dependabot_security_updates %}
 
 {% data reusables.dependabot.dependabot-actions-support %}
 
-## About pull requests for security updates
-
-Each pull request contains everything you need to quickly and safely review and merge a proposed fix into your project. This includes information about the vulnerability like release notes, changelog entries, and commit details. Details of which vulnerability a pull request resolves are hidden from anyone who does not have access to {% data variables.product.prodname_dependabot_alerts %} for the repository.
-
-When you merge a pull request that contains a security update, the corresponding {% data variables.product.prodname_dependabot %} alert is marked as resolved for your repository. For more information about {% data variables.product.prodname_dependabot %} pull requests, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates).
-
-{% data reusables.dependabot.automated-tests-note %}
-
 ## About grouped security updates
 
 To further reduce the number of pull requests you may be seeing, you can enable grouped security updates to group sets of dependencies together (per package ecosystem). {% data variables.product.prodname_dependabot %} then raises a single pull request to update as many vulnerable dependencies as possible in the group to secure versions at the same time.

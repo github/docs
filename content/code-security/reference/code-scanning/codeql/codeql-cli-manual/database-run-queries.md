@@ -38,13 +38,13 @@ codeql database run-queries [--threads=<num>] [--ram=<MB>] <options>... -- <data
 Run one or more queries against a CodeQL database, saving the results to
 the results subdirectory of the database directory.
 
-The results can later be converted to readable formats by [codeql database interpret-results](/code-security/codeql-cli/codeql-cli-manual/database-interpret-results), or query-for-query by with [codeql bqrs decode](/code-security/codeql-cli/codeql-cli-manual/bqrs-decode) or [codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret).
+The results can later be converted to readable formats by [codeql database interpret-results](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-interpret-results), or query-for-query by with [codeql bqrs decode](/code-security/reference/code-scanning/codeql/codeql-cli-manual/bqrs-decode) or [codeql bqrs interpret](/code-security/reference/code-scanning/codeql/codeql-cli-manual/bqrs-interpret).
 
 If your queries produce results in a form that can be interpreted as
-source-code alerts, you may find [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) a more convenient way to run them. [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) combines codeql database run-queries with [codeql database interpret-results](/code-security/codeql-cli/codeql-cli-manual/database-interpret-results) in a single step. In particular, [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) can produce output in the SARIF format, which can be used with an variety of alert viewers.
+source-code alerts, you may find [codeql database analyze](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-analyze) a more convenient way to run them. [codeql database analyze](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-analyze) combines codeql database run-queries with [codeql database interpret-results](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-interpret-results) in a single step. In particular, [codeql database analyze](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-analyze) can produce output in the SARIF format, which can be used with an variety of alert viewers.
 
 Alternatively, if you have only a single query to run, you might prefer
-[codeql query run](/code-security/codeql-cli/codeql-cli-manual/query-run), which can display human-readable output for quick inspection of results while you're debugging.
+[codeql query run](/code-security/reference/code-scanning/codeql/codeql-cli-manual/query-run), which can display human-readable output for quick inspection of results while you're debugging.
 
 ## Options
 
@@ -159,7 +159,7 @@ timed parts are "RA layers" of the optimized query, but that might
 change in the future.
 
 If no timeout is specified, or is given as 0, no timeout will be set
-(except for [codeql test run](/code-security/codeql-cli/codeql-cli-manual/test-run), where the default timeout is 5 minutes).
+(except for [codeql test run](/code-security/reference/code-scanning/codeql/codeql-cli-manual/test-run), where the default timeout is 5 minutes).
 
 #### `-j, --threads=<num>`
 
@@ -182,7 +182,7 @@ be discarded after the queries have been executed.
 #### `--[no-]keep-full-cache`
 
 \[Advanced] Don't clean up the disk cache after evaluation completes.
-This may save time if you're going to do [codeql dataset cleanup](/code-security/codeql-cli/codeql-cli-manual/dataset-cleanup) or [codeql database cleanup](/code-security/codeql-cli/codeql-cli-manual/database-cleanup) afterwards anyway.
+This may save time if you're going to do [codeql dataset cleanup](/code-security/reference/code-scanning/codeql/codeql-cli-manual/dataset-cleanup) or [codeql database cleanup](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-cleanup) afterwards anyway.
 
 #### `--max-disk-cache=<MB>`
 

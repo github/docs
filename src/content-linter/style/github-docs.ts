@@ -242,7 +242,7 @@ export const githubDocsFrontmatterConfig = {
     'partial-markdown-files': false,
     'yml-files': false,
   },
-  'frontmatter-landing-recommended': {
+  'frontmatter-landing-carousels': {
     // GHD056
     severity: 'error',
     'partial-markdown-files': false,

@@ -44,7 +44,7 @@ With {% data variables.copilot.copilot_auto_model_selection %}, you benefit from
 When you select **Auto** in {% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} may choose from the following list of models, subject to your policies and subscription type. Models may change over time.
   * {% data variables.copilot.copilot_gpt_41 %}
   * {% data variables.copilot.copilot_gpt_5_mini %}
-  * {% data variables.copilot.copilot_gpt_51_codex_max %}
+  * {% data variables.copilot.copilot_gpt_52_codex %}
   * {% data variables.copilot.copilot_claude_haiku_45 %}
   * {% data variables.copilot.copilot_claude_sonnet_45 %}
 

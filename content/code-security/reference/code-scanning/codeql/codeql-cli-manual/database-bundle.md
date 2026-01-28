@@ -79,6 +79,13 @@ Available since `v2.13.3`.
 Include an uncompressed version of the source archive directory. This is
 necessary for legacy CodeQL plugins (like CodeQL for Eclipse).
 
+#### `--include=<include>`
+
+\[Advanced] Additional paths relative to the database directory to
+include in the bundle.
+
+Available since `v2.24.0`.
+
 #### `--name=<name>`
 
 The name of the top-level directory in the bundle. If not given, it
