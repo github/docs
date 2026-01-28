@@ -23,23 +23,11 @@ contentType: how-tos
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-## About advanced setup for {% data variables.product.prodname_code_scanning %}
-
-Advanced setup for {% data variables.product.prodname_code_scanning %} is helpful when you need to customize your {% data variables.product.prodname_code_scanning %}. By creating and editing a workflow file, you can define how to build compiled languages, choose which queries to run, select the languages to scan, use a matrix build, and more. You also have access to all the options for controlling workflows, for example: changing the scan schedule, defining workflow triggers, specifying specialist runners to use. For more information about {% data variables.product.prodname_actions %} workflows, see [AUTOTITLE](/actions/using-workflows/about-workflows).
-
-{% ifversion fpt or ghec %}
-You can also configure {% data variables.product.prodname_code_scanning %} with third-party tools. For more information, see [Configuring {% data variables.product.prodname_code_scanning %} using third-party actions](#configuring-code-scanning-using-third-party-actions).
-
-{% else %}
-Your site administrator can also make third-party actions available to users for {% data variables.product.prodname_code_scanning %}, by setting up {% data variables.product.prodname_github_connect %}. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-github-connect-to-sync-github-actions).
-{% endif %}
-
-{% data reusables.code-scanning.about-multiple-configurations-link %}
 {% data reusables.code-scanning.codeql-action-version-ghes %}
 
-If you do not need a highly customizable {% data variables.product.prodname_code_scanning %} configuration, consider using default setup for {% data variables.product.prodname_code_scanning %}. For more information on eligibility for default setup, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#requirements-for-using-default-setup).
+If you do not need a highly customizable {% data variables.product.prodname_code_scanning %} configuration, consider using default setup for {% data variables.product.prodname_code_scanning %}. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/setup-types).
 
-### Prerequisites
+## Prerequisites
 
 Your repository is eligible for advanced setup if it meets these requirements.
 * It uses {% data variables.product.prodname_codeql %}-supported languages or you plan to generate code scanning results with a third-party tool.

@@ -10,7 +10,7 @@ topics:
   - Billing
 children:
   - /automate-usage-reporting
-  - /set-up-budgets
+  - /soft-budgets
   - /control-costs-at-scale
   - /gather-insights
 contentType: tutorials
