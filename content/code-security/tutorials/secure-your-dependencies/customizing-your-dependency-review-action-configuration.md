@@ -73,16 +73,16 @@ You can block code containing vulnerable dependencies from ever being merged by 
 
 ## Step 3: Adding licenses to block
 
-Vulnerabilities aren’t the only reason you might want to block a dependency. If your organization has restrictions on what sorts of licenses you can use, you can use dependency review to enforce those policies with the `deny-licenses` option. In this step, we will add a customization that will break the build if the pull request introduces a dependency that contains the LGPL-2.0 or BSD-2-Clause license.
+Vulnerabilities aren’t the only reason you might want to block a dependency. If your organization has restrictions on what sorts of licenses you can use, you can use dependency review to enforce those policies with the `allow-licenses` option. In this step, we will add a customization that will break the build if the pull request introduces a dependency that not contain the LGPL-2.0 or BSD-2-Clause license.
 
-1. Add the `deny-licenses` option to the end of the `dependency-review.yml` file:
+1. Add the `allow-licenses` option to the end of the `dependency-review.yml` file:
 
    ```yaml copy
          - name: 'Dependency Review'
            uses: actions/dependency-review-action@v4
            with:
              fail-on-severity: moderate
-             deny-licenses: LGPL-2.0, BSD-2-Clause
+             allow-licenses: LGPL-2.0, BSD-2-Clause
    ```
 
 ## Step 4: Adding scopes
@@ -96,7 +96,7 @@ Finally, we'll use the `fail-on-scopes` option to prevent merging vulnerable dep
            uses: actions/dependency-review-action@v4
            with:
              fail-on-severity: moderate
-             deny-licenses: LGPL-2.0, BSD-2-Clause
+             allow-licenses: LGPL-2.0, BSD-2-Clause
              fail-on-scopes: development
    ```
 
@@ -126,7 +126,7 @@ jobs:
         uses: actions/dependency-review-action@v4
         with:
           fail-on-severity: moderate
-          deny-licenses: LGPL-2.0, BSD-2-Clause
+          allow-licenses: LGPL-2.0, BSD-2-Clause
           fail-on-scopes: development
 ```
 
