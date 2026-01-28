@@ -2,12 +2,7 @@ import { getElasticsearchClient } from '@/search/lib/helpers/get-client'
 import { DEFAULT_HIGHLIGHT_FIELDS } from '@/search/lib/search-request-params/search-params-objects'
 import { getHighlightConfiguration } from '@/search/lib/get-elasticsearch-results/helpers/elasticsearch-highlight-config'
 
-import type {
-  SearchHit as ElasticsearchHit,
-  QueryDslQueryContainer,
-  SearchRequest,
-  SearchTotalHits,
-} from '@elastic/elasticsearch/lib/api/types'
+import type { estypes } from '@elastic/elasticsearch'
 import type {
   AdditionalIncludes,
   ComputedSearchQueryParamsMap,
@@ -122,7 +117,7 @@ export async function getGeneralSearchResults(
 
   const aggs = getAggregations(aggregate)
 
-  const searchQuery: SearchRequest = {
+  const searchQuery: estypes.SearchRequest = {
     index: indexName,
     highlight,
     from,
@@ -198,7 +193,7 @@ export async function getGeneralSearchResults(
   const t1 = Date.now()
 
   const meta = {
-    found: hitsAll.total as SearchTotalHits,
+    found: hitsAll.total as estypes.SearchTotalHits,
     took: {
       query_msec: result.took,
       total_msec: t1 - t0,
@@ -255,7 +250,7 @@ interface GetMatchQueriesOptions {
 function getMatchQueries(
   query: string,
   { usePrefixSearch, fuzzy }: GetMatchQueriesOptions,
-): QueryDslQueryContainer[] {
+): estypes.QueryDslQueryContainer[] {
   const BOOST_PHRASE = 10.0
   const BOOST_TITLE = 4.0
   const BOOST_HEADINGS = 3.0
@@ -268,7 +263,7 @@ function getMatchQueries(
   // which wouldn't find anything else anyway.
   const BOOST_FUZZY = 0.1
 
-  const matchQueries: QueryDslQueryContainer[] = []
+  const matchQueries: estypes.QueryDslQueryContainer[] = []
 
   // If the query input is multiple words, it's good to know because you can
   // make the query do `match_phrase` and you can make `match` query
@@ -452,7 +447,7 @@ interface GetHitsOptions {
 }
 
 function getHits(
-  hits: ElasticsearchHit<any>[],
+  hits: estypes.SearchHit<any>[],
   { indexName, debug = false, includeTopics = false, highlightFields, include }: GetHitsOptions,
 ): GeneralSearchHit[] {
   return hits.map((hit) => {
@@ -470,7 +465,7 @@ function getHits(
     }
 
     const result: GeneralSearchHit = {
-      id: hit._id,
+      id: hit._id!,
       url: hit._source.url,
       title: hit._source.title,
       breadcrumbs: hit._source.breadcrumbs,
