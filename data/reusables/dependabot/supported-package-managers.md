@@ -127,6 +127,12 @@ For more information about using {% data variables.product.prodname_dependabot_v
 * `gradle.lockfile` (for projects using Gradle dependency locking)
 * Files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
 
+{% data variables.product.prodname_dependabot %} runs Gradle to update the Gradle Wrapper: 
+* `gradle/wrapper/gradle-wrapper.properties`
+* `gradlew`
+* `gradlew.bat`
+* `gradle/wrapper/gradle-wrapper.jar`
+
 {% data variables.product.prodname_dependabot %} uses information from the `pom.xml` file of dependencies to add links to release information in update pull requests. If the information is omitted from the `pom.xml` file, then it cannot be included in {% data variables.product.prodname_dependabot %} pull requests, see [AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/optimizing-java-packages-dependabot).
 
 For {% data variables.product.prodname_dependabot_security_updates %}, Gradle support is limited to manual uploads of the dependency graph data using the {% data variables.dependency-submission-api.name %}. For more information about the {% data variables.dependency-submission-api.name %}, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api).
