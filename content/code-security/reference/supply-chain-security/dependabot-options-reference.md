@@ -704,7 +704,7 @@ updates:
 
 ### `timezone`
 
-Specify a time zone for the `time` value.
+Specify a time zone for the `time` value. The default time zone is `UTC`.
 
 The time zone identifier must match a timezone in the database maintained by [iana](https://www.iana.org/time-zones), see [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
