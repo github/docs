@@ -2,6 +2,7 @@
 import { ChevronDownIcon, ChevronUpIcon } from '@primer/octicons-react'
 import { Details, Timeline, Token, useDetails } from '@primer/react'
 import { Link } from '@/frame/components/Link'
+import { useTranslation } from '@/languages/components/useTranslation'
 import { JourneyTrack } from '@/journeys/lib/journey-path-resolver'
 import styles from './JourneyLearningTracks.module.scss'
 
@@ -10,6 +11,8 @@ type JourneyLearningTracksProps = {
 }
 
 export const JourneyLearningTracks = ({ tracks }: JourneyLearningTracksProps) => {
+  const { t } = useTranslation('journey_landing')
+
   if (!tracks || tracks.length === 0) {
     return null
   }
@@ -26,7 +29,7 @@ export const JourneyLearningTracks = ({ tracks }: JourneyLearningTracksProps) =>
       >
         <summary className={styles.trackSummary}>
           <div className={styles.trackHeader}>
-            <h3 className="h4 text-bold">{track.title}</h3>
+            <h2 className="h4 text-bold">{track.title}</h2>
             <Token text={`${track.guides?.length || 0} articles`} />
           </div>
           <div className={styles.trackDescription}>
@@ -49,6 +52,29 @@ export const JourneyLearningTracks = ({ tracks }: JourneyLearningTracksProps) =>
     )
   }
 
+  // simple single journey
+  if (tracks.length === 1) {
+    const track = tracks[0]
+
+    return (
+      <div data-testid="journey-single-track">
+        <div className={styles.trackHeader}>
+          <h2 className="h1 text-bold mb-4">{t('articles_heading')}</h2>
+        </div>
+        <ol className={`${styles.trackGuides} pl-0`} data-testid="journey-articles">
+          {(track.guides || []).map((article: { href: string; title: string }) => (
+            <li key={article.href}>
+              <Link href={article.href} className="f4 text-semibold">
+                {article.title}
+              </Link>
+            </li>
+          ))}
+        </ol>
+      </div>
+    )
+  }
+
+  // more than one journey has timeline and mobile layout
   return (
     <div data-testid="journey-tracks">
       {/* Desktop: Timeline component */}

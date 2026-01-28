@@ -22,11 +22,7 @@ contentType: how-tos
 
 If your runner needs to communicate via a proxy server, you can configure proxy settings using environment variables or system-level configurations.
 
-| Variable      | Description                                                                                           | Example                                                                                     |
-| ------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `https_proxy` | Proxy URL for HTTPS traffic. You can include basic authentication if required.                        | `http://proxy.local`<br>`http://192.168.1.1:8080`<br>`http://username:password@proxy.local` |
-| `http_proxy`  | Proxy URL for HTTP traffic. You can include basic authentication if required.                         | `http://proxy.local`<br>`http://192.168.1.1:8080`<br>`http://username:password@proxy.local` |
-| `no_proxy`    | A comma-separated list of hosts or IP addresses that should bypass the proxy. Some clients only honor IP addresses when connections are made directly to the IP rather than a hostname. | `example.com`<br>`example.com,myserver.local:443,example.org`                               |
+{% data reusables.actions.actions-proxy-environment-variables-table %}
 
 The proxy environment variables are read when the runner application starts, so you must set the environment variables before configuring or starting the runner application. If your proxy configuration changes, you must restart the runner application.
 

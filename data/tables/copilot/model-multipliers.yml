@@ -33,6 +33,10 @@
   multiplier_paid: 1
   multiplier_free: Not applicable
 
+- name: Gemini 3 Flash
+  multiplier_paid: 0.33
+  multiplier_free: Not applicable
+
 - name: Gemini 3 Pro
   multiplier_paid: 1
   multiplier_free: Not applicable
@@ -70,6 +74,14 @@
   multiplier_free: Not applicable
 
 - name: GPT-5.1-Codex-Max
+  multiplier_paid: 1.0
+  multiplier_free: Not applicable
+
+- name: GPT-5.2
+  multiplier_paid: 1.0
+  multiplier_free: Not applicable
+
+- name: GPT-5.2-Codex
   multiplier_paid: 1.0
   multiplier_free: Not applicable
 

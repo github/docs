@@ -17,7 +17,7 @@ redirect_from:
   - /copilot/how-tos/administer/manage-for-enterprise/manage-access/enable-for-organizations
   - /copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/enable-for-organizations
 contentType: how-tos
-category: 
+category:
   - Manage Copilot for a team
 ---
 
@@ -47,6 +47,7 @@ When you assign licenses to an enterprise team, users receive or lose access to 
 1. Click the **All members** or **Enterprise Teams** tab.
 1. Click **Assign licenses**.
 1. Search for users or teams, then click **Add licenses**.
+1. Optionally, disable {% data variables.product.prodname_copilot_short %} for organizations to prevent organization owners from assigning licenses. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/disable-for-organizations).
 
 ## Enabling {% data variables.product.prodname_copilot_short %} for organizations
 

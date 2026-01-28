@@ -57,13 +57,14 @@
 | GHD047 | table-column-integrity | Tables must have consistent column counts across all rows | error | tables, accessibility, formatting |
 | GHD051 | frontmatter-versions-whitespace | Versions frontmatter should not contain unnecessary whitespace | error | frontmatter, versions |
 | GHD054 | third-party-actions-reusable | Code examples with third-party actions must include disclaimer reusable | error | actions, reusable, third-party |
-| GHD056 | frontmatter-landing-recommended | Only landing pages can have recommended articles, there should be no duplicate recommended articles, and all recommended articles must exist | error | frontmatter, landing, recommended |
+| GHD056 | frontmatter-landing-carousels | Only landing pages can have carousels, there should be no duplicate articles, and all articles must exist | error | frontmatter, landing, carousels |
 | GHD057 | ctas-schema | CTA URLs must conform to the schema | error | ctas, schema, urls |
 | GHD058 | journey-tracks-liquid | Journey track properties must use valid Liquid syntax | error | frontmatter, journey-tracks, liquid |
 | GHD059 | journey-tracks-guide-path-exists | Journey track guide paths must reference existing content files | error | frontmatter, journey-tracks |
 | GHD060 | journey-tracks-unique-ids | Journey track IDs must be unique within a page | error | frontmatter, journey-tracks, unique-ids |
 | GHD061 | frontmatter-hero-image | Hero image paths must be absolute, extensionless, and point to valid images in /assets/images/banner-images/ | error | frontmatter, images |
 | GHD062 | frontmatter-intro-links | introLinks keys must be valid keys defined in data/ui.yml under product_landing | error | frontmatter, single-source |
+| GHD063 | frontmatter-children | Children frontmatter paths must exist. Supports relative paths and absolute /content/ paths for cross-product inclusion. | error | frontmatter, children |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: octicon-<icon-name> | The octicon liquid syntax used is deprecated. Use this format instead `octicon "<octicon-name>" aria-label="<Octicon aria label>"` | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: site.data | Catch occurrences of deprecated liquid data syntax. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | developer-domain | Catch occurrences of developer.github.com domain. | error |  |

@@ -1,6 +1,7 @@
 import dotenv from 'dotenv'
 import { test, expect } from '@playwright/test'
 import { turnOffExperimentsInPage, dismissCTAPopover } from '../helpers/turn-off-experiments'
+import { HOVERCARDS_ENABLED, ANALYTICS_ENABLED } from '../../frame/lib/constants'
 
 // This exists for the benefit of local testing.
 // In GitHub Actions, we rely on setting the environment variable directly
@@ -347,6 +348,8 @@ test('sidebar custom link functionality works', async ({ page }) => {
 })
 
 test.describe('hover cards', () => {
+  test.skip(!HOVERCARDS_ENABLED, 'Hovercards are disabled')
+
   test('hover over link', async ({ page }) => {
     await page.goto('/pages/quickstart')
     await turnOffExperimentsInPage(page)
@@ -691,6 +694,8 @@ test.describe('test nav at different viewports', () => {
 })
 
 test.describe('survey', () => {
+  test.skip(!ANALYTICS_ENABLED, 'Analytics are disabled')
+
   test('happy path, thumbs up and enter comment and email', async ({ page }) => {
     let fulfilled = 0
     let hasSurveyPressedEvent = false
@@ -1058,8 +1063,90 @@ test.describe('LandingCarousel component', () => {
   })
 })
 
+test.describe('Multi-carousel support', () => {
+  test('displays multiple carousels from carousels frontmatter', async ({ page }) => {
+    await page.goto('/get-started/multi-carousel')
+
+    // Should have multiple carousels rendered
+    const carousels = page.locator('[data-testid="landing-carousel"]')
+    const carouselCount = await carousels.count()
+
+    // We defined exactly 2 carousels in the frontmatter
+    expect(carouselCount).toBe(2)
+  })
+
+  test('carousel with matching ui.yml key displays translated title', async ({ page }) => {
+    await page.goto('/get-started/multi-carousel')
+
+    // The "recommended" carousel should show "Recommended" title from ui.yml
+    const carouselHeadings = page.locator('[data-testid="landing-carousel"] h2')
+
+    const headingTexts = await carouselHeadings.allTextContents()
+
+    // Check that at least one heading has "Recommended"
+    expect(headingTexts.some((text) => text.includes('Recommended'))).toBe(true)
+  })
+
+  test('carousel without matching ui.yml key renders without title', async ({ page }) => {
+    await page.goto('/get-started/multi-carousel')
+
+    // The "titleTwoNoMatchingUiYml" carousel should not have a visible heading
+    // or the heading element should be empty/not exist for that carousel
+    const carouselHeadings = page.locator('[data-testid="landing-carousel"] h2')
+    const headingTexts = await carouselHeadings.allTextContents()
+
+    // The raw key "titleTwoNoMatchingUiYml" should NOT appear as a heading
+    // (the component should not show the key as fallback)
+    expect(headingTexts.some((text) => text === 'titleTwoNoMatchingUiYml')).toBe(false)
+  })
+
+  test('heading h2 element is only present when ui.yml translation exists', async ({ page }) => {
+    await page.goto('/get-started/multi-carousel')
+
+    const carousels = page.locator('[data-testid="landing-carousel"]')
+    const count = await carousels.count()
+
+    // We have 2 carousels: "recommended" and "titleTwoNoMatchingUiYml"
+    expect(count).toBe(2)
+
+    // Count carousels that have h2 elements
+    let carouselsWithHeadings = 0
+    for (let i = 0; i < count; i++) {
+      const carousel = carousels.nth(i)
+      const h2Count = await carousel.locator('h2').count()
+      if (h2Count > 0) {
+        carouselsWithHeadings++
+      }
+    }
+
+    // Only 1 carousel should have a heading (recommended has ui.yml entry)
+    // titleTwoNoMatchingUiYml should NOT have an h2 element at all
+    expect(carouselsWithHeadings).toBe(1)
+
+    // Verify the specific titles that should be visible
+    const visibleHeadings = await carousels.locator('h2').allTextContents()
+    expect(visibleHeadings).toContain('Recommended')
+    expect(visibleHeadings).not.toContain('titleTwoNoMatchingUiYml')
+  })
+
+  test('each carousel has articles based on frontmatter paths', async ({ page }) => {
+    await page.goto('/get-started/multi-carousel')
+
+    const carousels = page.locator('[data-testid="landing-carousel"]')
+    const count = await carousels.count()
+
+    // Each carousel should have at least one article
+    for (let i = 0; i < count; i++) {
+      const carousel = carousels.nth(i)
+      const articles = carousel.locator('[data-testid="carousel-items"] a')
+      const articleCount = await articles.count()
+      expect(articleCount).toBeGreaterThan(0)
+    }
+  })
+})
+
 test.describe('Journey Tracks', () => {
-  test('displays journey tracks on landing pages', async ({ page }) => {
+  test('displays all journey tracks on landing pages', async ({ page }) => {
     await page.goto('/get-started/test-journey')
 
     const journeyTracks = page.locator('[data-testid="journey-tracks"]')
@@ -1071,7 +1158,7 @@ test.describe('Journey Tracks', () => {
 
     // Verify track has proper structure
     const firstTrack = tracks.first()
-    await expect(firstTrack.locator('h3')).toBeVisible() // Track title
+    await expect(firstTrack.locator('h2')).toBeVisible() // Track title
     await expect(firstTrack.locator('p')).toBeVisible() // Track description
   })
 
@@ -1138,6 +1225,53 @@ test.describe('Journey Tracks', () => {
     expect(trackContent).not.toContain('}}')
     expect(trackContent).not.toContain('{%')
     expect(trackContent).not.toContain('%}')
+  })
+
+  test('journey navigation components show on article pages', async ({ page }) => {
+    // go to an article that's part of a journey track
+    await page.goto('/get-started/start-your-journey/hello-world')
+
+    // journey card should be visible in sidebar
+    const journeyCard = page.locator('[data-testid="journey-track-card"]')
+    await expect(journeyCard).toBeVisible()
+
+    // journey footer nav should be visible
+    const journeyNav = page.locator('[data-testid="journey-track-nav"]')
+    await expect(journeyNav).toBeVisible()
+  })
+
+  test('journey footer nav component links to first article in next track from last article in previous track', async ({
+    page,
+  }) => {
+    await page.goto('/get-started/foo/bar')
+
+    const journeyNav = page.locator('[data-testid="journey-track-nav"]')
+    await expect(journeyNav).toBeVisible()
+
+    // Link should display the next track's title and go to its first article
+    const nextTrackLink = journeyNav.locator('a').filter({ hasText: 'Advanced topics' })
+    await expect(nextTrackLink).toBeVisible()
+
+    const href = await nextTrackLink.getAttribute('href')
+    expect(href).toContain('/get-started/foo/autotitling')
+  })
+
+  test('journey card displays branching text when present', async ({ page }) => {
+    await page.goto('/get-started/foo/journey-test-article')
+
+    const journeyCard = page.locator('[data-testid="journey-track-card"]')
+    await expect(journeyCard).toBeVisible()
+
+    // Branching text should be rendered with markdown links
+    await expect(journeyCard).toContainText('Want to skip ahead?')
+
+    // AUTOTITLE should be resolved to actual article title
+    const branchingLink = journeyCard.locator('a').filter({ hasText: 'Hello World' })
+    await expect(branchingLink).toBeVisible()
+    await expect(journeyCard).not.toContainText('AUTOTITLE')
+
+    const href = await branchingLink.getAttribute('href')
+    expect(href).toContain('/get-started/start-your-journey/hello-world')
   })
 })
 
@@ -1291,5 +1425,82 @@ test.describe('LandingArticleGridWithFilter component', () => {
 
     const articleGrid = page.getByTestId('article-grid')
     await expect(articleGrid).toBeVisible()
+  })
+})
+
+test.describe('Non-child page resolution', () => {
+  test('category page with local children renders properly', async ({ page }) => {
+    // The local-category has local children (local-article-one, local-article-two)
+    // and an external article reference via children frontmatter
+    await page.goto('/get-started/non-child-resolution/local-category')
+
+    // Should have a title
+    await expect(page).toHaveTitle(/Local category test/)
+
+    // The page should load without errors and have main content
+    await expect(page.locator('main')).toBeVisible()
+  })
+
+  test('cross-product children page loads correctly', async ({ page }) => {
+    // The articles-only fixture now uses /content/ prefix in children for cross-product paths
+    await page.goto('/get-started/non-child-resolution/articles-only')
+
+    await expect(page).toHaveTitle(/Cross-product children test/)
+    await expect(page.locator('main')).toBeVisible()
+  })
+
+  test('children-only page with /content/ path loads correctly', async ({ page }) => {
+    // The children-only fixture uses /content/ prefix for cross-product paths
+    await page.goto('/get-started/non-child-resolution/children-only')
+
+    await expect(page).toHaveTitle(/Children only test/)
+    await expect(page.locator('main')).toBeVisible()
+  })
+
+  test('standalone article is accessible', async ({ page }) => {
+    await page.goto('/get-started/non-child-resolution/standalone-article')
+
+    await expect(page).toHaveTitle(/Standalone article/)
+    await expect(page.locator('main')).toBeVisible()
+  })
+
+  test('versioned cross-product children - fpt shows only fpt article', async ({ page }) => {
+    // In fpt version, only the only-fpt article should be available
+    await page.goto('/get-started/non-child-resolution/versioned-cross-product')
+
+    await expect(page).toHaveTitle(/Versioned cross-product test/)
+    await expect(page.locator('main')).toBeVisible()
+
+    // Check TOC has the fpt-only article
+    const tocLinks = page.locator('[data-testid="table-of-contents"] a')
+    await expect(tocLinks).toHaveCount(1)
+    await expect(tocLinks.first()).toHaveAttribute('href', /only-fpt/)
+  })
+
+  test('versioned cross-product children - ghec shows ghec articles', async ({ page }) => {
+    // In ghec version, only-ghec and only-ghec-and-ghes should be available
+    await page.goto(
+      '/enterprise-cloud@latest/get-started/non-child-resolution/versioned-cross-product',
+    )
+
+    await expect(page).toHaveTitle(/Versioned cross-product test/)
+    await expect(page.locator('main')).toBeVisible()
+
+    // Check TOC has ghec articles (only-ghec and only-ghec-and-ghes)
+    const tocLinks = page.locator('[data-testid="table-of-contents"] a')
+    await expect(tocLinks).toHaveCount(2)
+  })
+
+  test('cross-product children excluded from sidebar in Japanese translation', async ({ page }) => {
+    // The Japanese translation should work with cross-product children
+    await page.goto('/ja/get-started/non-child-resolution')
+
+    // Verify page loads correctly with Japanese site context
+    // Note: The title may not be fully translated in test fixtures, but the page should render
+    await expect(page).toHaveTitle(/GitHub Docs/)
+    await expect(page.locator('main')).toBeVisible()
+
+    // Verify page loads correctly - the cross-product children don't prevent the page from working
+    // The detailed sidebar filtering is tested by the survey test which verifies no duplicate entries
   })
 })

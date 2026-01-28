@@ -94,7 +94,7 @@ With **{% data variables.product.prodname_secret_scanning %}**, you can scan you
 
 To learn more, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
 
-{% data variables.product.prodname_secret_scanning_caps %} can be enabled at the enterprise, organization, and repository level. See {% ifversion ghes %}[AUTOTITLE](/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance){% elsif ghec %}[AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/about-security-configurations){% endif %} for enablement at enterprise level.
+{% data variables.product.prodname_secret_scanning_caps %} can be enabled at the enterprise, organization, and repository level. See {% ifversion ghes %}[AUTOTITLE](/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance){% elsif ghec %}[AUTOTITLE](/code-security/concepts/security-at-scale/about-security-configurations){% endif %} for enablement at enterprise level.
 
 ### Push protection
 
@@ -122,7 +122,10 @@ You may want to set up an approval process for better control over who in your e
 
 Approval processes are available for:
 * Bypasses of push protection—You can choose who is allowed to bypass push protection, and add a review and approval cycle for pushes containing secrets from all other contributors. For more information about **delegated bypass for push protection**, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection).{% ifversion security-delegated-alert-dismissal %}
-* Dismissals of alerts for {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}—You can provide additional control and visibility over alert assessment by ensuring that only designated individuals can dismiss (or close) alerts. For more information about **delegated alert dismissal**, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/enabling-delegated-alert-dismissal-for-code-scanning) and [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/enabling-delegated-alert-dismissal-for-code-scanning).
+* Dismissals of alerts for {% data variables.product.prodname_code_scanning %}{% ifversion dependabot-delegated-alert-dismissal %}, {% data variables.product.prodname_dependabot %},{% endif %} and {% data variables.product.prodname_secret_scanning %}—You can provide additional control and visibility over alert assessment by ensuring that only designated individuals can dismiss (or close) alerts. For more information about **delegated alert dismissal**, see the following articles:
+  * [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/enabling-delegated-alert-dismissal-for-code-scanning){% ifversion dependabot-delegated-alert-dismissal %}
+  * [AUTOTITLE](/code-security/dependabot/dependabot-alerts/enable-delegated-alert-dismissal){% endif %}
+  * [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning)
 
 {% endif %}
 
@@ -134,4 +137,4 @@ Many industries have regulations that require regular security assessments and v
 
 To get started quickly with {% data variables.product.prodname_code_scanning %}, we recommend you use the default setup. See [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
 
-{% data variables.product.prodname_code_scanning_caps %} can be enabled at the enterprise, organization, and repository level. See {% ifversion ghes %}[AUTOTITLE](/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance){% elsif ghec %}[AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/about-security-configurations){% endif %} for enablement at enterprise level.
+{% data variables.product.prodname_code_scanning_caps %} can be enabled at the enterprise, organization, and repository level. See {% ifversion ghes %}[AUTOTITLE](/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance){% elsif ghec %}[AUTOTITLE](/code-security/concepts/security-at-scale/about-security-configurations){% endif %} for enablement at enterprise level.

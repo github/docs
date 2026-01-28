@@ -87,7 +87,7 @@ jobs:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       - uses: ./.github/actions/setup-elasticsearch
         if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}
@@ -163,4 +163,8 @@ jobs:
           ENABLED_LANGUAGES: ${{ matrix.name == 'languages' && 'all' || '' }}
           ROOT: ${{ (matrix.name == 'fixtures' || matrix.name == 'article-api' || matrix.name == 'landings' ) && 'src/fixtures/fixtures' || '' }}
           TRANSLATIONS_FIXTURE_ROOT: ${{ (matrix.name == 'fixtures' || matrix.name == 'article-api') && 'src/fixtures/fixtures/translations' || '' }}
-        run: npm test -- src/${{ matrix.name }}/tests/
+          # Enable debug logging when "Re-run jobs with debug logging" is used in GitHub Actions UI
+          # This will output additional timing and path information to help diagnose timeout issues
+          RUNNER_DEBUG: ${{ runner.debug }}
+          VITEST_FLAGS: ${{ matrix.name == 'article-api' && '--no-file-parallelism --maxWorkers=1' || '' }}
+        run: npm test -- $VITEST_FLAGS src/${{ matrix.name }}/tests/

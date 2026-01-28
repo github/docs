@@ -97,18 +97,20 @@ export default [
 
       // Disabled rules to review
       'no-console': 'off', // 800+
-      '@typescript-eslint/no-explicit-any': 'off', // 1000+
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
 
   // Ignored patterns
+  // CodeQL scripts included because cocofix is install manually by the workflow
   {
     ignores: [
       'tmp/*',
       '.next/',
       'rest-api-description/',
       'docs-internal-data/',
-      'src/code-scanning/scripts/generate-code-scanning-query-list.ts',
+      'src/codeql-queries/scripts/generate-code-scanning-query-list.ts',
+      'src/codeql-queries/scripts/generate-code-quality-query-list.ts',
       'next-env.d.ts',
     ],
   },

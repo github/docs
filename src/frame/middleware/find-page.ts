@@ -105,10 +105,9 @@ async function rereadByPath(
   const languageCode = match[1]
   const withoutLanguage = uri.replace(languagePrefixPathRegex, '/')
   const withoutVersion = withoutLanguage.replace(`/${currentVersion}`, '')
-  // TODO: Support loading translations the same way.
-  // NOTE: No one is going to test translations like this in development
-  // but perhaps one day we can always and only do these kinds of lookups
-  // at runtime.
+  // Note: We don't support loading translations at runtime. All translations
+  // are loaded at build time. This function only handles English content reloading
+  // during development.
   const possible = path.join(contentRoot, withoutVersion)
   const filePath = existsSync(possible) ? path.join(possible, 'index.md') : `${possible}.md`
   const relativePath = path.relative(contentRoot, filePath)

@@ -36,7 +36,7 @@ export const nextNext = '3.21'
 export const supported = ['3.19', '3.18', '3.17', '3.16', '3.15', '3.14']
 
 // Set to version number when in RC phase, null when no RC is active
-export const releaseCandidate = '3.19'
+export const releaseCandidate = null
 
 // Deprecated versions with functional redirect handling (3.0+)
 // When archiving a new version, add it here and update the archival process
@@ -127,6 +127,12 @@ export const isOldestReleaseDeprecated = nextDeprecationDate
   ? new Date() > new Date(nextDeprecationDate)
   : false
 
+// Find any other releases that may share the oldest deprecation date
+// We'll want to display the deprecation banner on all of these releases (not just oldest)
+export const releasesWithOldestDeprecationDate = Object.entries(dates)
+  .filter(([, versionData]) => versionData.deprecationDate === nextDeprecationDate)
+  .map(([version]) => version)
+
 // Filtered version arrays for different use cases
 export const deprecatedOnNewSite = deprecated.filter((version) =>
   versionSatisfiesRange(version, '>=2.13'),
@@ -210,6 +216,7 @@ export default {
   oldestSupported,
   nextDeprecationDate,
   isOldestReleaseDeprecated,
+  releasesWithOldestDeprecationDate,
   deprecatedOnNewSite,
   dates,
   firstVersionDeprecatedOnNewSite,

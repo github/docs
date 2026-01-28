@@ -19,7 +19,8 @@ on:
   pull_request:
     paths:
       - .github/workflows/generate-code-scanning-query-lists.yml
-      - src/code-scanning/scripts/generate-code-scanning-query-list.ts
+      - src/codeql-queries/scripts/generate-code-scanning-query-list.ts
+      - src/codeql-queries/scripts/generate-code-quality-query-list.ts
       - .github/actions/install-cocofix/action.yml
 
 permissions:
@@ -27,17 +28,17 @@ permissions:
   pull-requests: write
 
 jobs:
-  generate-query-lists:
+  generate-security-query-lists:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       - uses: ./.github/actions/node-npm-setup
 
       - name: Checkout codeql repo
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           repository: github/codeql
           path: codeql
@@ -45,6 +46,7 @@ jobs:
 
       - name: Get the codeql SHA being synced
         id: codeql
+        shell: bash
         run: |
           cd codeql
           OPENAPI_COMMIT_SHA=$(git rev-parse HEAD)
@@ -56,12 +58,14 @@ jobs:
         uses: ./codeql/.github/actions/fetch-codeql
 
       - name: Test CodeQL CLI Download
+        shell: bash
         run: codeql --version
 
       # "Server for running multiple commands while avoiding repeated JVM initialization."
       # Having started this should speed up the execution of the various
       # CLI calls of the executable.
       - name: Start CodeQL CLI server in the background
+        shell: bash
         run: |
           codeql execute cli-server &
           sleep 3
@@ -71,21 +75,8 @@ jobs:
         with:
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
-      - name: Lint the code (eslint)
-        if: ${{ github.event_name == 'pull_request' }}
-        env:
-          PATH: '$PATH:${{ github.workspace }}/node_modules/.bin'
-        run: |
-          eslint --no-ignore src/code-scanning/scripts/generate-code-scanning-query-list.ts
-
-      - name: Lint the code (tsc)
-        if: ${{ github.event_name == 'pull_request' }}
-        env:
-          PATH: '$PATH:${{ github.workspace }}/node_modules/.bin'
-        run: |
-          tsc --noEmit --project src/code-scanning/scripts/tsconfig.json
-
-      - name: Build code scanning query list
+      - name: Build code scanning security query lists
+        shell: bash
         run: |
           for lang in "actions" "cpp" "csharp" "go" "java" "javascript" "python" "ruby" "rust" "swift"; do
             echo "Generating code scanning query list for $lang"
@@ -97,7 +88,112 @@ jobs:
               $lang
           done
 
+      - name: Upload security query lists
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: security-query-lists
+          path: data/reusables/code-scanning/codeql-query-tables/
+
+  generate-quality-query-lists:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Checkout codeql repo
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          repository: github/codeql
+          path: codeql
+          ref: ${{ inputs.SOURCE_BRANCH || 'main' }}
+
+      - name: Get the codeql SHA being synced
+        id: codeql
+        shell: bash
+        run: |
+          cd codeql
+          OPENAPI_COMMIT_SHA=$(git rev-parse HEAD)
+          echo "OPENAPI_COMMIT_SHA=$OPENAPI_COMMIT_SHA" >> $GITHUB_OUTPUT
+          echo "Copied files from github/codeql repo. Commit SHA: $OPENAPI_COMMIT_SHA"
+
+      - name: Download CodeQL CLI
+        # Look under the `codeql` directory, as this is where we checked out the `github/codeql` repo
+        uses: ./codeql/.github/actions/fetch-codeql
+
+      - name: Test CodeQL CLI Download
+        shell: bash
+        run: codeql --version
+
+      # "Server for running multiple commands while avoiding repeated JVM initialization."
+      # Having started this should speed up the execution of the various
+      # CLI calls of the executable.
+      - name: Start CodeQL CLI server in the background
+        shell: bash
+        run: |
+          codeql execute cli-server &
+          sleep 3
+          codeql --version
+
+      - name: Build code quality query lists
+        shell: bash
+        run: |
+          for lang in "csharp" "go" "java" "javascript" "python" "ruby"; do
+            echo "Generating code quality query list for $lang"
+            npm run generate-code-quality-query-list -- \
+              --verbose \
+              --codeql-path codeql \
+              --codeql-dir codeql \
+              -o data/reusables/code-quality/codeql-query-tables/$lang.md \
+              $lang
+          done
+
+      - name: Upload quality query lists
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: quality-query-lists
+          path: data/reusables/code-quality/codeql-query-tables/
+
+  create-pull-request:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    needs: [generate-security-query-lists, generate-quality-query-lists]
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - name: Checkout codeql repo
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          repository: github/codeql
+          path: codeql
+          ref: ${{ inputs.SOURCE_BRANCH || 'main' }}
+
+      - name: Get the codeql SHA being synced
+        id: codeql
+        shell: bash
+        run: |
+          cd codeql
+          OPENAPI_COMMIT_SHA=$(git rev-parse HEAD)
+          echo "OPENAPI_COMMIT_SHA=$OPENAPI_COMMIT_SHA" >> $GITHUB_OUTPUT
+          echo "Copied files from github/codeql repo. Commit SHA: $OPENAPI_COMMIT_SHA"
+
+      - name: Download security query lists
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: security-query-lists
+          path: data/reusables/code-scanning/codeql-query-tables/
+
+      - name: Download quality query lists
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: quality-query-lists
+          path: data/reusables/code-quality/codeql-query-tables/
+
       - name: Insight into diff
+        shell: bash
         run: |
           git diff
 
@@ -105,6 +201,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           DRY_RUN: ${{ github.event_name == 'pull_request'}}
+        shell: bash
         run: |
 
           # When we started, we downloaded the CodeQL CLI here in this workflow.
@@ -145,6 +242,7 @@ jobs:
           fi
 
           git add data/reusables/code-scanning/codeql-query-tables
+          git add data/reusables/code-quality/codeql-query-tables
           git commit -m "Update CodeQL query tables"
           git push -u origin $branchname
 
@@ -157,6 +255,6 @@ jobs:
 
 
             No action is required from the first responder for the Docs content team. This PR is automatically added to the Docs content review board. Any writer can review this by checking that the PR looks sensible. If CI does not pass or other problems arise, contact #docs-engineering on slack.
-            
-            
+
+
             When the DRI for the CodeQL CLI release is ready to publish, they will ask us to merge this PR in #docs-content.'

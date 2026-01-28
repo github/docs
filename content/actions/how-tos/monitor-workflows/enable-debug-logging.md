@@ -42,3 +42,5 @@ Step debug logging increases the verbosity of a job's logs during and after a jo
 
 1. To enable step debug logging, set the following secret or variable in the repository that contains the workflow: `ACTIONS_STEP_DEBUG` to `true`. If both the secret and variable are set, the value of the secret takes precedence over the variable.
 1. After setting the secret or variable, more debug events are shown in the step logs. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
+
+You can also use the `runner.debug` context to conditionally run steps only when debug logging is enabled. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/contexts#runner-context).

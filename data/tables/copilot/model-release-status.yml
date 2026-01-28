@@ -27,7 +27,7 @@
 
 - name: 'GPT-5'
   provider: 'OpenAI'
-  release_status: 'GA'
+  release_status: 'Closing down: 2026-02-17'
   agent_mode: true
   ask_mode: true
   edit_mode: true
@@ -41,21 +41,21 @@
 
 - name: 'GPT-5-Codex'
   provider: 'OpenAI'
-  release_status: 'Public preview'
+  release_status: 'Closing down: 2026-02-17'
   agent_mode: true
   ask_mode: true
   edit_mode: true
 
 - name: 'GPT-5.1'
   provider: 'OpenAI'
-  release_status: 'Public preview'
+  release_status: 'GA'
   agent_mode: true
   ask_mode: true
   edit_mode: true
 
 - name: 'GPT-5.1-Codex'
   provider: 'OpenAI'
-  release_status: 'Public preview'
+  release_status: 'GA'
   agent_mode: true
   ask_mode: true
   edit_mode: true
@@ -69,7 +69,21 @@
 
 - name: 'GPT-5.1-Codex-Max'
   provider: 'OpenAI'
-  release_status: 'Public preview'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5.2'
+  provider: 'OpenAI'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5.2-Codex'
+  provider: 'OpenAI'
+  release_status: 'GA'
   agent_mode: true
   ask_mode: true
   edit_mode: true
@@ -84,14 +98,14 @@
 
 - name: 'Claude Opus 4.1'
   provider: 'Anthropic'
-  release_status: 'GA'
+  release_status: 'Closing down: 2026-02-17'
   agent_mode: false
   ask_mode: true
   edit_mode: true
 
 - name: 'Claude Opus 4.5'
   provider: 'Anthropic'
-  release_status: 'Public preview'
+  release_status: 'GA'
   agent_mode: true
   ask_mode: true
   edit_mode: true
@@ -115,6 +129,13 @@
 - name: 'Gemini 2.5 Pro'
   provider: 'Google'
   release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'Gemini 3 Flash'
+  provider: 'Google'
+  release_status: 'Public preview'
   agent_mode: true
   ask_mode: true
   edit_mode: true

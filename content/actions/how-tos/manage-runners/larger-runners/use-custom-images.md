@@ -8,6 +8,8 @@ product: '{% data variables.actions.github_hosted_larger_runners %} are only ava
 
 ---
 
+{% data reusables.actions.custom-images-public-preview-note %}
+
 ## Custom images
 
 You can create a custom image to define the exact environment that your {% data variables.actions.github_hosted_larger_runners %} use. Custom images let you preinstall tools, dependencies, and configurations to speed up workflows and improve consistency across jobs.
@@ -54,6 +56,9 @@ To configure a workflow for image generation:
 * Add the `snapshot` keyword to the job, using either the string syntax or mapping syntax shown below.
   * Each job that includes the `snapshot` keyword creates a separate image. To generate only one image or image version, include all workflow steps in a single job.
   * Each successful run of a job that includes the `snapshot` keyword creates a new version of that image.
+
+ > [!NOTE]
+ > {% data variables.product.company_short %} recommends configuring image generation as a scheduled workflow on a weekly basis. This approach ensures dependencies remain up-to-date and have the latest security patches. For more information, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#schedule).
 
 It can take some time for your image to be fully generated and ready to use after the workflow completes. Provisioning time varies based on runner size and configuration, and may take several hours for larger runners.
 

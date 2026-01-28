@@ -2,6 +2,8 @@ date: '2025-12-02'
 sections:
   security_fixes:
     - |
+      **HIGH:** An attacker could execute code within a victim's browser, potentially accessing sensitive information, by causing malicious HTML to be injected into the DOM when content is rendered by the Filter component found across GitHub. GitHub has requested CVE ID [CVE-2025-13744](https://www.cve.org/cverecord?id=CVE-2025-13744) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/). [Updated: 2026-01-06]
+    - |
       **HIGH:** A privilege escalation vulnerability was identified in GitHub Enterprise Server that allowed an authenticated Enterprise admin to gain root SSH access to the appliance by exploiting a symlink escape in pre-receive hook environments. By crafting a malicious repository and environment, an attacker could replace system binaries during hook cleanup and execute a payload that adds their own SSH key to the root user’s authorized keys—thereby granting themselves root SSH access to the server. To exploit this vulnerability, the attacker needed to have enterprise admin privileges. This vulnerability has been assigned [CVE-2025-11578](https://nvd.nist.gov/vuln/detail/CVE-2025-11578) and was reported through the GitHub Bug Bounty program.
     - |
       Packages have been updated to the latest security versions.
@@ -13,7 +15,7 @@ sections:
     - |
       On instances with a "No Proxy" setting configured for GitHub Actions with MinIO or AWS remote blob providers, administrators sometimes experienced failures reading or writing Actions logs, artifacts, or caches because some traffic was incorrectly routed through the instances proxy.
     - |
-      New Microsoft Teams integrations failed to set up because the required `tenant_id` field was missing from the configuration, following Microsoft's deprecation of multi-tenant bot creation. <!-- markdownlint-disable-line GHD046 --> 
+      New Microsoft Teams integrations failed to set up because the required `tenant_id` field was missing from the configuration, following Microsoft's deprecation of multi-tenant bot creation. <!-- markdownlint-disable-line GHD046 -->
     - |
       Administrators running the `ghe-repl-decommission` script received an error.
     - |
@@ -43,6 +45,8 @@ sections:
       Administrators can add security key-backed (SK) SSH certificate authorities.
     - |
       Administrators and users experience faster and more efficient searching of GitHub Actions workflow runs, with lower compute and networking resource usage. Searches for workflow runs within a repository are now always scoped to an associated repository.
+    - |
+      `ghe-repl-start` can now be executed without requiring a maintenance window when setting up a new replica, as long as `ghe-repl-setup` is immediately followed by `ghe-config-apply`. [Updated: 2025-12-17]
   known_issues:
     - |
       Custom firewall rules are removed during the upgrade process.

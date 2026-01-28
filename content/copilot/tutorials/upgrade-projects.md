@@ -16,9 +16,6 @@ category:
   - Author and optimize with Copilot
 ---
 
-> [!NOTE]
-> "GitHub Copilot app modernization – upgrade for Java" and "GitHub Copilot app modernization – Upgrade for .NET" are currently in {% data variables.release-phases.public_preview %} and subject to change.
-
 ## Introduction
 
 {% data variables.product.prodname_copilot %} can help streamline the process of modernizing and upgrading your Java and .NET applications. {% data variables.product.prodname_copilot_short %} will analyze the project, generate a plan, automatically fix issues it encounters when carrying out the plan, and produce a summary.
@@ -32,7 +29,7 @@ You can upgrade a Git-based Maven or Gradle Java project using {% data variables
 * For Maven-based projects, access to the public Maven Central repository.
 * Installed versions of both the source and target JDKs.
 
-For the next steps, see [Quickstart: upgrade a Java project with GitHub Copilot App Modernization - upgrade for Java (preview)](https://learn.microsoft.com/en-gb/java/upgrade/quickstart-upgrade) on Microsoft Learn.
+For an overview of the modernization workflow, see [AUTOTITLE](/copilot/tutorials/modernize-java-applications).
 
 ## Upgrading .NET projects
 

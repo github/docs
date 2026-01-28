@@ -93,7 +93,7 @@
   secretType: airtable_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -147,7 +147,7 @@
   secretType: aws_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -308,6 +308,17 @@
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Active Directory Application Secret
+  secretType: >-
+    azure_active_directory_application_id,
+    </br>azure_active_directory_application_secret
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Azure
+  supportedSecret: Azure Active Directory Application Secret
   secretType: azure_active_directory_application_secret
   isPublic: true
   isPrivateWithGhas: true
@@ -413,7 +424,7 @@
   hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
-  isduplicate: false
+  isduplicate: true
 - provider: Azure
   supportedSecret: Azure Cache for Redis Access Key
   secretType: azure_cache_for_redis_access_key
@@ -1049,7 +1060,7 @@
   secretType: block_protocol_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
   base64Supported: false
   isduplicate: false
@@ -1310,7 +1321,7 @@
   secretType: cohere_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1409,7 +1420,7 @@
   secretType: databricks_oauth_code
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1418,7 +1429,7 @@
   secretType: databricks_oauth_refresh_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1436,7 +1447,7 @@
   secretType: databricks_oauth_single_use_refresh_token_child
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1445,7 +1456,7 @@
   secretType: databricks_oauth_single_use_refresh_token_parent
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1463,7 +1474,7 @@
   secretType: databricks_scoped_internal_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1472,7 +1483,7 @@
   secretType: databricks_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1481,7 +1492,7 @@
   secretType: databricks_workspace_session_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1832,7 +1843,7 @@
   secretType: finicity_app_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -2187,7 +2198,7 @@
   secretType: heroku_postgres_connection_url
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -2394,16 +2405,13 @@
   secretType: langchain_api_server_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
 - provider: Lark
   supportedSecret: Lark APaaS Client ID
   secretType: lark_apaas_client_id, </br>lark_apaas_client_secret
-  versions:
-    fpt: '*'
-    ghec: '*'
   isPublic: true
   isPrivateWithGhas: false
   hasPushProtection: false
@@ -2413,9 +2421,15 @@
 - provider: Lark
   supportedSecret: Lark Application ID
   secretType: lark_app_id, </br>lark_app_secret
-  versions:
-    fpt: '*'
-    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Lark
+  supportedSecret: Lark MCP Grant Token
+  secretType: lark_mcp_grant_token
   isPublic: true
   isPrivateWithGhas: false
   hasPushProtection: false
@@ -2425,9 +2439,6 @@
 - provider: Lark
   supportedSecret: Lark Meego Plugin ID
   secretType: lark_meego_plugin_id, </br>lark_meego_plugin_secret
-  versions:
-    fpt: '*'
-    ghec: '*'
   isPublic: true
   isPrivateWithGhas: false
   hasPushProtection: false
@@ -2437,9 +2448,6 @@
 - provider: Lark
   supportedSecret: Lark User Session
   secretType: lark_user_session
-  versions:
-    fpt: '*'
-    ghec: '*'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2482,6 +2490,15 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
+- provider: Limbar
+  supportedSecret: Limbar Token
+  secretType: limbar_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: Linear
   supportedSecret: Linear API Key
   secretType: linear_api_key
@@ -2514,7 +2531,7 @@
   secretType: lob_live_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
   base64Supported: false
   isduplicate: false
@@ -2631,7 +2648,7 @@
   secretType: mapbox_secret_access_token
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
   base64Supported: false
   isduplicate: false
@@ -2829,7 +2846,7 @@
   secretType: netflix_netkey
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -2919,7 +2936,7 @@
   secretType: octopus_deploy_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3000,7 +3017,7 @@
   secretType: onfido_sandbox_api_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: true
   base64Supported: false
   isduplicate: false
@@ -3063,20 +3080,16 @@
   secretType: paddle_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
 - provider: Paddle
   supportedSecret: Paddle Sandbox API Key
   secretType: paddle_sandbox_api_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.20'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3148,7 +3161,7 @@
   secretType: pineapple_technologies_incident_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3157,7 +3170,7 @@
   secretType: pinecone_api_key, </br>pinecone_environment
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3404,6 +3417,15 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: true
+- provider: Proof
+  supportedSecret: Proof Full Access API Key
+  secretType: proof_full_access_api_key
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: Pulumi
   supportedSecret: Pulumi Access Token
   secretType: pulumi_access_token
@@ -3427,7 +3449,7 @@
   secretType: rainforest_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3436,7 +3458,7 @@
   secretType: rainforest_sandbox_api_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3472,7 +3494,7 @@
   secretType: raycast_access_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3614,7 +3636,7 @@
 - provider: Sentry
   supportedSecret: Sentry Organization Token
   secretType: sentry_organization_token
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
@@ -3623,10 +3645,10 @@
 - provider: Sentry
   supportedSecret: Sentry Personal Token
   secretType: sentry_personal_token
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: true
   base64Supported: false
   isduplicate: false
 - provider: Sentry
@@ -3688,7 +3710,7 @@
   secretType: shopify_app_client_secret
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3794,6 +3816,24 @@
 - provider: Slack
   supportedSecret: Slack Workflow Webhook URL
   secretType: slack_workflow_webhook_url
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Snowflake
+  supportedSecret: SFPG Connection String
+  secretType: snowflake_postgres_connection_string
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Snowflake
+  supportedSecret: SFPG Host
+  secretType: snowflake_postgres_host, </br>snowflake_postgres_password
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3947,6 +3987,24 @@
 - provider: Stripe
   supportedSecret: Stripe Webhook Signing Secret
   secretType: stripe_webhook_signing_secret
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Supabase
+  supportedSecret: Supabase Personal Access Token
+  secretType: supabase_personal_access_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Supabase
+  supportedSecret: Supabase Secret Key
+  secretType: supabase_secret_key
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -4115,6 +4173,60 @@
   hasValidityCheck: true
   base64Supported: false
   isduplicate: false
+- provider: Vercel
+  supportedSecret: Vercel API Key
+  secretType: vercel_api_key
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Vercel
+  supportedSecret: Vercel App Refresh Token
+  secretType: vercel_app_refresh_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Vercel
+  supportedSecret: Vercel App User Access Token
+  secretType: vercel_app_user_access_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Vercel
+  supportedSecret: Vercel Integration Access Token
+  secretType: vercel_integration_access_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Vercel
+  supportedSecret: Vercel Personal Access Token
+  secretType: vercel_personal_access_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Vercel
+  supportedSecret: Vercel Support Access Token
+  secretType: vercel_support_access_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: VolcEngine
   supportedSecret: VolcEngine Access Key ID
   secretType: volcengine_access_key_id
@@ -4165,7 +4277,7 @@
   secretType: wandb_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -4196,6 +4308,15 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: true
+- provider: WSO2
+  supportedSecret: WSO2 Choreo Personal Access Token
+  secretType: wso2_choreo_personal_access_token
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: xAI
   supportedSecret: xAI API Key
   secretType: xai_api_key

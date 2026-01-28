@@ -1,1 +1,0 @@
-> [!TIP] You can only generate the report once every 90 days. We recommend that you implement {% data variables.product.prodname_GH_secret_protection %} for continuous secret monitoring and prevention. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/choosing-github-secret-protection).

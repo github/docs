@@ -1,10 +1,12 @@
 import Cookies from '@/frame/components/lib/cookies'
+import { ANALYTICS_ENABLED } from '@/frame/lib/constants'
 import { parseUserAgent } from './user-agent'
 import { Router } from 'next/router'
 import { isLoggedIn } from '@/frame/components/hooks/useHasAccount'
 import { getExperimentVariationForContext } from './experiments/experiment'
 import { EventType, EventPropsByType } from '../types'
 import { isHeadless } from './is-headless'
+import { sendHydroAnalyticsEvent, getOctoClientId } from './hydro-analytics'
 
 const COOKIE_NAME = '_docs-events'
 
@@ -113,6 +115,7 @@ export function sendEvent<T extends EventType>({
       content_type: getMetaContent('page-content-type'),
       status: Number(getMetaContent('status') || 0),
       is_logged_in: isLoggedIn(),
+      octo_client_id: getOctoClientId(),
 
       // Device information
       // os, os_version, browser, browser_version:
@@ -151,6 +154,9 @@ export function sendEvent<T extends EventType>({
 
   queueEvent(body)
 
+  // Send events to hydro-analytics-client for cross-subdomain tracking
+  sendHydroAnalyticsEvent(body)
+
   if (type === EventType.exit) {
     flushQueue()
   }
@@ -166,7 +172,9 @@ function flushQueue() {
   eventQueue = []
 
   try {
-    navigator.sendBeacon(endpoint, new Blob([eventsBody], { type: 'application/json' }))
+    if (ANALYTICS_ENABLED) {
+      navigator.sendBeacon(endpoint, new Blob([eventsBody], { type: 'application/json' }))
+    }
   } catch (err) {
     console.warn(`sendBeacon to '${endpoint}' failed.`, err)
   }
@@ -436,6 +444,7 @@ function initPrintEvent() {
 }
 
 export function initializeEvents() {
+  if (!ANALYTICS_ENABLED) return
   if (initialized) return
   initialized = true
   initPageAndExitEvent() // must come first

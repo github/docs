@@ -15,7 +15,11 @@ shortTitle: Configure OpenTelemetry
 
 {% data reusables.enterprise.opentelemetry-migration %}
 
+{% ifversion ghes = 3.18 %}
+
 {% data reusables.enterprise.opentelemetry-preview %}
+
+{% endif %}
 
 ## Prerequisites
 
@@ -24,6 +28,12 @@ shortTitle: Configure OpenTelemetry
 * SSH access to your {% data variables.product.prodname_ghe_server %} appliance
 
 ## Enabling OpenTelemetry metrics
+
+{% ifversion ghes > 3.18 %}
+
+OpenTelemetry metrics are enabled by default for **new installations** of {% data variables.product.prodname_ghe_server %} 3.19 and later. Upgrades to {% data variables.product.prodname_ghe_server %} 3.19 will still have `collectd` metrics enabled by default, but you can choose to switch to OpenTelemetry metrics.
+
+{% else %}
 
 OpenTelemetry metrics are disabled by default. You can enable them through the {% data variables.enterprise.management_console %} or command line.
 
@@ -46,6 +56,8 @@ OpenTelemetry metrics are disabled by default. You can enable them through the {
     ```
 
 {% data reusables.enterprise.apply-configuration %}
+
+{% endif %}
 
 ## Performance considerations
 
@@ -157,5 +169,5 @@ sudo journalctl -u victoriametrics -f
 
 ## Next steps
 
-* To enable advanced monitoring dashboards, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/enable-advanced-dashboards)
+* To enable advanced monitoring dashboards, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/advanced-dashboards)
 * To set up external monitoring, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/setting-up-external-monitoring-with-opentelemetry).

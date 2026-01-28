@@ -54,6 +54,13 @@
   business: true
   enterprise: true
 
+- name: Gemini 3 Flash
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
 - name: Gemini 3 Pro
   free: false
   pro: true
@@ -111,6 +118,20 @@
   enterprise: true
 
 - name: GPT-5.1-Codex-Max
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: GPT-5.2
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: GPT-5.2-Codex
   free: false
   pro: true
   pro_plus: true

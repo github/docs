@@ -25,18 +25,20 @@ The command-line interface (CLI) for {% data variables.product.prodname_copilot 
 
 * Linux
 * macOS
-* Windows from within [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about). Native Windows support in Powershell is available, but experimental.
+* Windows from within Powershell and [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about)
 
 For installation instructions, see [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-cli).
 
 ## Modes of use
 
-{% data variables.copilot.copilot_cli %} can be used in two modes:
+{% data variables.copilot.copilot_cli %} can be used in three modes:
 * **Interactive mode**: Start an interactive session by using the `copilot` command. This is the default mode for working with the CLI.
 
   In this mode, you can prompt {% data variables.product.prodname_copilot_short %} to answer a question, or perform a task. You can react to {% data variables.product.prodname_copilot_short %}'s responses in the same session.
 
   ![Screenshot of the Welcome message in the interactive mode of {% data variables.product.prodname_copilot_short %}.](/assets/images/help/copilot/copilot-cli-welcome.png)
+
+* **Plan mode**: Press <kbd>Shift</kbd>+<kbd>Tab</kbd> to cycle in and out of plan mode. In plan mode, {% data variables.product.prodname_copilot_short %} analyzes your request, asks clarifying questions to understand scope and requirements, and builds a structured implementation plan before writing any code. This helps you catch misunderstandings before any code is written, and stay in control of complex, multi-step tasks.
 
 * **Programmatic mode**: You can also pass the CLI a single prompt directly on the command line. You do this by using the `-p` or `--prompt` command-line option. To allow {% data variables.product.prodname_copilot_short %} to modify and execute files you should also use one of the approval options (see [Allowing tools to be used without manual approval](#allowing-tools-to-be-used-without-manual-approval) later in this article). For example:
 
@@ -47,7 +49,7 @@ For installation instructions, see [AUTOTITLE](/copilot/how-tos/set-up/install-c
   Alternatively, you can use a script to output command-line options and pipe this to `copilot`. For example:
 
   ```bash copy
-  echo ./script-outputting-options.sh | copilot
+  ./script-outputting-options.sh | copilot
   ```
 
 > [!CAUTION]
@@ -141,6 +143,32 @@ The following sections provide examples of tasks you can complete with {% data v
 * Create a {% data variables.product.prodname_actions %} workflow.
 
   `Branch off from main and create a {% data variables.product.prodname_actions %} workflow that will run on pull requests, or can be run manually. The workflow should run eslint to check for problems in the changes made in the PR. If warnings or errors are found these should be shown as messages in the diff view of the PR. I want to prevent code with errors from being merged into main so, if any errors are found, the workflow should cause the PR check to fail. Push the new branch and create a pull request.`
+
+## Steering the conversation
+
+You can interact with {% data variables.product.prodname_copilot_short %} while it's thinking to steer the conversation:
+
+* **Enqueue additional messages**: Send follow-up messages to steer the conversation in a different direction, or queue additional instructions for {% data variables.product.prodname_copilot_short %} to process after it finishes its current response. This makes conversations feel more natural and keeps you in control.
+* **Inline feedback on rejection**: When you reject a tool permission request, you can give {% data variables.product.prodname_copilot_short %} inline feedback about the rejection so it can adapt its approach without stopping entirely. This makes the conversation flow more naturally when you want to guide {% data variables.product.prodname_copilot_short %} away from certain actions.
+
+## Automatic context management
+
+{% data variables.copilot.copilot_cli %} automatically manages your conversation context:
+
+* **Auto-compaction**: When your conversation approaches 95% of the token limit, {% data variables.product.prodname_copilot_short %} automatically compresses your history in the background without interrupting your workflow. This enables virtually infinite sessions.
+* **Manual control**: Use `/compact` to manually compress context anytime. Press <kbd>Escape</kbd> to cancel if you change your mind.
+* **Visualize usage**: The `/context` command shows a detailed token usage breakdown so you can understand how your context window is being used.
+
+## Customizing {% data variables.copilot.copilot_cli %}
+
+You can customize {% data variables.copilot.copilot_cli %} in a number of ways:
+
+* **Custom instructions**: Custom instructions allow you to give {% data variables.product.prodname_copilot_short %} additional context on your project and how to build, test and validate its changes. All custom instruction files now combine instead of using priority-based fallbacks. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-instructions).
+* **Model Context Protocol (MCP) servers**: MCP servers allow you to give {% data variables.product.prodname_copilot_short %} access to different data sources and tools. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server).
+* **{% data variables.copilot.custom_agents_caps_short %}**: {% data variables.copilot.custom_agents_caps_short %} allow you to create different specialized versions of {% data variables.product.prodname_copilot_short %} for different tasks. For example, you could customize {% data variables.product.prodname_copilot_short %} to be an expert frontend engineer following your team's guidelines. {% data variables.copilot.copilot_cli %} includes specialized {% data variables.copilot.custom_agents_short %} that it automatically delegates common tasks to. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-agents).
+* **Hooks**: Hooks allow you to execute custom shell commands at key points during agent execution, enabling you to add validation, logging, security scanning, or workflow automation. See [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-hooks).
+* **Skills**: Skills allow you to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
+* **{% data variables.copilot.copilot_memory %}**: {% data variables.copilot.copilot_memory %} allows {% data variables.product.prodname_copilot_short %} to build a persistent understanding of your repository by storing "memories", which are pieces of information about coding conventions, patterns, and preferences that {% data variables.product.prodname_copilot_short %} deduces as it works. This reduces the need to repeatedly explain context in your prompts and makes future sessions more productive. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
 
 ## Security considerations
 
@@ -265,9 +293,9 @@ You can mitigate the risks associated with using the automatic approval options 
 
 The default model used by {% data variables.copilot.copilot_cli %} is {% data variables.copilot.copilot_claude_sonnet_45 %}. {% data variables.product.github %} reserves the right to change this model.
 
-You can change the model used by {% data variables.copilot.copilot_cli %} by using the `/model` slash command. Enter this command, then select a model from the list.
+You can change the model used by {% data variables.copilot.copilot_cli %} by using the `/model` slash command or the `--model` command-line option. Enter this command, then select a model from the list.
 
-Each time you submit a prompt to {% data variables.product.prodname_copilot_short %} in {% data variables.copilot.copilot_cli_short %}'s interactive mode, and each time you use {% data variables.copilot.copilot_cli_short %} in programmatic mode, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one, multiplied by the multiplier shown in parentheses in the model list. For example, `Claude Sonnet 4.5 (1x)` indicates that with this model each time you submit a prompt your quota of premium requests is reduced by one. For information about premium requests, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
+Each time you submit a prompt to {% data variables.product.prodname_copilot_short %} in {% data variables.copilot.copilot_cli_short %}'s interactive mode, and each time you use {% data variables.copilot.copilot_cli_short %} in programmatic mode, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one, multiplied by the multiplier shown in parentheses in the model list. For example, `Claude Sonnet 4.5 (1x)` indicates that with this model each time you submit a prompt your quota of premium requests is reduced by one. For information about premium requests, see [AUTOTITLE](/copilot/concepts/billing/copilot-requests).
 
 {% data reusables.cli.feedback %}
 
