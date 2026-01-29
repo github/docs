@@ -22,7 +22,10 @@ export type LandingContextT = {
   currentLayout: string
   heroImage?: string
   // For landing pages with carousels
-  recommended?: Array<{ title: string; intro: string; href: string; category: string[] }> // Resolved article data
+  carousels?: Record<
+    string,
+    Array<{ title: string; intro: string; href: string; category: string[] }>
+  >
   introLinks?: Record<string, string> | null
   // For journey landing pages
   journeyTracks?: JourneyTrack[]
@@ -31,7 +34,7 @@ export type LandingContextT = {
 }
 
 type LandingPage = NonNullable<Context['page']> & {
-  recommended?: LandingContextT['recommended']
+  carousels?: LandingContextT['carousels']
   includedCategories?: string[]
   heroImage?: string
   product?: string
@@ -70,12 +73,13 @@ export const getLandingContextFromRequest = async (
     throw new Error('"getLandingContextFromRequest" requires req.context.page')
   }
 
-  const recommended =
+  // Get resolved carousels from the page after middleware processing
+  const carousels =
     landingType !== 'discovery' && landingType !== 'bespoke'
-      ? []
-      : Array.isArray(page.recommended)
-        ? (page.recommended as LandingContextT['recommended'])
-        : []
+      ? {}
+      : page.carousels && typeof page.carousels === 'object'
+        ? (page.carousels as LandingContextT['carousels'])
+        : {}
 
   // Note: Journey tracks are resolved in middleware and added to the request
   // context to avoid the error using server side apis client side
@@ -103,7 +107,7 @@ export const getLandingContextFromRequest = async (
     currentLayout: context.currentLayoutName ?? '',
     heroImage: page.heroImage || '/assets/images/banner-images/hero-1',
     introLinks: page.introLinks || null,
-    recommended,
+    carousels,
     journeyTracks,
     includedCategories: page.includedCategories || [],
   }

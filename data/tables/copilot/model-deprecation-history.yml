@@ -15,10 +15,6 @@
   retirement_date: '2026-02-17'
   suggested_alternative: 'Claude Opus 4.5'
 
-- name: 'Gemini 2.5 Pro'
-  retirement_date: '2026-02-17'
-  suggested_alternative: 'Gemini 3 Pro'
-
 - name: 'GPT-5'
   retirement_date: '2026-02-17'
   suggested_alternative: 'GPT-5.2'

@@ -109,6 +109,7 @@ The list of valid values for `source` are:
 * Wiki_content
 * Wiki_commit
 * Npm
+* Manual_submission
 * Unknown
 
 ### Implement signature verification in your secret alert service

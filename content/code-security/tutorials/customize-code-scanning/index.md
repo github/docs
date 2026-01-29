@@ -11,6 +11,7 @@ topics:
   - CodeQL
 contentType: tutorials
 children:
+  - /evaluating-default-setup-for-code-scanning
   - /preparing-your-code-for-codeql-analysis
   - /analyzing-your-code-with-codeql-queries
   - /uploading-codeql-analysis-results-to-github

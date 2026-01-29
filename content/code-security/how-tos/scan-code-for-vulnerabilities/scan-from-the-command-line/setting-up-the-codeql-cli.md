@@ -25,17 +25,16 @@ contentType: how-tos
 
 {% data reusables.code-scanning.codeql-cli-version-ghes %}
 
-To run {% data variables.product.prodname_codeql %} commands, you need to set up the CLI so that it can access
-the tools, queries, and libraries required to create and analyze databases.
+To run {% data variables.product.prodname_codeql %} commands, you need to set up the {% data variables.product.prodname_codeql_cli %} so that it can access the tools, queries, and libraries required to create and analyze databases.
 
-The {% data variables.product.prodname_codeql_cli %} can be set up to support many different use cases and directory structures. To get started quickly, we recommend adopting a relatively simple setup, as outlined in the steps below.
+The {% data variables.product.prodname_codeql_cli %} supports a range of use cases and directory structures. This article walks through a simple setup that works for most users and environments.
 
-If you plan to use the {% data variables.product.prodname_codeql_cli %} for security research or to test or contribute queries, you may want a more advanced setup of {% data variables.product.prodname_codeql_cli %}. For more information, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/advanced-setup-of-the-codeql-cli).
+If you plan to use the {% data variables.product.prodname_codeql_cli %} for security research or to test or contribute queries, you may need a more advanced setup. For more information, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/advanced-setup-of-the-codeql-cli).
 
-If you are setting up the {% data variables.product.prodname_codeql_cli %} in your CI system, you need to make the full contents of the {% data variables.product.prodname_codeql_cli %} bundle available to every CI server that you want to run {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} analysis on. For example, you might configure each server to copy the bundle from a central, internal location and extract it. Alternatively, you could use the REST API to get the bundle directly from {% data variables.product.prodname_dotcom %}, ensuring that you benefit from the latest improvements to queries. For more information, see [AUTOTITLE](/rest/releases) in the REST API documentation.
+### Before you begin
 
 If you are using macOS on Apple Silicon (for example, Apple M1), ensure that the [Xcode command-line developer
-tools](https://developer.apple.com/downloads/index.action) and [Rosetta 2](https://support.apple.com/en-us/HT211861) are installed.
+tools](https://developer.apple.com/library/archive/technotes/tn2339/_index.html) and [Rosetta 2](https://support.apple.com/en-us/HT211861) are installed.
 
 > [!NOTE]
 > The {% data variables.product.prodname_codeql_cli %} is currently not compatible with non-glibc Linux distributions such as (muslc-based) Alpine Linux.
@@ -47,6 +46,15 @@ tools](https://developer.apple.com/downloads/index.action) and [Rosetta 2](https
 ### 2. Extract the {% data variables.product.prodname_codeql_cli %} tar archive
 
 Extract the {% data variables.product.prodname_codeql_cli %} tar archive to a directory of your choosing.
+
+### Optional: Make the {% data variables.product.prodname_codeql_cli %} available in your CI system
+
+If you plan to run {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} analysis in a CI system, ensure that the full contents of the {% data variables.product.prodname_codeql_cli %} bundle are available to every CI server that will run analysis.
+
+For example, you can:
+
+* Copy the bundle from a central internal location and extract it on each server, or
+* Use the REST API to download the bundle directly from {% data variables.product.prodname_dotcom %}, ensuring that you receive the latest improvements to queries. For more information, see [AUTOTITLE](/rest/releases).
 
 ### 3. Launch `codeql`
 
