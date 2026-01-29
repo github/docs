@@ -77,15 +77,17 @@ After configuring {% data variables.product.prodname_code_scanning %} for your r
 
 ### Determining whether {% data variables.product.prodname_code_scanning %} default setup used any private registries
 
-{% data variables.product.prodname_code_scanning_caps %} default setup includes a `Setup proxy or registries` step. When you are looking at a log file for default setup, you can expand this step. If the step includes:
+{% data variables.product.prodname_code_scanning_caps %} default setup workflows include a `Setup proxy for registries` step. When you are looking at a workflow run for default setup, you can expand this step to view the corresponding log and look for the following messages:
 
-* `Using registries_credentials input.` At least one private registry is configured for the organization.
+* `Using registries_credentials input.` At least one private registry is configured for the organization. This includes configurations for private registry types which are not supported by {% data variables.product.prodname_code_scanning %} default setup. For more details about supported registry types, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries).
 
 * `Credentials loaded for the following registries:`
-  * No further output in the step. Access was unsuccessful.
-  * `Type: nuget_feed;` Default set up accessed a private Nuget feed.
-  * `Type: maven_repository;` Default set up accessed a private Maven repository.
+  * If no list of configurations follows, then no private registry configurations supported by {% data variables.product.prodname_code_scanning %} default setup were found.
+  * Otherwise, one line for each supported configuration that was successfully loaded is shown. For example, a line containing `Type: nuget_feed; Host: undefined; Url: https://nuget.pkg.github.com/; Username: undefined; Password: true; Token: false` indicates that a private NuGet Feed configuration was loaded.
+  * The information about the configuration in the log may not match exactly what is configured for the organization in the UI. For example, the log may indicate that a `Password` is set, even though a `Token` is configured in the UI.
 
-For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries).
+If the output from the `Setup proxy for registries` step is as expected, but {% data variables.product.prodname_code_scanning %} default setup is unable to successfully access dependencies in the private registries, you can obtain additional troubleshooting information. See [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/logs-not-detailed-enough#creating-codeql-debugging-artifacts-for-codeql-default-setup).
+
+For more information about giving {% data variables.product.prodname_code_scanning %} default setup access to private registries, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries).
 
 {% endif %}

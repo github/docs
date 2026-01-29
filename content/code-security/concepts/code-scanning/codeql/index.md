@@ -16,4 +16,5 @@ children:
   - /about-codeql-for-vs-code
   - /about-codeql-workspaces
   - /query-reference-files
+  - /codeql-query-packs
 ---

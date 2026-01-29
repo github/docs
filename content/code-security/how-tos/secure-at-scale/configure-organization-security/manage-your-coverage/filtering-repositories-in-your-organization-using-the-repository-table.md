@@ -15,9 +15,7 @@ redirect_from:
 contentType: how-tos
 ---
 
-## About filtering repositories in your organization
-
-By default, when managing {% data variables.product.prodname_security_configurations %} for repositories in your organization, the repository table displays all repositories in your organization. You can filter the repository table to help you apply and detach {% data variables.product.prodname_security_configurations %}, as well as manage {% data variables.product.prodname_AS %} license usage in your organization.
+You can filter the repository table in your organization to quickly find and manage specific repositories when applying {% data variables.product.prodname_security_configurations %} or managing {% data variables.product.prodname_AS %} license usage in the organization. This article explains how to use filters in the repository table.
 
 ## Filtering the repository table with the search bar
 

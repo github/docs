@@ -346,6 +346,9 @@ cookbook_landing:
   category: Category
   complexity: Complexity
 
+carousels:
+  recommended: Recommended
+
 not_found:
   title: Ooops!
   message: It looks like this page doesn't exist.

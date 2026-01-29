@@ -33,7 +33,7 @@ With delegated bypass for push protection, you can:
 
 To set up delegated bypass, organization owners or repository administrators create a list of users with bypass privileges. This designated list of users can then:
 * Bypass push protection, by specifying a reason for bypassing the block.
-* Manage (approve or deny) bypass requests coming from all other contributors. These requests are located in the "Push protection bypass" page in the **Security** tab of the repository, and will expire after 7 days.
+* Manage (approve or deny) bypass requests coming from all other contributors. These requests are located in the "Push protection bypass" page in the **Security** tab of the repository, and will expire after 7 days. For more information about bypass requests, see [AUTOTITLE](/code-security/concepts/secret-security/about-bypass-requests-for-push-protection).
 
 The following types of users can always bypass push protection without having to request bypass privileges:
 * Organization owners

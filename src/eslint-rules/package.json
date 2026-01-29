@@ -1,0 +1,10 @@
+{
+  "name": "eslint-plugin-custom-rules",
+  "type": "commonjs",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "peerDependencies": {
+    "eslint": "^8.0.0 || ^9.0.0"
+  }
+}

@@ -100,7 +100,7 @@ useful for testing extractors.
 #### `--[no-]check-databases`
 
 \[Advanced] Run
-[codeql dataset check](/code-security/codeql-cli/codeql-cli-manual/dataset-check) over each test database created and report a failure if it detects inconsistencies. This is useful when testing extractors. If the check is (temporarily!) expected to fail for a particular database, place a `DB-CHECK.expected` file in the test directory.
+[codeql dataset check](/code-security/reference/code-scanning/codeql/codeql-cli-manual/dataset-check) over each test database created and report a failure if it detects inconsistencies. This is useful when testing extractors. If the check is (temporarily!) expected to fail for a particular database, place a `DB-CHECK.expected` file in the test directory.
 
 #### `--[no-]show-extractor-output`
 
@@ -341,7 +341,7 @@ takes up a lot of space in the dataset.
 
 #### `--[no-]linkage-aware-import`
 
-\[Advanced] Controls whether [codeql dataset import](/code-security/codeql-cli/codeql-cli-manual/dataset-import) is linkage-aware _(default)_ or not. On projects where this part of database creation
+\[Advanced] Controls whether [codeql dataset import](/code-security/reference/code-scanning/codeql/codeql-cli-manual/dataset-import) is linkage-aware _(default)_ or not. On projects where this part of database creation
 consumes too much memory, disabling this option may help them progress
 at the expense of database completeness.
 

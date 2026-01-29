@@ -67,7 +67,7 @@ timed parts are "RA layers" of the optimized query, but that might
 change in the future.
 
 If no timeout is specified, or is given as 0, no timeout will be set
-(except for [codeql test run](/code-security/codeql-cli/codeql-cli-manual/test-run), where the default timeout is 5 minutes).
+(except for [codeql test run](/code-security/reference/code-scanning/codeql/codeql-cli-manual/test-run), where the default timeout is 5 minutes).
 
 #### `-j, --threads=<num>`
 
@@ -90,7 +90,7 @@ be discarded after the queries have been executed.
 #### `--[no-]keep-full-cache`
 
 \[Advanced] Don't clean up the disk cache after evaluation completes.
-This may save time if you're going to do [codeql dataset cleanup](/code-security/codeql-cli/codeql-cli-manual/dataset-cleanup) or [codeql database cleanup](/code-security/codeql-cli/codeql-cli-manual/database-cleanup) afterwards anyway.
+This may save time if you're going to do [codeql dataset cleanup](/code-security/reference/code-scanning/codeql/codeql-cli-manual/dataset-cleanup) or [codeql database cleanup](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-cleanup) afterwards anyway.
 
 #### `--max-disk-cache=<MB>`
 
@@ -147,7 +147,7 @@ terminal than stderr. Mostly useful for internal testing.
 
 #### `--search-path=<dir>[:<dir>...]`
 
-This works like the similar option to [codeql query compile](/code-security/codeql-cli/codeql-cli-manual/query-compile) (q.v.).
+This works like the similar option to [codeql query compile](/code-security/reference/code-scanning/codeql/codeql-cli-manual/query-compile) (q.v.).
 
 There are no `--additional-packs` or `--library-path` options, as the
 corresponding values are provided per query
