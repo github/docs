@@ -73,8 +73,6 @@ If you do have write access, and you mention `@copilot` on a pull request that i
 
 If this doesn't happen, {% data variables.product.prodname_copilot_short %} may have been unassigned from the pull request, or you may not have write access. Note that {% data variables.product.prodname_copilot_short %} only responds to mentions in open pull requests. Once a pull request is merged or closed, {% data variables.copilot.copilot_coding_agent %} will not respond to new mentions or comments to better focus on active development work.
 
-If this doesn't happen, {% data variables.product.prodname_copilot_short %} may have been unassigned from the pull request, or you may not have write access.
-
 ## Based on the agent session logs, {% data variables.product.prodname_copilot_short %} appears to be stuck
 
 {% data variables.product.prodname_copilot_short %} can appear to be stuck for a while, and then get moving again.
