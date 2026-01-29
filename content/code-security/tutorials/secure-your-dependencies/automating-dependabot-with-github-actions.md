@@ -51,7 +51,7 @@ Most automation requires you to know information about the contents of the pull 
 
 Example:
 
-{% raw %}
+
 
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -71,14 +71,12 @@ jobs:
         id: metadata
         uses: dependabot/fetch-metadata@d7267f607e9d3fb96fc2fbe83e0af444713e90b7
         with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          github-token: "{% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}"
       # The following properties are now available:
       #  - steps.metadata.outputs.dependency-names
       #  - steps.metadata.outputs.dependency-type
       #  - steps.metadata.outputs.update-type
 ```
-
-{% endraw %}
 
 For more information, see the [`dependabot/fetch-metadata`](https://github.com/dependabot/fetch-metadata) repository.
 
@@ -88,7 +86,7 @@ If you have other automation or triage workflows based on {% data variables.prod
 
 Example that flags all production dependency updates with a label:
 
-{% raw %}
+
 
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -108,15 +106,13 @@ jobs:
         id: metadata
         uses: dependabot/fetch-metadata@d7267f607e9d3fb96fc2fbe83e0af444713e90b7
         with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          github-token: "{% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}"
       - name: Add a label for all production dependencies
         if: steps.metadata.outputs.dependency-type == 'direct:production'
         run: gh pr edit "$PR_URL" --add-label "production"
         env:
-          PR_URL: ${{github.event.pull_request.html_url}}
+          PR_URL: {% raw %}${{github.event.pull_request.html_url}}{% endraw %}
 ```
-
-{% endraw %}
 
 ## Automatically approving a pull request
 
@@ -124,7 +120,7 @@ You can automatically approve {% data variables.product.prodname_dependabot %} p
 
 Example:
 
-{% raw %}
+
 
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -143,15 +139,13 @@ jobs:
         id: metadata
         uses: dependabot/fetch-metadata@d7267f607e9d3fb96fc2fbe83e0af444713e90b7
         with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          github-token: "{% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}"
       - name: Approve a PR
         run: gh pr review --approve "$PR_URL"
         env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          PR_URL: {% raw %}${{github.event.pull_request.html_url}}{% endraw %}
+          GH_TOKEN: {% raw %}${{secrets.GITHUB_TOKEN}}{% endraw %}
 ```
-
-{% endraw %}
 
 ## Enabling automerge on a pull request
 
@@ -161,7 +155,6 @@ For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-req
 
 You can instead use {% data variables.product.prodname_actions %} and the {% data variables.product.prodname_cli %}. Here is an example that automerges all patch updates to `my-dependency`:
 
-{% raw %}
 
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -181,16 +174,14 @@ jobs:
         id: metadata
         uses: dependabot/fetch-metadata@d7267f607e9d3fb96fc2fbe83e0af444713e90b7
         with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          github-token: "{% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}"
       - name: Enable auto-merge for Dependabot PRs
         if: contains(steps.metadata.outputs.dependency-names, 'my-dependency') && steps.metadata.outputs.update-type == 'version-update:semver-patch'
         run: gh pr merge --auto --merge "$PR_URL"
         env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          PR_URL: {% raw %}${{github.event.pull_request.html_url}}{% endraw %}
+          GH_TOKEN: {% raw %}${{secrets.GITHUB_TOKEN}}{% endraw %}
 ```
-
-{% endraw %}
 
 > [!NOTE]
 > If you use status checks to test pull requests, you should enable **Require status checks to pass before merging** for the target branch for {% data variables.product.prodname_dependabot %} pull requests. This branch protection rule ensures that pull requests are not merged unless **all the required status checks pass**. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).

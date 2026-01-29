@@ -177,12 +177,42 @@ Japan region:
 
 ### Domains for Azure private networking
 
+#### Required for all regions
+
 * `*.<TENANT>.ghe.com`
 * `<TENANT>.ghe.com`
 * `github.com`
 * `*.githubusercontent.com`
-* `*.blob.core.windows.net`
+* `*.blob.core.windows.net` (can be further restricted by region, see below)
 * `*.web.core.windows.net`
+
+#### EU
+
+`*.blob.core.windows.net` can be replaced with:
+* `prodsdc01resultssa0.blob.core.windows.net`
+* `prodsdc01resultssa1.blob.core.windows.net`
+* `prodsdc01resultssa2.blob.core.windows.net`
+* `prodsdc01resultssa3.blob.core.windows.net`
+* `prodweu01resultssa0.blob.core.windows.net`
+* `prodweu01resultssa1.blob.core.windows.net`
+* `prodweu01resultssa2.blob.core.windows.net`
+* `prodweu01resultssa3.blob.core.windows.net` 
+
+#### Australia
+
+`*.blob.core.windows.net` can be replaced with:
+* `prodae01resultssa0.blob.core.windows.net`
+* `prodae01resultssa1.blob.core.windows.net`
+* `prodae01resultssa2.blob.core.windows.net`
+* `prodae01resultssa3.blob.core.windows.net`
+
+#### Japan
+
+`*.blob.core.windows.net` can be replaced with:
+* `prodjpw01resultssa0.blob.core.windows.net`
+* `prodjpw01resultssa1.blob.core.windows.net`
+* `prodjpw01resultssa2.blob.core.windows.net`
+* `prodjpw01resultssa3.blob.core.windows.net`
 
 ## IP ranges for {% data variables.product.prodname_importer_proper_name %}
 

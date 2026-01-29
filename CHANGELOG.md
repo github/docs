@@ -1,5 +1,24 @@
 # Docs changelog
 
+**20 January 2026**
+
+We published the first iteration of the [GitHub Copilot feature matrix](https://docs.github.com/en/copilot/reference/copilot-feature-matrix) to provide customers with the latest information about which Copilot features are available by which IDE/version. 
+
+Historically, keeping Copilot feature and IDE availability up to date has required manual coordination with the Docs team, which does not scale well with the increasing number of features. The goal of this document and its process is to enable product owners to directly maintain the Copilot feature and IDE availability information as part of their normal release workflow. The feature matrix provides a single, easy to update source of truth.
+
+The feature matrix is in public preview so that customers have time to gather and submit feedback to us. 
+
+<hr>
+
+**16 January 2026**
+
+The following new articles support the public preview release of Copilot Memory:
+
+* [About agentic memory for GitHub Copilot](https://docs.github.com/copilot/concepts/agents/copilot-memory)
+* [Enabling and curating Copilot Memory](https://docs.github.com/copilot/how-tos/use-copilot-agents/copilot-memory)
+
+<hr>
+
 **16 January 2026**
 
 We published [About user offboarding on GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/admin/concepts/identity-and-access-management/user-offboarding) to give enterprise customers clear guidance about offboarding processes. The article covers recommended offboarding methods, the effects of offboarding, and what happens when a user is removed from all organizations in an enterprise.

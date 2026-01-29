@@ -43,6 +43,25 @@ The permissions for a package are either inherited from the repository where the
 
 {% data reusables.package_registry.public-or-private-packages %}
 
+{% ifversion virtual-registry %}
+
+## About linked artifacts for organizations
+
+The {% data variables.product.virtual_registry %} is an alternative view that you can also access in the "Packages" section of an organization's settings.
+
+Like {% data variables.product.prodname_registry %}, the {% data variables.product.virtual_registry %} allows you to collect information about your organization's builds in a single place. Teams can use the {% data variables.product.virtual_registry %} to find an artifact's source code, build details, and deployment history.
+
+Unlike {% data variables.product.prodname_registry %}, the {% data variables.product.virtual_registry %} does **not** host the package or image files themselves. Instead, it provides an authoritative source for the metadata associated with each package or image.
+
+Your organization may benefit from using the {% data variables.product.virtual_registry %} either:
+
+* **Alongside** {% data variables.product.prodname_registry %}, as an complementary view focused on the compliance and security aspects of package consumption
+* **As an alternative to** {% data variables.product.prodname_registry %}, allowing you to store your packages on an external registry of your choice while maintaining visibility of the packages on {% data variables.product.github %}
+
+For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/linked-artifacts).
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 
 ## About billing for {% data variables.product.prodname_registry %}

@@ -18,15 +18,13 @@ redirect_from:
 contentType: how-tos
 ---
 
-## About configuring private registries for {% data variables.product.prodname_dependabot %}
-
 This article contains recommendations and advice to help you configure {% data variables.product.prodname_dependabot %} to access your private registry, along with:
 
-* Detailed snippets of the `dependabot.yml` configuration file for each package manager.
-* Important limitations or caveats.
-* Steps explaining how to test that the configuration is working.
-* Extra configuration options, wherever appropriate (for example, npm has a configuration file that needs to be set).
-* Advice about configuring registry hosts.
+* Detailed snippets of the `dependabot.yml` configuration file for each package manager
+* Important limitations or caveats
+* Steps explaining how to test that the configuration is working
+* Extra configuration options, wherever appropriate (for example, npm has a configuration file that needs to be set)
+* Advice about configuring registry hosts
 
 You'll find detailed guidance for the setup of the following package managers:
 

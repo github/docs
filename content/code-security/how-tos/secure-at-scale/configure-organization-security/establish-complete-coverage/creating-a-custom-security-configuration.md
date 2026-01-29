@@ -16,29 +16,19 @@ redirect_from:
 contentType: how-tos
 ---
 
-## About {% data variables.product.prodname_custom_security_configurations %}
+{% ifversion security-configurations-cloud %}
 
-{% ifversion fpt or ghec %}
+If you are familiar with {% data variables.product.company_short %}'s security products, and you have specific security needs that the {% data variables.product.prodname_github_security_configuration %} can't meet, you can create and apply {% data variables.product.prodname_custom_security_configurations %}. For more information, see [AUTOTITLE](/code-security/concepts/security-at-scale/choosing-a-security-configuration-for-your-repositories).
 
-We recommend securing your organization with the {% data variables.product.prodname_github_security_configuration %}, then evaluating the security findings on your repositories before configuring {% data variables.product.prodname_custom_security_configurations %}. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization).
-
-{% endif %}
+{% else %}
 
 With {% data variables.product.prodname_custom_security_configurations %}, you can create collections of enablement settings for {% data variables.product.company_short %}'s security products to meet the specific security needs of your organization. For example, you can create a different {% data variables.product.prodname_custom_security_configuration %} for each group of repositories to reflect their different levels of visibility, risk tolerance, and impact.
 
-{% ifversion ghas-products %}
-
-You can also choose whether or not you want to include {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %} features in a configuration.
-
-{%- ifversion fpt or ghec %} If you do, keep in mind that these features incur usage costs (or require {% data variables.product.prodname_GHAS %} licenses) when applied to private and internal repositories.{% endif %} For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
-
-{% endif %}
-
-{% ifversion ghes %}
-
 * Only features installed by a site administrator on your {% data variables.product.prodname_ghe_server %} instance will appear in the UI.
 * {% ifversion ghas-products %}Some features will only be visible if your organization or {% data variables.product.prodname_ghe_server %} instance has purchased the relevant {% data variables.product.prodname_GHAS %} product ({% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}){% else %}{% data variables.product.prodname_GHAS %} features will only be visible if your organization or {% data variables.product.prodname_ghe_server %} instance holds a {% data variables.product.prodname_GHAS %} license{% endif %}.
-* Certain features, like {% data variables.product.prodname_dependabot_security_updates %} and {% data variables.product.prodname_code_scanning %} default setup, also require that {% data variables.product.prodname_actions %} is installed on the {% data variables.product.prodname_ghe_server %} instance.{% endif %}
+* Certain features, like {% data variables.product.prodname_dependabot_security_updates %} and {% data variables.product.prodname_code_scanning %} default setup, also require that {% data variables.product.prodname_actions %} is installed on the {% data variables.product.prodname_ghe_server %} instance.
+
+{% endif %}
 
 {% ifversion ghas-products %}
 

@@ -16,20 +16,28 @@ contentType: how-tos
 
 ## About the importance of providing access to private registries
 
-When a repository uses code stored in a private registry, some security features need access to the registry to enable them to work effectively. Without access to all the dependencies of a repository, {% ifversion code-quality %}{% data variables.product.prodname_code_quality_short %} ({% data variables.release-phases.public_preview %}), {% endif %}{% data variables.product.prodname_code_scanning %} default setup and {% data variables.product.prodname_dependabot %} are limited.
+When code in a repository has dependencies that are stored in a private registry, some security features need access to the registry to enable them to work effectively. Without access to all the dependencies of a repository, the effectiveness of {% ifversion code-quality %}{% data variables.product.prodname_code_quality_short %} ({% data variables.release-phases.public_preview %}), {% endif %}{% data variables.product.prodname_code_scanning %} default setup and {% data variables.product.prodname_dependabot %} are limited.
 
 ## {% data variables.product.prodname_code_scanning_caps %} default setup access to private registries
 
-If you do not define access to the private registries your organization uses, then {% data variables.product.prodname_code_scanning %} will only gather necessary data from dependencies available in public registries. Most times, this is enough for surfacing most of the vulnerabilities. However, in some cases the lack of access can lead to false negative results, that is, {% data variables.product.prodname_code_scanning %} is unable to detect a vulnerability in the code because it does not have all the information it needs to analyze the code. For example, some of the data flow paths may not be detected because steps are defined in dependencies that are not accessible and {% data variables.product.prodname_code_scanning %} does not know how to interpret them.
+If you do not define access to the private registries your organization uses, then {% data variables.product.prodname_code_scanning %} will only gather necessary data from dependencies available in public registries. Most times, this is enough for surfacing most of the vulnerabilities. However, in some cases the lack of access can lead to false negative results. In other words, {% data variables.product.prodname_code_scanning %} is unable to detect a vulnerability in the code because it does not have all the information it needs to analyze the code. For example, some of the data flow paths may not be detected because steps are defined in dependencies that are not accessible and {% data variables.product.prodname_code_scanning %} does not know how to interpret them.
 
 When you configure access to the private registries used in your organization, {% data variables.product.prodname_code_scanning %} has access to all the information it needs and is much less likely to miss a vulnerability.
 
+{% data variables.product.prodname_code_scanning_caps %} default setup supports the following registry types:
+
+| Language | Registry types |
+|----------|----------------|
+| C# | NuGet Feed |
+| Go | GOPROXY server, Git Source |
+| Java | Maven Repository |
+
 > [!TIP]
-> You can define one of each type of registry for each organization. If the codebases in your organization use more than one registry of a given type, you should define access to the most important registry for the codebases in that organization.
+> You can define one of each type of registry for each organization. If the codebases in your organization use more than one registry of a given type, you should set up a unified access point or define access to the most important registry for the codebases in that organization.
 
 ### Defining registry access for {% data variables.product.prodname_code_scanning %} default setup
 
-You need to be an **organization owner** to set up access to private registries in the user interface. You can also use the REST API with organization owner or `{read,write}_org_private_registries` permission.
+You need to be an **organization owner** to set up access to private registries in the user interface. You can also use the REST API with the organization owner or `{read,write}_org_private_registries` permissions.
 
 1. On the **Settings** tab for the organization, scroll down to the "Security" section and select **Secrets and variables**.
 1. In the expanded list of secrets and variables, select **Private registries** to display the "Private Registries" page.
@@ -38,6 +46,7 @@ You need to be an **organization owner** to set up access to private registries 
    * **URL** is the location where you access the private registry. For example, to use the {% data variables.product.prodname_registry %} registry for NuGet: `https://nuget.pkg.github.com/`.
    * **Type** is the type of registry.
 1. Select either **Token** or **Username and password**, depending on the authentication method, then enter data into the appropriate fields.
+   Some types of authentication tokens, such as a {% data variables.product.github %} {% data variables.product.pat_generic_title_case %}, are tied to a particular user identity. Select the **Username and password** option for these and enter the relevant username as **Username** and the token as **Password**.
 1. Define which repositories in the organization can access the private registry using these details: all, private and internal, or selected repositories only.
 1. When you have finished defining the private registry, select **Add Registry** to save the registry information.
 

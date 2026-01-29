@@ -112,6 +112,6 @@ When you have confirmed that a {% data variables.product.prodname_codeql %} data
 gh api /repos/<owner>/<repo>/code-scanning/codeql/databases/<language> -H 'Accept: application/zip' > path/to/local/database.zip
 ```
 
-For more information, see the documentation for the [Get {% data variables.product.prodname_codeql %} database endpoint](/rest/code-scanning?apiVersion=2022-11-28#get-a-codeql-database-for-a-repository).
+For more information, see the documentation for the [Get {% data variables.product.prodname_codeql %} database endpoint](/rest/code-scanning/code-scanning#get-a-codeql-database-for-a-repository).
 
 Before running an analysis with the {% data variables.product.prodname_codeql_cli %}, you must unzip the databases.

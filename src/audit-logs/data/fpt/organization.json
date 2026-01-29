@@ -14146,6 +14146,34 @@
     ]
   },
   {
+    "action": "repository_secret_scanning_extended_metadata.disabled",
+    "description": "Metadata for secret scanning alerts has been disabled at the repository level",
+    "docs_reference_links": "/code-security/secret-scanning/enabling-secret-scanning-features/enabling-extended-metadata-checks-for-your-repository",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "user",
+      "user_id",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "Enabling extended metadata checks for your repository"
+  },
+  {
     "action": "repository_secret_scanning_generic_secrets.disabled",
     "description": "Generic secrets have been disabled at the repository level",
     "docs_reference_links": "N/A",

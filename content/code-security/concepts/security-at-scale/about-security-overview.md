@@ -73,7 +73,7 @@ There are dedicated views for each type of security alert. You can limit your an
 
 The application security team at your company can use the different views for both broad and specific analyses of your organization's security status. For example, the team can use the "Overview" dashboard view to track your organization's security landscape and progression. {% ifversion pre-security-configurations %}You can also use security overview to find a set of repositories and enable or disable security features for them all at the same time. For more information, see [AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories).{% endif %}
 
-You can find security overview on the **Security** tab for any organization. Each view shows a summary of the data that you have access to. As you add filters, all data and metrics across the view change to reflect the repositories or alerts that you've selected. For information about permissions, see [Permission to view data in security overview](#permission-to-view-data-in-security-overview).
+You can find security overview on the **Security** tab for any organization. Each view shows a summary of the data that you have access to. As you add filters, all data and metrics across the view change to reflect the repositories or alerts that you've selected.
 
 Security overview has multiple views that provide different ways to explore enablement and alert data.
 
@@ -97,49 +97,19 @@ You can find security overview on the **Security** tab for your enterprise. Each
 
 As with security overview for organizations, security overview for enterprises has multiple views that provide different ways to explore data.
 
-For information about permissions, see [Permission to view data in security overview](#permission-to-view-data-in-security-overview).
+## Access to data in security overview
 
-## Permission to view data in security overview
+What you can see in security overview depends on your role and permissions in the organization or enterprise.
 
-### Organization-level overview
+In general:
 
-If you are an **owner or security manager** for an organization, you can see data for all the repositories in the organization in all views.
+* **Organization owners and security managers** can view security data across all repositories in their organization.
+* **Organization members** can view data only for repositories where they have access to security alerts.
+* **Enterprise owners** can view aggregated security data in the enterprise-level security overview for organizations where they are an organization owner or security manager. To see repository-level details, they must have the appropriate role within the organization.
 
-If you are an **organization or team member**, you can view security overview for the organization and see data for repositories where you have an appropriate level of access.
+Security overview displays data only for repositories you have permission to view, and some views or actions may be limited based on your role.
 
-{% ifversion secret-risk-assessment %}
-
-> [!TIP] The Assessments view, which is not shown in the table below, is only available to organization owners and security managers.
-
-{% endif %}
-
-{% rowheaders %}
-
-| Organization or team member with | Overview dashboard view | Risk and alerts views | Coverage view |
-|--------------------|-------------|---------------------|---------|
-| `admin` access for one or more repositories | View data for those repositories | View data for those repositories |  View data for those repositories{% ifversion pre-security-configurations %}, and enable and disable security features{% endif %} |
-| `write` access for one or more repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | No access |
-| `read` or `triage` access for one or more repositories | No access | No access | No access |
-| Security alert access for one or more repositories | View all security alert data for those repositories | View all security alert data for those repositories | No access |
-| Custom organization role with permission to view one or more types of security alert | View allowed alert data for all repositories |  View allowed alert data for all repositories in all views  | No access |
-
-{% endrowheaders %}
-
-> [!NOTE]
-> To ensure a consistent and responsive experience, for organization members, the organization-level security overview pages will only display results from the most recently updated 3,000 repositories. If your results have been restricted, a notification will appear at the top of the page. Organization owners and security managers will see results from all repositories.
-
-For more information about access to security alerts and related views, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) and [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/about-custom-repository-roles#security).
-
-### Enterprise-level overview
-
-> [!NOTE]
-> If you are an **enterprise owner**, you will need to join an organization as an organization owner to view data for the organization's repositories in both the organization-level and enterprise-level overview.{% ifversion secret-scanning-user-owned-repos %} {% data reusables.secret-scanning.secret-scanning-user-owned-repo-access %}{% endif %} For more information, see [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise).
-
-In the enterprise-level security overview, you can see data for all organizations where you are an **organization owner or security manager**.
-
-{% ifversion ghec %}
-If you're an owner of an {% data variables.enterprise.prodname_emu_enterprise %}, you can view data from user-owned repositories in security overview and filter by repository owner type. For more information on {% data variables.enterprise.prodname_managed_users %}, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
-{% endif %}
+For detailed, role-by-role permission information, including which views are available and how repository access affects visibility, see [AUTOTITLE](/code-security/reference/permissions/security-overview-permissions).
 
 ## Further reading
 

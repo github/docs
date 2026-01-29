@@ -40,6 +40,7 @@ export function adaptAppRouterContextToMainContext(
       oldestSupported: '',
       nextDeprecationDate: '',
       supported: [],
+      releasesWithOldestDeprecationDate: [],
     },
     enterpriseServerVersions: [],
     error: '',
