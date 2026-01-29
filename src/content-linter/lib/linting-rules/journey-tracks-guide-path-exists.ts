@@ -5,7 +5,7 @@ import { addError } from 'markdownlint-rule-helpers'
 import { getFrontmatter } from '../helpers/utils'
 import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
-// Yoink path validation approach from frontmatter-landing-recommended
+// Yoink path validation approach from frontmatter-landing-carousels
 function isValidGuidePath(guidePath: string, currentFilePath: string): boolean {
   const ROOT = process.env.ROOT || '.'
 

@@ -3,6 +3,7 @@ import type { Response } from 'express'
 import { Context } from '@/types'
 import { ExtendedRequestWithPageInfo } from '@/article-api/types'
 import contextualize from '@/frame/middleware/context/context'
+import features from '@/versions/middleware/features'
 import { transformerRegistry } from '@/article-api/transformers'
 import { allVersions } from '@/versions/lib/all-versions'
 import type { Page } from '@/types'
@@ -27,6 +28,9 @@ async function createContextualizedRenderingRequest(pathname: string, page: Page
   // contextualize the request to get proper version info
   await contextualize(renderingReq as ExtendedRequestWithPageInfo, {} as Response, () => {})
   renderingReq.context.page = page
+
+  // Load feature flags into context (needed for {% ifversion %} tags)
+  features(renderingReq as ExtendedRequestWithPageInfo, {} as Response, () => {})
 
   return renderingReq
 }
@@ -70,5 +74,20 @@ export async function getArticleBody(req: ExtendedRequestWithPageInfo) {
   // these parts allow us to render the page
   const renderingReq = await createContextualizedRenderingRequest(pathname, page)
   renderingReq.context.markdownRequested = true
-  return await page.render(renderingReq.context)
+  const content = await page.render(renderingReq.context)
+
+  // Get title and intro for consistency with transformer-based pages
+  const title = page.title
+  const intro = page.intro
+    ? await page.renderProp('intro', renderingReq.context, { textOnly: true })
+    : ''
+
+  // Prepend title and intro to the content
+  let result = `# ${title}\n\n`
+  if (intro) {
+    result += `${intro}\n\n`
+  }
+  result += content
+
+  return result
 }

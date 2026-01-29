@@ -94,7 +94,7 @@ With **{% data variables.product.prodname_secret_scanning %}**, you can scan you
 
 To learn more, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
 
-{% data variables.product.prodname_secret_scanning_caps %} can be enabled at the enterprise, organization, and repository level. See {% ifversion ghes %}[AUTOTITLE](/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance){% elsif ghec %}[AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/about-security-configurations){% endif %} for enablement at enterprise level.
+{% data variables.product.prodname_secret_scanning_caps %} can be enabled at the enterprise, organization, and repository level. See {% ifversion ghes %}[AUTOTITLE](/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance){% elsif ghec %}[AUTOTITLE](/code-security/concepts/security-at-scale/about-security-configurations){% endif %} for enablement at enterprise level.
 
 ### Push protection
 
@@ -137,4 +137,4 @@ Many industries have regulations that require regular security assessments and v
 
 To get started quickly with {% data variables.product.prodname_code_scanning %}, we recommend you use the default setup. See [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
 
-{% data variables.product.prodname_code_scanning_caps %} can be enabled at the enterprise, organization, and repository level. See {% ifversion ghes %}[AUTOTITLE](/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance){% elsif ghec %}[AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/about-security-configurations){% endif %} for enablement at enterprise level.
+{% data variables.product.prodname_code_scanning_caps %} can be enabled at the enterprise, organization, and repository level. See {% ifversion ghes %}[AUTOTITLE](/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance){% elsif ghec %}[AUTOTITLE](/code-security/concepts/security-at-scale/about-security-configurations){% endif %} for enablement at enterprise level.

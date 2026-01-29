@@ -12,6 +12,7 @@ import noOnlyTests from 'eslint-plugin-no-only-tests'
 import prettierPlugin from 'eslint-plugin-prettier'
 import prettier from 'eslint-config-prettier'
 import globals from 'globals'
+import customRules from 'eslint-plugin-custom-rules'
 
 export default [
   {
@@ -57,6 +58,7 @@ export default [
       '@typescript-eslint': tseslint,
       'primer-react': primerReact,
       'jsx-a11y': jsxA11y,
+      'custom-rules': customRules,
     },
     rules: {
       // ESLint recommended rules
@@ -97,7 +99,78 @@ export default [
 
       // Disabled rules to review
       'no-console': 'off', // 800+
-      '@typescript-eslint/no-explicit-any': 'off', // 1000+
+      '@typescript-eslint/no-explicit-any': 'off',
+
+      // Custom rules (disabled by default for now)
+      'custom-rules/use-custom-logger': 'off',
+    },
+  },
+
+  // Configuration for eslint-rules directory (CommonJS JavaScript files)
+  {
+    files: ['src/eslint-rules/**/*.js'],
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: 'script',
+      globals: {
+        ...globals.node,
+        ...globals.commonjs,
+        ...globals.es2020,
+      },
+    },
+    plugins: {
+      github,
+      import: importPlugin,
+      'eslint-comments': eslintComments,
+      filenames,
+      'no-only-tests': noOnlyTests,
+      prettier: prettierPlugin,
+    },
+    rules: {
+      // ESLint recommended rules
+      ...js.configs.recommended.rules,
+
+      // GitHub plugin recommended rules
+      ...github.configs.recommended.rules,
+
+      // Import plugin error rules
+      ...importPlugin.configs.errors.rules,
+
+      // Allow CommonJS in eslint rules
+      'import/no-commonjs': 'off',
+
+      // Overrides
+      'import/extensions': ['error', { json: 'always' }],
+      'no-empty': ['error', { allowEmptyCatch: true }],
+      'prefer-const': ['error', { destructuring: 'all' }],
+
+      // Disabled rules
+      'i18n-text/no-en': 'off',
+      'filenames/match-regex': 'off',
+      camelcase: 'off',
+      'no-console': 'off',
+    },
+  },
+
+  // Disable custom logger rule for logger implementation itself
+  {
+    files: ['src/observability/logger/**/*.{ts,js}'],
+    rules: {
+      'custom-rules/use-custom-logger': 'off',
+    },
+  },
+
+  // Override for scripts, tests, workflows, content-linter, and React files (disable custom logger rule)
+  {
+    files: [
+      '**/scripts/**/*.{ts,js}',
+      '**/tests/**/*.{ts,js}',
+      'src/workflows/**/*.{ts,js}',
+      'src/content-linter/**/*.{ts,js}',
+      '**/*.{tsx,jsx}',
+    ],
+    rules: {
+      'custom-rules/use-custom-logger': 'off',
     },
   },
 
