@@ -15,7 +15,7 @@ This Agreement is a legal agreement between you (“You”) and GitHub, Inc. (�
 
 GitHub is fortunate to have many developers integrating with the GitHub Copilot Extensibility Platform (“Platform”). We think that’s awesome, and we want to make that experience even better. While we can’t cover every type of GitHub Copilot Extension (“Extension”), we do want to lay some ground rules and policies to ensure that You are developing Your Extension with privacy, safety, transparency, and security at the forefront of the User experience.
 
-To protect Users, we reserve the right to take any action we deem necessary if an Extension violates the letter or spirit of this Agreement. By “User” we mean any “User” as defined in our Terms of Service (TOS). By “Personal Data” we means any information which relates to an individual “User”, customer or employee which could, alone or together with other information, identify them as well as content, including, but not limited to, code, text, data uploaded, posted, User inputs, and Extension outputs, transmitted or otherwise made available by Users via the Platform.
+To protect Users, we reserve the right to take any action we deem necessary if an Extension violates the letter or spirit of this Agreement. By “User” we mean any “User” as defined in our Terms of Service (TOS). By “Personal Data” we mean any information which relates to an individual “User”, customer or employee which could, alone or together with other information, identify them as well as content, including, but not limited to, code, text, data uploaded, posted, User inputs, and Extension outputs, transmitted or otherwise made available by Users via the Platform.
 
 ## 1. Services
 
@@ -23,7 +23,7 @@ By using our Platform, you agree to adhere to this policy and all GitHub terms a
 
 GitHub reserves the right at any time to modify or discontinue, temporarily or permanently, Your access to the Platform (or any part of it) with or without notice. It’s your sole responsibility to ensure that your use of the Platform is compatible with the then-current Platform. Other than the rights we expressly give you in this Agreement or the TOS, We don’t grant you any rights or licenses to GitHub Copilot, or to any other GitHub products or services.
 
-Violations of this Agreement may result in removing the Extension from the Platform, token revocation, Account or Extension suspension, User notification, legal action or any other action deemed necessary by Us. If requested, You must provide us with proof of compliance with this Agreement. If You violate this Agreement we may or may not provide notice before taking action. Appeals may be submitted via the GitHub Appeal and Reinstatement Process. Please note that we may periodically audit Extensions and collect information about Users using Your Extension.
+Violations of this Agreement may result in removing the Extension from the Platform, token revocation, Account or Extension suspension, User notification, legal action or any other action deemed necessary by Us. If requested, You must provide us with proof of compliance with this Agreement. If You violate this Agreement, we may or may not provide notice before taking action. Appeals may be submitted via the GitHub Appeal and Reinstatement Process. Please note that we may periodically audit Extensions and collect information about Users using Your Extension.
 
 ## 2. Developing your Extension
 
