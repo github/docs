@@ -20,6 +20,4 @@ You can use these endpoints to get a breakdown of aggregated metrics for various
 * Breakdowns by language and IDE
 * The option to view metrics for an enterprise, organization, or team
 
-{% data reusables.copilot.metrics-api-ghecom %}
-
 <!-- Content after this section is automatically generated -->

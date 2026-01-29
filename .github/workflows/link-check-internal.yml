@@ -78,7 +78,7 @@ jobs:
         if: matrix.language != 'en'
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Check internal links
         env:
@@ -125,14 +125,14 @@ jobs:
           # Check if any reports exist
           if ls reports/*.md 1> /dev/null 2>&1; then
             echo "has_reports=true" >> $GITHUB_OUTPUT
-            
+
             # Combine all markdown reports
             echo "# Internal Links Report" > combined-report.md
             echo "" >> combined-report.md
             echo "Generated: $(date -u +'%Y-%m-%d %H:%M UTC')" >> combined-report.md
             echo "[Action run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> combined-report.md
             echo "" >> combined-report.md
-            
+
             for report in reports/*.md; do
               echo "---" >> combined-report.md
               cat "$report" >> combined-report.md
@@ -147,7 +147,7 @@ jobs:
         if: steps.combine.outputs.has_reports == 'true'
         uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v5
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           repository: github/docs-content
           title: '🔗 Broken Internal Links Report'
           content-filepath: combined-report.md

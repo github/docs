@@ -42,18 +42,30 @@ jobs:
           fi
 
       - name: Upload report artifact
-        if: failure()
+        if: always()
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: external-link-report
           path: artifacts/external-link-report.*
           retention-days: 14
+          if-no-files-found: ignore
+
+      - name: Check if report exists
+        if: always()
+        id: check_report
+        run: |
+          if [ -f "artifacts/external-link-report.md" ]; then
+            echo "has_report=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_report=false" >> $GITHUB_OUTPUT
+            echo "No broken link report generated - all links valid!"
+          fi
 
       - name: Create issue if broken links found
-        if: failure()
+        if: always() && steps.check_report.outputs.has_report == 'true'
         uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v5
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           repository: github/docs-content
           title: '🌐 Broken External Links Report'
           content-filepath: artifacts/external-link-report.md
