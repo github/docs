@@ -35,7 +35,7 @@ codeql resolve qlpacks <options>...
 
 \[Deprecated] Create a list of installed QL packs and their locations.
 
-This command is deprecated. Use the [codeql resolve packs](/code-security/codeql-cli/codeql-cli-manual/resolve-packs) command instead.
+This command is deprecated. Use the [codeql resolve packs](/code-security/reference/code-scanning/codeql/codeql-cli-manual/resolve-packs) command instead.
 
 This command creates a list of QL packs that can be resolved given the
 configured (or given) search path.

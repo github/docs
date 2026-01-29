@@ -66,7 +66,7 @@ compilation.
 the `.ql` source.
 
 This is only supposed to be used while preparing a query pack for
-distribution (in which case it is used automatically by [codeql pack publish](/code-security/codeql-cli/codeql-cli-manual/pack-publish)). Once the `.qlx` files exist, later commands that execute queries may ignore
+distribution (in which case it is used automatically by [codeql pack publish](/code-security/reference/code-scanning/codeql/codeql-cli-manual/pack-publish)). Once the `.qlx` files exist, later commands that execute queries may ignore
 changes to the QL source in favor of the precompiled version.
 
 Some rarely used compilation options are incompatible with this and will

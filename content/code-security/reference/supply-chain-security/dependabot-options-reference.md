@@ -23,16 +23,9 @@ shortTitle: Dependabot options
 contentType: reference
 ---
 
-## About the `dependabot.yml` file
+This article provides reference information for the configuration options available in the `dependabot.yml` file. Use these options to customize how {% data variables.product.prodname_dependabot %} monitors package ecosystems, schedules updates, and creates pull requests. For an overview of the `dependabot.yml` file and how it works, see [AUTOTITLE](/code-security/concepts/supply-chain-security/about-the-dependabot-yml-file).
 
-The `dependabot.yml` file defines how {% data variables.product.prodname_dependabot %} maintains dependencies using version updates. In addition, all options marked with a {% octicon "shield-check" aria-label="Security updates" height="16" %} icon also change how {% data variables.product.prodname_dependabot %} creates pull requests for security updates, except where `target-branch` is used.
-
-The {% data variables.product.prodname_dependabot %} configuration file, `dependabot.yml`, uses YAML syntax. If you're new to YAML and want to learn more, see [Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes).
-
-You must store this file in the `.github` directory of your repository in the default branch. When you add or update the `dependabot.yml` file, this triggers an immediate check for version updates. For more information and an example, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates).
-
-> [!NOTE]
-> {% data variables.product.prodname_dependabot_alerts %} are configured in the repository or organization "Settings" tab and not in the `dependabot.yml` file, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts).
+All options marked with a {% octicon "shield-check" aria-label="Security updates" height="16" %} icon also change how {% data variables.product.prodname_dependabot %} creates pull requests for security updates, except where `target-branch` is used.
 
 ### Required keys
 
@@ -623,13 +616,13 @@ Reviewers must have at least read access to the repository.
 
 | Parameters | Purpose |
 |------------|---------|
-| `interval` | **Required.** Defines the frequency for {% data variables.product.prodname_dependabot %}. |
-| `day` | Specify the day to run for a **weekly** interval. |
-| `time` | Specify the time to run. |
+| [`interval`](#interval) | **Required.** Defines the frequency for {% data variables.product.prodname_dependabot %}. |
+| [`day`](#day) | Specify the day to run for a **weekly** interval. |
+| [`time`](#time) | Specify the time to run. |
 | {% ifversion dependabot-schedule-updates %} |
-| `cronjob` | Defines the cron expression if the interval type is `cron`. |
+| [`cronjob`](#cronjob) | Defines the cron expression if the interval type is `cron`. |
 | {% endif %} |
-| `timezone` | Specify the timezone of the `time` value.  |
+| [`timezone`](#timezone) | Specify the timezone of the `time` value.  |
 
 {% ifversion fpt or ghec %}
 
@@ -689,7 +682,8 @@ Examples : `0 9 * * *`, `every day at 5pm`
 `0 9 * * *` is equivalent to "every day at 9am". `every day at 5pm` is equivalent to `0 17 * * *`.
 
 > [!NOTE]
-> A `cronjob` type schedule is required to use a `cron` interval.
+> * Timezones must be specified in the [`timezone`](#timezone) parameter and not in the `cronjob`.
+> * A `cronjob` type schedule is required to use a `cron` interval.
 
 ```yaml copy
 
@@ -711,7 +705,7 @@ updates:
 
 ### `timezone`
 
-Specify a time zone for the `time` value.
+Specify a time zone for the `time` value. The default time zone is `UTC`.
 
 The time zone identifier must match a timezone in the database maintained by [iana](https://www.iana.org/time-zones), see [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 

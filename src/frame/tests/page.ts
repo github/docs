@@ -439,6 +439,18 @@ describe('catches errors thrown in Page class', () => {
     await expect(getPage).rejects.toThrowError('versions')
   })
 
+  test('missing children frontmatter in index file', async () => {
+    async function getPage() {
+      return await Page.init({
+        relativePath: 'index.md',
+        basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
+        languageCode: 'en',
+      })
+    }
+
+    await expect(getPage).rejects.toThrowError(/must contain 'children' frontmatter/)
+  })
+
   test('English page with a version in frontmatter that its parent product is not available in', async () => {
     async function getPage() {
       return await Page.init({

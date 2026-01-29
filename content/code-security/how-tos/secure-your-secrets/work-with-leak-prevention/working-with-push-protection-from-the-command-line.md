@@ -17,42 +17,19 @@ redirect_from:
   - /code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line
 ---
 
-## About push protection from the command line
-
-Push protection prevents you from accidentally committing secrets to a repository by blocking pushes containing supported secrets.
-
-When you attempt to push a supported secret from the command line to a repository secured by push protection, {% data variables.product.prodname_dotcom %} will block the push.
-
-You should either:
-
-* **Remove** the secret from your branch. For more information, see [Resolving a blocked push](#resolving-a-blocked-push).
-* **Follow a provided URL** to see what options are available to you to allow the push. For more information, see [Bypassing push protection](#bypassing-push-protection) and [Requesting bypass privileges](#requesting-bypass-privileges).
-
-Up to five detected secrets will be displayed at a time on the command line. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
-
-If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible. For example, you might revoke the secret and remove the secret from the repository's commit history. Real secrets that have been exposed must be revoked to avoid unauthorized access. You might consider first rotating the secret before revoking it. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
-
-{% data reusables.secret-scanning.push-protection-multiple-branch-note %}
-
 ## Resolving a blocked push
 
 To resolve a blocked push, you must remove the secret from all of the commits it appears in.
 * If the secret was introduced by your latest commit, see [Removing a secret introduced by the latest commit on your branch](#removing-a-secret-introduced-by-the-latest-commit-on-your-branch).
 * If the secret appears in earlier commits, see [Removing a secret introduced by an earlier commit on your branch](#removing-a-secret-introduced-by-an-earlier-commit-on-your-branch).
 
->[!NOTE] To learn how to resolved a blocked commit in the {% data variables.product.prodname_dotcom %} UI, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui#resolving-a-blocked-commit).
-
 ### Removing a secret introduced by the latest commit on your branch
-
-If the blocked secret was introduced by the latest commit on your branch, you can follow the guidance below.
 
 1. Remove the secret from your code.
 1. To commit the changes, run `git commit --amend --all`. This updates the original commit that introduced the secret instead of creating a new commit.
 1. Push your changes with `git push`.
 
 ### Removing a secret introduced by an earlier commit on your branch
-
-You can also remove the secret if the secret appears in an earlier commit in the Git history. To do so, you will need to identify which commit first introduced the secret and modify the commit history with an interactive rebase.
 
 1. Examine the error message that displayed when you tried to push your branch, which lists all of the commits that contain the secret.
 
@@ -121,13 +98,7 @@ You can also remove the secret if the secret appears in an earlier commit in the
 
 ## Bypassing push protection
 
-If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you may be able to bypass the block by specifying a reason for allowing the secret to be pushed.
-
-{% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
-
-{% data reusables.secret-scanning.push-protection-allow-email %}
-
-If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit, or submit a request for "bypass privileges" in order to push the blocked secret. For more information, see [Requesting bypass privileges](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#requesting-bypass-privileges).
+> [!NOTE] If you don't see the option to bypass a block, you should remove the secret from the commit, or submit a request for "bypass privileges" in order to push the blocked secret. See [Requesting bypass privileges](#requesting-bypass-privileges).
 
 {% data reusables.secret-scanning.push-protection-visit-URL %}
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
@@ -137,22 +108,13 @@ If you don't see the option to bypass the block, the repository administrator or
 
 ## Requesting bypass privileges
 
-{% data reusables.secret-scanning.push-protection-delegate-bypass-beta-note %}
-
-If your push has been blocked by push protection and you believe the secret is safe to push, you can request permission to bypass the block. Your request is sent to a designated group of reviewers, who will either approve or deny the request.
-
-Requests expire after 7 days.
-
 {% data reusables.secret-scanning.push-protection-visit-URL %}
 {% data reusables.secret-scanning.push-protection-bypass-request-add-comment %}
 {% data reusables.secret-scanning.push-protection-submit-bypass-request %}
-{% data reusables.secret-scanning.push-protection-bypass-request-check-email %}
+{% data reusables.secret-scanning.push-protection-bypass-request-check-email %} {% data reusables.secret-scanning.push-protection-bypass-request-decision-email %}
 
-{% data reusables.secret-scanning.push-protection-bypass-request-decision-email %}
-
-If your request is approved, you can push the commit (or commits) containing the secret to the repository, as well as any future commits that contain the same secret.
-
-If your request is denied, you will need to remove the secret from all commits containing the secret before pushing again. For information on how to remove a blocked secret, see [Resolving a blocked push](#resolving-a-blocked-push).
+   * If your request is **approved**, you can push the commit (or commits) containing the secret to the repository, as well as any future commits that contain the same secret.
+   * If your request is **denied**, you need to remove the secret from all commits before pushing again. For information on how to remove a blocked secret, see [Resolving a blocked push](#resolving-a-blocked-push).
 
 ## Further reading
 

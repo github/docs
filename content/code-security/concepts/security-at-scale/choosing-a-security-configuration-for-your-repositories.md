@@ -43,7 +43,8 @@ To start securing repositories in your organization with the {% data variables.p
 If you are familiar with {% data variables.product.company_short %}'s security products, and you have specific security needs that the {% data variables.product.prodname_github_security_configuration %} can't meet, you can create and apply {% data variables.product.prodname_custom_security_configurations %}. With {% data variables.product.prodname_custom_security_configurations %}, you can:
 
 * Edit the enablement settings for different security features
-* Create several configurations for repositories with different security needs
-* Control your usage and costs by including or excluding {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %} features for a particular configuration
+* Create several configurations for repositories to reflect their different levels of visibility, risk tolerance, and impact
+
+You can also choose whether or not you want to include {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %} features in a configuration. If you do, keep in mind that these features incur usage costs (or require {% data variables.product.prodname_GHAS %} licenses) when applied to private and internal repositories.
 
 To start securing repositories in your organization with {% data variables.product.prodname_custom_security_configurations %}, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).

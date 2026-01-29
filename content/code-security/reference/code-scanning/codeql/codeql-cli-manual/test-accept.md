@@ -36,7 +36,7 @@ codeql test accept <options>... -- <test|dir>...
 Accept results of failing unit tests.
 
 This is a convenience command that renames the `.actual` files left by
-[codeql test run](/code-security/codeql-cli/codeql-cli-manual/test-run) for failing tests into `.expected`, such that future runs on the tests that give the
+[codeql test run](/code-security/reference/code-scanning/codeql/codeql-cli-manual/test-run) for failing tests into `.expected`, such that future runs on the tests that give the
 same output will be considered to pass. What it does can also be
 achieved by ordinary file manipulation, but you may find its syntax more
 useful for this special case.

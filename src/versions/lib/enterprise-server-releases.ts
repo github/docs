@@ -127,6 +127,12 @@ export const isOldestReleaseDeprecated = nextDeprecationDate
   ? new Date() > new Date(nextDeprecationDate)
   : false
 
+// Find any other releases that may share the oldest deprecation date
+// We'll want to display the deprecation banner on all of these releases (not just oldest)
+export const releasesWithOldestDeprecationDate = Object.entries(dates)
+  .filter(([, versionData]) => versionData.deprecationDate === nextDeprecationDate)
+  .map(([version]) => version)
+
 // Filtered version arrays for different use cases
 export const deprecatedOnNewSite = deprecated.filter((version) =>
   versionSatisfiesRange(version, '>=2.13'),
@@ -210,6 +216,7 @@ export default {
   oldestSupported,
   nextDeprecationDate,
   isOldestReleaseDeprecated,
+  releasesWithOldestDeprecationDate,
   deprecatedOnNewSite,
   dates,
   firstVersionDeprecatedOnNewSite,

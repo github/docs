@@ -18,17 +18,11 @@ redirect_from:
 contentType: reference
 ---
 
-## About {% data variables.product.prodname_dependabot %}
+This article provides reference information about the package ecosystems and repository types that {% data variables.product.prodname_dependabot %} supports.
 
-{% data variables.product.prodname_dependabot %} helps you stay on top of your dependency ecosystems. With {% data variables.product.prodname_dependabot %}, you can keep the dependencies you rely on up-to-date, addressing any potential security issues in your supply chain.
+{% data variables.product.prodname_dependabot %} is a {% data variables.product.github %} tool that helps keep your dependencies secure and up to date. It automatically detects vulnerable or outdated dependencies in your repositories and creates pull requests to update them, making it easier to maintain your software supply chain security. For more information, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/dependabot-quickstart-guide).
 
-{% data reusables.dependabot.dependabot-overview %}
-
-For more information about {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/code-security/getting-started/dependabot-quickstart-guide).
-
-In this article, you can see what the supported ecosystems and repositories are.
-
-## Supported ecosystems and repositories
+## Supported ecosystems maintained by {% data variables.product.github %}
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
 You can configure updates for repositories that contain a dependency manifest or lock file for one of the supported package managers. For some package managers, you can also configure vendoring for dependencies. For more information, see [`vendor`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#vendor--).

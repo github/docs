@@ -1,20 +1,14 @@
-import type { Context, Page } from '@/types'
+import type { Context, Page, ResolvedArticle } from '@/types'
 import type { PageTransformer, TemplateData, Section, LinkData } from './types'
 import { renderContent } from '@/content-render/index'
 import { loadTemplate } from '@/article-api/lib/load-template'
 import { getAllTocItems, flattenTocItems } from '@/article-api/lib/get-all-toc-items'
 
-interface RecommendedItem {
-  href: string
-  title?: string
-  intro?: string
-}
-
 interface DiscoveryPage extends Page {
   rawIntroLinks?: Record<string, string>
   introLinks?: Record<string, string>
-  recommended?: RecommendedItem[]
-  rawRecommended?: string[]
+  carousels?: Record<string, ResolvedArticle[]>
+  rawCarousels?: Record<string, string[]>
   includedCategories?: string[]
   children?: string[]
 }
@@ -53,38 +47,48 @@ export class DiscoveryLandingTransformer implements PageTransformer {
     const discoveryPage = page as DiscoveryPage
     const sections: Section[] = []
 
-    // Recommended carousel
-    const recommended = discoveryPage.recommended ?? discoveryPage.rawRecommended
-    if (recommended && recommended.length > 0) {
+    // Process carousels (each carousel becomes a section)
+    const carousels = discoveryPage.carousels ?? discoveryPage.rawCarousels
+    if (carousels && typeof carousels === 'object') {
       const { default: getLearningTrackLinkData } = await import(
         '@/learning-track/lib/get-link-data'
       )
 
-      let links: LinkData[]
-      if (typeof recommended[0] === 'object' && 'title' in recommended[0]) {
-        links = recommended.map((item) => ({
-          href: typeof item === 'string' ? item : item.href,
-          title: (typeof item === 'object' && item.title) || '',
-          intro: (typeof item === 'object' && item.intro) || '',
-        }))
-      } else {
-        const linkData = await getLearningTrackLinkData(recommended as string[], context, {
-          title: true,
-          intro: true,
-        })
-        links = (linkData || []).map((item: { href: string; title?: string; intro?: string }) => ({
-          href: item.href,
-          title: item.title || '',
-          intro: item.intro || '',
-        }))
-      }
+      for (const [carouselKey, articles] of Object.entries(carousels)) {
+        if (!Array.isArray(articles) || articles.length === 0) continue
 
-      const validLinks = links.filter((l) => l.href && l.title)
-      if (validLinks.length > 0) {
-        sections.push({
-          title: 'Recommended',
-          groups: [{ title: null, links: validLinks }],
-        })
+        let links: LinkData[]
+        if (typeof articles[0] === 'object' && 'title' in articles[0]) {
+          // Already resolved articles
+          links = articles.map((item) => ({
+            href: typeof item === 'string' ? item : item.href,
+            title: (typeof item === 'object' && item.title) || '',
+            intro: (typeof item === 'object' && item.intro) || '',
+          }))
+        } else {
+          // Raw paths that need resolution
+          const linkData = await getLearningTrackLinkData(articles as string[], context, {
+            title: true,
+            intro: true,
+          })
+          links = (linkData || []).map(
+            (item: { href: string; title?: string; intro?: string }) => ({
+              href: item.href,
+              title: item.title || '',
+              intro: item.intro || '',
+            }),
+          )
+        }
+
+        const validLinks = links.filter((l) => l.href && l.title)
+        if (validLinks.length > 0) {
+          // Use carousel key as title (capitalize first letter)
+          const sectionTitle = carouselKey.charAt(0).toUpperCase() + carouselKey.slice(1)
+          sections.push({
+            title: sectionTitle,
+            groups: [{ title: null, links: validLinks }],
+          })
+        }
       }
     }
 

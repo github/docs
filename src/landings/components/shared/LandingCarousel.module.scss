@@ -1,6 +1,20 @@
 .carousel {
   margin-top: 3rem;
   --carousel-transition-duration: 0.1s;
+
+  // Subsequent carousels with headings get reduced margin
+  & + & {
+    margin-top: 1rem;
+  }
+}
+
+// Remove top margin for carousels without headings that come after another carousel
+.carousel.noHeading {
+  margin-top: 0;
+
+  & + .carousel {
+    margin-top: 0;
+  }
 }
 
 .header {
@@ -10,6 +24,12 @@
   margin-bottom: 1.5rem;
   justify-content: space-between;
   align-items: center;
+}
+
+// When header only contains navigation (no heading), add top margin to separate from previous carousel
+.header:has(.navigation):not(:has(.heading)) {
+  margin-top: 1rem;
+  justify-content: flex-end;
 }
 
 .heading {

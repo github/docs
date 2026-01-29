@@ -15,13 +15,15 @@ contentType: how-tos
 ## 1. Select a repository and choose your agent
 
 1. Start a new agent task.
-
-    * Open the [Agents tab](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text).
-    * Use the **Task** button or `/task` command from [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text).
+    
+    * Open the **{% octicon "agent" aria-label="The Agents icon" %} Agents** tab in a repository
+    * Open the [Agents page](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text)
+    * Use the **Task** button or `/task` command from [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text)
     * Open the Agents panel by clicking the {% octicon "agent" aria-label="The Agents icon" %} at the top of any page on {% data variables.product.github %}
-1. Using the dropdown menu, select the repository you want {% data variables.product.prodname_copilot_short %} to work in.
+1. Using the dropdown menu, select the repository you want {% data variables.product.prodname_copilot_short %} to work in if needed.
 1. Optionally, select a base branch for {% data variables.product.prodname_copilot_short %}'s pull request.
 {% data reusables.copilot.optional-select-custom-agent %}
+1. Optionally, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
 1. Type a prompt describing your request. For example:
 
     ```text
@@ -36,11 +38,9 @@ For more information on ways to start new agent tasks, see [AUTOTITLE](/copilot/
 
 ## 2. Monitor agent activity
 
-Once {% data variables.product.prodname_copilot_short %} starts working, it will continue to update the session log and overview with its progress and thought process.
+Once {% data variables.product.prodname_copilot_short %} starts working, it will continue to update the session log with its progress and thought process.
 
-Each session displays its status. Click on a session to open the session log, where you can monitor the agent's progress and the session length. You can view the overview, file diff, premium request usage, and session count by clicking the **Open workbench** button.
-
-![Screenshot of the top-right corner of the agents tab on {% data variables.product.github %}. The "Open workbench button is highlighted in a dark orange outline.](/assets/images/help/copilot/coding-agent/open-workbench.png)
+Each session displays its status. Click on a session to open the session log, where you can monitor the agent's progress, see the tools it's using, and track how long the session has been running. 
 
 Agent sessions can also be tracked from the {% data variables.product.prodname_cli %}, {% data variables.product.prodname_mobile %}, {% data variables.product.prodname_vscode %}, Raycast, and JetBrains IDEs. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions).
 
@@ -65,10 +65,26 @@ In the prompt box under the agent session log, prompt {% data variables.product.
 
 You can guide {% data variables.product.prodname_copilot_short %} in your local development environment on further changes, or make any edits that require human expertise.
 
-Click the **Code** button in the top-right of the agent session view and select "Open in {% data variables.product.prodname_vscode_shortname %} Insiders" to launch the session directly in {% data variables.product.prodname_vscode_shortname %}.
+### {% data variables.product.prodname_vscode_shortname %}
+  
+At the bottom of the agent session view, click the **{% octicon "vscode" aria-label="VS Code" %} Open in {% data variables.product.prodname_vscode_shortname %}** button to launch the session directly in {% data variables.product.prodname_vscode_shortname %}.
 
 {% data reusables.copilot.coding-agent.use-latest-vscode %}
 
+### {% data variables.copilot.copilot_cli %}
+  1. At the bottom of the agent session view, click the dropdown list next to **{% octicon "vscode" aria-label="VS Code" %} Open in {% data variables.product.prodname_vscode_shortname %}**.
+  1. Click **{% octicon "agent" aria-label="Agent" %} Continue in {% data variables.copilot.copilot_cli %}** to copy the `copilot --resume=<session ID>` command to your clipboard. 
+      ![Screenshot of the session action dropdown list, "Continue in Copilot CLI" is highlighted with a dark orange outline.](/assets/images/help/copilot/coding-agent/open-agent-session-in-copilot-cli.png)
+  1. In your terminal, paste and run the command to resume the agent session.
+
 ## 5. Review and merge agent code
 
-Once {% data variables.product.prodname_copilot_short %} completes a session, you can click **Open workbench** and click the **Overview** tab to read through the summary of changes {% data variables.product.prodname_copilot_short %} has made. Select the **Files changed** tab to scan the diff of the pull request. If the changes look ready for a final review, navigate to the pull request to approve and merge the changes. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/review-copilot-prs).
+Once {% data variables.product.prodname_copilot_short %} completes a session, you can navigate to the pull request to review the changes. From the pull request, you can scan the diff, request further improvements from {% data variables.product.prodname_copilot_short %}, or approve and merge the changes. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/review-copilot-prs).
+
+## 6. Archive agent sessions
+
+Sessions that have been stopped can be archived to remove them from the sessions list. 
+
+1. Open the agent session you want to archive.
+1. In the top right corner, click **{% octicon "kebab-horizontal" aria-label="More actions" %}**, then click **{% octicon "inbox" aria-hidden="true" aria-label="inbox" %} Archive session**.
+1. In the dialog box that opens, click **Yes, archive**.
