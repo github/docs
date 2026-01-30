@@ -7,9 +7,9 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/about-comparing-branches-in-pull-requests
   - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  fpt: 'i'
+  ghes: 'ii'
+  ghec: 'i*i'
 topics:
   - Pull requests
 shortTitle: Compare branches
