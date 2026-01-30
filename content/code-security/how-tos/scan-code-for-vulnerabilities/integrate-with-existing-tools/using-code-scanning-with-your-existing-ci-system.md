@@ -27,15 +27,7 @@ contentType: how-tos
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-## About using {% data variables.product.prodname_code_scanning %} with your existing CI system
-
 As an alternative to running {% data variables.product.prodname_code_scanning %} within {% data variables.product.github %} using {% data variables.product.prodname_actions %}, you can analyze code in an external continuous integration or continuous delivery/deployment (CI/CD) system, then upload the results to {% data variables.product.github %}.
-
-You can add the {% data variables.product.prodname_codeql_cli %} to your third-party system, or use another third-party static analysis tool that can produce results as Static Analysis Results Interchange Format (SARIF) 2.1.0 data. For more information about the supported SARIF format, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning).
-
-The {% data variables.product.prodname_codeql_cli %} is a standalone, command-line tool that you can use to analyze code. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/about-the-codeql-cli).
-
-Alerts for {% data variables.product.prodname_code_scanning %} that you generate externally are displayed in the same way as those for {% data variables.product.prodname_code_scanning %} that you generate within {% data variables.product.github %}. {% data reusables.code-scanning.about-multiple-configurations-link %}
 
 {% data reusables.code-scanning.upload-sarif-ghas %}
 

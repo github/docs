@@ -17,36 +17,15 @@ redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/managing-requests-to-bypass-push-protection
 ---
 
-## Managing requests to bypass push protection
-
 {% data reusables.secret-scanning.push-protection-delegate-bypass-beta-note %}
 
-When enabling delegated bypass for push protection, organization owners or repository administrators decide which {% ifversion push-protection-bypass-fine-grained-permissions %}individuals, {% endif %}roles or teams can review (approve or deny) requests to bypass push protection.
+When delegated bypass for push protection is enabled, designated reviewers can approve or deny requests from contributors who want to push commits containing secrets.
 
->[!NOTE]
-> You can also use {% data variables.product.prodname_github_apps %} with fine-grained permissions to programmatically review and approve push protection bypass requests. This enables your organization to streamline security request reviews and enforce policies, or integrate with external security tools, ensuring that all reviews meet established standards. _For {% data variables.product.prodname_ghe_server %}, the use of {% data variables.product.prodname_github_apps %} to review bypass requests is available from version 3.19._
-> For more information about permissions, see [Organization permissions for "Organization bypass requests for secret scanning"](/enterprise-cloud@latest/rest/authentication/permissions-required-for-github-apps?apiVersion=2022-11-28#organization-permissions-for-organization-bypass-requests-for-secret-scanning).
+This article explains how to review and manage bypass requests for repositories and organizations.
 
-When a contributor requests bypass privileges to push a commit containing a secret, this designated group of reviewers:
+For more information about how bypass requests work, see [AUTOTITLE](/code-security/concepts/secret-security/about-bypass-requests-for-push-protection).
 
-* Receives an email notification containing a link to the request.
-* Reviews the request in the "Bypass requests" page of the repository{% ifversion security-overview-delegated-bypass-requests %}, or in the organization's security overview{% endif %}.
-* Has 7 days to either approve or deny the request before the request expires.
-
-To help reviewers efficiently triage secrets for which there is a bypass request, {% data variables.product.prodname_dotcom %} displays the following information in the request:
-
-* Name of the user who attempted the push.
-* Repository where the push was attempted.
-* Commit hash of the push.
-* Timestamp of the push.{% ifversion push-protection-delegated-bypass-enhancements %}
-* File path and branch information. The branch information is only available for pushes to single branches.{% endif %}
-
-The contributor is notified of the decision by email and must take the required action:
-
-* If the request is approved, the contributor can push the commit containing the secret to the repository.
-* If the request is denied, the contributor must remove the secret from the commit in order to successfully push the commit to the repository.
-
-### Managing requests for a repository
+## Managing requests for a repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -61,13 +40,13 @@ The contributor is notified of the decision by email and must take the required 
 
 {% ifversion security-overview-delegated-bypass-requests %}
 
-### Managing requests for an organization
+## Managing requests for an organization
 
 Organization owners, security managers and organization members with the relevant fine-grained permission (via a custom role) can review and manage bypass requests for all repositories in the organization using security overview. See [AUTOTITLE](/code-security/security-overview/reviewing-requests-to-bypass-push-protection).
 
 {% endif %}
 
-### Filtering requests
+## Filtering requests
 
 You can filter requests by:
 
@@ -76,7 +55,7 @@ You can filter requests by:
 * Timeframe
 * Status
 
-#### Filtering by status
+### Filtering by status
 
 The following statuses are assigned to a request:
 

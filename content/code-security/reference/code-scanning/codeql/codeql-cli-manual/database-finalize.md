@@ -35,7 +35,7 @@ codeql database finalize [--dbscheme=<file>] [--threads=<num>] [--ram=<MB>] <opt
 
 \[Plumbing] Final steps in database creation.
 
-Finalize a database that was created with [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init) and subsequently seeded with analysis data using [codeql database trace-command](/code-security/codeql-cli/codeql-cli-manual/database-trace-command). This needs to happen before the new database can be queried.
+Finalize a database that was created with [codeql database init](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-init) and subsequently seeded with analysis data using [codeql database trace-command](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-trace-command). This needs to happen before the new database can be queried.
 
 ## Options
 
@@ -44,7 +44,7 @@ Finalize a database that was created with [codeql database init](/code-security/
 #### `<database>`
 
 \[Mandatory] Path to the CodeQL database under construction. This must
-have been prepared for extraction with [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init).
+have been prepared for extraction with [codeql database init](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-init).
 
 If the `--db-cluster` option is given, this is not a database itself,
 but a directory that _contains_ databases, and all of those databases
@@ -62,7 +62,7 @@ construction. Those databases will be processed together.
 These will not themselves be finalized, but the data from them will be
 included in the finalized database being created. This is an advanced
 option that may not have the desired effect in all cases. For more
-information, please refer to the documentation of [codeql database import](/code-security/codeql-cli/codeql-cli-manual/database-import).
+information, please refer to the documentation of [codeql database import](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-import).
 
 If the `--db-cluster` option is given, it is expected that these will be
 database clusters rather than individual CodeQL databases.
@@ -188,7 +188,7 @@ takes up a lot of space in the dataset.
 
 #### `--[no-]linkage-aware-import`
 
-\[Advanced] Controls whether [codeql dataset import](/code-security/codeql-cli/codeql-cli-manual/dataset-import) is linkage-aware _(default)_ or not. On projects where this part of database creation
+\[Advanced] Controls whether [codeql dataset import](/code-security/reference/code-scanning/codeql/codeql-cli-manual/dataset-import) is linkage-aware _(default)_ or not. On projects where this part of database creation
 consumes too much memory, disabling this option may help them progress
 at the expense of database completeness.
 
