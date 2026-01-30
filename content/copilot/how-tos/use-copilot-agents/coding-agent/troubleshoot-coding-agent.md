@@ -71,7 +71,7 @@ If there is a "{% data variables.product.prodname_copilot_short %} started work"
 
 If you do have write access, and you mention `@copilot` on a pull request that is assigned to {% data variables.product.prodname_copilot_short %}, the comment is passed to {% data variables.copilot.copilot_coding_agent %}. An eyes emoji (👀) is added to your comment to indicate that {% data variables.copilot.copilot_coding_agent %} has seen your comment. Shortly after, a "{% data variables.product.prodname_copilot_short %} started work" event is added to the pull request timeline.
 
-If this doesn't happen, {% data variables.product.prodname_copilot_short %} may have been unassigned from the pull request, or you may not have write access.
+If this doesn't happen, {% data variables.product.prodname_copilot_short %} may have been unassigned from the pull request, or you may not have write access. Note that {% data variables.product.prodname_copilot_short %} only responds to mentions in open pull requests. Once a pull request is merged or closed, {% data variables.copilot.copilot_coding_agent %} will not respond to new mentions or comments to better focus on active development work.
 
 ## Based on the agent session logs, {% data variables.product.prodname_copilot_short %} appears to be stuck
 

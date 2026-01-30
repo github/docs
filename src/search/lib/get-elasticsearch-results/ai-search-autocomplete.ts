@@ -7,7 +7,7 @@ import type {
   AutocompleteMatchQueriesOptions,
   AutocompleteResultsArgs,
 } from '@/search/lib/get-elasticsearch-results/types'
-import type { QueryDslQueryContainer, SearchTotalHits } from '@elastic/elasticsearch/lib/api/types'
+import type { estypes } from '@elastic/elasticsearch'
 
 // Query Elasticsearch for AI Search autocomplete results
 export async function getAISearchAutocompleteResults({
@@ -38,7 +38,7 @@ export async function getAISearchAutocompleteResults({
         maxLength: 20,
       },
     })
-    const matchQuery: QueryDslQueryContainer = {
+    const matchQuery: estypes.QueryDslQueryContainer = {
       bool: {
         should: matchQueries,
       },
@@ -65,7 +65,7 @@ export async function getAISearchAutocompleteResults({
 
   return {
     meta: {
-      found: hitsAll.total as SearchTotalHits,
+      found: hitsAll.total as estypes.SearchTotalHits,
       took: { query_msec: result.took, total_msec: new Date().getTime() - t0.getTime() },
       size,
     },
@@ -82,7 +82,7 @@ function getAISearchAutocompleteMatchQueries(
   const BOOST_PREFIX = 1.0
   const BOOST_FUZZY = 0.1
 
-  const matchQueries: QueryDslQueryContainer[] = []
+  const matchQueries: estypes.QueryDslQueryContainer[] = []
 
   // Use match_phrase for exact term matches
   matchQueries.push({

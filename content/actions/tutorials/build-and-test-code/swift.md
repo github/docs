@@ -124,8 +124,6 @@ jobs:
 
 You can configure your job to use a single specific version of Swift, such as `5.3.3`.
 
-{% raw %}
-
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 steps:
@@ -135,8 +133,6 @@ steps:
   - name: Get swift version
     run: swift --version # Swift 5.3.3
 ```
-
-{% endraw %}
 
 ## Building and testing your code
 

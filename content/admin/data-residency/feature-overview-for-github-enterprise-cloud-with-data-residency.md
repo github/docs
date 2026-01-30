@@ -20,7 +20,6 @@ The following features are currently unavailable on {% data variables.enterprise
 
 | Feature | Details | More information |
 | :- | :- | :- |
-| {% data variables.product.prodname_copilot_short %} Metrics API | Currently unavailable. | [AUTOTITLE](/rest/copilot/copilot-metrics) |
 | {% data variables.product.prodname_github_codespaces %} | Currently unavailable. | [AUTOTITLE](/codespaces/quickstart) |
 | macOS runners for {% data variables.product.prodname_actions %} | Currently unavailable. | [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners) |
 | Maven and Gradle support for {% data variables.product.prodname_registry %} | Currently unavailable. | [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry) |

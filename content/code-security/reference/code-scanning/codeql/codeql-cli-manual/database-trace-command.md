@@ -46,7 +46,7 @@ database.
 #### `<database>`
 
 \[Mandatory] Path to the CodeQL database under construction. This must
-have been prepared for extraction with [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init).
+have been prepared for extraction with [codeql database init](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-init).
 
 If the `--db-cluster` option is given, this is not a database itself,
 but a directory that _contains_ databases, and all of those databases
@@ -114,7 +114,7 @@ cannot be used in conjunction with `--index-traceless-dbs`.
 
 \[Advanced] The directory in which the specified command should be
 executed. If this argument is not provided, the command is executed in
-the value of `--source-root` passed to [codeql database create](/code-security/codeql-cli/codeql-cli-manual/database-create), if one exists. If no `--source-root` argument is provided, the command is executed in the
+the value of `--source-root` passed to [codeql database create](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-create), if one exists. If no `--source-root` argument is provided, the command is executed in the
 current working directory.
 
 #### `--no-run-unnecessary-builds`
@@ -145,7 +145,7 @@ will use all the values provided, in order. Extractor options specified
 using this command-line option are processed after extractor options
 given via `--extractor-options-file`.
 
-When passed to [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init) or `codeql database begin-tracing`, the options will only be
+When passed to [codeql database init](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-init) or `codeql database begin-tracing`, the options will only be
 applied to the indirect tracing environment. If your workflow also makes
 calls to
 codeql database trace-command then the options also need to be passed there if desired.
@@ -171,7 +171,7 @@ will use all the values provided, in order. Extractor options specified
 using this command-line option are processed before extractor options
 given via `--extractor-option`.
 
-When passed to [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init) or `codeql database begin-tracing`, the options will only be
+When passed to [codeql database init](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-init) or `codeql database begin-tracing`, the options will only be
 applied to the indirect tracing environment. If your workflow also makes
 calls to
 codeql database trace-command then the options also need to be passed there if desired.

@@ -58,7 +58,7 @@ meaningful.
 #### `<database>`
 
 \[Mandatory] Path to the CodeQL database under construction. This must
-have been prepared for extraction with [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init).
+have been prepared for extraction with [codeql database init](/code-security/reference/code-scanning/codeql/codeql-cli-manual/database-init).
 
 If the `--db-cluster` option is given, this is not a database itself,
 but a directory that _contains_ databases, and all of those databases
@@ -132,7 +132,7 @@ takes up a lot of space in the dataset.
 
 #### `--[no-]linkage-aware-import`
 
-\[Advanced] Controls whether [codeql dataset import](/code-security/codeql-cli/codeql-cli-manual/dataset-import) is linkage-aware _(default)_ or not. On projects where this part of database creation
+\[Advanced] Controls whether [codeql dataset import](/code-security/reference/code-scanning/codeql/codeql-cli-manual/dataset-import) is linkage-aware _(default)_ or not. On projects where this part of database creation
 consumes too much memory, disabling this option may help them progress
 at the expense of database completeness.
 

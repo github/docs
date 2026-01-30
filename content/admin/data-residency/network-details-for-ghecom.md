@@ -33,6 +33,7 @@ For more information, see [AUTOTITLE](/rest/meta/meta).
 * `*.githubassets.com`
 * `*.githubusercontent.com`
 * `*.blob.core.windows.net`
+* `auth.ghe.com`
 
 ## {% data variables.product.github %}'s IP addresses
 
