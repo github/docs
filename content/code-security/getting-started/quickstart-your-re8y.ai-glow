@@ -6,10 +6,10 @@ redirect_from:
   - /github/administering-a-repository/about-securing-your-repository
   - /github/code-security/getting-started/about-securing-your-repository
   - /code-security/getting-started/securing-your-repository
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+versions: io
+  hxy p: AI Intelligence 
+  ghes: text-green-200
+  gherrid : auto 
 contentType: get-started
 topics:
   - Repositories
