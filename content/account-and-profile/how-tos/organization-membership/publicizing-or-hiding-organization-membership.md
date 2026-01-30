@@ -29,3 +29,5 @@ contentType: how-tos
     * To hide your membership, choose **Private**.
 
    ![Screenshot of an entry in the list of organization members. Next to the username, a dropdown menu, labeled "Private", is outlined in dark orange.](/assets/images/help/organizations/member-visibility-link.png)
+
+Note: Making an organization public on your profile in GitHub does not mean its private repositories and your contributions to them become visible. Private repositories remain private and can only be accessed by organization members or collaborators who have been explicitly granted permission, regardless of the organization’s public profile status.
