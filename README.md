@@ -1,3 +1,49 @@
+Internet Engineering Task Force (IETF) S. Bradner
+Request for Comments: 8179 Harvard University
+BCP: 79 J. Contreras
+Obsoletes: 3979, 4879 University of Utah
+Updates: 2026 May 2017
+Category: Best Current Practice
+ISSN: 2070-1721
+ Intellectual Property Rights in IETF Technology
+Abstract
+ The IETF policies about Intellectual Property Rights (IPR), such as
+ patent rights, relative to technologies developed in the IETF are
+ designed to ensure that IETF working groups and participants have as
+ much information as possible about any IPR constraints on a technical
+ proposal as early as possible in the development process. The
+ policies are intended to benefit the Internet community and the
+ public at large, while respecting the legitimate rights of IPR
+ holders. This document sets out the IETF policies concerning IPR
+ related to technology worked on within the IETF. It also describes
+ the objectives that the policies are designed to meet. This document
+ updates RFC 2026 and, with RFC 5378, replaces Section 10 of RFC 2026.
+ This document also obsoletes RFCs 3979 and 4879.
+Status of This Memo
+ This memo documents an Internet Best Current Practice.
+ This document is a product of the Internet Engineering Task Force
+ (IETF). It represents the consensus of the IETF community. It has
+ received public review and has been approved for publication by the
+ Internet Engineering Steering Group (IESG). Further information on
+ BCPs is available in Section 2 of RFC 7841.
+ Information about the current status of this document, any errata,
+ and how to provide feedback on it may be obtained at
+ http://www.rfc-editor.org/info/rfc8179.
+Bradner & Contreras Best Current Practice [Page 1
+RFC 8179 IP in IETF Technology May 2017
+Copyright Notice
+ Copyright (c) 2017 IETF Trust and the persons identified as the
+ document authors. All rights reserved.
+ This document is subject to BCP 78 and the IETF Trust's Legal
+ Provisions Relating to IETF Documents
+ (http://trustee.ietf.org/license-info) in effect on the date of
+ publication of this document. Please review these documents
+ carefully, as they describe your rights and restrictions with respect
+ to this document. Code Components extracted from this document must
+ include Simplified BSD License text as described in Section 4.e of
+ the Trust Legal Provisions and are provided without warranty as
+ described in the Simplified BSD License.
+Bradner & Contreras Best Current Practice [Page 2
 10730381f15a860c129704a00d905add5a5182e6ab62d261096daebe9a1821014919170d62da6
 b11b74ce34d36d4b05b331cb4798860f4380be3a54a096cf833 bitcoinworkshops.2017.mbox
 cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f
