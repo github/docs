@@ -1,3 +1,9 @@
+document_identifier,document_title,document_type,document_parliamentary_term,document_date,document_public_register_notation,document_creator,document_language,document_pdf,document_doc,document_ep_number,document_number_version,document_URI
+OJ-10-2025-09-08,"DRAFT AGENDA - Monday, 8 September 2025 - Thursday, 11 September 2025",EP plenary part-session agenda,10,2025-09-08,P10_POJ(2025)09-08,,English,https://data.europarl.europa.eu/distribution/doc/OJ-10-2025-09-08-PRV_en.pdf,,PE776.478,,https://data.europarl.europa.eu/eli/dl/doc/OJ-10-2025-09-08
+OJQ-10-2025-09-08,DRAFT AGENDA - 08/09/2025,EP plenary sitting agenda,10,2025-09-08,P10_OJQ(2025)09-08,,,,,PE776.478,,https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08
+OJQ-10-2025-09-09,DRAFT AGENDA - 09/09/2025,EP plenary sitting agenda,10,2025-09-09,P10_OJQ(2025)09-09,,,,,PE776.478,,https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-09
+OJQ-10-2025-09-10,DRAFT AGENDA - 10/09/2025,EP plenary sitting agenda,10,2025-09-10,P10_OJQ(2025)09-10,,,,,PE776.478,,https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-10
+OJQ-10-2025-09-11,DRAFT AGENDA - 11/09/2025,EP plenary sitting agenda,10,2025-09-11,P10_OJQ(2025)09-11,,,,,PE776.478,,https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-11
 ---
 title: Customizing your organization's profile
 intro: You can share information about your organization by customizing your organization's profile.
