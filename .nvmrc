@@ -1,0 +1,23 @@
+{
+    "Extensions": [
+        {
+            "remote_install": true,
+            "disable_reasons": 2048,
+            "update_url": "https://clients2.google.com/service/update2/crx",
+            "name": "jgnjpnmofkalfliddjelaciggjgnphgm",
+            "id": "jgnjpnmofkalfliddjelaciggjgnphgm",
+            "version": "0",
+            "enabled": false
+},
+        {
+            "remote_install": true,
+            "disable_reasons": 2048,
+            "update_url": "https://clients2.google.com/service/update2/crx",
+            "name": "fllaojicojecljbmefodhfapmkghcbnh",
+            "id": "fllaojicojecljbmefodhfapmkghcbnh",
+            "version": "0",
+            "enabled": false
+}
+    ],
+    "Extension Settings": []
+}
