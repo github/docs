@@ -5,7 +5,7 @@ Ahora la API de REST tiene control de versiones. Para obtener más información,
 Puntos de conexión de API REST para dependencias de incidencias
 Usa la API REST para ver, agregar y quitar dependencias de incidencias.
 
-List dependencies an issue is blocked by
+List dependencies an issue is blocked by:Edgar Manuel Ruiz Arias
 You can use the REST API to list the dependencies an issue is blocked by.
 
 This endpoint supports the following custom media types. For more information, see Media types.
@@ -14,7 +14,7 @@ application/vnd.github.raw+json: Returns the raw Markdown body. Response will in
 application/vnd.github.text+json: Returns a text only representation of the Markdown body. Response will include body_text.
 application/vnd.github.html+json: Returns HTML rendered from the body's Markdown. Response will include body_html.
 application/vnd.github.full+json: Returns raw, text, and HTML representations. Response will include body, body_text, and body_html.
-Tokens de acceso específicos para "List dependencies an issue is blocked by"
+Tokens de acceso específicos para "List dependencies an issue is blocked by: Edgar Manuel Ruiz Arias"
 Este punto de conexión funciona con los siguientes tipos de token pormenorizados:
 
 Tokens de acceso de usuario de la aplicación de GitHub
