@@ -1,4 +1,667 @@
+# Migrar desde Rest hacia GraphQL
+
+Aprende las mejores prácticas y consideraciones para migrar desde la API de Rest de GitHub hacia la API de GrpahQL de GitHub.
+
+## Diferencias en la lógica de la API
+
+GitHub proporciona dos API: una API REST y una API GraphQL. Para más información sobre las API de GitHub, consulta [Comparación de la API REST de GitHub y la API de GraphQL](/es/rest/overview/about-githubs-apis).
+
+Migrar desde Rest hacia GraphQL represente un cambio significativo en la lógica de las API. Las diferencias entre REST como un estilo y GraphQL como una especificación hacen difícil —y a menudo desaconsejable— reemplazar las llamadas a la API REST con las consultas de la API de GraphQL de una forma uno a uno. Hemos incluido ejemplos específicos de migración a continuación.
+
+Para migrar el código de la [API REST](/es/rest) a la API de GraphQL:
+
+* Revise la [especificación de GraphQL](https://spec.graphql.org/June2018/).
+* Revise el [esquema de GraphQL](/es/graphql/reference) de GitHub.
+* Considera la manera en la que cualquier código existente que tengas interactúa con la API de REST de GitHub
+* Use [identificadores de nodo global](/es/graphql/guides/using-global-node-ids) para hacer referencia a objetos entre versiones de API.
+
+Las ventajas significativas de GraphQL incluyen:
+
+* [Obtención de los datos que necesita y nada más](#example-getting-the-data-you-need-and-nothing-more)
+* [Campos anidados](#example-nesting)
+* [Tipado fuerte](#example-strong-typing)
+
+Aquí hay algunos ejemplos de cada una.
+
+## Ejemplo: obtener los datos que necesitas y únicamente eso
+
+Una sola llamada de la API de REST recupera una lista de los miembros de tu organización:
+
+```shell
+curl -v https://api.github.com/orgs/:org/members
+```
+
+La carga útil de REST contiene datos en exceso si tu meta es recuperar únicamente los nombres y enlaces a los avatares. Sin embargo, la consulta de GraphQL recupera únicamente lo que especificas:
+
+```graphql
+query {
+    organization(login:"github") {
+    membersWithRole(first: 100) {
+      edges {
+        node {
+          name
+          avatarUrl
+        }
+      }
+    }
+  }
+}
+```
+
+Considera otro ejemplo: recuperar una lista de solicitudes de extracción y revisar si cada una es fusionable. Una llamada a la API REST recupera una lista de solicitudes de incorporación de cambios y sus [representaciones de resumen](/es/rest#summary-representations):
+
+```shell
+curl -v https://api.github.com/repos/:owner/:repo/pulls
+```
+
+Para determinar si una solicitud de incorporación de cambios se puede fusionar es necesario recuperar cada solicitud individualmente de acuerdo con su [representación detallada](/es/rest#detailed-representations) (una carga útil grande) y comprobar si su atributo `mergeable` es verdadero o falso:
+
+```shell
+curl -v https://api.github.com/repos/:owner/:repo/pulls/:number
+```
+
+Con GraphQL, solo se pueden recuperar los atributos `number` y `mergeable` para cada solicitud de incorporación de cambios:
+
+```graphql
+query {
+    repository(owner:"octocat", name:"Hello-World") {
+    pullRequests(last: 10) {
+      edges {
+        node {
+          number
+          mergeable
+        }
+      }
+    }
+  }
+}
+```
+
+## Ejemplo: Anidar
+
+Hacer consultas con campos anidados te permite reemplazar varios llamados de REST con menos consultas de GraphQL. Por ejemplo, para recuperar una solicitud de incorporación de cambios junto con sus confirmaciones, comentarios no revisados y revisiones mediante la **API REST** se necesitan cuatro llamadas independientes:
+
+```shell
+curl -v https://api.github.com/repos/:owner/:repo/pulls/:number
+curl -v https://api.github.com/repos/:owner/:repo/pulls/:number/commits
+curl -v https://api.github.com/repos/:owner/:repo/issues/:number/comments
+curl -v https://api.github.com/repos/:owner/:repo/pulls/:number/reviews
+```
+
+Con la **API de GraphQL**, puede recuperar los datos con una sola consulta mediante campos anidados:
+
+```graphql
+{
+  repository(owner: "octocat", name: "Hello-World") {
+    pullRequest(number: 1) {
+      commits(first: 10) {
+        edges {
+          node {
+            commit {
+              oid
+              message
+            }
+          }
+        }
+      }
+      comments(first: 10) {
+        edges {
+          node {
+            body
+            author {
+              login
+            }
+          }
+        }
+      }
+      reviews(first: 10) {
+        edges {
+          node {
+            state
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+También puede ampliar la eficacia de esta consulta [sustituyendo una variable](/es/graphql/guides/forming-calls-with-graphql#working-with-variables) por el número de solicitudes de incorporación de cambios.
+
+## Ejemplo: Escritura inflexible
+
+Los modelos de GraphQL tienen una escritura inflexible, lo cual hace más seguro el manejo de los datos.
+
+Imagínese, por ejemplo, que agrega un comentario a una incidencia o solicitud de incorporación de cambios con una [mutación](/es/graphql/reference/mutations) de GraphQL y, por error, especifica un entero en lugar de una cadena para el valor de [`clientMutationId`](/es/graphql/reference/mutations#addcomment):
+
+```graphql
+mutation {
+  addComment(input:{clientMutationId: 1234, subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
+    clientMutationId
+    commentEdge {
+      node {
+        body
+        repository {
+          id
+          name
+          nameWithOwner
+        }
+        issue {
+          number
+        }
+      }
+    }
+  }
+}
+```
+
+Ejecutar esta consulta recuperará errores que especificarán los tipos esperados para esta operación:
+
+```json
+{
+  "data": null,
+  "errors": [
+    {
+      "message": "Argument 'input' on Field 'addComment' has an invalid value. Expected type 'AddCommentInput!'.",
+      "locations": [
+        {
+          "line": 3,
+          "column": 3
+        }
+      ]
+    },
+    {
+      "message": "Argument 'clientMutationId' on InputObject 'AddCommentInput' has an invalid value. Expected type 'String'.",
+      "locations": [
+        {
+          "line": 3,
+          "column": 20
+        }
+      ]
+    }
+  ]
+}
+```
+
+Al entrecomillar `1234`, se transforma el valor de un entero a una cadena, el tipo esperado:
+
+```graphql
+mutation {
+  addComment(input:{clientMutationId: "1234", subjectId: "MDA6SXNzdWUyMjcyMDA2MTT=", body: "Looks good to me!"}) {
+    clientMutationId
+    commentEdge {
+      node {
+        body
+        repository {
+          id
+          name
+          nameWithOwner
+        }
+        issue {
+          number
+        }
+      }
+    }
+  }
+}
+```
 # core.js
+
+> Extendable client for GitHub's REST & GraphQL APIs
+
+[![@latest](https://img.shields.io/npm/v/@octokit/core.svg)](https://www.npmjs.com/package/@octokit/core)
+[![Build Status](https://github.com/octokit/core.js/workflows/Test/badge.svg)](https://github.com/octokit/core.js/actions?query=workflow%3ATest+branch%3Amain)
+
+<!-- toc -->
+
+- [Usage](#usage)
+  - [REST API example](#rest-api-example)
+  - [GraphQL example](#graphql-example)
+- [Options](#options)
+- [Defaults](#defaults)
+- [Authentication](#authentication)
+- [Logging](#logging)
+- [Hooks](#hooks)
+- [Plugins](#plugins)
+- [Build your own Octokit with Plugins and Defaults](#build-your-own-octokit-with-plugins-and-defaults)
+- [LICENSE](#license)
+
+<!-- tocstop -->
+
+If you need a minimalistic library to utilize GitHub's [REST API](https://developer.github.com/v3/) and [GraphQL API](https://developer.github.com/v4/) which you can extend with plugins as needed, then `@octokit/core` is a great starting point.
+
+If you don't need the Plugin API then using [`@octokit/request`](https://github.com/octokit/request.js/) or [`@octokit/graphql`](https://github.com/octokit/graphql.js/) directly is a good alternative.
+
+## Usage
+
+<table>
+<tbody valign=top align=left>
+<tr><th>
+Browsers
+</th><td width=100%>
+Load <code>@octokit/core</code> directly from <a href="https://esm.sh">esm.sh</a>
+
+```html
+<script type="module">
+  import { Octokit } from "https://esm.sh/@octokit/core";
+</script>
+```
+
+</td></tr>
+<tr><th>
+Node
+</th><td>
+
+Install with <code>npm install @octokit/core</code>
+
+```js
+import { Octokit } from "@octokit/core";
+```
+
+</td></tr>
+</tbody>
+</table>
+
+As we use [conditional exports](https://nodejs.org/api/packages.html#conditional-exports), you will need to adapt your `tsconfig.json`. See the TypeScript docs on [package.json "exports"](https://www.typescriptlang.org/docs/handbook/modules/reference.html#packagejson-exports).
+
+### REST API example
+
+```js
+// Create a personal access token at https://github.com/settings/tokens/new?scopes=repo
+const octokit = new Octokit({ auth: `personal-access-token123` });
+
+const response = await octokit.request("GET /orgs/{org}/repos", {
+  org: "octokit",
+  type: "private",
+});
+```
+
+See [`@octokit/request`](https://github.com/octokit/request.js) for full documentation of the `.request` method.
+
+### GraphQL example
+
+```js
+const octokit = new Octokit({ auth: `secret123` });
+
+const response = await octokit.graphql(
+  `query ($login: String!) {
+    organization(login: $login) {
+      repositories(privacy: PRIVATE) {
+        totalCount
+      }
+    }
+  }`,
+  { login: "octokit" },
+);
+```
+
+See [`@octokit/graphql`](https://github.com/octokit/graphql.js) for full documentation of the `.graphql` method.
+
+## Options
+
+<table>
+  <thead align=left>
+    <tr>
+      <th>
+        name
+      </th>
+      <th>
+        type
+      </th>
+      <th width=100%>
+        description
+      </th>
+    </tr>
+  </thead>
+  <tbody align=left valign=top>
+    <tr>
+      <th>
+        <code>options.authStrategy</code>
+      </th>
+      <td>
+        <code>Function<code>
+      </td>
+      <td>
+        Defaults to <a href="https://github.com/octokit/auth-token.js#readme"><code>@octokit/auth-token</code></a>. See <a href="#authentication">Authentication</a> below for examples.
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <code>options.auth</code>
+      </th>
+      <td>
+        <code>String</code> or <code>Object</code>
+      </td>
+      <td>
+        See <a href="#authentication">Authentication</a> below for examples.
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <code>options.baseUrl</code>
+      </th>
+      <td>
+        <code>String</code>
+      </td>
+      <td>
+
+When using with GitHub Enterprise Server, set `options.baseUrl` to the root URL of the API. For example, if your GitHub Enterprise Server's hostname is `github.acme-inc.com`, then set `options.baseUrl` to `https://github.acme-inc.com/api/v3`. Example
+
+```js
+const octokit = new Octokit({
+  baseUrl: "https://github.acme-inc.com/api/v3",
+});
+```
+
+</td></tr>
+    <tr>
+      <th>
+        <code>options.previews</code>
+      </th>
+      <td>
+        <code>Array of Strings</code>
+      </td>
+      <td>
+
+Some REST API endpoints require preview headers to be set, or enable
+additional features. Preview headers can be set on a per-request basis, e.g.
+
+```js
+octokit.request("POST /repos/{owner}/{repo}/pulls", {
+  mediaType: {
+    previews: ["shadow-cat"],
+  },
+  owner,
+  repo,
+  title: "My pull request",
+  base: "main",
+  head: "my-feature",
+  draft: true,
+});
+```
+
+You can also set previews globally, by setting the `options.previews` option on the constructor. Example:
+
+```js
+const octokit = new Octokit({
+  previews: ["shadow-cat"],
+});
+```
+
+</td></tr>
+    <tr>
+      <th>
+        <code>options.request</code>
+      </th>
+      <td>
+        <code>Object</code>
+      </td>
+      <td>
+
+Set a default request timeout (`options.request.timeout`) or an [`http(s).Agent`](https://nodejs.org/api/http.html#http_class_http_agent) e.g. for proxy usage (Node only, `options.request.agent`).
+
+There are more `options.request.*` options, see [`@octokit/request` options](https://github.com/octokit/request.js#request). `options.request` can also be set on a per-request basis.
+
+</td></tr>
+    <tr>
+      <th>
+        <code>options.timeZone</code>
+      </th>
+      <td>
+        <code>String</code>
+      </td>
+      <td>
+
+Sets the `Time-Zone` header which defines a timezone according to the [list of names from the Olson database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+
+```js
+const octokit = new Octokit({
+  timeZone: "America/Los_Angeles",
+});
+```
+
+The time zone header will determine the timezone used for generating the timestamp when creating commits. See [GitHub's Timezones documentation](https://developer.github.com/v3/#timezones).
+
+</td></tr>
+    <tr>
+      <th>
+        <code>options.userAgent</code>
+      </th>
+      <td>
+        <code>String</code>
+      </td>
+      <td>
+
+A custom user agent string for your app or library. Example
+
+```js
+const octokit = new Octokit({
+  userAgent: "my-app/v1.2.3",
+});
+```
+
+</td></tr>
+  </tbody>
+</table>
+
+## Defaults
+
+You can create a new Octokit class with customized default options.
+
+```js
+const MyOctokit = Octokit.defaults({
+  auth: "personal-access-token123",
+  baseUrl: "https://github.acme-inc.com/api/v3",
+  userAgent: "my-app/v1.2.3",
+});
+const octokit1 = new MyOctokit();
+const octokit2 = new MyOctokit();
+```
+
+If you pass additional options to your new constructor, the options will be merged shallowly.
+
+```js
+const MyOctokit = Octokit.defaults({
+  foo: {
+    opt1: 1,
+  },
+});
+const octokit = new MyOctokit({
+  foo: {
+    opt2: 1,
+  },
+});
+// options will be { foo: { opt2: 1 }}
+```
+
+If you need a deep or conditional merge, you can pass a function instead.
+
+```js
+const MyOctokit = Octokit.defaults((options) => {
+  return {
+    foo: Object.assign({}, options.foo, { opt1: 1 }),
+  };
+});
+const octokit = new MyOctokit({
+  foo: { opt2: 1 },
+});
+// options will be { foo: { opt1: 1, opt2: 1 }}
+```
+
+Be careful about mutating the `options` object in the `Octokit.defaults` callback, as it can have unforeseen consequences.
+
+## Authentication
+
+Authentication is optional for some REST API endpoints accessing public data, but is required for GraphQL queries. Using authentication also increases your [API rate limit](https://developer.github.com/v3/#rate-limiting).
+
+By default, Octokit authenticates using the [token authentication strategy](https://github.com/octokit/auth-token.js). Pass in a token using `options.auth`. It can be a personal access token, an OAuth token, an installation access token or a JSON Web Token for GitHub App authentication. The `Authorization` header will be set according to the type of token.
+
+```js
+import { Octokit } from "@octokit/core";
+
+const octokit = new Octokit({
+  auth: "mypersonalaccesstoken123",
+});
+
+const { data } = await octokit.request("/user");
+```
+
+To use a different authentication strategy, set `options.authStrategy`. A list of authentication strategies is available at [octokit/authentication-strategies.js](https://github.com/octokit/authentication-strategies.js/#readme).
+
+Example
+
+```js
+import { Octokit } from "@octokit/core";
+import { createAppAuth } from "@octokit/auth-app";
+
+const appOctokit = new Octokit({
+  authStrategy: createAppAuth,
+  auth: {
+    appId: 123,
+    privateKey: process.env.PRIVATE_KEY,
+  },
+});
+
+const { data } = await appOctokit.request("/app");
+```
+
+The `.auth()` method returned by the current authentication strategy can be accessed at `octokit.auth()`. Example
+
+```js
+const { token } = await appOctokit.auth({
+  type: "installation",
+  installationId: 123,
+});
+```
+
+## Logging
+
+There are four built-in log methods
+
+1. `octokit.log.debug(message[, additionalInfo])`
+1. `octokit.log.info(message[, additionalInfo])`
+1. `octokit.log.warn(message[, additionalInfo])`
+1. `octokit.log.error(message[, additionalInfo])`
+
+They can be configured using the [`log` client option](client-options). By default, `octokit.log.debug()` and `octokit.log.info()` are no-ops, while the other two call `console.warn()` and `console.error()` respectively.
+
+This is useful if you build reusable [plugins](#plugins).
+
+If you would like to make the log level configurable using an environment variable or external option, we recommend the [console-log-level](https://github.com/watson/console-log-level) package. Example
+
+```js
+import consoleLogLevel from "console-log-level";
+const octokit = new Octokit({
+  log: consoleLogLevel({ level: "info" }),
+});
+```
+
+## Hooks
+
+You can customize Octokit's request lifecycle with hooks.
+
+```js
+octokit.hook.before("request", async (options) => {
+  validate(options);
+});
+octokit.hook.after("request", async (response, options) => {
+  console.log(`${options.method} ${options.url}: ${response.status}`);
+});
+octokit.hook.error("request", async (error, options) => {
+  if (error.status === 304) {
+    return findInCache(error.response.headers.etag);
+  }
+
+  throw error;
+});
+octokit.hook.wrap("request", async (request, options) => {
+  // add logic before, after, catch errors or replace the request altogether
+  return request(options);
+});
+```
+
+See [before-after-hook](https://github.com/gr2m/before-after-hook#readme) for more documentation on hooks.
+
+## Plugins
+
+Octokit’s functionality can be extended using plugins. The `Octokit.plugin()` method accepts a plugin (or many) and returns a new constructor.
+
+A plugin is a function which gets two arguments:
+
+1. the current instance
+2. the options passed to the constructor.
+
+In order to extend `octokit`'s API, the plugin must return an object with the new methods. Please refrain from adding methods directly to the `octokit` instance, especialy if you depend on keys that do not exist in `@octokit/core`, such as `octokit.rest`.
+
+```js
+// index.js
+import { Octokit } from "@octokit/core";
+import myPlugin from "./lib/my-plugin.js";
+import octokitPluginExample from "octokit-plugin-example";
+const MyOctokit = Octokit.plugin(
+  myPlugin,
+  octokitPluginExample
+);
+
+const octokit = new MyOctokit({ greeting: "Moin moin" });
+octokit.helloWorld(); // logs "Moin moin, world!"
+octokit.request("GET /"); // logs "GET / - 200 in 123ms"
+
+// lib/my-plugin.js
+const plugin = (octokit, options = { greeting: "Hello" }) => {
+  // hook into the request lifecycle
+  octokit.hook.wrap("request", async (request, options) => {
+    const time = Date.now();
+    const response = await request(options);
+    console.log(
+      `${options.method} ${options.url} – ${response.status} in ${Date.now() -
+        time}ms`
+    );
+    return response;
+  });
+
+  // add a custom method
+  return {
+    helloWorld: () => console.log(`${options.greeting}, world!`);
+  }
+};
+export default plugin;
+```
+
+## Build your own Octokit with Plugins and Defaults
+
+You can build your own Octokit class with preset default options and plugins. In fact, this is mostly how the `@octokit/<context>` modules work, such as [`@octokit/action`](https://github.com/octokit/action.js):
+
+```js
+import { Octokit } from "@octokit/core";
+import { paginateRest } from "@octokit/plugin-paginate-rest";
+import { throttling } from "@octokit/plugin-throttling";
+import { retry } from "@octokit/plugin-retry";
+import { createActionAuth } from "@octokit/auth-action";
+const MyActionOctokit = Octokit.plugin(
+  paginateRest,
+  throttling,
+  retry,
+).defaults({
+  throttle: {
+    onAbuseLimit: (retryAfter, options) => {
+      /* ... */
+    },
+    onRateLimit: (retryAfter, options) => {
+      /* ... */
+    },
+  },
+  authStrategy: createActionAuth,
+  userAgent: `my-octokit-action/v1.2.3`,
+});
+
+const octokit = new MyActionOctokit();
+const installations = await octokit.paginate("GET /app/installations");
+```
+
+## LICENSE
+
+[MIT](LICENSE)# core.js
 
 > Extendable client for GitHub's REST & GraphQL APIs
 
