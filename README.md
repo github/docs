@@ -1,3 +1,703 @@
+Skip to main content
+Documentación de GitHub
+REST API/Incidencias/Dependencias de incidencias
+Ahora la API de REST tiene control de versiones. Para obtener más información, consulta "Acerca del control de versiones de la API".
+Puntos de conexión de API REST para dependencias de incidencias
+Usa la API REST para ver, agregar y quitar dependencias de incidencias.
+
+List dependencies an issue is blocked by
+You can use the REST API to list the dependencies an issue is blocked by.
+
+This endpoint supports the following custom media types. For more information, see Media types.
+
+application/vnd.github.raw+json: Returns the raw Markdown body. Response will include body. This is the default if you do not pass any specific media type.
+application/vnd.github.text+json: Returns a text only representation of the Markdown body. Response will include body_text.
+application/vnd.github.html+json: Returns HTML rendered from the body's Markdown. Response will include body_html.
+application/vnd.github.full+json: Returns raw, text, and HTML representations. Response will include body, body_text, and body_html.
+Tokens de acceso específicos para "List dependencies an issue is blocked by"
+Este punto de conexión funciona con los siguientes tipos de token pormenorizados:
+
+Tokens de acceso de usuario de la aplicación de GitHub
+Token de acceso a la instalación de la aplicación de GitHub
+Tokens de acceso personal específico
+El token pormenorizado debe tener el siguiente conjunto de permisos:
+
+"Issues" repository permissions (read)
+Este punto de conexión se puede usar sin autenticación o los permisos mencionados anteriormente si solo se solicitan recursos públicos.
+
+Parámetros para "List dependencies an issue is blocked by"
+Encabezados
+Nombre, Tipo, Descripción
+accept string
+Setting to application/vnd.github+json is recommended.
+
+Parámetros de la ruta de acceso
+Nombre, Tipo, Descripción
+owner string Obligatorio
+The account owner of the repository. The name is not case sensitive.
+
+repo string Obligatorio
+The name of the repository without the .git extension. The name is not case sensitive.
+
+issue_number integer Obligatorio
+The number that identifies the issue.
+
+Parámetros de consulta
+Nombre, Tipo, Descripción
+per_page integer
+The number of results per page (max 100). For more information, see "Using pagination in the REST API."
+
+Valor predeterminado: 30
+
+page integer
+The page number of the results to fetch. For more information, see "Using pagination in the REST API."
+
+Valor predeterminado: 1
+
+Códigos de estado de respuesta HTTP para "List dependencies an issue is blocked by"
+status code	Descripción
+200	
+OK
+
+301	
+Moved permanently
+
+404	
+Resource not found
+
+410	
+Gone
+
+Ejemplos de código para "List dependencies an issue is blocked by"
+Ejemplo de solicitud
+GET
+/repos/{owner}/{repo}/issues/{issue_number}/dependencies/blocked_by
+
+cURL
+
+JavaScript
+
+CLI de GitHub
+// Octokit.js
+// https://github.com/octokit/core.js#readme
+const octokit = new Octokit({
+  auth: 'YOUR-TOKEN'
+})
+
+await octokit.request('GET /repos/{owner}/{repo}/issues/{issue_number}/dependencies/blocked_by', {
+  owner: 'OWNER',
+  repo: 'REPO',
+  issue_number: 'ISSUE_NUMBER',
+  headers: {
+    'X-GitHub-Api-Version': '2022-11-28'
+  }
+})
+Response
+
+
+Respuesta de ejemplo
+
+Esquema de respuesta
+Status: 200
+{
+  "type": "array",
+  "items": {
+    "title": "Issue",
+    "description": "Issues are a great way to keep track of tasks, enhancements, and bugs for your projects.",
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "format": "int64"
+      },
+      "node_id": {
+        "type": "string"
+      },
+      "url": {
+        "description": "URL for the issue",
+        "type": "string",
+        "format": "uri",
+        "examples": [
+          "https://api.github.com/repositories/42/issues/1"
+        ]
+      },
+      "repository_url": {
+        "type": "string",
+        "format": "uri"
+      },
+      "labels_url": {
+        "type": "string"
+      },
+      "comments_url": {
+        "type": "string",
+        "format": "uri"
+      },
+      "events_url": {
+        "type": "string",
+        "format": "uri"
+      },
+      "html_url": {
+        "type": "string",
+        "format": "uri"
+      },
+      "number": {
+        "description": "Number uniquely identifying the issue within its repository",
+        "type": "integer",
+        "examples": [
+          42
+        ]
+      },
+      "state": {
+        "description": "State of the issue; either 'open' or 'closed'",
+        "type": "string",
+        "examples": [
+          "open"
+        ]
+      },
+      "state_reason": {
+        "description": "The reason for the current state",
+        "type": [
+          "string",
+          "null"
+        ],
+        "enum": [
+          "completed",
+          "reopened",
+          "not_planned",
+          "duplicate",
+          null
+        ],
+        "examples": [
+          "not_planned"
+        ]
+      },
+      "title": {
+        "description": "Title of the issue",
+        "type": "string",
+        "examples": [
+          "Widget creation fails in Safari on OS X 10.8"
+        ]
+      },
+      "body": {
+        "description": "Contents of the issue",
+        "type": [
+          "string",
+          "null"
+        ],
+        "examples": [
+          "It looks like the new widget form is broken on Safari. When I try and create the widget, Safari crashes. This is reproducible on 10.8, but not 10.9. Maybe a browser bug?"
+        ]
+      },
+      "user": {
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "title": "Simple User",
+            "description": "A GitHub user.",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "email": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "login": {
+                "type": "string",
+                "examples": [
+                  "octocat"
+                ]
+              },
+              "id": {
+                "type": "integer",
+                "format": "int64",
+                "examples": [
+                  1
+                ]
+              },
+              "node_id": {
+                "type": "string",
+                "examples": [
+                  "MDQ6VXNlcjE="
+                ]
+              },
+              "avatar_url": {
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "https://github.com/images/error/octocat_happy.gif"
+                ]
+              },
+              "gravatar_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "examples": [
+                  "41d064eb2195891e12d0413f63227ea7"
+                ]
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "https://api.github.com/users/octocat"
+                ]
+              },
+              "html_url": {
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "https://github.com/octocat"
+                ]
+              },
+              "followers_url": {
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "https://api.github.com/users/octocat/followers"
+                ]
+              },
+              "following_url": {
+                "type": "string",
+                "examples": [
+                  "https://api.github.com/users/octocat/following{/other_user}"
+                ]
+              },
+              "gists_url": {
+                "type": "string",
+                "examples": [
+                  "https://api.github.com/users/octocat/gists{/gist_id}"
+                ]
+              },
+              "starred_url": {
+                "type": "string",
+                "examples": [
+                  "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+                ]
+              },
+              "subscriptions_url": {
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "https://api.github.com/users/octocat/subscriptions"
+                ]
+              },
+              "organizations_url": {
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "https://api.github.com/users/octocat/orgs"
+                ]
+              },
+              "repos_url": {
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "https://api.github.com/users/octocat/repos"
+                ]
+              },
+              "events_url": {
+                "type": "string",
+                "examples": [
+                  "https://api.github.com/users/octocat/events{/privacy}"
+                ]
+              },
+              "received_events_url": {
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "https://api.github.com/users/octocat/received_events"
+                ]
+              },
+              "type": {
+                "type": "string",
+                "examples": [
+                  "User"
+                ]
+              },
+              "site_admin": {
+                "type": "boolean"
+              },
+              "starred_at": {
+                "type": "string",
+                "examples": [
+                  "\"2020-07-09T00:17:55Z\""
+                ]
+              },
+              "user_view_type": {
+                "type": "string",
+                "examples": [
+                  "public"
+                ]
+              }
+            },
+            "required": [
+              "avatar_url",
+              "events_url",
+              "followers_url",
+              "following_url",
+              "gists_url",
+              "gravatar_id",
+              "html_url",
+              "id",
+              "node_id",
+              "login",
+              "organizations_url",
+              "received_events_url",
+              "repos_url",
+              "site_admin",
+              "starred_url",
+              "subscriptions_url",
+              "type",
+              "url"
+            ]
+          }
+        ]
+      },
+      "labels": {
+        "description": "Labels to associate with this issue; pass one or more label names to replace the set of labels on this issue; send an empty array to clear all labels from the issue; note that the labels are silently dropped for users without push access to the repository",
+        "type": "array",
+        "items": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "color": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "default": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "examples": [
+          "bug",
+          "registration"
+        ]
+      },
+      "assignee": {
+        "anyOf": [
+          {
+            "type": "null"
+          },
+          {
+            "title": "Simple User",
+            "description": "A GitHub user.",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "email": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "login": {
+                "type": "string",
+                "examples": [
+                  "octocat"
+                ]
+              },
+              "id": {
+                "type": "integer",
+                "format": "int64",
+                "examples": [
+                  1
+                ]
+              },
+              "node_id": {
+                "type": "string",
+                "examples": [
+                  "MDQ6VXNlcjE="
+                ]
+              },
+              "avatar_url": {
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "https://github.com/images/error/octocat_happy.gif"
+                ]
+              },
+              "gravatar_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "examples": [
+                  "41d064eb2195891e12d0413f63227ea7"
+                ]
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "https://api.github.com/users/octocat"
+                ]
+              },
+              "html_url": {
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "https://github.com/octocat"
+                ]
+              },
+              "followers_url": {
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "https://api.github.com/users/octocat/followers"
+                ]
+              },
+              "following_url": {
+                "type": "string",
+                "examples": [
+                  "https://api.github.com/users/octocat/following{/other_user}"
+                ]
+              },
+              "gists_url": {
+                "type": "string",
+                "examples": [
+                  "https://api.github.com/users/octocat/gists{/gist_id}"
+                ]
+              },
+              "starred_url": {
+                "type": "string",
+                "examples": [
+                  "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+                ]
+              },
+              "subscriptions_url": {
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "https://api.github.com/users/octocat/subscriptions"
+                ]
+              },
+              "organizations_url": {
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "https://api.github.com/users/octocat/orgs"
+                ]
+              },
+              "repos_url": {
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "https://api.github.com/users/octocat/repos"
+                ]
+              },
+              "events_url": {
+                "type": "string",
+                "examples": [
+                  "https://api.github.com/users/octocat/events{/privacy}"
+                ]
+              },
+              "received_events_url": {
+                "type": "string",
+                "format": "uri",
+                "examples": [
+                  "https://api.github.com/users/octocat/received_events"
+                ]
+              },
+              "type": {
+                "type": "string",
+                "examples": [
+                  "User"
+                ]
+              },
+              "site_admin": {
+                "type": "boolean"
+              },
+              "starred_at": {
+                "type": "string",
+                "examples": [
+                  "\"2020-07-09T00:17:55Z\""
+                ]
+              },
+              "user_view_type": {
+                "type": "string",
+                "examples": [
+                  "public"
+                ]
+              }
+            },
+            "required": [
+              "avatar_url",
+              "events_url",
+              "followers_url",
+              "following_url",
+              "gists_url",
+              "gravatar_id",
+              "html_url",
+              "id",
+              "node_id",
+              "login",
+              "organizations_url",
+              "received_events_url",
+              "repos_url",
+              "site_admin",
+              "starred_url",
+              "subscriptions_url",
+              "type",
+              "url"
+            ]
+          }
+        ]
+      },
+      "assignees": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "items": {
+          "title": "Simple User",
+          "description": "A GitHub user.",
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "email": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "login": {
+              "type": "string",
+              "examples": [
+                "octocat"
+              ]
+            },
+            "id": {
+              "type": "integer",
+              "format": "int64",
+              "examples": [
+                1
+              ]
+            },
+            "node_id": {
+              "type": "string",
+              "examples": [
+                "MDQ6VXNlcjE="
+              ]
+            },
+            "avatar_url": {
+              "type": "string",
+              "format": "uri",
+              "examples": [
+                "https://github.com/images/error/octocat_happy.gif"
+              ]
+            },
+            "gravatar_id": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "examples": [
+                "41d064eb2195891e12d0413f63227ea7"
+              ]
+            },
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "examples": [
+                "https://api.github.com/users/octocat"
+              ]
+            },
+            "html_url": {
+              "type": "string",
+              "format": "uri",
+              "examples": [
+                "https://github.com/octocat"
+              ]
+            },
+            "followers_url": {
+              "type": "string",
+              "format": "uri",
+              "examples": [
+                "https://api.github.com/users/octocat/followers"
+              ]
+            },
+            "following_url": {
+              "type": "string",
+              "examples": [
+                "https://api.github.com/users/octocat/following{/other_user}"
+              ]
+            },
+            "gists_url": {
+              "type": "string",
+              "examples": [
+                "https://api.github.com/users/octocat/gists{/gist_id}"
+              ]
+            },
+            "starred_url": {
+              "type": "string",
+              "examples": [
+                "https://api.github.com/users/octocat/starred{/owner}{/repo}"
+              ]
+            },
+            "subscriptions_url": {
+              "type": "string",
+              "format": "uri",
+              "examples": [
+                "https://api.github.com/users/octocat/subscriptions"
+              ]
+            },
+            "organizations_url": {
+              "type": "string",
+              "format": "uri",
+              "examples": [
+                "https://api.github.com/users/octocat/orgs"
+              ]
+        
+
 https://github.com/Edgarruiz856/docs/blob/main/assets%2Fimages%2Fhelp%2Forganizations%2Forg-profile-view.png
 
 ---
