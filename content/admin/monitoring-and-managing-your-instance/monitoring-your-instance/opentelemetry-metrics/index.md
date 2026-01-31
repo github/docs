@@ -8,7 +8,7 @@ topics:
 children:
   - /about-opentelemetry-metrics
   - /configuring-opentelemetry-for-your-instance
-  - /enable-advanced-dashboards
+  - /advanced-dashboards
   - /setting-up-external-monitoring-with-opentelemetry
 shortTitle: OpenTelemetry metrics
 ---

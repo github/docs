@@ -42,3 +42,13 @@ Other issues you should take into consideration include:
 * **Two-factor authentication:** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
 * **Fallback authentication for users with no account on your external authentication provider:** You can invite users to authenticate to {% data variables.location.product_location %} without adding them to your identity provider. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider).
+
+{% ifversion scim-for-ghes-ga %}
+
+## Migrating from LDAP to SAML and SCIM
+
+If you're currently using LDAP and want to enable automated user provisioning and deprovisioning capabilities, you can migrate to SAML authentication with SCIM provisioning. This provides enhanced user lifecycle management while maintaining centralized authentication.
+
+For detailed migration steps, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/migrating-from-ldap-to-saml-with-scim).
+
+{% endif %}

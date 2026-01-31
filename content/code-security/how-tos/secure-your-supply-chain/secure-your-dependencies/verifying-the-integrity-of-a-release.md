@@ -5,7 +5,6 @@ intro: You can avoid tampering and accidental changes by ensuring the releases y
 versions:
   fpt: '*'
   ghec: '*'
-type: overview
 topics:
   - Code Security
   - Vulnerabilities

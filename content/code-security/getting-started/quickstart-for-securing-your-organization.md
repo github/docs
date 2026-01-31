@@ -6,7 +6,7 @@ redirect_from:
   - /code-security/getting-started/securing-your-organization
 versions:
   feature: pre-security-configurations
-type: how_to
+contentType: get-started
 topics:
   - Organizations
   - Dependencies

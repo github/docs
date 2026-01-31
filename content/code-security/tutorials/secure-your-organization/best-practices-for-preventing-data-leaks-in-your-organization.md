@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
 topics:
   - Organizations
   - Vulnerabilities

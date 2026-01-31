@@ -108,7 +108,7 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
     <tr>
       <td>Linux</td>
       <td>2</td>
-      <td>7 GB</td>
+      <td>8 GB</td>
       <td>14 GB</td>
       <td> x64 </td>
       <td>
@@ -120,13 +120,34 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
     <tr>
       <td>Windows</td>
       <td>2</td>
-      <td>7 GB</td>
+      <td>8 GB</td>
       <td>14 GB</td>
       <td> x64 </td>
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-latest</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-2025</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-2022</a></code>
+      </td>
+    </tr>
+    <tr>
+      <td>Linux</td>
+      <td>2</td>
+      <td>8 GB</td>
+      <td>14 GB</td>
+      <td> arm64 </td>
+      <td>
+        <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-ubuntu-24-image.md">ubuntu-24.04-arm</a></code>,
+        <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-ubuntu-22-image.md">ubuntu-22.04-arm</a></code>
+      </td>
+    </tr>
+    <tr>
+      <td>Windows</td>
+      <td>2</td>
+      <td>8 GB</td>
+      <td>14 GB</td>
+      <td> arm64 </td>
+      <td>
+        <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-windows-11-image.md">windows-11-arm</a></code>
       </td>
     </tr>
     <tr>

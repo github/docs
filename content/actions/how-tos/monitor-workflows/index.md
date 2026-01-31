@@ -11,6 +11,7 @@ children:
   - /view-job-execution-time
   - /add-a-status-badge
   - /use-workflow-run-logs
+  - /view-job-condition-logs
   - /enable-debug-logging
 redirect_from:
   - /actions/monitoring-and-troubleshooting-workflows/monitoring-workflows

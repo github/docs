@@ -2,14 +2,10 @@ import type { Context, Page } from '@/types'
 import type { PageTransformer } from './types'
 import type { Operation } from '@/rest/components/types'
 import { renderContent } from '@/content-render/index'
+import { loadTemplate } from '@/article-api/lib/load-template'
 import matter from '@gr2m/gray-matter'
-import { readFileSync } from 'fs'
-import { join, dirname } from 'path'
-import { fileURLToPath } from 'url'
 import { fastTextOnly } from '@/content-render/unified/text-only'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
 const DEBUG = process.env.RUNNER_DEBUG === '1' || process.env.DEBUG === '1'
 
 /**
@@ -17,6 +13,8 @@ const DEBUG = process.env.RUNNER_DEBUG === '1' || process.env.DEBUG === '1'
  * Converts REST operations and their data into markdown format using a Liquid template
  */
 export class RestTransformer implements PageTransformer {
+  templateName = 'rest-page.template.md'
+
   canTransform(page: Page): boolean {
     // Only transform REST pages that are not landing pages
     // Landing pages (like /en/rest) will be handled by a separate transformer
@@ -104,8 +102,7 @@ export class RestTransformer implements PageTransformer {
     )
 
     // Load and render template
-    const templatePath = join(__dirname, '../templates/rest-page.template.md')
-    const templateContent = readFileSync(templatePath, 'utf8')
+    const templateContent = loadTemplate(this.templateName)
 
     // Render the template with Liquid
     const rendered = await renderContent(templateContent, {

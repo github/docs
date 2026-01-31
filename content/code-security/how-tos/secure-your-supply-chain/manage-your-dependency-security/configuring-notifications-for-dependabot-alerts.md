@@ -11,7 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
 topics:
   - Dependabot
   - Alerts

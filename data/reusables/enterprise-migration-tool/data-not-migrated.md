@@ -1,5 +1,6 @@
 * Audit logs
 * {% data variables.product.prodname_code_scanning_caps %} results
+* {% data variables.product.prodname_codespaces %} secrets
 * Commit status checks
 * {% data variables.product.prodname_dependabot %} alerts
 * {% data variables.product.prodname_dependabot %} secrets
@@ -21,6 +22,8 @@
 * Repository stars
 * Repository watchers
 * Rulesets
+* Sub-issues (see [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/about-issues#about-sub-issues))
 * Tag protection rules
+* User access to the repository
 * Users' profiles, SSH keys, signing keys, or {% data variables.product.pat_generic_plural %}
 * Webhook secrets

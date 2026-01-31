@@ -143,7 +143,7 @@ To learn about what you need to know to plan your deployment of {% ifversion gha
 
 ## Enabling features
 
-{% ifversion ghes %}
+{% ifversion ghes < 3.15 %}
 A site administrator must enable {% data variables.product.prodname_AS %} for {% data variables.location.product_location %} before you can use these features. See [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise).
 {% endif %}
 

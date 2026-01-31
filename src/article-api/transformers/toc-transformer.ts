@@ -11,7 +11,7 @@ interface CategoryPage extends Page {
 
 /**
  * Transformer for table of contents (TOC) landing pages - pages with children but no specific layout.
- * These are simple navigation pages (category/subcategory) that list child pages with titles and intros.
+ * These are simple navigation pages (category/subcategory/product/homepage) that list child pages with titles and intros.
  * Corresponds to TocLanding component in the web UI.
  */
 export class TocTransformer implements PageTransformer {
@@ -19,11 +19,12 @@ export class TocTransformer implements PageTransformer {
 
   canTransform(page: Page): boolean {
     // Transform pages that have children but no layout specified
-    // These are typically category or subcategory pages
+    // These are typically category, subcategory, product, or homepage pages
     const categoryPage = page as CategoryPage
+    const validDocTypes = ['category', 'subcategory', 'product', 'homepage']
     return (
       !page.layout &&
-      (page.documentType === 'category' || page.documentType === 'subcategory') &&
+      validDocTypes.includes(page.documentType) &&
       !!categoryPage.children &&
       categoryPage.children.length > 0
     )

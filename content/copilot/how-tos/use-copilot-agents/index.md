@@ -11,6 +11,7 @@ children:
   - /coding-agent
   - /request-a-code-review
   - /use-copilot-cli
+  - /copilot-memory
 redirect_from:
   - /copilot/how-tos/agents
 contentType: how-tos

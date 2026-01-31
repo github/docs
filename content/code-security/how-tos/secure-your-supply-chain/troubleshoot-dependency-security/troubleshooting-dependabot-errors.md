@@ -13,7 +13,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
 topics:
   - Dependabot
   - Security updates
@@ -26,21 +25,7 @@ topics:
 contentType: how-tos
 ---
 
-{% data reusables.dependabot.enterprise-enable-dependabot %}
-
-## About {% data variables.product.prodname_dependabot %} errors
-
-{% data reusables.dependabot.pull-request-introduction %}
-
-If anything prevents {% data variables.product.prodname_dependabot %} from raising a pull request, this is reported as an error.
-
-> [!NOTE]
-> {% data variables.product.prodname_dependabot %} doesn't create pull requests for inactive repositories. For information about inactivity criteria, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates) and [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#about-automatic-deactivation-of-dependabot-updates), for security and version updates, respectively.
-
-{% ifversion dependabot-on-actions-opt-in %}
-For more information about troubleshooting when running {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
-
-{% endif %}
+This article provides troubleshooting information to help you resolve issues when {% data variables.product.prodname_dependabot %} doesn't work as expected. If you encounter errors when {% data variables.product.prodname_dependabot %} tries to update your dependencies, you can use this guidance to diagnose and fix common problems.
 
 ## Investigating errors with {% data variables.product.prodname_dependabot_security_updates %}
 

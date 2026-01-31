@@ -5,7 +5,6 @@ intro: You can enforce immutable releases for a repository or organization to pr
 versions:
   fpt: '*'
   ghec: '*'
-type: overview
 topics:
   - Code Security
   - Vulnerabilities

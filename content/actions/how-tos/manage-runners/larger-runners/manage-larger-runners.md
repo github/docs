@@ -36,7 +36,7 @@ Enterprise owners can add {% data variables.actions.hosted_runner %}s to an ente
 
 ## Adding a {% data variables.actions.hosted_runner %} to an organization
 
-Organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %} can add a {% data variables.actions.hosted_runner %} to an organization control which repositories can use it. When you create a new runner for an organization, by default, all repositories in the organization have access to the runner. To limit which repositories can use the runner, assign it to a runner group with access to specific repositories. For more information, see [Allowing repositories to access larger runners](#allowing-repositories-to-access-larger-runners).
+Organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %} can add a {% data variables.actions.hosted_runner %} to an organization and control which repositories can use it. When you create a new runner for an organization, by default, all repositories in the organization have access to the runner. To limit which repositories can use the runner, assign it to a runner group with access to specific repositories. For more information, see [Allowing repositories to access larger runners](#allowing-repositories-to-access-larger-runners).
 
 {% data reusables.actions.add-hosted-runner-overview %}
 

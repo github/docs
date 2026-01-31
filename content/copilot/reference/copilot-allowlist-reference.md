@@ -329,6 +329,7 @@ The allowlist allows access to the following hosts:
 * `playwright.azureedge.net`
 * `playwright-akamai.azureedge.net`
 * `playwright-verizon.azureedge.net`
+* `storage.googleapis.com/chrome-for-testing-public`
 
 ### Linux Package Managers: Ubuntu
 

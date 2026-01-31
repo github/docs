@@ -6,7 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: overview
 topics:
   - Secret scanning
   - Secret Protection
@@ -15,12 +14,13 @@ topics:
 shortTitle: Delegated bypass
 redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection
+  - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection
 contentType: concepts
 ---
 
-## About delegated bypass for push protection
-
 {% data reusables.secret-scanning.push-protection-delegate-bypass-beta-note %}
+
+## About delegated bypass for push protection
 
 When push protection is enabled for a repository, users with write access can bypass push protection and push a secret if they provide a reason and the bypass is approved.
 
@@ -33,7 +33,7 @@ With delegated bypass for push protection, you can:
 
 To set up delegated bypass, organization owners or repository administrators create a list of users with bypass privileges. This designated list of users can then:
 * Bypass push protection, by specifying a reason for bypassing the block.
-* Manage (approve or deny) bypass requests coming from all other contributors. These requests are located in the "Push protection bypass" page in the **Security** tab of the repository.
+* Manage (approve or deny) bypass requests coming from all other contributors. These requests are located in the "Push protection bypass" page in the **Security** tab of the repository, and will expire after 7 days. For more information about bypass requests, see [AUTOTITLE](/code-security/concepts/secret-security/about-bypass-requests-for-push-protection).
 
 The following types of users can always bypass push protection without having to request bypass privileges:
 * Organization owners

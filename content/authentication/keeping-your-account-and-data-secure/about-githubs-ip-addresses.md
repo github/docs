@@ -30,7 +30,7 @@ These ranges are in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inte
 
 We make changes to our IP addresses from time to time. We do not recommend allowing by IP address, but if you use these IP ranges we strongly encourage regular monitoring of our API.
 
-For applications to function, you must allow TCP ports 22, 80, and 443 via our IP ranges for `github.com`.
+For applications to function, you must allow TCP ports 22, 80, and 443 via our IP ranges for `github.com` and `{% data variables.enterprise.data_residency_domain %}`.
 
 ## Further reading
 

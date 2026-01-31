@@ -11,12 +11,42 @@
 {% for webhook in webhooks %}
 ## {{ webhook.name }}
 
-**Available actions:** {% for actionType in webhook.actionTypes %}{% if forloop.last and forloop.length > 1 %}and {% endif %}`{{ actionType }}`{% unless forloop.last %}{% if forloop.length > 2 %}, {% else %} {% endif %}{% endunless %}{% endfor %}
+{% if webhook.summary %}
+{{ webhook.summary }}
 
-{% if webhook.data.descriptionHtml %}
-{{ webhook.data.descriptionHtml }}
 {% endif %}
+{% if webhook.availability.size > 0 %}
+### Availability
 
-**Availability:** {% for availability in webhook.data.availability %}{% if forloop.last and forloop.length > 1 %}and {% endif %}`{{ availability }}`{% unless forloop.last %}{% if forloop.length > 2 %}, {% else %} {% endif %}{% endunless %}{% endfor %}
+{% for avail in webhook.availability %}- `{{ avail }}`
+{% endfor %}
 
+{% endif %}
+### Webhook payload object
+
+{% if webhook.actionTypes.size > 1 %}
+**Action type:** {% for actionType in webhook.actionTypes %}`{{ actionType }}`{% unless forloop.last %}, {% endunless %}{% endfor %}
+
+{% endif %}
+{% if webhook.description %}
+{{ webhook.description }}
+
+{% endif %}
+{% if webhook.bodyParameters.size > 0 %}
+#### Webhook payload object parameters
+
+| Name | Type | Description |
+|------|------|-------------|
+{% for param in webhook.bodyParameters %}| `{{ param.name }}` | `{{ param.type }}` | {% if param.isRequired %}**Required.** {% endif %}{{ param.description }} |
+{% endfor %}
+
+{% endif %}
+{% if webhook.payloadExample %}
+### Webhook payload example
+
+```json
+{{ webhook.payloadExample }}
+```
+
+{% endif %}
 {% endfor %}

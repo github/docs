@@ -5,7 +5,6 @@ shortTitle: Supply chain security
 permissions: ''
 versions:
   ghes: '*'
-type: how_to
 topics:
   - Enterprise
   - Security

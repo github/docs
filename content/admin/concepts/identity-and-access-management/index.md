@@ -10,6 +10,7 @@ topics:
 children:
   - /identity-and-access-management-fundamentals
   - /enterprise-managed-users
+  - /user-offboarding
 contentType: concepts
 ---
 

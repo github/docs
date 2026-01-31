@@ -5001,6 +5001,12 @@
       "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}"
     },
     {
+      "slug": "create-a-view-for-an-organization-owned-project",
+      "subcategory": "views",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/views"
+    },
+    {
       "slug": "list-items-for-an-organization-project-view",
       "subcategory": "items",
       "verb": "get",

@@ -17,7 +17,7 @@ At {% data variables.product.github %}, we work to understand customers and thei
 
 ## What's included with {% data variables.contact.special_events_support %}?
 
-{% data variables.contact.special_events_support %} provides tailored 24- or 48-hour support packages led by Support Engineers. These packages include:
+{% data variables.contact.special_events_support %} provides tailored, support packages in 24 hour increments, led by Support Engineers. These packages include:
 
 * Strategic pre-event planning and system health checks to make sure you’re prepared.
 * Rapid, real-time response via a designated channel throughout your event.

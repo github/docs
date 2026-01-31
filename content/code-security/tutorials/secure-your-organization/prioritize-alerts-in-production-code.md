@@ -18,44 +18,22 @@ redirect_from:
   - /code-security/tutorials/secure-your-organization/alerts-in-production-code
 ---
 
-{% data reusables.security.production-context-mdc-preview %}
-
-## Prioritizing alerts using production context
-
 Application Security (AppSec) managers are often overwhelmed by a high volume of alerts, many of which may not represent real risk because the affected code never makes it to production. By associating production context with your alerts, you can filter and prioritize vulnerabilities that impact artifacts actually approved for production environments. This enables your team to focus remediation efforts on the vulnerabilities that matter most, reducing noise and improving your security posture.
 
-## Associating production context with alerts
+## 1. Associate artifacts with production context
 
-{% data variables.product.github %} enables you to provide production context for {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} alerts using the REST API:
+{% data variables.product.github %}'s {% data variables.product.virtual_registry %} allows you to provide production context for your company's builds using the REST API or a partner integration. Teams can then use this context to prioritize {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} alerts. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/linked-artifacts).
 
-* [Storage Record](/rest/orgs/artifact-metadata#create-artifact-metadata-storage-record)
-* [Deployment Record](/rest/orgs/artifact-metadata#create-an-artifact-deployment-record)
+To provide production context, you should configure your system to:
 
-### Storage Record API
+* Update **storage records** in the {% data variables.product.virtual_registry %} whenever an artifact is promoted to a production-approved package repository.
+* Update **deployment records** when an artifact is deployed to a production environment.
 
-This API allows package registries or GitOps workflows to send artifact lifecycle data to {% data variables.product.github %}. You should configure your system to call the endpoint whenever an artifact is promoted to a production-approved package repository.
+{% data variables.product.github %} processes this metadata and uses it to power alert filters, such as `artifact-registry-url` and `artifact-registry` from storage records, and `has:deployment` and `runtime-risk` from deployment records.
 
-{% data variables.product.github %} processes this metadata and uses it to power new alert filters, such as `artifact-registry-url` and `artifact-registry`. For more information, see [Create artifact metadata storage record](/rest/orgs/artifact-metadata#create-artifact-metadata-storage-record) in the REST API documentation.
+For more information on updating records, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/upload-linked-artifacts).
 
-> [!TIP]
-> If you use JFrog Artifactory, you do not need to perform any custom integration. Artifactory natively integrates with the Storage Record API. You only need to enable the integration in your Artifactory settings, and Artifactory will automatically emit production promotion events to {% data variables.product.github %}. For setup instructions, see [JFrog and GitHub Integration: JFrog for {% data variables.product.github %} {% data variables.product.prodname_dependabot %}](https://jfrog.com/help/r/jfrog-and-github-integration-guide/jfrog-for-github-dependabot) in the JFrog documentation.
-
-### Deployment Record API
-
-This API allows systems to send deployment data for a specific artifact to {% data variables.product.github %}, such as its name, digest, environments, cluster, and deployment.
-
-{% data variables.product.github %} processes this metadata and uses it to power new alert filters, such as `has:deployment` and `runtime-risk`. For more information, see [Create an artifact deployment record](/rest/orgs/artifact-metadata#create-an-artifact-deployment-record) in the REST API documentation.
-
-> [!TIP]
-> If you use {% data variables.product.prodname_mdc_definition %} and connect your instance to a {% data variables.product.github %} organization, {% data variables.product.prodname_mdc %} will automatically send deployment and runtime data to {% data variables.product.github %}. For more information, see [Quick Start: Connect your {% data variables.product.github %} Environment to {% data variables.product.prodname_microsoft_defender %}](https://learn.microsoft.com/en-us/azure/defender-for-cloud/quickstart-onboard-github) in the documentation for {% data variables.product.prodname_mdc %}.
-
-## Enable and use production context for alert prioritization
-
-### 1. Detect and report production artifact promotions and deployments
-
-In your CI/CD or GitOps workflow, whenever an artifact is promoted to a production-approved package repository, call the Storage Record API to send the artifact's metadata to {% data variables.product.github %}. Whenever an artifact is deployed to production, call the Deployment Record API to send additional metadata for the artifact to {% data variables.product.github %}.
-
-### 2. Use production context filters
+## 2. Use production context filters
 
 Production context filters are made available in alert views and security campaign views under the **Security** tab.
 
@@ -91,7 +69,7 @@ You can also combine these production context filters with other filters, such a
 epss > 0.5 AND artifact-registry-url:my-registry.example.com
 ```
 
-### 3. Remediate alerts in production code
+## 3. Remediate alerts in production code
 
 Now you have identified the alerts that put your production code at risk of exploitation, you need to remediate them as a matter of urgency. Where possible use automation to lower the barrier to remediation.
 

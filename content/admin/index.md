@@ -79,7 +79,7 @@ featuredLinks:
   guideCards:
     - '{% ifversion ghes %}/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server{% endif %}'
     - '{% ifversion ghes %}/admin/configuring-packages/getting-started-with-github-packages-for-your-enterprise{% endif %}'
-    - '{% ifversion ghes %}/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise{% endif %}'
+    - '{% ifversion ghes < 3.15 %}/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise{% endif %}'
     - '{% ifversion ghec %}/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise{% endif %}'
     - '{% ifversion ghec %}/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise{% endif %}'
     - '{% ifversion ghec %}/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise{% endif %}'
