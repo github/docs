@@ -1,3 +1,5 @@
+https://github.com/Edgarruiz856/docs/blob/main/assets%2Fimages%2Fhelp%2Forganizations%2Forg-profile-view.png
+
 ---
 title: About GitHub's documentation fundamentals
 shortTitle: Documentation fundamentals
