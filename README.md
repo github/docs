@@ -1,3 +1,4 @@
+[![Check For Common Issues](https://github.com/microsoft/vcpkg/actions/workflows/check_issues.yml/badge.svg)](https://github.com/microsoft/vcpkg/actions/workflows/check_issues.yml)
 Skip to main content
 Documentación de GitHub
 REST API/Incidencias/Dependencias de incidencias
