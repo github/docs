@@ -1,3 +1,237 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<rss version="2.0">
+<channel>
+<title>
+<![CDATA[ TVN List - TWCERT/CC Taiwan Computer Emergency Response Team/Coordination Center ]]>
+</title>
+<link>https://www.twcert.org.tw/en/np-139-2.html</link>
+<description>TWCERT/CC Taiwan Computer Emergency Response Team/Coordination Center RSS channel.</description>
+<language>en-us</language>
+<pubDate>Wed, 28 Jan 2026 03:29:00 GMT</pubDate>
+<copyright>TWCERT/CC</copyright>
+<ttl>20</ttl>
+<item>
+<title>
+<![CDATA[ 2100 Technology｜Official Document Management System - Incorrect Authorization ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10659-264cd-2.html</link>
+<description>
+<![CDATA[ 2100 Technology｜Official Document Management System - Incorrect Authorization ]]>
+</description>
+<pubDate>Wed, 28 Jan 2026 03:29:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10659-264cd-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ WellChoose｜Single Sign-On Portal System - 3 Vulnerabilities ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10655-59160-2.html</link>
+<description>
+<![CDATA[ WellChoose｜Single Sign-On Portal System - 3 Vulnerabilities ]]>
+</description>
+<pubDate>Mon, 26 Jan 2026 07:33:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10655-59160-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ JNC｜IAQS and I6 - 2 Vulnerabilities ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10653-117a1-2.html</link>
+<description>
+<![CDATA[ JNC｜IAQS and I6 - 2 Vulnerabilities ]]>
+</description>
+<pubDate>Fri, 23 Jan 2026 08:03:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10653-117a1-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ HAMASTAR Technology｜MeetingHub - 3 Vulnerabilities ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10651-ff09c-2.html</link>
+<description>
+<![CDATA[ HAMASTAR Technology｜MeetingHub - 3 Vulnerabilities ]]>
+</description>
+<pubDate>Thu, 22 Jan 2026 08:07:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10651-ff09c-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ BROWAN COMMUNICATIONS ｜PrismX MX100 AP controller - 3 Vulnerabilitires ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10643-2f8d7-2.html</link>
+<description>
+<![CDATA[ BROWAN COMMUNICATIONS ｜PrismX MX100 AP controller - 3 Vulnerabilitires ]]>
+</description>
+<pubDate>Tue, 20 Jan 2026 06:08:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10643-2f8d7-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ Gotac｜Statistics Database System - Arbitrary File Read ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10640-0fd0b-2.html</link>
+<description>
+<![CDATA[ Gotac｜Statistics Database System - Arbitrary File Read ]]>
+</description>
+<pubDate>Fri, 16 Jan 2026 03:24:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10640-0fd0b-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ Gotac｜Police Statistics Database System - 4 Vulnerabilities ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10638-0e44b-2.html</link>
+<description>
+<![CDATA[ Gotac｜Police Statistics Database System - 4 Vulnerabilities ]]>
+</description>
+<pubDate>Fri, 16 Jan 2026 02:15:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10638-0e44b-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ Merit LILIN｜IP Camera - OS Command Injection ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10626-afbe2-2.html</link>
+<description>
+<![CDATA[ Merit LILIN｜IP Camera - OS Command Injection ]]>
+</description>
+<pubDate>Mon, 12 Jan 2026 06:07:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10626-afbe2-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ Merit LILIN｜NVR - OS Command Injection ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10623-4f523-2.html</link>
+<description>
+<![CDATA[ Merit LILIN｜NVR - OS Command Injection ]]>
+</description>
+<pubDate>Mon, 12 Jan 2026 03:30:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10623-4f523-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ A-Plus Video Technologies｜NVR - Sensitive Data Exposure ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10621-55584-2.html</link>
+<description>
+<![CDATA[ A-Plus Video Technologies｜NVR - Sensitive Data Exposure ]]>
+</description>
+<pubDate>Mon, 12 Jan 2026 03:13:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10621-55584-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ Quanta Computer｜QOCA aim AI Medical Cloud Platform - 6 Vulnerabilities ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10616-cd942-2.html</link>
+<description>
+<![CDATA[ Quanta Computer｜QOCA aim AI Medical Cloud Platform - 6 Vulnerabilities ]]>
+</description>
+<pubDate>Mon, 05 Jan 2026 06:58:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10616-cd942-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ QNO Technology｜VPN Firewall - 3 Vulnerabilities ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10614-dee41-2.html</link>
+<description>
+<![CDATA[ QNO Technology｜VPN Firewall - 3 Vulnerabilities ]]>
+</description>
+<pubDate>Wed, 31 Dec 2025 08:13:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10614-dee41-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ NetVision Information｜ISOinsight - Reflected Cross-site Scripting ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10610-b98b4-2.html</link>
+<description>
+<![CDATA[ NetVision Information｜ISOinsight - Reflected Cross-site Scripting ]]>
+</description>
+<pubDate>Tue, 30 Dec 2025 07:25:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10610-b98b4-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ WELLTEND TECHNOLOGY｜ BPMFlow.NET - 2 Vulnerabilities ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10605-426b6-2.html</link>
+<description>
+<![CDATA[ WELLTEND TECHNOLOGY｜ BPMFlow.NET - 2 Vulnerabilities ]]>
+</description>
+<pubDate>Mon, 29 Dec 2025 07:01:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10605-426b6-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ Sunnet｜WMPro - 2 Vulnerabilities ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10603-67149-2.html</link>
+<description>
+<![CDATA[ Sunnet｜WMPro - 2 Vulnerabilities ]]>
+</description>
+<pubDate>Mon, 29 Dec 2025 06:26:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10603-67149-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ Ragic｜Enterprise Cloud Database - Arbitrary File Read ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10588-771e5-2.html</link>
+<description>
+<![CDATA[ Ragic｜Enterprise Cloud Database - Arbitrary File Read ]]>
+</description>
+<pubDate>Mon, 22 Dec 2025 01:47:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10588-771e5-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ Acer｜ListCheck.exe - Local Privilege Escalation ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10581-16346-2.html</link>
+<description>
+<![CDATA[ Acer｜ListCheck.exe - Local Privilege Escalation ]]>
+</description>
+<pubDate>Wed, 17 Dec 2025 02:04:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10581-16346-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ ASRock, ASRockRack, ASRockInd｜Motherboard - Protection Mechanism Failure ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10579-9205b-2.html</link>
+<description>
+<![CDATA[ ASRock, ASRockRack, ASRockInd｜Motherboard - Protection Mechanism Failure ]]>
+</description>
+<pubDate>Wed, 17 Dec 2025 02:03:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10579-9205b-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ MSI｜Motherboard - Protection Mechanism Failure ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10577-3cd58-2.html</link>
+<description>
+<![CDATA[ MSI｜Motherboard - Protection Mechanism Failure ]]>
+</description>
+<pubDate>Wed, 17 Dec 2025 02:01:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10577-3cd58-2.html</guid>
+</item>
+<item>
+<title>
+<![CDATA[ GIGABYTE｜Motherboard - Protection Mechanism Failure ]]>
+</title>
+<link>https://www.twcert.org.tw/en/cp-139-10575-e4f41-2.html</link>
+<description>
+<![CDATA[ GIGABYTE｜Motherboard - Protection Mechanism Failure ]]>
+</description>
+<pubDate>Wed, 17 Dec 2025 02:00:00 GMT</pubDate>
+<guid>https://www.twcert.org.tw/en/cp-139-10575-e4f41-2.html</guid>
+</item>
+</channel>
+</rss>
 https://www.irccloud.com/pastebin/USfURLGA
 # Pastebin USfURLGA
 {
