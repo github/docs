@@ -9,7 +9,7 @@ import { NoQuery } from '@/search/components/results/NoQuery'
 import { useMainContext } from '@/frame/components/context/MainContext'
 import { ValidationErrors } from '@/search/components/results/ValidationErrors'
 import { useSearchContext } from '@/search/components/context/SearchContext'
-import type { SearchTotalHits } from '@elastic/elasticsearch/lib/api/types'
+import type { estypes } from '@elastic/elasticsearch'
 
 export function Search() {
   const { search } = useSearchContext()
@@ -38,7 +38,7 @@ export function Search() {
       pageTitle += ` (${searchVersion})`
     }
     if (results) {
-      pageTitle = `${formatInteger((results.meta.found as SearchTotalHits).value)} ${pageTitle}`
+      pageTitle = `${formatInteger((results.meta.found as estypes.SearchTotalHits).value)} ${pageTitle}`
     }
   }
 

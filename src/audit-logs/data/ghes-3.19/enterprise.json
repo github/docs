@@ -2190,7 +2190,7 @@
       "business",
       "alert_numbers"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+    "docs_reference_titles": "About code scanning"
   },
   {
     "action": "code_scanning.alert_closed_became_fixed",
@@ -2208,7 +2208,7 @@
       "business",
       "alert_numbers"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+    "docs_reference_titles": "About code scanning"
   },
   {
     "action": "code_scanning.alert_closed_became_outdated",
@@ -2225,7 +2225,7 @@
       "business_id",
       "business"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+    "docs_reference_titles": "About code scanning"
   },
   {
     "action": "code_scanning.alert_closed_by_user",
@@ -2244,7 +2244,7 @@
       "alert_numbers",
       "dismissal_approver_id"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+    "docs_reference_titles": "About code scanning"
   },
   {
     "action": "code_scanning.alert_closure_approved",
@@ -2267,7 +2267,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+    "docs_reference_titles": "About code scanning"
   },
   {
     "action": "code_scanning.alert_closure_denied",
@@ -2290,7 +2290,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+    "docs_reference_titles": "About code scanning"
   },
   {
     "action": "code_scanning.alert_closure_requested",
@@ -2313,7 +2313,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+    "docs_reference_titles": "About code scanning"
   },
   {
     "action": "code_scanning.alert_created",
@@ -2329,7 +2329,7 @@
       "org",
       "alert_numbers"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+    "docs_reference_titles": "About code scanning"
   },
   {
     "action": "code_scanning.alert_reappeared",
@@ -2347,7 +2347,7 @@
       "business",
       "alert_numbers"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+    "docs_reference_titles": "About code scanning"
   },
   {
     "action": "code_scanning.alert_reopened_by_user",
@@ -2365,7 +2365,7 @@
       "business",
       "alert_numbers"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+    "docs_reference_titles": "About code scanning"
   },
   {
     "action": "codespaces.allow_permissions",
@@ -3301,8 +3301,8 @@
   },
   {
     "action": "discussion_post.destroy",
-    "description": "Triggered when a team discussion post is deleted.",
-    "docs_reference_links": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "request_id",
       "team",
@@ -3319,13 +3319,12 @@
       "user_agent",
       "operation_type",
       "_document_id"
-    ],
-    "docs_reference_titles": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment"
+    ]
   },
   {
     "action": "discussion_post_reply.destroy",
-    "description": "Triggered when a reply to a team discussion post is deleted.",
-    "docs_reference_links": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "actor_id",
       "action",
@@ -3339,13 +3338,12 @@
       "created_at",
       "request_id",
       "_document_id"
-    ],
-    "docs_reference_titles": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment"
+    ]
   },
   {
     "action": "discussion_post_reply.update",
-    "description": "Triggered when a reply to a team discussion post is edited.",
-    "docs_reference_links": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "action",
       "_document_id",
@@ -3362,13 +3360,12 @@
       "number",
       "team",
       "created_at"
-    ],
-    "docs_reference_titles": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment"
+    ]
   },
   {
     "action": "discussion_post.update",
-    "description": "Triggered when a team discussion post is edited.",
-    "docs_reference_links": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "created_at",
       "_document_id",
@@ -3386,8 +3383,7 @@
       "request_id",
       "user_id",
       "number"
-    ],
-    "docs_reference_titles": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment"
+    ]
   },
   {
     "action": "enterprise_announcement.create",
@@ -7191,7 +7187,7 @@
       "business",
       "business_id"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
+    "docs_reference_titles": "Configuring default setup for code scanning at scale"
   },
   {
     "action": "org.codeql_enabled",
@@ -7214,7 +7210,7 @@
       "business",
       "business_id"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
+    "docs_reference_titles": "Configuring default setup for code scanning at scale"
   },
   {
     "action": "org.config.disable_collaborators_only",
@@ -12175,7 +12171,7 @@
       "operation_type",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
+    "docs_reference_titles": "Configuring default setup for code scanning"
   },
   {
     "action": "repo.codeql_enabled",
@@ -12203,7 +12199,7 @@
       "languages",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
+    "docs_reference_titles": "Configuring default setup for code scanning"
   },
   {
     "action": "repo.codeql_updated",
@@ -12231,7 +12227,7 @@
       "business_id",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
+    "docs_reference_titles": "Configuring default setup for code scanning"
   },
   {
     "action": "repo.collaborators_only",
@@ -14696,7 +14692,7 @@
       "alert_number",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+    "docs_reference_titles": "About Dependabot alerts"
   },
   {
     "action": "repository_vulnerability_alert.dismiss",
@@ -15004,7 +15000,7 @@
       "multi_repo",
       "created_at"
     ],
-    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+    "docs_reference_titles": "Manage secret scanning alerts"
   },
   {
     "action": "secret_scanning_alert.create",
@@ -15025,7 +15021,7 @@
       "publicly_leaked",
       "multi_repo"
     ],
-    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+    "docs_reference_titles": "Manage secret scanning alerts"
   },
   {
     "action": "secret_scanning_alert.reopen",
@@ -15126,7 +15122,7 @@
       "multi_repo",
       "created_at"
     ],
-    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+    "docs_reference_titles": "Manage secret scanning alerts"
   },
   {
     "action": "secret_scanning_alert.validate",
@@ -15150,7 +15146,7 @@
       "publicly_leaked",
       "multi_repo"
     ],
-    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+    "docs_reference_titles": "Manage secret scanning alerts"
   },
   {
     "action": "secret_scanning.disable",
@@ -15342,7 +15338,7 @@
       "actor_is_bot",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Working with secret scanning and push protection"
+    "docs_reference_titles": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
   },
   {
     "action": "secret_scanning_scan.completed",
@@ -15413,7 +15409,8 @@
       "security_configuration_secret_scanning_delegated_alert_dismissal",
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
-      "security_configuration_secret_protection_sku_enabled"
+      "security_configuration_secret_protection_sku_enabled",
+      "security_configuration_dependabot_delegated_alert_dismissal"
     ]
   },
   {
@@ -15503,7 +15500,8 @@
       "security_configuration_secret_scanning_delegated_alert_dismissal",
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
-      "security_configuration_secret_protection_sku_enabled"
+      "security_configuration_secret_protection_sku_enabled",
+      "security_configuration_dependabot_delegated_alert_dismissal"
     ]
   },
   {
@@ -15564,7 +15562,8 @@
       "security_configuration_secret_scanning_delegated_alert_dismissal",
       "security_configuration_code_scanning_delegated_alert_dismissal",
       "security_configuration_code_security_sku_enabled",
-      "security_configuration_secret_protection_sku_enabled"
+      "security_configuration_secret_protection_sku_enabled",
+      "security_configuration_dependabot_delegated_alert_dismissal"
     ]
   },
   {
@@ -16619,7 +16618,7 @@
   },
   {
     "action": "team_discussions.clear",
-    "description": "An organization owner cleared the setting to allow team discussions for an organization or enterprise.",
+    "description": "N/A",
     "docs_reference_links": "N/A",
     "fields": [
       "business_id",
@@ -16639,8 +16638,8 @@
   },
   {
     "action": "team_discussions.disable",
-    "description": "Team discussions were disabled for an organization.",
-    "docs_reference_links": "/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization",
+    "description": "N/A",
+    "docs_reference_links": "N/A",
     "fields": [
       "org_id",
       "action",
@@ -16655,12 +16654,11 @@
       "@timestamp",
       "user_agent",
       "_document_id"
-    ],
-    "docs_reference_titles": "Organizations and teams documentation"
+    ]
   },
   {
     "action": "team_discussions.enable",
-    "description": "Team discussions were enabled for an organization.",
+    "description": "N/A",
     "docs_reference_links": "N/A",
     "fields": [
       "actor_id",

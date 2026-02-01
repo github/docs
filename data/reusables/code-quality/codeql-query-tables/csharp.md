@@ -28,9 +28,9 @@
 | [Useless assignment to local variable](https://codeql.github.com/codeql-query-help/csharp/cs-useless-assignment-to-local/) | Maintainability | Warning |
 | [Useless call to GetHashCode()](https://codeql.github.com/codeql-query-help/csharp/cs-useless-gethashcode-call/) | Maintainability | Recommendation |
 | [A lock is held during a wait](https://codeql.github.com/codeql-query-help/csharp/cs-locked-wait/) | Reliability | Warning |
+| [Call to 'System.IO.Path.Combine' may silently drop its earlier arguments](https://codeql.github.com/codeql-query-help/csharp/cs-path-combine/) | Reliability | Recommendation |
 | [Call to GC.Collect()](https://codeql.github.com/codeql-query-help/csharp/cs-call-to-gc/) | Reliability | Warning |
 | [Call to ReferenceEquals(...) on value type expressions](https://codeql.github.com/codeql-query-help/csharp/cs-reference-equality-on-valuetypes/) | Reliability | Error |
-| [Call to System.IO.Path.Combine](https://codeql.github.com/codeql-query-help/csharp/cs-path-combine/) | Reliability | Recommendation |
 | [Calls to unmanaged code](https://codeql.github.com/codeql-query-help/csharp/cs-call-to-unmanaged-code/) | Reliability | Recommendation |
 | [Cast of 'this' to a type parameter](https://codeql.github.com/codeql-query-help/csharp/cs-cast-of-this-to-type-parameter/) | Reliability | Recommendation |
 | [Character passed to StringBuilder constructor](https://codeql.github.com/codeql-query-help/csharp/cs-stringbuilder-initialized-with-character/) | Reliability | Error |

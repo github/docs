@@ -17,141 +17,170 @@ product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 contentType: tutorials
 ---
 
-You can automatically pull data from {% data variables.product.github %} to populate the business systems you use to monitor costs and usage using the REST API. If you haven't used the {% data variables.product.github %} REST API before, see [AUTOTITLE](/rest/using-the-rest-api).
+After you transition to metered billing, you may want to automatically track usage and costs for paid {% data variables.product.github %} features in your internal reporting systems. For example, you might want to monitor spend over time, reconcile invoices, or feed usage data into finance or BI tools.
 
-## Overview of endpoints
+In this tutorial, you’ll learn how to use the REST API to retrieve billing usage data, filter it by time period or cost center, and automate recurring reports at the user, organization, or enterprise level. You’ll also learn how to interpret key fields in the response so you can turn raw usage data into meaningful cost insights.
 
-You need to use different endpoints to gather data depending on your account type and the information level you want.
+## Prerequisites
 
-{% rowheaders %}
+Before you begin this tutorial, make sure that:
 
-| Account | Report | Access | Endpoint | More information |
-|---------|--------|--------|----------|------------------|
-| Users | Premium request consumption, with details of quota and billed usage | Account holder | `/users/{username}/settings/billing/premium_request/usage` | [AUTOTITLE](/rest/billing/usage?apiVersion=2022-11-28#get-billing-premium-request-usage-report-for-a-user) |
-| Users | Usage data for all paid products | Account holder | `/users/{username}/settings/billing/usage/summary` | [AUTOTITLE](/rest/billing/usage?apiVersion=2022-11-28#get-billing-usage-summary-for-a-user) |
-| Organizations | Premium request consumption, with details of quota and billed usage | Organization owners and billing managers | `/organizations/{org}/settings/billing/premium_request/usage` | [AUTOTITLE](/rest/billing/usage?apiVersion=2022-11-28#get-billing-premium-request-usage-report-for-an-organization) |
-| Organizations | Usage data for all paid products | Organization owners and billing managers | `/organizations/{org}/settings/billing/usage/summary` | [AUTOTITLE](/rest/billing/usage?apiVersion=2022-11-28#get-billing-usage-summary-for-an-organization) |
-| Enterprises | Premium request consumption, with details of quota and billed usage | Enterprise owners and billing managers | `/enterprises/{enterprise}/settings/billing/premium_request/usage` | [AUTOTITLE](/rest/billing/usage?apiVersion=2022-11-28#get-billing-premium-request-usage-report-for-an-enterprise) |
-| Enterprises | Usage data for all paid products | Enterprise owners and billing managers | `/enterprises/{enterprise}/settings/billing/usage/summary` | [AUTOTITLE](/rest/billing/usage?apiVersion=2022-11-28#get-billing-usage-summary-for-an-enterprise) |
+* You have access to billing data at the level you want to report on:
+  * User-level reports: account holder
+  * Organization-level reports: organization owner or billing manager
+  * Enterprise-level reports: enterprise administrator or billing manager
 
-{% endrowheaders %}
+* You’re familiar with making authenticated requests to the REST API. For an introduction, see [AUTOTITLE](/rest/using-the-rest-api).
+* You authenticate using a {% data variables.product.pat_v1 %}. The billing usage endpoints do not support {% data variables.product.pat_v2_plural %}.
 
-## Getting premium request consumption
+Depending on your reporting needs, you may also want access to an internal system (such as a spreadsheet, database, or BI tool) where you can store and analyze the usage data retrieved from the API.
 
-1. Authenticate with {% data variables.product.github %} with one of the following methods:
-   * **{% data variables.product.prodname_cli %}:** use the `gh auth login` command to authenticate, see [AUTOTITLE](/github-cli/github-cli/quickstart).
-   * **Create a {% data variables.product.pat_v1 %}:** and pass the token to in your API call, see [Creating a {% data variables.product.pat_v1 %}](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
+## Step 1: Decide what level to report on
 
-1. Call the required `premium_request/usage` endpoint, specifying the enterprise, organization, or user that you want data for.
+Decide which account level you want to report on. This determines **which REST API endpoint you’ll call** and what your report will include.
 
-## Getting usage data for all paid products
+Choose the reporting level that best matches your goal:
 
-1. Authenticate with {% data variables.product.github %} with one of the following methods:
-   * **{% data variables.product.prodname_cli %}:** use the `gh auth login` command to authenticate, see [AUTOTITLE](/github-cli/github-cli/quickstart).
-   * **Create a {% data variables.product.pat_v1 %}:** and pass the token to in your API call, see [Creating a {% data variables.product.pat_v1 %}](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
+| Reporting level   | When to use it   |
+| ----------------- | ---------------- |
+| **User** | You want a report for a single account, for example to understand personal usage and costs. |
+| **Organization** | You want to track usage and costs for a specific organization, for example for team-level monitoring or chargeback. |
+| **Enterprise** | You want a centralized view across multiple organizations, for example for finance reporting or cost center reporting. |
 
-1. Call the required `usage` endpoint, specifying the enterprise, organization, or user that you want data for.
+Once you’ve chosen a reporting level, you’ll use the corresponding endpoint in the next step to retrieve usage data and build an automated report.
 
-1. By default, data for all products for the current year is reported. For enterprises, only data that is not associated with a cost center is reported.
+## Step 2: Retrieve usage data for paid products
 
-   You can request more specific data using query parameters.
-   * Specify time period by setting one or more of the following parameters: `year`, `month`, `day`, and `hour`.
-   * Specify a cost center to report on by identifier using the `cost_center_id` query parameter (enterprise endpoint only).
+After you’ve decided which level to report on, use the REST API to retrieve usage data for paid {% data variables.product.github %} products. For all endpoints, see [AUTOTITLE](/rest/billing/usage).
 
-For more detailed information and an example calls and responses, see:
-* [Get billing usage report for an enterprise](/rest/enterprise-admin/billing?apiVersion=2022-11-28#get-billing-usage-report-for-an-enterprise)
-* [Get billing usage report for an organization](/rest/billing/enhanced-billing?apiVersion=2022-11-28#get-billing-usage-report-for-an-organization)
-* [Get billing usage report for a user](/rest/billing/enhanced-billing?apiVersion=2022-11-28#get-billing-usage-report-for-a-user)
+{% data variables.product.github %} provides two types of billing usage data:
 
-<!-- expires 2026-01-15 -->
-<!-- To check on whether this can be deleted or not, see the PM in ref: 6591 -->
+* **Usage summaries** – aggregated usage and cost data for all paid products.
+* **Premium request usage** – detailed usage and billing data for premium requests, including quotas and overage usage.
 
-## Migrating from the endpoints used for the previous billing platform
+In most reporting scenarios, you’ll start with a **usage summary** to understand overall usage and spend, and then use premium request usage data when you need deeper insight into premium request consumption.
 
-After you transition to metered billing, the endpoints you used to get data from the previous billing platform will no longer return accurate usage information.
+### Retrieve a usage summary
 
-* Upgrade all calls of the form: `/ACCOUNT-TYPE/NAME/settings/billing/PRODUCT`
-* To use the equivalent: `/ACCOUNT-TYPE/NAME/settings/billing/usage` endpoint
+Use the usage summary endpoint that corresponds to the reporting level you chose in Step 1.
 
-### Changes in authentication
+For example, to retrieve a usage summary for an enterprise, make a request to:
 
-If you used a {% data variables.product.pat_v2 %} to authenticate with the previous endpoints, you will need create a {% data variables.product.pat_v1 %} to authenticate with the new endpoint.
+`/enterprises/{enterprise}/settings/billing/usage/summary`
 
-In addition, you may want to use the new query parameters to specify a time period or cost center.
+You must authenticate your request to this endpoint.
 
-### Calculating {% data variables.product.prodname_actions %} information from the new response data
+**Example using curl**
 
-Example of the previous response
-
-```json
-{"total_minutes_used": 305, "total_paid_minutes_used": 0, "included_minutes": 3000, "minutes_used_breakdown": { "UBUNTU": 205, "MACOS": 10, "WINDOWS": 90 }  }
+```bash
+curl -L \
+  -H "Authorization: Bearer $GITHUB_TOKEN" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/enterprises/ENTERPRISE/settings/billing/usage/summary
 ```
 
-Example of the new response
+Replace `ENTERPRISE` with the enterprise slug and set the `GITHUB_TOKEN` environment variable to a {% data variables.product.pat_generic %} with the required billing permissions.
 
-```json
-{ "usageItems": [ { "date": "2023-08-01", "product": "Actions", "sku": "Actions Linux", "quantity": 100, "unitType": "minutes", "pricePerUnit": 0.008, "grossAmount": 0.8, "discountAmount": 0, "netAmount": 0.8, "organizationName": "GitHub", "repositoryName": "github/example"} ] }
+**Example using the {% data variables.product.prodname_cli %}**
+
+```bash
+gh api \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  /enterprises/ENTERPRISE/settings/billing/usage/summary
 ```
 
-To get the same values from the new response data:
+This endpoint returns aggregated usage data for all paid products for the current year by default. Each entry includes information such as the product, unit type, quantity used, and billed amount.
 
-{% rowheaders %}
+You can use the same approach to retrieve usage summaries for an organization or user by calling the equivalent endpoint for that account level.
 
-| Previous property	| Calculate from new API response |
-|------	|-----------	|
-| `total_minutes_used`	| <ul><li>Filter results by `"product": "Actions"` and `"unitType": "minutes"`</li><li>Sum `quantity`</li></ul>|
-| `total_paid_minutes_used`| This is now represented as a $ amount via `netAmount`.<ul><li>Filter results by `"product": "Actions"` and `"unitType": "minutes"`</li><li>Sum `netAmount`</li></ul>|
-| `included_minutes` |  This is now represented as a $ amount via `discountAmount`.<ul><li>Filter results by `"product": "Actions"` and `"unitType": "minutes"`</li><li>Sum `discountAmount`</li></ul>|
-| `minutes_used_breakdown` |  <ul><li>Filter results by `"product": "Actions"` and `"unitType": "minutes"`</li><li>Sum `quantity` grouped by `sku`</li></ul>|
+### Retrieve premium request usage
 
-{% endrowheaders %}
+If you need to report specifically on premium request consumption, use the `premium_request/usage` endpoint for the same account level. This endpoint provides additional details such as included usage, billed overages, and remaining quota.
 
-### Calculating {% data variables.product.prodname_registry %} information from the new response data
+In the next step, you’ll learn how to filter usage data by time period or cost center so you can generate more targeted reports.
 
-Example of the previous response
+## Step 3: Filter usage data by time period or cost center
 
-```json
-{ "total_gigabytes_bandwidth_used": 50, "total_paid_gigabytes_bandwidth_used": 40, "included_gigabytes_bandwidth": 10 }
+By default, usage summary endpoints return data for the **current year**. To generate more targeted reports or analyze trends over time, you can filter usage data using query parameters.
+
+### Filter by time period
+
+You can limit the usage data returned by specifying one or more of the following query parameters:
+
+* `year`
+* `month`
+* `day`
+* `hour`
+
+For example, to retrieve usage data for a specific month, include the `year` and `month` parameters in your request:
+
+ ```http
+GET /enterprises/{enterprise}/settings/billing/usage/summary?year=2024&month=12
 ```
 
-Example of the new response
+Filtering by time period is useful when you want to:
 
-```json
-{ "usageItems": [ { "date": "2023-08-01", "product": "Packages", "sku": "Packages data transfer", "quantity": 100, "unitType": "gigabytes", "pricePerUnit": 0.008, "grossAmount": 0.8, "discountAmount": 0, "netAmount": 0.8, "organizationName": "GitHub", "repositoryName": "github/example" } ] }
-```
+* Generate monthly or daily usage reports
+* Compare usage before and after a change, such as enabling a new feature
+* Reconcile usage with invoices for a specific billing period
 
-{% rowheaders %}
+### Filter by cost center (enterprise only)
 
-| Previous property	| Calculate from new API response |
-|------	|-----------	|
-| `total_gigabytes_bandwidth_used` | <ul><li>Filter results by `"product": "Packages"` and `"unitType": "gigabytes"` </li><li>Sum `quantity`</li></ul> |
-| `total_paid_gigabytes_bandwidth_used`| This is now represented as a $ amount via `netAmount`. <ul><li>Filter results by `"product": "Packages"` and `"unitType": "gigabytes"`</li><li>Sum `netAmount`</li></ul> |
-| `included_gigabytes_bandwidth` | This is now represented as a $ amount via `discountAmount`.<ul><li>Filter results by `"product": "Packages"` and `"unitType": "gigabytes"`</li><li>Sum `discountAmount`</li></ul> |
+If you’re retrieving enterprise-level usage data, you can also filter results by cost center using the `cost_center_id` query parameter.
 
-{% endrowheaders %}
+Filtering by cost center allows you to:
 
-### Calculating shared storage information from the new response data
+* Attribute usage and costs to specific teams or business units
+* Generate cost center–specific reports for finance or leadership stakeholders
 
-Example of the previous response
+Cost center filtering is available only for enterprise usage summary endpoints.
 
-```json
-{ "days_left_in_billing_cycle": 20, "estimated_paid_storage_for_month": 15, "estimated_storage_for_month": 40 }
-```
+In the next step, you’ll learn how to automate these API calls to generate recurring usage reports.
 
-Example of the new response
+## Step 4: Automate recurring usage reports
 
-```json
-{ "usageItems": [ { "date": "2023-08-01", "product": "Packages", "sku": "Packages storage", "quantity": 100, "unitType": "GigabyteHours", "pricePerUnit": 0.008, "grossAmount": 0.8, "discountAmount": 0, "netAmount": 0.8, "organizationName": "GitHub", "repositoryName": "github/example" } ] }
-```
+Once you’ve identified the usage data you want to collect and how to filter it, you can automate your reporting by running the same API requests on a recurring schedule.
 
-{% rowheaders %}
+Common automation patterns include:
 
-| Previous property	| Calculate from new API response |
-|------	|-----------	|
-| `days_left_in_billing_cycle` | Not available. This information can be inferred by subtracting the current day of the month from the number of days in the current month. |
-| `estimated_paid_storage_for_month`| This is now represented as a $ amount via `netAmount`. <br><br> Prerequisite: pass the `month` and `year` query parameters. <br><br>  <i> For Actions storage </i> <ul><li> Filter results by `"product": "Actions"` and `"unitType": "GigabyteHours"`</li><li> Sum `netAmount`</li></ul>  <i> For Packages storage </i> <ul><li> Filter results by `"product": "Packages"` and `"unitType": "GigabyteHours"`</li><li> Sum `netAmount`</li></ul>|
-| `estimated_storage_for_month` | Prerequisite: pass the `month` and `year` query parameters.  <br><br>  <i> For Actions storage </i> <ul><li> Filter results by `"product": "Actions"` and `"unitType": "GigabyteHours"`</li><li> Sum `quantity`</li></ul>  <i> For Packages storage </i> <ul><li> Filter results by `"product": "Packages"` and `"unitType": "GigabyteHours"`</li><li> Sum `quantity`</li></ul>|
+* Running scheduled API requests (for example, daily or monthly) to collect usage data
+* Storing the results in an internal system such as a database, spreadsheet, or BI tool
+* Using the data to monitor trends, detect changes in usage, or support cost reviews
 
-{% endrowheaders %}
+When automating reports, consistency matters. Use the same reporting level, filters, and time ranges each time so that usage trends are comparable over time.
 
-<!-- end expires 2025-12-01 -->
+For example, you might:
+
+* Run a monthly enterprise-level usage summary to track overall spend
+* Generate cost center–specific reports for internal chargeback or showback
+* Monitor usage growth after enabling new paid features
+
+In the next step, you’ll learn how to interpret the usage and cost fields returned by the API so you can turn raw data into meaningful insights.
+
+## Step 5: Interpret usage and cost fields in the API response
+
+The usage summary response includes both **usage** and **cost** information. Understanding how these fields relate to each other helps you interpret spend, included usage, and billed overages.
+
+Each usage item includes:
+
+* A **quantity**, which represents the amount of usage for a specific product and unit type
+* A **netAmount**, which represents the billed cost for that usage
+* A **discountAmount**, which represents usage covered by included quotas or discounts
+
+In general:
+
+* Use **quantity** to understand how much of a product was consumed
+* Use **netAmount** to understand what was billed
+* Use **discountAmount** to understand how much usage was included or discounted
+
+For example, a high quantity with a low netAmount may indicate that most usage was covered by included quotas, while a rising netAmount over time may indicate increased paid usage.
+
+Different products report usage using different unit types (such as minutes, gigabytes, or requests). To calculate product-specific metrics or reproduce values from the previous billing platform, you may need to filter usage items by product and unit type and aggregate the results. Detailed examples are available in the reference documentation linked in the next step.
+
+## Step 6: Calculate product-specific usage metrics
+
+In some cases, you may need to calculate product-specific usage metrics from the usage summary response. This is most relevant if you want to generate custom reports for a specific product or reproduce values used in legacy reporting.
+
+To calculate these metrics, you typically filter usage items by `product` and `unitType`, then aggregate fields such as `quantity`, `netAmount`, and `discountAmount`.
+
+For detailed examples and product-specific calculations, see [AUTOTITLE](/billing/reference/previous-billing-platform-endpoints).

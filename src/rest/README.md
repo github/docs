@@ -78,3 +78,36 @@ Slack: `#docs-engineering`
 Repo: `github/docs-engineering`
 
 If you have a question about the REST pipeline, you can ask in the `#docs-engineering` Slack channel. If you notice a problem with the REST pipeline, you can open an issue in the `github/docs-engineering` repository.
+
+## Ownership & Escalation
+
+### Ownership
+- **Team**: Docs Engineering
+- **Source data**: API Platform team (github/rest-api-description)
+
+### Escalation path
+1. **Pipeline failures** → #docs-engineering Slack
+2. **OpenAPI schema issues** → #api-platform Slack
+
+### On-call procedures
+If the REST pipeline fails:
+1. Check workflow logs in `.github/workflows/sync-openapi.yml`
+2. Verify access to `github/rest-api-description` repo
+3. Check for OpenAPI schema validation errors
+4. Review changes in generated files for unexpected output
+5. Check `config.json` for version mapping issues
+6. Escalate to API Platform team if schema issue
+
+### Monitoring
+- Pipeline runs automatically on daily schedule (shared with Webhooks/GitHub Apps)
+- PRs created with `github-openapi-bot` label
+- SHA tracking in `config.json` for version history
+- Failures visible in GitHub Actions
+
+We will continue to support changes incoming from the API Platform including new, deleted, changed endpoints and additional information as provided. We do not expect any significant new functionality moving forward.
+
+### Known limitations
+- **Shared pipeline** - Can't run REST independently of Webhooks/GitHub Apps
+- **Version overwrite** - Pipeline overwrites `versions` frontmatter
+- **Introduction placement** - Must be above auto-generation comment
+- **API version sync** - Calendar-date versions require manual config updates

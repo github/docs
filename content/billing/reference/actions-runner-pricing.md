@@ -20,47 +20,47 @@ redirect_from:
 
 ## x64-powered {% data variables.actions.hosted_runners %}
 
-| Operating system      | Billing SKU                | Per-minute rate until January 1, 2026 (USD) | January 1, 2026 onward | Percentage change |
-| --------------------- | -------------------------- | ----------------- |---------------|------|
-| Linux Advanced 2-core | `linux_2_core_advanced`    | $0.008            | $0.006        | -25% |
-| Linux 4-core          | `linux_4_core`             | $0.016            | $0.012        | -25% |
-| Linux 8-core          | `linux_8_core`             | $0.032            | $0.022        | -31% |
-| Linux 16-core         | `linux_16_core`            | $0.064            | $0.042        | -34% |
-| Linux 32-core         | `linux_32_core`            | $0.128            | $0.082        | -36% |
-| Linux 64-core         | `linux_64_core`            | $0.256            | $0.162        | -37% |
-| Linux 96-core         | `linux_96_core`            | $0.384            | $0.252        | -34% |
-| Windows 4-core        | `windows_4_core`           | $0.032            | $0.022        | -31% |
-| Windows 8-core        | `windows_8_core`           | $0.064            | $0.042        | -34% |
-| Windows 16-core       | `windows_16_core`          | $0.128            | $0.082        | -36% |
-| Windows 32-core       | `windows_32_core`          | $0.256            | $0.162        | -37% |
-| Windows 64-core       | `windows_64_core`          | $0.512            | $0.322        | -37% |
-| Windows 96-core       | `windows_96_core`          | $0.768            | $0.552        | -28% |
-| macOS 12-core         | `macos_l`                  | $0.120            | $0.077        | -36% |
+| Operating system      | Billing SKU                | Per-minute rate (USD) |
+| --------------------- | -------------------------- | --------------------- |
+| Linux Advanced 2-core | `linux_2_core_advanced`    | $0.006                |
+| Linux 4-core          | `linux_4_core`             | $0.012                |
+| Linux 8-core          | `linux_8_core`             | $0.022                |
+| Linux 16-core         | `linux_16_core`            | $0.042                |
+| Linux 32-core         | `linux_32_core`            | $0.082                |
+| Linux 64-core         | `linux_64_core`            | $0.162                |
+| Linux 96-core         | `linux_96_core`            | $0.252                |
+| Windows 4-core        | `windows_4_core`           | $0.022                |
+| Windows 8-core        | `windows_8_core`           | $0.042                |
+| Windows 16-core       | `windows_16_core`          | $0.082                |
+| Windows 32-core       | `windows_32_core`          | $0.162                |
+| Windows 64-core       | `windows_64_core`          | $0.322                |
+| Windows 96-core       | `windows_96_core`          | $0.552                |
+| macOS 12-core         | `macos_l`                  | $0.077                |
 
 ## arm64-powered {% data variables.actions.hosted_runners %}
 
-| Operating system      | Billing SKU           | Per-minute rate until January 1, 2026 (USD) | January 1, 2026 onward | Percentage change |
-| --------------------- | --------------------- | ----------------- |---------------|------|
-| Linux 2-core          | `linux_2_core_arm`    | $0.005            | $0.005        | &nbsp; &nbsp; 0% |
-| Linux 4-core          | `linux_4_core_arm`    | $0.010            | $0.008        | -20% |
-| Linux 8-core          | `linux_8_core_arm`    | $0.020            | $0.014        | -30% |
-| Linux 16-core         | `linux_16_core_arm`   | $0.040            | $0.026        | -35% |
-| Linux 32-core         | `linux_32_core_arm`   | $0.080            | $0.050        | -38% |
-| Linux 64-core         | `linux_64_core_arm`   | $0.160            | $0.098        | -39% |
-| Windows 2-core        | `windows_2_core_arm`  | $0.010            | $0.008        | -20% |
-| Windows 4-core        | `windows_4_core_arm`  | $0.020            | $0.014        | -30% |
-| Windows 8-core        | `windows_8_core_arm`  | $0.040            | $0.026        | -35% |
-| Windows 16-core       | `windows_16_core_arm` | $0.080            | $0.050        | -38% |
-| Windows 32-core       | `windows_32_core_arm` | $0.160            | $0.098        | -39% |
-| Windows 64-core       | `windows_64_core_arm` | $0.320            | $0.194        | -39% |
-| macOS 5-core (M2 Pro) | `macos_xl`            | $0.160            | $0.102        | -36% |
+| Operating system      | Billing SKU           | Per-minute rate (USD) |
+| --------------------- | --------------------- | --------------------- |
+| Linux 2-core          | `linux_2_core_arm`    | $0.005                |
+| Linux 4-core          | `linux_4_core_arm`    | $0.008                |
+| Linux 8-core          | `linux_8_core_arm`    | $0.014                |
+| Linux 16-core         | `linux_16_core_arm`   | $0.026                |
+| Linux 32-core         | `linux_32_core_arm`   | $0.050                |
+| Linux 64-core         | `linux_64_core_arm`   | $0.098                |
+| Windows 2-core        | `windows_2_core_arm`  | $0.008                |
+| Windows 4-core        | `windows_4_core_arm`  | $0.014                |
+| Windows 8-core        | `windows_8_core_arm`  | $0.026                |
+| Windows 16-core       | `windows_16_core_arm` | $0.050                |
+| Windows 32-core       | `windows_32_core_arm` | $0.098                |
+| Windows 64-core       | `windows_64_core_arm` | $0.194                |
+| macOS 5-core (M2 Pro) | `macos_xl`            | $0.102                |
 
 ## GPU-powered {% data variables.actions.hosted_runners %}
 
-| Operating system      | Billing SKU          | Per-minute rate until January 1, 2026 (USD) | January 1, 2026 onward | Percentage change |
-| ------------------ | ------------------------ | ------------- |------------|------|
-| Linux 4-core          | `linux_4_core_gpu`        | $0.070           | $0.052       | -26% |
-| Windows 4-core    | `windows_4_core_gpu` | $0.14             | $0.102        | -27% |
+| Operating system   | Billing SKU          | Per-minute rate (USD) |
+| ------------------ | ---------------------| ----------------------|
+| Linux 4-core       | `linux_4_core_gpu`   | $0.052                |
+| Windows 4-core     | `windows_4_core_gpu` | $0.102                |
 
 ## Points to note about rates for runners
 

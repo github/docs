@@ -43,7 +43,7 @@ Within the pre-built dashboards you can find various sections grouping graphs of
 
 {% ifversion ghes-opentelemetry %}
 
-If you have enabled metrics for OpenTelemetry, then additional dashboards are available, see: [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/enable-advanced-dashboards).
+If you have enabled metrics for OpenTelemetry, then additional dashboards are available, see: [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/advanced-dashboards).
 
 {% endif %}
 

@@ -23,6 +23,7 @@ import { useTranslation } from '@/languages/components/useTranslation'
 import { LinkPreviewPopover } from '@/links/components/LinkPreviewPopover'
 import { UtmPreserver } from '@/frame/components/UtmPreserver'
 import { JourneyTrackCard, JourneyTrackNav } from '@/journeys/components'
+import { ViewMarkdownButton } from './ViewMarkdownButton'
 
 const ClientSideRefresh = dynamic(() => import('@/frame/components/ClientSideRefresh'), {
   ssr: false,
@@ -46,6 +47,7 @@ export const ArticlePage = () => {
     currentJourneyTrack,
     supportPortalVaIframeProps,
     currentLayout,
+    currentPath,
   } = useArticleContext()
   const isLearningPath = !!currentLearningTrack?.trackName
   const isJourneyTrack = !!currentJourneyTrack?.trackId
@@ -74,6 +76,7 @@ export const ArticlePage = () => {
 
   const toc = (
     <>
+      <ViewMarkdownButton currentPath={currentPath} />
       {isLearningPath && <LearningTrackCard track={currentLearningTrack} />}
       {isJourneyTrack && <JourneyTrackCard journey={currentJourneyTrack} />}
       {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}

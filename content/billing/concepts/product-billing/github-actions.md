@@ -130,14 +130,11 @@ For full details of minute costs for different types of runners, see [AUTOTITLE]
 
 ### Example minutes cost calculation for {% data variables.product.github %}-hosted runners
 
-For example, if your organization uses {% data variables.product.prodname_team %}, using 5,000 minutes beyond the included quota on {% data variables.product.github %}-hosted runners would have a total actions minutes cost of $56 USD currently, if you used baseline Linux and Windows runners.
+For example, if your organization uses {% data variables.product.prodname_team %}, using 5,000 minutes beyond the included quota on {% data variables.product.github %}-hosted runners would have a total actions minutes cost of $38 USD currently, if you used baseline Linux and Windows runners.
 
-* 5,000 (3,000 Linux and 2,000 Windows) minutes = $56 USD ($24 USD + $32 USD).
-  * 3,000 Linux minutes at $0.008 USD per minute = $24 USD.
-  * 2,000 Windows minutes at $0.016 USD per minute = $32 USD.
-
->[!TIP]
-> The cost for these runners will reduce from January 1, 2026.
+* 5,000 (3,000 Linux and 2,000 Windows) minutes = $38 USD ($18 USD + $20 USD).
+  * 3,000 Linux minutes at $0.006 USD per minute = $18 USD.
+  * 2,000 Windows minutes at $0.010 USD per minute = $20 USD.
 
 ### Example artifact storage cost calculation
 

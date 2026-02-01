@@ -1,0 +1,56 @@
+{
+  "check_run": {
+    "completed": {
+      "descriptionHtml": "<p>Check run is <strong>completed</strong>.</p>",
+      "summaryHtml": "",
+      "bodyParameters": [
+        {
+          "name": "action",
+          "description": "The action performed. Value: <code>completed</code>",
+          "isRequired": true,
+          "type": "string"
+        },
+        {
+          "name": "check_run",
+          "description": "The check run object",
+          "isRequired": true,
+          "type": "object"
+        }
+      ],
+      "availability": ["Repository", "Organization", "GitHub App"],
+      "action": "completed",
+      "category": "check_run",
+      "payloadExample": {
+        "action": "completed",
+        "check_run": {
+          "id": 4,
+          "status": "completed",
+          "conclusion": "neutral"
+        }
+      }
+    }
+  },
+  "issues": {
+    "opened": {
+      "descriptionHtml": "<p>Issue is <em>opened</em>.</p>",
+      "summaryHtml": "",
+      "bodyParameters": [
+        {
+          "name": "action",
+          "description": "The action performed",
+          "isRequired": true,
+          "type": "string"
+        },
+        {
+          "name": "issue",
+          "description": "The issue object",
+          "isRequired": false,
+          "type": "object"
+        }
+      ],
+      "availability": ["Repository", "Organization"],
+      "action": "opened",
+      "category": "issues"
+    }
+  }
+}

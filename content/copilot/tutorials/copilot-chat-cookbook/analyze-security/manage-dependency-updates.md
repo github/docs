@@ -90,8 +90,6 @@ Once you've committed the `dependabot.yml` file to your repository, {% data vari
 
 ### Example scenario
 
-### Example scenario
-
 Let's say your team has been using the basic {% data variables.product.prodname_dependabot %} configuration for a few months, and you're getting lots of dependency update pull requests. However, you're finding that:
 
 * Pull requests are sitting un-reviewed because no one is automatically assigned.

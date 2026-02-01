@@ -1,0 +1,78 @@
+name: Check External Links
+
+# Runs weekly (Wednesday) at 16:20 UTC
+# Validates external URLs in content files
+
+on:
+  schedule:
+    - cron: '20 16 * * 3' # Wednesday at 16:20 UTC
+  workflow_dispatch:
+    inputs:
+      max_urls:
+        description: 'Maximum number of URLs to check (leave blank for all)'
+        type: number
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check-external-links:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    timeout-minutes: 180 # 3 hours for external checks
+    steps:
+      - name: Checkout
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check external links
+        env:
+          ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          CACHE_MAX_AGE_DAYS: '7'
+        run: |
+          if [[ -n "${{ inputs.max_urls }}" ]]; then
+            npm run check-links-external -- --max ${{ inputs.max_urls }}
+          else
+            npm run check-links-external
+          fi
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: external-link-report
+          path: artifacts/external-link-report.*
+          retention-days: 14
+          if-no-files-found: ignore
+
+      - name: Check if report exists
+        if: always()
+        id: check_report
+        run: |
+          if [ -f "artifacts/external-link-report.md" ]; then
+            echo "has_report=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_report=false" >> $GITHUB_OUTPUT
+            echo "No broken link report generated - all links valid!"
+          fi
+
+      - name: Create issue if broken links found
+        if: always() && steps.check_report.outputs.has_report == 'true'
+        uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v5
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          repository: github/docs-content
+          title: '🌐 Broken External Links Report'
+          content-filepath: artifacts/external-link-report.md
+          labels: broken link report
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

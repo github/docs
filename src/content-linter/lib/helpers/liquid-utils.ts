@@ -34,7 +34,6 @@ export const TAG_OPEN = '{{'
 export const TAG_CLOSE = '}}'
 
 export const conditionalTags = ['if', 'elseif', 'unless', 'case', 'ifversion']
-const CONDITIONAL_TAG_NAMES = ['if', 'ifversion', 'elsif', 'else', 'endif']
 
 // Token parameter uses TopLevelToken which has begin and end properties
 export function getPositionData(
@@ -120,13 +119,17 @@ export function getContentDeleteData(
 // `ifversion` tag is used.
 // Returns TagToken array since we filter to only Tag tokens
 export function getLiquidIfVersionTokens(content: string): TagToken[] {
+  // Include 'case' and 'endcase' so we can filter out `else` tags that belong to case statements
+  const IFVERSION_TAG_NAMES = ['if', 'ifversion', 'elsif', 'else', 'endif', 'case', 'endcase']
   const tokens = getLiquidTokens(content)
     .filter((token): token is TagToken => token.kind === TokenKind.Tag)
-    .filter((token) => CONDITIONAL_TAG_NAMES.includes(token.name))
+    .filter((token) => IFVERSION_TAG_NAMES.includes(token.name))
 
   let inIfStatement = false
+  let inCaseStatement = false
   const ifVersionTokens: TagToken[] = []
   for (const token of tokens) {
+    // Filter out `if` statements and their related tags
     if (token.name === 'if') {
       inIfStatement = true
       continue
@@ -134,6 +137,16 @@ export function getLiquidIfVersionTokens(content: string): TagToken[] {
     if (inIfStatement && token.name !== 'endif') continue
     if (inIfStatement && token.name === 'endif') {
       inIfStatement = false
+      continue
+    }
+    // Filter out `case` statements and their related tags (including `else`)
+    if (token.name === 'case') {
+      inCaseStatement = true
+      continue
+    }
+    if (inCaseStatement && token.name !== 'endcase') continue
+    if (inCaseStatement && token.name === 'endcase') {
+      inCaseStatement = false
       continue
     }
     ifVersionTokens.push(token)

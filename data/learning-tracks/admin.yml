@@ -158,13 +158,13 @@ configure_github_advanced_security:
     - >-
       /billing/concepts/product-billing/github-advanced-security
     - >-
-      /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise
+      /code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/enabling-github-advanced-security-for-your-enterprise
     - >-
-      /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance
+      /code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-code-scanning-for-your-appliance
     - >-
-      /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-dependency-review-for-your-appliance
+      /code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-dependency-review-for-your-appliance
     - >-
-      /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance
+      /code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-secret-scanning-for-your-appliance
     - >-
       /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise
 get_started_with_your_enterprise_account:

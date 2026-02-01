@@ -45,6 +45,8 @@ The following IdPs are partner IdPs. They offer an application that you can use 
 
 When you use a single partner IdP for both authentication and provisioning, {% data variables.product.company_short %} provides support for the application on the partner IdP and the IdP's integration with {% data variables.product.prodname_dotcom %}. Support for PingFederate is in {% data variables.release-phases.public_preview %}.
 
+We do not have a supported partner application when using Entra ID for Azure Government. 
+
 ### Other identity management systems
 
 If you cannot use a single partner IdP for both authentication and provisioning, you can use another identity management system or combination of systems. The system must:

@@ -2,6 +2,7 @@ import { fileURLToPath } from 'url'
 import fs from 'fs'
 import yaml from 'js-yaml'
 import path from 'path'
+import readFrontmatter from '@/frame/lib/read-frontmatter'
 import { callModelsApi } from '@/ai-tools/lib/call-models-api'
 
 export interface PromptMessage {
@@ -50,6 +51,67 @@ export function getAvailableEditorTypes(promptDir: string): string[] {
  */
 export function getRefinementDescriptions(editorTypes: string[]): string {
   return editorTypes.join(', ')
+}
+
+/**
+ * Enrich context for intro prompt on index.md files
+ */
+export function enrichIndexContext(filePath: string, content: string): string {
+  if (!filePath.endsWith('index.md')) return content
+
+  try {
+    const { data } = readFrontmatter(content)
+    if (!data) return content
+
+    // Extract product name from file path (e.g., content/github-models/ -> "GitHub Models")
+    const productMatch = filePath.replace(/\\/g, '/').match(/content\/([^/]+)/)
+    const productName = productMatch
+      ? productMatch[1]
+          .split('-')
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+          .join(' ')
+      : ''
+
+    // Get child article titles
+    const titles: string[] = []
+    if (data.children && Array.isArray(data.children)) {
+      const dir = path.dirname(filePath)
+      for (const childPath of data.children.slice(0, 20)) {
+        try {
+          const childFile = path.join(dir, `${childPath.replace(/^\//, '')}.md`)
+          const childContent = fs.readFileSync(childFile, 'utf8')
+          const { data: childData } = readFrontmatter(childContent)
+          if (childData?.title) titles.push(childData.title)
+        } catch (error) {
+          if (process.env.AI_TOOLS_VERBOSE === 'true') {
+            console.warn('Failed to read or parse child article for intro context:', {
+              filePath,
+              childPath,
+              error,
+            })
+          }
+        }
+      }
+    }
+
+    // Build context note
+    const parts: string[] = []
+    if (productName) parts.push(`Product: ${productName}`)
+    if (titles.length > 0) parts.push(`Child articles: ${titles.join(', ')}`)
+
+    if (parts.length > 0) {
+      return `\n\n---\nContext for intro generation:\n${parts.join('\n')}\n---\n\n${content}`
+    }
+  } catch (error) {
+    if (process.env.AI_TOOLS_VERBOSE === 'true') {
+      console.warn('Failed to enrich index context for intro generation:', {
+        filePath,
+        error,
+      })
+    }
+  }
+
+  return content
 }
 
 /**

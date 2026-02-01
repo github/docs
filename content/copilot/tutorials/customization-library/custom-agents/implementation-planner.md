@@ -75,4 +75,19 @@ For each phase, list specific tasks with complexity estimates (Small/Medium/Larg
 Adjust the detail level based on your needs - solo projects might need less formal documentation, while team projects benefit from more thorough planning. Focus on creating a roadmap that helps you stay organized and make progress.
 ```
 
+## How to use this {% data variables.copilot.copilot_custom_agent_short %}
+
+1. Go to the agents tab at [https://github.com/copilot/agents](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text).
+1. Using the dropdown menus in the text box, select the repository and branch you want the custom agent to work in.
+1. Click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %}, then click **{% octicon "plus" aria-label="Plus button" %} Create a custom agent**.
+1. An {% data variables.copilot.agent_profile %} template called `my-agent.agent.md` will open in the `.github/agents` directory, in the repository you chose. Name the file `implementation-planner.agent.md` and paste in the example {% data variables.copilot.agent_profile %}.
+1. Commit and merge this file into your repository's default branch. Go back to the agents tab (you may need to refresh the page), and in the text box, select your "implementation-planner" agent from the dropdown.
+1. In the text box, enter a task for the agent (such as the example below) and click **{% octicon "paper-airplane" aria-label="Start task" %} Start task** or press <kbd>Return</kbd>.
+
+   ```copilot copy
+    Create a detailed implementation plan for adding user authentication to our web app, including technical approach, phases, and risk assessment.
+   ```
+
+The agent task will appear on the page below the text box. You can click into the task and follow along with the agent. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions).
+
 {% data reusables.copilot.custom-agents-further-reading %}

@@ -45,6 +45,8 @@ children:
   - /carousel
   - /article-grid-discovery
   - /article-grid-bespoke
+  - /multi-carousel
+  - /non-child-resolution
 communityRedirect:
   name: Provide HubGit Feedback
   href: 'https://hubgit.com/orgs/community/discussions/categories/get-started'

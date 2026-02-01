@@ -5,14 +5,27 @@ import type { Context } from '@/types'
 
 export class EmptyTitleError extends Error {}
 
-interface LiquidToken {
+export interface LiquidToken {
   file?: string
   getPosition?: () => [number, number]
 }
 
-interface LiquidError extends Error {
+/**
+ * Custom error class for Liquid rendering errors with proper type safety.
+ * Use this instead of creating Error objects and mutating them with type assertions.
+ *
+ * @example
+ * const error = new LiquidError('Unknown tag', 'ParseError')
+ * error.token = { file: '/content/test.md', getPosition: () => [1, 5] }
+ */
+export class LiquidError extends Error {
   token?: LiquidToken
   originalError?: Error
+
+  constructor(message: string, name: 'ParseError' | 'RenderError' | 'TokenizationError') {
+    super(message)
+    this.name = name
+  }
 }
 
 interface RenderOptions {

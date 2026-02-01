@@ -17,22 +17,23 @@ Agent Skills work with {% data variables.copilot.copilot_coding_agent %}, the {%
 
 You can create your own skills to teach {% data variables.product.prodname_copilot_short %} to perform tasks in a specific, repeatable way—or use skills shared online, for example in the [`anthropics/skills`](https://github.com/anthropics/skills) repository or {% data variables.product.company_short %}'s community created [`github/awesome-copilot`](https://github.com/github/awesome-copilot) collection.
 
-Currently, skills can only be created at the repository level. Support for organization-level and enterprise-level skills is coming soon.
+{% data variables.product.prodname_copilot_short %} supports:
 
-You can use both skills and custom instructions to teach {% data variables.product.prodname_copilot_short %} how to work in your repository and how to perform specific tasks. We recommend using custom instructions for simple instructions relevant to almost every task (for example information about your repository's coding standards), and skills for more detailed instructions that {% data variables.product.prodname_copilot_short %} should access when relevant. To learn more about repository custom instructions, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
+* Project skills, stored in your repository (`.github/skills` or `.claude/skills`)
+* Personal skills, stored in your home directory and shared across projects (`~/.copilot/skills` or `~/.claude/skills`) ({% data variables.copilot.copilot_coding_agent %} and {% data variables.copilot.copilot_cli %} only)
+
+Support for organization-level and enterprise-level skills is coming soon.
 
 > [!NOTE]
 > {% data reusables.cli.preview-note-cli-body %}
 
-
-## Adding skills to your repository
-
-1. Create a `.github/skills` directory to store your skills.
-
-    > [!NOTE]
-    > Skills stored in the `.claude/skills` directory are also supported.
+## Creating and adding skills
 
 1. Create a subdirectory for your new skill. Each skill should have its own directory (for example, `.github/skills/webapp-testing`). Skill directory names should be lowercase, use hyphens for spaces, and typically match the `name` in the `SKILL.md` frontmatter.
+
+    For project skills, specific to a single repository, store your skill under `.github/skills` or `.claude/skills`.
+
+    For personal skills, shared across projects, store your skill under `~/.copilot/skills` or `~/.claude/skills`.
 
 1. Create a `SKILL.md` file with your skill's instructions.
 
@@ -51,7 +52,9 @@ You can use both skills and custom instructions to teach {% data variables.produ
 
 ### Example `SKILL.md` file
 
-This file would be located in the `.github/skills/github-actions-failure-debugging` directory.
+For a project skill, this file would be located in the `/path/to/repository/.github/skills/github-actions-failure-debugging` directory.
+
+For a personal skill, this file would be located in the `~/.copilot/skills/github-actions-failure-debugging` directory.
 
 ```markdown copy
 ---
@@ -73,3 +76,11 @@ To debug failing GitHub Actions workflows in a pull request, follow this process
 When performing tasks, {% data variables.product.prodname_copilot_short %} will decide when to use your skills based on your prompt and the skill's description.
 
 When {% data variables.product.prodname_copilot_short %} chooses to use a skill, the `SKILL.md` file will be injected in the agent's context, giving the agent access to your instructions. It can then follow those instructions, and use any scripts or examples you may have included in the skill's directory.
+
+## Skills versus custom instructions
+
+You can use both skills and custom instructions to teach {% data variables.product.prodname_copilot_short %} how to work in your repository and how to perform specific tasks. 
+
+We recommend using custom instructions for simple instructions relevant to almost every task (for example information about your repository's coding standards), and skills for more detailed instructions that {% data variables.product.prodname_copilot_short %} should access when relevant. 
+
+To learn more about repository custom instructions, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).

@@ -2,7 +2,7 @@ You can customize {% data variables.copilot.copilot_code-review_short %} by addi
 
 Repository custom instructions can either be repository wide or path specific. You specify repository-wide custom instructions in a `.github/copilot-instructions.md` file in your repository. You can use this file to store information that you want {% data variables.product.prodname_copilot_short %} to consider when reviewing code anywhere in the repository.
 
-You can also write instructions that {% data variables.product.prodname_copilot_short %} will only use when reviewing code in files that match a specified path. You write these instructions in one or more `.github/instructions/**/NAME.instructions.md` files.
+You can also write instructions that {% data variables.product.prodname_copilot_short %} will only use when reviewing code in files that match a specified path. You write these instructions in one or more `.github/instructions/**/*.instructions.md` files.
 
 For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot).
 

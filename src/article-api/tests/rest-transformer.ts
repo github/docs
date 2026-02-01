@@ -81,7 +81,13 @@ describe('REST transformer', () => {
   })
 
   test('Status codes are formatted correctly', async () => {
-    const res = await get(makeURL('/en/rest/actions/artifacts'))
+    const DEBUG = process.env.RUNNER_DEBUG === '1' || process.env.DEBUG === '1'
+    const url = makeURL('/en/rest/actions/artifacts')
+    const startTime = DEBUG ? Date.now() : 0
+    if (DEBUG) console.log(`[DEBUG] Test sending request to ${url}`)
+    const res = await get(url)
+    if (DEBUG)
+      console.log(`[DEBUG] Test response: ${res.statusCode} in ${Date.now() - startTime}ms`)
     expect(res.statusCode).toBe(200)
 
     // Check for status codes section

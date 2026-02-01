@@ -23,7 +23,7 @@ This prompt file generates focused unit tests for specific functions or methods,
 
 ```text copy
 ---
-mode: 'agent'
+agent: 'agent'
 description: 'Generate unit tests for selected functions or methods'
 ---
 

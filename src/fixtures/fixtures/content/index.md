@@ -29,6 +29,7 @@ children:
   - early-access
   - pages
   - code-security
+  - codespaces
   - actions
   - rest
   - webhooks

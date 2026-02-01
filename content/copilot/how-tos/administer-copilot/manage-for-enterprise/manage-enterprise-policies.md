@@ -20,7 +20,7 @@ category:
   - Manage Copilot for a team
 ---
 
-When an organization owner assigns a {% data variables.product.prodname_copilot_short %} license to a member of their organization, the availability of features and models is controlled by policies.
+When an organization owner assigns a {% data variables.product.prodname_copilot_short %} license to a member of their organization, the availability of features and models is controlled by policies. If you are using a dedicated enterprise to manage {% data variables.copilot.copilot_business_short %} without {% data variables.product.prodname_enterprise %} licenses, see [AUTOTITLE](/copilot/how-tos/set-up/set-up-a-dedicated-enterprise-for-copilot-business).
 
 ## Defining policies for your enterprise
 

@@ -1322,7 +1322,7 @@
       "business_id",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+    "docs_reference_titles": "About Dependabot alerts"
   },
   {
     "action": "dependabot_closure_request.cancel",
@@ -1350,7 +1350,7 @@
       "business_id",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+    "docs_reference_titles": "About Dependabot alerts"
   },
   {
     "action": "dependabot_closure_request.create",
@@ -1378,7 +1378,7 @@
       "business_id",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+    "docs_reference_titles": "About Dependabot alerts"
   },
   {
     "action": "dependabot_closure_request.deny",
@@ -1406,7 +1406,7 @@
       "business_id",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+    "docs_reference_titles": "About Dependabot alerts"
   },
   {
     "action": "dependabot_repository_access.repositories_updated",

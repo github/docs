@@ -125,7 +125,7 @@ Use `copilot-instructions.md` for:
 
 **Example structure for `copilot-instructions.md`**:
 
-```markdown
+```markdown copy
 # General Code Review Standards
 
 ## Code Quality Essentials
@@ -160,7 +160,7 @@ Use `*.instructions.md` files with the `applyTo` frontmatter property for:
 
 Create a file called `python.instructions.md` in the `.github/instructions` directory:
 
-````markdown
+````text copy
 ---
 applyTo: "**/*.py"
 ---
@@ -201,7 +201,7 @@ with open('data.txt') as file:
 
 Create a file called `frontend.instructions.md` in the `.github/instructions` directory:
 
-````markdown
+````text copy
 ---
 applyTo: "src/components/**/*.{tsx,jsx}"
 ---
@@ -248,7 +248,7 @@ Each file should have a clear, specific purpose and appropriate `applyTo` frontm
 
 Based on what works well with {% data variables.copilot.copilot_code-review_short %}, here's a recommended template for structuring your instructions:
 
-````markdown
+````text copy
 ---
 applyTo: "**/*.{js,ts}"  # If this is a path-specific file
 ---
@@ -365,7 +365,7 @@ Here's a complete example that incorporates all the best practices from this tut
 
 **File: `.github/copilot-instructions.md`**
 
-```markdown
+```markdown copy
 # General Code Review Standards
 
 ## Purpose
@@ -412,7 +412,7 @@ Always prioritize security vulnerabilities and performance issues that could imp
 
 **File: `.github/instructions/typescript.instructions.md`**
 
-````markdown
+````text copy
 ---
 applyTo: "**/*.{ts,tsx}"
 ---

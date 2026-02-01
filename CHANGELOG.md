@@ -1,5 +1,46 @@
 # Docs changelog
 
+**20 January 2026**
+
+We published the first iteration of the [GitHub Copilot feature matrix](https://docs.github.com/en/copilot/reference/copilot-feature-matrix) to provide customers with the latest information about which Copilot features are available by which IDE/version. 
+
+Historically, keeping Copilot feature and IDE availability up to date has required manual coordination with the Docs team, which does not scale well with the increasing number of features. The goal of this document and its process is to enable product owners to directly maintain the Copilot feature and IDE availability information as part of their normal release workflow. The feature matrix provides a single, easy to update source of truth.
+
+The feature matrix is in public preview so that customers have time to gather and submit feedback to us. 
+
+<hr>
+
+**16 January 2026**
+
+The following new articles support the public preview release of Copilot Memory:
+
+* [About agentic memory for GitHub Copilot](https://docs.github.com/copilot/concepts/agents/copilot-memory)
+* [Enabling and curating Copilot Memory](https://docs.github.com/copilot/how-tos/use-copilot-agents/copilot-memory)
+
+<hr>
+
+**16 January 2026**
+
+We published [About user offboarding on GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/admin/concepts/identity-and-access-management/user-offboarding) to give enterprise customers clear guidance about offboarding processes. The article covers recommended offboarding methods, the effects of offboarding, and what happens when a user is removed from all organizations in an enterprise.
+
+We also updated [Removing a member from your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise) and [Removing a member from your organization](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization) to include instructions for enterprises that use Enterprise Managed Users or SCIM for organizations.
+
+<hr>
+
+**13 January 2026**
+
+We've added a new reference article to clarify which of the various types of custom instructions for Copilot are supported by Copilot Chat, Copilot coding agent, and Copilot code review in GitHub.com, Visual Studio Code, Visual Studio, JetBrains IDEs, Eclipse, Xcode, and Copilot CLI.
+
+[Support for different types of custom instructions](https://docs.github.com/copilot/reference/custom-instructions-support)
+
+<hr>
+
+**8 January 2026**
+
+We've added information about permissions to the article [Using GitHub Copilot CLI](https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli#permissions).
+
+<hr>
+
 **18 December 2025**
 
 The documentation has been updated to reflect the general availability of direct organization billing for premium request usage in Copilot Code Review. Organization members without a Copilot plan can now use Copilot Code Review on GitHub.com, with premium request usage billed directly to their organization or enterprise. See [Copilot code review without a Copilot license](https://docs.github.com/en/copilot/concepts/agents/code-review#copilot-code-review-without-a-copilot-license).

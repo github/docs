@@ -85,7 +85,7 @@ export function mergeFrontmatterProperties(filePath: string, newPropertiesYaml: 
     )
   }
 
-  if (!parsed.content) {
+  if (parsed.content === undefined || parsed.content === null) {
     throw new Error('Failed to parse content from file')
   }
 
@@ -133,9 +133,11 @@ export function mergeFrontmatterProperties(filePath: string, newPropertiesYaml: 
       const formattedValue = typeof value === 'string' ? `'${value.replace(/'/g, "''")}'` : value
 
       // Find the line with this field
+      let foundField = false
       for (let i = 1; i < frontmatterEndIndex; i++) {
         const line = lines[i]
         if (line.startsWith(`${key}:`)) {
+          foundField = true
           // Simple replacement: keep the field name and spacing, replace the value
           const colonIndex = line.indexOf(':')
           const leadingSpace = line.substring(colonIndex + 1, colonIndex + 2) // Usually a space
@@ -149,6 +151,12 @@ export function mergeFrontmatterProperties(filePath: string, newPropertiesYaml: 
           }
           break
         }
+      }
+
+      // If field doesn't exist, add it before the closing ---
+      if (!foundField && frontmatterEndIndex > 0) {
+        lines.splice(frontmatterEndIndex, 0, `${key}: ${formattedValue}`)
+        frontmatterEndIndex++
       }
     }
 

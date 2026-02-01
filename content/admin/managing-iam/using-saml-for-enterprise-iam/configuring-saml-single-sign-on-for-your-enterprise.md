@@ -73,6 +73,8 @@ For more information about connecting Microsoft Entra ID (previously known as Az
 
 For more information about connecting Entra ID to your enterprise, see [Tutorial: Microsoft Entra SSO integration with GitHub Enterprise Server](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-ae-tutorial) in Microsoft Docs.
 
+We do not have a supported partner application when using Entra ID for Azure Government. 
+
 ## Username considerations with SAML
 
 {% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication).

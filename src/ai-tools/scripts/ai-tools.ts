@@ -4,12 +4,14 @@ import path from 'path'
 import ora from 'ora'
 import { execFileSync } from 'child_process'
 import dotenv from 'dotenv'
+import readFrontmatter from '@/frame/lib/read-frontmatter'
 import { findMarkdownFiles, mergeFrontmatterProperties } from '@/ai-tools/lib/file-utils'
 import {
   getPromptsDir,
   getAvailableEditorTypes,
   getRefinementDescriptions,
   callEditor,
+  enrichIndexContext,
 } from '@/ai-tools/lib/prompt-utils'
 import { fetchCopilotSpace, convertSpaceToPrompt } from '@/ai-tools/lib/spaces-utils'
 import { ensureGitHubToken } from '@/ai-tools/lib/auth-utils'
@@ -195,13 +197,37 @@ program
               const relativePath = path.relative(process.cwd(), fileToProcess)
               spinner.text = `Processing: ${relativePath}`
               try {
-                // Resolve Liquid references before processing
-                if (options.verbose) {
-                  console.log(`Resolving Liquid references in: ${relativePath}`)
+                // Expand Liquid references before processing
+                let originalIntro = ''
+                if (editorType === 'intro') {
+                  const originalContent = fs.readFileSync(fileToProcess, 'utf8')
+                  const { data: originalData } = readFrontmatter(originalContent)
+                  originalIntro = originalData?.intro || ''
                 }
-                runResolveLiquid('resolve', [fileToProcess], options.verbose || false)
 
-                const content = fs.readFileSync(fileToProcess, 'utf8')
+                if (options.verbose) {
+                  console.log(`Expanding Liquid references in: ${relativePath}`)
+                }
+                runLiquidTagsScript('expand', [fileToProcess], options.verbose || false)
+
+                let content = fs.readFileSync(fileToProcess, 'utf8')
+
+                // For intro prompt, add original intro and enrich context
+                if (editorType === 'intro') {
+                  if (originalIntro) {
+                    content = `\n\n---\nOriginal intro (unresolved): ${originalIntro}\n---\n\n${content}`
+                  }
+                  content = enrichIndexContext(fileToProcess, content)
+                }
+
+                // For content-type prompt, skip files that already have contentType
+                if (editorType === 'content-type' && content.includes('contentType:')) {
+                  spinner.stop()
+                  console.log(`⏭️  Skipping ${relativePath} (already has contentType)`)
+                  runLiquidTagsScript('restore', [fileToProcess], false)
+                  continue
+                }
+
                 const answer = await callEditor(
                   editorType,
                   content,
@@ -213,7 +239,7 @@ program
                 spinner.stop()
 
                 if (options.write) {
-                  if (editorType === 'intro') {
+                  if (editorType === 'intro' || editorType === 'content-type') {
                     // For frontmatter addition/modification, merge properties instead of overwriting entire file
                     const updatedContent = mergeFrontmatterProperties(fileToProcess, answer)
                     fs.writeFileSync(fileToProcess, updatedContent, 'utf8')
@@ -235,7 +261,7 @@ program
                 if (options.verbose) {
                   console.log(`Restoring Liquid references in: ${relativePath}`)
                 }
-                runResolveLiquid('restore', [fileToProcess], options.verbose || false)
+                runLiquidTagsScript('restore', [fileToProcess], options.verbose || false)
               } catch (err) {
                 const error = err as Error
                 spinner.fail(`Error processing ${relativePath}: ${error.message}`)
@@ -243,7 +269,7 @@ program
 
                 // Still try to restore Liquid references on error
                 try {
-                  runResolveLiquid('restore', [fileToProcess], false)
+                  runLiquidTagsScript('restore', [fileToProcess], false)
                 } catch (restoreError) {
                   // Log restore failures in verbose mode for debugging
                   if (options.verbose) {
@@ -275,35 +301,32 @@ program
 program.parse(process.argv)
 
 /**
- * Run resolve-liquid command on specified file paths
+ * Run liquid-tags command on specified file paths
  */
-function runResolveLiquid(
-  command: 'resolve' | 'restore',
+function runLiquidTagsScript(
+  command: 'expand' | 'restore',
   filePaths: string[],
   verbose: boolean = false,
 ): void {
   const args = [command, '--paths', ...filePaths]
-  if (command === 'resolve') {
-    args.push('--recursive')
-  }
   if (verbose) {
     args.push('--verbose')
   }
 
   try {
-    // Run resolve-liquid via tsx
-    const resolveLiquidPath = path.join(
+    // Run liquid-tags script via tsx
+    const liquidTagsScriptPath = path.join(
       process.cwd(),
-      'src/content-render/scripts/resolve-liquid.ts',
+      'src/content-render/scripts/liquid-tags.ts',
     )
-    execFileSync('npx', ['tsx', resolveLiquidPath, ...args], {
+    execFileSync('npx', ['tsx', liquidTagsScriptPath, ...args], {
       stdio: verbose ? 'inherit' : 'pipe',
     })
   } catch (error) {
     if (verbose) {
-      console.error(`Error running resolve-liquid ${command}:`, error)
+      console.error(`Error running liquid-tags ${command}:`, error)
     }
-    // Don't fail the entire process if resolve-liquid fails
+    // Don't fail the entire process if liquid-tags fails
   }
 }
 

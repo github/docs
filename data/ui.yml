@@ -98,6 +98,7 @@ pages:
   about_versions: About versions
   permissions_callout_title: Who can use this feature?
   video_from_transcript: See video for this transcript
+  view_page_as_markdown: View page as Markdown
 support:
   still_need_help: Still need help?
   contact_support: Contact support
@@ -344,6 +345,9 @@ cookbook_landing:
   search_articles: Search examples
   category: Category
   complexity: Complexity
+
+carousels:
+  recommended: Recommended
 
 not_found:
   title: Ooops!

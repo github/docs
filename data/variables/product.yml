@@ -173,6 +173,7 @@ prodname_container_registries: 'Container registries'
 prodname_docker_registry_namespace: '{% ifversion fpt or ghec %}`docker.pkg.github.com`{% elsif ghes %}<code>docker.<em>HOSTNAME</em></code>{% endif %}'
 prodname_container_registry_namespace: '{% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes %}<code>containers.<em>HOSTNAME</em></code>{% endif %}'
 prodname_npm_registry: 'npm registry'
+virtual_registry: 'linked artifacts page'
 
 # GitHub Insights
 prodname_insights: 'GitHub Insights'

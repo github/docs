@@ -141,6 +141,14 @@ When you run your updated workflows, they will build your artifacts and generate
 
    The value of the `sbom-path` parameter should be set to the path to the JSON-formatted SBOM file you want to attest.
 
+## Uploading artifacts to the {% data variables.product.virtual_registry %}
+
+We recommend uploading attested assets to your organization's {% data variables.product.virtual_registry %}. This page displays artifacts' build history, deployment records, and storage details. You can use this data to prioritize security alerts or quickly connect vulnerable artifacts to their owning team, source code, and build run. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/linked-artifacts).
+
+{% data reusables.actions.attestation-virtual-registry %}
+
+For an example workflow, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/upload-linked-artifacts#generating-an-attestation).
+
 ## Verifying artifact attestations with the {% data variables.product.prodname_cli %}
 
 You can validate artifact attestations for binaries and container images and validate SBOM attestations using the {% data variables.product.prodname_cli %}. For more information, see the [`attestation`](https://cli.github.com/manual/gh_attestation) section of the {% data variables.product.prodname_cli %} manual.

@@ -15,5 +15,6 @@ children:
   - /configuring-clustering
   - /configuring-high-availability
   - /caching-repositories
+  - /multiple-data-disks
 shortTitle: 'Monitor and manage your instance'
 ---
