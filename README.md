@@ -1,3 +1,377 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<xsd:schema xmlns="https://sanctionslistservice.ofac.treas.gov/api/PublicationPreview/exports/ENHANCED_XML" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="ofacEnhancedXml" targetNamespace="https://sanctionslistservice.ofac.treas.gov/api/PublicationPreview/exports/ENHANCED_XML" elementFormDefault="qualified">
+<xsd:element name="sanctionsData">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="publicationInfo">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="dataAsOf" type="xsd:dateTime"/>
+<xsd:element name="filters">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="sanctionsLists" minOccurs="0">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="sanctionsList" type="referenceValueReferenceType" minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="sanctionsPrograms" minOccurs="0">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="sanctionsProgram" type="referenceValueReferenceType" minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="referenceValues">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="referenceValue" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="type" type="xsd:string"/>
+<xsd:element name="value" type="xsd:string"/>
+<xsd:element name="code" type="xsd:string" minOccurs="0"/>
+<xsd:element name="isoCode" type="xsd:string" minOccurs="0"/>
+<xsd:element name="advancedXmlOffset" type="xsd:int" minOccurs="0"/>
+</xsd:sequence>
+<xsd:attribute name="refId" type="xsd:int" use="required"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="featureTypes">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="featureType" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="type" type="xsd:string"/>
+<xsd:element name="detailType" type="referenceValueReferenceType" minOccurs="0"/>
+<xsd:element name="publishExclude" type="xsd:boolean" minOccurs="0"/>
+<xsd:element name="publishDescription" type="xsd:string" minOccurs="0"/>
+<xsd:element name="publishOrder" type="xsd:int" minOccurs="0"/>
+</xsd:sequence>
+<xsd:attribute name="featureTypeId" type="xsd:int" use="required"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="entities">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="entity" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="generalInfo">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="identityId" type="xsd:int"/>
+<xsd:element name="entityType" type="referenceValueReferenceType"/>
+<xsd:element name="livingStatus" type="referenceValueReferenceType" minOccurs="0"/>
+<xsd:element name="remarks" type="xsd:string" minOccurs="0"/>
+<xsd:element name="title" type="xsd:string" minOccurs="0"/>
+<xsd:element name="isUsCitizen" type="xsd:boolean" minOccurs="0"/>
+<xsd:element name="isUsPerson" type="xsd:boolean" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="sanctionsLists">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="sanctionsList" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:simpleContent>
+<xsd:extension base="referenceValueReferenceType">
+<xsd:attribute name="id" type="xsd:int" use="required"/>
+<xsd:attribute name="datePublished" type="xsd:date" use="required"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="sanctionsPrograms">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="sanctionsProgram" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:simpleContent>
+<xsd:extension base="referenceValueReferenceType">
+<xsd:attribute name="id" type="xsd:int" use="required"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="sanctionsTypes">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="sanctionsType" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:simpleContent>
+<xsd:extension base="referenceValueReferenceType">
+<xsd:attribute name="id" type="xsd:int" use="required"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="legalAuthorities">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="legalAuthority" minOccurs="0" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:simpleContent>
+<xsd:extension base="referenceValueReferenceType">
+<xsd:attribute name="id" type="xsd:int" use="required"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="names">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="name" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="isPrimary" type="xsd:boolean"/>
+<xsd:element name="aliasType" type="referenceValueReferenceType" minOccurs="0"/>
+<xsd:element name="isLowQuality" type="xsd:boolean"/>
+<xsd:element name="translations">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="translation" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="isPrimary" type="xsd:boolean"/>
+<xsd:element name="script" type="referenceValueReferenceType"/>
+<xsd:element name="formattedFirstName" type="xsd:string" minOccurs="0"/>
+<xsd:element name="formattedLastName" type="xsd:string"/>
+<xsd:element name="formattedFullName" type="xsd:string"/>
+<xsd:element name="nameParts">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="namePart" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="type" type="referenceValueReferenceType"/>
+<xsd:element name="value" type="xsd:string"/>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:int" use="required"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:int" use="required"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:int" use="required"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="addresses" minOccurs="0">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="address" minOccurs="0" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="country" type="referenceValueReferenceType" minOccurs="0"/>
+<xsd:element name="translations" minOccurs="0">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="country" type="referenceValueReferenceType" minOccurs="0"/>
+<xsd:element name="translation" minOccurs="0" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="isPrimary" type="xsd:boolean"/>
+<xsd:element name="script" type="referenceValueReferenceType"/>
+<xsd:element name="addressParts" minOccurs="0">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="addressPart" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="type" type="referenceValueReferenceType"/>
+<xsd:element name="value" type="xsd:string"/>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:int" use="required"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:int" use="required"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:int" use="required"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="features" minOccurs="0">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="feature" minOccurs="0" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="type">
+<xsd:complexType>
+<xsd:simpleContent>
+<xsd:extension base="xsd:string">
+<xsd:attribute name="featureTypeId" type="xsd:int" use="required"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="versionId" type="xsd:int"/>
+<xsd:element name="value" type="xsd:string"/>
+<xsd:element name="valueRefId" type="xsd:int" minOccurs="0"/>
+<xsd:element name="valueDate" type="datePeriodType" minOccurs="0"/>
+<xsd:element name="isPrimary" type="xsd:boolean"/>
+<xsd:element name="reliability" type="referenceValueReferenceType" minOccurs="0"/>
+<xsd:element name="comments" type="xsd:string" minOccurs="0"/>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:int" use="required"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="identityDocuments" minOccurs="0">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="identityDocument" minOccurs="0" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="type" type="referenceValueReferenceType"/>
+<xsd:element name="name">
+<xsd:complexType>
+<xsd:simpleContent>
+<xsd:extension base="xsd:string">
+<xsd:attribute name="nameId" type="xsd:int" use="required"/>
+<xsd:attribute name="nameTranslationId" type="xsd:int" use="required"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="documentNumber" type="xsd:string"/>
+<xsd:element name="isValid" type="xsd:boolean"/>
+<xsd:element name="issuingAuthority" type="xsd:string" minOccurs="0"/>
+<xsd:element name="issuingLocation" type="xsd:string" minOccurs="0"/>
+<xsd:element name="issuingCountry" type="referenceValueReferenceType" minOccurs="0"/>
+<xsd:element name="issueDate" type="datePeriodType" minOccurs="0"/>
+<xsd:element name="expirationDate" type="datePeriodType" minOccurs="0"/>
+<xsd:element name="comments" type="xsd:string" minOccurs="0"/>
+<xsd:element name="idFeatures" minOccurs="0">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="idFeature" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:simpleContent>
+<xsd:extension base="xsd:string">
+<xsd:attribute name="id" type="xsd:int" use="required"/>
+<xsd:attribute name="featureVersionId" type="xsd:int" use="required"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:int" use="required"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="relationships" minOccurs="0">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="relationship" minOccurs="0" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="type" type="referenceValueReferenceType"/>
+<xsd:element name="relatedEntity">
+<xsd:complexType>
+<xsd:simpleContent>
+<xsd:extension base="xsd:string">
+<xsd:attribute name="entityId" type="xsd:int" use="required"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="quality" type="referenceValueReferenceType" minOccurs="0"/>
+<xsd:element name="dateRange" type="datePeriodType" minOccurs="0"/>
+<xsd:element name="comments" type="xsd:string" minOccurs="0"/>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:int" use="required"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:int" use="required"/>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="datePeriodType">
+<xsd:sequence>
+<xsd:element name="fromDateBegin" type="xsd:date" minOccurs="0"/>
+<xsd:element name="fromDateEnd" type="xsd:date" minOccurs="0"/>
+<xsd:element name="toDateBegin" type="xsd:date" minOccurs="0"/>
+<xsd:element name="toDateEnd" type="xsd:date" minOccurs="0"/>
+<xsd:element name="isApproximate" type="xsd:boolean"/>
+<xsd:element name="isDateRange" type="xsd:boolean"/>
+</xsd:sequence>
+<xsd:attribute name="id" type="xsd:int" use="required"/>
+</xsd:complexType>
+<xsd:complexType name="referenceValueReferenceType">
+<xsd:simpleContent>
+<xsd:extension base="xsd:string">
+<xsd:attribute name="refId" type="xsd:int" use="required"/>
+</xsd:extension>
+</xsd:simpleContent>
+</xsd:complexType>
+</xsd:schema>
 CoCCA
 About RFC Compliance Complaints Patrons GDPR SRS
 About
