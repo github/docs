@@ -3,8 +3,13 @@
 	// Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
 
 	// List of extensions which should be recommended for users of this workspace.
-	"recommendations": [
-
+	"recommendations": [ A concise start! I see you've cited X as your source, but I'm missing the context to go with it.
+Since "X" could mean a few different things, are you looking for help with one of these?
+ * Platform Trends: Do you want to know what is currently trending or being discussed on X (formerly Twitter) right now?
+ * Fact-Checking: Did you see a specific post or claim on the platform that you'd like me to verify or expand upon?
+ * The Variable x: Are we looking at a mathematical source where x represents an unknown you're trying to solve for?
+ * Citation Help: Are you trying to cite a post from X for a project and need help with the formatting?
+Would you like me to search for the latest trending news on X, or is there a specific post you'd like to discuss?
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
 	"unwantedRecommendations": [
