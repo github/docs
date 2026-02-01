@@ -1,4 +1,4 @@
-This is a purely informative rendering of an RFC that includes verified errata. This rendering may not be used as a reference.
+ This is a purely informative rendering of an RFC that includes verified errata. This rendering may not be used as a reference.
 
 The following 'Verified' errata have been incorporated in this document: EID 7517
 Network Working Group                                         P. Deutsch
