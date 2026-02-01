@@ -1,3 +1,36 @@
+[Federal Register Volume 90, Number 58 (Thursday, March 27, 2025)]
+[Notices]
+[Page 13973]
+From the Federal Register Online via the Government Publishing Office [www.gpo.gov]
+[FR Doc No: 2025-05266]
+
+
+=======================================================================
+-----------------------------------------------------------------------
+
+SMALL BUSINESS ADMINISTRATION
+
+[License No. 09/09-0478]
+
+
+Surrender of License of Small Business Investment Company; Silver 
+Lake Waterman Fund II, L.P.
+
+    Pursuant to the authority granted to the United States Small 
+Business Administration under Section 309 of the Small Business 
+Investment Act of 1958, as amended, and 13 CFR 107.1900 of the Code of 
+Federal Regulations to function as a small business investment company 
+under the Small Business Investment Company license number 09/09-0478 
+issued to Silver Lake Waterman Fund II, L.P. said license is hereby 
+declared null and void.
+
+Thomas Morris,
+Director, Patient Capital Investments, Office of Investment and 
+Innovation, United States Small Business Administration.
+[FR Doc. 2025-05266 Filed 3-26-25; 8:45 am]
+BILLING CODE 8026-09-P
+
+
 # OpenRPC Markdown Documentation Tools
 
 Generate API documentation from [OpenRPC](https://open-rpc.org) specifications.
