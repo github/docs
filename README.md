@@ -1,3 +1,572 @@
+# 🏗 Scaffold-ETH 2 | Docs
+
+> Open-source toolkit for building dapps
+
+## ✅ Disabling Type and Linting Error Checks
+
+:::tip
+TypeScript helps you catch errors at compile time, which can save time and improve code quality, but can be challenging for those who are new to the language or who are used to the more dynamic nature of JavaScript. These sections show the steps required to disable type & lint checks on different levels.
+:::
+
+### Disabling Commit Checks
+
+We run the `pre-commit` [git hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) which lints the staged files and doesn't let you commit if there is an linting error.
+
+To disable this, go to the `.husky/pre-commit` file and comment out `yarn lint-staged --verbose`
+
+```diff
+- yarn lint-staged --verbose
++ # yarn lint-staged --verbose
+```
+
+### Deploying to Vercel Without Any Checks
+
+By default, Vercel runs type and lint checks before building your app. The deployment will fail if there are any type or lint errors.
+
+To ignore these checks while deploying from the CLI, use:
+
+```shell
+yarn vercel:yolo
+```
+
+If your repo is connected to Vercel, you can set `NEXT_PUBLIC_IGNORE_BUILD_ERROR` to `true` in an [environment variable](https://vercel.com/docs/concepts/projects/environment-variables).
+
+### Disabling GitHub Workflow
+
+We have a GitHub workflow setup checkout `.github/workflows/lint.yaml` which runs type and lint error checks every time code is **pushed** to `main` branch or **pull request** is made to `main` branch.
+
+To disable it, **delete `.github` directory**.
+
+
+## Get the Current Balance of the Connected Account
+
+This recipe shows how to fetch and display the ETH balance of the currently connected account.
+
+<details open>
+  <summary>Here is the full code, which we will be implementing in the guide below:</summary>
+
+  ```tsx title="components/ConnectedAddressBalance.tsx"
+  import { useAccount } from "wagmi";
+  import { Address, Balance } from "~~/components/scaffold-eth";
+
+  export const ConnectedAddressBalance = () => {
+    const { address: connectedAddress } = useAccount();
+
+    return (
+      <div className="bg-base-300 p-6 rounded-lg max-w-md mx-auto mt-6">
+        <h2 className="text-lg font-bold mb-2">Your Ethereum Balance</h2>
+
+        <div className="text-sm font-semibold mb-2">
+          Address: <Address address={connectedAddress} />
+        </div>
+
+        <div className="text-sm font-semibold">
+          Balance: <Balance address={connectedAddress} />
+        </div>
+      </div>
+    );
+  };
+  ```
+</details>
+
+### Implementation guide
+
+#### Step 1: Create a new Component
+
+Begin by creating a new component in the "components" folder of your application.
+
+```tsx title="components/ConnectedAddressBalance.tsx"
+export const ConnectedAddressBalance = () => {
+  return (
+    <div>
+      <h2>Your Ethereum Balance</h2>
+    </div>
+  );
+};
+```
+
+#### Step 2: Retrieve the Connected Account
+
+Fetch the Ethereum address of the currently connected account using the [useAccount wagmi hook](https://wagmi.sh/react/api/hooks/useAccount) and easily display them using Scaffold ETH-2 [Address](/components/Address) and [Balance](/components/Balance) components.
+
+```tsx title="components/ConnectedAddressBalance.tsx"
+import { useAccount } from "wagmi"; // [!code hl]
+import { Address, Balance } from "~~/components/scaffold-eth"; // [!code hl]
+
+export const ConnectedAddressBalance = () => {
+  const { address: connectedAddress } = useAccount(); // [!code hl]
+
+  return (
+    <div>
+      <h2>Your Ethereum Balance</h2>
+      
+      <div>{/* // [!code hl] */}
+        Address: <Address address={connectedAddress} />{/* // [!code hl] */}
+      </div>{/* // [!code hl] */}
+
+      <div>{/* // [!code hl] */}
+        Balance: <Balance address={connectedAddress} />{/* // [!code hl] */}
+      </div>{/* // [!code hl] */}
+    </div>
+  );
+};
+```
+
+
+## Read a `uint` from a contract
+
+This recipe demonstrates how to read data from contract functions and display it on the UI. We'll showcase an example that accepts some arguments (parameters), and another with no arguments at all.
+
+<details open>
+  <summary>Here is the full code, which we will be implementing in the guide below:</summary>
+
+  ```tsx title="components/GreetingsCount.tsx"
+  import { useAccount } from "wagmi";
+  import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
+
+  export const GreetingsCount = () => {
+    const { address: connectedAddress } = useAccount();
+
+    const { data: totalCounter, isLoading: isTotalCounterLoading } = useScaffoldReadContract({
+      contractName: "YourContract",
+      functionName: "totalCounter",
+    });
+
+    const { data: connectedAddressCounter, isLoading: isConnectedAddressCounterLoading } = useScaffoldReadContract({
+      contractName: "YourContract",
+      functionName: "userGreetingCounter",
+      args: [connectedAddress], // passing args to function
+    });
+
+    return (
+      <div className="card card-compact w-64 bg-secondary text-primary-content shadow-xl m-4">
+        <div className="card-body items-center text-center">
+          <h2 className="card-title">Greetings Count</h2>
+          <div className="card-actions items-center flex-col gap-1 text-lg">
+            <h2 className="font-bold m-0">Total Greetings count:</h2>
+            {isTotalCounterLoading ? (
+              <span className="loading loading-spinner"></span>
+            ) : (
+              <p className="m-0">{totalCounter ? totalCounter.toString() : 0}</p>
+            )}
+            <h2 className="font-bold m-0">Your Greetings count:</h2>
+            {isConnectedAddressCounterLoading ? (
+              <span className="loading loading-spinner"></span>
+            ) : (
+              <p className="m-0">{connectedAddressCounter ? connectedAddressCounter.toString() : 0}</p>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  };
+  ```
+</details>
+
+### Implementation guide
+
+#### Step 1: Create a new Component
+
+Begin by creating a new component in the "components" folder of your application.
+
+```tsx title="components/GreetingsCount.tsx"
+export const GreetingsCount = () => {
+  return (
+    <div>
+      <h2 className="font-bold m-0">Total Greetings count:</h2>
+      <h2 className="font-bold m-0">Your Greetings count:</h2>
+    </div>
+  );
+};
+```
+
+#### Step 2: Retrieve total greetings count
+
+Initialize the [useScaffoldReadContract](/hooks/useScaffoldReadContract) hook to read from the contract. This hook provides the `data` which contains the return value of the function.
+
+```tsx title="components/GreetingsCount.tsx"
+import { useScaffoldReadContract } from "~~/hooks/scaffold-eth"; // [!code hl]
+
+export const GreetingsCount = () => {
+  const { data: totalCounter } = useScaffoldReadContract({ // [!code hl]
+    contractName: "YourContract", // [!code hl]
+    functionName: "totalCounter", // [!code hl]
+  }); // [!code hl]
+
+  return (
+    <div>
+      <h2 className="font-bold m-0">Total Greetings count:</h2>
+      <p>{totalCounter ? totalCounter.toString() : 0}</p>{/* // [!code hl] */}
+      <h2 className="font-bold m-0">Your Greetings count:</h2>
+    </div>
+  );
+};
+```
+
+In the line `const {data: totalCounter} = useScaffoldReadContract({...})` we are using [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to assign `data` to a new name `totalCounter`.
+
+In the contract, `totalCounter` returns an `uint` value, which is represented as a [`BigInt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) in javascript and can be converted to a readable string using `.toString()`.
+
+#### Step 3: Retrieve connected address greetings count
+
+We can get the connected address using the [useAccount](https://wagmi.sh/react/api/hooks/useAccount) hook and pass it to `args` key in the `useScaffoldReadContract` hook configuration. This will be used as an argument to read the contract function.
+
+```tsx title="components/GreetingsCount.tsx"
+import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
+import { useAccount } from "wagmi"; // [!code hl]
+
+export const GreetingsCount = () => {
+  const { address: connectedAddress } = useAccount(); // [!code hl]
+
+  const { data: totalCounter } = useScaffoldReadContract({
+    contractName: "YourContract",
+    functionName: "totalCounter",
+  });
+
+  const { data: connectedAddressCounter } = useScaffoldReadContract({ // [!code hl]
+    contractName: "YourContract", // [!code hl]
+    functionName: "userGreetingCounter", // [!code hl]
+    args: [connectedAddress], // passing args to function // [!code hl]
+  }); // [!code hl]
+
+  return (
+    <div>
+      <h2>Total Greetings count:</h2>
+      <p>{totalCounter ? totalCounter.toString() : 0}</p>
+      <h2>Your Greetings count:</h2>
+      <p>{connectedAddressCounter ? connectedAddressCounter.toString() : 0}</p>{/* // [!code hl] */}
+    </div>
+  );
+};
+```
+
+#### Step 4: Bonus adding loading state
+
+We can use `isLoading` returned from the [`useScaffoldReadContract`](/hooks/useScaffoldReadContract) hook. This variable is set to `true` while fetching data from the contract.
+
+```tsx title="components/GreetingsCount.tsx"
+import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
+import { useAccount } from "wagmi";
+
+export const GreetingsCount = () => {
+  const { address: connectedAddress } = useAccount();
+
+  const { data: totalCounter, isLoading: isTotalCounterLoading } = useScaffoldReadContract({ // [!code hl]
+    contractName: "YourContract",
+    functionName: "totalCounter",
+  });
+
+  const { data: connectedAddressCounter, isLoading: isConnectedAddressCounterLoading } = useScaffoldReadContract({ // [!code hl]
+    contractName: "YourContract",
+    functionName: "userGreetingCounter",
+    args: [connectedAddress], // passing args to function
+  });
+
+  return (
+    <div>
+      <h2>Total Greetings count:</h2>
+      {isTotalCounterLoading ? ( // [!code hl]
+        <span className="loading loading-spinner"></span>{/* // [!code hl] */}
+      ) : ( // [!code hl]
+        <p className="m-0">{totalCounter ? totalCounter.toString() : 0}</p>{/* // [!code hl] */}
+      )}{/* // [!code hl] */}
+      <h2>Your Greetings count:</h2>
+      {isConnectedAddressCounterLoading ? ( // [!code hl]
+        <span className="loading loading-spinner"></span>{/* // [!code hl] */}
+      ) : ( // [!code hl]
+        <p className="m-0">{connectedAddressCounter ? connectedAddressCounter.toString() : 0}</p>{/* // [!code hl] */}
+      )} // [!code hl]
+    </div>
+  );
+};
+```
+
+
+## Wagmi `useWriteContract` with transaction status
+
+This recipe demonstrates how to create a button for contract interaction using the "useTransactor" and "useWriteContract" hooks from the "wagmi" library. The interaction includes the capability to provide feedback on the transaction status when using wagmi `useWriteContract`.
+
+<details open>
+  <summary>Here is the full code, which we will be implementing in the guide below:</summary>
+
+  ```tsx title="components/ContractInteraction.tsx"
+  import * as React from "react";
+  import { parseEther } from "viem";
+  import { useWriteContract } from "wagmi";
+  import DeployedContracts from "~~/contracts/deployedContracts";
+  import { useTransactor } from "~~/hooks/scaffold-eth";
+
+  export const ContractInteraction = () => {
+    const { writeContractAsync, isPending } = useWriteContract();
+
+    const writeContractAsyncWithParams = () =>
+      writeContractAsync({
+        address: DeployedContracts[31337].YourContract.address,
+        abi: DeployedContracts[31337].YourContract.abi,
+        functionName: "setGreeting",
+        value: parseEther("0.01"),
+        args: ["Hello world!"],
+      });
+
+    const writeTx = useTransactor();
+
+    const handleSetGreeting = async () => {
+      try {
+        await writeTx(writeContractAsyncWithParams, { blockConfirmations: 1 });
+      } catch (e) {
+        console.log("Unexpected error in writeTx", e);
+      }
+    };
+
+    return (
+      <button
+        className="btn btn-primary"
+        onClick={handleSetGreeting}
+        disabled={isPending}
+      >
+        {isPending ? <span className="loading loading-spinner loading-sm"></span> : "Send"}
+      </button>
+    );
+  };
+  ```
+</details>
+
+### Implementation
+
+#### Step 1: Set Up Your Component
+
+Create a new component in the "components" folder. The component will show a button that will allow users to interact with your smart contract.
+
+```tsx title="components/ContractInteraction.tsx"
+import * as React from "react";
+
+export const ContractInteraction = () => {
+  return <button>Send</button>;
+};
+```
+
+#### Step 2: Configure wagmi's `useWriteContract` hook
+
+Add wagmi's `useWriteContract` hook and configure `writeContractAsync` with the parameters: `abi`, `address`, `functionName`, `value` and `args`. Get the ABI and address of your smart contract from the DeployedContracts or you can grab it from ExternalContracts object, those will be used to set up the contract interaction.
+
+```tsx
+import * as React from "react";
+import { parseEther } from "viem"; // [!code hl]
+import { useWriteContract } from "wagmi"; // [!code hl]
+import DeployedContracts from "~~/contracts/deployedContracts"; // [!code hl]
+
+export const ContractInteraction = () => {
+  const { writeContractAsync } = useWriteContract(); // [!code hl]
+
+  const writeContractAsyncWithParams = () => // [!code hl]
+    writeContractAsync({ // [!code hl]
+      address: DeployedContracts[31337].YourContract.address, // [!code hl]
+      abi: DeployedContracts[31337].YourContract.abi, // [!code hl]
+      functionName: "setGreeting", // [!code hl]
+      value: parseEther("0.01"), // [!code hl]
+      args: ["Hello world!"], // [!code hl]
+    }); // [!code hl]
+  return <button>Send</button>;
+};
+```
+
+#### Step 3: Initialize `useTransactor` hook and send transaction
+
+Initialize the `useTransactor` hook, and use it to wrap `writeContractAsyncWithParams` function which we got from `useWriteContract` to show feedback transaction status to user.
+
+```tsx
+import * as React from "react";
+import { parseEther } from "viem";
+import { useWriteContract } from "wagmi";
+import DeployedContracts from "~~/contracts/deployedContracts";
+import { useTransactor } from "~~/hooks/scaffold-eth"; // [!code hl]
+
+export const ContractInteraction = () => {
+  const { writeContractAsync } = useWriteContract();
+
+  const writeContractAsyncWithParams = () =>
+    writeContractAsync({
+      address: DeployedContracts[31337].YourContract.address,
+      abi: DeployedContracts[31337].YourContract.abi,
+      functionName: "setGreeting",
+      value: parseEther("0.01"),
+      args: ["Hello world!"],
+    });
+
+  const writeTx = useTransactor(); // [!code hl]
+
+  return <button onClick={() => writeTx(writeContractAsyncWithParams, { blockConfirmations: 1 })}>Send</button>{/* // [!code hl] */};
+};
+```
+
+#### Step 4: Wrap `useTransactor` in a handler async function
+
+Wrap the `writeTx` function in a handler function to start the transaction when the user clicks the button.
+
+```tsx
+import * as React from "react";
+import { parseEther } from "viem";
+import { useWriteContract } from "wagmi";
+import DeployedContracts from "~~/contracts/deployedContracts";
+import { useTransactor } from "~~/hooks/scaffold-eth";
+
+export const ContractInteraction = () => {
+  const { writeContractAsync } = useWriteContract();
+
+  const writeContractAsyncWithParams = () =>
+    writeContractAsync({
+      address: DeployedContracts[31337].YourContract.address,
+      abi: DeployedContracts[31337].YourContract.abi,
+      functionName: "setGreeting",
+      value: parseEther("0.01"),
+      args: ["Hello world!"],
+    });
+
+  const writeTx = useTransactor();
+
+  const handleSetGreeting = async () => { // [!code hl]
+    try { // [!code hl]
+      await writeTx(writeContractAsyncWithParams, { blockConfirmations: 1 }); // [!code hl]
+    } catch (e) { // [!code hl]
+      console.log("Unexpected error in writeTx", e); // [!code hl]
+    } // [!code hl]
+  }; // [!code hl]
+
+  return (
+    <button className="btn btn-primary" onClick={handleSetGreeting}>{/* // [!code hl] */}
+      Send
+    </button>
+  );
+};
+```
+
+#### Step 5: Bonus adding loading state
+
+We can use `isPending` returned from `useWriteContract` while the transaction is being mined and also `disable` the button.
+
+```tsx
+import * as React from "react";
+import { parseEther } from "viem";
+import { useWriteContract } from "wagmi";
+import DeployedContracts from "~~/contracts/deployedContracts";
+import { useTransactor } from "~~/hooks/scaffold-eth";
+
+export const ContractInteraction = () => {
+  const { writeContractAsync, isPending } = useWriteContract(); // [!code hl]
+
+  const writeContractAsyncWithParams = () =>
+    writeContractAsync({
+      address: DeployedContracts[31337].YourContract.address,
+      abi: DeployedContracts[31337].YourContract.abi,
+      functionName: "setGreeting",
+      value: parseEther("0.01"),
+      args: ["Hello world!"],
+    });
+
+  const writeTx = useTransactor();
+
+  const handleSetGreeting = async () => {
+    try {
+      await writeTx(writeContractAsyncWithParams, { blockConfirmations: 1 });
+    } catch (e) {
+      console.log("Unexpected error in writeTx", e);
+    }
+  };
+
+  return (
+    <button
+      className="btn btn-primary"
+      onClick={handleSetGreeting}
+      disabled={isPending} // [!code hl]
+    >
+      {isPending ? <span className="loading loading-spinner loading-sm"></span> : "Send"}{/* // [!code hl] */}
+    </button>
+  );
+};
+```
+
+
+## Write to a Contract with `writeContractAsync` button
+
+This recipe shows how to implement a button that allows users to interact with a smart contract by executing the `writeContractAsync` function returned by [useScaffoldWriteContract](/hooks/useScaffoldWriteContract). By following this guide, you can create a user interface for writing data to a contract.
+
+<details open>
+  <summary>Here is the full code, which we will be implementing in the guide below:</summary>
+
+  ```tsx title="components/Greetings.tsx"
+  import { useState } from "react";
+  import { parseEther } from "viem";
+  import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
+
+  export const Greetings = () => {
+    const [newGreeting, setNewGreeting] = useState("");
+
+    const { writeContractAsync, isPending } = useScaffoldWriteContract("YourContract");
+
+    const handleSetGreeting = async () => {
+      try {
+        await writeContractAsync(
+          {
+            functionName: "setGreeting",
+            args: [newGreeting],
+            value: parseEther("0.01"),
+          },
+          {
+            onBlockConfirmation: (txnReceipt) => {
+              console.log("📦 Transaction blockHash", txnReceipt.blockHash);
+            },
+          },
+        );
+      } catch (e) {
+        console.error("Error setting greeting", e);
+      }
+    };
+
+    return (
+      <>
+        <input
+          type="text"
+          placeholder="Write your greeting"
+          className="input border border-primary"
+          onChange={(e) => setNewGreeting(e.target.value)}
+        />
+        <button
+          className="btn btn-primary"
+          onClick={handleSetGreeting}
+          disabled={isPending}
+        >
+          {isPending ? <span className="loading loading-spinner loading-sm"></span> : "Send"}
+        </button>
+      </>
+    );
+  };
+  ```
+</details>
+
+### Implementation
+
+#### Step 1: Set Up Your Component
+
+Create a new component in the "components" folder. This component will enable users to write data to a smart contract.
+
+```tsx title="components/Greetings.tsx"
+export const Greetings = () => {
+  return (
+    <>
+      <input
+        type="text"
+        placeholder="Write your greeting"
+        className="input border border-primary"
+      />
+      <button className="btn btn-primary">Send</button>
+    </>
+  );
+};
+```
+
+#### Step 2: Initialize `useScaffoldWriteContract` hook
+
+Initialize the `useScaffoldWriteContract` hook. This hook provides the `writeContractAsync` function for sending transactions, we'll create `handleSetGreeting` function in which we'll call an
 ---
 title: GitHub Trademark Policy
 redirect_from:
