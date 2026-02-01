@@ -1,3 +1,114 @@
+CoCCA
+About RFC Compliance Complaints Patrons GDPR SRS
+About
+CoCCA is an acronym for Council of Country Code Administrators. The registry software CoCCA Registry Services (NZ) Ltd ("CoCCA") authors and maintains is the most widely deployed country code top level domain ("ccTLD") registry solution in the industry.
+
+Of the 308 delegated ccTLDs, the CoCCA software is used to manage 56 ccTLDs in the Middle East, Africa, Asia Pacific and Latin America. The CoCCA software is also used to manage one ASCII and one Cyrilc ICANN TLD - in total 58 TLDs.
+
+The CoCCA SRS complies with ICANN and IETF standards. The SRS software may be installed locally on TLD Manager infrastructure or alternatively CoCCA can host a primary or backup instance for continuity and disaster recovery.
+
+TLD Managers who wish to use the CoCCA software purchase support. CoCCA support provides TLD managers with custom features, priority bug fixes, training, data escrow, failover sites, access to abuse mitigation tools and AUP complaint resolution services.
+
+The support fee is flat, and not based on transactions or domains under management.
+
+Questions ? email support@coccaregistry.org
+RFC and ICANN Compliance
+CoCCA supports the RFC’s required by the Internet Corporation for Assigned Name and Numbers (ICANN) - the peak body for co-ordination of the Internet naming and numbering system. Compliant with standards in Specifications 6 and 10 of the ICANN base agreement.
+List of supported RFCs
+Anycast DNS using PCH Anycast. Additional Anycast using AfriNIC or LAC TLD also recommened - depending on region and TLD manager preference.
+European GDPR Compliant.
+Complaints
+The CX, GS, GY, KI, HT, HN, MS, TL, SB, and NF ccTLDs have adopted the CoCCA Complaint Resolution Service (CRS). The CoCCA CRS provides a transparent, efficient and cost effective way for the public, law enforcement, regulatory bodies, and intellectual property owners to have their concerns regarding use of a TLD managers services addressed.
+
+The CoCCA CRS addresses not only rights to a particular domain but also the registrant's use of that domain. Policies apply recursively, and are applicable not only to the domains in the registry but apply equally to any subordinate domain created by the registrant.
+
+The registrants' licence to use a domain requires them to comply with the applicable AUP, a failure to do so or remedy an AUP breach if requested, may result in a suspension of a domain and its removal from the zone.
+
+Any party who believes a domain name registrant has violated a participating TLD manager’s AUP must provide a formal complaint in order for CoCCA to investigate and evaluate the claim or complaint.
+
+Complaint Form
+
+If you have an urgent complaint regarding the distribution of child abuse images in a TLD managed by an entity using the CoCCA software please lodge a complaint with both law enforecment and the Internet Watch Foundation. The IWF and/or Law enforcment who will confrim the issue and notify CoCCA for possible action.
+
+In cases where CoCCA has a technical or legal capacity, we will act swiftly on an IWF notice without the need for a formal complaint using the CRS above.
+
+If you are unsure of the applicable AUP please enquire.
+To lodge a complaint email crs@coccaregistry.org
+Patrons
+Country Code Top Level Domain Managers
+Afghanistan | .af | Ministry of Communications and IT
+American Samoa | .as | AS Domain Registry
+Burkina Faso | .bf | ARCE-AutoritÈ de RÈgulation des Communications Electroniques
+Botswana | .bw | Botswana Communications Regulatory Authority (BOCRA)
+Chad | .td | l'Agence de Développement des Technologies de l'Information et de la Communication
+Cameroon | .cm | ANTIC (Agence Nationale des Technologies de l'Information et de la Communication)
+Christmas Island | .cx | Christmas Island Domain Administration
+Côte d’Ivoire | .ci | Autorité de Régulation des Télécommunications/TIC de Côte d’lvoire (ARTCI)
+Cabo Verde | .cv | OlaCV (in partnership with Agência Reguladora Multissectorial da Economia)
+Congo | .cg | Central African Backbone (CAB)
+Dominican republic | .do | Pontificia Universidad Catolica Madre y Maestra
+Ecuador | .ec | NIC.EC (NICEC) S.A.
+Fiji | .fj | The University of the South Pacific
+Guinea | .gn | Agence Nationale de Digitalisation de l’Etat (ANDE)
+Guyana | .gy | University of Guyana
+Haiti | .ht | Consortium FDS/RDDH
+Honduras | .hn | Red de Desarrollo Sostenible Honduras
+Kenya | .ke | Kenya Network Information Center (KeNIC)
+Kiribati | .ki | Telecommunications Authority of Kiribati
+Mali | .ml | Agence des Technologies de l’Information et de la Communication.
+Montserrat | .ms | MNI Networks Ltd.
+Morocco | .ma | Agence Nationale de Réglementation des Télécommunications (ANRT)
+Madagascar | .mg | NIC-MG (Network Information Center Madagascar)
+Mozambique | .mz | Centro de Informatica de Universidade Eduardo Mondlane
+Lebanon | .lb | Internet Society Lebanon
+Libya | .ly | Libya Telecom and Technology
+Mauritania | .mr | xn--mgbah1a3hjkrd موريتانيا |Université des Sciences, de Technologie et de Médecine
+Namibia | .na | Namibia - Namibian Network Information Center
+Nigeria | .ng | Nigeria Internet Registration Association
+Norfolk Island | .nf | Norfolk Island Data Services
+Papua New Guinea | .pg | PNG University of Technology
+Rwanda | .rw | Rwanda Internet Community and Technology Alliance (RICTA)
+Saint Kitts And Nevis | .kn | Ministry of Finance, Sustainable Development Information & Technology
+Solomon Islands | .sb | Solomon Telekom Company Limited
+South Georgia and South Sandwich Islands | .gs | Government of South Georgia and South Sandwich Islands (GSGSSI)
+Somalia | .so | Ministry of Post and Telecommunications
+South Sudan | .ss | National Communication Authority (NCA)
+Timor Leste | .tl | Ministry of Transport and Communications
+Virgin Islands | .vi | Virgin Islands Public Telecommunications System, Inc.
+Zambia | .zm | Zambia Information and Communications Technology Authority (ZICTA)
+New Top Level Domains
+.xn--p1acf | .pyc | Rusnames Limited
+.apple | Packet Clearing House
+
+Last Updated | December 10th, 2025
+Other CoCCA Users
+CoCCA does not have a support agreement with the managers of the ccTLDs below.
+
+Benin | .bj | Benin - Benin Telecoms S.A.
+Burundi | .bi | Centre National de l'Informatique
+Congo, The Democratic Republic Of The) | .cd | Office Congolais des Postes et Télécommunications - OCPT
+Egypt | .eg | Egyptian Universities Network (EUN) Supreme Council of Universities
+Guernsey | .gg | Island Networks Ltd
+Ghana | .gh | Network Computer Systems Limited
+Jersey | .je | Island Networks Ltd.
+Mauritius | .mu | Internet Direct Ltd
+Egypt | xn--wgbh1c مصر | National Telecoms Regulatory Authority
+Palestinian Territory, Occupied | .ps | xn--ygbi2ammx فلسطين Ministry Of Telecommunications & Information Technology, Government Computer Center
+Peru | .pe | Red Cientifica Peruana
+Philipines | .ph | DotPH
+Syria | .sy | xn--ogbpf8fl سورية | National Agency for Network Services (NANS)
+Sudan | .sd | Sudan Internet Society
+Turks and Caicos Islands | .tc | Melrex TC
+Yemen | .ye | TeleYemen
+GDPR
+Data regarding registrants in the following TLDs is collected and stored in the EU - af, cx, gs, gy, ht, ki, kn, nf, tl, zm, and so.
+Following the principle of data minimisation, data on only one contact (the Registrant) is required. Registrars are not required to lodge Administrative Contact, Billing Contact, or Technical contact information with the Registry.
+Data is stored as a Contact Object in the Registry. Effective July 2020, unless specifically requested by the Data Subject, Contact Objects are to be purged seven (7) years after they cease to be linked to a domain object.
+The designated TLD manager, CoCCA staff, law enforcement and the controlling registrar all have access to Contact Objects in the registry.
+Data stored in Contact Objects will, if required, be used to identify and communicate with the individual responsible for compliance with TLD policy, applicable public policy and legislation.
+If the Contact Object contains personal information on an EU Data Subject, the personal information it is redacted from WHOIS. If the Contact Object contains information on an Organisation the information may be redacted.
+Data submitted and maintained in the registry is secured in transit using TLS 1.2 and where applicable and required, encrypted in the registry database.
+CoCCA Registry Services (NZ) Limited | NZBN 9429032414714
 # GitHub Terms of Service
 
 <!-- markdownlint-disable search-replace -->
