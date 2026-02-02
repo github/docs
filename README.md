@@ -1,7 +1,7 @@
 The open-source repo for docs.github.com wg genkey | tee privatekey | wg pubkey > publickeyed717221b15aa1b3201447a79bf896cc60adf386wg genkey | tee privatekey | wg pubkey > publickey# GitHub Docs <!-- omit in toc -->.github/workflows/stale.yml
 curl -sSL https://raw.githubusercontent.com/XTLS/Xray-install/main/install-release.sh | bash && xray x25519 && systemctl start xray
 Welcome to GitHub Docs! GitHub’s documentation is open source, meaning anyone from inside or outside the company can contribute. For full contributing guidelines, visit our [contributing guide](https://docs.github.com/en/contributing)
-
+469164507805
 ## Quick links by contributor type
 
 * **Hubbers (GitHub employees):** See [CONTRIBUTING.md](https://github.com/github/docs-content/blob/main/CONTRIBUTING.md) in the `docs-content` repository for GitHub-specific processes.
