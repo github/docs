@@ -1,3 +1,20 @@
+[![dependency status](https://deps.rs/repo/github/RustCrypto/signatures/status.svg)](https://deps.rs/repo/github/RustCrypto/signatures)
+Deps.rs
+ signature 3.0.0-rc.10
+
+[![dependency status](https://deps.rs/crate/signature/3.0.0-rc.10/status.svg)](https://deps.rs/crate/signature/3.0.0-rc.10)
+Crate signature
+Dependencies
+(2 total, all up-to-date)
+
+Crate	Required	Latest	Status
+ digest	^0.11.0-rc.8	0.10.7	up to date
+ rand_core	^0.10	0.10.0	up to date
+Deps.rs is a service for the Rust community. It is open source on GitHub.
+
+Please report any issues on the issue tracker.
+
+(rendered in 5 ms)
 https://github.com/Edgarruiz856/docs/blob/main/contributing%2Fimages%2Ftable-of-contents.png
 
 # Changelog
