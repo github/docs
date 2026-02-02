@@ -1,3 +1,5 @@
+https://github.com/Edgarruiz856/docs/blob/main/contributing%2Fimages%2Ftable-of-contents.png
+
 # Changelog
 All notable changes to this project will be documented in this file.
 
