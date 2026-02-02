@@ -20,7 +20,7 @@ shortTitle: Open source contributors
 
 {% data reusables.sponsors.you-can-be-a-sponsored-organization %} For more information, see [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization).
 
-After you join {% data variables.product.prodname_sponsors %}, you can add a sponsor button to the open source repository you contribute to, to increase the visibility of your {% data variables.product.prodname_sponsors %} profile and other funding platforms. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository).
+After you join {% data variables.product.prodname_sponsors %}, you can add a sponsor button to the open source repositories you contribute to in order to increase the visibility of your {% data variables.product.prodname_sponsors %} profile and other funding platforms. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository).
 
 You can set a goal for your sponsorships. For more information, see [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-goal).
 
