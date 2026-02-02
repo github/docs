@@ -1,3 +1,754 @@
+<?php
+/***************************************************************************
+*                                                                          *
+*   (c) 2004 Vladimir V. Kalynyak, Alexey V. Vinokurov, Ilya M. Shalnev    *
+*                                                                          *
+* This  is  commercial  software,  only  users  who have purchased a valid *
+* license  and  accept  to the terms of the  License Agreement can install *
+* and use this program.                                                    *
+*                                                                          *
+****************************************************************************
+* PLEASE READ THE FULL TEXT  OF THE SOFTWARE  LICENSE   AGREEMENT  IN  THE *
+* "copyright.txt" FILE PROVIDED WITH THIS DISTRIBUTION PACKAGE.            *
+****************************************************************************/
+
+if (!defined('BOOTSTRAP')) { die('Access denied'); }
+
+$transaction_types = array(
+    'P' => 'AUTH_CAPTURE',
+    'A' => 'AUTH_ONLY',
+    'C' => 'CAPTURE_ONLY',
+    'R' => 'CREDIT',
+    'I' => 'PRIOR_AUTH_CAPTURE'
+);
+
+$trans_type = $processor_data['processor_params']['transaction_type'];
+$__version = '3.1';
+$post = array();
+
+if ($trans_type == 'R') {
+    $post['x_trans_id'] = $order_info['payment_info']['transaction_id'];
+}
+
+$processor_error = array();
+
+$processor_error['avs'] = array(
+    'A' => 'Address (Street) matches, ZIP does not',
+    'B' => 'Address information not provided for AVS check',
+    'D' => 'Exact AVS Match',
+    'E' => 'AVS error',
+    'F' => 'Exact AVS Match',
+    'G' => 'Service not supported by issuer',
+    'M' => 'Address (Street) matches',
+    'N' => 'No Match on Address (Street) or ZIP',
+    'P' => 'ZIP/Postal code matches, Address (Street) does not',
+    'R' => 'Retry. System unavailable or timed out',
+    'S' => 'Service not supported by issuer',
+    'U' => 'Address information is unavailable',
+    'W' => '9 digit ZIP matches, Address (Street) does not',
+    'X' => 'Exact AVS Match',
+    'Y' => 'Address (Street) and 5 digit ZIP match',
+    'Z' => '5 digit ZIP matches, Address (Street) does not',
+    '1' => 'Exact AVS Match',
+    '2' => 'Exact AVS Match',
+    '3' => 'Address (Street) matches, ZIP does not'
+);
+
+$processor_error['cvv'] = array(
+    'M' => 'Match',
+    'N' => 'CVV2 code: No Match',
+    'P' => 'CVV2 code: Not Processed',
+    'S' => 'CVV2 code: Should have been present',
+    'U' => 'CVV2 code: Issuer unable to process request'
+);
+
+$processor_error['cavv'] = array(
+    '0' => 'CAVV not validated because erroneous data was submitted',
+    '1' => 'CAVV failed validation',
+    '2' => 'CAVV passed validation',
+    '3' => 'CAVV validation could not be performed; issuer attempt incomplete',
+    '4' => 'CAVV validation could not be performed; issuer system error',
+    '7' => 'CAVV attempt - failed validation - issuer available (US issued card/non-US acquirer)',
+    '8' => 'CAVV attempt - passed validation - issuer available (US issued card/non-US acquirer)',
+    '9' => 'CAVV attempt - failed validation - issuer unavailable (US issued card/non-US acquirer)',
+    'A' => 'CAVV attempt - passed validation - issuer unavailable (US issued card/non-US acquirer)',
+    'B' => 'CAVV passed validation, information only, no liability shift'
+);
+
+$processor_error['order_status'] = array(
+    '1' => 'P',
+    '2' => 'D',
+    '3' => 'F',
+    '4' => 'O' // Transaction is held for review...
+);
+
+$tran_error = array(
+    '0' => "Transaction Successful",
+    '100' => 'No matching transaction',
+    '101' => 'A void operation cannot be performed because the original transaction has already been voided, credited, or settled.',
+    '102' => 'A credit operation cannot be performed because the original transaction has already been voided, credited, or has not been settled.',
+    '103' => 'A ticket operation cannot be performed because the original auth-only transaction has been voided or ticketed.',
+    '104' => 'The bank has declined the transaction.',
+    '105' => 'The bank has declined the transaction because the account is over limit.',
+    '106' => 'The transaction was declined because the security code (CVV) supplied was invalid.',
+    '107' => 'The bank has declined the transaction because the card is expired.',
+    '108' => 'The bank has declined the transaction and has requested that the merchant call.',
+    '109' => 'The bank has declined the transaction and has requested that the merchant pickup the card.',
+    '110' => 'The bank has declined the transaction due to excessive use of the card.',
+    '111' => 'The bank has indicated that the account is invalid.',
+    '112' => 'The bank has indicated that the account is expired.',
+    '113' => 'The issuing bank is temporarily unavailable. May be tried again later.',
+    '117' => 'The transaction was declined because the address could not be verified.',
+    '150' => 'The transaction was declined because the address could not be verified.',
+    '151' => 'The transaction was declined because the security code (CVV) supplied was invalid.',
+    '152' => 'The TICKET request was for an invalid amount. Please verify the TICKET for less then the AUTH_ONLY.',
+    '200' => 'Transaction was declined', 	# Risk Fail
+    '201' => 'Transaction was declined',	# Customer blocked
+    '300' => 'A DNS failure has prevented the merchant application from resolving gateway host names.',
+    '301' => 'The merchant application is unable to connect to an appropriate host.',
+    '303' => 'A timeout occurred while waiting for a transaction response from the gateway servers.',
+    '305' => 'Service Unavailable',
+    '307' => 'Unexpected/Internal Error',
+    '311' => 'Bank Communications Error',
+    '312' => 'Bank Communications Error',
+    '313' => 'Bank Communications Error',
+    '314' => 'Bank Communications Error',
+    '315' => 'Bank Communications Error',
+    '400' => 'Invalid XML',
+    '402' => 'Invalid Transaction',
+    '403' => 'Invalid Card Number',
+    '404' => 'Invalid Expiration',
+    '405' => 'Invalid Amount',
+    '406' => 'Invalid Merchant ID',
+    '407' => 'Invalid Merchant Account',
+    '408' => 'The merchant account specified in the request is not setup to accept the card type included in the request.',
+    '409' => 'No Suitable Account',
+    '410' => 'Invalid Transact ID',
+    '411' => 'Invalid Access Code',
+    '412' => 'Invalid Customer Data Length',
+    '413' => 'Invalid External Data Length',
+    '418' => 'Invalid Currency',
+    '419' => 'Incompatible Currency',
+    '420' => 'Invalid Rebill Arguments',
+    '421' => 'Invalid Phone',
+    '436' => 'Incompatible Descriptors',
+    '438' => 'Invalid Site ID',
+    '443' => 'Transaction Declined, Invalid Request. Please contact support',
+    '444' => 'Transaction Declined, Invalid Request. Please contact support',
+    '445' => 'Transaction Declined, Invalid Request. Please contact support',
+    '446' => 'Transaction Declined, Invalid Request. Please contact support'
+);
+$invoice_no = $processor_data['processor_params']['order_prefix'] . (($order_info['repaid']) ? ($order_id . '_' . $order_info['repaid']) : $order_id);
+
+require_once 'rocketgate_files/GatewayService.php';
+
+$request 	= new GatewayRequest();
+$response	= new GatewayResponse();
+$service 	= new GatewayService();
+
+$request->Set(GatewayRequest::MERCHANT_ID(), $processor_data['processor_params']['login']);
+$request->Set(GatewayRequest::MERCHANT_PASSWORD(), $processor_data['processor_params']['transaction_key']);
+
+if (!empty(Tygh::$app['session']['auth']['user_id'])) {
+    $request->Set(GatewayRequest::MERCHANT_CUSTOMER_ID(), Tygh::$app['session']['auth']['user_id']);
+}
+
+$request->Set(GatewayRequest::MERCHANT_INVOICE_ID(), $invoice_no );
+
+// BEGIN Risk Management
+$request->Set(GatewayRequest::SCRUB(), $processor_data['processor_params']['scrubmode']);
+$request->Set(GatewayRequest::CVV2_CHECK(), 'true');
+$request->Set(GatewayRequest::AVS_CHECK(), $processor_data['processor_params']['avsmode']);
+// END Risk Management
+
+// Pass requested payment info.
+$request->Set(GatewayRequest::CARDNO(), $order_info['payment_info']['card_number']);
+$request->Set(GatewayRequest::EXPIRE_MONTH(), $order_info['payment_info']['expiry_month']);
+$request->Set(GatewayRequest::EXPIRE_YEAR(), $order_info['payment_info']['expiry_year']);
+$request->Set(GatewayRequest::CVV2(), $order_info['payment_info']['cvv2']);
+
+$request->Set(GatewayRequest::AMOUNT(), fn_format_price($order_info['total']));
+$request->Set(GatewayRequest::CURRENCY(), $processor_data['processor_params']['currency']);
+// Billing address
+if (!empty($order_info['b_firstname'])) {
+    $request->Set(GatewayRequest::CUSTOMER_FIRSTNAME(), $order_info['b_firstname']);
+}
+if (!empty($order_info['b_lastname'])) {
+    $request->Set(GatewayRequest::CUSTOMER_LASTNAME(), $order_info['b_lastname']);
+}
+if (!empty($order_info['phone'])) {
+    $request->Set(GatewayRequest::CUSTOMER_PHONE_NO(), $order_info['phone']);
+}
+if (!empty($order_info['b_address'])) {
+    $request->Set(GatewayRequest::BILLING_ADDRESS(), $order_info['b_address']);
+}
+if (!empty($order_info['b_city'])) {
+    $request->Set(GatewayRequest::BILLING_CITY(), $order_info['b_city']);
+}
+if (!empty($order_info['b_state'])) {
+    $request->Set(GatewayRequest::BILLING_STATE(), $order_info['b_state']);
+}
+if (!empty($order_info['b_zipcode'])) {
+    $request->Set(GatewayRequest::BILLING_ZIPCODE(), $order_info['b_zipcode']);
+}
+if (!empty($order_info['b_country'])) {
+    $request->Set(GatewayRequest::BILLING_COUNTRY(), $order_info['b_country']);
+}
+if (!empty($order_info['email'])) {
+    $request->Set(GatewayRequest::EMAIL(), $order_info['email']);
+}
+
+if ($processor_data['processor_params']['mode'] == 'test') {
+    $service->SetTestMode(TRUE);
+}
+
+if ($transaction_types[$trans_type] == 'AUTH_CAPTURE') {
+    $service_response = $service->PerformPurchase($request, $response);
+    $transaction_type = 'sale';
+} elseif ($transaction_types[$trans_type] == 'AUTH_ONLY') {
+    $service_response = $service->PerformAuthOnly($request, $response);
+    $transaction_type = 'auth';
+}
+// Gateway answered
+$pp_response = array();
+if ($response->Get(GatewayResponse::RESPONSE_CODE()) == GatewayCodes__RESPONSE_SUCCESS) {
+    // check CVV2 response
+    $cvv_code = $response->Get(GatewayResponse::CVV2_CODE());
+    switch ($cvv_code) {
+        case 'N':
+        case 'P':
+        case 'S':
+        case 'U':
+            $pp_response['order_status'] = 'F';
+            $pp_response['reason_text'] = $processor_error['cvv'][$cvv_code];
+            break;
+        default:
+            $pp_response['order_status'] = 'P';
+            $pp_response['reason_text'] = '';
+            break;
+    }
+} else {
+    $pp_response['order_status'] = 'F';
+    $pp_response['reason_text'] = $tran_error[$response->Get(GatewayResponse::REASON_CODE())];
+}
+$pp_response['transaction_id'] = $response->Get(GatewayResponse::TRANSACT_ID());
+<?php
+
+/**
+ * Pure-PHP ASN.1 Parser
+ *
+ * PHP version 5
+ *
+ * ASN.1 provides the semantics for data encoded using various schemes.  The most commonly
+ * utilized scheme is DER or the "Distinguished Encoding Rules".  PEM's are base64 encoded
+ * DER blobs.
+ *
+ * \phpseclib3\File\ASN1 decodes and encodes DER formatted messages and places them in a semantic context.
+ *
+ * Uses the 1988 ASN.1 syntax.
+ *
+ * @category  File
+ * @package   ASN1
+ * @author    Jim Wigginton <terrafrost@php.net>
+ * @copyright 2012 Jim Wigginton
+ * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
+ * @link      http://phpseclib.sourceforge.net
+ */
+
+namespace phpseclib3\File;
+
+use DateTime;
+use ParagonIE\ConstantTime\Base64;
+use phpseclib3\Common\Functions\Strings;
+use phpseclib3\File\ASN1\Element;
+use phpseclib3\Math\BigInteger;
+
+/**
+ * Pure-PHP ASN.1 Parser
+ *
+ * @package ASN1
+ * @author  Jim Wigginton <terrafrost@php.net>
+ * @access  public
+ */
+abstract class ASN1
+{
+    // Tag Classes
+    // http://www.itu.int/ITU-T/studygroups/com17/languages/X.690-0207.pdf#page=12
+    const CLASS_UNIVERSAL        = 0;
+    const CLASS_APPLICATION      = 1;
+    const CLASS_CONTEXT_SPECIFIC = 2;
+    const CLASS_PRIVATE          = 3;
+
+    // Tag Classes
+    // http://www.obj-sys.com/asn1tutorial/node124.html
+    const TYPE_BOOLEAN           = 1;
+    const TYPE_INTEGER           = 2;
+    const TYPE_BIT_STRING        = 3;
+    const TYPE_OCTET_STRING      = 4;
+    const TYPE_NULL              = 5;
+    const TYPE_OBJECT_IDENTIFIER = 6;
+    //const TYPE_OBJECT_DESCRIPTOR = 7;
+    //const TYPE_INSTANCE_OF       = 8; // EXTERNAL
+    const TYPE_REAL              = 9;
+    const TYPE_ENUMERATED        = 10;
+    //const TYPE_EMBEDDED          = 11;
+    const TYPE_UTF8_STRING       = 12;
+    //const TYPE_RELATIVE_OID      = 13;
+    const TYPE_SEQUENCE          = 16; // SEQUENCE OF
+    const TYPE_SET               = 17; // SET OF
+
+    // More Tag Classes
+    // http://www.obj-sys.com/asn1tutorial/node10.html
+    const TYPE_NUMERIC_STRING   = 18;
+    const TYPE_PRINTABLE_STRING = 19;
+    const TYPE_TELETEX_STRING   = 20; // T61String
+    const TYPE_VIDEOTEX_STRING  = 21;
+    const TYPE_IA5_STRING       = 22;
+    const TYPE_UTC_TIME         = 23;
+    const TYPE_GENERALIZED_TIME = 24;
+    const TYPE_GRAPHIC_STRING   = 25;
+    const TYPE_VISIBLE_STRING   = 26; // ISO646String
+    const TYPE_GENERAL_STRING   = 27;
+    const TYPE_UNIVERSAL_STRING = 28;
+    //const TYPE_CHARACTER_STRING = 29;
+    const TYPE_BMP_STRING       = 30;
+
+    // Tag Aliases
+    // These tags are kinda place holders for other tags.
+    const TYPE_CHOICE = -1;
+    const TYPE_ANY    = -2;
+
+    /**
+     * ASN.1 object identifiers
+     *
+     * @var array
+     * @access private
+     * @link http://en.wikipedia.org/wiki/Object_identifier
+     */
+    private static $oids = [];
+
+    /**
+     * ASN.1 object identifier reverse mapping
+     *
+     * @var array
+     * @access private
+     */
+    private static $reverseOIDs = [];
+
+    /**
+     * Default date format
+     *
+     * @var string
+     * @access private
+     * @link http://php.net/class.datetime
+     */
+    private static $format = 'D, d M Y H:i:s O';
+
+    /**
+     * Filters
+     *
+     * If the mapping type is self::TYPE_ANY what do we actually encode it as?
+     *
+     * @var array
+     * @access private
+     * @see self::encode_der()
+     */
+    private static $filters;
+
+    /**
+     * Current Location of most recent ASN.1 encode process
+     *
+     * Useful for debug purposes
+     *
+     * @var array
+     * @access private
+     * @see self::encode_der()
+     */
+    private static $location;
+
+    /**
+     * DER Encoded String
+     *
+     * In case we need to create ASN1\Element object's..
+     *
+     * @var string
+     * @access private
+     * @see self::decodeDER()
+     */
+    private static $encoded;
+
+    /**
+     * Type mapping table for the ANY type.
+     *
+     * Structured or unknown types are mapped to a \phpseclib3\File\ASN1\Element.
+     * Unambiguous types get the direct mapping (int/real/bool).
+     * Others are mapped as a choice, with an extra indexing level.
+     *
+     * @var array
+     * @access public
+     */
+    const ANY_MAP = [
+        self::TYPE_BOOLEAN              => true,
+        self::TYPE_INTEGER              => true,
+        self::TYPE_BIT_STRING           => 'bitString',
+        self::TYPE_OCTET_STRING         => 'octetString',
+        self::TYPE_NULL                 => 'null',
+        self::TYPE_OBJECT_IDENTIFIER    => 'objectIdentifier',
+        self::TYPE_REAL                 => true,
+        self::TYPE_ENUMERATED           => 'enumerated',
+        self::TYPE_UTF8_STRING          => 'utf8String',
+        self::TYPE_NUMERIC_STRING       => 'numericString',
+        self::TYPE_PRINTABLE_STRING     => 'printableString',
+        self::TYPE_TELETEX_STRING       => 'teletexString',
+        self::TYPE_VIDEOTEX_STRING      => 'videotexString',
+        self::TYPE_IA5_STRING           => 'ia5String',
+        self::TYPE_UTC_TIME             => 'utcTime',
+        self::TYPE_GENERALIZED_TIME     => 'generalTime',
+        self::TYPE_GRAPHIC_STRING       => 'graphicString',
+        self::TYPE_VISIBLE_STRING       => 'visibleString',
+        self::TYPE_GENERAL_STRING       => 'generalString',
+        self::TYPE_UNIVERSAL_STRING     => 'universalString',
+        //self::TYPE_CHARACTER_STRING     => 'characterString',
+        self::TYPE_BMP_STRING           => 'bmpString'
+    ];
+
+    /**
+     * String type to character size mapping table.
+     *
+     * Non-convertable types are absent from this table.
+     * size == 0 indicates variable length encoding.
+     *
+     * @var array
+     * @access public
+     */
+    const STRING_TYPE_SIZE = [
+        self::TYPE_UTF8_STRING      => 0,
+        self::TYPE_BMP_STRING       => 2,
+        self::TYPE_UNIVERSAL_STRING => 4,
+        self::TYPE_PRINTABLE_STRING => 1,
+        self::TYPE_TELETEX_STRING   => 1,
+        self::TYPE_IA5_STRING       => 1,
+        self::TYPE_VISIBLE_STRING   => 1,
+    ];
+
+    /**
+     * Parse BER-encoding
+     *
+     * Serves a similar purpose to openssl's asn1parse
+     *
+     * @param Element|string $encoded
+     * @return array
+     * @access public
+     */
+    public static function decodeBER($encoded)
+    {
+        if ($encoded instanceof Element) {
+            $encoded = $encoded->element;
+        }
+
+        self::$encoded = $encoded;
+
+        $decoded = [self::decode_ber($encoded)];
+
+        // encapsulate in an array for BC with the old decodeBER
+        return $decoded;
+    }
+
+    /**
+     * Parse BER-encoding (Helper function)
+     *
+     * Sometimes we want to get the BER encoding of a particular tag.  $start lets us do that without having to reencode.
+     * $encoded is passed by reference for the recursive calls done for self::TYPE_BIT_STRING and
+     * self::TYPE_OCTET_STRING. In those cases, the indefinite length is used.
+     *
+     * @param string $encoded
+     * @param int $start
+     * @param int $encoded_pos
+     * @return array|bool
+     * @access private
+     */
+    private static function decode_ber($encoded, $start = 0, $encoded_pos = 0)
+    {
+        $current = ['start' => $start];
+
+        if (!isset($encoded[$encoded_pos])) {
+            return false;
+        }
+        $type = ord($encoded[$encoded_pos++]);
+        $startOffset = 1;
+
+        $constructed = ($type >> 5) & 1;
+
+        $tag = $type & 0x1F;
+        if ($tag == 0x1F) {
+            $tag = 0;
+            // process septets (since the eighth bit is ignored, it's not an octet)
+            do {
+                if (!isset($encoded[$encoded_pos])) {
+                    return false;
+                }
+                $temp = ord($encoded[$encoded_pos++]);
+                $startOffset++;
+                $loop = $temp >> 7;
+                $tag <<= 7;
+                $temp &= 0x7F;
+                // "bits 7 to 1 of the first subsequent octet shall not all be zero"
+                if ($startOffset == 2 && $temp == 0) {
+                    return false;
+                }
+                $tag |= $temp;
+            } while ($loop);
+        }
+
+        $start += $startOffset;
+
+        // Length, as discussed in paragraph 8.1.3 of X.690-0207.pdf#page=13
+        if (!isset($encoded[$encoded_pos])) {
+            return false;
+        }
+        $length = ord($encoded[$encoded_pos++]);
+        $start++;
+        if ($length == 0x80) { // indefinite length
+            // "[A sender shall] use the indefinite form (see 8.1.3.6) if the encoding is constructed and is not all
+            //  immediately available." -- paragraph 8.1.3.2.c
+            $length = strlen($encoded) - $encoded_pos;
+        } elseif ($length & 0x80) { // definite length, long form
+            // technically, the long form of the length can be represented by up to 126 octets (bytes), but we'll only
+            // support it up to four.
+            $length &= 0x7F;
+            $temp = substr($encoded, $encoded_pos, $length);
+            $encoded_pos += $length;
+            // tags of indefinte length don't really have a header length; this length includes the tag
+            $current += ['headerlength' => $length + 2];
+            $start += $length;
+            extract(unpack('Nlength', substr(str_pad($temp, 4, chr(0), STR_PAD_LEFT), -4)));
+            /** @var integer $length */
+        } else {
+            $current += ['headerlength' => 2];
+        }
+
+        if ($length > (strlen($encoded) - $encoded_pos)) {
+            return false;
+        }
+
+        $content = substr($encoded, $encoded_pos, $length);
+        $content_pos = 0;
+
+        // at this point $length can be overwritten. it's only accurate for definite length things as is
+
+        /* Class is UNIVERSAL, APPLICATION, PRIVATE, or CONTEXT-SPECIFIC. The UNIVERSAL class is restricted to the ASN.1
+           built-in types. It defines an application-independent data type that must be distinguishable from all other
+           data types. The other three classes are user defined. The APPLICATION class distinguishes data types that
+           have a wide, scattered use within a particular presentation context. PRIVATE distinguishes data types within
+           a particular organization or country. CONTEXT-SPECIFIC distinguishes members of a sequence or set, the
+           alternatives of a CHOICE, or universally tagged set members. Only the class number appears in braces for this
+           data type; the term CONTEXT-SPECIFIC does not appear.
+
+             -- http://www.obj-sys.com/asn1tutorial/node12.html */
+        $class = ($type >> 6) & 3;
+        switch ($class) {
+            case self::CLASS_APPLICATION:
+            case self::CLASS_PRIVATE:
+            case self::CLASS_CONTEXT_SPECIFIC:
+                if (!$constructed) {
+                    return [
+                        'type'     => $class,
+                        'constant' => $tag,
+                        'content'  => $content,
+                        'length'   => $length + $start - $current['start']
+                    ] + $current;
+                }
+
+                $newcontent = [];
+                $remainingLength = $length;
+                while ($remainingLength > 0) {
+                    $temp = self::decode_ber($content, $start, $content_pos);
+                    if ($temp === false) {
+                        break;
+                    }
+                    $length = $temp['length'];
+                    // end-of-content octets - see paragraph 8.1.5
+                    if (substr($content, $content_pos + $length, 2) == "\0\0") {
+                        $length += 2;
+                        $start += $length;
+                        $newcontent[] = $temp;
+                        break;
+                    }
+                    $start += $length;
+                    $remainingLength -= $length;
+                    $newcontent[] = $temp;
+                    $content_pos += $length;
+                }
+
+                return [
+                    'type'     => $class,
+                    'constant' => $tag,
+                    // the array encapsulation is for BC with the old format
+                    'content'  => $newcontent,
+                    // the only time when $content['headerlength'] isn't defined is when the length is indefinite.
+                    // the absence of $content['headerlength'] is how we know if something is indefinite or not.
+                    // technically, it could be defined to be 2 and then another indicator could be used but whatever.
+                    'length'   => $start - $current['start']
+                ] + $current;
+        }
+
+        $current += ['type' => $tag];
+
+        // decode UNIVERSAL tags
+        switch ($tag) {
+            case self::TYPE_BOOLEAN:
+                // "The contents octets shall consist of a single octet." -- paragraph 8.2.1
+                if ($constructed || strlen($content) != 1) {
+                    return false;
+                }
+                $current['content'] = (bool) ord($content[$content_pos]);
+                break;
+            case self::TYPE_INTEGER:
+            case self::TYPE_ENUMERATED:
+                if ($constructed) {
+                    return false;
+                }
+                $current['content'] = new BigInteger(substr($content, $content_pos), -256);
+                break;
+            case self::TYPE_REAL: // not currently supported
+                return false;
+            case self::TYPE_BIT_STRING:
+                // The initial octet shall encode, as an unsigned binary integer with bit 1 as the least significant bit,
+                // the number of unused bits in the final subsequent octet. The number shall be in the range zero to
+                // seven.
+                if (!$constructed) {
+                    $current['content'] = substr($content, $content_pos);
+                } else {
+                    $temp = self::decode_ber($content, $start, $content_pos);
+                    if ($temp === false) {
+                        return false;
+                    }
+                    $length -= (strlen($content) - $content_pos);
+                    $last = count($temp) - 1;
+                    for ($i = 0; $i < $last; $i++) {
+                        // all subtags should be bit strings
+                        if ($temp[$i]['type'] != self::TYPE_BIT_STRING) {
+                            return false;
+                        }
+                        $current['content'] .= substr($temp[$i]['content'], 1);
+                    }
+                    // all subtags should be bit strings
+                    if ($temp[$last]['type'] != self::TYPE_BIT_STRING) {
+                        return false;
+                    }
+                    $current['content'] = $temp[$last]['content'][0] . $current['content'] . substr($temp[$i]['content'], 1);
+                }
+                break;
+            case self::TYPE_OCTET_STRING:
+                if (!$constructed) {
+                    $current['content'] = substr($content, $content_pos);
+                } else {
+                    $current['content'] = '';
+                    $length = 0;
+                    while (substr($content, $content_pos, 2) != "\0\0") {
+                        $temp = self::decode_ber($content, $length + $start, $content_pos);
+                        if ($temp === false) {
+                            return false;
+                        }
+                        $content_pos += $temp['length'];
+                        // all subtags should be octet strings
+                        if ($temp['type'] != self::TYPE_OCTET_STRING) {
+                            return false;
+                        }
+                        $current['content'] .= $temp['content'];
+                        $length += $temp['length'];
+                    }
+                    if (substr($content, $content_pos, 2) == "\0\0") {
+                        $length += 2; // +2 for the EOC
+                    }
+                }
+                break;
+            case self::TYPE_NULL:
+                // "The contents octets shall not contain any octets." -- paragraph 8.8.2
+                if ($constructed || strlen($content)) {
+                    return false;
+                }
+                break;
+            case self::TYPE_SEQUENCE:
+            case self::TYPE_SET:
+                if (!$constructed) {
+                    return false;
+                }
+                $offset = 0;
+                $current['content'] = [];
+                $content_len = strlen($content);
+                while ($content_pos < $content_len) {
+                    // if indefinite length construction was used and we have an end-of-content string next
+                    // see paragraphs 8.1.1.3, 8.1.3.2, 8.1.3.6, 8.1.5, and (for an example) 8.6.4.2
+                    if (!isset($current['headerlength']) && substr($content, $content_pos, 2) == "\0\0") {
+                        $length = $offset + 2; // +2 for the EOC
+                        break 2;
+                    }
+                    $temp = self::decode_ber($content, $start + $offset, $content_pos);
+                    if ($temp === false) {
+                        return false;
+                    }
+                    $content_pos += $temp['length'];
+                    $current['content'][] = $temp;
+                    $offset += $temp['length'];
+                }
+                break;
+            case self::TYPE_OBJECT_IDENTIFIER:
+                if ($constructed) {
+                    return false;
+                }
+                $current['content'] = self::decodeOID(substr($content, $content_pos));
+                if ($current['content'] === false) {
+                    return false;
+                }
+                break;
+            /* Each character string type shall be encoded as if it had been declared:
+               [UNIVERSAL x] IMPLICIT OCTET STRING
+
+                 -- X.690-0207.pdf#page=23 (paragraph 8.21.3)
+
+               Per that, we're not going to do any validation.  If there are any illegal characters in the string,
+               we don't really care */
+            case self::TYPE_NUMERIC_STRING:
+                // 0,1,2,3,4,5,6,7,8,9, and space
+            case self::TYPE_PRINTABLE_STRING:
+                // Upper and lower case letters, digits, space, apostrophe, left/right parenthesis, plus sign, comma,
+                // hyphen, full stop, solidus, colon, equal sign, question mark
+            case self::TYPE_TELETEX_STRING:
+                // The Teletex character set in CCITT's T61, space, and delete
+                // see http://en.wikipedia.org/wiki/Teletex#Character_sets
+            case self::TYPE_VIDEOTEX_STRING:
+                // The Videotex character set in CCITT's T.100 and T.101, space, and delete
+            case self::TYPE_VISIBLE_STRING:
+                // Printing character sets of international ASCII, and space
+            case self::TYPE_IA5_STRING:
+                // International Alphabet 5 (International ASCII)
+            case self::TYPE_GRAPHIC_STRING:
+                // All registered G sets, and space
+            case self::TYPE_GENERAL_STRING:
+                // All registered C and G sets, space and delete
+            case self::TYPE_UTF8_STRING:
+                // ????
+            case self::TYPE_BMP_STRING:
+                if ($constructed) {
+                    return false;
+                }
+                $current['content'] = substr($content, $content_pos);
+                break;
+            case self::TYPE_UTC_TIME:
+            case self::TYPE_GENERALIZED_TIME:
+                if ($constructed) {
+                    return false;
+                }
+                $current['content'] = self::decodeTime(substr($content, $content_pos), $tag);
+                break;
+            default:
+                return false;
+        }
+
+        $start += $length;
+
+        // ie. length is the length of the full TLV encoding - it's not just the length of the value
 العربية (ar)
 Български (bg)
 বাংলা (bn)
