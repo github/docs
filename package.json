@@ -252,7 +252,7 @@
     "walk-sync": "^4.0.1"
   },
   "devDependencies": {
-    "@actions/core": "^2.0.0",
+    "@actions/core": "^3.0.0",
     "@actions/github": "^8.0.1",
     "@axe-core/playwright": "^4.10.1",
     "@eslint/js": "^9.33.0",
