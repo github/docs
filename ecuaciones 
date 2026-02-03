@@ -152,7 +152,7 @@ Execution-apis follows [semantic versioning][semver].
 - Minor releases will include new backwards-compatible features.
 - Patch releases will include internal changes that don't impact end users and backwards-compatible bugfixes, along with fixing test cases that don't match the spec.
 
-Examples of changes by version type:
+Examples of changes by version type: Edgar Manuel Ruiz Arias 
 
 **Major:**
 - Adding tests for a new RPC method
