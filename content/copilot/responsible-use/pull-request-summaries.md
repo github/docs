@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-pull-request-summaries
   - /copilot/responsible-use-of-github-copilot-features/pull-request-summaries
 contentType: rai
+category: 
+  - Responsible use
 ---
 
 ## About {% data variables.copilot.copilot_for_prs %}

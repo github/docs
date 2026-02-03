@@ -8,7 +8,7 @@ const oldVersions = ['dotcom'].concat(supported)
 const newVersions = Object.keys(allVersions)
 
 // Utility functions for converting between old version paths and new version paths.
-// See lib/path-utils.js for utility functions based on new paths.
+// See lib/path-utils.ts for utility functions based on new paths.
 // Examples:
 // OLD /github/category/article to NEW /free-pro-team@latest/github/category/article
 // OLD /enterprise/2.21/user/github/category/article to NEW /enterprise-server@2.21/github/category/article

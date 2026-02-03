@@ -45,9 +45,9 @@ Organization owners can install {% data variables.product.prodname_github_apps %
 Enterprise owners can install {% data variables.product.prodname_github_apps %} on their enterprise accounts, if the application requests enterprise permissions and is owned by the enterprise or one of its organizations.
 {% endif %}
 
-Admins of repositories that are owned by an organization can also install {% data variables.product.prodname_github_apps %} on the organization if they only grant the app access to repositories that they are an admin of and if the app does not request any organization permissions or the "repository administration" permission. Organization owners can prevent outside collaborators who are repository admins from installing {% data variables.product.prodname_github_apps %}.
+{% data reusables.apps.repo-admin-install-restriction %}
 
-Organization members who are not organization owners or repository admins can still select the organization during the install process. Instead of installing the app, {% data variables.product.company_short %} will send a notification to the organization owner to request the organization owner to install the app.
+Organization members and outside collaborators that cannot install an app on the organization can still select the organization during the install process. Instead of installing the app, {% data variables.product.company_short %} will send a notification to the organization owner to request the organization owner to install the app. The ability to make these requests can be controlled using app access request policies. See [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests).
 
 The "app manager" role does not give a person the ability to install a {% data variables.product.prodname_github_app %} on the organization{% ifversion enterprise-app-manager %}  or enterprise{% endif %}. See [AUTOTITLE](/apps/maintaining-github-apps/about-github-app-managers).
 

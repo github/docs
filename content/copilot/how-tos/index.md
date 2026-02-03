@@ -10,6 +10,7 @@ children:
   - /set-up
   - /get-code-suggestions
   - /chat-with-copilot
+  - /copilot-cli
   - /use-copilot-agents
   - /use-ai-models
   - /provide-context
@@ -21,7 +22,6 @@ children:
   - /manage-your-account
   - /administer-copilot
   - /troubleshoot-copilot
-  - /use-copilot-extensions
 redirect_from:
   - /copilot/using-github-copilot
 contentType: how-tos

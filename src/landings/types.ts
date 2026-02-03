@@ -12,11 +12,13 @@ export type BaseTocItem = {
 }
 
 // Extended type for child TOC items with additional metadata
+// This is recursive - children can also have their own children
 export type ChildTocItem = BaseTocItem & {
   octicon?: ValidOcticon | null
   category?: string[] | null
   complexity?: string[] | null
   industry?: string[] | null
+  childTocItems?: ChildTocItem[]
 }
 
 // Main TOC item type that can contain children

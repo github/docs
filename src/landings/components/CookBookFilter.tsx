@@ -1,8 +1,10 @@
-import { TextInput, ActionMenu, ActionList, Button, Box } from '@primer/react'
+import { TextInput, ActionMenu, ActionList, Button } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
 import { useRef, useEffect, useState } from 'react'
 import { ArticleCardItems } from '@/landings/types'
 import { useTranslation } from '@/languages/components/useTranslation'
+
+import styles from './CookBookFilter.module.scss'
 
 type Props = {
   tokens: ArticleCardItems
@@ -61,12 +63,12 @@ export const CookBookFilter = ({
         <form onSubmit={(e) => e.preventDefault()}>
           <TextInput
             leadingVisual={SearchIcon}
-            className="m-1"
-            sx={{ minWidth: ['stretch', 'stretch', 'stretch', 'stretch'] }}
+            className={`m-1 ${styles.textInput}`}
             placeholder={t('search_articles')}
             ref={inputRef}
             autoComplete="false"
-            onChange={(e) => {
+            // Using any because Primer React's TextInput doesn't export proper event types
+            onChange={(e: any) => {
               const query = e.target.value || ''
               onSearch(query)
             }}
@@ -76,14 +78,7 @@ export const CookBookFilter = ({
       <div className="d-flex flex-wrap flex-md-nowrap ">
         <ActionMenu>
           <ActionMenu.Button className="col-md-1 col-sm-2 m-1">
-            <Box
-              sx={{
-                color: 'fg.muted',
-                display: 'inline-block',
-              }}
-            >
-              {t('category')}:
-            </Box>{' '}
+            <span className={styles.categoryLabel}>{t('category')}:</span>{' '}
             {categories[selectedCategory]}
           </ActionMenu.Button>
           <ActionMenu.Overlay width="auto">
@@ -103,14 +98,7 @@ export const CookBookFilter = ({
 
         <ActionMenu>
           <ActionMenu.Button className="col-md-1 col-sm-2 m-1">
-            <Box
-              sx={{
-                color: 'fg.muted',
-                display: 'inline-block',
-              }}
-            >
-              {t('complexity')}:
-            </Box>{' '}
+            <span className={styles.complexityLabel}>{t('complexity')}:</span>{' '}
             {complexities[selectedComplexity]}
           </ActionMenu.Button>
           <ActionMenu.Overlay width="auto">

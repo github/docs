@@ -22,7 +22,7 @@ async function main() {
     console.log('ID:', issue.id)
     console.log('Number:', issue.number)
     console.log('URL:', issue.html_url)
-    number = issue.number
+    number = String(issue.number)
     if (number) {
       // We've found the issue (pull request), but before we accept
       // this `number`, check that the issue isn't locked.

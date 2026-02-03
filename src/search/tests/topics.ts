@@ -28,7 +28,7 @@ const topics: string[] = walk(contentDir, { includeBasePath: true })
 const allUsedTopics: string[] = Array.from(new Set(topics)).sort()
 
 describe('Check for allowed frontmatter topics', () => {
-  test('all used topics are allowed in /data/allowed-topics.js', () => {
+  test('all used topics are allowed in /data/allowed-topics.ts', () => {
     expect(allUsedTopics.length).toBeGreaterThan(0)
 
     const unusedTopics: string[] = difference(allUsedTopics, allowedTopics)

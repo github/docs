@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-in-windows-terminal
   - /copilot/responsible-use-of-github-copilot-features/copilot-in-windows-terminal
 contentType: rai
+category: 
+  - Responsible use
 ---
 
 ## About {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_windows_terminal %}

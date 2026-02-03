@@ -31,7 +31,7 @@ sections:
     - |
       When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
     - |
-      Attempting to stop replications after stopping GitHub Actions on a GHES instanstance would fail, reporting that MSSQL was not responding.  The can be avoided by start MSSQL prior to stopping replication `/usr/local/share/enterprise/ghe-nomad-jobs queue /etc/nomad-jobs/mssql/mssql.hcl`.
+      Attempting to stop replications after stopping GitHub Actions on a GHES instance would fail, reporting that MSSQL was not responding.  This can be avoided by starting MSSQL prior to stopping replication `/usr/local/share/enterprise/ghe-nomad-jobs queue /etc/nomad-jobs/mssql/mssql.hcl`.
     - |
       {% data reusables.release-notes.2024-11-ghe-repl-promote-primary-down %}
 

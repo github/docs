@@ -7,5 +7,6 @@ The available regions are:
 * EU
 * Australia
 * US
+* Japan
 
 In the future, {% data variables.product.github %} plans to offer {% data variables.enterprise.data_residency_short %} in more regions.

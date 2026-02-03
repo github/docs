@@ -46,6 +46,8 @@ If you manage multiple organizations with an enterprise account, you can help me
 
 ## Adding a public organization profile README
 
+>[!NOTE] Public organization profiles are not available with {% data variables.product.prodname_emus %}.
+
 The content of public `README.md` will appear on your organization's public profile.
 
 1. If your organization does not already have a public `.github` repository, create a public `.github` repository.

@@ -2,6 +2,7 @@
  * Utility functions for fetch with retry and timeout functionality
  * to replace got library functionality
  */
+
 export interface FetchWithRetryOptions {
   retries?: number
   retryDelay?: number

@@ -14,4 +14,10 @@ export default {
     globalSetup: './src/tests/vitest.setup.ts',
     teardownTimeout: 500,
   },
+  server: {
+    deps: {
+      // Externalize @horizon-rs/language-guesser to avoid import assertion issues with vitest 4
+      external: ['@horizon-rs/language-guesser'],
+    },
+  },
 }

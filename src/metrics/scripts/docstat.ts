@@ -1,4 +1,7 @@
-#!/usr/bin/env node
+/**
+ * @purpose Writer tool
+ * @description Get a data snapshot of a given Docs URL for the last 30 days or specified period
+ */
 
 import fs from 'fs'
 import path from 'path'
@@ -39,21 +42,7 @@ interface CliOptions {
   defaultToAll?: boolean
   showDocset?: boolean
   allVersions?: boolean
-}
-
-interface QueryResults {
-  views?: string
-  viewsDocset?: string
-  users?: string
-  usersDocset?: string
-  viewDuration?: string
-  viewDurationDocset?: string
-  bounces?: string
-  bouncesDocset?: string
-  score?: string
-  scoreDocset?: string
-  exits?: string
-  exitsDocset?: string
+  quiet?: boolean
 }
 
 interface JsonOutput {
@@ -115,9 +104,15 @@ program
     'Get data for free-pro-team@latest only (default: all versions if URL is versionless)',
   )
   .option('--verbose', 'Display Kusto queries being executed')
+  .option('-q, --quiet', 'Suppress all output except results (automatically enabled with --json)')
   .parse(process.argv)
 
 const options = program.opts<CliOptions>()
+
+// Auto-enable quiet mode when JSON output is requested
+if (options.json) {
+  options.quiet = true
+}
 
 // If specific options are not provided, default to all
 options.defaultToAll = !(
@@ -147,31 +142,39 @@ let cleanPath = getCleanPath(providedPath)
 
 // Get the version
 let version: string | null = getVersion(cleanPath)
-let usingFptOnly = !!options.fptOnly
+const usingFptOnly = !!options.fptOnly
 
 // If the URL does not specify a version, default to all versions unless --fptOnly is passed
 if (version === FREE_PRO_TEAM) {
   if (usingFptOnly) {
     // User explicitly wants only free-pro-team@latest
-    console.log(
-      '\nFetching data for free-pro-team@latest only. To get all versions, omit the --fptOnly flag.\n',
-    )
+    if (!options.quiet) {
+      console.log(
+        '\nFetching data for free-pro-team@latest only. To get all versions, omit the --fptOnly flag.\n',
+      )
+    }
   } else {
     // Default: all versions
     version = null
-    console.log(
-      '\nFetching data for all versions (no version specified in URL). To get only free-pro-team@latest, pass "--fptOnly".\n',
-    )
+    if (!options.quiet) {
+      console.log(
+        '\nFetching data for all versions (no version specified in URL). To get only free-pro-team@latest, pass "--fptOnly".\n',
+      )
+    }
   }
 } else {
   // Version is specified in the URL (e.g. enterprise-server@)
-  console.log(
-    `\nFetching data for version "${version}" as specified in the URL. To get data for all versions, remove the version segment from the URL.\n`,
-  )
-  if (usingFptOnly) {
+  if (!options.quiet) {
     console.log(
-      `You specified a version in the URL (${version}), but also passed --fptOnly. Only the version in the URL will be used.\n`,
+      `\nFetching data for version "${version}" as specified in the URL. To get data for all versions, remove the version segment from the URL.\n`,
     )
+  }
+  if (usingFptOnly) {
+    if (!options.quiet) {
+      console.log(
+        `You specified a version in the URL (${version}), but also passed --fptOnly. Only the version in the URL will be used.\n`,
+      )
+    }
   }
   // Always use the version from the URL
 }
@@ -206,148 +209,27 @@ const queryPaths = [cleanPath].concat(redirects)
 const dates: DateRange = getDates(options.range)
 
 async function main(): Promise<void> {
-  const spinner = ora('Connecting to Kusto...').start()
+  const spinner = options.quiet ? null : ora('Connecting to Kusto...').start()
 
   try {
     const client = getKustoClient()
 
     if (!client) {
-      spinner.fail('Failed to connect to Kusto')
+      if (spinner) spinner.fail('Failed to connect to Kusto')
+      else if (!options.quiet) console.error('Failed to connect to Kusto')
       process.exit(1)
     }
 
-    spinner.text = 'Connected! Querying Kusto...'
+    if (spinner) spinner.text = 'Connected! Querying Kusto...'
 
     // Only show docset stats if option is passed AND if the given path is not already a docset.
     options.showDocset = !(cleanPath === docsetPath) && options.compare
-    if (options.compare && cleanPath === docsetPath) {
+    if (options.compare && cleanPath === docsetPath && !options.quiet) {
       console.log(`\n\nSkipping comparison, since '${cleanPath}' is already a docset.\n`)
     }
 
-    // Create query promises for all requested metrics
-    const queryPromises: Promise<void>[] = []
-    const results: QueryResults = {}
-
-    // Setup all the promises for parallel execution
-    if (options.views) {
-      const queryType = 'views'
-      queryPromises.push(
-        getViews(queryPaths, client, dates, version, options.verbose, queryType).then((data) => {
-          results.views = data
-        }),
-      )
-      if (options.showDocset) {
-        const queryType = 'docset views'
-        queryPromises.push(
-          getViews(docsetPath, client, dates, version, options.verbose, queryType).then((data) => {
-            results.viewsDocset = data
-          }),
-        )
-      }
-    }
-
-    if (options.users) {
-      const queryType = 'users'
-      queryPromises.push(
-        getUsers(queryPaths, client, dates, version, options.verbose, queryType).then((data) => {
-          results.users = data
-        }),
-      )
-      if (options.showDocset) {
-        const queryType = 'docset users'
-        queryPromises.push(
-          getUsers(docsetPath, client, dates, version, options.verbose, queryType).then((data) => {
-            results.usersDocset = data
-          }),
-        )
-      }
-    }
-
-    if (options.viewDuration) {
-      const queryType = 'view duration'
-      queryPromises.push(
-        getViewDuration(queryPaths, client, dates, version, options.verbose, queryType).then(
-          (data) => {
-            results.viewDuration = data
-          },
-        ),
-      )
-      if (options.showDocset) {
-        const queryType = 'docset view duration'
-        queryPromises.push(
-          getViewDuration(docsetPath, client, dates, version, options.verbose, queryType).then(
-            (data) => {
-              results.viewDurationDocset = data
-            },
-          ),
-        )
-      }
-    }
-
-    if (options.bounces) {
-      const queryType = 'bounces'
-      queryPromises.push(
-        getBounces(queryPaths, client, dates, version, options.verbose, queryType).then((data) => {
-          results.bounces = data
-        }),
-      )
-      if (options.showDocset) {
-        const queryType = 'docset bounces'
-        queryPromises.push(
-          getBounces(docsetPath, client, dates, version, options.verbose, queryType).then(
-            (data) => {
-              results.bouncesDocset = data
-            },
-          ),
-        )
-      }
-    }
-
-    if (options.score) {
-      const queryType = 'score'
-      queryPromises.push(
-        getScore(queryPaths, client, dates, version, options.verbose, queryType).then((data) => {
-          results.score = data
-        }),
-      )
-      if (options.showDocset) {
-        const queryType = 'docset score'
-        queryPromises.push(
-          getScore(docsetPath, client, dates, version, options.verbose, queryType).then((data) => {
-            results.scoreDocset = data
-          }),
-        )
-      }
-    }
-
-    if (options.exits) {
-      const queryType = 'exits'
-      queryPromises.push(
-        getExitsToSupport(queryPaths, client, dates, version, options.verbose, queryType).then(
-          (data) => {
-            results.exits = data
-          },
-        ),
-      )
-      if (options.showDocset) {
-        const queryType = 'docset exits'
-        queryPromises.push(
-          getExitsToSupport(docsetPath, client, dates, version, options.verbose, queryType).then(
-            (data) => {
-              results.exitsDocset = data
-            },
-          ),
-        )
-      }
-    }
-
-    // Execute all queries in parallel
-    await Promise.all(queryPromises)
-
-    spinner.succeed('Data retrieved successfully!\n')
-
-    // Extract all results from the results object
-    const {
+    // Execute all queries in parallel and destructure results
+    const [
       views,
       viewsDocset,
       users,
@@ -360,7 +242,53 @@ async function main(): Promise<void> {
       scoreDocset,
       exits,
       exitsDocset,
-    } = results
+    ] = await Promise.all([
+      options.views
+        ? getViews(queryPaths, client, dates, version, options.verbose, 'views')
+        : undefined,
+      options.views && options.showDocset
+        ? getViews(docsetPath, client, dates, version, options.verbose, 'docset views')
+        : undefined,
+      options.users
+        ? getUsers(queryPaths, client, dates, version, options.verbose, 'users')
+        : undefined,
+      options.users && options.showDocset
+        ? getUsers(docsetPath, client, dates, version, options.verbose, 'docset users')
+        : undefined,
+      options.viewDuration
+        ? getViewDuration(queryPaths, client, dates, version, options.verbose, 'view duration')
+        : undefined,
+      options.viewDuration && options.showDocset
+        ? getViewDuration(
+            docsetPath,
+            client,
+            dates,
+            version,
+            options.verbose,
+            'docset view duration',
+          )
+        : undefined,
+      options.bounces
+        ? getBounces(queryPaths, client, dates, version, options.verbose, 'bounces')
+        : undefined,
+      options.bounces && options.showDocset
+        ? getBounces(docsetPath, client, dates, version, options.verbose, 'docset bounces')
+        : undefined,
+      options.score
+        ? getScore(queryPaths, client, dates, version, options.verbose, 'score')
+        : undefined,
+      options.score && options.showDocset
+        ? getScore(docsetPath, client, dates, version, options.verbose, 'docset score')
+        : undefined,
+      options.exits
+        ? getExitsToSupport(queryPaths, client, dates, version, options.verbose, 'exits')
+        : undefined,
+      options.exits && options.showDocset
+        ? getExitsToSupport(docsetPath, client, dates, version, options.verbose, 'docset exits')
+        : undefined,
+    ])
+
+    if (spinner) spinner.succeed('Data retrieved successfully!\n')
 
     // Output JSON and exit
     if (options.json) {
@@ -487,24 +415,57 @@ async function main(): Promise<void> {
 
     console.log(green('-------------------------------------------'))
   } catch (error) {
-    spinner.fail('Error getting data')
-    console.error(red('Error details:'))
-    console.error(error)
+    if (spinner) spinner.fail('Error getting data')
+
+    if (options.json) {
+      // Output error in JSON format for consistent parsing
+      console.log(
+        JSON.stringify(
+          {
+            error: true,
+            message: 'Error getting data',
+            details: error instanceof Error ? error.message : String(error),
+          },
+          null,
+          2,
+        ),
+      )
+    } else {
+      console.error(red('Error details:'))
+      console.error(error)
+    }
   }
 }
 
-main().catch((error) => {
-  console.error(red('Unexpected error:'))
-  console.error(error)
+try {
+  await main()
+} catch (error) {
+  if (options.json) {
+    // Output error in JSON format for consistent parsing
+    console.log(
+      JSON.stringify(
+        {
+          error: true,
+          message: 'Unexpected error',
+          details: error instanceof Error ? error.message : String(error),
+        },
+        null,
+        2,
+      ),
+    )
+  } else {
+    console.error(red('Unexpected error:'))
+    console.error(error)
+  }
   process.exit(1)
-})
+}
 
 /* -------- UTILITY FUNCTIONS -------- */
 
 // Given input: https://docs.github.com/en/copilot/managing-copilot/
 // Use: copilot/managing-copilot
-function getCleanPath(providedPath: string): string {
-  let clean = providedPath
+function getCleanPath(inputPath: string): string {
+  let clean = inputPath
   const cleanArr = clean.split('?') // remove query params
   if (cleanArr.length > 1) cleanArr.pop()
   clean = cleanArr.join('/')
@@ -522,29 +483,29 @@ function getCleanPath(providedPath: string): string {
   return clean
 }
 
-function getVersion(cleanPath: string): string {
-  const pathParts = cleanPath.split('/')
-  const version = ENTERPRISE_REGEX.test(pathParts[0]) ? pathParts[0] : FREE_PRO_TEAM
-  return version
+function getVersion(pathToCheck: string): string {
+  const pathParts = pathToCheck.split('/')
+  const versionString = ENTERPRISE_REGEX.test(pathParts[0]) ? pathParts[0] : FREE_PRO_TEAM
+  return versionString
 }
 
-function removeVersionSegment(cleanPath: string, version: string): string {
-  if (version === FREE_PRO_TEAM) return cleanPath
-  const pathParts = cleanPath.split('/')
+function removeVersionSegment(pathToProcess: string, versionString: string): string {
+  if (versionString === FREE_PRO_TEAM) return pathToProcess
+  const pathParts = pathToProcess.split('/')
   pathParts.shift()
   if (!pathParts.length) return 'index'
   return pathParts.join('/')
 }
 
 // Try to find the path in the list of valid pages at https://docs.github.com/api/pagelist/en
-async function validatePath(cleanPath: string, version: string): Promise<void> {
+async function validatePath(pathToValidate: string, versionToValidate: string): Promise<void> {
   // Only Kusto uses 'index' for the homepage; the Docs API uses '/en'
-  const basePath = cleanPath === 'index' ? '' : cleanPath
+  const basePath = pathToValidate === 'index' ? '' : pathToValidate
 
   const pathToCheck =
-    version === FREE_PRO_TEAM
+    versionToValidate === FREE_PRO_TEAM
       ? path.join('/', 'en', basePath)
-      : path.join('/', 'en', version, basePath)
+      : path.join('/', 'en', versionToValidate, basePath)
 
   let data: string
   try {

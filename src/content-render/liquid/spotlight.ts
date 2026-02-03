@@ -53,7 +53,7 @@ export const Spotlight = {
     stream.start()
   },
 
-  render: function* (scope: Record<string, unknown>): Generator<unknown, unknown, unknown> {
+  *render(scope: Record<string, unknown>): Generator<unknown, unknown, unknown> {
     const output = yield this.liquid!.renderer.renderTemplates(this.templates, scope)
 
     return yield this.liquid!.parseAndRender(template, {

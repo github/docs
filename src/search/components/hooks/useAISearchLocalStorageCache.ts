@@ -93,9 +93,9 @@ export function useAISearchLocalStorageCache<T = any>(
         index.sort((a, b) => a.timestamp - b.timestamp)
         const excess = index.length - maxEntries
         const entriesToRemove = index.slice(0, excess)
-        entriesToRemove.forEach((entry) => {
+        for (const entry of entriesToRemove) {
           localStorage.removeItem(entry.key)
-        })
+        }
         index = index.slice(excess)
       }
 

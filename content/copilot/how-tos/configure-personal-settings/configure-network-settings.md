@@ -12,6 +12,8 @@ redirect_from:
   - /copilot/how-tos/personal-settings/configuring-network-settings-for-github-copilot
   - /copilot/how-tos/personal-settings/configure-network-settings
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 {% visualstudio %}

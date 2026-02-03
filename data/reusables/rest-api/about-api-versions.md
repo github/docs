@@ -1,6 +1,6 @@
 The {% data variables.product.github %} REST API is versioned. The API version name is based on the date when the API version was released. For example, the API version `{{ initialRestVersioningReleaseDate }}` was released on {{ initialRestVersioningReleaseDateLong }}.
 
-Any breaking changes will be released in a new API version. Breaking changes are changes that can potentially break an integration. Breaking changes include:
+Breaking changes are changes that can potentially break an integration. We will provide advance notice before releasing breaking changes. Breaking changes include:
 
 * Removing an entire operation
 * Removing or renaming a parameter

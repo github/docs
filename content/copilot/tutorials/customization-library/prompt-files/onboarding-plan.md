@@ -6,6 +6,7 @@ versions:
 category:
   - Prompt files
   - Team collaboration
+  - Configure Copilot
 complexity:
   - Simple
 octicon: copilot
@@ -20,7 +21,7 @@ contentType: tutorials
 
 ```text copy
 ---
-mode: 'agent'
+agent: 'agent'
 description: 'Help new team members onboard with a phased plan and suggestions for first tasks.'
 ---
 

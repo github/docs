@@ -24,6 +24,19 @@
   box-shadow:
     0 0.0625rem 0.1875rem 0 rgba(31, 35, 40, 0.08),
     0 0.0625rem 0 0 rgba(31, 35, 40, 0.06);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  text-decoration: none !important;
+  color: inherit;
+
+  &:hover {
+    box-shadow:
+      0 0.25rem 0.5rem 0 rgba(31, 35, 40, 0.12),
+      0 0.125rem 0.25rem 0 rgba(31, 35, 40, 0.08);
+    transform: translateY(-2px);
+    background-color: var(--bgColor-muted, var(--color-canvas-subtle));
+    text-decoration: none !important;
+  }
 }
 
 .cardHeader {
@@ -40,10 +53,6 @@
 .cardTitleLink {
   color: var(--fgColor-accent);
   text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 .cardIntro {
@@ -51,6 +60,7 @@
   color: var(--fgColor-muted);
   font-size: 0.9rem;
   line-height: 1.4;
+  text-decoration: none !important;
 }
 
 .tagsContainer {
@@ -144,6 +154,10 @@
 .searchContainer {
   margin-left: 0;
   width: auto;
+
+  input {
+    font-size: 1rem;
+  }
 
   // Medium screens: flexible width with spacing
   @include breakpoint(md) {

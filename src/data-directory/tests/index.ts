@@ -20,7 +20,7 @@ describe('data-directory', () => {
   })
 
   test('option: preprocess function', async () => {
-    const preprocess = function (content: string) {
+    function preprocess(content: string) {
       return content.replace('markdown', 'MARKDOWN')
     }
     const data = dataDirectory(fixturesDir, { preprocess })

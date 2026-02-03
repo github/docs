@@ -2,7 +2,7 @@ import { program, Option, Command, InvalidArgumentError } from 'commander'
 import { errors } from '@elastic/elasticsearch'
 import dotenv from 'dotenv'
 
-import { languageKeys } from '@/languages/lib/languages'
+import { languageKeys } from '@/languages/lib/languages-server'
 
 import { indexGeneralSearch } from './lib/index-general-search'
 import {

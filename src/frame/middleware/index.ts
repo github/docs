@@ -35,6 +35,7 @@ import robots from './robots'
 import earlyAccessLinks from '@/early-access/middleware/early-access-links'
 import categoriesForSupport from './categories-for-support'
 import triggerError from '@/observability/middleware/trigger-error'
+import dataTables from '@/data-directory/middleware/data-tables'
 import secretScanning from '@/secret-scanning/middleware/secret-scanning'
 import ghesReleaseNotes from '@/release-notes/middleware/ghes-release-notes'
 import whatsNewChangelog from './context/whats-new-changelog'
@@ -43,7 +44,7 @@ import currentProductTree from './context/current-product-tree'
 import genericToc from './context/generic-toc'
 import breadcrumbs from './context/breadcrumbs'
 import glossaries from './context/glossaries'
-import resolveRecommended from './resolve-recommended'
+import resolveCarousels from './resolve-carousels'
 import renderProductName from './context/render-product-name'
 import features from '@/versions/middleware/features'
 import productExamples from './context/product-examples'
@@ -77,11 +78,19 @@ const ENABLE_FASTLY_TESTING = JSON.parse(process.env.ENABLE_FASTLY_TESTING || 'f
 
 // Catch unhandled promise rejections and passing them to Express's error handler
 // https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016
-const asyncMiddleware = (fn: Function) => (req: Request, res: Response, next: NextFunction) => {
-  Promise.resolve(fn(req, res, next)).catch(next)
-}
+const asyncMiddleware =
+  <TReq extends Request = Request, T = void>(
+    fn: (req: TReq, res: Response, next: NextFunction) => T | Promise<T>,
+  ) =>
+  async (req: Request, res: Response, nextFn: NextFunction) => {
+    try {
+      await fn(req as TReq, res, nextFn)
+    } catch (error) {
+      nextFn(error)
+    }
+  }
 
-export default function (app: Express) {
+export default function index(app: Express) {
   // *** Request connection management ***
   if (!isTest) app.use(timeout(MAX_REQUEST_TIMEOUT))
   app.use(abort)
@@ -256,6 +265,7 @@ export default function (app: Express) {
   app.head('/*path', fastHead)
 
   // *** Preparation for render-page: contextualizers ***
+  app.use(asyncMiddleware(dataTables))
   app.use(asyncMiddleware(secretScanning))
   app.use(asyncMiddleware(ghesReleaseNotes))
   app.use(asyncMiddleware(whatsNewChangelog))
@@ -269,7 +279,7 @@ export default function (app: Express) {
   app.use(asyncMiddleware(glossaries))
   app.use(asyncMiddleware(generalSearchMiddleware))
   app.use(asyncMiddleware(featuredLinks))
-  app.use(asyncMiddleware(resolveRecommended))
+  app.use(asyncMiddleware(resolveCarousels))
   app.use(asyncMiddleware(learningTrack))
   app.use(asyncMiddleware(journeyTrack))
 

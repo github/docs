@@ -6,7 +6,6 @@ import { latest } from '@/versions/lib/enterprise-server-releases'
 import schema from '@/tests/helpers/schemas/versions-schema'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { formatAjvErrors } from '@/tests/helpers/schemas'
-import type { Version } from '@/types'
 
 const validate = getJsonValidator(schema)
 
@@ -17,7 +16,7 @@ describe('versions module', () => {
   })
 
   test('every version is valid', () => {
-    Object.values(allVersions).forEach((versionObj: Version) => {
+    for (const versionObj of Object.values(allVersions)) {
       const versionName = versionObj.version
       const isValid = validate(versionObj)
       let errors: string | undefined
@@ -27,11 +26,11 @@ describe('versions module', () => {
       }
 
       expect(isValid, errors).toBe(true)
-    })
+    }
   })
 
   test('check REST api calendar date versioned versions set to correct latestApiVersion', () => {
-    Object.values(allVersions).forEach((versionObj: Version) => {
+    for (const versionObj of Object.values(allVersions)) {
       if (versionObj.apiVersions.length > 0) {
         const latestApiVersion = versionObj.latestApiVersion
         const apiVersions = versionObj.apiVersions
@@ -42,6 +41,6 @@ describe('versions module', () => {
           expect(latestApiDate).toBeGreaterThanOrEqual(new Date(version).getTime())
         }
       }
-    })
+    }
   })
 })

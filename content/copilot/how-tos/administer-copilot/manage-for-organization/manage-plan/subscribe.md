@@ -18,6 +18,8 @@ redirect_from:
   - /copilot/how-tos/administer/organizations/manage-plan/subscribe
   - /copilot/how-tos/administer/manage-for-organization/manage-plan/subscribe
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 {% ifversion ghec %}

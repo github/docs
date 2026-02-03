@@ -1,6 +1,6 @@
 ---
 title: Creating a support model for your enterprise
-intro: 'Learn about {% data variables.product.github %} support and how to set up a support model for your enterprise.'
+intro: 'Discover {% data variables.product.github %} support and set up a support model for your enterprise.'
 allowTitleToDifferFromFilename: true
 versions:
   ghec: '*'

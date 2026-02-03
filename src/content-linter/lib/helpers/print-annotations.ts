@@ -8,7 +8,10 @@
 export function printAnnotationResults(
   // Using 'any' type as results structure is dynamic and comes from various linting tools with different formats
   results: any,
-  { skippableRules = [], skippableFlawProperties = [] } = {},
+  {
+    skippableRules = [],
+    skippableFlawProperties = [],
+  }: { skippableRules?: string[]; skippableFlawProperties?: string[] } = {},
 ) {
   for (const [file, flaws] of Object.entries(results)) {
     // Using 'any' type for flaws as they have varying structures depending on the linting rule

@@ -102,5 +102,7 @@ function updateFeatureData() {
   }
 
   console.log('Feature files with all versions: ')
-  allFeatureFiles.forEach((file) => console.log(file))
+  for (const file of allFeatureFiles) {
+    console.log(file)
+  }
 }

@@ -11,6 +11,7 @@ versions:
   feature: copilot
 category:
   - Refactoring code
+  - Author and optimize with Copilot
 complexity:
   - Advanced
 octicon: rocket

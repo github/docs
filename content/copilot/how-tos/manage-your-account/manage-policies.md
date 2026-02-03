@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber
   - /copilot/how-tos/manage-your-account/managing-copilot-policies-as-an-individual-subscriber
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 ## About {% data variables.product.prodname_copilot %} settings on {% data variables.product.github %}

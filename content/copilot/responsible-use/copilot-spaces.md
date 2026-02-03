@@ -7,6 +7,8 @@ versions:
 topics:
   - Copilot
 contentType: rai
+category: 
+  - Responsible use
 ---
 
 ## About GitHub Copilot Spaces

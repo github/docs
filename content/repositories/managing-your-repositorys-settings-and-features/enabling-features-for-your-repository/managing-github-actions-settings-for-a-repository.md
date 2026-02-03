@@ -178,6 +178,27 @@ You can use the steps below to configure whether actions and reusable workflows 
 1. Click **Save** to apply the settings.
 {% endif %}
 
+{% ifversion fpt or ghec %}
+
+## Configuring cache settings for your repository
+
+You can configure cache retention and size settings for your repository. This feature is opt-in and available to users with a payment method on file, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %} plans.
+
+If your repository is owned by an organization that has configured cache settings, you can configure limits up to the maximum set by the organization. If your repository is user-owned, you can configure up to the global maximums.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.settings-sidebar-actions-general %}
+
+1. In the "Cache settings" section, configure the following settings:
+   * **Cache retention**: The number of days to retain caches before automatic deletion. The default is 7 days. You can configure up to 90 days for public repositories or 365 days for private and internal repositories (or up to the limit set by your organization).
+   * **Cache size eviction limit**: The maximum total size of all caches in your repository. The default is 10 GB. You can configure up to 10,000 GB per repository (or up to the limit set by your organization). When this limit is exceeded, older caches will be evicted to make room for new caches.
+1. Click **Save** to apply the settings.
+
+For more information about cache eviction, see [AUTOTITLE](/actions/reference/workflows-and-actions/dependency-caching#usage-limits-and-eviction-policy).
+
+{% endif %}
+
 ## Configuring the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository
 
 You can configure the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository.
@@ -186,7 +207,7 @@ You can configure the retention period for {% data variables.product.prodname_ac
 
 You can also define a custom retention period for a specific artifact created by a workflow. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact).
 
-## Setting the retention period for a repository
+## Setting the Artifact and Log retention period for a repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

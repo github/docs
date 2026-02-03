@@ -10,6 +10,8 @@ topics:
 contentType: concepts
 redirect_from:
   - /copilot/concepts/coding-agent/mcp-and-coding-agent
+category: 
+  - Integrate Copilot with your tools
 ---
 
 ## Overview
@@ -20,9 +22,7 @@ The agent can use tools provided by local and remote MCP servers. Some MCP serve
 
 For more information on MCP, see [the official MCP documentation](https://modelcontextprotocol.io/introduction). For information on some of the currently available MCP servers, see [the MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
 
-> [!NOTE]
-> * {% data variables.copilot.copilot_coding_agent %} only supports tools provided by MCP servers. It does not support resources or prompts.
-> * {% data variables.copilot.copilot_coding_agent %} does not currently support remote MCP servers that leverage OAuth for authentication and authorization.
+{% data reusables.copilot.mcp.coding-agent-limitations %}
 
 ## Default MCP servers
 
@@ -43,6 +43,14 @@ Once MCP servers are configured for use within a repository, the tools specified
 {% data variables.product.prodname_copilot_short %} will use available tools autonomously, and will not ask for approval before use.
 
 For details of how to set up MCP servers for {% data variables.copilot.copilot_coding_agent %} in a repository, see [AUTOTITLE](/copilot/how-tos/agents/copilot-coding-agent/extending-copilot-coding-agent-with-mcp).
+
+## MCP servers for {% data variables.copilot.custom_agents_short %}
+
+Organization and enterprise administrators can also configure MCP servers as part of {% data variables.copilot.custom_agents_short %}.
+
+MCP servers configured in {% data variables.copilot.custom_agents_short %} are available only to that specific agent and follow the same processing order as other MCP configurations, with {% data variables.copilot.copilot_custom_agent_short %} MCP settings processed after default servers but before repository-level configurations.
+
+For more information on configuring MCP servers for {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/reference/custom-agents-configuration#mcp-server-configuration-details).
 
 ## Best practices
 

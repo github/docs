@@ -20,9 +20,11 @@ versions:
 
 ## {% data variables.product.prodname_github_apps %}
 
-Organization owners can install {% data variables.product.prodname_github_apps %} on their organization. Repository admins can also install a {% data variables.product.prodname_github_app %} on the organization if the app does not request organization resources and if they only grant the app access to repositories where they are an admin. Organization members can submit a request for their organization owner to install a {% data variables.product.prodname_github_app %} on the organization. For more information, see {% ifversion fpt or ghec %}[AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-organization).{% else %}[AUTOTITLE](/apps/maintaining-github-apps/installing-github-apps).{% endif %}
+Organization owners can install {% data variables.product.prodname_github_apps %} on their organization. Repository admins can also install a {% data variables.product.prodname_github_app %} on the organization if the app does not request organization resources and if they only grant the app access to repositories where they are an admin. Organization members and outside collaborators can submit a request for their organization owner to install a {% data variables.product.prodname_github_app %} on the organization. For more information, see {% ifversion fpt or ghec %}[AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-organization).{% else %}[AUTOTITLE](/apps/maintaining-github-apps/installing-github-apps).{% endif %}
 
-Organization owners can prevent outside collaborators from requesting {% data variables.product.prodname_github_apps %} or from installing a {% data variables.product.prodname_github_app %} even if the collaborator is a repository admin. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests).
+{% ifversion fpt or ghec or ghes > 3.19 %}Organization owners can restrict {% data variables.product.prodname_github_app %} installation to only organization owners. When this restriction is enabled, repository admins cannot install {% data variables.product.prodname_github_apps %} for their repositories and must instead use the request flow to ask organization owners to install apps.{% endif %}
+
+Organization owners can prevent users from requesting {% data variables.product.prodname_github_apps %} or from installing a {% data variables.product.prodname_github_app %} even if they are a repository admin. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests).
 
 Organization owners can review the {% data variables.product.prodname_github_apps %} that are installed on their organization and modify the repositories that each app can access. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/reviewing-github-apps-installed-in-your-organization).
 
@@ -32,7 +34,7 @@ To help maintain {% data variables.product.prodname_github_apps %} owned by thei
 
 ## {% data variables.product.prodname_oauth_apps %}
 
-Organization managers can restrict {% data variables.product.prodname_oauth_apps %} from accessing organization resources. When these restrictions are enabled, organization members and outside collaborators can still request approval for individual {% data variables.product.prodname_oauth_apps %}. For more information, see [AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions).
+Organization managers must approve {% data variables.product.prodname_oauth_apps %} that users would like to use in their organization. When this requirement is enabled, organization members and outside collaborators must request approval for individual {% data variables.product.prodname_oauth_apps %}. For more information, see [AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions) and [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests).
 
 {% endif %}
 

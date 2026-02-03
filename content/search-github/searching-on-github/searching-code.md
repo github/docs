@@ -36,8 +36,8 @@ Due to the complexity of searching code, there are some restrictions on how sear
 
 * {% data reusables.search.required_login %}
 * Code in [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) is only searchable if the fork has more stars than the parent repository, and the forked repository has at least one pushed commit after being created. Forks with fewer stars than the parent repository or no commits are **not** indexed for code search. To include forks with more stars than their parent and at least one pushed commit in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see [AUTOTITLE](/search-github/searching-on-github/searching-in-forks).
-* Only the _default branch_ is indexed for code search.{% ifversion fpt or ghec %}
-* Only files smaller than 384 KB are searchable.{% else %}* Only files smaller than 5 MB are searchable.
+* Only the _default branch_ is indexed for code search.
+* Only files smaller than {% ifversion fpt or ghec %}384 KB are searchable.{% else %}5 MB are searchable.
 * Only the first 500 KB of each file is searchable.{% endif %}
 * Up to 4,000 private{% ifversion ghec or ghes %} and internal{% endif %} repositories are searchable. These 4,000 repositories will be the most recently updated of the first 10,000 private{% ifversion ghec or ghes %} and internal{% endif %} repositories that you have access to.
 * Only repositories with fewer than 500,000 files are searchable.{% ifversion fpt or ghec %}

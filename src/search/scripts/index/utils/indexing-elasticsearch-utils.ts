@@ -64,11 +64,11 @@ export async function populateIndex(
     {
       attempts,
       sleepTime,
-      onError: (_, attempts, sleepTime) => {
+      onError: (_, remainingAttempts, sleepMs) => {
         console.warn(
           chalk.yellow(
-            `Failed to bulk index ${indexName}. Will attempt ${attempts} more times (after ${
-              sleepTime / 1000
+            `Failed to bulk index ${indexName}. Will attempt ${remainingAttempts} more times (after ${
+              sleepMs / 1000
             }s sleep).`,
           ),
         )
@@ -76,8 +76,8 @@ export async function populateIndex(
     },
   )
 
-  if (bulkResponse.errors) {
-    console.error(`Bulk response errors: ${bulkResponse.errors}`)
+  if (bulkResponse.failed > 0) {
+    console.error(`Bulk response failed: ${bulkResponse.failed} documents failed`)
     throw new Error('Bulk errors happened.')
   }
   const t1 = new Date()
@@ -140,7 +140,7 @@ export async function updateAlias(
   )
 
   for (const index of indices) {
-    if (index.index !== indexAlias && index.index.startsWith(indexName)) {
+    if (index.index && index.index !== indexAlias && index.index.startsWith(indexName)) {
       aliasUpdates.push({ remove_index: { index: index.index } })
       console.log('Deleting old index', index.index)
     }

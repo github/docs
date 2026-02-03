@@ -52,7 +52,7 @@ describe('featuredLinks', () => {
       expect(columns.length).toBe(2)
       for (const column of columns) {
         const $featuredLinks = $('a', column)
-        // See MAX_FEATURED_LINKS constant in featured-links.js middleware
+        // See MAX_FEATURED_LINKS constant in featured-links.ts middleware
         expect($featuredLinks.length).toBeLessThanOrEqual(4)
       }
     },

@@ -1,7 +1,7 @@
 ---
 title: 'Understanding enterprise support'
 shortTitle: Understand enterprise support
-intro: 'Learn about the various {% data variables.contact.github_support %} offerings available to you.'
+intro: 'Explore the various {% data variables.contact.github_support %} offerings available to you.'
 versions:
   ghec: '*'
 allowTitleToDifferFromFilename: true
@@ -28,7 +28,7 @@ Standard {% data variables.contact.github_support %} is provided as part of your
 
 * Escalation management: Dedicated escalation management ensures that complex issues are addressed promptly and efficiently, with a clear path for escalating critical incidents.
 
-* Early access to new features: Participation in beta programs and early access to new features allows you to stay ahead of the curve with the latest {% data variables.product.github %} innovations.
+* Early access to new features: Participation in {% data variables.release-phases.preview %} programs and early access to new features allows you to stay ahead of the curve with the latest {% data variables.product.github %} innovations.
 
 There are two support plans available with {% data variables.contact.premium_support %}:
 

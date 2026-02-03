@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/how-tos/use-chat/use-chat-in-windows-terminal
   - /copilot/how-tos/chat-with-copilot/use-chat-in-windows-terminal
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 ## Prerequisites

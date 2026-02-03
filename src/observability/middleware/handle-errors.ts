@@ -1,6 +1,7 @@
-import type { NextFunction, Response, ErrorRequestHandler } from 'express'
+import type { NextFunction, Response } from 'express'
 
 import FailBot from '../lib/failbot'
+import { shouldLogException, type ErrorWithCode } from '../lib/should-log-exception'
 import { nextApp } from '@/frame/middleware/next'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 import { errorCacheControl } from '@/frame/middleware/cache-control'
@@ -8,26 +9,6 @@ import statsd from '@/observability/lib/statsd'
 import { ExtendedRequest } from '@/types'
 
 const DEBUG_MIDDLEWARE_TESTS = Boolean(JSON.parse(process.env.DEBUG_MIDDLEWARE_TESTS || 'false'))
-
-type ErrorWithCode = Error & {
-  code: string
-  statusCode?: number
-  status?: string
-}
-
-function shouldLogException(error: ErrorWithCode) {
-  const IGNORED_ERRORS = [
-    // Client connected aborted
-    'ECONNRESET',
-  ]
-
-  if (IGNORED_ERRORS.includes(error.code)) {
-    return false
-  }
-
-  // We should log this exception
-  return true
-}
 
 async function logException(error: ErrorWithCode, req: ExtendedRequest) {
   if (process.env.NODE_ENV !== 'test' && shouldLogException(error)) {
@@ -50,7 +31,7 @@ function timedOut(req: ExtendedRequest) {
   statsd.increment('middleware.timeout', 1, incrementTags)
 }
 
-const handleError: ErrorRequestHandler = async function handleError(
+async function handleError(
   error: ErrorWithCode | number,
   req: ExtendedRequest,
   res: Response,
@@ -141,9 +122,9 @@ const handleError: ErrorRequestHandler = async function handleError(
       // Report to Failbot AFTER responding to the user
       await logException(error, req)
     }
-  } catch (error) {
-    console.error('An error occurred in the error handling middleware!', error)
-    next(error)
+  } catch (handlingError) {
+    console.error('An error occurred in the error handling middleware!', handlingError)
+    next(handlingError)
     return
   }
 }

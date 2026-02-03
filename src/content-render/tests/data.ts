@@ -1,12 +1,12 @@
 import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
 import Page from '@/frame/lib/page'
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { DataDirectory } from '@/tests/helpers/data-directory'
 
 describe('data tag', () => {
-  // Using 'any' type as DataDirectory is from data-directory.js which lacks type definitions
+  // Using 'any' type as DataDirectory is from data-directory.ts which lacks type definitions
   let dd: any
   const enDirBefore = languages.en.dir
 

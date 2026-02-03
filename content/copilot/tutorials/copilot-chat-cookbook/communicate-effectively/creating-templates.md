@@ -6,6 +6,7 @@ versions:
   feature: copilot
 category:
   - Communicate effectively
+  - Author and optimize with Copilot
 complexity:
   - Simple
 octicon: copilot

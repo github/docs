@@ -43,8 +43,9 @@ topics:
     * You can create a _.gitignore_ file, which is a set of ignore rules. For more information, see [AUTOTITLE](/get-started/git-basics/ignoring-files).{% ifversion fpt or ghec %}
     * You can choose to add a software license for your project. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository).{% endif %}
 {% data reusables.repositories.select-marketplace-apps %}
-{% data reusables.repositories.create-repo %}
 {% ifversion fpt or ghec %}
+1. Optionally, if you have access to {% data variables.copilot.copilot_coding_agent %}, enter a prompt for {% data variables.product.prodname_copilot_short %} to use to populate your repository. After the repository is created, {% data variables.product.prodname_copilot_short %} will open a draft pull request, write the code requested, then request review from you. For more information, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-coding-agent).
+{% data reusables.repositories.create-repo %}
 1. At the bottom of the resulting Quick Setup page, under "Import code from an old repository", you can choose to import a project to your new repository. To do so, click **Import code**.
 {% endif %}
 

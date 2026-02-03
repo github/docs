@@ -1,0 +1,2 @@
+> [!NOTE]
+> {% data variables.product.prodname_copilot_short %} usage metrics reflect activity in supported IDEs only. Usage in {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_mobile %}, {% data variables.copilot.copilot_code-review_short %}, or {% data variables.copilot.copilot_cli_short %} is not included in dashboard data.

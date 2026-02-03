@@ -75,7 +75,7 @@ export function shouldShowExperiment(
 // Allow developers to override their experiment group for the current session
 export const controlGroupOverride = {} as { [key in ExperimentNames]: 'treatment' | 'control' }
 if (typeof window !== 'undefined') {
-  // @ts-expect-error
+  // @ts-expect-error globally available function
   window.overrideControlGroup = (
     experimentKey: ExperimentNames,
     controlGroup: 'treatment' | 'control',

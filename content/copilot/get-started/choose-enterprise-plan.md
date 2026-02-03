@@ -12,6 +12,8 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/planning-your-rollout/choosing-your-enterprises-plan-for-github-copilot
   - /copilot/get-started/choosing-your-enterprises-plan-for-github-copilot
 contentType: get-started
+category: 
+  - Manage Copilot for a team
 ---
 
 ## Introduction
@@ -35,7 +37,7 @@ This article explains the available plans and provides examples for how {% data 
 * **{% data variables.copilot.copilot_business_short %}** ({% data variables.copilot.cfb_price_per_month %} per user per month): includes most {% data variables.product.prodname_copilot_short %} features in IDEs and on the {% data variables.product.github %} website.
 * **{% data variables.copilot.copilot_enterprise_short %}** ({% data variables.copilot.ce_price_per_month %} per user per month): includes a higher allowance for premium requests, and often allows earlier access to new features and models.
 
-For a full comparison, see our [plans page](https://github.com/features/copilot/plans).
+For a full comparison, see our [plans page](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text).
 
 Premium requests are used by more advanced {% data variables.product.prodname_copilot_short %} features and models, including AI agents. By giving members access to more premium requests, you can scale your company with AI agents and drive real business outcomes, such as reducing your backlog, accelerating pull requests, or increasing code quality with suggestions from more specialized models.
 
@@ -71,7 +73,7 @@ When you've determined whether premium requests and {% data variables.copilot.co
 
 Sign up:
 
-<a href="https://github.com/github-copilot/purchase?priority=business&cft=copilot_li.copilot_plans.cfb" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Copilot Business</span></a>  <a href="https://github.com/github-copilot/purchase?priority=enterprise&cft=copilot_li.copilot_plans.ce" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Copilot Enterprise</span></a>
+<a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=purchase&ref_style=button&ref_plan=business" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Copilot Business</span></a>  <a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=purchase&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Copilot Enterprise</span></a>
 
 {% endnote %}
 

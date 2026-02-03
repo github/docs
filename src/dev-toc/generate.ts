@@ -1,5 +1,6 @@
 /**
- * Development tool that generates a local Table of Contents (TOC) for the GitHub Docs website.
+ * @purpose Writer tool
+ * @description Generate a local table of contents for the GitHub Docs website
  *
  * This script creates static HTML files for each documentation version, renders page titles
  * using Liquid templating, and opens the generated TOC in your browser for easy navigation

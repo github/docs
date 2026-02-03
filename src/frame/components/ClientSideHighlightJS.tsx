@@ -49,9 +49,10 @@ export default function ClientSideHighlightJS() {
         }
       }
     })
-    for (const parent of Array.from(
+    const codeElementParents = Array.from(
       document.querySelectorAll<HTMLElement>(CODE_ELEMENTS_PARENT_SELECTOR),
-    )) {
+    )
+    for (const parent of codeElementParents) {
       const language = parent.dataset.highlight || 'json'
       if (!SUPPORTED_LANGUAGES.includes(language)) {
         if (process.env.NODE_ENV === 'development') {

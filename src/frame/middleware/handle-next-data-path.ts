@@ -30,7 +30,7 @@ export default function handleNextDataPath(
     if (parts[1] === 'free-pro-team@latest') {
       parts.splice(1, 1)
     }
-    req.pagePath = '/' + parts.join('/').replace(/.json+$/, '')
+    req.pagePath = `/${parts.join('/').replace(/.json+$/, '')}`
   } else {
     req.pagePath = req.path
   }

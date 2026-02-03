@@ -39,7 +39,7 @@ Prerequisites for repository transfers:
 * To transfer a repository that you own to an organization, you must have permission to create a repository in the target organization.
 * The target account must not have a repository with the same name, or a fork in the same network.
 * The original owner of the repository is added as a collaborator on the transferred repository. Other collaborators to the transferred repository remain intact.
-* Single repositories forked from a private upstream network cannot be transferred.
+* Single repositories forked from a private {%- ifversion ghec %} or internal {%- endif %} upstream network cannot be transferred.
 {%- ifversion ghec %}
 * Internal repositories can only be transferred to an organization in the enterprise. You cannot transfer an internal repository from an organization owned by one enterprise account to an organization owned by a different enterprise account.
 {%- endif %}

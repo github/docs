@@ -51,7 +51,10 @@ contentType: concepts
 
 ## How use of {% data variables.large_files.product_name_short %} is measured
 
-Each {% data variables.product.github %} account receives a quota of free bandwidth and storage for {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). Any usage beyond the included amounts is billed to your account. Bandwidth resets every month, while storage usage does not.
+Each {% data variables.product.github %} account receives a quota of free bandwidth and storage for {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). Any usage beyond the included amounts is billed to your account. 
+
+* **Bandwidth:** Your free quota resets at the start of each billing cycle. 
+* **Storage:** Charges accrue continuously throughout the month based on hourly usage. Your accrued storage total resets to zero at the begining of each billing cycle.
 
 Working in a public or private repository with {% data variables.large_files.product_name_short %}:
 
@@ -86,7 +89,7 @@ The following amounts of storage and bandwidth for downloads are included in you
 | {% data variables.product.prodname_pro %} | {% data variables.large_files.included_bandwidth_free_pro %} | {% data variables.large_files.included_storage_free_pro %} |
 | {% data variables.product.prodname_free_team %} for organizations | {% data variables.large_files.included_bandwidth_free_pro %} | {% data variables.large_files.included_storage_free_pro %} |
 | {% data variables.product.prodname_team %} | {% data variables.large_files.included_bandwidth_team_enterprise %} | {% data variables.large_files.included_storage_team_enterprise %} |
-| {% data variables.product.prodname_ghe_cloud %} | {% data variables.large_files.included_bandwidth_team_enterprise %} | {% data variables.large_files.included_storage_team_enterprise %} |
+|{% data variables.product.prodname_ghe_cloud %} | {% data variables.large_files.included_bandwidth_team_enterprise %} | {% data variables.large_files.included_storage_team_enterprise %} |
 
 ## Using more than your included quota
 

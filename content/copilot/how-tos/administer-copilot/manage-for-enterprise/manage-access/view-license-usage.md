@@ -18,6 +18,8 @@ redirect_from:
   - /copilot/how-tos/administer/enterprises/manage-access/view-license-usage
   - /copilot/how-tos/administer/manage-for-enterprise/manage-access/view-license-usage
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 If you have a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, you can view usage information for {% data variables.product.prodname_copilot_short %} in your enterprise. This information includes the number of seats assigned and the total spending for the current billing cycle.

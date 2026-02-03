@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/get-started/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise
   - /copilot/how-tos/set-up/setting-up-github-copilot-for-your-enterprise
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 ## 1. Enable {% data variables.product.prodname_copilot %} in your Enterprise through payment verification

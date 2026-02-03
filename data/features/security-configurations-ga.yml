@@ -1,6 +1,0 @@
-# Reference: #13288
-# Documentation for security configurations and global settings.
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>3.14'

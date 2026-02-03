@@ -38,17 +38,9 @@ Organization members can have _owner_{% ifversion fpt or ghec %}, _billing manag
 
 ## Enterprise accounts
 
-{% ifversion fpt %}
-{% data reusables.gated-features.enterprise-accounts %}
+Enterprise accounts have a range of predefined roles that define users' access to the enterprise settings. You can also create custom enterprise roles to define your own sets of fine-grained permissions.
 
-For more information about permissions for enterprise accounts, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/get-started/learning-about-github/access-permissions-on-github).
-{% else %}
-_Enterprise owners_ have ultimate power over the enterprise account and can take every action in the enterprise account. _Billing managers_ can manage your enterprise account's billing settings. Members and outside collaborators of organizations owned by your enterprise account are automatically members of the enterprise account, although they have no access to the enterprise account itself or its settings. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise).
-
-{% ifversion ghec %}
-If an enterprise uses {% data variables.product.prodname_emus %}, members are provisioned as new personal accounts on {% data variables.product.github %} and are fully managed by the identity provider. The {% data variables.enterprise.prodname_managed_users %} have read-only access to repositories that are not a part of their enterprise and cannot interact with users that are not also members of the enterprise. Within the organizations owned by the enterprise, the {% data variables.enterprise.prodname_managed_users %} can be granted the same granular access levels available for regular organizations. For more information, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users).
-{% endif %}
-{% endif %}
+For more information, see {% ifversion fpt %}[AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/abilities-of-roles) in the {% data variables.product.prodname_ghe_cloud %} documentation{% else %}[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/abilities-of-roles){% endif %}.
 
 ## Further reading
 

@@ -7,8 +7,6 @@ import { DefaultLayout } from '@/frame/components/DefaultLayout'
 import { ArticleTitle } from '@/frame/components/article/ArticleTitle'
 import { useArticleContext } from '@/frame/components/context/ArticleContext'
 import { LearningTrackNav } from '@/learning-track/components/article/LearningTrackNav'
-import { JourneyTrackNav } from '@/journeys/components/JourneyTrackNav'
-import { JourneyTrackCard } from '@/journeys/components/JourneyTrackCard'
 import { MarkdownContent } from '@/frame/components/ui/MarkdownContent'
 import { Lead } from '@/frame/components/ui/Lead'
 import { PermissionsStatement } from '@/frame/components/ui/PermissionsStatement'
@@ -24,6 +22,8 @@ import { Link } from '@/frame/components/Link'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { LinkPreviewPopover } from '@/links/components/LinkPreviewPopover'
 import { UtmPreserver } from '@/frame/components/UtmPreserver'
+import { JourneyTrackCard, JourneyTrackNav } from '@/journeys/components'
+import { ViewMarkdownButton } from './ViewMarkdownButton'
 
 const ClientSideRefresh = dynamic(() => import('@/frame/components/ClientSideRefresh'), {
   ssr: false,
@@ -47,11 +47,10 @@ export const ArticlePage = () => {
     currentJourneyTrack,
     supportPortalVaIframeProps,
     currentLayout,
+    currentPath,
   } = useArticleContext()
   const isLearningPath = !!currentLearningTrack?.trackName
-  const isJourneyPath = !!currentJourneyTrack?.trackId
-  // Only show journey track components when feature flag is enabled
-  const showJourneyTracks = isJourneyPath && router.query?.feature === 'journey-navigation'
+  const isJourneyTrack = !!currentJourneyTrack?.trackId
   const { t } = useTranslation(['pages'])
 
   const introProp = (
@@ -77,8 +76,9 @@ export const ArticlePage = () => {
 
   const toc = (
     <>
+      <ViewMarkdownButton currentPath={currentPath} />
       {isLearningPath && <LearningTrackCard track={currentLearningTrack} />}
-      {showJourneyTracks && <JourneyTrackCard journey={currentJourneyTrack} />}
+      {isJourneyTrack && <JourneyTrackCard journey={currentJourneyTrack} />}
       {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
     </>
   )
@@ -129,7 +129,7 @@ export const ArticlePage = () => {
               <LearningTrackNav track={currentLearningTrack} />
             </div>
           ) : null}
-          {showJourneyTracks ? (
+          {isJourneyTrack ? (
             <div className="container-lg mt-4 px-3">
               <JourneyTrackNav context={currentJourneyTrack} />
             </div>
@@ -160,9 +160,8 @@ export const ArticlePage = () => {
               <LearningTrackNav track={currentLearningTrack} />
             </div>
           ) : null}
-
-          {showJourneyTracks ? (
-            <div className="mt-4">
+          {isJourneyTrack ? (
+            <div className="container-lg mt-4 px-3">
               <JourneyTrackNav context={currentJourneyTrack} />
             </div>
           ) : null}

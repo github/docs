@@ -61,7 +61,7 @@ To create a pull request, enter `gh pr create` and follow the on-screen instruct
 
 To create a new codespace, enter `gh codespace create` and follow the on-screen instructions.
 
-To display your existing codespaces, enter `gh codespace list`. To open a codespace in the web version of {% data variables.product.prodname_vscode_shortname %} enter `gh codespace code -w` and choose a codespace .
+To display your existing codespaces, enter `gh codespace list`. To open a codespace in the web version of {% data variables.product.prodname_vscode_shortname %} enter `gh codespace code -w` and choose a codespace.
 
 In all of these commands you can substitute `cs` for `codespace`.
 

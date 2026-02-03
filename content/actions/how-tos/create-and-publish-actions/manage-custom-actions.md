@@ -50,7 +50,7 @@ To use a specific action version, users can configure their {% data variables.pr
 
 ### Using tags for release management
 
-{% ifversion immutable-releases-preview %}
+{% ifversion fpt or ghec %}
 > [!NOTE] If you have enabled immutable releases to help prevent supply chain attacks and accidental changes to your releases, instead see [AUTOTITLE](/actions/how-tos/create-and-publish-actions/using-immutable-releases-and-tags-to-manage-your-actions-releases).
 {% endif %}
 

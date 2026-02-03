@@ -1,10 +1,10 @@
 import { getUIDataMerged } from '@/data-directory/lib/get-data'
 import { createTranslationFunctions } from '@/languages/lib/translation-utils'
 import { LinkExternalIcon } from '@primer/octicons-react'
-import type { ClientLanguageCode } from '@/languages/lib/client-languages'
+import type { LanguageCode } from '@/languages/lib/languages'
 
 interface ServerFooterProps {
-  currentLanguage: ClientLanguageCode
+  currentLanguage: LanguageCode
 }
 
 export function ServerFooter({ currentLanguage }: ServerFooterProps) {

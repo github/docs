@@ -80,7 +80,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       req.context,
     )) as MinitocItemsT
 
-    restOperationsMiniTocItems && miniTocItems.push(...restOperationsMiniTocItems)
+    if (restOperationsMiniTocItems) {
+      miniTocItems.push(...restOperationsMiniTocItems)
+    }
   }
 
   const mainContext = await getMainContext(req, res)

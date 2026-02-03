@@ -8,7 +8,7 @@
 # ---------------------------------------------------------------
 # To update the sha:
 # https://github.com/github/gh-base-image/pkgs/container/gh-base-image%2Fgh-base-noble
-FROM ghcr.io/github/gh-base-image/gh-base-noble:20251006-204801-gaa06a8885 AS base
+FROM ghcr.io/github/gh-base-image/gh-base-noble:20260128-000359-ga6d0dc7c0@sha256:e2dd6aa64dc4b3fd0fee388a817b2ce0ce239f1da31fd628c359a74832abdfcb AS base
 
 # Install curl for Node install and determining the early access branch
 # Install git for cloning docs-early-access & translations repos
@@ -84,7 +84,7 @@ WORKDIR $APP_HOME
 # Source code
 COPY --chown=node:node src src/
 COPY --chown=node:node package.json ./
-COPY --chown=node:node next.config.js ./
+COPY --chown=node:node next.config.ts ./
 COPY --chown=node:node tsconfig.json ./
 
 # From the clones stage
@@ -125,7 +125,7 @@ WORKDIR $APP_HOME
 # Source code
 COPY --chown=node:node src src/
 COPY --chown=node:node package.json ./
-COPY --chown=node:node next.config.js ./
+COPY --chown=node:node next.config.ts ./
 COPY --chown=node:node tsconfig.json ./
 
 # From clones stage
@@ -152,6 +152,4 @@ ARG BUILD_SHA
 ENV BUILD_SHA=$BUILD_SHA
 
 # Entrypoint to start the server
-# Note: Currently we have to use tsx because
-# we have a mix of `.ts` and `.js` files with multiple import patterns
 CMD ["node_modules/.bin/tsx", "src/frame/server.ts"]

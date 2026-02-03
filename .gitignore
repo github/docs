@@ -13,8 +13,7 @@
 # JetBrains IDE files
 .idea/
 
-# Tracks package-lock.json installation state
-.installed.package-lock.json
+
 
 # Linkinator full site link check results
 .linkinator/

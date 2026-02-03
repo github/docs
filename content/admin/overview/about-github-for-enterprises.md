@@ -10,11 +10,12 @@ topics:
   - Fundamentals
 ---
 
-## Why should my business choose {% data variables.product.prodname_dotcom %}?
+## Why should my business choose {% data variables.product.github %}?
 
-* **Provide a platform developers already know.** Adopting {% data variables.product.prodname_dotcom %} can help you reduce onboarding time, attract talent, and leverage a large open source community by using tools already familiar to more than 100 million developers.
-* **Consolidate tools in the cloud.** {% data variables.product.prodname_dotcom %} is a complete developer platform to build, scale, and deliver secure software. Adopting {% data variables.product.prodname_dotcom %} can help companies consolidate their DevOps tools or move away from on-premises solutions that can be difficult to maintain.
-* **Benefit from modern features.** {% data variables.product.company_short %} consistently releases new features and updates. Our platform includes well-known tools like {% data variables.product.prodname_copilot %} and {% data variables.product.prodname_actions %}.
+* **Provide a platform developers already know.** Adopting {% data variables.product.github %} can help you attract talent, reduce onboarding time, and leverage a large open source community by using tools already familiar to more than 100 million developers.
+* **Consolidate tools in the cloud.** {% data variables.product.github %} is a complete developer platform to build, scale, and deliver secure software. Adopting {% data variables.product.github %} can help companies consolidate their DevOps tools or move away from on-premises solutions that can be difficult to maintain.
+* **Integrate with AI.** {% data variables.product.github %} provides AI tools to boost productivity at every stage of the development lifecycle. Your developers can work with AI agents to plan, prototype, code, review work, and fix vulnerabilities.
+* **Govern at scale.** {% data variables.product.github %} provides advanced governance features and a central point of administration for development work across your business. Set up projects and manage access in a way that meets your complex needs and allows for future scaling.
 
 ## How enterprises use {% data variables.product.prodname_dotcom %}
 
@@ -61,9 +62,9 @@ Your business can:
 
 {% data variables.product.prodname_enterprise %} is our most comprehensive plan. In addition to the features included with a {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %} plan for organizations, the plan includes:
 
+* An enterprise account, which provides a single place to manage teams, grant access, enforce policies, and audit activity.
 * Additional features such as SAML authentication and internal repositories. For a detailed list, see {% data variables.product.pricing_link %}.
 * Extra allowances for usage-based products such as {% data variables.product.prodname_actions %}.
-* An enterprise account, which provides a single place to manage billing and settings, enforce policies, and audit the people with access to your enterprise.
 * The option to add {% ifversion ghas-products %}<!-- Enterprise is no longer a pre-requisite with the GHAS products release -->{% else %}{% data variables.product.prodname_GHAS %}, {% endif %}{% data variables.contact.premium_support %}, and {% data variables.copilot.copilot_enterprise %}.
 
 When businesses adopt {% data variables.product.prodname_enterprise %}, their return on investment (ROI) is high. For example, their developers **save 45 minutes per day**, and onboarding and **training time is reduced by 40%**. See [The Total Economic Impact of {% data variables.product.prodname_enterprise %}](https://resources.github.com/forrester/).
@@ -84,22 +85,10 @@ When businesses adopt {% data variables.product.prodname_enterprise %}, their re
 * You create accounts for users, and authenticate users using either built-in authentication or an external system.
 * You can enable {% data variables.product.prodname_github_connect %} to benefit from features that rely on {% data variables.product.prodname_dotcom_the_website %}, such as {% data variables.product.prodname_dependabot_alerts %} and actions hosted on {% data variables.product.prodname_dotcom_the_website %}.
 
+{% ifversion ghec %}
+
 ## Next steps
 
-1. Learn more about {% data variables.product.prodname_enterprise %}.
+Get started with our [AUTOTITLE](/enterprise-cloud@latest/enterprise-onboarding) journey for {% data variables.product.prodname_ghe_cloud %}.
 
-   * [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
-   * [AUTOTITLE]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/overview/about-github-enterprise-server){% ifversion ghec %} in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}.{% endif %}
-1. Set up a trial.
-
-   * [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)
-   * [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server)
-
-## Further reading
-
-* [AUTOTITLE](/admin/overview/about-enterprise-accounts)
-* [AUTOTITLE](/enterprise-cloud@latest/admin/data-residency/about-github-enterprise-cloud-with-data-residency){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
-* [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)
-* [AUTOTITLE](/support/learning-about-github-support/about-github-premium-support)
-* [AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/about-github-connect)
-* [Compare {% data variables.product.prodname_dotcom %} to other DevOps solutions](https://resources.github.com/devops/tools/compare/) in {% data variables.product.company_short %} Resources
+{% endif %}

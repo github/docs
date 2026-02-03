@@ -26,6 +26,10 @@ Migrations to {% data variables.product.prodname_ghe_cloud %} include migrations
 {% data reusables.enterprise-migration-tool.gei-tool-switcher-cli %}
 {% endapi %}
 
+{% ifversion repo-rules-enterprise %}
+{% data reusables.enterprise-migration-tool.repository-migrations-bypass %}
+{% endif %}
+
 ## Prerequisites
 
 * {% data reusables.enterprise-migration-tool.github-trial-prerequisite %}

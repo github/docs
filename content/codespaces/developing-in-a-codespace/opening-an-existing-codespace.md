@@ -14,12 +14,6 @@ redirect_from:
   - /codespaces/developing-in-codespaces/opening-an-existing-codespace
 ---
 
-{% ifversion ghec %}
-
-{% data reusables.codespaces.data-residency-availability %}
-
-{% endif %}
-
 You can reopen any of your active or stopped codespaces on {% data variables.product.github %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. See [AUTOTITLE](/codespaces/about-codespaces/understanding-the-codespace-lifecycle).
 
 You can view all your codespaces on the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces). From this page, you can:

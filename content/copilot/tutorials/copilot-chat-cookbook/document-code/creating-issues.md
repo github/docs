@@ -8,7 +8,8 @@ complexity:
   - Simple
 octicon: copilot
 category:
-  - Document code
+  - Documenting code
+  - Author and optimize with Copilot
 topics:
   - Copilot
 contentType: tutorials

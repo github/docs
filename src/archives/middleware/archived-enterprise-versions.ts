@@ -2,6 +2,7 @@ import type { Response, NextFunction } from 'express'
 import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 
 import statsd from '@/observability/lib/statsd'
+import { createLogger } from '@/observability/logger'
 import {
   firstVersionDeprecatedOnNewSite,
   lastVersionWithoutArchivedRedirectsFile,
@@ -14,10 +15,12 @@ import { isArchivedVersion } from '@/archives/lib/is-archived-version'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 import { readCompressedJsonFileFallbackLazily } from '@/frame/lib/read-json-file'
 import { archivedCacheControl, languageCacheControl } from '@/frame/middleware/cache-control'
-import { pathLanguagePrefixed, languagePrefixPathRegex } from '@/languages/lib/languages'
+import { pathLanguagePrefixed, languagePrefixPathRegex } from '@/languages/lib/languages-server'
 import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect'
 import getRemoteJSON from '@/frame/lib/get-remote-json'
 import { ExtendedRequest } from '@/types'
+
+const logger = createLogger(import.meta.url)
 
 const OLD_PUBLIC_AZURE_BLOB_URL = 'https://githubdocs.azureedge.net'
 // Old Azure Blob Storage `enterprise` container.
@@ -72,17 +75,23 @@ const cacheAggressively = (res: Response) => {
 //   3. ~4000ms
 //
 // ...if the limit we set is 3.
-// Our own timeout, in @/frame/middleware/timeout.js defaults to 10 seconds.
+// Our own timeout, in @/frame/middleware/timeout.ts defaults to 10 seconds.
 // So there's no point in trying more attempts than 3 because it would
 // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
 const retryConfiguration = { limit: 3 }
 // According to our Datadog metrics, the *average* time for the
 // the 'archive_enterprise_proxy' metric is ~70ms (excluding spikes)
-// which much less than 1500ms.
+// which is much less than 3000ms.
 // We have observed errors of timeout, in production, when it was
-// set to 500ms. Let's try to be very conservative here to avoid
-// unnecessary error reporting.
-const timeoutConfiguration = { response: 1500 }
+// set to 500ms and then 1500ms. Let's be more conservative here to
+// avoid unnecessary error reporting during occasional slow responses.
+const timeoutConfiguration = { response: 3000 }
+
+// Monitoring thresholds for logging response times
+// Log warnings when responses exceed half the timeout threshold
+const WARN_RESPONSE_THRESHOLD = timeoutConfiguration.response / 2 // 1500ms
+// Log info for responses that are noticeably slow but not concerning
+const SLOW_RESPONSE_THRESHOLD = 500 // ms
 
 // This module handles requests for deprecated GitHub Enterprise versions
 // by routing them to static content in
@@ -201,10 +210,44 @@ export default async function archivedEnterpriseVersions(
     )
 
   const statsdTags = [`version:${requestedVersion}`]
+  const startTime = Date.now()
   const r = await statsd.asyncTimer(doGet, 'archive_enterprise_proxy', [
     ...statsdTags,
     `path:${req.path}`,
   ])()
+  const responseTime = Date.now() - startTime
+
+  // Log warnings for slow responses to help identify degraded performance
+  // A response time over half the timeout indicates potential issues
+  if (responseTime > WARN_RESPONSE_THRESHOLD) {
+    logger.warn('Slow response from archived enterprise content', {
+      version: requestedVersion,
+      path: req.path,
+      responseTime: `${responseTime}ms`,
+      status: r.status,
+      threshold: `${WARN_RESPONSE_THRESHOLD}ms`,
+    })
+  }
+
+  // Log errors for non-200 responses to help identify issues with archived content
+  if (r.status !== 200) {
+    logger.error('Failed to fetch archived enterprise content', {
+      version: requestedVersion,
+      path: req.path,
+      status: r.status,
+      responseTime: `${responseTime}ms`,
+      url: getProxyPath(req.path, requestedVersion),
+    })
+  }
+
+  // Log successful responses with timing for monitoring trends
+  if (r.status === 200 && responseTime > SLOW_RESPONSE_THRESHOLD) {
+    logger.info('Archived enterprise content response', {
+      version: requestedVersion,
+      responseTime: `${responseTime}ms`,
+      status: r.status,
+    })
+  }
 
   if (r.status === 200) {
     const body = await r.text()
@@ -235,7 +278,7 @@ export default async function archivedEnterpriseVersions(
       // `x-host` is a custom header set by Fastly.
       // GLB automatically deletes the `x-forwarded-host` header.
       const host = req.get('x-host') || req.get('x-forwarded-host') || req.get('host')
-      let modifiedBody = body
+      const modifiedBody = body
         .replaceAll(
           `${OLD_AZURE_BLOB_ENTERPRISE_DIR}/${requestedVersion}/assets/cb-`,
           `${ENTERPRISE_GH_PAGES_URL_PREFIX}${requestedVersion}/assets/cb-`,
@@ -317,6 +360,7 @@ export default async function archivedEnterpriseVersions(
 
     return res.send(modifiedBody)
   }
+
   // In releases 2.13 - 2.17, we lost access to frontmatter redirects
   //  during the archival process. This workaround finds potentially
   // relevant frontmatter redirects in currently supported pages
@@ -353,14 +397,14 @@ function getProxyPath(reqPath: string, requestedVersion: string) {
 
   // Releases 2.18 and higher
   if (versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`)) {
-    const newReqPath = reqPath.includes('redirects.json') ? `/${reqPath}` : reqPath + '/index.html'
+    const newReqPath = reqPath.includes('redirects.json') ? `/${reqPath}` : `${reqPath}/index.html`
     return ENTERPRISE_GH_PAGES_URL_PREFIX + requestedVersion + newReqPath
   }
 
   // Releases 2.13 - 2.17
   // redirect.json files don't exist for these versions
   if (versionSatisfiesRange(requestedVersion, `>=2.13`)) {
-    return ENTERPRISE_GH_PAGES_URL_PREFIX + requestedVersion + reqPath + '/index.html'
+    return `${ENTERPRISE_GH_PAGES_URL_PREFIX + requestedVersion + reqPath}/index.html`
   }
 
   // Releases 2.12 and lower

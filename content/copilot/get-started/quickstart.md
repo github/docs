@@ -20,6 +20,8 @@ shortTitle: Quickstart
 topics:
   - Copilot
 contentType: get-started
+category:
+  - Configure Copilot
 ---
 
 ## Introduction
@@ -70,7 +72,6 @@ There are many more things you can do with {% data variables.copilot.copilot_cha
 
 * Ask a general question about software development
 * Ask exploratory questions about a repository
-* Ask a question about a knowledge base
 * Find out about the changes in a pull request
 * Ask a question about a specific issue or commit
 
@@ -79,7 +80,7 @@ For more information, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-
 ## Next steps
 
 * **Find out more about {% data variables.copilot.copilot_chat %}** - See [AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide){% ifversion fpt %}.{% endif %}{% ifversion ghec %} and [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom).{% endif %}
-* **Get {% data variables.product.prodname_copilot_short %} code completion suggestions in an IDE** - See [AUTOTITLE](/enterprise-cloud@latest/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor).
+* **Get {% data variables.product.prodname_copilot_short %} inline suggestions in an IDE** - See [AUTOTITLE](/enterprise-cloud@latest/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor).
 * **Learn how to write effective prompts** - See [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot).
 * **Use {% data variables.product.prodname_copilot_short %} on your mobile device** - See [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile).
 * **Use {% data variables.product.prodname_copilot_short %} on the command line** - See [AUTOTITLE](/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli).
@@ -179,7 +180,7 @@ After you've installed the {% data variables.product.prodname_copilot %} extensi
 
    ![Screenshot of the "Insert at Cursor" icon in the chat view.](/assets/images/help/copilot/insert-at-cursor-vscode.png)
 
-## Get your first code completion suggestion
+## Get your first inline suggestion
 
 The following example uses JavaScript, however other languages will work similarly. {% data reusables.copilot.supported-languages %}
 
@@ -193,7 +194,7 @@ The following example uses JavaScript, however other languages will work similar
 
 {% data reusables.copilot.quickstart-nextsteps1 %}
 * **Use {% data variables.product.prodname_copilot_short %} like a pro** - Learn how to write effective prompts for {% data variables.product.prodname_copilot %}. For more information, see [Best practices for using {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/prompt-crafting) in the {% data variables.product.prodname_vscode %} documentation.
-* **Get familiar with {% data variables.copilot.next_edit_suggestions %}** - See [About {% data variables.copilot.next_edit_suggestions %}](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot#about-next-edit-suggestions).
+* **Get familiar with {% data variables.copilot.next_edit_suggestions %}** - See [Navigating and accepting {% data variables.copilot.next_edit_suggestions %}](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions#navigating-and-accepting-next-edit-suggestions-1).
 {% data reusables.copilot.quickstart-nextsteps2 %}
 
 {% endvscode %}
@@ -232,7 +233,7 @@ After you've installed the {% data variables.product.prodname_copilot %} extensi
 1. Select a line of code in the editor.
 1. In the {% data variables.copilot.copilot_chat_short %} window, type `explain this line` then press <kbd>Enter</kbd>.
 
-## Get your first code completion suggestion
+## Get your first inline suggestion
 
 The following example uses JavaScript, however other languages will work similarly. {% data reusables.copilot.supported-languages %}
 
@@ -288,7 +289,7 @@ After you've installed the {% data variables.product.prodname_copilot %} plugin,
 1. Select a line of code in the editor.
 1. In the {% data variables.copilot.copilot_chat_short %} window, type `explain this line` then press <kbd>Enter</kbd>.
 
-## Get your first code completion suggestion
+## Get your first inline suggestion
 
 The following example uses JavaScript, however other languages will work similarly. {% data reusables.copilot.supported-languages %}
 
@@ -346,7 +347,7 @@ After you've installed the {% data variables.product.prodname_copilot %} plugin,
 1. Select a line of code in the editor.
 1. In the {% data variables.copilot.copilot_chat_short %} window, type `explain this line` then press <kbd>Enter</kbd>.
 
-## Get your first code completion suggestion
+## Get your first inline suggestion
 
 The following example uses Swift, however other languages will work similarly.
 
@@ -366,6 +367,7 @@ The following example uses Swift, however other languages will work similarly.
 ## Next steps
 
 {% data reusables.copilot.quickstart-nextsteps1 %}
+* **Get familiar with {% data variables.copilot.next_edit_suggestions %}** - See [Navigating and accepting {% data variables.copilot.next_edit_suggestions %}](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions?tool=xcode#navigating-and-accepting-next-edit-suggestions-2).
 {% data reusables.copilot.quickstart-nextsteps2 %}
 
 {% endxcode %}
@@ -405,7 +407,7 @@ After you've installed the {% data variables.product.prodname_copilot %} plugin,
 1. Select a line of code in the editor.
 1. In the {% data variables.copilot.copilot_chat_short %} window, type `explain this line` then press <kbd>Enter</kbd>.
 
-## Get your first code completion suggestion
+## Get your first inline suggestion
 
 The following example uses Java, however other languages will work similarly.
 
@@ -422,6 +424,7 @@ The following example uses Java, however other languages will work similarly.
 ## Next steps
 
 {% data reusables.copilot.quickstart-nextsteps1 %}
+* **Get familiar with {% data variables.copilot.next_edit_suggestions %}** - See [Navigating and accepting {% data variables.copilot.next_edit_suggestions %}](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions?tool=eclipse#navigating-and-accepting-next-edit-suggestions-3).
 {% data reusables.copilot.quickstart-nextsteps2 %}
 
 {% endeclipse %}

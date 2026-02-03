@@ -5,14 +5,27 @@ import type { Context } from '@/types'
 
 export class EmptyTitleError extends Error {}
 
-interface LiquidToken {
+export interface LiquidToken {
   file?: string
   getPosition?: () => [number, number]
 }
 
-interface LiquidError extends Error {
+/**
+ * Custom error class for Liquid rendering errors with proper type safety.
+ * Use this instead of creating Error objects and mutating them with type assertions.
+ *
+ * @example
+ * const error = new LiquidError('Unknown tag', 'ParseError')
+ * error.token = { file: '/content/test.md', getPosition: () => [1, 5] }
+ */
+export class LiquidError extends Error {
   token?: LiquidToken
   originalError?: Error
+
+  constructor(message: string, name: 'ParseError' | 'RenderError' | 'TokenizationError') {
+    super(message)
+    this.name = name
+  }
 }
 
 interface RenderOptions {
@@ -70,7 +83,7 @@ export function createTranslationFallbackComment(error: Error, property: string)
 
       // Limit message length to keep comment manageable
       if (cleanMessage.length > 200) {
-        cleanMessage = cleanMessage.substring(0, 200) + '...'
+        cleanMessage = `${cleanMessage.substring(0, 200)}...`
       }
 
       errorDetails.push(`msg="${cleanMessage.replace(/"/g, "'")}"`)
@@ -78,7 +91,7 @@ export function createTranslationFallbackComment(error: Error, property: string)
   } else if (isAutotitleError(error)) {
     // For AUTOTITLE errors, include the error message
     if (error.message) {
-      let cleanMessage = error.message
+      const cleanMessage = error.message
         .replace(/\n/g, ' ')
         .replace(/\s+/g, ' ')
         .trim()
@@ -131,7 +144,7 @@ export async function renderContentWithFallback(
       const enPage = context.getEnglishPage(context)
       const englishTemplate = (enPage as any)[property] as string
       // If you don't change the context, it'll confuse the liquid plugins
-      // like `data.js` that uses `environment.scope.currentLanguage`
+      // like `data.ts` that uses `environment.scope.currentLanguage`
       const enContext = Object.assign({}, context, { currentLanguage: 'en' })
 
       // Render the English fallback content
@@ -141,7 +154,7 @@ export async function renderContentWithFallback(
       // Skip for textOnly rendering to avoid breaking plain text output
       if (context.currentLanguage !== 'en' && !options?.textOnly) {
         const errorComment = createTranslationFallbackComment(error as Error, property)
-        return errorComment + '\n' + fallbackContent
+        return `${errorComment}\n${fallbackContent}`
       }
 
       return fallbackContent
@@ -181,7 +194,7 @@ export async function executeWithFallback<T>(
       // Only for HTML content (detected by presence of HTML tags)
       if (typeof fallbackContent === 'string' && /<[^>]+>/.test(fallbackContent)) {
         const errorComment = createTranslationFallbackComment(error as Error, 'content')
-        return (errorComment + '\n' + fallbackContent) as T
+        return `${errorComment}\n${fallbackContent}` as T
       }
 
       return fallbackContent

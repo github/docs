@@ -23,6 +23,8 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/viewing-and-changing-your-copilot-plan
   - /copilot/how-tos/manage-your-account/viewing-and-changing-your-copilot-plan
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 You can view your current plan details in your {% data variables.product.github %} account settings. From there, you can change or cancel your plan, or switch between monthly and yearly billing based on your needs.

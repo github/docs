@@ -27,6 +27,8 @@ A key difference between {% data variables.product.prodname_ghe_cloud %} and oth
 
 {% data reusables.enterprise.ghe-includes-ghec-and-ghes %} For more information about {% data variables.product.prodname_ghe_server %} and how it differs from {% data variables.product.prodname_ghe_cloud %}, see [AUTOTITLE](/admin/overview/about-github-for-enterprises#about-deployment-options).
 
+## About enterprise types
+
 {% data reusables.enterprise.enterprise-types %}
 
 ## About {% data variables.enterprise.data_residency_short %}

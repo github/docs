@@ -10,19 +10,8 @@ changelog:
 introLinks:
   overview: /copilot/get-started/what-is-github-copilot
   quickstart: /copilot/get-started/quickstart
-featuredLinks:
-  startHere:
-    - /copilot/get-started/what-is-github-copilot
-    - /copilot/get-started/quickstart
-    - /copilot/tutorials/try-extensions
-    - /copilot/concepts/agents/coding-agent
-  popular:
-    - /copilot/get-started/features
-    - /copilot/tutorials/copilot-chat-cookbook
-    - /copilot/how-tos/get-code-suggestions/get-ide-code-suggestions
-    - /copilot/how-tos/chat-with-copilot/chat-in-ide
-    - /copilot/how-tos/use-copilot-for-common-tasks/use-copilot-in-the-cli
-layout: product-landing
+layout: discovery-landing
+heroImage: /assets/images/banner-images/hero-6
 versions:
   feature: copilot
 children:
@@ -35,5 +24,12 @@ children:
 topics:
   - Copilot
 contentType: landing
+includedCategories:
+  - Learn about Copilot
+  - Configure Copilot
+  - Author and optimize with Copilot
+  - Integrate Copilot with your tools
+  - Manage Copilot for a team
+  - Troubleshooting Copilot
+  - Responsible use
 ---
-

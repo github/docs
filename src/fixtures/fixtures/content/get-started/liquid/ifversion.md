@@ -36,7 +36,7 @@ condition-e
   too tied to the past.
   You can type "3.9" if you want, but that version is only working right
   now/today and will eventually break tests as the values in
-  `enterprise-server-releases.js` change over time.
+  `enterprise-server-releases.ts` change over time.
 -->
 
 {% ifversion ghes > __GHES_DEPRECATED__[0] %}

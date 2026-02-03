@@ -101,10 +101,10 @@ export function getShellExample(
       const { bodyParameters } = codeSample.request
       if (bodyParameters && typeof bodyParameters === 'object' && !Array.isArray(bodyParameters)) {
         const paramNames = Object.keys(bodyParameters)
-        paramNames.forEach((elem) => {
+        for (const elem of paramNames) {
           const escapedValue = escapeShellValue(String(bodyParameters[elem]))
           requestBodyParams = `${requestBodyParams} ${CURL_CONTENT_TYPE_MAPPING[contentType]} '${elem}=${escapedValue}'`
-        })
+        }
       } else {
         const escapedValue = escapeShellValue(String(bodyParameters))
         requestBodyParams = `${CURL_CONTENT_TYPE_MAPPING[contentType]} "${escapedValue}"`

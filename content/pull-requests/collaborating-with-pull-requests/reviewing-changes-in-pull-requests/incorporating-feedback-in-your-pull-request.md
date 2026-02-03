@@ -38,7 +38,8 @@ Each person who suggested a change included in the commit will be a co-author of
 
 ## Re-requesting a review
 
-{% data reusables.pull_requests.re-request-review %}
+You can re-request a review, for example, after you've made substantial changes to your pull request.
+To request a fresh review from a reviewer, in the sidebar of the **Conversation** tab, click the {% octicon "sync" aria-label="The sync icon" %} icon.
 
 ## Opening an issue for an out-of-scope suggestion
 

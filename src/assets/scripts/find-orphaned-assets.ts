@@ -11,7 +11,7 @@ import { program } from 'commander'
 import walk from 'walk-sync'
 
 import walkFiles from '@/workflows/walk-files'
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 
 const EXCEPTIONS = new Set([
   'assets/images/site/favicon.ico',
@@ -43,11 +43,49 @@ const EXCEPTIONS = new Set([
   'assets/images/site/evergreens/sequoia.png',
   'assets/images/site/evergreens/spruce.png',
   'assets/images/site/evergreens/yew.png',
+  'assets/images/social-cards/account-and-profile.png',
   'assets/images/social-cards/actions.png',
+  'assets/images/social-cards/admin.png',
+  'assets/images/social-cards/apps.png',
+  'assets/images/social-cards/authentication.png',
+  'assets/images/social-cards/billing.png',
+  'assets/images/social-cards/code-security.png',
+  'assets/images/social-cards/codespaces.png',
+  'assets/images/social-cards/communities.png',
+  'assets/images/social-cards/contributing.png',
   'assets/images/social-cards/copilot.png',
   'assets/images/social-cards/default.png',
+  'assets/images/social-cards/desktop.png',
+  'assets/images/social-cards/discussions.png',
+  'assets/images/social-cards/education.png',
+  'assets/images/social-cards/enterprise-onboarding.png',
+  'assets/images/social-cards/get-started.png',
+  'assets/images/social-cards/github-cli.png',
+  'assets/images/social-cards/github-models.png',
+  'assets/images/social-cards/graphql.png',
+  'assets/images/social-cards/integrations.png',
   'assets/images/social-cards/issues.png',
-  'assets/images/social-cards/code-security.png',
+  'assets/images/social-cards/migrations.png',
+  'assets/images/social-cards/nonprofit.png',
+  'assets/images/social-cards/organizations.png',
+  'assets/images/social-cards/packages.png',
+  'assets/images/social-cards/pages.png',
+  'assets/images/social-cards/pull-requests.png',
+  'assets/images/social-cards/repositories.png',
+  'assets/images/social-cards/rest.png',
+  'assets/images/social-cards/search-github.png',
+  'assets/images/social-cards/site-policy.png',
+  'assets/images/social-cards/sponsors.png',
+  'assets/images/social-cards/subscriptions-and-notifications.png',
+  'assets/images/social-cards/support.png',
+  'assets/images/social-cards/webhooks.png',
+  // Hero images may not be used, but we keep them around for future use
+  'assets/images/banner-images/hero-1.png',
+  'assets/images/banner-images/hero-2.png',
+  'assets/images/banner-images/hero-3.png',
+  'assets/images/banner-images/hero-4.png',
+  'assets/images/banner-images/hero-5.png',
+  'assets/images/banner-images/hero-6.png',
 ])
 
 function isExceptionPath(imagePath: string) {
@@ -138,7 +176,9 @@ async function main(opts: MainOptions) {
   // Add exceptions
   sourceFiles.push('.github/CONTRIBUTING.md')
   sourceFiles.push('README.md')
-  verbose && console.log(`${sourceFiles.length.toLocaleString()} source files found in total.`)
+  if (verbose) {
+    console.log(`${sourceFiles.length.toLocaleString()} source files found in total.`)
+  }
 
   const allImages = new Set(
     walk(
@@ -152,7 +192,9 @@ async function main(opts: MainOptions) {
     ).filter((filePath) => !filePath.endsWith('.md')),
   )
 
-  verbose && console.log(`${allImages.size.toLocaleString()} images found in total.`)
+  if (verbose) {
+    console.log(`${allImages.size.toLocaleString()} images found in total.`)
+  }
 
   for (const sourceFile of sourceFiles) {
     const content = fs.readFileSync(sourceFile, 'utf-8')

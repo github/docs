@@ -8,6 +8,8 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /copilot/get-started/achieve-engineering-goals
 contentType: get-started
+category: 
+  - Manage Copilot for a team
 ---
 
 When your company rolls out a new tool such as {% data variables.product.prodname_copilot %}, you will want to measure the impact of the tool on your engineering systems and assess the tool's contribution to your company's goals.

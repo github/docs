@@ -1,6 +1,6 @@
 import { useMainContext } from '@/frame/components/context/MainContext'
 
-export type FeatureFlags = {}
+export type FeatureFlags = Record<string, string>
 
 export const useFeatureFlags = (): FeatureFlags => {
   const { featureFlags } = useMainContext()

@@ -32,7 +32,7 @@ Before submitting a ticket, use {% data variables.copilot.copilot_in_support %} 
 
 1. Click **Start chat**. {% data variables.product.prodname_copilot_short %} will respond to what you entered in the form.
 
-If {% data variables.copilot.copilot_in_support %} solves your problem, click **My problem is solved!** or navigate away from the page. If {% data variables.copilot.copilot_in_support %} is not able to solve your issue, click **Create a ticket** and a ticket will be created that contains a summary of your conversation with {% data variables.product.prodname_copilot_short %} and a full transcript as an attachment to the comment.
+If {% data variables.copilot.copilot_in_support %} solves your problem, click **My problem is solved!** or navigate away from the page. If {% data variables.copilot.copilot_in_support %} is not able to solve your issue, click **Create a ticket** and a ticket will be created that contains a summary of your conversation with {% data variables.product.prodname_copilot_short %} and a full transcript as an attachment to the ticket visible to {% data variables.contact.github_support %}.
 
 ## Best practices
 

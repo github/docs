@@ -46,7 +46,7 @@ Organization owners can install {% data variables.product.prodname_github_apps %
 
 For enterprises that pay by credit card, enterprise owners who are also organization owners can install {% data variables.product.prodname_github_apps %} on organizations within their enterprise.
 
-Admins of repositories that are owned by an organization can also install {% data variables.product.prodname_github_apps %} on the organization if they only grant the app access to repositories that they are an admin of and if the app does not request any organization permissions or the "repository administration" permission. Organization owners can prevent outside collaborators who are repository admins from installing {% data variables.product.prodname_github_apps %}.
+{% data reusables.apps.repo-admin-install-restriction %}
 
 The "app manager" role does not give a person the ability to install a {% data variables.product.prodname_github_app %} in the organization{% ifversion enterprise-app-manager %} or enterprise{% endif %}. For more information, see [AUTOTITLE](/apps/maintaining-github-apps/about-github-app-managers).
 

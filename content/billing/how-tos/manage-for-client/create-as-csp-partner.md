@@ -35,7 +35,7 @@ As a Microsoft CSP partner, you can get started with {% data variables.product.p
 1. Select **Get started with {% data variables.product.prodname_enterprise %}**.
 1. Choose an enterprise type. To help you decide which choice is best for the enterprise, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud).
 1. Complete the form with your client's information.
-1. Click **Create your enterprise**.
+{% data reusables.billing.enterprise-create-button %}
 
 ## Step 2: Purchase {% data variables.product.prodname_enterprise %}
 
@@ -45,7 +45,7 @@ At any time during the trial, you can purchase {% data variables.product.prodnam
 1. At the top of the page, in the blue banner, click **Activate Enterprise**.
 1. Click **Add Azure subscription**.
 1. To sign in to your Microsoft account, follow the prompts.
-1. Review the "Permissions requested" prompt. If you agree with the terms, click **Accept**.
+{% data reusables.billing.azure-accept-permissions %}
 
    If you don't see a "Permissions requested" prompt, and instead see a message indicating that you need admin approval, see [AUTOTITLE](/billing/how-tos/troubleshooting/azure-sub-connection).
 

@@ -56,6 +56,7 @@ The [`pypa/gh-action-pypi-publish`](https://github.com/marketplace/actions/pypi-
 The following example uses the `pypa/gh-action-pypi-publish` action to exchange an OIDC token for a PyPI API token, which is then used to upload a package's release distributions to PyPI.
 
 ```yaml copy
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 jobs:
   release-build:
     runs-on: ubuntu-latest

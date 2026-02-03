@@ -8,6 +8,7 @@ category:
   - Development workflows
   - Repository
   - Path-specific
+  - Configure Copilot
 complexity:
   - Intermediate
 octicon: book

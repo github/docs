@@ -4,7 +4,7 @@ interface ProgAccessData {
   [key: string]: any
 }
 
-interface SchemaInput {
+export interface SchemaInput {
   paths?: {
     [requestPath: string]: {
       [verb: string]: any

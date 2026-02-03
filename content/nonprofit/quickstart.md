@@ -39,7 +39,8 @@ Before you apply for a GitHub for Nonprofits discount, you will want to make sur
 
 * You are the administrator or owner of the GitHub organization you are applying on behalf of.
 * You have all necessary nonprofit documentation such as tax information and/or legal documents certifying your nonprofit status.
-* You have reviewed all nonprofit eligibility information: GitHub for Nonprofit accounts are designed for 501(c)(3) or equivalent nonprofit organizations that are non-governmental, non-academic, non-commercial, non-political in nature, and have no religious affiliation.
+* You have reviewed all nonprofit eligibility information: GitHub for Nonprofit accounts are designed for 501(c)(3) or equivalent nonprofit organizations that are non-governmental, non-academic, non-commercial, and non-political in nature.
+* You are aware that religious or faith-based organizations in India are ineligible. See [mission eligibility exceptions](https://www.microsoft.com/en-us/nonprofits/eligibility) in the Microsoft documentation.
 
 ## Applying for nonprofit benefits
 
@@ -63,7 +64,7 @@ Before you apply for a GitHub for Nonprofits discount, you will want to make sur
 
     * Country of nonprofit registration
     * Nonprofit name or registration ID
-    * Confirmation that your nonprofit is nongovernmental, nonacademic, noncommercial, nonpolitical, and has no religious affiliation
+    * Confirmation that your nonprofit is nongovernmental, nonacademic, noncommercial, and nonpolitical
     * Website (optional, but recommended)
     * Organization address
     * Documents certifying proof of nonprofit status with your local government, and nonprofit focus

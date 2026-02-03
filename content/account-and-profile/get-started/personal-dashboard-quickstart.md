@@ -18,6 +18,7 @@ versions:
 topics:
   - Accounts
 shortTitle: Personal dashboard quickstart
+contentType: get-started
 ---
 
 ## Accessing your personal dashboard
@@ -65,6 +66,18 @@ For more information about following people and starring repositories, see [AUTO
 {% data reusables.dashboard.for-you-feed-beta-note %}
 
 This feed shows activity and recommendations based on your network on {% data variables.product.github %}. It's designed to provide updates that inspire you, keep you up-to-date, and help you find new communities you want to participate in.
+
+{% endif %}
+
+{% ifversion home-dashboard-view %}
+
+## Working with {% data variables.product.prodname_copilot %} from your dashboard
+
+{% data reusables.dashboard.home-dashboard-public-preview-note %}
+
+The home dashboard view gives you visibility into your {% data variables.copilot.copilot_coding_agent %} sessions and helps you manage your most important tasks more efficiently. You can prompt {% data variables.product.prodname_copilot %} directly from the dashboard, track the latest agent sessions you've triggered, quickly access agent logs to see progress, and manage the resulting pull requests and tasks. This centralized view makes it easier to stay on top of your agent activities and follow up on their outcomes.
+
+To view the updated home dashboard, which is currently in {% data variables.release-phases.public_preview %}, you will first need to enable **New Dashboard Experience** with feature preview. For more information, see [AUTOTITLE](/get-started/using-github/exploring-early-access-releases-with-feature-preview#exploring-public-preview-releases-with-feature-preview).
 
 {% endif %}
 

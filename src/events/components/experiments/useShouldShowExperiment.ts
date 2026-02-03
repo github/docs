@@ -46,13 +46,13 @@ export function useShouldShowExperiment(experimentKey: ExperimentNames | { key: 
 
   useEffect(() => {
     const updateShouldShow = async () => {
-      const isStaff = await getIsStaff()
+      const staffStatus = await getIsStaff()
       setShowExperiment(
         shouldShowExperiment(
           experimentKey,
           router.locale || '',
           mainContext.currentVersion || '',
-          isStaff,
+          staffStatus,
           router.query,
         ),
       )

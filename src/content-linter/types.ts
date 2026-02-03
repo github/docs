@@ -16,7 +16,7 @@ export interface RuleParams {
   frontMatterLines: string[] // array of frontmatter lines
   tokens?: MarkdownToken[] // markdown tokens (when using markdownit parser)
   config?: {
-    [key: string]: any // rule-specific configuration
+    [key: string]: unknown // rule-specific configuration
   }
 }
 
@@ -26,7 +26,7 @@ export interface RuleErrorCallback {
     detail?: string,
     context?: string,
     range?: [number, number],
-    fixInfo?: any,
+    fixInfo?: unknown,
   ): void
 }
 
@@ -44,6 +44,8 @@ export type Rule = {
 type RuleDetail = Rule & {
   name: string
   'partial-markdown-files': boolean
+  'yml-files'?: boolean
+  applyToFrontmatter?: boolean
   message: string
   severity: string
   searchPattern: string
@@ -54,10 +56,12 @@ type RuleDetail = Rule & {
 export type Config = {
   severity: string
   'partial-markdown-files': boolean
+  'yml-files'?: boolean
   allowed_languages?: string[]
   style?: string
   rules?: RuleDetail[]
   context?: string
+  precommitSeverity?: string
 }
 
 export type RuleConfig = {

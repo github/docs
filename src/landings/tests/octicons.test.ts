@@ -17,18 +17,18 @@ describe('octicons reference', () => {
     })
 
     test('all octicons are strings', () => {
-      VALID_OCTICONS.forEach((octicon) => {
+      for (const octicon of VALID_OCTICONS) {
         expect(typeof octicon).toBe('string')
-      })
+      }
     })
   })
 
   describe('OCTICON_COMPONENTS', () => {
     test('has components for all valid octicons', () => {
-      VALID_OCTICONS.forEach((octicon) => {
+      for (const octicon of VALID_OCTICONS) {
         expect(OCTICON_COMPONENTS[octicon]).toBeDefined()
         expect(typeof OCTICON_COMPONENTS[octicon]).toBe('object')
-      })
+      }
     })
 
     test('maps specific octicons to correct components', () => {
@@ -90,9 +90,9 @@ describe('octicons reference', () => {
       // Test a few key octicons to verify the type works correctly
       const testOcticons: ValidOcticon[] = ['bug', 'rocket', 'copilot']
 
-      testOcticons.forEach((octicon) => {
+      for (const octicon of testOcticons) {
         expect(VALID_OCTICONS.includes(octicon)).toBe(true)
-      })
+      }
     })
   })
 
@@ -101,9 +101,9 @@ describe('octicons reference', () => {
       const componentKeys = Object.keys(OCTICON_COMPONENTS)
       const validOcticonsSet = new Set(VALID_OCTICONS)
 
-      componentKeys.forEach((key) => {
+      for (const key of componentKeys) {
         expect(validOcticonsSet.has(key as ValidOcticon)).toBe(true)
-      })
+      }
 
       expect(componentKeys).toHaveLength(VALID_OCTICONS.length)
     })

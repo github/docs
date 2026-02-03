@@ -4,8 +4,6 @@ The log level is controlled by the `LOG_LEVEL` environment variable, where lower
    if log level is 'info', only 'info', 'warn', and 'error' logs will be output
    if log level is 'debug', all logs will be output
    if log level is 'error', only 'error' logs will be output
-
-NOTE: This file is `.js` because next.config.js does not yet support importing
 */
 export const LOG_LEVELS = {
   error: 0,

@@ -88,9 +88,9 @@ describe('automated content directory updates', () => {
     // Because of that, we need to update the content paths to use the
     // full file path.
     const contentDataFullPath: { [key: string]: ContentItem } = {}
-    Object.keys(newContentData).forEach(
-      (key: string) => (contentDataFullPath[path.join(targetDirectory, key)] = newContentData[key]),
-    )
+    for (const key of Object.keys(newContentData)) {
+      contentDataFullPath[path.join(targetDirectory, key)] = newContentData[key]
+    }
 
     // Rewrites the content directory in the operating system's
     // temp directory.

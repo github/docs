@@ -13,6 +13,9 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/assigning-licenses/set-up-self-serve-licenses
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/assign-licenses/set-up-self-serve-licenses
 contentType: tutorials
+category:
+  - Roll Copilot out at scale
+  - Manage Copilot for a team
 ---
 
 When you've enabled {% data variables.product.prodname_copilot %} in an organization or enterprise, you can set up a self-serve workflow to allow users to request licenses. This allows you to allocate licenses to people who want them, and means people can get started with {% data variables.product.prodname_copilot_short %} quickly.
@@ -26,7 +29,7 @@ This article outlines two approaches your company can take:
 
 ## Approach 1: Use {% data variables.product.github %}'s "request access" feature
 
-If you have a {% data variables.copilot.copilot_business_short %} plan, members of an organization can request access to {% data variables.product.prodname_copilot %} on their settings page. Then, an organization owner must review and approve each request.
+If you have a {% data variables.copilot.copilot_business_short %} plan, members of an organization can request access to {% data variables.product.prodname_copilot_short %} on their settings page. Then, an organization owner must review and approve each request.
 
 The process, which you should **communicate with users**, is as follows.
 
@@ -42,7 +45,10 @@ Users can also request access from organizations where {% data variables.copilot
 
 For a more streamlined approach, you can set up a self-serve process by integrating with {% data variables.product.github %}'s API. The benefits of this approach are that it allows you to build the process into your existing tooling, and it gives you the option to allow users to receive access instantly, without a manual approval process.
 
-To set up the integration, you will use the [Add users to the {% data variables.product.prodname_copilot_short %} subscription for an organization](/rest/copilot/copilot-user-management#add-users-to-the-copilot-subscription-for-an-organization) endpoint, providing the username of the user who has requested access.
+Depending on how your enterprise manages {% data variables.product.prodname_copilot_short %} licenses, you can use either of the following endpoints:
+
+* For **organization-level assignments**, use the [Add users to the {% data variables.product.prodname_copilot_short %} subscription for an organization](/rest/copilot/copilot-user-management#add-users-to-the-copilot-subscription-for-an-organization) endpoint.
+* For **direct user assignment** at the enterprise level (available for {% data variables.copilot.copilot_business_short %} only), use the [Add users to the {% data variables.product.prodname_copilot_short %} subscription for an enterprise](/rest/copilot/copilot-user-management#add-users-to-the-copilot-subscription-for-an-enterprise) endpoint.
 
 For example, the API call in a {% data variables.product.prodname_actions %} workflow might look as follows, where the organization and selected usernames are provided by the context of the workflow trigger:
 
@@ -57,8 +63,6 @@ const response = await octokit.request('POST /orgs/{org}/copilot/billing/selecte
   }
 })
 ```
-
->[!NOTE] This endpoint only works if you use organizations on {% data variables.product.github %}. If {% data variables.product.company_short %} has provided you with a **dedicated enterprise for managing {% data variables.copilot.copilot_business_short %} licenses**, you will need to add users to enterprise teams instead. To request API documentation, please contact your account manager.
 
 ### Example implementations
 

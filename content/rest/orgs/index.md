@@ -21,6 +21,7 @@ children:
   - /blocking
   - /bypass-requests
   - /custom-properties
+  - /custom-properties-for-orgs
   - /custom-roles
   - /issue-types
   - /members

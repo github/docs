@@ -9,6 +9,8 @@ permissions: 'Members of an enterprise with a subscription to [{% data variables
 topics:
   - Copilot
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 {% data reusables.copilot.text-completion-preview %}

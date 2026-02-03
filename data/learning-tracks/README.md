@@ -25,7 +25,7 @@ Learning track data for a product is defined in two places:
 
 ## Versioning
 
-Versioning for learning tracks is processed at page render time. The code lives in [`lib/learning-tracks.js`](lib/learning-tracks.js), which is called by `page.render()`. The processed learning tracks are then rendered by `components/guides`.
+Versioning for learning tracks is processed at page render time. The code lives in [`lib/learning-tracks.ts`](lib/learning-tracks.ts), which is called by `page.render()`. The processed learning tracks are then rendered by `components/guides`.
 
 Liquid conditionals do **not** have to be used for versioning in the YAML file for guides. Only the learning track guides that apply to the current version will be rendered automatically. If there aren't any tracks with guides that belong to the current version, the learning tracks section will not render at all.
 
@@ -48,4 +48,4 @@ If the `versions` property is not included, it's assumed the track is available 
 
 ## Schema enforcement
 
-The schema for validating the learning track YAML lives in [`src/content-linter/lib/learning-tracks-schema.js`](src/content-linter/lib/learning-tracks-schema.js) and is exercised by [`tests/content/lint-files.js`](tests/content/lint-files.js).
+The schema for validating the learning track YAML lives in [`src/content-linter/lib/learning-tracks-schema.ts`](src/content-linter/lib/learning-tracks-schema.ts) and is exercised by [`tests/content/lint-files.ts`](tests/content/lint-files.ts).

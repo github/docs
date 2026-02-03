@@ -3,7 +3,7 @@
 A [scheduled workflow](../../../.github/workflows/sync-graphql.yml) runs the following
 scripts on a daily basis:
 ```
-src/graphql/scripts/sync.js
+src/graphql/scripts/sync.ts
 ```
 These scripts update the [JSON data files](../../../src/graphql/data) used to
 render GraphQL docs. See the [`src/graphql/README`](../../../src/graphql/README.md)

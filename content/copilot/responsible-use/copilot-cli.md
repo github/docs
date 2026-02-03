@@ -14,6 +14,8 @@ redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/copilot-in-the-cli
   - /copilot/responsible-use/copilot-in-the-cli
 contentType: rai
+category: 
+  - Responsible use
 ---
 
 {% data reusables.cli.preview-note-cli %}

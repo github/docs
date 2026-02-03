@@ -22,15 +22,8 @@ contentType: how-tos
 
 You must use a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan before you can enable {% data variables.product.prodname_GH_cs_or_sp %} on private repositories.
 
-1. In the upper-right corner of any page on {% data variables.product.github %}, click your profile picture.
-
-1. Select the account you want to view and then access the "Billing & Licensing" pages:
-
-   * **Organizations**: Click **Your organizations**, then next to the organization, click **Settings**. In the organization sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
-
-   * **Enterprises**: Click **Your enterprises**, then click the enterprise name. Click the **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing** tab at the top of the page.
-
-1. From the list of "Billing & licensing" pages, click {% octicon "law" aria-hidden="true" aria-label="law" %} **Licensing** to display the licensing page.
+{% data reusables.billing.nav-to-org-or-ent %}
+{% data reusables.billing.click-licensing %}
 
 Your current plan is shown with any options to upgrade to a different plan.
 
@@ -44,15 +37,8 @@ The most effective way to control and enable these features is using security co
 
 If you use volume/subscription billing, then you will need to purchase licenses before you can start using {% data variables.product.prodname_GH_cs_or_sp %} on private or internal repositories.
 
-1. In the upper-right corner of any page on {% data variables.product.github %}, click your profile picture.
-
-1. Select the account you want to view and then access the "Billing & Licensing" pages:
-
-   * **Organizations**: Click **Your organizations**, then next to the organization, click **Settings**. In the organization sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
-
-   * **Enterprises**: Click **Your enterprises**, then click the enterprise name. Click the **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing** tab at the top of the page.
-
-1. From the list of "Billing & licensing" pages, click {% octicon "law" aria-hidden="true" aria-label="law" %} **Licensing** to display the licensing page.
+{% data reusables.billing.nav-to-org-or-ent %}
+{% data reusables.billing.click-licensing %}
 
 1. To the right of "{% data variables.product.prodname_GHAS %}", click **Buy {% data variables.product.prodname_AS %}**.
 

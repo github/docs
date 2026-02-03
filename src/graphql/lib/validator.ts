@@ -1,4 +1,4 @@
-// the tests in tests/graphql.js use this schema to ensure the integrity
+// the tests in tests/graphql.ts use this schema to ensure the integrity
 // of the data in src/graphql/data/*.json
 
 // JSON Schema type definitions for AJV validation

@@ -5,16 +5,16 @@ import {
   isStringQuoted,
   isStringPunctuated,
 } from '../helpers/utils'
-import type { RuleParams, RuleErrorCallback } from '../../types'
+import type { RuleParams, RuleErrorCallback, Rule, MarkdownToken } from '../../types'
 
-export const imageAltTextEndPunctuation = {
+export const imageAltTextEndPunctuation: Rule = {
   names: ['GHD032', 'image-alt-text-end-punctuation'],
   description: 'Alternate text for images should end with punctuation',
   tags: ['accessibility', 'images'],
   parser: 'markdownit',
   function: (params: RuleParams, onError: RuleErrorCallback) => {
-    forEachInlineChild(params, 'image', function forToken(token: any) {
-      const imageAltText = token.content.trim()
+    forEachInlineChild(params, 'image', function forToken(token: MarkdownToken) {
+      const imageAltText = token.content?.trim()
 
       // If the alt text is empty, there is nothing to check and you can't
       // produce a valid range.
@@ -26,7 +26,7 @@ export const imageAltTextEndPunctuation = {
 
       const range = getRange(token.line, imageAltText)
 
-      addFixErrorDetail(onError, token.lineNumber, imageAltText + '.', imageAltText, range, {
+      addFixErrorDetail(onError, token.lineNumber, `${imageAltText}.`, imageAltText, range, {
         lineNumber: token.lineNumber,
         editColumn: isStringQuoted(imageAltText)
           ? token.line.indexOf(']')

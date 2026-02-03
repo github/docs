@@ -11,12 +11,11 @@ export default function features(req: ExtendedRequest, res: Response, next: Next
   if (!req.context.page) return next()
 
   if (!req.context.currentVersion) throw new Error('currentVersion is not contextualized')
-  Object.entries(getFeaturesByVersion(req.context.currentVersion)).forEach(
-    ([featureName, isFeatureAvailableInCurrentVersion]) => {
-      if (!req.context) throw new Error('request is not contextualized')
-      req.context[featureName] = isFeatureAvailableInCurrentVersion
-    },
-  )
+  const featureEntries = Object.entries(getFeaturesByVersion(req.context.currentVersion))
+  for (const [featureName, isFeatureAvailableInCurrentVersion] of featureEntries) {
+    if (!req.context) throw new Error('request is not contextualized')
+    req.context[featureName] = isFeatureAvailableInCurrentVersion
+  }
 
   return next()
 }
@@ -37,7 +36,7 @@ function getFeaturesByVersion(currentVersion: string): Record<string, boolean> {
       allFeatures = getDeepDataByLanguage('features', 'en') as Record<string, FeatureVersions>
     }
 
-    const features: {
+    const featureFlags: {
       [feature: string]: boolean
     } = {}
     // Determine whether the currentVersion belongs to the list of versions the feature is available in.
@@ -51,9 +50,9 @@ function getFeaturesByVersion(currentVersion: string): Record<string, boolean> {
       // Adding the resulting boolean to the context object gives us the ability to use
       // `{% if featureName ... %}` conditionals in content files.
       const isFeatureAvailableInCurrentVersion = applicableVersions.includes(currentVersion)
-      features[featureName] = isFeatureAvailableInCurrentVersion
+      featureFlags[featureName] = isFeatureAvailableInCurrentVersion
     }
-    cache.set(currentVersion, features)
+    cache.set(currentVersion, featureFlags)
   }
 
   return cache.get(currentVersion)

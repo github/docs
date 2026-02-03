@@ -19,7 +19,7 @@ You can migrate individual repositories or all repositories from a BitBucket Ser
 At this time, migrating from Bitbucket Server with the {% data variables.product.prodname_dotcom %} API is not supported.
 
 {% ifversion repo-rules-enterprise %}
-{% data reusables.enterprise-migration-tool.deploy-key-bypass %}
+{% data reusables.enterprise-migration-tool.repository-migrations-bypass %}
 {% endif %}
 
 ## Prerequisites
@@ -95,9 +95,6 @@ You will first generate an archive of the data you want to migrate and push the 
 Before you can run a migration, you need to set up a storage container with your chosen cloud provider to store your data.
 
 ### Using {% data variables.product.prodname_ghos %}
-
-> [!NOTE]
-> Repository migrations with {% data variables.product.prodname_ghos %} are currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 If you do not want to set up and provide {% data variables.product.prodname_importer_proper_name %} with access to a blob storage account behind your firewall, you can migrate repositories with {% data variables.product.prodname_ghos %} using the `--use-github-storage` flag. To do so, you must be running v1.9.0 (or higher) of {% data variables.product.prodname_bbs2gh_cli %}.
 

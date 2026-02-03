@@ -6,6 +6,7 @@ versions:
 category:
   - Prompt files
   - Getting started
+  - Configure Copilot
 complexity:
   - Simple
 octicon: copilot
@@ -22,7 +23,7 @@ This prompt file creates professional, comprehensive README files by analyzing y
 
 ```text copy
 ---
-mode: 'agent'
+agent: 'agent'
 description: 'Create a comprehensive README.md file for the project'
 ---
 

@@ -169,7 +169,8 @@
       "pricing_target_type",
       "pricing_target_id",
       "budget_limit_type",
-      "alert_recipient_user_ids"
+      "alert_recipient_user_ids",
+      "exclude_cost_center_usage"
     ]
   },
   {
@@ -222,7 +223,9 @@
       "old_target_amount",
       "old_budget_limit_type",
       "old_alert_enabled",
-      "old_target_id"
+      "old_target_id",
+      "old_pricing_target_type",
+      "old_pricing_target_id"
     ]
   },
   {
@@ -319,6 +322,27 @@
       "created_at",
       "action"
     ]
+  },
+  {
+    "action": "billing.overage_policy_updated",
+    "description": "The premium request paid usage policy for your GitHub account was changed.",
+    "docs_reference_links": "/copilot/how-tos/manage-and-track-spending/manage-request-allowances#setting-a-policy-for-paid-usage",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/copilot/how-tos/manage-and-track-spending/manage-request-allowances#setting-a-policy-for-paid-usage"
   },
   {
     "action": "billing.unlock",
@@ -1271,6 +1295,118 @@
       "_document_id"
     ],
     "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-automatically-when-new-repositories-are-added"
+  },
+  {
+    "action": "dependabot_closure_request.approve",
+    "description": "Dismissal of Dependabot alerts was approved.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "number",
+      "alert_number",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "About Dependabot alerts"
+  },
+  {
+    "action": "dependabot_closure_request.cancel",
+    "description": "Dismissal request for Dependabot alerts was canceled.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "number",
+      "alert_number",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "About Dependabot alerts"
+  },
+  {
+    "action": "dependabot_closure_request.create",
+    "description": "Dismissal of Dependabot alerts was requested.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "number",
+      "alert_number",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "About Dependabot alerts"
+  },
+  {
+    "action": "dependabot_closure_request.deny",
+    "description": "Dismissal of Dependabot alerts was denied.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "number",
+      "alert_number",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "About Dependabot alerts"
   },
   {
     "action": "dependabot_repository_access.repositories_updated",
@@ -2849,7 +2985,7 @@
   },
   {
     "action": "merge_queue.pull_request_dequeued",
-    "description": "N/A",
+    "description": "A pull request was removed from a merge queue.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
@@ -2869,7 +3005,7 @@
   },
   {
     "action": "merge_queue.pull_request_queue_jump",
-    "description": "N/A",
+    "description": "A pull request was moved ahead in a merge queue.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -2893,7 +3029,7 @@
   },
   {
     "action": "merge_queue.queue_cleared",
-    "description": "N/A",
+    "description": "A merge queue was cleared.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
@@ -2912,7 +3048,7 @@
   },
   {
     "action": "merge_queue.update_settings",
-    "description": "N/A",
+    "description": "The settings for a merge queue were updated.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
@@ -3630,6 +3766,29 @@
       "actor_is_bot",
       "request_access_security_header"
     ]
+  },
+  {
+    "action": "org.set_actions_cache_retention_policy",
+    "description": "The cache retention policy for GitHub Actions was set for an organization.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-github-actions-settings-for-your-organization",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "org",
+      "org_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/organizations/managing-organization-settings/managing-github-actions-settings-for-your-organization"
   },
   {
     "action": "org.set_actions_cache_storage_policy",

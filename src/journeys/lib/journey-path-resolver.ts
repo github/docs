@@ -2,6 +2,7 @@ import { getPathWithoutLanguage, getPathWithoutVersion } from '@/frame/lib/path-
 import { renderContent } from '@/content-render/index'
 import { executeWithFallback } from '@/languages/lib/render-with-fallback'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
+import Permalink from '@/frame/lib/permalink'
 import getLinkData from './get-link-data'
 
 export interface JourneyContext {
@@ -12,6 +13,11 @@ export interface JourneyContext {
   journeyPath: string
   currentGuideIndex: number
   numberOfGuides: number
+  nextTrackFirstGuide?: {
+    href: string
+    title: string
+    trackTitle: string
+  }
   nextGuide?: {
     href: string
     title: string
@@ -20,6 +26,7 @@ export interface JourneyContext {
     href: string
     title: string
   }
+  alternativeNextStep?: string
 }
 
 export interface JourneyTrack {
@@ -42,7 +49,10 @@ type JourneyPage = {
     id: string
     title: string
     description?: string
-    guides: string[]
+    guides: Array<{
+      href: string
+      alternativeNextStep?: string
+    }>
   }>
 }
 
@@ -58,6 +68,13 @@ type ContentContext = {
 
 // Cache for journey pages so we only filter all pages once
 let cachedJourneyPages: JourneyPage[] | null = null
+// Cache for guide paths to quickly check if a page is part of any journey
+let cachedGuidePaths: Set<string> | null = null
+let hasDynamicGuides = false
+
+function needsRendering(str: string): boolean {
+  return str.includes('{{') || str.includes('{%') || str.includes('[') || str.includes('<')
+}
 
 function getJourneyPages(pages: Pages): JourneyPage[] {
   if (!cachedJourneyPages) {
@@ -66,6 +83,27 @@ function getJourneyPages(pages: Pages): JourneyPage[] {
     ) as JourneyPage[]
   }
   return cachedJourneyPages
+}
+
+function getGuidePaths(pages: Pages): Set<string> {
+  if (!cachedGuidePaths) {
+    cachedGuidePaths = new Set()
+    const journeyPages = getJourneyPages(pages)
+    for (const page of journeyPages) {
+      if (!page.journeyTracks) continue
+      for (const track of page.journeyTracks) {
+        if (!track.guides) continue
+        for (const guide of track.guides) {
+          if (needsRendering(guide.href)) {
+            hasDynamicGuides = true
+          } else {
+            cachedGuidePaths.add(normalizeGuidePath(guide.href))
+          }
+        }
+      }
+    }
+  }
+  return cachedGuidePaths
 }
 
 function normalizeGuidePath(path: string): string {
@@ -83,21 +121,29 @@ function normalizeGuidePath(path: string): string {
 }
 
 /**
- * Helper function to append the journey-navigation feature flag to URLs
+ * Helper function to fetch guide data (href and title) for a given path
  */
-function appendJourneyFeatureFlag(href: string): string {
-  if (!href) return href
-
+async function fetchGuideData(
+  guidePath: string,
+  context: ContentContext,
+): Promise<{ href: string; title: string } | null> {
   try {
-    // we have to pass some URL here, we just throw it away though
-    const url = new URL(href, 'https://docs.github.com')
-    url.searchParams.set('feature', 'journey-navigation')
-    return url.pathname + url.search
-  } catch {
-    // fallback if URL parsing fails
-    const separator = href.includes('?') ? '&' : '?'
-    return `${href}${separator}feature=journey-navigation`
+    const resultData = await getLinkData(guidePath, context, {
+      title: true,
+      intro: false,
+      fullTitle: false,
+    })
+    if (resultData && resultData.length > 0) {
+      const linkResult = resultData[0]
+      return {
+        href: linkResult.href,
+        title: linkResult.title || '',
+      }
+    }
+  } catch (error) {
+    console.warn('Could not get link data for guide:', guidePath, error)
   }
+  return null
 }
 
 /**
@@ -114,6 +160,16 @@ export async function resolveJourneyContext(
   currentJourneyPage?: JourneyPage,
 ): Promise<JourneyContext | null> {
   const normalizedPath = normalizeGuidePath(articlePath)
+
+  // Optimization: Fast path check
+  // If we are not forcing a specific journey page, check our global cache
+  if (!currentJourneyPage) {
+    const guidePaths = getGuidePaths(pages)
+    // If we have no dynamic guides and this path isn't in our known guides, return null early.
+    if (!hasDynamicGuides && !guidePaths.has(normalizedPath)) {
+      return null
+    }
+  }
 
   // Use the current journey page if provided, otherwise find all journey pages
   const journeyPages = currentJourneyPage ? [currentJourneyPage] : getJourneyPages(pages)
@@ -134,6 +190,8 @@ export async function resolveJourneyContext(
       }
     }
 
+    let trackIndex = 0
+    let foundTrackIndex = 0
     for (const track of journeyPage.journeyTracks) {
       if (!track.guides || !Array.isArray(track.guides)) continue
 
@@ -141,19 +199,21 @@ export async function resolveJourneyContext(
       let guideIndex = -1
 
       for (let i = 0; i < track.guides.length; i++) {
-        const guidePath = track.guides[i]
+        const guidePath = track.guides[i].href
         let renderedGuidePath = guidePath
 
         // Handle Liquid conditionals in guide paths
-        try {
-          renderedGuidePath = await executeWithFallback(
-            context,
-            () => renderContent(guidePath, context, { textOnly: true }),
-            () => guidePath,
-          )
-        } catch {
-          // If rendering fails, use the original path rather than erroring
-          renderedGuidePath = guidePath
+        if (needsRendering(guidePath)) {
+          try {
+            renderedGuidePath = await executeWithFallback(
+              context,
+              () => renderContent(guidePath, context, { textOnly: true }),
+              () => guidePath,
+            )
+          } catch {
+            // If rendering fails, use the original path rather than erroring
+            renderedGuidePath = guidePath
+          }
         }
 
         const normalizedGuidePath = normalizeGuidePath(renderedGuidePath)
@@ -165,60 +225,77 @@ export async function resolveJourneyContext(
       }
 
       if (guideIndex >= 0) {
+        const alternativeNextStep = track.guides[guideIndex].alternativeNextStep || ''
+        let renderedAlternativeNextStep = alternativeNextStep
+
+        // Handle Liquid conditionals in branching text which likely has links
+        if (needsRendering(alternativeNextStep)) {
+          try {
+            renderedAlternativeNextStep = await executeWithFallback(
+              context,
+              () => renderContent(alternativeNextStep, context),
+              () => alternativeNextStep,
+            )
+          } catch {
+            // If rendering fails, use the original branching text rather than erroring
+            renderedAlternativeNextStep = alternativeNextStep
+          }
+        }
+
         result = {
           trackId: track.id,
           trackName: track.id,
           trackTitle: track.title,
           journeyTitle: journeyPage.title || '',
-          journeyPath: journeyPage.permalink || `/${journeyPage.relativePath || ''}`,
+          journeyPath:
+            journeyPage.permalink || Permalink.relativePathToSuffix(journeyPage.relativePath || ''),
           currentGuideIndex: guideIndex,
           numberOfGuides: track.guides.length,
+          alternativeNextStep: renderedAlternativeNextStep,
         }
 
         // Set up previous guide
         if (guideIndex > 0) {
-          const prevGuidePath = track.guides[guideIndex - 1]
-          try {
-            const resultData = await getLinkData(prevGuidePath, context, {
-              title: true,
-              intro: false,
-              fullTitle: false,
-            })
-            if (resultData && resultData.length > 0) {
-              const linkResult = resultData[0]
-              result.prevGuide = {
-                href: appendJourneyFeatureFlag(linkResult.href),
-                title: linkResult.title || '',
-              }
-            }
-          } catch (error) {
-            console.warn('Could not get link data for previous guide:', prevGuidePath, error)
+          const prevGuidePath = track.guides[guideIndex - 1].href
+          const guideData = await fetchGuideData(prevGuidePath, context)
+          if (guideData) {
+            result.prevGuide = guideData
           }
         }
 
         // Set up next guide
         if (guideIndex < track.guides.length - 1) {
-          const nextGuidePath = track.guides[guideIndex + 1]
-          try {
-            const resultData = await getLinkData(nextGuidePath, context, {
-              title: true,
-              intro: false,
-              fullTitle: false,
-            })
-            if (resultData && resultData.length > 0) {
-              const linkResult = resultData[0]
-              result.nextGuide = {
-                href: appendJourneyFeatureFlag(linkResult.href),
-                title: linkResult.title || '',
+          const nextGuidePath = track.guides[guideIndex + 1].href
+          const guideData = await fetchGuideData(nextGuidePath, context)
+          if (guideData) {
+            result.nextGuide = guideData
+          }
+        }
+
+        // Only populate nextTrackFirstGuide when on the last guide of the track
+        if (guideIndex === track.guides.length - 1) {
+          foundTrackIndex = trackIndex
+
+          if (
+            journeyPage.journeyTracks[foundTrackIndex + 1] &&
+            journeyPage.journeyTracks[foundTrackIndex + 1].guides.length > 0
+          ) {
+            const nextTrack = journeyPage.journeyTracks[foundTrackIndex + 1]
+            const nextTrackFirstGuidePath = nextTrack.guides[0].href
+            const guideData = await fetchGuideData(nextTrackFirstGuidePath, context)
+            if (guideData) {
+              result.nextTrackFirstGuide = {
+                ...guideData,
+                trackTitle: nextTrack.title,
               }
             }
-          } catch (error) {
-            console.warn('Could not get link data for next guide:', nextGuidePath, error)
           }
         }
 
         break // Found the track, stop searching
       }
+
+      trackIndex++
     }
 
     if (result) break // Found the journey, stop searching
@@ -233,23 +310,31 @@ export async function resolveJourneyContext(
  * Returns an array of JourneyTrack objects with titles, descriptions, and guide links.
  */
 export async function resolveJourneyTracks(
-  journeyTracks: any[],
+  journeyTracks: JourneyPage['journeyTracks'],
   context: ContentContext,
 ): Promise<JourneyTrack[]> {
+  if (!journeyTracks || journeyTracks.length === 0) {
+    return []
+  }
+
   const result = await Promise.all(
-    journeyTracks.map(async (track: any) => {
+    journeyTracks.map(async (track) => {
       // Render Liquid templates in title and description
-      const renderedTitle = await renderContent(track.title, context, { textOnly: true })
-      const renderedDescription = track.description
-        ? await renderContent(track.description, context, { textOnly: true })
-        : undefined
+      const renderedTitle = needsRendering(track.title)
+        ? await renderContent(track.title, context, { textOnly: true })
+        : track.title
+
+      const renderedDescription =
+        track.description && needsRendering(track.description)
+          ? await renderContent(track.description, context, { textOnly: true })
+          : track.description
 
       const guides = await Promise.all(
-        track.guides.map(async (guidePath: string) => {
-          const linkData = await getLinkData(guidePath, context, { title: true })
-          const baseHref = linkData?.[0]?.href || guidePath
+        track.guides.map(async (guide: { href: string; alternativeNextStep?: string }) => {
+          const linkData = await getLinkData(guide.href, context, { title: true })
+          const baseHref = linkData?.[0]?.href || guide.href
           return {
-            href: appendJourneyFeatureFlag(baseHref),
+            href: baseHref,
             title: linkData?.[0]?.title || 'Untitled Guide',
           }
         }),

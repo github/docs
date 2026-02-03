@@ -40,19 +40,21 @@ export function createProcessor(context: Context): UnifiedProcessor {
       .use(gfm)
       // Markdown AST below vvv
       .use(parseInfoString)
-      .use(rewriteLocalLinks, context)
+      // Using type assertion because rewriteLocalLinks is a factory function that takes context
+      // and returns a transformer, but TypeScript's unified plugin types don't handle this pattern
+      .use(rewriteLocalLinks as unknown as (ctx: Context) => void, context)
       .use(emoji)
       // Markdown AST above ^^^
       .use(remark2rehype, { allowDangerousHtml: true })
       // HTML AST below vvv
       .use(slug)
       // useEnglishHeadings plugin requires context with englishHeadings property
-      .use(useEnglishHeadings as any, context || {})
+      .use(useEnglishHeadings as unknown as (ctx: Context) => void, context || {})
       .use(headingLinks)
       .use(codeHeader)
       .use(annotate, context)
-      // Using 'as any' for highlight plugin due to complex type mismatch between unified and rehype-highlight
-      .use(highlight as any, {
+      // Using type assertion for highlight plugin due to complex type mismatch between unified and rehype-highlight
+      .use(highlight as unknown as (options: unknown) => void, {
         languages: { ...common, graphql, dockerfile, http, groovy, erb, powershell },
         subset: false,
         aliases: {
@@ -80,27 +82,35 @@ export function createProcessor(context: Context): UnifiedProcessor {
       .use(rewriteImgSources)
       .use(rewriteAssetImgTags)
       // alerts plugin requires context with alertTitles property
-      .use(alerts as any, context || {})
+      .use(alerts as unknown as (ctx: Context) => void, context || {})
       // HTML AST above ^^^
-      .use(html) as UnifiedProcessor // String below vvv
+      .use(html) as unknown as UnifiedProcessor // String below vvv
   )
 }
 
 export function createMarkdownOnlyProcessor(context: Context): UnifiedProcessor {
-  return unified()
-    .use(remarkParse)
-    .use(gfm)
-    .use(rewriteLocalLinks, context)
-    .use(remarkStringify) as UnifiedProcessor
+  return (
+    unified()
+      .use(remarkParse)
+      .use(gfm)
+      // Using type assertion because rewriteLocalLinks is a factory function that takes context
+      // and returns a transformer, but TypeScript's unified plugin types don't handle this pattern
+      .use(rewriteLocalLinks as unknown as (ctx: Context) => void, context)
+      .use(remarkStringify) as unknown as UnifiedProcessor
+  )
 }
 
 export function createMinimalProcessor(context: Context): UnifiedProcessor {
-  return unified()
-    .use(remarkParse)
-    .use(gfm)
-    .use(rewriteLocalLinks, context)
-    .use(remark2rehype, { allowDangerousHtml: true })
-    .use(slug)
-    .use(raw)
-    .use(html) as UnifiedProcessor
+  return (
+    unified()
+      .use(remarkParse)
+      .use(gfm)
+      // Using type assertion because rewriteLocalLinks is a factory function that takes context
+      // and returns a transformer, but TypeScript's unified plugin types don't handle this pattern
+      .use(rewriteLocalLinks as unknown as (ctx: Context) => void, context)
+      .use(remark2rehype, { allowDangerousHtml: true })
+      .use(slug)
+      .use(raw)
+      .use(html) as unknown as UnifiedProcessor
+  )
 }

@@ -55,7 +55,7 @@ export async function updateAutomatedPipelines() {
   // src/rest/lib/config.json file. We want to update 'api-versions'
   // before the allVersions object is created so we need to import it
   // after calling updateAutomatedConfigFiles.
-  const { allVersions } = await import('@/versions/lib/all-versions.js')
+  const { allVersions } = await import('@/versions/lib/all-versions')
 
   // Gets all of the base names (e.g., ghes-) in the allVersions object
   // Currently, this is only ghes- but if we had more than one type of
@@ -91,17 +91,28 @@ export async function updateAutomatedPipelines() {
     .map((version) => version.openApiVersionName)
 
   for (const pipeline of pipelines) {
-    if (!existsSync(`src/${pipeline}/data`)) continue
+    // secret-scanning has a different directory structure than the others
+    const directoryWithReleases =
+      pipeline === 'secret-scanning'
+        ? 'src/secret-scanning/data/pattern-docs'
+        : `src/${pipeline}/data`
+    if (!existsSync(directoryWithReleases)) continue
+
     const isCalendarDateVersioned = JSON.parse(
       await readFile(`src/${pipeline}/lib/config.json`, 'utf-8'),
     )['api-versions']
 
-    const directoryListing = await readdir(`src/${pipeline}/data`)
+    const directoryListing = await readdir(directoryWithReleases)
     // filter the directory list to only include directories that start with
     // basenames with numbered releases (e.g., ghes-).
     const existingDataDir = directoryListing.filter((directory) =>
       numberedReleaseBaseNames.some((basename) => directory.startsWith(basename)),
     )
+
+    if (!existingDataDir.length) {
+      throw new Error(`Cannot find ghes- release directories in ${directoryWithReleases}.`)
+    }
+
     const expectedDirectory = isCalendarDateVersioned ? versionNamesCalDate : versionNames
 
     // Get a list of data directories to remove (deprecate) and remove them
@@ -117,7 +128,7 @@ export async function updateAutomatedPipelines() {
     const addFiles = difference(expectedDirectory, existingDataDir)
     if (addFiles.length > numberedReleaseBaseNames.length) {
       throw new Error(
-        'Only one new release per numbered release version should be added at a time. Check that the lib/enterprise-server-releases.js is correct.',
+        'Only one new release per numbered release version should be added at a time. Check that the lib/enterprise-server-releases.ts is correct.',
       )
     }
 

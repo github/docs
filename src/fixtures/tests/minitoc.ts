@@ -4,7 +4,6 @@ import cheerio from 'cheerio'
 import { getDOM } from '@/tests/helpers/e2etest'
 
 describe('minitoc', () => {
-  // TODO disable the mini TOC tests when we replace it with sticky TOC header
   test('renders mini TOC in articles with more than one heading', async () => {
     const $: cheerio.Root = await getDOM('/en/get-started/minitocs/multiple-headings')
     expect($('h2#in-this-article').length).toBe(1)

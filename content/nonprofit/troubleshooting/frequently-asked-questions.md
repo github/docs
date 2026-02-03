@@ -38,8 +38,9 @@ The following elements should be included in your GitHub for Nonprofits applicat
 * Proof of your nonprofit status with your local government (501(c)(3) status in the United States)
 * The registered name of your nonprofit
 * A summary of what your nonprofit organization does
-* Confirmation that your organization is nongovernmental, nonacademic, noncommercial, nonpolitical and has no religious affiliation
+* Confirmation that your organization is nongovernmental, nonacademic, noncommercial, and nonpolitical
 * If your application is denied, please check that your submission included all of these details. If you were missing some of these elements, consider applying again through GitHub for Nonprofits with complete information.
+* Please note religious or faith-based organizations in India are ineligible. See [mission eligibility exceptions](https://www.microsoft.com/en-us/nonprofits/eligibility) in the Microsoft documentation.
 
 ## Why can't I select the free GitHub Team plan?
 

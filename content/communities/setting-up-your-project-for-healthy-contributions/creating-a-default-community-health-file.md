@@ -18,7 +18,7 @@ shortTitle: Community health file
 
 Default community health files are a set of predefined files that provide guidance and templates for maintaining a healthy and collaborative open source project. These files help you automate and standardize various aspects of your project's development and community interaction, promoting transparency, good practices, and collaboration.
 
-You can add default community health files to a public repository called `.github` and {% data variables.product.github %} will use and display default files for any repository owned by the account that does not have its own file of that type in the following order:
+You can add default community health files to a **public**{% ifversion ghec or ghes %} or **internal**{% endif %} repository called `.github` and {% data variables.product.github %} will use and display default files for any repository owned by the account that does not have its own file of that type in the following order:
 
 * The `.github` folder
 * The root of the repository
@@ -26,7 +26,7 @@ You can add default community health files to a public repository called `.githu
 
 If no corresponding file is found in the current repository, {% data variables.product.github %} will use the default file from the `.github` repository, following the same order of precedence.
 
-**Note:** The `.github` repository must be **public** for templates to be applied organization-wide. Private `.github` repositories are not supported.
+>[!NOTE] The `.github` repository must be **public**{% ifversion ghec or ghes %} or **internal**{% endif %} for templates to be applied organization-wide. Private `.github` repositories are not supported.
 
 For example, anyone who creates an issue or pull request in a repository that does not have its own `CONTRIBUTING.md` file will see a link to the default `CONTRIBUTING.md` from the `.github` repository. However, if a repository has any files in its own `.github/ISSUE_TEMPLATE` folder, such as issue templates or a `_config.yml` file, none of the contents of the default `.github/ISSUE_TEMPLATE` folder will be used. This allows repository maintainers to override the default files with specific templates or content on per-repository basis.
 
@@ -37,6 +37,19 @@ Storing the files in `.github` repository allows making changes to the defaults 
 As a repository maintainer, you can use the community standards checklist to see if your project meets the recommended community standards to help people use and contribute to your project. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories).
 
 {% endif %}
+
+## About security policies
+
+{% ifversion fpt or ghec %}
+After someone reports a security vulnerability in your project, you can use {% data variables.product.prodname_security_advisories %} to disclose, fix, and publish information about the vulnerability. For more information about the process of reporting and disclosing vulnerabilities in {% data variables.product.prodname_dotcom %}, see [AUTOTITLE](/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github). For more information about repository security advisories, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories).
+{% endif %}
+
+{% ifversion ghes %}
+<!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
+By making security reporting instructions clearly available, you make it easy for your users to report any security vulnerabilities they find in your repository using your preferred communication channel.
+{% endif %}
+
+For an example of a real `SECURITY.md` file, see [https://github.com/electron/electron/blob/main/SECURITY.md](https://github.com/electron/electron/blob/main/SECURITY.md).
 
 ## Supported file types
 
@@ -66,7 +79,7 @@ You cannot create a default license file. License files must be added to individ
    ![Screenshot of the owner menu for a new {% data variables.product.prodname_dotcom %} repository. The menu shows two options, octocat and github.](/assets/images/help/repository/create-repository-owner.png)
 1. In the "Repository name" field, type **.github**.
 1. Optionally, in the "Description" field, type a description.
-1. Make sure the repository status is set to **Public**. A repository for default files cannot be private.
+1. Make sure the repository status is set to **Public**{% ifversion ghec or ghes %} or **Internal**{% endif %}. A repository for default files cannot be private.
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
 1. In the repository, create one of the supported community health files. Issue templates and their configuration file must be in a folder called `.github/ISSUE_TEMPLATE`. All other supported files may be in the root of the repository, the `.github` folder, or the `docs` folder. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files).

@@ -21,7 +21,7 @@ export default function processPreviews(previews: RawPreview[]): ProcessedPrevie
   // clean up raw yml data
   // Using any type because we're mutating the preview object to add new properties
   // that don't exist in the RawPreview interface (accept_header, href)
-  previews.forEach((preview: any) => {
+  for (const preview of previews as any[]) {
     preview.title = sentenceCase(preview.title)
       .replace(/ -.+/, '') // remove any extra info that follows a hyphen
       .replace('it hub', 'itHub') // fix overcorrected `git hub` from sentenceCasing
@@ -46,7 +46,7 @@ export default function processPreviews(previews: RawPreview[]): ProcessedPrevie
 
     slugger.reset()
     preview.href = `/graphql/overview/schema-previews#${slugger.slug(preview.title)}`
-  })
+  }
 
   return previews as ProcessedPreview[]
 }

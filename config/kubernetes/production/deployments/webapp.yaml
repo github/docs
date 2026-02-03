@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp
+  annotations:
+    moda.github.net/allow-missing-ready-pods: '1'
 spec:
   replicas: 6
   selector:

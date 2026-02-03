@@ -10,9 +10,9 @@ children:
   - /configure-access-to-ai-models
   - /change-the-chat-model
   - /change-the-completion-model
-  - /create-a-custom-model
 redirect_from:
   - /copilot/using-github-copilot/ai-models
   - /copilot/how-tos/ai-models
+  - /copilot/how-tos/use-ai-models/create-a-custom-model
 contentType: how-tos
 ---

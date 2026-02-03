@@ -8,7 +8,6 @@ intro: >-
   Use the REST API to create and manage cards on a {% data
   variables.projects.projects_v1_board %}.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
-  ghec: '*'
   ghes: <=3.16
 topics:
   - API

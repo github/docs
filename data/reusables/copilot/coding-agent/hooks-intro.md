@@ -1,0 +1,1 @@
+Hooks allow you to extend and customize the behavior of {% data variables.product.prodname_copilot %} agents by executing custom shell commands at key points during agent execution. For a conceptual overview of hooks, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-hooks).

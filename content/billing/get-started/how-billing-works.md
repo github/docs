@@ -61,9 +61,19 @@ If required, {% data variables.product.prodname_ghe_cloud %} accounts can reques
 
 Each account has a **billing date** and a **billing cycle**.
 
-For credit card and PayPal payments, the billing date is the day you started a paid plan (not necessarily when the account was created). For example, if you started a paid plan on the 15th of a month, you will be billed on the 15th of each subsequent month. For payments using an Azure subscription ID, the billing date is available in the Azure commerce portal.
+For **personal and organization accounts** set up for credit card and PayPal payments, the **billing date** is typically the day you started a paid plan (not necessarily when the account was created). For example, if you started a paid plan on the 15th of a month, you will be billed on the 15th of each subsequent month. For payments using an Azure subscription ID, the billing date is available in the Azure commerce portal.
 
-Most users pay for {% data variables.product.github %} using metered billing. The billing cycle for all metered products is a fixed period from the first day to the last day of the month.
+For **enterprise accounts**, your **billing date** will vary. See [AUTOTITLE](/billing/concepts/billing-cycles).
+
+Most users pay for {% data variables.product.github %} using metered billing. The **billing cycle** for all metered products is a fixed period from the first day to the last day of the month.
+
+### Authorization holds
+
+You may see an authorization hold on your provided payment method upon initiating a subscription or trial. Depending on your bank or card issuer, this may result in the appearance of a transaction or charge.
+
+Authorization holds are temporary and released as quickly as possible. If the authorization hold persists for longer than 10 business days, we suggest reaching out to your bank or card issuer.
+
+If the authorization is unsuccessful, the chosen service will not be activated and the account may be locked. For more more information, see [AUTOTITLE](/billing/how-tos/troubleshooting/locked-account#unlocking-an-accounts-features-due-to-a-failed-authorization-hold).
 
 ## How do I see what I'm billed for?
 

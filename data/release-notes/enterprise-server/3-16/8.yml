@@ -27,7 +27,7 @@ sections:
     - |
       Administrators debugging Elasticsearch index repairs previously did not see a "starting" log entry before a repair began, making it harder to track repair initiation in logs.
     - |
-      After upgrading to GHES 3.16.7, or GHES 3.17.4, administrators found that draft pull requests for private repositories were no longer available.
+      After upgrading to GHES 3.16.7, or GHES 3.17.4, administrators found that draft pull requests and autolink references for private repositories were no longer available. [Updated: 2025-11-11]
     - |
       Site administrators experienced crashes in MySQL when running data backfills, such as during database maintenance or upgrades.
   changes:
@@ -80,3 +80,7 @@ sections:
       After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
     - |
       Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to {% ifversion ghes = 3.16 %}3.16{% endif %}{% ifversion ghes = 3.17 %}3.17{% endif %}{% ifversion ghes = 3.18 %}3.18{% endif %} with caution.
+    - |
+      Upgrading to this version from GHES 3.14.19 and higher or 3.15.14 and higher will cause the upgrade to fail due to this version containing an older version of MySQL. To avoid this issue please upgrade to GHES 3.16.10 or higher.
+
+      [Updated: 2025-11-24]

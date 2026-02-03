@@ -81,7 +81,7 @@ export default function rewriteAssetImgTags() {
  */
 function injectMaxWidth(pathname: string, maxWidth: number): string {
   const split = pathname.split('/')
-  // This prefix needs to match what's possibly expected in dynamic-assets.js
+  // This prefix needs to match what's possibly expected in dynamic-assets.ts
   const inject = `mw-${maxWidth}`
   if (split.includes(inject)) {
     throw new Error(`pathname already includes '${inject}'`)

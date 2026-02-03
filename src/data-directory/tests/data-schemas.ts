@@ -1,6 +1,6 @@
 import yaml from 'js-yaml'
-import { readFileSync } from 'fs'
-import { extname, basename } from 'path'
+import { readFileSync, existsSync, readdirSync } from 'fs'
+import { extname, basename, join } from 'path'
 
 import walk from 'walk-sync'
 import { beforeAll, describe, expect, test } from 'vitest'
@@ -47,5 +47,26 @@ describe('single data files', () => {
     const { isValid, errors } = validateJson(schema, ymlData)
     const formattedErrors = isValid ? undefined : formatAjvErrors(errors || [])
     expect(isValid, formattedErrors).toBe(true)
+  })
+})
+
+describe('YAML-powered tables', () => {
+  test('all table files have corresponding schemas', () => {
+    const tablesDir = join(process.cwd(), 'data/tables')
+    const schemasDir = join(__dirname, '../lib/data-schemas/tables')
+
+    if (existsSync(tablesDir)) {
+      const yamlFiles = readdirSync(tablesDir).filter((file) => file.endsWith('.yml'))
+
+      for (const yamlFile of yamlFiles) {
+        const name = basename(yamlFile, '.yml')
+        const schemaPath = join(schemasDir, `${name}.ts`)
+        expect(existsSync(schemaPath)).toBe(true)
+
+        // Also verify it's registered in the dataSchemas
+        const dataKey = `data/tables/${yamlFile}`
+        expect(dataSchemas[dataKey]).toBeDefined()
+      }
+    }
   })
 })

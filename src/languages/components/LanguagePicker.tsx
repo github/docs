@@ -6,6 +6,8 @@ import { useTranslation } from '@/languages/components/useTranslation'
 import { useUserLanguage } from '@/languages/components/useUserLanguage'
 import { ActionList, ActionMenu, IconButton } from '@primer/react'
 
+import styles from './LanguagePicker.module.scss'
+
 type Props = {
   xs?: boolean
   mediumOrLower?: boolean
@@ -79,15 +81,10 @@ export const LanguagePicker = ({ xs, mediumOrLower }: Props) => {
             <ActionMenu.Anchor>
               <ActionMenu.Button
                 variant="invisible"
-                className="color-fg-default width-full"
+                className={`color-fg-default width-full ${styles.menuButton}`}
                 aria-label={`Select language: current language is ${selectedLang.name}`}
-                sx={{
-                  height: 'auto',
-                  textAlign: 'left',
-                  'span:first-child': { display: 'inline' },
-                }}
               >
-                <span style={{ whiteSpace: 'pre-wrap' }}>{t('language_picker_label') + '\n'}</span>
+                <span className={styles.languageLabel}>{`${t('language_picker_label')}\n`}</span>
                 <span className="color-fg-muted text-normal f6">{selectedLang.name}</span>
               </ActionMenu.Button>
             </ActionMenu.Anchor>

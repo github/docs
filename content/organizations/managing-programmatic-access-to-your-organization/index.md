@@ -20,7 +20,7 @@ children:
   - /setting-a-personal-access-token-policy-for-your-organization
   - /managing-requests-for-personal-access-tokens-in-your-organization
   - /reviewing-and-revoking-personal-access-tokens-in-your-organization
-  - /limiting-oauth-app-and-github-app-access-requests
+  - /limiting-oauth-app-and-github-app-access-requests-and-installations
   - /viewing-api-insights-in-your-organization
 shortTitle: Manage programmatic access
 ---

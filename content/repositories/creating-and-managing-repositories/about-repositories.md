@@ -100,7 +100,7 @@ People with admin permissions for a repository can change an existing repository
 
 ## About internal repositories
 
-{% data reusables.repositories.about-internal-repos %} For more information on innersource, see {% data variables.product.prodname_dotcom %}'s whitepaper [An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/).
+{% data reusables.repositories.about-internal-repos %} For more information on innersource, see [AUTOTITLE](/admin/concepts/enterprise-best-practices/use-innersource).
 
 {% ifversion ghec %}
 
@@ -109,14 +109,7 @@ People with admin permissions for a repository can change an existing repository
 
 {% endif %}
 
-All enterprise members have read permissions to the internal repository, but internal repositories are not visible to people {% ifversion fpt or ghec %}outside of the enterprise{% else %}who are not members of any organization{% endif %}, including outside collaborators on organization repositories. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-members) and [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
-
-{% ifversion ghes %}
-
-> [!NOTE]
-> A user must be part of an organization to be an enterprise member and have access to internal repositories. If a user on {% data variables.location.product_location %} is not a member of any organization, that user will not have access to internal repositories.
-
-{% endif %}
+Organization members have read permissions to all internal repositories in an enterprise, including those in organizations they are not a member of. Internal repositories are not visible to people {% ifversion fpt or ghec %}outside of the enterprise{% else %}who are not members of any organization{% endif %}, including outside collaborators on organization repositories. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-members) and [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
 
 {% data reusables.repositories.internal-repo-default %}
 

@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-copilot-coding-agent-on-githubcom
   - /copilot/responsible-use-of-github-copilot-features/copilot-coding-agent
 contentType: rai
+category: 
+  - Responsible use
 ---
 
 ## About {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.prodname_dotcom_the_website %}
@@ -125,6 +127,14 @@ By default, {% data variables.copilot.copilot_coding_agent %} has a firewall ena
 
 For more information, see [AUTOTITLE](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
 
+### Preventing security vulnerabilities in generated code
+
+During the code generation process, {% data variables.copilot.copilot_coding_agent %} automatically analyzes the newly generated code for security vulnerabilities and attempts to resolve them, to prevent any discovered issues from being introduced. Analysis is performed using the following tools and processes:
+
+* **{% data variables.product.prodname_codeql %}**: will run to identify potential vulnerabilities and errors.
+* **{% data variables.product.prodname_secret_scanning_caps %}**: will scan for known types of secrets, to ensure secrets aren't introduced in the response.
+* **Dependency analysis**: dependencies referenced by new code will be checked for known vulnerabilities in the {% data variables.product.prodname_advisory_database %}.
+
 ## Limitations of {% data variables.copilot.copilot_coding_agent %}
 
 Depending on factors such as your codebase and input data, you may experience different levels of performance when using {% data variables.copilot.copilot_coding_agent %}. The following information is designed to help you understand system limitations and key concepts about performance as they apply to {% data variables.copilot.copilot_coding_agent %}.
@@ -156,3 +166,12 @@ If this happens, {% data variables.product.prodname_copilot_short %} will not pr
 ### Legal and regulatory considerations
 
 Users need to evaluate potential specific legal and regulatory obligations when using any AI services and solutions, which may not be appropriate for use in every industry or scenario. Additionally, AI services or solutions are not designed for and may not be used in ways prohibited in applicable terms of service and relevant codes of conduct.
+
+## External integrations with Copilot coding agent
+
+{% data variables.copilot.copilot_coding_agent %} can receive information and context from external applications like Microsoft Teams, Linear, and Slack. When you mention the external application in these platforms or assign a task to the coding agent via a connected workflow, it can access relevant context, such as conversation history in threads where it’s mentioned or issue details and activity timelines. This allows the coding agent to better understand your development needs and provide more relevant assistance. These integrations enable teams to collaborate on code, assign tasks, and track progress directly within their existing workflows, without switching tools. Ensure your team understands what information is being shared and configure integrations according to your organization’s privacy and data handling policies.
+
+For more information about external integrations with {% data variables.copilot.copilot_coding_agent %}, see:
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-teams)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-linear)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-slack)

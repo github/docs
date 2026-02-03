@@ -1,4 +1,4 @@
-import { languageKeys } from '@/languages/lib/languages'
+import { languageKeys } from '@/languages/lib/languages-server'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { allVersions } from '@/versions/lib/all-versions'
 import {
@@ -73,11 +73,10 @@ export default function getRedirect(uri: string, context: Context): string | und
 
   if (withoutLanguage.startsWith(nonEnterpriseDefaultVersionPrefix)) {
     // E.g. '/free-pro-team@latest/foo/bar' or '/free-pro-team@latest'
-    basicCorrection =
-      `/${language}` + withoutLanguage.replace(nonEnterpriseDefaultVersionPrefix, '')
+    basicCorrection = `/${language}${withoutLanguage.replace(nonEnterpriseDefaultVersionPrefix, '')}`
   } else if (withoutLanguage.replace('/', '') in allVersions && !languagePrefixRegex.test(uri)) {
     // E.g. just '/github-ae@latest' or '/enterprise-cloud@latest'
-    basicCorrection = `/${language}` + withoutLanguage
+    basicCorrection = `/${language}${withoutLanguage}`
     return basicCorrection
   }
 
@@ -86,18 +85,20 @@ export default function getRedirect(uri: string, context: Context): string | und
     withoutLanguage.startsWith('/enterprise-server/')
   ) {
     // E.g. '/enterprise-server' or '/enterprise-server/3.0/foo'
-    basicCorrection =
-      `/${language}` +
-      withoutLanguage.replace('/enterprise-server', `/enterprise-server@${latestStable}`)
+    basicCorrection = `/${language}${withoutLanguage.replace(
+      '/enterprise-server',
+      `/enterprise-server@${latestStable}`,
+    )}`
     // If it's now just the version, without anything after, exit here
     if (withoutLanguage === '/enterprise-server') {
       return basicCorrection
     }
   } else if (withoutLanguage.startsWith('/enterprise-server@latest')) {
     // E.g. '/enterprise-server@latest' or '/enterprise-server@latest/3.3/foo'
-    basicCorrection =
-      `/${language}` +
-      withoutLanguage.replace('/enterprise-server@latest', `/enterprise-server@${latestStable}`)
+    basicCorrection = `/${language}${withoutLanguage.replace(
+      '/enterprise-server@latest',
+      `/enterprise-server@${latestStable}`,
+    )}`
     // If it was *just* '/enterprise-server@latest' all that's needed is
     // the language but with 'latest' replaced with the value of `latest`
     if (withoutLanguage === '/enterprise-server@latest') {
@@ -115,14 +116,16 @@ export default function getRedirect(uri: string, context: Context): string | und
     const version = withoutLanguage.split('/')[2]
     if (withoutLanguage === `/enterprise/${version}`) {
       // E.g. `/enterprise/3.0`
-      basicCorrection =
-        `/${language}` +
-        withoutLanguage.replace(`/enterprise/${version}`, `/enterprise-server@${version}`)
+      basicCorrection = `/${language}${withoutLanguage.replace(
+        `/enterprise/${version}`,
+        `/enterprise-server@${version}`,
+      )}`
       return basicCorrection
     } else {
-      basicCorrection =
-        `/${language}` +
-        withoutLanguage.replace(`/enterprise/${version}/`, `/enterprise-server@${version}/`)
+      basicCorrection = `/${language}${withoutLanguage.replace(
+        `/enterprise/${version}/`,
+        `/enterprise-server@${version}/`,
+      )}`
     }
   } else if (withoutLanguage === '/enterprise') {
     // E.g. `/enterprise` exactly
@@ -136,11 +139,9 @@ export default function getRedirect(uri: string, context: Context): string | und
     // If the URL is without a language, and no redirect is necessary,
     // but it has as version prefix, the language has to be there
     // otherwise it will never be found in `req.context.pages`
-    basicCorrection =
-      `/${language}` +
-      withoutLanguage
-        .replace(`/enterprise/`, `/enterprise-server@${latest}/`)
-        .replace('/user/', '/')
+    basicCorrection = `/${language}${withoutLanguage
+      .replace(`/enterprise/`, `/enterprise-server@${latest}/`)
+      .replace('/user/', '/')}`
   } else if (withoutLanguage.startsWith('/insights')) {
     // E.g. '/insights/foo'
     basicCorrection = uri.replace('/insights', `${language}/enterprise-server@${latest}/insights`)
@@ -171,7 +172,7 @@ export default function getRedirect(uri: string, context: Context): string | und
 
     if (supported.includes(version) || version === 'latest') {
       prefix = `/${majorVersion}@${version}`
-      suffix = '/' + split.slice(2).join('/')
+      suffix = `/${split.slice(2).join('/')}`
 
       if (
         suffix.includes('/user') ||
@@ -183,7 +184,7 @@ export default function getRedirect(uri: string, context: Context): string | und
     } else {
       // If version is not supported, we still need to set these values
       prefix = `/${majorVersion}@${version}`
-      suffix = '/' + split.slice(2).join('/')
+      suffix = `/${split.slice(2).join('/')}`
     }
 
     const newURL = prefix + suffix
@@ -311,15 +312,15 @@ function tryReplacements(prefix: string, suffix: string, context: Context): stri
     return undefined
   }
 
-  const test = (suffix: string): boolean => {
+  const test = (testSuffix: string): boolean => {
     // This is a generally broad search and replace and this particular
     // replacement has never been present in api documentation only enterprise
     // admin documentation, so we're excluding the REST api pages
-    if (suffix.includes('/rest')) {
+    if (testSuffix.includes('/rest')) {
       return false
     }
-    const candidateAsRedirect = prefix + suffix
-    const candidateAsURL = '/en' + candidateAsRedirect
+    const candidateAsRedirect = prefix + testSuffix
+    const candidateAsURL = `/en${candidateAsRedirect}`
     return candidateAsRedirect in redirects || candidateAsURL in pages
   }
 

@@ -14,6 +14,8 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-code-review/configure-automatic-review
   - /copilot/how-tos/agents/request-a-code-review/configure-automatic-review
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 ## Introduction

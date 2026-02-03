@@ -19,6 +19,8 @@ redirect_from:
   - /copilot/concepts/billing/billing-for-enterprises
   - /copilot/concepts/billing/billing-for-organizations
 contentType: concepts
+category: 
+  - Manage Copilot for a team
 ---
 
 ## Available plans

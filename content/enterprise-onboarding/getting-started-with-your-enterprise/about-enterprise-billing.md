@@ -1,13 +1,13 @@
 ---
 title: About enterprise billing
-intro: 'Learn about billing for {% data variables.product.prodname_ghe_cloud %}.'
+intro: 'Understand billing for {% data variables.product.prodname_ghe_cloud %}.'
 versions:
   ghec: '*'
 type: overview
 topics:
   - Accounts
   - Enterprise
-shortTitle: Enterprise billing
+shortTitle: Billing
 ---
 
 ## About billing for your enterprise
@@ -36,9 +36,4 @@ To pay for licenses and services, you can use a credit card, PayPal, or a Micros
 
 ## Next steps
 
-* To learn more about options for managing billing, see [AUTOTITLE](/billing/managing-your-billing/about-the-new-billing-platform).
-* To get started with migrating data to your enterprise, see [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/about-migrating-to-github-enterprise-cloud).
-
-## Next steps
-
-Next, learn about migrating your current solution to {% data variables.product.prodname_ghe_cloud %}. See [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/about-migrating-to-github-enterprise-cloud).
+Before you start to set up your enterprise, learn about your options for migrating data from an existing DevOps solution. See [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/about-migrating-to-github-enterprise-cloud).

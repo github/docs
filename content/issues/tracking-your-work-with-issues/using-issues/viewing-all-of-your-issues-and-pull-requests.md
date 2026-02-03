@@ -40,10 +40,7 @@ You can create up to 25 saved views.
 ### Create a saved view
 
 1. At the top of any page, click {% octicon "issue-opened" aria-label="Issues" %} to see your issues.
-1. On the left sidebar, under "Views", click **{% octicon "plus" aria-label="Create view" %}**.
-
-   ![Screenshot of the {% octicon "plus" aria-label="Create view" %}. The icon is outlined in dark orange.](/assets/images/help/issues/issues-create-saved-view.png)
-
+1. On the left sidebar, to the right of "Views", click **{% octicon "plus" aria-label="Create view" %}**.
 1. Add a title, description, and custom icon for your view.
 1. Under "Query", build your search query using the advanced filters. For help using filters, see [AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests).
    > [!TIP] Use the `is:pr` filter to include pull requests in the saved view.

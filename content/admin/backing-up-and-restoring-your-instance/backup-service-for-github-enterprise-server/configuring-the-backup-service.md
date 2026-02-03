@@ -80,8 +80,9 @@ If you're using a dedicated block device as your backup target, you need to init
     This command:
     * Formats the device (erases all data).
     * Prepares it for use by the backup service.
-    * Sets it to mount automatically at `/data/backup` on boot.
-
+    * Sets it to mount automatically at `/data/backup` on boot.{% ifversion ghes > 3.19 %}
+    * If in a clustered environment, configures the node in `cluster.conf` with the `backup-server` role.{% endif %}
+  
     {% ifversion ghes = 3.17 %}
     From {% data variables.product.prodname_ghe_server %} 3.17.4 onward, the script is installed in PATH so you can run it directly using: `ghe-storage-init-backup /dev/YOUR_DEVICE_NAME`.
     {% endif %}
@@ -109,9 +110,9 @@ If the device was already initialized using `ghe-storage-init-backup`, you can r
 
 ### Configuring backup settings
 
-After the backup target is mounted, the Backup Service page will become available in the {% data variables.enterprise.management_console %}. If you're using a block device, this requires completing the initialization or mount steps above.
+After the backup target is mounted, the Backup Service page will become available in the {% data variables.enterprise.management_console %}. {% ifversion ghes > 3.19 %} If your instance is part of a clustered environment, the system will automatically detect the node that was initialized with `ghe-storage-init-backup` and treat it as the backup server. {% endif %}
 
->[!NOTE] The settings page won’t appear until the backup storage is mounted at `/data/backup`.
+>[!NOTE] The settings page won’t appear until the backup storage is mounted at `/data/backup` by completing the initialization or mount steps above.
 
 If you're migrating from {% data variables.product.prodname_enterprise_backup_utilities %}, you can transfer your configuration in one of two ways:
 
@@ -124,7 +125,7 @@ If you're migrating from {% data variables.product.prodname_enterprise_backup_ut
 
    Use the `--dry-run` flag to preview changes without applying them.
 
-### Scheduling automated backups
+#### Scheduling automated backups
 
 Once the service is configured, you can define a backup schedule.
 
@@ -133,3 +134,27 @@ Once the service is configured, you can define a backup schedule.
 1. Click **Save** to apply the changes.
 
 The first run will be a full backup. Future runs will be incremental. If a new backup attempt starts while a previous one is still running, it may be skipped or fail. In that case, adjust the schedule to avoid overlap.
+
+{% ifversion ghes > 3.19 %}
+
+### Configuring backups from a replica node
+
+For high availability, you can designate a replica node as your backup server. To minimize latency, {% data variables.product.github %} recommends picking a replica node in the same region or datacenter as your primary node.
+
+> [!IMPORTANT] 
+> Backups from cache replica nodes or active geo replica nodes are not supported.
+
+To configure your backup server, run the following commands, replacing `HOSTNAME` with the hostname of the node:
+
+```shell
+ghe-config cluster.HOSTNAME.backup-server true
+
+ghe-config-apply
+```
+
+You can now run `ghe-backup` directly on your replica node.
+
+> [!WARNING]
+> Due to the latency between primary and replica nodes, you may lose data when backing up from a replica node.
+
+{% endif %}

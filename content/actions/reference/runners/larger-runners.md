@@ -65,8 +65,6 @@ The following machines are available for macOS {% data variables.actions.hosted_
 
 {% data reusables.actions.larger-runners-table %}
 
->[!NOTE] The XLarge macOS runner is in public preview and subject to change.
-
 ## Limitations for macOS {% data variables.actions.hosted_runners %}
 
 {% data reusables.actions.macos-runner-limitations %}

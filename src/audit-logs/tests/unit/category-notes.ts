@@ -16,10 +16,10 @@ describe('audit log category notes', () => {
 
   test('category notes are strings', () => {
     if (config.categoryNotes) {
-      Object.values(config.categoryNotes).forEach((note) => {
+      for (const note of Object.values(config.categoryNotes)) {
         expect(typeof note).toBe('string')
         expect(note.length).toBeGreaterThan(0)
-      })
+      }
     }
   })
 
@@ -51,13 +51,13 @@ describe('audit log category notes', () => {
     expect(Object.keys(enterpriseEvents).length).toBeGreaterThan(0)
 
     // Each category should still contain arrays of events
-    Object.values(organizationEvents).forEach((events) => {
+    for (const events of Object.values(organizationEvents)) {
       expect(Array.isArray(events)).toBe(true)
       if (events.length > 0) {
         expect(events[0]).toHaveProperty('action')
         expect(events[0]).toHaveProperty('description')
       }
-    })
+    }
   })
 
   test('category notes are properly typed', () => {

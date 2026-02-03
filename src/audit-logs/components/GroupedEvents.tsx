@@ -4,6 +4,8 @@ import { HeadingLink } from '@/frame/components/article/HeadingLink'
 import { useTranslation } from '@/languages/components/useTranslation'
 import type { AuditLogEventT } from '../types'
 
+import styles from './GroupedEvents.module.scss'
+
 type Props = {
   auditLogEvents: AuditLogEventT[]
   category: string
@@ -47,15 +49,15 @@ export default function GroupedEvents({ auditLogEvents, category, categoryNote }
       )}
       <div>
         {auditLogEvents.map((event) => (
-          <div key={event.action} style={{ marginBottom: '3rem' }}>
+          <div key={event.action} className={styles.eventItem}>
             <dl>
-              <dt style={{ fontStyle: 'normal' }}>
+              <dt className={styles.eventAction}>
                 <code>{event.action}</code>
               </dt>
               <dd>{event.description}</dd>
 
-              <dt style={{ marginLeft: '1rem', fontStyle: 'normal' }}>{t('fields')}</dt>
-              <dd style={{ marginLeft: '1rem' }}>
+              <dt className={styles.eventDetail}>{t('fields')}</dt>
+              <dd className={styles.eventDescription}>
                 {event.fields
                   ? event.fields.map((field, index) => (
                       <span key={field}>
@@ -68,8 +70,8 @@ export default function GroupedEvents({ auditLogEvents, category, categoryNote }
 
               {event.docs_reference_links && event.docs_reference_links !== 'N/A' && (
                 <>
-                  <dt style={{ marginLeft: '1rem', fontStyle: 'normal' }}>{t('reference')}</dt>
-                  <dd style={{ marginLeft: '1rem' }}>{renderReferenceLinks(event)}</dd>
+                  <dt className={styles.eventDetail}>{t('reference')}</dt>
+                  <dd className={styles.eventDescription}>{renderReferenceLinks(event)}</dd>
                 </>
               )}
             </dl>

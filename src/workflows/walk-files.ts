@@ -16,7 +16,10 @@ export default function walkFiles(
   const walkSyncOpts = { includeBasePath: true, directories: false }
 
   return walk(dir, walkSyncOpts)
-    .filter((file) => extensions.some((ext) => file.endsWith(ext)) && !file.endsWith('README.md'))
+    .filter(
+      (file) =>
+        extensions.some((extension) => file.endsWith(extension)) && !file.endsWith('README.md'),
+    )
     .filter((file) => (opts.includeEarlyAccess ? file : !file.includes('/early-access/')))
 }
 
@@ -25,11 +28,17 @@ export function readFiles(dir = 'content', ext = 'md', opts = {}) {
   return paths.map((path) => [path, fs.readFileSync(path, 'utf8')])
 }
 
-export function filterFiles(files: [path: string, file: string][], fn: Function) {
+export function filterFiles(
+  files: [path: string, file: string][],
+  fn: (path: string, file: string) => boolean,
+) {
   return files.filter(([path, file]) => fn(path, file))
 }
 
-export function withFiles(files: [path: string, file: string][], fn: Function) {
+export function withFiles(
+  files: [path: string, file: string][],
+  fn: (path: string, file: string) => string,
+) {
   return files.map(([path, file]) => [path, fn(path, file)])
 }
 

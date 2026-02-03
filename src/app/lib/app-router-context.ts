@@ -1,15 +1,16 @@
 import { getUIDataMerged } from '@/data-directory/lib/get-data'
-import { type ClientLanguageCode } from '@/languages/lib/client-languages'
+import { type LanguageCode } from '@/languages/lib/languages'
 import { translate } from '@/languages/lib/translation-utils'
 import { extractLanguageFromPath } from '@/app/lib/language-utils'
+import { type UIStrings } from '@/frame/components/context/MainContext'
 
 export interface AppRouterContext {
-  currentLanguage: ClientLanguageCode
+  currentLanguage: LanguageCode
   currentVersion: string
   sitename: string
   site: {
     data: {
-      ui: any
+      ui: UIStrings
     }
   }
 }
@@ -19,7 +20,7 @@ export interface AppRouterContext {
  */
 export function createAppRouterContext(
   pathname: string = '/',
-  fallbackLanguage?: ClientLanguageCode,
+  fallbackLanguage?: LanguageCode,
 ): AppRouterContext {
   let language = extractLanguageFromPath(pathname)
 

@@ -1,0 +1,1 @@
+{% data variables.copilot.copilot_claude_sonnet_45 %} excels across the software development lifecycle, from initial design to bug fixes, maintenance to optimizations. It is particularly well-suited for multi-file refactoring or architectural planning, where understanding context across components is important.

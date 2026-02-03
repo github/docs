@@ -383,6 +383,14 @@ env:
 
 {% data reusables.actions.jobs.choosing-runner-group %}
 
+{% ifversion not ghes %}
+
+## `jobs.<job_id>.snapshot`
+
+{% data reusables.actions.jobs.choosing-runner-custom-images %}
+
+{% endif %}
+
 ## `jobs.<job_id>.environment`
 
 {% data reusables.actions.jobs.section-using-environments-for-jobs %}
@@ -1001,8 +1009,6 @@ An excluded configuration only has to be a partial match for it to be excluded.
 All `include` combinations are processed after `exclude`. This allows you to use `include` to add back combinations that were previously excluded.
 
 ## `jobs.<job_id>.strategy.fail-fast`
-
-`jobs.<job_id>.strategy.fail-fast` applies to the entire matrix. If `jobs.<job_id>.strategy.fail-fast` is set to `true` or its expression evaluates to `true`, {% data variables.product.github %} will cancel all in-progress and queued jobs in the matrix if any job in the matrix fails. This property defaults to `true`.
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-failfast %}
 

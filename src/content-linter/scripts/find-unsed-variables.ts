@@ -1,6 +1,8 @@
 /**
- * This script iterates over all pages and all reusables and looks for
- * mentions of variables in Liquid syntax. For example,
+ * @purpose Writer tool
+ * @description Look for mentions of variables in Liquid syntax across all pages
+ *
+ * For example,
  *
  *    ---
  *    title: '{% data variables.product.prodname_mobile %} is cool'
@@ -20,7 +22,8 @@ import yaml from 'js-yaml'
 import { program } from 'commander'
 
 import { loadPages, loadUnversionedTree } from '@/frame/lib/page-data'
-import { TokenizationError } from 'liquidjs'
+import { TokenizationError, TokenKind } from 'liquidjs'
+import type { TagToken } from 'liquidjs'
 
 import readFrontmatter from '@/frame/lib/read-frontmatter'
 import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
@@ -104,11 +107,10 @@ async function main(options: Options) {
 function getVariables(): Map<string, string> {
   const variables = new Map<string, string>()
   for (const filePath of walkFiles('data/variables', '.yml')) {
-    const dottedPathBase =
-      'variables.' + filePath.replace('data/variables/', '').replace('.yml', '').replace(/\//g, '.')
+    const dottedPathBase = `variables.${filePath.replace('data/variables/', '').replace('.yml', '').replace(/\//g, '.')}`
     const data = yaml.load(fs.readFileSync(filePath, 'utf-8')) as Record<string, unknown>
     for (const key of Object.keys(data)) {
-      const dottedPath = dottedPathBase + '.' + key
+      const dottedPath = `${dottedPathBase}.${key}`
       variables.set(dottedPath, filePath)
     }
   }
@@ -136,7 +138,10 @@ function getReusableFiles(root = 'data') {
 
 function checkString(string: string, variables: Map<string, string>) {
   try {
-    for (const token of getLiquidTokens(string)) {
+    const tokens = getLiquidTokens(string).filter(
+      (token): token is TagToken => token.kind === TokenKind.Tag,
+    )
+    for (const token of tokens) {
       if (token.name === 'data') {
         const { args } = token
         variables.delete(args)
