@@ -1,3 +1,181 @@
+# Releasing
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [BCP 14](https://tools.ietf.org/html/bcp14) [RFC2119](https://tools.ietf.org/html/rfc2119) [RFC8174](https://tools.ietf.org/html/rfc8174) when, and only when, they appear in all capitals, as shown here.
+
+This document is licensed under [The Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.html).
+
+When using the name 'version' we mean the versioning scheme described in [VERSIONING.md](VERSIONING.md)
+
+## Introduction
+
+This document is to describe the release pipeline, which is taking the result of the artifacts created according to [BUILDING.md](BUILDING.md) and publish a release to the various release targets for the project.
+
+We propose:
+ - a set of release targets that are allowable
+ - a pipeline for handling the release folder's artifacts
+
+It is NOT the purpose of this document to describe how a project might create a build, NOR is it describing a strcture in which projects MUST write build artifacts to. It is describing the structure of the releases themselves.
+
+## Release Pipeline
+
+### Create a build from current branch
+
+Process is outlined in [BUILDING.md](BUILDING.md)
+
+1. Clean the build directory
+2. run: `bin/build.{target}.{ext}`
+
+### Bump the version of the project
+
+Projects SHOULD automate the version bump following [CONVENTIONAL_COMMITS.md](CONVENTIONAL_COMMITS.md).
+
+### Generate Changelog
+
+Projects SHOULD use generated changelogs from following [CONVENTIONAL_COMMITS.md](CONVENTIONAL_COMMITS.md).
+
+### Commit the bump + changelog update
+
+A project MUST generate a commit with the changes.
+
+### Tag the commit with the bumped version
+
+A project MUST be tagged with the semantic versioning scheme from [VERSIONING.md](VERSIONING.md).
+
+### Sign the releases.
+
+ - MUST be a pgp signature
+ - MUST be the same pgp key as is registered with Github
+ - MUST be a detached ascii-armored (.asc) signature 
+ - All files in the build folder MUST have an associated signature file
+
+### Push changelog & version bump
+
+### Run Release Targets
+
+For each of the desired release targets, prepare and push the release.
+
+#### Example Release Targets
+
+1. Github
+2. Docker Hub
+
+## Resources
+
+- [semantic-release](https://github.com/semantic-release/semantic-release)
+- [Conventional Commits](https://conventionalcommits.org/)
+# OpenRPC Utils For Javascript
+
+<center>
+  <span>
+    <img alt="CircleCI branch" src="https://img.shields.io/circleci/project/github/open-rpc/schema-utils-js/master.svg">
+    <img src="https://codecov.io/gh/open-rpc/schema-utils-js/branch/master/graph/badge.svg" />
+    <img alt="npm" src="https://img.shields.io/npm/dt/@open-rpc/schema-utils-js.svg" />
+    <img alt="GitHub release" src="https://img.shields.io/github/release/open-rpc/schema-utils-js.svg" />
+    <img alt="GitHub commits since latest release" src="https://img.shields.io/github/commits-since/open-rpc/schema-utils-js/latest.svg" />
+  </span>
+</center>
+
+See developer documentation here: https://open-rpc.github.io/schema-utils-js/
+
+Need help or have a question? Join us on [Discord](https://discord.gg/gREUKuF)!
+
+### Contributing
+
+How to contribute, build and release are outlined in [CONTRIBUTING.md](CONTRIBUTING.md), [BUILDING.md](BUILDING.md) and [RELEASING.md](RELEASING.md) respectively. Commits in this repository follow the [CONVENTIONAL_COMMITS.md](CONVENTIONAL_COMMITS.md) specification.
+# Building
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [BCP 14](https://tools.ietf.org/html/bcp14) [RFC2119](https://tools.ietf.org/html/rfc2119) [RFC8174](https://tools.ietf.org/html/rfc8174) when, and only when, they appear in all capitals, as shown here.
+
+This document is licensed under [The Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.html).
+
+When using the name 'version' we mean the versioning scheme described in [VERSIONING.md](VERSIONING.md)
+
+## Introduction
+
+This document is to describe the functionality a project MUST provide in terms of creating build artifacts. It also describes the structure in which project's MUST write build artifacts in.
+
+A project MUST provide:
+
+ - a folder name convention for build artifacts
+ - a folder structure for the above-mentioned build artifacts folder
+ - a list of targets
+ - a file called `bin/build.{target}.{ext}` to target each of the build targets
+ - a build pipeline given the above pretext
+
+The purpose of having a uniform way of producing a build is that we may ALL produce builds for any of the projects, making the onramp for new developers less steep, while still maintaining an exceptionally high level of quality.
+
+The projects should follow the 'architecture as code' principle - and should require a very minimal set of dependencies. 
+
+It is the responsibilty of the build tooling to write artifacts to the appropriate location as outlined in this specification.
+
+## Build Folder Name
+
+The cannonical folder for builds SHALL be named `build` and be located at the root of the project repository.
+Each project MUST `git ignore` the `build` folder.
+
+## Build Folder Structure
+
+Files and folder names MUST be lowercase.
+The result of the build process should create a folder structure as follows:
+
+```
+.
+└── build
+    └── {target}
+        └── {project-name}.{ext}
+```
+
+
+Below is an example:
+```
+.
+└── build
+    └── windows
+        └── my-build.exe
+```
+
+## Build Targets
+
+Below is a list of suggested targets for a project
+1. windows
+2. linux
+3. macos
+
+## Build script
+
+Each release target MUST have a `bin/build.{target}.{ext}` file.
+
+The result of this is that every project MUST produce a build for each target when the following command is invoked:
+
+```
+bin/build.{target}.{ext}`
+```
+
+The file MUST be placed in the project's `bin` directory.
+
+## Build Pipeline
+
+### Building targets
+
+`bin/build.{target}.{ext}` should create builds for each of the targets, and place the build artifacts in a folder structure outlined above.
+
+### Windows
+
+```
+bin/build.windows.bat
+```
+
+### Linux
+
+```
+bin/build.linux.sh
+```
+
+### Macos
+
+```
+bin/build.macos.sh
+```
 # Dependabot Proxy
 
 The Dependabot Proxy is an HTTP and HTTPS proxy that adds authentication to requests to the GitHub API and to private package registries.
