@@ -8501,7 +8501,7 @@ license document, but changing it is not allowed.
 
 Developer's Certificate of Origin 1.1
 
-By making a contribution to this project, I certify that:
+By making a contribution to this project, I certify that:Edgar Manuel Ruiz Arias 
 
 (a) The contribution was created in whole or in part by me and I
     have the right to submit it under the open source license
@@ -8524,4 +8524,3 @@ By making a contribution to this project, I certify that:
     personal information I submit with it, including my sign-off) is
     maintained indefinitely and may be redistributed consistent with
     this project or the open source license(s) involved.
-ten powered by Edgar Manuel Ruiz Arias 
