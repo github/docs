@@ -17,13 +17,16 @@ category:
 
 {% data reusables.copilot.personal-instructions-note %}
 
-For an overview of the methods you can use to customize {% data variables.copilot.copilot_chat %} responses, see [AUTOTITLE](/copilot/concepts/about-customizing-github-copilot-chat-responses?tool=webui).
+You can customize {% data variables.copilot.copilot_chat %} responses in several ways. For an overview, see [AUTOTITLE](/copilot/concepts/about-customizing-github-copilot-chat-responses?tool=webui).
 
-## About personal custom instructions for {% data variables.copilot.copilot_chat %}
+## About personal custom instructions for {% data variables.copilot.copilot_chat_short %}
 
-You can add custom instructions for {% data variables.copilot.copilot_chat %} in order to receive chat responses that are customized to your personal preferences, across your conversations on the {% data variables.product.github %} website. For example, you can choose to always have {% data variables.copilot.copilot_chat_short %} respond in a preferred language or with a particular style. Some examples of instructions you could add are:
+Add custom instructions to receive personalized chat responses. Your instructions apply to all your conversations on the {% data variables.product.github %} website. Custom instructions let you specify preferences such as your preferred language or response style. 
+
+Examples of instructions you can add:
+
 * `Always respond in Spanish.`
-* `Your style is a helpful colleague, minimize explanations but provide enough context to understand the code.`
+* `Use a helpful, collegial tone. Keep explanations brief, but provide enough context to understand the code.`
 * `Always provide examples in TypeScript.`
 
 > [!NOTE]
@@ -32,15 +35,20 @@ You can add custom instructions for {% data variables.copilot.copilot_chat %} in
 
 ## Adding personal custom instructions
 
-You can add personal custom instructions in {% data variables.copilot.copilot_chat_short %} in {% data variables.product.github %}.
+To add personal custom instructions in {% data variables.copilot.copilot_chat_short %} on {% data variables.product.github %}:
 
 1. Open [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text).
-1. In the bottom left corner, click your profile picture, then click **{% octicon "note" aria-hidden="true" aria-label="note" %} Personal instructions**.
+1. In the bottom left corner, click your profile picture. Then click **{% octicon "note" aria-hidden="true" aria-label="note" %} Personal instructions**.
 1. Add natural language instructions to the text box.
+  
+   Use any format. For example, a single block of text, each instruction on a new line, or instructions separated by blank lines.
 
-   You can write your instructions in any format you prefer. For example, you can write them as a single block of text, each on a new line, or separated by blank lines.
-1. Optionally, click {% octicon "light-bulb" aria-label="The light-bulb icon" %} to view templates you can use for common instructions. If you click on one of the boxes, such as "Communication", instructions will be added to the text box with placeholders, such as `{format}` that you can replace with your preferences.
-1. Click **Save**. Your instructions are now active, and will stay active until you change or remove them.
+1. Optionally, use a template for common instructions. Click {% octicon "light-bulb" aria-label="The light-bulb icon" %} and select a template. 
+
+   When you select a template, placeholder text appears. Replace placeholders like `{format}` with your preferences.
+1. Click **Save**.
+
+Your instructions are now active. They will remain active until you change or remove them.
 
 {% note %}
 

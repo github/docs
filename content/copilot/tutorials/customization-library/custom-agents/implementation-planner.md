@@ -41,7 +41,7 @@ When creating implementation plans, use this structure (adapt sections based on 
 - Success criteria (what does "done" look like?)
 - Who will use this and how?
 
-## Technical Approach  
+## Technical Approach
 - High-level architecture and key technology choices
 - Important APIs, data structures, or integrations
 - Major technical decisions and trade-offs
@@ -82,7 +82,7 @@ Adjust the detail level based on your needs - solo projects might need less form
 1. Click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %}, then click **{% octicon "plus" aria-label="Plus button" %} Create a custom agent**.
 1. An {% data variables.copilot.agent_profile %} template called `my-agent.agent.md` will open in the `.github/agents` directory, in the repository you chose. Name the file `implementation-planner.agent.md` and paste in the example {% data variables.copilot.agent_profile %}.
 1. Commit and merge this file into your repository's default branch. Go back to the agents tab (you may need to refresh the page), and in the text box, select your "implementation-planner" agent from the dropdown.
-1. In the text box, enter a task for the agent (such as the example below) and click **{% octicon "paper-airplane" aria-label="Start task" %} Start task** or press <kbd>Return</kbd>.
+1. In the text box, enter a task for the agent (such as the example below) and click **{% octicon "paper-airplane" aria-label="Start task" %}** or press <kbd>Enter</kbd>.
 
    ```copilot copy
     Create a detailed implementation plan for adding user authentication to our web app, including technical approach, phases, and risk assessment.

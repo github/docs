@@ -33,6 +33,10 @@ A chat interface that lets you ask coding-related questions. {% data variables.c
 
 An autonomous AI agent that can make code changes for you. You can assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %} and the agent will work on making the required changes, and will create a pull request for you to review. You can also ask {% data variables.product.prodname_copilot_short %} to create a pull request from {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent).
 
+### Third-party coding agents ({% data variables.release-phases.public_preview %})
+
+You can use third-party coding agents alongside {% data variables.copilot.copilot_coding_agent %}. See [AUTOTITLE](/free-pro-team@latest/copilot/concepts/agents/about-third-party-agents).
+
 ### {% data variables.copilot.copilot_cli_short %} ({% data variables.release-phases.public_preview %})
 
 A command line interface that lets you use {% data variables.product.prodname_copilot_short %} from within the terminal. You can get answers to questions, or you can ask {% data variables.product.prodname_copilot_short %} to make changes to your local files. You can also use {% data variables.copilot.copilot_cli_short %} to interact with {% data variables.product.prodname_dotcom_the_website %}—for example, listing your open pull requests, or asking {% data variables.product.prodname_copilot_short %} to create an issue. See [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).

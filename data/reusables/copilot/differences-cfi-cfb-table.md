@@ -18,6 +18,7 @@
 | Agent mode | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.product.prodname_copilot_short %} code review | Only "Review selection" in {% data variables.product.prodname_vscode_shortname %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | Model Context Protocol (MCP) | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| Third-party Agents ({% data variables.release-phases.public_preview %}) | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}
 

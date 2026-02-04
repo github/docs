@@ -25,21 +25,23 @@ Use one of these commands:
 
 * **Cross-platform (npm)**
 
-    ```bash copy
-    npm install -g @github/copilot
-    ```
+  Prerequisite: {% data variables.copilot.copilot_cli_npm_version %}.
+
+  ```bash copy
+  npm install -g @github/copilot
+  ```
 
 * **Windows (WinGet)**
 
-    ```bash copy
-    winget install GitHub.Copilot
-    ```
+  ```bash copy
+  winget install GitHub.Copilot
+  ```
 
 * **macOS/Linux (Homebrew)**
 
-    ```bash copy
-    brew install copilot-cli
-    ```
+  ```bash copy
+  brew install copilot-cli
+  ```
 
 ## Starting the CLI for the first time
 

@@ -44,6 +44,26 @@ category:
 
 {% data reusables.copilot.mcp-servers-policy-note %}
 
+## Enabling or disabling third-party coding agents in your repositories
+
+> [!NOTE]
+> * {% data reusables.gated-features.third-party-agents %}
+
+You can choose whether to allow the following coding agents to be enabled in your organization:
+
+* {% data variables.product.prodname_anthropic_claude %}
+* {% data variables.product.prodname_openai_codex %}
+
+Coding agents have access to the same repositories that {% data variables.copilot.copilot_coding_agent %} has been enabled in.
+
+To enable coding agents:
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.copilot.coding-agent-settings %}
+1. In the sidebar, under **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, click **Coding agent**.
+1. On the {% data variables.copilot.copilot_coding_agent %} page, under "Partner agents", click the toggle to enable the third-party agent you want to use.
+
 ## Opting in to previews or feedback
 
 If your organization has a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan and you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", two additional options are displayed:

@@ -379,3 +379,6 @@ graphql_url: >-
 
 # OpenAI Codex
 prodname_openai_codex: 'OpenAI Codex'
+
+# Anthropic Claude
+prodname_anthropic_claude: 'Anthropic Claude'

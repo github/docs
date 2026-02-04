@@ -60,8 +60,7 @@ You can create your own custom instructions file from scratch. See [Writing your
     You can also reach this page by clicking the **{% octicon "copilot" aria-label="Copilot icon" %}** button next to the search bar on any page on {% data variables.product.github %}, then selecting **Agents** from the sidebar.
 
 1. Using the dropdown menu in the prompt field, select the repository you want {% data variables.product.prodname_copilot_short %} to generate custom instructions for.
-
-1. Copy the following prompt, customizing it if needed:
+1. Copy the following prompt and paste it into the prompt field, customizing it if needed:
 
    ```markdown copy
    Your task is to "onboard" this repository to Copilot coding agent by adding a .github/copilot-instructions.md file in the repository that contains information describing how a coding agent seeing it for the first time can work most efficiently.
@@ -138,7 +137,7 @@ You can create your own custom instructions file from scratch. See [Writing your
    </StepsToFollow>
       - Document any errors encountered as well as the steps taken to work-around them.
 
-1. Click **Send now** or press <kbd>Return</kbd>.
+1. Click **{% octicon "paper-airplane" aria-label="Start task" %}** or press <kbd>Enter</kbd>.
 
 {% data variables.product.prodname_copilot_short %} will start a new session, which will appear in the list below the prompt box. {% data variables.product.prodname_copilot_short %} will create a draft pull request, write your custom instructions, push them to the branch, then add you as a reviewer when it has finished, triggering a notification.
 

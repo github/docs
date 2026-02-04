@@ -37,8 +37,6 @@ With issue forms, you can create templates that have web form fields using the {
 
 Issue templates are stored on the repository's default branch, in a hidden `.github/ISSUE_TEMPLATE` directory. If you create a template in another branch, it will not be available for collaborators to use. Issue template filenames are not case sensitive, and need a _.md_ extension. Issue templates created with issue forms need a _.yml_ extension. {% data reusables.repositories.valid-community-issues %}
 
-It is possible to manually create a single issue template in Markdown using the legacy issue template workflow, and project contributors will automatically see the template's contents in the issue body. However, we recommend using the upgraded multiple issue template builder or issue forms to create issue templates. For more information about the legacy workflow, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/manually-creating-a-single-issue-template-for-your-repository).
-
 {% data reusables.repositories.security-guidelines %}
 
 ## Pull request templates

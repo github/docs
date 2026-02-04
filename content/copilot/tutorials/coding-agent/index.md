@@ -10,5 +10,6 @@ topics:
 children:
   - /get-the-best-results
   - /pilot-coding-agent
+  - /improve-a-project
 contentType: tutorials
 ---
