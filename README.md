@@ -1,4 +1,31 @@
-https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:8eae1217-cb50-40c1-a822-17d812e16274
+
+
+Title	URL	Assignees	Status	Labels
+Add new conceptual article 'About GitHub Classroom'	https://github.com/github/docs/issues/6289		Done	content, MLH fellowship, triage
+Add new conceptual article 'About assignments' for GitHub Classroom docs	https://github.com/github/docs/issues/6326		Done	content, MLH fellowship, triage
+Link to GitHub Classroom content in other docs articles	https://github.com/github/docs/issues/6738		Done	content, MLH fellowship, pumpkin-spice
+Update keyboard shortcuts to meet the new GitHub content style guide	https://github.com/github/docs/issues/13904		Done	Campus Experts + Docs program, content
+Update keyboard shortcuts to meet the new GitHub content style guide	https://github.com/github/docs/issues/13902		Done	Campus Experts + Docs program, content
+Update keyboard shortcuts to meet the new GitHub content style guide	https://github.com/github/docs/issues/13901		Done	Campus Experts + Docs program, content
+Update keyboard shortcuts to meet the new GitHub content style guide	https://github.com/github/docs/issues/13896		Done	Campus Experts + Docs program, content
+Intro for software supply chain map topic	https://github.com/github/docs/issues/6284		Done	content, help wanted
+Update keyboard shortcuts to meet the new GitHub content style guide	https://github.com/github/docs/issues/13905		Done	content, good first issue, help wanted
+Update keyboard shortcuts to meet the new GitHub content style guide	https://github.com/github/docs/issues/13906		Done	content, good first issue, help wanted
+Update keyboard shortcuts to meet the new GitHub content style guide	https://github.com/github/docs/issues/13900		Done	good first issue, help wanted, triage
+Update keyboard shortcuts to meet the new GitHub content style guide	https://github.com/github/docs/issues/13899		Done	Campus Experts + Docs program, content, stale, triage
+Update keyboard shortcuts to meet the new GitHub content style guide	https://github.com/github/docs/issues/13436		Done	Campus Experts + Docs program, content
+Update keyboard shortcuts to meet the new GitHub content style guide	https://github.com/github/docs/issues/13895		Done	Campus Experts + Docs program, content
+Update keyboard shortcuts to meet the new GitHub content style guide	https://github.com/github/docs/issues/13893		Done	Campus Experts + Docs program, content
+Update keyboard shortcuts to meet the new GitHub content style guide	https://github.com/github/docs/issues/13885		Done	Campus Experts + Docs program, content
+Update keyboard shortcuts to meet the new GitHub content style guide	https://github.com/github/docs/issues/13892		Done	Campus Experts + Docs program, content
+Update keyboard shortcuts to meet the new GitHub content style guide	https://github.com/github/docs/issues/13886		Done	Campus Experts + Docs program, content
+Update keyboard shortcuts to meet the new GitHub content style guide	https://github.com/github/docs/issues/13891		Done	Campus Experts + Docs program, content
+Update keyboard shortcuts to meet the new GitHub content style guide	https://github.com/github/docs/issues/13894		Done	Campus Experts + Docs program, content
+Update keyboard shortcuts to meet the new GitHub content style guide	https://github.com/github/docs/issues/13890		Done	Campus Experts + Docs program, content
+Update keyboard shortcuts to meet the new GitHub content style guide	https://github.com/github/docs/issues/13887		Done	Campus Experts + Docs program, content
+Intros for map topics on search	https://github.com/github/docs/issues/6793		Done	content, help wanted
+Add intros to GraphQL pages	https://github.com/github/docs/issues/6970		Done	content, MLH fellowship
+Add intros to REST API pages	https://github.com/github/docs/issues/6971		Done	content, help wantedhttps://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:8eae1217-cb50-40c1-a822-17d812e16274
 
 
 https://1drv.ms/u/c/3b6ca5bfcad4519d/IQBW2vCZSzyUR5bGvkZhpvL4AepCJ95SMmy7x3mgXLl2YpI
@@ -9783,3 +9810,4 @@ This project is dual-licensed under:
 
 * **Creative Commons Attribution 4.0** - for documentation and content in the assets, content, and data folders (see [LICENSE](LICENSE))
 * **MIT License** - for code (see [LICENSE-CODE](LICENSE-CODE))
+
