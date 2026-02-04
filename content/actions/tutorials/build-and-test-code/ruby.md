@@ -187,8 +187,6 @@ The `setup-ruby` actions provides a method to automatically handle the caching o
 
 To enable caching, set the following.
 
-{% raw %}
-
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 steps:
@@ -196,8 +194,6 @@ steps:
   with:
     bundler-cache: true
 ```
-
-{% endraw %}
 
 This will configure bundler to install your gems to `vendor/cache`. For each successful run of your workflow, this folder will be cached by {% data variables.product.prodname_actions %} and re-downloaded for subsequent workflow runs. A hash of your `gemfile.lock` and the Ruby version are used as the cache key. If you install any new gems, or change a version, the cache will be invalidated and bundler will do a fresh install.
 

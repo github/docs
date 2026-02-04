@@ -7,6 +7,8 @@ versions:
 topics:
   - Copilot
 contentType: reference
+category:
+  - Learn about Copilot
 ---
 
 This reference article provides details of which types of custom instructions are supported in various environments. For more information about the various types of custom instructions for {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/concepts/prompting/response-customization).

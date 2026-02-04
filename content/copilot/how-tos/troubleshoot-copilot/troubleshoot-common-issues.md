@@ -15,6 +15,8 @@ redirect_from:
   - /copilot/how-tos/troubleshoot/troubleshooting-common-issues-with-github-copilot
   - /copilot/how-tos/troubleshoot/troubleshoot-common-issues
 contentType: how-tos
+category:
+  - Troubleshooting Copilot
 ---
 
 

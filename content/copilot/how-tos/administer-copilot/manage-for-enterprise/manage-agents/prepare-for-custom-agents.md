@@ -8,6 +8,9 @@ topics:
   - Copilot
 shortTitle: Prepare for custom agents
 contentType: how-tos
+category:
+  - Configure Copilot
+  - Manage Copilot for a team
 ---
 
 {% data reusables.enterprise-accounts.ai-controls-preview-note %}

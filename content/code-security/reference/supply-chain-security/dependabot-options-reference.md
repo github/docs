@@ -682,7 +682,8 @@ Examples : `0 9 * * *`, `every day at 5pm`
 `0 9 * * *` is equivalent to "every day at 9am". `every day at 5pm` is equivalent to `0 17 * * *`.
 
 > [!NOTE]
-> A `cronjob` type schedule is required to use a `cron` interval.
+> * Timezones must be specified in the [`timezone`](#timezone) parameter and not in the `cronjob`.
+> * A `cronjob` type schedule is required to use a `cron` interval.
 
 ```yaml copy
 

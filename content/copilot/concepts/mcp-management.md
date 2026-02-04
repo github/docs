@@ -7,6 +7,9 @@ versions:
 topics:
   - Copilot
 contentType: concepts
+category:
+  - Learn about Copilot
+  - Manage Copilot for a team
 ---
 
 You can manage Model Context Protocol (MCP) server usage in your organization or enterprise by configuring a series of MCP policies on {% data variables.product.prodname_dotcom_the_website %}. Through these policies, you can allow or block MCP server usage entirely, or restrict access to a list of servers that you define in an MCP registry.

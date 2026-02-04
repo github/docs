@@ -3433,6 +3433,57 @@
     ]
   },
   {
+    "action": "issue_comment.pinned",
+    "description": "A comment on an issue was pinned to a repository.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "hashed_token",
+      "programmatic_access_type",
+      "actor",
+      "actor_id",
+      "oauth_application_id",
+      "token_id",
+      "token_scopes",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "issue_comment.unpinned",
+    "description": "A comment on an issue was unpinned from a repository.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
     "action": "issue_comment.update",
     "description": "A comment on an issue (other than the initial one) changed.",
     "docs_reference_links": "N/A",
@@ -13543,6 +13594,56 @@
       "programmatic_access_type",
       "actor_is_bot"
     ]
+  },
+  {
+    "action": "repository_dependency_updates_self_hosted.disabled",
+    "description": "Dependency updates on self-hosted runners was disabled.",
+    "docs_reference_links": "code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/managing-dependabot-on-self-hosted-runners",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "user",
+      "user_id",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ],
+    "docs_reference_titles": "Configuring Dependabot on self-hosted runners"
+  },
+  {
+    "action": "repository_dependency_updates_self_hosted.enabled",
+    "description": "Dependency updates on self-hosted runners was enabled.",
+    "docs_reference_links": "code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/managing-dependabot-on-self-hosted-runners",
+    "fields": [
+      "topic",
+      "actor",
+      "actor_id",
+      "user",
+      "user_id",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot",
+      "actor_is_agent"
+    ],
+    "docs_reference_titles": "Configuring Dependabot on self-hosted runners"
   },
   {
     "action": "repository_image.create",

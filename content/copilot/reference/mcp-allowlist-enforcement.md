@@ -6,6 +6,8 @@ versions:
 topics:
   - Copilot
 contentType: reference
+category:
+  - Learn about Copilot
 ---
 
 ## Current enforcement limitations

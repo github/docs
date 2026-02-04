@@ -7,6 +7,8 @@ versions:
   feature: copilot
 topics:
   - Copilot
+category:
+  - Learn about Copilot
 ---
 
 ## About {% data variables.copilot.custom_agents_short %}

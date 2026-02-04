@@ -20,4 +20,5 @@ children:
   - /viewing-code-scanning-logs
   - /viewing-dependabot-job-logs
   - /metrics-for-custom-patterns
+  - /change-used-by-data
 ---

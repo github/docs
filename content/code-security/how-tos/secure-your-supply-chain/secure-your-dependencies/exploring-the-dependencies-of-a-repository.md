@@ -81,31 +81,6 @@ If vulnerabilities have been detected in the repository, these are shown at the 
 
 For public repositories, the dependents view shows how the repository is used by other repositories. To show only the repositories that contain a library in a package manager, click **NUMBER Packages** immediately above the list of dependent repositories. The dependent counts are approximate and may not always match the dependents listed.
 
-## Enabling and disabling the dependency graph
-
-{% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo-public-fork %}
-
-## Changing the "Used by" package
-
-You may notice some repositories have a "Used by" section in the sidebar of the **Code** tab. Your repository will have a "Used by" section if:
-* The dependency graph is enabled for the repository (see the above section for more details).
-* Your repository contains a package that is published on a [supported package ecosystem](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems).
-* Within the ecosystem, your package has a link to a _public_ repository where the source is stored.
-* More than 100 repositories depend on your package.
-
-The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects.
-
-![Screenshot of the "Used by" section for a repository showing the summary of "13.4m" with details of 8 avatars and "+13,435,819."](/assets/images/help/repository/used-by-section.png)
-
-Clicking any item in this section takes you to the **Dependents** tab of the dependency graph.
-
-The "Used by" section represents a single package from the repository. If you have admin permissions to a repository that contains multiple packages, you can choose which package the "Used by" section represents.
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "{% data variables.product.UI_advanced_security %}", click the drop-down menu in the "Used by counter" section and choose a package.
-
 {% endif %}
 
 ## Further reading

@@ -8,6 +8,9 @@ topics:
   - Copilot
 contentType: how-tos
 allowTitleToDifferFromFilename: true
+category:
+  - Configure Copilot
+  - Manage Copilot for a team
 ---
 
 {% data reusables.copilot.byok-intro %}

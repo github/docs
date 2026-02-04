@@ -18,6 +18,8 @@ versions:
   feature: copilot
 shortTitle: View logs
 contentType: how-tos
+category:
+  - Troubleshooting Copilot
 ---
 
 {% jetbrains %}

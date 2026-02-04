@@ -48,5 +48,6 @@ If you prefer to have guidance throughout the rollout process, {% data variables
 
 Speak with your sales representative for more information about all the {% data variables.product.prodname_professional_services %} options available. For more information, contact {% data variables.contact.contact_enterprise_sales %}.
 
->[!TIP]
-> For the first article in this series, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals).
+## Next steps
+
+* To begin your rollout, start with the first phase of the adoption process. See [AUTOTITLE](/code-security/tutorials/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals).

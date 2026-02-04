@@ -20,8 +20,6 @@ The following features are currently unavailable on {% data variables.enterprise
 
 | Feature | Details | More information |
 | :- | :- | :- |
-| {% data variables.product.prodname_copilot_short %} Metrics API | Currently unavailable. | [AUTOTITLE](/rest/copilot/copilot-metrics) |
-| {% data variables.product.prodname_github_codespaces %} | Currently unavailable. | [AUTOTITLE](/codespaces/quickstart) |
 | macOS runners for {% data variables.product.prodname_actions %} | Currently unavailable. | [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners) |
 | Maven and Gradle support for {% data variables.product.prodname_registry %} | Currently unavailable. | [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry) |
 | Repository traffic metrics | Currently unavailable through both the UI and REST API. | [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository) |
@@ -48,6 +46,7 @@ The following features are either specific to {% data variables.enterprise.data_
 * [{% data variables.product.prodname_actions %} workflows from {% data variables.product.prodname_marketplace %}](#github-actions-workflows-from-github-marketplace)
 * [Retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website %}](#retirement-of-namespaces-for-actions-accessed-on-githubcom)
 * [GitHub Connect](#github-connect)
+* [{% data variables.product.prodname_github_codespaces %}](#github-codespaces)
 
 ### API access
 
@@ -93,3 +92,11 @@ You can use {% data variables.product.prodname_github_connect %} to connect to {
 * Automatic user license sync requires {% data variables.product.prodname_ghe_server %} version 3.15 or later.
 
 To enable {% data variables.product.prodname_github_connect %}, you must configure your {% data variables.product.prodname_ghe_server %} instance to connect to your {% data variables.enterprise.data_residency_site %} subdomain. See [AUTOTITLE](/enterprise-server@latest/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-ghecom).
+
+## Features in {% data variables.release-phases.public_preview %}
+
+Some features on {% data variables.enterprise.data_residency_site %} are currently in {% data variables.release-phases.public_preview %}.
+
+### {% data variables.product.prodname_github_codespaces %}
+
+{% data variables.product.prodname_github_codespaces %} on {% data variables.enterprise.data_residency_site %} are in {% data variables.release-phases.public_preview %}.

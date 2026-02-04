@@ -10,6 +10,9 @@ topics:
 redirect_from:
   - /copilot/concepts/agents/coding-agent/managing-agents
 contentType: concepts
+category:
+  - Learn about Copilot
+  - Author and optimize with Copilot
 ---
 
 ## About agents

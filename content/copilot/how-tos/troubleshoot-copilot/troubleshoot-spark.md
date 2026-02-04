@@ -7,6 +7,8 @@ topics:
   - Copilot
 shortTitle: Troubleshoot Spark
 contentType: how-tos
+category:
+  - Troubleshooting Copilot
 ---
 
 ## Error: "Live preview is interrupted. Try refreshing the page to reconnect."

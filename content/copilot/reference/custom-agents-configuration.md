@@ -7,6 +7,8 @@ versions:
 topics:
   - Copilot
 contentType: reference
+category:
+  - Configure Copilot
 ---
 
 This reference article provides detailed configuration information for {% data variables.copilot.custom_agents_short %}. For general information about creating {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents).

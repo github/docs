@@ -12,6 +12,8 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /early-access/copilot-metrics/dashboards/interpreting-the-metrics
   - /copilot/reference/interpret-copilot-metrics
+category:
+  - Manage Copilot for a team
 ---
 
 >[!NOTE] The {% data variables.product.prodname_copilot_short %} usage metrics dashboard is currently in {% data variables.release-phases.public_preview %} and subject to change.

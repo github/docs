@@ -8,6 +8,8 @@ topics:
   - Copilot
 shortTitle: Monitor agentic activity
 contentType: how-tos
+category:
+  - Manage Copilot for a team
 ---
 
 {% data reusables.enterprise-accounts.ai-controls-preview-note %}

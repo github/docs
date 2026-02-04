@@ -1,5 +1,6 @@
 ---
-title: Configure organization security
+title: Configuring security features in your organization
+shortTitle: Configure organization security
 intro: Configure security across your organization by establishing coverage, managing settings, and controlling access to code security tools at scale.
 versions:
   fpt: '*'
