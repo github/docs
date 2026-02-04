@@ -1,0 +1,81 @@
+skip to content
+Microsoft | Open Source logoReturn to homepage
+Microsoft Open Source
+
+Code of Conduct FAQ
+Why have a Code of Conduct?
+People and communities are the foundation of open source. Communities thrive through diversity of thought and the safety of its members. Microsoft has a deep-seated commitment to diversity and inclusion. All Microsoft employees enjoy a safe work environment and a culture of mutual respect and responsibility. Our team members and open source partners should enjoy the same environment when collaborating on open source projects.
+
+While conduct issues seldom arise, when they do, they are often very public and very passionate. It is best for the community to be prepared with:
+A clear and accessible Code of Conduct stating the norms under which projects operate
+An Issue Resolution Process for addressing cases where these norms are not being maintained
+Why this Code of Conduct?
+The Microsoft Open Source Code of Conduct is an instantiation of the Contributor's Covenant 2.0, that captures the Microsoft culture of equality, respect and inclusion. By leveraging this template, which is used by many open source projects, we acknowledge both the opportunity gained by leveraging a community-based effort for inclusion, and responsibility to contribute to its evolution.
+How does a project adopt the code and process?
+All Microsoft projects are automatically covered by the Code of Conduct and the Issue Resolution Process. However, it is critical that everyone in the communities be aware of the code and process. For that reason, all projects must link to the Code of Conduct. Please refer to this repository standard for the current CODE_OF_CONDUCT.md version.
+
+What if my Microsoft project already has a Code of Conduct?
+Thanks for being proactive in this important area. You are welcome to continue using your existing Code of Conduct, or you may change to the Microsoft Open Source Code of Conduct. Either way, all Microsoft projects must use the same issue resolution process. Please ensure that your documentation and guidance is updated to point people at the process outlined in this FAQ (see below).
+
+Projects in the .NET Foundation are already covered by the .NET Foundation Contributors Code of Conduct. As such, there is no need for .NET Foundation projects to make any changes.
+
+How do I raise a concern?
+If you have witnessed or been subjected to a violation of the Code of Conduct, please send an email to opencode@microsoft.com. Your message will be handled in a secure and confidential manner. This email address is monitored by the Open Source Program's Office, who are not directly active in open source projects or communities — so you can be sure that you are not communicating with a person involved in the issue you are reporting.
+
+You will receive a response within one business day acknowledging receipt of your email and describing the process for its resolution. (See below for more details.)
+
+NOTE: this process is not appropriate for reporting spamming. Please reach out to GitHub Support for these issues.
+
+What is the process for addressing issues that arise?
+Emails sent to opencode@microsoft.com or reported directly to a member of the OSPO team, kick off the following process:
+
+Your message will be acknowledged within one business day.
+Within the following business day a small, (2-3) person team will be assembled from a pool of Microsoft employee volunteers to review your concern. This team will be as diverse as possible given its size and will pull in additional people as needed to gain further insight and provide guidance. The team will not include anyone directly involved in the issue that has been raised.
+From there the team will work with you and the others involved to come to a conclusion. While issue complexity varies, the goal is to resolve issues within five working days.
+All communication will be confidential with very limited circulation.
+Step 1: Issue Reported
+
+Reporter reports directly to a member of the OSPO team or via email to opencode@microsoft.com
+
+Email address is published with Code of Conduct, linked from every Microsoft Open Source project's repo.
+Step 2: Acknowledgment
+
+Coordinator acknowledges to Reporter receipt of issue
+
+Coordinator replies via email to set expectations and explain resolution process.
+Step 3: Assignment
+
+Coordinator assigns 2-3 person Resolution Team to issue
+
+Coordinator verifies that selected team members are not involved in the issue and are available to provide timely resolution.
+Step 4: Resolution
+
+Resolution Team works with Reporter to solve the issue.
+
+Resolution Team contacts Originator to collect information as needed, agree on appropriate steps, and drive resolution.
+How does the resolution team work?
+Beyond the norms and values set out in the Code of Conduct, issue review teams operate under the following principles:
+
+Safety & Privacy — Safety and privacy of all involved are at the center of resolution procedure.
+Equality — Contribution value or status in the community are not relevant to the review. Key people do not have more rights (either to abuse or be protected from abuse) than others in the community.
+Independence — Reviewers must act and be seen to act with independence from the project(s) in question and from Microsoft.
+Consequence — If a report is validated by the resolution team, appropriate consequences will be applied. These can be very minimal (written warning) or serious (full ban) depending on the violation. Repeated violations will result in escalation of consequence.
+Discord iconMicrosoft Open Source
+Youtube iconOpen At Microsoft
+Twitter iconOpen At Microsoft
+GitHub iconmicrosoft/opensource.microsoft.com
+Circles, dots, and other shapes representing components, building blocks, things that work together.
+Microsoft icon
+Powered by Open Source and Microsoft Azure
+
+Employee sign-in
+Jobs
+Blog
+Code of Conduct
+Your Privacy Choices
+Privacy & Cookies
+Terms
+Trademarks
+© 2026 Microsoft
+
+Code of Conduct - FAQ
