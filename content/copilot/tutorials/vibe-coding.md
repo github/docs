@@ -160,7 +160,7 @@ You can now start planning for an initial implementation of your application. It
    - Time display: Show elapsed time as HH:MM. Don't track seconds.
    - Unassigned tasks: I've changed my mind. All tasks should be associated with a project, but there should be a built-in project called "No Project" (which the user can't delete or rename). All tasks should be associated with this project until the user chooses another project.
 
-   If the user is changing tasks for the same project then they should be able to do this will one click (assuming the new task has already been defined). If they are doing the same task but for a different project, this should also be possible to change with one click (assuming the new project is already defined). If they want to track time for a different task in a different project then they should be able to do this with 2 clicks.
+   If the user is changing tasks for the same project then they should be able to do this with one click (assuming the new task has already been defined). If they are doing the same task but for a different project, this should also be possible to change with one click (assuming the new project is already defined). If they want to track time for a different task in a different project then they should be able to do this with 2 clicks.
    ```
 
    {% data variables.product.prodname_copilot_short %} may respond with further questions for your consideration.
