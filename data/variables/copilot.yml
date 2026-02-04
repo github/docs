@@ -72,6 +72,7 @@ copilot_cli_short: 'Copilot CLI'
 copilot_cli: 'GitHub Copilot CLI'
 copilot_old-cli_short: 'Copilot in the CLI'
 copilot_old-cli: 'GitHub Copilot in the CLI'
+copilot_cli_npm_version: 'Node.js 22 or later'
 
 ## Copilot custom agents
 copilot_custom_agent: 'Copilot custom agent'

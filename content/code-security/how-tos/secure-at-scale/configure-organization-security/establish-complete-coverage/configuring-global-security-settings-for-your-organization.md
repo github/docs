@@ -33,7 +33,7 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 
 * [Creating and managing {% data variables.dependabot.auto_triage_rules %}](#creating-and-managing-dependabot-auto-triage-rules)
 * [Grouping {% data variables.product.prodname_dependabot %} security updates](#grouping-dependabot-security-updates){% ifversion dependabot-on-actions-opt-in %}
-* [Enabling dependency updates on {% data variables.product.prodname_actions %} runners](#enabling-dependency-updates-on-github-actions-runners){% endif %}{% ifversion dependabot-arc-support %}
+* [Enabling dependency updates on {% data variables.product.prodname_actions %} runners](#enabling-dependency-updates-on-github-actions-runners){% endif %}{% ifversion dependabot-self-hosted-labels %}
 * [Configuring the runner type for {% data variables.product.prodname_dependabot %}](#configuring-the-runner-type-for-dependabot){% endif %}{% ifversion fpt %}
 * [Granting {% data variables.product.prodname_dependabot %} access to private repositories](#granting-dependabot-access-to-private-repositories){% else %}
 * [Granting {% data variables.product.prodname_dependabot %} access to private and internal repositories](#granting-dependabot-access-to-private-and-internal-repositories){% endif %}
@@ -62,14 +62,14 @@ For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dep
 
 {% endif %}
 
-{% ifversion dependabot-arc-support %}
+{% ifversion dependabot-self-hosted-labels %}
 
 ### Configuring the runner type for {% data variables.product.prodname_dependabot %}
 
 You can configure which type of runner {% data variables.product.prodname_dependabot %} uses to scan for version and security updates. By default, {% data variables.product.prodname_dependabot %} uses standard **{% data variables.product.company_short %}-hosted runners**. You can configure {% data variables.product.prodname_dependabot %} to use **self-hosted runners** with custom labels, which allows you to integrate with existing runner infrastructure such as {% data variables.product.prodname_actions_runner_controller %} (ARC).
 
 > [!NOTE]
-> * For security reasons, {% data variables.product.prodname_dependabot %} uses {% data variables.product.company_short %}-hosted runners for public repositories, even when you configure labeled runners. 
+> * For security reasons, {% data variables.product.prodname_dependabot %} uses {% data variables.product.company_short %}-hosted runners for public repositories, even when you configure labeled runners.
 > * Labeled runners **do not work** for public repositories.
 
 To configure the runner type:
@@ -82,7 +82,6 @@ To configure the runner type:
    * In "Runner label", enter the label assigned to your self-hosted runners. {% data variables.product.prodname_dependabot %} will use runners with this label. By default, the `dependabot` label is used, but you can specify a custom label to match your existing runner infrastructure.
    * Optionally, in "Runner group name", enter the name of a runner group if you want to target a specific group of runners.
 1. Click **Save runner selection**.
-
 
 {% endif %}
 

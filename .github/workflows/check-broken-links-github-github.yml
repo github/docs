@@ -44,10 +44,9 @@ jobs:
           PORT: 4000
           ENABLED_LANGUAGES: en
         run: |
-
-          npm run start &
+          npm run start-for-ci &
           sleep 5
-          curl --retry-connrefused --retry 3 -I http://localhost:4000/
+          curl --retry-connrefused --retry 5 -I http://localhost:4000/
 
       - name: Run broken github/github link check
         run: |

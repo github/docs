@@ -5,6 +5,7 @@ intro: Learn how to use {% data variables.product.prodname_copilot %} from the c
 product: '{% data reusables.gated-features.copilot-cli %}'
 redirect_from:
   - /copilot/how-tos/use-copilot-cli
+  - /copilot/how-tos/use-copilot-agents/use-copilot-cli
 versions:
   feature: copilot
 topics:

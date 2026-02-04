@@ -9,6 +9,8 @@ versions:
 topics:
   - Copilot
 contentType: how-tos
+category:
+  - Author and optimize with Copilot
 ---
 
 > [!NOTE]

@@ -9,6 +9,7 @@ topics:
 children:
   - /create-a-pr
   - /make-changes-to-an-existing-pr
+  - /provide-visual-inputs
   - /track-copilot-sessions
   - /review-copilot-prs
   - /create-custom-agents

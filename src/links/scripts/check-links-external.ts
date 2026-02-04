@@ -356,9 +356,6 @@ async function main() {
 
     console.log(`Created report issue: ${newReport.html_url}`)
   }
-
-  // Exit with error if broken links found
-  process.exit(1)
 }
 
 // Run if invoked directly

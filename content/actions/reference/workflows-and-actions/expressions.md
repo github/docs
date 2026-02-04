@@ -297,12 +297,13 @@ Sets `MY_ENV_VAR` to `production` when the ref is `refs/heads/main`, otherwise s
 
 ```yaml
 env:
-  MY_ENV_VAR: ${{ case(
-    github.ref == 'refs/heads/main', 'production',
-    github.ref == 'refs/heads/staging', 'staging',
-    startsWith(github.ref, 'refs/heads/feature/'), 'development',
-    'unknown'
-  ) }}
+  MY_ENV_VAR: |-
+    ${{ case(
+      github.ref == 'refs/heads/main', 'production',
+      github.ref == 'refs/heads/staging', 'staging',
+      startsWith(github.ref, 'refs/heads/feature/'), 'development',
+      'unknown'
+    ) }}
 ```
 
 {% endraw %}

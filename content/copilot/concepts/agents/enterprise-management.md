@@ -7,6 +7,8 @@ versions:
 topics:
   - Copilot
 contentType: concepts
+category:
+  - Learn about Copilot
 ---
 
 {% data reusables.enterprise-accounts.ai-controls-preview-note %}

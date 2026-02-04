@@ -7,6 +7,8 @@ versions:
 topics:
   - Copilot
 contentType: how-tos
+category:
+  - Integrate Copilot with your tools
 ---
 
 > [!NOTE]

@@ -1,6 +1,6 @@
 ---
 title: Monitoring alerts from secret scanning
-intro: Learn how and when {% data variables.product.github %} will notify you about a secret scanning alert.
+intro: You can configure how  {% data variables.product.prodname_secret_scanning %} notifies you about {% data variables.product.prodname_secret_scanning %} alerts, and audit how your team responds to these alerts.
 permissions: '{% data reusables.permissions.secret-scanning-alerts %}'
 versions:
   fpt: '*'
@@ -17,6 +17,10 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /code-security/secret-scanning/managing-alerts-from-secret-scanning/monitoring-alerts
 ---
+
+When {% data variables.product.prodname_secret_scanning %} detects a potential secret leak in your repository, staying informed about these alerts is crucial for maintaining your code's security. {% data variables.product.github %} provides multiple notification channels to ensure you and your team are promptly alerted when secrets are found. You can customize how and when you receive these notifications based on your role and preferences.
+
+You can also audit responses to {% data variables.product.prodname_secret_scanning %} alerts to track how your team manages security issues and maintain compliance with your organization's security policies.
 
 ## Configuring notifications for {% data variables.secret-scanning.alerts %}
 

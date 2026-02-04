@@ -11,7 +11,9 @@ children:
   - /ai-models
   - /copilot-feature-matrix
   - /keyboard-shortcuts
+  - /cli-command-reference
   - /custom-agents-configuration
+  - /acp-server
   - /hooks-configuration
   - /custom-instructions-support
   - /policy-conflicts

@@ -9,6 +9,8 @@ versions:
 topics:
   - Copilot
 contentType: concepts
+category:
+  - Learn about Copilot
 ---
 
 > [!NOTE] {% data variables.product.prodname_openai_codex %} integration is currently in {% data variables.release-phases.public_preview %}.

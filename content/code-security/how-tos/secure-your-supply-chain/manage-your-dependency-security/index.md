@@ -18,11 +18,12 @@ children:
   - /configuring-access-to-private-registries-for-dependabot
   - /removing-dependabot-access-to-public-registries
   - /managing-pull-requests-for-dependency-updates
-  - /managing-dependabot-on-self-hosted-runners
+  - /configure-on-github-hosted-runners
+  - /configure-on-self-hosted-runners
+  - /re-run-dependabot-jobs
   - /listing-dependencies-configured-for-version-updates
   - /guidance-for-the-configuration-of-private-registries-for-dependabot
 redirect_from:
   - /code-security/dependabot/maintain-dependencies
   - /code-security/dependabot/dependabot-security-updates
 ---
-

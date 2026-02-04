@@ -57,7 +57,7 @@ If you do not need to work with files locally, {% data variables.product.github 
 When you connect to a {% data variables.product.github %} repository from Git, you need to authenticate with {% data variables.product.github %} using either HTTPS or SSH.
 
 > [!NOTE]
-> You can authenticate to {% data variables.product.github %} using {% data variables.product.prodname_cli %}, for either HTTP or SSH. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+> You can authenticate to {% data variables.product.github %} using {% data variables.product.prodname_cli %}, for either HTTPS or SSH. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
 ### Connecting over HTTPS (recommended)
 
@@ -69,7 +69,8 @@ If you clone with SSH, you must generate SSH keys on each computer you use to pu
 
 ## Next steps
 
-You now have Git and {% data variables.product.github %} all set up. You may now choose to create a repository where you can put your projects. Saving your code in a repository allows you to back up your code and share it around the world.
+You now have Git and {% data variables.product.github %} all set up. You can now choose to create a repository where you can store your projects. Saving your code in a repository allows you to back up your work and share it around the world.
+
 
 * {% data reusables.getting-started.create-a-repository %}
 

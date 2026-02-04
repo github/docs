@@ -12,6 +12,8 @@ topics:
   - Copilot
 contentType: reference
 allowTitleToDifferFromFilename: true
+category:
+  - Manage Copilot for a team
 ---
 
 {% data reusables.copilot.usage-metrics-preview %}
