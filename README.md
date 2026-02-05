@@ -1,3 +1,447 @@
+Intel(R) Network Connections Software, Release 30.5
+***************************************************
+
+October 10, 2025
+
+This release includes software and drivers for Intel(R) Ethernet
+adapters and integrated network connections.
+
+
+Contents
+^^^^^^^^
+
+* Intel(R) Network Connections Software, Release 30.5
+
+  * What's New in This Release
+
+  * User Guides
+
+  * Bug Fixes and Known Issues
+
+  * Supported Operating Systems
+
+  * Supported Hardware
+
+  * Intel Fiber Optic Connections
+
+  * Customer Support
+
+  * Legal / Disclaimers
+
+
+What's New in This Release
+==========================
+
+See the release notes for a full listing of new or removed features in
+this release. To view the release notes:
+
+1. Go to the following page on intel.com:
+
+   https://www.intel.com/content/www/us/en/content-details/778690
+   /intel-ethernet-controller-products-release-notes.html?wapkw=Intel
+   %C2%AE%20Ethernet%20Controller%20Products%20Release%20Notes&DocID=
+   778690
+
+2. In the list of results, click on the link for "Intel(R) Ethernet
+   Controller Products Release Notes."
+
+   * By default, the page lists the newest released version.
+
+   * If you need to view the release notes for a different version,
+     click on the "More Versions" link in the right side of the search
+     result and select your desired version.
+
+
+User Guides
+===========
+
+See the Intel(R) Ethernet Adapters and Devices User Guide for
+installation instructions, explanations of supported features and
+tools, and troubleshooting tips.
+
+You can view this user guide in the Intel Resource and Documentation
+Center at https://cdrdv2.intel.com/v1/dl/getContent/705831.
+
+Note:
+
+  Point releases (for example, 29.1.1) may not have a corresponding
+  user guide version. In those cases, refer to the user guide for the
+  major release (for example, 29.1).
+
+If you need localized installation instructions, you can access them
+at the following location within the software release:
+
+   /DOCS/QUICK/quick.htm
+
+
+Bug Fixes and Known Issues
+==========================
+
+See the release notes for the list of all currently known issues,
+limitations, and resolved issues.
+
+
+Supported Operating Systems
+===========================
+
+The drivers in this software release have been tested with the
+operating systems (OSs) listed below. Additional OSs may function with
+our drivers but are not tested.
+
+Note:
+
+  Not all devices support all operating systems listed. Refer to the
+  Release Notes for detailed OS support information for your device.
+
+
+Microsoft Windows Server, Azure Stack HCI, and Windows
+------------------------------------------------------
+
+* Microsoft Windows Server 2025
+
+* Microsoft Windows Server 2022
+
+* Microsoft Windows Server 2019, Version 1903
+
+* Microsoft Windows Server 2016
+
+* Microsoft Azure Stack HCI
+
+* Microsoft Windows 11 Version 25H2
+
+* Microsoft Windows 11 Version 24H2
+
+* Microsoft Windows 11 Version 23H2 (build 22631.2506)
+
+* Microsoft Windows 10 Version 21H2 (build 19044)
+
+* Microsoft Windows 10 RS5, Version 1809 (build 17763)
+
+Note:
+
+  * Devices based on the following do not support Microsoft Windows or
+    Windows Server:
+
+    * Intel® Ethernet Connection E822-C
+
+    * Intel® Ethernet Connection E822-L
+
+  * Some older Intel Ethernet adapters do not have full software
+    support for the most recent versions of Microsoft Windows. Many
+    older Intel Ethernet adapters have base drivers supplied by
+    Microsoft Windows.
+
+  * RDMA support is available on Microsoft Windows 10 version 21H2 and
+    Microsoft Windows 11.
+
+  * In Microsoft Windows Server 2025, all devices based on the Intel
+    Ethernet 710 Series are reported with generic, 2-part device IDs
+    and branding strings, and will be configured as generic devices
+    with no custom default settings. This change resolves an issue
+    seen when deploying network intent roles using the Network ATC
+    scripts in Windows Server 2025 and Azure Stack HCI.
+
+  * The HPE Synergy 4610C 10/25Gb Ethernet Adapter and HPE 10/25Gb
+    Ethernet Adapter are not supported on Microsoft Windows Server
+    2025.
+
+
+VMware ESXi
+-----------
+
+* VMware ESXi 9.0
+
+* VMware ESXi 8.0
+
+* VMware ESXi 7.0
+
+Please refer to VMware's download site for the latest ESXi drivers for
+Intel Ethernet devices.
+
+
+Linux
+-----
+
+* Linux Real Time Kernel 5.x and 4.x [1]
+
+* Linux, v2.4 kernel or higher
+
+* Red Hat Enterprise Linux (RHEL) 9.5
+
+* Red Hat Enterprise Linux (RHEL) 9.6
+
+* Red Hat Enterprise Linux (RHEL) 10.0
+
+* SUSE Linux Enterprise Server (SLES) 15 SP6
+
+* SUSE Linux Enterprise Server (SLES) 15 SP7
+
+* SUSE Linux Enterprise Server 12 SP5
+
+* Canonical Ubuntu 24.04 LTS
+
+* Canonical Ubuntu 22.04 LTS
+
+* Debian 11
+
+* openEuler 22.03 LTS SP3 for AArch64 [2]
+
+* Kylin Linux Advanced Server V10 - ARM [3]
+
+* Linux Ubuntu 24.04 - ARM [4]
+
+* Linux Ubuntu 24.04 - ARM - Real Time [4]
+
+[1] Only supported on Intel® Ethernet E810 Series.
+
+[2] Only supported on Intel® Ethernet E810 Series, with the Linux ice
+    and iavf drivers and select Intel® Network Connection Tools. See
+    tool readmes for details.
+
+[3] Support is provided for the following components: ICE driver, iAVF
+    driver, Bootutil, NVMUpdate, EPCT, EEUpdate, and CELO.
+
+[4] Support is provided for the following components: ICE driver, iAVF
+    driver, Bootutil, NVMUpdate, EPCT, LANConf (NDA only), EEUpdate,
+    and CELO.
+
+
+FreeBSD
+-------
+
+* FreeBSD 14.3
+
+* FreeBSD 13.5
+
+
+Supported Hardware
+==================
+
+This software release supports Intel® Ethernet devices based on the
+silicon controllers and connections listed below.
+
+For help identifying your network device and finding supported
+devices, visit https://www.intel.com/support.
+
+Note:
+
+  Available features and settings are dependent on your device and
+  operating system. **Not all settings are available on every
+  device/OS combination.**
+
+
+Intel® Ethernet 800 Series
+--------------------------
+
+* Intel® Ethernet Controller E810-C
+
+* Intel® Ethernet Controller E810-XXV
+
+* Intel® Ethernet Controller E830-CC
+
+* Intel® Ethernet Controller E830-XXV
+
+* Intel® Ethernet Network Adapter E830-C-Q2
+
+* Intel® Ethernet Network Adapter E830-XXV-8F
+
+* Intel® Ethernet Network Adapter E830-XXV-2
+
+* Intel® Ethernet Connection E822-C
+
+* Intel® Ethernet Connection E822-L
+
+* Intel® Ethernet Connection E823-C
+
+* Intel® Ethernet Connection E823-L
+
+* Intel® Ethernet Connection E825-C
+
+
+Intel® Ethernet 700 Series
+--------------------------
+
+* Intel® Ethernet Controller I710
+
+* Intel® Ethernet Controller X710
+
+* Intel® Ethernet Controller XL710
+
+* Intel® Ethernet Network Connection X722
+
+* Intel® Ethernet Controller XXV710
+
+* Intel® Ethernet Controller V710
+
+
+Intel® Ethernet 600 Series
+--------------------------
+
+* Intel® Ethernet Controller E610
+
+
+Intel® Ethernet 500 Series
+--------------------------
+
+* Intel® Ethernet Controller 82599
+
+* Intel® Ethernet Controller X520
+
+* Intel® Ethernet Controller X550
+
+* Intel® Ethernet Controller X552
+
+* Intel® Ethernet Controller X553
+
+
+Intel® Ethernet 300 Series and Other
+------------------------------------
+
+* Intel® I210 Gigabit Ethernet Controller
+
+* Intel® I350 Gigabit Ethernet Controller
+
+* Intel® Ethernet Controller I225
+
+* Intel® Ethernet Controller I226
+
+* Intel® Ethernet Connection I217
+
+* Intel® Ethernet Connection I218
+
+* Intel® Ethernet Connection I219
+
+
+Intel Fiber Optic Connections
+=============================
+
+Caution: The fiber optic ports may utilize Class 1 or Class 1M laser
+devices. Do not stare into the end of a fiber optic connector
+connected to a "live" system. Do not use optical instruments to view
+the laser output. Using optical instruments increases eye hazard.
+Laser radiation is hazardous and may cause eye injury. To inspect a
+connector, receptacle or adapter end, be sure that the fiber optic
+device or system is turned off, or the fiber cable is disconnected
+from the "live" system.
+
+The Intel Gigabit and 10GbE network adapters with fiber optic
+connections operate only at their native speed and only at full-
+duplex. Therefore you do not need to make any adjustments. Use of
+controls or adjustments or performance of procedures other than those
+specified herein may result in hazardous radiation exposure. The laser
+module contains no serviceable parts.
+
+
+Customer Support
+================
+
+* Main Intel support website: https://support.intel.com
+
+* Support for Intel Ethernet products:
+  https://www.intel.com/content/www/us/en/support/products/36773
+  /ethernet-products.html
+
+
+Legal / Disclaimers
+===================
+
+Copyright (C) 2002 - 2025, Intel Corporation. All rights reserved.
+
+Intel technologies may require enabled hardware, software or service
+activation.
+
+No product or component can be absolutely secure.
+
+Your costs and results may vary.
+
+Intel, the Intel logo, and other Intel marks are trademarks of Intel
+Corporation or its subsidiaries.  Other names and brands may be
+claimed as the property of others.
+
+Performance varies by use, configuration, and other factors. Learn
+more at https://www.Intel.com/PerformanceIndex.
+
+The products described may contain design defects or errors known as
+errata which may cause the product to deviate from published
+specifications. Current characterized errata are available on request.
+
+This software and the related documents are Intel copyrighted
+materials, and your use of them is governed by the express license
+under which they were provided to you ("License"). Unless the License
+provides otherwise, you may not use, modify, copy, publish,
+distribute, disclose or transmit this software or the related
+documents without Intel's prior written permission.
+
+This software and the related documents are provided as is, with no
+express or implied warranties, other than those that are expressly
+stated in the License.
+<?xml version="1.0" encoding="utf-8"?>
+<html>
+    <head><title>Warranty</title>
+        <link rel="stylesheet" type="text/css" href="docs\style.css" />
+    </head>
+    <body>
+        <h1>Limited Lifetime Hardware Warranty for Retail Intel<sup>®</sup> Ethernet Adapters</h1>
+        <h2>Warranty Change Effective January 1, 2018</h2>
+        <p>Intel Adapters that are discontinued will adhere to a 5-year warranty period from the date of Intel’s announcement of end of life or discontinuance.
+			Discontinued adapters that currently fall outside the 5-year period are no longer under Warranty. 
+			This change will be retroactive for all Intel Adapters.</p>
+        <p>Follow this link to view a full list of discontinued Intel Adapters that fall outside the 5-year warranty period and are no longer under Warranty:
+				<a href="https://www.intel.com/content/www/us/en/support/articles/000026530/network-and-i-o/ethernet-products.html">List of Discontinued Retail Intel® Ethernet Adapters</a></p>
+        <p>Intel Adapters that are still active and shipping will continue to adhere to the Limited Lifetime Warranty policy.</p>
+        <table class="note">
+            <tr>
+                <td align="left" valign="top">
+                    <img border="0" src="note.gif" />
+                </td>
+                <td>
+                    <p><b>NOTE:</b> If you are a consumer under the Australian Consumer Law, this warranty does not apply to you.</p>
+                    <p>Visit <a href="https://www.intel.com/content/dam/support/us/en/documents/network/sb/australianlimitedlifetimehardwarewarranty.pdf">
+					Australian Limited Lifetime Hardware Warranty</a> to view the limited warranty applicable to Australian consumers.</p>
+                </td>
+            </tr>
+        </table>
+        <h2>INTEL<sup>®</sup> TERMS AND CONDITIONS OF WARRANTY, SUPPORT AND SERVICES</h2>
+        <p>These Intel® Terms and Conditions of Warranty, Support and Services (“Terms and Conditions of Service”) govern the warranty and support services provided by Intel to the original end-user (“Customer”) that has purchased Intel® Adapter Products (“Products”) directly from Intel Corporation (“Intel”) or indirectly from an authorized reseller or distributor of Intel (“Authorized Seller”). 
+			Unless otherwise agreed in writing by Intel, any request by Customer for warranty and support services for Products will be accepted only on the terms and conditions herein, notwithstanding any terms or conditions contained in or referenced on any pre-printed Customer purchase order or similar order documentation. 
+			Except to the extent set forth in these Terms and Conditions of Service, the Authorized Reseller’s purchase agreement or terms and conditions of sale, or in the absence of such documents, Intel’s Terms and Conditions of Sale located at <a href="https://www.intel.com/content/www/us/en/legal/terms-of-use.html">
+			Terms of Use</a> shall govern the warranty and support services for Products. 
+			Intel reserves the right to change the terms of Intel’s Terms and Conditions of Sale and these Terms and Conditions of Service, including without limitation, the right to discontinue offering warranty and support services for the Product, at any time without notice and without incurring any liability. 
+			These Terms and Conditions of Service do not apply to custom products purchased directly or indirectly from Intel.</p>
+        <h2>Limited Lifetime Hardware Warranty for Retail Intel<sup>®</sup> Ethernet Adapters</h2>
+        <h3>Intel warranty is limited to 5 years from the date of Intel’s announcement of end of life or discontinuance of the adapter products.</h3>
+        <p>Intel warrants to the original owner that the adapter product delivered in this package will be free from defects in material and workmanship. 
+		This warranty does not cover the adapter product if it is damaged in the process of being installed or improperly used.</p>
+        <p>THE WARRANTY IS IN LIEU OF ANY OTHER WARRANTY, WHETHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING BUT NOT LIMITED TO ANY WARRANTY OF NONINFRINGEMENT OF INTELLECTUAL PROPERTY, MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE ARISING OUT OF ANY PROPOSAL, SPECIFICATION, OR SAMPLE.</p>
+        <p>This warranty does not cover replacement of adapter products damaged by abuse, accident, misuse, neglect, alteration, repair, disaster, improper installation, or improper testing. 
+			If the adapter product is found to be defective, Intel, at its option, will replace or repair the hardware product at no charge except as set forth below, or refund your purchase price provided that you deliver the adapter product along with a Return Material Authorization (RMA) number (see below), along with proof of purchase (if not registered), either to the dealer from whom you purchased it or to Intel with an explanation of any deficiency. 
+			If you ship the adapter product, you must assume the risk of damage or loss in transit. 
+		You must use the original container (or the equivalent) and pay the shipping charge.</p>
+        <p>Intel may replace or repair the adapter product with either new or reconditioned parts, and any adapter product, or part thereof replaced by Intel becomes Intel's property. 
+		Repaired or replaced adapter products will be returned to you at the same revision level as received or higher, at Intel's option. 
+			Intel reserves the right to replace discontinued adapter products with an equivalent current generation adapter product.</p>
+        <h3>Intel<sup>®</sup> Adapter money-back guarantee (North America only)</h3>
+        <p>Intel wants you to be completely satisfied with the Intel adapter product that you have purchased. 
+			Any time within ninety (90) days of purchase, you may return your Intel adapter to the original place of purchase for a full refund of the purchase price from your dealer. 
+			Resellers and distributors, respectively, accepting returns and refunding money back to their customers may return Intel adapters to their original place of purchase. 
+		Intel guarantees that it will accept returns under this policy and refund the original purchase price to customers purchasing directly from Intel.</p>
+        <h3>Limitation of liability and remedies</h3>
+        <p>INTEL'S SOLE LIABILITY HEREUNDER SHALL BE LIMITED TO DIRECT, OBJECTIVELY MEASURABLE DAMAGES. 
+			IN NO EVENT SHALL INTEL HAVE ANY LIABILITY FOR ANY INDIRECT OR SPECULATIVE DAMAGES (INCLUDING, WITHOUT LIMITING THE FOREGOING, CONSEQUENTIAL, INCIDENTAL, AND SPECIAL DAMAGES) INCLUDING, BUT NOT LIMITED TO, INFRINGEMENT OF INTELLECTUAL PROPERTY, REPROCUREMENT COSTS, LOSS OF USE, BUSINESS INTERRUPTIONS, LOSS OF GOODWILL, AND LOSS OF PROFITS, WHETHER ANY SUCH DAMAGES ARISE OUT OF CONTRACT NEGLIGENCE, TORT, OR UNDER ANY WARRANTY, IRRESPECTIVE OF WHETHER INTEL HAS ADVANCE NOTICE OF THE POSSIBILITY OF ANY SUCH DAMAGES. 
+			NOTWITHSTANDING THE FOREGOING, INTEL'S TOTAL LIABILITY FOR ALL CLAIMS UNDER THIS AGREEMENT SHALL NOT EXCEED THE PRICE PAID FOR THE PRODUCT. 
+			THESE LIMITATIONS ON POTENTIAL LIABILITIES WERE AN ESSENTIAL ELEMENT IN SETTING THE PRODUCT PRICE. 
+		INTEL NEITHER ASSUMES NOR AUTHORIZES ANYONE TO ASSUME FOR IT ANY OTHER LIABILITIES.</p>
+        <p>Some states do not allow the exclusion or limitation of incidental or consequential damages, so the above limitations may not apply to you.</p>
+        <h3>Critical control applications</h3>
+        <p>Intel specifically disclaims liability for use of the adapter product in critical control applications (including, for example only, safety or health care control systems, nuclear energy control systems, or air or ground traffic control systems) by Licensee or Sublicensees, and such use is entirely at the user's risk. 
+		Licensee agrees to defend, indemnify, and hold Intel harmless from and against any and all claims arising out of use of the adapter product in such applications by Licensee or Sublicensees.</p>
+        <h3>Software</h3>
+        <p>Software provided with the adapter product is not covered under the hardware warranty described above. 
+		See the applicable software license agreement which shipped with the adapter product for details on any software warranty.</p>
+        <h3>Submit an RMA request</h3>
+        <p>Contact <a href="https://www.intel.com/content/www/us/en/support/contact-support.html">Intel Customer Support</a>.</p>
+    </body>
+</html>
 
 
 Title	URL	Assignees	Status	Labels
