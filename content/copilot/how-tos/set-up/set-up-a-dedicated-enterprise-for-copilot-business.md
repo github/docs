@@ -15,6 +15,9 @@ topics:
   - Accounts
   - Copilot
 shortTitle: Set up a dedicated enterprise
+category:
+  - Configure Copilot
+  - Manage Copilot for a team
 ---
 
 You can create an enterprise account specifically for managing {% data variables.copilot.copilot_business_short %} licenses, without adopting {% data variables.product.prodname_enterprise %}. With this account, you will have access to enterprise-grade integrations with identity providers for authentication and provisioning, without needing to pay for {% data variables.product.prodname_enterprise %} licenses. See [AUTOTITLE](/copilot/concepts/about-enterprise-accounts-for-copilot-business).

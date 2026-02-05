@@ -13,7 +13,7 @@ shortTitle: Repository custom properties
 
 ## About custom properties
 
-{% data reusables.enterprise.custom-properties-intro %} See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/custom-properties).
+{% data reusables.enterprise.custom-properties-intro %}{% ifversion ghec or ghes > 3.20 %} See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/custom-properties).{% endif %}
 
 This article relates to **repository custom properties.**
 

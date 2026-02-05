@@ -135,7 +135,25 @@ Optionally, you can require a merge type of merge, squash, or rebase. This means
 {% endif %}
 
 {% ifversion repo-rules-required-reviewer %}
-Optionally, you can require review from specific teams. This means you can add a select number of reviewers who must submit a specific number of reviews for specific files and folders.
+
+#### Required reviewers
+
+Optionally, you can require review or approval from specific teams when a pull request changes certain files or directories. You can specify up to 15 different teams, and for each team you can require a certain number of approvals from team members.
+
+The **Reviewer** dropdown allows you to select any team which is in scope where the rule is being defined. 
+
+* **Organization-wide rules**: The team must belong to the organization.
+* **Repository-level rules**: The team must belong to the organization that owns the repository.
+
+This rule is not available on user-owned repositories as they do not contain teams.
+
+Required approvals can be set from 0 (zero) to 10. Requiring zero approvals means that the team will be added for visibility, but the team does not need to approve the request.
+
+For each team, you can specify a list of file patterns which determines what files the setting applies to. The format of this file list is the same as a standard [`.gitignore`](/get-started/git-basics/ignoring-files) file:
+
+* A pattern starting with an exclamation mark (`!`) is a negation. This will cause paths matching earlier patterns to *not* require approvals.
+* Patterns are matched in order, so negated patterns can "unmatch" files which matched previous rules.
+
 {% endif %}
 
 ## Require status checks to pass before merging

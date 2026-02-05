@@ -68,7 +68,7 @@ Your goal is to make the codebase more stable and reliable by implementing worki
 1. Click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %}, then click **{% octicon "plus" aria-label="Plus button" %} Create a custom agent**.
 1. An {% data variables.copilot.agent_profile %} template called `my-agent.agent.md` will open in the `.github/agents` directory, in the repository you chose. Name the file `bug-fix-teammate.agent.md` and paste in the example {% data variables.copilot.agent_profile %}.
 1. Commit and merge this file into your repository's default branch. Go back to the agents tab (you may need to refresh the page), and in the text box, select your "bug-fix-teammate" agent from the dropdown.
-1. In the text box, enter a task for the agent (such as the example below) and click **{% octicon "paper-airplane" aria-label="Start task" %} Start task** or press <kbd>Return</kbd>.
+1. In the text box, enter a task for the agent (such as the example below) and click **{% octicon "paper-airplane" aria-label="Start task" %}** or press <kbd>Enter</kbd>.
 
    ```copilot copy
    Scan the repository for the most critical bug, then implement a targeted fix and explain your approach.

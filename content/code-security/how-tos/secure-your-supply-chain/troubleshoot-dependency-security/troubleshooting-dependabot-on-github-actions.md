@@ -20,21 +20,6 @@ redirect_from:
 contentType: how-tos
 ---
 
-## Restrictions when {% data variables.product.prodname_dependabot %} triggers events
-
-{% data reusables.dependabot.working-with-actions-considerations %}
-
-For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) using the `pull_request`, `pull_request_review`, `pull_request_review_comment`, `push`, `create`, `deployment`, and `deployment_status` events, these restrictions apply:
-
-* `GITHUB_TOKEN` has read-only permissions by default.
-* Secrets are populated from {% data variables.product.prodname_dependabot %} secrets. {% data variables.product.prodname_actions %} secrets are not available.
-
-For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) using the `pull_request_target` event, if the base ref of the pull request was created by {% data variables.product.prodname_dependabot %} (`github.event.pull_request.user.login == 'dependabot[bot]'`), the `GITHUB_TOKEN` will be read-only and secrets are not available.
-
-These restrictions apply even if the workflow is re-run by a different actor.
-
-For more information, see [Keeping your GitHub Actions and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/).
-
 ## Troubleshooting failures when {% data variables.product.prodname_dependabot %} triggers existing workflows
 
 {% data reusables.dependabot.dependabot-on-actions-troubleshooting-workflows %}

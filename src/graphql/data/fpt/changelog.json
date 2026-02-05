@@ -4,6 +4,31 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>IpAllowListUserLevelEnforcementEnabledSettingValue</code> was added</p>",
+          "<p>Enum value <code>DISABLED</code> was added to enum <code>IpAllowListUserLevelEnforcementEnabledSettingValue</code></p>",
+          "<p>Enum value <code>ENABLED</code> was added to enum <code>IpAllowListUserLevelEnforcementEnabledSettingValue</code></p>",
+          "<p>Type <code>UpdateIpAllowListUserLevelEnforcementEnabledSettingInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>UpdateIpAllowListUserLevelEnforcementEnabledSettingInput</code></p>",
+          "<p>Input field <code>ownerId</code> of type <code>ID!</code> was added to input object type <code>UpdateIpAllowListUserLevelEnforcementEnabledSettingInput</code></p>",
+          "<p>Input field <code>settingValue</code> of type <code>IpAllowListUserLevelEnforcementEnabledSettingValue!</code> was added to input object type <code>UpdateIpAllowListUserLevelEnforcementEnabledSettingInput</code></p>",
+          "<p>Type <code>UpdateIpAllowListUserLevelEnforcementEnabledSettingPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>UpdateIpAllowListUserLevelEnforcementEnabledSettingPayload</code></p>",
+          "<p>Field <code>owner</code> was added to object type <code>UpdateIpAllowListUserLevelEnforcementEnabledSettingPayload</code></p>",
+          "<p>Field <code>ipAllowListUserLevelEnforcementEnabledSetting</code> was added to object type <code>EnterpriseOwnerInfo</code></p>",
+          "<p>Field <code>updateIpAllowListUserLevelEnforcementEnabledSetting</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: UpdateIpAllowListUserLevelEnforcementEnabledSettingInput!</code> added to field <code>Mutation.updateIpAllowListUserLevelEnforcementEnabledSetting</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-02-05"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>Issue.projectItems</code> changed type from 'ProjectV2ItemConnection!<code>to</code>ProjectV2ItemConnection'</p>",
           "<p>Field <code>PullRequest.projectItems</code> changed type from 'ProjectV2ItemConnection!<code>to</code>ProjectV2ItemConnection'</p>"
         ]

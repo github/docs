@@ -73,6 +73,11 @@
   excels_at: Complex problem-solving challenges, sophisticated reasoning
   further_reading: '[Claude Opus 4.5 model card](https://assets.anthropic.com/m/64823ba7485345a7/Claude-Opus-4-5-System-Card.pdf)'
 
+- name: Claude Opus 4.6
+  task_area: Deep reasoning and debugging
+  excels_at: Complex problem-solving challenges, sophisticated reasoning
+  further_reading: 'Not available'
+
 - name: Claude Sonnet 4.0
   task_area: Deep reasoning and debugging
   excels_at: Performance and practicality, perfectly balanced for coding workflows

@@ -20,13 +20,27 @@ Default setup for {% data variables.product.prodname_code_scanning %} is the qui
 * When creating or committing to a pull request based against the repository's default branch, or any protected branch, excluding pull requests from forks.
 * On a weekly schedule.
 
-If you need more granular control over your {% data variables.product.prodname_code_scanning %} configuration, you should instead configure advanced setup.
-
 ### Supported languages
 
 {% data reusables.code-scanning.default-setup-pre-enablement-explanation %}
 
 If the code in a repository changes to include any {% data variables.product.prodname_codeql %}-supported languages, {% data variables.product.prodname_dotcom %} will automatically update the {% data variables.product.prodname_code_scanning %} configuration to include the new language. If {% data variables.product.prodname_code_scanning %} fails with the new configuration, {% data variables.product.prodname_dotcom %} will resume the previous configuration automatically so the repository does not lose {% data variables.product.prodname_code_scanning %} coverage.
+
+## Customization of default setup
+
+After running an initial analysis of your code with default setup, you can make changes to your configuration to better meet your needs.
+
+If you need more granular control over your {% data variables.product.prodname_code_scanning %} configuration, you should instead configure advanced setup.
+
+### Configuration options
+
+For existing configurations of default setup, you can edit:
+
+* Which languages default setup will analyze.
+* The query suite run during analysis. For more information on the available query suites, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites).
+* The threat models ({% data variables.release-phases.public_preview %}) to use for analysis. Your choice of threat model determines which sources of tainted data are treated as a risk to your application. During the {% data variables.release-phases.public_preview %}, threat models are supported only for analysis of {% data variables.code-scanning.code_scanning_threat_model_support %}. For more information about threat models, see [Including local sources of tainted data in default setup](/code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/editing-your-configuration-of-default-setup#including-local-sources-of-tainted-data-in-default-setup).
+
+If your codebase depends on a library or framework that is not recognized by the standard libraries included with {% data variables.product.prodname_codeql %}, you can also extend the {% data variables.product.prodname_codeql %} coverage in default setup using {% data variables.product.prodname_codeql %} model packs. For more information, see [Extending CodeQL coverage with CodeQL model packs in default setup](/code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup).
 
 ### Available runners
 

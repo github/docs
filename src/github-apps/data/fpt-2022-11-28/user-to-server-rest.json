@@ -2723,6 +2723,110 @@
       "requestPath": "/emojis"
     }
   ],
+  "enterprise-teams": [
+    {
+      "slug": "list-enterprise-teams",
+      "subcategory": "enterprise-teams",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/teams"
+    },
+    {
+      "slug": "create-an-enterprise-team",
+      "subcategory": "enterprise-teams",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/teams"
+    },
+    {
+      "slug": "list-members-in-an-enterprise-team",
+      "subcategory": "enterprise-team-members",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships"
+    },
+    {
+      "slug": "bulk-add-team-members",
+      "subcategory": "enterprise-team-members",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/add"
+    },
+    {
+      "slug": "bulk-remove-team-members",
+      "subcategory": "enterprise-team-members",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/remove"
+    },
+    {
+      "slug": "get-enterprise-team-membership",
+      "subcategory": "enterprise-team-members",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}"
+    },
+    {
+      "slug": "add-team-member",
+      "subcategory": "enterprise-team-members",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}"
+    },
+    {
+      "slug": "remove-team-membership",
+      "subcategory": "enterprise-team-members",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}"
+    },
+    {
+      "slug": "get-organization-assignments",
+      "subcategory": "enterprise-team-organizations",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations"
+    },
+    {
+      "slug": "add-organization-assignments",
+      "subcategory": "enterprise-team-organizations",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/add"
+    },
+    {
+      "slug": "remove-organization-assignments",
+      "subcategory": "enterprise-team-organizations",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/remove"
+    },
+    {
+      "slug": "get-organization-assignment",
+      "subcategory": "enterprise-team-organizations",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/{org}"
+    },
+    {
+      "slug": "add-an-organization-assignment",
+      "subcategory": "enterprise-team-organizations",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/{org}"
+    },
+    {
+      "slug": "delete-an-organization-assignment",
+      "subcategory": "enterprise-team-organizations",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/{org}"
+    },
+    {
+      "slug": "get-an-enterprise-team",
+      "subcategory": "enterprise-teams",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/teams/{team_slug}"
+    },
+    {
+      "slug": "update-an-enterprise-team",
+      "subcategory": "enterprise-teams",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/teams/{team_slug}"
+    },
+    {
+      "slug": "delete-an-enterprise-team",
+      "subcategory": "enterprise-teams",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/teams/{team_slug}"
+    }
+  ],
   "gists": [
     {
       "slug": "list-gists-for-the-authenticated-user",

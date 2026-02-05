@@ -11,6 +11,8 @@ type: reference
 topics:
   - Copilot
   - Enterprise
+category:
+  - Manage Copilot for a team
 ---
 
 {% data reusables.copilot.usage-metrics-preview %}
