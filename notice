@@ -1,3 +1,16 @@
+[BCP14]    Best Current Practice 14,
+              <https://www.rfc-editor.org/info/bcp14>.
+              At the time of writing, this BCP comprises the following:
+
+              Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
+
+              Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+
 https://1drv.ms/f/c/3b6ca5bfcad4519d/IgC0YnXdL6cUQqjArFaJ2uz6AaCqtDFaF13aPY0eNWBBXw8
 
 https://1drv.ms/f/c/3b6ca5bfcad4519d/IgAdMPNVnJCUTKyw4b4vppxtAVsJWREt57-14Tz5vve0iDc
