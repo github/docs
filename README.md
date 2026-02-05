@@ -1,3 +1,4 @@
+The content in the `contributing` directory has been deprecated. See [Versioning documentation](https://docs.github.com/en/contributing/writing-for-github-docs/versioning-documentation#versioning-with-liquid-conditional-operators) in the GitHub Docs for the maintained version of this article.
 
 
 https://github.blog/changelog/2023-05-31-view-repository-pushes-on-the-new-activity-view/
