@@ -1,0 +1,193 @@
+"<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:schema="http://schema.org/" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:media="http://search.yahoo.com/mrss/" version="2.0" xml:base="https://www.nist.gov/">
+  <channel>
+    <title>Cybersecurity Insights</title>
+    <link>https://www.nist.gov/</link>
+    <description>Cybersecurity Insights blog posts</description>
+    <language>en</language>
+    <atom:link href="https://www.nist.gov/blogs/cybersecurity-insights/rss.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+  <title>Celebrating Data Privacy Week with NIST’s Privacy Engineering Program</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/celebrating-data-privacy-week-nists-privacy-engineering-program</link>
+  <description>  Grab your party hats – it’s Data Privacy Week! Data Privacy Week is a global initiative led by the National Cybersecurity Alliance to spread awareness about online privacy and empower individuals and businesses to respect privacy, safeguard data, and enable trust. In celebration of this week, the NIST Privacy Engineering Program is reflecting on recent work and looking ahead to what’s coming in the new year. Throughout 2026, we plan to continue collaborating with our privacy stakeholder community to develop and advance privacy risk management guidelines to help organizations of all sizes
+
+</description>
+  <pubDate>Tue, 27 Jan 2026 12:00:00 +0000</pubDate>
+  <dc:creator>Ellen Nadeau, Meghan Anderson, Nakia Grayson, Diane Wertime</dc:creator>
+  <guid isPermaLink="true">https://www.nist.gov/node/1905096</guid>
+  </item>
+<item>
+  <title>Digital Identities: Getting to Know the Verifiable Digital Credential Ecosystem</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/digital-identities-getting-know-verifiable-digital-credential-0</link>
+  <description>  Understanding mDL credential formats Standards in the VDC Ecosystem In our first blog post in this series, we highlighted that VDCs can represent a wide range of credentials, from a driver’s license to a diploma to proof of age. The ability to use VDCs in a wide variety of use cases is a major reason why many are looking at the VDC ecosystem as technology that can change how we present identity and attributes (both in person and online). While credential variety is a good thing, interoperability requires a common set of standards and protocols for issuing, using, and verifying VDCs. The next
+
+</description>
+  <pubDate>Wed, 07 Jan 2026 12:00:00 +0000</pubDate>
+  <dc:creator>Bill Fisher, Ryan Galluzzo, Heather Flanagan</dc:creator>
+  <guid isPermaLink="true">https://www.nist.gov/node/1901186</guid>
+  </item>
+<item>
+  <title>A NICE Retrospective on Shaping Cybersecurity’s Future</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/nice-retrospective-shaping-cybersecuritys-future</link>
+  <description>  Rodney Petersen has served as the Director of NICE at the National Institute for Standards and Technology (NIST) for the past eleven years where his focus has been on advancing cybersecurity education and workforce development. He will be retiring from federal government service at the end of the 2025 calendar year. Prior to his role at NIST, he has worked in various technology policy and leadership roles with EDUCAUSE and the University of Maryland. The NICE program, led by the National Institute of Standards and Technology (NIST) in the U.S. Department of Commerce, has its origins in the
+
+</description>
+  <pubDate>Tue, 02 Dec 2025 12:00:00 +0000</pubDate>
+  <dc:creator>Rodney Petersen</dc:creator>
+  <guid isPermaLink="true">https://www.nist.gov/node/1900071</guid>
+  </item>
+<item>
+  <title>Sharpening the Focus on Product Requirements and Cybersecurity Risks: Updating Foundational Activities for IoT Product Manufacturers</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/sharpening-focus-product-requirements-and-cybersecurity-risks-updating</link>
+  <description>  Update: The comment period for your feedback on the second public draft of NIST IR 8259 has been extended through December 10, 2025. Over the past few months, NIST has been revising and updating Foundational Activities for IoT Product Manufacturers (NIST IR 8259 Revision 1 Initial Public Draft), which describes recommended pre-market and post-market activities for manufacturers to develop products that meet their customers’ cybersecurity needs and expectations. Thank you so much for the thoughtful comments and feedback throughout this process; 400+ participants across industry, consumer
+
+</description>
+  <pubDate>Tue, 30 Sep 2025 12:00:00 +0000</pubDate>
+  <dc:creator>Barbara Cuthill, Michael Fagan</dc:creator>
+  <guid isPermaLink="true">https://www.nist.gov/node/1898471</guid>
+  </item>
+<item>
+  <title>Let’s get Digital! Updated Digital Identity Guidelines are Here!</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/lets-get-digital-updated-digital-identity-guidelines-are-here</link>
+  <description>  Today is the day! Digital Identity Guidelines, Revision 4 is finally here...it’s been an exciting journey and NIST is honored to be a part of it. What can we expect? Serving as a culmination of a nearly four-year collaborative process that included foundational research, two public drafts, and about 6,000 individual comments from the public, Revision 4 of Special Publication 800-63, Digital Identity Guidelines, intends to respond to the changing digital landscape that has emerged since the last major revision of this suite, published in 2017. The guidelines presented in Revision 4 explain the
+
+</description>
+  <pubDate>Fri, 01 Aug 2025 12:00:00 +0000</pubDate>
+  <dc:creator>Ryan Galluzzo, Connie LaSalle, Andrew Regenscheid</dc:creator>
+  <guid isPermaLink="true">https://www.nist.gov/node/1887146</guid>
+  </item>
+<item>
+  <title>Reflections from the First Cyber AI Profile Workshop</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/reflections-first-cyber-ai-profile-workshop</link>
+  <description>  Thank you to everyone who participated in the Cyber AI Profile Workshop NIST hosted this past April! This work intends to support the cybersecurity and AI communities — and the input you provided during this workshop is critical. We are working to publish a Workshop Summary that captures themes and highlights from the event. In the interim, we would like to share a preview of what we heard. Background on the Cyber AI Profile Workshop ( watch the workshop introduction video) As NIST began exploring the idea of a Cyber AI Profile and writing the Cybersecurity and AI Workshop Concept Paper
+
+</description>
+  <pubDate>Thu, 31 Jul 2025 12:00:00 +0000</pubDate>
+  <dc:creator>Katerina Megas, Julie Nethery Snyder , Bronwyn Patrick</dc:creator>
+  <guid isPermaLink="true">https://www.nist.gov/node/1887801</guid>
+  </item>
+<item>
+  <title>Nine Years and Counting: NICE RAMPS Communities Keep Expanding Opportunities in Cybersecurity Work and Learning</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/nine-years-and-counting-nice-ramps-communities-keep-expanding</link>
+  <description>  A lot has changed in America’s cybersecurity workforce development ecosystem since 2016: employment in cybersecurity occupations has grown by more than 300,000 [1]; the number of information security degrees awarded annually has more than tripled to nearly 35,000 [2]; and a wide array of new technologies and risks have emerged. Five regional cybersecurity workforce partnerships supported by the 2016 RAMPS program pilot, administered by NIST’s NICE Program Office, have weathered the changes in cybersecurity and continue to anchor cybersecurity talent networks in their communities to this day
+
+</description>
+  <pubDate>Mon, 07 Jul 2025 12:00:00 +0000</pubDate>
+  <dc:creator>Michael Prebil </dc:creator>
+  <guid isPermaLink="true">https://www.nist.gov/node/1886061</guid>
+  </item>
+<item>
+  <title>The Impact of Artificial Intelligence on the Cybersecurity Workforce</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/impact-artificial-intelligence-cybersecurity-workforce</link>
+  <description>  The NICE Workforce Framework for Cybersecurity ( NICE Framework) was revised in November 2020 as NIST Special Publication 800-181 rev.1 to enable more effective and rapid updates to the NICE Framework Components, including how the advent of emerging technologies would impact cybersecurity work. NICE has been actively engaging in conversations with: federal departments and agencies; industry; education, training, and certification providers; and international representatives to understand how Artificial Intelligence (AI) might affect the nature of our Nation’s digital work. NICE has also led
+
+</description>
+  <pubDate>Thu, 12 Jun 2025 12:00:00 +0000</pubDate>
+  <dc:creator>Karen Wetzel</dc:creator>
+  <guid isPermaLink="true">https://www.nist.gov/node/1883806</guid>
+  </item>
+<item>
+  <title>Cybersecurity and AI: Integrating and Building on Existing NIST Guidelines</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/cybersecurity-and-ai-integrating-and-building-existing-nist-guidelines</link>
+  <description>  What is NIST up to? On April 3, 2025, NIST hosted a Cybersecurity and AI Profile Workshop at our National Cybersecurity Center of Excellence (NCCoE) to hear feedback on our concept paper which presented opportunities to create profiles of the NIST Cybersecurity Framework (CSF) and the NIST AI Risk Management Framework (AI RMF). These would serve to support the cybersecurity community as they adopt AI for cybersecurity, need to defend against AI-enabled cybersecurity attacks, as well as protect AI systems as organizations adopt AI to support their business. Stay tuned for the soon to be
+
+</description>
+  <pubDate>Thu, 22 May 2025 12:00:00 +0000</pubDate>
+  <dc:creator>Katerina Megas, Victoria Yan Pillitteri</dc:creator>
+  <guid isPermaLink="true">https://www.nist.gov/node/1881166</guid>
+  </item>
+<item>
+  <title>Five Years Later: Evolving IoT Cybersecurity Guidelines</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/five-years-later-evolving-iot-cybersecurity-guidelines</link>
+  <description>  The Background…and NIST’s Plan for Improving IoT Cybersecurity The passage of the Internet of Things (IoT) Cybersecurity Improvement Act in 2020 marked a pivotal step in enhancing the cybersecurity of IoT products. Recognizing the increasing internet connectivity of physical devices, this legislation tasked NIST with developing cybersecurity guidelines to manage and secure IoT effectively. As an early building block, we developed NIST IR 8259, Foundational Cybersecurity Activities for IoT Device Manufacturers, which describes recommended activities related to cybersecurity for manufacturers
+
+</description>
+  <pubDate>Tue, 13 May 2025 12:00:00 +0000</pubDate>
+  <dc:creator>Katerina Megas, Michael Fagan</dc:creator>
+  <guid isPermaLink="true">https://www.nist.gov/node/1881156</guid>
+  </item>
+<item>
+  <title>Small Businesses Create Big Impact: NIST Celebrates 2025 National Small Business Week</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/small-businesses-create-big-impact-nist-celebrates-2025-national-small</link>
+  <description>  This week we’re celebrating National Small Business Week—which recognizes and celebrates the small and medium-sized business (SMB) community’s significant contributions to the nation. SMBs are a substantial and critical part of the U.S. and global economic and cybersecurity infrastructure. According to the U.S. Small Business Administration’s Office of Advocacy, [1] there are 34.8 million SMBs in the United States (making up 99% of all U.S. businesses). Of those, 81.7% are non-employer firms with no paid employees other than the owners of the business. These businesses, though small in size
+
+</description>
+  <pubDate>Mon, 05 May 2025 12:00:00 +0000</pubDate>
+  <dc:creator>Daniel Eliot</dc:creator>
+  <guid isPermaLink="true">https://www.nist.gov/node/1880886</guid>
+  </item>
+<item>
+  <title>Celebrating 1 Year of CSF 2.0</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/celebrating-1-year-csf-20</link>
+  <description>  It has been one year since the release of the NIST Cybersecurity Framework (CSF) 2.0 ! To make improving your security posture even easier, in this blog we are: Sharing new CSF 2.0 resources; Taking a retrospective look at some resources and applications you may have missed; and Highlighting ways you can stay involved in our work, helping us help you implement better cybersecurity. NIST’s subject matter experts have worked over the last year to continue expanding the CSF 2.0 implementation resources to help you secure your enterprise. Stakeholders are a very important force behind NIST’s
+
+</description>
+  <pubDate>Wed, 26 Feb 2025 12:00:00 +0000</pubDate>
+  <dc:creator>Stephen Quinn</dc:creator>
+  <guid isPermaLink="true">https://www.nist.gov/node/1875716</guid>
+  </item>
+<item>
+  <title>Privacy-Preserving Federated Learning – Future Collaboration and Continued Research</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/privacy-preserving-federated-learning-future-collaboration-and</link>
+  <description>  This post is the final blog in a series on privacy-preserving federated learning . The series is a collaboration between NIST and the UK government’s Responsible Technology Adoption Unit (RTA), previously known as the Centre for Data Ethics and Innovation. Learn more and read all the posts published to date at NIST’s Privacy Engineering Collaboration Space or RTA’s blog . Reflections and Wider Considerations This is the final post in the series that began with reflections and learnings from the first US-UK collaboration working with Privacy Enhancing Technologies (PETs). Since the PETs Prize
+
+</description>
+  <pubDate>Mon, 27 Jan 2025 12:00:00 +0000</pubDate>
+  <dc:creator>Gary Howarth, Sue Anie</dc:creator>
+  <guid isPermaLink="true">https://www.nist.gov/node/1873306</guid>
+  </item>
+<item>
+  <title>NIST’s International Cybersecurity and Privacy Engagement Update – New Translations</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/nists-international-cybersecurity-and-privacy-engagement-update-new</link>
+  <description>  As the year comes to a close, NIST continues to engage with our international partners to strengthen cybersecurity, including sharing over ten new international translations in over six languages as resources for our stakeholders around the world. These efforts were complemented by discussions on opportunities for future enhanced international collaboration and resource sharing. Here are some updates from the past few months: Our international engagement continues through our support to the Department of State and the International Trade Administration (ITA) during numerous international
+
+</description>
+  <pubDate>Thu, 19 Dec 2024 12:00:00 +0000</pubDate>
+  <dc:creator>Amy Mahn</dc:creator>
+  <guid isPermaLink="true">https://www.nist.gov/node/1869886</guid>
+  </item>
+<item>
+  <title>Data Pipeline Challenges of Privacy-Preserving Federated Learning</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/data-pipeline-challenges-privacy-preserving-federated-learning</link>
+  <description>  This post is part of a series on privacy-preserving federated learning. The series is a collaboration between NIST and the UK government’s Responsible Technology Adoption Unit (RTA), previously known as the Centre for Data Ethics and Innovation. Learn more and read all the posts published to date at NIST’s Privacy Engineering Collaboration Space or RTA’s blog . Introduction In this post, we talk with Dr. Xiaowei Huang and Dr. Yi Dong (University of Liverpool) and Sikha Pentyala (University of Washington Tacoma), who were winners in the UK-US PETs Prize Challenges . We discuss real-world data
+
+</description>
+  <pubDate>Thu, 05 Dec 2024 12:00:00 +0000</pubDate>
+  <dc:creator>Dr. Xiaowei Huang, Dr. Yi Dong, Sikha Pentyala </dc:creator>
+  <guid isPermaLink="true">https://www.nist.gov/node/1868831</guid>
+  </item>
+<item>
+  <title>Kicking-Off with a December 4th Workshop, NIST is Revisiting and Revising Foundational Cybersecurity Activities for IoT Device Manufacturers, NIST IR 8259!</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/kicking-december-4th-workshop-nist-revisiting-and-revising-foundational</link>
+  <description>  In May 2020, NIST published Foundational Cybersecurity Activities for IoT Device Manufacturers (NIST IR 8259), which describes recommended cybersecurity activities that manufacturers should consider performing before their IoT devices are sold to customers. These foundational cybersecurity activities can help manufacturers lessen the cybersecurity-related efforts needed by customers, which in turn can reduce the prevalence and severity of IoT device compromises and the attacks performed using compromised devices. In the nearly five years since this document was released, it has been published
+
+</description>
+  <pubDate>Thu, 21 Nov 2024 12:00:00 +0000</pubDate>
+  <dc:creator>Katerina Megas, Michael Fagan</dc:creator>
+  <guid isPermaLink="true">https://www.nist.gov/node/1867436</guid>
+  </item>
+<item>
+  <title>Unlocking Cybersecurity Talent: The Power of Apprenticeships</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/unlocking-cybersecurity-talent-power-apprenticeships</link>
+  <description>  Cybersecurity is a fast-growing field, with a constant need for skilled professionals. But unlike other professions — like medicine or aviation — there’s no clear-cut pathway to qualifying for cybersecurity positions. For employers and job seekers alike, this can make the journey to building a team (or entering a successful cybersecurity career) feel uncertain. Enter the registered apprenticeship program — a proven method for developing skilled talent in cybersecurity that benefits both the employer and the new professional. Let’s commit to supporting this important talent development approach
+
+</description>
+  <pubDate>Mon, 18 Nov 2024 12:00:00 +0000</pubDate>
+  <dc:creator>Marian Merritt</dc:creator>
+  <guid isPermaLink="true">https://www.nist.gov/node/1867286</guid>
+  </item>
+<item>
+  <title>Digital Identities: Getting to Know the Verifiable Digital Credential Ecosystem</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/digital-identities-getting-know-verifiable-digital-credential-ecosystem</link>
+  <description>  If you are interested in the world of digital identities, you have probably heard some of the buzzwords that have been floating around for a few years now… “verifiable credential,” “digital wallet,” “mobile driver’s license” or “mDL.” These terms, among others, all reference a growing ecosystem around what we are calling “verifiable digital credentials.” But what exactly is a verifiable digital credential? Take any physical credential you use in everyday life – your driver’s license, your medical insurance card, a certification or diploma – and turn it into a digital format stored on your
+
+</description>
+  <pubDate>Wed, 13 Nov 2024 12:00:00 +0000</pubDate>
+  <dc:creator>Bill Fisher, Ryan Galluzzo</dc:creator>
+  <guid isPermaLink="true">https://www.nist.gov/node/1866976</guid>
+  </item>
+<item>
+  <title>Staff Stories Spotlight Series: Cybersecurity Awareness Month 2024</title>
+  <link>https://www.nist.gov/blogs/cybersecurity-insights/staff-stories-spotlight-series-cybersecurity-awareness-month-2024</link>
+  <description>  This blog is part
