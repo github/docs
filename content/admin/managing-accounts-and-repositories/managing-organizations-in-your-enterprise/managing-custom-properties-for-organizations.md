@@ -4,7 +4,7 @@ intro: 'With custom properties, you can add metadata to organizations in your en
 permissions: 'Enterprise owners {% ifversion custom-org-roles %}and users with the "Manage the Enterprise''s custom properties definitions" permission {% endif %}can add and set a custom property schema at the enterprise level.'
 versions:
   ghec: '*'
-  ghes: '*'
+  ghes: '>= 3.21'
 topics:
   - Enterprise
   - Organizations

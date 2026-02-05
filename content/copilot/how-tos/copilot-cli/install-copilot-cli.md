@@ -36,6 +36,27 @@ If you have access to {% data variables.product.prodname_copilot %} via your org
 
 You can install {% data variables.copilot.copilot_cli_short %} using WinGet (Windows), Homebrew (macOS and Linux), npm (all platforms), or an install script (macOS and Linux).
 
+### Installing with npm (all platforms)
+
+Prerequisite: {% data variables.copilot.copilot_cli_npm_version %}.
+
+```shell copy
+npm install -g @github/copilot
+```
+
+> [!NOTE]
+> If you have `ignore-scripts=true` in your `~/.npmrc` file, you must use the command:
+>
+> ```shell copy
+> npm_config_ignore_scripts=false npm install -g @github/copilot
+> ```
+
+To install the prerelease version:
+
+```shell copy
+npm install -g @github/copilot@prerelease
+```
+
 ### Installing with WinGet (Windows)
 
 ```powershell copy
@@ -58,18 +79,6 @@ To install the prerelease version:
 
 ```shell copy
 brew install copilot-cli@prerelease
-```
-
-### Installing with npm (all platforms, requires Node.js 22+)
-
-```shell copy
-npm install -g @github/copilot
-```
-
-To install the prerelease version:
-
-```shell copy
-npm install -g @github/copilot@prerelease
 ```
 
 ### Installing with the install script (macOS and Linux)

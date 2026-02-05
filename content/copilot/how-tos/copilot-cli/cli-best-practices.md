@@ -199,7 +199,7 @@ For best results on complex tasks:
 
 **Session storage location:**
 
-```copilot
+```text
 ~/.copilot/session-state/{session-id}/
 ├── events.jsonl      # Full session history
 ├── workspace.yaml    # Metadata
@@ -213,17 +213,38 @@ For best results on complex tasks:
 
 ### Session management commands
 
-```bash
-# View session info
+To view information about the current CLI session, enter:
+
+```copilot
 /session
+```
 
-# View checkpoint history
+To view a list of any session checkpoints, enter:
+
+```copilot
 /session checkpoints
+```
 
-# View files in session
+> [!NOTE]
+> A checkpoint is created when session context is compacted, and allows you to view the summary context that {% data variables.product.prodname_copilot_short %} created.
+
+To view the details of a specific checkpoint, enter:
+
+```copilot
+/session checkpoints NUMBER
+```
+
+where NUMBER specifies the checkpoint you want to display.
+
+To view any temporary files that have been created during the current session—for example, artifacts created by {% data variables.product.prodname_copilot_short %} that shouldn't be saved to the repository—enter:
+
+```copilot
 /session files
+```
 
-# View current plan
+To view the current plan (if {% data variables.product.prodname_copilot_short %} has generated one), enter:
+
+```copilot
 /session plan
 ```
 
@@ -317,7 +338,6 @@ Pair with {% data variables.copilot.copilot_cli_short %} to develop tests.
 * `/plan Migrate all class components to functional components with hooks`
 
   Then answer the questions {% data variables.product.prodname_copilot_short %} asks. Review the plan it creates, and ask {% data variables.product.prodname_copilot_short %} to make changes if necessary. When you are happy with the plan you can prompt:
-  
   `Implement this plan`
 
 ## 6. Advanced patterns
@@ -352,13 +372,13 @@ copilot
 
 **View and manage allowed directories:**
 
-```bash
+```copilot
 /list-dirs
 ```
 
 **Example workflow: coordinated API changes**
 
-```bash
+```copilot
 I need to update the user authentication API. The changes span:
 
 - @/Users/me/projects/api-gateway (routing changes)
@@ -379,7 +399,7 @@ This multi-repository capability enables:
 
 {% data variables.product.prodname_copilot_short %} can work with visual references. Simply **drag and drop** images directly into the CLI input, or reference image files:
 
-```bash
+```copilot
 Implement this design: @mockup.png
 Match the layout and spacing exactly
 ```
@@ -388,7 +408,7 @@ Match the layout and spacing exactly
 
 For large-scale changes:
 
-```bash
+```copilot
 Run the linter and write all errors to `migration-checklist.md` as a checklist.
 Then fix each issue one by one, checking them off as you go.
 ```
@@ -424,16 +444,35 @@ Track metrics like:
 * Code review feedback cycles
 * Test coverage improvements
 
-### Getting help
+## Getting help
+
+From the command line, you can display help by using the command: `copilot -h`.
+
+For help on various topics enter:
 
 ```bash
-# In-CLI help
+copilot help TOPIC
+```
+
+where `TOPIC` can be one of: `config`, `commands`, `environment`, `logging`, or `permissions`.
+
+### Within the CLI
+
+For help within the CLI, enter:
+
+```copilot
 /help
+```
 
-# View usage statistics
+To view usage statistics, enter:
+
+```copilot
 /usage
+```
 
-# Submit feedback
+To submit private feedback to {% data variables.product.github %} about {% data variables.copilot.copilot_cli_short %}, raise a bug report, or submit a feature request, enter:
+
+```copilot
 /feedback
 ```
 
