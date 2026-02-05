@@ -387,7 +387,7 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 {% endif %}
 
 ## Prerequisites
-
+{% ifversion fpt or ghes %}
 * **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Eclipse, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
 * **Latest version of the {% data variables.product.prodname_copilot %} extension**. For installation instructions, see [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=eclipse).
 * **Sign in to {% data variables.product.company_short %} in Eclipse**. If you experience authentication issues, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor).
