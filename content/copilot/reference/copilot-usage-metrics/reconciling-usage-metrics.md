@@ -12,6 +12,8 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /early-access/copilot-metrics/dashboards/best-practices-for-correlating-usage-metrics
   - /copilot/reference/reconciling-usage-metrics
+category:
+  - Manage Copilot for a team
 ---
 
 {% data reusables.copilot.usage-metrics-preview %}

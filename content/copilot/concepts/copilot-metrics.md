@@ -15,6 +15,9 @@ redirect_from:
   - /early-access/copilot-metrics/apis/about-the-copilot-metrics-apis
   - /early-access/copilot-metrics/dashboards/about-the-copilot-metrics-dashboard
   - /early-access/copilot-metrics/apis/rest-api-endpoints-for-copilot-enterprise-and-user-usage-metrics
+category:
+  - Learn about Copilot
+  - Manage Copilot for a team
 ---
 
 {% data reusables.copilot.usage-metrics-preview %}

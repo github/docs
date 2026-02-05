@@ -88,7 +88,7 @@ After your trial, you can continue monitoring adoption and engagement through th
 
 ### Retrieve enterprise-wide data
 
-You can use the {% data variables.product.prodname_copilot_short %} Metrics API to download 28-day usage reports for your enterprise. These reports include the same dataset shown in the {% data variables.product.prodname_copilot_short %} usage metrics dashboard. The API provides two endpoints.
+You can use the {% data variables.product.prodname_copilot_short %} usage metrics endpoints to download 28-day usage reports for your enterprise. These reports include the same dataset shown in the {% data variables.product.prodname_copilot_short %} usage metrics dashboard. The API provides two endpoints.
 
 | Endpoint | Description |
 |:--|:--|

@@ -10,6 +10,7 @@ children:
   - /set-up
   - /get-code-suggestions
   - /chat-with-copilot
+  - /copilot-cli
   - /use-copilot-agents
   - /use-ai-models
   - /provide-context

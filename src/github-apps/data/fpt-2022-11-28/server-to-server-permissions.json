@@ -1,4 +1,197 @@
 {
+  "enterprise_teams": {
+    "title": "Enterprise teams",
+    "displayTitle": "Enterprise permissions for \"Enterprise teams\"",
+    "permissions": [
+      {
+        "category": "enterprise-teams",
+        "slug": "list-enterprise-teams",
+        "subcategory": "enterprise-teams",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/teams",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-teams",
+        "slug": "create-an-enterprise-team",
+        "subcategory": "enterprise-teams",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/teams",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-teams",
+        "slug": "list-members-in-an-enterprise-team",
+        "subcategory": "enterprise-team-members",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-teams",
+        "slug": "bulk-add-team-members",
+        "subcategory": "enterprise-team-members",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/add",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-teams",
+        "slug": "bulk-remove-team-members",
+        "subcategory": "enterprise-team-members",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/remove",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-teams",
+        "slug": "get-enterprise-team-membership",
+        "subcategory": "enterprise-team-members",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-teams",
+        "slug": "add-team-member",
+        "subcategory": "enterprise-team-members",
+        "verb": "put",
+        "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-teams",
+        "slug": "remove-team-membership",
+        "subcategory": "enterprise-team-members",
+        "verb": "delete",
+        "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-teams",
+        "slug": "get-organization-assignments",
+        "subcategory": "enterprise-team-organizations",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-teams",
+        "slug": "add-organization-assignments",
+        "subcategory": "enterprise-team-organizations",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/add",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-teams",
+        "slug": "remove-organization-assignments",
+        "subcategory": "enterprise-team-organizations",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/remove",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-teams",
+        "slug": "get-organization-assignment",
+        "subcategory": "enterprise-team-organizations",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/{org}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-teams",
+        "slug": "add-an-organization-assignment",
+        "subcategory": "enterprise-team-organizations",
+        "verb": "put",
+        "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/{org}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-teams",
+        "slug": "delete-an-organization-assignment",
+        "subcategory": "enterprise-team-organizations",
+        "verb": "delete",
+        "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/{org}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-teams",
+        "slug": "get-an-enterprise-team",
+        "subcategory": "enterprise-teams",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/teams/{team_slug}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-teams",
+        "slug": "update-an-enterprise-team",
+        "subcategory": "enterprise-teams",
+        "verb": "patch",
+        "requestPath": "/enterprises/{enterprise}/teams/{team_slug}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-teams",
+        "slug": "delete-an-enterprise-team",
+        "subcategory": "enterprise-teams",
+        "verb": "delete",
+        "requestPath": "/enterprises/{enterprise}/teams/{team_slug}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
   "organization_api_insights": {
     "title": "API Insights",
     "displayTitle": "Organization permissions for \"API Insights\"",

@@ -46,6 +46,7 @@
     "fixture-dev-debug": "cross-env NODE_ENV=development ROOT=src/fixtures/fixtures nodemon --inspect src/frame/server.ts",
     "fixture-test": "cross-env ROOT=src/fixtures/fixtures sh -c 'npm test -- ${1:-src/fixtures/tests}' --",
     "fr-add-docs-reviewers-requests": "tsx src/workflows/fr-add-docs-reviewers-requests.ts",
+    "aggregate-search-index-failures": "tsx src/search/scripts/aggregate-search-index-failures.ts",
     "general-search-scrape": "tsx src/search/scripts/scrape/scrape-cli.ts",
     "general-search-scrape-server": "cross-env NODE_ENV=production PORT=4002 MINIMAL_RENDER=true CHANGELOG_DISABLED=true tsx src/frame/server.ts",
     "ghes-release-scrape-with-server": "cross-env GHES_RELEASE=1 start-server-and-test general-search-scrape-server 4002 general-search-scrape",
@@ -87,6 +88,7 @@
     "show-action-deps": "echo 'Action Dependencies:' && rg '^[\\s|-]*(uses:.*)$' .github -I -N --no-heading -r '$1$2' | sort | uniq | cut -c 7-",
     "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon src/frame/server.ts",
     "start-all-languages": "cross-env NODE_ENV=development tsx src/frame/server.ts",
+    "start-for-ci": "cross-env NODE_ENV=production ENABLED_LANGUAGES=en tsx src/frame/server.ts",
     "start-for-playwright": "cross-env ROOT=src/fixtures/fixtures TRANSLATIONS_FIXTURE_ROOT=src/fixtures/fixtures/translations ENABLED_LANGUAGES=en,ja NODE_ENV=test tsx src/frame/server.ts",
     "symlink-from-local-repo": "tsx src/early-access/scripts/symlink-from-local-repo.ts",
     "sync-audit-log": "tsx src/audit-logs/scripts/sync.ts",
@@ -252,7 +254,7 @@
     "walk-sync": "^4.0.1"
   },
   "devDependencies": {
-    "@actions/core": "^2.0.0",
+    "@actions/core": "^3.0.0",
     "@actions/github": "^8.0.1",
     "@axe-core/playwright": "^4.10.1",
     "@eslint/js": "^9.33.0",
@@ -336,7 +338,7 @@
     "esm": "^3.2.25"
   },
   "engines": {
-    "node": "^22 || ^24"
+    "node": "^24"
   },
   "cacheDirectories": [
     "node_modules",

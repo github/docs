@@ -78,7 +78,7 @@ Focus on cleaning up existing code rather than adding new features. Work on both
 1. Click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %}, then click **{% octicon "plus" aria-label="Plus button" %} Create a custom agent**.
 1. An {% data variables.copilot.agent_profile %} template called `my-agent.agent.md` will open in the `.github/agents` directory, in the repository you chose. Name the file `cleanup-specialist.agent.md` and paste in the example {% data variables.copilot.agent_profile %}.
 1. Commit and merge this file into your repository's default branch. Go back to the agents tab (you may need to refresh the page), and in the text box, select your "cleanup-specialist" agent from the dropdown.
-1. In the text box, enter a task for the agent (such as the example below) and click **{% octicon "paper-airplane" aria-label="Start task" %} Start task** or press <kbd>Return</kbd>.
+1. In the text box, enter a task for the agent (such as the example below) and click **{% octicon "paper-airplane" aria-label="Start task" %}** or press <kbd>Enter</kbd>.
 
    ```copilot copy
     Refactor and clean up any messy or inconsistent code in the `src/utils` directory, then document the improvements you made.

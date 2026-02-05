@@ -70,19 +70,33 @@ When routing a job to a self-hosted runner, {% data variables.product.prodname_d
 
 ## Autoscaling
 
-You can automatically increase or decrease the number of self-hosted runners in your environment in response to the webhook events you receive with a particular label.
+Autoscaling allows you to dynamically adjust the number of self-hosted runners based on demand. This helps optimize resource utilization and ensures sufficient runner capacity during peak times while reducing costs during periods of low activity. There are multiple approaches to implementing autoscaling for self-hosted runners, each with different trade-offs in terms of complexity, reliability, and responsiveness.
 
-### Supported autoscaling solutions
+### {% data variables.product.prodname_actions_runner_controller %}
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_dotcom %}-hosted runners inherently autoscale based on your needs. {% data variables.product.prodname_dotcom %}-hosted runners can be a low-maintenance and cost-effective alternative to developing or implementing autoscaling solutions. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners).
+{% data variables.product.github %}-hosted runners inherently autoscale based on your needs. {% data variables.product.github %}-hosted runners can be a low-maintenance and cost-effective alternative to developing or implementing autoscaling solutions. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners).
 
 {% endif %}
 
-The [actions/actions-runner-controller](https://github.com/actions/actions-runner-controller) (ARC) project is a Kubernetes-based runner autoscaler. {% data variables.product.prodname_dotcom %} recommends ARC if the team deploying it has expert Kubernetes knowledge and experience.
+{% data variables.product.prodname_actions_runner_controller %} (ARC) is the reference implementation of {% data variables.product.github %}'s scale set APIs and the recommended Kubernetes-based solution for autoscaling self-hosted runners. ARC provides a complete, production-ready autoscaling solution for teams running {% data variables.product.prodname_actions %} in Kubernetes environments.
+
+{% data variables.product.github %} recommends ARC for organizations with Kubernetes infrastructure and teams that have Kubernetes expertise. ARC handles the full lifecycle of runners within your cluster, from provisioning to job execution to cleanup.
 
 For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-support-for-actions-runner-controller).
+
+### {% data variables.product.prodname_actions %} Runner Scale Set Client 
+
+The {% data variables.product.prodname_actions %} Runner Scale Set Client is a standalone Go-based module that empowers platform teams, integrators, and infrastructure providers to build custom autoscaling solutions for {% data variables.product.prodname_actions %} runners across VMs, containers, on-premise infrastructure, and cloud services, with support for Windows, Linux, and macOS platforms.
+
+The client orchestrates {% data variables.product.github %} API interactions for scale sets while leaving infrastructure provisioning to you. You define how runners are created, scaled, and destroyed, and configure runners with multiple labels for flexible job routing and targeting. This gives organizations granular control over runner lifecycle management and real-time telemetry for job execution.
+
+The client is designed to work out of the box with basic configurations, allowing teams to quickly implement autoscaling. However, its true power lies in its flexibility—the client is built to be extended and customized to meet each organization's specific infrastructure requirements, compliance constraints, and operational workflows. Whether you need simple scaling logic or complex, multi-environment provisioning strategies, the client adapts to your needs.
+
+The {% data variables.product.prodname_actions %} Runner Scale Set Client is an open source project. The [actions/scaleset repository](https://github.com/actions/scaleset) contains the complete source code, comprehensive documentation, and practical examples to help you get started. You'll find implementation guides, sample configurations for various infrastructure scenarios, and reference architectures demonstrating how to integrate the client with different provisioning systems. The repository also includes contributing guidelines for teams interested in extending the client or sharing their autoscaling patterns with the community.
+
+> **Note:** The Runner Scale Set Client is not a replacement for {% data variables.product.prodname_actions_runner_controller %} (ARC), which remains the reference implementation of the scale set APIs and the recommended Kubernetes solution for autoscaling runners. Instead, the client is a complementary tool for interfacing with the same scale set APIs to build custom autoscaling solutions outside of Kubernetes.
 
 ### Ephemeral runners for autoscaling
 
@@ -129,6 +143,8 @@ You can create your own autoscaling environment by using payloads received from 
 
 * For more information about the `workflow_job` webhook, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job).
 * To learn how to work with webhooks, see [AUTOTITLE](/webhooks).
+
+> **Note:** This approach relies on the timeliness of webhook delivery for making scaling decisions, which can introduce delays and reliability concerns. Consider using Actions Controller or the Scale Set Client for larger volume autoscaling scenarios.
 
 ### Authentication requirements
 

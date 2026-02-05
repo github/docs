@@ -7,6 +7,8 @@ versions:
   feature: copilot
 topics:
   - Copilot
+category:
+  - Learn about Copilot
 ---
 
 ## About Agent Skills
