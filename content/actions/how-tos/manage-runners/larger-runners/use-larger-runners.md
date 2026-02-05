@@ -148,7 +148,7 @@ name: learn-github-actions-testing
 on: [push]
 jobs:
   build:
-    runs-on: macos-13-xlarge
+    runs-on: macos-15-xlarge
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Build
