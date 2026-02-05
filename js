@@ -1,3 +1,85 @@
+Skip to content
+dd-trace-js
+Repository navigation
+Code
+Issues
+178
+ (178)
+Releases v5.85.0
+5.85.0
+Latest
+@github-actions github-actions released this 1 hour ago
+ v5.85.0
+ d079293
+[1630815773] - (SEMVER-PATCH) refactor(prisma): Prisma instrumentation rewrite (Bowen Brooks) #7447
+[de724d0a73] - (SEMVER-PATCH) chore: update pr template to not show warning in pr (Roch Devost) #7428
+[80571e0927] - (SEMVER-PATCH) fix(ts): added filter into ts definition file (Pablo Erhard) #7368
+[93f7c4b262] - (SEMVER-PATCH) Upgrade pprof-nodejs to 5.13.3 (Attila Szegedi) #7449
+[d86c16b52f] - (SEMVER-PATCH) chore(tests): added varySandbox for bullmq ESM tests (Pablo Erhard) #7448
+[c195ee802f] - (SEMVER-PATCH) fix: reduce memory allocation and use transparent instrumentation (Ruben Bridgewater) #7422
+[d5e899b9d1] - (SEMVER-PATCH) [test optimization] Fix quarantined tests being skipped rather than ignored in cypress (Juan Antonio Fernández de Alba) #7442
+[61ead8491c] - (SEMVER-PATCH) fix: add container id to dogstatsd metrics (Roch Devost) #7435
+[c5e98c0a86] - (SEMVER-PATCH) test: fix assertion transform regression (Juan Antonio Fernández de Alba) #7443
+[fe7175a117] - (SEMVER-PATCH) refactor(esbuild): extract logging into module (Thomas Watson) #7439
+[3c1cd8aefd] - (SEMVER-PATCH) chore(types): fix TypeScript errors in the esbuild package (Thomas Watson) #7438
+[33297e0eb0] - (SEMVER-PATCH) chore(lint): run linting on the root of package folders (Thomas Watson) #7437
+[4afd74ae7a] - (SEMVER-PATCH) ci: sign commits created by bots (Ruben Bridgewater) #7397
+[313fe22142] - (SEMVER-PATCH) fix: fix minor azure-function and mariadb bugs (simon-id) #7007
+[da07fea5f8] - (SEMVER-PATCH) chore(tests): added ESM test for light-my-request (Pablo Erhard) #7433
+[09945cd21f] - (SEMVER-PATCH) chore(debugger): add name to worker thread (Thomas Watson) #7432
+[ff416e6ff1] - (SEMVER-PATCH) chore(deps-dev): bump p-limit from 3.1.0 to 7.2.0 (dependabot[bot]) #7425
+[5e2f01325c] - (SEMVER-PATCH) chore(deps): bump the gh-actions-packages group across 4 directories with 3 updates (dependabot[bot]) #7426
+[3acebd003e] - (SEMVER-PATCH) chore(deps-dev): bump the dev-minor-and-patch-dependencies group across 1 directory with 4 updates (dependabot[bot]) #7424
+[a679e827c0] - (SEMVER-PATCH) chore: update iitm and fix initialize (Ruben Bridgewater) #7387
+[76e93d7934] - (SEMVER-PATCH) fix(ws): handle removing untracked event listeners (Crystal Luc-Magloire) #7419
+[d308b93ad0] - (SEMVER-PATCH) chore: activate unicorn/no-array-for-each eslint rule (Ruben Bridgewater) #7403
+[9ea0f34154] - (SEMVER-PATCH) fix: update vendoring to keep class names and function names (Roch Devost) #7416
+[41c8ca6162] - (SEMVER-PATCH) refactor(debugger): add JSDoc types for CDP getProperties (Thomas Watson) #7418
+[e19ce95452] - (SEMVER-PATCH) test: added sqlite3 into knex externals and add process.exit patch (Pablo Erhard) #7413
+[68206c0dbb] - (SEMVER-PATCH) chore: fix flakiness report, lint scripts, and fix appsec test (Ruben Bridgewater) #7396
+[2e337bd1be] - (SEMVER-PATCH) refactor(logging): use printf-style formatting (Thomas Watson) #7409
+[627ba54479] - (SEMVER-PATCH) move bun cache to under node_modules (Roch Devost) #7407
+[3eb1d7a879] - (SEMVER-PATCH) chore(ci) update one-pipeline (campaigner-prod[bot]) #7411
+[60565f1c6e] - (SEMVER-PATCH) Fix: Update Opentelemety Active Functionality (Bowen Brooks) #7319
+[d399d0f641] - (SEMVER-MINOR) feat(test-optimization): create final_status tag on test event for jest (Calvin Bayer) #7356
+[0b299bca72] - (SEMVER-MINOR) feat(debugger): add support for v2 input endpoint detection (Thomas Watson) #7308
+[0ac57880dc] - (SEMVER-PATCH) refactor(config): modernize Config class structure and extract stateless methods (Thomas Watson) #7408
+[c80bbc29c0] - (SEMVER-PATCH) chore(deps): bump the test-versions group across 1 directory with 2 updates (dependabot[bot]) #7405
+[657b4f922d] - (SEMVER-PATCH) ci: fix coverage reports and prevent detecting fixture files (Ruben Bridgewater) #7391
+[d19c433535] - (SEMVER-PATCH) fix(debugger): don't expect probe config to contain capture object (Thomas Watson) #6807
+[75b67c268a] - (SEMVER-PATCH) perf: cache serverless environment detection at startup (Thomas Watson) #7404
+[4a8a494c6e] - (SEMVER-PATCH) chore: activate comma-dangle eslint rule (Ruben Bridgewater) #7402
+[a894629556] - (SEMVER-PATCH) ci: fix added commits breaking CI validation (Ruben Bridgewater) #7393
+[1f1a5024a8] - (SEMVER-MINOR) Emit the number of loaded source maps in the profile metadata (Attila Szegedi) #7382
+[f8c43343e7] - (SEMVER-PATCH) fix(debugger): apply source maps to probe stack traces (Thomas Watson) #7336
+[62d6580053] - (SEMVER-PATCH) perf(tests): cache dd-trace tarball for sandbox creation (Thomas Watson) #7351
+[38b60f7e9f] - (SEMVER-PATCH) test(debugger): fix race condition in test helpers (Thomas Watson) #7394
+[99aba5a361] - (SEMVER-MINOR) [test optimization][SDTEST-3004] Upload code coverage reports automatically (Juan Antonio Fernández de Alba) #7335
+[b42c5f3da3] - (SEMVER-PATCH) fix: maximum attempts on running uppon bun-js (Everton Segur) #7284
+[3523cd6828] - (SEMVER-PATCH) ci: fix workflow name conflicts (Ruben Bridgewater) #7388
+[c273d49ba1] - (SEMVER-PATCH) ci: debug flakiness report (Ruben Bridgewater) #7380
+[905f387f4b] - (SEMVER-PATCH) ci: fix github rate limit (Ruben Bridgewater) #7389
+[7d6c9f0e66] - (SEMVER-PATCH) chore(deps-dev): bump the dev-minor-and-patch-dependencies group across 1 directory with 3 updates (dependabot[bot]) #7392
+[237283029b] - (SEMVER-PATCH) ci: fix yarn deduping working for any PR (Ruben Bridgewater) #7364
+[d0c5b45957] - (SEMVER-PATCH) ci: commit vendored files with octo-sts (Ruben Bridgewater) #7381
+[bdb76d3219] - (SEMVER-PATCH) chore(test): Fix iast overhead controller flaky test (Ugaitz Urien) #7384
+Assets
+2
+You reacted
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+Copied!
+
 # Download and install nvm:
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
