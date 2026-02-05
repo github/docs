@@ -125,7 +125,7 @@ Plan mode lets you collaborate with {% data variables.product.prodname_copilot_s
 
 ### Steer the conversation while {% data variables.product.prodname_copilot_short %} is thinking
 
-You can interact with {% data variables.product.prodname_copilot_short %} while it's thinking. Send follow-up messages to steer the conversation in a different direction, or queue additional instructions for {% data variables.product.prodname_copilot_short %} to process after it finishes its current response. 
+You can interact with {% data variables.product.prodname_copilot_short %} while it's thinking. Send follow-up messages to steer the conversation in a different direction, or queue additional instructions for {% data variables.product.prodname_copilot_short %} to process after it finishes its current response.
 
 ### Include a specific file in your prompt
 
@@ -193,7 +193,7 @@ You can enhance {% data variables.product.prodname_copilot_short %}’s performa
 * Path-specific instructions files: `.github/instructions/**/*.instructions.md`.
 * Agent files such as `AGENTS.md`.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/add-custom-instructions).
 
 ### Use {% data variables.copilot.custom_agents_short %}
 
@@ -278,7 +278,7 @@ Details of your configured MCP servers are stored in the `mcp-config.json` file,
 * `/context`: Provides a visual overview of your current token usage
 * `/compact`: Manually compresses your conversation history to free up context space
 
-{% data variables.copilot.copilot_cli %} automatically compresses your history in the background when your conversation approaches 95% of the token limit, without interrupting your workflow. 
+{% data variables.copilot.copilot_cli %} automatically compresses your history in the background when your conversation approaches 95% of the token limit, without interrupting your workflow.
 
 ### Review code changes
 
@@ -320,3 +320,9 @@ For additional information use one of the following commands in your terminal:
   `copilot help permissions`
 
 {% data reusables.cli.feedback %}
+
+## Further reading
+
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/cli-best-practices)
+* [AUTOTITLE](/copilot/reference/cli-command-reference)
+* [AUTOTITLE](/copilot/reference/acp-server)

@@ -9,7 +9,7 @@
  */
 
 import github from '@actions/github'
-import core from '@actions/core'
+import { setOutput } from '@actions/core'
 import { program } from 'commander'
 
 const { GITHUB_TOKEN, GITHUB_REPOSITORY } = process.env
@@ -27,7 +27,7 @@ if (GITHUB_REPOSITORY) {
   const headSHA = process.env.HEAD_SHA || context.payload.pull_request!.head.sha
 
   const markdown = await main(owner, repo, baseSHA, headSHA)
-  core.setOutput('markdown', markdown)
+  setOutput('markdown', markdown)
 } else {
   program
     .description('Print a nice Markdown comment if there were features deleted in a PR.')

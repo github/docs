@@ -95,7 +95,6 @@ export const VersionPicker = ({ xs }: Props) => {
         pickerLabel={xs ? `Version\n` : `Version: `}
         dataTestId="field"
         descriptionFontSize={xs ? 6 : 5}
-        ariaLabel={`Select GitHub product version: current version is ${currentVersion}`}
         renderItem={(item) => {
           return (
             <div data-testid="version-picker-item" className={styles.itemsWidth}>

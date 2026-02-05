@@ -174,6 +174,19 @@ export default [
     },
   },
 
+  // Allow namespace imports for @actions/core (ESM-only in v3.0.0)
+  {
+    files: [
+      '.github/actions/**/*.ts',
+      'src/workflows/**/*.ts',
+      'src/links/scripts/**/*.ts',
+      'src/content-linter/scripts/**/*.ts',
+    ],
+    rules: {
+      'import/no-namespace': 'off',
+    },
+  },
+
   // Ignored patterns
   // CodeQL scripts included because cocofix is install manually by the workflow
   {

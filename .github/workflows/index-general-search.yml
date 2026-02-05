@@ -230,21 +230,64 @@ jobs:
           FASTLY_SURROGATE_KEY: api-search:${{ matrix.language }}
         run: npm run purge-fastly-edge-cache
 
-      - name: Alert on scraping failures
-        if: ${{ steps.check-failures.outputs.has_failures == 'true' && github.event_name != 'workflow_dispatch' }}
-        uses: ./.github/actions/slack-alert
+      - name: Upload failures artifact
+        if: ${{ steps.check-failures.outputs.has_failures == 'true' }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-          message: |
-            :warning: ${{ steps.check-failures.outputs.failed_pages }} page(s) failed to scrape for general search indexing (language: ${{ matrix.language }})
-
-            The indexing completed but some pages could not be scraped. This may affect search results for those pages.
-
-            Workflow: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          name: search-failures-${{ matrix.language }}
+          path: /tmp/records/failures-summary.json
+          retention-days: 1
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+  notifyScrapingFailures:
+    name: Notify scraping failures
+    needs: updateElasticsearchIndexes
+    if: ${{ always() && github.repository == 'github/docs-internal' && github.event_name != 'workflow_dispatch' && needs.updateElasticsearchIndexes.result != 'cancelled' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - name: Download all failure artifacts
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          pattern: search-failures-*
+          path: /tmp/failures
+        continue-on-error: true
+
+      - name: Check if any failures were downloaded
+        id: check-artifacts
+        run: |
+          if [ -d /tmp/failures ] && [ "$(ls -A /tmp/failures 2>/dev/null)" ]; then
+            echo "has_artifacts=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_artifacts=false" >> $GITHUB_OUTPUT
+          fi
+
+      - uses: ./.github/actions/node-npm-setup
+        if: ${{ steps.check-artifacts.outputs.has_artifacts == 'true' }}
+
+      - name: Aggregate failures and format message
+        if: ${{ steps.check-artifacts.outputs.has_artifacts == 'true' }}
+        id: aggregate
+        run: |
+          RESULT=$(npx tsx src/search/scripts/aggregate-search-index-failures.ts /tmp/failures \
+            --workflow-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}")
+          {
+            echo 'result<<EOF'
+            echo "$RESULT"
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Send consolidated Slack notification
+        if: ${{ steps.check-artifacts.outputs.has_artifacts == 'true' }}
+        uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          message: ${{ fromJSON(steps.aggregate.outputs.result).message }}

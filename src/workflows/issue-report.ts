@@ -1,5 +1,5 @@
 import { type Octokit } from '@octokit/rest'
-import coreLib from '@actions/core'
+import * as coreLib from '@actions/core'
 
 type CRIArgs = {
   core: typeof coreLib
