@@ -1,4 +1,4 @@
-name: Sync Upstream (PR-based)
+name: Sync Upstream (PR-based, fork-safe)
 
 on:
   schedule:
@@ -29,9 +29,21 @@ jobs:
           git remote add upstream https://github.com/github/docs.git || true
           git fetch upstream
 
-      - name: Create sync branch
+      - name: Create sync branch from upstream
         run: |
           git checkout -B upstream-sync upstream/main
+
+      # 🚫 HARD BLOCK: never allow workflow files from upstream
+      - name: Remove upstream workflows (fork-safe)
+        run: |
+          rm -rf .github/workflows
+          mkdir -p .github/workflows
+          echo "# Fork-safe workflows only" > .github/workflows/.keep
+
+      - name: Commit sanitized upstream changes
+        run: |
+          git add .
+          git commit -m "Sync upstream (workflows stripped)" || echo "No changes"
 
       - name: Push sync branch
         run: |
@@ -41,11 +53,15 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           branch: upstream-sync
+          base: main
           title: "⬆️ Sync with upstream (github/docs)"
           body: |
-            Automated PR to sync this fork with the latest upstream changes.
-            - Runs every 5 minutes
-            - Fork-safe
-            - No auto-merge
-          base: main
+            Automated upstream sync PR.
+
+            ✅ Fork-safe
+            🚫 Upstream workflows stripped
+            🔁 Runs every 5 minutes
+          labels: |
+            upstream-sync
+            automated
           delete-branch: false
