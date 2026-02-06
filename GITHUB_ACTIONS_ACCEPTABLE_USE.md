@@ -17,7 +17,7 @@ This guidance supplements the official terms: GitHub Terms of Service, GitHub Te
 
 ### ❌ Cryptomining or Other Unrelated Compute Tasks
 
-Workflows must not be used for general computing tasks unrelated to repository software production, testing, deployment, or publication. Examples include:
+Workflows must not be used for general computing tasks unrelated to repository software production, testing, deployment, or publication. Examples included 
 
 - running cryptomining jobs in workflows. :contentReference[oaicite:2]{index=2}
 - serving general compute jobs not tied to the repo’s development lifecycle.
@@ -28,7 +28,7 @@ GitHub explicitly prohibits using Actions for high-burden compute services (e.g.
 
 ### ❌ Unauthorized Access or Security Violations
 
-Workflows must not perform activity that:
+Workflows must not perform activities that:
 
 - attempts to disrupt or gain unauthorized access to devices, services, accounts, or networks outside authorized bug bounty programs; or
 - initiates attacks (e.g., scanning, exploitation, denial of service). :contentReference[oaicite:4]{index=4}
@@ -55,7 +55,7 @@ Avoid workflows that:
 - mass-generate notifications, issues, comments, or pull requests for spam purposes;
 - automate fake stars, forks, or bot activity to artificially inflate metrics;
 - publish promotions or solicitations that violate the AUP. :contentReference[oaicite:6]{index=6}
-
+- Using GitHub actions to scam/spam is against our Rules
 ---
 
 ## 2. Content and Code Restrictions
@@ -67,7 +67,7 @@ Workflows should not be used to upload or distribute illegal or harmful content 
 - malware or exploit binaries as outputs of CI jobs; or
 - code explicitly meant to violate laws. :contentReference[oaicite:7]{index=7}
 
-GitHub may remove such content and take account action.
+GitHub may remove such content and take action.
 
 ---
 
@@ -135,6 +135,3 @@ GitHub’s policy enforcement actions may include:
 
 - **GitHub Terms of Service & Acceptable Use Policies** — official source of usage restrictions. :contentReference[oaicite:13]{index=13}  
 - **Additional Terms for GitHub Actions** — limitations on compute and prohibited uses. :contentReference[oaicite:14]{index=14}  
-
----
-
