@@ -1,0 +1,51 @@
+name: Sync Upstream (PR-based)
+
+on:
+  schedule:
+    - cron: "*/5 * * * *" # every 5 minutes
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout fork
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Add upstream
+        run: |
+          git remote add upstream https://github.com/github/docs.git || true
+          git fetch upstream
+
+      - name: Create sync branch
+        run: |
+          git checkout -B upstream-sync upstream/main
+
+      - name: Push sync branch
+        run: |
+          git push origin upstream-sync --force
+
+      - name: Create or update PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: upstream-sync
+          title: "⬆️ Sync with upstream (github/docs)"
+          body: |
+            Automated PR to sync this fork with the latest upstream changes.
+            - Runs every 5 minutes
+            - Fork-safe
+            - No auto-merge
+          base: main
+          delete-branch: false
