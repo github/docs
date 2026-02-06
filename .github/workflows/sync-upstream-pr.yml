@@ -2,7 +2,7 @@ name: Sync Upstream (PR-based, fork-safe)
 
 on:
   schedule:
-    - cron: "*/5 * * * *" # every 5 minutes
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -33,17 +33,15 @@ jobs:
         run: |
           git checkout -B upstream-sync upstream/main
 
-      # 🚫 HARD BLOCK: never allow workflow files from upstream
-      - name: Remove upstream workflows (fork-safe)
+      # 🚫 CRITICAL FIX: remove workflows from the index ONLY
+      - name: Exclude upstream workflows from fork
         run: |
-          rm -rf .github/workflows
-          mkdir -p .github/workflows
-          echo "# Fork-safe workflows only" > .github/workflows/.keep
+          git rm -r --cached .github/workflows || true
 
       - name: Commit sanitized upstream changes
         run: |
           git add .
-          git commit -m "Sync upstream (workflows stripped)" || echo "No changes"
+          git commit -m "Sync upstream (exclude workflows)" || echo "No changes"
 
       - name: Push sync branch
         run: |
@@ -58,9 +56,9 @@ jobs:
           body: |
             Automated upstream sync PR.
 
-            ✅ Fork-safe
-            🚫 Upstream workflows stripped
-            🔁 Runs every 5 minutes
+            - Fork-safe
+            - Upstream workflows excluded
+            - Runs every 5 minutes
           labels: |
             upstream-sync
             automated
