@@ -1,4 +1,4 @@
-name: Sync Upstream (PR-based, fork-safe)
+name: Sync Upstream (PR-based)
 
 on:
   schedule:
@@ -8,58 +8,30 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  workflows: write
 
 jobs:
   sync:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout fork
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Configure git
-        run: |
+      - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Add upstream
-        run: |
+      - run: |
           git remote add upstream https://github.com/github/docs.git || true
           git fetch upstream
-
-      - name: Create sync branch from upstream
-        run: |
           git checkout -B upstream-sync upstream/main
-
-      # 🚫 CRITICAL FIX: remove workflows from the index ONLY
-      - name: Exclude upstream workflows from fork
-        run: |
-          git rm -r --cached .github/workflows || true
-
-      - name: Commit sanitized upstream changes
-        run: |
-          git add .
-          git commit -m "Sync upstream (exclude workflows)" || echo "No changes"
-
-      - name: Push sync branch
-        run: |
           git push origin upstream-sync --force
 
-      - name: Create or update PR
-        uses: peter-evans/create-pull-request@v6
+      - uses: peter-evans/create-pull-request@v6
         with:
           branch: upstream-sync
           base: main
           title: "⬆️ Sync with upstream (github/docs)"
-          body: |
-            Automated upstream sync PR.
-
-            - Fork-safe
-            - Upstream workflows excluded
-            - Runs every 5 minutes
-          labels: |
-            upstream-sync
-            automated
-          delete-branch: false
+          body: Automated upstream sync
