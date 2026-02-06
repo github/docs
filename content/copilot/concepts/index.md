@@ -11,6 +11,7 @@ children:
   - /chat
   - /agents
   - /spark
+  - /copilot-usage-metrics
   - /prompting
   - /context
   - /tools
@@ -21,6 +22,5 @@ children:
   - /policies
   - /mcp-management
   - /network-settings
-  - /copilot-metrics
 contentType: concepts
 ---

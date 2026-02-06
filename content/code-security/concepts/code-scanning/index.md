@@ -17,5 +17,6 @@ children:
   - /about-code-scanning-alerts
   - /setup-types
   - /about-integration-with-code-scanning
+  - /sarif-files
   - /codeql
 ---

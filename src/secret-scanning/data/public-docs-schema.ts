@@ -19,7 +19,7 @@ export interface SecretScanningEntry {
   isPrivateWithGhas: boolean | string
   hasPushProtection: boolean | string
   hasValidityCheck: boolean | string
-  hasExtendedMetadata?: boolean | string
+  hasExtendedMetadata: boolean | string
   base64Supported: boolean | string
   isduplicate: boolean
 }
@@ -37,6 +37,7 @@ export default {
       'isPrivateWithGhas',
       'hasPushProtection',
       'hasValidityCheck',
+      'hasExtendedMetadata',
     ],
     properties: {
       provider: {

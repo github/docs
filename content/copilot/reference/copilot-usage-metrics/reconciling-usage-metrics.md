@@ -1,7 +1,7 @@
 ---
 title: Reconciling Copilot usage metrics across dashboards, APIs, and reports
 shortTitle: Reconciling Copilot usage metrics
-intro: Understand how {% data variables.product.prodname_copilot_short %} usage metrics differ between dashboards, APIs, and exported reports.
+intro: '{% data variables.product.prodname_copilot_short %} usage metrics are derived from the same underlying telemetry but are aggregated and presented differently across dashboards, APIs, and exported reports.'
 permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
@@ -13,7 +13,9 @@ redirect_from:
   - /early-access/copilot-metrics/dashboards/best-practices-for-correlating-usage-metrics
   - /copilot/reference/reconciling-usage-metrics
 category:
+  - Copilot usage metrics
   - Manage Copilot for a team
+  - Reconcile and validate metrics
 ---
 
 {% data reusables.copilot.usage-metrics-preview %}
