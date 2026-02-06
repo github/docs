@@ -1,3 +1,6 @@
+com.android.media.swcodec�Ɔ�B	libEGL.soBlibbinder_ndk.soBlibc.soBlibcgrouprc.soBlibdl.soB	liblog.soBlibm.soBlibnativewindow.soB
+libsync.soBlibvndksupport.so
+
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright (C) 2014 The Android Open Source Project
 
