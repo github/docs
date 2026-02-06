@@ -13,7 +13,7 @@ interface Props {
   pickerLabel?: string
   dataTestId: string
   defaultText: string
-  ariaLabel: string
+  ariaLabel?: string
   alignment: AnchorAlignment
   descriptionFontSize?: number
   renderItem?: (item: PickerItem) => ReactNode | string

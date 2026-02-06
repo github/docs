@@ -7,6 +7,9 @@ versions:
   feature: copilot
 topics:
   - Copilot
+category:
+  - Configure Copilot
+  - Author and optimize with Copilot
 ---
 
 {% data variables.copilot.custom_agents_caps_short %} allow you to create specialized agents with tailored expertise for specific tasks. For a conceptual overview of {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents).

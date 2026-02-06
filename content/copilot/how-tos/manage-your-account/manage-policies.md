@@ -53,22 +53,29 @@ If you choose to allow suggestions matching public code, when {% data variables.
 
 {% ifversion fpt %}
 
+## Enabling or disabling third-party coding agents in your repositories
+
+> [!NOTE]
+> {% data reusables.gated-features.third-party-agents %}
+
+You can choose whether to allow the following coding agents to be enabled in your personal account:
+
+* {% data variables.product.prodname_anthropic_claude %}
+* {% data variables.product.prodname_openai_codex %}
+
+Coding agents have access to the same repositories that {% data variables.copilot.copilot_coding_agent %} has been enabled in.
+
+To enable coding agents:
+
+1. Navigate to your account's [coding agent settings](https://github.com/settings/copilot/coding_agent?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-3p-agents-cca-settings-cta&utm_medium=docs&utm_campaign=agent-3p-platform-feb-2026).
+1. On the {% data variables.copilot.copilot_coding_agent %} page, under "Partner agents", click the toggle to enable the third-party agent you want to use.
+
 ## Enabling or disabling prompt and suggestion collection
 
 You can choose whether your prompts and {% data variables.product.prodname_copilot_short %}'s suggestions are collected and retained by {% data variables.product.prodname_dotcom %}, and further processed and shared with Microsoft. For more information about data that {% data variables.product.prodname_copilot %} may collect depending on your settings, see [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot) and the [{% data variables.product.prodname_copilot %} privacy FAQ](https://github.com/features/copilot/#faq).
 
 {% data reusables.user-settings.copilot-settings %}
 1. To allow or prevent {% data variables.product.prodname_dotcom %} using your data, select or deselect **Allow {% data variables.product.prodname_dotcom %} to use my code snippets from the code editor for product improvements**.
-
-## Enabling or disabling alternative AI models
-
-You can choose whether to allow the following AI models to be used as an alternative to {% data variables.product.prodname_copilot_short %}'s default model.
-
-* {% data variables.copilot.copilot_claude %} - see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-in-github-copilot)
-* {% data variables.copilot.copilot_gemini %} - see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot)
-
-{% data reusables.user-settings.copilot-settings %}
-1. To the right of the model name, select the dropdown menu, then click **Enabled** or **Disabled**.
 
 ## Enabling or disabling web search for {% data variables.copilot.copilot_chat %}
 

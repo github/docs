@@ -57,7 +57,8 @@ const AUTO_COLLECTED_FIELDS = new Set([
 
 /**
  * Flatten a nested event body into a single-level context object,
- * excluding fields that hydro-analytics-client already auto-collects.
+ * excluding fields that hydro-analytics-client already auto-collects,
+ * and adding fields required for analytics_v0_page_view compatibility.
  */
 export function prepareData(body: Record<string, unknown>): {
   type: string
@@ -74,6 +75,16 @@ export function prepareData(body: Record<string, unknown>): {
       .filter(([key]) => !AUTO_COLLECTED_FIELDS.has(key))
       .map(([key, value]) => [key, String(value)]),
   )
+
+  // Add fields required for analytics_v0_page_view compatibility
+  // These are expected by the BI team's dashboards
+  context.react_app = 'docs'
+  // Preserve our page_type as docs_page_type, then set page_type to 'marketing' for BI
+  if (context.page_type) {
+    context.docs_page_type = context.page_type
+  }
+  context.page_type = 'marketing'
+
   return { type: typeof type === 'string' ? type : 'unknown', context }
 }
 

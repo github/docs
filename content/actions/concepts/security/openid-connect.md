@@ -115,6 +115,20 @@ For more information, see [AUTOTITLE](/actions/reference/openid-connect-referenc
 
 {% data variables.product.prodname_actions %} workflows can use OIDC tokens instead of secrets to authenticate with cloud providers. Many popular cloud providers offer official login actions that simplify the process of using OIDC in your workflows. For more information about updating your workflows with specific cloud providers, see [AUTOTITLE](/actions/how-tos/security-for-github-actions/security-hardening-your-deployments).
 
+## OIDC support for {% data variables.product.prodname_dependabot %}
+
+{% data variables.product.prodname_dependabot %} can use OIDC to authenticate with private registries, eliminating the need to store long-lived credentials as repository secrets. With OIDC-based authentication, {% data variables.product.prodname_dependabot %} update jobs can dynamically obtain short-lived credentials from your cloud identity provider.
+
+{% data variables.product.prodname_dependabot %} supports OIDC authentication for any registry type that uses `username` and `password` authentication, when the registry is hosted on AWS CodeArtifact, Azure DevOps Artifacts, or JFrog Artifactory.
+
+The benefits of OIDC authentication for {% data variables.product.prodname_dependabot %} are:
+
+* **Enhanced security:** Eliminates static, long-lived credentials from your repositories.
+* **Simpler management:** Enables secure, policy-compliant access to private registries.
+* **Avoid rate limiting:** Dynamic credentials help you avoid hitting rate limits associated with static tokens.
+
+For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#using-oidc-for-authentication).
+
 ## Next steps
 
 For more information about configuring OIDC, see [AUTOTITLE](/actions/how-tos/security-for-github-actions/security-hardening-your-deployments).

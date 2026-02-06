@@ -20,8 +20,6 @@ sections:
     - |
       Administrators can no longer run the `ghe-upgrade` command on a replica node if a configuration apply is running or has failed on the primary node. This change helps prevent upgrade conflicts and ensures more reliable high availability maintenance workflows.
     - |
-      Azure VMs that use the NVMe disk controller are now supported, as well as Azure VMs that do not include temporary resource disks.
-    - |
       Administrators monitoring Elasticsearch index repair jobs benefit from improved log clarity. Log messages provide more detailed and actionable information, making it easier to troubleshoot and track the progress of index repair operations.
   known_issues:
     - |

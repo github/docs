@@ -1,7 +1,8 @@
 ---
 title: Installing GitHub Copilot CLI
 shortTitle: Install Copilot CLI
-intro: 'Learn how to install {% data variables.copilot.copilot_cli_short %} so that you can use {% data variables.product.prodname_copilot_short %} directly from the command line.'
+intro: Learn how to install {% data variables.copilot.copilot_cli_short %} so that you can use {% data variables.product.prodname_copilot_short %} directly from the command line.
+product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
 topics:
@@ -15,6 +16,7 @@ redirect_from:
   - /copilot/managing-copilot/configure-personal-settings/installing-github-copilot-in-the-cli
   - /copilot/how-tos/personal-settings/installing-github-copilot-in-the-cli
   - /copilot/how-tos/set-up/installing-github-copilot-in-the-cli
+  - /copilot/how-tos/set-up/install-copilot-cli
 contentType: how-tos
 category:
   - Configure Copilot
@@ -34,6 +36,27 @@ If you have access to {% data variables.product.prodname_copilot %} via your org
 ## Installing or updating {% data variables.copilot.copilot_cli_short %}
 
 You can install {% data variables.copilot.copilot_cli_short %} using WinGet (Windows), Homebrew (macOS and Linux), npm (all platforms), or an install script (macOS and Linux).
+
+### Installing with npm (all platforms)
+
+Prerequisite: {% data variables.copilot.copilot_cli_npm_version %}.
+
+```shell copy
+npm install -g @github/copilot
+```
+
+> [!NOTE]
+> If you have `ignore-scripts=true` in your `~/.npmrc` file, you must use the command:
+>
+> ```shell copy
+> npm_config_ignore_scripts=false npm install -g @github/copilot
+> ```
+
+To install the prerelease version:
+
+```shell copy
+npm install -g @github/copilot@prerelease
+```
 
 ### Installing with WinGet (Windows)
 
@@ -57,18 +80,6 @@ To install the prerelease version:
 
 ```shell copy
 brew install copilot-cli@prerelease
-```
-
-### Installing with npm (all platforms, requires Node.js 22+)
-
-```shell copy
-npm install -g @github/copilot
-```
-
-To install the prerelease version:
-
-```shell copy
-npm install -g @github/copilot@prerelease
 ```
 
 ### Installing with the install script (macOS and Linux)

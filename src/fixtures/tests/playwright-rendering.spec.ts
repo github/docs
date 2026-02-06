@@ -505,11 +505,7 @@ test.describe('test nav at different viewports', () => {
     await page.goto('/get-started/foo/bar')
 
     // version picker should be visible
-    await page
-      .getByRole('button', {
-        name: 'Select GitHub product version: current version is free-pro-team@latest',
-      })
-      .click()
+    await page.getByTestId('version-picker').getByRole('button').click()
     expect((await page.getByRole('menuitemradio').all()).length).toBeGreaterThan(0)
     await expect(page.getByRole('menuitemradio', { name: 'Enterprise Cloud' })).toBeVisible()
 
@@ -549,11 +545,7 @@ test.describe('test nav at different viewports', () => {
     await page.goto('/get-started/foo/bar')
 
     // version picker is visible
-    await page
-      .getByRole('button', {
-        name: 'Select GitHub product version: current version is free-pro-team@latest',
-      })
-      .click()
+    await page.getByTestId('version-picker').getByRole('button').click()
     expect((await page.getByRole('menuitemradio').all()).length).toBeGreaterThan(0)
     await expect(page.getByRole('menuitemradio', { name: 'Enterprise Cloud' })).toBeVisible()
 
@@ -584,11 +576,7 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByTestId('language-picker')).not.toBeVisible()
 
     // version picker is visible
-    await expect(
-      page.getByRole('button', {
-        name: 'Select GitHub product version: current version is free-pro-team@latest',
-      }),
-    ).toBeVisible()
+    await expect(page.getByTestId('version-picker').getByRole('button')).toBeVisible()
 
     // language picker is in mobile menu
     await page.getByTestId('mobile-menu').click()
@@ -619,11 +607,7 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByTestId('language-picker')).not.toBeVisible()
 
     // version picker is not visible
-    await expect(
-      page.getByRole('button', {
-        name: 'Select GitHub product version: current version is free-pro-team@latest',
-      }),
-    ).not.toBeVisible()
+    await expect(page.getByTestId('version-picker').getByRole('button')).not.toBeVisible()
 
     // version picker is in mobile menu
     await expect(page.getByTestId('version-picker')).not.toBeVisible()

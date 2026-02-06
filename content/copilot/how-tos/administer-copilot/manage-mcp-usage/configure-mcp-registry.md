@@ -10,6 +10,9 @@ topics:
   - Enterprise
 shortTitle: Configure MCP registry
 contentType: how-tos
+category:
+  - Configure Copilot
+  - Manage Copilot for a team
 ---
 
 ## Prerequisites

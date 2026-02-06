@@ -28,15 +28,7 @@ To learn how {% data variables.copilot.copilot_chat_short %} serves different AI
 
 ## Setup for individual use
 
-If you have a {% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, or {% data variables.copilot.copilot_pro_plus_short %} plan, you may need to enable access to certain models before using them.
-
-You can enable access in two ways:
-
-* The first time you use a model with {% data variables.copilot.copilot_chat_short %} in your editor or in {% data variables.product.github %}, you will be prompted to allow access to the model.
-
-  Click **Allow** to enable the AI model and update the policy in your personal settings on {% data variables.product.github %}.
-
-* You can enable the model directly in your personal settings on the {% data variables.product.github %} website. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-alternative-ai-models).
+If you have a {% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, or {% data variables.copilot.copilot_pro_plus_short %} plan, you can use AI models directly within {% data variables.product.prodname_copilot_short %} without configuring access or managing policies. 
 
 >[!NOTE]
 > * Some models may not be available depending on your plan. See [AUTOTITLE](/copilot/about-github-copilot/plans-for-github-copilot#models).
