@@ -1,9 +1,9 @@
-name: Sync Upstream (PR-based)
+name: Sync Upstream (No Workflows)
 
 on:
-  schedule:
-    - cron: "*/5 * * * *"
   workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *" # daily at 3am UTC
 
 permissions:
   contents: write
@@ -14,23 +14,43 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout fork
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - run: |
+      - name: Add upstream
+        run: |
           git remote add upstream https://github.com/github/docs.git || true
           git fetch upstream
+
+      - name: Reset to upstream main
+        run: |
           git checkout -B upstream-sync upstream/main
+
+      - name: Remove upstream workflows (IMPORTANT)
+        run: |
+          rm -rf .github/workflows
+          mkdir -p .github/workflows
+          echo "# intentionally empty" > .github/workflows/.keep
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Sync upstream (exclude workflows)" || echo "No changes"
+
+      - name: Push branch
+        run: |
           git push origin upstream-sync --force
 
-      - uses: peter-evans/create-pull-request@v6
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
         with:
           branch: upstream-sync
+          title: "Sync upstream (exclude workflows)"
+          body: |
+            Automated upstream sync.
+            `.github/workflows` intentionally excluded.
           base: main
-          title: "⬆️ Sync with upstream (github/docs)"
-          body: Automated upstream sync
