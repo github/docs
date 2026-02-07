@@ -2,9 +2,9 @@
 title: Start your journey
 intro: "Brand new to {% data variables.product.github %}? Learn the basics here."
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  fpt: 'Fira'
+  ghes: 'Space'
+  ghec: 'Space Grotesk'
 topics:
   - Pull requests
   - Issues
