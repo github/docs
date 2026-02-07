@@ -13,4 +13,5 @@ children:
   - /understanding-github-secret-types
   - /supported-secret-scanning-patterns
   - /risk-report-csv-contents
+  - /secret-scanning-pattern-configuration-data
 ---

@@ -1,7 +1,7 @@
 ---
 title: GitHub Copilot usage metrics
 shortTitle: Copilot usage metrics
-intro: 'Track how your teams are using and adopting {% data variables.product.prodname_copilot %} with detailed usage metrics.'
+intro: '{% data variables.product.prodname_copilot %} usage metrics provide visibility into how {% data variables.product.prodname_copilot %} is adopted and used across your organization, including engagement, activity, and code generation trends.'
 versions:
   feature: copilot
 topics:
@@ -15,9 +15,12 @@ redirect_from:
   - /early-access/copilot-metrics/apis/about-the-copilot-metrics-apis
   - /early-access/copilot-metrics/dashboards/about-the-copilot-metrics-dashboard
   - /early-access/copilot-metrics/apis/rest-api-endpoints-for-copilot-enterprise-and-user-usage-metrics
+  - /copilot/concepts/copilot-metrics
 category:
+  - Copilot usage metrics
   - Learn about Copilot
   - Manage Copilot for a team
+  - Get started with metrics
 ---
 
 {% data reusables.copilot.usage-metrics-preview %}

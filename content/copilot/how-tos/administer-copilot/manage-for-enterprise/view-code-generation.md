@@ -1,7 +1,7 @@
 ---
 title: Viewing the code generation dashboard
 shortTitle: View code generation
-intro: You can use the code generation dashboard to monitor how {% data variables.product.prodname_copilot_short %} generates code across your enterprise, including activity from both users and agents.
+intro: The code generation dashboard shows how {% data variables.product.prodname_copilot_short %} generates code across your enterprise, including activity from both users and agents.
 permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
@@ -10,7 +10,9 @@ topics:
 contentType: how-tos
 allowTitleToDifferFromFilename: true
 category:
+  - Copilot usage metrics
   - Manage Copilot for a team
+  - View metrics
 ---
 
 {% data reusables.copilot.usage-metrics-preview %}

@@ -1,15 +1,24 @@
+import cheerio from 'cheerio'
+
 const NEXT_DATA_QUERY = 'script#__NEXT_DATA__'
 const PRIMER_DATA_QUERY = 'script#__PRIMER_DATA__'
 
-// Using any type for $ parameter as it represents a jQuery-like selector (cheerio)
-function getScriptData($: any, key: string): any {
+function getScriptData($: ReturnType<typeof cheerio.load>, key: string): unknown {
   const data = $(key)
   if (data.length !== 1) {
     throw new Error(`Not exactly 1 element match for '${key}'. Found ${data.length}`)
   }
-  return JSON.parse(data.get()[0].children[0].data)
+  const element = data.get()[0]
+  if (element && 'children' in element) {
+    const firstChild = element.children[0]
+    if (firstChild && 'data' in firstChild) {
+      return JSON.parse(firstChild.data as string)
+    }
+  }
+  throw new Error(`Could not extract data from '${key}'`)
 }
 
-// Using any types for cheerio/jQuery-like objects and parsed JSON data
-export const getNextData = ($: any): any => getScriptData($, NEXT_DATA_QUERY)
-export const getPrimerData = ($: any): any => getScriptData($, PRIMER_DATA_QUERY)
+export const getNextData = ($: ReturnType<typeof cheerio.load>): unknown =>
+  getScriptData($, NEXT_DATA_QUERY)
+export const getPrimerData = ($: ReturnType<typeof cheerio.load>): unknown =>
+  getScriptData($, PRIMER_DATA_QUERY)

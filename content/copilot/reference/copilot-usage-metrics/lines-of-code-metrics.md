@@ -1,7 +1,7 @@
 ---
 title: Lines of Code metrics
 shortTitle: Copilot LoC metrics
-intro: Understand how Lines of Code metrics measure {% data variables.product.prodname_copilot_short %}’s output and what factors affect their coverage and accuracy.
+intro: Lines of Code metrics provide a directional measure of {% data variables.product.prodname_copilot_short %} output by quantifying the lines of code suggested, added, or deleted across completions, chat, and agent features.
 permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
@@ -13,7 +13,9 @@ topics:
 contentType: reference
 allowTitleToDifferFromFilename: true
 category:
+  - Copilot usage metrics
   - Manage Copilot for a team
+  - Understand metrics
 ---
 
 {% data reusables.copilot.usage-metrics-preview %}

@@ -33,7 +33,7 @@ export function getAutomaticRequestLogger() {
     const originalEnd = res.end
 
     // Override res.end to log when response completes
-    res.end = function (chunk?: any, encoding?: any) {
+    res.end = function (...args: unknown[]) {
       const responseTime = Date.now() - startTime
       const status = res.statusCode || 200
       const contentLength = res.getHeader('content-length') || '-'
@@ -59,7 +59,7 @@ export function getAutomaticRequestLogger() {
 
         // Don't log `/_next/` requests unless LOG_LEVEL is `debug` or higher
         if (url?.startsWith('/_next/') && logLevelNum < 3) {
-          return originalEnd.call(this, chunk, encoding)
+          return originalEnd.apply(this, args as Parameters<typeof originalEnd>)
         }
 
         // Choose color based on status code
@@ -80,7 +80,7 @@ export function getAutomaticRequestLogger() {
       }
 
       // Call the original end method to complete the response
-      return originalEnd.call(this, chunk, encoding)
+      return originalEnd.apply(this, args as Parameters<typeof originalEnd>)
     }
 
     next()

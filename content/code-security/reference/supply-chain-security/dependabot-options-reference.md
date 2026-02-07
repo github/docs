@@ -932,23 +932,25 @@ The parameters used to provide authentication details for access to a private re
 | Registry `type` | Required authentication parameters |
 |--|--|
 | `cargo-registry` | `token` |
-| `composer-repository` | `username` and `password` |
-| `docker-registry` | `username` and `password` |
-| `git` | `username` and `password` |
+| `composer-repository` | `username` and `password`<br>or OIDC with `tenant-id` and `client-id` |
+| `docker-registry` | `username` and `password`<br>or OIDC with `tenant-id` and `client-id` |
+| `git` | `username` and `password`<br>or OIDC with `tenant-id` and `client-id` |
 | `hex-organization` | `organization` and `key` |
 | `hex-repository` | `repo` and `auth-key` optionally with the corresponding `public-key-fingerprint` |
-| `maven-repository` | `username` and `password` |
-| `npm-registry` | `username` and `password`<br>or `token` |
-| `nuget-feed` | `username` and `password`<br>or `token` |
+| `maven-repository` | `username` and `password`<br>or OIDC with `tenant-id` and `client-id` |
+| `npm-registry` | `username` and `password`<br>or `token`<br>or OIDC with `tenant-id` and `client-id` |
+| `nuget-feed` | `username` and `password`<br>or `token`<br>or OIDC with `tenant-id` and `client-id` |
 | `pub-registry` | `token` |
-| `python-index` | `username` and `password`<br>or `token` |
-| `rubygems-server` | `username` and `password`<br>or `token` |
+| `python-index` | `username` and `password`<br>or `token`<br>or OIDC with `tenant-id` and `client-id` |
+| `rubygems-server` | `username` and `password`<br>or `token`<br>or OIDC with `tenant-id` and `client-id` |
 | `terraform-registry` | `token` |
 
 All sensitive data used for authentication should be stored securely and referenced from that secure location, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot).
 
 > [!TIP]
 > {% data reusables.dependabot.password-definition %}
+
+For more information about  OIDC support for {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/actions/concepts/security/openid-connect#oidc-support-for-dependabot) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#using-oidc-for-authentication).
 
 ### `url` and `replaces-base`
 
