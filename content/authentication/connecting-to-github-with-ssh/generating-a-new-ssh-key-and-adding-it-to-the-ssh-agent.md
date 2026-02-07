@@ -266,5 +266,7 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
    > Enter passphrase (empty for no passphrase): [Type a passphrase]
    > Enter same passphrase again: [Type passphrase again]
    ```
-
+   
 {% data reusables.ssh.add-public-key-to-github %}
+
+
