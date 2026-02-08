@@ -1,7 +1,7 @@
 ---
 title: Interpreting usage and adoption metrics for GitHub Copilot
 shortTitle: Interpret usage metrics
-intro: 'Evaluate trends surfaced in {% data variables.product.prodname_copilot_short %} usage metrics to enable adoption in your enterprise.'
+intro: '{% data variables.product.prodname_copilot_short %} usage and adoption metrics reveal patterns in how developers engage with {% data variables.product.prodname_copilot_short %} across your enterprise.'
 permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
@@ -13,7 +13,9 @@ redirect_from:
   - /early-access/copilot-metrics/dashboards/interpreting-the-metrics
   - /copilot/reference/interpret-copilot-metrics
 category:
+  - Copilot usage metrics
   - Manage Copilot for a team
+  - Understand metrics
 ---
 
 >[!NOTE] The {% data variables.product.prodname_copilot_short %} usage metrics dashboard is currently in {% data variables.release-phases.public_preview %} and subject to change.

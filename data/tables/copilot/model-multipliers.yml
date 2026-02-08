@@ -25,6 +25,10 @@
   multiplier_paid: 3
   multiplier_free: Not applicable
 
+- name: Claude Opus 4.6 (fast mode) (preview)
+  multiplier_paid: 9 during promotional period
+  multiplier_free: Not applicable
+
 - name: Claude Sonnet 4
   multiplier_paid: 1
   multiplier_free: Not applicable

@@ -31,9 +31,10 @@ describe('liquid-tags script integration tests', () => {
         stdio: 'pipe',
         timeout: 30000,
       })
-    } catch (error: any) {
-      output = error.stdout + error.stderr
-      exitCode = error.status || 1
+    } catch (error: unknown) {
+      const execError = error as { stdout?: string; stderr?: string; status?: number }
+      output = (execError.stdout || '') + (execError.stderr || '')
+      exitCode = execError.status || 1
     }
 
     return { output, exitCode }

@@ -1,7 +1,7 @@
 ---
 title: Viewing the Copilot usage metrics dashboard
 shortTitle: View usage and adoption
-intro: You can use the {% data variables.product.prodname_copilot_short %} usage metrics dashboard to monitor how developers across your enterprise are adopting and using {% data variables.product.prodname_copilot_short %}.
+intro: '{% data variables.product.prodname_copilot_short %} usage metrics dashboards provide a centralized view of adoption and usage across your enterprise, based on IDE telemetry from developers using {% data variables.product.prodname_copilot_short %}.'
 permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
@@ -10,7 +10,9 @@ topics:
 contentType: how-tos
 allowTitleToDifferFromFilename: true
 category:
+  - Copilot usage metrics
   - Manage Copilot for a team
+  - View metrics
 ---
 
 {% data reusables.copilot.usage-metrics-preview %}

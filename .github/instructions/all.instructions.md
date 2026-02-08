@@ -12,9 +12,9 @@ When you create a pull request:
 
 1. **Always** make the first line of the PR description the following (in italics):
 
-   `_Copilot Chat generated this pull request._`
+   `_GitHub Copilot generated this pull request._`
   
-2. Optionally, you may include a collapsed section summarizing the prompt or discussion with Copilot Chat:
+2. Optionally, you may include a collapsed section summarizing the prompt or discussion with Copilot:
 
    ```markdown
    <details><summary>Prompt summary - submitted by @GITHUB-USER-ID</summary>
@@ -29,4 +29,4 @@ When you create a pull request:
 3. Label with "llm-generated". 
 4. If an issue exists, include "fixes owner/repo#issue" or "towards owner/repo#issue" as appropriate. 
 5. Always create PRs in **draft mode** using `--draft` flag.
-6. Always _escape backticks_ when you use gh cli.
+6. When you are using gh cli, always _escape backticks_.
