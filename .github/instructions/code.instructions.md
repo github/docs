@@ -9,10 +9,10 @@ For code reviews, follow guidelines, tests, and validate instructions. For creat
 ## Guidelines
 
 - If available, use ripgrep (`rg`) instead of `grep`.
-- Make sure to always _escape backticks_ when using gh cli.
+- When using gh cli, always _escape backticks_.
 - All scripts should be listed in `package.json` and use `tsx`.
-- Whenever you create or comment on an issue or pull request, indicate you are an LLM.
-- Be careful fetching full HTML pages off the internet. Prefer to use gh cli whenever possible for github.com. Limit the number of tokens when grabbing HTML.
+- Whenever you create or comment on an issue or pull request, indicate you are GitHub Copilot.
+- Be careful fetching full HTML pages off the internet. Prefer to use MCP or gh cli whenever possible for github.com. Limit the number of tokens when grabbing HTML.
 - Avoid pull requests with over 300 lines of code changed. When significantly larger, offer to split up into smaller pull requests if possible.
 - All new code should be written in TypeScript and not JavaScript.
 - We use absolute imports, relative to the `src` directory, using the `@` symbol. For example, `getRedirect` which lives in `src/redirects/lib/get-redirect.ts` can be imported with `import getRedirect from '@/redirects/lib/get-redirect'`. The same rule applies for TypeScript (`.ts`) imports, e.g. `import type { GeneralSearchHit } from '@/search/types'`
@@ -43,7 +43,7 @@ Run the following commands to validate your changes:
 
 0. Ask the human if they would like you to follow these steps.
 1. If this is new work, make sure you have the latest changes by running `git checkout main && git pull`. If this is existing work, update the branch you are working on with the head branch -- usually `main`.
-2. If the human provides a GitHub issue, use gh cli to read the issue and all comments.
+2. If the human provides a GitHub issue, use MCP or gh cli to read the issue and all comments.
 3. Begin by evaluating impact, effort, and estimate non-test lines of code that will change. Ask for more context and examples if needed.
 4. If you are running in agentic mode, _stop_ at this point and request approval from the human.
 5. If you need to add or change tests, work on tests before implementing.
@@ -52,7 +52,7 @@ Run the following commands to validate your changes:
 8. Validate that any new or changed tests pass. See "Tests".
 9. Validate that these changes meet our guidelines. See "Guidelines".
 10. If you are running in agentic mode, _stop_ at this point and request review before continuing. Suggest how the human should review the changes.
-11. If a branch and pull request already exist, commit and push, then _concisely_ comment on the pull request that you are an LLM and what changes you made and why. 
+11. If a branch and pull request already exist, commit and push, then _concisely_ comment on the pull request that you are GitHub Copilot and what changes you made and why. 
 12. If this is new work and no pull request exists yet, make a pull request:
     - label "llm-generated"
     - draft mode
@@ -61,4 +61,4 @@ Run the following commands to validate your changes:
 14. If you are in agentic mode, offer to do any or all of:
     - mark the pull request as ready,
     - assign the issue to the human if it is not already assigned, 
-    - _concisely_ comment on the issue explaining the change, indicating you are an LLM.
+    - _concisely_ comment on the issue explaining the change, indicating you are GitHub Copilot.

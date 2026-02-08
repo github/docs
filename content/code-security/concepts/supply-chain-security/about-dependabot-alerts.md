@@ -44,15 +44,32 @@ When {% data variables.product.github %} detects a vulnerable dependency, a {% d
 * Details about the vulnerability and its severity
 * Information about a fixed version (when available)
 
-For information about notifications, viewing, and managing alerts, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts).
+For information about viewing and managing alerts, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts).
 
 ## Enabling alerts
 
-Repository administrators and organization owners can enable {% data variables.product.prodname_dependabot_alerts %} for their repositories{% ifversion fpt or ghec %} and organizations{% endif %}. When enabled, {% data variables.product.github %} immediately generates the dependency graph and creates alerts for any vulnerable dependencies it identifies. By default, people with write, maintain, or admin permissions receive notifications.{% ifversion fpt or ghec %} Repository administrators can grant access to additional people or teams.{% endif %}
+Repository administrators and organization owners can enable {% data variables.product.prodname_dependabot_alerts %} for their repositories{% ifversion fpt or ghec %} and organizations{% endif %}. When enabled, {% data variables.product.github %} immediately generates the dependency graph and creates alerts for any vulnerable dependencies it identifies. {% ifversion fpt or ghec %} Repository administrators can grant access to additional people or teams.{% endif %}
 
 {% data reusables.repositories.enable-security-alerts %}
 
 See [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts).
+
+## Notifications for alerts
+
+By default, {% data variables.product.github %} sends email notifications about new alerts to people who both:
+
+* Have write, maintain, or admin permissions to a repository
+* Are watching the repository and have enabled notifications for security alerts or for all activity on the repository
+
+{% ifversion fpt or ghec %}
+You can override the default behavior by choosing the type of notifications you want to receive, or switching notifications off altogether in the settings page for your user notifications at [https://github.com/settings/notifications](https://github.com/settings/notifications).
+{% endif %}
+
+Regardless of your notification preferences, when {% data variables.product.prodname_dependabot %} is first enabled, {% data variables.product.github %} does not send notifications for all vulnerable dependencies found in your repository. Instead, you will receive notifications for new vulnerable dependencies identified after {% data variables.product.prodname_dependabot %} is enabled, if your notification preferences allow it.
+
+If you are concerned about receiving too many notifications, we recommend leveraging {% data variables.dependabot.auto_triage_rules %} to auto-dismiss low-risk alerts. Rules are applied before alert notifications are sent, so alerts that are auto-dismissed upon creation do not send notifications. See [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules).
+
+Alternatively, you can opt into the weekly email digest, or even completely turn off notifications while keeping {% data variables.product.prodname_dependabot_alerts %} enabled.
 
 ## Limitations
 

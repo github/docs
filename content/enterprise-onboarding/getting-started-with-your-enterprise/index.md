@@ -15,5 +15,3 @@ children:
   - /about-enterprise-billing
   - /about-migrating-to-github-enterprise-cloud
 ---
-
-Visit [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) to discover how our AI-powered developer platform can benefit you, and to start a free trial of today.
