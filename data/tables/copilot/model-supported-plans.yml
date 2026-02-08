@@ -40,6 +40,13 @@
   business: true
   enterprise: true
 
+- name: Claude Opus 4.6 (fast mode) (preview)
+  free: false
+  pro: false
+  pro_plus: true
+  business: false
+  enterprise: true
+
 - name: Claude Sonnet 4
   free: false
   pro: true
@@ -158,4 +165,3 @@
   pro_plus: true
   business: false
   enterprise: false
-# TODO: Placeholder for future edits

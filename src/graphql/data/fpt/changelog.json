@@ -4,6 +4,27 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>AgentAssignmentInput</code> was added</p>",
+          "<p>Input field <code>baseRef</code> of type <code>String</code> was added to input object type <code>AgentAssignmentInput</code></p>",
+          "<p>Input field <code>customAgent</code> of type <code>String</code> was added to input object type <code>AgentAssignmentInput</code></p>",
+          "<p>Input field <code>customInstructions</code> of type <code>String</code> was added to input object type <code>AgentAssignmentInput</code></p>",
+          "<p>Input field <code>targetRepositoryId</code> of type <code>ID</code> was added to input object type <code>AgentAssignmentInput</code></p>",
+          "<p>Input field <code>agentAssignment</code> of type <code>AgentAssignmentInput</code> was added to input object type <code>AddAssigneesToAssignableInput</code></p>",
+          "<p>Input field <code>agentAssignment</code> of type <code>AgentAssignmentInput</code> was added to input object type <code>CreateIssueInput</code></p>",
+          "<p>Input field <code>agentAssignment</code> of type <code>AgentAssignmentInput</code> was added to input object type <code>ReplaceActorsForAssignableInput</code></p>",
+          "<p>Input field <code>agentAssignment</code> of type <code>AgentAssignmentInput</code> was added to input object type <code>UpdateIssueInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-02-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>IpAllowListUserLevelEnforcementEnabledSettingValue</code> was added</p>",
           "<p>Enum value <code>DISABLED</code> was added to enum <code>IpAllowListUserLevelEnforcementEnabledSettingValue</code></p>",
           "<p>Enum value <code>ENABLED</code> was added to enum <code>IpAllowListUserLevelEnforcementEnabledSettingValue</code></p>",

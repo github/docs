@@ -114,4 +114,4 @@ For integrated tools such as {% data variables.product.prodname_codeql %}, you c
 > [!NOTE]
 > If you have set up {% data variables.product.prodname_codeql %} using advanced setup and then set up default setup on the same repository, the {% data variables.code-scanning.tool_status_page %} will only show default setup.
 
-For more information, see [AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning) and [AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif-uploads).
+For more information, see [AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning) and [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-sarif-uploads).

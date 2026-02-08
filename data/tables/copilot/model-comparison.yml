@@ -76,6 +76,11 @@
 - name: Claude Opus 4.6
   task_area: Deep reasoning and debugging
   excels_at: Complex problem-solving challenges, sophisticated reasoning
+  further_reading: '[Claude Opus 4.6 model card](https://www-cdn.anthropic.com/14e4fb01875d2a69f646fa5e574dea2b1c0ff7b5.pdf)'
+
+- name: Claude Opus 4.6 (fast mode) (preview)
+  task_area: Deep reasoning and debugging
+  excels_at: Complex problem-solving challenges, sophisticated reasoning
   further_reading: 'Not available'
 
 - name: Claude Sonnet 4.0

@@ -45,6 +45,14 @@
   xcode: false
   jetbrains: false
 
+- name: Claude Opus 4.6 (fast mode) (preview)
+  dotcom: false
+  vscode: true
+  vs: false
+  eclipse: false
+  xcode: false
+  jetbrains: false
+
 - name: Claude Sonnet 4
   dotcom: true
   vscode: true

@@ -10,7 +10,7 @@ import type { RuleParams, RuleErrorCallback, Rule } from '../../types'
 interface Frontmatter {
   type?: string
   // Allow any additional frontmatter properties since we only care about 'type'
-  [key: string]: any
+  [key: string]: unknown
 }
 
 interface LiquidToken {
