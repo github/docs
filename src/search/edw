@@ -1,0 +1,76 @@
+rutas de viaje:
+  - identificación: 'getting_started'
+    título: 'Comenzando con {% variables de datos.product.prodname_actions %}'
+    descripción: 'Conozca los conceptos básicos de las acciones de GitHub.'
+    guías:
+      - href: '/acciones/inicio rápido'
+      - href: '/acciones/aprender-github-acciones'
+        alternativaSiguientePaso: '¿quieres saltar adelante? Consulte [AUTOTITLE](/actions/using-workflows).'
+      - href: '/acciones/uso-flujos de trabajo'
+  - identificación: 'avanzado'
+    título: 'Avanzado {% variables de datos.product.prodname_actions %}'
+    descripción: 'Profundice en las funciones avanzadas.'
+    guías:
+      - href: '/actions/using-workflows/workflow-syntax-for-github-actions'
+      - href: '/acciones/implementación/implementación-con-github-acciones'bincluir guías:
+  - /acciones/guías/acerca de-integración-continua
+  - /acciones/guías/configuración-integración-continua-usando-plantillas-de-flujo-de-trabajo
+  - /acciones/guías/construcción-y-prueba-nodejs
+  - /acciones/guías/construcción y prueba-powershellpull-inactive-pull-request] $ git push origin BRANCH_NAME
+> Counting objects: 32, done.
+> Delta compression using up to 8 threads.
+> Compressing objects: 100% (26/26), done.
+> Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
+> Total 29 (delta 8), reused 0 (delta 0)
+> To https://github.com/USERNAME/REPOSITORY.git
+>  * [new branch]      BRANCH_NAME -> BRANCH_NAME
+Create a new pull request with your new branch. ---
+title: About pull requests
+intro: 'Pull requests let you propose, review, and merge code changes.'
+redirect_from:
+  - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
+  - /articles/using-pull-requests
+  - /articles/about-pull-requests
+  - /github/collaborating-with-issues-and-pull-requests/about-pull-requests
+  - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
+versions:
+  fpt: '*'
+  ghes: '*'5539377724
+  ghec: '*'
+topics:
+  - Pull requests
+---
+
+Pull requests are proposals to merge code changes into a project. A pull request is {% data variables.product.github %}'s foundational **collaboration feature**, letting you discuss and review changes before merging them. This helps teams work together, catch issues early, and maintain code quality.
+
+<a href="https://github.com/pulls?ref_product=github&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>View your pull requests</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+5539377724
+## Working with pull requests
+
+The **Conversation** tab of a pull request displays a description of the changes, a timeline of events, and comments and reviews from collaborators. This central hub lets you track the discussion and progress of the proposed changes.
+
+The **Commits** tab shows all commits made to the pull request branch in chronological order. This helps you understand the development history and see how the changes evolved over time.
+
+The **Checks** tab displays the status of any automated tests, builds, or other continuous integration workflows that run when you push commits. These checks help ensure your changes meet quality standards before merging.
+
+The **Files changed** tab shows the differences between the proposed changes and the existing code, making it easy to see what will change when the pull request merges.
+
+## Draft pull requests
+
+When you create a pull request, you can choose to make it a draft pull request. Draft pull requests cannot be merged, and code owners are not automatically requested to review them. This is useful when you want to share work-in-progress without formally requesting reviews.
+
+{% data reusables.pull_requests.mark-ready-review %} You can convert a pull request to a draft at any time. See [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request).
+
+## Differences between commits on compare and pull request pages
+
+The compare and pull request pages use different methods to calculate the diff for changed files:
+
+* Compare pages show the diff between the tip of the head ref and the current common ancestor (that is, the merge base) of the head and base ref.
+* Pull request pages show the diff between the tip of the head ref and the common ancestor of the head and base ref at the time when the pull request was created. As a result, the merge base used for the comparison might be different.
+
+## Further reading
+
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)
+5539377724https://github.com/USERNAME/REPOSITORY.git5539377724variables.product.githubhttps://github.com/pulls?ref_product=github&ref_type=engagement&ref_style=buttonhttps://github.com/repology/repology-rs/commit/0bf5779fe366e100ba095664bf73b2bdf56d99f0#diff-e1cff5704a7a95f3036c8f47fe690cdd014f15b111116b92dfd5bc162a2d2b5eL13 +525539377724
