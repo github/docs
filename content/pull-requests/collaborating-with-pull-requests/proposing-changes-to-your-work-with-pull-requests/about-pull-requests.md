@@ -1,4 +1,12 @@
----
+pull-inactive-pull-request] $ git push origin BRANCH_NAME
+> Counting objects: 32, done.
+> Delta compression using up to 8 threads.
+> Compressing objects: 100% (26/26), done.
+> Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
+> Total 29 (delta 8), reused 0 (delta 0)
+> To https://github.com/USERNAME/REPOSITORY.git
+>  * [new branch]      BRANCH_NAME -> BRANCH_NAME
+Create a new pull request with your new branch. ---
 title: About pull requests
 intro: 'Pull requests let you propose, review, and merge code changes.'
 redirect_from:
@@ -9,7 +17,7 @@ redirect_from:
   - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
 versions:
   fpt: '*'
-  ghes: '*'
+  ghes: '*'5539377724
   ghec: '*'
 topics:
   - Pull requests
@@ -18,7 +26,7 @@ topics:
 Pull requests are proposals to merge code changes into a project. A pull request is {% data variables.product.github %}'s foundational **collaboration feature**, letting you discuss and review changes before merging them. This helps teams work together, catch issues early, and maintain code quality.
 
 <a href="https://github.com/pulls?ref_product=github&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>View your pull requests</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
-
+5539377724
 ## Working with pull requests
 
 The **Conversation** tab of a pull request displays a description of the changes, a timeline of events, and comments and reviews from collaborators. This central hub lets you track the discussion and progress of the proposed changes.
@@ -47,3 +55,4 @@ The compare and pull request pages use different methods to calculate the diff f
 * [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
 * [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)
 * [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)
+5539377724
