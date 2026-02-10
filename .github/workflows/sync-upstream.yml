@@ -1,0 +1,35 @@
+name: Sync Fork with Upstream
+
+on:
+  schedule:
+    - cron: "*/5 * * * *" # every 5 minutes
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout fork
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Add upstream remote
+        run: |
+          git remote add upstream https://github.com/github/docs.git || true
+          git remote -v
+
+      - name: Fetch upstream
+        run: git fetch upstream
+
+      - name: Merge upstream into fork
+        run: |
+          git checkout main
+          git merge upstream/main --no-edit || echo "Nothing to merge"
+
+      - name: Push changes
+        run: git push origin main
