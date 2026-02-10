@@ -8,7 +8,7 @@ interface VersionDateData {
   releaseCandidateDate?: string
   generalAvailabilityDate?: string
   deprecationDate: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 interface EnhancedVersionDateData extends VersionDateData {

@@ -15,8 +15,8 @@ redirect_from:
 children:
   - /detect-secret-leaks
   - /customize-leak-detection
-  - /troubleshooting-secret-scanning
   - /prevent-future-leaks
   - /work-with-leak-prevention
   - /manage-bypass-requests
 ---
+

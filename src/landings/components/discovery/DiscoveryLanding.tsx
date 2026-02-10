@@ -25,7 +25,7 @@ export const DiscoveryLanding = () => {
   return (
     <DefaultLayout>
       <UtmPreserver />
-      <div>
+      <div data-search="article-body">
         <LandingHero title={title} intro={intro} heroImage={heroImage} introLinks={introLinks} />
         <div className="container-xl px-3 px-md-6 mt-6 mb-4">
           {/* Render carousels */}

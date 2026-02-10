@@ -8,6 +8,9 @@ topics:
   - Copilot  
 product: '{% data reusables.gated-features.copilot-integrations %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 contentType: concepts
+category:
+  - Learn about Copilot
+  - Integrate Copilot with your tools
 ---
 
 ## Overview

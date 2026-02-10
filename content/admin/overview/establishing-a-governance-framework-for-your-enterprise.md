@@ -64,7 +64,7 @@ Other policies are available as blanket restrictions. These give you more contro
 
 ## Targeting policies with metadata
 
-You can enable better governance through automated policy enforcement. This is possible with custom properties, allowing you to add structured metadata to your resources. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/custom-properties).
+You can enable better governance through automated policy enforcement. This is possible with custom properties, allowing you to add structured metadata to your resources.{% ifversion ghec or ghes > 3.20 %} See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/custom-properties).{% endif %}
 
 With **repository custom properties**, you can classify repositories by attributes like risk level, team ownership, or compliance requirements. This metadata enables you to automatically apply different governance rules based on repository characteristics.
 
@@ -72,7 +72,7 @@ With **organization custom properties**, you can categorize organizations within
 
 Both types of custom properties integrate with rulesets, allowing you to create powerful governance frameworks that automatically enforce the right policies based on metadata rather than manual repository selection.
 
-See [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization) and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-properties-for-organizations).
+See [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization){% ifversion ghec or ghes > 3.20 %} and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-properties-for-organizations){% endif %}.
 
 ## Monitoring activity
 

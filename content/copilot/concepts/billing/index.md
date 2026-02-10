@@ -11,10 +11,10 @@ children:
   - /individual-plans
   - /billing-for-individuals
   - /organizations-and-enterprises
+  - /premium-request-management
 redirect_from:
   - /managing-copilot/managing-copilot-as-an-individual-subscriber/billing-and-payments
   - /copilot/managing-copilot/understanding-and-managing-copilot-usage
   - /copilot/concepts/copilot-billing
 contentType: concepts
 ---
-

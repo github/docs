@@ -16,6 +16,7 @@ export type LoggerContext = {
   body?: any
   language?: string
   userLanguage?: string
+  userVersion?: string
   version?: string
   pagePath?: string
 }
@@ -51,6 +52,8 @@ const INCLUDE_HEADERS = [
   // Language
   'x-user-language',
   'accept-language',
+  // Version
+  'x-user-version',
   // Host
   'host',
   'x-host',

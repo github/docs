@@ -42,7 +42,7 @@ import { createReportIssue, linkReports } from '@/workflows/issue-report'
 import github from '@/workflows/github'
 import excludedLinks from '@/links/lib/excluded-links'
 import type { Page, Permalink, Context } from '@/types'
-import coreLib from '@actions/core'
+import * as coreLib from '@actions/core'
 
 // Create a set for fast lookups of excluded links
 const excludedLinksSet = new Set(excludedLinks.map(({ is }) => is).filter(Boolean))

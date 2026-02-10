@@ -1,7 +1,7 @@
 ---
-title: Troubleshooting secret scanning
-shortTitle: Troubleshoot secret scanning
-intro: When using {% data variables.product.prodname_secret_scanning %} to detect secrets in your repository, or secrets about to be committed into your repository, you may need to troubleshoot unexpected issues.
+title: Secret scanning detection scope
+shortTitle: Secret scanning scope
+intro: Secret scanning uses pattern matching and validation to detect secrets. Detection varies based on pattern pairs, token types, and push protection settings.
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
@@ -15,7 +15,8 @@ redirect_from:
   - /code-security/secret-scanning/troubleshooting-secret-scanning
   - /code-security/secret-scanning/troubleshooting-secret-scanning-and-push-protection/troubleshooting-secret-scanning
   - /code-security/secret-scanning/troubleshooting-secret-scanning-and-push-protection
-contentType: how-tos
+  - /code-security/how-tos/secure-your-secrets/troubleshooting-secret-scanning
+contentType: reference
 ---
 
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}

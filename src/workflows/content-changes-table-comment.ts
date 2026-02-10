@@ -11,7 +11,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import github from '@actions/github'
-import core from '@actions/core'
+import * as core from '@actions/core'
 
 import walk from 'walk-sync'
 import { Octokit } from '@octokit/rest'

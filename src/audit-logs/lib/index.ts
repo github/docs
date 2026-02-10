@@ -209,12 +209,14 @@ export async function filterByAllowlistValues({
   currentEvents = [],
   pipelineConfig,
   titleContext,
+  globalFields = [],
 }: {
   eventsToCheck: RawAuditLogEventT[]
   allowListValues: string | string[]
   currentEvents?: AuditLogEventT[]
   pipelineConfig: PipelineConfig
   titleContext?: TitleResolutionContext
+  globalFields?: string[]
 }) {
   if (!Array.isArray(allowListValues)) allowListValues = [allowListValues]
   if (!currentEvents) currentEvents = []
@@ -230,11 +232,18 @@ export async function filterByAllowlistValues({
       if (seen.has(event.action)) continue
       seen.add(event.action)
 
+      // Merge global fields with event-specific fields
+      const mergedFields = event.fields
+        ? [...new Set([...globalFields, ...event.fields])]
+        : globalFields.length > 0
+          ? [...globalFields]
+          : undefined
+
       const minimal: AuditLogEventT = {
         action: event.action,
         description: processAndGetEventDescription(event, eventAllowlists, pipelineConfig),
         docs_reference_links: event.docs_reference_links,
-        fields: event.fields,
+        fields: mergedFields,
       }
 
       // Resolve reference link titles if context is provided
@@ -290,6 +299,7 @@ export async function filterAndUpdateGhesDataByAllowlistValues({
   pipelineConfig,
   auditLogPage,
   titleContext,
+  globalFields = [],
 }: {
   eventsToCheck: RawAuditLogEventT[]
   allowListValue: string
@@ -297,6 +307,7 @@ export async function filterAndUpdateGhesDataByAllowlistValues({
   pipelineConfig: PipelineConfig
   auditLogPage: string
   titleContext?: TitleResolutionContext
+  globalFields?: string[]
 }) {
   if (!currentGhesEvents) currentGhesEvents = {}
 
@@ -316,11 +327,21 @@ export async function filterAndUpdateGhesDataByAllowlistValues({
       if (seenByGhesVersion.get(fullGhesVersion)?.has(event.action)) continue
 
       if (ghesVersionAllowlists.includes(allowListValue)) {
+        // Get event-specific fields (prefer GHES version fields, fall back to base fields)
+        const eventFields = event.ghes[ghesVersion].fields || event.fields
+
+        // Merge global fields with event-specific fields
+        const mergedFields = eventFields
+          ? [...new Set([...globalFields, ...eventFields])]
+          : globalFields.length > 0
+            ? [...globalFields]
+            : undefined
+
         const minimal: AuditLogEventT = {
           action: event.action,
           description: processAndGetEventDescription(event, ghesVersionAllowlists, pipelineConfig),
           docs_reference_links: event.docs_reference_links,
-          fields: event.ghes[ghesVersion].fields || event.fields,
+          fields: mergedFields,
         }
 
         // Resolve reference link titles if context is provided

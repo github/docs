@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Dependabot errors
-intro: Sometimes {% data variables.product.prodname_dependabot %} is unable to raise a pull request to update your dependencies. You can review the error and unblock {% data variables.product.prodname_dependabot %}.
+title: Dependabot errors
+intro: '{% data variables.product.prodname_dependabot %} automatically maintains your dependencies, keeping your code secure and current. This reference helps you diagnose and resolve issues so automated updates can continue.'
 shortTitle: Troubleshoot Dependabot errors
 redirect_from:
   - /github/managing-security-vulnerabilities/troubleshooting-github-dependabot-errors
@@ -9,6 +9,7 @@ redirect_from:
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors
   - /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors
   - /code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-errors
+  - /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/troubleshooting-dependabot-errors
 versions:
   fpt: '*'
   ghec: '*'
@@ -22,7 +23,7 @@ topics:
   - Troubleshooting
   - Errors
   - Dependencies
-contentType: how-tos
+contentType: reference
 ---
 
 This article provides troubleshooting information to help you resolve issues when {% data variables.product.prodname_dependabot %} doesn't work as expected. If you encounter errors when {% data variables.product.prodname_dependabot %} tries to update your dependencies, you can use this guidance to diagnose and fix common problems.

@@ -30,6 +30,7 @@ Used for:
 * {% data variables.copilot.copilot_gpt_51_codex_max %}
 * {% data variables.copilot.copilot_gpt_52 %}
 * {% data variables.copilot.copilot_gpt_52_codex %}
+* {% data variables.copilot.copilot_gpt_53_codex %}
 
 These models are hosted by OpenAI and {% data variables.product.github %}'s Azure infrastructure.
 
@@ -55,6 +56,8 @@ Used for:
 * {% data variables.copilot.copilot_claude_sonnet_45 %}
 * {% data variables.copilot.copilot_claude_opus_41 %}
 * {% data variables.copilot.copilot_claude_opus_45 %}
+* {% data variables.copilot.copilot_claude_opus_46 %}
+* {% data variables.copilot.copilot_claude_opus_46_fast %}
 * {% data variables.copilot.copilot_claude_sonnet_40 %}
 
 These models are hosted by Amazon Web Services, Anthropic PBC, and Google Cloud Platform. {% data variables.product.github %} has provider agreements in place to ensure data is not used for training. Additional details for each provider are included below:

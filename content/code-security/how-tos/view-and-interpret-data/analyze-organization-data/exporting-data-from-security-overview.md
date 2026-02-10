@@ -19,11 +19,7 @@ redirect_from:
   - /code-security/security-overview/exporting-data-from-security-overview
 ---
 
-## About exporting your security overview data
-
 {% data reusables.security-overview.download-csv-files %}
-
-The overview page contains data about security alerts across your organization or enterprise, while the risk and coverage pages contain data about repositories and how they are affected by security alerts or covered by security features. The {% data variables.product.prodname_codeql %} pull request alerts page contains data about {% data variables.product.prodname_codeql %} alerts that were caught in pull requests merged to the default branch.
 
 The CSV file you download will contain data corresponding to the filters you have applied to security overview. For example, if you add the filter `dependabot-alerts:enabled`, your file will only contain data for repositories that have enabled {% data variables.product.prodname_dependabot_alerts %}.
 
