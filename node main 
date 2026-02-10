@@ -1,3 +1,27 @@
+export default {
+  test: {
+    // Default is `['**/*.{test,spec}.?(c|m)[jt]s?(x)']`
+    include: ['**/*.{test}.?(c|m)[jt]s?(x)', 'src/**/tests/*.[jt]s', 'src/**/tests/**/*.[jt]s'],
+    exclude: ['**/tests/playwright-*.spec.ts'],
+    // Default is `!process.env.CI`
+    watch: false,
+    // vitest doesn't account for tsconfig.json `paths` settings so we have to
+    // manually set this alias to resolve our TS @-imports
+    alias: {
+      '@/': new URL('./src/', import.meta.url).pathname,
+    },
+
+    globalSetup: './src/tests/vitest.setup.ts',
+    teardownTimeout: 500,
+  },
+  server: {
+    deps: {
+      // Externalize @horizon-rs/language-guesser to avoid import assertion issues with vitest 4
+      external: ['@horizon-rs/language-guesser'],
+    },
+  },
+}
+
 ## https://1drv.ms/u/c/3b6ca5bfcad4519d/IQCNo4lRDOjCR4RcqxroCZpnAWIaGQt4mE5Iyt__f-__RFU
 
 [gd_scene load_steps=4 format=2]
