@@ -1,5 +1,11 @@
 # Docs changelog
 
+**4 February 2026**
+
+We've published a new tutorial on [using GitHub Copilot coding agent to improve a project](https://docs.github.com/copilot/tutorials/coding-agent/improve-a-project).
+
+<hr>
+
 **20 January 2026**
 
 We published the first iteration of the [GitHub Copilot feature matrix](https://docs.github.com/en/copilot/reference/copilot-feature-matrix) to provide customers with the latest information about which Copilot features are available by which IDE/version. 

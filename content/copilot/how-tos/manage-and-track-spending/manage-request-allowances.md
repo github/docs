@@ -21,10 +21,13 @@ category:
 
 Each {% data variables.product.prodname_copilot_short %} plan includes a per-user allowance for premium requests. If enabled, requests over the allowance are billed to your organization or enterprise. To learn more about premium requests, see [AUTOTITLE](/copilot/concepts/copilot-billing/requests-in-github-copilot). For allowances per plan, see [AUTOTITLE](/copilot/get-started/plans-for-github-copilot#comparing-copilot-plans).
 
-Your organization or enterprise's policies and budgets determine whether users can use premium requests over their included allowance:
+Premium request usage beyond the allowance is governed by two complementary control layers:
 
-* The **Premium request paid usage** policy determines whether users can surpass their included premium request allowance for each AI tool. This policy is enabled by default.
-* If your enterprise or organization has a **Bundled premium requests budget** that caps usage, all premium request-powered tools are blocked once the budget amount is reached for the billing period.
+* **Policy setting:** The **Premium request paid usage** policy determines whether users can surpass their included premium request allowance for each AI tool. This policy is enabled by default.
+* **Budget constraints:** If your enterprise or organization has a premium request SKU-level budget or a bundled premium requests budget, premium request usage will be blocked once the budget is fully consumed for the billing period.
+
+
+The **Premium request paid usage policy** must be enabled for any additional billing to occur. Budgets then control whether and when usage is stopped.
 
 You can increase the allowance for users by ensuring the policy is enabled, editing your budgets, or upgrading users to {% data variables.copilot.copilot_enterprise_short %}.
 
@@ -34,6 +37,8 @@ You can increase the allowance for users by ensuring the policy is enabled, edit
 
 * Before making changes, download a usage report to see which developers are frequently hitting the limit or using a significant number of requests over the allowance. You may want to contact these users to understand their use cases and requirements. See [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 * If a user receives licenses from multiple enterprises or standalone organizations, the user must select a billing entity to use premium requests. See [Managing premium request billing with multiple {% data variables.product.prodname_copilot_short %} licenses](/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements#managing-premium-request-billing-with-multiple-copilot-licenses).
+* For enterprises only, review which organizations are able to assign and are actively assigning {% data variables.product.prodname_copilot_short %} access to users. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/grant-access#enabling-copilot-for-organizations).
+
 
 ## Setting a policy for paid usage
 
@@ -55,6 +60,9 @@ You can set the policy for an enterprise or a standalone organization.
 
 Creating new budgets without deleting an existing budget does not override the existing budget. If **any** applicable budget with "Stop usage when budget limit is reached" enabled is exhausted, additional premium requests are blocked.
 
+ Enterprise-level budgets act as a failsafe for the entire enterprise, including any spending originating from within cost centers. If the enterprise budget is exhausted before the cost center budget, usage will be blocked. See [AUTOTITLE](/billing/concepts/budgets-and-alerts) for details on different scopes of budgets and stopping usage.
+
+
 ## Upgrading users to {% data variables.copilot.copilot_enterprise_short %}
 
 An enterprise owner can upgrade certain users to increase their base allowance of premium requests.
@@ -73,14 +81,35 @@ An enterprise owner can upgrade certain users to increase their base allowance o
 
 1. Check the usage report regularly to ensure that {% data variables.copilot.copilot_enterprise_short %} remains the most cost-effective option for these users.
 
-## Setting a budget for specific members
+## Organization-based premium request management
 
-You can set a higher budget for premium requests over the allowance for specific users in your enterprise. However, you must ensure that every user in your enterprise is covered by a budget. Users who are not covered by a budget will have access to unlimited spending on premium requests.
+With this budget management method, budgets are scoped to cost centers with organizations as the managed resource.
 
-At a high level, the required steps are:
+Users must be assigned a {% data variables.product.prodname_copilot_short %} license through only a single organization in the enterprise. If users are currently assigned licenses through multiple organizations within your enterprise, you must either update your assignment practices or use user-based management. For a comparison of methods, see [AUTOTITLE](/copilot/concepts/billing/premium-request-management).
 
-1. Ensure the "Premium request paid usage" policy is enabled. See [Setting a policy for paid usage](#setting-a-policy-for-paid-usage).
-1. If there is a $0 budget for premium requests set at your enterprise or organization account level, delete it.
+### Setting up organization-based cost centers
 
-1. Create a new budget for the users who need a higher allowance. For example, create an organization or cost center containing just these users, then create a **Bundled premium requests budget** for the organization or cost center.
-1. Create a separate, more restrictive budget that covers every other {% data variables.product.prodname_copilot_short %} user in your enterprise. You will likely need to integrate with the API to ensure that this budget covers new users as they are added to your enterprise.
+1. Create a cost center and assign all organizations that contain users where no additional premium requests are required. These organizations should be the organizations that assign each user their {% data variables.product.prodname_copilot_short %} license. Assign a $0 budget to this cost center.
+1. Create a second cost center and assign organizations with users who need access to additional premium requests. These organizations should be the organizations that assign each user their {% data variables.product.prodname_copilot_short %} license. Assign a budget to this cost center.
+1. If you need more than one tier of budgets for additional premium requests, create further cost centers.
+
+You should define a SKU-level budget for "`FEATURE` Premium Request", not a product-level budget for "{% data variables.product.prodname_copilot_short %}". Alternatively, use "Bundled premium requests budget" to define a budget for all types of premium requests.
+
+>[!NOTE]
+> Creating a budget scoped directly to the organization is an option, but it is not recommended due to how organization-scoped budgets interact with cost center-scoped budgets for cost centers that contain users as resources.
+
+## User-based premium request management
+
+With this budget management method, budgets are scoped to cost centers with users as the managed resource. When a user is added directly as a managed resource to a cost center, this takes precedence over the user being a member of any organizations that are managed resources in any cost centers.
+
+User-based management applies to all metered, licensed products. See [AUTOTITLE](/billing/reference/cost-center-allocation#details-for-license-based-products).
+
+> [!NOTE]
+> If your business needs to allocate license costs for {% data variables.product.prodname_copilot %} and {% data variables.product.prodname_enterprise %} separately from costs for {% data variables.product.prodname_GHAS_cs_or_sp %}, you must use organization-based management.
+
+### Setting up user-based cost centers
+
+1. Create a cost center to contain each subset of users that needs a distinct limit on premium requests.
+1. Assign the appropriate budget for premium requests to each cost center.
+
+You should define a SKU-level budget for "`FEATURE` Premium Request", not a product-level budget for "{% data variables.product.prodname_copilot_short %}". Alternatively, use "Bundled premium requests budget" to define a budget for all types of premium requests.
