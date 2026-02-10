@@ -237,6 +237,7 @@ For pull requests, you can also use search to:
 * Filter pull requests that [require a review](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging) before they can be merged: `state:open is:pr review:required`
 * Filter pull requests that a reviewer has approved: `state:open is:pr review:approved`
 * Filter pull requests in which a reviewer has asked for changes: `state:open is:pr review:changes_requested`
+* Filter pull requests by the status of checks: `status:success`, `status:failure`, or `status:pending`
 * Filter pull requests by [reviewer](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews): `state:open is:pr reviewed-by:octocat`
 * Filter pull requests by the specific user [requested for review](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review): `state:open is:pr review-requested:octocat`
 * Filter pull requests that someone has asked you directly to review: `state:open is:pr user-review-requested:@me`
