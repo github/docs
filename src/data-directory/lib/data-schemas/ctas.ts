@@ -40,7 +40,7 @@ export default {
       name: 'Plan',
       description:
         'For links to sign up for or trial a plan, the specific plan we link to (optional)',
-      enum: ['enterprise', 'business', 'pro', 'free'],
+      enum: ['enterprise', 'business', 'pro', 'pro-plus', 'free'],
     },
   },
 }

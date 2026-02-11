@@ -40,7 +40,7 @@ User accounts are intended for humans, but you can create accounts to automate a
 
 {% ifversion fpt or ghec %}
 
-There are two types of user account:
+There are two types of user accounts:
 
 * [Personal accounts](#personal-accounts)
 * [{% data variables.enterprise.prodname_managed_users_caps %}](#managed-user-accounts)

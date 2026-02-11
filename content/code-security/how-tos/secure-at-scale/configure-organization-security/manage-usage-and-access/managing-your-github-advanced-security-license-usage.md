@@ -1,7 +1,7 @@
 ---
 title: Managing your paid use of {% data variables.product.prodname_AS %}
 shortTitle: Manage paid GHAS use
-intro: You can understand and control the costs of using {% data variables.product.prodname_GH_cs_and_sp %} in repositories in your organization.
+intro: Control the costs of {% data variables.product.prodname_GH_cs_and_sp %} in your organization.
 allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.security-org-enable %}'
 product: '{% data reusables.gated-features.ghas-billing %}'
@@ -17,16 +17,9 @@ redirect_from:
 contentType: how-tos
 ---
 
-## Requirements for enabling {% data variables.product.prodname_AS %} products
+## Prerequisites
 
-To use {% data variables.product.prodname_GHAS_cs_or_sp %} on private or internal repositories with unique active committers, you must have licenses available. The user-interface and options depend on how you pay for {% data variables.product.prodname_AS %}.
-
-* **Metered billing:** by default, there is no limit on how many licenses you can consume. See {% data reusables.advanced-security.control-use-cost-links %}.
-* **Volume/subscription billing** ({% data variables.product.prodname_enterprise %} only)**:**  once the licenses you have purchased are all in use, you cannot enable {% data variables.product.prodname_GHAS_cs_or_sp %} on additional repositories until you free up or buy additional licenses.
-
-With {% data variables.product.prodname_security_configurations %}, you can easily understand the license usage of repositories in your organization, as well as the number of available {% data variables.product.prodname_GHAS_cs_or_sp %} licenses in your {% data variables.enterprise.enterprise_or_org %}. Additionally, if you need to make more licenses available to secure a high-impact repository, you can quickly disable {% data variables.product.prodname_GHAS_cs_or_sp %}{% ifversion fpt or ghec %} on private and internal repositories{% endif %} at scale.
-
-To learn about licensing for {% data variables.product.prodname_GHAS_cs_and_sp %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+Before you can effectively manage your paid use of {% data variables.product.prodname_AS %}, you should understand how {% data variables.product.prodname_AS %} is billed. See [AUTOTITLE](/billing/concepts/product-billing/github-advanced-security).
 
 ## Understanding your license usage
 

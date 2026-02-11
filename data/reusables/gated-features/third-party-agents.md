@@ -1,0 +1,1 @@
+Third-party agents are available in the {% data variables.copilot.copilot_pro_plus %} and {% data variables.copilot.copilot_enterprise %} plans.

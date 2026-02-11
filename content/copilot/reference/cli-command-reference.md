@@ -38,8 +38,8 @@ contentType: reference
 
 | Shortcut                            | Purpose                               |
 |-------------------------------------|---------------------------------------|
-| ctrl+o    | While there is not input, this expands recent items in {% data variables.product.prodname_copilot_short %}'s response timeline to show more details. |
-| ctrl+e    | While there is not input, this expands all items in {% data variables.product.prodname_copilot_short %}'s response timeline. |
+| ctrl+o    | While there is nothing in the prompt input, this expands recent items in {% data variables.product.prodname_copilot_short %}'s response timeline to show more details. |
+| ctrl+e    | While there is nothing in the prompt input, this expands all items in {% data variables.product.prodname_copilot_short %}'s response timeline. |
 
 ## Navigation shortcuts in interactive mode
 

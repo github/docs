@@ -49,7 +49,11 @@ poetry         | `pip`            | v1               | {% octicon "check" aria-l
 | {% endif %} |
 [Swift](#swift)      | `swift`      | v5  | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (git only) | {% octicon "x" aria-label="Not supported" %} |
 [Terraform](#terraform)      | `terraform`      | >= 0.13, <= 1.13.x  | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
+| {% ifversion dependabot-uv-security-support %} |
 uv        | `uv`            | v0               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
+| {% elsif dependabot-uv-support %} |
+uv        | `uv`            | v0               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
+| {% endif %} |
 | {% ifversion dependabot-vcpkg-support %} |
 [vcpkg](#vcpkg) | `vcpkg`          | Not applicable   | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | Not applicable |
 | {% endif %} |
@@ -120,12 +124,19 @@ For more information about using {% data variables.product.prodname_dependabot_v
 
 ### Gradle
 
-{% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to the following files:
+{% data variables.product.prodname_dependabot %} supports updates to the following files without needing to run Gradle:
+
 * `build.gradle`, `build.gradle.kts` (for Kotlin projects)
 * `gradle/libs.versions.toml` (for projects using a standard Gradle version catalog)
 * `gradle.lockfile` (for projects using Gradle dependency locking)
-* `gradle/wrapper/gradle-wrapper.properties` (for the Gradle Wrapper)
 * Files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
+
+To update the Gradle Wrapper, {% data variables.product.prodname_dependabot %} runs Gradle and updates:
+
+* `gradle/wrapper/gradle-wrapper.properties`
+* `gradlew`
+* `gradlew.bat`
+* `gradle/wrapper/gradle-wrapper.jar`
 
 {% data variables.product.prodname_dependabot %} uses information from the `pom.xml` file of dependencies to add links to release information in update pull requests. If the information is omitted from the `pom.xml` file, then it cannot be included in {% data variables.product.prodname_dependabot %} pull requests, see [AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/optimizing-java-packages-dependabot).
 

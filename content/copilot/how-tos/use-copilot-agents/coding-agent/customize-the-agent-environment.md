@@ -142,12 +142,12 @@ jobs:
 > [!NOTE]
 > * {% data variables.copilot.copilot_coding_agent %} is only compatible with Ubuntu x64 Linux runners. Runners with Windows, macOS or other operating systems are not supported.
 
-## Using self-hosted {% data variables.product.prodname_actions %} runners with ARC
+## Using self-hosted {% data variables.product.prodname_actions %} runners. 
 
-You can run {% data variables.copilot.copilot_coding_agent %} on self-hosted runners powered by ARC (Actions Runner Controller). You must first set up ARC-managed scale sets in your environment. For more information on ARC, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller).
+You can run {% data variables.copilot.copilot_coding_agent %} on self-hosted runners powered by ARC (Actions Runner Controller), or the GitHub Actions Runner Scale Set Client. You must first set up ARC- For more information on ARC, see [AUTOTITLE](/actions/reference/runners/self-hosted-runners#supported-autoscaling-solutions).
 
 > [!WARNING]
-> ARC is the only officially supported solution for self-hosting {% data variables.copilot.copilot_coding_agent %}. For security reasons, we do not recommend using non-ARC self-hosted runners with {% data variables.copilot.copilot_coding_agent %}.
+> ARC and the Scale Set Client are the only officially supported solutions for self-hosting {% data variables.copilot.copilot_coding_agent %}.
 
 > [!NOTE]
 > {% data variables.copilot.copilot_coding_agent %} is only compatible with Ubuntu x64 Linux runners. Runners with Windows, macOS or other operating systems are not supported.

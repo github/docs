@@ -16,8 +16,7 @@ topics:
 contentType: concepts
 children:
   - /about-enabling-security-features-at-scale
-  - /about-security-configurations
-  - /choosing-a-security-configuration-for-your-repositories
+  - /security-configurations
   - /about-security-overview
   - /about-security-campaigns
   - /auditing-security-alerts

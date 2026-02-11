@@ -2,7 +2,7 @@
 title: Data available in Copilot usage metrics
 allowTitleToDifferFromFilename: true
 shortTitle: Copilot usage metrics data
-intro: 'You can display and export {% data variables.product.prodname_copilot_short %} usage metrics data in the dashboard and via APIs.'
+intro: '{% data variables.product.prodname_copilot_short %} usage metrics data is available through the dashboard and APIs, using a consistent set of fields to represent adoption, usage, and code generation activity.'
 permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   fpt: '*'
@@ -12,7 +12,9 @@ topics:
   - Copilot
   - Enterprise
 category:
+  - Copilot usage metrics
   - Manage Copilot for a team
+  - Understand available data
 ---
 
 {% data reusables.copilot.usage-metrics-preview %}

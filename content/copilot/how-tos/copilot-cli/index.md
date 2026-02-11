@@ -8,7 +8,7 @@ children:
   - /cli-getting-started
   - /cli-best-practices
   - /install-copilot-cli
-  - /add-repository-instructions
+  - /add-custom-instructions
   - /use-hooks
   - /use-copilot-cli
 contentType: how-tos

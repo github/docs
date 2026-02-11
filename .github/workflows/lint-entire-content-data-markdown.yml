@@ -7,7 +7,7 @@ name: 'Lint entire content and data markdown files'
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 16 * * 0' # Run every day at 16:20 UTC / 8:20 PST every Sunday
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST — link & content quality theme
 
 permissions:
   contents: read

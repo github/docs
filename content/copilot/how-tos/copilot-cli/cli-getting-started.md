@@ -3,6 +3,7 @@ title: Getting started with GitHub Copilot CLI
 shortTitle: Copilot CLI quickstart
 intro: 'Quickly learn how to use {% data variables.copilot.copilot_cli %}.'
 allowTitleToDifferFromFilename: true
+product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
 topics:
@@ -25,21 +26,23 @@ Use one of these commands:
 
 * **Cross-platform (npm)**
 
-    ```bash copy
-    npm install -g @github/copilot
-    ```
+  Prerequisite: {% data variables.copilot.copilot_cli_npm_version %}.
+
+  ```bash copy
+  npm install -g @github/copilot
+  ```
 
 * **Windows (WinGet)**
 
-    ```bash copy
-    winget install GitHub.Copilot
-    ```
+  ```bash copy
+  winget install GitHub.Copilot
+  ```
 
 * **macOS/Linux (Homebrew)**
 
-    ```bash copy
-    brew install copilot-cli
-    ```
+  ```bash copy
+  brew install copilot-cli
+  ```
 
 ## Starting the CLI for the first time
 

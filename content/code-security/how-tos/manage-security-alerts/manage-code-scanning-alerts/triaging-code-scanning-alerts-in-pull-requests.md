@@ -35,7 +35,7 @@ If the lines of code changed in the pull request generate {% data variables.prod
 * The **Files changed** tab of the pull request
 
 > [!NOTE]
-> {% data variables.product.prodname_code_scanning_caps %} displays alerts in pull requests only when all the lines of code identified by the alert exist in the pull request diff. For more information, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#specifying-the-location-for-source-files).
+> {% data variables.product.prodname_code_scanning_caps %} displays alerts in pull requests only when all the lines of code identified by the alert exist in the pull request diff. For more information, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#source-file-locations).
 
 {% ifversion code-scanning-autofix %}
 

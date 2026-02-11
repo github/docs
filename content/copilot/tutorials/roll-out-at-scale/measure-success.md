@@ -1,7 +1,7 @@
 ---
 title: Measuring the success of a GitHub Copilot trial
 shortTitle: Measure trial success
-intro: Learn how to use {% data variables.product.prodname_copilot_short %} usage metrics to evaluate your trial, interpret adoption and engagement results, and decide how to monitor usage going forward.
+intro: Measure the success of a {% data variables.product.prodname_copilot_short %} trial by analyzing adoption, engagement, and early usage patterns using {% data variables.product.prodname_copilot_short %} usage metrics.
 permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
@@ -10,6 +10,9 @@ topics:
   - Copilot
   - Enterprise
 allowTitleToDifferFromFilename: true
+category:
+  - Copilot usage metrics
+  - Measure success
 ---
 
 When your organization runs a {% data variables.product.prodname_copilot_short %} trial, the key to success is understanding how teams adopt and use {% data variables.product.prodname_copilot_short %}.
@@ -88,7 +91,7 @@ After your trial, you can continue monitoring adoption and engagement through th
 
 ### Retrieve enterprise-wide data
 
-You can use the {% data variables.product.prodname_copilot_short %} Metrics API to download 28-day usage reports for your enterprise. These reports include the same dataset shown in the {% data variables.product.prodname_copilot_short %} usage metrics dashboard. The API provides two endpoints.
+You can use the {% data variables.product.prodname_copilot_short %} usage metrics endpoints to download 28-day usage reports for your enterprise. These reports include the same dataset shown in the {% data variables.product.prodname_copilot_short %} usage metrics dashboard. The API provides two endpoints.
 
 | Endpoint | Description |
 |:--|:--|

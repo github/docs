@@ -56,6 +56,8 @@ function generateBasicLlmsTxt(): string {
 ## Docs Content
 
 - [Page List API](${BASE_API_URL}/en/free-pro-team@latest)
+- [Versions API](${BASE_API_URL}/versions): \`curl "https://docs.github.com/api/pagelist/versions"\`
+- [Languages API](${BASE_API_URL}/languages): \`curl "https://docs.github.com/api/pagelist/languages"\`
 - [Article API](https://docs.github.com/api/article): \`curl "https://docs.github.com/api/article?pathname=/en/get-started/start-your-journey/about-github-and-git"\`
 - [Search API](https://docs.github.com/api/search): \`curl "https://docs.github.com/api/search?query=actions&language=en&version=free-pro-team@latest"\`
 
