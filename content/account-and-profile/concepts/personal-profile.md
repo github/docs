@@ -48,6 +48,34 @@ You can format text and include emoji, images, and GIFs in your profile README b
 
 {% ifversion fpt %}
 
+# How to create a profile README:
+
+Create a new public repository with a name that exactly matches your username.
+
+Initialize the repository with a README.md file.
+
+Commit and push the README content.
+
+Once created, the contents of the README.md file will be shown at the top of your profile.
+
+Where to add it (important)
+
+Place it here in the document structure:
+
+~~~
+Your profile README
+  ├─ (existing intro paragraph)
+  ├─ Creating a profile README repository   ← ADD HERE
+  ├─ (examples of what to include)
+~~~
+This placement matters because:
+
+Readers learn the rule before writing content
+
+It prevents confusion when their README “doesn’t show up”
+
+It aligns with GitHub’s actual detection logic
+
 ## Private profiles
 
 To hide parts of your profile page, you can make your profile private. This also hides your activity in various social features on {% data variables.product.github %}. A private profile hides information from all users, and there is currently no option to allow specified users to see your activity.
