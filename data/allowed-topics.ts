@@ -28,6 +28,7 @@ const allowedTopics = [
   'API',
   'Auditing',
   'Authentication',
+  'AWS Elastic Beanstalk',
   'Azure App Service',
   'Azure Kubernetes Service',
   'Azure Pipelines',
