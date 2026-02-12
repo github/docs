@@ -118,7 +118,7 @@ On first launch, if you're not currently logged in to {% data variables.product.
 
 ### Authenticating with a {% data variables.product.pat_generic %}
 
-You can also authenticate using a {% data variables.product.pat_v2 %} with the "{% data variables.product.prodname_copilot_short %} Requests" permission enabled.
+You can also authenticate using a {% data variables.product.pat_v2 %} with the "{% data variables.product.prodname_copilot_short %} Requests" and "Models" permissions enabled.
 
 1. Visit [{% data variables.product.pat_v2_caps_plural %}](https://github.com/settings/personal-access-tokens/new).
 1. Under "Permissions," click **Add permissions** and select **{% data variables.product.prodname_copilot_short %} Requests**.
