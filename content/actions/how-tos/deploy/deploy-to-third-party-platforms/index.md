@@ -23,6 +23,7 @@ children:
   - /azure-static-web-app
   - /azure-kubernetes-service
   - /amazon-elastic-container-service
+  - /aws-elastic-beanstalk-service
   - /google-kubernetes-engine
   - /sign-xcode-applications
 ---
