@@ -22,4 +22,6 @@ These endpoints are only available to authenticated organization owners. For mor
 
 {% data variables.migrations.organization_migrations_intro %}
 
+{% ifversion ghec %}{% data variables.migrations.enterprise_cloud_with_data_residency %}{% endif %}
+
 <!-- Content after this section is automatically generated -->

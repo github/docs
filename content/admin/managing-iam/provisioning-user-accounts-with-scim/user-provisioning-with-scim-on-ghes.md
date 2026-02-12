@@ -43,7 +43,7 @@ The following IdPs are partner IdPs. They offer an application that you can use 
 * Okta
 * PingFederate ({% data variables.release-phases.public_preview %})
 
-When you use a single partner IdP for both authentication and provisioning, {% data variables.product.company_short %} provides support for the application on the partner IdP and the IdP's integration with {% data variables.product.prodname_dotcom %}. Support for PingFederate is in {% data variables.release-phases.public_preview %}.
+When you use a single partner IdP for both authentication and provisioning, {% data variables.product.company_short %} provides support for the application on the partner IdP and the IdP's integration with {% data variables.product.prodname_dotcom %}. The same application must be used for both SAML authentication and SCIM provisioning. Support for PingFederate is in {% data variables.release-phases.public_preview %}.
 
 We do not have a supported partner application when using Entra ID for Azure Government. 
 

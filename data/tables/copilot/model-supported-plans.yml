@@ -33,6 +33,20 @@
   business: true
   enterprise: true
 
+- name: Claude Opus 4.6
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: Claude Opus 4.6 (fast mode) (preview)
+  free: false
+  pro: false
+  pro_plus: true
+  business: false
+  enterprise: true
+
 - name: Claude Sonnet 4
   free: false
   pro: true
@@ -132,6 +146,13 @@
   enterprise: true
 
 - name: GPT-5.2-Codex
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: GPT-5.3-Codex
   free: false
   pro: true
   pro_plus: true

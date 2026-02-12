@@ -77,16 +77,6 @@ You can choose whether your prompts and {% data variables.product.prodname_copil
 {% data reusables.user-settings.copilot-settings %}
 1. To allow or prevent {% data variables.product.prodname_dotcom %} using your data, select or deselect **Allow {% data variables.product.prodname_dotcom %} to use my code snippets from the code editor for product improvements**.
 
-## Enabling or disabling alternative AI models
-
-You can choose whether to allow the following AI models to be used as an alternative to {% data variables.product.prodname_copilot_short %}'s default model.
-
-* {% data variables.copilot.copilot_claude %} - see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-in-github-copilot)
-* {% data variables.copilot.copilot_gemini %} - see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot)
-
-{% data reusables.user-settings.copilot-settings %}
-1. To the right of the model name, select the dropdown menu, then click **Enabled** or **Disabled**.
-
 ## Enabling or disabling web search for {% data variables.copilot.copilot_chat %}
 
 You can enable web search for {% data variables.copilot.copilot_chat %}. This setting is disabled by default. If you enable this setting, {% data variables.copilot.copilot_chat_short %} will use Bing to search the internet for information related to a question. Bing search is particularly helpful when discussing new technologies or highly specific subjects.

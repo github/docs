@@ -1,4 +1,4 @@
-import coreLib from '@actions/core'
+import * as coreLib from '@actions/core'
 
 import { checkContentType } from '@/workflows/fm-utils'
 

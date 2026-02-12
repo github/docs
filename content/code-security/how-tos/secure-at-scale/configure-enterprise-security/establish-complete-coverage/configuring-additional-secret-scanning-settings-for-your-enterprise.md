@@ -54,6 +54,9 @@ You can customize which secret patterns are included in push protection, giving 
 
 1. Under "Additional settings", in the "{% data variables.product.UI_secret_protection_scanning %}" section, click anywhere inside the "Pattern configurations for push protection" row.
 1. In the page that gets displayed, make the desired changes in the "Enterprise setting" column.
+
 {% data reusables.secret-scanning.pattern-enablement-org-enterprise %}
+
+For more information on how to read data on the {% data variables.product.prodname_secret_scanning %} pattern configuration page, see [AUTOTITLE](/code-security/reference/secret-security/secret-scanning-pattern-configuration-data).
 
 {% endif %}

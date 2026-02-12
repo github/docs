@@ -4,7 +4,11 @@ import patterns from '@/frame/lib/patterns'
 import { pathLanguagePrefixed } from '@/languages/lib/languages-server'
 import { deprecatedWithFunctionalRedirects } from '@/versions/lib/enterprise-server-releases'
 import getRedirect from '../lib/get-redirect'
-import { defaultCacheControl, languageCacheControl } from '@/frame/middleware/cache-control'
+import {
+  defaultCacheControl,
+  languageCacheControl,
+  languageAndVersionCacheControl,
+} from '@/frame/middleware/cache-control'
 import { ExtendedRequest, URLSearchParamsTypes } from '@/types'
 
 export default function handleRedirects(req: ExtendedRequest, res: Response, next: NextFunction) {
@@ -27,13 +31,21 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   // blanket redirects for languageless homepage
   if (req.path === '/') {
     const language = getLanguage(req)
-    languageCacheControl(res)
+    languageAndVersionCacheControl(res)
+
+    // Build redirect path, optionally including user's preferred version
+    let redirectPath = `/${language}`
+    const userVersion = req.userVersion
+    if (userVersion && userVersion !== 'free-pro-team@latest') {
+      redirectPath += `/${userVersion}`
+    }
+
     // Forward query params to the new URL
     let queryParams = new URLSearchParams((req?.query as any) || '').toString()
     if (queryParams) {
       queryParams = `?${queryParams}`
     }
-    return res.redirect(302, `/${language}${queryParams}`)
+    return res.redirect(302, redirectPath + queryParams)
   }
 
   // begin redirect handling

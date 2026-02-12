@@ -6,7 +6,7 @@ name: Update Moda allowed IPs
 
 on:
   schedule:
-    - cron: '20 16 * * 4' # Run every Thursday at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 4' # Run every Thursday at 16:20 UTC / 8:20 PST — infrastructure & releases theme
   workflow_dispatch:
 
 permissions:

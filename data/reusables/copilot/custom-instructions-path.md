@@ -1,7 +1,6 @@
 1. Create the `.github/instructions` directory if it does not already exist.
-
+1. Optionally, create subdirectories of `.github/instructions` to organize your instruction files.
 1. Create one or more `NAME.instructions.md` files, where `NAME` indicates the purpose of the instructions. The file name must end with `.instructions.md`.
-
 1. At the start of the file, create a frontmatter block containing the `applyTo` keyword. Use glob syntax to specify what files or directories the instructions apply to.
 
    For example:

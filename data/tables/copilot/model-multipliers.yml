@@ -21,6 +21,14 @@
   multiplier_paid: 3
   multiplier_free: Not applicable
 
+- name: Claude Opus 4.6
+  multiplier_paid: 3
+  multiplier_free: Not applicable
+
+- name: Claude Opus 4.6 (fast mode) (preview)
+  multiplier_paid: 9 during promotional period
+  multiplier_free: Not applicable
+
 - name: Claude Sonnet 4
   multiplier_paid: 1
   multiplier_free: Not applicable
@@ -82,6 +90,10 @@
   multiplier_free: Not applicable
 
 - name: GPT-5.2-Codex
+  multiplier_paid: 1.0
+  multiplier_free: Not applicable
+
+- name: GPT-5.3-Codex
   multiplier_paid: 1.0
   multiplier_free: Not applicable
 

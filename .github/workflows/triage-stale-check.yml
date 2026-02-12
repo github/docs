@@ -6,7 +6,7 @@ name: Stale check for no activity
 
 on:
   schedule:
-    - cron: '20 16 * * 2' # Run each Tuesday at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 2' # Run every Tuesday at 16:20 UTC / 8:20 PST — staleness & triage theme
 
 permissions:
   contents: read

@@ -6,7 +6,7 @@ name: Check Internal Links
 
 on:
   schedule:
-    - cron: '20 16 * * 2' # Tuesday at 16:20 UTC
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST — link & content quality theme
   workflow_dispatch:
     inputs:
       version:

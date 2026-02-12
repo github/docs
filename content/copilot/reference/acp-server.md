@@ -18,6 +18,13 @@ contentType: reference
 
 The Agent Client Protocol (ACP) is a protocol that standardizes communication between clients (such as code editors and IDEs) and coding agents (such as {% data variables.copilot.copilot_cli_short %}). For more details about this protocol, see the [official introduction](https://agentclientprotocol.com/get-started/introduction).
 
+## Use cases
+
+* **IDE integrations:** Build {% data variables.product.prodname_copilot_short %} support into any editor or development environment.
+* **CI/CD pipelines:** Orchestrate agentic coding tasks in automated workflows.
+* **Custom frontends:** Create specialized interfaces for specific developer workflows.
+* **Multi-agent systems:** Coordinate {% data variables.product.prodname_copilot_short %} with other AI agents using a standard protocol.
+
 ## Starting the ACP server
 
 {% data variables.copilot.copilot_cli %} can be started as an ACP server using the `--acp` flag. The server supports two modes, `stdio` and `TCP`.

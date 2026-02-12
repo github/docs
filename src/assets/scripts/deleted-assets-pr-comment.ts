@@ -1,5 +1,5 @@
 import github from '@actions/github'
-import core from '@actions/core'
+import { setOutput } from '@actions/core'
 
 const { GITHUB_TOKEN } = process.env
 const context = github.context
@@ -16,7 +16,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
   const headSHA = context.payload.pull_request?.head.sha
 
   const markdown = await main({ owner, repo, baseSHA, headSHA })
-  core.setOutput('markdown', markdown)
+  setOutput('markdown', markdown)
 }
 
 type MainArgs = {

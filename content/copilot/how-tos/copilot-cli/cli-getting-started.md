@@ -3,6 +3,7 @@ title: Getting started with GitHub Copilot CLI
 shortTitle: Copilot CLI quickstart
 intro: 'Quickly learn how to use {% data variables.copilot.copilot_cli %}.'
 allowTitleToDifferFromFilename: true
+product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
 topics:

@@ -2,6 +2,7 @@
 title: Installing GitHub Copilot CLI
 shortTitle: Install Copilot CLI
 intro: Learn how to install {% data variables.copilot.copilot_cli_short %} so that you can use {% data variables.product.prodname_copilot_short %} directly from the command line.
+product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
 topics:

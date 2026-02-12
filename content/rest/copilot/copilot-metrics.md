@@ -13,6 +13,8 @@ redirect_from:
   - /rest/copilot/copilot-usage
 ---
 
+{% data reusables.copilot.copilot-metrics-closing-down %}
+
 You can use these endpoints to get a breakdown of aggregated metrics for various {% data variables.product.prodname_copilot %} features. The API includes:
 
 * Data for the last 100 days

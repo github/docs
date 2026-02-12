@@ -9,7 +9,7 @@ versions:
 topics:
   - Copilot
 contentType: concepts
-category: 
+category:
   - Learn about Copilot
 ---
 
@@ -296,6 +296,12 @@ The default model used by {% data variables.copilot.copilot_cli %} is {% data va
 You can change the model used by {% data variables.copilot.copilot_cli %} by using the `/model` slash command or the `--model` command-line option. Enter this command, then select a model from the list.
 
 Each time you submit a prompt to {% data variables.product.prodname_copilot_short %} in {% data variables.copilot.copilot_cli_short %}'s interactive mode, and each time you use {% data variables.copilot.copilot_cli_short %} in programmatic mode, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one, multiplied by the multiplier shown in parentheses in the model list. For example, `Claude Sonnet 4.5 (1x)` indicates that with this model each time you submit a prompt your quota of premium requests is reduced by one. For information about premium requests, see [AUTOTITLE](/copilot/concepts/billing/copilot-requests).
+
+## Use {% data variables.copilot.copilot_cli_short %} via ACP
+
+ACP (the Agent Client Protocol) is an open standard for interacting with AI agents. It allows you to use {% data variables.copilot.copilot_cli_short %} as an agent in any third-party tools, IDEs, or automation systems that support this protocol.
+
+For more information, see [AUTOTITLE](/copilot/reference/acp-server).
 
 {% data reusables.cli.feedback %}
 
