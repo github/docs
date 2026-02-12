@@ -1,6 +1,6 @@
 ---
-title: Deploying to AWS Elastic Beanstalk
-shortTitle: AWS Elastic Beanstalk
+title: Deploying to AWS Elastic Beanstalk service
+shortTitle: AWS Elastic Beanstalk service
 intro: Learn how to deploy a project to AWS Elastic Beanstalk as part of a continuous deployment (CD) workflow.
 versions:
   fpt: '*'
