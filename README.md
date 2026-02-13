@@ -35,3 +35,4 @@ This project is dual-licensed under:
 
 * **Creative Commons Attribution 4.0** - for documentation and content in the assets, content, and data folders (see [LICENSE](LICENSE))
 * **MIT License** - for code (see [LICENSE-CODE](LICENSE-CODE))
+You can fork a repository to create your own copy under your GitHub account, allowing you to safely experiment with changes before submitting a pull request
