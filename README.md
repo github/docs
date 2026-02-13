@@ -1,4 +1,4 @@
-
+https://portal-beta.edgarfiling.sec.gov/
 # Set default behavior, in case users don't have core.autocrlf set.
 * text=auto
 # Explicitly declare text files we want to always be normalized and converted
@@ -10452,6 +10452,7 @@ This project is dual-licensed under:
 
 * **Creative Commons Attribution 4.0** - for documentation and content in the assets, content, and data folders (see [LICENSE](LICENSE))
 * **MIT License** - for code (see [LICENSE-CODE](LICENSE-CODE))
+
 
 
 
