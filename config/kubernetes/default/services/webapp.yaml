@@ -1,3 +1,192 @@
+---
+title: MCP allowlist enforcement
+intro: 'Understand the logic and limitations of MCP allowlist enforcement.'
+versions:
+  feature: copilot
+topics:
+  - Copilot
+contentType: reference
+category:
+  - Learn about Copilot
+---
+
+## Current enforcement limitations
+
+MCP allowlist enforcement currently has the following limitations:
+
+* Enforcement is based only on server name/ID matching, which can be bypassed by editing configuration files
+* Strict enforcement that prevents installation of non-registry servers is not yet available
+
+For the highest level of security, you can **disable MCP servers in {% data variables.product.prodname_copilot_short %}** until strict enforcement is available.
+
+## Enforcement for local servers
+
+MCP allowlist enforcement applies to both remote and local MCP servers. When "Registry only" is configured, local servers must be included in your registry with the correct server ID, which must exactly match the installed server ID. A server's canonical ID is often defined in its documentation or manifest.
+
+## Policy resolution for users with multiple seats
+
+MCP allowlist enforcement is always tied to the organization or enterprise that assigns the {% data variables.product.prodname_copilot %} seat. If a user has multiple seats, {% data variables.product.github %} automatically resolves conflicts and applies a single active policy and registry.
+
+The resolution logic is:
+
+1. **Scope**: Policies set by a parent enterprise override those set by an organization. Enterprise policies trickle down to all organizations and members within that enterprise.
+1. **Enforcement strictness**: Since `Registry only` is more restrictive than `Allow all`, it will always take precedence.
+1. **Recency of registry upload**: If two policies have the same scope and strictness, the most recently uploaded registry will be applied.
+# MCP allowlist enforcement
+
+Understand the logic and limitations of MCP allowlist enforcement.
+
+## Current enforcement limitations
+
+MCP allowlist enforcement currently has the following limitations:
+
+* Enforcement is based only on server name/ID matching, which can be bypassed by editing configuration files
+* Strict enforcement that prevents installation of non-registry servers is not yet available
+
+For the highest level of security, you can **disable MCP servers in Copilot** until strict enforcement is available.
+
+## Enforcement for local servers
+
+MCP allowlist enforcement applies to both remote and local MCP servers. When "Registry only" is configured, local servers must be included in your registry with the correct server ID, which must exactly match the installed server ID. A server's canonical ID is often defined in its documentation or manifest.
+
+## Policy resolution for users with multiple seats
+
+MCP allowlist enforcement is always tied to the organization or enterprise that assigns the GitHub Copilot seat. If a user has multiple seats, GitHub automatically resolves conflicts and applies a single active policy and registry.
+
+The resolution logic is:
+
+1. **Scope**: Policies set by a parent enterprise override those set by an organization. Enterprise policies trickle down to all organizations and members within that enterprise.
+2. **Enforcement strictness**: Since `Registry only` is more restrictive than `Allow all`, it will always take precedence.
+3. **Recency of registry upload**: If two policies have the same scope and strictness, the most recently uploaded registry will be applied.
+# Configuración de actualizaciones de seguridad de Dependabot
+
+Puedes utilizar las Dependabot security updates o las solicitudes de extracción manuales para actualizar fácilmente las dependencias vulnerables.
+
+<!-- TRANSLATION_FALLBACK prop=markdown type=ParseError line=65 col=1 msg="tag 'datos' not found" -->
+<!--Marketing-LINK: From home page "Learn more about Dependabot".-->
+
+## About configuring Dependabot security updates
+
+You can enable Dependabot security updates for any repository that uses Dependabot alerts and the dependency graph. For more information, see [About Dependabot security updates](/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).
+
+You can enable or disable Dependabot security updates for an individual repository, for a selection of repositories in an organization, or for all repositories owned by your personal account or organization. For more information about enabling security features in an organization, see [Configuring security features in your organization](/en/code-security/securing-your-organization/enabling-security-features-in-your-organization).
+
+> \[!NOTE]
+> When Dependabot security updates are enabled for a repository, Dependabot will automatically try to open pull requests to resolve **every** open Dependabot alert that has an available patch. If you prefer to customize which alerts Dependabot opens pull requests for, you should leave Dependabot security updates **disabled** and create an auto-triage rule. For more information, see [Customizing auto-triage rules to prioritize Dependabot alerts](/en/code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts).
+
+Dependabot and all related features are covered by [GitHub's Terms of Service](/en/site-policy/github-terms/github-terms-of-service).
+
+## Supported repositories
+
+GitHub automatically enables Dependabot security updates for newly created repositories if your personal account or organization has enabled **Automatically enable for new repositories** for Dependabot security updates. For more information, see [Managing Dependabot security updates for your repositories](#managing-dependabot-security-updates-for-your-repositories).
+
+If you create a fork of a repository that has security updates enabled, GitHub will automatically disable Dependabot security updates for the fork. You can then decide whether to enable Dependabot security updates on the specific fork.
+
+If security updates are not enabled for your repository and you don't know why, first try enabling them using the instructions given in the procedural sections below. If security updates are still not working, you can contact us through the [GitHub Support portal](https://support.github.com).
+
+## Managing Dependabot security updates for your repositories
+
+You can enable or disable Dependabot security updates for all qualifying repositories owned by your personal account or organization. For more information, see [Managing security and analysis features](/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account) or [Managing security and analysis settings for your organization](/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
+
+You can also enable or disable Dependabot security updates for an individual repository.
+
+### Enabling or disabling Dependabot security updates for an individual repository
+
+1. On GitHub, navigate to the main page of the repository.
+2. Under your repository name, click **<svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-gear" aria-label="gear" role="img"><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></svg> Settings**. If you cannot see the "Settings" tab, select the **<svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-kebab-horizontal" aria-label="More" role="img"><path d="M8 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm13 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path></svg>** dropdown menu, then click **Settings**.
+
+   ![Screenshot of a repository header showing the tabs. The "Settings" tab is highlighted by a dark orange outline.](/assets/images/help/repository/repo-actions-settings.png)
+3. In the "Security" section of the sidebar, click **<svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-codescan" aria-label="codescan" role="img"><path d="M8.47 4.97a.75.75 0 0 0 0 1.06L9.94 7.5 8.47 8.97a.75.75 0 1 0 1.06 1.06l2-2a.75.75 0 0 0 0-1.06l-2-2a.75.75 0 0 0-1.06 0ZM6.53 6.03a.75.75 0 0 0-1.06-1.06l-2 2a.75.75 0 0 0 0 1.06l2 2a.75.75 0 1 0 1.06-1.06L5.06 7.5l1.47-1.47Z"></path><path d="M12.246 13.307a7.501 7.501 0 1 1 1.06-1.06l2.474 2.473a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215ZM1.5 7.5a6.002 6.002 0 0 0 3.608 5.504 6.002 6.002 0 0 0 6.486-1.117.748.748 0 0 1 .292-.293A6 6 0 1 0 1.5 7.5Z"></path></svg> Advanced Security**.
+4. To the right of "Dependabot security updates," click **Enable** to enable the feature or **Disable** to disable it. For public repositories, the button is disabled if the feature is always enabled.
+
+## Grouping Dependabot security updates into a single pull request
+
+To reduce the number of pull requests you may be seeing, you can enable grouped security updates for your repository or organization. When this is enabled, Dependabot will group security updates into one pull request for each package ecosystem. In order to use grouped security updates, you must first enable the following features:
+
+* **Dependency graph**. For more information, see [Enabling the dependency graph](/en/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).
+* **Dependabot alerts**. For more information, see [Configuring Dependabot alerts](/en/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts).
+* **Dependabot security updates**. For more information, see [Configuring Dependabot security updates](/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates).
+
+> \[!NOTE]
+> When grouped security updates are first enabled, Dependabot will immediately try to create grouped pull requests. You may notice Dependabot closing old pull requests and opening new ones.
+
+You can enable grouped pull requests for Dependabot security updates in one, or both, of the following ways.
+
+* To group as many available security updates together as possible, across directories and per ecosystem, enable grouping in the "Advanced Security" settings for your repository, or in "Global settings" under Advanced Security for your organization.
+* For more granular control of grouping, such as grouping by package name, development/production dependencies, SemVer level, or across multiple directories per ecosystem, add configuration options to the `dependabot.yml` configuration file in your repository.
+
+> \[!NOTE]
+> If you have configured group rules for Dependabot security updates in a `dependabot.yml` file, all available updates will be grouped according to the rules you've specified. Dependabot will only group across those directories not configured in your `dependabot.yml` if the setting for grouped security updates at the organization or repository level is also enabled.
+
+### Enabling or disabling grouped Dependabot security updates for an individual repository
+
+Repository administrators can enable or disable grouped security updates for their repository. Changing the repository setting will override any default organization settings. Group rules configured in a `dependabot.yml` file will override the user interface settings for enabling or disabling grouped security updates at the organization or repository level.
+
+1. On GitHub, navigate to the main page of the repository.
+2. Under your repository name, click **<svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-gear" aria-label="gear" role="img"><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></svg> Settings**. If you cannot see the "Settings" tab, select the **<svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-kebab-horizontal" aria-label="More" role="img"><path d="M8 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm13 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path></svg>** dropdown menu, then click **Settings**.
+
+   ![Screenshot of a repository header showing the tabs. The "Settings" tab is highlighted by a dark orange outline.](/assets/images/help/repository/repo-actions-settings.png)
+3. In the "Security" section of the sidebar, click **<svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-codescan" aria-label="codescan" role="img"><path d="M8.47 4.97a.75.75 0 0 0 0 1.06L9.94 7.5 8.47 8.97a.75.75 0 1 0 1.06 1.06l2-2a.75.75 0 0 0 0-1.06l-2-2a.75.75 0 0 0-1.06 0ZM6.53 6.03a.75.75 0 0 0-1.06-1.06l-2 2a.75.75 0 0 0 0 1.06l2 2a.75.75 0 1 0 1.06-1.06L5.06 7.5l1.47-1.47Z"></path><path d="M12.246 13.307a7.501 7.501 0 1 1 1.06-1.06l2.474 2.473a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215ZM1.5 7.5a6.002 6.002 0 0 0 3.608 5.504 6.002 6.002 0 0 0 6.486-1.117.748.748 0 0 1 .292-.293A6 6 0 1 0 1.5 7.5Z"></path></svg> Advanced Security**.
+4. Under "Dependabot," to the right of "Grouped security updates," click **Enable** to enable the feature or **Disable** to disable it.
+
+### Enabling or disabling grouped Dependabot security updates for an organization
+
+You can enable grouped Dependabot security updates into a single pull request. For more information, see [Configuring global security settings for your organization](/en/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#grouping-dependabot-security-updates).
+
+## Overriding the default behavior with a configuration file
+
+You can override the default behavior of Dependabot security updates by adding a `dependabot.yml` file to your repository. With a `dependabot.yml` file, you can have more granular control of grouping, and override the default behavior of Dependabot security updates settings.
+
+Use the `groups` option with the `applies-to: security-updates` key to create sets of dependencies (per package manager), so that Dependabot opens a single pull request to update multiple dependencies at the same time. You can define groups by package name (the `patterns` and `exclude-patterns` keys), dependency type (`dependency-type` key), and SemVer (the `update-types` key).
+
+Dependabot creates groups in the order they appear in your `dependabot.yml` file. If a dependency update could belong to more than one group, it is only assigned to the first group it matches with.
+
+If you only require *security* updates and want to exclude *version* updates, you can set `open-pull-requests-limit` to `0` in order to prevent version updates for a given `package-ecosystem`.
+
+For more information about the configuration options available for security updates, see [Customizing pull requests for Dependabot security updates](/en/code-security/dependabot/dependabot-security-updates/customizing-dependabot-security-prs).
+
+```yaml copy
+# Example configuration file that:
+#  - Has a private registry
+#  - Ignores lodash dependency
+#  - Disables version-updates
+#  - Defines a group by package name, for security updates for golang dependencies
+
+version: 2
+registries:
+  example:
+    type: npm-registry
+    url: https://example.com
+    token: ${{secrets.NPM_TOKEN}}
+updates:
+  - package-ecosystem: "npm"
+    directory: "/src/npm-project"
+    schedule:
+      interval: "daily"
+    # For Lodash, ignore all updates
+    ignore:
+      - dependency-name: "lodash"
+    # Disable version updates for npm dependencies
+    open-pull-requests-limit: 0
+    registries:
+      - example
+  - package-ecosystem: "gomod"
+    groups:
+      golang:
+        applies-to: security-updates
+        patterns:
+          - "golang.org*"
+```
+
+> \[!NOTE]
+> In order for Dependabot to use this configuration for security updates, the `directory` must be the path to the manifest files, and you should not specify a `target-branch`.
+
+## Further reading
+
+* [About Dependabot alerts](/en/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)
+* [Configuring Dependabot alerts](/en/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)
+* [Dependency graph supported package ecosystems](/en/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems)
+Kemel.WEB/packages.config
 apiVersion: v1
 kind: Service
 metadata:

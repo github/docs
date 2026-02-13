@@ -1,0 +1,474 @@
+https://1drv.ms/b/c/3b6ca5bfcad4519d/IQCiTi_RAVJ2SY31UGvaiN3cAcVvY6_sNQd1G5ixAZNNWFw
+
+pkg crypto/tls, type ConnectionState struct, TLSUnique //deprecated
+pkg debug/elf, const R_PPC64_SECTOFF_LO_DS = 61
+pkg encoding/json, method (*RawMessage) MarshalJSON() ([]uint8, error)
+pkg math, const MaxFloat64 = 1.79769e+308  // 179769313486231570814527423731704356798100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+pkg math, const SmallestNonzeroFloat32 = 1.4013e-45  // 17516230804060213386546619791123951641/12500000000000000000000000000000000000000000000000000000000000000000000000000000000
+pkg math, const SmallestNonzeroFloat64 = 4.94066e-324  // 4940656458412465441765687928682213723651/1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+pkg math/big, const MaxBase = 36
+pkg math/big, type Word uintptr
+pkg net, func ListenUnixgram(string, *UnixAddr) (*UDPConn, error)
+pkg os (linux-arm), const O_SYNC = 1052672
+pkg os (linux-arm), const O_SYNC = 4096
+pkg os (linux-arm-cgo), const O_SYNC = 1052672
+pkg os (linux-arm-cgo), const O_SYNC = 4096
+pkg os, const ModeAppend FileMode
+pkg os, const ModeCharDevice FileMode
+pkg os, const ModeDevice FileMode
+pkg os, const ModeDir FileMode
+pkg os, const ModeExclusive FileMode
+pkg os, const ModeIrregular FileMode
+pkg os, const ModeNamedPipe FileMode
+pkg os, const ModePerm FileMode
+pkg os, const ModeSetgid FileMode
+pkg os, const ModeSetuid FileMode
+pkg os, const ModeSocket FileMode
+pkg os, const ModeSticky FileMode
+pkg os, const ModeSymlink FileMode
+pkg os, const ModeTemporary FileMode
+pkg os, const ModeType = 2399141888
+pkg os, const ModeType = 2399666176
+pkg os, const ModeType FileMode
+pkg os, func Chmod(string, FileMode) error
+pkg os, func Lstat(string) (FileInfo, error)
+pkg os, func Mkdir(string, FileMode) error
+pkg os, func MkdirAll(string, FileMode) error
+pkg os, func OpenFile(string, int, FileMode) (*File, error)
+pkg os, func SameFile(FileInfo, FileInfo) bool
+pkg os, func Stat(string) (FileInfo, error)
+pkg os, method (*File) Chmod(FileMode) error
+pkg os, method (*File) Readdir(int) ([]FileInfo, error)
+pkg os, method (*File) Stat() (FileInfo, error)
+pkg os, method (*PathError) Error() string
+pkg os, method (*PathError) Timeout() bool
+pkg os, method (*PathError) Unwrap() error
+pkg os, method (FileMode) IsDir() bool
+pkg os, method (FileMode) IsRegular() bool
+pkg os, method (FileMode) Perm() FileMode
+pkg os, method (FileMode) String() string
+pkg os, type FileInfo interface { IsDir, ModTime, Mode, Name, Size, Sys }
+pkg os, type FileInfo interface, IsDir() bool
+pkg os, type FileInfo interface, ModTime() time.Time
+pkg os, type FileInfo interface, Mode() FileMode
+pkg os, type FileInfo interface, Name() string
+pkg os, type FileInfo interface, Size() int64
+pkg os, type FileInfo interface, Sys() interface{}
+pkg os, type FileMode uint32
+pkg os, type PathError struct
+pkg os, type PathError struct, Err error
+pkg os, type PathError struct, Op string
+pkg os, type PathError struct, Path string
+pkg syscall (darwin-amd64), const ImplementsGetwd = false
+pkg syscall (darwin-amd64), func Fchflags(string, int) error
+pkg syscall (darwin-amd64-cgo), const ImplementsGetwd = false
+pkg syscall (darwin-amd64-cgo), func Fchflags(string, int) error
+pkg syscall (freebsd-386), const AF_MAX = 38
+pkg syscall (freebsd-386), const DLT_MATCHING_MAX = 242
+pkg syscall (freebsd-386), const ELAST = 94
+pkg syscall (freebsd-386), const ImplementsGetwd = false
+pkg syscall (freebsd-386), const O_CLOEXEC = 0
+pkg syscall (freebsd-386), func Fchflags(string, int) error
+pkg syscall (freebsd-386), func Mknod(string, uint32, int) error
+pkg syscall (freebsd-386), type Dirent struct, Fileno uint32
+pkg syscall (freebsd-386), type Dirent struct, Namlen uint8
+pkg syscall (freebsd-386), type Stat_t struct, Blksize uint32
+pkg syscall (freebsd-386), type Stat_t struct, Dev uint32
+pkg syscall (freebsd-386), type Stat_t struct, Gen uint32
+pkg syscall (freebsd-386), type Stat_t struct, Ino uint32
+pkg syscall (freebsd-386), type Stat_t struct, Lspare int32
+pkg syscall (freebsd-386), type Stat_t struct, Nlink uint16
+pkg syscall (freebsd-386), type Stat_t struct, Pad_cgo_0 [8]uint8
+pkg syscall (freebsd-386), type Stat_t struct, Rdev uint32
+pkg syscall (freebsd-386), type Statfs_t struct, Mntfromname [88]int8
+pkg syscall (freebsd-386), type Statfs_t struct, Mntonname [88]int8
+pkg syscall (freebsd-386-cgo), const AF_MAX = 38
+pkg syscall (freebsd-386-cgo), const DLT_MATCHING_MAX = 242
+pkg syscall (freebsd-386-cgo), const ELAST = 94
+pkg syscall (freebsd-386-cgo), const ImplementsGetwd = false
+pkg syscall (freebsd-386-cgo), const O_CLOEXEC = 0
+pkg syscall (freebsd-386-cgo), func Mknod(string, uint32, int) error
+pkg syscall (freebsd-386-cgo), type Dirent struct, Fileno uint32
+pkg syscall (freebsd-386-cgo), type Dirent struct, Namlen uint8
+pkg syscall (freebsd-386-cgo), type Stat_t struct, Blksize uint32
+pkg syscall (freebsd-386-cgo), type Stat_t struct, Dev uint32
+pkg syscall (freebsd-386-cgo), type Stat_t struct, Gen uint32
+pkg syscall (freebsd-386-cgo), type Stat_t struct, Ino uint32
+pkg syscall (freebsd-386-cgo), type Stat_t struct, Lspare int32
+pkg syscall (freebsd-386-cgo), type Stat_t struct, Nlink uint16
+pkg syscall (freebsd-386-cgo), type Stat_t struct, Pad_cgo_0 [8]uint8
+pkg syscall (freebsd-386-cgo), type Stat_t struct, Rdev uint32
+pkg syscall (freebsd-386-cgo), type Statfs_t struct, Mntfromname [88]int8
+pkg syscall (freebsd-386-cgo), type Statfs_t struct, Mntonname [88]int8
+pkg syscall (freebsd-amd64), const AF_MAX = 38
+pkg syscall (freebsd-amd64), const DLT_MATCHING_MAX = 242
+pkg syscall (freebsd-amd64), const ELAST = 94
+pkg syscall (freebsd-amd64), const ImplementsGetwd = false
+pkg syscall (freebsd-amd64), const O_CLOEXEC = 0
+pkg syscall (freebsd-amd64), func Fchflags(string, int) error
+pkg syscall (freebsd-amd64), func Mknod(string, uint32, int) error
+pkg syscall (freebsd-amd64), type Dirent struct, Fileno uint32
+pkg syscall (freebsd-amd64), type Dirent struct, Namlen uint8
+pkg syscall (freebsd-amd64), type Stat_t struct, Blksize uint32
+pkg syscall (freebsd-amd64), type Stat_t struct, Dev uint32
+pkg syscall (freebsd-amd64), type Stat_t struct, Gen uint32
+pkg syscall (freebsd-amd64), type Stat_t struct, Ino uint32
+pkg syscall (freebsd-amd64), type Stat_t struct, Lspare int32
+pkg syscall (freebsd-amd64), type Stat_t struct, Nlink uint16
+pkg syscall (freebsd-amd64), type Stat_t struct, Rdev uint32
+pkg syscall (freebsd-amd64), type Statfs_t struct, Mntfromname [88]int8
+pkg syscall (freebsd-amd64), type Statfs_t struct, Mntonname [88]int8
+pkg syscall (freebsd-amd64-cgo), const AF_MAX = 38
+pkg syscall (freebsd-amd64-cgo), const DLT_MATCHING_MAX = 242
+pkg syscall (freebsd-amd64-cgo), const ELAST = 94
+pkg syscall (freebsd-amd64-cgo), const ImplementsGetwd = false
+pkg syscall (freebsd-amd64-cgo), const O_CLOEXEC = 0
+pkg syscall (freebsd-amd64-cgo), func Mknod(string, uint32, int) error
+pkg syscall (freebsd-amd64-cgo), type Dirent struct, Fileno uint32
+pkg syscall (freebsd-amd64-cgo), type Dirent struct, Namlen uint8
+pkg syscall (freebsd-amd64-cgo), type Stat_t struct, Blksize uint32
+pkg syscall (freebsd-amd64-cgo), type Stat_t struct, Dev uint32
+pkg syscall (freebsd-amd64-cgo), type Stat_t struct, Gen uint32
+pkg syscall (freebsd-amd64-cgo), type Stat_t struct, Ino uint32
+pkg syscall (freebsd-amd64-cgo), type Stat_t struct, Lspare int32
+pkg syscall (freebsd-amd64-cgo), type Stat_t struct, Nlink uint16
+pkg syscall (freebsd-amd64-cgo), type Stat_t struct, Rdev uint32
+pkg syscall (freebsd-amd64-cgo), type Statfs_t struct, Mntfromname [88]int8
+pkg syscall (freebsd-amd64-cgo), type Statfs_t struct, Mntonname [88]int8
+pkg syscall (freebsd-arm), const AF_MAX = 38
+pkg syscall (freebsd-arm), const BIOCGRTIMEOUT = 1074545262
+pkg syscall (freebsd-arm), const BIOCSRTIMEOUT = 2148287085
+pkg syscall (freebsd-arm), const ELAST = 94
+pkg syscall (freebsd-arm), const ImplementsGetwd = false
+pkg syscall (freebsd-arm), const O_CLOEXEC = 0
+pkg syscall (freebsd-arm), const SIOCAIFADDR = 2151967019
+pkg syscall (freebsd-arm), const SIOCGIFSTATUS = 3274991931
+pkg syscall (freebsd-arm), const SIOCSIFPHYADDR = 2151967046
+pkg syscall (freebsd-arm), const SYS_CAP_FCNTLS_GET = 537
+pkg syscall (freebsd-arm), const SYS_CAP_FCNTLS_GET ideal-int
+pkg syscall (freebsd-arm), const SYS_CAP_FCNTLS_LIMIT = 536
+pkg syscall (freebsd-arm), const SYS_CAP_FCNTLS_LIMIT ideal-int
+pkg syscall (freebsd-arm), const SYS_CAP_IOCTLS_GET = 535
+pkg syscall (freebsd-arm), const SYS_CAP_IOCTLS_GET ideal-int
+pkg syscall (freebsd-arm), const SYS_CAP_IOCTLS_LIMIT = 534
+pkg syscall (freebsd-arm), const SYS_CAP_IOCTLS_LIMIT ideal-int
+pkg syscall (freebsd-arm), const SYS_CAP_RIGHTS_GET = 515
+pkg syscall (freebsd-arm), const SYS_CAP_RIGHTS_GET ideal-int
+pkg syscall (freebsd-arm), const SYS_CAP_RIGHTS_LIMIT = 533
+pkg syscall (freebsd-arm), const SYS_CAP_RIGHTS_LIMIT ideal-int
+pkg syscall (freebsd-arm), const SizeofBpfHdr = 24
+pkg syscall (freebsd-arm), const SizeofIfData = 88
+pkg syscall (freebsd-arm), const SizeofIfMsghdr = 104
+pkg syscall (freebsd-arm), const SizeofSockaddrDatalink = 56
+pkg syscall (freebsd-arm), const SizeofSockaddrUnix = 108
+pkg syscall (freebsd-arm), const TIOCTIMESTAMP = 1074558041
+pkg syscall (freebsd-arm), func Fchflags(string, int) error
+pkg syscall (freebsd-arm), func Mknod(string, uint32, int) error
+pkg syscall (freebsd-arm), type BpfHdr struct, Pad_cgo_0 [2]uint8
+pkg syscall (freebsd-arm), type Dirent struct, Fileno uint32
+pkg syscall (freebsd-arm), type Dirent struct, Namlen uint8
+pkg syscall (freebsd-arm), type RawSockaddrDatalink struct, Pad_cgo_0 [2]uint8
+pkg syscall (freebsd-arm), type RawSockaddrUnix struct, Pad_cgo_0 [2]uint8
+pkg syscall (freebsd-arm), type Stat_t struct, Blksize uint32
+pkg syscall (freebsd-arm), type Stat_t struct, Dev uint32
+pkg syscall (freebsd-arm), type Stat_t struct, Gen uint32
+pkg syscall (freebsd-arm), type Stat_t struct, Ino uint32
+pkg syscall (freebsd-arm), type Stat_t struct, Lspare int32
+pkg syscall (freebsd-arm), type Stat_t struct, Nlink uint16
+pkg syscall (freebsd-arm), type Stat_t struct, Pad_cgo_0 [4]uint8
+pkg syscall (freebsd-arm), type Stat_t struct, Rdev uint32
+pkg syscall (freebsd-arm), type Statfs_t struct, Mntfromname [88]int8
+pkg syscall (freebsd-arm), type Statfs_t struct, Mntonname [88]int8
+pkg syscall (freebsd-arm-cgo), const AF_MAX = 38
+pkg syscall (freebsd-arm-cgo), const BIOCGRTIMEOUT = 1074545262
+pkg syscall (freebsd-arm-cgo), const BIOCSRTIMEOUT = 2148287085
+pkg syscall (freebsd-arm-cgo), const ELAST = 94
+pkg syscall (freebsd-arm-cgo), const ImplementsGetwd = false
+pkg syscall (freebsd-arm-cgo), const O_CLOEXEC = 0
+pkg syscall (freebsd-arm-cgo), const SIOCAIFADDR = 2151967019
+pkg syscall (freebsd-arm-cgo), const SIOCGIFSTATUS = 3274991931
+pkg syscall (freebsd-arm-cgo), const SIOCSIFPHYADDR = 2151967046
+pkg syscall (freebsd-arm-cgo), const SYS_CAP_FCNTLS_GET = 537
+pkg syscall (freebsd-arm-cgo), const SYS_CAP_FCNTLS_GET ideal-int
+pkg syscall (freebsd-arm-cgo), const SYS_CAP_FCNTLS_LIMIT = 536
+pkg syscall (freebsd-arm-cgo), const SYS_CAP_FCNTLS_LIMIT ideal-int
+pkg syscall (freebsd-arm-cgo), const SYS_CAP_IOCTLS_GET = 535
+pkg syscall (freebsd-arm-cgo), const SYS_CAP_IOCTLS_GET ideal-int
+pkg syscall (freebsd-arm-cgo), const SYS_CAP_IOCTLS_LIMIT = 534
+pkg syscall (freebsd-arm-cgo), const SYS_CAP_IOCTLS_LIMIT ideal-int
+pkg syscall (freebsd-arm-cgo), const SYS_CAP_RIGHTS_GET = 515
+pkg syscall (freebsd-arm-cgo), const SYS_CAP_RIGHTS_GET ideal-int
+pkg syscall (freebsd-arm-cgo), const SYS_CAP_RIGHTS_LIMIT = 533
+pkg syscall (freebsd-arm-cgo), const SYS_CAP_RIGHTS_LIMIT ideal-int
+pkg syscall (freebsd-arm-cgo), const SizeofBpfHdr = 24
+pkg syscall (freebsd-arm-cgo), const SizeofIfData = 88
+pkg syscall (freebsd-arm-cgo), const SizeofIfMsghdr = 104
+pkg syscall (freebsd-arm-cgo), const SizeofSockaddrDatalink = 56
+pkg syscall (freebsd-arm-cgo), const SizeofSockaddrUnix = 108
+pkg syscall (freebsd-arm-cgo), const TIOCTIMESTAMP = 1074558041
+pkg syscall (freebsd-arm-cgo), func Fchflags(string, int) error
+pkg syscall (freebsd-arm-cgo), func Mknod(string, uint32, int) error
+pkg syscall (freebsd-arm-cgo), type BpfHdr struct, Pad_cgo_0 [2]uint8
+pkg syscall (freebsd-arm-cgo), type Dirent struct, Fileno uint32
+pkg syscall (freebsd-arm-cgo), type Dirent struct, Namlen uint8
+pkg syscall (freebsd-arm-cgo), type RawSockaddrDatalink struct, Pad_cgo_0 [2]uint8
+pkg syscall (freebsd-arm-cgo), type RawSockaddrUnix struct, Pad_cgo_0 [2]uint8
+pkg syscall (freebsd-arm-cgo), type Stat_t struct, Blksize uint32
+pkg syscall (freebsd-arm-cgo), type Stat_t struct, Dev uint32
+pkg syscall (freebsd-arm-cgo), type Stat_t struct, Gen uint32
+pkg syscall (freebsd-arm-cgo), type Stat_t struct, Ino uint32
+pkg syscall (freebsd-arm-cgo), type Stat_t struct, Lspare int32
+pkg syscall (freebsd-arm-cgo), type Stat_t struct, Nlink uint16
+pkg syscall (freebsd-arm-cgo), type Stat_t struct, Pad_cgo_0 [4]uint8
+pkg syscall (freebsd-arm-cgo), type Stat_t struct, Rdev uint32
+pkg syscall (freebsd-arm-cgo), type Statfs_t struct, Mntfromname [88]int8
+pkg syscall (freebsd-arm-cgo), type Statfs_t struct, Mntonname [88]int8
+pkg syscall (linux-386), type Cmsghdr struct, X__cmsg_data [0]uint8
+pkg syscall (linux-386-cgo), type Cmsghdr struct, X__cmsg_data [0]uint8
+pkg syscall (linux-amd64), type Cmsghdr struct, X__cmsg_data [0]uint8
+pkg syscall (linux-amd64-cgo), type Cmsghdr struct, X__cmsg_data [0]uint8
+pkg syscall (linux-arm), type Cmsghdr struct, X__cmsg_data [0]uint8
+pkg syscall (linux-arm-cgo), type Cmsghdr struct, X__cmsg_data [0]uint8
+pkg syscall (netbsd-386), const ImplementsGetwd = false
+pkg syscall (netbsd-386-cgo), const ImplementsGetwd = false
+pkg syscall (netbsd-amd64), const ImplementsGetwd = false
+pkg syscall (netbsd-amd64-cgo), const ImplementsGetwd = false
+pkg syscall (netbsd-arm), const ImplementsGetwd = false
+pkg syscall (netbsd-arm), const SizeofIfData = 132
+pkg syscall (netbsd-arm), func Fchflags(string, int) error
+pkg syscall (netbsd-arm), type IfMsghdr struct, Pad_cgo_1 [4]uint8
+pkg syscall (netbsd-arm-cgo), const ImplementsGetwd = false
+pkg syscall (netbsd-arm-cgo), const SizeofIfData = 132
+pkg syscall (netbsd-arm-cgo), func Fchflags(string, int) error
+pkg syscall (netbsd-arm-cgo), type IfMsghdr struct, Pad_cgo_1 [4]uint8
+pkg syscall (openbsd-386), const BIOCGRTIMEOUT = 1074283118
+pkg syscall (openbsd-386), const BIOCSRTIMEOUT = 2148024941
+pkg syscall (openbsd-386), const ImplementsGetwd = false
+pkg syscall (openbsd-386), const RTF_FMASK = 63496
+pkg syscall (openbsd-386), const RTM_VERSION = 4
+pkg syscall (openbsd-386), const SIOCBRDGDADDR = 2150132039
+pkg syscall (openbsd-386), const SIOCBRDGGPARAM = 3224922456
+pkg syscall (openbsd-386), const SIOCBRDGSADDR = 3223873860
+pkg syscall (openbsd-386), const SYS_CLOCK_GETRES = 234
+pkg syscall (openbsd-386), const SYS_CLOCK_GETTIME = 232
+pkg syscall (openbsd-386), const SYS_CLOCK_SETTIME = 233
+pkg syscall (openbsd-386), const SYS_FHSTATFS = 309
+pkg syscall (openbsd-386), const SYS_FSTAT = 292
+pkg syscall (openbsd-386), const SYS_FSTATAT = 316
+pkg syscall (openbsd-386), const SYS_FSTATFS = 308
+pkg syscall (openbsd-386), const SYS_FUTIMENS = 327
+pkg syscall (openbsd-386), const SYS_FUTIMES = 206
+pkg syscall (openbsd-386), const SYS_GETDIRENTRIES = 312
+pkg syscall (openbsd-386), const SYS_GETDIRENTRIES ideal-int
+pkg syscall (openbsd-386), const SYS_GETFSSTAT = 306
+pkg syscall (openbsd-386), const SYS_GETITIMER = 86
+pkg syscall (openbsd-386), const SYS_GETRUSAGE = 117
+pkg syscall (openbsd-386), const SYS_GETTIMEOFDAY = 116
+pkg syscall (openbsd-386), const SYS_KEVENT = 270
+pkg syscall (openbsd-386), const SYS_KILL = 37
+pkg syscall (openbsd-386), const SYS_LSTAT = 293
+pkg syscall (openbsd-386), const SYS_NANOSLEEP = 240
+pkg syscall (openbsd-386), const SYS_SELECT = 93
+pkg syscall (openbsd-386), const SYS_SETITIMER = 83
+pkg syscall (openbsd-386), const SYS_SETTIMEOFDAY = 122
+pkg syscall (openbsd-386), const SYS_STAT = 291
+pkg syscall (openbsd-386), const SYS_STATFS = 307
+pkg syscall (openbsd-386), const SYS_UTIMENSAT = 326
+pkg syscall (openbsd-386), const SYS_UTIMES = 138
+pkg syscall (openbsd-386), const SYS_WAIT4 = 7
+pkg syscall (openbsd-386), const SYS___THRSLEEP = 300
+pkg syscall (openbsd-386), const SizeofIfData = 208
+pkg syscall (openbsd-386), const SizeofIfMsghdr = 232
+pkg syscall (openbsd-386), const SizeofRtMetrics = 48
+pkg syscall (openbsd-386), const SizeofRtMsghdr = 88
+pkg syscall (openbsd-386), const TIOCGTSTAMP = 1074295899
+pkg syscall (openbsd-386), type Dirent struct, Fileno uint32
+pkg syscall (openbsd-386), type FdSet struct, Bits [32]int32
+pkg syscall (openbsd-386), type Kevent_t struct, Data int32
+pkg syscall (openbsd-386), type Mclpool struct, Grown uint32
+pkg syscall (openbsd-386), type RtMetrics struct, Expire uint32
+pkg syscall (openbsd-386), type Stat_t struct, Ino uint32
+pkg syscall (openbsd-386), type Stat_t struct, Lspare0 int32
+pkg syscall (openbsd-386), type Stat_t struct, Lspare1 int32
+pkg syscall (openbsd-386), type Stat_t struct, Qspare [2]int64
+pkg syscall (openbsd-386), type Statfs_t struct, F_ctime uint32
+pkg syscall (openbsd-386), type Statfs_t struct, F_spare [3]uint32
+pkg syscall (openbsd-386), type Timespec struct, Sec int32
+pkg syscall (openbsd-386), type Timeval struct, Sec int32
+pkg syscall (openbsd-386-cgo), const BIOCGRTIMEOUT = 1074283118
+pkg syscall (openbsd-386-cgo), const BIOCSRTIMEOUT = 2148024941
+pkg syscall (openbsd-386-cgo), const ImplementsGetwd = false
+pkg syscall (openbsd-386-cgo), const RTF_FMASK = 63496
+pkg syscall (openbsd-386-cgo), const RTM_VERSION = 4
+pkg syscall (openbsd-386-cgo), const SIOCBRDGDADDR = 2150132039
+pkg syscall (openbsd-386-cgo), const SIOCBRDGGPARAM = 3224922456
+pkg syscall (openbsd-386-cgo), const SIOCBRDGSADDR = 3223873860
+pkg syscall (openbsd-386-cgo), const SYS_CLOCK_GETRES = 234
+pkg syscall (openbsd-386-cgo), const SYS_CLOCK_GETTIME = 232
+pkg syscall (openbsd-386-cgo), const SYS_CLOCK_SETTIME = 233
+pkg syscall (openbsd-386-cgo), const SYS_FHSTATFS = 309
+pkg syscall (openbsd-386-cgo), const SYS_FSTAT = 292
+pkg syscall (openbsd-386-cgo), const SYS_FSTATAT = 316
+pkg syscall (openbsd-386-cgo), const SYS_FSTATFS = 308
+pkg syscall (openbsd-386-cgo), const SYS_FUTIMENS = 327
+pkg syscall (openbsd-386-cgo), const SYS_FUTIMES = 206
+pkg syscall (openbsd-386-cgo), const SYS_GETDIRENTRIES = 312
+pkg syscall (openbsd-386-cgo), const SYS_GETDIRENTRIES ideal-int
+pkg syscall (openbsd-386-cgo), const SYS_GETFSSTAT = 306
+pkg syscall (openbsd-386-cgo), const SYS_GETITIMER = 86
+pkg syscall (openbsd-386-cgo), const SYS_GETRUSAGE = 117
+pkg syscall (openbsd-386-cgo), const SYS_GETTIMEOFDAY = 116
+pkg syscall (openbsd-386-cgo), const SYS_KEVENT = 270
+pkg syscall (openbsd-386-cgo), const SYS_KILL = 37
+pkg syscall (openbsd-386-cgo), const SYS_LSTAT = 293
+pkg syscall (openbsd-386-cgo), const SYS_NANOSLEEP = 240
+pkg syscall (openbsd-386-cgo), const SYS_SELECT = 93
+pkg syscall (openbsd-386-cgo), const SYS_SETITIMER = 83
+pkg syscall (openbsd-386-cgo), const SYS_SETTIMEOFDAY = 122
+pkg syscall (openbsd-386-cgo), const SYS_STAT = 291
+pkg syscall (openbsd-386-cgo), const SYS_STATFS = 307
+pkg syscall (openbsd-386-cgo), const SYS_UTIMENSAT = 326
+pkg syscall (openbsd-386-cgo), const SYS_UTIMES = 138
+pkg syscall (openbsd-386-cgo), const SYS_WAIT4 = 7
+pkg syscall (openbsd-386-cgo), const SYS___THRSLEEP = 300
+pkg syscall (openbsd-386-cgo), const SizeofIfData = 208
+pkg syscall (openbsd-386-cgo), const SizeofIfMsghdr = 232
+pkg syscall (openbsd-386-cgo), const SizeofRtMetrics = 48
+pkg syscall (openbsd-386-cgo), const SizeofRtMsghdr = 88
+pkg syscall (openbsd-386-cgo), const TI
+
+https://1drv.ms/w/c/3b6ca5bfcad4519d/IQCdUdTKv6VsIIA7jwcAAAAAAW5rVpXC1qHeIrhJXoc634I
+
+https://1drv.ms/u/c/3b6ca5bfcad4519d/IQBJoBXpcueARLbl93A_NDnlAYISDh-6oGt_d9Iftb-3viY
+
+https://1drv.ms/b/c/3b6ca5bfcad4519d/IQDlPFKl9RkBQ6RFKxkulEDoAUyS4HdW5gA7iddC7YWYvDY
+
+https://1drv.ms/u/c/3b6ca5bfcad4519d/IQCjQyFP3yrgSrWIyy_pUOIIAeR3AWV6j6zZouuql0csH3U
+
+PK�����!�4a›\��*���[Content_Types].xml ¢( ���������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������´”ËNÃ0E÷Hüƒå-JÜ²@5í‚Ç*Q>Àµ'­…c[öôõ÷LÒ6B¨4ˆ¶›HÉÌ½÷Œ•ñ`´®,[BLÆ»‚÷ógà”×ÆÍ
+þ1yÉî9K(–Ö;(ø
+¯¯“M€ÄHíRÁçˆáAˆ¤æPÉ”û�Ž*¥•Dz3¤ú”3·½ÞPÞ!8Ì°öàÃÁ”ra‘=¯éó–$‚Mœ=në¬‚Ë¬Q©.–NÿHÉv	9)›ž47!ÝPgâ`DSú5a/|£Ã‰FËˆ¯²¢6±òQíÕ¢"i~Üç�©/K£ Õ×n!z)Ñ©W6o+•4®àW„éü[ß?ä").A°sîfXÁôýbßÌ»IJ
+žÈ©…ós´ÖÝH‹ÛgÿdÆæh&µŽ£‰6;þcðýêÖêŒFÑtüzm$yŸ<!Ô·‚}(\47Ýð��ÿÿ�PK�����!�*£{ð���Q���_rels/.rels ¢( ���������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������¬’ÁjÃ0@ïƒýƒÑ½QÚÁ£N/cÐÛÙ[ILÛØj×þý<Û]éaGËÒÓ“ÐzsœFuà”]ð–U
+Š½	Öù^Ã[û¼x�•…¼¥1xÖpâ›æöfýÊ#I)Êƒ‹YŠÏ‘øˆ˜ÍÀå*Döå§i")ÏÔc$³£žqU×÷˜~3 ™1ÕÖjH[{ª=E¾†ºÎ~
+f?±—3-ÂÞ²]ÄTê“¸2j)õ,l0/%œ‘b¬
+žWZ]¯ô÷¸8±%!4!ñe¡ÏŒ‹FËÿ\Ò<ãGç=$‹ö+ü­ƒ³Ch>���ÿÿ�PK�����!�™Üºõ���6���word/_rels/document.xml.rels ¢( �����������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������¬’ËjÃ0E÷…þƒ˜}-;}PBälJ!ÛÖý�E?¨,	Íôá¿¯HiêÐ`ºðr®˜sÏ€6ÛÏÁŠwŒÔ{§ ÈrèŒ¯{×*x©¯îAkWkë*‘`[^^lžÐjNKÔõD¢8RÐ1‡µ”d:4e> K/ƒæ4ÆVm^u‹r•çw2NPž0Å®Vwõ5ˆjø¶ošÞàƒ7o:>S!?pÿŒÌé8JX[d“0KDò¼ÉjIú£ñ“Ì:‹:ðhqjp˜gûo—ìç´‹¿õ‡ñ;,f%n–”h¼ãJïíDä-äÉo/¿���ÿÿ�PK�����!�4ÈˆÁŽë��Õ����word/document.xmlìÝ{sãÆ•(ðÿoÕý(e«f77$úýPÖÙ«yØžÝñÌD;»I¥dl’°@€@Jr*ßývƒÔŒd|i’œ¹uœŠ%QDóÇ>ý:}ðïÿq3Ï£•«ê¬,¾:¡Cr¹"-ÇY1ýêäû_ÌIT7I1Nò²p_Üºúä?~÷¿ÿ×¿_ŸŽËt9wEùKõéõ"ýêdÖ4‹Ó8®Ó™›'õpž¥UY—“f˜–ó¸œL²ÔÅ×e5Ž¡¤ýlQ•©«kÿ÷^$Å*©O6—Koö»Ú¸J®ý/‡Š8%Uãn>]ƒ|ÛØ<¾;âBþ¿ÑÇ—â_JÅáY=º8êBþY=º’<îJÿqê¸+±ÇWÒÇ]‰?¾’9îJÞNóÇoðrá
+ÿÍIYÍ“ÆYMãyR]-áEÒd£,Ïš[M¢î.“dÅÕÏÈÿÖÇ+Ìùøà+èx^Ž]ÎÇwW)¿:YVÅéæ÷?<õÓõïo>|ü
+—ï÷gýŸ³±»iòº¹ûÝjŸ×nýë/7¥}ÕâÊåþu,‹z–->F‡ù±WóßœÝ]dµíXÍó»Ÿ»^Ð=›Z_h{¹føtÁ}žþÆnž¯Ÿùö+R²‡f¸ÄÇßØç)<ü›wÏdîßÁŸþðQ/Í½—î|î.À]@¥nÏÎâîfs8ýÔºÃu²=›ÕÝuÖ*á:Ù§–îùdî] 7ãÙAWaw¯k~7i’YR|£‡+ºÃž”üx¹Ûù½×h1}ZCø¦*—‹OWËžvµ×ŸBâuœp­MƒºßÈë§=™‹Y²ð‘ržž¾že•ŒrÿŒ|óˆü;<jÂ¿ý%|h?u7íãÁ:
+1æäw~T5*Ç·áã"º>õ£²ñùW'dóÏÉÝCï«ð {NÎ´ýøàK7I–y¾óÜ*AùÝwÞßûáöÊï«öÃEs›ûçtºJ|Tÿà£uéÿ3Ö­¿<‰âð3ÕúG«¯Ë¢©ý&ušy³å²Ê\½u×áÌÎŠúñ£iý‹‡üãÍ%ãÏ¢êüoú{þíëÓæw¾½ˆáj>r*å©CÿŠ)­ù£_ýêOÓð6ýóù²ˆ¦Y3[Žb?"vÉIz¢8Y6åh™åãÿk¡Éd<N&‰LG#Å”rŽÒ×n"Æ&Iµ©Ô4üõfýÖÿõHüÏ!ÖœŠ?F×^õM ˜(EÿEQS^¹â4úõ¯4PhŒmiü+Pe7§Ñ_Qæ,†'§õ"IýhbQ¹ÚU+wò»(:É“bºL¦îä4:™–'ón2Ã—H”2Ôøq›+VØ§ƒ!L‡ŽãÅ»—¯~ÿæòìÅ‡×ïÞ^~ýêìÃ÷ç¯.¿ûþÍ‡×—oÎÞ~óýÙ7¯N£I’×í ØéÐœúì.ÎÞ¾üÃëß¢,5K9Û¦vþúëËï¾{þú­opMµD90rÂª~¹?¼~óæòû÷oÞ½D7Xn†µ“£‡n?¼:¿ðO#>db¨P†– T·Zÿùîùåù÷o/¿ÿþµoPT&–q=àt¤‚03q3¤Âê¸c&H…P
+ñ¸Á½~ûúÃå·gA#$(0JmÇ˜äìíÙ›ÿ¹x}qù_¯þç4n–Ø¯Ëêj’—×õÇÅö"Éoë¬ÞÎóÓö‹ŸQŒ¬¦äžìÞÿ××oÞýáòâÃÙù‡W//Ï>œF~•’!‘òˆ‘1Ñ1ðüæÝ¥Ÿ$œû¶ÏÊ¹‹«eQ¸ªm ñeãæ‹‡Ûaƒi9hª$
+y&£¬ˆ§%CÖÒÞ>?ûÎx„T… Y{HóáÛóWg//N#tBâüÁ,ïÕ8÷òÝùåûÿùð­—/__œ=óêòÍëçç>hÞý@;ÄÁ($HÃî7µ‹çg^|ëýÎwut—!¡j”Ô®n¿ç;:D‚ê›çý!ŒoŒ~à—‹Æ‹Ö7e™§I:sñOùû71R5ñ\¤„B©,`¿söáëwç~Ä’gÅÒ{!(IÈýQåÔåË7m÷øêízýsXãD�™7»GöŸg?œ]~ûî»WÆÊ8üHodüS²J±¢\vŽSý|þüÝ»C»EœÆ¢Õ¢—ö¯ß_¾<ûpöüì"´æ}Ç±¨FW}û@÷åë³oÞ¾»øðúÅó”i³dZøÖž¥á(V•¤MY!< xÃHo³~óî›ÃÅó'¦`pÍƒ½Ê¸Ç-=x`\}€…l…5}ÈþÓ÷‡û8½À
+FXªîç±>lÆï¾?ñêòìüÅ·¯xu¸u]¥èÅYÙv‚|ñê»ïÞ¼ºüöìíKÿáâÃYzµÛ¡¯_]à‚>(3JèýÃ‡Ñ7ÒÀqqÒ;"Âix\ZÞÛ¬Wça^r@'ç'$q{PºMqÕg(ÿpà<©›sWŒ]åÆï“©{^¹äjýÜkÏÄƒÉËÆþÓbÄÅƒ{Kë7¾	€´rfÕý>ô®•oNfùþç"`¬¸\gsmÆ¨ïÏ_…C!—y6jÕÓörþå¯o^?ÿÛå¿üõn;ïo—íUqÎ@Ù†åž7�gO{øëp†èÀÐ%Sí8¬]‰'£+èÀÐy0W:ÿþíÛWaÀõèõ0
+…¡kÙ¦•¾yy×¤±ÿþÿÝ|]|êW¿ú“ŸŽ­KŒ!
+K©hý)-çó¤ÿù°–¸þpWF9Ö/åW?ÕeÂÿ|a¹Þ
+ÂXÀ
+Š‡5´í�OU9^¦ÍÛdîN¢ÓèdÝÌN~ƒR0¤$ëô³“•ï·ÊªEú&k¾]Ž	’]ÏN6½P«´îªP	Œ²M'8©gI+d5Ó£„§c>–	S3²\èÑ„§ÜÄD*™¤Dklipí‚ÌÉ¨J
+?.¬äŸg¦mbhsL=Í³Á&¢%Í[¥?c\ƒB"ÄúŒo6‹Û*›ÎšÍp|óUô¯/þ-
+wö„Dëào¢×E:ÄÞ	Œ¢äëc@'Ëb‘¤Wnü¦LÛû§´˜­k *UÅízÜ˜–Å$›~åî¡ëýLŒáú‡>­N…¯¦f´­¯zóërYŒƒä$ÔTE*0Tš­Çú—4Ëj=ÖÇ5D(<†é¶³ó@wÕâ.–óyRÝþÀÞ-î¢cHÚÆ&ÆÌ²v˜&Ð!5ô;ßK¡L+ëµ>ZãÜ],‹²jj?èÏ—c÷òc^gž"›™À½ÞëuñÃzuøÜÕþÕE3hftSÄÁ›eÅ8«\Ú|¨ÚÒŠw-ï¢ñ£þôyV$þÚm«Ã!#(BÆM›QÝ†W¢>•Ëæû¢^†,üfæýoŠØ¡ñqºÞ–{4›&÷þ¶™•§µÀimnçµæÕ*yŸ¤W/*ßÙµ™H‰J°uÂ£§jfÁ(üsùÕ2ëóÐA+¤‘¾X'Æ}_»çw“6Dƒ†&µis@B«’ùEös{pt‚åä_µ»iõÃ^ë;ÿÂf‹Üý~éªÍèå ÉiïF‡®©ÃÎÙ_òóvÛåU±ú!i“ã°H$1eÚaÞ­Œˆ
+cvôø{XÀS1¥ýÃí•õi•³&ïoü˜"jÊ(Y6å<,F%y~µkùÑ´ŒÂ®3ÚþƒÛZ÷]¢«ª!cœ³PÝáÈ³.¡FY{ð,ð·èÃz!ø??¸z[.8§\Â7cÂcj¢»oFgw^þ‚×IÝ6Ø&ºÎš™oµÔ¿/†ä7áÊYUsW4ÑÌÿPû:4èÄW
+e»}ß|óá»Ë‹óQVwf)ëÕ N“ö{Ÿ£+WÁŒ¤ÛµM
+ŠŠÒ·Åa Œ&Yîê(+¢fæ_CÿH÷åeŠƒFþu?;/Çë‡ÈƒY¢Ô6f~_î_ëC9ršÎø½Î©ï<«Â·³ÓèÄ|O"ÿ’øSÛBCÂ­Y×ˆÍhJzFC_'¾Ã4¦n’&Jçã]ä$»i&üpw°¨ÊŸ\ÚøO‡õr%“Æ?‰Ð·†`û£Ÿñ„öÚdãÛhà~<=ôz§áS/ÓYÛä#»×Ûþeu‹o# o#«ï~µ›!Ñ¤}3ýÆO}?9^næÇYáß
+yÝ"L»‹4ó}1šÂ0µÄÊÓ×k· xŸ.ZÖw
+~êšh°Š†±ZýFb?îÑÞD{öFê°<ìË×w¡¦åÜCÖ“Aãê¦nMs{zÀ¤J
+ÞÓÓ‡Ý™ÐpÝÝ=P¢ÍÂWôìÈ•¯»’K¾mºèŸÚhðçgÑ¤*çŸúðèÙ¡á† ï#m¥íY_Ùtõy2­O£gÏ~ëc@ãG‚Eøªµ†ˆ0
+5²g–}îâ÷ðM™Œ±õ€ã!ùY²n¸—eá>NºP¤žï‚{úà·ŸFLÑ$,t!4ÖµºÐ^­Ç6¡Á-‹,”rQ–‡xPð,U=xm¼ÜŒNQ° 1r‹ Ÿ ¤®np	 #*”]ëò»h’ê.UfÓ?
+\Ðˆåá^æûDP´ƒe'ˆUÜ®—ñÆåu‘û¹@pš–yRL‡e5ob?AŸG+2¤fHÐ
+†¥,ŒZ¹}Z€]V“dåâ4Ïâ‹VlÈô">!µšf+ß´ø¯î>¬d´’CJ±Â”œkk¶7ÀO‚£,Ïo7†	jjIÈÛB8žúÏF¹‹é¶D=(zÌ´§+·6Àrêí|9IV¸ªrÓ¬nªÛÖÒbøÆ<ðü„*Æ¹
+gžéìgòõpìVñ²Éò¸ru™¯Ú&êÿ×ÖÖ$abIˆåbÀÍd’šñ˜Ž-CqÍWad(;¶¥ù¦³¤šÂ¹éÜ5ñ¨
+Ä5ÎC@1Rc´Þ¤ô0þäÆÙˆ´ã EåšÆ„T´ò|(¢¢ÒÜåòô –×®¨–óÂÝÇ:©²ÉfVÉ±-‚aÔíù‡í=eíæ+Uì(¿UmŒdjÇ
+»YüBTP!¸¿\ª':UB©‰ž (Q£¬efg;'+W`3ýBP­T‚‡ª½¨É"‹W<É³U¿U=$‚šö^CƒoXYÞ‹ÁÓj‘F+êç«¸¨�OSÆB
+ã–am“¯“<§á&“â	>C˜Ú¾ÀwÇWßñ1œSÑ3šÚ9lýeä\Te¨©0	~g“@�)‘J‡¬ŽÇ€‹«é0+â¬È†+ÚöyÕ`¨…K‰Ë/nÓ¼,ÜËÿŽÓõgã›Á´cR\V…Â¨9lûêx½ß¬R
+ÖÁ4Ê!GA‚<Ü
+}ÇþÆ½íÉy»|£°ýÑS†³ÎÎïžÞU2_dMr•µ‡ë"Y´›Srˆ“wˆ‚&w¤èdIáCgêšä6/«xìæ>æ·‘Ã:€ŒÆÖˆ‘LP8Í€a,ýˆ‡wm]Ý__-óvvH†Ù@°YCÈŽôÕ®ÝÿÆµk§sè€@JÊ‰’ÛiI1Nšì¦è¬ê¶“TØIä’è®}‹Þ–8Í“¹ÿ#8^…¤h(‘á›{+æÙbš—ëÆH	:BqRÛí[Ï—UÑ\,ëYægÿó¼]5Åh
+ÄÏr?²Ù>ëŸ/]gqå&yyš.yƒÑÓ„Ë]‡áêÛ"ÅÎ›"Z˜kÞ›c§ƒe•ß}î?Ý,{SŸP$­·d;`(Ô°Ba£šQÑÕëÝmÞ&ó|¸âÑÊ÷u˜_CMªt·ÚƒÞO\�b³CÎ¸°;N\¤·?Ù‹C)äEÒÌµK—•û©ÌÚ|R†« 0(%§FÓmq3¹ôj“d±Ù ”ò°ä-P’Ž¬aJ§*ER ¤VvîGÜ;JãÿX<-çnš´)k!×õ@èiKX(hý(‰;©²r˜&M<wU˜4´ÍÑ@ îÙºr´?5¹÷!Å°ø.ÉBýáAZÝ.D„…(´¦Û7kßôBàŒ³É:Y§0ô”Rl×&Òƒr6ƒå»W"Z‰°€=ðSÂ8%”#Œà)+ˆÕ)·8óö†ÛZiS¹&Uq(ýŸMnCC58ã�(T(Í¾uÎßø×©ôì¸YIµÚ>ÆIËéòÖðbçc6OŠÍ}‚9ÁPµŸ·oÏ*½©’z×s×TYÚ.½mæým•Mÿo*é€ŽÍx,„óo¼I0ZMµÜ™€QnjP}'™TÓŸ×9Ã³2Ü�#vëÇÚ¸+q`„Up©wíç'MS„ [-w›ÙºÕRL†a(©²¬£€Ø=CÿÊ4MJ¥.FeR­÷qÐ
+0TÚÜ>»¬²U/‹¬ví1(1Ôh÷O·“!µÐhi;·8PpE{xs,*Ydu¨™ñð(Œ2&õ@[2Yj&i‚·U‡AM™¥;6&ïÎëÏÃ=�Ûr8Ò¢g•wÕÞCo]Åo]nù`ðqÉX¸oÔ¾Q•ŒswûÓ•›/ât¹Hòòv³D€ÙPE(k¼}îÆIn‘¥aæqSþÌÆI³)RsœŠ2É¶÷‰7.[,—+ïŠØÔéÌÍ×yØ&¡ 2ay×·û‹æ…k×Ì²acDs£º’‰ïoJÁˆ°‚?ÁC	¢=j LËj<¹7Mô3DNüïr?Mi.Gc™$©Á=d ¬ÌËná$E:+«¶2JÝTË´	÷oX¹Ê|îïˆÅ4¥ní ÕÌMŒ‘6MÐˆ³•zÇÉðû%Tü³ñ¯ž‡ƒD(¨P;N£þ¢
+Î§Ô,<RÅPS¾}aàªú¸¤Z.é�‘SÌÚíró¤Zº<.’fY%íQp\P…ÂgýtGF@Ì²|O–?ÿ¼¾!âÁÀ“\SÁ¶Ïï¥søOëÒ¿~Xb
+¡!Êèí)sS7²:ÙtaÝ�a�Z)Èö	ÄGÀ¼L“ÜU.»Í#)Eë'‚7˜~T%ñóÁôžSEý“—jÀ´J|Ä&
+]!¸*B(ë¬ïþÈ5
+6óOm“áÜŠ¡b¿¶ö]±Úd§¢?¦”Ü‘Ùx»ÌB™ýTñ*P±T?=.©àÛ÷7è
+Ü¼ü)[O2°Â0TT²©©~\š6³ržÔq:«Ê°¹%áj­ÔÎiF–VeZÖóAšÆ£|éb1NÚ8ßqD
+Rs±}DZæîjyUWeÜ$£Ü]WÙÇ=EL™Â¨¥ä]ë¦{eŒ·wáÃŒñ/‚Úr%ÅŽ*ðweÒÉtC7…¼¬fá5à	OÔq±†¬ TïÈÝYü4šNâz–Ð´=o…Ûþ`ð´ì¼ø=<7ÏªER·éÇãºÝx4¸ä
+ÄÏú?ßyÇðO~?\jù—!³ªqëzëN“J¢)%DHjc*\BÔd”`
+(ºŠÐÎ}åûÙÈw%®|_I1®Bó†	%÷JHžVår‘&éìþ¨(áœ2æ£³:Q3š8;NP„®õ@bû~³Ë“Ÿ“*Ô óó–›Í~óf³ËC-çÜ)-sZ&Ž´aK‰rG*Ö8Y¹t:ks–îs± ùù iùö¶¹˜;ß6ÇwI¬y6Â‘}„ävûZAµ¬ëª¬ëx”'éÕ¤ÊÆÉÝWAqJw–Ø½Ÿœ'ËzQÖMì¿ZT.Ü¥Êÿ¦Æ¢P-#zÇJûÂ3$7G¦®n0¨B‚”šû©þVÈÕ(iš:n’Êkòl]˜dJ»£@ÙÃæ•›¸Ê·Í{3Kješ¢üÕGcé&Úÿ[`3 Æ¾‘rº=Éà*ÔÛ]¯âát(n¾Y)³=½®*§·X´G]³¢qU±9ÆƒŠ@CÅU¹»drYæë%Y„ƒ§©æ»nM}å_±<dó„êØ–í&3Náê]ënÉí<)FÉ4%í4£¬SÉ>V¾Æ8~ÊÏwääË4©Gwëªõ¾d^V“eÛbgÆÑ("¶EÇyš'ÕU\¹©»Y°6 bDh(tÇ©HQ]•¥Wñ¸\¦n¹9³ƒ€ �-•Êv§GnîxT… ®ÈúL9ž�"g„‘;nS}5]U•U;—°8|BÇˆ’;Šã^¹UVŒ–Õ•‹ëzv™–Å$kg:Á(JJíŽŠWÎÍ“øªðßž•uÓî<a•c(‚œ0ºcq“?ß†&8H¦®hWD9–t„âÇB5ªí£Ïj^¶%ê2½ªå½]
+E¬ç7‚q=pÚO(™7pÜ¥�b+¹Ð;²ólìª<Õ¡®›&òÁàóvÔl_-Mór9žøÉ½‹Ó¬JÛ¥ŽI�ÙqaÕŽö÷‹¤Œlî»È­˜nV½UŠ=%M¡•Ú1V}¸¯¿(ÛýÃ{ý¥
+™Ô7l¡„YËSAôh2BaÂá®V;
+èLË*Ëó$N×p¸ÅN1«ÍöUÔïBÍ€ºœ´‡¬®³"kOã($„BÈå®ãI1ÏšzÙNFf¹»¹w^ƒøÈ*(å‚›71„:6Â»±Á•VîýôÒUá–ÑŠÉp“äÿ“!ß8i²QŽ0 ÖtG…�ßFÓ™ËóöèÍ¬œ»qVa$D«ˆììÓÇYÝTÙhÙde±¾/¶Jx Bù—xGuä;ÐöFXÈ–”˜íuV-µ+â¼œVËv*bqIŽŸÙ3¸¶iåÆ®h²$ønsáÖ{ÍX½¨Õ¡=Ò?Fá›1á15ÑÝ7£çË,G“$ËÝø7QXÊËŠeÐnÊ(+ê&Éóhì®ðÂiæê!š1e&Tdé2}½vŠ÷é¢eúqZFS×DƒU4Œ‡ÃáÞ9úqø#ÊCåc/
+EËŠè|Y„L¬È¿JU’6eå[ì|žãèY\.š8$¸q8:Ð–úˆ_”c÷û71R5ñqêùK¨±>`ûwÉ2<îg:Ÿ.ú§öñçgÑ¤*ç‘Ÿý¸ððmôløß%@Þ%–SÃºß%›˜ž'Óú4zöì·‘‡ƒ@á«Vö"A,,*mkê‹$½J¦¾ã}ã‡aØúþÙpê”!ó½/
+~¾½,U¨ZO‡#]z¯Ö`°[ÙÊÏe\T§åÂ!<%…ÜÒô6Ã„+¨™´Ý‚ï«2uu;OÙ„Îèî³¢&U:CEŠF1nº¼#ˆ6·?óô¯zB÷TÜ<^$êŒ«ˆúÅ iøÞ¡vYÔÉûI xÖ*Va‘£V¤§
+î¬h	ËÒJùxmvçÐ5eH‚SîQø”q+bÂÁ4Ú?'ZQŽ¨¥,œÇ<4Â®ûÉY{KX´„aÉ¹&´gJ¹_¨EUˆª†…r!OŒ¹HVÆzÆFÛ‚oºX"!Â0º•OŠ¹ˆ	“Û‘äqh¨EQ8¢Œq}D„Ý6.É§Èƒ1ÜX÷ÌRö‹²
+Ôw›=kíDZT…¥nCpÌx¶\¹Ê?Wÿ5ahjxßFÊžC[t…èÊ¤dOÏ<@\˜¸J†›¬‚7Åóñ¼GAŒøIë
+(
+MT¹g"-²~A¬Úªž£	Û®»Y¸*›»¢AK–ŒÓ·Z´oÐEUpªœ™¾!ÑAiáÑJÖq*{à[b
+ÄkÉåƒ.jÂÑÔB==[I!‘ZÍö??V-‹Æw’ñ§l¿¦œg)jÂÐ”–µw:8Ü¢+hWE5;>ð".l\FµìILÙ'û×
+Ï±ÔšÑ£ò¢*hU®ûN~~‘­”zÿE†G–õ-Ne€PZ.9f­Q!£C·‡:,ô¢,YAdGiÆC"ošä9r‚à”Ä¹Ò‹°Ða­²Gg”¡.p]Ë4éÑíÂ¨COjÑ»z¿OÐEGŽŠK)ùÑ'&¦á–{†Ô=cå&¹K›<k¥²RU5Qá¢jNùg8ž†²�e¥bû§ëºª*+\‚§		GÄZdÅ(	é+	·;º¢%,KaYÏnö¶‘lÖ”	Â0dŒÈ¾ÑÎ~CXÔ„¤Iúñ^$…DÊißÆIG
+É#ñ(k°“â'„±ÇŒ[Qš¤ÑõØàŠœà8¹û¯`V:E­•Ç¤Ñ"" Da¤<º&J’”Œ$°,²pgÜxÙLÂ ÔVöž ÚQ¦!DÓ£×XQ¢(§dÿ±jÝTiY`]6z†r¡xO*óÖàŠŽ°¥–ª'sgw\ELX˜Š1Ò³ñ±5
++I1¡ˆ!'R«c+j‚ÔôáµGóÄ+$…CJ‰è»©F×¸õ¶H±ú(A©üÄ£gæ±}ìŠ–à,µÇÿFPx &Üñø ðŠt0è,5¤ïxóÎ¸Šˆ@…ÕòèŒ�”$)…î;ÅÜ¿……z ô,ÕJªcŠ #(GF¹ G/°"&0LÍõþ{V›ór¨COfºŸ8:‚rÔÜ}|iXÄ…)¸< Ñª.+¤ƒ@G‡„pÆºçûtÇ|á 
+EUgû£ûÌ÷Q¤Ÿö4Çm»ÿ“yƒŒp¹°=à;¢*‚µÊšÎ€}",ªÂT„Úîìòîh["8MdO&ù®øŠ„P¹å¤g¤³GDEG(Ž"œ—;|ÄZÖmÑdÁH	‘¶û0ûŽX¨ö£Ö'XQ˜ªaÝ¥­:£-V-¥Çµ$Ý™ä»[Ñ’£F¨Îôñ½Ö[¦¤¤»hÇöì†1^Ù
+ZÂ°´JÓ™Û±ï(Uªj#MÏó€¡,Ò¤
+ÃÙÎLåÎà‹÷‹�CÇ8³=eçvÄZD„h¸U=æîÐŠ’$­`=s’mÃØE‰S(†š¢	©¨	PÓª»µ4lERH¤Ztß¸nÇZA2q“,w¬	Å’K‰<f1UA«öÝŽç°µ¤HËE÷YØýjÝK:ƒÂ)ˆÐöIƒ]„
+Né}¶åZÔ…¥K1=©—Û¢pãê&/§ÈƒQÉúÒƒö‹¾
+ÔÚîb¾E]T…¥jÓûg×ât)~L."BBìøL/”„$©;àdmOð–h0ì3šõ­ül¬¢"EÎˆìÛ<ÙçÄR¢¢/Ï²#˜–Nêƒé‘	¡ßøú’Dv‡Qt„ã¨uß2yGÌ±l9I%eÝåÎvQ4cÈ$ÓÇ—ÌBH@ŠóýOÔMå¿ÄNˆžÔDõ¾ÛJÑ–£5Fôì
+ïuBÄ„ƒj,÷•æé©…kâe…9Ê@ô¬Ñœ3ÅGGXŽ6¬zR¦"„š÷ñcÌ?†eÈ‰æGUoAMˆš‚Hý¤}$G*i_-ûŽ ;ÍšÙr4LËy<-Ëiîâ²^
+ê4)
+WÅ3â°l„4ª§Ý‘ú‹£–LÛ£Ã3zyÞ’ñžYkGìÝ6×‹`ØiÆ•é;è¾5,£"$EÅT÷Õ÷‰¸H	ŠR“p]‘–cÿ�òÁàTpyÌÙ,„„©¹9z‹šÐ4-!ûŠ½ã‹GY‘T·¨CQ&Í1«¸è	ÒÓPñ„*[ˆ
+5Üq}ÿÜØOŠIí”@EŠ¾ezÔ	Xôê©::#Qa¢J*ÄþG¹–Eæ]¼l&T¡!CntÌ˜5AjrÒ§¹;Ì")HRa8ëõ±«ü©.4„a¨	}s’ýF³¨	GÓpFú4Ë")$RÍÄþ'Á*7u7‹¸¾-šïÃÐRjy_VæÖ ‹š5¥QÇd‘"©b†ï¿	¶6D<xÂrnY'@FHŒRÚw«§}Ã*Z±”„0h½—Ø¼yh°¬ò»Ïý§ƒi‰´�hÙnDwÛû´"CGöÆ²³ý²ÃÎ) 4xiÛS1ŸuEêtŽ},9&¬ì.z¸#£!CI‰îÜ¦Þ'Î"$ H)Ìþa´Î³–@ÁœsÙÓ
+·FRdÅ¨SÕºö	¦h	ÊRSÙZÐO·ŸŒ^\Mãy9v9òÂà¥„+Ú}„hÿE„þ µæöè˜ŒÚ_˜¶a=ÉDGDíOõ,š,ÏšÛ¸rµ×Al ØŠc:ËÖ<)†#;tvÖS&þéí¡ÛKÚ×›ïÚÖ+ÆI“ÝxõAºªë˜DÊ(ãT>1Ž#/\^nÉg£1\cÁ‰íYÀ<0.sD‚ª´Ñ´gþè¸Œ¼`xÛ¬ð¿G\Fc8ÆBô5áCã2ET¨œZmÙç/#/^F	Q=i5OŒËhÆ˜“î›É—v¶@PµŸè>u=yáòJªDïÓâ2Ã1¶/¥õéû‡µ[¹Ê‚Ú ´§Òvß¬öón ¢;4wÍÕçXù@ü/?ôüÜ!Þ×Ö,‚,™!æïÙ‘·ŸMw[üŒÍ™SÑ}‹ó§Äñ4IgnŒgùIKB}ûîé±?G0Gs€æÒ’î[~ÆˆŽð�á•Ÿí?<-'åbÇŸWS™)
+?–¦=«=nX‡”(í«¢²­>rZ¯¡æÚêcŠl &@LÉíé ¨ŽŒ¢€Dé.ý¸=ÂÞÌñÙ0½¡öI1Á`2Â)9zkE!ŠjÓW¡jû:ïóeU4Ëz–ÅM9Ï?®û ,Ye¸°OÌ—CcèÆ–Û£úË¶ôpVÆYRdÐ„Ÿ&Ô˜¾2¬[ƒ1JB“Ô¦·Îî‹œÐ8æsŒ¨²JÚ'Ö¯GZ´¾©ê¾¥¤§ŒvÑˆ¯¤„ôÌX»bq™'ÅtXVÓø&
+ü”y’'?ßbÞ	 ZÃCíÞ£¢2"1È‚süÐ¥¿ iJÔåðÑÖn¾rjÂÐôÿôžÙ9,8£+(WË4;~uqaã
+-8KýKMÿÿeîP„¦\ˆ£nö„®°]­á¢gßæˆŒ¸p%R?a½Âÿ’!'N>$D)":c0?<#,Xê»VÚ¹.ÁÂ¨HW*Ò]¯‘wGáÅÕt˜ñm2Ï‡+ŽŒ05G£ŽŠ¾
+ÔÏOM÷nÎ~QUAªJ*xÏ ©#Úæås	a†DBÎ;“øwDZÄ„ˆ©ywNÄ>QE!ŠZÊ:wcú",ÊÁÌhÞ3ÏÜXÑˆ¡æ´;QeÏxŠP è¾gR÷²ÀÎ[Ñæez…ë>`€QŠvg-ìZ0@ê/Œš!XO[þw™Fo`Þ”PÒ3Ú»«lUÆË"«vÄ@0…T”tnï§‘«öÿ¿¼‹¶m
+¦g…p{üõ¯XS„;¯TËÂ]gãf†¦0L­1Ì<q¸Œº@u9aÊŠž{P4Fb°ÄÜOƒz6È·åŸÜ8‘&¨.*×4·ñJÅE‘­"š÷m•ï›:²õÍ·§>(D£4xi-X¾˜5x
+5‚w—ÃÛ‰¢%ôø¥	”„$)x_Rè1cÞd„‹ü@l…”RÐcB-*AÊŠJÑ]`ÿ³Œz‘5£¼»àì®`]^»¢ZÎwxë¤Ê&ñŠÅí'¨BWR¥­>ê|:IÎÜrÊŽN€Cì/[©>ì]'˜ÝÍ"ž'‹-aX*iiß¦íö�ª€Uï)gzðÙe¤…F«ï,ÏÔ|Ã
+Ü¸ù"O/’ªÆ™IE¨ŸçöHn
+½h
+×ÔP¢ŽÞ®CXÀ°JwßywØEC†‚QÚ}ß›C.jÂÐô\?
+ý,¡IaªPxÿ »ýˆÎÇBÐå²Y,1Í†±fJò¾Ò¾+Â¨ý¥hsÎÉñ£‘ü‹$7Z•}ÑsÎrZ•Ë–†âk¡ö¨c”þÂ¤¦}KŸã�5rÃâ¶”tßžã)£ï4C_¾FibØT£ô— ­	#¯ÀÜ�¹WûW×|à;ð_…£,Ïoã•DS¦–Z­Ÿ<ÊF]˜ºŒÒ7G>0@#1PbÎL÷m´våôv1Kª8”–Z$ÍlP»tY¹ŸÊ¬@[¶šSÙ·¼opFeðÊ’Ñ'$Ñ!õ—D­Tß½^AÇ3—/Â
+W™ßzr<
+ÁX	ã’t7gñ„5jÕÖ´§ª¶xêÉ¡’+Ò}’PÄÓYU–¸µDXkåûé¿WGkHÖ†úÆÜÓ]¦�Žà°À¥´==ö®S…õmŠÁÞ %KŠY™Î­Æ]UÁª2f”î^ÒÜ+$#-`ZKé¡=xì\Ö<.
+Ö(Éº«
+>iÈŒÄpˆ­$Föt¶O)£3$gMLgšGgŒNýóJ²²3sÉA rÆEOÉõñ9ar!{ÖwÇ^4iîÈ¹ÿ:r@tXFŠž”¶§ŒïÁ8†SF}ÛµûEVÄ„©U÷Íã;Cê,©ñ2@è,Ñ‚tæºíˆ§ˆ	ÑjÛ3uÜ£¶=JÂ‘¤L˜ýwÉÒêvÑ”ˆO0ªd÷A]cSd„ÄÈXïÎCS´e©d÷MÔ:ãé8©²r˜þ?öî­¹q#Ûð/r!ï—ç™×yŸ·ˆ„(vQ ä’ý$ªì*Ÿv¦$ÀŽÅˆÕÇW¹:ÚGŸ¸Ø¹sg{m^»á@EEo¥‹5aô„ôÂ+[°DÅD•Ê-ˆÚî¼ë÷éÍKÇ6B+•/o»‘³ÄÄÔZšêv.Š"Š:Wj»,~MôhOÇ–Ý –Ê;Ÿœ8«V@UPÕ JŸÐ¹¥Ò‚ÒÆ¿ø³ðßž®¼ŒÅÐ(W¸
+i^èRKÓûP¨
+Í[’b‘¦oÛ‚Þ¬†»ãå…sFQÓ‡ÒØÂƒrNÈRJ3z™e¶ dIŠD„ˆªPå›QFxê‡©.4Å�F+Ys—´ø´Æ–†ž,/(ÐÏ×Iµ¸ªð Ä„ÀtÊX]*Uä0YAXmb³¢.m¡l
+N.ü'æÐž÷o×#gÄpZcßb%LX0X+„,¼³.Ï`ê¢é*¹`6Ø¯géqìv<¢¤­+üÒÓSoªgìÕçn~µ‡~ß=½ñ½ƒÑKãd‰q^ÖÔEU„—ª ªÓ
+Ùó·ÚÒ·éåûË	ý0ü¬Å£Oc–’h’:}Óª‹¸ä„ã¦4>¨¬OÜöDá‹Fî*ž“«„DBÅb/ÑÌX¥&Ž¦vR,Aû£¬Îç"Ž B–†ÏÙ�£%¥qÚ­íý"(¨Ö®h¼=^{b‚`ú‹™‹Z
+ÈŠÄ´Õqåð/Ú‚Úaôü[p
+ÝÓO|aAÒ6	aÚ¢Ù*¡…ªŸN`|à åâ8Æ–€€Ö¿ªØ@JJ§ókÃ–ž8žFJ±ø\ÃøÒ*ëhˆa­VzE¼RJÓÉ(×VsIŠEjŠoŸŸ†¬•Š†�†ö‹P^Øü™];7d©	¤}~P¼]²$Å!
+Úæo¸¶¹ýÛ}ÇéŸ^ûóÿiS[ôoâö—î|9\šnúÃ5A½…)S7R˜ÜÉmBþdÙœ˜¦ùcš{‘?š¿*ÇÛáµçd9c©Œ÷ù¡æÅ8µ‘´ùaç[¦8É¡ÈMð…uZ¹âÑv|
+ƒ�Úh¢¬IhR¢Q:)t~,Ù‚Z=<u4wX wcóµûø}h/”†V"ªïlÚj™Ls<sãòÃ‘6],Þ	“=ôñÙ’yÏç2
+ ‘Î«l+Í¼%3)q(•±!Ûqº`ÉLO ÏéÀëfKæ_Íâ×ŽóAqœÓFÖ4iPüaÅ­–ÕdXöJèŠ@ïZÞ]!«¥³Þª[«"œÆ8ÆÞÙR]k}h:øü­Eu¥êÝe1d½T±T­ZWš¦1Œ±²Îß¯ûŽÐ8ÐÁ•Ö\¹˜îOíùð¥Í·æOÍ];^-=!<ôÒÖuIS]ÖiU_î /8o¡tÈlEkÇÏ2V{:ôCú/½Üç]öèöF¤‡¥—ÞæoÙèAX%B©Ñ§ÜïñÓ³ÛÿÞûQ¥…^lžÝ‰Ó1`­0B›­Ó$Æ'¶BúBõkvÀY¹ÒFÅŒŒ>Çk·K¤-¯5ÕÚiQS¡-¾­SÖT·Nø€ËßÍ•ãîõ©ã£ÄÎ9KãY>
+^*")Æ`ó“ÑçD,)(}zK]0g#ÿx$&¦Úy½Ý²–¬ ¬Þ{S8RT»¢¥-ˆm1?Õþ³üívû
+bš´²5KZZâYz#J–³“– H >–¶W?‰×Óéx¹ùQR„RIoVÄÒËÓY[zéœ³DÅBõÂäo¸Ì—eÏ»~Ÿ¾Ð´ãYÒÂÐ+¡cÕð
+jjj‹³df”iI
+HjtZÒÎÙ÷î¼ï‡&ÛñýýOÓ‰v›è¤.<E?M`R?uôõC+èýhÞV¨çoµÍ¦-†m0Þ¹»Å6•!”ƒÑÕ°'õ#QKëÃü{¤~•þy©-
+¡QÑ–
+R37æˆ‰‚iMúOáÅwÉÎEQDµÁj§œŸŽ×ÝÛðÎi« ¾QJmJ‹¥Oã—Ò&í¤¯Ïfr?·Ûòæ‘§¡=ž/}Ï©ª ¾.*[×·.¸)%íHßµ»7¹Ñ¸m±Su‹¹BíÓÀÛ}I_ò:ØÎm<Vˆò`ò!}Ö³§
+Ü=¦
+‘Œ?ÊoànýîÔ¿íŸOíÐ5»ã°;ý2ÞõçwúbøúbÌ®Ûæ;¥A:hïtö]la“û!¸tùz>¸ÿ¾•<~ŒÍîòFJJ©ÓÌWe4QqQ’¥ïÂÁË”“u:Óýâ%sú¾4Ï—ïƒüÈ‹Áœ/´¬X1Úë?ó²vÁLmDm/ó-ô‹S{ÿÒ|£-Ž­2Z©üæÔŠÈ¦2œ²6Û¤¹6¯I
+GÕ¶Klcq!puú›XÀ]»À&3³÷ù—7Z^ÓÈ::¹ }ãYLYY+CÌwø­\ZÓÇXiuŸB¡Á §!Î³cú?ÇÁþýÚ’b3™Vä3q�×'Œê%4…@8]úø~rv|ODD£\¦ð1“ÁäÄâôÎÉì¡µ©KS,Ó”³¥hEA™¬¬Á+¶®NØ{U*?­/"SD9Há¶éÍ‡3Y!X­Ö^æg·¯HgO°…mŸuéLe e+œ(4ÄV¤3_°x£*?teJ:zc
+«¬õiMm(m'„T±°©[ÓB÷zŸÆŽ7›ƒðZ#B¸K¡Á ­ÏÏ¾Ü¤ŽÚ`ÚÑÄméºÝn ¾?žúÝWNDÄ�öÒ:e¶^m“’Ú;©î²Þ¦7¤w¢tp¸v”ÒøÒjúbø:oEÜz³‘ÒˆÒÁJWø$o4J‰ÜHÜÁÛùmÑ3*aìyGÁ
+ZêÊáJd~$f­cþ
+‰ŠÛ´²ÖÎošþîÌµ;ÞA…ˆQ®ÆDôGCÞ¹ÿâHjÊ£ÈËé4ÌöÉÞíöìõ!öQ˜Ò~Ö&‰Nlì ŒR[Œl¢øÃˆûXW¿EÌë8!Œýa¢ùÖ"¿Y„SEÛêóãºü¶Nrrc´ÍÓüªßÓÅX*¥L¾««§6’v°îþ!Nr r-U~;â	÷2¤¯5O/ŠˆˆÖIgk–Úä„äôZúçŒÑ"4…4u1_Ðü<gŸOíµ#"bÔ>ˆâ¼œ%'g¦~¹KSHÓ8Ý¨6;g_Úñ¥i÷§nÐ|Tb¦—P¯BötÓ”%& fTFf÷êçd,EE­,=5?[Éþq:>ÑÃÐ™èuvÇ}îB–š@š>Úü‘£EëX’‘Åü½µ?+ì¬«£�j‘Þ,cöXï­„%%e02?¿nV¼ÒÎ3¨’g9[Ç—VRCÐçtaÁ3'\i	diµ4õ‹W‚ÂºäYXù¬i;Ú×öDeå$¬œÊž¾Úª1ŒÞPÞÖhQØúÜ°5ŒèXèÞ†B#J.ÊûS{>|é‡Có­ùSöéÔ~íëJ ¢ÖFSÚý<¶ioëU(µÍˆhã;%ÖÅq;ú3·R1@­ðÁ–Þ}§1i¡hƒVùÉÛµaL_,_ó3(VU9Fõ•ÂÂÎÙèkvðhýxÖÞÉx÷êÁÀcqåUÞ|ym9
+D0o}M%ƒ–x–Q‹ü� {€Eµ®4ûef¥âåëþ™œœÎØh}ÕÂbÃº¼…6Óº*u‘t­Ì_˜Máãkúc³ëOý@AA'm5Gáh‰g©¦[új³– € !–fc•â•vvQ‡¿`N°RD1*›?;RI‰Bé½™?çÇãðçpþïûv=²sƒÓOõ<]S1 ,8¬tBU÷5P]7†ü5hŸ¤ð¿/Ý€€ÎJ/k;Ž2Z™¿«n~ÒÒÇÓ)J‡VWtŒM¿¾»9L—^¨{ÎK'7·—ÆŠêÍÓ<h¹®·×zÃpFe­´[õ6Ö9Q¡U×Û@] Ý´Îr›¯¦© ¾ˆô¢¤u¶Ê6YFÓÃYFu¶Þ¶[?Û[Ÿ}Y
+7";‘¦¿›þôt<>šwÛp×�Ök­BáS<7­IŒMœÞzóCƒšÎàÎÎçÇzÍÏèéO‰õç.ïÛ@^^©´-4LÕ$5¡q¡]p![ÕªÎkjãj{¥cAûóÔ¾üûéðü}|ênÿ“–¬¬V“¿›u~ZX«ü™…)MeheëUvÃpQ:¿=ñx;ˆhzEò&{°²2˜i‹c«•±ÙÊ5™L` `ktU‰ãï¢Ô„ÐTÊÉÂhŠº(¦+ŠkôùñN+b˜¸ ¸^ÅXxÆ.¬2_No¯Oé7ÓU±ôÅðõ1½ôÞxªËÌ”†”6±´_´®ÎLnHî Ü¶ÁMZZ­¥Òù[7Èl"ƒ ;o7)nP]zZbÞŸr'¹ÿÚÕÛçn8ödÄ`tQŠªFh‚¢‚Úè¯F3NuSTÕëR2“¶Ýy×ï§w›CÏËµ0ð*”Þd?MZbâa*)EþŒîœ”¥(¢¨ùÛxæVvÏ‡æÚíÎ$Å u1Z³Q•˜¸`¸^ÚPŸÀ~�a%EÌž¯_’Èã®=Ÿ;Î´Æ@µJ
+©5™L^,^¥B,ù«S™Æ`ÆÞÉÕ¹ü]Ÿ¤¤ÞÈôF»áJ™¸H¸Zš-[(('ìLþŸ|"÷—¯‡/Çsó{;œÓ?¿¼RBPº©e×Ï“˜¨À¨~Í"ÊâÊ*Kóf¯…‰‰TP¶Ð¼T±
+&+k&n:ª‚¶8¶2½¸ÎïB›Ó`Øüøv6»þü|$4´·Ò¥ò½N|‘\;m·	G÷Gp7Â×Ÿþ4a`ƒt^–ÊTÕNb$b¥e±‹j]fÓËÙùüÝÙŒÞÎ×ãk×ìì(´&¨ª#Ô´Ä³t6èêSw¾4˜1¯ýØ¼lAÑ1êª¾c:B9F%„©DL0Lãò×°Õž¿´×—ñvähtðvë*1¹a¹pºðºÑzšÃ™K_:÷S›ãC÷~=Oþ€Gk
+7™oãÔÒŽ_Òÿ¸ôùaq«'9¹&»µs!¾Kÿ^íñÜ
+Íé8òžrDé¢ÎwµÆÏSšœœ>-§³[wsb˜¦˜¦^Åìb9›³³zfvíî¥#0°&”€«WÊ¤†¤VZäñ­]&ÓÓÛk7<øùxê^û=1Œ¥2"æo=Þ"¾©¦­Mþ~úÍœähä^–j[Ù“Ù§ö|øÒ‡æ[sî¾w¦_Ów‘œœÎO[Œ5yMXlØl~nÑ¬h¦.´®O_ÌÏÄ¾µ”þ÷S7y¦'íŸ¤
+gbƒ¨*‚Ë'™¿x¦/®¯’ÒåÏö.\.ÙëÒ®ÃÂ*ÇÔ¥3&Zvëàðº`œ¬Z0ú¡ ½±´±®¶AmDmëó#UVÔ¦¿;›ôåãáÜ,aaXk-BÐ…'ô5jªcª-ó÷‚mW«&=(½±°f«Z’'ívø /o”ªøÆµrINh(h%Ówí~Krjci§ï³$?ž÷Ý7:C8+œ´[WT(Ž,n¢w9Cvdv›>ê…í­µ¾ÿ65
+QBÚŠdþ¢³-#æHæR‹¨þ;¡Nx,xëòW-ÕÇúxíNšAvÖî­Ü"Îidí¥ñ+ú	þpàJXµM™åGmü8ïˆë”	±„»²4Nf æh}©„¶EaœÖ8ÖZˆPÚÉäõK;¾4»a§1�m*ÔlW’Ž2ån©aÿvîÒÏ3ºÒyÖ•êé¿ÃªµW:„ªYOD\tƒ.MiÛ¶FMy,y#ŒÎÏQ¾•ìÝëq¸´ãq—´÷ã"ªb¨F©‚+¨Î
+qú"û:§·8ƒCddäXy–ý?TNl$-m0ÚX³ò@;‘Ñ‘MÌÛ‡4¥ñ¤ƒ7UÿA;MÔ¥*ˆjtÖ«•ÝôEö®SÜ>Ÿ‰Œ„ìe(­´–GsÓCûÁ¹ç0¾Ñó×¯iJÃIÇôÊT^×äÆãÁ¸÷uè:>ŽT¥˜®Rùwb)jãš¾P¾ÚÄ\_eò]ÒD†B2{	}B^ÍNxéÚ1€m´.{ ueJ“ŽÚI!Eá³¼:°é
+è­¥,< «ï	ëO=-�mÒ"{]v“úA¨mÌ^½4»éý Þ>––e+»°÷Ççg2C0Kí]ôwKp‚ÃœËµl—ãTÇS×:ŠÜ™šåi>
+H¿†²²JÄà³•×8¡Œeú¦egë®ÎlBcA{iMá%ëó˜»ápœ`§§î÷Goúî^.Ó¨‹¡ë|Ù‰›¢šÎøÎÞ
+Ÿ=K±4®‰ýØÞªÂ³¹jr_›`pµrÎ›ÜÑÆ5‹k2ã1G‘mÎ^½¾¦5œµŸnxÝ0¯_»áë©»¦‹æÜï9RÚ;í|nÌÄúì&9(¹ÒnÑH÷sWFn³WùèãùÚ
+çöÔ<í+eâF…¨6¯zÓþ1ì£ÑñŽ«uþ�Àÿ�øâÊneÜ“ƒØO……·´ÍòØØ!-ÚE¡Ê¶m SD\	ªö9ÿAü³ë¨úw·ã‰ZaëÓ½´“]à´F´vÂ[‘=,¿]K!Á¡ÀƒÔÙKkàÓÎ ºN¯ç•ko:#9Ë´ð¾c…ØHØJ}Ÿã<—¯×ÓñLiiŸÍZÝmåMsLóèîS'<6¼Q&{çÜŠX¿ýµßõ§ï×g\š]{iŸŽ§ãõƒèèiå¦ÍÖtò?ðö¾åþ ÿxi7êx)¡§ÿG»§ö¼'9y^¹u/:ñ?(QªÉÝ'óù€ö`béð`Ý	þæµ{í>ÒA€ƒ“Q®<Jê‡ žÅ]úÔé
+ém…Ì^Ù³ÙjÒÒÑY¿»ú‹tšc˜{u,¼‹ßemNxxe£)B©õ¡{çÅ  Äò‹pÑÛ|­UnçÄ†ÂÖ†­°É­‚œâXâNæo]Lâµ	ž~DÎã¥ˆŒ,­ŽÒg+[d8¹Á¸”Ò>Ó¥8ÍáÌ½sÙ¡äø¯SÀé¿ðÚŸ‰®T”…Ûd6Íuòcò%E¾Ô¶}Îóg�õgÀ¹­×ï?¾Ó‰³çã‰®ÒZèò'†·{šCš{móÇ7KxÂcÂã³û¥‹cý¯
+ñ‰wü¯Ýk³ï¯éÒÃzzqÓ…W·Õm/TU2ý_A}›Ò£Ò+kKåØÕáNddãDZ¹m½\'7*wÐ.ˆ÷ÖqNss#}é|}Í}ì†wX±¶Á[z!Û²ÔNu$õhtÙþ¶;TØIEïd©ô–	÷~lºoÝŽzzN‹«Šåt„r4J	[ÀÄÃ\V÷èOíùð¥Í·&½ù|·lŸFrbpF*ëÖ„E†õÂ9êû©®CIw}Õ‚›È0Ò!}ŽËËÛ¶fAss¥T…:ÕæÂ#ÁG·2±þÞ÷ýÐü‡õ¹»6ûó8ýþš~yúeÄÅÀ5!ªÒ3ûÓ$'ó#1[£D(<°o‡7­ËÚY5¿ò³ý>‰N?tqt>jUS¡(ªh^U§0YaYmúÏòÀ¾zêžOÇÃ;(A,ãº5©Š¬½ŽÕµÒâÒF!¤R…}ÜÏÂ÷Ç_PCQÅiãšØ¥'’§ÑçïNY¸D…B•Z¨ù…à©B”~?r¦"ˆŸsÁÙBãá§!KI4É(tý&rÂqjæ¯a“å�äÔ!œ5&©êf¤ÒÃÐh-óG1Ô¼0%$
+dÔ>»>U¹]Ø’Âcî(ÐéÓªC¾ÝûFê’üQÉ•‹&V‡4ÝÖÝÛ õL¦ï†Ëµo^÷–€€6¦nvÏûFV“Ò	ò%ÎÉ`zâyÚÂ]×Ÿeë°3Ä�1j“=‹</[I	C…p¾ð˜œ­ôòRÞWÊÙúÍŠØ\¾¿‘‚Q©é^ðlãÐ¼„%(¨ÆËµkXª¢©JáJ%üLÚvç]¿ŸJ>Ž¼C!tN¨ü˜ÃIKLDLåë+EuÚÌß[ûÛƒ’‚‚Ó·5›f´„³ÔV¦ß6XÅÔUXýÌœ±ð§êÏÞéötl9	Ä×
+©\MŸ¥NZY‘=ù0'šÉýpÜÎåï5_Ü»—6ý¦e1dƒô>Ö$hü8ÆÊj]øô®
+kB£AûPÚ^­\__úÓ‡Ô‚Ý,Äé;æbþtâKlbƒa[¥Eu»ÅQÜ„R¯ÓÌŸFFï.oÅ5.†üãM[,Ûô(ÎÏ®«Ígƒ;içŸË˜ñªÄ.–pÐRë;Õ?h
+f=ÝFwå4ÁQÁÌ_:¹4¾_¾îŸ©
+¡j¥‰Ööžj#›¾@¾Vu½E"#!;™¿‘á³N»ë‰[Â €Îº”Ãõv¤D¡tR¸ôy\ÙgGOO©déôÏ­	AÓS³9ýÛe—Þiºæ4°Âª½°ùÁ–Kæ8¨(«ËÉT~e§KW¹•oÿzÒ×šÃeŠbèµ¯IAM<Í RîVO]#)$iB6W4º¦ïâiyÓ÷‘°°^„ôåÂguqñ—ÄÄQÅüåTµõ_:c:»b[ú’Œ~;wý¾kžŽû#m1löRnuÊ¨Ê^.èX•Ô¤F¤ö¡ôP^Öc·{~Ðo'^î
+Â„°¢Pz¬ËkBƒB;s‡Å5µ1µ¥(v·Ö,±Ï|}B±
+Òi6­„PP9h·m3©a©ƒ×…wæ™a=ÝyxÜŸ[’bZ•Üê´6qÁpM´ºzÛÂ lµ(M¹*\==]/Cíiˆa¢×¥æÖO#˜š€šQá/´ó®„&)i0f~È–ž›/×ëåûoWv¢cØF­¥w5×âQù¡”­(mÔ/„I
+I„.P×„uzû .®7Úl6[ŽÌ°ÌÎ™ÒeÃÄ5­‘¬½ÐaÝŒ¿pUó2ý2ÊÈê/BUØÒõaMc(c©TpÙÕ–^™Ô„ƒ!?
+CçbúõøÊ:ct°…Ïè§9LD DgT¾¬<'h)‰$l(,‹
+IÚü¿·þÚí/Ãñ

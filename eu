@@ -1,0 +1,293 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:eli-dl="http://data.europa.eu/eli/eli-draft-legislation-ontology#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:euvoc="http://publications.europa.eu/ontology/euvoc#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:eli="http://data.europa.eu/eli/ontology#"
+    xmlns:epvoc="https://data.europarl.europa.eu/def/epvoc#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:org="http://www.w3.org/ns/org#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <eli:Work rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08">
+    <eli:is_realized_by>
+      <eli:Expression rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/ga">
+        <eli:language rdf:resource="http://publications.europa.eu/resource/authority/language/GLE"/>
+        <eli:is_embodied_by>
+          <eli:Manifestation rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/ga/pdf">
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >2025-09-10T18:36:04.661+02:00</dcterms:issued>
+            <eli:media_type rdf:resource="https://www.iana.org/assignments/media-types/application/pdf"/>
+            <epvoc:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+            >151812</epvoc:byteSize>
+            <eli:is_exemplified_by: Edgar Manuel Ruiz Arias rdf:resource="https://data.europarl.europa.eu/distribution/doc/OJQ-10-2025-09-08_ga.pdf"/>
+            <dcterms:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/PDF"/>
+          </eli:Manifestation>
+        </eli:is_embodied_by>
+        <eli:title xml:lang="ga">Cláir oibre - Dé Luain, 8 Meán Fómhair 2025</eli:title>
+      </eli:Expression>
+    </eli:is_realized_by>
+    <eli:is_realized_by>
+      <eli:Expression rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/fr">
+        <eli:language rdf:resource="http://publications.europa.eu/resource/authority/language/FRA"/>
+        <eli:is_embodied_by>
+          <eli:Manifestation rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/fr/pdf">
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >2025-09-10T19:06:03.354+02:00</dcterms:issued>
+            <eli:is_exemplified_by rdf:resource="https://data.europarl.europa.eu/distribution/doc/OJQ-10-2025-09-08_fr.pdf"/>
+            <dcterms:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/PDF"/>
+            <eli:media_type rdf:resource="https://www.iana.org/assignments/media-types/application/pdf"/>
+            <epvoc:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+            >152223</epvoc:byteSize>
+          </eli:Manifestation>
+        </eli:is_embodied_by>
+        <eli:title xml:lang="fr">Ordre du jour - Lundi 8 septembre 2025</eli:title>
+      </eli:Expression>
+    </eli:is_realized_by>
+    <epvoc:identifierYear>2025</epvoc:identifierYear>
+    <dcterms:title xml:lang="bg">Дневен ред - Понеделник, 8 септември 2025</dcterms:title>
+    <epvoc:epNumber>PE776.478</epvoc:epNumber>
+    <eli:is_realized_by>
+      <eli:Expression rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/hr">
+        <eli:language rdf:resource="http://publications.europa.eu/resource/authority/language/HRV"/>
+        <eli:is_embodied_by>
+          <eli:Manifestation rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/hr/pdf">
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >2025-09-10T18:28:02.654+02:00</dcterms:issued>
+            <eli:is_exemplified_by rdf:resource="https://data.europarl.europa.eu/distribution/doc/OJQ-10-2025-09-08_hr.pdf"/>
+            <dcterms:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/PDF"/>
+            <eli:media_type rdf:resource="https://www.iana.org/assignments/media-types/application/pdf"/>
+            <epvoc:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+            >154330</epvoc:byteSize>
+          </eli:Manifestation>
+        </eli:is_embodied_by>
+        <eli:title xml:lang="hr">Dnevni red - ponedjeljak, 8. rujna 2025.</eli:title>
+      </eli:Expression>
+    </eli:is_realized_by>
+    <dcterms:title xml:lang="sk">Program - Pondelok, 8. septembra 2025</dcterms:title>
+    <eli:is_realized_by>
+      <eli:Expression rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/sk">
+        <eli:title xml:lang="sk">Program - Pondelok, 8. septembra 2025</eli:title>
+        <eli:language rdf:resource="http://publications.europa.eu/resource/authority/language/SLK"/>
+        <eli:is_embodied_by>
+          <eli:Manifestation rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/sk/pdf">
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >2025-09-10T18:16:03.041+02:00</dcterms:issued>
+            <eli:media_type rdf:resource="https://www.iana.org/assignments/media-types/application/pdf"/>
+            <epvoc:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+            >161037</epvoc:byteSize>
+            <eli:is_exemplified_by rdf:resource="https://data.europarl.europa.eu/distribution/doc/OJQ-10-2025-09-08_sk.pdf"/>
+            <dcterms:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/PDF"/>
+          </eli:Manifestation>
+        </eli:is_embodied_by>
+      </eli:Expression>
+    </eli:is_realized_by>
+    <eli:is_realized_by>
+      <eli:Expression rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/fi">
+        <eli:language rdf:resource="http://publications.europa.eu/resource/authority/language/FIN"/>
+        <eli:is_embodied_by>
+          <eli:Manifestation rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/fi/pdf">
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >2025-09-10T19:08:02.131+02:00</dcterms:issued>
+            <eli:is_exemplified_by rdf:resource="https://data.europarl.europa.eu/distribution/doc/OJQ-10-2025-09-08_fi.pdf"/>
+            <dcterms:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/PDF"/>
+            <eli:media_type rdf:resource="https://www.iana.org/assignments/media-types/application/pdf"/>
+            <epvoc:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+            >148388</epvoc:byteSize>
+          </eli:Manifestation>
+        </eli:is_embodied_by>
+        <eli:title xml:lang="fi">Esityslista  - Maanantai 8. syyskuuta 2025</eli:title>
+      </eli:Expression>
+    </eli:is_realized_by>
+    <dcterms:title xml:lang="sv">Föredragningslista - Måndagen den 8 september 2025</dcterms:title>
+    <dcterms:title xml:lang="cs">Pořad jednání - Pondělí, 8. září 2025</dcterms:title>
+    <dcterms:title xml:lang="sl">Dnevni red - Ponedeljek, 8. september 2025</dcterms:title>
+    <eli:is_realized_by>
+      <eli:Expression rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/cs">
+        <eli:title xml:lang="cs">Pořad jednání - Pondělí, 8. září 2025</eli:title>
+        <eli:language rdf:resource="http://publications.europa.eu/resource/authority/language/CES"/>
+        <eli:is_embodied_by>
+          <eli:Manifestation rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/cs/pdf">
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >2025-09-10T17:52:03.548+02:00</dcterms:issued>
+            <epvoc:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+            >159207</epvoc:byteSize>
+            <eli:is_exemplified_by rdf:resource="https://data.europarl.europa.eu/distribution/doc/OJQ-10-2025-09-08_cs.pdf"/>
+            <eli:media_type rdf:resource="https://www.iana.org/assignments/media-types/application/pdf"/>
+            <dcterms:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/PDF"/>
+          </eli:Manifestation>
+        </eli:is_embodied_by>
+      </eli:Expression>
+    </eli:is_realized_by>
+    <dcterms:title xml:lang="lt">Darbotvarkė - Pirmadienis, 2025 m. rugsėjo 8 d.</dcterms:title>
+    <dcterms:title xml:lang="da">Dagsorden - Mandag den 8. september 2025</dcterms:title>
+    <eli:is_realized_by>
+      <eli:Expression rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/pl">
+        <eli:is_embodied_by>
+          <eli:Manifestation rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/pl/pdf">
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >2025-09-10T18:18:03.842+02:00</dcterms:issued>
+            <epvoc:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+            >161591</epvoc:byteSize>
+            <eli:is_exemplified_by rdf:resource="https://data.europarl.europa.eu/distribution/doc/OJQ-10-2025-09-08_pl.pdf"/>
+            <dcterms:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/PDF"/>
+            <eli:media_type rdf:resource="https://www.iana.org/assignments/media-types/application/pdf"/>
+          </eli:Manifestation>
+        </eli:is_embodied_by>
+        <eli:title xml:lang="pl">Porządek obrad - Poniedziałek, 8 września 2025</eli:title>
+        <eli:language rdf:resource="http://publications.europa.eu/resource/authority/language/POL"/>
+      </eli:Expression>
+    </eli:is_realized_by>
+    <eli:is_realized_by>
+      <eli:Expression rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/lv">
+        <eli:title xml:lang="lv">Darba kārtība - Pirmdiena, 2025. gada 8. septembris</eli:title>
+        <eli:language rdf:resource="http://publications.europa.eu/resource/authority/language/LAV"/>
+        <eli:is_embodied_by>
+          <eli:Manifestation rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/lv/pdf">
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >2025-09-10T18:40:01.945+02:00</dcterms:issued>
+            <eli:is_exemplified_by rdf:resource="https://data.europarl.europa.eu/distribution/doc/OJQ-10-2025-09-08_lv.pdf"/>
+            <epvoc:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+            >155212</epvoc:byteSize>
+            <dcterms:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/PDF"/>
+            <eli:media_type rdf:resource="https://www.iana.org/assignments/media-types/application/pdf"/>
+          </eli:Manifestation>
+        </eli:is_embodied_by>
+      </eli:Expression>
+    </eli:is_realized_by>
+    <rdfs:label>P10_OJQ(2025)09-08</rdfs:label>
+    <dcterms:title xml:lang="ro">Ordinea de zi - Luni, 8 septembrie 2025</dcterms:title>
+    <eli:is_realized_by>
+      <eli:Expression rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/el">
+        <eli:language rdf:resource="http://publications.europa.eu/resource/authority/language/ELL"/>
+        <eli:is_embodied_by>
+          <eli:Manifestation rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/el/pdf">
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >2025-09-10T19:30:03.949+02:00</dcterms:issued>
+            <dcterms:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/PDF"/>
+            <eli:media_type rdf:resource="https://www.iana.org/assignments/media-types/application/pdf"/>
+            <eli:is_exemplified_by rdf:resource="https://data.europarl.europa.eu/distribution/doc/OJQ-10-2025-09-08_el.pdf"/>
+            <epvoc:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+            >153775</epvoc:byteSize>
+          </eli:Manifestation>
+        </eli:is_embodied_by>
+        <eli:title xml:lang="el">Ημερήσια διάταξη - Δευτέρα 8 Σεπτεμβρίου 2025</eli:title>
+      </eli:Expression>
+    </eli:is_realized_by>
+    <eli:work_type rdf:resource="https://data.europarl.europa.eu/def/ep-document-types/AGENDA_PLENARY_DAY"/>
+    <dcterms:title xml:lang="hu">Napirend - 2025. szeptember 8., hétfő</dcterms:title>
+    <dcterms:title xml:lang="fi">Esityslista - Maanantai 8. syyskuuta 2025</dcterms:title>
+    <eli:is_realized_by>
+      <eli:Expression rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/ro">
+        <eli:title xml:lang="ro">Ordinea de zi - Luni, 8 septembrie 2025</eli:title>
+        <eli:language rdf:resource="http://publications.europa.eu/resource/authority/language/RON"/>
+        <eli:is_embodied_by>
+          <eli:Manifestation rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/ro/pdf">
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >2025-09-10T18:14:00.785+02:00</dcterms:issued>
+            <dcterms:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/PDF"/>
+            <eli:media_type rdf:resource="https://www.iana.org/assignments/media-types/application/pdf"/>
+            <epvoc:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+            >153271</epvoc:byteSize>
+            <eli:is_exemplified_by rdf:resource="https://data.europarl.europa.eu/distribution/doc/OJQ-10-2025-09-08_ro.pdf"/>
+          </eli:Manifestation>
+        </eli:is_embodied_by>
+      </eli:Expression>
+    </eli:is_realized_by>
+    <eli:date_document rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >2025-09-08</eli:date_document>
+    <dcterms:identifier>OJQ-10-2025-09-08</dcterms:identifier>
+    <dcterms:title xml:lang="en">Agenda - Monday, 8 September 2025</dcterms:title>
+    <eli:is_realized_by>
+      <eli:Expression rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/it">
+        <eli:title xml:lang="it">Ordine del giorno - Lunedì 8 settembre 2025</eli:title>
+        <eli:language rdf:resource="http://publications.europa.eu/resource/authority/language/ITA"/>
+        <eli:is_embodied_by>
+          <eli:Manifestation rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/it/pdf">
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >2025-09-10T18:12:02.018+02:00</dcterms:issued>
+            <epvoc:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+            >152020</epvoc:byteSize>
+            <eli:is_exemplified_by rdf:resource="https://data.europarl.europa.eu/distribution/doc/OJQ-10-2025-09-08_it.pdf"/>
+            <eli:media_type rdf:resource="https://www.iana.org/assignments/media-types/application/pdf"/>
+            <dcterms:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/PDF"/>
+          </eli:Manifestation>
+        </eli:is_embodied_by>
+      </eli:Expression>
+    </eli:is_realized_by>
+    <dcterms:title xml:lang="nl">Agenda - Maandag 8 september 2025</dcterms:title>
+    <eli:is_realized_by>
+      <eli:Expression rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/da">
+        <eli:is_embodied_by>
+          <eli:Manifestation rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/da/pdf">
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >2025-09-10T18:22:06.631+02:00</dcterms:issued>
+            <dcterms:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/PDF"/>
+            <epvoc:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+            >158575</epvoc:byteSize>
+            <eli:is_exemplified_by rdf:resource="https://data.europarl.europa.eu/distribution/doc/OJQ-10-2025-09-08_da.pdf"/>
+            <eli:media_type rdf:resource="https://www.iana.org/assignments/media-types/application/pdf"/>
+          </eli:Manifestation>
+        </eli:is_embodied_by>
+        <eli:title xml:lang="da">Dagsorden - Mandag den 8. september 2025</eli:title>
+        <eli:language rdf:resource="http://publications.europa.eu/resource/authority/language/DAN"/>
+      </eli:Expression>
+    </eli:is_realized_by>
+    <dcterms:title xml:lang="hr">Dnevni red - ponedjeljak, 8. rujna 2025.</dcterms:title>
+    <eli:is_realized_by>
+      <eli:Expression rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/et">
+        <eli:title xml:lang="et">Päevakord - Esmaspäev, 8. september 2025</eli:title>
+        <eli:language rdf:resource="http://publications.europa.eu/resource/authority/language/EST"/>
+        <eli:is_embodied_by>
+          <eli:Manifestation rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/et/pdf">
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >2025-09-10T18:46:02.145+02:00</dcterms:issued>
+            <epvoc:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+            >152760</epvoc:byteSize>
+            <eli:is_exemplified_by rdf:resource="https://data.europarl.europa.eu/distribution/doc/OJQ-10-2025-09-08_et.pdf"/>
+            <dcterms:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/PDF"/>
+            <eli:media_type rdf:resource="https://www.iana.org/assignments/media-types/application/pdf"/>
+          </eli:Manifestation>
+        </eli:is_embodied_by>
+      </eli:Expression>
+    </eli:is_realized_by>
+    <eli:is_realized_by>
+      <eli:Expression rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/hu">
+        <eli:language rdf:resource="http://publications.europa.eu/resource/authority/language/HUN"/>
+        <eli:is_embodied_by>
+          <eli:Manifestation rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/hu/pdf">
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >2025-09-10T18:34:01.392+02:00</dcterms:issued>
+            <eli:is_exemplified_by rdf:resource="https://data.europarl.europa.eu/distribution/doc/OJQ-10-2025-09-08_hu.pdf"/>
+            <dcterms:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/PDF"/>
+            <eli:media_type rdf:resource="https://www.iana.org/assignments/media-types/application/pdf"/>
+            <epvoc:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+            >156839</epvoc:byteSize>
+          </eli:Manifestation>
+        </eli:is_embodied_by>
+        <eli:title xml:lang="hu">Napirend - 2025. szeptember 8., hétfő</eli:title>
+      </eli:Expression>
+    </eli:is_realized_by>
+    <eli:is_realized_by>
+      <eli:Expression rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/en">
+        <eli:language rdf:resource="http://publications.europa.eu/resource/authority/language/ENG"/>
+        <eli:is_embodied_by>
+          <eli:Manifestation rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/en/pdf">
+            <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+            >2025-09-10T17:28:00.812+02:00</dcterms:issued>
+            <eli:media_type rdf:resource="https://www.iana.org/assignments/media-types/application/pdf"/>
+            <epvoc:byteSize rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+            >158144</epvoc:byteSize>
+            <eli:is_exemplified_by rdf:resource="https://data.europarl.europa.eu/distribution/doc/OJQ-10-2025-09-08_en.pdf"/>
+            <dcterms:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/PDF"/>
+          </eli:Manifestation>
+        </eli:is_embodied_by>
+        <eli:title xml:lang="en">Agenda - Monday, 8 September 2025</eli:title>
+      </eli:Expression>
+    </eli:is_realized_by>
+    <eli:is_realized_by>
+      <eli:Expression rdf:about="https://data.europarl.europa.eu/eli/dl/doc/OJQ-10-2025-09-08/lt">
+        <e

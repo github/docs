@@ -1,0 +1,337 @@
+export default {
+  test: {
+    // Default is `['**/*.{test,spec}.?(c|m)[jt]s?(x)']`
+    include: ['**/*.{test}.?(c|m)[jt]s?(x)', 'src/**/tests/*.[jt]s', 'src/**/tests/**/*.[jt]s'],
+    exclude: ['**/tests/playwright-*.spec.ts'],
+    // Default is `!process.env.CI`
+    watch: false,
+    // vitest doesn't account for tsconfig.json `paths` settings so we have to
+    // manually set this alias to resolve our TS @-imports
+    alias: {
+      '@/': new URL('./src/', import.meta.url).pathname,
+    },
+
+    globalSetup: './src/tests/vitest.setup.ts',
+    teardownTimeout: 500,
+  },
+  server: {
+    deps: {
+      // Externalize @horizon-rs/language-guesser to avoid import assertion issues with vitest 4
+      external: ['@horizon-rs/language-guesser'],
+    },
+  },
+}
+
+## https://1drv.ms/u/c/3b6ca5bfcad4519d/IQCNo4lRDOjCR4RcqxroCZpnAWIaGQt4mE5Iyt__f-__RFU
+
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/ballBlue_10.png" type="Texture" id=1]
+
+[sub_resource type="PhysicsMaterial" id=1]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 37.1452
+
+[node name="Ball" type="RigidBody2D"]
+physics_material_override = SubResource( 1 )
+gravity_scale = 4.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://icon.png"
+dest_files=[ "res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
+extends Node
+
+export (PackedScene) var Ball
+[gd_resource type="Environment" load_steps=2 format=2]
+
+[sub_resource type="ProceduralSky" id=1]
+sky_top_color = Color( 0.0470588, 0.454902, 0.976471, 1 )
+sky_horizon_color = Color( 0.556863, 0.823529, 0.909804, 1 )
+sky_curve = 0.25
+ground_bottom_color = Color( 0.101961, 0.145098, 0.188235, 1 )
+ground_horizon_color = Color( 0.482353, 0.788235, 0.952941, 1 )
+ground_curve = 0.01
+sun_energy = 16.0
+
+[resource]
+background_mode = 2
+background_sky = SubResource( 1 )
+
+func _input(event):
+	if event.is_action_pressed("click"):
+		var new_ball = Ball.instance()
+		new_ball.position = get_viewport().get_mouse_position()
+		add_child(new_ball)
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://Ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/Bouncy Platform Long.png" type="Texture" id=3]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.5
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 28.7617
+height = 253.621
+
+[sub_resource type="PhysicsMaterial" id=3]
+bounce = 0.5
+
+[sub_resource type="PhysicsMaterial" id=4]
+bounce = 0.5
+
+[sub_resource type="PhysicsMaterial" id=5]
+bounce = 0.5
+
+[sub_resource type="PhysicsMaterial" id=6]
+bounce = 0.5
+
+[sub_resource type="PhysicsMaterial" id=7]
+bounce = 0.5
+
+[sub_resource type="PhysicsMaterial" id=8]
+bounce = 0.5
+
+[sub_resource type="PhysicsMaterial" id=9]
+bounce = 0.5
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+Ball = ExtResource( 2 )
+
+[node name="WallContainer" type="Node" parent="."]
+
+[node name="Wall2" type="StaticBody2D" parent="WallContainer"]
+editor/display_folded = true
+position = Vector2( 880.952, 495.157 )
+rotation = -0.264907
+physics_material_override = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="WallContainer/Wall2"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Wall2"]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="Wall7" type="StaticBody2D" parent="WallContainer"]
+editor/display_folded = true
+position = Vector2( 462.444, 216.865 )
+rotation = -1.02983
+physics_material_override = SubResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="WallContainer/Wall7"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Wall7"]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="Wall8" type="StaticBody2D" parent="WallContainer"]
+editor/display_folded = true
+position = Vector2( 585.534, 221.147 )
+rotation = 1.07416
+physics_material_override = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="WallContainer/Wall8"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Wall8"]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="Wall4" type="StaticBody2D" parent="WallContainer"]
+editor/display_folded = true
+position = Vector2( 996.874, 342.897 )
+rotation = -1.5708
+physics_material_override = SubResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="WallContainer/Wall4"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Wall4"]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="Wall1" type="StaticBody2D" parent="WallContainer"]
+editor/display_folded = true
+position = Vector2( 148.047, 491.522 )
+rotation = 0.315662
+physics_material_override = SubResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="WallContainer/Wall1"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Wall1"]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="Wall5" type="StaticBody2D" parent="WallContainer"]
+editor/display_folded = true
+position = Vector2( 30.2087, 337.685 )
+rotation = 1.5708
+physics_material_override = SubResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="WallContainer/Wall5"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Wall5"]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="Wall3" type="StaticBody2D" parent="WallContainer"]
+editor/display_folded = true
+position = Vector2( 397.133, 570.384 )
+physics_material_override = SubResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="WallContainer/Wall3"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Wall3"]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="Wall6" type="StaticBody2D" parent="WallContainer"]
+editor/display_folded = true
+position = Vector2( 699.667, 571.226 )
+physics_material_override = SubResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="WallContainer/Wall6"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallContainer/Wall6"]
+rotation = 1.5708
+shape = SubResource( 2 )
+[gd_resource type="Environment" load_steps=2 format=2]
+
+[sub_resource type="ProceduralSky" id=1]
+sky_top_color = Color( 0.0470588, 0.454902, 0.976471, 1 )
+sky_horizon_color = Color( 0.556863, 0.823529, 0.909804, 1 )
+sky_curve = 0.25
+ground_bottom_color = Color( 0.101961, 0.145098, 0.188235, 1 )
+ground_horizon_color = Color( 0.482353, 0.788235, 0.952941, 1 )
+ground_curve = 0.01
+sun_energy = 16.0
+
+[resource]
+background_mode = 2
+background_sky = SubResource( 1 )
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="instancing"
+run/main_scene="res://Main.tscn"
+config/icon="res://icon.png"
+
+[importer_defaults]
+
+texture={
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": true,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
+
+[input]
+
+click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

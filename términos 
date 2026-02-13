@@ -1,0 +1,246 @@
+# Términos de Servicio de GitHub
+
+<!-- markdownlint-disable search-replace -->
+
+¡Gracias por usar GitHub! Estamos felices de que estés aquí. Lea detenidamente este acuerdo de Términos de servicio antes de acceder o utilizar GitHub. Debido a que es un contrato tan importante entre nosotros y nuestros usuarios, hemos tratado de dejarlo lo más claro posible. Para su comodidad, hemos presentado estos términos en un breve resumen no vinculante seguido de los términos legales completos.
+
+## Resumen
+
+| Apartado                                                                               | ¿Que puedes encontrar ahi?                                                                                                                                                                                                                         |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [A. Definiciones](#a-definitions)                                                      | Algunos términos básicos, definidos de una manera que lo ayudarán a comprender este acuerdo. Vuelva a consultar esta sección para obtener aclaraciones.                                                                                            |
+| [B. Términos de la Cuenta](#b-account-terms)                                           | Estos son los requisitos básicos para tener una Cuenta en GitHub.                                                                                                                                                                                  |
+| [C. Uso Aceptable](#c-acceptable-use)                                                  | Estas son las reglas básicas que debe seguir al usar su cuenta de GitHub.                                                                                                                                                                          |
+| [D. Contenido Generado por el Usuario](#d-user-generated-content)                      | Eres el propietario del contenido que publicas en GitHub. Sin embargo, tiene algunas responsabilidades al respecto, y le pedimos que nos otorgue algunos derechos para que podamos brindarle servicios.                                            |
+| [E. Repositorios Privados](#e-private-repositories)                                    | Esta sección habla sobre cómo GitHub tratará el contenido que publiques en repositorios privados.                                                                                                                                                  |
+| [F. Directivas de Derechos de Autor y DMCA](#f-copyright-infringement-and-dmca-policy) | Esta sección habla sobre cómo responderá GitHub si cree que alguien está infringiendo sus derechos de autor en GitHub.                                                                                                                             |
+| [G. Aviso de Propiedad Intelectual](#g-intellectual-property-notice)                   | Esto describe los derechos de GitHub en el sitio web y el servicio.                                                                                                                                                                                |
+| [H. Términos de la API](#h-api-terms)                                                  | Estas son las reglas para usar las API de GitHub, ya sea que esté usando la API para desarrollo o recopilación de datos.                                                                                                                           |
+| [I. Términos Adicionales del Producto](#i-github-additional-product-terms)             | Tenemos algunas reglas específicas para las características y los productos de GitHub.                                                                                                                                                             |
+| [J. Versiones Preliminares Beta](#j-beta-previews)                                     | Estos son algunos de los términos adicionales que se aplican a las funciones de GitHub que aún están en desarrollo.                                                                                                                                |
+| [K. Pago](#k-payment)                                                                  | Usted es responsable del pago. Somos responsables de facturarle con precisión.                                                                                                                                                                     |
+| [L. Cancelación y Rescisión](#l-cancellation-and-termination)                          | Puede cancelar este acuerdo y cerrar su Cuenta en cualquier momento.                                                                                                                                                                               |
+| [M. Comunicaciones con GitHub](#m-communications-with-github)                          | Solo utilizamos el correo electrónico y otros medios electrónicos para mantenernos contactar con nuestros usuarios. No proporcionamos soporte telefónico.                                                                                          |
+| [N. Renuncia de Garantías](#n-disclaimer-of-warranties)                                | Brindamos nuestro servicio tal cual, y no hacemos promesas ni garantías sobre este servicio. **Lea este apartado detenidamente para saber qué debe esperar.**                                                                                      |
+| [ O. Limitación de responsabilidad](#o-limitation-of-liability)                        | No seremos responsables de los daños o pérdidas que surjan de su uso o incapacidad para usar el servicio o que surjan de otro modo en virtud de este acuerdo. **Lea este apartado atentamente; en él se limitan nuestras obligaciones con usted.** |
+| [P. Liberación e Indemnización](#p-release-and-indemnification)                        | Usted es completamente responsable por el uso que haga del servicio.                                                                                                                                                                               |
+| [Q. Cambios en estos Términos del Servicio](#q-changes-to-these-terms)                 | Podemos modificar este acuerdo, pero le avisaremos con 30 días de anticipación sobre los cambios importantes.                                                                                                                                      |
+| [R. Varios](#r-miscellaneous)                                                          | Consulte esta sección para obtener detalles legales, incluida nuestra elección de la ley.                                                                                                                                                          |
+
+## Los Términos de servicio de GitHub
+
+Fecha de entrada en vigor: 16 de noviembre de 2020
+
+## A. Definiciones
+
+**Version abreviada:** *estos son los términos básicos que utilizamos a lo largo del acuerdo y que tienen significados específicos. Debe saber a qué nos referimos cuando usamos cada uno de los términos. Aunque no le vayamos a examinar sobre ellos, son bastante útiles.*
+
+1. Una "Cuenta" representa su relación legal con GitHub. Una "Cuenta personal" representa la autorización de un Usuario individual para iniciar sesión y utilizar el Servicio y sirve como identidad de Usuario en GitHub. Las "Organizaciones" son espacios de trabajo compartidos que pueden estar asociados con una sola entidad o con uno o más Usuarios donde varios Usuarios pueden colaborar en muchos proyectos a la vez. Una cuenta personal puede ser miembro de cualquier número de organizaciones.
+2. El «Acuerdo» se refiere, de forma colectiva, a todos los términos, condiciones, avisos contenidos o a los que se hace referencia en este documento (los «Términos de Servicio» o los «Términos») y todas las demás normas de funcionamiento, directivas (incluida la Declaración de Privacidad de GitHub que está disponible en [github.com/site/privacy](https://github.com/site/privacy)) y los procedimientos que podemos publicar ocasionalmente en el Sitio Web. La mayoría de las directivas del sitio están disponibles en [docs.github.com/categories/site-policy](/es/site-policy).
+3. «Versiones Preliminares Beta» se refiere al software, los servicios o las características identificadas como alfa, beta, versión preliminar, de acceso anticipado o de evaluación, o mediante palabras o expresiones con significados similares.
+4. "Contenido" se refiere al contenido presentado o mostrado a través del sitio web, incluidos, entre otros, código, texto, datos, artículos, imágenes, fotografías, gráficos, software, aplicaciones, paquetes, diseños, características y otros materiales que están disponibles en el sitio web o disponible de otro modo a través del Servicio. "Contenido" también incluye Servicios. El "Contenido generado por el usuario" es Contenido, escrito o no, creado o cargado por nuestros Usuarios. "Su Contenido" es Contenido que usted crea o posee.
+5. "GitHub", "Nosotros" y "Nos" se refieren a GitHub, Inc., así como a nuestras filiales, directores, subsidiarias, contratistas, otorgantes de licencias, funcionarios, agentes y empleados.
+6. El "Servicio" hace referencia a las aplicaciones, el software, los productos y los servicios proporcionados por GitHub, incluidas las versiones preliminares de Beta.
+7. "El Usuario", "Usted" y "Su" se refieren a la persona, empresa u organización individual que ha visitado o está utilizando el Sitio web o el Servicio; que accede o utiliza cualquier parte de la Cuenta; o que dirija el uso de la Cuenta en el desempeño de sus funciones. Un usuario debe tener al menos 13 años de edad. Se pueden aplicar términos especiales a las Cuentas comerciales o gubernamentales (consulte el [Apartado B(5): Términos Adicionales](#5-additional-terms)).
+8. El «Sitio Web» se refiere al sitio web de GitHub ubicado en [github.com](https://github.com/) y a todo el contenido, los servicios y los productos que proporciona GitHub en el Sitio Web o a través de él. También se refiere a los subdominios de Github.com propiedad de GitHub, como [education.github.com](https://education.github.com/) y [pages.github.com](https://pages.github.com/). Estos Términos también rigen los sitios web de conferencias de GitHub, como [githubuniverse.com](https://githubuniverse.com/), y sitios web de productos, como [electronjs.org](https://www.electronjs.org/). En ocasiones, los sitios web que pertenecen a GitHub pueden proporcionar términos del servicio diferentes o adicionales. Si esos términos adicionales entran en conflicto con este Acuerdo, los términos más específicos se aplican a la página o servicio correspondiente.
+
+## B. Términos de la cuenta
+
+**Versión abreviada:** *las Cuentas Personales y las Organizaciones tienen diferentes controles administrativos; la Cuenta debe crearla un ser humano; usted debe ser mayor de 13 años; debe proporcionar una dirección de correo electrónico válida; y no puede tener más de una Cuenta gratuita. Usted es el único responsable de su Cuenta y de cualquier cosa que suceda mientras esté conectado a su Cuenta o utilizándola. Usted es responsable de proteger su Cuenta.*
+
+### 1. Controles de la Cuenta
+
+* Usuarios. Sujeto a estos Términos, usted retiene el control administrativo final sobre su Cuenta personal y el Contenido dentro de ella.
+
+* Organizaciones. El "propietario" de una Organización que se creó bajo estos Términos tiene el control administrativo final sobre esa Organización y el Contenido dentro de ella. Dentro del Servicio, un propietario puede gestionar el acceso de los Usuarios a los datos y proyectos de la Organización. Una Organización puede tener varios propietarios, pero debe haber al menos una Cuenta personal designada como propietario de una Organización. Si usted es el propietario de una Organización en virtud de estos Términos, lo consideramos responsable de las acciones que se realicen en o a través de esa Organización.
+
+### 2. Información Requerida
+
+Debe proporcionar una dirección de correo electrónico válida para completar el proceso de registro. Cualquier otra información que se solicite, como su nombre real, es opcional, a menos que acepte estos términos en nombre de una entidad jurídica (en cuyo caso necesitamos más información sobre ella) o si opta por una [Cuenta de Pago](#k-payment), en cuyo caso necesitaremos más información para realizar la facturación.
+
+### 3. Requisitos de la Cuenta
+
+Tenemos algunas reglas simples para cuentas personales en el servicio de GitHub.
+
+* Debe ser humano para crear una cuenta. No se permiten cuentas registradas por "bots" u otros métodos automatizados. Permitimos cuentas de máquina:
+* Una cuenta de máquina es una Cuenta configurada por un ser humano individual que acepta los Términos en nombre de la Cuenta, proporciona una dirección de correo electrónico válida y es responsable de sus acciones. Una cuenta de máquina se utiliza exclusivamente para realizar tareas automatizadas. Múltiples usuarios pueden dirigir las acciones de una cuenta de máquina, pero el propietario de la Cuenta es el responsable final de las acciones de la máquina. No puede mantener más de una cuenta de máquina gratuita además de su cuenta personal gratuita.
+* Una persona o entidad legal no puede mantener más de una cuenta gratuita (si también elige controlar una cuenta de máquina, está bien, pero solo se puede usar para ejecutar una máquina).
+* Debe tener 13 años o más. Si bien estamos encantados de ver a jóvenes programadores brillantes entusiasmados por aprender a programar, debemos cumplir con la ley de los Estados Unidos. GitHub no dirige nuestro Servicio a niños menores de 13 años, y no permitimos ningún Usuario menor de 13 años en nuestro Servicio. Si descubrimos que hay algún Usuario menor de 13 años, [cerraremos la Cuenta de ese Usuario inmediatamente](#l-cancellation-and-termination). Si es residente de un país fuera de los Estados Unidos, la edad mínima de su país puede ser mayor; en tal caso, usted es responsable de cumplir con las leyes de su país.
+* Su inicio de sesión solo puede ser utilizado por una persona, es decir, un solo inicio de sesión no puede ser compartido por varias personas. Una Organización paga solo puede proporcionar acceso a tantas Cuentas personales como lo permita su suscripción.
+* No puede usar GitHub en violación de las leyes de sanciones o control de exportación de los Estados Unidos o cualquier otra jurisdicción aplicable. No puede usar GitHub si es un [Ciudadano Especialmente Designado (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx), o trabaja en su nombre, o se le han impuesto bloqueos o prohibiciones de partes restringidas similares administradas por un organismo del gobierno de los EE. UU. GitHub puede permitir que personas en ciertos países o territorios sancionados accedan a ciertos servicios de GitHub de conformidad con las autorizaciones del gobierno de EE. UU. Para obtener más información, consulte nuestra [Directiva sobre Controles de Exportación](/es/site-policy/other-site-policies/github-and-trade-controls).
+
+### 4. Seguridad de la Cuenta
+
+Usted es responsable de mantener su Cuenta segura mientras usa nuestro Servicio. Ofrecemos herramientas como la autenticación de dos factores para ayudarlo a mantener la seguridad de su Cuenta, pero el contenido de su Cuenta y su seguridad dependen de usted.
+
+* Usted es responsable de todo el contenido publicado y la actividad que ocurra en su Cuenta (incluso cuando el contenido sea publicado por otras personas que tengan Cuentas en su Cuenta).
+* Usted es responsable de proteger su Cuenta y la contraseña. GitHub no puede y no será responsable de ninguna pérdida o daño por su incumplimiento de esta obligación de seguridad.
+* Notificará a GitHub de inmediato mediante el [Portal de soporte técnico de GitHub](https://support.github.com/) si se da cuenta de cualquier uso o acceso no autorizado a nuestro Servicio a través de su Cuenta, incluido cualquier uso no autorizado de su contraseña o Cuenta.
+
+### 5. Términos Adicionales
+
+En algunas situaciones, los términos de terceros pueden aplicarse a su uso de GitHub. Por ejemplo, puede ser miembro de una organización en GitHub con sus propios términos o acuerdos de licencia; puede descargar una aplicación que se integre con GitHub; o puede usar GitHub para autenticarse en otro servicio. Tenga en cuenta que, si bien estos Términos constituyen nuestro acuerdo total con usted, los términos de otras partes rigen sus relaciones con usted.
+
+Si usted es un Usuario del gobierno de EE. UU. u obtiene acceso al Servicio de GitHub o lo usa en calidad de miembro de dicho gobierno, se aplicará la [Enmienda del Gobierno de EE. UU. a los Términos de Servicio de GitHub](/es/site-policy/site-policy-deprecated/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) y usted acepta sus cláusulas.
+
+Si se ha registrado en GitHub Enterprise Cloud, se le aplicará el [Anexo de Enterprise Cloud](/es/site-policy/site-policy-deprecated/github-enterprise-service-level-agreement) y usted acepta sus cláusulas.
+
+## C. Uso aceptable
+
+**Versión abreviada:** *GitHub aloja una amplia variedad de proyectos colaborativos de todo el mundo, pero esa colaboración solo funciona si nuestros usuarios son capaces de trabajar juntos de buena fe. Mientras usa el servicio, debe cumplir los términos de este apartado, que incluyen algunas restricciones sobre el contenido que puede publicar, su conducta en el servicio y otras limitaciones. En resumen, rogamos a los usuarios que se comporten de una forma excelente los unos con los otros.*
+
+Su uso del sitio web y el servicio no debe violar ninguna ley aplicable, incluidas las leyes de derechos de autor o marcas registradas, las leyes de sanciones o control de exportaciones, u otras leyes en su jurisdicción. Usted es responsable de asegurarse de que su uso del Servicio cumpla con las leyes y las reglamentaciones aplicables.
+
+Usted acuerda que, bajo ninguna circunstancia, incumplirá nuestras [Directrices de Uso Aceptable](/es/site-policy/acceptable-use-policies/github-acceptable-use-policies) o las [Directrices de la Comunidad](/es/site-policy/github-terms/github-community-guidelines).
+
+## D. Contenido Generado por el Usuario
+
+**Versión abreviada:** *usted es el propietario del contenido que crea, pero nos otorga ciertos derechos sobre él para que podamos mostrar y compartir el contenido que publica. Aun así, usted tiene el control de su contenido y es responsable de él, y los derechos que nos otorga se limitan a los que necesitamos para ofrecer el servicio. Tenemos derecho a eliminar contenido o cerrar Cuentas si es necesario.*
+
+### 1. Responsabilidad respecto al Contenido Generado por el Usuario
+
+Puede crear o cargar Contenido generado por el usuario mientras usa el Servicio. Usted es el único responsable del contenido y de cualquier daño resultante de cualquier Contenido generado por el usuario que publique, cargue, vincule o ponga a disposición a través del Servicio, independientemente de la forma de ese Contenido. No somos responsables de ninguna exhibición pública o mal uso de su Contenido generado por el usuario.
+
+### 2. GitHub Puede Eliminar Contenido
+
+Tenemos derecho a rechazar o eliminar cualquier Contenido Generado por el Usuario que, a nuestra exclusiva discreción, incumpla cualquier ley o los [términos o directivas de GitHub](/es/site-policy). El Contenido generado por el usuario que se muestra en GitHub Mobile puede estar sujeto a los términos acepto términos y condiciones Edgar Manuel Ruiz Arias, edgarplasticos3@hotmail.com , recaplasruiz@gmail.com@Edgarruiz856
+
+Skip to content
+githu/Edgarruiz856 logo preview
+githu/Edgarruiz856
+Listing settings
+Publish your app to Marketplace
+To publish your app to GitHub Marketplace, complete the following items. Once completed, you can submit your listing to us for review. More information can be found in our developer documentation.
+
+This listing has not been published to Marketplace.
+This listing is a draft and has not yet been published on GitHub Marketplace.
+Add your contact info
+Fill out your listing description
+Create plans
+Add security and compliance information
+Set up webhook
+Sign 
+
+GitHub Marketplace Developer Agreement v2.4
+THESE TERMS AND CONDITIONS (THE "AGREEMENT") GOVERN YOUR PARTICIPATION IN GITHUB’S MARKETPLACE. BY ENROLLING TO PARTICIPATE IN THE MARKETPLACE OR BY CLICKING “I ACCEPT” BELOW, YOU ARE CONFIRMING THAT YOU UNDERSTAND THIS AGREEMENT, AND THAT YOU ACCEPT ALL OF ITS TERMS AND CONDITIONS. IF YOU ARE ENTERING INTO THIS AGREEMENT ON BEHALF OF A COMPANY OR OTHER LEGAL ENTITY, YOU REPRESENT THAT YOU HAVE THE LEGAL AUTHORITY TO BIND THE ENTITY TO THIS AGREEMENT, IN WHICH CASE “YOU” WILL MEAN THE ENTITY YOU REPRESENT.
+
+1. DEFINITIONS
+Capitalized terms utilized in this Agreement and not otherwise defined shall have the meaning provided in the GitHub Terms of Service located at https://docs.github.com/articles/github-terms-of-service. Those Terms of Service are referred to as the “Terms” or “ToS”.
+
+"Action" means a workflow that allows you to implement custom logic to perform a particular task with GitHub without having to create an application.
+
+“Brand Features” means the trademarks and similar intellectual property of each party.
+
+"Developer" or “You” means the company or individual who has created the Developer Application.
+
+"Developer Application" or "Developer Product" means the software, related content, and other digital materials created by you for use in connection with GitHub and accessible via Marketplace. This includes Actions, GitHub Copilot Extensions, and other applications or products that use or interact with generative artificial intelligence (AI) technology.
+
+“End User” means any person, company, or other legal entity that will acquire licenses to a Developer Product via the GitHub Marketplace.
+
+“GitHub API” means any proprietary application programming interface developed by GitHub, and includes the GitHub Copilot API. Access to and use of a GitHub API is governed by the ToS.
+
+“GitHub Marketplace” or “Marketplace” means the proprietary online marketplace site operated by GitHub where Developer Products may be delivered to End Users.
+
+“Listing” means the content provided for listing the Developer Product on GitHub Marketplace.
+
+“Taxes” means any tax, of any kind or sort regardless of origin including interest or penalties thereon.
+
+“Token” means the credentials Developer must obtain to access a GitHub API.
+
+“Usage Data” means Marketplace-related data generated in connection with End User use of GitHub Marketplace and licensure of Developer Products, including but not limited to usage statistics and aggregated sales data. Usage Data does not include, and specifically excludes, banking and payment information.
+
+2. PURPOSE AND LICENSE GRANT
+2.1 This Agreement sets forth the terms that govern a Developer publishing Listings on the GitHub Marketplace for End Users to use Developer Products. This Agreement is applicable to all Developer Products, regardless if distributed for free or for a fee. Developer agrees to use the GitHub Marketplace solely for the purposes permitted by this Agreement. Developer is solely responsible for its Developer Products.
+
+2.2 Developer grants to GitHub a non-exclusive, worldwide, transferable, sublicensable, fully paid-up, royalty-free license to process the Listing in any fashion (including testing and displaying it on Marketplace), and to display Developer’s Brand Features in connection with Marketplace.
+
+2.3 In addition to the licenses granted above, GitHub may include Developer Brand Features in any material marketing Marketplace. If Developer stops distributing a Developer Product on Marketplace, GitHub will stop use of the discontinued products’ Brand Features.
+
+2.4 Developer must include a separate end user license agreement (“EULA”) in its Developer Products that will govern the End User’s rights to the Developer Products. Developer acknowledges and agrees that the applicable EULA for each Developer Product is solely between Developer and the End User. GitHub shall not be responsible, nor have any liability whatsoever, under any EULA.
+
+2.5 Except for the license rights granted in this Agreement, (a) Developer retains all rights in the Developer Products; (b) each party retains all rights it has independent of this Agreement, including rights under the US Copyright Act or similar laws of other jurisdictions; and (c) each party owns all rights, title, and interest in its respective Brand Features. Each party is responsible for protecting and enforcing its own rights and neither party has an obligation to do so on the other’s behalf.
+
+2.6 GitHub shall be entitled to provide Developer’s name, address, and other contact details to any third party as required by law or that reasonably, in GitHub’s sole determination, claims that Developer does not possess all of the necessary intellectual property rights in or to the Developer Products.
+
+3. RESTRICTIONS AND RESPONSIBILITIES
+Notwithstanding any of the requirements set forth in Section 2 (Purpose and License Grant) above, Developer’s use of Marketplace is explicitly conditioned on Developer’s adherence to this Agreement, including the restrictions and compliance requirements set forth below.
+
+3.1 Developer agrees it will protect the privacy and legal rights of all End Users with respect to the use of Developer Products. If an End User provides Developer with or the Developer Product otherwise collects, discloses, accesses, or uses End User Personal Data, then the Developer must (a) inform End Users that such information will be available to the Developer Products; (b) provide a legally adequate privacy notice and protection to End Users; (c) obtain valid End User consent as required, and (d) comply with all other data privacy obligations applicable to Developer.
+
+3.2 In order to use and access a GitHub API, Developer must obtain a Token by becoming a subscriber. Developer may not share its Token with any third party, shall keep its Token and all login information secure, and shall use the Token as Developer’s sole means of accessing a GitHub API.
+
+3.3 Developer will not engage in any activity with Marketplace, including attempting to distribute any Developer Product, that violates GitHub’s Terms of Service including Acceptable Use Policies. Additionally, Developer will not attempt to distribute any Developer Product that:
+
+Contains or installs any active malware or exploits, or uses our platform for exploit delivery (such as part of a command and control system);
+Enables the unauthorized download of streaming content or media; or
+Diverts End Users or provides links to any other site that mimics Marketplace or passes itself off as Marketplace.
+3.4 With respect to Developer Products that interact with generative AI technology, including GitHub Copilot Extensions, Developer will:
+
+Test the Developer Product using various inputs to ensure that outputs do not violate this Agreement;
+Notify users when they are interacting with generative AI content;
+Have a mechanism for End Users to report feedback to GitHub and Developer related to errors, bugs, improper, or undesired outputs; and
+Inform End Users the appropriate use cases, best practices, and limitations of the Developer Product.
+3.5 Developer shall not by any means repackage or resell Marketplace, a GitHub API, Personal Data, or Usage Data. Developer is not permitted to use a GitHub API or any Personal or Usage Data in any manner that does or could undermine the security of the Service, a GitHub API, Usage Data, or any other data or information stored or transmitted using Marketplace. In addition, Developer shall not (a) interfere with, modify, or disable any features, functionality, or security controls of Marketplace or a GitHub API; (b) circumvent in any fashion any protection mechanisms for Marketplace or a GitHub API; or (c) reverse engineer, decompile, disassemble, or derive the source code, underlying ideas, algorithms, structure, or organizational form from Marketplace or a GitHub API.
+
+3.6 Developer acknowledges that Developer is solely responsible, and that GitHub has no responsibility or liability of any kind, for any aspect of Developer Products. Developer will be solely responsible for:
+
+(i) providing End Users instructions on installing and using its Developer Products;
+(ii) creating and displaying information and content on, through, or within its Developer Products;
+(iii) ensuring that its Developer Products do not violate or infringe the intellectual property rights of any third party;
+(iv) ensuring that Developer Products are not offensive, profane, obscene, libelous, or otherwise illegal;
+(v) ensuring that its Developer Products do not contain or introduce malicious software into Marketplace, a GitHub API, any Usage Data, or other data stored or transmitted using Marketplace; and
+(vi) ensuring that its Developer Products are not designed to or utilized for the purpose of sending commercial electronic messages to any GitHub.com users, agents, or End Users without their consent.
+3.7 Developer will respect and comply with the technical and policy-implemented limitations of a GitHub API and the restrictions of this Agreement in designing and implementing Developer Products. Developer shall not violate any explicit rate limitations on calling or otherwise utilizing a GitHub API.
+
+3.8 Nothing in this Agreement shall prevent either party from developing and/or publishing applications that are similar or otherwise compete with the other party's applications.
+
+4. TAKEDOWNS
+4.1 Your Takedowns. Upon providing GitHub with thirty (30) days written notice, you may remove your Listing from future distribution via Marketplace. You must continue to comply with this Agreement for any Listing already distributed through Marketplace, including but not limited to refund requirements. Removing your Listing from future distribution via Marketplace does not (a) affect the license rights of End Users who have previously purchased or installed your Listing or (b) change your obligation to deliver or support a Listing that has been previously purchased or installed by users. If you remove your Listing, GitHub will not disclose your reason for the removal.
+
+4.2 GitHub Review and Takedowns. GitHub may review or test your Listing for compliance with this Agreement, GitHub ToS, and any other applicable terms, obligations, laws, or regulations. GitHub retains sole and absolute discretion over what Listings are included on Marketplace. You may be required to provide information about yourself (such as identification or contact details) as part of the registration process for Marketplace, or as part of your continued use of Marketplace. You agree that any information you give to Marketplace will be accurate, correct, and up to date. As part of the specification for your Listing, GitHub may ask that you include in the file for your Listing information such as your name and email address. GitHub may use this information when featuring the Listing in our directory or for other uses.
+
+If GitHub is notified by you or otherwise becomes aware and determines, in its sole discretion, that a Listing or any portion thereof or your Brand Features:
+
+(a) violates the terms of this Agreement or the ToS;
+(b) the display of the Listing is impacting the integrity of GitHub servers (i.e., users are unable to access such content or otherwise experience difficulty);
+(c) is deemed by GitHub to add undue risk to Marketplace End Users’ data or impair the user experience of Marketplace or GitHub; or
+(d) is subject to End User complaints in regards to your breach of your EULA.
+GitHub may suspend the transfer of Personal Data to your Developer Product; prohibit the collection and processing of Personal Data via your Developer Product; remove the Listing from Marketplace; flag, filter, or modify related materials (including but not limited to descriptions, screenshots, or metadata); or reclassify the Listing at its sole discretion. If GitHub takes any of these actions on your Listing, you may appeal GitHub’s action through the GitHub Appeal and Reinstatement Process.
+
+4.3 Developer Product Updates. From time to time, GitHub may check for available updates to any Listing, including but not limited to bug fixes or enhanced functionality. If you update your Listing to Marketplace, you agree that such update will be automatically requested, downloaded, and installed without further notice to you. GitHub makes no guarantees regarding the timing of such updates. Updates to a Listing are subject to the same terms and conditions as the Listing.
+
+4.4 End-User Takedowns. If an End-User uses your Developer Product in a way that violates the Terms, then we have the right to suspend or terminate that End-User's access to the Developer Product without any liability to you.
+
+5. REPRESENTATIONS, WARRANTIES AND COVENANTS
+5.1 Developer must inform End Users of the Personal Data that will be transmitted to the Developer Application from the Service and that Developer terms will control the privacy, security, or integrity of such Personal Data. To the extent Developer’s Applications store, process, or transmit Personal Data, neither Developer nor Developer’s Application will, without appropriate prior user consent or except to the extent required by applicable law:
+
+(i) modify the content of Personal Data in a manner that adversely affects the integrity of the Personal Data;
+(ii) disclose the Personal Data to any third party; or
+(iii) use the Personal Data for any purpose other than providing the Developer Application functionality to users of such Developer Application.
+Developer shall maintain and handle all Personal Data in accordance with privacy and security measures reasonably adequate to preserve the confidentiality and security of all such Personal Data and all applicable privacy laws and regulations.
+
+5.2 Developer agrees that it will comply with the GitHub Data Protection Addendum.
+
+5.3 You Support Your Developer Product. Developer will be solely responsible for support and maintenance of your Developer Products and any complaints about your Developer Products. Your support contact information will be displayed in each application detail page and made available to users for customer support purposes. Failure to provide adequate support for your Developer Products may result in reduced product exposure, or in some cases removal from Marketplace or anywhere else on GitHub.com where previously purchased or downloaded Developer Products are stored on behalf of users.
+
+5.4 Developer represents and warrants that: (i) its Developer Products and Developer Brand Features do not and will not violate, misappropriate, or infringe upon the intellectual property rights of any third party; (ii) Developer will comply with all applicable laws and regulations, including this Agreement and GitHub’s Terms of Service, and maintain all permissions necessary to develop, implement, and distribute its Developer Products; (iii) its Developer Products do not and will not contain or introduce any malicious software; (iv) its Developer Products are not designed to or utilized for the purpose of sending commercial electronic messages to any GitHub customers, agents, or End Users without their consent; (v) Developer has all right, power and authority to grant the licenses granted to GitHub and End Users herein; and (vi) any images and text that are used to market the Developer Products or that Developer has uploaded to Marketplace are truthful, accurate, and not intended to mislead or confuse the End User.
+
+5.5 Disclaimer of Warranties. All aspects of Marketplace and GitHub API, including all server and network components, are provided on an “as is” and “as available” basis, without any warranties of any kind. GitHub expressly disclaims any and all warranties to the fullest extent permitted by law, whether express or implied, including, but not limited to, any implied warranties of merchantability, title, fitness for a particular purpose, and non-infringement. Developer acknowledges that GitHub does not warrant that Marketplace or a GitHub API will be uninterrupted, timely, secure, error-free, or free from viruses, malware, or worms (otherwise known as computer code or other technology specifically designed to disrupt, disable, or harm your software, hardware, computer system, or network), and no information or advice obtained by developer from GitHub or through Marketplace or a GitHub API shall create any warranty not expressly stated in these terms. GitHub is not responsible for, and specifically disclaims any liability for, any unauthorized use of Developer Products outside Marketplace.
+
+6. PAID APPLICATIONS OR PRODUCTS
+6.1 GitHub will be the merchant of record for Developer Products purchased by End Users via Marketplace.
+
+6.2 Registration. Developer will be required to provide information about yourself (such as identification or contact details) as part of the registration process for Marketplace, or as part of your continued use of Marketplace including, but not limited to: (i) name, (ii) address, (iii) telephone number, (iv) e-mail address, and (v) payment account details. GitHub may publicize Developer’s information on Marketplace and retain Developer’s registration information as required by applicable law.
+
+6.3 Pricing. Prices for Listings of Developer Applications will be set in US Dollars (USD). Developer has complete control over setting pricing for each Listing. The prices you set for Developer Products will determine the amount of payment you will receive. GitHub will remit 95% of the sale price in USD without reduction for Taxes except for any withholding taxes that are required under applicable law. The remaining 5% of the sales price will be allotted to and retained by GitHub. At the end of each month and upon reaching a minimum value of $500 USD, GitHub will remit your share of payments.
+
+6.4 Refunds. You will be responsible for specifying the terms and conditions regarding refunds to your End Users. In no event shall GitHub be responsible for providing any support for refunds, nor shall GitHub be liable for payment of any refund.
+
+7. OWNERSHIP
+Subject to the limited licenses expressly provided in this Agreement, nothing in this Agreement transfers or assigns to a party any of the other party’s intellectual property rights in its Brand Features or other technology, and nothing in this Agreement transfers or assigns a party any of the other party’s intellectual property rights.
+
+8. LIMITATION OF LIABILITY
+Under no circumstances and under no legal theory (whether in contract, tort, negligence or otherwise) will GitHub, or its affiliates, officers, directors, employees, agents, or suppliers be liable to developer or any third party under this agreement for any indirect, incidental, special, exemplary, consequential, punitive or other similar damages, including lost profits, lost sales or business, lost data, business interruption or any other loss incurred by Developer or any third party in connection with this Agreement, regardless of whether Developer has been advised of the possibility of or could have foreseen such damages notwithstanding anything to the contrary in this Agreement, GitHub’s aggregate liability to Developer or any third party arising out of this Agreement shall not exceed $500 (five hundred) USD.
+
+9. INDEMNIFICATION
+To the maximum extent permitted by applicable law, Developer agrees to defend, indemnify and hold harmless GitH
