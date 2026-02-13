@@ -1,0 +1,107 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+METHOD:PUBLISH
+PRODID:-//LogMeIn//GoToWebinar//EN
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VTIMEZONE
+TZID:Europe/London
+LAST-MODIFIED:20230911T053111Z
+TZURL:https://www.tzurl.org/zoneinfo-outlook/Europe/London
+X-LIC-LOCATION:Europe/London
+BEGIN:DAYLIGHT
+TZNAME:BST
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0100
+DTSTART:19700329T010000
+
+END:DAYLIGHT
+BEGIN:STANDARD
+TZNAME:GMT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0000
+DTSTART:19701025T020000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20231218T095415Z
+DTSTART;TZID=Europe/London:20230724T120000
+DTEND;TZID=Europe/London:20230724T124500
+SUMMARY:GoToWebinar - Trade Idea Generation: Learning the Fundamentals
+LOCATION:GoToWebinar - Información de la llamada de conferencia a continu
+ ación
+UID:-1726158851@logmein.com
+ORGANIZER:capitalwebinars@capital.com
+DESCRIPTION:1. Haga clic y únase en la fecha y la hora especificadas:\nht
+ tps://global.gotowebinar.com/join/31791711611611991/472632611\nNota: Es 
+ recomendable que no comparta este enlace. Es solo para usted.\n\n2. Llam
+ e a través de los números que hay a continuación:\n\nNo audio informatio
+ n found\n\n\nWelcome to the Capital.com Trader Development Webinar Serie
+ s. In this webinar\,  we will explore how to generate trade ideas from f
+ undamental analysis.\n\nThis will include: \n- What is fundamental tradi
+ ng ?\n- Why do fundamentals matter in trading?\n- How to conduct fundame
+ ntal analysis?\n- How to keep focused on what is driving markets\n- Plan
+ ning for the day or week ahead\n\nKind regards\,\n\nCapital.com\n\nRisk 
+ warning:\nSpread bets and CFDs are complex instruments and come with a h
+ igh risk of losing money rapidly due to leverage. 79% of retail investor
+  accounts lose money when spread betting or trading CFDs with Capital.co
+ m. You should consider whether you understand how spread bets or CFDs wo
+ rk and whether you can afford to take the high risk of losing your money
+ .\n\nDisclaimer:\nAll information that is provided during this seminar i
+ s for educational purposes only. The presenter is not a financial or inv
+ estment advisor and is not authorised to provide recommendations on any 
+ instrument of any kind as part of this presentation. The strategies show
+ cased are applied to hypothetical scenarios. Any instruments that are me
+ ntioned throughout are cited only for illustrative and educational purpo
+ ses. The webinar is not intended to be a personal recommendation or an o
+ ffer to buy or sell any financial product or instrument\, and must not b
+ e construed as advice from the presenter. Capital.com does not represent
+  that the material provided here is accurate\, current\, or complete\, a
+ nd therefore should not be relied upon as such. Any information that may
+  be provided relating to past performance is not a reliable indicator of
+  future results or performance. To the extent permitted by law\, in no e
+ vent shall Capital.com (or any affiliate or employee) have any liability
+  for any loss arising from the use of the information provided. Any pers
+ on acting on the information does so entirely at their own risk.\n
+X-ALT-DESC;FMTTYPE=text/html:<HTML><HEAD><TITLE></TITLE><BODY><FONT SIZE=
+ 2><b>1. Haga clic y únase en la fecha y la hora especificadas:</b></FONT
+ ><BR><FONT SIZE=2>https://global.gotowebinar.com/join/31791711611611991/
+ 472632611</FONT><BR><FONT SIZE=2>Nota: Es recomendable que no comparta e
+ ste enlace. Es solo para usted.</FONT><BR><BR><FONT SIZE=2><FONT SIZE=2>
+ <b>2. Llame a través de los números que hay a continuación:</b></FONT><B
+ R><BR><BR><FONT SIZE=2>No audio information found</FONT><BR></BODY></HTM
+ L></FONT><BR><FONT SIZE=2>Welcome to the Capital.com Trader Development 
+ Webinar Series. In this webinar\,  we will explore how to generate trade
+  ideas from fundamental analysis.\n\nThis will include: \n- What is fund
+ amental trading ?\n- Why do fundamentals matter in trading?\n- How to co
+ nduct fundamental analysis?\n- How to keep focused on what is driving ma
+ rkets\n- Planning for the day or week ahead\n\nKind regards\,\n\nCapital
+ .com\n\nRisk warning:\nSpread bets and CFDs are complex instruments and 
+ come with a high risk of losing money rapidly due to leverage. 79% of re
+ tail investor accounts lose money when spread betting or trading CFDs wi
+ th Capital.com. You should consider whether you understand how spread be
+ ts or CFDs work and whether you can afford to take the high risk of losi
+ ng your money.\n\nDisclaimer:\nAll information that is provided during t
+ his seminar is for educational purposes only. The presenter is not a fin
+ ancial or investment advisor and is not authorised to provide recommenda
+ tions on any instrument of any kind as part of this presentation. The st
+ rategies showcased are applied to hypothetical scenarios. Any instrument
+ s that are mentioned throughout are cited only for illustrative and educ
+ ational purposes. The webinar is not intended to be a personal recommend
+ ation or an offer to buy or sell any financial product or instrument\, a
+ nd must not be construed as advice from the presenter. Capital.com does 
+ not represent that the material provided here is accurate\, current\, or
+  complete\, and therefore should not be relied upon as such. Any informa
+ tion that may be provided relating to past performance is not a reliable
+  indicator of future results or performance. To the extent permitted by 
+ law\, in no event shall Capital.com (or any affiliate or employee) have 
+ any liability for any loss arising from the use of the information provi
+ ded. Any person acting on the information does so entirely at their own 
+ risk.</FONT><BR></BODY></HTML>
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR
