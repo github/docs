@@ -1,3 +1,11 @@
+
+# Set default behavior, in case users don't have core.autocrlf set.
+* text=auto
+# Explicitly declare text files we want to always be normalized and converted
+# to native line endings on checkout.
+*.md text diff=markdown
+*.json.br filter=lfs diff=lfs merge=lfs -text
+
 # Download and install nvm:
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
