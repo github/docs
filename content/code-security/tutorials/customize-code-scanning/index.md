@@ -10,6 +10,8 @@ topics:
   - Code scanning
   - CodeQL
 contentType: tutorials
+redirect_from:
+  - /code-security/how-tos/scan-code-for-vulnerabilities/customize-code-scanning
 children:
   - /evaluating-default-setup-for-code-scanning
   - /preparing-your-code-for-codeql-analysis

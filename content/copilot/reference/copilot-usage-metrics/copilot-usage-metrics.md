@@ -19,10 +19,10 @@ category:
 
 {% data reusables.copilot.usage-metrics-preview %}
 
-The {% data variables.product.prodname_copilot_short %} usage metrics dashboard and APIs display and export data using a consistent set of fields. This reference lists all available metrics and describes how to interpret their values in both dashboard visuals and NDJSON or API exports. To retrieve this data programmatically, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics).
+The {% data variables.product.prodname_copilot_short %} usage metrics dashboard and APIs display and export data using a consistent set of fields. This reference lists all available metrics and describes how to interpret their values in both dashboard visuals and NDJSON or API exports.
 
-* The {% data variables.product.prodname_copilot_short %} usage metrics dashboard reports data at the **enterprise** level.
-* The {% data variables.product.prodname_copilot_short %} usage metrics APIs support **enterprise-, organization-, and user-level** records.
+* The {% data variables.product.prodname_copilot_short %} usage metrics dashboard reports data at the **enterprise** level. To access the dashboard, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/view-usage-and-adoption).
+* The {% data variables.product.prodname_copilot_short %} usage metrics APIs support **enterprise-, organization-, and user-level** records. To retrieve this data programmatically, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics).
 
 For guidance on how to read and interpret these metrics, see [AUTOTITLE](/copilot/concepts/copilot-metrics).
 

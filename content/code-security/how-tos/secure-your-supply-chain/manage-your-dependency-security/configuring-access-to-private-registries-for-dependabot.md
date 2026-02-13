@@ -136,7 +136,51 @@ With OIDC-based authentication, {% data variables.product.prodname_dependabot %}
 * Azure DevOps Artifacts
 * JFrog Artifactory
 
-To configure OIDC authentication, you need to specify `tenant-id` and `client-id` instead of `username` and `password` in your registry configuration.
+To configure OIDC authentication, you need to specify different values instead of `username` and `password` in your registry configuration.
+
+### AWS CodeArtifact
+
+AWS CodeArtifact requires the values `aws-region`, `account-id`, `role-name`, `domain`, and `domain-owner`. The `audience` field is optional.
+
+```yaml
+registries:
+  my-aws-codeartifact-feed:
+    type: npm-registry
+    url: https://MY_DOMAIN-MY-ACCOUNT_ID.d.codeartifact.REGION.amazonaws.com/npm/MY_REPOSITORY/
+    aws-region: REGION
+    account-id: '123456789012'
+    role-name: MY_ROLE_NAME
+    domain: MY_DOMAIN
+    domain-owner: '987654321098'
+    audience: MY_AUDIENCE  # if required by your feed
+```
+
+### Azure DevOps Artifacts
+
+Azure DevOps Artifacts requires the values `tenant-id` and `client-id`:
+
+```yaml
+registries:
+  my-azure-devops-artifacts-feed:
+    type: npm-registry
+    url: https://pkgs.dev.azure.com/MY-ORGANIZATION/MY-PROJECT/_packaging/MY-FEED/npm/registry/
+    tenant-id: {% raw %}${{ secrets.AZURE_TENANT_ID }}{% endraw %}
+    client-id: {% raw %}${{ secrets.AZURE_CLIENT_ID }}{% endraw %}
+```
+
+### JFrog Artifactory
+
+JFrog Artifactory requires the values `url` and `jfrog-oidc-provider-name`.  The values `audience` and `identity-mapping-name` are optional:
+
+```yaml
+registries:
+  my-jfrog-artifactory-feed:
+    type: npm-registry
+    url: https://JFROG-PLATFORM-URL/artifactory/api/npm/MY-REPOSITORY
+    jfrog-oidc-provider-name: MY-PROVIDER
+    audience: MY-AUDIENCE  # if required by your feed
+    identity-mapping-name: MY-IDENTITY-MAPPING  # if required by your feed
+```
 
 For more information about how OIDC works, see [AUTOTITLE](/actions/concepts/security/openid-connect).
 
