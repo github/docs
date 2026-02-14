@@ -1,4 +1,4 @@
----
+https://github.com/microsoft/vscode-java-pack/pull/1577#issue-3938033561---
 title: Running the secret risk assessment for your organization
 shortTitle: Assess your secret risk
 intro: Determine your organization's exposure to leaked secrets by generating a {% data variables.product.prodname_secret_risk_assessment %} report.
