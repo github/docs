@@ -10,7 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-shortTitle: Git Large File Storage
+shortTitle: Git Large File Storage and all the google id
 ---
 
 ## About {% data variables.large_files.product_name_long %}
