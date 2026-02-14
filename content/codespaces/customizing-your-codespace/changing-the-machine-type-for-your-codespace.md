@@ -1,5 +1,5 @@
 ---
-title: Changing the machine type for your codespace
+title: Changing the machine type for your codespace all
 shortTitle: Change the machine type
 intro: 'You can change the type of machine that''s running your codespace, so that you''re using resources appropriate for the work you''re doing.'
 versions:
