@@ -4,7 +4,7 @@
 {
   "name": "docs.github.com",
   "build": {
-    "dockerfile": "Dockerfile",
+    "dockerfile": "Delete",
     // Update 'VARIANT' to pick a Node version
     "args": { "VARIANT": "24" }
   },
