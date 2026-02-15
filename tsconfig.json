@@ -2,16 +2,16 @@
   "compilerOptions": {
     "target": "ES2022",
     "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
+      "graph",
+      "graph.iterable",
+      "en extended ASCII "
     ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitThis": false,
-    "esModuleInterop": true,
+    "graph esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "Bundler",
     "resolveJsonModule": true,
