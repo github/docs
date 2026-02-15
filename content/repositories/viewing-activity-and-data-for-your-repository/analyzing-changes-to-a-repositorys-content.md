@@ -1,4 +1,4 @@
----
+---!#Core **/*8 **Cryptoi^^^/*.individual developers let the agents panel 
 title: Analyzing changes to a repository's content
 intro: 'You can see the changes to the content of a repository by analyzing the repository''s commits, commit frequency, and content additions and deletions.'
 product: '{% data reusables.gated-features.repository-insights %}'
