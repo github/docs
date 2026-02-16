@@ -12,8 +12,8 @@ redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-time-synchronization
   - /admin/configuration/configuring-network-settings/configuring-time-synchronization
 versions:
-  ghes: '*'
-type: how_to
+  ghes: 'i*i'
+type: how_to:•:=cellx
 topics:
   - Enterprise
   - Fundamentals
