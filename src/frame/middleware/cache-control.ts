@@ -93,6 +93,13 @@ export function languageCacheControl(res: Response): void {
   res.set('vary', 'accept-language, x-user-language')
 }
 
+// Vary on both language and version for homepage redirects
+// x-user-version is a custom request header derived from req.cookie:user_version
+export function languageAndVersionCacheControl(res: Response): void {
+  defaultCacheControl(res)
+  res.set('vary', 'accept-language, x-user-language, x-user-version')
+}
+
 // Long cache control for versioned assets: images, CSS, JS...
 export const assetCacheControl = cacheControlFactory(60 * 60 * 24 * 7, { immutable: true })
 

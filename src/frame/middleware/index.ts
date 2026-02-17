@@ -16,6 +16,7 @@ import {
 import handleErrors from '@/observability/middleware/handle-errors'
 import handleNextDataPath from './handle-next-data-path'
 import detectLanguage from '@/languages/middleware/detect-language'
+import detectVersion from '@/versions/middleware/detect-version'
 import reloadTree from './reload-tree'
 import context from './context/context'
 import shortVersions from '@/versions/middleware/short-versions'
@@ -213,6 +214,7 @@ export default function index(app: Express) {
   // *** Config and context for redirects ***
   app.use(urlDecode) // Must come before detectLanguage to decode @ symbols in version segments
   app.use(detectLanguage) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
+  app.use(detectVersion) // Must come before handle-redirects for version cookie support
   app.use(asyncMiddleware(reloadTree)) // Must come before context
   app.use(asyncMiddleware(context)) // Must come before early-access-*, handle-redirects
   app.use(shortVersions) // Support version shorthands

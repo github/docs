@@ -1,6 +1,6 @@
 ---
 title: Editing security advisories in the GitHub Advisory Database
-intro: You can submit improvements to any advisory published in the {% data variables.product.prodname_advisory_database %} by making a community contribution.
+intro: Improve advisories published in the {% data variables.product.prodname_advisory_database %} by making community contributions.
 permissions: '{% data reusables.permissions.global-security-advisories-edit %}'
 redirect_from:
   - /code-security/security-advisories/editing-security-advisories-in-the-github-advisory-database
@@ -22,19 +22,13 @@ topics:
 shortTitle: Edit Advisory Database
 ---
 
+{% ifversion ghes %}
+
 ## Editing advisories in the {% data variables.product.prodname_advisory_database %}
 
-The advisories in the {% data variables.product.prodname_advisory_database %} are global security advisories. For more information about global security advisories, see [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-global-security-advisories).
+{% endif %}
 
-Anyone can suggest improvements on any global security advisory in the {% data variables.product.prodname_advisory_database %} by making a **community contribution**. A **community contribution** is a pull request submitted to the [github/advisory-database](https://github.com/github/advisory-database) repository that improves the content of a global security advisory. When you make a community contribution, you can edit or add any detail, including additionally affected ecosystems, severity level or description of who is impacted. The {% data variables.product.prodname_security %} curation team will review the submitted contributions and publish them onto the {% data variables.product.prodname_advisory_database %} if accepted.
-
-{% ifversion security-advisories-credit-types %}
-If we accept and publish the community contribution, the person who submitted the community contribution pull request will automatically be assigned a credit type of "Analyst". For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory#about-credits-for-repository-security-advisories).{% endif %}
-
-{% ifversion fpt or ghec %}
-Only repository owners and administrators can edit repository-level security advisories. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory).{% endif %}
-
-1. Navigate to https://github.com/advisories.
+1. Navigate to [https://github.com/advisories](https://github.com/advisories?ref_product=security-advisories&ref_type=engagement&ref_style=text).
 1. Select the security advisory you would like to contribute to.
 1. On the right-hand side of the page, click the **Suggest improvements for this vulnerability** link.
 1. In the "Improve security advisory" form, make the desired improvements. You can edit or add any detail.{% ifversion fpt or ghec %} For information about correctly specifying information on the form, including affected versions, see [AUTOTITLE](/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/best-practices-for-writing-repository-security-advisories).{% endif %}

@@ -18,6 +18,9 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/measure-adoption/analyze-usage-over-time
   - /copilot/tutorials/roll-out-at-scale/measure-adoption
 allowTitleToDifferFromFilename: true
+category:
+  - Copilot usage metrics
+  - Measure success
 ---
 
 {% data reusables.copilot.usage-metrics-preview %}

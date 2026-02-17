@@ -46,7 +46,7 @@ further options on the command line.
 
 ### 3. Obtain a local copy of the {% data variables.product.prodname_codeql %} queries
 
-The [{% data variables.product.prodname_codeql %} repository](https://github.com/github/codeql) contains
+The [{% data variables.product.prodname_codeql %} repository](https://github.com/github/codeql?ref_product=code-scanning&ref_type=engagement&ref_style=text) contains
 the queries and libraries required for {% data variables.product.prodname_codeql %} analysis of all supported languages.
 Clone a copy of this repository into `codeql-home`.
 

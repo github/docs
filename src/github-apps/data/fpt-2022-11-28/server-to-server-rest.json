@@ -2743,6 +2743,18 @@
       "requestPath": "/repos/{owner}/{repo}/issues/comments/{comment_id}"
     },
     {
+      "slug": "pin-an-issue-comment",
+      "subcategory": "comments",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/issues/comments/{comment_id}/pin"
+    },
+    {
+      "slug": "unpin-an-issue-comment",
+      "subcategory": "comments",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/issues/comments/{comment_id}/pin"
+    },
+    {
       "slug": "list-issue-events-for-a-repository",
       "subcategory": "events",
       "verb": "get",

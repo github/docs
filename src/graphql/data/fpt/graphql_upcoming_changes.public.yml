@@ -7982,3 +7982,19 @@ upcoming_changes:
     date: '2026-04-01T00:00:00+00:00'
     criticality: breaking
     owner: audit_logs
+  - location: Team.viewerCanSubscribe
+    description: '`viewerCanSubscribe` will be removed.'
+    reason:
+      '`Team.viewerCanSubscribe` will be removed. Team notifications subscriptions
+      are being deprecated.'
+    date: '2026-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: peter-evans
+  - location: Team.viewerSubscription
+    description: '`viewerSubscription` will be removed.'
+    reason:
+      '`Team.viewerSubscription` will be removed. Team notifications subscriptions
+      are being deprecated.'
+    date: '2026-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: peter-evans

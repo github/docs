@@ -14,8 +14,8 @@ redirect_from:
   - /copilot/reference/interpret-copilot-metrics
 category:
   - Copilot usage metrics
-  - Manage Copilot for a team
   - Understand metrics
+  - Track Copilot usage
 ---
 
 >[!NOTE] The {% data variables.product.prodname_copilot_short %} usage metrics dashboard is currently in {% data variables.release-phases.public_preview %} and subject to change.

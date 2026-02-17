@@ -156,9 +156,12 @@ You can run {% data variables.copilot.copilot_coding_agent %} on self-hosted run
 
     You must configure your firewall to allow connections to the [standard hosts required for {% data variables.product.prodname_actions %} self-hosted runners](/actions/reference/runners/self-hosted-runners#accessible-domains-by-function), plus the following hosts:
 
-    * `api.githubcopilot.com`
     * `uploads.github.com`
     * `user-images.githubusercontent.com`
+    * `api.individual.githubcopilot.com` (if you expect {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} users to use {% data variables.copilot.copilot_coding_agent %} in your repository)
+    * `api.business.githubcopilot.com` (if you expect {% data variables.copilot.copilot_business_short %} users to use {% data variables.copilot.copilot_coding_agent %} in your repository)
+    * `api.enterprise.githubcopilot.com` (if you expect {% data variables.copilot.copilot_enterprise_short %} users to use {% data variables.copilot.copilot_coding_agent %} in your repository)
+    * `api.githubcopilot.com` (*no longer required after February 27, 2026*)
 
 1. Disable {% data variables.copilot.copilot_coding_agent %}'s integrated firewall in your repository settings. The firewall is not compatible with self-hosted runners. Unless this is disabled, use of {% data variables.copilot.copilot_coding_agent %} will be blocked. For more information, see [AUTOTITLE](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
 1. In your `copilot-setup-steps.yml` file, set the `runs-on` attribute to your ARC-managed scale set name:

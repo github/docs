@@ -24,7 +24,7 @@ category:
     * Open the Agents panel by clicking the {% octicon "agent" aria-label="The Agents icon" %} at the top of any page on {% data variables.product.github %}
 1. Using the dropdown menu, select the repository you want the coding agent to work in.
 1. Optionally, select a base branch for {% data variables.product.prodname_copilot_short %}'s pull request.
-{% data reusables.copilot.optional-select-custom-agent %}
+{% data reusables.copilot.optional-select-custom-agent-dotcom %}
 1. Optionally, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
 1. Type a prompt describing your request. For example:
 
