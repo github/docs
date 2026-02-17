@@ -21,6 +21,7 @@ children:
   - about-the-dependabot-yml-file
   - about-dependabot-auto-triage-rules
   - about-dependabot-on-github-actions-runners
+  - dependabot-job-logs
   - immutable-releases
   - linked-artifacts
 ---

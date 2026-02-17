@@ -18,9 +18,10 @@ redirect_from:
   - /copilot/concepts/copilot-metrics
 category:
   - Copilot usage metrics
+  - Track Copilot usage
   - Learn about Copilot
-  - Manage Copilot for a team
   - Get started with metrics
+  - Manage Copilot for a team  
 ---
 
 {% data reusables.copilot.usage-metrics-preview %}

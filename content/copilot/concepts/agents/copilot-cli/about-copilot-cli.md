@@ -1,6 +1,6 @@
 ---
 title: About GitHub Copilot CLI
-shortTitle: Copilot CLI
+shortTitle: About Copilot CLI
 allowTitleToDifferFromFilename: true
 intro: 'Find out about using {% data variables.product.prodname_copilot_short %} from the command line.'
 product: '{% data reusables.gated-features.copilot-cli %}'
@@ -11,6 +11,8 @@ topics:
 contentType: concepts
 category:
   - Learn about Copilot
+redirect_from:
+  - /copilot/concepts/agents/about-copilot-cli
 ---
 
 ## Introduction
@@ -31,16 +33,23 @@ For installation instructions, see [AUTOTITLE](/copilot/how-tos/set-up/install-c
 
 ## Modes of use
 
-{% data variables.copilot.copilot_cli %} can be used in three modes:
-* **Interactive mode**: Start an interactive session by using the `copilot` command. This is the default mode for working with the CLI.
+{% data variables.copilot.copilot_cli %} has two user interfaces: interactive and programmatic.
 
-  In this mode, you can prompt {% data variables.product.prodname_copilot_short %} to answer a question, or perform a task. You can react to {% data variables.product.prodname_copilot_short %}'s responses in the same session.
+### Interactive interface
 
-  ![Screenshot of the Welcome message in the interactive mode of {% data variables.product.prodname_copilot_short %}.](/assets/images/help/copilot/copilot-cli-welcome.png)
+To start an interactive session, enter `copilot`. Within an interactive session, you can have a conversation with {% data variables.product.prodname_copilot_short %}. You can prompt {% data variables.product.prodname_copilot_short %} to perform one or more tasks, and you can give it feedback and steer the direction of the work.
 
-* **Plan mode**: Press <kbd>Shift</kbd>+<kbd>Tab</kbd> to cycle in and out of plan mode. In plan mode, {% data variables.product.prodname_copilot_short %} analyzes your request, asks clarifying questions to understand scope and requirements, and builds a structured implementation plan before writing any code. This helps you catch misunderstandings before any code is written, and stay in control of complex, multi-step tasks.
+  ![Screenshot of the Welcome message in the interactive interface of {% data variables.product.prodname_copilot_short %}.](/assets/images/help/copilot/copilot-cli-welcome.png)
 
-* **Programmatic mode**: You can also pass the CLI a single prompt directly on the command line. You do this by using the `-p` or `--prompt` command-line option. To allow {% data variables.product.prodname_copilot_short %} to modify and execute files you should also use one of the approval options (see [Allowing tools to be used without manual approval](#allowing-tools-to-be-used-without-manual-approval) later in this article). For example:
+  The interactive interface has two modes. In addition to the default ask/execute mode there is also a **plan mode** in which {% data variables.product.prodname_copilot_short %} will build a structured implementation plan for a task you want to complete.
+
+  Press <kbd>Shift</kbd>+<kbd>Tab</kbd> to cycle between modes. In plan mode, {% data variables.product.prodname_copilot_short %} analyzes your request, asks clarifying questions to understand scope and requirements, and builds a plan before writing any code. This helps you catch misunderstandings before any code is written, and stay in control of complex, multi-step tasks.
+
+### Programmatic interface
+
+You can also pass the CLI a single prompt directly on the command line. The CLI completes the task and then exits.
+
+To use the CLI programmatically, include the `-p` or `--prompt` command-line option in your command. To allow {% data variables.product.prodname_copilot_short %} to modify and execute files you should also use one of the approval options described later in this article—see [Allowing tools to be used without manual approval](#allowing-tools-to-be-used-without-manual-approval) ). For example:
 
   ```bash copy
   copilot -p "Show me this week's commits and summarize them" --allow-tool 'shell(git)'
@@ -163,7 +172,7 @@ You can interact with {% data variables.product.prodname_copilot_short %} while 
 
 You can customize {% data variables.copilot.copilot_cli %} in a number of ways:
 
-* **Custom instructions**: Custom instructions allow you to give {% data variables.product.prodname_copilot_short %} additional context on your project and how to build, test and validate its changes. All custom instruction files now combine instead of using priority-based fallbacks. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-instructions).
+* **Custom instructions**: Custom instructions allow you to give {% data variables.product.prodname_copilot_short %} additional context on your project and how to build, test and validate its changes. All custom instruction files now combine instead of using priority-based fallbacks. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions).
 * **Model Context Protocol (MCP) servers**: MCP servers allow you to give {% data variables.product.prodname_copilot_short %} access to different data sources and tools. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli#add-an-mcp-server).
 * **{% data variables.copilot.custom_agents_caps_short %}**: {% data variables.copilot.custom_agents_caps_short %} allow you to create different specialized versions of {% data variables.product.prodname_copilot_short %} for different tasks. For example, you could customize {% data variables.product.prodname_copilot_short %} to be an expert frontend engineer following your team's guidelines. {% data variables.copilot.copilot_cli %} includes specialized {% data variables.copilot.custom_agents_short %} that it automatically delegates common tasks to. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli#use-custom-agents).
 * **Hooks**: Hooks allow you to execute custom shell commands at key points during agent execution, enabling you to add validation, logging, security scanning, or workflow automation. See [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-hooks).
@@ -213,13 +222,13 @@ Typically, you can choose from three options:
 
 #### Allowing tools to be used without manual approval
 
-There are three command-line options that you can use for either interactive or programmatic mode to determine tools that {% data variables.product.prodname_copilot_short %} can use without asking for your approval:
+There are three command-line options that you can use, in either interactive or programmatic sessions, to determine tools that {% data variables.product.prodname_copilot_short %} can use without asking for your approval:
 
 * **`--allow-all-tools`**
 
   Allows {% data variables.product.prodname_copilot_short %} to use any tool without asking for your approval.
 
-  For example, you can use this option with programmatic mode to allow the CLI to run any command. For example:
+  For example, you can use this option with a programmatic invocation of the CLI to allow {% data variables.product.prodname_copilot_short %} to run any command. For example:
 
   ```shell
   copilot -p "Revert the last commit" --allow-all-tools
@@ -263,7 +272,7 @@ The `--deny-tool` and `--allow-tool` options require one of the following argume
 
   For example, `copilot --deny-tool 'My-MCP-Server(tool_name)'` prevents {% data variables.product.prodname_copilot_short %} from using the tool called `tool_name` from the MCP server called `My-MCP-Server`.
 
-  You can find an MCP server's name by entering `/mcp` in the interactive mode of {% data variables.copilot.copilot_cli_short %} and selecting the server from the list that's displayed.
+  You can find an MCP server's name by entering `/mcp` in the CLI's interactive interface, then selecting the server from the list that's displayed.
 
 #### Combining approval options
 
@@ -295,7 +304,7 @@ The default model used by {% data variables.copilot.copilot_cli %} is {% data va
 
 You can change the model used by {% data variables.copilot.copilot_cli %} by using the `/model` slash command or the `--model` command-line option. Enter this command, then select a model from the list.
 
-Each time you submit a prompt to {% data variables.product.prodname_copilot_short %} in {% data variables.copilot.copilot_cli_short %}'s interactive mode, and each time you use {% data variables.copilot.copilot_cli_short %} in programmatic mode, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one, multiplied by the multiplier shown in parentheses in the model list. For example, `Claude Sonnet 4.5 (1x)` indicates that with this model each time you submit a prompt your quota of premium requests is reduced by one. For information about premium requests, see [AUTOTITLE](/copilot/concepts/billing/copilot-requests).
+Each time you submit a prompt to {% data variables.product.prodname_copilot_short %} in {% data variables.copilot.copilot_cli_short %}'s interactive interface, and each time you use {% data variables.copilot.copilot_cli_short %} programmatically, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one, multiplied by the multiplier shown in parentheses in the model list. For example, `Claude Sonnet 4.5 (1x)` indicates that with this model each time you submit a prompt your quota of premium requests is reduced by one. For information about premium requests, see [AUTOTITLE](/copilot/concepts/billing/copilot-requests).
 
 ## Use {% data variables.copilot.copilot_cli_short %} via ACP
 

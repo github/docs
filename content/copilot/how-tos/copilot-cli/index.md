@@ -7,9 +7,8 @@ versions:
 children:
   - /cli-getting-started
   - /cli-best-practices
+  - /customize-copilot
   - /install-copilot-cli
-  - /add-custom-instructions
-  - /use-hooks
   - /use-copilot-cli
 contentType: how-tos
 ---

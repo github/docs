@@ -197,18 +197,42 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/add-custom-in
 
 ### Use {% data variables.copilot.custom_agents_short %}
 
-{% data variables.copilot.custom_agents_caps_short %} are specialized versions of {% data variables.copilot.copilot_coding_agent %} that you can tailor to your unique workflows, coding conventions, and use cases. {% data variables.copilot.custom_agents_caps_short %} are defined using Markdown files, called {% data variables.copilot.agent_profiles %}, that specify prompts, tools, and MCP servers.
+A {% data variables.copilot.copilot_custom_agent_short %} is a specialized versions of {% data variables.product.prodname_copilot_short %}. {% data variables.copilot.custom_agents_caps_short %} help {% data variables.product.prodname_copilot_short %} handle unique workflows, particular coding conventions, and specialist use cases.
 
-{% data variables.copilot.copilot_cli %} includes a default group of {% data variables.copilot.custom_agents_short %} for common tasks:
+{% data variables.copilot.copilot_cli_short %} includes a default group of {% data variables.copilot.custom_agents_short %} for common tasks:
 
-| Agent | Description |
-| --- | --- |
-| Explore | Performs quick codebase analysis, allowing you to ask questions about your code without adding to your main context. |
-| Task | Executes commands such as tests and builds, providing brief summaries on success and full output on failure. |
-| Plan | Analyzes dependencies and structure to create implementation plans, helping you to understand how to approach a complex feature or refactoring task before making changes. |
-| Code-review | Reviews changes with a focus on surfacing only genuine issues, minimizing noise. |
+<table>
+  <thead>
+    <tr>
+      <th style="width:20%">Agent</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Explore</td>
+      <td>Performs quick codebase analysis, allowing you to ask questions about your code without adding to your main context.</td>
+    </tr>
+    <tr>
+      <td>Task</td>
+      <td>Executes commands such as tests and builds, providing brief summaries on success and full output on failure.</td>
+    </tr>
+    <tr>
+      <td>General-purpose</td>
+      <td>Handles complex, multi-step tasks that require the full toolset and high-quality reasoning, running in a separate context to keep your main conversation clearly focused.</td>
+    </tr>
+    <tr>
+      <td>Code-review</td>
+      <td>Reviews changes with a focus on surfacing only genuine issues, minimizing noise.</td>
+    </tr>
+  </tbody>
+</table>
 
-When creating your own {% data variables.copilot.custom_agents_short %}, {% data variables.copilot.copilot_cli_short %} supports loading {% data variables.copilot.custom_agents_short %} from the following locations:
+The AI model being used by the CLI can choose to delegate a task to a subsidiary subagent process, that operates using a {% data variables.copilot.copilot_custom_agent_short %} with specific expertise, if it judges that this would result in the work being completed more effectively. The model may equally choose to handle the work directly in the main agent.
+
+You can define your own {% data variables.copilot.custom_agents_short %} using Markdown files, called {% data variables.copilot.agent_profiles %}, that specify what expertise the agent should have, what tools it can use, and any specific instructions for how it should respond.
+
+You can define {% data variables.copilot.custom_agents_short %} at the user, repository, or organization/enterprise level:
 
 | Type | Location | Scope |
 | --- | --- | --- |
@@ -220,7 +244,7 @@ In the case of naming conflicts, a system-level agent overrides a repository-lev
 
 {% data variables.copilot.custom_agents_caps_short %} can be used in three ways:
 
-* Using the slash command in interactive mode to select from the list of available {% data variables.copilot.custom_agents_short %}:
+* Using the slash command in the CLI's interactive interface to select from the list of available {% data variables.copilot.custom_agents_short %}:
 
   ```shell
   /agent
@@ -246,7 +270,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding
 
 You can create skills to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-skills).
 
 ### Add an MCP server
 

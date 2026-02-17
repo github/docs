@@ -54,7 +54,10 @@ When you enable this feature, you will create a bypass list of roles and teams w
 
 You must configure delegated bypass for your organization using a custom security configuration. You can then apply the security configuration to all (or selected) repositories in your organization.
 
-1. Create a new custom security configuration, or edit an existing one. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration#creating-a-custom-security-configuration).
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.security-configurations.view-configurations-page %}
+{% data reusables.security-configurations.custom-security-configurations-org %}
 1. When defining the custom security configuration, under "{% data variables.product.prodname_secret_scanning_caps %}," ensure that {% ifversion ghas-products %}"Push protection" is set to **Enabled**{% else %}the dropdown menus for "Alerts" and "Push protection" are set to **Enabled**{% endif %}.
 1. Under "Push protection," to the right of "Bypass privileges," select the dropdown menu, then click **Specific actors**.
 
@@ -90,6 +93,33 @@ To learn more about security configurations, see [AUTOTITLE](/code-security/secu
 {% endif %}
 
 {% ifversion push-protection-bypass-fine-grained-permissions %}
+
+{% ifversion push-protection-delegated-bypass-configurations-enterprise %}
+
+## Enabling delegated bypass for an enterprise
+
+You can configure delegated bypass for your enterprise using a custom security configuration. You can then apply the security configuration to all (or selected) repositories, organizations, or businesses in your enterprise.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.advanced-security-tab %}
+{% data reusables.security-configurations.view-configurations-page %}
+{% data reusables.security-configurations.custom-security-configurations-enterprise %}
+1. Under **Secret scanning**, ensure **Push protection** is enabled.
+1. Under "Push protection," to the right of "Bypass privileges," select the dropdown menu, then click **Specific actors**.
+
+   > [!NOTE]
+   > When you assign bypass privileges to selected actors, these organizations' members are granted the ability to bypass push protection, and they also review and manage the requests from all other contributors to bypass push protection.
+   >
+   > You can't add secret teams to the bypass list.
+
+1. Click the "Select actors" dropdown menu, then select the roles and teams you want to assign bypass privileges to.
+1. Click **Save configuration**.
+1. Apply the security configuration to all (or selected) organizations and repositories in your enterprise. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
+
+When you apply the configuration, delegated bypass settings are enforced for the organizations and repositories in scope of that enterprise security configuration. Repositories outside the scope of the configuration aren’t affected.
+
+{% endif %}
 
 ## Using fine-grained permissions to control who can review and manage bypass requests
 
