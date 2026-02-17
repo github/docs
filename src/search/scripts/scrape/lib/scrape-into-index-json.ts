@@ -1,7 +1,7 @@
 import chalk from 'chalk'
 
 import languages from '@/languages/lib/languages-server'
-import buildRecords from '@/search/scripts/scrape/lib/build-records'
+import buildRecords from '@/search/scripts/scrape/lib/build-records-from-api'
 import findIndexablePages from '@/search/scripts/scrape/lib/find-indexable-pages'
 import { writeIndexRecords } from '@/search/scripts/scrape/lib/search-index-records'
 import { getElasticSearchIndex } from '@/search/lib/elasticsearch-indexes'

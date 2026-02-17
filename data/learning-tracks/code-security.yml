@@ -56,7 +56,7 @@ dependabot_alerts:
     - >-
       /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/troubleshooting-the-detection-of-vulnerable-dependencies
     - >-
-      /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/troubleshooting-dependabot-errors
+      /code-security/reference/supply-chain-security/dependabot-errors
 dependabot_security_updates:
   title: Get pull requests to update your vulnerable dependencies
   description: >-
@@ -104,7 +104,7 @@ dependency_version_updates:
     - >-
       /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/managing-pull-requests-for-dependency-updates
     - >-
-      /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/troubleshooting-dependabot-errors
+      /code-security/reference/supply-chain-security/dependabot-errors
 secret_scanning:
   title: Scan for secrets
   description: >-
@@ -140,7 +140,7 @@ secret_scanning:
       %}/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/working-with-push-protection-in-the-github-ui{%
       endif %}
     - >-
-      /code-security/how-tos/secure-your-secrets/troubleshooting-secret-scanning
+      /code-security/reference/secret-security/secret-scanning-detection-scope
 security_alerts:
   title: Explore and manage security alerts
   description: Learn where to find and resolve security alerts.

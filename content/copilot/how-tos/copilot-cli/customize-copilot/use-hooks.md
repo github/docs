@@ -1,5 +1,5 @@
 ---
-title: Using hooks with GitHub Copilot CLI
+title: Using hooks with {% data variables.copilot.copilot_cli %}
 shortTitle: Use hooks
 intro: "Extend {% data variables.product.prodname_copilot %} agent behavior with custom shell commands at key points during agent execution."
 versions:
@@ -7,8 +7,10 @@ versions:
 topics:
   - Copilot
 contentType: how-tos
-category: 
+category:
   - Configure Copilot
+redirect_from:
+  - /copilot/how-tos/copilot-cli/use-hooks
 ---
 
 {% data reusables.copilot.coding-agent.hooks-intro %}

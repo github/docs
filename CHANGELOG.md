@@ -1,5 +1,19 @@
 # Docs changelog
 
+**17 February 2026**
+
+We’ve added a new tutorial, "[Using hooks with Copilot CLI for predictable, policy-compliant execution](https://docs.github.com/en/copilot/tutorials/copilot-cli-hooks)", to help teams configure repository-scoped hooks that log prompts and tool usage, enforce guardrails with `preToolUse`, and roll out policies safely across repositories.
+
+This tutorial helps organizations adopt Copilot CLI automation with clear guardrails, improving security, auditability, and confidence, without blocking legitimate development workflows.
+
+<hr>
+
+**4 February 2026**
+
+We've published a new tutorial on [using GitHub Copilot coding agent to improve a project](https://docs.github.com/copilot/tutorials/coding-agent/improve-a-project).
+
+<hr>
+
 **20 January 2026**
 
 We published the first iteration of the [GitHub Copilot feature matrix](https://docs.github.com/en/copilot/reference/copilot-feature-matrix) to provide customers with the latest information about which Copilot features are available by which IDE/version. 

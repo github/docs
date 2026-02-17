@@ -24,6 +24,7 @@ export type ExtendedRequest = Request & {
   context?: Context
   language?: string
   userLanguage?: string
+  userVersion?: string
   FailBot?: Failbot
 }
 

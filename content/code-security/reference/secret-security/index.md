@@ -12,6 +12,8 @@ contentType: reference
 children:
   - /understanding-github-secret-types
   - /supported-secret-scanning-patterns
+  - /secret-scanning-detection-scope
   - /risk-report-csv-contents
   - /secret-scanning-pattern-configuration-data
 ---
+

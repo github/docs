@@ -45,6 +45,7 @@ When you select **Auto** in {% data variables.copilot.copilot_chat_short %}, {% 
   * {% data variables.copilot.copilot_gpt_41 %}
   * {% data variables.copilot.copilot_gpt_5_mini %}
   * {% data variables.copilot.copilot_gpt_52_codex %}
+  * {% data variables.copilot.copilot_gpt_53_codex %}
   * {% data variables.copilot.copilot_claude_haiku_45 %}
   * {% data variables.copilot.copilot_claude_sonnet_45 %}
 

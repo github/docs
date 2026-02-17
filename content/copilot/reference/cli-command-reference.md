@@ -15,14 +15,14 @@ contentType: reference
 
 | Command                | Purpose                                            |
 |------------------------|----------------------------------------------------|
-| `copilot`              | Launch interactive mode.                           |
+| `copilot`              | Launch the interactive user interface.              |
 | `copilot help [topic]` | Display help information. Help topics include: `config`, `commands`, `environment`, `logging`, and `permissions`. |
 | `copilot init`         | Initialize {% data variables.product.prodname_copilot_short %} custom instructions for this repository. |
 | `copilot update`       | Download and install the latest version.           |
 | `copilot version`      | Display version information and check for updates. |
 | `copilot plugin`       | Manage plugins and plugin marketplaces.            |
 
-## Global shortcuts in interactive mode
+## Global shortcuts in the interactive interface
 
 | Shortcut                            | Purpose                               |
 |-------------------------------------|---------------------------------------|
@@ -34,14 +34,14 @@ contentType: reference
 | <kbd>Ctrl</kbd>+<kbd>D</kbd>        | Shutdown.                             |
 | <kbd>Ctrl</kbd>+<kbd>L</kbd>        | Clear the screen.                     |
 
-## Timeline shortcuts in interactive mode
+## Timeline shortcuts in the interactive interface
 
 | Shortcut                            | Purpose                               |
 |-------------------------------------|---------------------------------------|
 | ctrl+o    | While there is nothing in the prompt input, this expands recent items in {% data variables.product.prodname_copilot_short %}'s response timeline to show more details. |
 | ctrl+e    | While there is nothing in the prompt input, this expands all items in {% data variables.product.prodname_copilot_short %}'s response timeline. |
 
-## Navigation shortcuts in interactive mode
+## Navigation shortcuts in the interactive interface
 
 | Shortcut                            | Purpose                                      |
 |-------------------------------------|----------------------------------------------|
@@ -55,7 +55,7 @@ contentType: reference
 | <kbd>↑</kbd>/<kbd>↓</kbd>           | Navigate the command history.                |
 
 
-## Slash commands in interactive mode
+## Slash commands in the interactive interface
 
 | Command                                             | Purpose |
 |-----------------------------------------------------|---------|
@@ -94,7 +94,7 @@ contentType: reference
 | `/usage`                                            | Display session usage metrics and statistics. |
 | `/user [show\|list\|switch]`                        | Manage the current {% data variables.product.github %} user. |
 
-For a complete list of available slash commands enter `/help` in interactive mode.
+For a complete list of available slash commands enter `/help` in the CLI's interactive interface.
 
 ## Command-line options
 
@@ -105,10 +105,10 @@ For a complete list of available slash commands enter `/help` in interactive mod
 | `--add-github-mcp-tool TOOL`       | Add a tool to enable for the {% data variables.product.github %} MCP server, instead of the default CLI subset (can be used multiple times). Use `*` for all tools. |
 | `--add-github-mcp-toolset TOOLSET` | Add a toolset to enable for the {% data variables.product.github %} MCP server, instead of the default CLI subset (can be used multiple times). Use `all` for all toolsets. |
 | `--additional-mcp-config JSON`     | Additional MCP servers configuration as a JSON string or a file path (prefix with `@`) (can be used multiple times). Augments the configuration from `~/.copilot/mcp-config.json` for this session. |
-| `--agent AGENT`                    | Specify a custom agent to use. |
+| `--agent AGENT`                    | Specify a {% data variables.copilot.copilot_custom_agent_short %} to use. |
 | `--allow-all`                      | Enable all permissions (equivalent to `--allow-all-tools --allow-all-paths --allow-all-urls`). |
 | `--allow-all-paths`                | Disable file path verification and allow access to any path. |
-| `--allow-all-tools`                | Allow all tools to run automatically without confirmation. Required for non-interactive mode (env: `COPILOT_ALLOW_ALL`). |
+| `--allow-all-tools`                | Allow all tools to run automatically without confirmation. Required when using the CLI programmatically (env: `COPILOT_ALLOW_ALL`). |
 | `--allow-all-urls`                 | Allow access to all URLs without confirmation. |
 | `--allow-tool [TOOLS...]`          | Tools the CLI has permission to use. Will not prompt for permission. |
 | `--allow-url [URLS...]`            | Allow access to specific URLs or domains. |
@@ -126,7 +126,7 @@ For a complete list of available slash commands enter `/help` in interactive mod
 | `--excluded-tools [TOOLS...]`      | These tools will not be available to the model. |
 | `--experimental`                   | Enable experimental features (use `--no-experimental` to disable). |
 | `-h`, `--help`                     | Display help. |
-| `-i PROMPT`, `--interactive PROMPT`  | Start interactive mode and automatically execute this prompt. |
+| `-i PROMPT`, `--interactive PROMPT`  | Start an interactive session and automatically execute this prompt. |
 | `--log-dir DIRECTORY`              | Set the log file directory (default: `~/.copilot/logs/`). |
 | `--log-level LEVEL`                | Set the log level (choices: `none`, `error`, `warning`, `info`, `debug`, `all`, `default`). |
 | `--model MODEL`                    | Set the AI model you want to use. |
@@ -134,13 +134,13 @@ For a complete list of available slash commands enter `/help` in interactive mod
 | `--no-auto-update`                 | Disable downloading CLI updates automatically. |
 | `--no-color`                       | Disable all color output. |
 | `--no-custom-instructions`         | Disable loading of custom instructions from `AGENTS.md` and related files. |
-| `-p PROMPT`, `--prompt PROMPT`     | Execute a prompt in non-interactive mode (exits after completion). |
+| `-p PROMPT`, `--prompt PROMPT`     | Execute a prompt programmatically (exits after completion). |
 | `--plain-diff`                     | Disable rich diff rendering (syntax highlighting via the diff tool specified by your git config). |
 | `--resume [SESSION-ID]`            | Resume from a previous session (optionally specify a session ID). |
 | `-s`, `--silent`                   | Output only the agent response (without usage statistics), useful for scripting with `-p`. |
 | `--screen-reader`                  | Enable screen reader optimizations. |
-| `--share [PATH]`                   | Share a session to a Markdown file after completion in non-interactive mode (default path: `./copilot-session-<ID>.md`). |
-| `--share-gist`                     | Share a session to a secret {% data variables.product.github %} gist after completion in non-interactive mode. |
+| `--share [PATH]`                   | Share a session to a Markdown file after completion of a programmatic session (default path: `./copilot-session-<ID>.md`). |
+| `--share-gist`                     | Share a session to a secret {% data variables.product.github %} gist after completion of a programmatic session. |
 | `--stream MODE`                    | Enable or disable streaming mode (mode choices: `on` or `off`). |
 | `-v`, `--version`                  | Show version information. |
 | `--yolo`                           | Enable all permissions (equivalent to `--allow-all-tools --allow-all-paths --allow-all-urls`). |

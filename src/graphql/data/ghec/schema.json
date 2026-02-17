@@ -76563,11 +76563,13 @@
         },
         {
           "name": "viewerCanSubscribe",
-          "description": "<p>Check if the viewer is able to change their subscription status for the repository.</p>",
+          "description": "<p>Check if the viewer is able to change their subscription status for the subscribable entity.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>Team.viewerCanSubscribe</code> will be removed. Team notifications subscriptions are being deprecated. Removal on 2026-07-01 UTC.</p>"
         },
         {
           "name": "viewerSubscription",
@@ -76575,7 +76577,9 @@
           "type": "SubscriptionState",
           "id": "subscriptionstate",
           "kind": "enums",
-          "href": "/graphql/reference/enums#subscriptionstate"
+          "href": "/graphql/reference/enums#subscriptionstate",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>Team.viewerSubscription</code> will be removed. Team notifications subscriptions are being deprecated. Removal on 2026-07-01 UTC.</p>"
         }
       ]
     },
