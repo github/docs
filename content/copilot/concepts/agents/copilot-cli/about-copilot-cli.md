@@ -187,20 +187,13 @@ You should therefore always keep security considerations in mind when using {% d
 
 ### Trusted directories
 
-When you start a {% data variables.copilot.copilot_cli %} session, you'll be asked to confirm that you trust the files in, and below, the directory from which you launched the CLI.
+Trusted directories control where {% data variables.copilot.copilot_cli_short %} can read, modify, and execute files.
 
-> [!WARNING]
-> * You should only launch {% data variables.copilot.copilot_cli_short %} from directories that you trust. You should not use {% data variables.copilot.copilot_cli_short %} in directories that may contain executable files you can't be sure you trust. Similarly, if you launch the CLI from a directory that contains sensitive or confidential data, or files that you don't want to be changed, you could inadvertently expose those files to risk. Typically, you should not launch {% data variables.copilot.copilot_cli_short %} from your home directory.
-> * Scoping of permissions is heuristic and {% data variables.product.company_short %} does not guarantee that all files outside trusted directories will be protected. See [Risk mitigation](#risk-mitigation) later in this article.
+You should only launch {% data variables.copilot.copilot_cli_short %} from directories that you trust. You should not use {% data variables.copilot.copilot_cli_short %} in directories that may contain executable files you can't be sure you trust. Similarly, if you launch the CLI from a directory that contains sensitive or confidential data, or files that you don't want to be changed, you could inadvertently expose those files to risk. Typically, you should not launch {% data variables.copilot.copilot_cli_short %} from your home directory.
 
-You can choose to trust the current directory for:
+Scoping of permissions is heuristic and {% data variables.product.company_short %} does not guarantee that all files outside trusted directories will be protected. See [Risk mitigation](#risk-mitigation).
 
-* The currently running session only
-* This and future sessions
-
-If you choose to trust the directory for future sessions, the trusted directory prompt will not be displayed again. You should only choose this second option if you are sure that this location will always be a safe place for {% data variables.product.prodname_copilot_short %} to operate.
-
-You can edit the list of permanently trusted directories by amending the contents of the `trusted_folders` array in the CLI's `config.json` file. This is located, by default, in the `~/.copilot` directory. You can change this location by setting the `XDG_CONFIG_HOME` environment variable.
+When you start a {% data variables.copilot.copilot_cli %} session, you'll be asked to confirm that you trust the files in, and below, the directory from which you launched the CLI. See [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/configure-copilot-cli#setting-trusted-directories).
 
 ### Allowed tools
 
@@ -294,9 +287,20 @@ copilot --allow-tool 'My-MCP-Server' --deny-tool 'My-MCP-Server(tool_name)'
 
 It's important to be aware of the security implications of using the approval command-line options. These options allow {% data variables.product.prodname_copilot_short %} to execute commands needed to complete your request, without giving you the opportunity to review and approve those commands before they are run. While this streamlines workflows, and allows headless operation of the CLI, it increases the risk of unintended actions being taken that might result in data loss or corruption, or other security issues.
 
+You can control which tools {% data variables.copilot.copilot_cli_short %} can use by responding to approval prompts when {% data variables.product.prodname_copilot_short %} attempts to use a tool, by specifying permissions with command-line flags, or (in an interactive session) by using slash commands (such as `/allow-all` and `/yolo`. See [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/configure-copilot-cli#setting-allowed-tools).
+
 ### Risk mitigation
 
-You can mitigate the risks associated with using the automatic approval options by using {% data variables.copilot.copilot_cli_short %} in a restricted environment, such as a virtual machine, container, or dedicated system, without internet access. This confines any potential damage that could occur when allowing {% data variables.product.prodname_copilot_short %} to execute commands that you have not reviewed and verified.
+You can mitigate the risks associated with using the automatic approval options by running {% data variables.copilot.copilot_cli_short %} in a restricted environment—such as a virtual machine, container, or dedicated system—with tightly controlled permissions and network access. This confines any potential damage that could occur when allowing {% data variables.product.prodname_copilot_short %} to execute commands that you have not reviewed and verified.
+
+### Known MCP server policy limitations
+
+{% data variables.copilot.copilot_cli_short %} can't currently support the following organization-level MCP server policies:
+
+* **MCP servers in {% data variables.product.prodname_copilot_short %}**, which controls whether MCP servers can be used at all by {% data variables.product.prodname_copilot_short %}.
+* **MCP Registry URL**, which controls which MCP registry {% data variables.product.prodname_copilot_short %} will allow MCP servers to be used from.
+
+For more information about these policies, see [AUTOTITLE](/copilot/concepts/mcp-management#mcp-policy-settings).
 
 ## Model usage
 

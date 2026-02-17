@@ -38,6 +38,7 @@ You can add custom properties to your organization and set values for those prop
 1. Under "Type", select the type of property you'd like to add. This can either be a text string{% ifversion ghes < 3.15 %} or a single select field{% else %}, a single select field, a multi select field, {% ifversion ghes > 3.20 %}a URL, {% endif %}or a true/false boolean{% endif %}.
 1. Optionally, you can select **Allow repository actors to set this property**. When enabled, repository users and apps with the repository-level "custom properties" fine-grained permission will be able to set and update the property value for their repository.
 1. Optionally, you can select **Require this property for all repositories** and add a default value. This means that you require that all repositories in your organization have a value for this property. Repositories that don’t have an explicit value for this property will inherit the default value.
+{% data reusables.organizations.custom-properties-required-values %}
 1. Click **Save property**.
 
 ## Setting values for repositories in your organization

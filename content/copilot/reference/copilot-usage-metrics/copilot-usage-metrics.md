@@ -43,10 +43,10 @@ These metrics appear directly in the {% data variables.product.prodname_copilot_
 | Language usage per day | Daily breakdown of languages used. |
 | Model usage | Distribution of AI models used for chat. |
 | Model usage per day | Daily breakdown of chat model usage. |
-| Model usage per chat mode | Model usage by {% data variables.product.prodname_copilot_short %} feature (Ask, Edit, Agent). |
+| Model usage per chat mode | Model usage by {% data variables.product.prodname_copilot_short %} feature (ask, edit, agent). |
 | Model usage per language | Distribution of languages broken down by model. |
 | Most used chat model | The most frequently used chat model in the last 28 days. |
-| Requests per chat mode | Number of chat requests by mode (Ask, Edit, Agent). |
+| Requests per chat mode | Number of chat requests by mode (ask, edit, agent). |
 
 ## Code generation dashboard metrics
 
@@ -55,11 +55,11 @@ These metrics appear in the code generation dashboard and provide a breakdown of
 | Metric | Description |
 |:--|:--|
 | Lines of code changed with AI | Total lines of code added and deleted across all modes in the last 28 days. |
-| Agent contribution | Percentage of lines of code added and deleted by agents (including Edit, Agent, and custom modes) in the last 28 days. |
+| Agent contribution | Percentage of lines of code added and deleted by agents (including edit, agent, and custom modes) in the last 28 days. |
 | Average lines deleted by agent | Average number of lines automatically deleted by agents on behalf of active users during the current calendar month. |
 | Daily total of lines added and deleted | Total number of lines added to and deleted from the codebase across all modes for each day. |
 | User-initiated code changes | Lines suggested or manually added by users through code completions and chat panel actions (insert, copy, or apply). |
-| Agent-initiated code changes | Lines automatically added to or deleted from the codebase by agents on behalf of users across Edit, Agent, and custom modes. |
+| Agent-initiated code changes | Lines automatically added to or deleted from the codebase by agents on behalf of users across edit, agent, and custom modes. |
 | User-initiated code changes per model | User-initiated lines of code, grouped by model used in the IDE. |
 | Agent-initiated code changes per model | Agent-initiated lines of code, grouped by model performing the agent actions. |
 | User-initiated code changes per language | User-initiated lines of code, grouped by programming language. |
@@ -71,19 +71,24 @@ These fields appear in the exported NDJSON reports and in the {% data variables.
 
 | Field | Description |
 |:--|:--|
-| `agent_edit` | A dedicated bucket in the API and reports. Captures lines added and deleted directly by {% data variables.product.prodname_copilot_short %} Agent and Edit mode.<br>These are not included in suggested metrics, since agent edits don’t follow a simple suggestion to acceptance flow. |
+| `agent_edit` | Captures lines added and deleted when {% data variables.product.prodname_copilot_short %} (in agent and edit mode) writes changes directly into your files in the IDE. `agent_edit` is not included in suggestion-based metrics and may not populate suggestion-style fields (for example, `user_initiated_interaction_count`). Counts edits from custom agents as well. |
 | `report_start_day` / `report_end_day` | Start and end dates for the 28-day reporting period. |
 | `day` | Calendar day this record represents. |
 | `enterprise_id` | Unique ID of the enterprise. |
 | `organization_id` (API only) | Unique ID of the organization. |
 | `user_id` / `user_login` | Unique identifier and {% data variables.product.github %} username for the user. |
-| `user_initiated_interaction_count` | Number of explicit prompts sent to {% data variables.product.prodname_copilot_short %}.<br><br> Only counts messages or prompts actively sent to the model. Does **not** include opening the chat panel, switching modes (for example, Ask, Edit, or Agent), using keyboard shortcuts to open the inline UI, or making configuration changes. |
+| `user_initiated_interaction_count` | Number of explicit prompts sent to {% data variables.product.prodname_copilot_short %}.<br><br> Only counts messages or prompts actively sent to the model. Does **not** include opening the chat panel, switching modes (for example, ask, edit, or agent), using keyboard shortcuts to open the inline UI, or making configuration changes. |
+| `chat_panel_agent_mode` | Captures user-initiated interactions in the chat panel with agent mode selected. |
+| `chat_panel_ask_mode` | Captures user-initiated interactions in the chat panel with ask mode selected. |
+| `chat_panel_custom_mode` | Captures user-initiated interactions in the chat panel with a custom agent selected. |
+| `chat_panel_edit_mode` | Captures user-initiated interactions in the chat panel with edit mode selected. |
+| `chat_panel_unknown_mode` | Captures user-initiated interactions in the chat panel where the mode is unknown. |
 | `code_generation_activity_count` | Number of distinct {% data variables.product.prodname_copilot_short %} output events generated. <br><br> **Includes:** All generated content, including comments and docstrings. <br> **Multiple blocks:** Each distinct code block from a single user prompt counts as a separate generation. <br> **Note:** This metric is not directly comparable to `user_initiated_interaction_count`, since one prompt can produce multiple generations. |
 | `code_acceptance_activity_count` | Number of suggestions or code blocks accepted by users. <br><br> **Counts:** All built-in accept actions, such as “apply to file,” “insert at cursor,” “insert into terminal,” and use of the **Copy** button. <br> **Does not count:** Manual OS clipboard actions (for example, <kbd>Ctrl</kbd>+<kbd>C</kbd>). <br> **Granularity:** Each acceptance action increments the count once, regardless of how many code blocks were generated by the initial prompt. |
-| `loc_suggested_to_add_sum` | Lines of code {% data variables.product.prodname_copilot_short %} suggested to add (completions, inline chat, chat panel, etc.; **excludes** Agent edits). |
+| `loc_suggested_to_add_sum` | Lines of code {% data variables.product.prodname_copilot_short %} suggested to add (completions, inline chat, chat panel, etc.; **excludes** agent edits). |
 | `loc_suggested_to_delete_sum` | Lines of code {% data variables.product.prodname_copilot_short %} suggested to delete (future support planned). |
 | `loc_added_sum` | Lines of code actually added to the editor (accepted completions, applied code blocks, agent/edit mode). |
-| `loc_deleted_sum` | Lines of code deleted from the editor (currently from Agent edits). |
+| `loc_deleted_sum` | Lines of code deleted from the editor (currently from agent edits). |
 | `totals_by_ide` | Breakdown of metrics by IDE used. |
 | `totals_by_feature` | Breakdown of metrics by {% data variables.product.prodname_copilot_short %} feature (e.g., inline chat, chat panel). |
 | `totals_by_language_feature` | Breakdown combining language and feature dimensions. |
