@@ -1,7 +1,7 @@
 ---
 title: Changing the AI model for GitHub Copilot coding agent
 shortTitle: Changing the AI model
-intro: '{% data variables.copilot.copilot_pro %} and {% data variables.copilot.copilot_pro_plus %} users can select the model used by {% data variables.copilot.copilot_coding_agent %}.'
+intro: 'In supported entrypoints, when starting a task with {% data variables.copilot.copilot_coding_agent %}, you can select the model used.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
@@ -17,13 +17,12 @@ category:
 
 ## Introduction
 
-{% data variables.copilot.copilot_pro %} and {% data variables.copilot.copilot_pro_plus %} users can select the model used by {% data variables.copilot.copilot_coding_agent %}.
-
-> [!NOTE] Model selection for {% data variables.copilot.copilot_coding_agent %} is only supported when starting a task from the agents tab or panel, assigning an issue to {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %} and from the Raycast launcher. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr).
+In supported entrypoints, you can select the model used by {% data variables.copilot.copilot_coding_agent %}.
 
 You may find that different models perform better, or provide more useful responses, depending on the type of tasks you give {% data variables.product.prodname_copilot_short %}.
 
-Support for selecting a model is coming soon for {% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %} users. Until then, for these users, {% data variables.copilot.copilot_coding_agent %} will use {% data variables.copilot.copilot_claude_sonnet_45 %}. {% data variables.product.company_short %} reserves the right to change the model used at any time.
+> [!NOTE]
+> Model selection for {% data variables.copilot.copilot_coding_agent %} is only supported when assigning an issue to {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}, or when starting a task from the agents tab, agents panel, {% data variables.product.prodname_mobile %} or the Raycast launcher. Where a model picker is not available, Auto will be used automatically. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr).
 
 ## Supported models
 

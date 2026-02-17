@@ -12,7 +12,7 @@ topics:
   - Infrastructure
 ---
 
->[!NOTE] {% data variables.product.prodname_enterprise_backup_service %} is currently in {% data variables.release-phases.public_preview %} and is subject to change. During the public preview, the service is available at no additional cost.
+>[!NOTE] {% data variables.product.prodname_enterprise_backup_service %} is currently in {% data variables.release-phases.public_preview %} and subject to change. The service is available at no additional cost and will remain free.
 
 ## About the {% data variables.product.prodname_enterprise_backup_service %}
 

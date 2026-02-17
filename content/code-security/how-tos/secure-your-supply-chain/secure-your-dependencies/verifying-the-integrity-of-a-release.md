@@ -19,7 +19,7 @@ contentType: how-tos
 
 ## Prerequisites
 
-Before you can validate the authenticity of a release and its assets on the command line, you need to [install the {% data variables.product.prodname_cli %}](https://github.com/cli/cli?tab=readme-ov-file#installation).
+Before you can validate the authenticity of a release and its assets on the command line, you need to [install the {% data variables.product.prodname_cli %}](https://github.com/cli/cli?tab=readme-ov-file&ref_product=supply-chain-security&ref_type=engagement&ref_style=text#installation).
 
 ## Verifying immutable releases and local artifacts
 

@@ -37,8 +37,6 @@ For all of the default AI models, input prompts and output completions run throu
 
 This table lists the AI models available in {% data variables.product.prodname_copilot_short %}, along with their release status and availability in different modes.
 
-{% data reusables.copilot.grok-promo-period %}
-
 {% rowheaders %}
 
 | Model name                                             | Provider  | Release status             | Agent mode | Ask mode | Edit mode |

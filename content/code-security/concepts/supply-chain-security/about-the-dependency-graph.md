@@ -60,9 +60,23 @@ For more information on how {% data variables.product.github %} helps you unders
 
 {% ifversion fpt or ghec %}
 
-## Dependents included
+## Dependents and "used by" data
 
-For public repositories, only public repositories that depend on it or on packages that it publishes are reported. This information is not reported for private repositories.{% endif %}
+For public repositories, the dependency graph lists dependents. These are other public repositories that depend on the repository or on packages that it publishes. This information is not reported for private repositories.
+
+{% data reusables.dependency-graph.used-by %} Clicking any item in this section takes you to the **Dependents** tab of the dependency graph.
+
+Your repository will have a "Used by" section if:
+* The dependency graph is enabled for the repository.
+* Your repository contains a package that is published on a supported package ecosystem. See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems).
+* Within the ecosystem, your package has a link to a _public_ repository where the source is stored.
+* More than 100 repositories depend on your package.
+
+![Screenshot of the "Used by" section for a repository showing the summary of "13.4m" with details of 8 avatars and "+13,435,819."](/assets/images/help/repository/used-by-section.png)
+
+The "Used by" section represents a single package from the repository. If you have admin permissions to a repository that contains multiple packages, you can choose which package the "Used by" section represents. See [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/change-used-by-data).
+
+{% endif %}
 
 ## What you can do with the dependency graph
 

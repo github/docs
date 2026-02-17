@@ -60,6 +60,7 @@ When you configure LDAP access for users via the {% data variables.enterprise.ma
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
+
 1. Under "Authentication", select **LDAP**.
 1. {% data reusables.enterprise_user_management.built-in-authentication-option %}
 1. Add your configuration settings.
@@ -104,6 +105,7 @@ You can validate the LDAP server certificate you use with TLS by enabling LDAP c
 To enable LDAP certificate verification, select **Enable LDAP certificate verification** in your LDAP settings.
 
 When this option is selected, the certificate is validated to make sure:
+
 * If the certificate contains at least one Subject Alternative Name (SAN), one of the SANs matches the LDAP hostname. Otherwise, the Common Name (CN) matches the LDAP hostname.
 * The certificate is not expired.
 * The certificate is signed by a trusted certificate authority (CA).
@@ -185,6 +187,7 @@ You can view the full list of LDAP users who have access to your instance and pr
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
+
 1. In the left sidebar, click **LDAP users**.
 1. To search for a user, type a full or partial username and click **Search**. Existing users will be displayed in search results. If a user doesn’t exist, click **Create** to provision the new user account.
 
@@ -203,6 +206,7 @@ Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are
 {% data reusables.enterprise_site_admin_settings.search-user %}
 {% data reusables.enterprise_site_admin_settings.click-user %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
+
 1. Under "LDAP," click **Sync now** to manually update the account with data from your LDAP server.
 
 You can also [use the API to trigger a manual sync](/rest/enterprise-admin/ldap).
@@ -221,4 +225,14 @@ Log events for LDAP appear in systemd journal logs on {% data variables.location
 
 The {% data variables.product.prodname_ghe_server %} LDAP authentication timeout setting is 10 seconds. This means that all LDAP queries required for user authentication and group membership queries (when Administrators and Restricted User Groups are configured in the management console) must successfully complete within 10 seconds for an LDAP user who is logging into {% data variables.product.prodname_ghe_server %}. {% data variables.product.prodname_ghe_server %} does not currently support extending this 10 second LDAP authentication timeout as this can have a negative impact on other services on the appliance and lead to poor performance or unexpected outages. We recommend limiting the network latency between {% data variables.product.prodname_ghe_server %} and LDAP server(s) to help prevent authentication timeouts.
 
-{% data variables.product.prodname_ghe_server %} does not support user LDAP DNs with special characters. If there is an LDAP user with a special character in their LDAP DN, {% data variables.product.prodname_ghe_server %} may not be able to accurately determine the group membership of a user who is authenticating or being synced by LDAP Sync.  
+{% data variables.product.prodname_ghe_server %} does not support user LDAP DNs with special characters. If there is an LDAP user with a special character in their LDAP DN, {% data variables.product.prodname_ghe_server %} may not be able to accurately determine the group membership of a user who is authenticating or being synced by LDAP Sync.
+
+{% ifversion scim-for-ghes-ga %}
+
+## Migrating from LDAP to SAML and SCIM
+
+If your organization needs automated user provisioning and lifecycle management capabilities beyond what LDAP provides, you can migrate from LDAP authentication to SAML single sign-on with SCIM provisioning. This migration enables centralized user provisioning, deprovisioning, and attribute synchronization from your identity provider.
+
+For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/migrating-from-ldap-to-saml-with-scim).  
+
+{% endif %}

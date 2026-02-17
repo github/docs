@@ -30,6 +30,7 @@ includeGuides:
   - /admin/concepts/identity-and-access-management/enterprise-managed-users
   - /admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users
   - /admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users
+  - /admin/managing-iam/provisioning-user-accounts-with-scim/migrating-from-ldap-to-saml-with-scim
   - /admin/identity-and-access-management/provisioning-user-accounts-with-scim/configuring-scim-provisioning-using-okta
   - /admin/managing-iam/provisioning-user-accounts-with-scim/managing-team-memberships-with-identity-provider-groups
   - /admin/managing-iam/using-cas-for-enterprise-iam/using-cas

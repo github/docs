@@ -30,6 +30,7 @@ includedCategories:
   - Author and optimize with Copilot
   - Integrate Copilot with your tools
   - Manage Copilot for a team
+  - Track Copilot usage
   - Troubleshooting Copilot
   - Responsible use
 ---

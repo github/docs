@@ -5,6 +5,8 @@ intro: 'Provide context to the {% data variables.product.prodname_copilot_short 
 versions:
   feature: copilot
 contentType: how-tos
+category:
+  - Integrate Copilot with your tools
 ---
 
 > [!NOTE]

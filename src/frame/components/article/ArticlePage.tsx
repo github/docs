@@ -24,6 +24,7 @@ import { LinkPreviewPopover } from '@/links/components/LinkPreviewPopover'
 import { UtmPreserver } from '@/frame/components/UtmPreserver'
 import { JourneyTrackCard, JourneyTrackNav } from '@/journeys/components'
 import { ViewMarkdownButton } from './ViewMarkdownButton'
+import { ExperimentContentSwap } from '@/events/components/experiments/ExperimentContentSwap'
 
 const ClientSideRefresh = dynamic(() => import('@/frame/components/ClientSideRefresh'), {
   ssr: false,
@@ -95,6 +96,7 @@ export const ArticlePage = () => {
       )}
 
       <MarkdownContent>{renderedPage}</MarkdownContent>
+      <ExperimentContentSwap containerRef="#article-contents" />
       {effectiveDate && (
         <div className="mt-4" id="effectiveDate">
           Effective as of:{' '}

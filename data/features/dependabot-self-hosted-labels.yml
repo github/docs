@@ -1,0 +1,6 @@
+# Reference: #19800
+# Custom labels for Dependabot self-hosted runners [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.19'

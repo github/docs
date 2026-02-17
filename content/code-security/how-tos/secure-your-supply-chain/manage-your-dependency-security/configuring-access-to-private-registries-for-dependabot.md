@@ -124,6 +124,66 @@ If your private registry is configured with an IP allow list, you can find the I
 
 {% endif %}
 
+## Using OIDC for authentication
+
+{% data variables.product.prodname_dependabot %} can use OpenID Connect (OIDC) to authenticate with private registries, eliminating the need to store long-lived credentials as repository secrets.
+
+With OIDC-based authentication, {% data variables.product.prodname_dependabot %} update jobs can dynamically obtain short-lived credentials from your cloud identity provider, just like {% data variables.product.prodname_actions %} workflows using OIDC federation.
+
+{% data variables.product.prodname_dependabot %} supports OIDC authentication for any registry type that uses `username` and `password` authentication, when the registry is hosted on one of the following cloud providers:
+
+* AWS CodeArtifact
+* Azure DevOps Artifacts
+* JFrog Artifactory
+
+To configure OIDC authentication, you need to specify different values instead of `username` and `password` in your registry configuration.
+
+### AWS CodeArtifact
+
+AWS CodeArtifact requires the values `aws-region`, `account-id`, `role-name`, `domain`, and `domain-owner`. The `audience` field is optional.
+
+```yaml
+registries:
+  my-aws-codeartifact-feed:
+    type: npm-registry
+    url: https://MY_DOMAIN-MY-ACCOUNT_ID.d.codeartifact.REGION.amazonaws.com/npm/MY_REPOSITORY/
+    aws-region: REGION
+    account-id: '123456789012'
+    role-name: MY_ROLE_NAME
+    domain: MY_DOMAIN
+    domain-owner: '987654321098'
+    audience: MY_AUDIENCE  # if required by your feed
+```
+
+### Azure DevOps Artifacts
+
+Azure DevOps Artifacts requires the values `tenant-id` and `client-id`:
+
+```yaml
+registries:
+  my-azure-devops-artifacts-feed:
+    type: npm-registry
+    url: https://pkgs.dev.azure.com/MY-ORGANIZATION/MY-PROJECT/_packaging/MY-FEED/npm/registry/
+    tenant-id: {% raw %}${{ secrets.AZURE_TENANT_ID }}{% endraw %}
+    client-id: {% raw %}${{ secrets.AZURE_CLIENT_ID }}{% endraw %}
+```
+
+### JFrog Artifactory
+
+JFrog Artifactory requires the values `url` and `jfrog-oidc-provider-name`.  The values `audience` and `identity-mapping-name` are optional:
+
+```yaml
+registries:
+  my-jfrog-artifactory-feed:
+    type: npm-registry
+    url: https://JFROG-PLATFORM-URL/artifactory/api/npm/MY-REPOSITORY
+    jfrog-oidc-provider-name: MY-PROVIDER
+    audience: MY-AUDIENCE  # if required by your feed
+    identity-mapping-name: MY-IDENTITY-MAPPING  # if required by your feed
+```
+
+For more information about how OIDC works, see [AUTOTITLE](/actions/concepts/security/openid-connect).
+
 ## Allowing external code execution
 
 When you give {% data variables.product.prodname_dependabot %} access to one or more registries, external code execution is automatically disabled to protect your code from compromised packages. However, some version updates may fail.
@@ -363,6 +423,22 @@ registries:
 
 {% endraw %}
 
+You can also use OIDC authentication to access JFrog Artifactory. {% data reusables.dependabot.dependabot-oidc-credentials %}
+
+{% raw %}
+
+```yaml copy
+registries:
+  maven-artifactory-oidc:
+    type: maven-repository
+    url: https://acme.jfrog.io/artifactory/my-maven-registry
+    tenant-id: ${{secrets.ARTIFACTORY_TENANT_ID}}
+    client-id: ${{secrets.ARTIFACTORY_CLIENT_ID}}
+    replaces-base: true
+```
+
+{% endraw %}
+
 ### `npm-registry`
 
 The `npm-registry` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
@@ -433,6 +509,23 @@ registries:
 
 {% endraw %}
 
+You can also use OIDC authentication to access Azure DevOps Artifacts. {% data reusables.dependabot.dependabot-oidc-credentials %}
+
+{% raw %}
+
+```yaml copy
+registries:
+  nuget-azure-devops-oidc:
+    type: nuget-feed
+    url: https://pkgs.dev.azure.com/MyOrganization/MyProject/_packaging/MyArtifactFeedName/nuget/v3/index.json
+    tenant-id: ${{secrets.AZURE_TENANT_ID}}
+    client-id: ${{secrets.AZURE_CLIENT_ID}}
+```
+
+{% endraw %}
+
+The `AZURE_TENANT_ID` and `AZURE_CLIENT_ID` values can be obtained from the overview page of your Entra ID app registration.
+
 ### `pub-repository`
 
 The `pub-repository` type supports a URL and a token.
@@ -485,6 +578,22 @@ registries:
     url: https://pkgs.dev.azure.com/octocat/_packaging/my-feed/pypi/example
     username: octocat@example.com
     password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
+    replaces-base: true
+```
+
+{% endraw %}
+
+You can also use OIDC authentication to access Azure DevOps Artifacts. {% data reusables.dependabot.dependabot-oidc-credentials %}
+
+{% raw %}
+
+```yaml copy
+registries:
+  python-azure-oidc:
+    type: python-index
+    url: https://pkgs.dev.azure.com/octocat/_packaging/my-feed/pypi/example
+    tenant-id: ${{secrets.AZURE_TENANT_ID}}
+    client-id: ${{secrets.AZURE_CLIENT_ID}}
     replaces-base: true
 ```
 

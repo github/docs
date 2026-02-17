@@ -14,12 +14,14 @@ children:
   - about-the-dependency-graph
   - about-dependency-review
   - about-dependabot-alerts
+  - about-metrics-for-dependabot-alerts
   - about-dependabot-security-updates
   - about-dependabot-version-updates
   - about-dependabot-pull-requests
   - about-the-dependabot-yml-file
   - about-dependabot-auto-triage-rules
   - about-dependabot-on-github-actions-runners
+  - dependabot-job-logs
   - immutable-releases
   - linked-artifacts
 ---

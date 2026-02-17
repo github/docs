@@ -49,6 +49,7 @@ GitHub | `show_cookie_banner` | Set based on the client’s region and used to d
 GitHub | `social_csrf_token` | This cookie is set by the social initiate path to ensure that the user that started the flow is the same user that completes it. | 5 minutes
 GitHub | `tz` | This cookie allows us to customize timestamps to your time zone. | Session
 GitHub | `user_session` | This cookie is used to log you in. | Two weeks
+[HockeyStack](https://www.hockeystack.com/legal/privacy-policy) | `HockeyStack_Website_Tracking_Fingerprint` | This cookie is used for analytics to store and track visits across GitHub Resource sites | Until user closes browser or completes authentication request
 [Microsoft](https://privacy.microsoft.com/en-us/privacystatement) | `ai_session` | Application Insights session ID | One year
 [Microsoft](https://privacy.microsoft.com/en-us/privacystatement) | `ai_user` | Application Insights user ID | 30 minutes
 [Microsoft](https://privacy.microsoft.com/en-us/privacystatement) | `ANONCHK` | This Microsoft Clarity cookie monitors website performance | One year

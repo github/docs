@@ -130,7 +130,7 @@ encoded_jwt = jwt.encode(payload, signing_key, algorithm='RS256')
 print(f"JWT: {encoded_jwt}")
 ```
 
-This script will prompt you for the file path where your private key is stored and for the ID of your app. Alternatively, you can pass those values as inline arguments when you execute the script.
+This script will prompt you for the file path where your private key is stored and for the {% ifversion client-id-for-app %}client ID{% else %}app ID{% endif %} of your app. Alternatively, you can pass those values as inline arguments when you execute the script.
 
 ### Example: Using Bash to generate a JWT
 

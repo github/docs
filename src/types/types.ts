@@ -24,6 +24,7 @@ export type ExtendedRequest = Request & {
   context?: Context
   language?: string
   userLanguage?: string
+  userVersion?: string
   FailBot?: Failbot
 }
 
@@ -327,6 +328,7 @@ export type SecretScanningData = {
   isPrivateWithGhas: boolean
   hasPushProtection: boolean
   hasValidityCheck: boolean | string
+  hasExtendedMetadata: boolean
   ismultipart?: boolean
   base64Supported: boolean
   isduplicate: boolean

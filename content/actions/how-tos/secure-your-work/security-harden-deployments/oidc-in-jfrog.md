@@ -55,8 +55,6 @@ In your {% data variables.product.prodname_actions %} workflow file, ensure you 
 
 The following example uses the placeholders `YOUR_PROVIDER_NAME` and `YOUR_AUDIENCE`.
 
-{% raw %}
-
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 permissions:
@@ -71,7 +69,7 @@ jobs:
         id: setup-jfrog-cli
         uses: jfrog/setup-jfrog-cli@29fa5190a4123350e81e2a2e8d803b2a27fed15e
         with:
-          JF_URL: ${{ env.JF_URL }}
+          JF_URL: {% raw %}${{ env.JF_URL }}{% endraw %}
           oidc-provider-name: 'YOUR_PROVIDER_NAME'
           oidc-audience: 'YOUR_AUDIENCE' # This is optional
 
@@ -80,8 +78,6 @@ jobs:
 
 ```
 
-{% endraw %}
-
 > [!TIP]
 > When OIDC authentication is used, the `setup-jfrog-cli` action automatically provides `oidc-user` and `oidc-token` as step outputs.
 > These can be used for other integrations that require authentication with JFrog.
@@ -89,19 +85,15 @@ jobs:
 
 ### Using OIDC Credentials in other steps
 
-{% raw %}
-
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
       - name: Sign in to Artifactory Docker registry
         uses: docker/login-action@v3
         with:
-          registry: ${{ env.JF_URL }}
-          username: ${{ steps.setup-jfrog-cli.outputs.oidc-user }}
-          password: ${{ steps.setup-jfrog-cli.outputs.oidc-token }}
+          registry: {% raw %}${{ env.JF_URL }}{% endraw %}
+          username: {% raw %}${{ steps.setup-jfrog-cli.outputs.oidc-user }}{% endraw %}
+          password: {% raw %}${{ steps.setup-jfrog-cli.outputs.oidc-token }}{% endraw %}
 ```
-
-{% endraw %}
 
 ## Further reading
 

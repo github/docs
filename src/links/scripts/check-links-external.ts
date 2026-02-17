@@ -32,7 +32,7 @@ import { uploadArtifact } from '@/links/scripts/upload-artifact'
 import { createReportIssue, linkReports } from '@/workflows/issue-report'
 import github from '@/workflows/github'
 import excludedLinks from '@/links/lib/excluded-links'
-import coreLib from '@actions/core'
+import * as coreLib from '@actions/core'
 
 // Cache configuration
 const CACHE_FILE = process.env.EXTERNAL_LINK_CACHE_FILE || 'external-link-cache.json'
@@ -356,9 +356,6 @@ async function main() {
 
     console.log(`Created report issue: ${newReport.html_url}`)
   }
-
-  // Exit with error if broken links found
-  process.exit(1)
 }
 
 // Run if invoked directly

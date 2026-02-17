@@ -1,4 +1,4 @@
-import coreLib from '@actions/core'
+import * as coreLib from '@actions/core'
 import { readFileSync } from 'fs'
 import yaml from 'js-yaml'
 import { difference } from 'lodash-es'

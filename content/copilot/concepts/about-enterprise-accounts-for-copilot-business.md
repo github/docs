@@ -14,6 +14,8 @@ redirect_from:
   - /early-access/copilot/managing-copilot-business-licenses-with-an-enterprise-account
   - /early-access/copilot/managing-copilot-business-licenses-with-an-enterprise-account
 contentType: concepts
+category:
+  - Learn about Copilot
 ---
 
 ## How can my enterprise use {% data variables.product.prodname_copilot %} only?

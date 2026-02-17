@@ -10,6 +10,9 @@ topics:
   - Enterprise
 shortTitle: Configure MCP registry
 contentType: how-tos
+category:
+  - Configure Copilot
+  - Manage Copilot for a team
 ---
 
 ## Prerequisites
@@ -48,9 +51,9 @@ While the MCP registry launched using the v0 specification, that version is now 
 | {% data variables.product.prodname_vscode_shortname %} Insiders | {% octicon "check" aria-label="Supported" %}  |
 | {% data variables.product.prodname_vscode_shortname %}   | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.product.prodname_vs %}      | {% octicon "check" aria-label="Supported" %} |
-| Eclipse | Coming Dec 2025    |
-| JetBrains IDEs     | Coming Dec 2025    |
-| Xcode    | Coming Dec 2025    |
+| Eclipse | {% octicon "check" aria-label="Supported" %} |
+| JetBrains IDEs     | {% octicon "check" aria-label="Supported" %} |
+| Xcode    | {% octicon "check" aria-label="Supported" %} |
 
 ### Cross-Origin Resource Sharing requirements
 

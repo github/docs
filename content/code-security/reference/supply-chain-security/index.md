@@ -23,6 +23,8 @@ children:
   - /dependabot-pull-request-comment-commands
   - /supported-ecosystems-and-repositories
   - /dependency-graph-supported-package-ecosystems
+  - /dependabot-on-actions
+  - /dependabot-errors
 redirect_from:
   - /code-security/dependabot/ecosystems-supported-by-dependabot
 ---

@@ -13,6 +13,7 @@ topics:
 children:
   - /user-provisioning-with-scim-on-ghes
   - /configuring-scim-provisioning-for-users
+  - /migrating-from-ldap-to-saml-with-scim
   - /configuring-authentication-and-provisioning-with-entra-id
   - /configuring-authentication-and-provisioning-with-pingfederate
   - /configuring-scim-provisioning-with-okta
