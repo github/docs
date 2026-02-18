@@ -204,3 +204,11 @@
   eclipse: false
   xcode: false
   jetbrains: false
+
+- name: Goldeneye
+  dotcom: false
+  vscode: true
+  vs: false
+  eclipse: false
+  xcode: false
+  jetbrains: false

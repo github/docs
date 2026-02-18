@@ -45,8 +45,9 @@ All input requests and output responses processed by {% data variables.product.p
 Used for:
 
 * {% data variables.copilot.copilot_raptor_mini %}
+* {% data variables.copilot.copilot_goldeneye %}
 
-{% data variables.copilot.copilot_raptor_mini %} is deployed on {% data variables.product.github %} managed Azure OpenAI tenant.
+These models are deployed on {% data variables.product.github %} managed Azure OpenAI tenant.
 
 ## Anthropic models
 

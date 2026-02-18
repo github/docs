@@ -177,6 +177,7 @@ copilot_grok_code: 'Grok Code Fast 1'
 copilot_qwen_25: 'Qwen2.5'
 # Microsoft fine-tuned:
 copilot_raptor_mini: 'Raptor mini'
+copilot_goldeneye: 'Goldeneye'
 
 ## Current model used by Copilot coding agent and Copilot CLI
 cca_current_model: '{% data variables.copilot.copilot_claude_sonnet_40 %}'

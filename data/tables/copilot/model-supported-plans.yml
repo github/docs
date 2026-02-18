@@ -179,3 +179,10 @@
   pro_plus: true
   business: false
   enterprise: false
+
+- name: Goldeneye
+  free: true
+  pro: false
+  pro_plus: false
+  business: false
+  enterprise: false

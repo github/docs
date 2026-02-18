@@ -108,3 +108,7 @@
 - name: Raptor mini
   multiplier_paid: 0
   multiplier_free: 1
+
+- name: Goldeneye
+  multiplier_paid: Not applicable
+  multiplier_free: 1
