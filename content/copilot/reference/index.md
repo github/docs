@@ -12,6 +12,7 @@ children:
   - /copilot-feature-matrix
   - /keyboard-shortcuts
   - /cli-command-reference
+  - /cli-plugin-reference
   - /custom-agents-configuration
   - /acp-server
   - /hooks-configuration
