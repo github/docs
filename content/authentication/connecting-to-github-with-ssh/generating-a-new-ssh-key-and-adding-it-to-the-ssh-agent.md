@@ -164,7 +164,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
    ```
 {% data reusables.ssh.add-public-key-to-github %}
 
-> **Troubleshooting SSH agent conflicts in Windows**
+> ### Troubleshooting SSH agent conflicts in Windows
 >
 > In Windows environments, the native Windows OpenSSH implementation and the one included with Git for Windows (based on MSYS2/Bash) can coexist.
 >
