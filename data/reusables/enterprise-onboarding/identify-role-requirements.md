@@ -62,6 +62,6 @@ For more information about what apps can do, see [AUTOTITLE](/apps/creating-gith
 
 ## 6. Assign tasks to agents
 
-Another way to delegate frequent, time-consuming tasks is to assign work to {% data variables.copilot.copilot_coding_agent %}. You can define custom agents for specific roles in your enterprise. Custom agents are created using Markdown files called "agent profiles," which define the instructions and tools the agent needs to perform a task. For example, you could create a custom agent for writing README files or generating unit tests.
+Another way to delegate frequent, time-consuming tasks is to assign work to {% data variables.copilot.copilot_coding_agent %}. You can define custom agents for specific roles in your enterprise. Custom agents are created using Markdown files called "agent profiles," which define the instructions and tools the agent needs to perform a task. For example, you could create a {% data variables.copilot.copilot_custom_agent_short %} for writing README files or generating unit tests.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents).

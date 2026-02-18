@@ -14,8 +14,8 @@ contentType: reference
 allowTitleToDifferFromFilename: true
 category:
   - Copilot usage metrics
-  - Manage Copilot for a team
   - Understand metrics
+  - Track Copilot usage
 ---
 
 {% data reusables.copilot.usage-metrics-preview %}

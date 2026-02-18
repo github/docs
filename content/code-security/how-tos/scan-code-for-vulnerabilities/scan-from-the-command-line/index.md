@@ -14,9 +14,11 @@ children:
   - /setting-up-the-codeql-cli
   - /advanced-setup-of-the-codeql-cli
   - /using-custom-queries-with-the-codeql-cli
+  - /testing-custom-queries
   - /testing-query-help-files
   - /specifying-command-options-in-a-codeql-configuration-file
   - /creating-database-bundle-for-troubleshooting
+
 redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli
   - /code-security/codeql-cli/getting-started-with-the-codeql-cli

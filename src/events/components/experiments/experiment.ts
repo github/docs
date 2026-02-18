@@ -29,6 +29,8 @@ export function shouldShowExperiment(
   const experiments = getActiveExperiments('all')
   for (const experiment of experiments) {
     if (experiment.key === experimentKey) {
+      // Respect isActive so flipping it to false actually stops the experiment
+      if (!experiment.isActive) return false
       // If there is an override for the current session, use that
       if (controlGroupOverride[experiment.key]) {
         const controlGroup = getExperimentControlGroupFromSession(

@@ -4,7 +4,7 @@
     For example, `Implement a user friendly message for common errors.`
 
 1. Optionally, select a base branch for {% data variables.product.prodname_copilot_short %}'s pull request. {% data variables.product.prodname_copilot_short %} will create a new branch based on this branch, then push the changes to a pull request targeting that branch.
-1. {% data reusables.copilot.optional-select-custom-agent %}
+1. {% data reusables.copilot.optional-select-custom-agent-dotcom %}
 {% data reusables.copilot.optional-select-copilot-coding-agent-model %}
 1. Click **{% octicon "paper-airplane" aria-label="Start task" %}** or press <kbd>Enter</kbd>.
 

@@ -1,13 +1,14 @@
 ---
-title: Adding custom instructions for Copilot CLI
+title: Adding custom instructions for {% data variables.copilot.copilot_cli %}
 shortTitle: Add custom instructions
-intro: 'Create custom instructions files that give {% data variables.product.prodname_copilot_short %} additional context on how to understand your project and how to build, test and validate its changes.'
+intro: 'Give {% data variables.product.prodname_copilot_short %} additional context on how to understand your project and how to build, test and validate its changes.'
 versions:
   feature: copilot
 topics:
   - Copilot
 redirect_from:
   - /copilot/how-tos/copilot-cli/add-repository-instructions
+  - /copilot/how-tos/copilot-cli/add-custom-instructions
 contentType: how-tos
 ---
 

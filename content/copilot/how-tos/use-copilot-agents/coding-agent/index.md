@@ -14,10 +14,12 @@ children:
   - /review-copilot-prs
   - /create-custom-agents
   - /test-custom-agents
+  - /create-skills
   - /extend-coding-agent-with-mcp
   - /integrate-coding-agent-with-slack
   - /integrate-coding-agent-with-teams
   - /integrate-coding-agent-with-linear
+  - /integrate-coding-agent-with-azure-boards
   - /changing-the-ai-model
   - /customize-the-agent-environment
   - /customize-the-agent-firewall

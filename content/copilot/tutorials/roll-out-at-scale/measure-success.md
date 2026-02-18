@@ -13,6 +13,8 @@ allowTitleToDifferFromFilename: true
 category:
   - Copilot usage metrics
   - Measure success
+  - Track Copilot usage
+  - Manage Copilot for a team
 ---
 
 When your organization runs a {% data variables.product.prodname_copilot_short %} trial, the key to success is understanding how teams adopt and use {% data variables.product.prodname_copilot_short %}.

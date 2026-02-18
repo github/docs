@@ -148,6 +148,7 @@ copilot_claude_sonnet_35: 'Claude Sonnet 3.5'
 copilot_claude_sonnet_37: 'Claude Sonnet 3.7'
 copilot_claude_sonnet_40: 'Claude Sonnet 4'
 copilot_claude_sonnet_45: 'Claude Sonnet 4.5'
+copilot_claude_sonnet_46: 'Claude Sonnet 4.6'
 # Gemini:
 copilot_gemini: 'Gemini'
 copilot_gemini_flash: 'Gemini 2.0 Flash'
