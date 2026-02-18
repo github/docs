@@ -14,7 +14,7 @@ shortTitle: Releases
 
 ## Releases of {% data variables.product.prodname_ghe_server %}
 
-{% data variables.product.company_short %} supports the **four** most recent feature releases.
+{% data variables.product.company_short %} supports at least the **four** most recent feature releases.
 
 We provide documentation for both supported and unsupported versions of {% data variables.product.prodname_ghe_server %}. We do not maintain or update the documentation for unsupported versions.
 
