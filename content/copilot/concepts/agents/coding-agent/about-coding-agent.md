@@ -85,9 +85,7 @@ For more information, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/mana
 
 ## AI models for {% data variables.copilot.copilot_coding_agent %}
 
-{% data variables.copilot.copilot_pro %} and {% data variables.copilot.copilot_pro_plus %} users can select the model used by {% data variables.copilot.copilot_coding_agent %}. You may find that different models perform better, or provide more useful responses, depending on the type of tasks you give {% data variables.product.prodname_copilot_short %}.
-
-Support for selecting a model is coming soon for {% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %} users. Until then, for these users, {% data variables.copilot.copilot_coding_agent %} will use {% data variables.copilot.copilot_claude_sonnet_45 %}. {% data variables.product.company_short %} reserves the right to change the model used at any time.
+Depending on how you start your {% data variables.copilot.copilot_coding_agent %} task, you may be able to select the model used by {% data variables.copilot.copilot_coding_agent %}. You may find that different models perform better, or provide more useful responses, depending on the type of tasks you give {% data variables.product.prodname_copilot_short %}.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/changing-the-ai-model).
 
@@ -174,8 +172,8 @@ Users can include hidden messages in issues assigned to {% data variables.copilo
 
 ### Limitations in {% data variables.copilot.copilot_coding_agent %}'s software development workflow
 
-* **{% data variables.product.prodname_copilot_short %} can only make changes in the same repository where it is creating its pull request**. When {% data variables.product.prodname_copilot_short %} is assigned an issue, it can only make changes in the repository where that issue is located. In addition, {% data variables.product.prodname_copilot_short %} cannot make changes across multiple repositories in one run.
-* **{% data variables.product.prodname_copilot_short %} can only access context in the same repository as the assigned issue**. By default, an integration with the {% data variables.product.prodname_copilot_short %} MCP server provides {% data variables.product.prodname_copilot_short %} access to one repository at a time. You can, however, configure broader access. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
+* **{% data variables.product.prodname_copilot_short %} can only make changes in the repository specified when you start a task**. {% data variables.product.prodname_copilot_short %} cannot make changes across multiple repositories in one run.
+* **By default, {% data variables.product.prodname_copilot_short %} can only access context in the repository specified when you start a task**. The {% data variables.product.prodname_copilot_short %} MCP server is configured by default to allow {% data variables.product.prodname_copilot_short %} to access context (for example issues and historic pull requests) in the repository where it is working. You can, however, configure broader access. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
 * **{% data variables.product.prodname_copilot_short %} can only open one pull request at a time**. {% data variables.product.prodname_copilot_short %} will open exactly one pull request to address each task it is assigned.
 
 ### Limitations in {% data variables.copilot.copilot_coding_agent %}'s compatibility with other features

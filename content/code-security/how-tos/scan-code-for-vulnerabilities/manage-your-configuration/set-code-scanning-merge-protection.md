@@ -1,7 +1,7 @@
 ---
 title: Set code scanning merge protection
 shortTitle: Set merge protection
-intro: You can use rulesets to set {% data variables.product.prodname_code_scanning %} merge protection for pull requests.
+intro: 'Secure your codebase by blocking pull requests that fail {% data variables.product.prodname_code_scanning %} checks.'
 permissions: '{% data reusables.permissions.security-org-enable %}'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
@@ -15,27 +15,6 @@ redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection
 contentType: how-tos
 ---
-
-## About using rulesets for {% data variables.product.prodname_code_scanning %} merge protection
-
-> [!NOTE]
-> * Merge protection with rulesets is not related to status checks. For more information about status checks, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
-> * Merge protection with rulesets will not apply to merge queue groups or {% data variables.product.prodname_dependabot %} pull requests analyzed by default setup.
-> * All the lines of code identified by an alert must exist in the pull request diff. For more information, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#source-file-locations).
-
-You can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
-
-{% data reusables.code-scanning.merge-protection-rulesets-conditions %}
-
-Typically you should use rulesets target long-lived feature branches, where you would like to guarantee that code has been analyzed before pull requests can be merged.
-
-Configuring a {% data variables.product.prodname_code_scanning %} rule will not automatically enable {% data variables.product.prodname_code_scanning %}. For more information about how to enable code scanning, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
-
-For more information about {% data variables.product.prodname_code_scanning %} alerts, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts).
-
-You can set merge protection with rulesets at the repository {% ifversion ghec or ghes %}or organization levels{% else %}level{% endif %}, and for repositories configured with either default setup or advanced setup. You can also use the REST API to set merge protection with rulesets.
-
-For more information about rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
 ## Creating a merge protection ruleset for a repository
 

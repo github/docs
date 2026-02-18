@@ -1,6 +1,6 @@
 ---
 title: GitHub Developer Program
-intro: 'If you build tools that integrate with {% data variables.product.prodname_dotcom %}, you can join the {% data variables.product.prodname_dotcom %} Developer Program.'
+intro: 'If you build tools that integrate with GitHub, you can join the GitHub Developer Program.'
 redirect_from:
   - /program
   - /developers/overview/github-developer-program
@@ -16,7 +16,7 @@ category:
   - Build integrations
 ---
 
-Building an application that integrates with {% data variables.product.prodname_dotcom %}? Register for our Developer Program! The possibilities are endless, and you enjoy the kudos. [Register now](https://github.com/developer/register).
+Building an application that integrates with {% data variables.product.github %}? Register for our Developer Program! The possibilities are endless, and you enjoy the kudos. [Register now](https://github.com/developer/register).
 
 ## Scratch an itch
 
@@ -30,12 +30,12 @@ Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to re
 
 Awesome! Here’s how you can spread the word:
 
-* Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with GitHub.
+* Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with {% data variables.product.github %}.
 * Post a video or a blog on your website about your integration.
 
 ## Ready to join the GitHub Developer Program?
 
 Membership is open to individual developers and companies who have:
 
-* An integration in production or development using the GitHub API.
-* An email address where GitHub users can contact you for support.
+* An integration in production or development using the {% data variables.product.github %} API.
+* An email address where {% data variables.product.github %} users can contact you for support.

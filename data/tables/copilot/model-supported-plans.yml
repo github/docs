@@ -40,6 +40,13 @@
   business: true
   enterprise: true
 
+- name: Claude Opus 4.6 (fast mode) (preview)
+  free: false
+  pro: false
+  pro_plus: true
+  business: false
+  enterprise: true
+
 - name: Claude Sonnet 4
   free: false
   pro: true
@@ -48,6 +55,13 @@
   enterprise: true
 
 - name: Claude Sonnet 4.5
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: Claude Sonnet 4.6
   free: false
   pro: true
   pro_plus: true
@@ -145,6 +159,13 @@
   business: true
   enterprise: true
 
+- name: GPT-5.3-Codex
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
 - name: Grok Code Fast 1
   free: false
   pro: true
@@ -158,4 +179,10 @@
   pro_plus: true
   business: false
   enterprise: false
-# TODO: Placeholder for future edits
+
+- name: Goldeneye
+  free: true
+  pro: false
+  pro_plus: false
+  business: false
+  enterprise: false

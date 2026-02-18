@@ -14,6 +14,12 @@ redirect_from:
 
 You can remove an organization that is owned by your enterprise account, so the organization stands alone.
 
+## Limitations
+
+If you use {% data variables.product.prodname_emus %} or {% data variables.enterprise.data_residency %}, removing organizations from your enterprise is not possible.
+
+If you use {% data variables.product.prodname_emus %}, you can instead migrate organizations with the {% data variables.product.prodname_importer_proper_name %}. See [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products).
+
 ## What happens when an organization is removed?
 
 When you remove an organization from your enterprise:

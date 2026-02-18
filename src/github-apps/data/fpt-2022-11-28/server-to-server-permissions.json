@@ -7967,6 +7967,28 @@
         "additional-permissions": true
       },
       {
+        "category": "issues",
+        "slug": "pin-an-issue-comment",
+        "subcategory": "comments",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/issues/comments/{comment_id}/pin",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "issues",
+        "slug": "unpin-an-issue-comment",
+        "subcategory": "comments",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/issues/comments/{comment_id}/pin",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
         "category": "reactions",
         "slug": "list-reactions-for-an-issue-comment",
         "subcategory": "reactions",

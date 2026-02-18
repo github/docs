@@ -28,6 +28,7 @@ The following features are currently unavailable on {% data variables.enterprise
 | Certain features of {% data variables.product.prodname_github_connect %} | Although you can connect an enterprise on {% data variables.enterprise.data_residency_site %} to a {% data variables.product.prodname_ghe_server %} instance, certain features of {% data variables.product.prodname_github_connect %} are not available, including resolution of actions from {% data variables.product.prodname_dotcom_the_website %}. | [{% data variables.product.prodname_github_connect %}](#github-connect) |
 | Some features currently in {% data variables.release-phases.public_preview %} or {% data variables.release-phases.private_preview %} | Certain features that are in a preview phase on {% data variables.product.prodname_dotcom_the_website %} may not be available on {% data variables.enterprise.data_residency_site %} until GA. | |
 | Migrations REST API | Currently unavailable. | [AUTOTITLE](/rest/migrations) |
+| Streaming audit logs to Amazon S3 with OpenID Connect (OIDC) | Currently unavailable. | [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise) |
 
 ## Permanently unavailable features
 

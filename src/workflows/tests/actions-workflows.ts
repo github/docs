@@ -68,7 +68,12 @@ const alertWorkflows = workflows
 // to generate list, console.log(new Set(workflows.map(({ data }) => Object.keys(data.on)).flat()))
 
 const dailyWorkflows = scheduledWorkflows.filter(({ data }) =>
-  data.on.schedule.find(({ cron }: { cron: string }) => /^20 [^*]/.test(cron)),
+  data.on.schedule.find(({ cron }: { cron: string }) => /^20 \d{1,2} /.test(cron)),
+)
+
+// Weekly workflows have a single day-of-week digit (e.g. "20 16 * * 1")
+const weeklyWorkflows = dailyWorkflows.filter(({ data }) =>
+  data.on.schedule.find(({ cron }: { cron: string }) => /^20 16 \* \* \d$/.test(cron)),
 )
 
 describe('GitHub Actions workflows', () => {
@@ -93,6 +98,25 @@ describe('GitHub Actions workflows', () => {
       for (const { cron } of data.on.schedule) {
         const hour = cron.match(/^20 ([^*\s]+)/)[1]
         expect(hour).toEqual('16')
+      }
+    },
+  )
+
+  test.each(dailyWorkflows)('daily scheduled workflows only run Mon-Fri $filename', ({ data }) => {
+    for (const { cron } of data.on.schedule) {
+      const dayOfWeek = cron.split(' ')[4]
+      // Day-of-week must be 1-5 (Mon-Fri) or a range within 1-5
+      expect(dayOfWeek).toMatch(/^[1-5](-[1-5])?$/)
+    }
+  })
+
+  test.each(weeklyWorkflows)(
+    'weekly scheduled workflows only run Mon-Fri $filename',
+    ({ data }) => {
+      for (const { cron } of data.on.schedule) {
+        const dayOfWeek = cron.split(' ')[4]
+        // Day-of-week must be a single day 1 (Mon) through 5 (Fri)
+        expect(dayOfWeek).toMatch(/^[1-5]$/)
       }
     },
   )

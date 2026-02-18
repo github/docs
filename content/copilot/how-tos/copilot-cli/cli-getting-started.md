@@ -77,6 +77,7 @@ Use one of these commands:
 | <kbd>Ctrl</kbd>+<kbd>L</kbd>  | Clear the screen |
 | `@`                           | Mention files to include in context |
 | `/`                           | Show slash commands |
+| `?`                           | Show tabbed help |
 | <kbd>↑</kbd> and <kbd>↓</kbd> | Navigate the command history |
 
 For a full list of shortcuts and available commands, enter:

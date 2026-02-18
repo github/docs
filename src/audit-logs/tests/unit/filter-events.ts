@@ -81,6 +81,99 @@ describe('audit log event filtering', () => {
     expect(filteredEvents.length).toBe(0)
   })
 
+  test('merges global fields with event-specific fields', async () => {
+    const eventsToProcess: RawAuditLogEventT[] = [
+      {
+        action: 'repo.create',
+        _allowlists: ['user'],
+        description: 'repo was created',
+        docs_reference_links: '',
+        ghes: {},
+        fields: ['repo', 'repo_id'],
+      },
+    ]
+
+    const filteredEvents = await filterByAllowlistValues({
+      eventsToCheck: eventsToProcess,
+      allowListValues: 'user',
+      currentEvents: [],
+      pipelineConfig: { sha: '', appendedDescriptions: {} },
+      globalFields: ['@timestamp', 'action'],
+    })
+    expect(filteredEvents[0].fields).toEqual(
+      expect.arrayContaining(['@timestamp', 'action', 'repo', 'repo_id']),
+    )
+    expect(filteredEvents[0].fields?.length).toBe(4)
+  })
+
+  test('deduplicates global fields already present in event fields', async () => {
+    const eventsToProcess: RawAuditLogEventT[] = [
+      {
+        action: 'repo.create',
+        _allowlists: ['user'],
+        description: 'repo was created',
+        docs_reference_links: '',
+        ghes: {},
+        fields: ['action', 'repo'],
+      },
+    ]
+
+    const filteredEvents = await filterByAllowlistValues({
+      eventsToCheck: eventsToProcess,
+      allowListValues: 'user',
+      currentEvents: [],
+      pipelineConfig: { sha: '', appendedDescriptions: {} },
+      globalFields: ['@timestamp', 'action'],
+    })
+    expect(filteredEvents[0].fields).toEqual(
+      expect.arrayContaining(['@timestamp', 'action', 'repo']),
+    )
+    expect(filteredEvents[0].fields?.length).toBe(3)
+  })
+
+  test('uses only global fields when event has no fields', async () => {
+    const eventsToProcess: RawAuditLogEventT[] = [
+      {
+        action: 'code_scanning.alert_created',
+        _allowlists: ['user'],
+        description: 'alert was created',
+        docs_reference_links: '',
+        ghes: {},
+      },
+    ]
+
+    const filteredEvents = await filterByAllowlistValues({
+      eventsToCheck: eventsToProcess,
+      allowListValues: 'user',
+      currentEvents: [],
+      pipelineConfig: { sha: '', appendedDescriptions: {} },
+      globalFields: ['@timestamp', 'action'],
+    })
+    expect(filteredEvents[0].fields).toEqual(['@timestamp', 'action'])
+  })
+
+  test('handles empty globalFields array', async () => {
+    const eventsToProcess: RawAuditLogEventT[] = [
+      {
+        action: 'repo.create',
+        _allowlists: ['user'],
+        description: 'repo was created',
+        docs_reference_links: '',
+        ghes: {},
+        fields: ['repo', 'repo_id'],
+      },
+    ]
+
+    const filteredEvents = await filterByAllowlistValues({
+      eventsToCheck: eventsToProcess,
+      allowListValues: 'user',
+      currentEvents: [],
+      pipelineConfig: { sha: '', appendedDescriptions: {} },
+      globalFields: [],
+    })
+    expect(filteredEvents[0].fields).toEqual(['repo', 'repo_id'])
+  })
+
   test('ghes filters and updates multiple ghes versions', async () => {
     const eventsToProcess: RawAuditLogEventT[] = [
       {
