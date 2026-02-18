@@ -87,6 +87,16 @@ Some situations can break the enforcement of {% data variables.product.prodname_
 * Self-hosted runners with the label `code-scanning` are not available.{% endif %}
 * The languages excluded from {% data variables.product.prodname_code_scanning %} default setup are changed at the repository level.
 
+{% ifversion security-configuration-enterprise-level %}
+
+## Preservation of default settings for new repositories
+
+If you had default security settings in place for newly created repositories, {% data variables.product.github %} will preserve these settings by automatically creating a "New repository default settings" {% data variables.product.prodname_security_configuration %} for your enterprise. The configuration matches your previous enterprise-level default settings for new repositories as of December 2024.
+
+The configuration will be automatically applied to any newly created repositories in your enterprise that do not belong to an organization with its own default settings.
+
+{% endif %}
+
 ## Next steps
 
 {% ifversion security-configurations-cloud %}

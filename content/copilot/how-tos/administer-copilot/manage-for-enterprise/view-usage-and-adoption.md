@@ -11,8 +11,8 @@ contentType: how-tos
 allowTitleToDifferFromFilename: true
 category:
   - Copilot usage metrics
-  - Manage Copilot for a team
   - View metrics
+  - Track Copilot usage
 ---
 
 {% data reusables.copilot.usage-metrics-preview %}

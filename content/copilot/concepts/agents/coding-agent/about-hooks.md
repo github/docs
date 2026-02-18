@@ -8,17 +8,17 @@ versions:
 topics:
   - Copilot
 contentType: concepts
-category: 
+category:
   - Configure Copilot
 ---
 
 ## About hooks
 
-Hooks enable you to execute custom shell commands at strategic points in an agent's workflow, such as when an agent session starts or ends, or before and after a prompt is entered or a tool is called. 
+Hooks enable you to execute custom shell commands at strategic points in an agent's workflow, such as when an agent session starts or ends, or before and after a prompt is entered or a tool is called.
 
 Hooks receive detailed information about agent actions via JSON input, enabling context-aware automation. For example, you can use hooks to:
 
-* Programmatically approve or deny tool executions.  
+* Programmatically approve or deny tool executions.
 * Utilize built-in security features like secret scanning to prevent credential leaks.
 * Implement custom validation rules and audit logging for compliance.
 
@@ -27,7 +27,7 @@ Hooks receive detailed information about agent actions via JSON input, enabling 
 Hooks are available for use with:
 
 * {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.github %}
-* {% data variables.copilot.copilot_cli %} in the terminal 
+* {% data variables.copilot.copilot_cli %} in the terminal
 
 ## Types of hooks
 
@@ -35,9 +35,11 @@ The following types of hooks are available:
 
 * **sessionStart**: Executed when a new agent session begins or when resuming an existing session. Can be used to initialize environments, log session starts for auditing, validate project state, and set up temporary resources.
 * **sessionEnd**: Executed when the agent session completes or is terminated. Can be used to cleanup temporary resources, generate and archive session reports and logs, or send notifications about session completion.
-* **userPromptSubmitted**: Executed when the user submits a prompt to the agent. Can be used to log user requests for auditing and usage analysis. 
+* **userPromptSubmitted**: Executed when the user submits a prompt to the agent. Can be used to log user requests for auditing and usage analysis.
 * **preToolUse**: Executed before the agent uses any tool (such as `bash`, `edit`, `view`). This is the most powerful hook as it can **approve or deny tool executions**. Use this hook to block dangerous commands, enforce security policies and coding standards, require approval for sensitive operations, or log tool usage for compliance.
 * **postToolUse**: Executed after a tool completes execution (whether successful or failed). Can be used to log execution results, track usage statistics, generate audit trails, monitor performance metrics, and send failure alerts.
+* **agentStop**: Executed when the main agent has finished responding to your prompt.
+* **subagentStop**: Executed when a subagent completes, before returning results to the parent agent.
 * **errorOccurred**: Executed when an error occurs during agent execution. Can be used to log errors for debugging, send notifications, track error patterns, and generate reports.
 
 To see a complete reference of hook types with example use cases, best practices, and advanced patterns, see [AUTOTITLE](/copilot/reference/hooks-configuration).
@@ -154,11 +156,10 @@ To ensure security is maintained when using hooks, keep the following considerat
 * **Always validate and sanitize the input processed by hooks**. Untrusted input could lead to unexpected behavior.
 * **Use proper shell escaping when constructing commands**. This prevents command injection vulnerabilities.
 * **Never log sensitive data, such as tokens or passwords**.
-* **Ensure hook scripts and logs have the appropriate permissions**. 
+* **Ensure hook scripts and logs have the appropriate permissions**.
 * **Be cautious with hooks that make external network calls**. These can introduce latency, failures, or expose data to third parties.
 * **Set appropriate timeouts to prevent resource exhaustion**. Long-running hooks can block agent execution and degrade performance.
 
 ## Next steps
 
 To start creating hooks, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/use-hooks).
-

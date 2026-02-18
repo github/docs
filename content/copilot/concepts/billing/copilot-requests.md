@@ -92,7 +92,7 @@ The available models vary depending on your {% data variables.product.prodname_c
 > * Discounted multipliers are available for using {% data variables.copilot.copilot_auto_model_selection %} in {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}. See [AUTOTITLE](/copilot/concepts/auto-model-selection).
 >   * {% data reusables.copilot.auto-model-multiplier-discount %} For example, Sonnet 4 would be billed at .9x rather than 1x when using {% data variables.copilot.copilot_auto_model_selection_short %}.
 >   * Discounted multipliers are not available for {% data variables.copilot.copilot_free_short %}.
-> * Promotional pricing for {% data variables.copilot.copilot_claude_opus_46_fast %} is available from February 7, 2026 through February 16, 2026. During this period, {% data variables.copilot.copilot_claude_opus_46_fast %} uses a 9x premium request multiplier. 
+> * The multiplier for {% data variables.copilot.copilot_claude_sonnet_46 %} may be subject to change.
 
 Each model has a premium request multiplier, based on its complexity and resource usage. If you are on a paid {% data variables.product.prodname_copilot_short %} plan, your premium request allowance is deducted according to this multiplier.
 

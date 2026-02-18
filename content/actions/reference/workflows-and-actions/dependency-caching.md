@@ -275,7 +275,7 @@ Multiple workflow runs in a repository can share caches. A cache created for a b
 {% endif %}
 {% ifversion fpt or ghec %}
 
-You can create cache entries at a rate of up to 200 uploads per minute per repository. If you exceed this rate, subsequent cache upload attempts will fail until the rate limit resets. The time until the rate limit resets is returned in the `Retry-After` header of the response.
+You can create cache entries at a rate of up to 200 uploads per minute per repository, and download them at a rate of 1500 downloads per minute per repository. If you exceed this rate, subsequent cache upload or download attempts will fail until the relevant rate limit resets. The time until the rate limit resets is returned in the `Retry-After` header of the response. See [AUTOTITLE](/actions/reference/limits) for more information about {% data variables.product.prodname_actions %} rate limits.
 
 ### Increasing cache size
 
@@ -285,6 +285,18 @@ For more information, see:
 * [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-settings-for-your-repository)
 * [AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-cache-storage-for-your-organization)
 * [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#artifact-and-log-retention)
+
+Usage of additional storage is also controlled by budgets set for {% data variables.product.prodname_actions %} or the Actions Cache Storage SKU. If you have limits configured, and you exceed a budget, your cache will become read-only until your billing status is resolved, or your usage goes beneath the free limit of 10GB by caches expiring or being explicitly deleted. For more information on how to set up budgets, see [AUTOTITLE](/billing/how-tos/set-up-budgets).
+
+Setting your Actions Cache Storage SKU budgets lower than the total cost of using your configured storage over your billing period can lead to your cache frequently going into read-only mode. For example, if your budget for the SKU is $0, and you've configured your repository's maximum cache size at 20GB, your cache will enter read-only mode as soon as storage exceeds the free threshold.
+
+Below are some illustrative monthly costs to inform budgets you may wish to set for the Actions Cache Storage SKU.
+
+| Cache size | Monthly cost (if fully utilized) |
+| ---------- | -------------------------------- |
+| 50GB       | $2.80                            |
+| 200GB      | $13.30                           |
+| 1000GB     | $69.30                           |
 
 {% endif %}
 

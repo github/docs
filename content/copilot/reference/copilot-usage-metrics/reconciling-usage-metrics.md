@@ -14,8 +14,8 @@ redirect_from:
   - /copilot/reference/reconciling-usage-metrics
 category:
   - Copilot usage metrics
-  - Manage Copilot for a team
   - Reconcile and validate metrics
+  - Track Copilot usage
 ---
 
 {% data reusables.copilot.usage-metrics-preview %}

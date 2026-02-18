@@ -17,6 +17,7 @@ redirect_from:
   - /copilot/how-tos/personal-settings/installing-github-copilot-in-the-cli
   - /copilot/how-tos/set-up/installing-github-copilot-in-the-cli
   - /copilot/how-tos/set-up/install-copilot-cli
+  - /copilot/how-tos/copilot-cli/install-copilot-cli
 contentType: how-tos
 category:
   - Configure Copilot

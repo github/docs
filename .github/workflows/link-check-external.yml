@@ -5,7 +5,7 @@ name: Check External Links
 
 on:
   schedule:
-    - cron: '20 16 * * 3' # Wednesday at 16:20 UTC
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST — link & content quality theme
   workflow_dispatch:
     inputs:
       max_urls:

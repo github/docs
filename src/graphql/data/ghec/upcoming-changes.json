@@ -1,4 +1,22 @@
 {
+  "2026-07-01": [
+    {
+      "location": "Team.viewerSubscription",
+      "description": "<p><code>viewerSubscription</code> will be removed.</p>",
+      "reason": "<p><code>Team.viewerSubscription</code> will be removed. Team notifications subscriptions are being deprecated.</p>",
+      "date": "2026-07-01",
+      "criticality": "breaking",
+      "owner": "peter-evans"
+    },
+    {
+      "location": "Team.viewerCanSubscribe",
+      "description": "<p><code>viewerCanSubscribe</code> will be removed.</p>",
+      "reason": "<p><code>Team.viewerCanSubscribe</code> will be removed. Team notifications subscriptions are being deprecated.</p>",
+      "date": "2026-07-01",
+      "criticality": "breaking",
+      "owner": "peter-evans"
+    }
+  ],
   "2026-04-01": [
     {
       "location": "TeamRemoveRepositoryAuditEntry.userUrl",

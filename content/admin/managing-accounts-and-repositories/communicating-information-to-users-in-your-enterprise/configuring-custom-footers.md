@@ -22,9 +22,7 @@ You can configure the web UI for your enterprise to display a custom footer with
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. Under **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**, click **Profile**.
-1. At the top of the page, under the navigation bar, click **Custom footer**.
-
-   ![Screenshot of the "Profile" page for an enterprise account. A tab, labeled "Custom footer", is outlined in dark orange.](/assets/images/enterprise/custom-footer/custom-footer-section.png)
+1. Under **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**, click **General**.
+1. Navigate to **Custom footer**.
 1. Under each "Footer Link" heading, type a title and URL.
-1. To save the content and display the custom footer, click **Update custom footer**.
+1. To save the content and display the custom footer, click **Update footer**.

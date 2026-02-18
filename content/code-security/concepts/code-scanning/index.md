@@ -18,5 +18,6 @@ children:
   - /setup-types
   - /about-integration-with-code-scanning
   - /sarif-files
+  - /merge-protection
   - /codeql
 ---

@@ -25,8 +25,6 @@ contentType: reference
 
 ### Recommended models by task
 
-{% data reusables.copilot.grok-promo-period %}
-
 Use this table to find a suitable model quickly, see more detail in the sections below.
 
 

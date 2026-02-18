@@ -383,9 +383,14 @@ export async function loadPageList(
 
     if (!item.childPages) return
     await Promise.all(
-      item.childPages.map(
-        async (childPage: UnversionedTree) => await addToCollection(childPage, collection),
-      ),
+      item.childPages
+        // Cross-product children are pages included from other parts of the
+        // tree via absolute `/content/` paths in a bespoke landing page's
+        // children list.  They already exist in their original location, so
+        // including them again would create duplicate entries in the flat
+        // page list which breaks search-index uniqueness constraints.
+        .filter((childPage: UnversionedTree) => !childPage.crossProductChild)
+        .map(async (childPage: UnversionedTree) => await addToCollection(childPage, collection)),
     )
   }
 

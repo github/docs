@@ -31,7 +31,7 @@ topics:
 
 You can access any advisory in the {% data variables.product.prodname_advisory_database %}.
 
-1. Navigate to https://github.com/advisories.
+1. Navigate to [https://github.com/advisories](https://github.com/advisories?ref_product=security-advisories&ref_type=engagement&ref_style=text).
 1. Optionally, to filter the list of advisories, use the search field or the drop-down menus at the top of the list.
 
    > [!NOTE]
@@ -81,7 +81,7 @@ A `GHSA-ID` qualifier is a unique ID that we at {% data variables.product.prodna
 
 For any {% data variables.product.company_short %}-reviewed advisory in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories are affected by that security vulnerability or malware. To see a vulnerable repository, you must have access to {% data variables.product.prodname_dependabot_alerts %} for that repository. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts#access-to-dependabot-alerts).
 
-1. Navigate to https://github.com/advisories.
+1. Navigate to [https://github.com/advisories](https://github.com/advisories?ref_product=security-advisories&ref_type=engagement&ref_style=text).
 1. Click an advisory.
 1. At the top of the advisory page, click **Dependabot alerts**.
    ![Screenshot of a "global security advisory". The "Dependabot alerts" button is highlighted with an orange outline.](/assets/images/help/security/advisory-database-dependabot-alerts.png)

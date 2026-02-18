@@ -36,7 +36,7 @@ For public repositories, jobs using the workflow labels shown in the table below
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-latest</a></code>,
          <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-2025</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-vs2026-Readme.md">windows-2025-vs2026</a></code> ({% data variables.release-phases.public_preview %}),
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-VS2026-Readme.md">windows-2025-vs2026</a></code> ({% data variables.release-phases.public_preview %}),
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-2022</a></code>
       </td>
     </tr>
@@ -68,7 +68,6 @@ For public repositories, jobs using the workflow labels shown in the table below
       <td>14 GB</td>
       <td> Intel </td>
       <td>
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md">macos-13</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md">macos-15-intel</a></code>
       </td>
     </tr>
@@ -158,7 +157,6 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
       <td>14 GB</td>
       <td> Intel </td>
       <td>
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md">macos-13</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md">macos-15-intel</a></code>
       </td>
     </tr>

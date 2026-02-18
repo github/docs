@@ -77,40 +77,6 @@ Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot
 
    When you reject a tool permission request, you can also give {% data variables.product.prodname_copilot_short %} inline feedback about the rejection so it can adapt its approach without stopping entirely.
 
-## Permissions
-
-{% data variables.copilot.copilot_cli_short %} uses a permissions system to control access to paths and URLs. At times, path and URL permission checks utilize heuristic-based detection, which has limitations to be aware of.
-
-### Path permissions
-
-Path permissions control which directories and files {% data variables.product.prodname_copilot_short %} can access. By default, {% data variables.copilot.copilot_cli_short %} can access the current working directory, its subdirectories, and the system temp directory.
-
-Path permissions apply to shell commands, file operations (create, edit, view), and search tools (such as `grep` and glob patterns). For shell commands, paths are heuristically extracted by tokenizing command text and identifying tokens that look like paths.
-
-> [!WARNING]
-> Path detection for shell commands has limitations:
->
-> * Paths embedded in complex shell constructs may not be detected.
-> * Only a specific set of environment variables are expanded (`HOME`, `TMPDIR`, `PWD`, and similar). Custom variables like `$MY_PROJECT_DIR` are not expanded and may not be validated correctly.
-> * Symlinks are resolved for existing files, but not for files being created.
-
-To disable path verification, use the `--allow-all-paths` flag when starting {% data variables.copilot.copilot_cli_short %}.
-
-### URL permissions
-
-URL permissions control which external URLs {% data variables.product.prodname_copilot_short %} can access. By default, all URLs require approval before access is granted.
-
-URL permissions apply to the `web_fetch` tool and a curated list of shell commands that access the network (such as `curl`, `wget`, and `fetch`). For shell commands, URLs are extracted using regex patterns.
-
-> [!WARNING]
-> URL detection for shell commands has limitations:
->
-> * URLs in file contents, config files, or environment variables read by commands are not detected.
-> * Obfuscated URLs (such as split strings or escape sequences) may not be detected.
-> * HTTP and HTTPS are treated as different protocols and require separate approval.
-
-To disable URL verification, use the `--allow-all-urls` flag. To pre-approve specific domains, use `--allow-url <domain>` (for example, `--allow-url github.com`).
-
 ## Tips
 
 Optimize your experience with {% data variables.copilot.copilot_cli_short %} with the following tips.
@@ -197,18 +163,42 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/add-custom-in
 
 ### Use {% data variables.copilot.custom_agents_short %}
 
-{% data variables.copilot.custom_agents_caps_short %} are specialized versions of {% data variables.copilot.copilot_coding_agent %} that you can tailor to your unique workflows, coding conventions, and use cases. {% data variables.copilot.custom_agents_caps_short %} are defined using Markdown files, called {% data variables.copilot.agent_profiles %}, that specify prompts, tools, and MCP servers.
+A {% data variables.copilot.copilot_custom_agent_short %} is a specialized versions of {% data variables.product.prodname_copilot_short %}. {% data variables.copilot.custom_agents_caps_short %} help {% data variables.product.prodname_copilot_short %} handle unique workflows, particular coding conventions, and specialist use cases.
 
-{% data variables.copilot.copilot_cli %} includes a default group of {% data variables.copilot.custom_agents_short %} for common tasks:
+{% data variables.copilot.copilot_cli_short %} includes a default group of {% data variables.copilot.custom_agents_short %} for common tasks:
 
-| Agent | Description |
-| --- | --- |
-| Explore | Performs quick codebase analysis, allowing you to ask questions about your code without adding to your main context. |
-| Task | Executes commands such as tests and builds, providing brief summaries on success and full output on failure. |
-| Plan | Analyzes dependencies and structure to create implementation plans, helping you to understand how to approach a complex feature or refactoring task before making changes. |
-| Code-review | Reviews changes with a focus on surfacing only genuine issues, minimizing noise. |
+<table>
+  <thead>
+    <tr>
+      <th style="width:20%">Agent</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Explore</td>
+      <td>Performs quick codebase analysis, allowing you to ask questions about your code without adding to your main context.</td>
+    </tr>
+    <tr>
+      <td>Task</td>
+      <td>Executes commands such as tests and builds, providing brief summaries on success and full output on failure.</td>
+    </tr>
+    <tr>
+      <td>General-purpose</td>
+      <td>Handles complex, multi-step tasks that require the full toolset and high-quality reasoning, running in a separate context to keep your main conversation clearly focused.</td>
+    </tr>
+    <tr>
+      <td>Code-review</td>
+      <td>Reviews changes with a focus on surfacing only genuine issues, minimizing noise.</td>
+    </tr>
+  </tbody>
+</table>
 
-When creating your own {% data variables.copilot.custom_agents_short %}, {% data variables.copilot.copilot_cli_short %} supports loading {% data variables.copilot.custom_agents_short %} from the following locations:
+The AI model being used by the CLI can choose to delegate a task to a subsidiary subagent process, that operates using a {% data variables.copilot.copilot_custom_agent_short %} with specific expertise, if it judges that this would result in the work being completed more effectively. The model may equally choose to handle the work directly in the main agent.
+
+You can define your own {% data variables.copilot.custom_agents_short %} using Markdown files, called {% data variables.copilot.agent_profiles %}, that specify what expertise the agent should have, what tools it can use, and any specific instructions for how it should respond.
+
+You can define {% data variables.copilot.custom_agents_short %} at the user, repository, or organization/enterprise level:
 
 | Type | Location | Scope |
 | --- | --- | --- |
@@ -220,7 +210,7 @@ In the case of naming conflicts, a system-level agent overrides a repository-lev
 
 {% data variables.copilot.custom_agents_caps_short %} can be used in three ways:
 
-* Using the slash command in interactive mode to select from the list of available {% data variables.copilot.custom_agents_short %}:
+* Using the slash command in the CLI's interactive interface to select from the list of available {% data variables.copilot.custom_agents_short %}:
 
   ```shell
   /agent
@@ -246,7 +236,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding
 
 You can create skills to enhance the ability of {% data variables.product.prodname_copilot_short %} to perform specialized tasks with instructions, scripts, and resources.
 
-For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).
+For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-skills).
 
 ### Add an MCP server
 

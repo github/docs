@@ -99,7 +99,7 @@ By assigning multiple alerts, {% data variables.copilot.copilot_coding_agent %} 
 
 {% endif %}
 
-You can ask {% data variables.copilot.copilot_chat_short %} for help in understanding the vulnerability, the suggested fix, and how to test that the fix is comprehensive. To access {% data variables.copilot.copilot_chat_short %}, navigate to https://github.com/copilot.
+You can ask {% data variables.copilot.copilot_chat_short %} for help in understanding the vulnerability, the suggested fix, and how to test that the fix is comprehensive. To access {% data variables.copilot.copilot_chat_short %}, navigate to [https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text).
 
 Alternatively, when viewing a specific alert, in the top right corner of the page, click the {% data variables.copilot.copilot_chat_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) to open a chat window, and ask {% data variables.product.prodname_copilot_short %} questions about the alert.
 
