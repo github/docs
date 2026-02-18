@@ -176,7 +176,6 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 > git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
 > ```
 
-{% data reusables.ssh.add-public-key-to-github %}
 
 {% endwindows %}
 
