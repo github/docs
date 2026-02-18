@@ -45,6 +45,14 @@
   xcode: false
   jetbrains: false
 
+- name: Claude Opus 4.6 (fast mode) (preview)
+  dotcom: false
+  vscode: true
+  vs: false
+  eclipse: false
+  xcode: false
+  jetbrains: false
+
 - name: Claude Sonnet 4
   dotcom: true
   vscode: true
@@ -60,6 +68,14 @@
   eclipse: true
   xcode: true
   jetbrains: true
+
+- name: Claude Sonnet 4.6
+  dotcom: true
+  vscode: true
+  vs: true
+  eclipse: false
+  xcode: false
+  jetbrains: false
 
 - name: Gemini 2.5 Pro
   dotcom: true
@@ -164,6 +180,14 @@
   eclipse: true
   xcode: true
   jetbrains: true
+
+- name: GPT-5.3-Codex
+  dotcom: true
+  vscode: true
+  vs: false
+  eclipse: false
+  xcode: false
+  jetbrains: false
 
 - name: Grok Code Fast 1
   dotcom: true

@@ -41,6 +41,7 @@ These limits are subject to change.
 | Larger runners | Static IP limits | 10 IPs | 10 IPs per enterprise and organization. | {% octicon "check" aria-label="Yes" %} Support ticket |
 | Larger runners | Private IP scaling for vnet injection | 30% buffer | You need a buffer to accommodate the maximum job concurrency you anticipate. See [Private IP scaling for vnet injection on larger runners](#private-ip-scaling-for-vnet-injection-on-larger-runners). | {% octicon "check" aria-label="Yes" %} Configurable Azure virtual network |
 | Dependency caching | Uploads per minute | 200 per minute | Each repository is limited to 200 cache entry uploads per minute. If this limit is exceeded, subsequent cache upload attempts will fail until the rate limit resets. | {% octicon "x" aria-label="No" %} |
+| Dependency caching | Downloads per minute | 1500 per minute | Each repository is limited to 1500 cache entry downloads per minute. If this limit is exceeded, subsequent cache download attempts will fail until the rate limit resets. | {% octicon "x" aria-label="No" %} |
 
 ### Job concurrency limits for {% data variables.product.github %}-hosted runners
 

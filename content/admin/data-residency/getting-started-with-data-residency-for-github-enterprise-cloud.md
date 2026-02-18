@@ -71,10 +71,9 @@ Using an **incognito or private browsing window**:
 
    > [!NOTE]
    > If 2FA isn't enabled, you will need to enter your enterprise's single sign-on (SSO) recovery code each time you sign in as the setup user. You can download these codes once SSO is enabled.
-
 {% data reusables.enterprise-accounts.emu-recommend-password-manager %}
 
-{% data reusables.enterprise-accounts.emu-password-reset-session %}
+{% data reusables.enterprise-accounts.about-setup-user %}
 
 ### Create a {% data variables.product.pat_generic %}
 

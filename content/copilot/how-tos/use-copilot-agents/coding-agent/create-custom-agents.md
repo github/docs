@@ -1,5 +1,5 @@
 ---
-title: Creating custom agents
+title: Creating custom agents for {% data variables.copilot.copilot_coding_agent %}
 shortTitle: Create custom agents
 intro: 'You can create specialized agents with tailored expertise for specific development tasks.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
@@ -12,7 +12,7 @@ category:
   - Author and optimize with Copilot
 ---
 
-{% data variables.copilot.custom_agents_caps_short %} allow you to create specialized agents with tailored expertise for specific tasks. For a conceptual overview of {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents).
+{% data variables.copilot.custom_agents_caps_short %} allow you to tailor {% data variables.product.prodname_copilot_short %}'s expertise for specific tasks. For a conceptual overview of {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents).
 
 {% data reusables.copilot.custom-agents-ide-preview %}
 
@@ -28,14 +28,14 @@ category:
 1. Optionally, select the branch you want to create the {% data variables.copilot.agent_profile %} in. The default is the main branch.
 1. Click {% octicon "copilot" aria-label="Select a custom agent" %}, then click **{% octicon "plus" aria-label="Plus button" %} Create an agent**. This will open a template agent profile called `my-agent.agent.md` in the `.github/agents` directory of your target repository.
 1. If you are creating an organization or enterprise-level {% data variables.copilot.copilot_custom_agent_short %}, delete the `.github/` portion of the file path to move your template to the root `agents` directory.
-1. Edit the filename (the text before `.agent.md`), selecting a unique, descriptive name that identifies the agent's purpose. Note that the filename may only contain the following characters: `.`, `-`, `_`, `a-z`, `A-Z`, `0-9`. 
+1. Edit the filename (the text before `.agent.md`), selecting a unique, descriptive name that identifies the agent's purpose. Note that the filename may only contain the following characters: `.`, `-`, `_`, `a-z`, `A-Z`, `0-9`.
 1. Configure the {% data variables.copilot.agent_profile %}, including the name, description, tools, and prompts. For more information on what the {% data variables.copilot.agent_profile %} can include, see [Configuring an {% data variables.copilot.agent_profile %}](#configuring-an-agent-profile).
 1. Commit the file to the repository and merge it into the default branch. Go back to the agents tab and refresh the page if needed. Your {% data variables.copilot.copilot_custom_agent_short %} will now appear in the dropdown when you click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} in the prompt box.
 
 ## Creating a {% data variables.copilot.copilot_custom_agent_short %} profile in {% data variables.product.prodname_vscode %}
 
 1. Open {% data variables.copilot.copilot_chat %} in {% data variables.product.prodname_vscode %}.
-1. From the agents dropdown at the bottom of the chat view, click **Configure Custom Agents...**, then click **{% octicon "plus" aria-label="Plus button" %} Create new custom agent**.
+1. From the agents dropdown at the bottom of the chat view, click **Configure Custom Agents...**, then click **{% octicon "plus" aria-label="Plus button" %} Create new {% data variables.copilot.copilot_custom_agent_short %}**.
 1. Choose the location where the {% data variables.copilot.agent_profile %} should be created:
    * **Workspace**: Create the {% data variables.copilot.copilot_custom_agent_short %} profile in the `.github/agents` folder of your workspace to only use it within that workspace.
    * **User profile**: Create the {% data variables.copilot.copilot_custom_agent_short %} profile in the current user profile folder to use it across all your workspaces.
@@ -74,7 +74,7 @@ To update an {% data variables.copilot.agent_profile %}, select **Configure Agen
 1. From the agents dropdown at the bottom of the chat view, click **{% octicon "plus" aria-label="Plus button" %} Create an agent**.
 1. Enter a file name for the {% data variables.copilot.copilot_custom_agent_short %}. This is the default name that appears in the agents dropdown.
 1. Configure the {% data variables.copilot.agent_profile %} in the newly created `.agent.md` file in the `.github/agents` directory, including the description, tools, and prompts. For more information on what the {% data variables.copilot.agent_profile %} can include, see [Configuring an {% data variables.copilot.agent_profile %}](#configuring-an-agent-profile).
-   * You can use the **Customize Agent** button within the file editor to open a dialog, where you can select the AI model for the agent to use, select available tools (including built-in and MCP server tools), and configure the `handoffs` property for transitioning between custom agents. Click **Apply** to add selected options to the {% data variables.copilot.agent_profile %}.
+   * You can use the **Customize Agent** button within the file editor to open a dialog, where you can select the AI model for the agent to use, select available tools (including built-in and MCP server tools), and configure the `handoffs` property for transitioning between {% data variables.copilot.custom_agents_short %}. Click **Apply** to add selected options to the {% data variables.copilot.agent_profile %}.
 
 To update an {% data variables.copilot.agent_profile %}, from the agents dropdown, click the pencil icon next to the agent you want to modify.
 

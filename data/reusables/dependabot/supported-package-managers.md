@@ -49,7 +49,11 @@ poetry         | `pip`            | v1               | {% octicon "check" aria-l
 | {% endif %} |
 [Swift](#swift)      | `swift`      | v5  | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (git only) | {% octicon "x" aria-label="Not supported" %} |
 [Terraform](#terraform)      | `terraform`      | >= 0.13, <= 1.13.x  | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
+| {% ifversion dependabot-uv-security-support %} |
 uv        | `uv`            | v0               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
+| {% elsif dependabot-uv-support %} |
+uv        | `uv`            | v0               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
+| {% endif %} |
 | {% ifversion dependabot-vcpkg-support %} |
 [vcpkg](#vcpkg) | `vcpkg`          | Not applicable   | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | Not applicable |
 | {% endif %} |

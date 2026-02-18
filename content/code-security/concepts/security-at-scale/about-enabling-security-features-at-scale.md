@@ -40,27 +40,17 @@ For more information on purchasing {% data variables.product.prodname_GH_cs_or_s
 
 There are two types of {% data variables.product.prodname_security_configuration %}:
 
-* **The {% data variables.product.prodname_github_security_configuration %}**. This configuration is a collection of enablement settings created and managed by subject matter experts at {% data variables.product.company_short %}. The {% data variables.product.prodname_github_security_configuration %} is designed to adequately secure any repository, and can easily be applied to all repositories in your organization.
-* **{% data variables.product.prodname_custom_security_configurations_caps %}**. These are configurations you can create and edit yourself, allowing you to choose different enablement settings for groups of repositories with specific security needs.
+* **The {% data variables.product.prodname_github_security_configuration %}**, which is a collection of enablement settings created and managed by subject matter experts at {% data variables.product.company_short %}
+* **{% data variables.product.prodname_custom_security_configurations_caps %}**, which are configurations you can create and edit yourself, allowing you to meet your specific security needs
 
-{% endif %}
+For more detailed information on {% data variables.product.prodname_security_configurations %}, see [AUTOTITLE](/code-security/concepts/security-at-scale/security-configurations).
 
-{% ifversion security-configurations-ghes-only %}
+{% elsif security-configurations-ghes-only %}
 
-You can customize {% data variables.product.prodname_security_configurations %}, allowing you to choose different enablement settings for groups of repositories with specific security needs.
-
-You will only ever see enablement settings for features that have been installed on your {% data variables.product.prodname_ghe_server %} instance by an enterprise administrator.
+{% data reusables.security-configurations.custom-configuration-intro-ghes %}
 
 To learn how to create {% data variables.product.prodname_custom_security_configurations %}, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
 
-{% endif %}
-
-{% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases %}
-
-Each repository can only have one {% data variables.product.prodname_security_configuration %} applied to it. {% ifversion security-configurations-cloud %}To find out how you should get started with {% data variables.product.prodname_security_configurations %}, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/choosing-a-security-configuration-for-your-repositories).{% endif %}
-
-{% ifversion security-configurations-api %}
-You can also create and manage security configurations using the REST API. For more information, see [AUTOTITLE](/rest/code-security/configurations).
 {% endif %}
 
 ## About {% data variables.product.prodname_global_settings %}
