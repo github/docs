@@ -1,3 +1,187 @@
+INVALID_ARGUMENT: Request contains an invalid argument
+[type.googleapis.com/google.rpc.LocalizedMessage]
+locale: "en-US"
+message: "The specified format type is not supported"
+
+[type.googleapis.com/google.rpc.RequestInfo]
+request_id: "c81f0ee2f61e4cdbb57dd8e6567814fd"
+
+)]}'
+{
+  "id": "c24d51f252aa1c77f5fbd8c8bdc695c0f937ddc5",
+  "repo": "platform/frameworks/av",
+  "revision": "refs/heads/main",
+  "path": "apex/ld.config.txt"
+}# Introducción a los contenedores dev
+
+Cuando trabajas en un codespace, el entorno en el que trabajas se crea mediante un contenedor de desarrollo hospedado en una máquina virtual.
+
+## Acerca de los contenedores dev
+
+Los contenedores de desarrollo son contenedores de Docker que están configurados específicamente para proporcionar un entorno de desarrollo completo. Siempre que trabajes en un codespace, estarás usando un contenedor de desarrollo en una máquina virtual.
+
+Puedes configurar el contenedor de desarrollo para un repositorio a fin de que los codespaces creados para ese repositorio te proporcionen un entorno de desarrollo personalizado, completo con todas las herramientas y entornos de ejecución que necesitas para trabajar en un proyecto específico. Si no defines una configuración en el repositorio, GitHub Codespaces usa una configuración predeterminada, que incluye muchas de las herramientas comunes que el equipo podría necesitar para el desarrollo con el proyecto. Consulta [Uso de la configuración predeterminada del contenedor de desarrollo](#using-the-default-dev-container-configuration).
+
+Los archivos de configuración de un contenedor de desarrollo se incluyen en un directorio `.devcontainer` del repositorio. Puedes usar Visual Studio Code para agregar archivos de configuración automáticamente. Puedes elegir entre una selección de configuraciones predefinidas para varios tipos de proyecto. Puedes usarlos sin ninguna configuración adicional, o bien puedes editar las configuraciones para refinar el entorno de desarrollo que producen. Consulta [Uso de una configuración predefinida de contenedor de desarrollo](#using-a-predefined-dev-container-configuration).
+
+Como alternativa, puedes agregar tus propios archivos de configuración personalizados. Consulta [Creación de una configuración personalizada de contenedor de desarrollo](#creating-a-custom-dev-container-configuration).
+
+Puedes definir una única configuración de contenedor de desarrollo para un repositorio, configuraciones diferentes para distintas ramas o varias configuraciones. Cuando hay varias configuraciones disponibles, los usuarios pueden elegir su configuración preferida cuando crean un codespace. Esto es especialmente útil para repositorios de gran tamaño que contienen código fuente en diferentes lenguajes de programación o para proyectos diferentes. Puedes crear una selección de configuraciones que permitan a los distintos equipos trabajar en un codespace configurado adecuadamente para el trabajo que están realizando.
+
+Al crear un codespace a partir de una plantilla, puedes empezar con uno o varios archivos de configuración de contenedor de desarrollo en el área de trabajo. Para configurar aún más el entorno, puedes agregar o quitar la configuración de estos archivos y recompilar el contenedor para aplicar los cambios en el espacio de código en el que estás trabajando. Si publicas el codespace en un repositorio en GitHub, los codespaces creados a partir de ese repositorio compartirán la configuración que hayas definido. Consulta [Aplicar cambios de configuración a un codespace](#applying-configuration-changes-to-a-codespace) y [Creación de un codespace a partir de una plantilla](/es/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template#publishing-to-a-remote-repository).
+
+### devcontainer.json
+
+El archivo principal de una configuración de contenedor de desarrollo es el archivo `devcontainer.json`. Puedes usar este archivo a fin de determinar el entorno de los codespaces creados para el repositorio. El contenido de este archivo define un contenedor de desarrollo que puede incluir marcos, herramientas, extensiones y desvío de puertos. El archivo `devcontainer.json` normalmente contiene una referencia a un Dockerfile, que normalmente se encuentra junto con el archivo `devcontainer.json`.
+
+Si creas un codespace desde un repositorio sin un archivo `devcontainer.json`, o si empiezas desde la plantilla en blanco de GitHub, se usa la configuración predeterminada del contenedor de desarrollo. Consulta [Uso de la configuración predeterminada del contenedor de desarrollo](#using-the-default-dev-container-configuration).
+
+El archivo `devcontainer.json` se encuentra normalmente en el directorio `.devcontainer` del repositorio. Como alternativa, puedes localizarlo directamente en la raíz del repositorio, en cuyo caso el nombre de archivo debe comenzar con un punto: `.devcontainer.json`.
+
+Si quieres tener una selección de configuraciones de contenedor de desarrollo en el repositorio, toda alternativa al archivo `.devcontainer/devcontainer.json` (o `.devcontainer.json`) debe encontrarse en su propio subdirectorio en la ruta de acceso `.devcontainer/SUBDIRECTORY/devcontainer.json`. Por ejemplo, podrías tener una selección de dos configuraciones:
+
+* `.devcontainer/database-dev/devcontainer.json`
+* `.devcontainer/gui-dev/devcontainer.json`
+
+Cuando tienes varios archivos `devcontainer.json` en el repositorio, cada codespace se crea a partir de una de las configuraciones únicamente. La configuración no se puede importar ni heredar entre archivos `devcontainer.json`. Si un archivo `devcontainer.json` de un subdirectorio personalizado tiene archivos dependientes, como Dockerfile o scripts que se ejecutan mediante comandos en el archivo `devcontainer.json`, se recomienda colocar estos archivos en el mismo subdirectorio.
+
+Para obtener información sobre cómo elegir la configuración de contenedor de desarrollo preferida al crear un codespace, consulta [Creación de un codespace para un repositorio](/es/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
+
+Para obtener información sobre la configuración y las propiedades que puedes establecer en un archivo `devcontainer.json`, consulta la [especificación](https://containers.dev/implementors/spec) en el sitio web Development Containers.
+
+#### Procedimientos para usar devcontainer.json
+
+Es útil pensar en `devcontainer.json` como un archivo que proporciona "customization" (personalización) en lugar de "personalization" (personalización). Solo debes incluir cosas que todos los usuarios que trabajan en el código base necesitan como elementos estándar del entorno de desarrollo, no como cosas que sean preferencias personales. Las cosas como linters son buenas para estandarizar y exigir que todos los usuarios lo tengan instalado, por lo que son buenas para incluir en tu archivo `devcontainer.json`. Las cosas como los decoradores de la interfaz de usuario o los temas son opciones personales que no deben colocarse en el archivo `devcontainer.json`.
+
+Puedes personalizar los codespaces mediante dotfiles y Sincronización de ajustes. Consulta [Personalización de GitHub Codespaces para la cuenta](/es/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account).
+
+### Dockerfile
+
+Puedes agregar un Dockerfile como parte de la configuración del contenedor de desarrollo.
+
+Dockerfile es un archivo de texto que contiene las instrucciones necesarias para crear una imagen de contenedor de Docker. Esta imagen se usa para generar un contenedor de desarrollo cada vez que alguien crea un codespace mediante el archivo `devcontainer.json` que hace referencia a este Dockerfile. Normalmente, las instrucciones del Dockerfile comienzan haciendo referencia a una imagen primaria en la que se basa la imagen que se creará. Esto va seguido de comandos que se ejecutan durante el proceso de creación de imágenes, por ejemplo, para instalar paquetes de software.
+
+El Dockerfile de un contenedor de desarrollo se encuentra normalmente en la carpeta `.devcontainer`, junto con el elemento `devcontainer.json` en el que se hace referencia al mismo.
+
+> \[!NOTE]
+> Como alternativa al uso de un Dockerfile, puedes usar la propiedad `image` en el archivo `devcontainer.json` para hacer referencia directamente a una imagen existente que quieras usar. La imagen que especifiques aquí debe estar permitida por cualquier directiva de imagen de la organización que se haya establecido. Consulta [Restricción de la imagen base para codespaces](/es/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces). Si no se encuentra un Dockerfile ni una imagen, se usará la imagen de contenedor predeterminada. Consulta [Uso de la configuración predeterminada del contenedor de desarrollo](#using-the-default-dev-container-configuration).
+
+#### Ejemplo de Dockerfile sencillo
+
+En el ejemplo siguiente se usan cuatro instrucciones:
+
+`ARG` define una variable en tiempo de compilación.
+
+`FROM` especifica la imagen primaria en la que se basará la imagen de Docker generada. Si se ha configurado una directiva de imagen base, lo que permite usar solo determinadas imágenes, la imagen especificada debe coincidir con una de las referencias de imagen de la directiva. Si no es así, los codespace para este repositorio se crearán en modo de recuperación. Consulta [Restricción de la imagen base para codespaces](/es/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces).
+
+`COPY` copia un archivo del repositorio y lo agrega al sistema de archivos del codespace.
+
+`RUN` actualiza las listas de paquetes y ejecuta un script. También puedes usar una instrucción `RUN` para instalar software, tal como se muestra en las instrucciones comentadas. Para ejecutar varios comandos, usa `&&` a fin de combinar los comandos en una sola instrucción `RUN`.
+
+```dockerfile copy
+ARG VARIANT="16"
+FROM mcr.microsoft.com/devcontainers/javascript-node:1-${VARIANT}
+
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends bundler
+
+# [Optional] Uncomment if you want to install an additional version
+#  of node using nvm
+# ARG EXTRA_NODE_VERSION=18
+# RUN su node -c "source /usr/local/share/nvm/nvm.sh \
+#    && nvm install ${EXTRA_NODE_VERSION}"
+
+COPY ./script-in-your-repo.sh /tmp/scripts/script-in-codespace.sh
+RUN apt-get update && bash /tmp/scripts/script-in-codespace.sh
+```
+
+> \[!NOTE]
+> En el ejemplo anterior, el script que se copia en el codespace (`script-in-your-repo.sh`) debe existir en el repositorio.
+
+Para obtener más información sobre las instrucciones compatibles con Docker, consulta [Referencia de Dockerfile](https://docs.docker.com/engine/reference/builder) en la documentación de Docker.
+
+#### Uso de un Dockerfile
+
+Para usar un Dockerfile como parte de una configuración de contenedor de desarrollo, haz referencia a él en el archivo `devcontainer.json` mediante la propiedad `dockerfile`.
+
+```jsonc copy
+{
+  // ...
+  "build": { "dockerfile": "Dockerfile" },
+  // ...
+}
+```
+
+Hay varias opciones disponibles si quieres usar la orquestación de contenedores existente en el contenedor de desarrollo. Consulte la sección "Opciones de orquestación" de la [especificación](https://containers.dev/implementors/spec/#orchestration-options) en el sitio web de contenedores de desarrollo.
+
+## Uso de la configuración predeterminada del contenedor de desarrollo
+
+Si no agrega una configuración de contenedor de desarrollador al repositorio, o si la configuración no especifica una imagen base que se va a usar, GitHub crea un contenedor a partir de una imagen de Linux predeterminada. Esta imagen de Linux incluye varias versiones en tiempo de ejecución para lenguajes populares como Python, Node, PHP, Java, Go, C++, Ruby y .NET Core/C#. Se usan las versiones LTS o más recientes de estos lenguajes. También hay herramientas para admitir la ciencia de datos y el aprendizaje automático, como JupyterLab y Conda. La imagen predeterminada de contenedor de desarrollador también incluye otras herramientas de desarrollo y utilidades como Git, CLI de GitHub, yarn, openssh y vim. Para ver todos los lenguajes, tiempos de ejecución y herramientas que se incluyen, usa el comando `devcontainer-info content-url` dentro del terminal de codespace y sigue la dirección URL que genera el comando.
+
+Para obtener información sobre lo que se incluye en la imagen de Linux predeterminada, consulta el repositorio [`devcontainers/images`](https://github.com/devcontainers/images/tree/main/src/universal).
+
+La configuración predeterminada es una buena opción si estás trabajando en un proyecto pequeño que utiliza los lenguajes y herramientas que proporciona GitHub Codespaces.
+
+> \[!NOTE]
+> GitHub no cobra por el almacenamiento de contenedores creados a partir de la imagen predeterminada del contenedor de desarrollador. Para obtener más información sobre la facturación del almacenamiento del codespace, consulta [Facturación de GitHub Codespaces](/es/billing/concepts/product-billing/github-codespaces). Para información sobre cómo comprobar si un codespace se compiló a partir de la imagen de contenedor de desarrollo predeterminada, consulta [Sacar el máximo partido del uso incluido](/es/codespaces/troubleshooting/troubleshooting-included-usage#storage-usage-for-your-base-dev-container).
+
+## Uso de una configuración predefinida de contenedor de desarrollo
+
+Si usas Codespaces en Visual Studio Code, o en un explorador web, puedes crear una configuración de contenedor de desarrollo para el repositorio eligiendo una lista de configuraciones predefinidas. Estas configuraciones proporcionan una configuración común para tipos de proyecto en particular, y pueden ayudarte a comenzar rápidamente con una configuración que ya tenga las opciones adecuadas para el contenedor, la configuración de Visual Studio Code, y las extensiones de Visual Studio Code que deben estar instaladas.
+
+Utilizar una configuración predefinida es una gran idea si necesitas extensibilidad adicional. También puedes iniciar con una configuración predefinida y modificarla conforme lo requieras de acuerdo con el proyecto. Para obtener más información sobre las definiciones de contenedores de desarrollo predefinidos, consulta el repositorio [`devcontainers/images`](https://github.com/devcontainers/images/tree/main/src).
+
+Puedes agregar una configuración predefinida de contenedor de desarrollo mientras trabajas en un codespace o en un repositorio localmente. Para hacerlo en VS Code mientras trabajas localmente y no estás conectado a un espacio de código, debes tener la extensión "Contenedores de desarrollo" instalada y habilitada. Para obtener más información sobre esta extensión, consulta [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). En el procedimiento siguiente se describe el proceso cuando se usa un codespace. Los pasos de VS Code cuando no estás conectado a un codespace son muy similares.
+
+1. Accede a Visual Studio Code Command Palette (<kbd>Mayús</kbd>+<kbd>Comando</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Mayús</kbd>+<kbd>P</kbd>) y, después, empieza a escribir "agregar desarrollo". Haz clic en **Codespaces: agregar archivos de configuración para el contenedor de desarrollo**.
+
+   ![Captura de pantalla de la paleta de comandos, con "agregar desarrollo" escrito y "Codespaces: agregar archivos de configuración para el contenedor de desarrollo" enumerado.](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+
+2. Haz clic en **Crear una nueva configuración**.
+
+3. Haz clic en **Mostrar todas las definiciones**.
+
+   ![Captura de pantalla del menú "Agregar archivos de configuración del contenedor de desarrollo" con la lista desplegable que muestra varias opciones, incluida "Mostrar todas las definiciones".](/assets/images/help/codespaces/show-all-definitions.png)
+
+4. Haz clic en la definición que quieras utilizar.
+
+   ![Captura de pantalla del menú "Agregar archivos de configuración de contenedor de desarrollo" que muestra opciones como "Alpine", "C# (.NET)," "C++" y "Debian".](/assets/images/help/codespaces/predefined-container-definitions-list.png)
+
+5. Sigue los mensajes para personalizar tu definición.
+
+6. Haga clic en **OK**.
+
+7. Si estás trabajando en un codespace, aplica los cambios; para ello, haz clic en **Recompilar ahora** en el elemento emergente situado en la parte inferior derecha de la ventana. Para más información sobre cómo recompilar el contenedor, consulta [Aplicación de cambios a un codespace](#applying-configuration-changes-to-a-codespace).
+
+   ![Captura de pantalla del mensaje: "Hemos observado un cambio en la configuración del contenedor de desarrollo". Debajo se muestra el botón "Recompilar ahora".](/assets/images/help/codespaces/rebuild-prompt.png)
+
+### Agregar características adicionales al archivo `devcontainer.json`
+
+Las características son unidades independientes de código de instalación y configuración del contenedor de desarrollo diseñadas para funcionar en una amplia gama de imágenes de contenedor base. Puedes usar características para agregar rápidamente herramientas, runtimes o bibliotecas a la imagen de codespace. Para obtener más información, consulta las [características disponibles](https://containers.dev/features) y la [especificación de las características](https://containers.dev/implementors/features/) en el sitio web de Contenedores de desarrollo.
+
+Puede agregar características a un archivo `devcontainer.json` desde VS Code o desde su repositorio en GitHub. Consulta [Adición de características a un archivo devcontainer.json](/es/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/adding-features-to-a-devcontainer-file?tool=vscode).
+
+## Creación de una configuración personalizada de contenedor de desarrollo
+
+Si no hay ninguna de las configuraciones predefinidas que satisfaga tus necesidades, puedes crear una configuración personalizada escribiendo tu propio archivo `devcontainer.json`.
+
+* Si vas a agregar un único archivo `devcontainer.json` que usarán todos los usuarios que creen un codespace desde el repositorio, crea el archivo en un directorio `.devcontainer` en la raíz del repositorio.
+* Si quieres ofrecer a los usuarios una opción de configuración, puedes crear varios archivos personalizados `devcontainer.json`, cada uno ubicado en un subdirectorio independiente del directorio `.devcontainer`.
+
+  > \[!NOTE]
+  >
+  > * No se pueden encontrar los archivos `devcontainer.json` en directorios de más de un nivel por debajo de `.devcontainer`. Por ejemplo, un archivo en `.devcontainer/teamA/devcontainer.json` funcionará, pero en `.devcontainer/teamA/testing/devcontainer.json` no.
+  > * Cuando los usuarios crean codespaces con el botón **Usar esta plantilla** de un repositorio de plantillas, no se les permitirá elegir entre varias configuraciones. El codespace se compilará en función de la configuración predeterminada definida en `.devcontainer/devcontainer.json`, o bien en `.devcontainer.json` en la raíz del repositorio. Consulta [Configuración de un repositorio de plantilla para GitHub Codespaces](/es/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/setting-up-a-template-repository-for-github-codespaces).
+
+  Si se encuentran varios archivos `devcontainer.json` en el repositorio, se mostrarán en la lista desplegable **Configuración del contenedor de desarrollo** en la página de opciones de creación de codespace. Consulta [Creación de un codespace para un repositorio](/es/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
+
+  ![Captura de pantalla de la página de opciones de creación del espacio de código, en la que se muestra una lista desplegable que muestra una selección de archivos de configuración.](/assets/images/help/codespaces/configuration-file-choice.png)
+
+### Adición de un archivo `devcontainer.json`
+
+Si aún no tiene un archivo `devcontainer.json` en el repositorio, puede agregar rápidamente uno desde GitHub.
+
+1. Ve al repositorio y haz clic en la lista desplegable **<svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-code" aria-label="code" role="img"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1
 ---
 title: Forwarding ports in your codespace
 shortTitle: Forward ports
