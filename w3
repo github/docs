@@ -1,0 +1,212 @@
+↑
+→
+ReSpec
+W3C
+
+Global Privacy Control (GPC)
+W3C Editor's Draft 19 February 2026
+
+More details about this document
+This version:
+https://w3c.github.io/gpc/
+Latest published version:
+https://www.w3.org/TR/gpc/
+Latest editor's draft:
+https://w3c.github.io/gpc/
+History:
+https://www.w3.org/standards/history/gpc/
+Commit history
+Editors:
+Sebastian Zimmeck (Wesleyan University)
+Peter Snyder (Brave Software)
+Justin Brookman (Consumer Reports)
+Aram Zucker-Scharff (The Washington Post)
+Former editors:
+Robin Berjon (Supramundane Agency) (The New York Times until Sep 2022)
+Ashkan Soltani (Independent)
+David Harbage (DuckDuckGo)
+Feedback:
+GitHub w3c/gpc (pull requests, new issue, open issues)
+Copyright © 2026 World Wide Web Consortium. W3C® liability, trademark and permissive document license rules apply.
+
+Abstract
+This document defines a signal, transmitted over HTTP and through the DOM, that conveys a person's request to websites and services to not sell or share their personal information with third parties. This standard is intended to work with existing and upcoming legal frameworks that render such requests enforceable.
+
+Status of This Document
+This section describes the status of this document at the time of its publication. A list of current W3C publications and the latest revision of this technical report can be found in the W3C standards and drafts index.
+
+This document was published by the Privacy Working Group as an Editor's Draft.
+
+Publication as an Editor's Draft does not imply endorsement by W3C and its Members.
+
+This is a draft document and may be updated, replaced, or obsoleted by other documents at any time. It is inappropriate to cite this document as other than a work in progress.
+
+This document was produced by a group operating under the W3C Patent Policy. W3C maintains a public list of any patent disclosures made in connection with the deliverables of the group; that page also includes instructions for disclosing a patent. An individual who has actual knowledge of a patent that the individual believes contains Essential Claim(s) must disclose the information in accordance with section 6 of the W3C Patent Policy.
+
+This document is governed by the 18 August 2025 W3C Process Document.
+
+Table of Contents
+Abstract
+Status of This Document
+1.Introduction
+2.Definitions
+3.Expressing a Do Not Sell Or Share Preference
+3.1Expression Format
+3.2Preference Caching
+3.3The Sec-GPC Header Field for HTTP Requests
+3.3.1Extensibility of the Sec-GPC Field Value
+3.4JavaScript Property to Detect Preference
+4.GPC Support Resource
+4.1GPC Support Representation
+5.Legal Effects
+5.1United States Privacy Law
+5.2Other Jurisdictions and Privacy Rights
+5.3User Interface Language
+6.Privacy Considerations
+7.Security Considerations
+8.Automation
+8.1Set Global Privacy Control
+8.2Get Global Privacy Control
+9.Conformance
+A.Implementation Considerations
+B.Acknowledgments
+C.References
+C.1Normative references
+C.2Informative references
+1. Introduction
+This section is non-normative.
+
+Building websites today often involves relying on services provided by businesses other than the one with which a person chooses to interact. This result is a consequence of the increasing complexity of Web technology and of the division of labor between different services. While this architecture can be used in the service of better Web experiences, it can also be abused to violate privacy ([privacy-principles]). While data can be shared with service providers for limited operational purposes, it can also be shared or used for behavioral targeting in ways that many users find objectionable.
+
+Several different legal frameworks have been proposed or enacted by jurisdictions around the world to address this concern. Some models rely upon user consent for tracking. Other models based on the principle of data minimization simply prohibit certain data sharing or data processing entirely.
+
+Some laws and proposals grant users the right to request that their privacy be protected, including "opt out" requests that their data not be sold or shared beyond the business with which they intend to interact. Requiring that people manually express their rights for each and every site they visit is, however, impractical, and an imposition of "privacy labor" on people ([privacy-principles]).
+
+This specification is designed for this last category of laws and addresses the problem of the difficulty of scaling user choices by providing a way to universally signal to all website publishers, through an HTTP header or the DOM, a person's assertion of their applicable rights to prevent the sale of their data, the sharing of their data with third parties, and the use of their data for cross-context targeted advertising. This signal allows users to take advantage of specific provisions in some of these global opt-out based laws, such as, for example, the provisions relating to "opt out preferences signals" in the California Consumer Privacy Act to stop the sale of sharing of personal information, [CCPA-REGULATIONS], or similar provisions for "universal opt-out mechanisms" in laws in Colorado and other states to allow users to opt out of the sale of their information or its use for cross-organization targeted advertising.
+
+However, while the Global Privacy Control is designed to allow users to express a preference to opt out of sharing and cross-context targeted advertising, the control is not intended to exercise every possible privacy right, nor even every right to opt out of advertising or ad targeting. GPC is not designed to exercise deletion rights, for example. GPC is also not designed to address data collection or ad targeting within the same context. For more details, see the Legal and Implementation Considerations Guide.
+
+The specification should not be interpreted as an endorsement of the opt-out model of regulation — or of cross-context tracking more broadly — or a rejection of other models based on consent or data minimization. It is instead designed to make it possible to exercise the affirmative rights granted to users in certain jurisdictions.
+
+2. Definitions
+A do-not-sell-or-share interaction is an interaction with a website in which the person is requesting that their data not be sold to or shared with any party other than the one the person intends to interact with, or to have their data used for cross-context ad targeting. In terms of the W3C's Privacy Principles, the person is at least requesting that there be only one data controller and that the data not be used for ad targeting in another context, even if that context is owned by the same business.
+
+A do-not-sell-or-share preference is when a person requests that their data "not be sold or shared" for instance by activating a Global Privacy Control setting with their user agent or by using tools that default to such a setting (possibly because this setting matches the most common expectations of that tool's users). When set, this preference indicates that the person expects to browse the Web with do-not-sell-or-share interactions.
+
+3. Expressing a Do Not Sell Or Share Preference
+3.1 Expression Format
+A Global Privacy Control preference should be conveyed for all HTTP requests (in the form of the HTTP header) and all websites (in the form of the Web API property).
+
+If set, this preference is expressed as a single value of 1 or equivalently true according to context.
+
+In the absence of regulatory, legal, or other requirements, websites can interpret an expressed Global Privacy Control preference as they find most appropriate for the given person, particularly as considered in light of the person's privacy expectations, context, and cultural circumstances. Likewise, websites might make use of other preference information outside the scope of this protocol, such as site-specific person preferences or third-party registration services, to inform or adjust their behavior when no explicit preference is expressed via this protocol.
+
+User agents are expected to convey a person's preferences as accurately as they can. User agents SHOULD strive to represent what the user agent best believes to be the person's preference for the Global Privacy Control value.
+
+3.2 Preference Caching
+The preference MUST be cached on each top-level navigation to ensure consistency in communication of the person's request that their data "not be sold or shared." This means that if the preference changes during or after a top-level navigation, it will not be reflected until the next navigation.
+
+A top-level browsing context has a gpcAtNavigation boolean. It is initially false.
+
+The value of gpcAtNavigation MUST reflect the preference of the person when the top-level browsing context's active document began loading. It will be true if the person's preference was enabled, and false if the person's preference was disabled or had not been set.
+
+If preference is changed to be inconsistent with some gpcAtNavigation cached in a top-level browsing context, the user agent SHOULD inform the user of any inconsistent tabs and provide the option to reload them, refreshing the cached gpcAtNavigation to reflect the current preference.
+
+3.3 The Sec-GPC Header Field for HTTP Requests
+The Sec-GPC header field is a mechanism for expressing a person's general universal preference for a do-not-sell-or-share interaction in HTTP requests (for any request method). In some cases, a specific arrangement with that person may permit a website to ignore a generally applicable preference (see § 5.3 below and the Legal and Implementation Considerations Guide).
+
+The syntax ([ABNF]) of the field is:
+
+Sec-GPC-field-name  = "Sec-GPC"
+Sec-GPC-field-value = "1"
+A user agent MUST NOT generate a Sec-GPC header field if top-level browsing context's gpcAtNavigation is false.
+
+A user agent MUST generate a Sec-GPC header field with a field-value that is exactly the numeric character "1" if top-level browsing context's gpcAtNavigation is true.
+
+A user agent MUST NOT generate more than one Sec-GPC in a given HTTP request and MUST NOT use a Sec-GPC field in an HTTP trailer.
+
+A server processing an HTTP request that contains a Sec-GPC header MUST ignore it and process the request as if that header had not been specified unless the field value is exactly the character "1". If there are multiple Sec-GPC headers and at least one has a field value of exactly "1" then the server MUST treat the request as if there were only one Sec-GPC header with a field value of "1"; and as if there were none otherwise.
+
+HTTP intermediaries MUST NOT remove a Sec-GPC header set to "1", but they MAY remove Sec-GPC headers that contain other values. Additionally, an HTTP intermediary that has reasons to believe the the person originating a given HTTP request has a do-not-sell-or-share preference, MAY insert a Sec-GPC header set to "1".
+
+Example 1: Example GPC Request
+GET /something/here HTTP/2
+Host: example.com
+Sec-GPC: 1
+3.3.1 Extensibility of the Sec-GPC Field Value
+The Sec-GPC is deliberately defined without an extension mechanism. Experience with previous similar headers shows that people tend to rely on string equality instead of parsing the value when testing for their presence, especially when extensions do not yet exist. Such checks would of course fail in the presence of extension content, which would in turn render the mechanism moot. Should extensions prove necessary to this standard, they will need to be implemented through other headers, which may in time supersede this one.
+
+3.4 JavaScript Property to Detect Preference
+The globalPrivacyControl property enables a client-side script to determine what Sec-GPC header field value was sent when loading the top-level browsing context's active document.
+
+WebIDL
+interface mixin GlobalPrivacyControl {
+  readonly attribute boolean globalPrivacyControl;
+};
+Navigator includes GlobalPrivacyControl;
+WorkerNavigator includes GlobalPrivacyControl;
+The value is false if no Sec-GPC header field would be sent; otherwise, the value is true.
+
+The value of globalPrivacyControl MUST be the top-level browsing context's gpcAtNavigation.
+
+The globalPrivacyControl property is available on the navigator object in both regular and worker contexts, and so can be checked reading from navigator.globalPrivacyControl.
+
+Example 2: checking GPC in script
+if (!navigator.globalPrivacyControl) {
+  // wonderful, we can sell this person's data!
+}
+4. GPC Support Resource
+A site MAY produce a resource at a .well-known URL in order for a site to represent the fact that it abides by GPC requests, at least where required to do so. The purpose of a GPC support resource is for a site to convey its awareness of and support for the Global Privacy Control. The support resource is not intended to convey whether the site abides by GPC requests from the user agent accessing the resource. By default, an origin's support is unknown.
+
+A GPC support resource has the well-known identifier /.well-known/gpc.json relative to the origin server's URL [RFC8615].
+
+An origin server that receives a valid GET request targeting its GPC support resource responds either with a successful response containing a machine-readable representation of the site-wide tracking status, as defined below, or a sequence of redirects that leads to such a representation (which MAY be provided by a server at another origin).
+
+4.1 GPC Support Representation
+The origin server MUST return the GPC support resource as a valid representation using the application/json media type [RFC8259], otherwise the origin's support is unknown.
+
+The GPC support representation MUST be a JSON object, otherwise the origin's support is unknown. Members of this JSON object not in the list below have no meaning in this specification and MUST be ignored. Members include:
+
+A gpc member. The value of the gpc member MUST be either true, to indicate that the server intends to abide by GPC requests at least to the extent it is legally obligated to do so, or false, to indicate that it does not. For any other value the origin's support is unknown.
+A lastUpdate member. The value of the lastUpdate member MUST be an RFC3339 full-date (YYYY-MM-DD) or date-time (YYYY-MM-DDTHH:mm:ss.sssZ) [RFC3339]. This indicates the time at which the statement of support was made, such that later changes to the meaning of the GPC standard should not affect the interpretation of the resource for legal purposes. If the member is not in a valid RFC3339 format, the last update date and time is unknown.
+Example 3: example.org abides by GPC
+GET /.well-known/gpc.json HTTP/2
+Host: example.org
+User-Agent: whatever
+
+
+Content-Type: application/json
+
+{
+  "gpc": true,
+  "lastUpdate": "2025-04-15"
+}
+5. Legal Effects
+This section is non-normative.
+
+The GPC signal was designed to allow users to take advantage of legal rights to stop certain sharing or processing of their data. As such, the sending and receipt of a GPC signal may have legal effects, depending on factors such as the location of the individual sending the signal, the scope of the applicable law, as well as any separate agreement between the recipient of the signal and the individual. However, GPC is not necessarily intended to invoke every new privacy right in every jurisdiction. For additional details on legal effects, consult the Legal and Implementation Considerations Guide.
+
+For example, the use of the GPC signal by an individual will be intended to communicate the individual's intention to invoke the following rights, as applicable:
+
+Regulators and implementers seeking to understand the best way to apply the GPC signal in a given jurisdiction are invited to consult the semantics of global opt-out mechanisms detailed in the W3C's Privacy Principles as the specifics may be unfamiliar to people less familiar with expectations placed on user agents on the web.
+
+5.1 United States Privacy Law
+GPC was originally created to take advantage of new opt-out privacy laws in the United States. Starting with the enactment of the California Consumer Privacy Act in 2018, several U.S. states have passed privacy laws that give consumers the legal right to opt out of the sale or share of their data, or the use of their data for cross-organization targeted advertising. Many of those state laws make explicit provision for the exercise of those rights through universal opt-out mechanisms such as the GPC. At least four states have specifically identified GPC as a valid means to exercise legal opt-out rights. A minority of states provide for rulemaking procedures to allow regulators to expand on the specifics of how universal opt-out requests should be honored; other states may rely upon informal guidance or enforcement actions to provide clarity on the scope of legal obligations around GPC signals.
+
+5.2 Other Jurisdictions and Privacy Rights
+GPC could potentially be used to indicate rights in other jurisdictions as well. For example, the GDPR potentially affords data subjects the right to limit the sharing of personal information under Articles 7 and 21. Many other countries around the world have adopted affirmative privacy legislation — often modeled on the GDPR; a regulator in one of those countries could determine that GPC invokes a legal right that requires some response from a recipient.
+
+Other US state privacy laws, such as those in Virginia and Utah, give consumers new opt-out rights around data sales and cross-organization targeted advertising but are silent on the legal effect of global opt-out signals. Regulators enforcing those statutes may determine that a user activating a signal such as GPC may be sufficient to legally exercise opt-out rights in those jurisdictions.
+
+However, GPC is not necessarily intended to invoke every new privacy right in every jurisdiction. For example, GPC is not intended to globally invoke data deletion rights on every website visited by the user. GPC is also not intended to limit a first party’s use of personal information within the same context (such as a publisher targeting ads to a user on its website based on that user’s previous activity in that same context).
+
+Given the complexities of existing consent frameworks, publishers who accept the GPC signal should disclose how they treat the GPC signal in that jurisdiction and how they deal with conflicts between the signal and other specific privacy choices that the person has already made directly with the publisher, including instances where third party sharing may be permitted such as sharing to service providers/processors, sharing at law or at the direction of the individual.
+
+5.3 User Interface Language
+This document does not specify what information must be presented to a user before activating GPC. When a user agent promotes a privacy feature or offers a privacy setting, it can make the determination if it is appropriate to send GPC based on what has been disclosed to the user. User agents SHOULD strive to represent what the user agent best believes to be the person's preference for the Global Privacy Control value. While studies have shown that most people do not want their data sold or shared, some jurisdictions have enacted "opt-out" legal frameworks where consumers have to take an affirmative action to express a preference to limit data sharing or the use of their data for targeted advertising. GPC is designed to let users easily take advantage of these laws.
+
+Different jurisdictions have different prerequisites before a platform can enable a universal opt-out like GPC. Many US states say that a user agent may not send a universal opt-out signal by "default," though at least one state has said that selecting a privacy focused user agent is a sufficient indicator of user intent.
+
+Different jurisdictions may also have different rules for when companies can override or disregard a universally applicable opt-out signal, for example because they have consent from the user to do so.
+
+The legal landscape around global opt-outs is also changing. Several states have now passed laws t
