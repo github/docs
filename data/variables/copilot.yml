@@ -43,8 +43,8 @@ chat_completions_api: 'https://api.githubcopilot.com/chat/completions'
 copilot_code-review: 'GitHub Copilot code review'
 copilot_code-review_short: 'Copilot code review'
 copilot_code-review-tools-preview_cap: 'New tools (public preview) in GitHub Copilot code review'
-copilot_code-review-tools_short: 'new tools in Copilot code review'
-copilot_code-review-tools_cap_short: 'New tools in Copilot code review'
+copilot_code-review-tools_short: 'tools in Copilot code review'
+copilot_code-review-tools_cap_short: 'Tools in Copilot code review'
 
 ## Copilot coding agent (previously Padawan) -> {% data variables.copilot.copilot_coding_agent %}
 copilot_coding_agent: 'Copilot coding agent'
@@ -81,6 +81,10 @@ copilot_custom_agent_short: 'custom agent'
 copilot_custom_agent_caps_short: 'Custom agent'
 custom_agents_short: 'custom agents'
 custom_agents_caps_short: 'Custom agents'
+
+## Copilot SDK
+copilot_sdk: 'GitHub Copilot SDK'
+copilot_sdk_short: 'Copilot SDK'
 
 ## Copilot subagents
 subagent_short: 'subagent'
@@ -155,6 +159,7 @@ copilot_gemini_flash: 'Gemini 2.0 Flash'
 copilot_gemini_3_flash: 'Gemini 3 Flash'
 copilot_gemini_25_pro: 'Gemini 2.5 Pro'
 copilot_gemini_3_pro: 'Gemini 3 Pro'
+copilot_gemini_31_pro: 'Gemini 3.1 Pro'
 # OpenAI GPT series:
 copilot_gpt_4o: 'GPT-4o'
 copilot_gpt_41: 'GPT-4.1'

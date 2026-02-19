@@ -11,6 +11,7 @@ children:
   - /get-code-suggestions
   - /chat-with-copilot
   - /copilot-cli
+  - /copilot-sdk
   - /use-copilot-agents
   - /use-ai-models
   - /provide-context

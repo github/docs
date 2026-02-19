@@ -109,6 +109,11 @@
   excels_at: Complex code generation, debugging, and research workflows
   further_reading: '[Gemini 3 Pro model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Pro-Model-Card.pdf)'
 
+- name: Gemini 3.1 Pro
+  task_area: Deep reasoning and debugging
+  excels_at: Effective and efficient edit-then-test loops with high tool precision
+  further_reading: 'not applicable'
+
 # xAI
 - name: Grok Code Fast 1
   task_area: General-purpose coding and writing

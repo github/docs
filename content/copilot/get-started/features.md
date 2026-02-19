@@ -45,7 +45,7 @@ A command line interface that lets you use {% data variables.product.prodname_co
 
 AI-generated code review suggestions to help you write better code. See [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
 
-{% data variables.copilot.copilot_code-review-tools_cap_short %} is in {% data variables.release-phases.public_preview %} and subject to change. See [AUTOTITLE](/copilot/concepts/agents/code-review).
+Several {% data variables.copilot.copilot_code-review-tools_short %} are in {% data variables.release-phases.public_preview %} and subject to change. See [AUTOTITLE](/copilot/concepts/agents/code-review).
 
 ### {% data variables.copilot.copilot_for_prs %}
 

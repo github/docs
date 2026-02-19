@@ -82,19 +82,23 @@ If you include these file types in a pull request, {% data variables.copilot.cop
 
 For more information, see [AUTOTITLE](/copilot/reference/review-excluded-files).
 
-## {% data variables.copilot.copilot_code-review-tools-preview_cap %}
+## {% data variables.copilot.copilot_code-review-tools_cap_short %}
 
 > [!NOTE]
 >
-> * The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of this product.
+> * The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of preview features.
 > * {% data variables.copilot.copilot_code-review_short %} has several new tools that are in {% data variables.release-phases.public_preview %} and subject to change.
 
-If you get a {% data variables.product.prodname_copilot_short %} subscription from an organization, you can only participate in the {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website if an owner of your organization or enterprise has enabled using preview features. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
+{% data variables.copilot.copilot_code-review_short %} uses full project context gathering to provide more specific, accurate, and contextually aware code reviews. This capability analyzes your entire repository to better understand the context of code changes. Full project context gathering is generally available and enabled automatically for {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plans.
 
-These new tools are enabled automatically for {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plans.
+{% data variables.copilot.copilot_code-review_short %} includes additional new tools that are in {% data variables.release-phases.public_preview %}:
 
-* **Full project context gathering**. This provides more specific, accurate, and contextually aware code reviews.
+* **Support for static analysis tools like {% data variables.product.prodname_codeql %}, ESLint, and PMD**. This delivers more high-signal, consistent findings for security and quality.
 * **The ability to pass suggestions to {% data variables.copilot.copilot_coding_agent %}**. This automates creation of a new pull request against your branch with the suggested fixes applied.
+
+These tools are also enabled automatically for {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plans.
+
+If you get a {% data variables.product.prodname_copilot_short %} subscription from an organization, you can only participate in the {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website if an owner of your organization or enterprise has enabled using preview features. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
 
 You do not need to have {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_actions %} enabled in your organization or enterprise to use the {% data variables.copilot.copilot_code-review-tools_short %}.
 
@@ -102,9 +106,13 @@ If {% data variables.product.prodname_actions %} is unavailable or if Actions wo
 
 > [!NOTE]
 >
-> The {% data variables.release-phases.public_preview %} includes free actions minutes for the {% data variables.copilot.copilot_code-review-tools_short %}.
->
-> Usage charges will apply when the feature becomes generally available.
+> The {% data variables.release-phases.public_preview %} includes free actions minutes for the new {% data variables.copilot.copilot_code-review-tools_short %}.
+
+## Usage of {% data variables.product.prodname_actions %} runners for tools in code review
+
+{% data reusables.copilot.code-review.code-review-actions-usage %}
+
+Organizations in this situation can use self-hosted runners. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/configure-self-hosted-runners).
 
 ## Code review monthly quota
 

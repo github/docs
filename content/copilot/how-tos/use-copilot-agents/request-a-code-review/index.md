@@ -9,6 +9,7 @@ topics:
 children:
   - /use-code-review
   - /configure-automatic-review
+  - /configure-self-hosted-runners
 redirect_from:
   - /copilot/using-github-copilot/code-review
   - /copilot/how-tos/agents/copilot-code-review

@@ -6,6 +6,7 @@ import {
   checkAssetLink,
   isAssetLink,
 } from '../lib/extract-links'
+import { latestStable } from '@/versions/lib/enterprise-server-releases'
 
 describe('extractLinksFromMarkdown', () => {
   test('extracts simple internal links', () => {
@@ -179,6 +180,7 @@ describe('checkInternalLink', () => {
     '/en/actions/getting-started': {} as any,
     '/en/repositories/overview': {} as any,
     '/actions/guides': {} as any,
+    [`/en/enterprise-server@${latestStable}/admin/overview`]: {} as any,
   }
 
   const redirects = {
@@ -209,6 +211,27 @@ describe('checkInternalLink', () => {
     const result = checkInternalLink('/does/not/exist', pageMap, redirects)
     expect(result.exists).toBe(false)
     expect(result.isRedirect).toBe(false)
+  })
+
+  test('resolves enterprise-server@latest to actual version', () => {
+    const result = checkInternalLink('/enterprise-server@latest/admin/overview', pageMap, redirects)
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(false)
+  })
+
+  test('resolves enterprise-server@latest with language prefix', () => {
+    const result = checkInternalLink(
+      '/en/enterprise-server@latest/admin/overview',
+      pageMap,
+      redirects,
+    )
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(false)
+  })
+
+  test('resolves enterprise-server@latest for non-existent page', () => {
+    const result = checkInternalLink('/enterprise-server@latest/does/not/exist', pageMap, redirects)
+    expect(result.exists).toBe(false)
   })
 })
 
