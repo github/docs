@@ -1,0 +1,564 @@
+
+
+
+
+
+
+Network Working Group                                          J. Schaad
+Request for Comments: 3394                       Soaring Hawk Consulting
+Category: Informational                                       R. Housley
+                                                        RSA Laboratories
+                                                          September 2002
+
+
+         Advanced Encryption Standard (AES) Key Wrap Algorithm
+
+Status of this Memo
+
+   This memo provides information for the Internet community.  It does
+   not specify an Internet standard of any kind.  Distribution of this
+   memo is unlimited.
+
+Copyright Notice
+
+   Copyright (C) The Internet Society (2002).  All Rights Reserved.
+
+Abstract
+
+   The purpose of this document is to make the Advanced Encryption
+   Standard (AES) Key Wrap algorithm conveniently available to the
+   Internet community.  The United States of America has adopted AES as
+   the new encryption standard.  The AES Key Wrap algorithm will
+   probably be adopted by the USA for encryption of AES keys. The
+   authors took most of the text in this document from the draft AES Key
+   Wrap posted by NIST.
+
+Table of Contents
+
+   1. Introduction................................................  2
+   2. Overview....................................................  2
+   2.1 Notation and Definitions...................................  3
+   2.2 Algorithms.................................................  4
+   2.2.1 Key Wrap.................................................  4
+   2.2.2 Key Unwrap...............................................  5
+   2.2.3 Key Data Integrity -- the Initial Value..................  6
+   2.2.3.1 Default Initial Value..................................  7
+   2.2.3.2 Alternative Initial Values.............................  7
+   3. Object Identifiers..........................................  8
+   4. Test Vectors................................................  8
+   4.1 Wrap 128 bits of Key Data with a 128-bit KEK...............  8
+   4.2 Wrap 128 bits of Key Data with a 192-bit KEK............... 11
+   4.3 Wrap 128 bits of Key Data with a 256-bit KEK............... 14
+   4.4 Wrap 192 bits of Key Data with a 192-bit KEK............... 17
+   4.5 Wrap 192 bits of Key Data with a 256-bit KEK............... 24
+   4.6 Wrap 256 bits of Key Data with a 256-bit KEK............... 30
+
+
+
+Schaad & Housley             Informational                      [Page 1]
+
+RFC 3394                AES Key Wrap Algorithm            September 2002
+
+
+   5. Security Considerations..................................... 39
+   6. References.................................................. 39
+   7. Acknowledgments............................................. 39
+   8. Authors' Addresses.......................................... 39
+   9. Full Copyright Statement.................................... 40
+
+1. Introduction
+
+   NOTE: Most of the following text is taken from [AES-WRAP], and the
+   assertions regarding the security of the AES Key Wrap algorithm are
+   made by the US Government, not by the authors of this document.
+
+   This specification is intended to satisfy the National Institute of
+   Standards and Technology (NIST) Key Wrap requirement to:  Design a
+   cryptographic algorithm called a Key Wrap that uses the Advanced
+   Encryption Standard (AES) as a primitive to securely encrypt
+   plaintext key(s) with any associated integrity information and data,
+   such that the combination could be longer than the width of the AES
+   block size (128-bits).  Each ciphertext bit should be a highly non-
+   linear function of each plaintext bit, and (when unwrapping) each
+   plaintext bit should be a highly non-linear function of each
+   ciphertext bit.  It is sufficient to approximate an ideal
+   pseudorandom permutation to the degree that exploitation of
+   undesirable phenomena is as unlikely as guessing the AES engine key.
+
+   This key wrap algorithm needs to provide ample security to protect
+   keys in the context of prudently designed key management
+   architecture.
+
+   Throughout this document, any data being wrapped will be referred to
+   as the key data.  It makes no difference to the algorithm whether the
+   data being wrapped is a key; in fact there is often good reason to
+   include other data with the key, to wrap multiple keys together, or
+   to wrap data that isn't strictly a key.  So, the term "key data" is
+   used broadly to mean any data being wrapped, but particularly keys,
+   since this is primarily a key wrap algorithm.  The key used to do the
+   wrapping will be referred to as the key-encryption key (KEK).
+
+   In this document a KEK can be any valid key supported by the AES
+   codebook.  That is, a KEK can be a 128-bit key, a 192-bit key, or a
+   256-bit key.
+
+2. Overview
+
+   The AES key wrap algorithm is designed to wrap or encrypt key data.
+   The key wrap operates on blocks of 64 bits.  Before being wrapped,
+   the key data is parsed into n blocks of 64 bits.
+
+
+
+
+Schaad & Housley             Informational                      [Page 2]
+
+RFC 3394                AES Key Wrap Algorithm            September 2002
+
+
+   The only restriction the key wrap algorithm places on n is that n be
+   at least two.  (For key data with length less than or equal to 64
+   bits, the constant field used in this specification and the key data
+   form a single 128-bit codebook input making this key wrap
+   unnecessary.)  The key wrap algorithm accommodates all supported AES
+   key sizes.  However, other cryptographic values often need to be
+   wrapped.  One such value is the seed of the random number generator
+   for DSS.  This seed value requires n to be greater than four.
+   Undoubtedly other values require this type of protection. Therefore,
+   no upper bound is imposed on n.
+
+   The AES key wrap can be configured to use any of the three key sizes
+   supported by the AES codebook.  The choice of a key size affects the
+   overall security provided by the key wrap, but it does not alter the
+   description of the key wrap algorithm.  Therefore, in the description
+   that follows, the key wrap is described generically; no key size is
+   specified for the KEK.
+
+2.1 Notation and Definitions
+
+   The following notation is used in the description of the key wrapping
+   algorithms:
+
+      AES(K, W)     Encrypt W using the AES codebook with key K
+      AES-1(K, W)   Decrypt W using the AES codebook with key K
+      MSB(j, W)     Return the most significant j bits of W
+      LSB(j, W)     Return the least significant j bits of W
+      B1 ^ B2       The bitwise exclusive or (XOR) of B1 and B2
+      B1 | B2       Concatenate B1 and B2
+      K             The key-encryption key K
+      n             The number of 64-bit key data blocks
+      s             The number of steps in the wrapping process, s = 6n
+      P[i]          The ith plaintext key data block
+      C[i]          The ith ciphertext data block
+      A             The 64-bit integrity check register
+      R[i]          An array of 64-bit registers where
+                       i = 0, 1, 2, ..., n
+      A[t], R[i][t] The contents of registers A and R[i] after encryption
+                       step t.
+      IV            The 64-bit initial value used during the wrapping
+                       process.
+
+   In the key wrap algorithm, the concatenation function will be used to
+   concatenate 64-bit quantities to form the 128-bit input to the AES
+   codebook.  The extraction functions will be used to split the 128-bit
+   output from the AES codebook into two 64-bit quantities.
+
+
+
+
+
+Schaad & Housley             Informational                      [Page 3]
+
+RFC 3394                AES Key Wrap Algorithm            September 2002
+
+
+2.2 Algorithms
+
+   The specification of the key wrap algorithm requires the use of the
+   AES codebook [AES].  The next three sections will describe the key
+   wrap algorithm, the key unwrap algorithm, and the inherent data
+   integrity check.
+
+2.2.1 Key Wrap
+
+   The inputs to the key wrapping process are the KEK and the plaintext
+   to be wrapped.  The plaintext consists of n 64-bit blocks, containing
+   the key data being wrapped.  The key wrapping process is described
+   below.
+
+   Inputs:      Plaintext, n 64-bit values {P1, P2, ..., Pn}, and
+                Key, K (the KEK).
+   Outputs:     Ciphertext, (n+1) 64-bit values {C0, C1, ..., Cn}.
+
+   1) Initialize variables.
+
+       Set A0 to an initial value (see 2.2.3)
+       For i = 1 to n
+            R[0][i] = P[i]
+
+   2) Calculate intermediate values.
+
+       For t = 1 to s, where s = 6n
+           A[t] = MSB(64, AES(K, A[t-1] | R[t-1][1])) ^ t
+           For i = 1 to n-1
+               R[t][i] = R[t-1][i+1]
+           R[t][n] = LSB(64, AES(K, A[t-1] | R[t-1][1]))
+
+   3) Output the results.
+
+       Set C[0] = A[t]
+       For i = 1 to n
+           C[i] = R[t][i]
+
+   An alternative description of the key wrap algorithm involves
+   indexing rather than shifting.  This approach allows one to calculate
+   the wrapped key in place, avoiding the rotation in the previous
+   description.  This produces identical results and is more easily
+   implemented in software.
+
+
+
+
+
+
+
+
+Schaad & Housley             Informational                      [Page 4]
+
+RFC 3394                AES Key Wrap Algorithm            September 2002
+
+
+   Inputs:  Plaintext, n 64-bit values {P1, P2, ..., Pn}, and
+            Key, K (the KEK).
+   Outputs: Ciphertext, (n+1) 64-bit values {C0, C1, ..., Cn}.
+
+   1) Initialize variables.
+
+       Set A = IV, an initial value (see 2.2.3)
+       For i = 1 to n
+           R[i] = P[i]
+
+   2) Calculate intermediate values.
+
+       For j = 0 to 5
+           For i=1 to n
+               B = AES(K, A | R[i])
+               A = MSB(64, B) ^ t where t = (n*j)+i
+               R[i] = LSB(64, B)
+
+   3) Output the results.
+
+       Set C[0] = A
+       For i = 1 to n
+           C[i] = R[i]
+
+2.2.2 Key Unwrap
+
+   The inputs to the unwrap process are the KEK and (n+1) 64-bit blocks
+   of ciphertext consisting of previously wrapped key.  It returns n
+   blocks of plaintext consisting of the n 64-bit blocks of the
+   decrypted key data.
+
+   Inputs:  Ciphertext, (n+1) 64-bit values {C0, C1, ..., Cn}, and
+           Key, K (the KEK).
+   Outputs: Plaintext, n 64-bit values {P1, P2, ..., Pn}.
+
+   1) Initialize variables.
+
+       Set A[s] = C[0] where s = 6n
+       For i = 1 to n
+           R[s][i] = C[i]
+
+   2) Calculate the intermediate values.
+
+       For t = s to 1
+           A[t-1] = MSB(64, AES-1(K, ((A[t] ^ t) | R[t][n]))
+           R[t-1][1] = LSB(64, AES-1(K, ((A[t]^t) | R[t][n]))
+           For i = 2 to n
+               R[t-1][i] = R[t][i-1]
+
+
+
+Schaad & Housley             Informational                      [Page 5]
+
+RFC 3394                AES Key Wrap Algorithm            September 2002
+
+
+
+   3) Output the results.
+
+       If A[0] is an appropriate initial value (see 2.2.3),
+       Then
+           For i = 1 to n
+               P[i] = R[0][i]
+       Else
+           Return an error
+
+   The unwrap algorithm can also be specified as an index based
+   operation, allowing the calculations to be carried out in place.
+   Again, this produces the same results as the register shifting
+   approach.
+
+   Inputs:  Ciphertext, (n+1) 64-bit values {C0, C1, ..., Cn}, and
+            Key, K (the KEK).
+   Outputs: Plaintext, n 64-bit values {P0, P1, K, Pn}.
+
+   1) Initialize variables.
+
+       Set A = C[0]
+       For i = 1 to n
+           R[i] = C[i]
+
+   2) Compute intermediate values.
+
+       For j = 5 to 0
+           For i = n to 1
+               B = AES-1(K, (A ^ t) | R[i]) where t = n*j+i
+               A = MSB(64, B)
+               R[i] = LSB(64, B)
+
+   3) Output results.
+
+   If A is an appropriate initial value (see 2.2.3),
+   Then
+       For i = 1 to n
+           P[i] = R[i]
+   Else
+       Return an error
+
+2.2.3 Key Data Integrity -- the Initial Value
+
+   The initial value (IV) refers to the value assigned to A[0] in the
+   first step of the wrapping process.  This value is used to obtain an
+   integrity check on the key data.  In the final step of the unwrapping
+   process, the recovered value of A[0] is compared to the expected
+
+
+
+Schaad & Housley             Informational                      [Page 6]
+
+RFC 3394                AES Key Wrap Algorithm            September 2002
+
+
+   value of A[0].  If there is a match, the key is accepted as valid,
+   and the unwrapping algorithm returns it.  If there is not a match,
+   then the key is rejected, and the unwrapping algorithm returns an
+   error.
+
+   The exact properties achieved by this integrity check depend on the
+   definition of the initial value.  Different applications may call for
+   somewhat different properties; for example, whether there is need to
+   determine the integrity of key data throughout its lifecycle or just
+   when it is unwrapped.  This specification defines a default initial
+   value that supports integrity of the key data during the period it is
+   wrapped (2.2.3.1).  Provision is also made to support alternative
+   initial values (in 2.2.3.2).
+
+2.2.3.1 Default Initial Value
+
+   The default initial value (IV) is defined to be the hexadecimal
+   constant:
+
+       A[0] = IV = A6A6A6A6A6A6A6A6
+
+   The use of a constant as the IV supports a strong integrity check on
+   the key data during the period that it is wrapped.  If unwrapping
+   produces A[0] = A6A6A6A6A6A6A6A6, then the chance that the key data
+   is corrupt is 2^-64.  If unwrapping produces A[0] any other value,
+   then the unwrap must return an error and not return any key data.
+
+2.2.3.2 Alternative Initial Values
+
+   When the key wrap is used as part of a larger key management protocol
+   or system, the desired scope for data integrity may be more than just
+   the key data or the desired duration for more than just the period
+   that it is wrapped.  Also, if the key data is not just an AES key, it
+   may not always be a multiple of 64 bits.  Alternative definitions of
+   the initial value can be used to address such problems.  NIST will
+   define alternative initial values in future key management
+   publications as needed.  In order to accommodate a set of
+   alternatives that may evolve over time, key wrap implementations that
+   are not application-specific will require some flexibility in the way
+   that the initial value is set and tested.
+
+
+
+
+
+
+
+
+
+
+
+Schaad & Housley             Informational                      [Page 7]
+
+RFC 3394                AES Key Wrap Algorithm            September 2002
+
+
+3. Object Identifiers
+
+   NIST has assigned the following object identifiers to identify the
+   key wrap algorithm with the default initial value specified in
+   2.2.3.1.  One object identifier is assigned for use with each of the
+   KEK AES key sizes.
+
+       aes  OBJECT IDENTIFIER  ::=  { joint-iso-itu-t(2) country(16)
+
+          us(840) organization(1) gov(101) csor(3) nistAlgorithm(4) 1 }
+
+       id-aes128-wrap  OBJECT IDENTIFIER  ::=  { aes 5 }
+       id-aes192-wrap  OBJECT IDENTIFIER  ::=  { aes 25 }
+       id-aes256-wrap  OBJECT IDENTIFIER  ::=  { aes 45 }
+
+4. Test Vectors
+
+   The examples in this section were generated using the index-based
+   implementation of the key wrap algorithm.  The use of this approach
+   allows a straightforward software implementation of the key wrap
+   algorithm.
+
+4.1 Wrap 128 bits of Key Data with a 128-bit KEK
+
+   Input:
+   KEK:            000102030405060708090A0B0C0D0E0F
+   Key Data:       00112233445566778899AABBCCDDEEFF
+
+   Wrap:
+
+   Step t       A               R1               R2
+
+   1
+   In   A6A6A6A6A6A6A6A6 0011223344556677 8899AABBCCDDEEFF
+   Enc  F4740052E82A2251 74CE86FBD7B805E7 8899AABBCCDDEEFF
+   XorT F4740052E82A2250 74CE86FBD7B805E7 8899AABBCCDDEEFF
+
+   2
+   In   F4740052E82A2250 74CE86FBD7B805E7 8899AABBCCDDEEFF
+   Enc  06BA4EBDE7768D0B 74CE86FBD7B805E7 D132EE38147E76F8
+   XorT 06BA4EBDE7768D09 74CE86FBD7B805E7 D132EE38147E76F8
+
+   3
+   In   06BA4EBDE7768D09 74CE86FBD7B805E7 D132EE38147E76F8
+   Enc  FC967627BE937208 FE6E8D679C5D3460 D132EE38147E76F8
+   XorT FC967627BE93720B FE6E8D679C5D3460 D132EE38147E76F8
+
+
+
+
+
+Schaad & Housley             Informational                      [Page 8]
+
+RFC 3394                AES Key Wrap Algorithm            September 2002
+
+
+   4
+   In   FC967627BE93720B FE6E8D679C5D3460 D132EE38147E76F8
+   Enc  5896EA9028EE203B FE6E8D679C5D3460 07B2BD973E36A6FC
+   XorT 5896EA9028EE203F FE6E8D679C5D3460 07B2BD973E36A6FC
+
+   5
+   In   5896EA9028EE203F FE6E8D679C5D3460 07B2BD973E36A6FC
+   Enc  93AEA71B258D90C3 25F5A3ADC2195401 07B2BD973E36A6FC
+   XorT 93AEA71B258D90C6 25F5A3ADC2195401 07B2BD973E36A6FC
+
+   6
+   In   93AEA71B258D90C6 25F5A3ADC2195401 07B2BD973E36A6FC
+   Enc  E3EE986344D878F7 25F5A3ADC2195401 F14863BB1E9CA90A
+   XorT E3EE986344D878F1 25F5A3ADC2195401 F14863BB1E9CA90A
+
+   7
+   In   E3EE986344D878F1 25F5A3ADC2195401 F14863BB1E9CA90A
+   Enc  2BFC21B2C20E4006 B556D35ED8CEF052 F14863BB1E9CA90A
+   XorT 2BFC21B2C20E4001 B556D35ED8CEF052 F14863BB1E9CA90A
+
+   8
+   In   2BFC21B2C20E4001 B556D35ED8CEF052 F14863BB1E9CA90A
+   Enc  4BE8CE99C0A43A7D B556D35ED8CEF052 64BAE5818D0570BB
+   XorT 4BE8CE99C0A43A75 B556D35ED8CEF052 64BAE5818D0570BB
+
+   9
+   In   4BE8CE99C0A43A75 B556D35ED8CEF052 64BAE5818D0570BB
+   Enc  EBE1CE91067024F3 BE114B343EB00981 64BAE5818D0570BB
+   XorT EBE1CE91067024FA BE114B343EB00981 64BAE5818D0570BB
+
+   10
+   In   EBE1CE91067024FA BE114B343EB00981 64BAE5818D0570BB
+   Enc  5A9C7B1F5B1C3B46 BE114B343EB00981 4FD3D2B7D74FBB42
+   XorT 5A9C7B1F5B1C3B4C BE114B343EB00981 4FD3D2B7D74FBB42
+
+   11
+   In   5A9C7B1F5B1C3B4C BE114B343EB00981 4FD3D2B7D74FBB42
+   Enc  93B71967EED41FFC AEF34BD8FB5A7B82 4FD3D2B7D74FBB42
+   XorT 93B71967EED41FF7 AEF34BD8FB5A7B82 4FD3D2B7D74FBB42
+
+   12
+   In   93B71967EED41FF7 AEF34BD8FB5A7B82 4FD3D2B7D74FBB42
+   Enc  1FA68B0A8112B44B AEF34BD8FB5A7B82 9D3E862371D2CFE5
+   XorT 1FA68B0A8112B447 AEF34BD8FB5A7B82 9D3E862371D2CFE5
+
+   Output:
+   Ciphertext:  1FA68B0A8112B447 AEF34BD8FB5A7B82 9D3E862371D2CFE5
+
+
+
+
+Schaad & Housley             Informational                      [Page 9]
+
+RFC 3394                AES Key Wrap Algorithm            September 2002
+
+
+   Unwrap:
+
+   Step t       A               R1               R2
+   12
+   In   1FA68B0A8112B447 AEF34BD8FB5A7B82 9D3E862371D2CFE5
+   XorT 1FA68B0A8112B44B AEF34BD8FB5A7B82 9D3E862371D2CFE5
+   Dec  93B71967EED41FF7 AEF34BD8FB5A7B82 4FD3D2B7D74FBB42
+
+   11
+   In   93B71967EED41FF7 AEF34BD8FB5A7B82 4FD3D2B7D74FBB42
+   XorT 93B71967EED41FFC AEF34BD8FB5A7B82 4FD3D2B7D74FBB42
+   Dec  5A9C7B1F5B1C3B4C BE114B343EB00981 4FD3D2B7D74FBB42
+
+   10
+   In   5A9C7B1F5B1C3B4C BE114B343EB00981 4FD3D2B7D74FBB42
+   XorT 5A9C7B1F5B1C3B46 BE114B343EB00981 4FD3D2B7D74FBB42
+   Dec  EBE1CE91067024FA BE114B343EB00981 64BAE5818D0570BB
+
+   9
+   In   EBE1CE91067024FA BE114B343EB00981 64BAE5818D0570BB
+   XorT EBE1CE91067024F3 BE114B343EB00981 64BAE5818D0570BB
+   Dec  4BE8CE99C0A43A75 B556D35ED8CEF052 64BAE5818D0570BB
+
+   8
+   In   4BE8CE99C0A43A75 B556D35ED8CEF052 64BAE5818D0570BB
+   XorT 4BE8CE99C0A43A7D B556D35ED8CEF052 64BAE5818D0570BB
+   Dec  2BFC21B2C20E4001 B556D35ED8CEF052 F14863BB1E9CA90A
+
+   7
+   In   2BFC21B2C20E4001 B556D35ED8CEF052 F14863BB1E9CA90A
+   XorT 2BFC21B2C20E4006 B556D35ED8CEF052 F14863BB1E9CA90A
+   Dec  E3EE986344D878F1 25F5A3ADC2195401 F14863BB1E9CA90A
+
+   6
+   In   E3EE986344D878F1 25F5A3ADC2195401 F14863BB1E9CA90A
+   XorT E3EE986344D878F7 25F5A3ADC2195401 F14863BB1E9CA90A
+   Dec  93AEA71B258D90C6 25F5A3ADC2195401 07B2BD973E36A6FC
+
+   5
+   In   93AEA71B258D90C6 25F5A3ADC2195401 07B2BD973E36A6FC
+   XorT 93AEA71B258D90C3 25F5A3ADC2195401 07B2BD973E36A6FC
+   Dec  5896EA9028EE203F FE6E8D679C5D3460 07B2BD973E36A6FC
+
+   4
+   In   5896EA9028EE203F FE6E8D679C5D3460 07B2BD973E36A6FC
+   XorT 5896EA9028EE203B FE6E8D679C5D3460 07B2BD973E36A6FC
+   Dec  FC967627BE93720B FE6E8D679C5D3460 D132EE38147E76F8
+
+
+
+
+Schaad & Housley             Informational                     [Page 10]
+
+RFC 3394                AES Key Wrap Algorithm           
