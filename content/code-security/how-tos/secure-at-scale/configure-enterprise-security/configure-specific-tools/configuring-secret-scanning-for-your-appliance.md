@@ -2,7 +2,6 @@
 title: Configuring secret scanning for your appliance
 shortTitle: Configure secret scanning
 intro: You can enable, configure, and disable {% data variables.product.prodname_secret_scanning %} for {% data variables.product.prodname_ghe_server %}. {% data variables.product.prodname_secret_scanning_caps %} allows users to scan code for accidentally committed secrets.
-product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /admin/configuration/configuring-secret-scanning-for-your-appliance
   - /admin/advanced-security/configuring-secret-scanning-for-your-appliance
@@ -22,10 +21,13 @@ contentType: how-tos
 
 If someone checks a secret with a known pattern into a repository, {% data variables.product.prodname_secret_scanning %} catches the secret as it's checked in, and helps you mitigate the impact of the leak. Repository administrators are notified about any commit that contains a secret, and they can quickly view all detected secrets in the **Security** tab for the repository. See [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
 
+## Availability
+
+When the enterprise has [{% data variables.product.prodname_GH_secret_protection %}](/get-started/learning-about-github/about-github-advanced-security) enabled, {% data variables.product.prodname_secret_scanning_caps %} is available for organization-owned and user-owned repositories.
+
 ## Checking whether your license includes {% data variables.product.prodname_AS %}
 
 {% data reusables.advanced-security.check-for-ghas-license %}
-
 ## Prerequisites for {% data variables.product.prodname_secret_scanning %}
 
 * The SSSE3 (Supplemental Streaming SIMD Extensions 3) CPU flag needs to be enabled on the VM/KVM that runs {% data variables.product.prodname_ghe_server %}. For more information about SSSE3, see [Intel 64 and IA-32 Architectures Optimization Reference Manual](https://cdrdv2-public.intel.com/671488/248966-Software-Optimization-Manual-R047.pdf) in the Intel documentation.

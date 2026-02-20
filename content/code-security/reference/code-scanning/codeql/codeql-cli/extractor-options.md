@@ -1,6 +1,6 @@
 ---
 title: Extractor options
-intro: You can use the {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_codeql %} processes locally on software projects.
+intro: Control how the {% data variables.product.prodname_codeql_cli %} builds databases for analysis with extractor options.
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
@@ -19,13 +19,13 @@ contentType: reference
 <!--The CodeQL CLI man pages include a link to this article. If you rename this article,
 make sure that you also update the MS short link: https://aka.ms/codeql-cli-docs/extractor-options.-->
 
-## About extractors
+## Available extractor options
 
-The {% data variables.product.prodname_codeql_cli %} uses special programs, called extractors, to extract information from the source code of a software system into a database that can be queried. You can customize the behavior of extractors by setting extractor configuration options through the {% data variables.product.prodname_codeql_cli %}.
+Each extractor defines its own set of configuration options for building a queryable {% data variables.product.prodname_codeql %} database from source code. To find out which options are available for a particular extractor, you can run either of the following commands:
+* `codeql resolve languages --format=betterjson`
+* `codeql resolve extractor --language=LANGUAGE --format=betterjson`
 
-## About extractor options
-
-Each extractor defines its own set of configuration options. To find out which options are available for a particular extractor, you can run `codeql resolve languages` or `codeql resolve extractor` with the `--format=betterjson` option. The `betterjson` output format provides the root paths of extractors and additional information. The output of `codeql resolve extractor --format=betterjson` will often be formatted like the following example:
+The `betterjson` output format provides the root paths of extractors and additional information. The output of `codeql resolve extractor --language=LANGUAGE --format=betterjson` will often be formatted like the following example:
 
 ```json
 {
@@ -70,7 +70,7 @@ In the example above, the extractor declares two options:
 * `option1` is a `string` option with value matching `[a-z]+`
 * `group1.option2` is an `array` option with values matching `[1-9][0-9]\*`
 
-## Setting extractor options with the {% data variables.product.prodname_codeql_cli %}
+## Commands for setting extractor options
 
 The {% data variables.product.prodname_codeql_cli %} supports setting extractor options in subcommands that directly or indirectly invoke extractors. These commands are:
 
@@ -84,7 +84,9 @@ When running these subcommands, you can set extractor options with the `--extrac
 * `codeql database create --extractor-option java.option1=abc ...`
 * `codeql database start-tracing --extractor-option java.group1.option2=102 ...`
 
-`--extractor-option` requires exactly one argument of the form `extractor_option_name=extractor_option_value`. `extractor_option_name` is the name of the extractor (in this example, `java`) followed by a period and then the name of the extractor option (in this example, either `option1` or `group1.option2`). `extractor_option_value` is the value being assigned to the extractor option. The value must match the regular expression pattern of the extractor option (if it exists), and it must not contain newline characters.
+`--extractor-option` requires exactly one argument of the form `extractor_option_name=extractor_option_value`:
+* `extractor_option_name` is the name of the extractor (in this example, `java`) followed by a period and then the name of the extractor option (in this example, either `option1` or `group1.option2`).
+* `extractor_option_value` is the value being assigned to the extractor option. The value must match the regular expression pattern of the extractor option (if it exists), and it must not contain newline characters.
 
 Using `--extractor-option` to assign an extractor option that does not exist is an error.
 
@@ -97,7 +99,7 @@ You can also specify extractor option names without the extractor name. For exam
 
 If you do not specify an extractor name, the extractor option settings will apply to all extractors that declare an option with the given name. In the above example, the first command would set the extractor option `option1` to `abc` for the `java` extractor and every extractor that has an option of `option1`, for example the `cpp` extractor, if the `option1` extractor option exists for that extractor.
 
-## Setting extractor options from files
+## File format for extractor options
 
 You can also set extractor options through a file. The {% data variables.product.prodname_codeql_cli %} subcommands that accept `--extractor-option` also accept `--extractor-options-file`, which has a required argument of the path to a YAML file (with extension `.yaml` or `.yml`) or a JSON file (with extension `.json`). For example:
 

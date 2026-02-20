@@ -11,4 +11,7 @@ children:
   - /use-hooks
   - /create-skills
   - /create-custom-agents-for-cli
+  - /plugins-finding-installing
+  - /plugins-creating
+  - /plugins-marketplace
 ---

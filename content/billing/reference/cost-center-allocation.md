@@ -113,16 +113,11 @@ There are two cost centers in the enterprise, each with different users or organ
 
 ### How usage is allocated
 
-The following table illustrates how spending for each user is allocated to a cost center based on their membership of an organization or cost center. Any usage not assigned to a cost center is categorized as "Enterprise Only" spending.
-
-![Diagram illustrating the assignment of users and organizations to cost centers, with the allocation of costs for the four users.](/assets/images/help/billing/cost-center-example-2.png)
-
 {% rowheaders %}
 
 |             | Copilot charges | GHSP charges | GHE charges | Explanation |
 | ----------- | --------------- | ------------ | ----------- | ----------- |
 | Cost Center A | `user-1`, `user-3` | `user-1`, `user-3` | `user-1`, `user-3` | These users are assigned directly to the cost center. |
-| Cost Center B | `user-2`, `user-4` | {% octicon "dash" aria-label="Not applicable" %} | `user-2`, `user-4` | These users aren't directly assigned to a cost center, so Copilot and GHE charges are assigned based on organization membership, whereas GHSP defaults to enterprise spending. |
-| Enterprise Only (default) | {% octicon "dash" aria-label="Not applicable" %} | `user-2`, `user-4` | {% octicon "dash" aria-label="Not applicable" %} | These users aren't directly assigned to a cost center, so GHSP defaults to enterprise spending. |
+| Cost Center B | `user-2`, `user-4` | `user-2`, `user-4` | `user-2`, `user-4` | These users aren't directly assigned to a cost center, so {% data variables.product.prodname_copilot %}, {% data variables.enterprise.data_residency %}, and {% data variables.product.prodname_GH_secret_protection %} charges are assigned based on organization membership. |
 
 {% endrowheaders %}

@@ -1,0 +1,39 @@
+# Content pipelines configuration
+#
+# Each entry defines a content pipeline that syncs docs from an external
+# repository and uses the content-pipeline-update agent to update content articles.
+#
+# The update.ts script reads this file so you can run:
+#   $ npx tsx src/content-pipelines/scripts/update.ts --id copilot-cli
+#
+# The workflow matrix in .github/workflows/content-pipelines.yml only needs `id`;
+# everything else is read from this file.
+#
+# `exclusions` lists source topics the agent should skip during gap analysis.
+# Use an empty list ([]) when nothing should be excluded. Example:
+#   exclusions:
+#     - Internal debugging commands
+#     - Experimental telemetry flags
+#
+copilot-cli:
+  name: Copilot CLI
+  source-repo: github/copilot-agent-runtime
+  source-path: docs/cli
+  target-articles:
+    - content/copilot/reference/cli-command-reference.md
+    - content/copilot/reference/cli-plugin-reference.md
+    - content/copilot/reference/acp-server.md
+  exclusions: []
+  content-mapping: |
+    cli-plugin-reference.md covers only plugin-specific content.
+    All other CLI topics (hooks, MCP, skills, agents, permissions, etc.) belong in cli-command-reference.md even when they mention plugins.
+
+# TODO
+# mcp-server:
+#   name: GitHub MCP Server
+#   source-repo: github/github-mcp-server
+#   source-path: docs
+#   # TBD — update this list as articles are created
+#   target-articles: []
+#   exclusions: []
+#   content-mapping: ""

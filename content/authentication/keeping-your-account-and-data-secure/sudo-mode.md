@@ -38,8 +38,6 @@ After you authenticate to perform a sensitive action, your session is temporaril
 
 {% endif %}
 
-"sudo" is a reference to a program on Unix systems, where the name is short for "**su**peruser **do**." For more information, see [sudo](https://wikipedia.org/wiki/Sudo) on Wikipedia.
-
 ## Confirming access for sudo mode
 
 To confirm access for sudo mode, you can authenticate with your password. Optionally, you can use a different authentication method, like a passkey, {% ifversion fpt or ghec %}a security key, {% data variables.product.prodname_mobile %}, or a 2FA code{% elsif ghes %}a security key or a 2FA code{% endif %}.

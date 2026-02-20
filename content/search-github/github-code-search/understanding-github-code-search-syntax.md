@@ -153,7 +153,7 @@ This searches repositories owned by organizations in the `octocorp` enterprise. 
 
 ### Language qualifier
 
-To narrow down to a specific languages, use the `language:` qualifier. For example:
+To narrow down to a specific language, use the `language:` qualifier. For example:
 
 ```text
 language:ruby OR language:cpp OR language:csharp

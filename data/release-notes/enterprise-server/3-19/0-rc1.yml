@@ -158,6 +158,9 @@ sections:
         # https://github.com/github/releases/issues/5128
         - |
           Enterprise administrators can manage rules more efficiently with the general availability of ruleset history, import, and export. Ruleset history allows tracking and rolling back changes, while import and export simplify sharing and reusing rulesets, including [GitHub's ruleset-recipes](https://github.com/github/ruleset-recipes).
+        # https://github.com/github/releases/issues/5273
+        - |
+          Users can more easily explore contributors and code frequency insights with improved navigation, interactive chart legends for hiding data series, and options to view or download the data as a CSV or PNG. See [Repositories - Updated insight views (General Availability)](https://github.blog/changelog/2025-02-25-repositories-updated-insight-views-general-availability/) on the GitHub Blog. [Updated: 2026-01-12]
 
     - heading: Issues
       notes:

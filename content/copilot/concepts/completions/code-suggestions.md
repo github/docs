@@ -99,7 +99,7 @@ category:
 
 ## Code suggestions that match public code
 
-{% data variables.product.prodname_copilot %} checks each suggestion for matches with publicly available code. Any matches are discarded or suggested with a code reference, based on the setting of the "Suggestions matching public code" policy for your account or organization. See [AUTOTITLE](/copilot/concepts/completions/code-referencing).
+{% data variables.product.prodname_copilot %} checks each suggestion for matches with publicly available code. Matches may be discarded or suggested with a code reference, based on the setting of the "Suggestions matching public code" policy for your account or organization. See [AUTOTITLE](/copilot/concepts/completions/code-referencing).
 
 ## About the AI model used for {% data variables.product.prodname_copilot_short %} inline suggestions
 

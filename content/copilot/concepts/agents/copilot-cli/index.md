@@ -9,6 +9,7 @@ topics:
   - Copilot
 children:
   - /about-copilot-cli
+  - /about-cli-plugins
   - /comparing-cli-features
 contentType: concepts
 ---

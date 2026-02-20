@@ -1,6 +1,6 @@
 ---
 title: CodeQL CLI CSV output
-intro: You can output results from the {% data variables.product.prodname_codeql_cli %} in CSV format to share with other systems.
+intro: Understand CSV results from the {% data variables.product.prodname_codeql_cli %}.
 product: '{% data reusables.gated-features.codeql %}'
 allowTitleToDifferFromFilename: true
 versions:
@@ -16,13 +16,7 @@ redirect_from:
 contentType: reference
 ---
 
-## About CSV output
-
-You can save analysis results from the {% data variables.product.prodname_codeql_cli %} in a number of different formats, including SARIF and CSV. We do generally recommend SARIF because it is a standard output for static analysis tools and easier to parse. You can also upload SARIF files to {% data variables.product.github %}. However, CSV format may be useful if you need to further process the analysis results using your own tools. For more information on selecting a file format for your analysis results, see [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze).
-
-For more information about the SARIF format, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/sarif-output).
-
-If you choose to generate results in CSV format, then each line in the output file corresponds to an alert. Each line is a comma-separated list with the following information.
+When you save analysis results from the {% data variables.product.prodname_codeql_cli %} in CSV format, each line corresponds to an alert, containing a comma-separated list with the following information:
 
 **Property**|**Description**|**Example**
 -----|-----|-----

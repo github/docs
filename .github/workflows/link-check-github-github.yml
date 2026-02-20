@@ -1,4 +1,4 @@
-name: Check Broken Docs Links in github/github
+name: 'Link Check: github/github'
 
 # **What it does**: This checks for any broken docs.github.com links in github/github
 # **Why we have it**: Make sure all docs in github/github are up to date
