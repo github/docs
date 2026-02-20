@@ -129,6 +129,9 @@ From {% data variables.product.prodname_dotcom %}:
 
 #### Setting up streaming to S3 with OpenID Connect
 
+> [!NOTE]
+> Audit log streaming to S3 with OpenID Connect for {% data variables.enterprise.data_residency %} is currently unavailable. See [AUTOTITLE](/admin/data-residency/feature-overview-for-github-enterprise-cloud-with-data-residency#currently-unavailable-features).
+
 From AWS:
 
 1. Add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM. See [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.

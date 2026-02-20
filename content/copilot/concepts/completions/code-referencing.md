@@ -49,10 +49,16 @@ category:
 
 ## About {% data variables.product.prodname_copilot_short %} code referencing on {% data variables.product.prodname_dotcom_the_website %}
 
+### Code referencing for {% data variables.copilot.copilot_chat_short %}
+
 If you, or your organization, have allowed suggestions that match public code, then whenever a response from {% data variables.copilot.copilot_chat_short %} includes matching code, details of the matches will be included in the response.
 
 > [!NOTE]
 > Typically, matches to public code occur infrequently, so you should not expect to see code references in many {% data variables.copilot.copilot_chat_short %} responses.
+
+### Code referencing for {% data variables.copilot.copilot_coding_agent %}
+
+When {% data variables.product.prodname_copilot_short %} generates code that matches code in a public {% data variables.product.github %} repository, this is indicated in the agent session logs with a link to display details of the matched code. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions).
 
 {% endwebui %}
 
@@ -82,7 +88,7 @@ Code in private {% data variables.product.prodname_dotcom %} repositories, or co
 
 The search index is refreshed every few months. As a result, newly committed code, and code from public repositories deleted before the index was created, may not be included in the search. For the same reason, the search may return matches to code that has been deleted or moved since the index was created.
 
-References to matching code are currently available in JetBrains IDEs, {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode %}, and on the {% data variables.product.github %} website.
+References to matching code are currently available in JetBrains IDEs, {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode %}, {% data variables.copilot.copilot_coding_agent %}, and on the {% data variables.product.github %} website.
 
 ## Further reading
 

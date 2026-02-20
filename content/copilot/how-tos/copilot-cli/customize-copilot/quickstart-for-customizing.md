@@ -61,3 +61,5 @@ For more information, see [AUTOTITLE](/copilot/concepts/context/mcp).
 {% data variables.copilot.copilot_cli_short %} plugins are distributable packages that provide a simple way to extend the functionality of the CLI.
 
 They bundle multiple customization components together into a single installable unit. You can install plugins directly from a repository, from a plugin marketplace, or from a local path.
+
+For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-cli-plugins).

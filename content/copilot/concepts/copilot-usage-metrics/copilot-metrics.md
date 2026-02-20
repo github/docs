@@ -1,7 +1,7 @@
 ---
 title: GitHub Copilot usage metrics
 shortTitle: Copilot usage metrics
-intro: '{% data variables.product.prodname_copilot %} usage metrics provide visibility into how {% data variables.product.prodname_copilot %} is adopted and used across your organization, including engagement, activity, and code generation trends.'
+intro: '{% data variables.product.prodname_copilot_short %} usage metrics provide visibility into how {% data variables.product.prodname_copilot_short %} is adopted and used across your organization, including engagement, activity, code generation, and pull request lifecycle trends.'
 versions:
   feature: copilot
 topics:
@@ -21,14 +21,14 @@ category:
   - Track Copilot usage
   - Learn about Copilot
   - Get started with metrics
-  - Manage Copilot for a team  
+  - Manage Copilot for a team
 ---
 
 {% data reusables.copilot.usage-metrics-preview %}
 
 ## About {% data variables.product.prodname_copilot_short %} usage metrics
 
-{% data variables.product.prodname_copilot_short %} usage metrics help key stakeholders and decision-makers understand how their teams are adopting and using {% data variables.product.prodname_copilot_short %}. By tracking usage patterns across the enterprise, you can measure engagement, identify opportunities to increase value, and make data-driven decisions about enablement and rollout.
+{% data variables.product.prodname_copilot_short %} usage metrics help key stakeholders and decision-makers understand how their teams are adopting and using {% data variables.product.prodname_copilot_short %}. By tracking usage patterns across the enterprise, you can measure engagement, identify opportunities to increase value, and assess how AI-assisted workflows influence pull request throughput and time to merge.
 
 Metrics are available through:
 
@@ -116,7 +116,7 @@ For example, all usage data for a Monday (which closes at midnight UTC) will be 
 
 ## What does the data measure?
 
-{% data variables.product.prodname_copilot_short %} usage metrics can be grouped into four main categories: Adoption, Engagement, Acceptance Rate, and Lines of Code (LoC) metrics.
+{% data variables.product.prodname_copilot_short %} usage metrics can be grouped into a few main categories: Adoption, engagement, acceptance rate, Lines of Code (LoC), and pull request lifecycle metrics.
 
 **Adoption** measures how many licensed developers are actively using {% data variables.product.prodname_copilot_short %} within your enterprise. For example, daily active users (DAU) tells you how many unique users interacted with {% data variables.product.prodname_copilot_short %} on a given day. Ideally, you'll see a consistent upward trend in these metrics during rollout.
 
@@ -125,6 +125,8 @@ For example, all usage data for a Monday (which closes at midnight UTC) will be 
 **Acceptance rate** measures how often developers accept {% data variables.product.prodname_copilot_short %}’s suggestions. This helps you understand whether suggestions are relevant and trusted. For example, a high inline suggestions acceptance rate indicates that suggestions are relevant and useful.
 
 **Lines of Code (LoC) metrics** measure the number of lines {% data variables.product.prodname_copilot_short %} suggested, added, or deleted in the editor, providing a directional view of {% data variables.product.prodname_copilot_short %}’s tangible output. For example, "Lines added" shows how much code was actually accepted and inserted into the editor.
+
+**Pull request lifecycle metrics** measure how {% data variables.product.prodname_copilot_short %} activity relates to pull request outcomes and delivery flow. These metrics include pull request creation and merge counts, median time to merge, and review suggestion activity. By comparing overall pull request activity with pull requests created by {% data variables.product.prodname_copilot_short %}, you can evaluate how AI-assisted workflows influence throughput and cycle time across your enterprise.
 
 ## How can I use these metrics?
 
@@ -136,6 +138,7 @@ These metrics can be used together to answer key questions about your teams' usa
 | Which features deliver the most value? | Requests per chat mode, agent adoption |
 | Do developers trust {% data variables.product.prodname_copilot_short %}’s output? | Acceptance rate trends |
 | Are enablement efforts working? | Growth in adoption and engagement after training or communication campaigns |
+| Is {% data variables.product.prodname_copilot_short %} influencing delivery speed or PR throughput? | Pull request merge counts and median time to merge |
 
 Look for patterns across these signals rather than focusing on any single number. For example, a steady DAU paired with a rising acceptance rate indicates growing trust and value.
 

@@ -1,0 +1,100 @@
+date: '2026-02-10'
+sections:
+  features:
+    - |
+      Administrators can configure advanced SMTP settings for improved email delivery performance and reliability. These settings map to Postfix configuration parameters as documented in the Postfix documentation. New options include:
+      - IPv4-only relay: Route email to addresses at a specific email domain through an IPv4-only relay host. Setting `smtp.ipv4-only` to `true` configures Postfix to route all email to the domain specified in `smtp.relay-domain` through `smtp.relay-host` on port `smtp.relay-port` using IPv4 only.
+      - Connection caching: Control connection reuse and caching (`smtp.connection-cache-time-limit`, `smtp.connection-reuse-count-limit`, `smtp.connection-cache-on-demand`).
+      - Delivery concurrency: Tune parallel email delivery limits (`smtp.destination-concurrency-limit`, `smtp.initial-destination-concurrency`, `smtp.destination-concurrency-positive-feedback`).
+      - Queue management: Configure retry timing and queue processing (`smtp.maximal-backoff-time`, `smtp.queue-run-delay`)
+      - Connection limits: Set maximum inbound SMTP connections (`smtp.client-connection-count-limit`).
+    - |
+      For administrators using geo-replication or high availability (HA), `ghe-repl` tooling supports cross-cluster replication (CCR) for Elasticsearch, improving search index replication between instances. 
+  security_fixes:
+    - |
+      **MEDIUM:** By supplying the migration identifier, an attacker could upload unauthorized content to another user’s repository migration export due to a missing authorization check. This could cause victims to download attacker-controlled migration archives, potentially impacting the integrity of downstream repository imports. GitHub has requested a CVE ID [CVE-2026-1355](https://www.cve.org/cverecord?id=CVE-2026-1355) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/). 
+    - |
+      **LOW:** GitHub Enterprise Server included React versions 19.0, 19.1, and 19.2 in its package, which contain vulnerabilities in the React Server Components protocol ([CVE-2025-55182](https://www.cve.org/cverecord?id=CVE-2025-55182), [CVE-2025-66478](https://www.cve.org/cverecord?id=CVE-2025-66478). GitHub Enterprise Server does not use React Server Components and was not vulnerable to exploitation. React has been updated to version 19.2.1 to address findings from security scanning tools. 
+    - |
+      **HIGH:** An attacker could merge their own pull request into a repository that allowed forks and for which they didn't have write access, by exploiting an incorrect authorization check in the `enable_auto_merge` mutation for pull requests in specific scenarios. Exploitation required a clean pull request status and only applied to branches without branch protection rules enabled. GitHub has requested CVE ID [CVE-2026-1999](https://www.cve.org/cverecord?id=CVE-2026-1999) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/). 
+    - |
+      **HIGH:** An authenticated attacker could exploit a URL redirection vulnerability in GitHub Enterprise Server to leak privileged authorization tokens by redirecting requests to an attacker-controlled domain. This could allow exfiltration of the `Actions.ManageOrgs` JWT and potential remote code execution. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com/). 
+  bugs:
+    - |
+      The Elasticsearch panel in the Operational Health dashboard of the Management Console did not correctly represent the clusters health. As a result, administrators may have seen inaccurate status indicators for Elasticsearch availability and performance. 
+    - |
+      Alambic failed to start after reboot or upgrade if legacy multi-disk for alambic was set up. 
+    - |
+      GitHub Enterprise Server Backup Service (preview) was disabled after upgrading. 
+    - |
+      Running `ghe-config-apply` could fail if Redis experienced transient connectivity issues during the configuration process. 
+    - |
+      Resolved an issue in Enterprise Manage where the Backups (Preview) tab failed to open and returned an Internal Server Error. This tab now load as expected. 
+    - |
+      On instances initially configured more than five years ago, administrators were unable to access the Management Console after upgrading due to an outdated session secret that was below the required 64-byte length. 
+    - |
+      Administrators were unable to access the "Updates" tab in the Management Console due to a template rendering error that displayed an Internal Server Error. 
+    - |
+      Administrators could not use the "Clear dependencies" tool in the site admin dashboard because the required RESET_MANIFESTS_CONSUMER_GROUP environment variable was missing. 
+    - |
+      When administrators configured password authentication, the Prometheus endpoint for OpenTelemetry metrics failed to expose metrics due to health check failures. 
+    - |
+      When administrators would apply configuration changes via the management console, the state shown would occasionally briefly flicker to a failure before being marked as successful causing confusion as to whether the configuration had succeeded. 
+    - |
+      On an instance configured behind a load balancer, users received unexpected secondary rate limit warnings during authentication when the `X-Forwarded-For` header included port numbers. This occurred because the system incorrectly ignored the header values containing ports, preventing proper client IP address identification. 
+    - |
+      Users with read access to a repository were unable to close issues even when granted the "Close issue" fine-grained permission through custom repository roles. Permission checks were relying solely on the triager role when evaluating a users ability to close issues. 
+    - |
+      Push rejections due to custom pre-receive hooks were not visible in the audit log. 
+    - |
+      Users could only view webhook deliveries from the previous three days. 
+  changes:
+    - |
+      Administrators can configure database connection pool limits for the authentication and authorization services to improve performance on instances experiencing high concurrent request volumes. The limits can be adjusted using `ghe-config` keys:  `app.authnd.mysql-max-open-conns`, `app.authnd.mysql-max-idle-conns`, `app.authzd.db-resolver-max-open-conns`, and `app.authzd.db-resolver-max-idle-conns`. The default values remain unchanged (authnd: 100 max open and 100 max idle connections; authzd: 100 max open and 15 max idle connections). These settings should only be adjusted with guidance from GitHub Support. 
+    - |
+      The `spokesctl status` command displays the current priority of repository issues based on the most recent check. Previously, the command displayed the highest priority the issue had reached since it was first detected, which could be misleading if the issue had been partially resolved. 
+  known_issues:
+    - |
+      During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [Troubleshooting access to the Management Console](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
+    - |
+      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      When enabling automatic update checks for the first time in the Management Console, the status is not dynamically reflected until the "Updates" page is reloaded.
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      Admins setting up cluster high availability (HA) may encounter a spokes error when running `ghe-cluster-repl-status` if a new organization and repositories are created before using the `ghe-cluster-repl-bootstrap` command. To avoid this issue, complete the cluster HA setup with `ghe-cluster-repl-bootstrap` before creating new organizations and repositories.
+    - |
+      In a cluster, the host running restore requires access the storage nodes via their private IPs.
+    - |
+      On an instance hosted on Azure, commenting on an issue via email meant the comment was not added to the issue.
+    - |
+      After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
+    - |
+      After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
+    - |
+      When publishing npm packages in a workflow after restoring from a backup to GitHub Enterprise Server 3.13.5.gm4 or 3.14.2.gm3, you may encounter a `401 Unauthorized` error from the GitHub Packages service. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token is valid and includes the correct scopes for publishing to GitHub Packages.
+    - |
+      The setting to define private registries at the organization level for code scanning is only available if dependabot is also enabled for the instance.
+    - |
+      Upgrading or hotpatching to 3.19.1 may fail on nodes that have been continuously upgraded from versions older than 2021 (i.e. 2.17). If this issue occurs, you will see log entries prefixed with `invalid secret` in ghe-config.log. If you are running nodes from these older versions, it is recommended not to upgrade to 3.19.1.
+    - |
+      Release Notes update issue -- https://github.com/github/docs-content/issues/20792
+    - |
+      When applying an enterprise security configuration to all repositories (for example, enabling Secret Scanning or Code Scanning across all repositories), the system immediately enqueues enablement jobs for every organization in the enterprise simultaneously. For enterprises with a large number of repositories, this can result in significant system load and potential performance degradation. If you manage a large enterprise with many organizations and repositories, we recommend applying security configurations at the organization level rather than at the enterprise level in the UI. This allows you to enable security features incrementally and monitor system performance as you roll out changes.

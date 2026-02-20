@@ -30,7 +30,7 @@ contentType: concepts
 Software developers and security researchers can secure their code
 using {% data variables.product.prodname_codeql %} analysis. For more information about {% data variables.product.prodname_codeql %}, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql).
 
-{% data reusables.code-scanning.what-is-codeql-cli %}
+The {% data variables.product.prodname_codeql_cli %} is a standalone, command-line tool that you can use to analyze code. Its main purpose is to generate a database representation of a codebase, a {% data variables.product.prodname_codeql %} database. Once the database is ready, you can query it interactively, or run a suite of queries to generate a set of results in SARIF format and upload the results to {% data variables.product.github %}.
 
 You can use the {% data variables.product.prodname_codeql_cli %} to:
 
@@ -109,5 +109,9 @@ codeql github upload-results \
     --ref=refs/heads/main --commit=deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 \
     --sarif=python-results.sarif
 ```
+
+### Database extraction
+
+The {% data variables.product.prodname_codeql_cli %} uses special programs, called extractors, to extract information from the source code of a software system into a database that can be queried. You can customize the behavior of extractors by setting extractor configuration options through the {% data variables.product.prodname_codeql_cli %}. See [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-cli/extractor-options).
 
 {% data reusables.code-scanning.codeql-license %}

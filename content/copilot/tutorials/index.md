@@ -31,6 +31,7 @@ children:
   - /plan-a-project
   - /vibe-coding
   - /upgrade-projects
+  - /copilot-cli-hooks
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
 contentType: tutorials

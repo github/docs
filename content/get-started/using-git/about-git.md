@@ -44,7 +44,7 @@ Through platforms like {% data variables.product.github %}, Git also provides mo
 
 {% data variables.product.github %} builds collaboration directly into the development process. Work is organized into repositories where developers can outline requirements or direction and set expectations for team members. Then, using the {% data variables.product.github %} flow, developers simply create a branch to work on updates, commit changes to save them, open a pull request to propose and discuss changes, and merge pull requests once everyone is on the same page. For more information, see [AUTOTITLE](/get-started/using-github/github-flow).
 
-For {% data variables.product.prodname_dotcom %} plans and costs, see {% data variables.product.pricing_link %}. For information on how {% data variables.product.prodname_enterprise %} compares to other options, see [Comparing GitHub to other DevOps solutions](https://resources.github.com/devops/tools/compare/).
+For {% data variables.product.prodname_dotcom %} plans and costs, see {% data variables.product.pricing_link %}. For information on how {% data variables.product.prodname_enterprise %} compares to other options, see [Comparing GitHub to other DevOps solutions](https://github.com/resources/articles/devops-tools-comparison).
 
 ## {% data variables.product.github %} and the command line
 

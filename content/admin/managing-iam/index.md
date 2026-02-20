@@ -24,5 +24,6 @@ children:
   - /provisioning-user-accounts-with-scim
   - /reconfiguring-iam-for-enterprise-managed-users
   - /managing-recovery-codes-for-your-enterprise
+  - /respond-to-incidents
 ---
 

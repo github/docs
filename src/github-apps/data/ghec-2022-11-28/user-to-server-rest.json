@@ -1293,6 +1293,24 @@
   ],
   "billing": [
     {
+      "slug": "list-usage-report-exports",
+      "subcategory": "usage-reports",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/reports"
+    },
+    {
+      "slug": "create-a-usage-report-export",
+      "subcategory": "usage-reports",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/reports"
+    },
+    {
+      "slug": "get-a-usage-report-export",
+      "subcategory": "usage-reports",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/reports/{report_id}"
+    },
+    {
       "slug": "get-github-advanced-security-active-committers-for-an-organization",
       "subcategory": "billing",
       "verb": "get",

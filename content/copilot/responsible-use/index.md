@@ -15,7 +15,6 @@ children:
   - /copilot-in-windows-terminal
   - /copilot-in-github-desktop
   - /pull-request-summaries
-  - /copilot-text-completion
   - /copilot-commit-message-generation
   - /code-review
   - /copilot-coding-agent
@@ -23,5 +22,6 @@ children:
   - /copilot-spaces
 redirect_from:
   - /copilot/responsible-use-of-github-copilot-features
+  - /copilot/responsible-use/copilot-text-completion
 contentType: rai
 ---
