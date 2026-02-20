@@ -32,7 +32,7 @@ Each {% data variables.copilot.copilot_custom_agent_short %} is defined by a Mar
 1. Choose between the options to create the {% data variables.copilot.copilot_custom_agent_short %} in the repository or in your home directory:
 
    * **Project** (`.github/agents/`)
-   * **User** (`~/.config/copilot/agents/`)
+   * **User** (`~/.copilot/agents/`)
 
    > [!NOTE]
    > If you have {% data variables.copilot.custom_agents_short %} with the same name in both locations, the one in your home directory will be used, rather than the one in the repository.
