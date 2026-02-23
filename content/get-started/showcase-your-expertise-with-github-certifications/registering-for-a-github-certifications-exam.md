@@ -22,7 +22,6 @@ During the scheduling process you can choose if you want to take the exam in a l
 
 
 The {% data variables.product.prodname_certifications_singular %} program partners with Pearson VUE to deliver both online and in-person certification exams. When you sign up for an exam, Pearson VUE will allow you to schedule certification exams no more than 90 days in advance. For any additional questions on this policy, visit [Pearson VUE customer service for test-takers](https://www.pearsonvue.com/us/en/microsoft.html#contact). If you miss your scheduling window, you will need to repeat the scheduling steps. 
-Regardless of which mode you choose, you’ll need to meet specific identification requirements.
 
 Regardless of which mode you choose, you’ll need to meet specific identification requirements.
 
