@@ -212,6 +212,36 @@ More text.
     expect(text).toContain('Second paragraph in blockquote.')
   })
 
+  test('strips GitHub alert markers from plain text', () => {
+    const markdown = `> [!NOTE]
+> This is a note.
+
+> [!TIP]
+> This is a tip.
+
+> [!WARNING]
+> This is a warning.
+
+> [!IMPORTANT]
+> This is important.
+
+> [!CAUTION]
+> This is a caution.
+`
+    const text = markdownToPlainText(markdown)
+    expect(text).not.toContain('[!NOTE]')
+    expect(text).not.toContain('[!TIP]')
+    expect(text).not.toContain('[!WARNING]')
+    expect(text).not.toContain('[!IMPORTANT]')
+    expect(text).not.toContain('[!CAUTION]')
+    // The alert body text should still be present
+    expect(text).toContain('This is a note.')
+    expect(text).toContain('This is a tip.')
+    expect(text).toContain('This is a warning.')
+    expect(text).toContain('This is important.')
+    expect(text).toContain('This is a caution.')
+  })
+
   test('handles GFM tables cleanly', () => {
     const markdown = `Some intro.
 

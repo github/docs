@@ -1,7 +1,7 @@
 ---
 title: Viewing the Copilot usage metrics dashboard
 shortTitle: View usage and adoption
-intro: '{% data variables.product.prodname_copilot_short %} usage metrics dashboards provide a centralized view of adoption and usage across your enterprise, based on IDE telemetry from developers using {% data variables.product.prodname_copilot_short %}.'
+intro: 'Monitor adoption trends and use of {% data variables.product.prodname_copilot_short %} to support long-term enablement.'
 permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
@@ -9,6 +9,8 @@ topics:
   - Copilot
 contentType: how-tos
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /copilot/how-tos/administer-copilot/manage-for-enterprise/view-usage-and-adoption
 category:
   - Copilot usage metrics
   - View metrics
@@ -21,14 +23,14 @@ After your initial rollout, the {% data variables.product.prodname_copilot_short
 
 ## Prerequisite
 
-"{% data variables.product.prodname_copilot_short %} usage metrics" must be enabled on the AI Control tab. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies#defining-policies-for-your-enterprise).
+{% data reusables.copilot.copilot-metrics-dashboard-prereq %}
 
 ## Accessing the dashboard
 
 {% data reusables.copilot.access-copilot-metrics-dashboard %}
 1. In the left sidebar, click **{% data variables.product.prodname_copilot_short %} usage**.
 
-Data in the dashboard reports data at the enterprise level, is based only on IDE telemetry, and may appear up to three full UTC days behind the current date. See [AUTOTITLE](/copilot/concepts/copilot-metrics).
+Data in the dashboard is based only on IDE telemetry, and may appear up to three full UTC days behind the current date. See [AUTOTITLE](/copilot/concepts/copilot-metrics).
 
 ## Using {% data variables.copilot.copilot_chat_short %} to analyze exported data
 

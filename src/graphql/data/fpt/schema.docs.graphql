@@ -41984,6 +41984,21 @@ type PullRequestContributionsByRepository {
 }
 
 """
+The policy controlling who can create pull requests in a repository.
+"""
+enum PullRequestCreationPolicy {
+  """
+  Anyone can create pull requests.
+  """
+  ALL
+
+  """
+  Only collaborators can create pull requests.
+  """
+  COLLABORATORS_ONLY
+}
+
+"""
 An edge in a connection.
 """
 type PullRequestEdge {
@@ -50719,6 +50734,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   hasProjectsEnabled: Boolean!
 
   """
+  Indicates if the repository has the pull requests feature enabled.
+  """
+  hasPullRequestsEnabled: Boolean!
+
+  """
   Indicates if the repository displays a Sponsor button for financial contributions.
   """
   hasSponsorshipsEnabled: Boolean!
@@ -51418,6 +51438,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     """
     number: Int!
   ): PullRequest
+
+  """
+  The policy controlling who can create pull requests in this repository.
+  """
+  pullRequestCreationPolicy: PullRequestCreationPolicy
 
   """
   Returns a list of pull request templates associated to the repository
@@ -52587,6 +52612,11 @@ interface RepositoryInfo {
   hasProjectsEnabled: Boolean!
 
   """
+  Indicates if the repository has the pull requests feature enabled.
+  """
+  hasPullRequestsEnabled: Boolean!
+
+  """
   Indicates if the repository displays a Sponsor button for financial contributions.
   """
   hasSponsorshipsEnabled: Boolean!
@@ -52670,6 +52700,11 @@ interface RepositoryInfo {
   The User owner of the repository.
   """
   owner: RepositoryOwner!
+
+  """
+  The policy controlling who can create pull requests in this repository.
+  """
+  pullRequestCreationPolicy: PullRequestCreationPolicy
 
   """
   Identifies the date and time when the repository was last pushed to.
@@ -66685,6 +66720,11 @@ input UpdateRepositoryInput {
   hasProjectsEnabled: Boolean
 
   """
+  Indicates if the repository should have the pull requests feature enabled.
+  """
+  hasPullRequestsEnabled: Boolean
+
+  """
   Indicates if the repository displays a Sponsor button for financial contributions.
   """
   hasSponsorshipsEnabled: Boolean
@@ -66703,6 +66743,11 @@ input UpdateRepositoryInput {
   The new name of the repository.
   """
   name: String
+
+  """
+  The policy controlling who can create pull requests in this repository.
+  """
+  pullRequestCreationPolicy: PullRequestCreationPolicy
 
   """
   The ID of the repository to update.

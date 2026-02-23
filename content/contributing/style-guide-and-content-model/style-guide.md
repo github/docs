@@ -9,6 +9,10 @@ redirect_from:
   - /contributing/writing-for-github-docs/style-guide
 ---
 
+<!--
+A condensed version of this style guide is available at `.github/instructions/style-guide-summary.instructions.md`, optimized for AI agents and quick reference. If you make significant changes to this full guide, update the summary file as well.
+-->
+
 > [!NOTE]
 > These guidelines are specific to {% data variables.product.company_short %}'s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs). For any questions about the GitHub brand, see our [GitHub Brand Guide](https://brand.github.com).<!-- markdownlint-disable-line search-replace -->
 
