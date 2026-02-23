@@ -3,6 +3,27 @@
     "schemaChanges": [
       {
         "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>PullRequestCreationPolicy</code> was added</p>",
+          "<p>Enum value <code>ALL</code> was added to enum <code>PullRequestCreationPolicy</code></p>",
+          "<p>Enum value 'COLLABORATORS_ONLY<code>was added to enum</code>PullRequestCreationPolicy'</p>",
+          "<p>Field <code>hasPullRequestsEnabled</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>pullRequestCreationPolicy</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>hasPullRequestsEnabled</code> was added to interface <code>RepositoryInfo</code></p>",
+          "<p>Field <code>pullRequestCreationPolicy</code> was added to interface <code>RepositoryInfo</code></p>",
+          "<p>Input field <code>hasPullRequestsEnabled</code> of type <code>Boolean</code> was added to input object type <code>UpdateRepositoryInput</code></p>",
+          "<p>Input field <code>pullRequestCreationPolicy</code> of type <code>PullRequestCreationPolicy</code> was added to input object type <code>UpdateRepositoryInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-02-20"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
         "changes": []
       }
     ],

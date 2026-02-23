@@ -20,4 +20,5 @@ children:
   - /sarif-files
   - /merge-protection
   - /codeql
+  - /tool-status-page
 ---

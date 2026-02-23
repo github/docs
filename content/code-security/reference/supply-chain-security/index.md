@@ -25,7 +25,7 @@ children:
   - /dependabot-security-updates
   - /dependency-graph-supported-package-ecosystems
   - /dependabot-on-actions
-  - /dependabot-errors
+  - /troubleshoot-dependabot
 redirect_from:
   - /code-security/dependabot/ecosystems-supported-by-dependabot
 ---

@@ -112,8 +112,11 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--allow-all-urls`                 | Allow access to all URLs without confirmation. |
 | `--allow-tool [TOOLS...]`          | Tools the CLI has permission to use. Will not prompt for permission. |
 | `--allow-url [URLS...]`            | Allow access to specific URLs or domains. |
+| `--alt-screen [VALUE]`             | Use the terminal alternate screen buffer (`on` or `off`). |
+| `--autopilot`                      | Enable autopilot continuation in prompt mode. |
 | `--available-tools [TOOLS...]`     | Only these tools will be available to the model. |
 | `--banner`                         | Show the startup banner. |
+| `--bash-env [VALUE]`               | Enable `BASH_ENV` support for bash shells (`on` or `off`). |
 | `--config-dir PATH`         | Set the configuration directory (default: `~/.copilot`). |
 | `--continue`                       | Resume the most recent session. |
 | `--deny-tool [TOOLS...]`           | Tools the CLI does not have permission to use. Will not prompt for permission. |
@@ -129,11 +132,15 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `-i PROMPT`, `--interactive PROMPT`  | Start an interactive session and automatically execute this prompt. |
 | `--log-dir DIRECTORY`              | Set the log file directory (default: `~/.copilot/logs/`). |
 | `--log-level LEVEL`                | Set the log level (choices: `none`, `error`, `warning`, `info`, `debug`, `all`, `default`). |
+| `--max-autopilot-continues COUNT`  | Maximum number of continuation messages in autopilot mode (default: unlimited). |
 | `--model MODEL`                    | Set the AI model you want to use. |
+| `--no-alt-screen`                  | Disable the terminal alternate screen buffer. |
 | `--no-ask-user`                    | Disable the `ask_user` tool (the agent works autonomously without asking questions). |
 | `--no-auto-update`                 | Disable downloading CLI updates automatically. |
+| `--no-bash-env`                    | Disable `BASH_ENV` support for bash shells. |
 | `--no-color`                       | Disable all color output. |
 | `--no-custom-instructions`         | Disable loading of custom instructions from `AGENTS.md` and related files. |
+| `--no-experimental`                | Disable experimental features. |
 | `-p PROMPT`, `--prompt PROMPT`     | Execute a prompt programmatically (exits after completion). |
 | `--plain-diff`                     | Disable rich diff rendering (syntax highlighting via the diff tool specified by your git config). |
 | `--resume [SESSION-ID]`            | Resume from a previous session (optionally specify a session ID). |
@@ -143,6 +150,6 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--share-gist`                     | Share a session to a secret {% data variables.product.github %} gist after completion of a programmatic session. |
 | `--stream MODE`                    | Enable or disable streaming mode (mode choices: `on` or `off`). |
 | `-v`, `--version`                  | Show version information. |
-| `--yolo`                           | Enable all permissions (equivalent to `--allow-all-tools --allow-all-paths --allow-all-urls`). |
+| `--yolo`                           | Enable all permissions (equivalent to `--allow-all`). |
 
 For a complete list of commands and options, run `copilot help`.

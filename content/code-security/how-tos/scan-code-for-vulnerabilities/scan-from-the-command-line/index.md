@@ -13,7 +13,7 @@ topics:
 children:
   - /setting-up-the-codeql-cli
   - /advanced-setup-of-the-codeql-cli
-  - /using-custom-queries-with-the-codeql-cli
+  - /writing-and-sharing-custom-queries-for-the-codeql-cli
   - /testing-custom-queries
   - /testing-query-help-files
   - /specifying-command-options-in-a-codeql-configuration-file

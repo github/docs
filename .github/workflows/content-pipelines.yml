@@ -1,0 +1,154 @@
+name: 'Content pipelines: Update content'
+
+# **What it does**: On a schedule, runs the content pipeline update script for each
+#   configured entry. The script clones each source repo, detects changes, and
+#   runs a Copilot agent to update content articles. The workflow handles
+#   branching, committing, and opening PRs.
+# **Why we have it**: Keeps reference documentation in sync with upstream source
+#   docs without storing copies of those source docs in this repository.
+# **Who does it impact**: Docs content writers, docs engineering.
+#
+# To add a new entry, add it to src/content-pipelines/config.yml and to the matrix
+# `include` list below (only `id` is needed). The update logic lives in
+# src/content-pipelines/scripts/update.ts, which reads config.yml for all other
+# values. Run locally: npx tsx src/content-pipelines/scripts/update.ts --help
+
+on:
+  ## COMMENTED OUT FOR TESTING
+  # schedule:
+  #   - cron: "20 16 * * 1-5" # Mon-Fri at 16:20 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  copilot-requests: write
+
+env:
+  HUSKY: 0
+
+jobs:
+  update:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Each entry only needs `id`. Everything else (source-repo,
+          # source-path, target-articles, etc.) is read from
+          # src/content-pipelines/config.yml by the update script.
+          - id: copilot-cli
+          # - id: mcp-server
+
+    steps:
+      - name: Checkout docs-internal
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Install Copilot CLI
+        run: npm install -g @github/copilot@prerelease
+
+      - name: Derive branch name
+        id: branch
+        run: echo "update_branch=docs/content-pipeline-${{ matrix.id }}-update" >> "$GITHUB_OUTPUT"
+
+      - name: Check for existing PR
+        id: check-pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+          UPDATE_BRANCH: ${{ steps.branch.outputs.update_branch }}
+        run: |
+          PR_NUMBER=$(gh pr list --head "$UPDATE_BRANCH" --state open --json number --jq '.[0].number // empty' 2>/dev/null || echo "")
+          echo "pr_number=$PR_NUMBER" >> "$GITHUB_OUTPUT"
+
+      - name: Setup branch
+        env:
+          UPDATE_BRANCH: ${{ steps.branch.outputs.update_branch }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if git ls-remote --exit-code --heads origin "$UPDATE_BRANCH" > /dev/null 2>&1; then
+            git fetch origin "$UPDATE_BRANCH"
+            git checkout "$UPDATE_BRANCH"
+            git merge origin/main --no-edit || {
+              echo "Merge conflict with main — resetting branch to main"
+              git merge --abort
+              git checkout main
+              git branch -D "$UPDATE_BRANCH"
+              git push origin --delete "$UPDATE_BRANCH" || true
+              git checkout -b "$UPDATE_BRANCH"
+            }
+          else
+            git checkout -b "$UPDATE_BRANCH"
+          fi
+
+      - name: Run content pipeline update script
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx tsx src/content-pipelines/scripts/update.ts --id "${{ matrix.id }}"
+
+      - name: Commit changes
+        id: commit
+        env:
+          ID: ${{ matrix.id }}
+        run: |
+          git add content/ data/
+          git add "src/content-pipelines/state/${ID}.sha"
+          if git diff --cached --quiet; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            echo "No documentation changes to commit"
+          else
+            git commit -m "docs: update ${ID} content from source docs" \
+              -m "Updated by the content-pipeline-update agent (${ID}) via GitHub Actions." \
+              -m "Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Push changes
+        if: steps.commit.outputs.has_changes == 'true'
+        env:
+          UPDATE_BRANCH: ${{ steps.branch.outputs.update_branch }}
+        run: git push origin "$UPDATE_BRANCH"
+
+      - name: Create or update PR
+        if: steps.commit.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          UPDATE_BRANCH: ${{ steps.branch.outputs.update_branch }}
+          PIPELINE_ID: ${{ matrix.id }}
+        run: |
+          PR_NUMBER="${{ steps.check-pr.outputs.pr_number }}"
+          PR_TITLE="docs: update ${PIPELINE_ID} content from source docs"
+
+          PR_BODY="_GitHub Copilot generated this pull request._"$'\n\n'
+          PR_BODY+="> [!NOTE]"$'\n'
+          PR_BODY+="> This PR is **automatically generated** by the [content pipeline update workflow](${{ github.server_url }}/${{ github.repository }}/actions/workflows/content-pipelines.yml). Each run adds a new commit with any documentation changes detected."$'\n\n'
+          PR_BODY+="## What this does"$'\n\n'
+          PR_BODY+="Runs the \`content-pipeline-update\` agent (${PIPELINE_ID}) against the latest source docs and updates official articles under \`content/\` that have fallen out of sync."$'\n\n'
+          PR_BODY+="## Review"$'\n\n'
+          PR_BODY+="* Review each commit for accuracy — the agent uses AI, so spot-check important changes"$'\n'
+          PR_BODY+="* Once satisfied, merge to keep docs up to date"$'\n'
+          PR_BODY+="* A new PR will be created on the next run if there are further changes"
+
+          if [ -n "$PR_NUMBER" ]; then
+            echo "PR #$PR_NUMBER already exists — new commit pushed"
+          else
+            echo "Creating new PR"
+            gh pr create \
+              --title "$PR_TITLE" \
+              --body "$PR_BODY" \
+              --base main \
+              --head "$UPDATE_BRANCH" \
+              --label "workflow-generated,content-pipeline-update" \
+              --draft
+          fi
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

@@ -15,6 +15,7 @@ children:
   - /about-push-protection
   - /about-secret-security-with-github
   - /about-alerts
+  - /about-validity-checks
   - /about-delegated-bypass-for-push-protection
   - /about-bypass-requests-for-push-protection
   - /about-secret-scanning-for-partners

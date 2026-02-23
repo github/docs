@@ -131,6 +131,9 @@ ${errors
 
     return `## 🔗 Link Check Results
 
+> [!NOTE]
+> **This check is being actively worked on** and may produce false positives. If something looks wrong, you can safely ignore it for now.
+
 ${errorSection}${warningSection}${detailsLink}
 <!-- link-checker-pr-comment -->`
   },

@@ -20,5 +20,6 @@ children:
   - /code-scanning
   - /supply-chain-security
   - /code-quality
+  - /security-alert-management
   - /permissions
 ---

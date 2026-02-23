@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting the detection of vulnerable dependencies
+title: Vulnerable dependency detection
 intro: If the dependency information reported by {% data variables.product.github %} is not what you expected, there are a number of points to consider, and various things you can check.
 shortTitle: Troubleshoot vulnerability detection
 redirect_from:
@@ -8,6 +8,7 @@ redirect_from:
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies
   - /code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
   - /code-security/dependabot/troubleshooting-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
+  - /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/troubleshooting-the-detection-of-vulnerable-dependencies
 versions:
   fpt: '*'
   ghes: '*'
@@ -22,12 +23,12 @@ topics:
   - Vulnerabilities
   - CVEs
   - Repositories
-contentType: how-tos
+contentType: reference
 ---
 
 {% data reusables.dependabot.result-discrepancy %}
 
-## Why do some dependencies seem to be missing?
+## Missing or undetected dependencies
 
 {% data variables.product.prodname_dotcom %} generates and displays dependency data differently than other tools. Consequently, if you've been using another tool to identify dependencies you will almost certainly see different results. Consider the following:
 
@@ -38,7 +39,7 @@ contentType: how-tos
 
     {% data variables.product.prodname_dependabot %} doesn't scan repositories on a schedule, but rather when something changes. For example, a scan is triggered when a new dependency is added ({% data variables.product.prodname_dotcom %} checks for this on every push), or when a new advisory is added to the database{% ifversion ghes %} and synchronized to {% data variables.product.prodname_dotcom %}{% endif %}. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts#detection-of-insecure-dependencies).
 
-## Do {% data variables.product.prodname_dependabot_alerts %} only relate to insecure dependencies in manifests and lockfiles?
+## Alert coverage scope
 
 {% data variables.product.prodname_dependabot_alerts %} advise you about dependencies you should update, including transitive dependencies, where the version can be determined from a manifest or a lockfile. {% data variables.product.prodname_dependabot_security_updates %} only suggest a change where {% data variables.product.prodname_dependabot %} can directly "fix" the dependency, that is, when these are:
 * Direct dependencies explicitly declared in a manifest or lockfile
@@ -46,7 +47,7 @@ contentType: how-tos
 
 **Check:** Is the uncaught vulnerability for a component that's not specified in the repository's manifest or lockfile?
 
-## Why don't I get {% data variables.product.prodname_dependabot_alerts %} for some ecosystems?
+## Unsupported ecosystems
 
 {% data variables.product.prodname_dependabot_alerts %} are supported for a set of ecosystems where we can provide high-quality, actionable data. Curated advisories in the {% data variables.product.prodname_advisory_database %}, the dependency graph, {% ifversion fpt or ghec %}{% data variables.product.prodname_dependabot %} security updates, {% endif %}and {% data variables.product.prodname_dependabot_alerts %} are provided for several ecosystems, including Java’s Maven, JavaScript’s npm and Yarn, .NET’s NuGet, Python’s pip, Ruby's RubyGems, and PHP’s Composer. For an overview of the package ecosystems that we support for {% data variables.product.prodname_dependabot_alerts %}, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems).
 
@@ -54,7 +55,7 @@ It's worth noting that security advisories may exist for other ecosystems. The i
 
 **Check:** Does the uncaught vulnerability apply to an unsupported ecosystem?
 
-## Does {% data variables.product.prodname_dependabot %} generate alerts for vulnerabilities that have been known for many years?
+## Historical vulnerabilities
 
 The {% data variables.product.prodname_advisory_database %} was launched in November 2019, and initially back-filled to include advisories for security risks in the supported ecosystems, starting from 2017. When adding CVEs to the database, we prioritize curating newer CVEs, and CVEs affecting newer versions of software.
 
@@ -62,7 +63,7 @@ Some information on older vulnerabilities is available, especially where these C
 
 **Check:** Does the uncaught vulnerability have a publish date earlier than 2017 in the National Vulnerability Database?
 
-## Why does {% data variables.product.prodname_advisory_database %} use a subset of published vulnerability data?
+## Advisory database scope
 
 Some third-party tools use uncurated CVE data that isn't checked or filtered by a human. This means that CVEs with tagging or severity errors, or other quality issues, will cause more frequent, more noisy, and less useful alerts.
 
@@ -70,7 +71,7 @@ Since {% data variables.product.prodname_dependabot %} uses curated data in the 
 
 {% ifversion fpt or ghec %}
 
-## Does each insecure dependency generate a separate alert?
+## Alert generation and aggregation
 
 When a dependency has multiple vulnerabilities, an alert is generated for each vulnerability at the level of advisory plus manifest.
 
@@ -85,11 +86,11 @@ The {% data variables.product.prodname_dependabot_alerts %} count in {% data var
 **Check:** If there is a discrepancy in the totals you are seeing, check that you are not comparing alert numbers with dependency numbers. Also check that you are viewing all alerts and not a subset of filtered alerts.
 {% endif %}
 
-## Can Dependabot ignore specific dependencies?
+## Dependency ignore options
 
 You can configure {% data variables.product.prodname_dependabot %} to ignore specific dependencies in the configuration file, which will prevent security and version updates for those dependencies. If you only wish to use security updates, you will need to override the default behavior with a configuration file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#overriding-the-default-behavior-with-a-configuration-file) to prevent version updates from being activated. For information about ignoring dependencies, see [Ignoring specific dependencies](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#ignoring-specific-dependencies).
 
-## Why does {% data variables.product.prodname_dependabot %} sometimes fail to detect or update {% data variables.product.prodname_actions %} versions in monorepos?
+## Monorepo limitations for {% data variables.product.prodname_actions %} versions
 
 If your repository contains multiple {% data variables.product.prodname_actions %} (for example, in a monorepo), the tag format you use affects how {% data variables.product.prodname_dependabot %} detects and updates action versions.
 
