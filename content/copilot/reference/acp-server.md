@@ -7,7 +7,8 @@ versions:
 topics:
   - Copilot
 category:
-  - Configure Copilot
+  - Configure Copilot # Copilot discovery page
+  - Configure Copilot CLI # Copilot CLI bespoke page
 contentType: reference
 ---
 

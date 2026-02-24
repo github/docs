@@ -22,9 +22,11 @@ children:
   - /supported-ecosystems-and-manifests-for-dependency-scope
   - /dependabot-pull-request-comment-commands
   - /supported-ecosystems-and-repositories
+  - /dependabot-security-updates
   - /dependency-graph-supported-package-ecosystems
   - /dependabot-on-actions
-  - /dependabot-errors
+  - /criteria-for-preset-rules
+  - /troubleshoot-dependabot
 redirect_from:
   - /code-security/dependabot/ecosystems-supported-by-dependabot
 ---

@@ -103,7 +103,7 @@ If you are the owner of a {% data variables.product.prodname_github_app %} or {%
 
 ## Authenticating in a {% data variables.product.prodname_actions %} workflow
 
-If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token).
+If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token).
 
 If this is not possible, you can store your token as a secret and use the name of your secret in your {% data variables.product.prodname_actions %} workflow. For more information about secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets).
 

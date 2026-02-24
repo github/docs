@@ -43,11 +43,11 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 ## Introduction
 
-If you allow {% data variables.product.prodname_copilot %} to make suggestions that match publicly available code, {% data variables.product.prodname_copilot_short %} will display references to any similar code that is found. See [AUTOTITLE](/copilot/concepts/completions/code-referencing).
+If you allow {% data variables.product.prodname_copilot %} to make suggestions that match publicly available code or use a product that does not support "Block" mode, {% data variables.product.prodname_copilot_short %} will display references to any similar code that is found. See [AUTOTITLE](/copilot/concepts/completions/code-referencing).
 
 ### Prerequisites
 
-References to matching code are only generated if {% data variables.product.prodname_copilot_short %} is configured to allow suggestions that match publicly available code. This is configured in either your personal{% ifversion ghec %},{% else %} or {% endif %} organization{% ifversion ghec %} or enterprise{% endif %} settings.
+References to matching code are only generated if you use a product that does not support "Block" mode, or if {% data variables.product.prodname_copilot_short %} is configured to allow suggestions that match publicly available code. This is configured in either your personal{% ifversion ghec %},{% else %} or {% endif %} organization{% ifversion ghec %} or enterprise{% endif %} settings.
 
 For more information, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code){% ifversion ghec %},{% else %} or {% endif %} [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#policies-for-suggestion-matching){% ifversion ghec %} or [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise){% endif %}.
 
@@ -217,6 +217,8 @@ The details include:
 
 {% webui %}
 
+## View code references for {% data variables.copilot.copilot_chat_short %}
+
 When {% data variables.copilot.copilot_chat_short %} provides a response that includes code that matches code in a public {% data variables.product.prodname_dotcom %} repository, this is indicated beneath the code suggestion:
 
 > < > Public code references from _n_ repositories
@@ -230,6 +232,10 @@ To see details of the matching code:
    ![Screenshot of an inline suggestion in {% data variables.copilot.copilot_chat_short %} with a link to view code references.](/assets/images/help/copilot/code-reference-dotcom.png)
 
 1. Click the name of a repository to display that repository on {% data variables.product.prodname_dotcom_the_website %}.
+
+## View code references for {% data variables.copilot.copilot_coding_agent %}
+
+When {% data variables.product.prodname_copilot_short %} provides a response that includes code that matches code in a public {% data variables.product.github %} repository, this is indicated in the agent session logs with a link to display details of the matched code. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions).
 
 {% endwebui %}
 

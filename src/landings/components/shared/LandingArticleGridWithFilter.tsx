@@ -40,10 +40,18 @@ const flattenArticlesRecursive = (articles: (TocItem | ChildTocItem)[]): Article
   return flattened
 }
 
-// Wrapper function that flattens and sorts alphabetically by title (only once)
+// Wrapper function that flattens, deduplicates, and sorts alphabetically by title (only once)
 const flattenArticles = (articles: (TocItem | ChildTocItem)[]): ArticleCardItems => {
   const flattened = flattenArticlesRecursive(articles)
-  return flattened.sort((a, b) => a.title.localeCompare(b.title))
+  // Deduplicate articles by fullPath - needed when a page lists both individual
+  // articles and their parent group as children (e.g., bespoke landing pages)
+  const seen = new Set<string>()
+  const deduped = flattened.filter((article) => {
+    if (seen.has(article.fullPath)) return false
+    seen.add(article.fullPath)
+    return true
+  })
+  return deduped.sort((a, b) => a.title.localeCompare(b.title))
 }
 
 // Hook to get current articles per page based on screen size

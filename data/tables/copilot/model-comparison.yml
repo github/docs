@@ -12,16 +12,6 @@
   excels_at: Fast, accurate code completions and explanations
   further_reading: '[GPT-4.1 model card](https://openai.com/index/gpt-4-1/)'
 
-- name: GPT-5
-  task_area: Deep reasoning and debugging
-  excels_at: Multi-step problem solving and architecture-level code analysis
-  further_reading: '[GPT-5 model card](https://cdn.openai.com/gpt-5-system-card.pdf)'
-
-- name: GPT-5-Codex
-  task_area: General-purpose coding and writing
-  excels_at: Fast, accurate code completions and explanations
-  further_reading: '[GPT-5-Codex model card](https://cdn.openai.com/pdf/97cc5669-7a25-4e63-b15f-5fd5bdc4d149/gpt-5-codex-system-card.pdf)'
-
 - name: GPT-5 mini
   task_area: General-purpose coding and writing
   excels_at: Fast, accurate code completions and explanations
@@ -63,11 +53,6 @@
   excels_at: Fast, reliable answers to lightweight coding questions
   further_reading: '[Claude Haiku 4.5 model card](https://assets.anthropic.com/m/99128ddd009bdcb/Claude-Haiku-4-5-System-Card.pdf)'
 
-- name: Claude Opus 4.1
-  task_area: Deep reasoning and debugging
-  excels_at: Complex problem-solving challenges, sophisticated reasoning
-  further_reading: '[Claude Opus 4.1 model card](https://assets.anthropic.com/m/4c024b86c698d3d4/original/Claude-4-1-System-Card.pdf)'
-
 - name: Claude Opus 4.5
   task_area: Deep reasoning and debugging
   excels_at: Complex problem-solving challenges, sophisticated reasoning
@@ -108,6 +93,11 @@
   task_area: Deep reasoning and debugging
   excels_at: Complex code generation, debugging, and research workflows
   further_reading: '[Gemini 3 Pro model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Pro-Model-Card.pdf)'
+
+- name: Gemini 3.1 Pro
+  task_area: Deep reasoning and debugging
+  excels_at: Effective and efficient edit-then-test loops with high tool precision
+  further_reading: 'not applicable'
 
 # xAI
 - name: Grok Code Fast 1

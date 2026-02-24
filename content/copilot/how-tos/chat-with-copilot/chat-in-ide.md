@@ -199,7 +199,7 @@ When the {% data variables.copilot.subagent_short %} completes its task, its res
 
 {% data reusables.copilot.plan-agent-steps %}
 
-For more information, see [Planning in VS Code chat](https://code.visualstudio.com/docs/copilot/chat/chat-planning) in the {% data variables.product.prodname_vscode %} documentation.
+For more information, see [Planning in VS Code chat](https://code.visualstudio.com/docs/copilot/chat/copilot-chat) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Using images in {% data variables.copilot.copilot_chat_short %}
 

@@ -25,23 +25,9 @@
   ask_mode: true
   edit_mode: true
 
-- name: 'GPT-5'
-  provider: 'OpenAI'
-  release_status: 'Closing down: 2026-02-17'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
-
 - name: 'GPT-5 mini'
   provider: 'OpenAI'
   release_status: 'GA'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
-
-- name: 'GPT-5-Codex'
-  provider: 'OpenAI'
-  release_status: 'Closing down: 2026-02-17'
   agent_mode: true
   ask_mode: true
   edit_mode: true
@@ -103,13 +89,6 @@
   ask_mode: true
   edit_mode: true
 
-- name: 'Claude Opus 4.1'
-  provider: 'Anthropic'
-  release_status: 'Closing down: 2026-02-17'
-  agent_mode: false
-  ask_mode: true
-  edit_mode: true
-
 - name: 'Claude Opus 4.5'
   provider: 'Anthropic'
   release_status: 'GA'
@@ -145,6 +124,13 @@
   ask_mode: true
   edit_mode: true
 
+- name: 'Claude Sonnet 4.6'
+  provider: 'Anthropic'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
 # Google models
 
 - name: 'Gemini 2.5 Pro'
@@ -168,6 +154,13 @@
   ask_mode: true
   edit_mode: true
 
+- name: 'Gemini 3.1 Pro'
+  provider: 'Google'
+  release_status: 'Public preview'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
 # xAI models
 - name: 'Grok Code Fast 1'
   provider: 'xAI'
@@ -179,6 +172,13 @@
 # Fine-tuned OAI models
 - name: 'Raptor mini'
   provider: 'Fine-tuned GPT-5 mini'
+  release_status: 'Public preview'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'Goldeneye'
+  provider: 'Fine-tuned GPT-5.1-Codex'
   release_status: 'Public preview'
   agent_mode: true
   ask_mode: true

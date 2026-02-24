@@ -23,9 +23,9 @@ if (inProd && (isNil(HYDRO_SECRET) || isNil(HYDRO_ENDPOINT))) {
   )
 }
 
-type EventT = {
+export type EventT = {
   schema: string
-  value: Record<string, any>
+  value: Record<string, unknown>
 }
 
 async function _publish(

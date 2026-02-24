@@ -1,7 +1,7 @@
 ---
 title: Contacting GitHub Support
 shortTitle: Contacting support
-intro: 'You can use the {% data variables.contact.landing_page_portal %} to contact GitHub Support for help troubleshooting issues you encounter while using GitHub.'
+intro: “Use the {% data variables.contact.landing_page_portal %} to contact GitHub Support when you need help troubleshooting issues.”
 versions:
   fpt: '*'
   ghec: '*'

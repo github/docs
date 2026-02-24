@@ -22,7 +22,7 @@ These sections consider some of the steps an attacker can take if they're able t
 
 ### Accessing secrets
 
-Workflows triggered from a forked repository using the `pull_request` event have read-only permissions and have no access to secrets. However, these permissions differ for various event triggers such as `issue_comment`, `issues`, `push` and `pull_request` from a branch within the repository, where the attacker could attempt to steal repository secrets or use the write permission of the job's [`GITHUB_TOKEN`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token).
+Workflows triggered from a forked repository using the `pull_request` event have read-only permissions and have no access to secrets. However, these permissions differ for various event triggers such as `issue_comment`, `issues`, `push` and `pull_request` from a branch within the repository, where the attacker could attempt to steal repository secrets or use the write permission of the job's [`GITHUB_TOKEN`](/actions/concepts/security/github_token).
 
 * If the secret or token is set to an environment variable, it can be directly accessed through the environment using `printenv`.
 * If the secret is used directly in an expression, the generated shell script is stored on-disk and is accessible.
@@ -50,7 +50,7 @@ It is possible for an attacker to steal a job's `GITHUB_TOKEN`. The {% data vari
 
 ### Modifying the contents of a repository
 
-The attacker server can use the {% data variables.product.github %} API to [modify repository content](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token), including releases, if the assigned permissions of `GITHUB_TOKEN` [are not restricted](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token).
+The attacker server can use the {% data variables.product.github %} API to [modify repository content](/actions/reference/workflows-and-actions/workflow-syntax#permissions), including releases, if the assigned permissions of `GITHUB_TOKEN` [are not restricted](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token).
 
 ### Cross-repository access
 

@@ -17,7 +17,7 @@ category:
   - Manage Copilot for a team
 ---
 
-When your organization runs a {% data variables.product.prodname_copilot_short %} trial, the key to success is understanding how teams adopt and use {% data variables.product.prodname_copilot_short %}.
+When you run a {% data variables.product.prodname_copilot_short %} trial, the key to success is understanding how teams adopt and use {% data variables.product.prodname_copilot_short %}.
 By combining insights from the {% data variables.product.prodname_copilot_short %} usage metrics dashboard and API, you can assess early results, identify enablement needs, and decide whether to expand rollout.
 
 This tutorial shows you how to:
@@ -31,8 +31,7 @@ This tutorial shows you how to:
 
 ## Step 1: Define your trial goals
 
-Before analyzing metrics, decide what outcomes will define a successful trial for your organization.
-Setting clear goals makes it easier to interpret results and communicate value to stakeholders.
+Before analyzing metrics, decide what outcomes will define a successful trial for your organization. Setting clear goals makes it easier to interpret results and communicate value to stakeholders.
 
 | Example goal | What success looks like | Related metrics |
 |:--|:--|:--|
@@ -43,13 +42,9 @@ Setting clear goals makes it easier to interpret results and communicate value t
 
 ## Step 2: View adoption and engagement metrics in the dashboard
 
-> [!NOTE]
-> * The {% data variables.product.prodname_copilot_short %} usage metrics dashboard reports data at the enterprise level.
-> * Organization-level metrics are available through the {% data variables.product.prodname_copilot_short %} usage metrics APIs and exports.
-
 {% data reusables.copilot.access-copilot-metrics-dashboard %}
 
-The dashboard shows 28 days of aggregated IDE telemetry data for all licensed users in your enterprise. Focus on these **key metrics** during your trial:
+The dashboard shows 28 days of aggregated IDE telemetry data for all licensed users. Focus on these **key metrics** during your trial:
 
 | Metric | What it shows | Why it matters |
 |:--|:--|:--|
@@ -122,7 +117,7 @@ To automate your reporting, you can set up a scheduled job to call the API at re
 
 ## Step 6: Decide whether to expand rollout
 
-Use your findings from the dashboard and API data to make an informed decision about expanding {% data variables.product.prodname_copilot_short %} usage across your organization.
+Use your findings from the dashboard and API data to make an informed decision about expanding {% data variables.product.prodname_copilot_short %} usage.
 
 | Decision area | Questions to ask | Supporting metrics |
 |:--|:--|:--|
@@ -135,4 +130,4 @@ Document your findings and share them with stakeholders to inform the next phase
 
 ## Next steps
 
-Now that you know how to measure the success of your {% data variables.product.prodname_copilot_short %} trial, you can continue to monitor adoption and engagement as you expand usage across your organization. To learn more about driving adoption and enabling developers, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/enable-developers/drive-adoption).
+Now that you know how to measure the success of your {% data variables.product.prodname_copilot_short %} trial, you can continue to monitor adoption and engagement as you expand usage. To learn more about driving adoption and enabling developers, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/enable-developers/drive-adoption).

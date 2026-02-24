@@ -104,6 +104,7 @@ Here are some common use cases and examples for each type of custom instructions
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/agents/copilot-memory)
+* [AUTOTITLE](/copilot/reference/customization-cheat-sheet)
 
 {% endwebui %}
 
@@ -191,6 +192,7 @@ For information on how to enable, create, and use prompt files, see [AUTOTITLE](
 
 * [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
 * [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
+* [AUTOTITLE](/copilot/reference/customization-cheat-sheet)
 
 {% endvscode %}
 
@@ -287,6 +289,7 @@ For information on how to create and use prompt files, see [AUTOTITLE](/copilot/
 ## Next steps
 
 * [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+* [AUTOTITLE](/copilot/reference/customization-cheat-sheet)
 
 {% endvisualstudio %}
 
@@ -390,6 +393,7 @@ For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customi
 
 * [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
 * [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
+* [AUTOTITLE](/copilot/reference/customization-cheat-sheet)
 
 {% endjetbrains %}
 
@@ -435,6 +439,7 @@ For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customi
 
 * [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
 * [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
+* [AUTOTITLE](/copilot/reference/customization-cheat-sheet)
 
 {% endxcode %}
 
@@ -481,6 +486,7 @@ For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customi
 
 * [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
 * [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
+* [AUTOTITLE](/copilot/reference/customization-cheat-sheet)
 
 {% endeclipse %}
 

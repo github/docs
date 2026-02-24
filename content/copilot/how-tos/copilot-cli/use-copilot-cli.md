@@ -13,7 +13,8 @@ topics:
   - CLI
 contentType: how-tos
 category:
-  - Author and optimize with Copilot
+  - Author and optimize with Copilot # Copilot discovery page
+  - Build with Copilot CLI # Copilot CLI bespoke page
 ---
 
 The command-line interface (CLI) for {% data variables.product.prodname_copilot %} allows you to use {% data variables.product.prodname_copilot_short %} directly from your terminal. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).
@@ -77,40 +78,6 @@ Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot
 
    When you reject a tool permission request, you can also give {% data variables.product.prodname_copilot_short %} inline feedback about the rejection so it can adapt its approach without stopping entirely.
 
-## Permissions
-
-{% data variables.copilot.copilot_cli_short %} uses a permissions system to control access to paths and URLs. At times, path and URL permission checks utilize heuristic-based detection, which has limitations to be aware of.
-
-### Path permissions
-
-Path permissions control which directories and files {% data variables.product.prodname_copilot_short %} can access. By default, {% data variables.copilot.copilot_cli_short %} can access the current working directory, its subdirectories, and the system temp directory.
-
-Path permissions apply to shell commands, file operations (create, edit, view), and search tools (such as `grep` and glob patterns). For shell commands, paths are heuristically extracted by tokenizing command text and identifying tokens that look like paths.
-
-> [!WARNING]
-> Path detection for shell commands has limitations:
->
-> * Paths embedded in complex shell constructs may not be detected.
-> * Only a specific set of environment variables are expanded (`HOME`, `TMPDIR`, `PWD`, and similar). Custom variables like `$MY_PROJECT_DIR` are not expanded and may not be validated correctly.
-> * Symlinks are resolved for existing files, but not for files being created.
-
-To disable path verification, use the `--allow-all-paths` flag when starting {% data variables.copilot.copilot_cli_short %}.
-
-### URL permissions
-
-URL permissions control which external URLs {% data variables.product.prodname_copilot_short %} can access. By default, all URLs require approval before access is granted.
-
-URL permissions apply to the `web_fetch` tool and a curated list of shell commands that access the network (such as `curl`, `wget`, and `fetch`). For shell commands, URLs are extracted using regex patterns.
-
-> [!WARNING]
-> URL detection for shell commands has limitations:
->
-> * URLs in file contents, config files, or environment variables read by commands are not detected.
-> * Obfuscated URLs (such as split strings or escape sequences) may not be detected.
-> * HTTP and HTTPS are treated as different protocols and require separate approval.
-
-To disable URL verification, use the `--allow-all-urls` flag. To pre-approve specific domains, use `--allow-url <domain>` (for example, `--allow-url github.com`).
-
 ## Tips
 
 Optimize your experience with {% data variables.copilot.copilot_cli_short %} with the following tips.
@@ -156,6 +123,17 @@ You can prepend your input with `!` to directly run shell commands, without maki
 ```shell
 !git clone https://github.com/github/copilot-cli
 ```
+
+### Get {% data variables.product.prodname_copilot_short %} to work autonomously
+
+You can tell {% data variables.product.prodname_copilot_short %} to use its best judgment to complete a task autonomously, rather than the CLI prompting you for input at each decision point within a task. You do this by using the CLI's autopilot mode.
+
+There are two ways to use autopilot mode:
+
+* **Interactively:** In an interactive session, press <kbd>Shift</kbd>+<kbd>Tab</kbd> until you see "autopilot" in the status bar. If prompted to choose permissions for autopilot mode, allow full permissions, then enter your prompt.
+* **Programmatically:** Pass the CLI a prompt directly in a command, and include the `--autopilot` option. For example, to use autopilot mode with full permissions, restricting it to 10 continuations, enter `{% data reusables.cli.autopilot-programmatic-prompt %}`.
+
+For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot).
 
 ### Delegate tasks to {% data variables.copilot.copilot_coding_agent %}
 

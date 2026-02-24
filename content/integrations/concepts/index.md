@@ -1,7 +1,7 @@
 ---
 title: Concepts for GitHub integrations
 shortTitle: Concepts
-intro: Learn the core concepts that you'll need to understand {% data variables.product.github %} integrations.
+intro: Learn the core concepts that you'll need to understand GitHub integrations.
 versions:
   fpt: '*'
   ghes: '*'

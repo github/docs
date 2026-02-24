@@ -54,9 +54,9 @@ dependabot_alerts:
     - >-
       /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/managing-pull-requests-for-dependency-updates
     - >-
-      /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/troubleshooting-the-detection-of-vulnerable-dependencies
+      /code-security/reference/supply-chain-security/troubleshoot-dependabot/vulnerable-dependency-detection
     - >-
-      /code-security/reference/supply-chain-security/dependabot-errors
+      /code-security/reference/supply-chain-security/troubleshoot-dependabot/dependabot-errors
 dependabot_security_updates:
   title: Get pull requests to update your vulnerable dependencies
   description: >-
@@ -74,7 +74,7 @@ dependabot_security_updates:
     - >-
       /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/managing-pull-requests-for-dependency-updates
     - >-
-      /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/troubleshooting-the-detection-of-vulnerable-dependencies
+      /code-security/reference/supply-chain-security/troubleshoot-dependabot/vulnerable-dependency-detection
 dependency_version_updates:
   title: Keep your dependencies up-to-date
   description: >-
@@ -104,7 +104,7 @@ dependency_version_updates:
     - >-
       /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/managing-pull-requests-for-dependency-updates
     - >-
-      /code-security/reference/supply-chain-security/dependabot-errors
+      /code-security/reference/supply-chain-security/troubleshoot-dependabot/dependabot-errors
 secret_scanning:
   title: Scan for secrets
   description: >-
@@ -197,7 +197,7 @@ code_security_actions:
       /code-security/tutorials/customize-code-scanning/running-codeql-code-scanning-in-a-container
     - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors
     - >-
-      /code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/about-the-tool-status-page
+      /code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/use-the-tools-status-page-for-code-scanning
 code_security_integration:
   title: Integrate with code scanning
   description: Upload code analysis results from third-party systems to GitHub using SARIF.

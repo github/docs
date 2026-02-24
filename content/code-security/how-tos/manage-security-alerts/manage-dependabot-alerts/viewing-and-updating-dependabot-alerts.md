@@ -62,12 +62,17 @@ By default, alerts are sorted by **Most important**, which helps you prioritize 
 
    ![Screenshot showing the "Tags" section in the alert details page.](/assets/images/help/repository/dependabot-alerts-tags-section.png)
 
+{% ifversion dependabot-alerts-assignees %}
+1. On the right panel,  select an assignee by using the **Assignees** dropdown list. This clearly communicates who is responsible for triaging the alert so that no effort is wasted on repetitive analysis without worrying that alerts might fall through the cracks.
+{% endif %}
+
 1. Optionally, to suggest an improvement to the related security advisory, on the right-hand side of the alert details page, click **Suggest improvements for this advisory on the {% data variables.product.prodname_advisory_database %}**. See [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database).
 
 ### Tips for prioritizing alerts
 
 * Use the **Most important** sort order to focus on alerts with the highest potential impact.
-* Prioritize alerts that affect production dependencies over development dependencies.
+* Prioritize alerts that affect production dependencies over development dependencies.{% ifversion dependabot-alerts-assignees %}
+* Use the **Assignees** feature to clarify who is responsible for addressing each alert, so your team can track and remediate vulnerabilities more effectively.{% endif %}
 * Use {% data variables.dependabot.auto_triage_rules %} to automatically prioritize or manage alerts. See [AUTOTITLE](/code-security/concepts/supply-chain-security/about-dependabot-auto-triage-rules).
 
 For more information about supported ecosystems and manifest files for dependency scope, see [AUTOTITLE](/code-security/reference/supply-chain-security/supported-ecosystems-and-manifests-for-dependency-scope).

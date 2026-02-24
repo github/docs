@@ -2959,7 +2959,7 @@
 - provider: Mapbox
   supportedSecret: Mapbox Secret Access Token
   secretType: mapbox_secret_access_token
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true

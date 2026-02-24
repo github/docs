@@ -31,7 +31,7 @@ To get a wider view of adoption, you can combine dashboard insights with qualita
 
 ## Prerequisite
 
-"{% data variables.product.prodname_copilot_short %} usage metrics" must be enabled on the AI control page. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies#defining-policies-for-your-enterprise).
+{% data reusables.copilot.copilot-metrics-dashboard-prereq %}
 
 ## Step 1: Access the usage metrics dashboard
 

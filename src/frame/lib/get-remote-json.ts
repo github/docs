@@ -7,9 +7,7 @@ import statsd from '@/observability/lib/statsd'
 
 // The only reason this is exported is for the sake of the unit tests'
 // ability to test in-memory miss after purging this with a mutation
-// Using any type for cache values because this function can fetch any JSON structure
-// The returned JSON content structure is unknown until runtime
-export const cache = new Map<string, any>()
+export const cache = new Map<string, unknown>()
 
 const inProd = process.env.NODE_ENV === 'production'
 
@@ -32,12 +30,10 @@ interface GetRemoteJSONConfig {
 //  1. Is it in memory cache?
 //  2. No, is it on disk?
 //  3. No, download from the internet then store responses in memory and disk
-// Using any return type because this function fetches arbitrary JSON from remote URLs
-// The JSON structure varies depending on the URL and cannot be known at compile time
 export default async function getRemoteJSON(
   url: string,
   config?: GetRemoteJSONConfig,
-): Promise<any> {
+): Promise<unknown> {
   // We could get fancy and make the cache key depend on the `config` too
   // given that this is A) only used for archived enterprise stuff,
   // and B) the config is only applicable on cache miss when doing the `got()`.

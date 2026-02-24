@@ -101,18 +101,24 @@ export function flattenTocItems(
 ): LinkData[] {
   const { excludeParents = true } = options
   const result: LinkData[] = []
+  const seen = new Set<string>()
 
   function recurse(items: TocItem[]) {
     for (const item of items) {
       const hasChildren = item.childTocItems && item.childTocItems.length > 0
 
       // Include this item if it's a leaf or if we're including parents
+      // Deduplicate by href - needed when a page lists both individual
+      // articles and their parent group as children (e.g., bespoke landing pages)
       if (!hasChildren || !excludeParents) {
-        result.push({
-          href: item.href,
-          title: item.title,
-          intro: item.intro,
-        })
+        if (!seen.has(item.href)) {
+          seen.add(item.href)
+          result.push({
+            href: item.href,
+            title: item.title,
+            intro: item.intro,
+          })
+        }
       }
 
       // Recurse into children

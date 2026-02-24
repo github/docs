@@ -6,6 +6,9 @@ versions:
   feature: copilot
 topics:
   - Copilot
+category:
+  - Configure Copilot # Copilot discovery page
+  - Configure Copilot CLI # Copilot CLI bespoke page
 redirect_from:
   - /copilot/how-tos/copilot-cli/add-repository-instructions
   - /copilot/how-tos/copilot-cli/add-custom-instructions

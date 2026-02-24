@@ -10,7 +10,6 @@ contentType: how-tos
 redirect_from:
   - /code-security/dependabot/troubleshooting-dependabot
 children:
-  - /troubleshooting-the-detection-of-vulnerable-dependencies
   - /dependabot-updates-stopped
   - /troubleshooting-the-dependency-graph
   - /troubleshooting-dependabot-on-github-actions

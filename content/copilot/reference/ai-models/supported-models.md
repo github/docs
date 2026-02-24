@@ -92,7 +92,7 @@ The following table shows which AI models are available in each {% data variable
 
 ## Model multipliers
 
-> [!NOTE] Promotional pricing for {% data variables.copilot.copilot_claude_opus_46_fast %} is available from February 7, 2026 through February 16, 2026. During this period, {% data variables.copilot.copilot_claude_opus_46_fast %} uses a 9x premium request multiplier. 
+{% data reusables.copilot.sonnet-46-model-multiplier-note %}
 
 Each model has a premium request multiplier, based on its complexity and resource usage. If you are on a paid {% data variables.product.prodname_copilot_short %} plan, your premium request allowance is deducted according to this multiplier.
 

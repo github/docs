@@ -16,7 +16,22 @@ contentType: concepts
 
 ## About {% data variables.product.prodname_codeql %} packs
 
-{% data variables.product.prodname_codeql %} packs are used to create, share, depend on, and run {% data variables.product.prodname_codeql %} queries and libraries. {% data variables.product.prodname_codeql %} packs contain queries, library files, query suites, and metadata. You can customize your {% data variables.product.prodname_codeql %} analysis by downloading packs created by others and running them on your codebase.
+{% data variables.product.prodname_codeql %} packs are used to create, share, depend on, and run {% data variables.product.prodname_codeql %} queries and libraries. You can customize your {% data variables.product.prodname_codeql %} analysis by downloading packs created by others and running them on your codebase.
+
+Each {% data variables.product.prodname_codeql %} pack requires a `qlpack.yml` file in its root directory that specifies:
+
+* How to compile the queries
+* Dependencies on other {% data variables.product.prodname_codeql %} packs and libraries
+* Query suite definitions
+
+For more information about `qlpack.yml` properties, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#codeqlpack-yml-properties).
+
+Additionally, a {% data variables.product.prodname_codeql %} pack can contain:
+
+* Custom queries (`.ql` files)
+* Library files
+* Query suites
+* Metadata
 
 The {% data variables.product.prodname_codeql_cli %} bundle includes queries that are maintained by {% data variables.product.company_short %} experts, security researchers, and community contributors. If you want to run queries developed by other organizations, {% data variables.product.prodname_codeql %} query packs provide an efficient and reliable way to download and run queries, while model packs ({% data variables.release-phases.public_preview %}) can be used to expand {% data variables.product.prodname_code_scanning %} analysis to recognize libraries and frameworks that are not supported by default.
 
@@ -47,4 +62,13 @@ For more information about compatibility between published query packs and diffe
 
 You can also use the {% data variables.product.prodname_codeql_cli %} to create your own {% data variables.product.prodname_codeql %} packs, add dependencies to packs, and install or update dependencies.
 
-You can publish {% data variables.product.prodname_codeql %} packs that you have created, using the {% data variables.product.prodname_codeql_cli %}. For more information on publishing and downloading {% data variables.product.prodname_codeql %} packs, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs).
+## Publishing and sharing {% data variables.product.prodname_codeql %} packs
+
+You can share custom queries with the broader {% data variables.product.prodname_codeql %} community by:
+
+* Publishing to {% data variables.product.prodname_registry %}: Make your pack publicly available for other users to discover and use.
+* Contributing to the {% data variables.product.prodname_codeql %} repository: Submit queries that would benefit the wider community by opening a pull request to the official repository.
+
+For more information about publishing and downloading {% data variables.product.prodname_codeql %} packs, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs).
+
+For information about contributing to {% data variables.product.prodname_codeql %}, see [Contributing to {% data variables.product.prodname_codeql %}](https://github.com/github/codeql/blob/main/CONTRIBUTING.md).
