@@ -3,9 +3,8 @@ title: Testing dev container configuration changes on a prebuild-enabled branch
 shortTitle: Test dev container changes
 allowTitleToDifferFromFilename: true
 intro: 'When you change the dev container configuration for a branch that''s enabled for prebuilds, you should test your changes in a codespace.'
-versions:
-  fpt: '*'
-  ghec: '*'
+versions: Cry miini 
+  
 type: how_to
 topics:
   - Codespaces
