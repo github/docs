@@ -13,7 +13,7 @@
 
 - name: 'Claude Opus 4.1'
   retirement_date: '2026-02-17'
-  suggested_alternative: 'Claude Opus 4.5'
+  suggested_alternative: 'Claude Opus 4.6'
 
 - name: 'GPT-5'
   retirement_date: '2026-02-17'
@@ -21,7 +21,7 @@
 
 - name: 'GPT-5-Codex'
   retirement_date: '2026-02-17'
-  suggested_alternative: 'GPT-5.1-Codex'
+  suggested_alternative: 'GPT-5.2-Codex'
 
 - name: 'Claude Sonnet 3.5'
   retirement_date: '2025-11-06'
@@ -29,15 +29,15 @@
 
 - name: 'Claude Opus 4'
   retirement_date: '2025-10-23'
-  suggested_alternative: 'Claude Opus 4.1'
+  suggested_alternative: 'Claude Opus 4.6'
 
 - name: 'Claude Sonnet 3.7'
   retirement_date: '2025-10-23'
-  suggested_alternative: 'Claude Sonnet 4'
+  suggested_alternative: 'Claude Sonnet 4.6'
 
 - name: 'Claude Sonnet 3.7 Thinking'
   retirement_date: '2025-10-23'
-  suggested_alternative: 'Claude Sonnet 4'
+  suggested_alternative: 'Claude Sonnet 4.6'
 
 - name: 'Gemini 2.0 Flash'
   retirement_date: '2025-10-23'
@@ -49,7 +49,7 @@
 
 - name: 'o3'
   retirement_date: '2025-10-23'
-  suggested_alternative: 'GPT-5'
+  suggested_alternative: 'GPT-5.2'
 
 - name: 'o3-mini'
   retirement_date: '2025-10-23'

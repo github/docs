@@ -67,6 +67,18 @@ Having {% data variables.copilot.copilot_coding_agent %} as an additional coding
 
 You can create specialized {% data variables.copilot.custom_agents_short %} for different tasks. For example, you might create a {% data variables.copilot.copilot_custom_agent_short %} specialized for frontend development that focuses on React components and styling, a documentation agent that excels at writing and updating technical documentation, or a testing agent that specializes in generating comprehensive unit tests. Each {% data variables.copilot.copilot_custom_agent_short %} can be tailored with specific prompts and tools suited to its particular task.
 
+## Measuring pull request outcomes for {% data variables.copilot.copilot_coding_agent %}
+
+Enterprise administrators can use {% data variables.product.prodname_copilot_short %} usage metrics to analyze pull request outcomes for pull requests created by {% data variables.copilot.copilot_coding_agent %}.
+
+The enterprise-level {% data variables.product.prodname_copilot_short %} usage metrics API includes pull request lifecycle metrics such as:
+
+* The total number of pull requests created and merged
+* The number of pull requests created by {% data variables.copilot.copilot_coding_agent %} that have been merged
+* Median time to merge for merged pull requests, including pull requests created by {% data variables.copilot.copilot_coding_agent %}
+
+These metrics can help you track adoption of {% data variables.copilot.copilot_coding_agent %} and monitor changes in pull request throughput and time to merge over time. See [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics).
+
 ## Integrating {% data variables.copilot.copilot_coding_agent %} with third-party tools
 
 You can also invoke {% data variables.copilot.copilot_coding_agent %} from external tools, allowing you to assign tasks to {% data variables.product.prodname_copilot_short %}, provide context, and open pull requests without leaving your workflow. See [AUTOTITLE](/copilot/concepts/tools/about-copilot-integrations)

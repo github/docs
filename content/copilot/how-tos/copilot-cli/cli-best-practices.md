@@ -9,8 +9,9 @@ topics:
   - Copilot
 contentType: get-started
 category:
-  - Learn about Copilot
-  - Author and optimize with Copilot
+  - Build with Copilot CLI # Copilot CLI bespoke page
+  - Copilot in the CLI # Copilot CLI bespoke page
+  - Author and optimize with Copilot # Copilot discovery page
 ---
 
 ## Introduction

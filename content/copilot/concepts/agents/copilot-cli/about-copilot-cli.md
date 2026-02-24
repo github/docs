@@ -10,7 +10,8 @@ topics:
   - Copilot
 contentType: concepts
 category:
-  - Learn about Copilot
+  - Learn about Copilot # Copilot discovery page
+  - Learn about Copilot CLI # Copilot CLI bespoke page
 redirect_from:
   - /copilot/concepts/agents/about-copilot-cli
 ---

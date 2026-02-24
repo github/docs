@@ -5,7 +5,8 @@ intro: 'Find commands and configuration details for CLI plugins.'
 versions:
   feature: copilot
 category:
-  - Author and optimize with Copilot
+  - Author and optimize with Copilot # Copilot discovery page
+  - Configure Copilot CLI # Copilot CLI bespoke page
 topics:
   - Copilot
 contentType: reference
@@ -131,7 +132,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 | `hooks`       | string \| object   | No       | Path to hooks config or inline hooks object. |
 | `mcpServers`  | string \| object   | No       | Path to MCP config or inline server definitions. |
 | `lspServers`  | string \| object   | No       | Path to LSP config or inline server definitions. |
-| `strict`      | boolean            | No       | If false, plugin doesn't need its own `plugin.json`. Default: true. |
+| `strict`      | boolean            | No       | When `true` (the default), plugins must conform to the full schema and validation rules. When `false`, relaxed validation is used, allowing more flexibility—especially for direct installs or legacy plugins. |
 
 ## File locations
 

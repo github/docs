@@ -66355,6 +66355,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasPullRequestsEnabled",
+          "description": "<p>Indicates if the repository has the pull requests feature enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasSponsorshipsEnabled",
           "description": "<p>Indicates if the repository displays a Sponsor button for financial contributions.</p>",
           "type": "Boolean!",
@@ -67678,6 +67686,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "pullRequestCreationPolicy",
+          "description": "<p>The policy controlling who can create pull requests in this repository.</p>",
+          "type": "PullRequestCreationPolicy",
+          "id": "pullrequestcreationpolicy",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestcreationpolicy"
         },
         {
           "name": "pullRequestTemplates",
@@ -86737,6 +86753,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasPullRequestsEnabled",
+          "description": "<p>Indicates if the repository has the pull requests feature enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasSponsorshipsEnabled",
           "description": "<p>Indicates if the repository displays a Sponsor button for financial contributions.</p>",
           "type": "Boolean!",
@@ -86871,6 +86895,14 @@
           "id": "repositoryowner",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#repositoryowner"
+        },
+        {
+          "name": "pullRequestCreationPolicy",
+          "description": "<p>The policy controlling who can create pull requests in this repository.</p>",
+          "type": "PullRequestCreationPolicy",
+          "id": "pullrequestcreationpolicy",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestcreationpolicy"
         },
         {
           "name": "pushedAt",
@@ -89931,6 +89963,14 @@
           "description": "<p>Represents a comment on an Issue.</p>"
         },
         {
+          "name": "ISSUE_COMMENT_PINNED_EVENT",
+          "description": "<p>Represents a<code>issue_comment_pinned</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT_UNPINNED_EVENT",
+          "description": "<p>Represents a<code>issue_comment_unpinned</code>event on a given issue.</p>"
+        },
+        {
           "name": "ISSUE_FIELD_ADDED_EVENT",
           "description": "<p>Represents a<code>issue_field_added</code>event on a given issue.</p>"
         },
@@ -91819,6 +91859,23 @@
       ]
     },
     {
+      "name": "PullRequestCreationPolicy",
+      "kind": "enums",
+      "id": "pullrequestcreationpolicy",
+      "href": "/graphql/reference/enums#pullrequestcreationpolicy",
+      "description": "<p>The policy controlling who can create pull requests in a repository.</p>",
+      "values": [
+        {
+          "name": "ALL",
+          "description": "<p>Anyone can create pull requests.</p>"
+        },
+        {
+          "name": "COLLABORATORS_ONLY",
+          "description": "<p>Only collaborators can create pull requests.</p>"
+        }
+      ]
+    },
+    {
       "name": "PullRequestMergeMethod",
       "kind": "enums",
       "id": "pullrequestmergemethod",
@@ -92124,6 +92181,14 @@
         {
           "name": "ISSUE_COMMENT",
           "description": "<p>Represents a comment on an Issue.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT_PINNED_EVENT",
+          "description": "<p>Represents a<code>issue_comment_pinned</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT_UNPINNED_EVENT",
+          "description": "<p>Represents a<code>issue_comment_unpinned</code>event on a given issue.</p>"
         },
         {
           "name": "ISSUE_FIELD_ADDED_EVENT",
@@ -111716,6 +111781,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasPullRequestsEnabled",
+          "description": "<p>Indicates if the repository should have the pull requests feature enabled.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasSponsorshipsEnabled",
           "description": "<p>Indicates if the repository displays a Sponsor button for financial contributions.</p>",
           "type": "Boolean",
@@ -111746,6 +111819,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pullRequestCreationPolicy",
+          "description": "<p>The policy controlling who can create pull requests in this repository.</p>",
+          "type": "PullRequestCreationPolicy",
+          "id": "pullrequestcreationpolicy",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestcreationpolicy"
         },
         {
           "name": "repositoryId",

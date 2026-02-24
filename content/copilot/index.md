@@ -33,4 +33,5 @@ includedCategories:
   - Track Copilot usage
   - Troubleshooting Copilot
   - Responsible use
+  - Copilot in the CLI
 ---

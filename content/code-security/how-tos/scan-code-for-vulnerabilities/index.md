@@ -14,5 +14,5 @@ children:
   - /scan-from-the-command-line
   - /scan-from-vs-code
   - /integrate-with-existing-tools
-  - /troubleshooting
 ---
+

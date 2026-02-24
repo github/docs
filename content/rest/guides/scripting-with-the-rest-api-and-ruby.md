@@ -67,7 +67,7 @@ octokit = Octokit::Client.new(bearer_token: app.create_app_installation.access_t
 
 ### Authenticating in {% data variables.product.prodname_actions %}
 
-If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information about `GITHUB_TOKEN`, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token).
+If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information about `GITHUB_TOKEN`, see [AUTOTITLE](/actions/concepts/security/github_token).
 
 If your workflow needs to access resources outside of the workflow's repository, then you will not be able to use `GITHUB_TOKEN`. In that case, store your credentials as a secret and replace `GITHUB_TOKEN` in the examples below with the name of your secret. For more information about secrets, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 

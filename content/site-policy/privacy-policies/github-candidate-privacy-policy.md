@@ -54,7 +54,7 @@ Your privacy is important to GitHub (“we”, “us”, “our” or “GitHub�
 
 Please note that this privacy notice applies to the handling of your personal data as a candidate.
 
-This notice does not cover your use of GitHub consumer products as a consumer, or outside of your candidacy with GitHub. GitHub consumer products may include services, websites, apps, software, servers, and devices. To learn more about GitHub’s data collection practices that cover your use of GitHub products as a consumer, please read our [GitHub Privacy Statement](https://site-policy/privacy-policies/github-general-privacy-statement).
+This notice does not cover your use of GitHub consumer products as a consumer, or outside of your candidacy with GitHub. GitHub consumer products may include services, websites, apps, software, servers, and devices. To learn more about GitHub’s data collection practices that cover your use of GitHub products as a consumer, please read our [GitHub Privacy Statement](/site-policy/privacy-policies/github-general-privacy-statement).
 
 This notice is not intended and shall not be read to create any express or implied promise or contract for employment, for any benefit, or for specific treatment in specific situations. Nothing in this notice should be construed to interfere with GitHub’s ability to process candidate data for purposes of complying with our legal obligations, or for investigating alleged misconduct or violations of company policy or law, subject to compliance with local legal requirements.
 

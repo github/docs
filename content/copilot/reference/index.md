@@ -7,7 +7,8 @@ versions:
 topics:
   - Copilot
 children:
-  - /cheat-sheet
+  - /chat-cheat-sheet
+  - /customization-cheat-sheet
   - /ai-models
   - /copilot-feature-matrix
   - /keyboard-shortcuts

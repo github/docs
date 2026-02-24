@@ -18,15 +18,13 @@ category:
   - Track Copilot usage
 ---
 
->[!NOTE] The {% data variables.product.prodname_copilot_short %} usage metrics dashboard is currently in {% data variables.release-phases.public_preview %} and subject to change.
+{% data reusables.copilot.usage-metrics-preview %}
 
 After you’ve viewed the {% data variables.product.prodname_copilot_short %} usage metrics dashboard, you can use this article to interpret each chart and identify opportunities to increase adoption and engagement.
 
-> [!NOTE] The dashboard reports enterprise-level data. Organization-level views are available through the {% data variables.product.prodname_copilot_short %} usage metrics APIs.
-
 ## Reviewing overall usage trends
 
-Use the main usage charts in the dashboard to understand overall adoption and engagement patterns across your enterprise. These charts help you identify where usage is growing, leveling off, or declining, so you can take action to maintain engagement.
+Use the main usage charts in the dashboard to understand overall adoption and engagement patterns. These charts help you identify where usage is growing, leveling off, or declining, so you can take action to maintain engagement.
 
 | Metric | What it shows | How to interpret it |
 |:--|:--|:--|
@@ -45,11 +43,11 @@ The "Requests per chat mode" and "Agent adoption" charts show how developers are
 
 ## Reviewing model adoption
 
-The "Model usage per day" and "Model usage per chat mode" charts help you understand which AI models are most frequently used in your enterprise.
+The "Model usage per day" and "Model usage per chat mode" charts help you understand which AI models are most frequently used.
 
 | Chart | Description | Insights to derive |
 |:--|:--|:--|
-| Model usage per day | Shows which AI models power {% data variables.copilot.copilot_chat_short %} activity across the enterprise. | Identify whether users are primarily engaging with default models or experimenting with newer ones. |
+| Model usage per day | Shows which AI models power {% data variables.copilot.copilot_chat_short %} activity. | Identify whether users are primarily engaging with default models or experimenting with newer ones. |
 | Model usage per chat mode | Breaks down model usage by chat mode (Ask, Edit, Agent). | Monitor how model adoption evolves as new models are released. |
 
 > [!NOTE]

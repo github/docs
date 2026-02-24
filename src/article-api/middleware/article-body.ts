@@ -4,6 +4,7 @@ import { Context } from '@/types'
 import { ExtendedRequestWithPageInfo } from '@/article-api/types'
 import contextualize from '@/frame/middleware/context/context'
 import features from '@/versions/middleware/features'
+import glossaries from '@/frame/middleware/context/glossaries'
 import { transformerRegistry } from '@/article-api/transformers'
 import { allVersions } from '@/versions/lib/all-versions'
 import type { Page } from '@/types'
@@ -31,6 +32,9 @@ async function createContextualizedRenderingRequest(pathname: string, page: Page
 
   // Load feature flags into context (needed for {% ifversion %} tags)
   features(renderingReq as ExtendedRequestWithPageInfo, {} as Response, () => {})
+
+  // Run page-specific contextualizers (e.g., glossaries middleware)
+  await glossaries(renderingReq as ExtendedRequestWithPageInfo, {} as Response, () => {})
 
   return renderingReq
 }

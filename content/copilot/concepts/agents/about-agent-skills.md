@@ -9,6 +9,7 @@ topics:
   - Copilot
 category:
   - Learn about Copilot
+  - Learn about Copilot CLI
 ---
 
 > [!NOTE]
@@ -33,3 +34,4 @@ To create an agent skill, see:
 
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-skills)
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/create-skills)
+* [AUTOTITLE](/copilot/reference/customization-cheat-sheet)

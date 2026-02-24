@@ -17,26 +17,30 @@ redirect_from:
 
 {% data reusables.secret-scanning.metadata-checks-public-preview %}
 
-## About extended metadata checks
+{% data reusables.secret-scanning.extended-metadata-checks-note %}
 
-Extended metadata checks, often referred to as analyzers in other tools, are a {% data variables.product.prodname_secret_scanning %} feature that you can enable for supported tokens.
+This article shows how you can enable extended metadata checks for individual repositories through repository settings. Alternatively, you can enable them at scale using **security configurations** at the organization or enterprise level. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/creating-a-custom-security-configuration) or [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/creating-a-custom-security-configuration-for-your-enterprise).
 
-When you enable extended metadata checks for tokens, {% data variables.product.prodname_secret_scanning %} provides you with additional information about detected secrets, such as ownership and contact details. This information helps you:
-
-* **Gain deeper insight into detected secrets**: Know who owns a secret.
-* **Improve incident response**: Quickly identify responsible teams or individuals when a secret is leaked.
-* **Enhance compliance**: Ensure secrets align with your organization’s governance and security policies.
-
-This information appears on {% data variables.product.github %}, in the page for the related secret scanning alert, helping you prioritize and remediate exposures more efficiently.
-
-Metadata availability varies depending on the secret type. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#verifying-token-metadata).
-
-## Enabling extended metadata checks
+## Prerequisites
 
 Before enabling metadata checks, you need to ensure that validity checks are enabled for the repository. See [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository#enabling-validity-checks).
 
+## Enabling extended metadata checks
+
+{% ifversion fpt or ghec %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}{% ifversion ghas-products %}
+1. Under "{% data variables.product.prodname_secret_protection %}" and "Validity checks", to the right of "Extended metadata", click **Enable**.{% else %}
+1. Under "{% data variables.product.prodname_secret_protection %}" and "Validity checks", to the right of "Extended metadata", click **Enable**.{% endif %}
+
+{% elsif ghes %}
+
 {% data reusables.secret-scanning.validity-check-enablement %}
 1. Under "{% data variables.product.prodname_secret_protection %}", to the right of "Extended metadata", click **Enable**.
+
+{% endif %}
 
 ## Further reading
 

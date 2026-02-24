@@ -13,10 +13,6 @@
   multiplier_paid: 0.33
   multiplier_free: 1
 
-- name: Claude Opus 4.1
-  multiplier_paid: 10
-  multiplier_free: Not applicable
-
 - name: Claude Opus 4.5
   multiplier_paid: 3
   multiplier_free: Not applicable
@@ -53,6 +49,10 @@
   multiplier_paid: 1
   multiplier_free: Not applicable
 
+- name: Gemini 3.1 Pro
+  multiplier_paid: 1
+  multiplier_free: Not applicable
+
 - name: GPT-4.1
   multiplier_paid: 0
   multiplier_free: 1
@@ -61,17 +61,9 @@
   multiplier_paid: 0
   multiplier_free: 1
 
-- name: GPT-5
-  multiplier_paid: 1
-  multiplier_free: Not applicable
-
 - name: GPT-5 mini
   multiplier_paid: 0
   multiplier_free: 1
-
-- name: GPT-5-Codex
-  multiplier_paid: 1
-  multiplier_free: Not applicable
 
 - name: GPT-5.1
   multiplier_paid: 1

@@ -12,6 +12,7 @@ contentType: concepts
 children:
   - /about-code-scanning-with-codeql
   - /codeql-query-suites
+  - /custom-codeql-queries
   - /about-the-codeql-cli
   - /about-codeql-for-vs-code
   - /about-codeql-workspaces

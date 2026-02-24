@@ -9,7 +9,8 @@ topics:
   - CLI
 contentType: how-tos
 category:
-  - Configure Copilot
+  - Configure Copilot # Copilot discovery page
+  - Configure Copilot CLI # Copilot CLI bespoke page
 ---
 
 {% data reusables.cli.preview-note-cli %}

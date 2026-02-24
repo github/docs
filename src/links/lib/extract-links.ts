@@ -9,6 +9,7 @@ import fs from 'fs'
 import path from 'path'
 
 import { allVersions } from '@/versions/lib/all-versions'
+import { latestStable } from '@/versions/lib/enterprise-server-releases'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import type { Context, Page } from '@/types'
 
@@ -307,22 +308,31 @@ export function checkInternalLink(
 ): { exists: boolean; isRedirect: boolean; redirectTarget?: string } {
   const normalized = normalizeLinkPath(href)
 
+  // Resolve enterprise-server@latest to actual version, mirroring runtime behavior.
+  // Handle both /enterprise-server@latest/... and /en/enterprise-server@latest/...
+  const latestPrefix = '/enterprise-server@latest'
+  const stablePrefix = `/enterprise-server@${latestStable}`
+  const resolved =
+    normalized.startsWith(latestPrefix) || normalized.startsWith(`/en${latestPrefix}`)
+      ? normalized.replace(latestPrefix, stablePrefix)
+      : normalized
+
   // Check if it's a direct page
-  if (pageMap[normalized]) {
+  if (pageMap[resolved]) {
     return { exists: true, isRedirect: false }
   }
 
   // Check if it's a redirect
-  if (redirects[normalized]) {
+  if (redirects[resolved]) {
     return {
       exists: true,
       isRedirect: true,
-      redirectTarget: redirects[normalized],
+      redirectTarget: redirects[resolved],
     }
   }
 
   // Check with /en prefix (FPT pages are stored with language prefix)
-  const withLang = `/en${normalized}`
+  const withLang = `/en${resolved}`
   if (pageMap[withLang]) {
     return { exists: true, isRedirect: false }
   }

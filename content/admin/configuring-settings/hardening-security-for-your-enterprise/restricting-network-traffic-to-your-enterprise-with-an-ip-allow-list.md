@@ -126,6 +126,33 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 1. Optionally, to allow installed {% data variables.product.company_short %} and {% data variables.product.prodname_oauth_apps %} to access your enterprise from any IP address, select **Skip IdP check for applications**.
 1. Click **Save**.
 
+## Restricting access to user-owned resources with the IP allow list
+
+> [!NOTE]
+> User-level IP allow list enforcement is only available for enterprises that use {% data variables.product.prodname_emus %}.
+
+By default, your enterprise's IP allow list does not restrict access to repositories and other resources owned by {% data variables.enterprise.prodname_managed_users %}. You can enable user-level enforcement to extend IP allow list restrictions to user-owned resources, including:
+
+* User-owned repositories and their forks
+* User profile pages
+
+This ensures that all locations where enterprise code may reside—not just organization-owned repositories—are only accessible from allowed IP addresses.
+
+### Enabling user-level enforcement
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+1. Under "IP allow list", select **Enable IP allow list user-level enforcement**.
+1. Click **Save**.
+
+> [!IMPORTANT]
+> Before enabling user-level enforcement, add all IP addresses that your {% data variables.enterprise.prodname_managed_users %} use to connect to the enterprise IP allow list. If a user connects from an IP address that isn’t on the allow list, they won’t be able to access their user-owned resources.
+
+### Disabling user-level enforcement
+
+To stop enforcing the IP allow list on user-owned resources, follow the same steps above and deselect **Enable IP allow list user-level enforcement**, then click **Save**. Access to user-owned resources will no longer be restricted by the IP allow list.
+
 ## Using {% data variables.product.prodname_actions %} with an IP allow list
 
 {% data reusables.actions.ip-allow-list-self-hosted-runners %}

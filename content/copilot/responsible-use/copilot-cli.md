@@ -14,8 +14,9 @@ redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/copilot-in-the-cli
   - /copilot/responsible-use/copilot-in-the-cli
 contentType: rai
-category: 
+category:
   - Responsible use
+  - Learn about Copilot CLI
 ---
 
 {% data reusables.cli.preview-note-cli %}
@@ -34,11 +35,11 @@ The agent works by using a combination of natural language processing and machin
 
 ### Input processing
 
-The input prompt from the user is combined with other relevant, contextual information to form a prompt. That prompt is sent to a large language model for processing. Inputs can take the form of plain natural language, code snippets, or references to files in your terminal.
+Your input is combined with relevant contextual information to form a prompt. That prompt is sent to a large language model for processing. Inputs can take the form of plain natural language, code snippets, or references to files in your terminal.
 
 ### Language model analysis
 
-The prompt is then passed through a large language model, which is a neural network that has been trained on a large body of data. The language model analyzes the input prompt to help the agent reason on the task and leverage necessary tools.
+The prompt is then passed through a large language model, which is a neural network that has been trained on a large body of data. The language model analyzes the input prompt to help the agent reason about the task and use the necessary tools.
 
 ### Response generation
 
@@ -75,7 +76,7 @@ For more information about limitations, see the section [Limitations of {% data 
 
 ### Ensure your tasks are well-scoped
 
-{% data variables.copilot.copilot_cli %} leverages your prompt as key context when generating a pull request. The more clear and well-scoped the prompt you assign to the agent, the better the results you will get. An ideal issue includes:
+{% data variables.copilot.copilot_cli %} leverages your prompt as key context when completing a task. The clearer and more well-scoped the prompt you provide, the better the results you will get. An ideal prompt includes:
 
 * A clear description of the problem to be solved or the work required.
 * Complete acceptance criteria on what a good solution looks like (for example, should there be unit tests?).
@@ -83,7 +84,7 @@ For more information about limitations, see the section [Limitations of {% data 
 
 ### Customize your experience with additional context
 
-{% data variables.copilot.copilot_cli %} leverages your prompt, comments and the repository’s code as context when generating suggested changes. To enhance {% data variables.product.prodname_copilot_short %}’s performance, consider implementing custom {% data variables.product.prodname_copilot_short %} instructions to help the agent better understand your project and how to build, test and validate its changes. For more information, see "Add custom instructions to your repository" in [AUTOTITLE](/copilot/tutorials/coding-agent/get-the-best-results#adding-custom-instructions-to-your-repository).
+{% data variables.copilot.copilot_cli %} leverages your prompt and the repository’s code as context when generating suggested changes. To enhance {% data variables.product.prodname_copilot_short %}’s performance, consider implementing custom {% data variables.product.prodname_copilot_short %} instructions to help the agent better understand your project and how to build, test and validate its changes. For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions).
 
 ### Use {% data variables.copilot.copilot_cli %} as a tool, not a replacement
 
@@ -101,11 +102,13 @@ If you encounter any issues or limitations with {% data variables.copilot.copilo
 
 ### Constraining {% data variables.product.prodname_copilot_short %}’s permissions
 
-By default, {% data variables.product.prodname_copilot_short %} only has access to files and folders in, and below, the directory from which {% data variables.copilot.copilot_cli %} was invoked. Ensure you trust the files in this directory. If {% data variables.product.prodname_copilot_short %} wishes to access files outside the current directory, it will ask for permission. Only grant it permission if you trust the contents of that directory.
+By default, {% data variables.copilot.copilot_cli_short %}:
 
-{% data variables.product.prodname_copilot_short %} will ask for permission before modifying files. Ensure that it is modifying the correct files before granting permission.
+* Only has access to files and folders in, and below, the directory from which {% data variables.copilot.copilot_cli %} was invoked. Ensure you trust the files in this directory. If {% data variables.product.prodname_copilot_short %} wishes to access files outside the current directory, it will ask for permission. Only grant it permission if you trust the contents of that directory.
+* Will ask for permission before modifying files. Ensure that it is modifying the correct files before granting permission.
+* Will ask for permission before executing commands that may be dangerous. Review these commands carefully before giving it permission to run.
 
-{% data variables.product.prodname_copilot_short %} will also ask for permission before executing commands that may be dangerous. Review these commands carefully before giving it permission to run.
+You can grant {% data variables.copilot.copilot_cli_short %} specific permissions, or all permissions, by using the various command line options: for example, `--allow-tool [TOOLS...]`, `--allow-all-tools`, `--allow-all` (or its slash command equivalent `/allow-all` for use in an interactive session). For more information, see [AUTOTITLE](/copilot/reference/cli-command-reference#command-line-options). Typically, when you use {% data variables.copilot.copilot_cli_short %} in autopilot mode, you will grant it full permissions to allow it to complete a task autonomously, without requiring you to approve activity as it works on the task. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot).
 
 For more information about security practices while using {% data variables.copilot.copilot_cli %}, see "Security considerations" in [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli#security-considerations).
 

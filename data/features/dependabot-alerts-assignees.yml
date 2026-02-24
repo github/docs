@@ -1,0 +1,6 @@
+# References:
+# Releases issue #7526 - Dependabot alerts assignees
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.20'

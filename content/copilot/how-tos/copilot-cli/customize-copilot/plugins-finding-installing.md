@@ -8,14 +8,15 @@ versions:
 topics:
   - Copilot
 category:
-  - Configure Copilot
-  - Author and optimize with Copilot
+  - Configure Copilot # Copilot discovery page
+  - Author and optimize with Copilot # Copilot discovery page
+  - Configure Copilot CLI # Copilot CLI bespoke page
 contentType: how-tos
 ---
 
 ## Introduction
 
-Plugins are packages that extend the functionality of {% data variables.copilot.copilot_cli_short %}. You can install a plugin from a marketplace that you have registered with the CLI, from a {% data variables.product.github %} repository, or from a local path.
+Plugins are packages that extend the functionality of {% data variables.copilot.copilot_cli_short %}. You can install a plugin from a marketplace that you have registered with the CLI, from a Git repository, or from a local path.
 
 For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-cli-plugins).
 
@@ -49,12 +50,12 @@ To use the CLI to browse the plugins in one of your registered marketplaces:
 
    ```shell copy
    copilot plugin marketplace browse MARKETPLACE-NAME
-   
+
    ```
 
 ## Installing plugins
 
-Typically, you'll install a plugin from one of your registered marketplaces. However, you can also install a plugin directly from a {% data variables.product.github %} repository, or from a local path.
+Typically, you'll install a plugin from one of your registered marketplaces. However, you can also install a plugin directly from a Git repository, or from a local path.
 
 For information on how to register additional marketplaces, see [Adding and removing plugin marketplaces](#adding-and-removing-plugin-marketplaces).
 
@@ -76,19 +77,36 @@ Alternatively, in an interactive session, enter:
 /plugin install PLUGIN-NAME@MARKETPLACE-NAME
 ```
 
-### Install from {% data variables.product.github %} directly
+### Install directly from an online Git repository
 
-You can install a plugin directly from a {% data variables.product.github %} repository, without first adding a marketplace to your list of registered marketplaces.
+You can install a plugin directly from a repository, rather than doing so using a registered marketplace.
+
+To install a plugin directly from a repository **on {% data variables.product.prodname_dotcom_the_website %}**, enter:
+
+```shell copy
+copilot plugin install OWNER/REPO
+```
+
+To install a plugin from **any online Git repository**, enter:
+
+```shell copy
+copilot plugin install URL-OF-GIT-REPO
+```
+
+For example, `copilot plugin install https://gitlab.com/OWNER/REPO.git`.
+
+> [!IMPORTANT]
+> For these commands to work, the repository must contain a `plugin.json` file in a `.github/plugin` or `.claude-plugin` directory, or at the root of the repository.
+
+To install a plugin directly from a repository on {% data variables.product.prodname_dotcom_the_website %} where the `plugin.json` file is located somewhere other than `.github/plugin`, `.claude-plugin`, or the repository root—for example, if you are installing a plugin directly from a marketplace repository such as [anthropics/claude-code](https://github.com/anthropics/claude-code)—enter:
 
 ```shell copy
 copilot plugin install OWNER/REPO:PATH/TO/PLUGIN
 ```
 
-For example,
+Where `PATH/TO/PLUGIN` is the path from the root of the repository to a directory that contains `plugin.json`, `.github/plugin/plugin.json` or `.claude-plugin/plugin.json`.
 
-```shell copy
-copilot plugin install github/awesome-copilot:plugins/security-best-practices
-```
+For example, `copilot plugin install anthropics/claude-code:plugins/frontend-design`
 
 ### Install from a local path
 
@@ -130,16 +148,16 @@ Alternatively, in an interactive session, enter:
 /plugin marketplace add OWNER/REPO
 ```
 
-If a marketplace is located on the local file system, instead of on {% data variables.product.github %}, use the path to the marketplace directory instead of OWNER/REPO. For example:
+If a marketplace is located on the local file system, instead of on {% data variables.product.prodname_dotcom_the_website %}, use the path to the marketplace directory instead of OWNER/REPO. For example:
 
 ```shell copy
 copilot plugin marketplace add /PATH/TO/MARKETPLACE-DIRECTORY
 ```
 
-If a marketplace is located in a Git repository that is not hosted on {% data variables.product.github %}, use the URL of the Git repository. For example:
+If a marketplace is located in a Git repository that is not hosted on {% data variables.product.prodname_dotcom_the_website %}, use the URL of the Git repository. For example:
 
 ```shell copy
-copilot plugin marketplace add https://gitlab.example.com/team/plugins.git
+copilot plugin marketplace add https://gitlab.com/OWNER/REPO.git
 ```
 
 ## Removing plugin marketplaces
@@ -157,7 +175,8 @@ Or, in an interactive session:
 ```
 
 > [!NOTE]
-> When adding a marketplace you reference the marketplace using the OWNER/REPO of the {% data variables.product.github %} repository that has been configured as a marketplace. When removing a marketplace, however, you reference the name of the marketplace as it appears in your list of registered marketplaces.
+> * When adding a marketplace you reference the marketplace using the OWNER/REPO of the {% data variables.product.github %} repository that has been configured as a marketplace. When removing a marketplace, however, you reference the name of the marketplace as it appears in your list of registered marketplaces.
+> * If you attempt to remove a marketplace that has plugins installed, the command will fail with an error message that lists the plugins that are currently installed from that marketplace. Add the `--force` option to the command to remove the marketplace and uninstall all plugins that were installed from that marketplace.
 
 ## Further reading
 

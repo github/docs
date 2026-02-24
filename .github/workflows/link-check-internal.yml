@@ -1,8 +1,4 @@
-name: Check Internal Links
-
-# Runs weekly (Tuesday) at 16:20 UTC
-# On schedule: checks English free-pro-team and latest enterprise-server
-# On workflow_dispatch: run any version/language combo
+name: 'Link Check: Internal'
 
 on:
   schedule:
@@ -128,6 +124,9 @@ jobs:
 
             # Combine all markdown reports
             echo "# Internal Links Report" > combined-report.md
+            echo "" >> combined-report.md
+            echo "> [!NOTE]" >> combined-report.md
+            echo "> **No action needed right now.** The link checker is being actively worked on and may produce false positives. You can safely ignore this report for now. We'll let you know when it's reliable." >> combined-report.md
             echo "" >> combined-report.md
             echo "Generated: $(date -u +'%Y-%m-%d %H:%M UTC')" >> combined-report.md
             echo "[Action run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> combined-report.md

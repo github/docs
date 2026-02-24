@@ -1,7 +1,4 @@
-name: Check External Links
-
-# Runs weekly (Wednesday) at 16:20 UTC
-# Validates external URLs in content files
+name: 'Link Check: External'
 
 on:
   schedule:
@@ -56,6 +53,15 @@ jobs:
         run: |
           if [ -f "artifacts/external-link-report.md" ]; then
             echo "has_report=true" >> $GITHUB_OUTPUT
+            # Prepend disclaimer banner
+            tmp=$(mktemp)
+            {
+              echo "> [!NOTE]"
+              echo "> **No action needed right now.** The link checker is being actively worked on and may produce false positives. You can safely ignore this report for now. We'll let you know when it's reliable."
+              echo ""
+              cat "artifacts/external-link-report.md"
+            } > "$tmp"
+            mv "$tmp" "artifacts/external-link-report.md"
           else
             echo "has_report=false" >> $GITHUB_OUTPUT
             echo "No broken link report generated - all links valid!"
