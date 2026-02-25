@@ -51,7 +51,7 @@ A {% data variables.product.prodname_github_app %} provides the **identity, perm
 
 ## {% data variables.product.prodname_actions %}
 
-{% data variables.product.prodname_actions %} provide {% data variables.product.github %}’s built-in **runtime** for executing automation logic inside repositories. Workflows run on hosted or self-hosted runners and are ideal for tasks tied to code changes or repository events.
+{% data variables.product.prodname_actions %} provide {% data variables.product.github %}’s built-in **runtime** for executing automation logic inside repositories. Workflows run on {% ifversion ghec %}hosted or {% endif %}self-hosted runners and are ideal for tasks tied to code changes or repository events.
 
 Use {% data variables.product.prodname_actions %} for:
 

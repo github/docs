@@ -8,8 +8,9 @@ versions:
 topics:
   - Copilot
 category:
-  - Configure Copilot
-  - Author and optimize with Copilot
+  - Configure Copilot # Copilot discovery page
+  - Author and optimize with Copilot # Copilot discovery page
+  - Configure Copilot CLI # Copilot CLI bespoke page
 contentType: how-tos
 ---
 

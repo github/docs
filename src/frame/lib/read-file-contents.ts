@@ -6,8 +6,7 @@ import fm from './frontmatter'
 /**
  * Read only the frontmatter from  file
  */
-// Using any type for return value because frontmatter structure is complex and varies
-export default async function fmfromf(filepath: string): Promise<any> {
+export default async function fmfromf(filepath: string): Promise<ReturnType<typeof fm>> {
   let fileContent: string = await fs.readFile(filepath, 'utf8')
 
   fileContent = encodeBracketedParentheses(fileContent)

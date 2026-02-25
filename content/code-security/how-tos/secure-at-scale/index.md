@@ -15,7 +15,7 @@ topics:
   - Dependabot
 contentType: how-tos
 children:
-   - /configure-enterprise-security
-   - /configure-organization-security
-   - /troubleshoot-security-configurations
+  - /configure-enterprise-security
+  - /configure-organization-security
 ---
+

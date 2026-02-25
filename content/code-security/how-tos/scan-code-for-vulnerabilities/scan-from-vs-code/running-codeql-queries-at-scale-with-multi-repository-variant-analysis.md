@@ -14,21 +14,11 @@ redirect_from:
 contentType: how-tos
 ---
 
-## About running {% data variables.product.prodname_codeql %} queries at scale with multi-repository variant analysis
-
 With multi-repository variant analysis (MRVA), you can run {% data variables.product.prodname_codeql %} queries on a list of up to 1,000 repositories on {% data variables.product.github %} from {% data variables.product.prodname_vscode %}.
 
-When you run MRVA against a list of repositories, your query is run against each repository that has a {% data variables.product.prodname_codeql %} database available to analyze. {% data variables.product.github %} creates and stores the latest {% data variables.product.prodname_codeql %} database for the default branch of thousands of public repositories, including every repository that runs {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}.
+## Prerequisites
 
-You need to enable {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %} on {% data variables.product.github %}, using either default setup or advanced setup, before adding your repository to a list for analysis. For information about enabling {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/configuring-default-setup-for-code-scanning).
-
-### How MRVA runs queries against {% data variables.product.prodname_codeql %} databases on {% data variables.product.prodname_dotcom_the_website %}
-
-When you run MRVA, the analysis is run entirely using {% data variables.product.prodname_actions %}. You don't need to create any workflows, but you must specify which repository the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension should use as a controller repository. As the analysis of each repository completes, the results are sent to {% data variables.product.prodname_vscode_shortname %} for you to view.
-
-The {% data variables.product.prodname_codeql %} extension builds a {% data variables.product.prodname_codeql %} pack with your library and any library dependencies. The {% data variables.product.prodname_codeql %} pack and your selected repository list are posted to an API endpoint on {% data variables.product.github %}, which triggers a {% data variables.product.prodname_actions %} dynamic workflow in your controller repository. The workflow spins up multiple parallel jobs to execute the {% data variables.product.prodname_codeql %} query against the repositories in the list, optimizing query execution. As each repository is analyzed, the results are processed and displayed in {% data variables.product.prodname_vscode_shortname %}.
-
-### Prerequisites
+* You need to enable {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %} on {% data variables.product.github %}, using either default setup or advanced setup, before adding your repository to a list for analysis. For information about enabling {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/configuring-default-setup-for-code-scanning).
 
 * You must define a controller repository before you can run your first multi-repository variant analysis.
 

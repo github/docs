@@ -8792,6 +8792,11 @@ input CreateRepositoryCustomPropertyInput {
   regex: String
 
   """
+  Whether this repository custom property requires explicit values.
+  """
+  requireExplicitValues: Boolean
+
+  """
   Whether the custom property is required.
   """
   required: Boolean
@@ -20691,6 +20696,16 @@ enum IssueTimelineItemsItemType {
   Represents a comment on an Issue.
   """
   ISSUE_COMMENT
+
+  """
+  Represents a 'issue_comment_pinned' event on a given issue.
+  """
+  ISSUE_COMMENT_PINNED_EVENT
+
+  """
+  Represents a 'issue_comment_unpinned' event on a given issue.
+  """
+  ISSUE_COMMENT_UNPINNED_EVENT
 
   """
   Represents a 'issue_field_added' event on a given issue.
@@ -43679,6 +43694,16 @@ enum PullRequestTimelineItemsItemType {
   ISSUE_COMMENT
 
   """
+  Represents a 'issue_comment_pinned' event on a given issue.
+  """
+  ISSUE_COMMENT_PINNED_EVENT
+
+  """
+  Represents a 'issue_comment_unpinned' event on a given issue.
+  """
+  ISSUE_COMMENT_UNPINNED_EVENT
+
+  """
   Represents a 'issue_field_added' event on a given issue.
   """
   ISSUE_FIELD_ADDED_EVENT
@@ -52309,6 +52334,11 @@ type RepositoryCustomProperty implements Node {
   The regex pattern that the value of the custom property must match, if the `value_type` is `string`.
   """
   regex: String
+
+  """
+  Whether this repository custom property requires explicit values.
+  """
+  requireExplicitValues: Boolean
 
   """
   Whether the custom property is required.
@@ -66663,6 +66693,11 @@ input UpdateRepositoryCustomPropertyInput {
   The global relay id of the source of the custom property.
   """
   repositoryCustomPropertyId: ID! @possibleTypes(concreteTypes: ["RepositoryCustomProperty"])
+
+  """
+  Whether this repository custom property requires explicit values.
+  """
+  requireExplicitValues: Boolean
 
   """
   Whether the updated custom property is required.

@@ -16,10 +16,10 @@ topics:
   - Dependabot
 contentType: reference
 children:
+  - /security-at-scale
   - /secret-security
   - /code-scanning
   - /supply-chain-security
   - /code-quality
-  - /security-alert-management
   - /permissions
 ---

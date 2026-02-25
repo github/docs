@@ -10,7 +10,8 @@ topics:
   - Copilot
 contentType: concepts
 category:
-  - Learn about Copilot
+  - Learn about Copilot # Copilot discovery page
+  - Learn about Copilot CLI # Copilot CLI bespoke page
 ---
 
 Plugins provide a way to distribute custom CLI functionality. You can use a plugin to add a preconfigured set of capabilities to {% data variables.copilot.copilot_cli_short %}.

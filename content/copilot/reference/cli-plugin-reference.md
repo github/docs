@@ -5,7 +5,8 @@ intro: 'Find commands and configuration details for CLI plugins.'
 versions:
   feature: copilot
 category:
-  - Author and optimize with Copilot
+  - Author and optimize with Copilot # Copilot discovery page
+  - Configure Copilot CLI # Copilot CLI bespoke page
 topics:
   - Copilot
 contentType: reference

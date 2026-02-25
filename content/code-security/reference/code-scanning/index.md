@@ -14,6 +14,7 @@ contentType: reference
 redirect_from:
   - /code-security/code-scanning/reference
 children:
-  - sarif-support-for-code-scanning
+  - sarif-files
   - codeql
+  - troubleshoot-analysis-errors
 ---

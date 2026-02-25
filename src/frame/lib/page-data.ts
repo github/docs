@@ -147,7 +147,7 @@ async function translateTree(
     const read = await readFileContents(fullPath)
     // If it worked, great!
     content = read.content
-    data = read.data
+    data = read.data as Record<string, unknown>
 
     if (!data) {
       // If the file's frontmatter Yaml is entirely broken,
@@ -164,7 +164,7 @@ async function translateTree(
       //
       // If this the case throw error so we can lump this error with
       // how we deal with the file not even being present on disk.
-      throw new FrontmatterParsingError(read.errors)
+      throw new FrontmatterParsingError(JSON.stringify(read.errors))
     }
 
     for (const { property } of read.errors) {
@@ -211,23 +211,27 @@ async function translateTree(
 
   const translatedData = Object.fromEntries(
     translatableFrontmatterKeys.map((key) => {
-      return [key, data[key]]
+      return [key, (data as Record<string, unknown>)[key]]
     }),
   )
 
   // The "content" isn't a frontmatter key
-  translatedData.markdown = correctTranslatedContentStrings(content, enPage.markdown, {
+  translatedData.markdown = correctTranslatedContentStrings(content || '', enPage.markdown, {
     relativePath,
     code: langObj.code,
   })
 
-  translatedData.title = correctTranslatedContentStrings(translatedData.title || '', enPage.title, {
-    relativePath,
-    code: langObj.code,
-  })
+  translatedData.title = correctTranslatedContentStrings(
+    (translatedData.title as string) || '',
+    enPage.title,
+    {
+      relativePath,
+      code: langObj.code,
+    },
+  )
   if (translatedData.shortTitle) {
     translatedData.shortTitle = correctTranslatedContentStrings(
-      translatedData.shortTitle,
+      translatedData.shortTitle as string,
       enPage.shortTitle || '',
       {
         relativePath,
@@ -236,10 +240,14 @@ async function translateTree(
     )
   }
   if (translatedData.intro) {
-    translatedData.intro = correctTranslatedContentStrings(translatedData.intro, enPage.intro, {
-      relativePath,
-      code: langObj.code,
-    })
+    translatedData.intro = correctTranslatedContentStrings(
+      translatedData.intro as string,
+      enPage.intro,
+      {
+        relativePath,
+        code: langObj.code,
+      },
+    )
   }
 
   // Using any to handle the complex object merging for Page constructor

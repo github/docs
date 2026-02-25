@@ -16,6 +16,5 @@ redirect_from:
 children:
   - secure-your-dependencies
   - manage-your-dependency-security
-  - troubleshoot-dependency-security
   - establish-provenance-and-integrity
 ---

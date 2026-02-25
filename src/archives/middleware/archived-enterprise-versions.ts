@@ -39,17 +39,16 @@ type ArchivedRedirects = {
 // These files are huge so lazy-load them. But note that the
 // `readJsonFileLazily()` function will, at import-time, check that
 // the path does exist.
-const archivedRedirects: () => ArchivedRedirects = readCompressedJsonFileFallbackLazily(
+const archivedRedirects = readCompressedJsonFileFallbackLazily(
   './src/redirects/lib/static/archived-redirects-from-213-to-217.json',
-)
+) as () => ArchivedRedirects
 
 type ArchivedFrontmatterURLs = {
   [url: string]: string[]
 }
-const archivedFrontmatterValidURLS: () => ArchivedFrontmatterURLs =
-  readCompressedJsonFileFallbackLazily(
-    './src/redirects/lib/static/archived-frontmatter-valid-urls.json',
-  )
+const archivedFrontmatterValidURLS = readCompressedJsonFileFallbackLazily(
+  './src/redirects/lib/static/archived-frontmatter-valid-urls.json',
+) as () => ArchivedFrontmatterURLs
 
 // Combine all the things you need to make sure the response is
 // aggressively cached.
@@ -121,7 +120,7 @@ export default async function archivedEnterpriseVersions(
       return res.redirect(redirectCode, redirectTo)
     }
 
-    const redirectJson = await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
+    const redirectJson = (await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
       retry: retryConfiguration,
       // This is allowed to be different compared to the other requests
       // we make because downloading the `redirects.json` once is very
@@ -129,7 +128,7 @@ export default async function archivedEnterpriseVersions(
       // And, as of 2021 that `redirects.json` is 10MB so it's more likely
       // to time out.
       timeout: { response: 1000 },
-    })
+    })) as Record<string, string>
     if (!req.context) throw new Error('No context on request')
     const [language, withoutLanguage] = splitPathByLanguage(req.path, req.context.userLanguage)
     const newRedirectTo = redirectJson[withoutLanguage]
@@ -180,7 +179,7 @@ export default async function archivedEnterpriseVersions(
     versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`) &&
     !deprecatedWithFunctionalRedirects.includes(requestedVersion)
   ) {
-    const redirectJson = await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
+    const redirectJson = (await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
       retry: retryConfiguration,
       // This is allowed to be different compared to the other requests
       // we make because downloading the `redirects.json` once is very
@@ -188,7 +187,7 @@ export default async function archivedEnterpriseVersions(
       // And, as of 2021 that `redirects.json` is 10MB so it's more likely
       // to time out.
       timeout: { response: 1000 },
-    })
+    })) as Record<string, string>
 
     // make redirects found via redirects.json redirect with a 301
     if (redirectJson[req.path]) {

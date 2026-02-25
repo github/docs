@@ -54,7 +54,7 @@ export default function handleInvalidQuerystringValues(
           }
           // Some value is not recognized. Redirect to the current URL
           // but with that query string key removed.
-          const sp = new URLSearchParams(query as any)
+          const sp = new URLSearchParams(query as Record<string, string>)
           sp.delete(key)
 
           defaultCacheControl(res)

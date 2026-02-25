@@ -9,7 +9,8 @@ topics:
   - Copilot
 contentType: how-tos
 category:
-  - Configure Copilot
+  - Configure Copilot # Copilot discovery page
+  - Configure Copilot CLI # Copilot CLI bespoke page
 ---
 
 You can download and install {% data variables.copilot.copilot_cli_short %}, and start using it straight away, without any additional configuration. However, you'll find that you can improve {% data variables.product.prodname_copilot_short %}'s responses if you spend a little time providing it with guidelines and context, and giving it access to tools that are relevant to your project. This article introduces the various ways in which you can customize {% data variables.copilot.copilot_cli_short %}.

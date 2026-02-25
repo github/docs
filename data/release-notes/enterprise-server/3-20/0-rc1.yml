@@ -1,0 +1,218 @@
+date: '2026-02-24'
+release_candidate: true
+deprecated: false
+intro: |
+  > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
+  >
+  > Do not upgrade to an RC from a supported, earlier version.
+  >
+  > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
+
+  For upgrade instructions, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
+sections:
+  # Remove section heading if the section contains no notes.
+
+  features:
+    # Remove a sub-section heading if the heading contains no notes. If sections
+    # that regularly recur are missing, add placeholders to this template.
+
+    - heading: Instance administration
+      notes:
+        # https://github.com/github/releases/issues/7177
+        - |
+          You can configure a dedicated disk for log storage, mounted at /var/log and configured as an LVM volume, to isolate logs from the root disk. This capability is in public preview and applies only to standalone and high availability topologies. It does not apply to cluster topologies. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/multiple-data-disks/configuring-multiple-data-disks).
+
+        # https://github.com/github/releases/issues/4888
+        - |
+          The backup service, previously in public preview, is now generally available in {% data variables.product.prodname_ghe_server %} 3.20. The managed, built-in service provides an alternative to {% data variables.product.prodname_ghe_server %} backup utilities and does not require a separate host for backup software. For more information, see [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server/about-the-backup-service-for-github-enterprise-server). Please note that [Backup Utilities](https://github.com/github/backup-utils/) will be retired starting in version 3.22. 
+
+    - heading: Identity and access management
+      notes:
+        # https://github.com/github/releases/issues/5085
+        - |
+          Enterprise owners can create and manage enterprise teams to simplify governance across their enterprise. Using the API or enterprise settings UI, owners can assign enterprise teams to organizations, create and assign custom enterprise roles, and assign roles to both teams and users. Organization and repository owners can assign roles to enterprise teams within their scope, and enterprise teams can be added to ruleset bypass lists. There are product limitations to this experience. This feature is in public preview and subject to change. For more information, see [AUTOTITLE](/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise#what-kind-of-team-should-i-use).
+
+    - heading: GitHub Connect
+      notes:
+        # https://github.com/github/releases/issues/5765
+        - |
+          Site administrators can enable GitHub Connect to resolve open source actions from GitHub.com, even when their GHES instance is connected to a data-resident enterprise on GHE.com. This enables hybrid deployment scenarios during migration to GHE.com. This feature is in public preview and subject to change.
+
+    - heading: Code scanning
+      notes:
+        # https://github.com/github/releases/issues/6804
+        - |
+          Administrators can enable code scanning using default setup even if an organization or repository’s GitHub Actions policies would otherwise prevent uploading Actions workflows. This change allows security scans to proceed without being blocked by policy controls on Actions. For more information, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
+        # https://github.com/github/releases/issues/5623
+        - |
+          GitHub Advanced Security customers can track and manage security remediation work by assigning code scanning alerts to themselves or other users. This feature is in public preview and subject to change.
+        - |
+          This release comes installed with version 2.23.9 of the CodeQL CLI, used in the CodeQL action for code scanning. Significant updates since the default version installed on GitHub Enterprise Server 3.19 include:
+            * Users can now analyze Rust projects using CodeQL, with Rust support now generally available. Developers working on Rust libraries and apps can benefit from code security analysis covering all OWASP Top 10 categories (except A06:2021-Vulnerable and Outdated Components). 
+            * Users can enable CodeQL on C/C++ repositories more easily, as scanning C/C++ projects without builds is now generally available. Default setup uses build-mode none for all newly configured repositories, significantly helping improve ease of adoption.
+            * CodeQL now supports incremental analysis of all supported languages, helping improve analysis performance.
+            * Users of code scanning advanced setup need to update their workflow files to use CodeQL Action v4, which runs on the Node.js 24 runtime. Users of default setup will automatically move to v4 without taking action. CodeQL Action v3 will be closing down in December 2026.  [Read more on the GitHub blog](https://github.blog/changelog/2025-10-28-upcoming-deprecation-of-codeql-action-v3/).
+            * Users working with Swift can analyze projects using Swift 6.2 and 6.2.1, with CodeQL now supporting these versions.
+            * Users analyzing Kotlin codebases can scan projects built with Kotlin 2.2.0x and 2.2.2x, as CodeQL adds support for these new releases. Support for Kotlin 1.6 and 1.7 has been closed down and will be removed in CodeQL 2.24.1.
+            * There have also been a variety of improvements and changes to CodeQL queries across all languages
+            * Read more in the changelogs for the CodeQL versions included in this release:
+              * [CodeQL 2.23.0](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.23.0/)
+              * [CodeQL 2.23.1](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.23.1/)
+              * [CodeQL 2.23.2](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.23.2/)
+              * [CodeQL 2.23.3](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.23.3/)
+              * [CodeQL 2.23.4](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.23.4/)
+              * [CodeQL 2.23.5](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.23.5/)
+              * [CodeQL 2.23.6](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.23.6/)
+              * [CodeQL 2.23.7 and 2.23.8](https://github.blog/changelog/2025-12-18-codeql-2-23-7-and-2-23-8-add-security-queries-for-go-and-rust)
+
+    - heading: Secret scanning
+      notes:
+        # https://github.com/github/releases/issues/6978
+        - |
+          Secret scanning supports alert assignees, including webhook events and REST API endpoints to view and update assignees for triage workflows.
+
+        # https://github.com/github/releases/issues/6834
+        - |
+          Secret scanning adds new detectors and improves detectors for existing secret types, expanding coverage and improving accuracy for detected secrets. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns).
+
+        # https://github.com/github/releases/issues/6437
+        - |
+          Secret scanning supports validity checks that indicate whether detected secrets remain active, helping teams prioritize remediation. Once enabled for a given repository, GitHub will now automatically verify secrets for alerts with supported secret types. GHES admins can make the feature available for enablement across enterprise repositories from their Management Console settings.
+
+        # https://github.com/github/releases/issues/6253
+        - |
+          Secret scanning push protection expands default coverage to block additional secrets, reducing the risk of credential leaks during pushes.
+
+        # https://github.com/github/releases/issues/6252
+        - |
+          Enterprise owners can configure delegated bypass for secret scanning push protection at the enterprise level, and reviewers can manage bypass requests from the enterprise.
+
+    - heading: GitHub Advanced Security
+      notes:
+        # https://github.com/github/releases/issues/5084
+        - |
+          The Enterprise Security Manager role is available on GitHub Enterprise Server to manage security policies and view alerts across an enterprise. The role is supported only for enterprises with up to 15,000 organizations. This feature is in public preview.
+
+    - heading: Dependabot
+      notes:
+        # https://github.com/github/releases/issues/6689
+        - |
+          Organizations can specify custom runner labels for Dependabot jobs on self-hosted runners.
+
+        # https://github.com/github/releases/issues/6618
+        - |
+          Dependabot now supports version updates for Conda packages. 
+
+    - heading: GitHub Actions
+      notes:
+        # Required Actions Runner version: 2.330.0
+        - |
+          {% data reusables.actions.actions-runner-release-note %}
+        
+        # https://github.com/github/releases/issues/5739
+        - |
+          Users who trigger workflows manually or via API can use up to 25 inputs on workflows triggered via the `workflow_dispatch` trigger. This is an increase from the previous limit of 10 inputs.
+
+        # https://github.com/github/releases/issues/4362
+        - |
+          Users who configure reusable workflows in {% data variables.product.prodname_actions %} can nest up to 10 reusable workflows and call up to 50 workflows in total from a given workflow run, an increase from the previous limits of 4 nested workflows and 20 total workflows.
+
+        # https://github.com/github/releases/issues/4950
+        - |
+          Site administrators can enhance security for public repositories using self-hosted runners. GitHub Actions validates both the pull request author and the event Actor before determining whether workflows should run for pull request events originating from forked repositories. For more information, see the [GitHub blog](https://github.blog/changelog/2024-11-05-notice-of-breaking-changes-for-github-actions/#changes-to-workflow-validation-for-pull-requests-originating-from-forked-repositories) and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#controlling-changes-from-forks-to-workflows-in-public-repositories).
+
+        # https://github.com/github/releases/issues/6639
+        - |
+          In the web UI for {% data variables.product.prodname_actions %}, workflow runs display relative timestamps for the first day after a run starts, then switch to absolute date and time. This makes it easier to confirm when a run occurred without hovering.
+
+    - heading: Community experience
+      notes:
+        # https://github.com/github/releases/issues/6969
+        - |
+          The notification counter in the sidebar accurately reflects the number of notifications, excluding any that have been marked as spam and removed. Previously, the counter incorrectly included spam notifications even after removal.
+
+    - heading: Organizations
+      notes:
+        # https://github.com/github/releases/issues/6718
+        - |
+          Organization owners and moderators can review blocked users in organization settings with more context, including when a user was blocked and who performed the action. The blocked user description limit is higher to support detailed rationale and URLs for auditing and accountability.
+
+        # https://github.com/github/releases/issues/7047
+        - |
+          Organization owners can prevent repository administrators from installing GitHub Apps. By default, repository administrators can install apps that don't require organization-level permissions. This setting restricts app installation to organization owners only, improving security and compliance governance.
+
+    - heading: Projects
+      notes:
+        # https://github.com/github/releases/issues/6815
+        - |
+          You can use the Projects GraphQL API to track additional events, such as status changes, when items are added or removed from a project, and conversions from drafts to issues. Filtering project items using a project filter is also now available. For more information, see the [GitHub blog](https://github.blog/changelog/2025-11-06-improved-onboarding-flow-for-github-projects/#%f0%9f%a4%96-api-improvements).
+
+        # https://github.com/github/releases/issues/6740
+        - |
+          GitHub Projects has an improved onboarding flow that helps users import items from a repository, choose a default repository, and find templates and views more easily. These improvements reduce setup time and help users get started faster.
+
+    - heading: Pull requests
+      notes:
+        # https://github.com/github/releases/issues/5741
+        - |
+          The improved merge experience from pull requests pages includes UX enhancements and integration of repository rules. It's now easier to convert pull requests to draft status from the merge box, monitor failing optional status checks, and remove pull requests from the merge queue.
+
+    - heading: Releases
+      notes:
+        # https://github.com/github/releases/issues/6063
+        - |
+          Releases support immutability, locking release assets from being added, modified, or deleted after publication and protecting the release tag from being moved or deleted. This helps protect distributed artifacts from supply chain attacks. Release attestations are not supported on GHES and are only available on GitHub.com.
+  
+  changes:
+    - |
+      To support {% data variables.product.prodname_ghe_server %} compatibility, we're reserving the `/repos` path for a forthcoming product feature. If you currently use `/repos` for a route (for example, a User name, Organization name, a GitHub App, OAuth app, reverse proxy, or internal integration), you may need to update your configuration to avoid routing conflicts. This change ensures consistent behavior for GHES 3.20 customers and helps prevent unexpected request handling for endpoints under `/repos`.
+
+  known_issues:
+    # INCLUDE NOTES FOR RELEASE FROM "GHES Release Note Tracking" PROJECT'S "Known Issues" TAB
+    - |
+      **Note:** This list is not complete. Any new known issues that are identified for the 3.20 release will be added between now and the general availability release.
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a No such object error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+    - |
+      When restoring data originally backed up from a 3.13 or greater appliance version, the elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      Admins setting up cluster high availability (HA) may encounter a spokes error when running `ghe-cluster-repl-status` if a new organization and repositories are created before using the `ghe-cluster-repl-bootstrap` command. To avoid this issue, complete the cluster HA setup with `ghe-cluster-repl-bootstrap` before creating new organizations and repositories.
+    - |
+      In a cluster, the host running restore requires access the storage nodes via their private IPs.
+    - |
+      On an instance hosted on Azure, commenting on an issue via email meant the comment was not added to the issue.
+    - |
+      After a restore, existing outside collaborators are unable to be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
+    - |
+      After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
+    - |
+      When publishing npm packages in a workflow after restoring from a backup to GitHub Enterprise Server 3.13.5.gm4 or 3.14.2.gm3, you may encounter a `401 Unauthorized` error from the GitHub Packages service. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token is valid and includes the correct scopes for publishing to GitHub Packages.
+    - |
+      When applying an enterprise security configuration to all repositories (for example, enabling Secret Scanning or Code Scanning across all repositories), the system immediately enqueues enablement jobs for every organization in the enterprise simultaneously. For enterprises with a large number of repositories, this can result in significant system load and potential performance degradation. If you manage a large enterprise with many organizations and repositories, we recommend applying security configurations at the organization level rather than at the enterprise level in the UI. This allows you to enable security features incrementally and monitor system performance as you roll out changes.
+
+  closing_down:
+    # https://github.com/github/releases/issues/6704
+    - |
+      The `first`, `last`, and `page` parameters for offset-based pagination are closing down in the REST API endpoints for listing Dependabot alerts at the repository, organization, and enterprise levels. Use cursor-based pagination with the `before`, `after`, and `per_page` parameters instead. 
+    
+    # https://github.com/github/releases/issues/7806
+    - |
+      High availability replication for cluster topologies will be retired starting in {% data variables.product.prodname_ghe_server %} 3.22. You will no longer be able to configure or use the feature, and we will remove the supporting code from the product.
+
+    # https://github.com/github/releases/issues/6844
+    - |
+      Notifications generated from @mentions in commit messages will be removed in a future release. This change will help users focus on more relevant notifications and reduce overall notification load, as feedback from maintainers has shown these notifications are rarely useful.

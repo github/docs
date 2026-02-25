@@ -7,6 +7,7 @@ import type { ExtendedRequest } from '@/types'
 import type { Response } from 'express'
 
 import { schemas, hydroNames } from './lib/schema'
+import type { EventT } from './lib/hydro'
 import catchMiddlewareError from '@/observability/middleware/catch-middleware-error'
 import { noCacheControl } from '@/frame/middleware/cache-control'
 import { getJsonValidator } from '@/tests/lib/validate-json-schema'
@@ -54,8 +55,8 @@ router.post(
     noCacheControl(res)
 
     const eventsToProcess = Array.isArray(req.body) ? req.body : [req.body]
-    const validEvents: any[] = []
-    const validationErrors: any[] = []
+    const validEvents: EventT[] = []
+    const validationErrors: EventT[] = []
 
     for (const eventBody of eventsToProcess) {
       try {

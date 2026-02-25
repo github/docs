@@ -12,10 +12,10 @@ IP allow lists **do** restrict access to:
     > [!NOTE]
     > Excluding installation tokens used by a {% data variables.product.prodname_github_app %} which is installed on a user account.
 * Raw URLs for files in repositories, such as `https://raw.githubusercontent.com/octo-org/octo-repo/main/README.md?token=ABC10001`
+* Repositories, including forks, owned by {% data variables.enterprise.prodname_managed_users %}, when enabled
 
 IP allow lists do **not** restrict access to:
 
-* Repositories, including forks, owned by {% data variables.enterprise.prodname_managed_users %}
 * Public resources, when accessed anonymously
 * A {% data variables.product.prodname_github_app %} (server-to-server) installation token when the {% data variables.product.prodname_github_app %} is installed on a user account.
 * {% data variables.product.prodname_copilot %} features that do not require directly fetching private or organizational data from {% data variables.product.prodname_dotcom %}

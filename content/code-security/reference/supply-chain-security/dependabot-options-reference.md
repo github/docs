@@ -281,8 +281,11 @@ Parameters | Purpose |
 | `IDENTIFIER` | Define an identifier for the group to use in branch names and pull request titles. This must start and end with a letter, and can contain letters, pipes `\|`, underscores `_`, or hyphens `-`. |
 | `applies-to` | Specify which type of update the group applies to. When undefined, defaults to version updates. Supported values: `version-updates` or `security-updates`. |
 | `dependency-type` | Limit the group to a type. Supported values: `development` or `production`. |
-| `patterns` | Define one or more patterns to include dependencies with matching names. |
 | `exclude-patterns` | Define one or more patterns to exclude dependencies from the group. |
+| {% ifversion dependabot-updates-group-by %} |
+| `group-by` | Group updates across multiple directories. Supported value: `dependency-name`. |
+| {% endif %} |
+| `patterns` | Define one or more patterns to include dependencies with matching names. |
 | `update-types` | Limit the group to one or more semantic versioning levels. Supported values: `minor`, `patch`, and `major`. |
 
 ### `dependency-type` (`groups`)
@@ -293,6 +296,29 @@ By default, a group will include all types of dependencies.
 
 * Use `development` to include only dependencies in the "Development dependency group."
 * Use `production` to include only dependencies in the "Production dependency group."
+
+{% ifversion dependabot-updates-group-by %}
+
+### `group-by` (`groups`)
+
+Use `groups.<group-name>.group-by` to specify how {% data variables.product.prodname_dependabot %} should group updates across multiple directories in a monorepo.
+
+* **Type:** String
+* **Accepted values:** `dependency-name`
+* **Applies to:** Configurations with multiple directories specified
+
+When set to `dependency-name`, {% data variables.product.prodname_dependabot %} will create a single pull request for each dependency update across all specified directories, rather than separate pull requests per directory.
+
+**Limitations of cross-directory grouping**
+
+When using `group-by: dependency-name`:
+* All directories must use the same package ecosystem (for example, all `npm` or all `bundler`)
+* Applies to **version updates only**
+* If directories have incompatible version constraints for a dependency, {% data variables.product.prodname_dependabot %} will create separate pull requests
+
+For examples showing the use of `group-by`, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/optimizing-pr-creation-version-updates#grouping-updates-across-directories-in-a-monorepo).
+
+{% endif %}
 
 ### `patterns` and `exclude-patterns` (`groups`)
 

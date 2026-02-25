@@ -110,6 +110,8 @@ See also [`cooldown`](/code-security/dependabot/working-with-dependabot/dependab
 
 ## Prioritizing meaningful updates
 
+### Grouping related dependencies together
+
 You can use `groups` to consolidate updates for multiple dependencies into a single pull request. This helps you focus your review time on higher risk updates, and minimize the time spent reviewing minor version updates. For example, you can combine updates for minor or patch updates for development dependencies into a single pull request, and have a dedicated group for security or version updates that impact a key area of your codebase.
 
 You must configure groups per individual package ecosystem, then you can create multiple groups per package ecosystem using a combination of criteria:
@@ -124,3 +126,36 @@ To see all supported values for each criterion, see [`groups`](/code-security/de
 The below examples present several different methods to create groups of dependencies using the criteria.
 
 {% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
+
+{% ifversion dependabot-updates-group-by %}
+
+### Grouping updates across directories in a monorepo
+
+If you manage a monorepo with multiple directories that share common dependencies, you can reduce the number of pull requests for version updates by grouping updates by dependency name across all directories.
+
+When you configure {% data variables.product.prodname_dependabot %} to monitor multiple directories and enable grouping by dependency name, {% data variables.product.prodname_dependabot %} will:
+* Create a single pull request for each dependency update that affects multiple directories
+* Update the same dependency to the same version across all directories in one operation
+* Reduce the number of pull requests you need to review
+* Minimize CI/CD costs by running tests once instead of per directory
+
+For more information, see [`group-by`](/code-security/reference/supply-chain-security/dependabot-options-reference#group-by-groups).
+
+This configuration example groups updates by dependency name across the `/frontend`, `/admin-panel`, and `/mobile-app` directories. If `lodash` needs to be updated in all three directories, {% data variables.product.prodname_dependabot %} will create a single pull request named "Bump lodash in monorepo-dependencies group" that updates `lodash` in all three locations.
+
+```yaml
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directories:
+      - "/frontend"
+      - "/admin-panel"
+      - "/mobile-app"
+    schedule:
+      interval: "weekly"
+    groups:
+      monorepo-dependencies:
+        group-by: dependency-name
+```
+
+{% endif %}

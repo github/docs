@@ -158,12 +158,12 @@ export function getAuditLogEvents(page: string, version: string): AuditLogEventT
     auditLogEventsCache.get(openApiVersion)?.set(page, [])
     auditLogEventsCache
       .get(openApiVersion)
-      ?.set(page, readCompressedJsonFileFallback(auditLogFileName))
+      ?.set(page, readCompressedJsonFileFallback(auditLogFileName) as AuditLogEventT[])
   } else if (!auditLogEventsCache.get(openApiVersion)?.has(page)) {
     auditLogEventsCache.get(openApiVersion)?.set(page, [])
     auditLogEventsCache
       .get(openApiVersion)
-      ?.set(page, readCompressedJsonFileFallback(auditLogFileName))
+      ?.set(page, readCompressedJsonFileFallback(auditLogFileName) as AuditLogEventT[])
   }
 
   const auditLogEvents = auditLogEventsCache.get(openApiVersion)?.get(page)

@@ -14,7 +14,7 @@ product: 'Organizations on {% data variables.product.prodname_ghe_cloud %}{% ifv
 
 {% data reusables.organizations.custom-org-roles-intro %} For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).
 
-If you are an organization owner or have a custom role with the "View organization roles" or "Manage custom organization roles" permissions, you can view custom roles for the organization. With {% data variables.product.prodname_ghe_cloud %} and starting from {% data variables.product.prodname_ghe_server %} 3.19, if your enterprise owner has created organization roles, these roles can be seen and assigned as well, but not edited or deleted.
+If you are an organization owner or have a custom role with the "View organization roles" or "Manage custom organization roles" permissions, you can view custom roles for the organization.{% ifversion ent-owner-custom-org-roles %} If your enterprise owner has created organization roles, these roles can be seen and assigned as well, but not edited or deleted.{% endif %}
 
 To find the "Custom roles" page, you can follow the first steps in [Creating a custom role](#creating-a-custom-role). The exact steps will vary depending on which other settings page you have access to.
 

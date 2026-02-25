@@ -195,7 +195,7 @@ code_security_actions:
       /code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/codeql-code-scanning-for-compiled-languages
     - >-
       /code-security/tutorials/customize-code-scanning/running-codeql-code-scanning-in-a-container
-    - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors
+    - /code-security/reference/code-scanning/troubleshoot-analysis-errors
     - >-
       /code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/use-the-tools-status-page-for-code-scanning
 code_security_integration:
@@ -207,7 +207,7 @@ code_security_integration:
     - >-
       /code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github
     - >-
-      /code-security/reference/code-scanning/sarif-support-for-code-scanning
+      /code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning
     - /rest/code-scanning
 end_to_end_supply_chain:
   title: End-to-end supply chain

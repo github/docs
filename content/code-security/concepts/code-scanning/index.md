@@ -19,6 +19,7 @@ children:
   - /about-integration-with-code-scanning
   - /sarif-files
   - /merge-protection
+  - /multi-repository-variant-analysis
   - /codeql
   - /tool-status-page
 ---

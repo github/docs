@@ -9,7 +9,7 @@ describe('createLogger', () => {
   let originalConsoleLog: typeof console.log
   let originalConsoleError: typeof console.error
   const consoleLogs: string[] = []
-  const consoleErrors: any[] = []
+  const consoleErrors: unknown[] = []
 
   beforeEach(() => {
     // Store original environment and console methods
@@ -21,7 +21,7 @@ describe('createLogger', () => {
     console.log = vi.fn((message: string) => {
       consoleLogs.push(message)
     })
-    console.error = vi.fn((error: any) => {
+    console.error = vi.fn((error: unknown) => {
       consoleErrors.push(error)
     })
 
@@ -50,10 +50,10 @@ describe('createLogger', () => {
     })
 
     it('should throw error when filePath is null or undefined', () => {
-      expect(() => createLogger(null as any)).toThrow(
+      expect(() => createLogger(null as unknown as string)).toThrow(
         'createLogger must be called with the import.meta.url argument',
       )
-      expect(() => createLogger(undefined as any)).toThrow(
+      expect(() => createLogger(undefined as unknown as string)).toThrow(
         'createLogger must be called with the import.meta.url argument',
       )
     })

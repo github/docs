@@ -31,7 +31,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 
 ## Creating a release
 
-{% ifversion fpt or ghec %}
+{% ifversion immutable-releases %}
 
 > [!TIP]
 > If you have enabled immutable releases for your repository, it's recommended to create releases as drafts first, attach all assets, and then publish. This ensures all assets are in place before the release becomes immutable. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/immutable-releases).
@@ -78,7 +78,7 @@ If you @mention any {% data variables.product.github %} users in the notes, the 
 
 ## Editing a release
 
-{% ifversion fpt or ghec %}
+{% ifversion immutable-releases %}
 
 > [!NOTE]
 > If you have enabled immutable releases for your repository, you can only edit the title and release notes after a release is published. See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/immutable-releases).

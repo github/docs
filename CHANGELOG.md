@@ -1,5 +1,10 @@
 # Docs changelog
 
+**23 February 2026**
+
+Added a new how-to article, [Automating tasks with Copilot CLI and GitHub Actions](https://docs.github.com/en/copilot/how-tos/copilot-cli/automate-with-actions), that walks through how to run Copilot CLI inside a GitHub Actions workflow in non-interactive (programmatic) mode. The article covers the full pattern—trigger, setup, install, authenticate, and run—and includes an example workflow that generates a daily summary of repository changes.
+<hr>
+
 **17 February 2026**
 
 We’ve added a new tutorial, "[Using hooks with Copilot CLI for predictable, policy-compliant execution](https://docs.github.com/en/copilot/tutorials/copilot-cli-hooks)", to help teams configure repository-scoped hooks that log prompts and tool usage, enforce guardrails with `preToolUse`, and roll out policies safely across repositories.

@@ -1,6 +1,6 @@
 ---
 title: About Dependabot auto-triage rules
-intro: '{% data variables.dependabot.auto_triage_rules %} are a powerful tool to help you better manage your security alerts at scale. {% data variables.dependabot.github_presets %} are rules curated by {% data variables.product.company_short %} that you can use to filter out a substantial amount of false positives. {% data variables.dependabot.custom_rules_caps %} provide control over which alerts are ignored, snoozed, or trigger a {% data variables.product.prodname_dependabot %} security update to resolve the alert.'
+intro: 'Control how {% data variables.product.prodname_dependabot %} handles security alerts, including filtering, ignoring, snoozing, or triggering security updates.'
 product: '{% data reusables.gated-features.dependabot-auto-triage-rules %}'
 versions:
   fpt: '*'
@@ -35,9 +35,18 @@ There are two types of {% data variables.dependabot.auto_triage_rules %}:
 > [!NOTE]
 > {% data reusables.dependabot.dependabot-github-preset-auto-triage-rules %}
 
-{% data variables.dependabot.github_presets %} are rules curated by {% data variables.product.company_short %}. {% data reusables.dependabot.dismiss-low-impact-rule %}
+{% data variables.dependabot.github_presets %} are rules curated by {% data variables.product.company_short %}.
 
-The rule is enabled by default for public repositories and can be opted into for private repositories. You can enable the rule for a private repository via the **Settings** tab for the repository. For more information, see [Enabling the `Dismiss low impact issues for development-scoped dependencies` rule for your private repository](/code-security/dependabot/dependabot-auto-triage-rules/using-github-preset-rules-to-prioritize-dependabot-alerts#enabling-the-dismiss-low-impact-issues-for-development-scoped-dependencies-rule-for-your-private-repository).
+{% data reusables.dependabot.dismiss-low-impact-rule %} These alerts cover cases that feel like false alarms to most developers as the associated vulnerabilities:
+
+* Are unlikely to be exploitable in a developer (non-production or runtime) environment.
+* May relate to resource management, programming and logic, and information disclosure issues.
+* At worst, have limited effects like slow builds or long-running tests.
+* Are not indicative of issues in production.
+
+The rule is enabled by default for public repositories and can be opted into for private repositories. For instructions, see [Enabling the `Dismiss low impact issues for development-scoped dependencies` rule for your private repository](/code-security/dependabot/dependabot-auto-triage-rules/using-github-preset-rules-to-prioritize-dependabot-alerts#enabling-the-dismiss-low-impact-issues-for-development-scoped-dependencies-rule-for-your-private-repository).
+
+For more information about the criteria used by the rule, see [AUTOTITLE](/code-security/reference/supply-chain-security/criteria-for-preset-rules).
 
 ### About {% data variables.dependabot.custom_rules %}
 

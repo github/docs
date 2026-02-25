@@ -9,6 +9,7 @@ topics:
 contentType: reference
 category:
   - Configure Copilot
+  - Configure Copilot CLI
 ---
 
 This reference article describes the available hook types with examples, including their input and output formats, script best practices, and advanced patterns for logging, security enforcement, and external integrations. For general information about creating hooks, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/use-hooks). For a tutorial on creating hooks for the CLI, see [AUTOTITLE](/copilot/tutorials/copilot-cli-hooks).

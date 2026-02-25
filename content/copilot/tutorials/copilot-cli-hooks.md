@@ -8,8 +8,9 @@ versions:
   feature: copilot
 contentType: tutorials
 category:
-  - Accelerate PR velocity
-  - Author and optimize with Copilot
+  - Accelerate PR velocity # Copilot tutorials bespoke page
+  - Author and optimize with Copilot # Copilot discovery page
+  - Administer Copilot CLI # Copilot CLI bespoke page
 allowTitleToDifferFromFilename: true
 ---
 

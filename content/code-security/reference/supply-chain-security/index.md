@@ -25,6 +25,7 @@ children:
   - /dependabot-security-updates
   - /dependency-graph-supported-package-ecosystems
   - /dependabot-on-actions
+  - /criteria-for-preset-rules
   - /troubleshoot-dependabot
 redirect_from:
   - /code-security/dependabot/ecosystems-supported-by-dependabot
