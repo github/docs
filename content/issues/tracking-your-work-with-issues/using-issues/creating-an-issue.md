@@ -101,7 +101,7 @@ You can open a new issue from a specific line or lines of code in a file or pull
 
 People with triage permission to a repository can create an issue from a discussion.
 
-When you create an issue from a discussion, the contents of the discussion post will be automatically included in the issue body, and any labels will be retained. Creating an issue from a discussion does not convert the discussion to an issue or delete the existing discussion. For more information about {% data variables.product.prodname_discussions %}, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
+When you create an issue from a discussion, the contents of the discussion post will be automatically included in the issue body, and any labels will be retained. Creating an issue from a discussion does not convert the discussion to an issue or delete the existing discussion. It does create a cross-reference between the discussion and the issue so people can navigate between them. For more information about {% data variables.product.prodname_discussions %}, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
 
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
