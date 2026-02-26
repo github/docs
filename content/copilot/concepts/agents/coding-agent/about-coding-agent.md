@@ -69,9 +69,9 @@ You can create specialized {% data variables.copilot.custom_agents_short %} for 
 
 ## Measuring pull request outcomes for {% data variables.copilot.copilot_coding_agent %}
 
-Enterprise administrators can use {% data variables.product.prodname_copilot_short %} usage metrics to analyze pull request outcomes for pull requests created by {% data variables.copilot.copilot_coding_agent %}.
+Enterprise administrators and organization owners can use {% data variables.product.prodname_copilot_short %} usage metrics to analyze pull request outcomes for pull requests created by {% data variables.copilot.copilot_coding_agent %}.
 
-The enterprise-level {% data variables.product.prodname_copilot_short %} usage metrics API includes pull request lifecycle metrics such as:
+The {% data variables.product.prodname_copilot_short %} usage metrics APIs include pull request lifecycle metrics such as:
 
 * The total number of pull requests created and merged
 * The number of pull requests created by {% data variables.copilot.copilot_coding_agent %} that have been merged

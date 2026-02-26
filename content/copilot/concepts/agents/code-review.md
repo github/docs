@@ -112,8 +112,6 @@ If {% data variables.product.prodname_actions %} is unavailable or if Actions wo
 
 {% data reusables.copilot.code-review.code-review-actions-usage %}
 
-Organizations in this situation can use self-hosted runners. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/configure-self-hosted-runners).
-
 ## Code review monthly quota
 
 Each time {% data variables.product.prodname_copilot_short %} reviews a pull request or reviews code in your IDE, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one.

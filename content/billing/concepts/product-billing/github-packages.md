@@ -120,8 +120,6 @@ The projected 1.6 GB of storage usage for the month would not exceed your 2 GB l
 
 {% data reusables.billing.default-over-quota-behavior %}
 
-{% data reusables.billing.migrated-budgets %}
-
 ## Further reading
 
 * [AUTOTITLE](/packages/learn-github-packages/introduction-to-github-packages)

@@ -69155,6 +69155,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "requireExplicitValues",
+          "description": "<p>Whether this repository custom property requires explicit values.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "required",
           "description": "<p>Whether the custom property is required.</p>",
           "type": "Boolean",
@@ -101749,6 +101757,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "requireExplicitValues",
+          "description": "<p>Whether this repository custom property requires explicit values.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "required",
           "description": "<p>Whether the custom property is required.</p>",
           "type": "Boolean",
@@ -111714,6 +111730,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        },
+        {
+          "name": "requireExplicitValues",
+          "description": "<p>Whether this repository custom property requires explicit values.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "required",

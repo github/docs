@@ -140,6 +140,75 @@ Also [versioned](/enterprise-server@{{ currentVersion }}/admin).
     expect(result.internalLinks.length).toBeGreaterThanOrEqual(0)
   })
 
+  test('extracts external links with parentheses in URLs', () => {
+    const content = `
+See the [shebang article](https://en.wikipedia.org/wiki/Shebang_(Unix)) for more.
+Also [Continuum](https://en.wikipedia.org/wiki/Continuum_(measurement)) is relevant.
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.externalLinks).toHaveLength(2)
+    expect(result.externalLinks[0].href).toBe('https://en.wikipedia.org/wiki/Shebang_(Unix)')
+    expect(result.externalLinks[1].href).toBe(
+      'https://en.wikipedia.org/wiki/Continuum_(measurement)',
+    )
+  })
+
+  test('skips links inside fenced code blocks', () => {
+    const content = `
+Here is [a real link](https://example.com).
+
+\`\`\`yaml
+![badge](https://github.com/octocat/repo/actions/workflows/ci.yml/badge.svg)
+[example](https://fake-example.com/not-real)
+\`\`\`
+
+And [another real link](https://real.example.com/page).
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.externalLinks).toHaveLength(2)
+    expect(result.externalLinks[0].href).toBe('https://example.com')
+    expect(result.externalLinks[1].href).toBe('https://real.example.com/page')
+  })
+
+  test('preserves correct line numbers when code blocks are stripped', () => {
+    const content = `Line 1
+[Link on line 2](/path/one)
+\`\`\`
+code block on line 3
+code block on line 4
+\`\`\`
+Line 6
+[Link on line 8](/path/two)
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.internalLinks).toHaveLength(2)
+    expect(result.internalLinks[0].line).toBe(2)
+    // Line numbers are preserved because code block content is replaced with spaces
+    expect(result.internalLinks[1].line).toBe(8)
+  })
+
+  test('skips links inside indented fenced code blocks', () => {
+    const content = `
+Here is [a real link](https://example.com).
+
+1. Step one:
+
+   \`\`\`yaml
+   [example](https://fake-example.com/not-real)
+   \`\`\`
+
+And [another real link](https://real.example.com/page).
+`
+    const result = extractLinksFromMarkdown(content)
+
+    expect(result.externalLinks).toHaveLength(2)
+    expect(result.externalLinks[0].href).toBe('https://example.com')
+    expect(result.externalLinks[1].href).toBe('https://real.example.com/page')
+  })
+
   test('handles complex nested brackets', () => {
     const content = `
 Use the [\`git clone\`](/repositories/cloning) command.
@@ -186,6 +255,8 @@ describe('checkInternalLink', () => {
   const redirects = {
     '/en/old-path': '/en/new-path',
     '/en/deprecated': '/en/current',
+    '/enterprise-server@3.19/actions/old-path': '/enterprise-server@3.19/actions/new-path',
+    '/actions/legacy-path': '/actions/current-path',
   }
 
   test('finds direct page match', () => {
@@ -232,6 +303,25 @@ describe('checkInternalLink', () => {
   test('resolves enterprise-server@latest for non-existent page', () => {
     const result = checkInternalLink('/enterprise-server@latest/does/not/exist', pageMap, redirects)
     expect(result.exists).toBe(false)
+  })
+
+  test('finds redirect after stripping language prefix', () => {
+    // Links from rendered HTML have /en/ prefix but redirects are stored without it
+    const result = checkInternalLink(
+      '/en/enterprise-server@3.19/actions/old-path',
+      pageMap,
+      redirects,
+    )
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    expect(result.redirectTarget).toBe('/enterprise-server@3.19/actions/new-path')
+  })
+
+  test('finds versionless redirect after stripping language prefix', () => {
+    const result = checkInternalLink('/en/actions/legacy-path', pageMap, redirects)
+    expect(result.exists).toBe(true)
+    expect(result.isRedirect).toBe(true)
+    expect(result.redirectTarget).toBe('/actions/current-path')
   })
 })
 

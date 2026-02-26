@@ -17,7 +17,6 @@ on:
 
 permissions:
   contents: read
-  issues: write
 
 jobs:
   # Determine which version/language combos to run
@@ -35,14 +34,18 @@ jobs:
       - name: Set matrix
         id: set-matrix
         run: |
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+          if [[ "${EVENT_NAME}" == "workflow_dispatch" ]]; then
             # Manual run: use the provided version and language
-            echo 'matrix={"include":[{"version":"${{ inputs.version }}","language":"${{ inputs.language }}"}]}' >> $GITHUB_OUTPUT
+            echo "matrix={\"include\":[{\"version\":\"${INPUT_VERSION}\",\"language\":\"${INPUT_LANGUAGE}\"}]}" >> $GITHUB_OUTPUT
           else
             # Scheduled run: English free-pro-team + English latest enterprise-server
             LATEST_GHES=$(npx tsx -e "import { latest } from './src/versions/lib/enterprise-server-releases'; console.log(latest)")
             echo "matrix={\"include\":[{\"version\":\"free-pro-team@latest\",\"language\":\"en\"},{\"version\":\"enterprise-server@${LATEST_GHES}\",\"language\":\"en\"}]}" >> $GITHUB_OUTPUT
           fi
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_VERSION: ${{ inputs.version }}
+          INPUT_LANGUAGE: ${{ inputs.language }}
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
@@ -104,6 +107,8 @@ jobs:
     if: always() && github.repository == 'github/docs-internal'
     needs: [setup-matrix, check-internal-links]
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
       - name: Checkout
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1

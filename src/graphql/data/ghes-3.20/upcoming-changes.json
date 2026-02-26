@@ -8891,16 +8891,6 @@
       "owner": "github/notifications"
     }
   ],
-  "2025-11-04": [
-    {
-      "location": "SearchType.ISSUE_ADVANCED",
-      "description": "<p><code>ISSUE_ADVANCED</code> will be removed.</p>",
-      "reason": "<p>Search for issues and pull requests will be overridden by advanced search on November 4, 2025. You can read more about this change on <a href=\"https://github.blog/changelog/2025-03-06-github-issues-projects-api-support-for-issues-advanced-search-and-more/\">https://github.blog/changelog/2025-03-06-github-issues-projects-api-support-for-issues-advanced-search-and-more/</a>.</p>",
-      "date": "2025-11-04",
-      "criticality": "breaking",
-      "owner": "github/issues_advanced_search"
-    }
-  ],
   "2025-10-01": [
     {
       "location": "SecurityAdvisory.cvss",

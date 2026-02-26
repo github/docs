@@ -111,8 +111,6 @@ You can set budgets at the organization, enterprise, or cost center level. If yo
 
 For detailed setup instructions, see [AUTOTITLE](/billing/tutorials/set-up-budgets).
 
-{% data reusables.copilot.zero-budget-changes-link %}
-
 ## Monitoring usage
 
 * Track your monthly usage in your IDE, in {% data variables.product.prodname_copilot_short %} settings on {% data variables.product.prodname_dotcom %}, or by downloading a usage report.

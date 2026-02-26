@@ -17,27 +17,30 @@ This reference article provides detailed configuration information for {% data v
 
 ## YAML frontmatter properties
 
-The following table outlines the properties that are supported for {% data variables.copilot.agent_profiles %} on {% data variables.product.prodname_dotcom_the_website %} and in the {% data variables.copilot.copilot_cli_short %}, as well as in IDEs. The configuration file's name (minus `.md` or `.agent.md`) is used for deduplication between levels so that the lowest level configuration takes precedence.
+The following table outlines the properties that you can configure for {% data variables.copilot.agent_profiles %} in {% data variables.product.prodname_dotcom_the_website %}, the {% data variables.copilot.copilot_cli_short %}, and supported IDEs (unless otherwise noted). Any environment-specific behavior is noted in the property description. The configuration file's name (minus `.md` or `.agent.md`) is used for deduplication between levels so that the lowest level configuration takes precedence.
 
 {% rowheaders %}
 
-| Property      | Type      | Purpose | {% data variables.product.prodname_vscode_shortname %}, JetBrains IDEs, Eclipse, and Xcode |
-| ------------- | ----------------------- | --- | ------------------ |
-| `name`        | string     | Display name for the {% data variables.copilot.copilot_custom_agent_short %}. Optional. | {% octicon "check" aria-label="Supported" %} |
-| `description` | **Required** string     | Description of the {% data variables.copilot.copilot_custom_agent_short %}'s purpose and capabilities | {% octicon "check" aria-label="Supported" %} |
-| `target` | string     | Target environment or context for the {% data variables.copilot.copilot_custom_agent_short %} (`vscode` or `github-copilot`). If unset, defaults to both environments. | {% octicon "check" aria-label="Supported" %} |
-| `tools`       | list of strings, string | List of tool names the {% data variables.copilot.copilot_custom_agent_short %} can use. Supports both a comma separated string and yaml string array. If unset, defaults to all tools. See [Tools](#tools). | {% octicon "check" aria-label="Supported" %} |
-| `disable-model-invocation`  | boolean | Disables {% data variables.copilot.copilot_coding_agent %} from automatically using this {% data variables.copilot.copilot_custom_agent_short %} based on task context. When `true`, the agent must be manually selected. Setting `disable-model-invocation: true` is equivalent to `infer: false`. If both are set, `disable-model-invocation` takes precedence. If unset, defaults to `false`. | {% octicon "check" aria-label="Supported" %} |
-| `infer`       | boolean | **{% data variables.release-phases.closing_down_caps %}**. Use `disable-model-invocation` instead. Enables {% data variables.copilot.copilot_coding_agent %} to automatically use this {% data variables.copilot.copilot_custom_agent_short %} based on task context. When `false`, the agent must be manually selected. If unset, defaults to `true`. | {% octicon "check" aria-label="Supported" %} |
-| `mcp-servers` | object                  | Additional MCP servers and tools that should be used by the {% data variables.copilot.copilot_custom_agent_short %}. | {% octicon "x" aria-label="Not supported" %} |
-| `metadata`   | object consisting of a name and value pair, both strings | Allows annotation of the agent with useful data | {% octicon "x" aria-label="Not supported" %} |
+| Property      | Type      | Purpose |
+| ------------- | ----------------------- | --- |
+| `name`        | string     | Display name for the {% data variables.copilot.copilot_custom_agent_short %}. Optional. |
+| `description` | **Required** string     | Description of the {% data variables.copilot.copilot_custom_agent_short %}'s purpose and capabilities |
+| `target` | string     | Target environment or context for the {% data variables.copilot.copilot_custom_agent_short %} (`vscode` or `github-copilot`). If unset, defaults to both environments. |
+| `tools`       | list of strings, string | List of tool names the {% data variables.copilot.copilot_custom_agent_short %} can use. Supports both a comma separated string and yaml string array. If unset, defaults to all tools. See [Tools](#tools). |
+| `disable-model-invocation`  | boolean | Disables {% data variables.copilot.copilot_coding_agent %} from automatically using this {% data variables.copilot.copilot_custom_agent_short %} based on task context. When `true`, the agent must be manually selected. Setting `disable-model-invocation: true` is equivalent to `infer: false`. If both are set, `disable-model-invocation` takes precedence. If unset, defaults to `false`. |
+| `user-invocable` | boolean | Controls whether this {% data variables.copilot.copilot_custom_agent_short %} can be selected by a user. When `false`, the agent cannot be manually selected and can only be accessed programmatically. If unset, defaults to `true`. |
+| `infer`       | boolean | **{% data variables.release-phases.retired_caps %}**. Use `disable-model-invocation` and `user-invocable` instead. Enables {% data variables.copilot.copilot_coding_agent %} to automatically use this {% data variables.copilot.copilot_custom_agent_short %} based on task context. When `false`, the agent must be manually selected. If unset, defaults to `true`. |
+| `mcp-servers` | object                  | Additional MCP servers and tools that should be used by the {% data variables.copilot.copilot_custom_agent_short %}. **Not used in {% data variables.product.prodname_vscode_shortname %} and other IDE {% data variables.copilot.custom_agents_short %}.** |
+| `metadata`   | object consisting of a name and value pair, both strings | Allows annotation of the agent with useful data. **Not used in {% data variables.product.prodname_vscode_shortname %} and other IDE {% data variables.copilot.custom_agents_short %}.** |
 
 {% endrowheaders %}
 
 Define the agent's behavior, expertise, and instructions in the Markdown content below the YAML frontmatter. The prompt can be a maximum of 30,000 characters.
 
 > [!NOTE]
-> The `model`, `argument-hint`, and `handoffs` properties from {% data variables.product.prodname_vscode_shortname %} and other IDE {% data variables.copilot.custom_agents_short %} are currently not supported for {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.prodname_dotcom_the_website %}. They are ignored to ensure compatibility. For more information on {% data variables.copilot.copilot_custom_agent_short %} file structure in {% data variables.product.prodname_vscode_shortname %}, see [{% data variables.copilot.custom_agents_caps_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure) in the {% data variables.product.prodname_vscode_shortname %} documentation.
+>
+> * The `model`, `argument-hint`, and `handoffs` properties from {% data variables.product.prodname_vscode_shortname %} and other IDE {% data variables.copilot.custom_agents_short %} are currently not supported for {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.prodname_dotcom_the_website %}. They are ignored to ensure compatibility.
+> * For more information on {% data variables.copilot.copilot_custom_agent_short %} file structure in {% data variables.product.prodname_vscode_shortname %}, see [{% data variables.copilot.custom_agents_caps_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ## Tools
 

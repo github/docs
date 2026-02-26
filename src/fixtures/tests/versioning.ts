@@ -1,12 +1,12 @@
 import { describe, expect, test } from 'vitest'
-import cheerio from 'cheerio'
+import type { CheerioAPI } from 'cheerio'
 
 import { getDOM, head } from '@/tests/helpers/e2etest'
 import { supported } from '@/versions/lib/enterprise-server-releases'
 
 describe('article versioning', () => {
   test('only links to articles for fpt', async () => {
-    const $: cheerio.Root = await getDOM('/get-started/versioning')
+    const $: CheerioAPI = await getDOM('/get-started/versioning')
     const links = $('[data-testid="table-of-contents"] a')
     // Only 1 link because there's only 1 article available in fpt
     expect(links.length).toBe(1)
@@ -14,7 +14,7 @@ describe('article versioning', () => {
   })
 
   test('only links to articles for ghec', async () => {
-    const $: cheerio.Root = await getDOM('/enterprise-cloud@latest/get-started/versioning')
+    const $: CheerioAPI = await getDOM('/enterprise-cloud@latest/get-started/versioning')
     const links = $('[data-testid="table-of-contents"] a')
     expect(links.length).toBe(2)
     const first = links.filter((i: number) => i === 0)

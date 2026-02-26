@@ -24,8 +24,7 @@ on:
       - .github/actions/install-cocofix/action.yml
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 jobs:
   generate-security-query-lists:
@@ -159,6 +158,9 @@ jobs:
   create-pull-request:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     needs: [generate-security-query-lists, generate-quality-query-lists]
     steps:
       - name: Checkout repository code

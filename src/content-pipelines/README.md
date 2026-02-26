@@ -25,6 +25,16 @@ Each content pipeline entry runs in a **single workflow job**. The core logic li
 
 Source docs are **never stored in this repository**. The only state tracked per entry is a single SHA file recording the last-processed commit.
 
+## Modifying results
+
+You can request changes on the automated PR as you would any other PR. If you see content you'd like to change or avoid in future runs, you can try any of three strategies:
+
+1. **For content you want to exclude from future updates:** Add the source heading to the `exclusions` property in [`config.yml`](/src/content-pipelines/config.yml). (The top of the config file has a couple of examples.)
+
+2. **For content that ended up in the wrong article:** Update the `content-mapping` property in [`config.yml`](/src/content-pipelines/config.yml).
+
+3. **If the agent did something else unexpected:** Check whether an update to the [agent instructions](/.github/agents/content-pipeline-update.md) would make sense. (You can always ask Copilot for advice.)
+
 ## Running locally
 
 The config file (defined in `src/content-pipelines/config.yml`) contains the important information, so you only need to pass an `--id` to the script:

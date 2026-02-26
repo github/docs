@@ -20,7 +20,7 @@
 
 import { program } from 'commander'
 import chalk from 'chalk'
-import cheerio from 'cheerio'
+import { load } from 'cheerio'
 
 import warmServer from '@/frame/lib/warm-server'
 import { renderContent } from '@/content-render/index'
@@ -73,7 +73,7 @@ async function getLinksFromRenderedPage(
   try {
     // Render the page content
     const html = await renderContent(page.markdown, context)
-    const $ = cheerio.load(html)
+    const $ = load(html)
 
     // Extract all anchor links
     $('a[href]').each((_, el) => {
@@ -103,7 +103,7 @@ async function checkAnchorsOnPage(
 
   try {
     const html = await renderContent(page.markdown, context)
-    const $ = cheerio.load(html)
+    const $ = load(html)
 
     // Find all anchor links (same-page links)
     $('a[href^="#"]').each((_, el) => {

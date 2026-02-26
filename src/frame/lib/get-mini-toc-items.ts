@@ -1,4 +1,5 @@
-import cheerio from 'cheerio'
+import { load } from 'cheerio'
+import type { Element } from 'domhandler'
 import { range } from 'lodash-es'
 
 import { renderContent } from '@/content-render/index'
@@ -29,7 +30,7 @@ export default function getMiniTocItems(
   maxHeadingLevel = 2,
   headingScope = '',
 ): MiniTocItem[] {
-  const $ = cheerio.load(html, { xmlMode: true })
+  const $ = load(html, { xmlMode: true })
 
   // eg `h2, h3` or `h2, h3, h4` depending on maxHeadingLevel
   const selector = range(2, maxHeadingLevel + 1)
@@ -48,9 +49,9 @@ export default function getMiniTocItems(
   const flatToc = headings
     .get()
     .filter((item) => {
-      if (!item.parent || !item.parent.attribs) return true
-      // Hide any items that belong to a hidden div
-      const { attribs } = item.parent
+      const parent = item.parent as Element | null
+      if (!parent || !parent.attribs) return true
+      const { attribs } = parent
       return !('hidden' in attribs)
     })
     .map((item) => {
@@ -73,7 +74,7 @@ export default function getMiniTocItems(
       $('strong', item).map((i, el) => $(el).replaceWith($(el).contents()))
 
       const contents: MiniTocContents = { href, title: $(item).text().trim() }
-      const element = $(item)[0] as cheerio.TagElement
+      const element = $(item)[0] as Element
       const headingLevel = parseInt(element.name.match(/\d+/)![0], 10) || 0 // the `2` from `h2`
 
       const platform = $(item).parent('.ghd-tool').attr('class') || ''

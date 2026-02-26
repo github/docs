@@ -37,7 +37,7 @@ An autonomous AI agent that can make code changes for you. You can assign a {% d
 
 You can use third-party coding agents alongside {% data variables.copilot.copilot_coding_agent %}. See [AUTOTITLE](/free-pro-team@latest/copilot/concepts/agents/about-third-party-agents).
 
-### {% data variables.copilot.copilot_cli_short %} ({% data variables.release-phases.public_preview %})
+### {% data variables.copilot.copilot_cli_short %}
 
 A command line interface that lets you use {% data variables.product.prodname_copilot_short %} from within the terminal. You can get answers to questions, or you can ask {% data variables.product.prodname_copilot_short %} to make changes to your local files. You can also use {% data variables.copilot.copilot_cli_short %} to interact with {% data variables.product.prodname_dotcom_the_website %}—for example, listing your open pull requests, or asking {% data variables.product.prodname_copilot_short %} to create an issue. See [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).
 

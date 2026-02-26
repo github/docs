@@ -75,10 +75,7 @@ You can also set the `COPILOT_CUSTOM_INSTRUCTIONS_DIRS` environment variable to 
 
 {% data reusables.copilot.custom-instructions-note %}
 
-{% data variables.copilot.copilot_cli_short %} caches instructions after they have been read. If you edit an instructions file, and you want to ensure that the changes are used, you must do one of the following:
-
-* Restart {% data variables.copilot.copilot_cli_short %}.
-* Use `/resume SESSION-ID`. You can use the `/session` command to find the ID of the current session.
+If you make changes to your custom instructions during a CLI session, your changes are available for use by {% data variables.product.prodname_copilot_short %} the next time you submit a prompt in the current, or future, sessions.
 
 ## Further reading
 

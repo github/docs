@@ -27,6 +27,7 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% datos variables', '{% data variables')
     content = content.replaceAll('{% de datos variables', '{% data variables')
     content = content.replaceAll('{% datos reusables', '{% data reusables')
+    content = content.replaceAll('{% data reutilizables.', '{% data reusables.')
     content = content.replaceAll('{%- ifversion fpt o ghec %}', '{%- ifversion fpt or ghec %}')
     content = content.replaceAll('{% ifversion fpt o ghec %}', '{% ifversion fpt or ghec %}')
   }
@@ -69,9 +70,16 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% данные variables.', '{% data variables.')
     content = content.replaceAll('{% данных reusables', '{% data reusables')
     content = content.replaceAll('{% данные reusables', '{% data reusables')
+    content = content.replaceAll('{% данных переменных.', '{% data variables.')
+    content = content.replaceAll('{% данных.product.', '{% data variables.product.')
+    content = content.replaceAll('{% data переменных.product.', '{% data variables.product.')
+    content = content.replaceAll('{% переменным данных.product.', '{% data variables.product.')
     content = content.replaceAll('{% необработанного %}', '{% raw %}')
     content = content.replaceAll('{%- ifversion fpt или ghec %}', '{%- ifversion fpt or ghec %}')
     content = content.replaceAll('{% ifversion fpt или ghec %}', '{% ifversion fpt or ghec %}')
+    content = content.replaceAll('{% ifversion ghec или fpt %}', '{% ifversion ghec or fpt %}')
+    content = content.replaceAll('{% ghes или ghec %}', '{% ifversion ghes or ghec %}')
+    content = content.replaceAll('{% elsif ghec или ghes %}', '{% elsif ghec or ghes %}')
     content = content.replaceAll('{% endif _%}', '{% endif %}')
     content = content.replaceAll('{% конечным %}', '{% endif %}')
     content = content.replaceAll('{% конец %}', '{% endif %}')
@@ -81,6 +89,7 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% конечных головщиков %}', '{% endrowheaders %}')
     content = content.replaceAll('{% данных для повторного использования.', '{% data reusables.')
     content = content.replaceAll('{% еще %}', '{% else %}')
+    content = content.replaceAll('{% ещё %}', '{% else %}')
     content = content.replaceAll('{% необработанные %}', '{% raw %}')
 
     // Fix double quotes in Russian YAML files that cause parsing errors
@@ -105,6 +114,7 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% données variables', '{% data variables')
     content = content.replaceAll('{% données réutilisables.', '{% data reusables.')
     content = content.replaceAll('{% variables de données.', '{% data variables.')
+    content = content.replaceAll('{% autre %}', '{% else %}')
     content = content.replaceAll('{%- ifversion fpt ou ghec %}', '{%- ifversion fpt or ghec %}')
     content = content.replaceAll('{% ifversion fpt ou ghec %}', '{% ifversion fpt or ghec %}')
   }
@@ -125,6 +135,7 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% Daten variables', '{% data variables')
     content = content.replaceAll('{% daten variables', '{% data variables')
     content = content.replaceAll('{%-Daten variables', '{%- data variables')
+    content = content.replaceAll('{%-Daten-variables', '{%- data variables')
     content = content.replaceAll('{%- ifversion fpt oder ghec %}', '{%- ifversion fpt or ghec %}')
     content = content.replaceAll('{% ifversion fpt oder ghec %}', '{% ifversion fpt or ghec %}')
   }

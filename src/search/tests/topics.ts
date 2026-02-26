@@ -21,7 +21,8 @@ const topics: string[] = walk(contentDir, { includeBasePath: true })
       throw new Error(`More than 0 front-matter errors in file: ${filename}`)
     }
 
-    return (data as any).topics || []
+    const pageTopics = (data as Record<string, unknown>).topics
+    return Array.isArray(pageTopics) ? (pageTopics as string[]) : []
   })
   .flat()
 

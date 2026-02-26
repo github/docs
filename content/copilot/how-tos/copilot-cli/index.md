@@ -16,7 +16,7 @@ introLinks:
   overview: /copilot/concepts/agents/copilot-cli/about-copilot-cli
   quickstart: /copilot/how-tos/copilot-cli/cli-getting-started
 children:
-  # Top-level articles and sub-categories in the Copilot How-to's are listed at the top of this list. 
+  # Top-level articles and sub-categories in the Copilot How-to's are listed at the top of this list.
   # This sets the order we show them in the side nav.
   # All content from other directories and in any sub-directories can be added in any order underneath.
   - /cli-getting-started
@@ -24,11 +24,14 @@ children:
   - /set-up-copilot-cli
   - /customize-copilot
   - /use-copilot-cli
+  - /administer-copilot-cli-for-your-enterprise
   - /automate-with-actions
+  - /speeding-up-task-completion
   - /content/copilot/concepts/agents/copilot-cli/about-copilot-cli
   - /content/copilot/concepts/agents/copilot-cli/comparing-cli-features
   - /content/copilot/concepts/agents/copilot-cli/about-cli-plugins
   - /content/copilot/concepts/agents/copilot-cli/autopilot
+  - /content/copilot/concepts/agents/copilot-cli/fleet
   - /set-up-copilot-cli/install-copilot-cli
   - /set-up-copilot-cli/configure-copilot-cli
   - /customize-copilot/add-custom-instructions

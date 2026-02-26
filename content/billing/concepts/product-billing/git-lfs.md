@@ -125,8 +125,6 @@ In this example, you would pay for 1.5 GiB of additional storage for the month o
 
 {% data reusables.billing.default-over-quota-behavior %}
 
-{% data reusables.billing.migrated-budgets %}
-
 ## Further reading
 
 * [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)

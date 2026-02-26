@@ -115,7 +115,15 @@ For example, all usage data for a Monday (which closes at midnight UTC) will be 
 
 **Lines of Code (LoC) metrics** measure the number of lines {% data variables.product.prodname_copilot_short %} suggested, added, or deleted in the editor, providing a directional view of {% data variables.product.prodname_copilot_short %}’s tangible output. For example, "Lines added" shows how much code was actually accepted and inserted into the editor.
 
-**Pull request lifecycle metrics** measure how {% data variables.product.prodname_copilot_short %} activity relates to pull request outcomes and delivery flow. These metrics include pull request creation and merge counts, median time to merge, and review suggestion activity. By comparing overall pull request activity with pull requests created by {% data variables.product.prodname_copilot_short %}, you can evaluate how AI-assisted workflows influence throughput and cycle time across your enterprise.
+**Pull request lifecycle metrics** measure how {% data variables.product.prodname_copilot_short %} activity relates to pull request outcomes and delivery flow. These metrics include pull request creation and merge counts, median time to merge, and review suggestion activity. By comparing overall pull request activity with pull requests created by {% data variables.product.prodname_copilot_short %}, you can evaluate how AI-assisted workflows influence throughput and cycle time at the organization or enterprise level.
+
+### Interpreting pull request lifecycle metrics across scopes
+
+Pull request lifecycle metrics are available at both the organization and enterprise level. When comparing reports, keep the following in mind:
+
+* **Deduplication**: Enterprise-level reports deduplicate users across organizations. Organization-level reports do not.
+* **Pull request-only data**: Pull request lifecycle metrics may appear even if IDE usage metrics are absent, since pull request data is derived from repository activity.
+* **Attribution timing**: If a repository or organization is transferred between owners, pull request creation, review, and merge events may be attributed to different entities depending on when each event occurred.
 
 ## How can I use these metrics?
 

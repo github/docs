@@ -24,8 +24,6 @@ category:
   - Configure Copilot CLI # Copilot CLI bespoke page
 ---
 
-{% data reusables.cli.preview-note-cli %}
-
 To find out about {% data variables.copilot.copilot_cli_short %} before you install it, see [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).
 
 ## Prerequisites
@@ -116,16 +114,13 @@ Download the executable for your platform, unpack it, and run.
 
 ## Authenticating with {% data variables.copilot.copilot_cli_short %}
 
-On first launch, if you're not currently logged in to {% data variables.product.github %}, you'll be prompted to use the `/login` slash command. Enter this command and follow the on-screen instructions to authenticate.
+On first launch, if you're not currently logged in to {% data variables.product.github %}, you'll be prompted to use the `/login` slash command. Enter this command and follow the on-screen instructions to authenticate. For more information on the authentication process, see [AUTOTITLE](/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli).
 
 ### Authenticating with a {% data variables.product.pat_generic %}
 
 You can also authenticate using a {% data variables.product.pat_v2 %} with the "{% data variables.product.prodname_copilot_short %} Requests" permission enabled.
 
-1. Visit [{% data variables.product.pat_v2_caps_plural %}](https://github.com/settings/personal-access-tokens/new).
-1. Under "Permissions," click **Add permissions** and select **{% data variables.product.prodname_copilot_short %} Requests**.
-1. Click **Generate token**.
-1. Add the token to your environment using the `GH_TOKEN` or `GITHUB_TOKEN` environment variable (in order of precedence).
+{% data reusables.copilot.copilot-cli-pat-steps %}
 
 ## Next steps
 

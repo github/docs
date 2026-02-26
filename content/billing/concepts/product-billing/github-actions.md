@@ -165,8 +165,6 @@ For cached storage, billing charts and reports show only the cost of usage beyon
 
 {% data reusables.billing.default-over-quota-behavior %}
 
-{% data reusables.billing.migrated-budgets %}
-
 ## Further reading
 
 * [AUTOTITLE](/actions/get-started/understand-github-actions)

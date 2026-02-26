@@ -37,11 +37,15 @@ jobs:
 
       - name: Set AUTHOR_LOGIN
         run: |
-          if [[ "${{ github.event.pull_request.assignee.login && github.event.pull_request.user.login == 'docs-bot' }}" ]]; then
-            echo "AUTHOR_LOGIN=${{ github.event.pull_request.assignee.login }}" >> $GITHUB_ENV
+          if [[ "${IS_DOCS_BOT_ASSIGNEE}" == "true" ]]; then
+            echo "AUTHOR_LOGIN=${ASSIGNEE_LOGIN}" >> $GITHUB_ENV
           else
-            echo "AUTHOR_LOGIN=${{ github.event.pull_request.user.login }}" >> $GITHUB_ENV
+            echo "AUTHOR_LOGIN=${USER_LOGIN}" >> $GITHUB_ENV
           fi
+        env:
+          IS_DOCS_BOT_ASSIGNEE: ${{ github.event.pull_request.assignee.login && github.event.pull_request.user.login == 'docs-bot' }}
+          ASSIGNEE_LOGIN: ${{ github.event.pull_request.assignee.login }}
+          USER_LOGIN: ${{ github.event.pull_request.user.login }}
 
       - name: Run script
         run: |

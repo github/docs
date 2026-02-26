@@ -414,6 +414,12 @@ Run the linter and write all errors to `migration-checklist.md` as a checklist.
 Then fix each issue one by one, checking them off as you go.
 ```
 
+### Autonomous task completion
+
+Switch into autopilot mode to allow {% data variables.product.prodname_copilot_short %} to work autonomously on a task until it is complete. This is ideal for long-running tasks that don't require constant supervision. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot).
+
+Optionally, you can usually speed up large tasks by using the `/fleet` slash command at the start of your prompt to allow {% data variables.product.prodname_copilot_short %} to break the task into parallel subtasks that are run by subagents. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/fleet).
+
 ## 7. Team guidelines
 
 ### Recommended repository setup

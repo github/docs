@@ -1,7 +1,7 @@
 ---
-title: Best practices for participating in a code security campaign
-shortTitle: Best practices for campaigns
-intro: Learn how you can successfully take part in a security campaign for {% data variables.product.prodname_code_scanning %} alerts and how it can benefit your career as well as your code.
+title: Participating in a code security campaign
+shortTitle: Participate in campaigns
+intro: If you’ve been assigned alerts as part of a security campaign, this guide explains what campaigns are, what to expect, and how to resolve alerts effectively.
 allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.code-scanning-all-alerts %}'
 product: '{% data reusables.gated-features.security-campaigns %}'
@@ -17,15 +17,15 @@ redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts/best-practices-for-participating-in-a-security-campaign
 ---
 
-## What is a code security campaign
+## What is a code security campaign?
 
-A security campaign is a group of {% data variables.product.prodname_code_scanning %} alerts, detected in the default branches of repositories, chosen by an organization owner or security manager for remediation.
+A code security campaign is a focused effort to remediate a defined group of {% data variables.product.prodname_code_scanning %} alerts across one or more repositories.
 
-You can take part in a security campaign by fixing one or more of the alerts included in the campaign.
+Campaigns are created by organization owners or security managers and typically target alerts detected in the default branches of repositories. If you’re participating in a campaign, you’ve been asked to help resolve some of these alerts.
 
-## What are the benefits of participating in a campaign
+## What are the benefits of participating in a campaign?
 
-In addition to the benefit of removing an important security problem from your organization's codebase, alerts in a security campaign have several other benefits compared with fixing another alert in your repository.
+In addition to reducing risk in your organization’s codebase, alerts in a security campaign have several other benefits compared with fixing another alert in your repository.
 
 * You have a campaign manager on the security team to collaborate with and a specific contact link for discussing campaign activities.
 * You know that you are fixing a security alert that is important to the company.
@@ -34,9 +34,11 @@ In addition to the benefit of removing an important security problem from your o
 * If you have access to {% data variables.copilot.copilot_chat %}, you can ask questions about the alert and the suggested fix.{% endif %}
 * You are improving and demonstrating your knowledge of secure coding.
 
-Adopting a few key best practices can help you participate successfully in a campaign.
+Participating in a campaign helps reduce risk in your organization’s codebase while strengthening your secure coding skills.
 
-## Stay informed
+## 1. Learn about campaigns
+
+Start by reviewing campaign updates and deadlines so you can plan your work effectively.
 
 ### Notification settings
 
@@ -50,15 +52,15 @@ When you open the **Security** tab for a repository with one or more campaign al
 
 ### Campaign-generated {% data variables.product.prodname_github_issues %}
 
-Some campaigns automatically create {% data variables.product.prodname_github_issues %} for each repository which details the campaign managers, contact URL, and due date.
+Some campaigns automatically create {% data variables.product.prodname_github_issues %} for each repository that detail the campaign managers, contact URL, and due date.
 
-You can use this issue to plan and track campaign work as part of your usual workflows, such as:
+Use this issue to coordinate work, track progress, and keep stakeholders aligned. For example, you might use the issue to:
 
-* Adding the issue to project boards
-* Adding assignees
-* Creating sub-issues or tasklists
+* Add the issue to project boards
+* Add assignees
+* Create sub-issues or tasklists
 
-## Seek context
+## 2. Build context before applying fixes
 
 Your security team may provide you with specific training ahead of participating in a campaign, so that you feel equipped to address the alerts included in the campaign.
 
@@ -73,13 +75,25 @@ In addition, there are external resources for understanding common security issu
 * The **OWASP Foundation** provides many resources for learning about the most common vulnerabilities, see [About the OWASP Foundation](https://owasp.org/about/).
 * The **MITRE Corporation** maintains a detailed list of common weaknesses, see [About CWE](https://cwe.mitre.org/about/index.html).
 
-## Group similar alerts
+## 3. Collaborate early and often
 
-When fixing security alerts as part of a campaign, it may be helpful to group and fix similar alerts together. By doing so, you can develop a deeper understanding of the underlying issue. As you gain confidence and efficiency in resolving a specific type of alert, it makes it easier and faster for you to resolve subsequent alerts.
+A security campaign will generally include a contact URL, which might link you to the campaign manager, an open forum (such as a {% data variables.product.github %} Discussion), or a website of resources. You should use this space to ask questions about the campaign or specific alerts, find useful resources, and share knowledge.
+
+To find the contact URL:
+
+1. Open the **Security** tab for your repository.
+1. On the left sidebar, click the name of the campaign you are participating in.
+1. On the campaign tracking page, to the right of the campaign manager's name, click **{% octicon "comment" aria-hidden="true" aria-label="comment" %}**.
+
+## 4. Group alerts strategically
+
+Tackle similar alerts together to build momentum, reduce context switching, and develop a deeper understanding of the underlying issue. As you gain confidence and efficiency in resolving a specific type of alert, it makes it easier and faster for you to resolve subsequent alerts.
 
 {% ifversion copilot %}
 
-## Leverage {% data variables.product.prodname_copilot_short %}
+## 5. Resolve alerts with the help of {% data variables.product.prodname_copilot_short %}
+
+You can leverage {% data variables.product.prodname_copilot_short %} to help resolve alerts in a security campaign. Depending on the features enabled in your repository, you may have access to {% data variables.copilot.copilot_autofix_short %} suggestions and {% data variables.copilot.copilot_chat_short %}.
 
 {% ifversion code-scanning-autofix %}
 
@@ -111,19 +125,9 @@ For example:
 
    ```
 
-If you don't already have access to {% data variables.copilot.copilot_chat_short %} through your organization{% ifversion ghec %} or enterprise{% endif %}, you can sign up to {% data variables.copilot.copilot_free %}. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/accessing-github-copilot-free).
+If you don't already have access to {% data variables.copilot.copilot_chat_short %} through your organization{% ifversion ghec %} or enterprise{% endif %}, you can sign up to {% data variables.copilot.copilot_free %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/accessing-github-copilot-free).
 
 {% endif %}
-
-## Ask questions
-
-A security campaign will generally include a contact URL, which might link you to the campaign manager, an open forum (such as a {% data variables.product.github %} Discussion), or a website of resources. You should use this space to ask questions about the campaign or specific alerts, find useful resources, and share knowledge.
-
-To find the contact URL:
-
-1. Open the **Security** tab for your repository.
-1. On the left sidebar, click the name of the campaign you are participating in.
-1. On the campaign tracking page, to the right of the campaign manager's name, click **{% octicon "comment" aria-hidden="true" aria-label="comment" %}**.
 
 ## Next steps
 

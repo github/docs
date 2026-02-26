@@ -22,7 +22,6 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  copilot-requests: write
 
 env:
   HUSKY: 0
@@ -71,11 +70,11 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           if git ls-remote --exit-code --heads origin "$UPDATE_BRANCH" > /dev/null 2>&1; then
-            git fetch origin "$UPDATE_BRANCH"
+            git fetch origin "$UPDATE_BRANCH" main
             git checkout "$UPDATE_BRANCH"
             git merge origin/main --no-edit || {
               echo "Merge conflict with main — resetting branch to main"
-              git merge --abort
+              git merge --abort 2>/dev/null || true
               git checkout main
               git branch -D "$UPDATE_BRANCH"
               git push origin --delete "$UPDATE_BRANCH" || true
@@ -89,6 +88,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COPILOT_GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_COPILOT }}
         run: npx tsx src/content-pipelines/scripts/update.ts --id "${{ matrix.id }}"
 
       - name: Commit changes
@@ -131,6 +131,7 @@ jobs:
           PR_BODY+="Runs the \`content-pipeline-update\` agent (${PIPELINE_ID}) against the latest source docs and updates official articles under \`content/\` that have fallen out of sync."$'\n\n'
           PR_BODY+="## Review"$'\n\n'
           PR_BODY+="* Review each commit for accuracy — the agent uses AI, so spot-check important changes"$'\n'
+          PR_BODY+="* To adjust agent behavior, see [Modifying results](${{ github.server_url }}/${{ github.repository }}/blob/main/src/content-pipelines/README.md#modifying-results)"$'\n'
           PR_BODY+="* Once satisfied, merge to keep docs up to date"$'\n'
           PR_BODY+="* A new PR will be created on the next run if there are further changes"
 
