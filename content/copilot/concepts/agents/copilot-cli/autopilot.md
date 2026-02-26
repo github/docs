@@ -30,14 +30,14 @@ In autopilot mode, {% data variables.product.prodname_copilot_short %} keeps on 
 
 To switch into autopilot mode during an interactive session, press <kbd>Shift</kbd>+<kbd>Tab</kbd> and cycle through the available modes until you reach autopilot mode, then enter your prompt. Use the same keypress to switch from autopilot mode back to the standard interactive mode.
 
-### Benefits of autopilot mode
+## Benefits of autopilot mode
 
 * **Hands-off automation:** {% data variables.product.prodname_copilot_short %} completes tasks without needing your input after the initial instruction.
 * **Efficiency:** Ideal for well-defined tasks like writing tests, refactoring files, or fixing CI failures. Autopilot is particularly suited for large tasks that require long-running, multi-step sessions.
 * **Batch operations:** Useful for scripting and CI workflows where you want {% data variables.product.prodname_copilot_short %} to run to completion.
 * **Safety:** Autopilot mode allows {% data variables.product.prodname_copilot_short %} to take multiple self-directed steps to finish your task. `--max-autopilot-continues` limits how many steps it can take before stopping, to avoid infinite loops. Also, in autopilot mode, {% data variables.product.prodname_copilot_short %} cannot carry out any actions that require permission unless you explicitly grant it full permissions.
 
-### Things to consider
+## Things to consider
 
 * **Task suitability:** Autopilot mode is best for well-defined tasks. It is not ideal for open-ended exploration, feature development without a clear goal, or tasks where you want to guide the ongoing work.
 
@@ -47,11 +47,11 @@ To switch into autopilot mode during an interactive session, press <kbd>Shift</k
 
 * **Cost:** Autopilot mode uses premium requests in the same way that these are used when you are working in the standard interactive interface. In the standard mode, one premium request is used when you submit your initial prompt, and then an additional premium request is used each time you reply to a question in the CLI and the agent uses your response to interact with the AI model. The same applies in autopilot mode, except that you are not involved in initiating the next step, so the use of additional premium requests happens without your direct involvement.
 
-  The billable premium request usage is determined using a multiplier. The multiplier varies, depending on which model you use. Use the `/model` slash command to see the currently selected model and its multiplier, and change the model if required. For more information, see [AUTOTITLE](/copilot/concepts/billing/copilot-requests) and [AUTOTITLE](/copilot/concepts/billing/billing-for-individuals#about-premium-requests).
+  {% data reusables.cli.billable-prus %}
 
   Each time the agent continues autonomously it will display a message in the CLI telling you how many premium requests have been used by that continuation step—taking account of the model multiplier—for example: `Continuing autonomously (3 premium requests)`.
 
-### Permissions
+## Permissions
 
 When entering autopilot mode, if you have not already granted {% data variables.product.prodname_copilot_short %} all permissions, a message is displayed prompting you to choose between three options:
 
@@ -63,7 +63,7 @@ When entering autopilot mode, if you have not already granted {% data variables.
 
 You will get the best results from autopilot mode if you enable all permissions. If you choose to continue with limited permissions, {% data variables.product.prodname_copilot_short %} will automatically deny any tool requests that require approval, which may prevent it from completing certain tasks. You can change your mind later and grant full permissions, during an autopilot session, by using the `/allow-all` command (or its alias `/yolo`).
 
-### Comparing autopilot mode, `--allow-all`, and `--no-ask-user`
+## Comparing autopilot mode, `--allow-all`, and `--no-ask-user`
 
 `--allow-all`, and its alias `--yolo`, are permissions-related options that you can pass to the `copilot` command when you start an interactive session. For a full list of available options, see [AUTOTITLE](/copilot/reference/cli-command-reference#command-line-options).
 
@@ -82,7 +82,7 @@ Autopilot mode is ideal for implementing a large, detailed plan of work. Often y
 
 For example:
 
-* Ctart an interactive {% data variables.copilot.copilot_cli_short %} session.
+* Start an interactive {% data variables.copilot.copilot_cli_short %} session.
 
   Optionally, you can include the `--allow-all` option to grant permissions, and the `--max-autopilot-continues` option to set a maximum continuation limit for autopilot mode during the session. For example, you could start the session with `copilot --allow-all --max-autopilot-continues 10` to give the agent permission to use all tools, paths, and URLs, and set a maximum continuation limit for autopilot to 10.
 
@@ -104,10 +104,11 @@ Example usage:
 {% data reusables.cli.autopilot-programmatic-prompt %}
 ```
 
-### Summary
+## Summary
 
 Use autopilot mode when you want {% data variables.product.prodname_copilot_short %} to take over a task and work to completion without your involvement. It's best for clear, well-defined tasks where you trust {% data variables.product.prodname_copilot_short %} to make reasonable decisions.
 
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli#get-copilot-to-work-autonomously)
+* [AUTOTITLE](/copilot/concepts/agents/copilot-cli/fleet)

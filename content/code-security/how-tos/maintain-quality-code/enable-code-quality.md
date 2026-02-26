@@ -41,5 +41,5 @@ redirect_from:
 
 ## Next steps
 
-* Learn about the code quality backlog for your repository. See [AUTOTITLE](/code-security/code-quality/how-tos/interpret-results).
-* Find and fix code quality issues before they reach your default branch. See [AUTOTITLE](/code-security/code-quality/tutorials/fix-findings-in-prs).
+* **For your repository:** Understand your code quality backlog in detail. See [AUTOTITLE](/code-security/code-quality/how-tos/interpret-results).
+* **For your organization:** Understand the code health of your repositories at a glance. See [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/explore-code-quality).

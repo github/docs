@@ -87,8 +87,6 @@ You can use the following strategies to maximize the value of your premium reque
 
 * **Define whether users can use premium requests over their included allowance** (enterprises and organizations only). Set a policy to control whether users can incur extra costs for premium requests when they use up their included allowance. See [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/manage-request-allowances).
 
-{% data reusables.copilot.zero-budget-changes-link %}
-
 ## Managing premium request billing with multiple {% data variables.product.prodname_copilot_short %} licenses
 
 If you have {% data variables.product.prodname_copilot_short %} licenses from multiple standalone organizations or enterprises, you must define which entity is charged for your use of premium requests. Until you define a billing entity, all premium requests you make will be rejected.

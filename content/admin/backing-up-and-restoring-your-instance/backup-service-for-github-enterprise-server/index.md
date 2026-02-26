@@ -12,6 +12,9 @@ children:
   - /configuring-the-backup-service
   - /creating-and-monitoring-backups
   - /restoring-from-a-backup
+  - /configuring-remote-archives-for-backups
+  - /backup-from-replica-in-high-availability
+  - /backup-in-clustering-mode
   - /restoring-with-github-actions-enabled
   - /backup-service-settings-reference
   - /understanding-the-snapshot-file-structure

@@ -112,8 +112,6 @@ Enterprises and organizations can opt in to paid usage to access expanded model 
 
 Enterprises, organizations and personal accounts may have default budgets to limit spending. Check the budgets for your account to ensure they are appropriate for your usage needs.
 
-{% data reusables.billing.migrated-budgets %}
-
 For more information, see [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
 
 ## Further reading

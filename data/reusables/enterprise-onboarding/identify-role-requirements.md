@@ -17,8 +17,8 @@ As you think about tasks that would benefit from a specific role, refer to the a
 | Role type | More information |
 | --------- | ---------------- |
 | Predefined enterprise roles | [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/abilities-of-roles) |
-| Predefined organization roles | [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)
-| Custom enterprise roles | Review the list of available permissions at `github.com/enterprises/ENTERPRISE/enterprise_roles/new`, where ENTERPRISE is the name of your enterprise account. |
+| Predefined organization roles | [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization) |
+| Custom enterprise roles | Review the list of available permissions at `{% data variables.product.product_url %}/enterprises/ENTERPRISE/enterprise_roles/new`, where ENTERPRISE is the name of your enterprise account. |
 | Custom organization roles | [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles) |
 
 ## 2. Identify two owners per account
@@ -35,7 +35,9 @@ It is unlikely that you can granularly assign every administrative duty in your 
 
 * **Auditing**: Use a custom role to give a team access to your audit logs without allowing them to access any other settings.
 * **Authentication**: Use a custom role to give your identity provider administrators permission to manage SSO settings on {% data variables.product.github %}, so they can configure authentication independently.
+{%- ifversion ent-security-manager %}
 * **Security**: Use the enterprise security manager role to give security teams access to alerts and security data across the enterprise and organizations.
+{%- endif %}
 
 Some administrative tasks are more sensitive than others. For example, if your enterprise uses enterprise teams to manage licensing, access, and roles, then being able to change membership of a team is a powerful action that you may want to restrict to a small group of people.
 
@@ -60,8 +62,12 @@ Not all tasks are best-suited to humans. Identify frequent, time-consuming, and 
 
 For more information about what apps can do, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps#understanding-what-type-of-github-app-to-build).
 
+{% ifversion copilot %}
+
 ## 6. Assign tasks to agents
 
 Another way to delegate frequent, time-consuming tasks is to assign work to {% data variables.copilot.copilot_coding_agent %}. You can define custom agents for specific roles in your enterprise. Custom agents are created using Markdown files called "agent profiles," which define the instructions and tools the agent needs to perform a task. For example, you could create a {% data variables.copilot.copilot_custom_agent_short %} for writing README files or generating unit tests.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents).
+
+{% endif %}

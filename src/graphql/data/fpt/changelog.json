@@ -4,6 +4,21 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Input field <code>requireExplicitValues</code> of type <code>Boolean</code> was added to input object type <code>CreateRepositoryCustomPropertyInput</code></p>",
+          "<p>Field <code>requireExplicitValues</code> was added to object type <code>RepositoryCustomProperty</code></p>",
+          "<p>Input field <code>requireExplicitValues</code> of type <code>Boolean</code> was added to input object type <code>UpdateRepositoryCustomPropertyInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-02-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value 'ISSUE_COMMENT_PINNED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
           "<p>Enum value 'ISSUE_COMMENT_UNPINNED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
           "<p>Enum value 'ISSUE_COMMENT_PINNED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",

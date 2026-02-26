@@ -1126,7 +1126,7 @@
   supportedSecret: Baidu AI API Key
   secretType: baiduai_api_key
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
@@ -1697,7 +1697,7 @@
   secretType: datadog_rcm
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -2561,7 +2561,7 @@
   secretType: hubspot_private_apps_user_token
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -3411,7 +3411,7 @@
   secretType: openweather_api_key
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -3781,7 +3781,7 @@
   secretType: proctorio_consumer_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -3791,7 +3791,7 @@
   secretType: proctorio_linkage_key
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false
@@ -4762,6 +4762,16 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Weatherstack
+  supportedSecret: Weatherstack API Key
+  secretType: weatherstack_api_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false

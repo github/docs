@@ -37,4 +37,4 @@ For more information about policies for {% data variables.product.prodname_AS %}
 
 ## Next steps
 
-To see {% data variables.product.prodname_code_quality_short %} in action, turn the feature on for one or more repositories, [AUTOTITLE](/code-security/code-quality/how-tos/enable-code-quality).
+To see {% data variables.product.prodname_code_quality_short %} in action, turn the feature on for one or more repositories. See [AUTOTITLE](/code-security/code-quality/how-tos/enable-code-quality).

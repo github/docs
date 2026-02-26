@@ -19,8 +19,6 @@ category:
 
 The command-line interface (CLI) for {% data variables.product.prodname_copilot %} allows you to use {% data variables.product.prodname_copilot_short %} directly from your terminal. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).
 
-{% data reusables.cli.preview-note-cli %}
-
 ## Prerequisite
 
 Install {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-cli).
@@ -157,9 +155,14 @@ Alternatively, prefix a prompt with `&` to delegate it:
 
 ### Resume an interactive session
 
-You can use the `--resume` command line option or the `/resume` slash command to cycle through and resume local and remote interactive sessions, allowing you to pick up right where you left off with your existing context. You can kick off a {% data variables.copilot.copilot_coding_agent %} session on {% data variables.product.github %}, and then use {% data variables.copilot.copilot_cli %} to bring that session to your local environment.
+You can use the `--resume` command-line option or the `/resume` slash command to select and resume an interactive CLI session, allowing you to pick up right where you left off, with the saved context. You can kick off a {% data variables.copilot.copilot_coding_agent %} session on {% data variables.product.github %}, and then use {% data variables.copilot.copilot_cli %} to bring that session to your local environment.
 
-You can quickly resume the most recently closed local session by using the `--continue` command line option.
+> [!TIP]
+> To quickly resume the most recently closed local session, enter this in your terminal:
+>
+> ```shell
+> copilot --continue
+> ```
 
 ### Use custom instructions
 

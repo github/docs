@@ -28,6 +28,7 @@ With {% data variables.product.prodname_code_quality_short %}, you can:
 * Identify code quality risks and opportunities in **pull requests** and through **repository scans**.
 * Review clear explanations for findings and apply one-click **{% data variables.product.prodname_copilot_short %}-powered autofixes**.
 * Use **repository dashboards** to track reliability and maintainability scores, identify areas needing attention, and prioritize remediation.
+* Monitor **organization dashboards** to understand the code health of your repositories at a glance and determine which repositories to investigate further.
 * Set up **rulesets** for pull requests to enforce code quality standards and block changes that do not meet your criteria.
 * Easily assign remediation work to **{% data variables.copilot.copilot_coding_agent %}**, if you have a {% data variables.product.prodname_copilot_short %} license.
 
@@ -49,7 +50,7 @@ With {% data variables.product.prodname_code_quality_short %}, you can:
 
 {% data variables.product.prodname_code_quality_short %} also performs AI-powered analysis with results displayed separately on the "**{% data variables.code-quality.recent_suggestions %}**" repository dashboard. Unlike the rule-based {% data variables.product.prodname_codeql %} analysis that scans the entire codebase and pull requests, this AI-powered analysis only examines files recently pushed to the default branch and may identify issues in languages beyond those listed above. For more information, see [AUTOTITLE](/code-security/code-quality/responsible-use/code-quality).
 
-## Understanding where {% data variables.product.prodname_code_quality_short %} findings appear after enablement
+## Where will findings appear?
 
 Once you enable {% data variables.product.prodname_code_quality_short %} for a repository, you'll see {% data variables.product.prodname_codeql %} scans for:
 
@@ -76,5 +77,5 @@ Each {% data variables.product.prodname_codeql %} analysis will use {% data vari
 
 ## Next steps
 
-* Enable {% data variables.product.prodname_code_quality_short %} for your repository, see [AUTOTITLE](/code-security/code-quality/how-tos/enable-code-quality). Enterprise owners **may** need to first update their Advanced Security policies, see [AUTOTITLE](/code-security/code-quality/how-tos/allow-in-enterprise)
+* Enable {% data variables.product.prodname_code_quality_short %} for your repository, see [AUTOTITLE](/code-security/code-quality/how-tos/enable-code-quality). Enterprise owners **may** need to first update their Advanced Security policies, see [AUTOTITLE](/code-security/code-quality/how-tos/allow-in-enterprise).
 * See how {% data variables.product.prodname_code_quality %} works on your default branch to surface code quality issues and help you understand your repository's code health at a glance. See [AUTOTITLE](/code-security/code-quality/get-started/quickstart).

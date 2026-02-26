@@ -1,7 +1,7 @@
 import path from 'path'
 import fsSync from 'fs'
 import fs from 'fs/promises'
-import assert from 'assert'
+import chalk from 'chalk'
 import { isArray, isString } from 'lodash-es'
 
 import type { Record } from '@/search/scripts/scrape/types'
@@ -11,9 +11,9 @@ export async function writeIndexRecords(
   records: Record[],
   outDirectory: string,
 ): Promise<string> {
-  validateRecords(name, records)
+  const validRecords = validateRecords(name, records)
 
-  const recordsObject = Object.fromEntries(records.map((record) => [record.objectID, record]))
+  const recordsObject = Object.fromEntries(validRecords.map((record) => [record.objectID, record]))
   const content = JSON.stringify(recordsObject, undefined, 0)
 
   // If the outDirectory doesn't exist, create it
@@ -27,30 +27,52 @@ export async function writeIndexRecords(
   return filePath
 }
 
-function validateRecords(name: string, records: Record[]): true {
-  assert(isString(name) && name.length, '`name` is required')
-  assert(isArray(records) && records.length, '`records` must be a non-empty array')
+function validateRecords(name: string, records: Record[]): Record[] {
+  if (!isString(name) || !name.length) {
+    throw new Error('`name` is required')
+  }
+  if (!isArray(records) || !records.length) {
+    throw new Error('`records` must be a non-empty array')
+  }
 
-  // each ID is unique
+  // each ID is unique — deduplicate rather than crash
   const objectIDs = records.map((record) => record.objectID)
   const dupes = countArrayValues(objectIDs)
     .filter(({ count }) => count > 1)
     .map(({ value }) => value)
-  assert(!dupes.length, `every objectID must be unique. dupes: ${dupes.join('; ')}`)
-
-  for (const record of records) {
-    assert(
-      isString(record.objectID) && record.objectID.length,
-      `objectID must be a string. received: ${record.objectID}, ${JSON.stringify(record)}`,
-    )
-
-    assert(
-      isString(record.title) && record.title.length,
-      `title must be a string. received: ${record.title}, ${JSON.stringify(record)}`,
+  if (dupes.length) {
+    console.warn(
+      chalk.yellow(`⚠ Duplicate objectIDs found and will be deduplicated: ${dupes.join('; ')}`),
     )
   }
 
-  return true
+  const seen = new Set<string>()
+  const validRecords: Record[] = []
+
+  for (const record of records) {
+    if (!isString(record.objectID) || !record.objectID.length) {
+      console.warn(
+        chalk.yellow(
+          `⚠ Skipping record with invalid objectID: ${JSON.stringify({ objectID: record.objectID, title: record.title })}`,
+        ),
+      )
+      continue
+    }
+
+    if (!isString(record.title) || !record.title.length) {
+      console.warn(chalk.yellow(`⚠ Skipping record with empty title: ${record.objectID}`))
+      continue
+    }
+
+    if (seen.has(record.objectID)) {
+      continue
+    }
+    seen.add(record.objectID)
+
+    validRecords.push(record)
+  }
+
+  return validRecords
 }
 
 function countArrayValues(arr: string[]) {

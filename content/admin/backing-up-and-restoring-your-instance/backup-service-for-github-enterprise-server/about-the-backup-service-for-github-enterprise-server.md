@@ -12,7 +12,9 @@ topics:
   - Infrastructure
 ---
 
+{% ifversion ghes < 3.20 %}
 >[!NOTE] {% data variables.product.prodname_enterprise_backup_service %} is currently in {% data variables.release-phases.public_preview %} and subject to change. The service is available at no additional cost and will remain free.
+{% endif %}
 
 ## About the {% data variables.product.prodname_enterprise_backup_service %}
 
@@ -29,7 +31,9 @@ Compared to the legacy backup utilities, the {% data variables.product.prodname_
 * Doesn’t require a separate host for backup software.
 * Stores backups on a dedicated storage volume directly accessible by your instance.
 
+{% ifversion ghes < 3.20 %}
 >[!NOTE] {% data variables.product.prodname_enterprise_backup_service %} is currently only supported on standalone instances and high availability primary nodes. Cluster configurations and replica nodes are not yet supported.
+{% endif %}
 
 ## How does the backup service differ from a High Availability replica?
 
@@ -47,8 +51,7 @@ The backup service is a disaster recovery solution. It captures full, timestampe
 
 ## Further reading
 
-* [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance)
-* [About {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme)
-* [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)
-* [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)
-* [AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)
+* [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server/understanding-the-backup-service)
+* [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server/configuring-the-backup-service)
+* [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server/restoring-from-a-backup)
+* [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server/restoring-with-github-actions-enabled)

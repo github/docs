@@ -9,6 +9,7 @@ redirect_from:
   - /billing/using-the-new-billing-platform/about-the-new-billing-platform
   - /billing/using-the-new-billing-platform/getting-started-with-the-new-billing-platform
   - /billing/managing-your-billing/about-the-new-billing-platform
+  - /billing/reference/previous-billing-platform-endpoints
 topics:
   - Billing
   - Personal account

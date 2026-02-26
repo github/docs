@@ -31,8 +31,6 @@ The **Premium request paid usage policy** must be enabled for any additional bil
 
 You can increase the allowance for users by ensuring the policy is enabled, editing your budgets, or upgrading users to {% data variables.copilot.copilot_enterprise_short %}.
 
-{% data reusables.copilot.zero-budget-changes %}
-
 ## Prerequisites
 
 * Before making changes, download a usage report to see which developers are frequently hitting the limit or using a significant number of requests over the allowance. You may want to contact these users to understand their use cases and requirements. See [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).

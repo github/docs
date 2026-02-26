@@ -22,8 +22,6 @@ The command-line interface (CLI) for {% data variables.product.prodname_copilot 
 
 {% data variables.copilot.copilot_cli %} gives you quick access to a powerful AI agent, without having to leave your terminal. It can help you complete tasks more quickly by working on your behalf, and you can work iteratively with {% data variables.copilot.copilot_cli %} to build the code you need.
 
-{% data reusables.cli.preview-note-cli %}
-
 ## Supported operating systems
 
 * Linux

@@ -13,8 +13,6 @@ category:
   - Configure Copilot CLI # Copilot CLI bespoke page
 ---
 
-{% data reusables.cli.preview-note-cli %}
-
 ## Introduction
 
 {% data variables.copilot.copilot_cli_short %} has several configuration options that control what it can access and do on your behalf.
@@ -76,9 +74,9 @@ The first time that {% data variables.product.prodname_copilot_short %} needs to
    ```
 
 1. Choose from one of the three options:
-   
+
    * `1. Yes`
-      
+
       Choose this option to allow {% data variables.product.prodname_copilot_short %} to run this particular command, this time only. The next time it needs to use this tool, it will ask you again.
 
    * `2. Yes, and approve TOOL for the rest of the running session`
@@ -177,7 +175,7 @@ Use `'MCP_SERVER_NAME'` to allow or deny a specific tool from the specified MCP 
 
 `MCP_SERVER_NAME` is the name of an MCP server that you have configured.
 
-Tools from the server are specified in parentheses, using the tool name that is registered with the MCP server. 
+Tools from the server are specified in parentheses, using the tool name that is registered with the MCP server.
 
 Using the server name without specifying a tool allows or denies all tools from that server.
 
@@ -230,7 +228,7 @@ To disallow access to the temp directory, use `--disallow-temp-dir`.
 
 ## Setting URL permissions
 
-URL permissions control which external URLs {% data variables.product.prodname_copilot_short %} can access. By default, all URLs require approval before access is granted. 
+URL permissions control which external URLs {% data variables.product.prodname_copilot_short %} can access. By default, all URLs require approval before access is granted.
 
 URL permissions apply to the `web_fetch` tool and a curated list of shell commands that access the network (such as `curl`, `wget`, and `fetch`). For shell commands, URLs are extracted using regex patterns.
 

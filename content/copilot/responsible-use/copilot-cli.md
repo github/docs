@@ -19,8 +19,6 @@ category:
   - Learn about Copilot CLI
 ---
 
-{% data reusables.cli.preview-note-cli %}
-
 ## About {% data variables.copilot.copilot_cli %}
 
 {% data variables.copilot.copilot_cli %} provides a chat-like interface in the terminal that can autonomously create and modify files on your computer and execute commands. You can ask {% data variables.product.prodname_copilot_short %} to perform any action on the files in the active directory.

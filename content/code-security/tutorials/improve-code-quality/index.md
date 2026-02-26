@@ -15,4 +15,3 @@ children:
 redirect_from:
   - /code-security/code-quality/tutorials
 ---
-

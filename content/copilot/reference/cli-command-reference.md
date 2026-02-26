@@ -8,7 +8,7 @@ category:
   - Author and optimize with Copilot # Copilot discovery page
   - Build with Copilot CLI # Copilot CLI bespoke landing page
 topics:
-  - Copilot 
+  - Copilot
 contentType: reference
 ---
 
@@ -71,8 +71,8 @@ contentType: reference
 | `/diff`                                             | Review the changes made in the current directory. |
 | `/exit`, `/quit`                                    | Exit the CLI. |
 | `/experimental [on\|off]`                           | Toggle or turn on/off experimental features. |
-| `/share [file\|gist] [PATH]`                        | Share the session to a Markdown file or GitHub gist. |
 | `/feedback`                                         | Provide feedback about the CLI. |
+| `/fleet [PROMPT]`                                   | Enable parallel subagent execution of parts of a task. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/fleet). |
 | `/help`                                             | Show the help for interactive commands. |
 | `/ide`                                              | Connect to an IDE workspace. |
 | `/init`                 | Initialize {% data variables.product.prodname_copilot_short %} custom instructions and agentic features for this repository. |
@@ -86,10 +86,11 @@ contentType: reference
 | `/plugin [marketplace\|install\|uninstall\|update\|list] [ARGS...]` | Manage plugins and plugin marketplaces. |
 | `/rename NAME`                                      | Rename the current session (alias for `/session rename`). |
 | `/reset-allowed-tools`                              | Reset the list of allowed tools. |
-| `/resume [SESSION-ID]`                              | Switch to a different session (optionally specify a session ID). |
+| `/resume [SESSION-ID]`                              | Switch to a different session by choosing from a list (optionally specify a session ID). |
 | `/review [PROMPT]`                                  | Run the code review agent to analyze changes. |
-| `/session [checkpoints [n]\|files\|plan\|rename NAME]`   | Show session information and a workspace summary. Use the subcommands for details. |
-| `/skills [list\|info\|add\|remove\|reload] [ARGS...]`    | Manage skills for enhanced capabilities. |
+| `/session [checkpoints [n]\|files\|plan\|rename NAME]`  | Show session information and a workspace summary. Use the subcommands for details. |
+| `/share [file\|gist] [PATH]`                            | Share the session to a Markdown file or GitHub gist. |
+| `/skills [list\|info\|add\|remove\|reload] [ARGS...]`   | Manage skills for enhanced capabilities. |
 | `/terminal-setup`      | Configure the terminal for multiline input support (<kbd>Shift</kbd>+<kbd>Enter</kbd> and <kbd>Ctrl</kbd>+<kbd>Enter</kbd>). |
 | `/theme [show\|set\|list] [auto\|THEME-ID]`         | View or configure the terminal theme. |
 | `/usage`                                            | Display session usage metrics and statistics. |
@@ -114,7 +115,7 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--allow-tool [TOOLS...]`          | Tools the CLI has permission to use. Will not prompt for permission. |
 | `--allow-url [URLS...]`            | Allow access to specific URLs or domains. |
 | `--alt-screen [VALUE]`             | Use the terminal alternate screen buffer (`on` or `off`). |
-| `--autopilot`                      | Enable autopilot continuation in prompt mode. |
+| `--autopilot`                      | Enable autopilot continuation in prompt mode. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot). |
 | `--available-tools [TOOLS...]`     | Only these tools will be available to the model. |
 | `--banner`                         | Show the startup banner. |
 | `--bash-env [VALUE]`               | Enable `BASH_ENV` support for bash shells (`on` or `off`). |
@@ -133,7 +134,7 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `-i PROMPT`, `--interactive PROMPT`  | Start an interactive session and automatically execute this prompt. |
 | `--log-dir DIRECTORY`              | Set the log file directory (default: `~/.copilot/logs/`). |
 | `--log-level LEVEL`                | Set the log level (choices: `none`, `error`, `warning`, `info`, `debug`, `all`, `default`). |
-| `--max-autopilot-continues COUNT`  | Maximum number of continuation messages in autopilot mode (default: unlimited). |
+| `--max-autopilot-continues COUNT`  | Maximum number of continuation messages in autopilot mode (default: unlimited). See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot). |
 | `--model MODEL`                    | Set the AI model you want to use. |
 | `--no-alt-screen`                  | Disable the terminal alternate screen buffer. |
 | `--no-ask-user`                    | Disable the `ask_user` tool (the agent works autonomously without asking questions). |
@@ -144,7 +145,7 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--no-experimental`                | Disable experimental features. |
 | `-p PROMPT`, `--prompt PROMPT`     | Execute a prompt programmatically (exits after completion). |
 | `--plain-diff`                     | Disable rich diff rendering (syntax highlighting via the diff tool specified by your git config). |
-| `--resume [SESSION-ID]`            | Resume from a previous session (optionally specify a session ID). |
+| `--resume [SESSION-ID]`            | Resume a previous interactive session by choosing from a list (optionally specify a session ID). |
 | `-s`, `--silent`                   | Output only the agent response (without usage statistics), useful for scripting with `-p`. |
 | `--screen-reader`                  | Enable screen reader optimizations. |
 | `--share [PATH]`                   | Share a session to a Markdown file after completion of a programmatic session (default path: `./copilot-session-<ID>.md`). |
