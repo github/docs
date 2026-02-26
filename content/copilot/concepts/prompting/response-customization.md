@@ -93,6 +93,8 @@ Here are some common use cases and examples for each type of custom instructions
   * Preferred language for a company which exclusively speaks a single language: `Always respond in Portuguese.`
   * Organization-wide preferences: `Do not generate code blocks in responses.`
 
+{% data reusables.copilot.code-review.custom-instructions-limit %}
+
 {% data reusables.copilot.custom-instructions-effective %}
 
 ## Next steps

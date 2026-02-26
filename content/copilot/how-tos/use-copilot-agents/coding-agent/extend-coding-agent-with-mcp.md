@@ -339,6 +339,7 @@ For information on using the {% data variables.product.github %} MCP server in o
 
 ## Next steps
 
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers)
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents)
 * [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent)
 * [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp)

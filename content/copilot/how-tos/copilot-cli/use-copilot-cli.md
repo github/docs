@@ -270,6 +270,8 @@ To extend the functionality available to you in {% data variables.copilot.copilo
 
 Details of your configured MCP servers are stored in the `mcp-config.json` file, which is located, by default, in the `~/.copilot` directory. This location can be changed by setting the `XDG_CONFIG_HOME` environment variable. For information about the JSON structure of a server definition, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
 
+For more detailed information on adding and managing MCP servers in {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers).
+
 ### Context management
 
 {% data variables.copilot.copilot_cli_short %} provides several slash commands to help you monitor and manage your context window:

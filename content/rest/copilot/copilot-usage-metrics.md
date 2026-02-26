@@ -19,4 +19,6 @@ allowTitleToDifferFromFilename: true
 
 To enable these endpoints, the "{% data variables.product.prodname_copilot_short %} usage metrics" policy must be set to **Enabled everywhere** for the enterprise. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies#defining-policies-for-your-enterprise).
 
+For more information on the metrics returned by these endpoints, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics).
+
 <!-- Content after this section is automatically generated -->

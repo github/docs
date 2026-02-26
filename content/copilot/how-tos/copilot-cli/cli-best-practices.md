@@ -483,6 +483,9 @@ To submit private feedback to {% data variables.product.github %} about {% data 
 /feedback
 ```
 
+## Hands-on practice
+Try the [Creating applications with {% data variables.copilot.copilot_cli_short %}](https://github.com/skills/create-applications-with-the-copilot-cli) Skills exercise for practical experience building an application with {% data variables.copilot.copilot_cli_short %}.
+
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli)

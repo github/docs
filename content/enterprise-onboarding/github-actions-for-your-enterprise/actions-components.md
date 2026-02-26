@@ -5,9 +5,6 @@ intro: Understand the basics of {% data variables.product.prodname_actions %}, i
 versions:
   ghec: '*'
 type: overview
-topics:
-  - Fundamentals
-  - Actions
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /enterprise-onboarding/github-actions-for-your-enterprise/understanding-github-actions

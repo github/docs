@@ -99,6 +99,7 @@ The {% data variables.product.github %} MCP Registry is a curated list of MCP se
 
 ## Next steps
 
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers)
 * [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/extending-copilot-chat-with-mcp)
 * [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/using-the-github-mcp-server)
 * [AUTOTITLE](/copilot/tutorials/enhancing-copilot-agent-mode-with-mcp)

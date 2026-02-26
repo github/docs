@@ -323,6 +323,7 @@ For more information on creating and configuring your own MCP servers, see [the 
 
 ## Further reading
 
+* [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers)
 * [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp)
 * [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server)
 * [AUTOTITLE](/copilot/tutorials/enhancing-copilot-agent-mode-with-mcp)

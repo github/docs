@@ -5,9 +5,6 @@ intro: '{% data variables.product.prodname_actions %} can improve developer prod
 versions:
   ghec: '*'
 type: overview
-topics:
-  - Actions
-  - Enterprise
 allowTitleToDifferFromFilename: true
 ---
 

@@ -1085,6 +1085,30 @@
       }
     ]
   },
+  "org_copilot_content_exclusion": {
+    "title": "Copilot content exclusion",
+    "displayTitle": "Organization permissions for \"Copilot content exclusion\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "get-copilot-content-exclusion-rules-for-an-organization",
+        "subcategory": "copilot-content-exclusion-management",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/content_exclusion",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "set-copilot-content-exclusion-rules-for-an-organization",
+        "subcategory": "copilot-content-exclusion-management",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/copilot/content_exclusion",
+        "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
   "organization_custom_org_roles": {
     "title": "Custom organization roles",
     "displayTitle": "Organization permissions for \"Custom organization roles\"",

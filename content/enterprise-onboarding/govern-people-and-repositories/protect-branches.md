@@ -5,8 +5,6 @@ intro: 'Create rulesets at the enterprise level to enforce code governance polic
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Enterprise
 redirect_from:
   - /enterprise-onboarding/feature-enhancements/about-rulesets
 ---

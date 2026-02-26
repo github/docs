@@ -2151,6 +2151,18 @@
       "requestPath": "/orgs/{org}/copilot/billing/selected_users"
     },
     {
+      "slug": "get-copilot-content-exclusion-rules-for-an-organization",
+      "subcategory": "copilot-content-exclusion-management",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/content_exclusion"
+    },
+    {
+      "slug": "set-copilot-content-exclusion-rules-for-an-organization",
+      "subcategory": "copilot-content-exclusion-management",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/copilot/content_exclusion"
+    },
+    {
       "slug": "get-copilot-metrics-for-an-organization",
       "subcategory": "copilot-metrics",
       "verb": "get",

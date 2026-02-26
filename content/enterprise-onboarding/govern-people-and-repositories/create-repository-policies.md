@@ -5,10 +5,6 @@ intro: 'Enforce repository policies across your enterprise using custom properti
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Policies
-  - Repositories
 ---
 
 {% data reusables.enterprise.repo-policy-rules-preview %}

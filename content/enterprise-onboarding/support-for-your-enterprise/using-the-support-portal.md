@@ -6,10 +6,6 @@ allowTitleToDifferFromFilename: true
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Set up
-  - Support
 ---
 
 ## About the {% data variables.contact.enterprise_portal %} for enterprises

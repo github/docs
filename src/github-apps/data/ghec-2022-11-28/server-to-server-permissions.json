@@ -187,6 +187,78 @@
       }
     ]
   },
+  "enterprise_ai_controls": {
+    "title": "Enterprise AI controls",
+    "displayTitle": "Enterprise permissions for \"Enterprise AI controls\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "get-copilot-content-exclusion-rules-for-an-enterprise",
+        "subcategory": "copilot-content-exclusion-management",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/content_exclusion",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "set-copilot-content-exclusion-rules-for-an-enterprise",
+        "subcategory": "copilot-content-exclusion-management",
+        "verb": "put",
+        "requestPath": "/enterprises/{enterprise}/copilot/content_exclusion",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "get-custom-agents-for-an-enterprise",
+        "subcategory": "copilot-custom-agents",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/custom-agents",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "get-the-source-organization-for-custom-agents-in-an-enterprise",
+        "subcategory": "copilot-custom-agents",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/custom-agents/source",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "set-the-source-organization-for-custom-agents-in-an-enterprise",
+        "subcategory": "copilot-custom-agents",
+        "verb": "put",
+        "requestPath": "/enterprises/{enterprise}/copilot/custom-agents/source",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "delete-the-custom-agents-source-for-an-enterprise",
+        "subcategory": "copilot-custom-agents",
+        "verb": "delete",
+        "requestPath": "/enterprises/{enterprise}/copilot/custom-agents/source",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
   "enterprise_copilot_metrics": {
     "title": "Enterprise Copilot metrics",
     "displayTitle": "Enterprise permissions for \"Enterprise Copilot metrics\"",
@@ -2143,6 +2215,34 @@
         "subcategory": "campaigns",
         "verb": "delete",
         "requestPath": "/orgs/{org}/campaigns/{campaign_number}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
+  "org_copilot_content_exclusion": {
+    "title": "Copilot content exclusion",
+    "displayTitle": "Organization permissions for \"Copilot content exclusion\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "get-copilot-content-exclusion-rules-for-an-organization",
+        "subcategory": "copilot-content-exclusion-management",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/content_exclusion",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "set-copilot-content-exclusion-rules-for-an-organization",
+        "subcategory": "copilot-content-exclusion-management",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/copilot/content_exclusion",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,

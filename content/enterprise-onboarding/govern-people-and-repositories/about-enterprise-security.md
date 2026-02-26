@@ -9,10 +9,6 @@ redirect_from:
   - /enterprise-onboarding/feature-enhancements/about-code-security-for-your-enterprise
   - /enterprise-onboarding/feature-enhancements/about-enterprise-security
 type: overview
-topics:
-  - Enterprise
-  - Set up
-  - Security
 contentType: other
 ---
 

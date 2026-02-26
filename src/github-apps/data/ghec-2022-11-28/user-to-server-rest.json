@@ -2371,6 +2371,42 @@
   ],
   "copilot": [
     {
+      "slug": "get-copilot-content-exclusion-rules-for-an-enterprise",
+      "subcategory": "copilot-content-exclusion-management",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/content_exclusion"
+    },
+    {
+      "slug": "set-copilot-content-exclusion-rules-for-an-enterprise",
+      "subcategory": "copilot-content-exclusion-management",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/copilot/content_exclusion"
+    },
+    {
+      "slug": "get-custom-agents-for-an-enterprise",
+      "subcategory": "copilot-custom-agents",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/custom-agents"
+    },
+    {
+      "slug": "get-the-source-organization-for-custom-agents-in-an-enterprise",
+      "subcategory": "copilot-custom-agents",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/custom-agents/source"
+    },
+    {
+      "slug": "set-the-source-organization-for-custom-agents-in-an-enterprise",
+      "subcategory": "copilot-custom-agents",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/copilot/custom-agents/source"
+    },
+    {
+      "slug": "delete-the-custom-agents-source-for-an-enterprise",
+      "subcategory": "copilot-custom-agents",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/copilot/custom-agents/source"
+    },
+    {
       "slug": "get-copilot-enterprise-usage-metrics-for-a-specific-day",
       "subcategory": "copilot-usage-metrics",
       "verb": "get",
@@ -2429,6 +2465,18 @@
       "subcategory": "copilot-user-management",
       "verb": "delete",
       "requestPath": "/orgs/{org}/copilot/billing/selected_users"
+    },
+    {
+      "slug": "get-copilot-content-exclusion-rules-for-an-organization",
+      "subcategory": "copilot-content-exclusion-management",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/content_exclusion"
+    },
+    {
+      "slug": "set-copilot-content-exclusion-rules-for-an-organization",
+      "subcategory": "copilot-content-exclusion-management",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/copilot/content_exclusion"
     },
     {
       "slug": "get-copilot-metrics-for-an-organization",

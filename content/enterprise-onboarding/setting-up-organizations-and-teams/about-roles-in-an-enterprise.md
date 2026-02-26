@@ -5,9 +5,6 @@ intro: 'Understand the different role types in an enterprise and how they contro
 versions:
   ghec: '*'
 type: overview
-topics:
-  - Enterprise
-  - Permissions
 redirect_from:
   - /enterprise-onboarding/feature-enhancements/about-access-permissions-on-github
 ---

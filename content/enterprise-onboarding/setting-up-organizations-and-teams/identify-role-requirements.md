@@ -5,9 +5,6 @@ versions:
   ghec: '*'
 shortTitle: Identify role requirements
 type: how_to
-topics:
-  - Organizations
-  - Enterprise
 ---
 
 {% data reusables.enterprise-onboarding.identify-role-requirements %}

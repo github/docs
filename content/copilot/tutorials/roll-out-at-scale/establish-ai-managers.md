@@ -11,7 +11,7 @@ contentType: tutorials
 ---
 
 > [!NOTE]
-> Enterprise custom roles, enterprise teams, and the AI Controls view are in public preview and subject to change.
+> Enterprise custom roles and enterprise teams are in public preview and subject to change.
 
 ## Overview
 

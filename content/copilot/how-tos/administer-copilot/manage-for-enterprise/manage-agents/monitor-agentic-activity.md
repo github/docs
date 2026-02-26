@@ -12,13 +12,12 @@ category:
   - Manage Copilot for a team
 ---
 
-{% data reusables.enterprise-accounts.ai-controls-preview-note %}
-
 ## Viewing active and recent agentic sessions in your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.ai-controls-tab %}
 1. Towards the top of the page, in the "Agent sessions" section, you will see the three most recent agent sessions in your enterprise. To view all agent sessions from the last 24 hours, click **View all**.
+1. To see available filters for agent sessions, click the search bar at the top of the list, then press <kbd>Space</kbd>. Use the dropdown menu that appears to create your filter criteria.
 
 ## Tracking agentic activity in your enterprise through the audit log
 

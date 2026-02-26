@@ -28,9 +28,6 @@ changelog:
 layout: product-landing
 versions:
   feature: desktop
-topics:
-  - Desktop
-  - Repositories
 children:
   - /overview
   - /installing-and-authenticating-to-github-desktop

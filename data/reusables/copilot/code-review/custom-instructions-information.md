@@ -6,6 +6,8 @@ You can also write instructions that {% data variables.product.prodname_copilot_
 
 For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot).
 
+{% data reusables.copilot.code-review.custom-instructions-limit %}
+
 ### Example
 
 This example of a `.github/copilot-instructions.md` file contains three instructions that will be applied to all {% data variables.copilot.copilot_code-review_short %}s in the repository.
