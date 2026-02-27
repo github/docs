@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'Learn about the supported AI models in {% data variables.product.prodname_copilot %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Learn about Copilot
 redirect_from:

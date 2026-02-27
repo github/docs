@@ -4,8 +4,6 @@ allowTitleToDifferFromFilename: true
 shortTitle: 'Auto model selection'
 intro: 'Automatically select models for {% data variables.copilot.copilot_chat_short %} and {% data variables.copilot.copilot_coding_agent %}.'
 product: '{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} for {% data variables.copilot.copilot_chat_short %} is available with all {% data variables.product.prodname_copilot %} plans. <br>{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} for {% data variables.copilot.copilot_coding_agent %} is available for {% data variables.copilot.copilot_pro %} and {% data variables.copilot.copilot_pro_plus %} plans.'
-topics:
-  - Copilot
 versions:
   feature: copilot
 contentType: concepts

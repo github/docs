@@ -5,9 +5,6 @@ intro: 'Learn how to use {% data variables.copilot.copilot_cli %} responsibly by
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
-  - CLI
 redirect_from:
   - /copilot/github-copilot-in-the-cli/about-github-copilot-in-the-cli
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-in-the-cli

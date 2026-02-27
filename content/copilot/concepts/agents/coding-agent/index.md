@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: Learn how {% data variables.copilot.copilot_coding_agent %} can carry out coding tasks for you, working independently in the same workflow you use yourself.
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /about-coding-agent
   - /agent-management

@@ -5,8 +5,6 @@ intro: 'Learn how to use {% data variables.copilot.copilot_desktop_short %} resp
 product: '{% data reusables.gated-features.copilot-in-desktop %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-in-github-desktop
   - /copilot/responsible-use-of-github-copilot-features/copilot-in-github-desktop

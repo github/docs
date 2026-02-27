@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Fundamentals
-  - Profile
 shortTitle: Email addresses
 contentType: concepts
 ---

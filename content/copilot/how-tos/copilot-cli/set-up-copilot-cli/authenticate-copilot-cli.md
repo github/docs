@@ -5,9 +5,6 @@ intro: Authenticate {% data variables.copilot.copilot_cli_short %} so that you c
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
-  - CLI
 contentType: how-tos
 category:
   - Configure Copilot CLI

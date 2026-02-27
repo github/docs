@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'Create a plugin to share customizations in an easy-to-install package.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Configure Copilot # Copilot discovery page
   - Author and optimize with Copilot # Copilot discovery page

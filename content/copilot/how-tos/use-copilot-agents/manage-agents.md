@@ -5,8 +5,6 @@ intro: View your agent's progress and keep it on task.
 product: 'Coding agents are available with the {% data variables.copilot.copilot_pro %}, {% data variables.copilot.copilot_pro_plus %}, {% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %} plans.<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category:
   - Author and optimize with Copilot

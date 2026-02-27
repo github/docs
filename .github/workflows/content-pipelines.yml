@@ -14,9 +14,8 @@ name: 'Content pipelines: Update content'
 # values. Run locally: npx tsx src/content-pipelines/scripts/update.ts --help
 
 on:
-  ## COMMENTED OUT FOR TESTING
-  # schedule:
-  #   - cron: "20 16 * * 1-5" # Mon-Fri at 16:20 UTC
+  schedule:
+    - cron: '20 16 * * 1-5' # Mon-Fri at 16:20 UTC
   workflow_dispatch:
 
 permissions:

@@ -8,9 +8,6 @@ redirect_from:
   - /copilot/how-tos/use-copilot-agents/use-copilot-cli
 versions:
   feature: copilot
-topics:
-  - Copilot
-  - CLI
 contentType: how-tos
 category:
   - Author and optimize with Copilot # Copilot discovery page

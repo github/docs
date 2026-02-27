@@ -3,8 +3,6 @@ title: What is GitHub Copilot?
 intro: 'Learn what {% data variables.product.prodname_copilot_short %} is and what you can do with it.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 shortTitle: What is GitHub Copilot?
 redirect_from:
   - /copilot/copilot-individual

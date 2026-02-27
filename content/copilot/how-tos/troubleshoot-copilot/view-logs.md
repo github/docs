@@ -10,10 +10,6 @@ redirect_from:
   - /copilot/troubleshooting-github-copilot/viewing-logs-for-github-copilot-in-your-environment
   - /copilot/how-tos/troubleshoot/viewing-logs-for-github-copilot-in-your-environment
   - /copilot/how-tos/troubleshoot/view-logs
-topics:
-  - Copilot
-  - Logging
-  - Troubleshooting
 versions:
   feature: copilot
 shortTitle: View logs

@@ -4,8 +4,6 @@ shortTitle: Enterprise management
 intro: 'Maintain your enterprise''s security and compliance standards and supercharge your developers by managing agents with AI Controls.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: concepts
 category:
   - Learn about Copilot

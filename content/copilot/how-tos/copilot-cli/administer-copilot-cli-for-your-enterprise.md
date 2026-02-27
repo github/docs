@@ -4,9 +4,6 @@ shortTitle: Administer for enterprise
 intro: 'Control the use of {% data variables.copilot.copilot_cli_short %} within your enterprise.'
 versions:
   feature: copilot
-topics:
-  - Copilot
-  - Enterprise
 contentType: how-tos
 allowTitleToDifferFromFilename: true
 category:
@@ -45,7 +42,7 @@ Both the {% data variables.copilot.copilot_cli_short %} policy and the {% data v
 
 ### Audit logging
 
-{% data variables.copilot.copilot_cli_short %} usage events appear in enterprise audit logs.
+Updates to enterprise policies that affect {% data variables.copilot.copilot_cli_short %} are recorded as events in the enterprise audit log.
 
 ### Seat assignment
 

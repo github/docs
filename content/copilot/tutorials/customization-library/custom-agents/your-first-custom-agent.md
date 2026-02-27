@@ -9,8 +9,6 @@ category:
 complexity:
   - Simple
 octicon: copilot
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

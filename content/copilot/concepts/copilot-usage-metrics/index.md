@@ -4,8 +4,6 @@ shortTitle: Copilot usage metrics
 intro: Track how your teams are using and adopting {% data variables.product.prodname_copilot %} with detailed usage metrics.
 versions:
   feature: copilot
-topics:
-  - Copilot
 heroImage: /assets/images/banner-images/hero-4
 layout: bespoke-landing
 sidebarLink:

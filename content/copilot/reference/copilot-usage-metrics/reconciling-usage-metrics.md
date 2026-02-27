@@ -5,8 +5,6 @@ intro: '{% data variables.product.prodname_copilot_short %} usage metrics are de
 permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: reference
 allowTitleToDifferFromFilename: true
 redirect_from:
@@ -18,8 +16,6 @@ category:
   - Track Copilot usage
 ---
 
-{% data reusables.copilot.usage-metrics-preview %}
-
 The {% data variables.product.prodname_copilot_short %} usage metrics dashboard, APIs, and export files all use the same underlying telemetry data, but they aggregate and present it differently. Understanding these differences helps you reconcile numbers across sources and trust your analysis when preparing internal reports.
 
 * The {% data variables.product.prodname_copilot_short %} usage metrics dashboards are available at the **enterprise** and **organization** level.
@@ -27,9 +23,11 @@ The {% data variables.product.prodname_copilot_short %} usage metrics dashboard,
 
 ## Prerequisite
 
-{% data variables.product.prodname_copilot_short %} usage metrics depend on **telemetry from users’ IDEs**. If a developer has disabled telemetry in their IDE, their {% data variables.product.prodname_copilot_short %} activity will **not** appear in the dashboard, API reports, or exported data.
+IDE-based {% data variables.product.prodname_copilot_short %} usage metrics depend on **telemetry from users’ IDEs**. If a developer has disabled telemetry in their IDE, their IDE-based {% data variables.product.prodname_copilot_short %} activity will **not** appear in the dashboard, API reports, or exported data.
 
 If you notice missing users or unexpectedly low adoption numbers, verify IDE telemetry settings before troubleshooting other causes.
+
+{% data variables.copilot.copilot_cli_short %} metrics (`daily_active_cli_users` and `totals_by_cli`) are collected and reported separately from IDE telemetry. CLI usage does **not** contribute to IDE-based active user counts or other IDE metrics.
 
 ## Metric alignment
 

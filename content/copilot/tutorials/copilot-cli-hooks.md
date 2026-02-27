@@ -2,8 +2,6 @@
 title: Using hooks with Copilot CLI for predictable, policy-compliant execution
 shortTitle: Use hooks with Copilot CLI
 intro: Use hooks to log user prompts and control which tools {% data variables.copilot.copilot_cli_short %} can run in a repository, so teams can automate safely within your organization’s security and compliance requirements.
-topics:
-  - Copilot
 versions:
   feature: copilot
 contentType: tutorials

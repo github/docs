@@ -6,8 +6,6 @@ allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.copilot-sdk %}' 
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: get-started
 category:
   - Learn about Copilot

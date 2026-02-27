@@ -7,8 +7,6 @@ versions:
 category:
   - Author and optimize with Copilot # Copilot discovery page
   - Configure Copilot CLI # Copilot CLI bespoke page
-topics:
-  - Copilot
 contentType: reference
 ---
 
@@ -24,6 +22,9 @@ You can use the following commands in the terminal to manage plugins for {% data
 | `copilot plugin uninstall NAME`                | Remove a plugin |
 | `copilot plugin list`                          | List installed plugins |
 | `copilot plugin update NAME`                   | Update a plugin |
+| `copilot plugin update --all`                  | Update all installed plugins |
+| `copilot plugin disable NAME`                  | Temporarily disable a plugin without uninstalling it |
+| `copilot plugin enable NAME`                   | Re-enable a disabled plugin |
 | `copilot plugin marketplace add SPECIFICATION` | Register a marketplace |
 | `copilot plugin marketplace list`              | List registered marketplaces |
 | `copilot plugin marketplace browse NAME`       | Browse marketplace plugins |
@@ -138,7 +139,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 | Item                 | Path |
 |----------------------|------|
-| Installed plugins    | `~/.copilot/installed-plugins/` and `~/.copilot/installed-plugins/_direct` |
+| Installed plugins    | `~/.copilot/state/installed-plugins/MARKETPLACE/PLUGIN-NAME` (installed via a marketplace) and `~/.copilot/state/installed-plugins/PLUGIN-NAME` (installed directly) |
 | Marketplace cache    | `~/.copilot/state/marketplace-cache/` |
 | Plugin manifest      | `plugin.json`, `.github/plugin/plugin.json`, or `.claude-plugin/plugin.json` |
 | Marketplace manifest | `.github/plugin/marketplace.json` or `.claude-plugin/marketplace.json` |

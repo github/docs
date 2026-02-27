@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'Find out how {% data variables.product.prodname_copilot_short %} can review pull requests for you.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/code-review
   - /copilot/concepts/code-review/code-review
@@ -111,6 +109,8 @@ If {% data variables.product.prodname_actions %} is unavailable or if Actions wo
 ## Usage of {% data variables.product.prodname_actions %} runners for tools in code review
 
 {% data reusables.copilot.code-review.code-review-actions-usage %}
+
+Organizations in this situation can use self-hosted runners. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/configure-self-hosted-runners).
 
 ## Code review monthly quota
 

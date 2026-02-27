@@ -2,8 +2,6 @@
 title: Configuring network settings for GitHub Copilot
 shortTitle: Configure network settings
 intro: 'You can connect to {% data variables.product.prodname_copilot %} through an HTTP proxy and use custom certificates.'
-topics:
-  - Copilot
 versions:
   feature: copilot
 redirect_from:

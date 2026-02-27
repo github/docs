@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: Find out about using the Model Context Protocol (MCP) with {% data variables.copilot.copilot_coding_agent %}.
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: concepts
 redirect_from:
   - /copilot/concepts/coding-agent/mcp-and-coding-agent

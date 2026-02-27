@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'Create specialized agents with tailored expertise for specific development tasks.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Configure Copilot # Copilot discovery page
   - Author and optimize with Copilot # Copilot discovery page

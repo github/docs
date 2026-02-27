@@ -4,8 +4,6 @@ intro: 'Reduce your administrative burden and empower your SMEs by creating a te
 permissions: Enterprise owners
 versions:
   feature: copilot
-topics:
-  - Copilot
 shortTitle: Establish AI managers
 contentType: tutorials
 ---

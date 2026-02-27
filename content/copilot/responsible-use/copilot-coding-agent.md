@@ -4,8 +4,6 @@ shortTitle: Copilot coding agent
 intro: 'Learn how to use {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.prodname_dotcom_the_website %} responsibly by understanding its purposes, capabilities, and limitations.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /early-access/copilot/coding-agent/responsible-use-of-copilot-coding-agent
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-copilot-coding-agent-on-githubcom

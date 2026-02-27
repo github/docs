@@ -4,8 +4,6 @@ shortTitle: '{% data variables.copilot.copilot_cli_short %}'
 intro: 'Use {% data variables.product.prodname_copilot_short %} directly from your terminal to answer questions, write and debug code, and interact with {% data variables.product.github %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: landing
 layout: bespoke-landing
 heroImage: /assets/images/banner-images/hero-4

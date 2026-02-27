@@ -5,8 +5,6 @@ intro: 'Learn how you can monitor your monthly usage of {% data variables.produc
 permissions: 'Individual users on a paid {% data variables.product.prodname_copilot_short %} plan can view their own usage and entitlements. For {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plans, organization admins and billing managers can view usage reports for members.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements
   - /copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements

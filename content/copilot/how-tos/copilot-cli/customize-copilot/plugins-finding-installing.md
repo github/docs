@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'Extend {% data variables.product.prodname_copilot_short %}''s functionality by installing plugins created by the community or by your team.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Configure Copilot # Copilot discovery page
   - Author and optimize with Copilot # Copilot discovery page

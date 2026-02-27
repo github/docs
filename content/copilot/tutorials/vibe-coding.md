@@ -2,8 +2,6 @@
 title: Vibe coding with GitHub Copilot
 shortTitle: Vibe coding
 intro: 'Create an application without writing any code yourself.'
-topics:
-  - Copilot
 versions:
   feature: copilot
 contentType: tutorials

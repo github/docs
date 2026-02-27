@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'The CLI''s autopilot mode lets {% data variables.copilot.copilot_cli_short %} work autonomously on a task, carrying out multiple steps until the task is complete.'
 versions:
   feature: copilot
-topics:
-  - CLI
 contentType: concepts
 category:
   - Learn about Copilot CLI # Copilot CLI bespoke page

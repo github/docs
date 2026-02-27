@@ -5,9 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'This article provides details about the replacement for the {% data variables.product.prodname_copilot_short %} extension for {% data variables.product.prodname_cli %}.'
 versions:
   feature: copilot-in-the-cli
-topics:
-  - Copilot
-  - CLI
 redirect_from:
   - /copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli
   - /copilot/using-github-copilot/using-github-copilot-in-the-cli

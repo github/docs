@@ -5,9 +5,6 @@ intro: Integrate {% data variables.copilot.copilot_cli %} into your {% data vari
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
-  - CLI
 contentType: how-tos
 category: 
   - Build with Copilot CLI

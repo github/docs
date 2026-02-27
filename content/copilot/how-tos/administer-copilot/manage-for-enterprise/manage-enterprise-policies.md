@@ -6,9 +6,6 @@ product: '{% data variables.copilot.copilot_enterprise_short %} or {% data varia
 versions:
   feature: copilot
 allowTitleToDifferFromFilename: true
-topics:
-  - Copilot
-  - Enterprise
 shortTitle: Manage enterprise policies
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise

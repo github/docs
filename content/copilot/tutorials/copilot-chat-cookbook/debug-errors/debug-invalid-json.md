@@ -16,8 +16,6 @@ category:
 complexity:
   - Intermediate
 octicon: bug
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

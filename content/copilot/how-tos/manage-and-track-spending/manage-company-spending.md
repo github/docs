@@ -4,8 +4,6 @@ shortTitle: Manage company spending
 intro: 'Learn how to track spending, view usage, and optimize license distribution.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 permissions: Enterprise owners and billing managers
 product: '{% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %}'
 redirect_from:

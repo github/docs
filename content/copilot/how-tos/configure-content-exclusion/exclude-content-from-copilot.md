@@ -21,8 +21,6 @@ redirect_from:
   - /copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot
   - /copilot/how-tos/content-exclusion/excluding-content-from-github-copilot
   - /copilot/how-tos/content-exclusion/exclude-content-from-copilot
-topics:
-  - Copilot
 contentType: how-tos
 category:
   - Configure Copilot

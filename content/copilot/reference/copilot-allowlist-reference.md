@@ -4,8 +4,6 @@ intro: 'Learn how to allow certain traffic through your firewall or proxy server
 permissions: Proxy server maintainers or firewall maintainers
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Configure Copilot
 redirect_from:

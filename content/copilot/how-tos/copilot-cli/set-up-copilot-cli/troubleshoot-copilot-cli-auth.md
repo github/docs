@@ -4,9 +4,6 @@ shortTitle: Troubleshoot Copilot CLI auth
 intro: Diagnose authentication failures when signing in to {% data variables.copilot.copilot_cli_short %}.
 versions:
   feature: copilot
-topics:
-  - Copilot
-  - Troubleshooting
 contentType: how-tos
 category:
   - Configure Copilot CLI

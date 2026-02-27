@@ -4,8 +4,6 @@ shortTitle: Custom agents
 intro: '{% data variables.copilot.custom_agents_caps_short %} enhance {% data variables.product.prodname_copilot_short %} with assistance tailored to your needs.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Learn about Copilot
 ---

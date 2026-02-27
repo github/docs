@@ -6,8 +6,6 @@ intro: 'Use the {% data variables.product.prodname_openai_codex %} coding agent 
 product: '{% data reusables.gated-features.openai-codex %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_plan=pro-plus&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: concepts
 category:
   - Learn about Copilot

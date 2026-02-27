@@ -6,9 +6,6 @@ permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
 type: tutorial
-topics:
-  - Copilot
-  - Enterprise
 allowTitleToDifferFromFilename: true
 category:
   - Copilot usage metrics

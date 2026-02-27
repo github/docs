@@ -6,8 +6,6 @@ intro: 'Plugins are installable packages that extend {% data variables.copilot.c
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: concepts
 category:
   - Learn about Copilot # Copilot discovery page

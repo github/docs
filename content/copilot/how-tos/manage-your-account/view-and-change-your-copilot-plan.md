@@ -4,8 +4,6 @@ shortTitle: View and change your Copilot plan
 intro: 'Learn how to view, cancel, or update your {% data variables.product.prodname_copilot_short %} plan, and update your billing cycle.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/modifying-your-copilot-subscription-as-an-individual-user
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/modifying-your-copilot-subscription-as-an-individual-user

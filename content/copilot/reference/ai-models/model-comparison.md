@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'Compare available AI models in {% data variables.copilot.copilot_chat_short %} and choose the best model for your task.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Learn about Copilot
 redirect_from:

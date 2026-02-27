@@ -33,37 +33,34 @@ describe('writeIndexRecords', () => {
 
     const result = await writeIndexRecords('test-index', records, '/tmp/out')
 
-    expect(result).toBe('/tmp/out/test-index-records.json')
+    expect(result.filePath).toBe('/tmp/out/test-index-records.json')
+    expect(result.skippedRecords).toEqual([])
     expect(fs.writeFile).toHaveBeenCalledOnce()
     const writtenJson = vi.mocked(fs.writeFile).mock.calls[0][1] as string
     const parsed = JSON.parse(writtenJson)
     expect(Object.keys(parsed)).toEqual(['/en/test-page', '/en/other-page'])
   })
 
-  test('filters out records with empty titles', async () => {
-    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
+  test('filters out records with empty titles and returns them as skipped', async () => {
     const records = [makeRecord(), makeRecord({ objectID: '/en/bad-page', title: '' })]
 
-    await writeIndexRecords('test-index', records, '/tmp/out')
+    const result = await writeIndexRecords('test-index', records, '/tmp/out')
 
     const writtenJson = vi.mocked(fs.writeFile).mock.calls[0][1] as string
     const parsed = JSON.parse(writtenJson)
     expect(Object.keys(parsed)).toEqual(['/en/test-page'])
-    expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('empty title'))
-    warnSpy.mockRestore()
+    expect(result.skippedRecords).toEqual([{ objectID: '/en/bad-page', reason: 'empty title' }])
   })
 
-  test('filters out records with missing objectID', async () => {
-    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
+  test('filters out records with missing objectID and returns them as skipped', async () => {
     const records = [makeRecord(), makeRecord({ objectID: '', title: 'No ID' })]
 
-    await writeIndexRecords('test-index', records, '/tmp/out')
+    const result = await writeIndexRecords('test-index', records, '/tmp/out')
 
     const writtenJson = vi.mocked(fs.writeFile).mock.calls[0][1] as string
     const parsed = JSON.parse(writtenJson)
     expect(Object.keys(parsed)).toEqual(['/en/test-page'])
-    expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('invalid objectID'))
-    warnSpy.mockRestore()
+    expect(result.skippedRecords).toEqual([{ objectID: '(unknown)', reason: 'invalid objectID' }])
   })
 
   test('deduplicates records with the same objectID', async () => {
@@ -82,34 +79,22 @@ describe('writeIndexRecords', () => {
     warnSpy.mockRestore()
   })
 
-  test('does not log full record content for invalid objectID', async () => {
-    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
-    const records = [
-      makeRecord(),
-      makeRecord({
-        objectID: '',
-        title: 'No ID',
-        content: 'A very long content string that should not appear in logs',
-      }),
-    ]
+  test('returns empty filePath and skipped record when name is empty', async () => {
+    const result = await writeIndexRecords('', [makeRecord()], '/tmp/out')
 
-    await writeIndexRecords('test-index', records, '/tmp/out')
-
-    const warnMessage = warnSpy.mock.calls[0][0] as string
-    expect(warnMessage).not.toContain('very long content string')
-    warnSpy.mockRestore()
+    expect(result.filePath).toBe('')
+    expect(result.skippedRecords).toEqual([{ objectID: '(unknown)', reason: 'name is required' }])
+    expect(fs.writeFile).not.toHaveBeenCalled()
   })
 
-  test('throws when name is empty', async () => {
-    await expect(writeIndexRecords('', [makeRecord()], '/tmp/out')).rejects.toThrow(
-      '`name` is required',
-    )
-  })
+  test('returns empty filePath and skipped record when records array is empty', async () => {
+    const result = await writeIndexRecords('test-index', [], '/tmp/out')
 
-  test('throws when records array is empty', async () => {
-    await expect(writeIndexRecords('test-index', [], '/tmp/out')).rejects.toThrow(
-      '`records` must be a non-empty array',
-    )
+    expect(result.filePath).toBe('')
+    expect(result.skippedRecords).toEqual([
+      { objectID: '(unknown)', reason: 'records array is empty' },
+    ])
+    expect(fs.writeFile).not.toHaveBeenCalled()
   })
 
   test('creates output directory if it does not exist', async () => {

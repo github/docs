@@ -5,8 +5,6 @@ intro: '{% data variables.product.prodname_copilot_short %} usage and adoption m
 permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: reference
 allowTitleToDifferFromFilename: true
 redirect_from:
@@ -17,8 +15,6 @@ category:
   - Understand metrics
   - Track Copilot usage
 ---
-
-{% data reusables.copilot.usage-metrics-preview %}
 
 After you’ve viewed the {% data variables.product.prodname_copilot_short %} usage metrics dashboard, you can use this article to interpret each chart and identify opportunities to increase adoption and engagement.
 

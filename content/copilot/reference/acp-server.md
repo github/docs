@@ -4,8 +4,6 @@ shortTitle: ACP server
 intro: "Learn about {% data variables.copilot.copilot_cli %}'s Agent Client Protocol server."
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Configure Copilot # Copilot discovery page
   - Configure Copilot CLI # Copilot CLI bespoke page

@@ -4,8 +4,6 @@ shortTitle: '{% data variables.copilot.copilot_coding_agent_short_cap_c %}'
 intro: 'Find out how {% data variables.product.prodname_copilot_short %} can work on {% data variables.product.github %} issues and raise pull requests for you to review.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /create-a-pr
   - /make-changes-to-an-existing-pr

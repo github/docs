@@ -10,8 +10,6 @@ category:
 complexity:
   - Simple
 octicon: code
-topics:
-  - Copilot
 redirect_from:
   - /copilot/tutorials/copilot-chat-cookbook/security-analysis/managing-dependency-updates
   - /copilot/tutorials/copilot-chat-cookbook/security-analysis/manage-dependency-updates

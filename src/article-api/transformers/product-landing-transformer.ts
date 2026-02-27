@@ -56,9 +56,8 @@ export class ProductLandingTransformer implements PageTransformer {
     // Process carousels (each carousel becomes a section)
     const carousels = productPage.carousels ?? productPage.rawCarousels
     if (carousels && typeof carousels === 'object') {
-      const { default: getLearningTrackLinkData } = await import(
-        '@/learning-track/lib/get-link-data'
-      )
+      const { default: getLearningTrackLinkData } =
+        await import('@/learning-track/lib/get-link-data')
 
       for (const [carouselKey, articles] of Object.entries(carousels)) {
         if (!Array.isArray(articles) || articles.length === 0) continue
@@ -101,9 +100,8 @@ export class ProductLandingTransformer implements PageTransformer {
     // Featured links (startHere, popular, videos, etc.)
     const rawFeaturedLinks = productPage.featuredLinks
     if (rawFeaturedLinks) {
-      const { default: getLearningTrackLinkData } = await import(
-        '@/learning-track/lib/get-link-data'
-      )
+      const { default: getLearningTrackLinkData } =
+        await import('@/learning-track/lib/get-link-data')
 
       const featuredKeys = ['startHere', 'popular', 'videos']
       const featuredGroups: LinkGroup[] = []

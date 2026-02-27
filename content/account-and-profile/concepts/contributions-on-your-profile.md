@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profiles
 shortTitle: Profile contributions
 contentType: concepts
 redirect_from:

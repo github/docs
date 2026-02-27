@@ -6,8 +6,6 @@ intro: 'Learn about {% data variables.product.prodname_copilot_short %} code sug
 versions:
   feature: copilot
 defaultTool: vscode
-topics:
-  - Copilot
 contentType: concepts
 category:
   - Learn about Copilot

@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'The `/fleet` slash command lets {% data variables.copilot.copilot_cli_short %} break down a complex request into smaller tasks and run them in parallel, maximizing efficiency and throughput.'
 versions:
   feature: copilot
-topics:
-  - CLI
 contentType: concepts
 category:
   - Learn about Copilot CLI

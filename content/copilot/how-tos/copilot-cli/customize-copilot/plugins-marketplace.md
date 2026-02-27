@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'You can make CLI plugins that you''ve created easy to install by adding them to a marketplace.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Configure Copilot # Copilot discovery page
   - Author and optimize with Copilot # Copilot discovery page

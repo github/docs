@@ -3,9 +3,6 @@ title: Deploy your Spark app from the command line
 shortTitle: Deploy from CLI
 intro: 'Learn how to deploy your {% data variables.product.prodname_spark_short %} app from the command line.'
 allowTitleToDifferFromFilename: true
-topics:
-  - Copilot
-  - CLI
 versions:
   feature: spark
 product: '{% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_enterprise_short %}'

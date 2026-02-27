@@ -5,8 +5,6 @@ intro: 'Find out about the various ways you can customize {% data variables.prod
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: concepts
 category:
   - Learn about Copilot # Copilot discovery page

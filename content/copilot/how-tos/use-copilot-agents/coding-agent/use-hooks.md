@@ -4,8 +4,6 @@ shortTitle: Use hooks
 intro: 'Extend and customize {% data variables.product.prodname_copilot %} agent behavior by executing custom shell commands at key points during agent execution.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category: 
   - Configure Copilot

@@ -5,8 +5,6 @@ shortTitle: Use the GitHub MCP Server
 versions:
   feature: copilot
 defaultTool: vscode
-topics:
-  - Copilot
 redirect_from:
   - /copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server
   - /copilot/how-tos/context/model-context-protocol/using-the-github-mcp-server
