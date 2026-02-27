@@ -159,7 +159,7 @@ The [Notion MCP server](https://github.com/makenotion/notion-mcp-server) gives {
 
 ### Example: Azure
 
-The [Azure MCP Server](https://github.com/microsoft/mcp) allows {% data variables.product.prodname_copilot_short %} to understand your Azure-specific files and Azure resources within your subscription when making code changes.
+The [Microsoft MCP repository](https://github.com/microsoft/mcp) includes the Azure MCP server, which allows {% data variables.product.prodname_copilot_short %} to understand your Azure-specific files and Azure resources within your subscription when making code changes.
 
 To automatically configure your repository with a `copilot-setup-steps.yml` file to authenticate with Azure, plus secrets for authentication, clone the repository locally then run the [Azure Developer CLI](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/?ref_product=copilot&ref_type=engagement&ref_style=button)'s `azd coding-agent config` command in the root of the repository.
 
