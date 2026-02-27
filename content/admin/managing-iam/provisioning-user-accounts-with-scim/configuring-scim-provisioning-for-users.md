@@ -136,7 +136,7 @@ To ensure you can continue to sign in and configure settings when SCIM is enable
 ## 4. Enable SCIM on your instance
 
 1. Sign in to your instance as the **built-in setup user** you created earlier.
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 1. Under "SCIM Configuration", select **Enable SCIM configuration**.
@@ -203,7 +203,7 @@ If you don't use a partner IdP, or if you only use a partner IdP for SAML authen
    > [!NOTE]
    > {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.enterprise-accounts.identity-provider-tab %}
 {% data reusables.enterprise-accounts.sso-configuration %}
 1. Under "Open SCIM Configuration", select "Enable open SCIM configuration".

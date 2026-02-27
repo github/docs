@@ -37,7 +37,7 @@ If you're new to {% data variables.product.prodname_emus %} and haven't yet conf
 ## Migrating your enterprise
 
 {% data reusables.emus.sign-in-as-setup-user %}
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.emus.use-enterprise-recovery-code %}
 {% data reusables.enterprise-accounts.identity-provider-tab %}
 {% data reusables.enterprise-accounts.sso-configuration %}

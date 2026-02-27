@@ -2,7 +2,7 @@
 title: About third-party agents
 shortTitle: Third-party agents
 intro: 'You can incorporate coding agents into your development workflows on {% data variables.product.github %}.'
-product: '{% data reusables.gated-features.third-party-agents %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.third-party-agents %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_plan=pro-plus&ref_type=engagement&ref_style=button&utm_source=docs-web-copilot-3p-agents&utm_medium=docs&utm_campaign=agent-3p-platform-feb-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 topics:
@@ -31,12 +31,13 @@ You can kick off tasks with coding agents in the following locations:
 ### Making coding agents available
 
 > [!NOTE]
-> {% data reusables.gated-features.third-party-agents %}
+> * {% data reusables.gated-features.third-party-agents %}
 
-Before you can assign tasks to coding agents, they must be enabled.
+Before you can assign tasks to coding agents, they must be enabled. If you are a {% data variables.copilot.copilot_pro_plus %} subscriber, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-agents-in-your-repositories).
 
-* For **{% data variables.copilot.copilot_pro %} and {% data variables.copilot.copilot_pro_plus %} subscribers**, see [AUTOTITLE](/copilot/how-tos/manage-your-account/manage-policies#enabling-or-disabling-third-party-agents-in-your-repositories).
-* For **{% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %} subscribers**, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies) or [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
+For {% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %} subscribers, the ability to use {% data variables.copilot.copilot_coding_agent %} is controlled by policy settings defined at the organization level. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies).
+
+If the organization is owned by an enterprise, enablement may be controlled at the enterprise level. See [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
 
 ## Supported coding agents
 

@@ -41,7 +41,7 @@ If you want to migrate to a new identity provider (IdP) or tenant rather than di
 
 {% data reusables.emus.sign-in-as-setup-user %}
 1. Attempt to access your enterprise account, and use a recovery code to bypass SAML SSO or OIDC. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable).
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.enterprise-accounts.identity-provider-tab %}
 {% data reusables.enterprise-accounts.sso-configuration %}
 1. Next to "SAML single sign-on" or "OIDC single sign-on", click to deselect **SAML single sign-on** or **OIDC single sign-on**.
