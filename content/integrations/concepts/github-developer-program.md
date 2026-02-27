@@ -20,7 +20,7 @@ Building an application that integrates with {% data variables.product.github %}
 
 ## Scratch an itch
 
-Build your own tools that seamlessly integrate with the place you push code every day.
+Build your own tools that seamlessly integrate with [GitHub's APIs](https://docs.github.com/en/rest/about-the-rest-api/comparing-githubs-rest-api-and-graphql-api?apiVersion=2022-11-28)
 
 ## Take on the enterprise
 
