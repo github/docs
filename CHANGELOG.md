@@ -1,13 +1,26 @@
 # Docs changelog
 
+**25 February 2026**
+
+We've added many new articles to coincide with the [general availability release](https://github.blog/changelog/2026-02-25-github-copilot-cli-is-now-generally-available/) of Copilot CLI. These include:
+
+* A [new landing page](https://docs.github.com/copilot/how-tos/copilot-cli) for Copilot CLI documentation, with a CLI-specific search facility.
+* [New conceptual articles](https://docs.github.com/copilot/concepts/agents/copilot-cli) explaining plugins, autopilot mode, the `/fleet` slash command, and a comparison of CLI features.
+* New how-to articles on [setting up](https://docs.github.com/copilot/how-tos/copilot-cli/set-up-copilot-cli) and [customizing](https://docs.github.com/copilot/how-tos/copilot-cli/customize-copilot) the CLI.
+* An article on [administering Copilot CLI for your enterprise](https://docs.github.com/copilot/how-tos/copilot-cli/administer-copilot-cli-for-your-enterprise).
+* More reference information about [commands](https://docs.github.com/copilot/reference/cli-command-reference) and [plugins](https://docs.github.com/copilot/reference/cli-plugin-reference).
+
+<hr>
+
 **23 February 2026**
 
-Added a new how-to article, [Automating tasks with Copilot CLI and GitHub Actions](https://docs.github.com/en/copilot/how-tos/copilot-cli/automate-with-actions), that walks through how to run Copilot CLI inside a GitHub Actions workflow in non-interactive (programmatic) mode. The article covers the full pattern—trigger, setup, install, authenticate, and run—and includes an example workflow that generates a daily summary of repository changes.
+Added a new how-to article, [Automating tasks with Copilot CLI and GitHub Actions](https://docs.github.com/copilot/how-tos/copilot-cli/automate-with-actions), that walks through how to run Copilot CLI inside a GitHub Actions workflow in non-interactive (programmatic) mode. The article covers the full pattern—trigger, setup, install, authenticate, and run—and includes an example workflow that generates a daily summary of repository changes.
+
 <hr>
 
 **17 February 2026**
 
-We’ve added a new tutorial, "[Using hooks with Copilot CLI for predictable, policy-compliant execution](https://docs.github.com/en/copilot/tutorials/copilot-cli-hooks)", to help teams configure repository-scoped hooks that log prompts and tool usage, enforce guardrails with `preToolUse`, and roll out policies safely across repositories.
+We’ve added a new tutorial, "[Using hooks with Copilot CLI for predictable, policy-compliant execution](https://docs.github.com/copilot/tutorials/copilot-cli-hooks)", to help teams configure repository-scoped hooks that log prompts and tool usage, enforce guardrails with `preToolUse`, and roll out policies safely across repositories.
 
 This tutorial helps organizations adopt Copilot CLI automation with clear guardrails, improving security, auditability, and confidence, without blocking legitimate development workflows.
 
@@ -21,7 +34,7 @@ We've published a new tutorial on [using GitHub Copilot coding agent to improve 
 
 **20 January 2026**
 
-We published the first iteration of the [GitHub Copilot feature matrix](https://docs.github.com/en/copilot/reference/copilot-feature-matrix) to provide customers with the latest information about which Copilot features are available by which IDE/version. 
+We published the first iteration of the [GitHub Copilot feature matrix](https://docs.github.com/copilot/reference/copilot-feature-matrix) to provide customers with the latest information about which Copilot features are available by which IDE/version. 
 
 Historically, keeping Copilot feature and IDE availability up to date has required manual coordination with the Docs team, which does not scale well with the increasing number of features. The goal of this document and its process is to enable product owners to directly maintain the Copilot feature and IDE availability information as part of their normal release workflow. The feature matrix provides a single, easy to update source of truth.
 
@@ -40,9 +53,9 @@ The following new articles support the public preview release of Copilot Memory:
 
 **16 January 2026**
 
-We published [About user offboarding on GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/admin/concepts/identity-and-access-management/user-offboarding) to give enterprise customers clear guidance about offboarding processes. The article covers recommended offboarding methods, the effects of offboarding, and what happens when a user is removed from all organizations in an enterprise.
+We published [About user offboarding on GitHub Enterprise Cloud](https://docs.github.com/enterprise-cloud@latest/admin/concepts/identity-and-access-management/user-offboarding) to give enterprise customers clear guidance about offboarding processes. The article covers recommended offboarding methods, the effects of offboarding, and what happens when a user is removed from all organizations in an enterprise.
 
-We also updated [Removing a member from your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise) and [Removing a member from your organization](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization) to include instructions for enterprises that use Enterprise Managed Users or SCIM for organizations.
+We also updated [Removing a member from your enterprise](https://docs.github.com/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise) and [Removing a member from your organization](https://docs.github.com/enterprise-cloud@latest/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization) to include instructions for enterprises that use Enterprise Managed Users or SCIM for organizations.
 
 <hr>
 
@@ -62,7 +75,7 @@ We've added information about permissions to the article [Using GitHub Copilot C
 
 **18 December 2025**
 
-The documentation has been updated to reflect the general availability of direct organization billing for premium request usage in Copilot Code Review. Organization members without a Copilot plan can now use Copilot Code Review on GitHub.com, with premium request usage billed directly to their organization or enterprise. See [Copilot code review without a Copilot license](https://docs.github.com/en/copilot/concepts/agents/code-review#copilot-code-review-without-a-copilot-license).
+The documentation has been updated to reflect the general availability of direct organization billing for premium request usage in Copilot Code Review. Organization members without a Copilot plan can now use Copilot Code Review on GitHub.com, with premium request usage billed directly to their organization or enterprise. See [Copilot code review without a Copilot license](https://docs.github.com/copilot/concepts/agents/code-review#copilot-code-review-without-a-copilot-license).
 
 <hr>
 

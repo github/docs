@@ -17,8 +17,6 @@ redirect_from:
   - /copilot/how-tos/administer/organizations/managing-access-to-github-copilot-in-your-organization/grant-access
   - /copilot/how-tos/administer/organizations/manage-access/grant-access
   - /copilot/how-tos/administer/manage-for-organization/manage-access/grant-access
-topics:
-  - Copilot
 contentType: how-tos
 category: 
   - Manage Copilot for a team

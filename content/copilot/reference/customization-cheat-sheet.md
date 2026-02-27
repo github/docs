@@ -4,8 +4,6 @@ shortTitle: Customization cheat sheet
 intro: 'Compare the different customization options for {% data variables.product.prodname_copilot %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Author and optimize with Copilot
 contentType: reference

@@ -4,8 +4,6 @@ intro: 'Discover a curated collection of customizations, including custom instru
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
-topics:
-  - Copilot
 layout: category-landing
 sidebarLink:
   text: All customizations

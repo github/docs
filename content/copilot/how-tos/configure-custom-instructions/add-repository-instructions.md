@@ -4,8 +4,6 @@ shortTitle: Add repository instructions
 intro: 'Create repository custom instructions files that give {% data variables.product.prodname_copilot_short %} additional context on how to understand your project and how to build, test and validate its changes.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 redirect_from:
   - /copilot/customizing-copilot/adding-custom-instructions-for-github-copilot

@@ -3,8 +3,6 @@ title: Managing GitHub Copilot policies as an individual subscriber
 shortTitle: Manage policies
 intro: 'Find out how to change your personal settings on {% data variables.product.github %} to configure {% data variables.product.prodname_copilot %}''s behavior.'
 product: '{% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_free_short %}'
-topics:
-  - Copilot
 versions:
   feature: copilot
 redirect_from:

@@ -8,9 +8,6 @@ redirect_from:
   - /copilot/how-tos/use-copilot-agents/use-copilot-cli
 versions:
   feature: copilot
-topics:
-  - Copilot
-  - CLI
 contentType: how-tos
 category:
   - Author and optimize with Copilot # Copilot discovery page
@@ -178,7 +175,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/add-custom-in
 
 ### Use {% data variables.copilot.custom_agents_short %}
 
-A {% data variables.copilot.copilot_custom_agent_short %} is a specialized versions of {% data variables.product.prodname_copilot_short %}. {% data variables.copilot.custom_agents_caps_short %} help {% data variables.product.prodname_copilot_short %} handle unique workflows, particular coding conventions, and specialist use cases.
+A {% data variables.copilot.copilot_custom_agent_short %} is a specialized version of {% data variables.product.prodname_copilot_short %}. {% data variables.copilot.custom_agents_caps_short %} help {% data variables.product.prodname_copilot_short %} handle unique workflows, particular coding conventions, and specialist use cases.
 
 {% data variables.copilot.copilot_cli_short %} includes a default group of {% data variables.copilot.custom_agents_short %} for common tasks:
 

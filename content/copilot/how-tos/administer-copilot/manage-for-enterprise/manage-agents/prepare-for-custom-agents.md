@@ -4,8 +4,6 @@ intro: 'Set up your enterprise for {% data variables.copilot.custom_agents_short
 permissions: Enterprise owners
 versions:
   feature: copilot
-topics:
-  - Copilot
 shortTitle: Prepare for custom agents
 contentType: how-tos
 category:

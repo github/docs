@@ -4,8 +4,6 @@ shortTitle: Custom instructions support
 intro: 'Find out which environments support which types of custom instructions.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: reference
 category:
   - Learn about Copilot

@@ -5,8 +5,6 @@ intro: 'Configure policies and budgets for premium requests, or upgrade users to
 permissions: Enterprise owners and organization owners
 versions:
   feature: copilot
-topics:
-  - Copilot
 allowTitleToDifferFromFilename: true
 product: '{% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %}'
 redirect_from:

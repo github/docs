@@ -6,8 +6,6 @@ allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: get-started
 category:
   - Build with Copilot CLI # Copilot CLI bespoke page

@@ -8,16 +8,11 @@ versions:
   fpt: '*'
   ghec: '*'
 type: reference
-topics:
-  - Copilot
-  - Enterprise
 category:
   - Copilot usage metrics
   - Understand available data
   - Track Copilot usage
 ---
-
-{% data reusables.copilot.usage-metrics-preview %}
 
 The {% data variables.product.prodname_copilot_short %} usage metrics dashboard and APIs display and export data using a consistent set of fields. This reference lists all available metrics and describes how to interpret their values in both dashboard visuals and NDJSON or API exports.
 
@@ -28,7 +23,7 @@ For guidance on how to read and interpret these metrics, see [AUTOTITLE](/copilo
 
 ## {% data variables.product.prodname_copilot_short %} usage dashboard metrics
 
-These metrics appear directly in the {% data variables.product.prodname_copilot_short %} usage dashboard.
+These metrics appear directly in the {% data variables.product.prodname_copilot_short %} usage dashboard. These charts do **not** include {% data variables.copilot.copilot_cli_short %} usage.
 
 | Metric | Description |
 |:--|:--|
@@ -94,6 +89,20 @@ These fields appear in the exported NDJSON reports and in the {% data variables.
 | `totals_by_language_feature` | Breakdown combining language and feature dimensions. |
 | `totals_by_model_feature` / `totals_by_language_model` | Model-specific breakdowns for chat activity (not completions). |
 | `last_known_ide_version` / `last_known_plugin_version` | The most recent IDE and {% data variables.copilot.copilot_chat_short %} extension version detected for each user. |
+| `daily_active_cli_users` | Number of unique users in the enterprise who used {% data variables.product.prodname_copilot_short %} via the CLI on a given day. This field is **independent** of IDE active user counts and is **not** included in IDE-based active user definitions. Omitted for enterprises with no CLI usage on that day. |
+| `totals_by_cli` | Breakdown of CLI-specific metrics for the enterprise on a given day. Independent of IDE metrics—CLI usage is **not** reflected in other fields such as `totals_by_ide` or `totals_by_feature`. Omitted for enterprises with no CLI usage on that day. See [{% data variables.copilot.copilot_cli_short %} metrics fields](#copilot-cli-metrics-fields-api-only) below. |
+
+### {% data variables.copilot.copilot_cli_short %} metrics fields (API only)
+
+The `totals_by_cli` object contains the following nested fields when CLI usage is present. These metrics are currently only available in the enterprise-level reports. 
+
+| Field | Description |
+|:--|:--|
+| `totals_by_cli.session_count` | Number of distinct CLI sessions initiated on this day. |
+| `totals_by_cli.request_count` | Total number of requests made to {% data variables.product.prodname_copilot_short %} via the CLI on this day, including both user-initiated prompts and automated agentic follow-up calls. |
+| `totals_by_cli.token_usage.output_tokens_sum` | Total number of output tokens generated across all CLI requests on this day. |
+| `totals_by_cli.token_usage.prompt_tokens_sum` | Total number of prompt tokens sent across all CLI requests on this day. |
+| `totals_by_cli.token_usage.avg_tokens_per_request` | Average number of **output** and **prompt** tokens per CLI request, computed as `(output_tokens_sum + prompt_tokens_sum) ÷ request_count`.|
 
 ### Pull request activity fields (API only)
 

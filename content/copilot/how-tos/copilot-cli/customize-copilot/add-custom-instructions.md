@@ -4,8 +4,6 @@ shortTitle: Add custom instructions
 intro: 'Give {% data variables.product.prodname_copilot_short %} additional context on how to understand your project and how to build, test and validate its changes.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Configure Copilot # Copilot discovery page
   - Configure Copilot CLI # Copilot CLI bespoke page

@@ -6,12 +6,26 @@ import { isArray, isString } from 'lodash-es'
 
 import type { Record } from '@/search/scripts/scrape/types'
 
+export interface SkippedRecord {
+  objectID: string
+  reason: string
+}
+
+export interface WriteIndexRecordsResult {
+  filePath: string
+  skippedRecords: SkippedRecord[]
+}
+
 export async function writeIndexRecords(
   name: string,
   records: Record[],
   outDirectory: string,
-): Promise<string> {
-  const validRecords = validateRecords(name, records)
+): Promise<WriteIndexRecordsResult> {
+  const { validRecords, skippedRecords } = validateRecords(name, records)
+
+  if (validRecords.length === 0) {
+    return { filePath: '', skippedRecords }
+  }
 
   const recordsObject = Object.fromEntries(validRecords.map((record) => [record.objectID, record]))
   const content = JSON.stringify(recordsObject, undefined, 0)
@@ -24,15 +38,26 @@ export async function writeIndexRecords(
   const filePath = path.join(outDirectory, `${name}-records.json`)
   await fs.writeFile(filePath, content, { flag: 'w' })
 
-  return filePath
+  return { filePath, skippedRecords }
 }
 
-function validateRecords(name: string, records: Record[]): Record[] {
+interface ValidateResult {
+  validRecords: Record[]
+  skippedRecords: SkippedRecord[]
+}
+
+function validateRecords(name: string, records: Record[]): ValidateResult {
   if (!isString(name) || !name.length) {
-    throw new Error('`name` is required')
+    return {
+      validRecords: [],
+      skippedRecords: [{ objectID: '(unknown)', reason: 'name is required' }],
+    }
   }
   if (!isArray(records) || !records.length) {
-    throw new Error('`records` must be a non-empty array')
+    return {
+      validRecords: [],
+      skippedRecords: [{ objectID: '(unknown)', reason: 'records array is empty' }],
+    }
   }
 
   // each ID is unique — deduplicate rather than crash
@@ -48,19 +73,16 @@ function validateRecords(name: string, records: Record[]): Record[] {
 
   const seen = new Set<string>()
   const validRecords: Record[] = []
+  const skippedRecords: SkippedRecord[] = []
 
   for (const record of records) {
     if (!isString(record.objectID) || !record.objectID.length) {
-      console.warn(
-        chalk.yellow(
-          `⚠ Skipping record with invalid objectID: ${JSON.stringify({ objectID: record.objectID, title: record.title })}`,
-        ),
-      )
+      skippedRecords.push({ objectID: '(unknown)', reason: 'invalid objectID' })
       continue
     }
 
     if (!isString(record.title) || !record.title.length) {
-      console.warn(chalk.yellow(`⚠ Skipping record with empty title: ${record.objectID}`))
+      skippedRecords.push({ objectID: record.objectID, reason: 'empty title' })
       continue
     }
 
@@ -72,7 +94,7 @@ function validateRecords(name: string, records: Record[]): Record[] {
     validRecords.push(record)
   }
 
-  return validRecords
+  return { validRecords, skippedRecords }
 }
 
 function countArrayValues(arr: string[]) {

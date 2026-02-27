@@ -5,8 +5,6 @@ intro: 'Follow best practices to enable {% data variables.copilot.copilot_coding
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
-topics:
-  - Copilot
 product: '{% data reusables.gated-features.copilot-coding-agent %}'
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale/enabling-developers/using-copilot-coding-agent-in-org

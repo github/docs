@@ -12,9 +12,6 @@ category:
 complexity:
   - Simple
 octicon: book
-topics:
-  - Copilot
-  - Actions
 ---
 
 {% data reusables.copilot.customization-examples-note %}

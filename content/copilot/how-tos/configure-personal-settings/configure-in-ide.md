@@ -12,8 +12,6 @@ redirect_from:
   - /copilot/how-tos/personal-settings/configuring-github-copilot-in-your-environment
   - /copilot/how-tos/personal-settings/configure-in-your-environment
   - /copilot/how-tos/configure-personal-settings/configure-in-your-environment
-topics:
-  - Copilot
 versions:
   feature: copilot
 contentType: how-tos

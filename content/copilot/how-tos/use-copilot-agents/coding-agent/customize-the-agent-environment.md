@@ -4,8 +4,6 @@ shortTitle: Customize the agent environment
 intro: 'Learn how to customize {% data variables.product.prodname_copilot %}''s development environment with additional tools.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /early-access/copilot/coding-agent/customizing-copilot-coding-agents-development-environment
   - /copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent

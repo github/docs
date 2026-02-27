@@ -60,9 +60,8 @@ export async function getAppsServerSideProps(
   categoriesWithoutSubcategories: string[]
 }> {
   const { getAutomatedPageMiniTocItems } = await import('@/frame/lib/get-mini-toc-items')
-  const { getAutomatedPageContextFromRequest } = await import(
-    '@/automated-pipelines/components/AutomatedPageContext'
-  )
+  const { getAutomatedPageContextFromRequest } =
+    await import('@/automated-pipelines/components/AutomatedPageContext')
   const currentVersion: string = context.query.versionId
   const allVersions = context.req.context.allVersions
   const queryApiVersion: string = context.query.apiVersion

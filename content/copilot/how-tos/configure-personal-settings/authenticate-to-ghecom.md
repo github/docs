@@ -5,8 +5,6 @@ intro: 'Update your development environment to access a {% data variables.produc
 versions:
   feature: copilot
 defaultTool: vscode
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom
   - /copilot/how-tos/personal-settings/using-github-copilot-with-an-account-on-ghecom

@@ -6,8 +6,6 @@ permissions: Enterprise owners
 product: 'Enterprises with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} plan'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/github-copilot-enterprise/enabling-github-copilot-enterprise-features
   - /copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise

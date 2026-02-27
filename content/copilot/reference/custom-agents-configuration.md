@@ -4,8 +4,6 @@ shortTitle: Custom agents configuration
 intro: 'Reference for configuring {% data variables.copilot.custom_agents_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: reference
 category:
   - Configure Copilot

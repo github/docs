@@ -2,8 +2,6 @@
 title: Using GitHub Copilot to explore a codebase
 shortTitle: Explore a codebase
 intro: '{% data variables.copilot.copilot_chat %} can help you gain an understanding of the content, structure, and functionality of a codebase.'
-topics:
-  - Copilot
 versions:
   feature: copilot
 redirect_from:

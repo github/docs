@@ -5,9 +5,6 @@ intro: Learn how to install {% data variables.copilot.copilot_cli_short %} so th
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
-  - CLI
 redirect_from:
   - /copilot/how-tos/set-up/install-copilot-in-the-cli
   - /copilot/github-copilot-in-the-cli/enabling-github-copilot-in-the-cli

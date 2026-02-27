@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'You can modify {% data variables.product.prodname_copilot_short %}''s behavior and abilities when it works on particular tasks.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category:
   - Configure Copilot

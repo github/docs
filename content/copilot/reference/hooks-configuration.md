@@ -4,8 +4,6 @@ shortTitle: Hooks configuration
 intro: 'Find information about configuring hooks for use with {% data variables.copilot.copilot_cli %} and {% data variables.copilot.copilot_coding_agent %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: reference
 category:
   - Configure Copilot

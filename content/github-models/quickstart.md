@@ -8,8 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: quick_start
-topics:
-  - GitHub Models
 shortTitle: Quickstart
 ---
 

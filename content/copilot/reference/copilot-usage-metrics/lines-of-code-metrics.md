@@ -8,8 +8,6 @@ versions:
 redirect_from:
   - /early-access/copilot-metrics/LoC
   - /early-access/copilot-metrics/LoC/about-the-copilot-metrics-LoC
-topics:
-  - Copilot
 contentType: reference
 allowTitleToDifferFromFilename: true
 category:
@@ -17,8 +15,6 @@ category:
   - Understand metrics
   - Track Copilot usage
 ---
-
-{% data reusables.copilot.usage-metrics-preview %}
 
 Lines of Code (LoC) metrics provide a directional measure of {% data variables.product.prodname_copilot_short %}’s output by quantifying the lines it suggested, added, or deleted across completions, chat, and agent features.
 

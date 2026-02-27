@@ -4,8 +4,6 @@ shortTitle: Integrate coding agent with Linear
 intro: 'Use the {% data variables.product.prodname_copilot_short %} integration in Linear to provide context and open pull requests, all from within your Linear workspace.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category:
   - Integrate Copilot with your tools

@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'Learn how different AI models are hosted for {% data variables.copilot.copilot_chat_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Learn about Copilot
 redirect_from:

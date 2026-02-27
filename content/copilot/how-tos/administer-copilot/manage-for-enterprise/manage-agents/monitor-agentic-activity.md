@@ -4,8 +4,6 @@ intro: 'Track agentic activity in your enterprise to ensure continued compliance
 permissions: Enterprise owners
 versions:
   feature: copilot
-topics:
-  - Copilot
 shortTitle: Monitor agentic activity
 contentType: how-tos
 category:

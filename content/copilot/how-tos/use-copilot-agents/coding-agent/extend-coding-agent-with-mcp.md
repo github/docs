@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'Learn how to use the Model Context Protocol (MCP) to extend the capabilities of {% data variables.copilot.copilot_coding_agent %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/customizing-copilot/using-model-context-protocol/extending-copilot-coding-agent-with-mcp
   - /copilot/customizing-copilot/extending-copilot-coding-agent-with-mcp

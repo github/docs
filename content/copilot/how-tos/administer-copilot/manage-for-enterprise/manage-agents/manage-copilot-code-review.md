@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 permissions: Enterprise owners
 versions:
   feature: copilot
-topics:
-  - Copilot
 shortTitle: 'Manage {% data variables.copilot.copilot_code-review_short %}'
 redirect_from:
   - /copilot/how-tos/administer-copilot/manage-for-enterprise/manage-copilot-code-review

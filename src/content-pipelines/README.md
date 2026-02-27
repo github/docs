@@ -1,6 +1,6 @@
 # Content pipelines
 
-Content pipelines is an agent-powered framework for keeping **reference documentation** in sync with source docs that live in external repositories. On a schedule, a workflow clones each external repo, detects whether the source docs have changed, and if they have, runs an AI agent to update our official content articles.
+The content pipelines framework is an agent-powered approach to keeping **reference documentation** in sync with source docs that live in external repositories. On a schedule, a workflow clones each external repo, detects whether the source docs have changed, and if they have, runs an AI agent to update our official content articles.
 
 ## How content pipelines differ from standard automated pipelines
 

@@ -4,8 +4,6 @@ shortTitle: Get free access to Copilot Pro
 intro: 'Learn how to use {% data variables.copilot.copilot_pro_short %} for free as a student, teacher, or open-source maintainer.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer

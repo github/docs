@@ -6,8 +6,6 @@ versions:
   feature: copilot
 permissions: Organization owners and billing managers
 product: '{% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %}'
-topics:
-  - Copilot
 allowTitleToDifferFromFilename: true
 layout: inline
 redirect_from:

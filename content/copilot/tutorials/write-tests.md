@@ -1,8 +1,6 @@
 ---
 title: Writing tests with GitHub Copilot
 intro: 'Use {% data variables.product.prodname_copilot_short %} to generate unit and integration tests, and help improve code quality.'
-topics:
-  - Copilot
 versions:
   feature: copilot
 redirect_from:

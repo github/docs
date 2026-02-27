@@ -2062,6 +2062,16 @@
   hasExtendedMetadata: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
+- provider: Figma
+  supportedSecret: Figma SCIM API Token
+  secretType: figma_scim_token
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
 - provider: Finicity
   supportedSecret: Finicity App Key
   secretType: finicity_app_key
@@ -3722,6 +3732,26 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: PostHog
+  supportedSecret: PostHog OAuth Access Token
+  secretType: posthog_oauth_access_token
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: PostHog
+  supportedSecret: PostHog OAuth Refresh Token
+  secretType: posthog_oauth_refresh_token
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false

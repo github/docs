@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: "{% data variables.copilot.copilot_cli_short %} works best when customized for your specific project and workflow."
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category:
   - Configure Copilot # Copilot discovery page

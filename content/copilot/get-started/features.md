@@ -3,8 +3,6 @@ title: GitHub Copilot features
 intro: '{% data variables.product.prodname_copilot %} offers a suite of features. {% data variables.product.prodname_copilot_short %} also offers a suite of features for administrators.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 shortTitle: Features
 redirect_from:
   - /copilot/copilot-business/github-copilot-business-feature-set

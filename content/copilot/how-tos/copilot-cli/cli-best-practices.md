@@ -5,8 +5,6 @@ intro: 'Learn how to get the most out of {% data variables.copilot.copilot_cli %
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: get-started
 category:
   - Build with Copilot CLI # Copilot CLI bespoke page

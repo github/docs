@@ -4,8 +4,6 @@ shortTitle: Get started with a Copilot plan
 intro: 'You can use {% data variables.product.prodname_copilot_short %} for free, or choose a paid plan to unlock additional features, models, and request limits.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/accessing-github-copilot-free
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/subscribing-to-copilot-pro-as-an-individual-user

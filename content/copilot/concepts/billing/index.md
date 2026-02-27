@@ -4,8 +4,6 @@ shortTitle: Billing
 intro: 'Understand billing and usage for {% data variables.product.prodname_copilot %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /copilot-requests
   - /individual-plans

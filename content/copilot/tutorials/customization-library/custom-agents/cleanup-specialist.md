@@ -9,8 +9,6 @@ complexity:
 octicon: copilot
 versions:
   feature: copilot
-topics:
-  - Copilot
 ---
 
 {% data reusables.copilot.custom-agents-examples-note %}

@@ -4,8 +4,6 @@ shortTitle: Compare AI models
 intro: 'Explore real-world examples of common developer tasks along with sample prompts, responses, and guidance to help you choose the right AI model for your workflow.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/ai-models/examples-for-ai-model-comparison
   - /copilot/using-github-copilot/ai-models/comparing-ai-models-using-different-tasks

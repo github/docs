@@ -7,8 +7,6 @@ redirect_from:
   - /copilot/tutorials/copilot-chat-cookbook/debugging-errors
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /debug-invalid-json
   - /handle-api-rate-limits

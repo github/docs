@@ -4,9 +4,6 @@ shortTitle: Configure Copilot CLI
 intro: Configure trusted directories, tool access, and path and URL permissions for {% data variables.copilot.copilot_cli_short %}
 versions:
   feature: copilot
-topics:
-  - Copilot
-  - CLI
 contentType: how-tos
 category:
   - Configure Copilot # Copilot discovery page

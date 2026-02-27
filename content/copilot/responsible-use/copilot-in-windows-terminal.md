@@ -5,8 +5,6 @@ intro: 'Learn how to use {% data variables.product.prodname_copilot %} responsib
 product: '{% data reusables.gated-features.copilot-in-windows-terminal %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-in-windows-terminal
   - /copilot/responsible-use-of-github-copilot-features/copilot-in-windows-terminal

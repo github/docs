@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - API
 ---
 
 ## Primary rate limit

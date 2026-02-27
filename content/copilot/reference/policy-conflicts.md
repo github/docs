@@ -7,12 +7,6 @@ versions:
   feature: copilot
 category:
   - Learn about Copilot
-topics:
-  - Copilot
-  - Policy
-  - Access management
-  - Organizations
-  - Enterprise
 redirect_from:
   - /copilot/reference/feature-availability-enterprise
 contentType: reference

@@ -4,8 +4,6 @@ shortTitle: Integrate AI agents
 intro: See how agents can boost productivity across your enterprise.
 versions:
   feature: copilot
-topics:
-  - Copilot
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale/enabling-developers/integrating-agentic-ai

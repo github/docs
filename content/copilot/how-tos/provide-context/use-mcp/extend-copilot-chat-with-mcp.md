@@ -6,8 +6,6 @@ intro: 'Connect MCP servers to {% data variables.copilot.copilot_chat_short %} t
 versions:
   feature: copilot
 defaultTool: vscode
-topics:
-  - Copilot
 redirect_from:
   - /copilot/customizing-copilot/extending-copilot-chat-with-mcp
   - /copilot/customizing-copilot/using-model-context-protocol/extending-copilot-chat-with-mcp

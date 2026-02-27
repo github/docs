@@ -10,8 +10,6 @@ category:
 complexity:
   - Advanced
 octicon: copilot
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

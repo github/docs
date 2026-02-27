@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CLI
 type: overview
 allowTitleToDifferFromFilename: true
 shortTitle: Quickstart
