@@ -54,7 +54,7 @@ Once licenses are active, focus on the metrics that indicate healthy early adopt
 | Signal | Where to find it in the dashboard | What to look for |
 |:--|:--|:--|
 | Consistent DAU growth | “IDE daily active users” graph | Steady increase in daily users over the first month. |
-| Feature variety | “Requests per chat mode” graph | Developers trying multiple chat modes (Ask, Edit, Agent) suggests curiosity and engagement. |
+| Feature variety | “Requests per chat mode” graph | Developers trying multiple chat modes (Ask, Edit, Plan, Agent) suggests curiosity and engagement. |
 | Initial agent usage | “Agent adoption” card | Even small agent adoption (5–10%) early on is a positive signal of experimentation. |
 
 Healthy early adoption usually looks like 60–80% of assigned users showing activity within the first month.
