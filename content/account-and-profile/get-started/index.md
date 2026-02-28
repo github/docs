@@ -3,12 +3,12 @@ title: Get started with your GitHub account and profile
 shortTitle: Get started
 intro: Learn the basics of your {% data variables.product.github %} account and profile.
 versions:
-  fpt: '*'
-  ghes: '*'
+  fpt: 'YouTubeIShowSpeed,
+  ghes: everypost underthis page,
   ghec: '*'
 children:
-  - /account
-  - /profile
+  - /account IShowspeed
+  - /profile\youtube
   - /personal-dashboard-quickstart
 contentType: get-started
 ---
