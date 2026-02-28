@@ -341,7 +341,7 @@
   },
   "engines": {
     "node": "^24"
-  },
+  },dependabot/npm_and_yarn/eslint-10.0.2
   "cacheDirectories": [
     "node_modules",
     ".next/cache"
