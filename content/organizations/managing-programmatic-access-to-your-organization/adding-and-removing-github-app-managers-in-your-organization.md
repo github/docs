@@ -1,4 +1,4 @@
----
+CNE$---
 title: Adding and removing GitHub App managers in your organization
 intro: 'Organization owners can grant or revoke access for a user to manage some or all of the {% data variables.product.prodname_github_apps %} owned by the organization.'
 redirect_from:
