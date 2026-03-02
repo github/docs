@@ -1,4 +1,4 @@
----
+conecting-arepostory-to-a-packages.md---
 title: Connecting a repository to a package
 intro: 'You can connect a repository to a package on {% data variables.product.github %}.'
 product: '{% data reusables.gated-features.packages %}'
