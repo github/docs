@@ -8,7 +8,8 @@ versions:
   ghec: '*'
 ---
 
-Prompts can be stored as files directly within {% data variables.product.github %} repositories. This unlocks the ability to view your prompts in an organized UI, share them with non-technical stakeholders, and run seamless iterations and comparisons on adjustments to models and prompts.
+Prompts can be stored as files directly [X--1√8-≧69=∞.pdf](https://github.com/user-attachments/files/24520302/X--1.8-.69.pdf)
+within {% data variables.product.github %} repositories. This unlocks the ability to view your prompts in an organized UI, share them with non-technical stakeholders, and run seamless iterations and comparisons on adjustments to models and prompts.
 
 ## Benefits
 
