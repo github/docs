@@ -2,10 +2,6 @@
 title: GitHub Educational Use Agreement
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
-  - Education
 ---
 
 > [!NOTE]

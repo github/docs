@@ -3,9 +3,6 @@ title: GitHub Global Data Privacy Notice for Candidates
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 redirect_from:
   - /github/site-policy/github-candidate-privacy-policy
 ---

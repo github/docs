@@ -9,9 +9,6 @@ redirect_from:
   - /github/site-policy/github-terms-and-other-site-policies/github-and-trade-controls
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 ---
 
 GitHub.com, GitHub Enterprise Server, and the information you upload to either product may be subject to trade control regulations, including under the U.S. Export Administration Regulations (the EAR).

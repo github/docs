@@ -7,9 +7,6 @@ redirect_from:
   - /github/site-policy/github-terms-and-other-site-policies/guidelines-for-legal-requests-of-user-data
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 ---
 
 Are you a law enforcement officer conducting an investigation that may involve user content hosted on GitHub?

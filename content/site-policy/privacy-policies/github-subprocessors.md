@@ -8,9 +8,6 @@ redirect_from:
   - /site-policy/privacy-policies/github-subprocessors-and-cookies
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 ---
 
 GitHub defines customer data as all data provided by the customer to GitHub through their use of GitHub services. Some customer data is personal data as defined under GDPR.

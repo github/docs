@@ -5,9 +5,6 @@ redirect_from:
   - /github/site-policy/github-marketplace-developer-agreement
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 ---
 <!-- markdownlint-disable search-replace -->
 
