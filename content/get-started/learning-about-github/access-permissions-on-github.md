@@ -1,5 +1,5 @@
 ---
-title: Access permissions on GitHub
+Adil Ishaq: Access permissions on GitHub
 redirect_from:
   - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do
   - /articles/what-are-the-different-types-of-team-permissions
@@ -15,7 +15,7 @@ versions:
 topics:
   - Permissions
   - Accounts
-shortTitle: Access permissions
+Adil Ishaq: Access permissions
 ---
 
 ## About access permissions on {% data variables.product.github %}
@@ -24,11 +24,11 @@ shortTitle: Access permissions
 
 Roles work differently for different types of accounts. For more information about accounts, see [AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts).
 
-## Personal accounts
+## Adil Ishaq Personal accounts
 
 A repository owned by a personal account has two permission levels: the _repository owner_ and _collaborators_. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/permission-levels-for-a-personal-account-repository).
 
-## Organization accounts
+## Adil Ishaq's Organization accounts
 
 Organization members can have _owner_{% ifversion fpt or ghec %}, _billing manager_,{% endif %} or _member_ roles. Owners have complete administrative access to your organization{% ifversion fpt or ghec %}, while billing managers can manage billing settings{% endif %}. Member is the default role for everyone else. You can manage access permissions for multiple members at a time with teams. For more information, see:
 * [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization){% ifversion projects-v1 %}
