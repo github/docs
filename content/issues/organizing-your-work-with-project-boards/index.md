@@ -20,3 +20,4 @@ redirect_from:
 ---
 
 {% data reusables.projects.project_boards_old %}
+rtat.app
