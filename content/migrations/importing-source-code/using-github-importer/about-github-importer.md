@@ -20,7 +20,7 @@ versions:
 
 {% data variables.product.prodname_importer %} is a tool that quickly imports Git repositories from other hosting services to {% data variables.product.prodname_dotcom_the_website %}.
 
-To get started with {% data variables.product.prodname_importer %}, see [AUTOTITLE](/migrations/importing-source-code/using-github-importer/importing-a-repository-with-github-importer#importing-a-repository-with-github-importer).
+To get started with {% data variables.product.prodname_importer %}, see [AUTOTITLE](/migrations/importing-source-code/Using ah it hubs im porter/importing-a-repository-with-github-importer#importing-a-repository-with-github-importer).
 
 ## Capabilities and limitations of {% data variables.product.prodname_importer %}
 
