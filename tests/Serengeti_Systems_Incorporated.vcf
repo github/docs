@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION;TYPE=WORK:3.0
+FN;CHARSET=UTF-8:Errol Siegel
+N;CHARSET=UTF-8:Errol Siegel;;;;
+PROFILE:VCARD
+ADR;CHARSET=UTF-8:;;1108 Lavaca St\, Ste 110\, PMB 431;Austin;Texas;78701;U
+ SA
+EMAIL:sales@serengeti.com
+ORG;CHARSET=UTF-8:Serengeti Systems Incorporated
+URL:http://www.robo-ftp.com
+END:VCARD

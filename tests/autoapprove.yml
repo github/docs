@@ -1,0 +1,49 @@
+name: AutoApprove
+
+on:
+  pull_request:
+    branches:
+      - master
+    types:
+      - opened
+
+jobs:
+  auto-approve:
+    runs-on: ubuntu-latest
+    if: contains(github.head_ref, 'autosynth')
+    env:
+      ENABLE_AUTO_APPROVE: ${{ secrets.ENABLE_AUTO_APPROVE }}
+    steps:
+      - name: AutoApprove
+        uses: actions/github-script@v2
+        with:
+          github-token: ${{secrets.YOSHI_APPROVER_TOKEN}}
+          script: |
+            if (context.payload.sender.login != "yoshi-automation") {
+              core.error("AutoApprove: Not running for this sender.");
+              return;
+            }
+            if (!context.payload.pull_request.title.startsWith("feat: Automated ")) {
+              core.error("AutoApprove: Not running for this PR title.");
+              return;
+            }
+            if (!process.env.ENABLE_AUTO_APPROVE) {
+              core.error("AutoApprove: PR conditions passed but ENABLE_AUTO_APPROVE is not set.");
+              return;
+            }
+            core.info("AutoApprove: PR conditions passed!");
+            await github.pulls.createReview({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "AutoApprove: Rubber stamped client regeneration!",
+              pull_number: context.payload.pull_request.number,
+              event: "APPROVE"
+            });
+            core.info("AutoApprove: Rubber stamped client regeneration!");
+            await github.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              labels: ["automerge"]
+            });
+            core.info("AutoApprove: Applied automerge label!");
