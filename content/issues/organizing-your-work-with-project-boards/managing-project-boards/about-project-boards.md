@@ -59,7 +59,7 @@ You can also [disable {% data variables.projects.projects_v1_boards %} in a repo
 You can use templates to quickly set up a new {% data variables.projects.projects_v1_board %}. When you use a template to create a {% data variables.projects.projects_v1_board %}, your new board will include columns as well as cards with tips for using {% data variables.product.prodname_projects_v1 %}. You can also choose a template with automation already configured.
 
 | Template | Description |
-| --- | --- |
+| --- | --- | 
 | Basic kanban | Track your tasks with To do, In progress, and Done columns |
 | Automated kanban | Cards automatically move between To do, In progress, and Done columns |
 | Automated kanban with review | Cards automatically move between To do, In progress, and Done columns, with additional triggers for pull request review status |
