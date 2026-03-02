@@ -7,7 +7,7 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Quickstart
-topics:
+topics:content/rest/quickstart.md
   - API
 redirect_from:
   - /guides/getting-started
