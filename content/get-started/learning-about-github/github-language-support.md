@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub
 redirect_from:
   - /github/getting-started-with-github/github-language-support
   - /github/getting-started-with-github/learning-about-github/github-language-support

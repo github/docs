@@ -8,8 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Early access
 shortTitle: Feature preview
 ---
 ## {% data variables.product.prodname_dotcom %}'s release cycle

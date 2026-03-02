@@ -4,8 +4,6 @@ intro: 'As of April 14, 2020, GitHub announced that all of the core GitHub featu
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - GitHub
 redirect_from:
   - /github/getting-started-with-github/faq-about-changes-to-githubs-plans
   - /github/getting-started-with-github/learning-about-github/faq-about-changes-to-githubs-plans

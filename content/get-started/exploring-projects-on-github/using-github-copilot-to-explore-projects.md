@@ -3,9 +3,6 @@ title: Using GitHub Copilot to explore projects
 intro: 'This guide will help you use {% data variables.product.prodname_copilot_short %} to explore projects on {% data variables.product.prodname_dotcom %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
-  - Repositories
 shortTitle: Use Copilot to explore projects
 ---
 

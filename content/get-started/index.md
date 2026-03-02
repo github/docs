@@ -47,11 +47,6 @@ featuredLinks:
     - /get-started/learning-about-github/types-of-github-accounts
     - /get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github
     - /get-started/using-github/troubleshooting-connectivity-problems
-topics:
-  - Pull requests
-  - Issues
-  - Notifications
-  - Accounts
 children:
   - /start-your-journey
   - /onboarding

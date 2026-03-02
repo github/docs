@@ -14,8 +14,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
 ---
 
 ## About your personal account on {% data variables.product.prodname_dotcom %}

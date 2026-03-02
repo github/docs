@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Mobile
 redirect_from:
   - /get-started/using-github/github-for-mobile
   - /github/getting-started-with-github/github-for-mobile

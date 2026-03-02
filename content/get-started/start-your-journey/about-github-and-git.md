@@ -7,12 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
-topics:
-  - Git
-  - Fundamentals
-  - GitHub
-  - Collaboration
-  - Community
 redirect_from:
   - /get-started/quickstart/about-github-and-git
 ---

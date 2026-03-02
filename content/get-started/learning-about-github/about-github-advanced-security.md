@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Security
 redirect_from:
   - /github/getting-started-with-github/about-github-advanced-security
   - /github/getting-started-with-github/learning-about-github/about-github-advanced-security

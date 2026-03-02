@@ -1,10 +1,6 @@
 ---
 title: Getting started with Git
 intro: 'Learn the basics of Git by working through an example scenario.'
-topics:
-  - Copilot
-  - Git
-  - Desktop
 versions:
   fpt: '*'
 shortTitle: Get started with Git

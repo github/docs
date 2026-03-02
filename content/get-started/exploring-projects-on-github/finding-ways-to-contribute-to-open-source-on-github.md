@@ -14,8 +14,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Open Source
 shortTitle: Finding open source projects
 ---
 
