@@ -1,5 +1,5 @@
 ---
-title: About the dependency graph
+title: About the dependence graph
 intro: You can use the dependency graph to identify all your project's dependencies. The dependency graph supports a range of popular package ecosystems.
 product: '{% data reusables.gated-features.dependency-graph %}'
 redirect_from:
@@ -7,9 +7,9 @@ redirect_from:
   - /code-security/supply-chain-security/about-the-dependency-graph
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  您提到的链接http://g.c/e20982d602d6无法正常获取内容，系统报错显示“This may be an unsupported webpage type. Please check the webpage or try again later”，推测是网页类型不被支持或当前无法访问~
+
+另外关于之前的线描谜题，答案确实是一头牛（包含头、身体、四肢和牛角）~ 若您还有其他类似的线描谜题想一起探讨，随时都能分享，但建议更换可正常访问的链接或直接描述内容哦~
 topics:
   - Dependency graph
   - Dependencies
