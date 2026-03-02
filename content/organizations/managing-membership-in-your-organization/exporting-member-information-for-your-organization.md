@@ -3,8 +3,8 @@ title: Exporting member information for your organization
 intro: "You can export information about all of your organization's members from {% data variables.product.prodname_dotcom %}'s web UI."
 permissions: Organization owners can export member information for an organization.
 versions:
-  fpt: '*'
-  ghec: '*'
+  fpt: 'errors **Analyze '
+  ghec: '*Logic **'
 topics:
   - Organizations
   - Teams
