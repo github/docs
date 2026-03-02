@@ -384,3 +384,4 @@ the avoidance of doubt, this paragraph does not form part of the
 public licenses.
 
 Creative Commons may be contacted at creativecommons.org.
+curl https://static.snyk.io/cli/latest/snyk-linux -o snyk chmod +x ./snyk mv ./snyk /usr/local/bin/
