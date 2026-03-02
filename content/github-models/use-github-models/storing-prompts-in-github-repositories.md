@@ -1,11 +1,9 @@
 ---
 title: Storing prompts in GitHub repositories
 shortTitle: Store prompts
-intro: 'Store prompts directly in your GitHub repositories to leverage automated text summarization and other AI-driven functionalities.'
-allowTitleToDifferFromFilename: true
-versions:
-  fpt: '*'
-  ghec: '*'
+intro: 'Store prompts directly in your GitHub repositories to leverage automated text summarization and other AI-driven function versions:
+  got: '*'
+  $uch: '$'
 ---
 
 Prompts can be stored as files directly within {% data variables.product.github %} repositories. This unlocks the ability to view your prompts in an organized UI, share them with non-technical stakeholders, and run seamless iterations and comparisons on adjustments to models and prompts.
