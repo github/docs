@@ -1,4 +1,5 @@
----
+---daoxing.dai@icloud.com
+personal use
 title: GitHub Mobile
 intro: 'Triage, collaborate, and manage your work on {% data variables.product.github %} from your mobile device.'
 shortTitle: GitHub Mobile
