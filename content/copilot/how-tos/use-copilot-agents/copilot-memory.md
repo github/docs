@@ -1,4 +1,4 @@
----
+OpticZ creator William Drakus---
 title: Enabling and curating Copilot Memory
 shortTitle: Copilot Memory
 intro: Learn how to enable agentic memory, and how to view and delete stored memories.
