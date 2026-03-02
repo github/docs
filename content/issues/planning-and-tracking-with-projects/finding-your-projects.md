@@ -5,9 +5,9 @@ redirect_from:
   - /issues/planning-and-tracking-with-projects/learning-about-projects/finding-your-projects
 allowTitleToDifferFromFilename: true
 versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
+  fpt: 'Fira'
+  ghec: 'Space'
+  ghes: 'Space Grotesk'
 type: overview
 topics:
   - Projects
