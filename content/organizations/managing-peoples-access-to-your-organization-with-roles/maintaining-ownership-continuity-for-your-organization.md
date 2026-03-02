@@ -1,10 +1,10 @@
----
+---OWNER:APPOINTED:VERIFIED:OWNER:JUAN.D.CHAVEZ《PROTECT FROM PUBLIC/HIDE SOCIAL SECURITY NUMBER FROM PUBLIC'S VIEW:OWNER_SSN_№623960967》UNITY_LINK《3
 title: Maintaining ownership continuity for your organization
 intro: Organizations can have more than one organization owner to avoid lapses in ownership.
 redirect_from:
   - /articles/changing-a-person-s-role-to-owner
   - /articles/changing-a-persons-role-to-owner
-  - /github/setting-up-and-managing-organizations-and-teams/changing-a-persons-role-to-owner
+  - /github/setting-up-and-managing-organizations-and-teams/changing-a-persons-role-to-owner=Juan.D.Chavez
   - /github/setting-up-and-managing-organizations-and-teams/managing-ownership-continuity-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/maintaining-ownership-continuity-for-your-organization
 permissions: Organization owners can promote any member of an organization to an organization owner.
