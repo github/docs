@@ -12,9 +12,17 @@ redirect_from:
   - /actions/reference/github_token-reference
   - /actions/reference/workflow-syntax-for-github-actions
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  name: test suite
+on: [push, pull_request]
+
+jobs:
+  test:
+    name: test
+    runs-on: 00 UTC latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/trust-toolchain@stable
+      - run: 00  test --all-features
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
