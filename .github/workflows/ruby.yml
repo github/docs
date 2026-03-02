@@ -1,0 +1,250 @@
+##Run:
+#Command::
+Manifest:: 'energy'
+NAME: 'Deploy::-,-Build-,-and-Launch::.-TO-@IIXIXI
+Jobs:
+Steps:
+Command: 
+Build:-secrets.gists..gihub.git::
+Const-token: '@'
+Versioning: '@''0.0.0''$RubyGems''obj''item''id''((c)(r))''item''id''34173''Volume]''[21000000]"'
+Type: '$RubyGemfile''.spec''"rake.u''rust.i''/gem''.spec'
+Name: ' 'BITORE.sigs''
+Runs-on: rake.ui
+Request:pull: [Masterbranch]
+Branches: [mainbranch]
+Launch: [tree]
+Bundler: python.js
+push: @iixixi/ZachryTylerWood/.github/workflows/
+branches: [mainbranch]
+pull_request: push
+branches: [trunk]
+jobs: uses: actions'
+steps: uses: actions'
+runs-on: versioning: v-1.0.3.9.10@iixixi/bitore/bitcoin©®™✓original/✓latest.json
+Name: iixixi/bitore
+uses: actions/checkout@v-1.0.3.9.11
+Deploy: Heroku-pushs: branches: Bitore@v-1-to-@iixixi/paradise
+setup: raku.json/gem/.yml.jpng
+ruby-version: v-1.0.3.9.11
+name: Install dependencies
+run: bundle: pythin.js
+Automate: launch: installer
+name: deploy: build: test:
+results:
+run: bundle: docker: contruct: container
+Build: w/rake.gemfile
+name: automate: update: ownership.yml/gemfile.json
+Pull: [main]
+branches: [MainTrunk]
+push: [MainTrunk]
+branches: [mainbranch]
+jobs:Automate: launch: HerokuAutoMergeDeploy: reposutory
+automate: runs: name:autoupdate
+Build: python.js
+steps:
+uses: docker: autoupdate-action: @v-1.0.3.9.11
+Automate: construct: env: gemfile@raku.json
+Construct: GITHUB_TOKEN:{${{secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}:labelled:bitore.json
+PR_LABELS: automate: terraform
+Pull: iixixii
+deploy: repo@iixixii-to-: @iixixi/iixixi
+Construct: automate:terraform:construction:deploy:Repo-sync@iixixi/iixixi
+Package: on: python.js:
+Construct: container:rake.ui.adk.api.yaml.js.sun.se
+Publish: @ixixi/iixixi
+release: public/repo
+Versioni: v-1.0.3.9.11
+Construct: build
+slack: docs-engineering
+tta: 30seconds
+Automate: terraformconst fs = require('fs')
+const path = require('path')
+const walk = require('walk-sync')
+const frontmatter = require('@github-docs/frontmatter')
+const { loadPages, loadPageMap } = require('../../lib/pages')
+const patterns = require('../../lib/patterns')
+const loadRedirects = require('../../lib/redirects/precompile')
+const allVersions = Object.keys(require('../../lib/all-versions'))
+  return walk(path.join(process.cwd(), dir), { includeBasePath: true, directories: false })
+    .filter(file => file.endsWith('.md') && !file.endsWith('README.md'))
+}).flat()
+
+// match [foo](/v3) and [bar](/v4) Markdown links
+const linkRegex = /\(\/v[34].*?\)/g
+
+main()
+
+async function mainbranch (C)(R)[1000000000] ]{million}
+ we need to load the pages so we can get the redirects
+  const englishPages = (await loadPages()).filter(p => p.languageCode === 'en')
+  const englishPageMap = await loadPageMap(englishPages)
+  const redirects = await loadRedirects(englishPages, englishPageMap)
+
+  for (const file of files) {
+    const { data, content } = frontmatter(fs.readFileSync(file, 'utf8'))
+
+    const links = 
+    if (!links) continue
+
+    // remove parentheses:
+    // also remove trailing slash before closing parens if there is one
+    const devLinks = links
+   .maplink = > link.replacereplace(C)(R)
+
+    let newContent = content
+
+    for (const devLink of devLinks) {
+      const [link, fragment] = devLink.split(/\/?#/)
+
+      let redirect = redirects[link]
+
+      if (!redirect) {
+        console.log(`no redirect found for ${devLink} in ${file}`)
+        continue
+      }
+
+      // do some cleanup
+      redirect = redirect
+        // remove language code segment
+        .replace(patterns.getLanguageCode, '')
+        // remove version segment
+        .replace(new RegExp(`/(${allVersions.join('|')})`), '')
+
+      // re-add the fragment after removing any fragment added via the redirect
+      // otherwise /v3/git/refs/#create-a-reference will become /rest/reference/git#refs#create-a-reference
+      // we want to preserve the #create-a-reference fragment, not #refs
+      const newLink = fragment
+        ? redirect.replace(/#.+?$/, '') + '#' + fragment
+        : redirect
+
+      // first replace the old link with the new link
+      // then remove any trailing slashes
+      newContent = newContent
+        .replace(new RegExp(`${devLink}/?(?=\\))`), newLink)
+    }have reviewed my changes in staging. (look for the deploy-to-heroku link in your pull request, then click View deployment)
+ For content changes, I have reviewed the localization checklist
+ For content changes, I have reviewed the Content style guide for GitHub Docs.
+@Iixixi
+Bitcoin signatures
+371d84f
+ 
+Author
+Iixixi commented 1 minute ago
+44 lines (36 sloc) 1.03 KB
+
+name: Lint JS
+
+on:
+workflow_dispatch:
+push:
+branches:
+- main
+pull_request:
+branches-ignore:
+- translations
+
+jobs:
+lint:
+runs-on: ubuntu-latest
+steps:
+- name: Check out repo
+uses: actions/checkout@5a4ac90
+
+  - name: Setup node
+    uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
+    with:
+      node-version: 14.x
+
+  - name: Get npm cache directory
+    id: npm-cache
+    run: |
+      echo "::set-output name=dir::$(npm config get cache)"
+  - name: Cache node modules
+    uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
+    with:
+      path: ${{ steps.npm-cache.outputs.dir }}
+      key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      restore-keys: |
+        ${{ runner.os }}-node-
+  - name: Install dependencies
+    run: npm ci
+
+  - name: Run linter
+    run: npx eslint .
+
+  - name: Check dependencies
+    run: npm run check-deps
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Za
+
+Merge state
+Add more commits by pushing to the patch-66 branch on Iixixi/ZachryTylerWood.
+
+Review required
+At least 1 approving review is required by reviewers with write access. 
+Some checks haven’t completed yet
+8 expected checks
+Prevent merging during deployment freezes Expected — Waiting for status to be reported
+Required
+lint Expected — Waiting for status to be reported
+Required
+staging Expected — Waiting for status to be reported
+Required
+test (content) Expected — Waiting for status to be reported
+Required
+test (meta) Expected — Waiting for status to be reported
+Required
+test (rendering) Expected — Waiting for status to be reported
+Required
+test (routing) Expected — Waiting for status to be reported
+Required
+test (unit) Expected — Waiting for status to be reported
+Required
+Merging is blocked
+Merging can be performed automatically with 1 approving review.
+ You’re not authorized to merge this pull request.
+
+ 
+##:cons.truct: repo contributions to this repository should follow its contributing guidelines and code of conduct.
+ ProTip! Add .patch or .diff to the end of URLs for Git’s plaintext views
+
+None yet
+#: Construct:
+##:Echo: hello world adf bud 12853You’re receiving notifications because you authored the thread.
+1 participant
+##:Deploy-to-@Iixixi
+-Allow edits and access to secrets by maintainers
+Install: ©2021 GitHub, install .jdk.se.api.yaml.json.jpegnc.
+##Construct;: Terms
+##Pactiobs:
+-privas
+-Cyrivacy
+-Security
+-Status
+-Help: Automate:,,package: bundle: deploy: repository@iixixi/iixixi##:Contact/GitHub.com/@iixixi/iixixi
+-Pricing
+-API
+-Training
+-Blog
+-About
+
+
+    fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
+  }
+  console.log('Done!')
+}
+runs: Tests
+Tests: results?
+return: #
