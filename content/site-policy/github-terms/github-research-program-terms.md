@@ -1,4 +1,4 @@
----
+read sign and aproved and commitiing whit the rzules as there standinggranjacours---
 title: GitHub Research Program Terms
 redirect_from:
   - /articles/github-research-program-terms
