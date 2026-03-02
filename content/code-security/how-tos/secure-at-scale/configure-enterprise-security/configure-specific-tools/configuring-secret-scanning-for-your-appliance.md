@@ -44,7 +44,7 @@ The SSSE3 set of instructions is required because {% data variables.product.prod
 1. Enter the following command:
 
    ```shell
-   grep -iE '^flags.*ssse3' /proc/cpuinfo >/dev/null | echo $?
+   grep -iE '^flags.*ssse3' /proc/cpuinfo >/dev/null; echo $?
    ```
 
    If this returns the value `0`, it means that the SSSE3 flag is available and enabled. You can now enable {% data variables.product.prodname_secret_scanning %}. See [Enabling {% data variables.product.prodname_secret_scanning %}](#enabling-secret-scanning) below.
