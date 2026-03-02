@@ -1,3 +1,25 @@
+<--->
+{title: GitHub Marketplace
+intro: 'List your tools in {% data variables.product.prodname_dotcom %} Marketplace for developers to use or purchase.'
+redirect_from:
+  - /apps/adding-integrations/listing-apps-on-github-marketplace/about-github-marketplace
+  - /apps/marketplace
+  - /marketplace
+  - /developers/github-marketplace
+  - /apps/publishing-apps-to-github-marketplace
+versions:
+  fpt: '*'
+  ghec: '*'
+topics:
+  - Marketplace
+children:
+  - /github-marketplace-overview
+  - /creating-apps-for-github-marketplace
+  - /using-the-github-marketplace-api-in-your-app
+  - /listing-an-app-on-github-marketplace
+  - /selling-your-app-on-github-marketplace
+<>---<>}
+}
 ---
 title: GitHub Marketplace
 intro: 'List your tools in {% data variables.product.prodname_dotcom %} Marketplace for developers to use or purchase.'
@@ -20,3 +42,4 @@ children:
   - /selling-your-app-on-github-marketplace
 ---
 
+![1000107479](https://github.com/user-attachments/assets/773d6ab8-8855-427c-8c4a-de0cc52414ec)
