@@ -52,6 +52,7 @@ contentType: reference
 | <kbd>Ctrl</kbd>+<kbd>B</kbd>        | Move to the previous character.              |
 | <kbd>Ctrl</kbd>+<kbd>E</kbd>        | Move to end of the line (when typing).       |
 | <kbd>Ctrl</kbd>+<kbd>F</kbd>        | Move to the next character.                  |
+| <kbd>Ctrl</kbd>+<kbd>G</kbd>        | Edit the prompt in an external editor.       |
 | <kbd>Ctrl</kbd>+<kbd>H</kbd>        | Delete the previous character.               |
 | <kbd>Ctrl</kbd>+<kbd>K</kbd>        | Delete from cursor to end of the line.       |
 | <kbd>Ctrl</kbd>+<kbd>U</kbd>        | Delete from cursor to beginning of the line. |

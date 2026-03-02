@@ -3,9 +3,6 @@ title: GitHub Impersonation
 shortTitle: Impersonation
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 redirect_from:
   - /github/site-policy/github-impersonation
   - /github/site-policy/github-community-guidelines#impersonation
