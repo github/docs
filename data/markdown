@@ -1,0 +1,145 @@
+# Environment
+.env
+
+# Keys
+*.key
+*.pem
+*.asc
+
+# Node / Python
+node_modules/
+__pycache__/
+
+# Logs
+*.log
+# 📦 Project Documentation & Label Guide
+
+This repository follows a clear and standardized labeling system to manage issues, features, improvements, and maintenance tasks efficiently.
+
+The goal is to ensure transparency, security, and maintainability for the wallet bot, TON blockchain integration, and related APIs.
+
+---
+
+## 🏷 Issue & Label Definitions
+
+### 🐞 bug
+Something is not working as expected and requires fixing.
+
+Used for:
+- Incorrect behavior
+- Runtime errors
+- Logical or functional failures
+
+---
+
+### 🛡 security-bug
+Security-related issues affecting wallet safety, data protection, or transaction integrity.
+
+Used for:
+- Vulnerabilities
+- Unsafe wallet operations
+- Data or key exposure risks
+
+---
+
+### 🌐 bug-api
+Issues caused by API errors, invalid responses, or connectivity problems.
+
+Used for:
+- TON API failures
+- Incorrect or malformed responses
+- Network or timeout issues
+
+---
+
+### ✨ enhancement
+Improvements or refinements that enhance existing functionality or performance.
+
+Used for:
+- UX/UI improvements
+- Performance optimizations
+- Non-breaking upgrades
+
+---
+
+### 🚀 feature
+New functionality or major capability added to the project.
+
+Used for:
+- New modules
+- New bot commands
+- Major system additions
+
+---
+
+### ⚙️ refactor
+Code changes that improve structure, readability, or maintainability without changing behavior.
+
+Used for:
+- Code cleanup
+- Architectural improvements
+- Internal restructuring
+
+---
+
+### 📚 documentation
+Changes or additions to documentation, guides, or README files.
+
+Used for:
+- README updates
+- Setup guides
+- API documentation
+
+---
+
+### 🧪 test
+Adding or updating tests, validation logic, or quality checks.
+
+Used for:
+- Unit tests
+- Integration tests
+- Validation improvements
+
+---
+
+### 🧹 chore
+Routine maintenance tasks and minor updates not affecting core functionality.
+
+Used for:
+- Dependency updates
+- Configuration changes
+- Minor housekeeping tasks
+
+---
+
+## ✅ Workflow Summary
+
+1. An issue or task is created
+2. The appropriate label is assigned
+3. Changes are implemented in a separate branch
+4. A Pull Request is opened
+5. Review and approval are completed
+6. Changes are merged into the `main` branch
+
+---
+
+## 🔐 Best Practices
+
+- Do not expose private keys or sensitive data in issues or pull requests
+- Use `security-bug` for any critical or sensitive problems
+- Keep descriptions clear and concise
+- Always target the `main` branch for final merges
+
+---
+
+## 📌 Purpose
+
+This labeling and documentation system ensures:
+- Clear issue categorization
+- Faster review and resolution
+- Improved project organization
+- Secure and scalable development
+
+---
+
+Maintained for wallet bot and TON blockchain projects with a focus on security, stability, and production readiness.
