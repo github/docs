@@ -79,8 +79,7 @@ export default function handleInvalidPaths(
     // We can all the CDN to cache these responses because they're
     // they're not going to suddenly work in the next deployment.
     defaultCacheControl(res)
-    res.setHeader('content-type', 'text/plain')
-    res.status(404).send('Not found')
+    res.status(404).type('text').send('Not found')
     return
   }
 
