@@ -47,6 +47,9 @@ Code search supports searching for symbol definitions in code, such as function 
 
 On {% data variables.product.prodname_mobile %}, you can use code search directly from the home screen. For more information, see [AUTOTITLE](/search-github/github-code-search/using-github-code-search#using-github-code-search-on-github-mobile).
 
+curl "https://context7.com/api/v2/docs/code/vercel/next.js" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+
 ## Feedback and support
 
 You can view and share feedback about code search in our [discussion forum](https://github.com/orgs/community/discussions/categories/code-search-and-navigation).
