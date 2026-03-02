@@ -1,0 +1,93 @@
+Paste the text below, replacing the email used in the example with your GitHub email address.
+
+ssh-keygen -t ed25519 -C "your_email@example.com"
+Note
+
+If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
+
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+This creates a new SSH key, using the provided email as a label.
+
+> Generating public/private ALGORITHM key pair.
+When you're prompted to "Enter a file in which to save the key", you can press Enter to accept the default file location. Please note that if you created SSH keys previously, ssh-keygen may ask you to rewrite another key, in which case we recommend creating a custom-named SSH key. To do so, type the default file location and replace id_ALGORITHM with your custom key name.
+
+> Enter a file in which to save the key (/Users/YOU/.ssh/id_ALGORITHM): [Press enter]
+At the prompt, type a secure passphrase. For more information, see Working with SSH key passphrases.
+
+> Enter passphrase (empty for no passphrase): [Type a passphrase]
+> Enter same passphrase again: [Type passphrase again]
+Adding your SSH key to the ssh-agent
+
+Before adding a new SSH key to the ssh-agent to manage your keys, you should have checked for existing SSH keys and generated a new SSH key. When adding your SSH key to the agent, use the default macOS ssh-add command, and not an application installed by macports, homebrew, or some other external source.
+
+Start the ssh-agent in the background.
+
+$ eval "$(ssh-agent -s)"
+> Agent pid 59566
+Depending on your environment, you may need to use a different command. For example, you may need to use root access by running sudo -s -H before starting the ssh-agent, or you may need to use exec ssh-agent bash or exec ssh-agent zsh to run the ssh-agent.
+
+If you're using macOS Sierra 10.12.2 or later, you will need to modify your ~/.ssh/config file to automatically load keys into the ssh-agent and store passphrases in your keychain.
+
+First, check to see if your ~/.ssh/config file exists in the default location.
+
+$ open ~/.ssh/config
+> The file /Users/YOU/.ssh/config does not exist.
+If the file doesn't exist, create the file.
+
+touch ~/.ssh/config
+Open your ~/.ssh/config file, then modify the file to contain the following lines. If your SSH key file has a different name or path than the example code, modify the filename or path to match your current setup.
+
+Text
+Host github.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+Note
+
+If you chose not to add a passphrase to your key, you should omit the UseKeychain line.
+If you see a Bad configuration option: usekeychain error, add an additional line to the configuration's' Host *.github.com section.
+Text
+Host github.com
+  IgnoreUnknown UseKeychain
+Add your SSH private key to the ssh-agent and store your passphrase in the keychain. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_ed25519 in the command with the name of your private key file.
+
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+Note
+
+The --apple-use-keychain option stores the passphrase in your keychain for you when you add an SSH key to the ssh-agent. If you chose not to add a passphrase to your key, run the command without the --apple-use-keychain option.
+
+The --apple-use-keychain option is in Apple's standard version of ssh-add. In macOS versions prior to Monterey (12.0), the --apple-use-keychain and --apple-load-keychain flags used the syntax -K and -A, respectively.
+
+If you don't have Apple's standard version of ssh-add installed, you may receive an error. For more information, see Error: ssh-add: illegal option -- apple-use-keychain.
+
+If you continue to be prompted for your passphrase, you may need to add the command to your ~/.zshrc file (or your ~/.bashrc file for bash).
+Add the SSH public key to your account on GitHub. For more information, see Adding a new SSH key to your GitHub account.
+
+Generating a new SSH key for a hardware security key
+
+If you are using macOS or Linux, you may need to update your SSH client or install a new SSH client prior to generating a new SSH key. For more information, see Error: Unknown key type.
+
+Insert your hardware security key into your computer.
+
+Open Terminal.
+
+Paste the text below, replacing the email address in the example with the email address associated with your GitHub account.
+
+ssh-keygen -t ed25519-sk -C "your_email@example.com"
+Note
+
+If the command fails and you receive the error invalid format or feature not supported, you may be using a hardware security key that does not support the Ed25519 algorithm. Enter the following command instead.
+
+ssh-keygen -t ecdsa-sk -C "your_email@example.com"
+When you are prompted, touch the button on your hardware security key.
+
+When you are prompted to "Enter a file in which to save the key," press Enter to accept the default file location.
+
+> Enter a file in which to save the key (/Users/YOU/.ssh/id_ed25519_sk): [Press enter]
+When you are prompted to type a passphrase, press Enter.
+
+> Enter passphrase (empty for no passphrase): [Type a passphrase]
+> Enter same passphrase again: [Type passphrase again]
+Add the SSH public key to your account on GitHub. For more information, see Adding a new SSH key to your GitHub account.
+
+Help and support
