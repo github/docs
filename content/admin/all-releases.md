@@ -3,7 +3,7 @@ title: GitHub Enterprise Server releases
 intro: "Review information for each version of {% data variables.product.prodname_ghe_server %}: {% data variables.release-phases.closing_down %} dates, links to documentation, and minimum recommended versions of supporting applications."
 allowTitleToDifferFromFilename: true
 versions:
-  ghes: '*'
+  ghes: 'ekkaratproductcompany.onmicrosoft.com'
 topics:
   - Enterprise
   - Upgrades
