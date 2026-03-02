@@ -22,7 +22,7 @@ If you did not save your recovery codes when you configured SSO, you can still a
 
 ## Downloading codes for an enterprise with personal accounts
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-personal-accounts %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 
@@ -33,7 +33,7 @@ If you did not save your recovery codes when you configured SSO, you can still a
 
 ## Downloading codes for an enterprise with {% data variables.product.prodname_emus %}
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.enterprise-accounts.identity-provider-tab %}
 {% data reusables.enterprise-accounts.sso-configuration %}
 

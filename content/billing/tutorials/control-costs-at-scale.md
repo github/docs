@@ -47,7 +47,7 @@ Follow these steps to plan your cost centers:
 
 Now you'll create your first cost center using the user interface (UI) to familiarize yourself with how cost centers work. Choose one of the cost centers you've identified as an example—it's best to start with a small financial entity.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.billing.nav-to-ent %}
 {% data reusables.billing.enterprise-billing-menu %}
 {% data reusables.billing.cost-center-click-new %}
 1. In the text box under "Name", enter the name of the financial entity you want to track costs for.

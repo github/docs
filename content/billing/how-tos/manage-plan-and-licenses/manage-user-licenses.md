@@ -55,7 +55,7 @@ To add or remove licenses from your enterprise account:
 
 Enterprise **owners** or **billing managers** can add or remove user licenses.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.billing.nav-to-ent %}
 {% data reusables.billing.enterprise-billing-menu %}
 {% data reusables.billing.click-licensing %}
 1. Next to "Enterprise Cloud", click **{% octicon "kebab-horizontal" aria-hidden="true" aria-label="kebab-horizontal" %}**, then click **Manage licenses**.

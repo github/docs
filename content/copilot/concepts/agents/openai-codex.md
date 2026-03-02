@@ -3,7 +3,7 @@ title: OpenAI Codex
 shortTitle: OpenAI Codex
 allowTitleToDifferFromFilename: true
 intro: 'Use the {% data variables.product.prodname_openai_codex %} coding agent and Visual Studio Code extension powered by {% data variables.product.prodname_copilot_short %}.'
-product: '{% data reusables.gated-features.openai-codex %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_plan=pro-plus&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.openai-codex %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_plan=pro-plus&ref_type=purchase&ref_style=button&utm_source=docs-web-3p-agents-codex&utm_medium=docs&utm_campaign=agent-3p-platform-feb-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 contentType: concepts

@@ -48,7 +48,7 @@ OIDC does not support IdP-initiated authentication.
 ## Configuring OIDC for Enterprise Managed Users
 
 1. Sign into {% data variables.product.prodname_dotcom %} as the setup user for your new enterprise with the username **@SHORT-CODE_admin**.
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.enterprise-accounts.identity-provider-tab %}
 {% data reusables.enterprise-accounts.sso-configuration %}
 1. Under "OIDC single sign-on", select **Enable OIDC configuration**.

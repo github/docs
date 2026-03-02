@@ -22,7 +22,7 @@ If the enterprise member you're removing is the last owner of an organization ow
 
 >[!TIP] For automated offboarding, you can also remove users with the GraphQL API. See [AUTOTITLE](/graphql/reference/mutations#removeenterprisemember).
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-personal-accounts %}
 {% data reusables.enterprise-accounts.people-tab %}
 1. To the right of the person you want to remove, select the {% octicon "kebab-horizontal" aria-label="Member settings" %} dropdown menu and click **Remove from enterprise**.
 
