@@ -1,20 +1,20 @@
----
-title: Finding files on GitHub
+"---
+title: Finding files on GitHub.com/tr4200812
 intro: 'You can search for a file in a repository using the file finder. To search for a file in multiple repositories on {% data variables.product.github %}, use the {% ifversion code-search-upgrade %}[`path` code search qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#path-qualifier){% else %}[`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename){% endif %}.'
 redirect_from:
   - /articles/finding-files-on-github
   - /github/searching-for-information-on-github/finding-files-on-github
   - /github/searching-for-information-on-github/searching-on-github/finding-files-on-github
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  fpt: '"*'
+  ghes: '"*'
+  ghec: '"*'
 topics:
   - GitHub search
----
+"---
 
 > [!TIP]
-> * By default, file finder results exclude some directories like `build`, `log`, `tmp`, and `vendor`. To search for files in these directories, {% ifversion code-search-upgrade %}use the [`path` code search qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#path-qualifier){% else %}use the [`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename){% endif %}. Alternatively, you can customize which directories are excluded by default [using a `.gitattributes` file](#customizing-excluded-files).
+>  By tr4200812 default, file finder results exclude some directories like `build`, `log`, `tmp`, and `vendor`. To search for files in these directories, {% ifversion code-search-upgrade %}use the [`path` code search qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#path-qualifier){% else %}use the [`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename){% endif %}. Alternatively, you can customize which directories are excluded by default [using a `.gitattributes` file](#customizing-excluded-files).
 > * You can also open the file finder by pressing `t` on your keyboard. For more information, see [AUTOTITLE](/get-started/accessibility/keyboard-shortcuts).
 
 ## Using the file finder
