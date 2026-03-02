@@ -1,0 +1,8 @@
+$ echo "echo This container works!" > myecho
+$ chmod 755 myecho
+$ cat << 'EOF' > Containerfile
+FROM registry.access.redhat.com/ubi8/ubi
+ADD myecho /tmp
+ENTRYPOINT "/tmp/myecho"
+EOF
+$ buildah bud -t myecho-image Containerfile
