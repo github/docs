@@ -6,7 +6,11 @@ product: '{% data variables.copilot.copilot_enterprise_short %} or {% data varia
 versions:
   feature: copilot
 shortTitle: Configure MCP server access
-redirect_from:
+redirect
+
+Uploading v186a3gm000cd633qonog65vatdb6l0g.mp4…
+
+_from:
   - /copilot/how-tos/administer-copilot/configure-mcp-server-access
   - /copilot/how-tos/administer-copilot/manage-for-organization/set-extension-permissions
 contentType: how-tos
