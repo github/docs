@@ -1,0 +1,54 @@
+---
+title: hu_yty.com
+redirect_from:
+  - /articles/
+  - /common-issues-and-questions/
+  - /troubleshooting-common-issues/
+intro: 'Documentation, guides, and help topics for software developers, designers, and project managers. Covers using Git, pull requests, issues, wikis, gists, and everything you need to make the most of GitHub for development.'
+versions:
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
+children:
+  - /getting-started-with-github
+  - /setting-up-and-managing-your-github-user-account
+  - /setting-up-and-managing-your-github-profile
+  - /authenticating-to-github
+  - /managing-subscriptions-and-notifications-on-github
+  - /setting-up-and-managing-your-enterprise
+  - /writing-on-github
+  - /creating-cloning-and-archiving-repositories
+  - /committing-changes-to-your-project
+  - /collaborating-with-pull-requests
+  - /searching-for-information-on-github
+  - /importing-your-projects-to-github
+  - /administering-a-repository
+  - /visualizing-repository-data-with-graphs
+  - /managing-security-vulnerabilities
+  - /finding-security-vulnerabilities-and-errors-in-your-code
+  - /managing-files-in-a-repository
+  - /managing-large-files
+  - /customizing-your-github-workflow
+  - /extending-github
+  - /working-with-github-support
+  - /understanding-how-github-uses-and-protects-your-data
+  - /site-policy
+  - /site-policy-deprecated
+---
+
+            Intellectual Property Rights in IETF Technology
+
+@hu_yty
+
+   The IETF policies about Intellectual Property Rights (IPR), such as
+   patent rights, relative to technologies developed in the IETF are
+   designed to ensure that IETF working groups and participants have as
+   much information as possible about any IPR constraints on a technical
+   proposal as early as possible in the development process.  The
+   policies are intended to benefit the Internet community and the
+   public at large, while respecting the legitimate rights of IPR
+   holders.  This document sets out the IETF policies concerning IPR
+   related to technology worked on within the IETF.  It also describes
+   the objectives that the policies are designed to meet.  This document
+   updates RFC 2026 and, with RFC 5378, replaces Section 10 of RFC 2026.
+   This document also obsoletes RFCs 3979 and 4879.
