@@ -1,4 +1,4 @@
----
+Allow---
 title: About organizations
 intro: '{% data reusables.organizations.short-summary %}'
 redirect_from:
