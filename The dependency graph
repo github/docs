@@ -1,0 +1,79 @@
+título	intro	redirect_from	versiones	escribe	temas	título corto
+Acerca del gráfico de dependencia
+Puede utilizar el gráfico de dependencia para identificar todas las dependencias de su proyecto. El gráfico de dependencia admite una variedad de ecosistemas de paquetes populares.
+/ github / visualizing-repository-data-with-graphs / about-the-dependency-graph
+/ code-security / supply-chain-security / about-the-dependency-graph
+fpt	ghes
+*
+> = 3,0
+visión de conjunto
+Gráfico de dependencia
+Dependencias
+Repositorios
+Gráfico de dependencia
+Disponibilidad del gráfico de dependencia
+El gráfico de dependencia está disponible para cada repositorio {% ifversion fpt%} público {% endif%} que define las dependencias en un ecosistema de paquete compatible con un formato de archivo compatible. {% Ifversion fpt%} Los administradores del repositorio también pueden configurar el gráfico de dependencia para repositorios privados. {% endif%}
+
+Acerca del gráfico de dependencia
+El gráfico de dependencia es un resumen del manifiesto y los archivos de bloqueo almacenados en un repositorio. Para cada repositorio, muestra {% ifversion fpt%}:
+
+Dependencias, ecosistemas y paquetes de los que depende
+Dependientes, los repositorios y paquetes que dependen de él {% else%} dependencias, es decir, los ecosistemas y paquetes de los que depende. {% data variables.product.prodname_ghe_server%} no calcula información sobre dependientes, los repositorios y paquetes que dependen de un repositorio. {% endif%}
+Cuando envías una confirmación a {% data variables.product.product_name%} que cambia o agrega un manifiesto compatible o un archivo de bloqueo a la rama predeterminada, el gráfico de dependencia se actualiza automáticamente. {% Ifversion fpt%} Además, el gráfico es actualizado cuando alguien empuja un cambio al repositorio de una de sus dependencias. {% endif%} Para obtener información sobre los ecosistemas admitidos y los archivos de manifiesto, consulte " Ecosistemas de paquetes admitidos " a continuación.
+
+{% ifversion fpt o ghes> 3.1%} Cuando creas una solicitud de extracción que contiene cambios en las dependencias que apuntan a la rama predeterminada, {% data variables.product.prodname_dotcom%} usa el gráfico de dependencia para agregar revisiones de dependencia a la solicitud de extracción. Estos indican si las dependencias contienen vulnerabilidades y, de ser así, la versión de la dependencia en la que se corrigió la vulnerabilidad. Para obtener más información, consulte " Acerca de la revisión de dependencias ". {% terminara si %}
+
+Dependencias incluidas
+El gráfico de dependencia incluye todas las dependencias de un repositorio que se detallan en los archivos de manifiesto y bloqueo, o su equivalente, para los ecosistemas compatibles. Esto incluye:
+
+Dependencias directas, que se definen explícitamente en un manifiesto o archivo de bloqueo
+Dependencias indirectas de estas dependencias directas, también conocidas como dependencias transitivas o subdependencias
+El gráfico de dependencia identifica las dependencias indirectas {% ifversion fpt%} ya sea explícitamente desde un archivo de bloqueo o comprobando las dependencias de sus dependencias directas. Para obtener el gráfico más confiable, debe usar archivos de bloqueo (o su equivalente) porque definen exactamente qué versiones de las dependencias directas e indirectas usa actualmente. Si usa archivos de bloqueo, también se asegura de que todos los colaboradores del repositorio estén usando las mismas versiones, lo que le facilitará probar y depurar el código {% else%} de los archivos de bloqueo {% endif%}.
+
+{% ifversion fpt%}
+
+Dependientes incluidos
+Para los repositorios públicos, solo se informan los repositorios públicos que dependen de él o de los paquetes que publica. Esta información no se reporta para repositorios privados. {% Endif%}
+
+Usando el gráfico de dependencia
+Puede utilizar el gráfico de dependencia para:
+
+Explore los repositorios de los que depende su código {% ifversion fpt%} y los que dependen de él {% endif%}. Para obtener más información, consulte " Exploración de las dependencias de un repositorio ". {% ifversion fpt%}
+Vea un resumen de las dependencias utilizadas en los repositorios de su organización en un solo panel. Para obtener más información, consulte " Visualización de estadísticas de su organización ". {% Endif%}
+Vea y actualice las dependencias vulnerables para su repositorio. Para obtener más información, consulte " Acerca de las alertas para dependencias vulnerables ". {% Ifversion fpt o ghes> 3.1%}
+Consulte información sobre dependencias vulnerables en solicitudes de extracción. Para obtener más información, consulte " Revisión de cambios de dependencia en una solicitud de extracción ". {% Endif%}
+Habilitación del gráfico de dependencia
+{% ifversion fpt%} Para generar un gráfico de dependencia, {% data variables.product.product_name%} necesita acceso de solo lectura al manifiesto de dependencia y archivos de bloqueo para un repositorio. El gráfico de dependencia se genera automáticamente para todos los repositorios públicos y puede optar por habilitarlo para los repositorios privados. Para obtener información sobre cómo habilitarlo o deshabilitarlo para repositorios privados, consulte " Exploración de las dependencias de un repositorio ". {% Endif%}
+
+{% ifversion ghes%} Si el gráfico de dependencia no está disponible en su sistema, el administrador de su sitio puede habilitar el gráfico de dependencia y {% data variables.product.prodname_dependabot_alerts%}. Para obtener más información, consulte " Habilitación de alertas para dependencias vulnerables en {% data variables.product.prodname_ghe_server%} ". {% Endif%}
+
+Cuando el gráfico de dependencia se habilita por primera vez, cualquier archivo de manifiesto y bloqueo de los ecosistemas compatibles se analiza de inmediato. El gráfico generalmente se completa en minutos, pero esto puede llevar más tiempo para los repositorios con muchas dependencias. Una vez habilitado, el gráfico se actualiza automáticamente con cada envío al repositorio {% ifversion fpt%} y cada envío a otros repositorios en el gráfico {% endif%}.
+
+Ecosistemas de paquetes compatibles
+Los formatos recomendados definen explícitamente qué versiones se utilizan para todas las dependencias directas e indirectas. Si usa estos formatos, su gráfico de dependencia es más preciso. También refleja la configuración de compilación actual y permite que el gráfico de dependencias informe vulnerabilidades tanto en dependencias directas como indirectas. {% Ifversion fpt%} Las dependencias indirectas que se infieren de un archivo de manifiesto (o equivalente) se excluyen de las comprobaciones de dependencias vulnerables .{% terminara si %}
+
+Gerente de empaquetación	Idiomas	Formatos recomendados	Todos los formatos admitidos
+Compositor	PHP	composer.lock	composer.json, composer.lock
+dotnet CLI	Lenguajes .NET (C #, C ++, F #, VB)	.csproj, .vbproj, .nuspec, .vcxproj,.fsproj	.csproj, .vbproj, .nuspec, .vcxproj, .fsproj,packages.config
+{% - ifversion fpt o ghes> 3.2%}			
+Ir módulos	Ir	go.sum	go.mod, go.sum
+{% - elsif ghes = 3,2%}			
+Ir módulos	Ir	go.mod	go.mod
+{%- terminara si %}			
+Maven	Java, Scala	pom.xml	pom.xml
+npm	JavaScript	package-lock.json	package-lock.json, package.json
+Python PIP	Pitón	requirements.txt, pipfile.lock	requirements.txt, pipfile, pipfile.lock, setup.py*
+RubyGems	Rubí	Gemfile.lock	Gemfile.lock, Gemfile,*.gemspec
+Hilo	JavaScript	yarn.lock	package.json, yarn.lock
+{% Nota %}
+
+Nota: Si enumera sus dependencias de Python dentro de un setup.pyarchivo, es posible que no podamos analizar y enumerar todas las dependencias en su proyecto.
+
+{% endnote%}
+
+Otras lecturas
+" Gráfico de dependencia " en Wikipedia
+" Explorando las dependencias de un repositorio " {% ifversion fpt%}
+" Visualización de estadísticas de su organización " {% endif%}
+" Visualización y actualización de dependencias vulnerables en su repositorio "
+" Solución de problemas de detección de dependencias vulnerables "
