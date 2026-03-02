@@ -1,3 +1,5 @@
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/github/haikus-for-codespaces?quickstart=1)
 ---
 title: Creating a codespace from a template
 intro: 'If you''re starting a new project, you can create a codespace from a blank template or choose a template specially designed for the type of work you want to do.'
