@@ -1,5 +1,7 @@
----
-title: Setting a minimum specification for codespace machines
+title: change.
+
+
+run: Setting a/i specification for codespace machines
 shortTitle: Set a minimum machine spec
 intro: 'You can avoid under-resourced machine types being used for {% data variables.product.prodname_github_codespaces %} for your repository.'
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
@@ -12,7 +14,7 @@ topics:
   - Set up
 redirect_from:
   - /codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines
----
+(
 
 ## Overview
 
