@@ -14,7 +14,55 @@ redirect_from:
   - /articles/transferring-a-repository
   - /github/administering-a-repository/transferring-a-repository
   - /github/administering-a-repository/managing-repository-settings/transferring-a-repository
-versions:
+versions: Transferring a repository owned by your organization
+If you have owner permissions in an organization or admin permissions to one of its repositories, you can transfer a repository owned by your organization to your personal account or to another organization.
+
+Sign into your personal account that has admin or owner permissions in the organization that owns the repository.
+
+On GitHub, navigate to the main page of the repository.
+
+Under your repository name, click  Settings. If you cannot see the "Settings" tab, select the  dropdown menu, then click Settings.
+
+Screenshot of a repository header showing the tabs. The "Settings" tab is highlighted by a dark orange outline.
+At the bottom of the page, in the "Danger Zone" section, click Transfer.
+
+Read the information about transferring a repository, then, under "New owner", choose how to specify the new owner.
+
+To choose one of your organizations, select Select one of my organizations.
+
+Select the dropdown menu and click an organization.
+
+Optionally, in the "Repository name" field, type a new name for the repository.
+
+Note
+
+Your an owner of the target organization to rename the repository.
+
+To specify an organization or username, select Specify an organization or username, then type the organization name or the new owner's username.
+
+Read the warnings about potential loss of features depending on the new owner's GitHub subscription.
+
+Following Type REPOSITORY NAME to confirm, type the name of the repository you'd like to transfer, then click I understand, transfer this repository.
+
++android.googlesource.com
+
+@Privaterelay.appleid.com
+Help us make these docs great!
+All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
+
+Learn how to contribute
+
+Still need help?
+Ask the GitHub community
+Contact support
+Legal
+© 2025 GitHub, Inc.
+Terms
+Privacy
+Status
+Pricing
+Expert services
+Blog
   fpt: '*'
   ghes: '*'
   ghec: '*'
