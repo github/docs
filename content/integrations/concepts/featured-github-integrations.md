@@ -14,8 +14,6 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Featured integrations
-topics: 
-  - Integration
 category:
   - Learn about integrations
 ---
