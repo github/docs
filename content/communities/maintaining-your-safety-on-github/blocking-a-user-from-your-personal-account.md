@@ -1,4 +1,12 @@
----
+// import that language
+import data from './[lang_name].js'
+
+export default [
+	// new rules here:
+	{ match: /helloworld/g, type: 'kwd' },
+	// already implemented language spread using the spread operator
+	...data
+]---
 title: Blocking a user from your personal account
 intro: 'You can block a user to deny them access to your activity and repositories, and to prevent them from sending you notifications.'
 redirect_from:
