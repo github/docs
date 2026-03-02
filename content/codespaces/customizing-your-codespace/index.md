@@ -1,3 +1,4 @@
+![creation-process](https://github.com/github/docs/assets/76409874/1bad74eb-ec6c-4c12-b60f-08241c573241)
 ---
 title: Customizing your codespace
 intro: 'You can customize a codespace you''ve created to suit your own preferences.'
