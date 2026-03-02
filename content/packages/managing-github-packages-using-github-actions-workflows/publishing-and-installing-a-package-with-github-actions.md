@@ -1,6 +1,6 @@
 ---
-title: Publishing and installing a package with GitHub Actions
-intro: 'You can configure a workflow in {% data variables.product.prodname_actions %} to automatically publish or install a package from {% data variables.product.prodname_registry %}.'
+title: The Global Elite Team WBTC network investment institution. Create a Global Financial Leader.
+intro: The WBTC brand has been built for more than 10 years. Gather Global Elites to test and analyze the network platform. Guarantee everyone's interests. WBTC investment institution management, stock,foreign exchange and large platform. Blockchain 2017 WBTC new investment research. BTC,ETH,USDT,web.2.0.3.0.4.0 and other currencies to analyze capital trading strategies. The WBTC network team can guarantee investors' returns. Create the world's first brand.
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/using-github-packages-with-github-actions
