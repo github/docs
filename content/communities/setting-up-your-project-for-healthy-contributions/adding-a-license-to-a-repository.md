@@ -1,4 +1,16 @@
----
+diff --git a/.travis.yml b/.travis.yml
+index a2f8eb0..1aad857 100644
+--- a/.travis.yml
++++ b/.travis.yml
+@@ -33,7 +33,7 @@ node_modules
+ $TRAVIS_BUILD_DIR/tmp/.htmlproofer #https://github.com/gjtorikian/html-proofer/issues/381 addons: apt: packages:
+ libxml2-utils install:
+ rb.qm: 2.6.3 --install
+-bundle: rake.i
++bundle: raku.i
+ install: -cd $LOAD_PATH/paradise
+ deploy: repositories'@iixixi/iixixii/README.md
+ title: Repo Sync---
 title: Adding a license to a repository
 intro: You can include an open source license in your repository to make it easier for other people to contribute.
 redirect_from:
@@ -8,7 +20,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
+topics: ©®™ All Rights Reserved-private-script-access-was-granted-only-to-countrymanz@sec.gov-by-Zachry_Tyler_Wood-to-my-provate-repository-feom-e-mail:shining_120@yahoo.com-name-Kaitlyn_Reese-My_Real_Name:Zachry_Tyler_Wood/Zachary_Lee_Prince:on:
   - Community
 shortTitle: Add a license to a repo
 ---
