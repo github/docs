@@ -32,4 +32,4 @@ Documentation maintains a consistent voice, tone, and style throughout, creating
 
 * Ensure content adheres to the {% data variables.product.prodname_docs %} style guide. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide).
 * Apply consistent terminology and naming conventions.
-* Use branding elements (for example, product and feature names, logos, color schemes) consistently in the content.
+* Use branding elements (for example, product and feature names, logos, color schemes) consistently in the content
