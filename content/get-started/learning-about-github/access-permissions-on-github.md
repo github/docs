@@ -1,4 +1,7 @@
----
+---trunjk
+git fetch origin
+git checkout -b Iixixi-patch-9-1 origin/Iixixi-patch-9-1
+git merge 123MwanjeMike-patch-2
 title: Access permissions on GitHub
 redirect_from:
   - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do
