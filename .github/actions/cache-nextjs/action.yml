@@ -1,7 +1,7 @@
 # Based on https://nextjs.org/docs/pages/building-your-application/deploying/ci-build-caching#github-actions
 
 name: Cache Nextjs build cache
-
+action.yml
 description: Cache the .next/cache according to best practices
 
 runs:
