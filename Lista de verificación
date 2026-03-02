@@ -1,0 +1,31 @@
+Lista de verificación de preparación para la localización
+Utilice la siguiente lista de verificación para ayudar a que sus archivos sean más fáciles de traducir. Para obtener información adicional, consulte la guía de estilo .
+
+ Utilice ejemplos que sean genéricos y que la mayoría de la gente pueda entender.
+ Evite ejemplos controvertidos o culturalmente específicos de un grupo.
+ Escribe con voz activa.
+ Escribe frases sencillas, cortas y fáciles de entender.
+ Evite usar demasiados pronombres que puedan hacer que el texto sea poco claro.
+ Evite la jerga y las bromas.
+ Evite las oraciones negativas.
+ Utilice acrónimos estándar de la industria siempre que sea posible y explique los acrónimos personalizados.
+ Utilice un estado de ánimo indicativo.
+ Elimina expresiones redundantes y prolijas.
+Evite el uso excesivo de modificadores apilados (cadenas de nombres). El traductor puede malinterpretar cuál es el sustantivo que se está modificando.
+ Evite los plurales invisibles en los que no está claro si el primer sustantivo debe ser singular o plural.
+ Evite la nominalización.
+ Evite el uso de verbos auxiliares modales ambiguos.
+ Evite las palabras específicas de género.
+ Evite las frases preposicionales.
+ Evite los sustantivos y pronombres vagos (sujeto de la oración vaga).
+Mantenga los enlaces en línea al mínimo. Si son necesarios, préncelos con una frase como "Para obtener más información, consulte" Título del enlace ". Alternativamente, agregue enlaces relevantes a la sección" Lecturas adicionales "al final del tema.
+Ejemplos de
+Guía	Evitar	Utilizar en su lugar
+Evite la información específica del país.	800 números, direcciones, etc.	Si es necesario, mencione a qué países se aplica la información.
+Evite el uso excesivo de modificadores apilados (cadenas de sustantivos). Esto puede dar lugar a traducciones incorrectas porque no es fácil saber qué modifica qué.	"Configuración de fuente predeterminada del repositorio público" o "restricciones de acceso a la aplicación OAuth"	"Configuración de fuente predeterminada para el repositorio público" o "restricciones para el acceso a la aplicación OAuth". Si es esencial usar un modificador apilado, asegúrese de que la información de fondo y el contexto sean claros para que el lingüista entienda cuál es el sustantivo que se está modificando.
+Evite los plurales invisibles.	"Actualización del programa" o "Recuperación de archivos". ¿Es esta una actualización de un programa o un procedimiento general para varios programas? Para "Recuperación de archivos", ¿está recuperando un archivo o todos?	Escriba la oración con más claridad o proporcione contexto adicional para eliminar la ambigüedad que puede resultar en una traducción incorrecta.
+Evite la nominalización.	"Para llegar a una conclusión"	Utilice "Concluir".
+Evite el uso de verbos auxiliares modales ambiguos.	Puede, podría, debería, podría, solía, etc.	Sea más claro al escribir para evitar ambigüedades.
+Evite las frases preposicionales.	"Según el registro del repositorio ..." o "Después de intentarlo muchas veces ..."	Escribe la oración de forma más directa.
+Evite los pronombres y los sustantivos vagos.	"Los mantenedores y colaboradores tienen acceso a archivos y comentarios. En la solicitud de extracción, realizan cambios". En este ejemplo, no está claro si los cambios se están realizando en el archivo o en los comentarios. Otro ejemplo "Después de guardar el archivo en la carpeta, el usuario lo eliminó". En esta oración no está claro qué se eliminó (archivo o carpeta).	Si un pronombre parece referirse a más de un antecedente, reformule la oración para aclarar el antecedente o reemplace el pronombre por un sustantivo para eliminar la ambigüedad.
+Mantenga los enlaces en línea al mínimo.	Leer más sobre OAuth2. Tenga en cuenta que los tokens de OAuth2 se pueden adquirir mediante programación , para aplicaciones que no son sitios web.
