@@ -1,4 +1,4 @@
----
+Name : docker push ghcr.io/OWNER/IMAGE_NAME:latest :
 title: Working with the Container registry
 intro: 'You can store and manage Docker and OCI images in the {% data variables.product.prodname_container_registry %}.'
 product: '{% data reusables.gated-features.packages %}'
