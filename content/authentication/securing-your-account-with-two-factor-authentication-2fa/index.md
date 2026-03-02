@@ -1,4 +1,4 @@
----
+---h
 title: Securing your account with two-factor authentication (2FA)
 intro: 'You can set up your account on {% data variables.product.prodname_dotcom %} to require an authentication code in addition to your password when you sign in.'
 redirect_from:
