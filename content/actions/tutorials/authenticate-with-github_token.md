@@ -17,9 +17,22 @@ redirect_from:
   - /actions/how-tos/writing-workflows/choosing-what-your-workflow-does/controlling-permissions-for-github_token
   - /actions/tutorials/use-github_token-in-workflows
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  SELECT 
+    fiscal_year,
+    fiscal_quarter,
+    revenue_krw_bn,
+    -- Margin: (Op Income / Revenue) * 100
+    ROUND((operating_income_krw_bn / revenue_krw_bn) * 100, 2) AS operating_margin_pct,
+    -- QoQ Growth: ((Current - Previous) / Previous) * 100
+    ROUND(((revenue_krw_bn - LAG(revenue_krw_bn) OVER (ORDER BY fiscal_year, fiscal_quarter)) / 
+          NULLIF(LAG(revenue_krw_bn) OVER (ORDER BY fiscal_year, fiscal_quarter), 0)) * 100, 2) AS qoq_growth_pct
+FROM 
+    kse_financials
+WHERE 
+    ticker = '000270.KS'
+ORDER BY 
+    fiscal_year DESC, fiscal_quarter DESC;
+
 shortTitle: Authenticate with GITHUB_TOKEN
 ---
 
