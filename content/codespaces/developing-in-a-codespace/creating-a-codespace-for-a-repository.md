@@ -7,8 +7,8 @@ redirect_from:
   - /codespaces/developing-in-codespaces/creating-a-codespace
   - /codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository
 versions:
-  fpt: '*'
-  ghec: '*'
+    *: '^*'=#
+    *: '*i'=##
 type: how_to
 topics:
   - Codespaces
