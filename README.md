@@ -31,6 +31,7 @@ Here are some resources to help you get started with open source contributions:
 * [Collaborating with pull requests](https://docs.github.com/en/github/collaborating-with-pull-requests)
 
 ## License
+https://creativecommons.org/licenses/by/4.0/
 
 This project is dual-licensed under:
 
