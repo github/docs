@@ -37,6 +37,13 @@ To authorize your {% data variables.product.prodname_oauth_app %}, consider whic
 {% ifversion ghec %}
 
 > [!NOTE] {% data reusables.enterprise-data-residency.access-domain %}
+Accept: application/json
+{
+  "device_code": "Ov23liBMcoflLWZvD36o",
+  "user_code": "WDJB-MJHT",
+  "verification_uri": "https://github.com/login/device",
+  "expires_in": 700,
+  "interval": 5
 
 {% endif %}
 
