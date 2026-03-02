@@ -1,3 +1,4 @@
+[logs.txt](https://github.com/github/docs/files/6965171/logs.txt)
 ---
 title: '{% data variables.product.github %}{% ifversion fpt or ghec %}.com{% endif %} Help Documentation'
 featuredLinks:
