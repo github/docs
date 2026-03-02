@@ -1,3 +1,4 @@
+[meta.json](https://github.com/user-attachments/files/17691566/meta.json)
 ---
 title: Enabling or disabling GitHub Codespaces for your organization
 shortTitle: 'Enable or disable Codespaces'
