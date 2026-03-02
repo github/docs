@@ -1,18 +1,15 @@
 name: All documents script
-
-# **What it does**: Verifies that the all-documents script works.
-# **Why we have it**: Code quality and sustainability.
-# **Who does it impact**: docs-engineering
-
 on:
   pull_request:
     paths:
       - 'src/content-render/scripts/all-documents/**'
       - 'package*.json'
       - .github/workflows/all-documents.yml
-
-permissions:
-  contents: read
+# **What it does**: Verifies that the all-documents script works.
+# **Why we have it**: Code quality and sustainability.
+# **Who does it impact**: docs-engineering
+permissions: 
+  contents: .json
 
 jobs:
   all-documents-script:
