@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html><head>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-BPN1D3SEJM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BPN1D3SEJM');
+</script>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" media="screen" href="../reports-v2.css">
+<link rel="stylesheet" type="text/css" media="screen" href="css/tr35.css">
+<title>Unicode Locale Data Markup Language (LDML) Part 7: Keyboards</title></head><body>
+
+  <!--Header from header.html-->
+<div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
+    <tbody>
+        <tr>
+            <td class="icon"><a href="https://www.unicode.org/"><img style="vertical-align:middle;border:0" alt="[Unicode]" src="https://www.unicode.org/webscripts/logo60s2.gif" height="33" width="34"></a>&nbsp;&nbsp;<a class="bar" href="https://www.unicode.org/reports/">Technical Reports</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="gray">&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+<div id="searchbox" style="display: none; float: right;">
+    <input id="searchfield" size="30" placeholder="Search UTS #35…"><button id="searchbutton" title="search">🔎</button>
+</div></div>
+
+  <!--Converted from tr35-keyboards.md-->
+<div class="body"><h2>Unicode Technical Standard #35</h2><h1>Unicode Locale Data Markup Language (LDML)<br>Part 7: Keyboards</h1><table class="simple" width="90%">
+<thead>
+<tr>
+<th>Version</th>
+<th>47</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Editors</td>
+<td>Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td>
+</tr>
+</tbody></table><p>For the full header, summary, and status, see <a href="tr35.html">Part 1: Core</a>.</p><h3><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://www.unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing keyboards. For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><h3><em>Status</em></h3><!-- _This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+Publication does not imply endorsement by the Unicode Consortium.
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress._ --><p><em>This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications.</em></p><blockquote>
+<p><em><strong>A Unicode Technical Standard (UTS)</strong> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</em></p>
+</blockquote><p><em>Please submit corrigenda and other comments with the CLDR bug reporting form [<a href="https://cldr.unicode.org/index/bug-reports">Bugs</a>].
+Related information that is useful in understanding this document is found in the <a href="#References">References</a>.
+For the latest version of the Unicode Standard see [<a href="https://www.unicode.org/versions/latest/">Unicode</a>].
+For more information see <a href="https://www.unicode.org/reports/about-reports.html">About Unicode Technical Reports</a> and the <a href="https://www.unicode.org/faq/specifications.html">Specifications FAQ</a>.
+Unicode Technical Reports are governed by the Unicode <a href="https://www.unicode.org/copyright.html">Terms of Use</a>.</em></p><p>See also <a href="#compatibility-notice">Compatibility Notice</a>.</p><h2><a name="Parts" href="#Parts">Parts</a></h2><p>The LDML specification is divided into the following parts:</p><ul>
+<li>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
+<li>Part 2: <a href="tr35-general.html#Contents">General</a> (display names &amp; transforms, etc.)</li>
+<li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a> (number &amp; currency formatting)</li>
+<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date, time, time zone formatting)</li>
+<li>Part 5: <a href="tr35-collation.html#Contents">Collation</a> (sorting, searching, grouping)</li>
+<li>Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
+<li>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
+<li>Part 8: <a href="tr35-personNames.html#Contents">Person Names</a> (person names)</li>
+<li>Part 9: <a href="tr35-messageFormat.html#Contents">MessageFormat</a> (message format)</li>
+</ul><h2><a name="Contents" href="#Contents">Contents of Part 7, Keyboards</a></h2><ul>
+<li><a href="#keyboards">Keyboards</a></li>
+<li><a href="#goals-and-non-goals">Goals and Non-goals</a><ul>
+<li><a href="#compatibility-notice">Compatibility Notice</a></li>
+<li><a href="#accessibility">Accessibility</a></li>
+</ul>
+</li>
+<li><a href="#definitions">Definitions</a></li>
+<li><a href="#notation">Notation</a><ul>
+<li><a href="#escaping">Escaping</a></li>
+<li><a href="#unicodeset-escaping">UnicodeSet Escaping</a></li>
+<li><a href="#uts18-escaping">UTS18 Escaping</a></li>
+</ul>
+</li>
+<li><a href="#file-and-directory-structure">File and Directory Structure</a><ul>
+<li><a href="#extensibility">Extensibility</a></li>
+</ul>
+</li>
+<li><a href="#normalization">Normalization</a><ul>
+<li><a href="#where-normalization-occurs">Where Normalization Occurs</a></li>
+<li><a href="#normalization-and-transform-matching">Normalization and Transform Matching</a></li>
+<li><a href="#normalization-and-markers">Normalization and Markers</a><ul>
+<li><a href="#rationale-for-gluing-markers">Rationale for 'gluing' markers</a></li>
+<li><a href="#data-model-marker">Data Model: <code>Marker</code></a></li>
+<li><a href="#data-model-string">Data Model: string</a></li>
+<li><a href="#data-model-markerentry">Data Model: <code>MarkerEntry</code></a></li>
+<li><a href="#marker-algorithm-overview">Marker Algorithm Overview</a></li>
+<li><a href="#phase-1-parsingremoving-markers">Phase 1: Parsing/Removing Markers</a></li>
+<li><a href="#phase-2-plain-text-processing">Phase 2: Plain Text Processing</a></li>
+<li><a href="#phase-3-adding-markers">Phase 3: Adding Markers</a></li>
+<li><a href="#example-normalization-with-markers">Example Normalization with Markers</a></li>
+</ul>
+</li>
+<li><a href="#normalization-and-character-classes">Normalization and Character Classes</a></li>
+<li><a href="#normalization-and-reorder-elements">Normalization and Reorder elements</a></li>
+<li><a href="#normalization-safe-segments">Normalization-safe Segments</a></li>
+<li><a href="#normalization-and-output">Normalization and Output</a></li>
+<li><a href="#disabling-normalization">Disabling Normalization</a></li>
+</ul>
+</li>
+<li><a href="#element-hierarchy">Element Hierarchy</a><ul>
+<li><a href="#element-keyboard3">Element: keyboard3</a></li>
+<li><a href="#element-import">Element: import</a></li>
+<li><a href="#element-locales">Element: locales</a></li>
+<li><a href="#element-locale">Element: locale</a></li>
+<li><a href="#element-version">Element: version</a></li>
+<li><a href="#element-info">Element: info</a></li>
+<li><a href="#element-settings">Element: settings</a></li>
+<li><a href="#element-displays">Element: displays</a></li>
+<li><a href="#element-display">Element: display</a><ul>
+<li><a href="#non-spacing-marks-on-keytops">Non-spacing marks on keytops</a></li>
+</ul>
+</li>
+<li><a href="#element-displayoptions">Element: displayOptions</a></li>
+<li><a href="#element-keys">Element: keys</a></li>
+<li><a href="#element-key">Element: key</a><ul>
+<li><a href="#implied-keys">Implied Keys</a></li>
+</ul>
+</li>
+<li><a href="#element-flicks">Element: flicks</a><ul>
+<li><a href="#element-flick">Element: flick</a></li>
+<li><a href="#element-flicksegment">Element: flickSegment</a></li>
+</ul>
+</li>
+<li><a href="#element-forms">Element: forms</a></li>
+<li><a href="#element-form">Element: form</a><ul>
+<li><a href="#implied-form-values">Implied Form Values</a></li>
+</ul>
+</li>
+<li><a href="#element-scancodes">Element: scanCodes</a></li>
+<li><a href="#element-layers">Element: layers</a></li>
+<li><a href="#element-layer">Element: layer</a><ul>
+<li><a href="#layer-modifier-sets">Layer Modifier Sets</a></li>
+<li><a href="#layer-modifier-components">Layer Modifier Components</a></li>
+<li><a href="#modifier-left--and-right--keys">Modifier Left- and Right- keys</a></li>
+<li><a href="#layer-modifier-matching">Layer Modifier Matching</a></li>
+</ul>
+</li>
+<li><a href="#element-row">Element: row</a></li>
+<li><a href="#element-variables">Element: variables</a></li>
+<li><a href="#element-string">Element: string</a></li>
+<li><a href="#element-set">Element: set</a></li>
+<li><a href="#element-uset">Element: uset</a></li>
+<li><a href="#element-transforms">Element: transforms</a><ul>
+<li><a href="#markers">Markers</a></li>
+</ul>
+</li>
+<li><a href="#element-transformgroup">Element: transformGroup</a><ul>
+<li><a href="#example-transformgroup-with-transform-elements">Example: <code>transformGroup</code> with <code>transform</code> elements</a></li>
+<li><a href="#example-transformgroup-with-reorder-elements">Example: <code>transformGroup</code> with <code>reorder</code> elements</a></li>
+</ul>
+</li>
+<li><a href="#element-transform">Element: transform</a><ul>
+<li><a href="#regex-like-syntax">Regex-like Syntax</a></li>
+<li><a href="#additional-features">Additional Features</a></li>
+<li><a href="#disallowed-regex-features">Disallowed Regex Features</a></li>
+<li><a href="#replacement-syntax">Replacement syntax</a></li>
+<li><a href="#transform-grammar">Transform Grammar</a><ul>
+<li><a href="#transform-from-grammar">Transform From Grammar</a></li>
+<li><a href="#transform-to-grammar">Transform To Grammar</a></li>
+<li><a href="#abnf">ABNF</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#element-reorder">Element: reorder</a><ul>
+<li><a href="#using-import-with-reorder-elements">Using <code>&lt;import&gt;</code> with <code>&lt;reorder&gt;</code> elements</a></li>
+<li><a href="#example-post-reorder-transforms">Example Post-reorder transforms</a></li>
+<li><a href="#reorder-and-markers">Reorder and Markers</a></li>
+</ul>
+</li>
+<li><a href="#backspace-transforms">Backspace Transforms</a></li>
+</ul>
+</li>
+<li><a href="#invariants">Invariants</a></li>
+<li><a href="#keyboard-ids">Keyboard IDs</a><ul>
+<li><a href="#principles-for-keyboard-ids">Principles for Keyboard IDs</a></li>
+</ul>
+</li>
+<li><a href="#platform-behaviors-in-edge-cases">Platform Behaviors in Edge Cases</a></li>
+</ul><h2>Keyboards</h2><p>The Unicode Standard and related technologies such as CLDR have dramatically improved the path to language support. However, keyboard support remains platform and vendor specific, causing inconsistencies in implementation as well as timeline.</p><p>More and more language communities are determining that digitization is vital to their approach to language preservation and that engagement with Unicode is essential to becoming fully digitized. For many of these communities, however, getting new characters or a new script added to The Unicode Standard is not the end of their journey. The next, often more challenging stage is to get device makers, operating systems, apps and services to implement the script requirements that Unicode has just added to support their language.</p><p>However, commensurate improvements to streamline new language support on the input side have been lacking. CLDR’s Keyboard specification has been updated in an attempt to address this gap.</p><p>This document specifies an interchange format for the communication of keyboard mapping data independent of vendors and platforms. Keyboard authors can then create a single mapping file for their language, which implementations can use to provide that language’s keyboard mapping on their own platform.</p><p>Additionally, the standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.  For example, a remote screen-access application (such as used for customer service or server management) would be able to communicate and choose the same keyboard layout on the remote device as is used in front of the user, even if the two systems used different platforms.</p><p>The data can also be used in analysis of the capabilities of different keyboards. It also allows better interoperability by making it easier for keyboard designers to see which characters are generally supported on keyboards for given languages.</p><!-- To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the macOS operating system (with an inserted long-press example). --><p>For complete examples, see the XML files in the CLDR source repository.</p><p>Attribute values should be evaluated considering the DTD and <a href="tr35.html#dtd-annotations">DTD Annotations</a>.</p><hr><h2>Goals and Non-goals</h2><p>Some goals of this format are:</p><ol>
+<li>Physical and virtual keyboard layouts defined in a single file.</li>
+<li>Provide definitive platform-independent definitions for new keyboard layouts.<ul>
+<li>For example, a new French standard keyboard layout would have a single definition which would be usable across all implementations.</li>
+</ul>
+</li>
+<li>Allow platforms to be able to use CLDR keyboard data for the character-emitting keys (non-frame) aspects of keyboard layouts.</li>
+<li>Deprecate &amp; archive existing LDML platform-specific layouts so they are not part of future releases.</li>
+</ol><!--
+1. Make the XML as readable as possible.
+2. Represent faithfully keyboard data from major platforms: it should be possible to create a functionally-equivalent data file (such that given any input, it can produce the same output).
+3. Make as much commonality in the data across platforms as possible to make comparison easy. --><p>Some non-goals (outside the scope of the format) currently are:</p><ol>
+<li>Adaptation for screen scaling resolution. Instead, keyboards should define layouts based on physical size. Platforms may interpret physical size definitions and adapt for different physical screen sizes with different resolutions.</li>
+<li>Unification of platform-specific virtual key and scan code mapping tables.</li>
+<li>Unification of pre-existing platform layouts themselves (e.g. existing fr-azerty on platform a, b, c).</li>
+<li>Support for prior (pre 3.0) CLDR keyboard files. See <a href="#compatibility-notice">Compatibility Notice</a>.</li>
+<li>Run-time efficiency. <a href="tr35.html#Introduction">LDML is explicitly an interchange format</a>, and so it is expected that data will be transformed to a more compact format for use by a keystroke processing engine.</li>
+<li>Platform-specific frame keys such as Fn, Numpad, IME swap keys, and cursor keys are out of scope.
+(This also means that in this specification, modifier (frame) keys cannot generate output, such as capslock producing backslash.)</li>
+</ol><!-- 1. Display names or symbols for keycaps (eg, the German name for "Return"). If that were added to LDML, it would be in a different structure, outside the scope of this section.
+2. Advanced IME features, handwriting recognition, etc.
+3. Roundtrip mappings—the ability to recover precisely the same format as an original platform's representation. In particular, the internal structure may have no relation to the internal structure of external keyboard source data, the only goal is functional equivalence. --><!-- Note: During development of this section, it was considered whether the modifier RAlt (= AltGr) should be merged with Option. In the end, they were kept separate, but for comparison across platforms implementers may choose to unify them. --><p>Note that in parts of this document, the format <code>@x</code> is used to indicate the <em>attribute</em> <strong>x</strong>.</p><h3>Compatibility Notice</h3><blockquote>
+<p>A major rewrite of this specification, called "Keyboard 3.0", was introduced in CLDR v45.
+The changes required were too extensive to maintain compatibility. For this reason, the <code>ldmlKeyboard3.dtd</code> DTD is <em>not</em> compatible with DTDs from prior versions of CLDR such as v43 and prior.</p>
+<p>To process earlier XML files, use the data and specification from v43.1, found at <a href="https://www.unicode.org/reports/tr35/tr35-69/tr35.html">https://www.unicode.org/reports/tr35/tr35-69/tr35.html</a></p>
+<p><code>ldmlKeyboard.dtd</code> continues to be made available in CLDR, however, it will not be updated.</p>
+</blockquote><h3>Accessibility</h3><p>Keyboard use can be challenging for individuals with various types of disabilities. For this revision, features or architectural designs specifically for the purpose of improving accessibility are not yet included. However:</p><ol>
+<li>Having an industry-wide standard format for keyboards will enable accessibility software to make use of keyboard data with a reduced dependence on platform-specific knowledge.</li>
+<li>Features which require certain levels of mobility or speed of entry should be considered for their impact on accessibility. This impact could be mitigated by means of additional, accessible methods of generating the same output.</li>
+<li>Public feedback is welcome on any aspects of this document which might hinder accessibility.</li>
+</ol><h2>Definitions</h2><p><strong>Arrangement:</strong> The relative position of the rectangles that represent keys, either physically or virtually. A hardware keyboard has a static arrangement while a touch keyboard may have a dynamic arrangement that changes per language and/or layer. While the arrangement of keys on a keyboard may be fixed, the mapping of those keys may vary.</p><p><strong>Base character:</strong> The character emitted by a particular key when no modifiers are active. In ISO 9995-1:2009 terms, this is Group 1, Level 1.</p><p><strong>Core keys:</strong> also known as “alphanumeric” section. The primary set of key values on a keyboard that are used for typing the target language of the keyboard. For example, the three rows of letters on a standard US QWERTY keyboard (QWERTYUIOP, ASDFGHJKL, ZXCVBNM) together with the most significant punctuation keys. Usually this equates to the minimal set of keys for a language as seen on mobile phone keyboards.
+Distinguished from the <strong>frame keys</strong>.</p><p><strong>Dead keys:</strong> These are keys which do not emit normal characters by themselves. They are so named because to the user, they may appear to be “dead,” i.e., non-functional. However, they do produce a change to the input context. For example, in many Latin keyboards hitting the <code>^</code> dead-key followed by the <code>e</code> key produces <code>ê</code>. The <code>^</code> by itself may be invisible or presented in a special way by the platform.</p><p><strong>Frame keys:</strong> These are keys which are outside of the area of the <strong>core keys</strong> and typically do not emit characters. These keys include <strong>modifier</strong> keys, such as Shift or Ctrl, but also include platform specific keys: Fn, IME and layout-switching keys, cursor keys, insert emoji keys etc.</p><p><strong>Hardware keyboard:</strong> an input device which has individual keys that are pressed. Each key has a unique identifier and the arrangement doesn't change, even if the mapping of those keys does. Also known as a physical keyboard.</p><p><strong>Implementation:</strong> see <strong>Keyboard implementation</strong></p><p><strong>Input Method Editor (IME):</strong> a component or program that supports input of large character sets. Typically, IMEs employ contextual logic and candidate UI to identify the Unicode characters intended by the user.</p><p><strong>Keyboard implementation:</strong> Software which implements the present specification, such that keyboard XML files can be used to interpret keystrokes from a <strong>Hardware keyboard</strong> or an on-screen <strong>Touch keyboard</strong>.</p><p>Keyboard implementations will typically consist of two parts:</p><ol>
+<li>A <em>compile/build tool</em> part used by <strong>Keyboard authors</strong> to parse the XML file and produce a compact runtime format, and</li>
+<li>A <em>runtime</em> part which interprets the runtime format when the keyboard is selected by the end user, and delivers the output plain text to the platform or application.</li>
+</ol><p><strong>Key:</strong> A physical key on a hardware keyboard, or a virtual key on a touch keyboard.</p><p><strong>Key code:</strong> The integer code sent to the application on pressing a key.</p><p><strong>Key map:</strong> The basic mapping between hardware or on-screen positions and the output characters for each set of modifier combinations associated with a particular layout. There may be multiple key maps for each layout.</p><p><strong>Keyboard:</strong> A particular arrangement of keys for the inputting of text, such as a hardware keyboard or a touch keyboard.</p><p><strong>Keyboard author:</strong> The person or group of people designing and producing a particular keyboard layout designed to support one or more languages. In the context of this specification, that author may be editing the LDML XML file directly or by means of software tools.</p><p><strong>Keyboard layout:</strong> A layout is the overall keyboard configuration for a particular locale. Within a keyboard layout, there is a single base map, one or more key maps and zero or more transforms.</p><p><strong>Layer</strong> is an arrangement of keys on a touch keyboard. A touch keyboard is made up of a set of layers. Each layer may have a different key layout, unlike with a hardware keyboard, and may not correspond directly to a hardware keyboard's modifier keys. A layer is accessed via a layer-switching key. See also touch keyboard and modifier.</p><p><strong>Long-press key:</strong> also known as a “child key”. A secondary key that is invoked from a top level key on a touch keyboard. Secondary keys typically provide access to variants of the top level key, such as accented variants (a =&gt; á, à, ä, ã)</p><p><strong>Modifier:</strong> A key that is held to change the behavior of a hardware keyboard. For example, the "Shift" key allows access to upper-case characters on a US keyboard. Other modifier keys include but are not limited to: Ctrl, Alt, Option, Command and Caps Lock. On a touch keyboard, keys that appear to be modifier keys should be considered to be layer-switching keys.</p><p><strong>Physical keyboard:</strong> see <strong>Hardware keyboard</strong></p><p><strong>Touch keyboard:</strong> A keyboard that is rendered on a, typically, touch surface. It has a dynamic arrangement and contrasts with a hardware keyboard. This term has many synonyms: software keyboard, SIP (Software Input Panel), virtual keyboard. This contrasts with other uses of the term virtual keyboard as an on-screen keyboard for reference or accessibility data entry.</p><p><strong>Transform:</strong> A transform is an element that specifies a set of conversions from sequences of code points into one (or more) other code points. Transforms may reorder or replace text. They may be used to implement “dead key” behaviors, simple orthographic corrections, visual (typewriter) type input etc.</p><p><strong>Virtual keyboard:</strong> see <strong>Touch keyboard</strong></p><h2>Notation</h2><ul>
+<li><p>Ellipses (<code>…</code>) in syntax examples are used to denote substituted parts.</p>
+<p>For example, <code>id="…keyId"</code> denotes that <code>…keyId</code> (the part between double quotes) is to be replaced with something, in this case a key identifier. As another example, <code>\u{…usv}</code> denotes that the <code>…usv</code> is to be replaced with something, in this case a Unicode scalar value in hex.</p>
+</li>
+</ul><h3>Escaping</h3><p>When explicitly specified, attribute values can contain escaped characters. This specification uses two methods of escaping, the <em>UnicodeSet</em> notation and the <code>\u{…usv}</code> notation.</p><h3>UnicodeSet Escaping</h3><p>The <em>UnicodeSet</em> notation is described in <a href="tr35.html#Unicode_Sets">UTS #35 section 5.3.3</a> and allows for comprehensive character matching, including by character range, properties, names, or codepoints.</p><p>Note that the <code>\u1234</code> and <code>\x{C1}</code> format escaping is not supported, only the <code>\u{…}</code> format (using <code>bracketedHex</code>).</p><p>Currently, the following attribute values allow <em>UnicodeSet</em> notation:</p><ul>
+<li><code>from</code> or <code>before</code> on the <code>&lt;transform&gt;</code> element</li>
+<li><code>from</code> or <code>before</code> on the <code>&lt;reorder&gt;</code> element</li>
+<li><code>chars</code> on the <a href="#test-element-repertoire"><code>&lt;repertoire&gt;</code></a> test element.</li>
+</ul><h3>UTS18 Escaping</h3><p>The <code>\u{…usv}</code> notation, a subset of hex notation, is described in <a href="https://www.unicode.org/reports/tr18/#Hex_notation">UTS #18 section 1.1</a>. It can refer to one or multiple individual codepoints. Currently, the following attribute values allow the <code>\u{…}</code> notation:</p><ul>
+<li><code>output</code> on the <code>&lt;key&gt;</code> element</li>
+<li><code>from</code> or <code>to</code> on the <code>&lt;transform&gt;</code> element</li>
+<li><code>value</code> on the <code>&lt;variable&gt;</code> element</li>
+<li><code>output</code> and <code>display</code> on the <code>&lt;display&gt;</code> element</li>
+<li><code>baseCharacter</code> on the <code>&lt;displayOptions&gt;</code> element</li>
+<li>Some attributes on <a href="#keyboard-test-data">Keyboard Test Data</a> subelements</li>
+</ul><p>Characters of general category of Mark (M), Control characters (Cc), Format characters (Cf), and whitespace other than space should be encoded using one of the notation above as appropriate.</p><p>Attribute values escaped in this manner are annotated with the <code>&lt;!--@ALLOWS_UESC--&gt;</code> DTD annotation, see <a href="tr35.html#dtd-annotations">DTD Annotations</a></p><hr><h2>File and Directory Structure</h2><ul>
+<li><p>In the future, new layouts will be included in the CLDR repository, as a way for new layouts to be distributed in a cross-platorm manner. The process for this repository of layouts has not yet been defined, see the [CLDR Keyboard Workgroup Page][keyboard-workgroup] for up-to-date information.</p>
+</li>
+<li><p>Layouts have version metadata to indicate their specification compliance versi​​on number, such as <code>45</code>. See <a href="tr35-info.html#version-information"><code>cldrVersion</code></a>.</p>
+</li>
+</ul><pre><code class="language-xml">&lt;keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" conformsTo="45"/&gt;
+</code></pre><blockquote>
+<p><em>Note</em>: Unlike other LDML files, layouts are designed to be used outside of the CLDR source tree.  As such, they do not contain DOCTYPE entries.</p>
+<p>DTD and Schema (.xsd) files are available for use in validating keyboard files.</p>
+</blockquote><ul>
+<li>The filename of a keyboard .xml file does not have to match the BCP47 primary locale ID, but it is recommended to do so. The CLDR repository may enforce filename consistency.</li>
+</ul><h3>Extensibility</h3><p>For extensibility, the <code>&lt;special&gt;</code> element will be allowed at nearly every level.</p><p>See <a href="tr35.html#special">Element special</a> in Part 1.</p><h2>Normalization</h2><p>Unicode Normalization, as described in <a href="https://www.unicode.org/reports/tr41/#Unicode/">The Unicode Standard</a>, is a process by which Unicode text is processed to eliminate unwanted distinctions.</p><p>This section discusses how conformant keyboards are affected by normalization, and the impact of normalization on keyboard authors and keyboard implmentations.</p><p>Keyboard implementations will usually apply normalization as appropriate when matching transform rules and <code>&lt;display&gt;</code> value matching.
+Output from the keyboard, following application of all transform rules, will be normalized to the appropriate form by the keyboard implementation.</p><blockquote>
+<p>Note: There are many existing software libraries which perform Unicode Normalization, including <a href="https://icu.unicode.org">ICU</a>, <a href="https://icu4x.unicode.org">ICU4X</a>, and JavaScript's <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String/normalize">String.prototype.normalize()</a>.</p>
+</blockquote><p>Keyboard authors will not typically need to perform normalization as part of the keyboard layout.  However, authors should be aware of areas where normalization affects keyboard operation so that they may achieve their desired results.</p><h3>Where Normalization Occurs</h3><p>There are four stages where normalization must be performed by keyboard implementations.</p><ol>
+<li><p><strong>From the keyboard source <code>.xml</code></strong></p>
+<p> Keyboard source .xml files may be in any normalization form.
+ However, in processing they are converted to NFD.</p>
+<ul>
+<li>From any form to NFD: full normalization (decompose+reorder)</li>
+<li>Markers must be processed as described <a href="#marker-algorithm-overview">below</a>.</li>
+<li>Regex patterns must be processed so that matching is performed in NFD.</li>
+</ul>
+<p> Example: <code>&lt;key output=</code>, and <code>&lt;transform from= to=</code> attribute contents will be normalized to NFD.</p>
+</li>
+<li><p><strong>From the input context</strong></p>
+<p> The input context must be normalized for purposes of matching.</p>
+<ul>
+<li>From any form to NFD: full normalization (decompose+reorder)</li>
+<li>Markers in the cached context must be preserved.</li>
+</ul>
+<p> Example: The input context contains U+00E8 (<code>è</code>).  The user clicks the cursor after the character, then presses a key which produces U+0320 (<code>&lt;key output="\u{0320}"/&gt;</code>).
+ The implementation must normalize the context buffer to <code>e\u{0320}\u{0300}</code> (<code>è̠</code>) before matching.</p>
+</li>
+<li><p><strong>Before each <code>transformGroup</code></strong></p>
+<p> Text must be normalized before processing by the next <code>transformGroup</code>.</p>
+<ul>
+<li>To NFD: no decomposition should be needed, because all of the input text (including transform rules) was already in NFD form.
+ However, marker reordering may be needed if transforms insert segments out of order.</li>
+<li>Markers must be preserved.</li>
+</ul>
+<p> Example: The input context contains U+00E8 (<code>è</code>).  The user clicks the cursor after this character, then presses a key producing <code>x</code>. A transform rule <code>&lt;transform from='x' to='\u{0320}'/&gt;</code> matches. The implementation must normalize the intermediate buffer to <code>e\u{0320}\u{0300}</code> (<code>è̠</code>) before proceeding to the next <code>transformGroup</code>.</p>
+</li>
+<li><p><strong>Before output to the platform/application</strong></p>
+<p> Text must be normalized into the output form requested by the platform or application. This will typically be NFC, but may not be.</p>
+<ul>
+<li>If normalizing to NFC, full normalization (reorder+composition) will be required.</li>
+<li>No markers are present in this text, they are removed prior to output but retained in the implementation's input context for subsequent keystrokes. See <a href="#markers">markers</a>.</li>
+</ul>
+<p> Example: The result of keystrokes and transform processing produces the string <code>e\u{0300}</code>. The keyboard implementation normalizes this to a single NFC codepoint U+00E8 (<code>è</code>), which is returned to the application.</p>
+</li>
+</ol><h3>Normalization and Transform Matching</h3><p>Regardless of the normalization form in the keyboard source file or in the edit buffer context, transform matching will be performed using <strong>NFD</strong>. For example, all of the following transforms will match the input strings è̠, whether the input is U+00E8 U+0320, U+0065 U+0320 U+0300, or U+0065 U+0300 U+0320.</p><pre><code class="language-xml">&lt;transform from="e\u{0320}\u{0300}" /&gt; &lt;!-- NFD --&gt;
+&lt;transform from="\u{00E8}\u{0320}"  /&gt; &lt;!-- NFC: è + U+0320 --&gt;
+&lt;transform from="e\u{0300}\u{0320}" /&gt; &lt;!-- Unnormalized --&gt;
+</code></pre><h3>Normalization and Markers</h3><p>A special issue occurs when markers are involved.
+<a href="#markers">Markers</a> are not text, and so not themselves modified or reordered by the Unicode Normalization Algorithm.
+Existing Normalization APIs typically operate on plain text, and so those APIs can not be used with content containing markers.</p><p>However, the markers must be retained and processed by keyboard implementations in a manner which will be both consistent across implementations and predictable to keyboard authors.
+Inconsistencies would result in different user experiences — specifically, different or incorrect text output — on some implementations and not another.
+Unpredictability would make it challenging for the keyboard author to create a keyboard with expected behavior.</p><p>This section gives an algorithm for implementing normalization on a text stream including markers.</p><p><em>Note:</em> When the algorithm is performed on a plain text stream that doesn't include markers, implementations may skip the removing/re-adding steps 1 and 3 because no markers are involved.</p><h4>Rationale for 'gluing' markers</h4><p>The processing described here describes an extension to Unicode normalization to account for the desired behavior of markers.</p><p>The algorithm described considers markers 'glued' (remaining with) the following character. If a context ends with a marker, that marker would be guaranteed to remain at the end after processing, consistently located with respect to the next keystroke to be input.</p><ol>
+<li>Keyboard authors can keep a marker together with a character of interest by emitting the marker just previous to that character.</li>
+</ol><p>For example, given a key <code>output="\m{marker}X"</code>, the marker will proceed <code>X</code> regardless of any normalization. (If <code>output="X\m{marker}"</code> were used, and <code>X</code> were to reorder with other characters, the marker would no longer be adjacent to the X.)</p><ol start="2">
+<li>Markers which are at the end of the input remain at the end of input during normalization.</li>
+</ol><p>For example, given input context which ends with a marker, such as <code>...ABCDX\m{marker}</code>, the marker will remain at the end of the input context regardless of any normalization.</p><p>The 'gluing' is only applicable during one particular processing step. It does not persist or affect further processing steps or future keystrokes.</p><h4>Data Model: <code>Marker</code></h4><p>For purposes of this algorithm, a <code>Marker</code> is an opaque data type which has one property, its ID. See <a href="#markers">Markers</a> for a discussion of the marker ID.</p><h4>Data Model: string</h4><p>For purposes of this algorithm, a string is an array of elements, where each element is either a codepoint or a <code>Marker</code>. For example, a <a href="#element-key"><code>key</code></a> in the XML such as <code>&lt;key id="sha" output="𐓯\m{mymarker}x" /&gt;</code> would produce a string with three elements:</p><ol>
+<li>The codepoint U+104EF</li>
+<li>The <code>Marker</code> named <code>mymarker</code></li>
+<li>The codepoint U+0078</li>
+</ol><p>If this string were output to an application, it would be converted to <em>plain text</em> by removing all markers, which would yield the plain text string with only two codepoints: <code>𐓯x</code>.</p><h4>Data Model: <code>MarkerEntry</code></h4><p>This algorithm uses a temporary data structure which is an ordered array of <code>MarkerEntry</code> elements.</p><p>Each <code>MarkerEntry</code> element has the following properties:</p><ul>
+<li><code>glue</code> (a codepoint, or the special value <code>END_OF_SEGMENT</code>)</li>
+<li><code>divider?</code> (true/false)</li>
+<li><code>processed?</code> (true/false, defaults to false)</li>
+<li><code>marker</code> (the <code>Marker</code> object)</li>
+</ul><h4>Marker Algorithm Overview</h4><p>This algorithm has three main phases to it.</p><ol>
+<li><p><strong>Parsing/Removing Markers</strong></p>
+<p> In this phase, the input string is analyzed to locate all markers. Metadata about each marker is stored in a temporary <code>MarkerArray</code> data structure.
+ Markers are removed from the input string, leaving only plain text.</p>
+</li>
+<li><p><strong>Plain Text Processing</strong></p>
+<p> This phase is performed on the plain text string, such as NFD normalization.</p>
+</li>
+<li><p><strong>Re-Adding Markers</strong></p>
+<p> Finally, markers are re-added to the plain text string using the <code>MarkerEntry</code> metadata from step 1.
+ This phase results in a string which contains both codepoints and markers.</p>
+</li>
+</ol><h4 id="phase-1-parsingremoving-markers">Phase 1: Parsing/Removing Markers</h4><p>Given an input string <em>s</em></p><ol>
+<li>Initialize an empty <code>MarkerEntry</code> array <em>e</em></li>
+<li>Initialize an empty <code>Marker</code> array <em>pending</em></li>
+<li>Loop through each element <em>i</em> of the input <em>s</em><ol>
+<li>If <em>i</em> is a <code>Marker</code>:<ol>
+<li>add the marker <em>i</em> to the end of <em>pending</em></li>
+<li>remove the marker from the input string <em>s</em></li>
+</ol>
+</li>
+<li>else if <em>i</em> is a codepoint:<ol>
+<li>Decompose <em>i</em> into NFD form into a plain text string array of codepoints <em>d</em></li>
+<li>Add an element with <code>glue=d[0]</code> (the first codepoint of <em>d</em>) and <code>divider? = true</code> to the end of <em>e</em></li>
+<li>For every marker <em>m</em> in <em>pending</em>:<ol>
+<li>Add an element with <code>glue=d[0]</code> and <code>marker=m</code> and <code>divider? = false</code> to the end of <em>e</em></li>
+</ol>
+</li>
+<li>Clear the <em>pending</em> array.</li>
+<li>Finally, for every codepoint <em>c</em> in <em>d</em> <strong>following</strong> the initial codepoint: (d[1]..):<ol>
+<li>Add an element with <code>glue=c</code> and <code>divider? = true</code> to the end of <em>e</em></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>At the end of text,<ol>
+<li>Add an element with <code>glue=END</code> and <code>divider?=true</code> to the end of <em>e</em></li>
+<li>For every marker <em>m</em> in <em>pending</em>:<ol>
+<li>Add an element with <code>glue=END</code> and <code>marker=m</code> and <code>divider? = false</code> to the end of <em>e</em></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol><p>The string <em>s</em> is now plain text and can be processed by the next phase.</p><p>The array <em>e</em> will be used in Phase 3.</p><h4>Phase 2: Plain Text Processing</h4><p>See <a href="https://www.unicode.org/reports/tr15/#Description_Norm">UAX #15</a> for an overview of the process.  An existing Unicode-compliant API can be used here.</p><h4>Phase 3: Adding Markers</h4><ol>
+<li>Initialize an empty output string <em>o</em></li>
+<li>Loop through the elements <em>p</em> of the array <em>e</em> from end to beginning (backwards)<ol>
+<li>If <em>p</em>.glue isn't <code>END</code>:<ol>
+<li>break out of the loop</li>
+</ol>
+</li>
+<li>If <em>p</em>.divider? == false:<ol>
+<li>Prepend marker <em>p</em>.marker to the output string <em>o</em></li>
+</ol>
+</li>
+<li>Set <em>p</em>.processed?=true (so we don't process this again)</li>
+</ol>
+</li>
+<li>Loop through each codepoint <em>i</em> ( in the plain text input string ) from end to beginning (backwards)<ol>
+<li>Prepend <em>i</em> to output <em>o</em></li>
+<li>Loop through the elements <em>p</em> of the array <em>e</em> from end to beginning (backwards)<ol>
+<li>If <em>p</em>.processed? == true:<ol>
+<li>Continue the inner loop  (was already processed)</li>
+</ol>
+</li>
+<li>If <em>p</em>.glue isn't <em>i</em><ol>
+<li>Continue the inner loop  (wrong glue, not applicable)</li>
+</ol>
+</li>
+<li>If <em>p</em>.divider? == true:<ol>
+<li>Break out of the inner loop  (reached end of this 'glue' char)</li>
+</ol>
+</li>
+<li>Prepend marker <em>p</em>.marker to the output string <em>o</em></li>
+<li>Set <em>p</em>.processed?=true (so we don't process this again)</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><em>o</em> is now the output string including markers.</li>
+</ol><h4>Example Normalization with Markers</h4><p><strong>Example 1a</strong></p><p>Consider this example, without markers:</p><ul>
+<li><code>e\u{0300}\u{0320}</code> (input)</li>
+<li><code>e\u{0320}\u{0300}</code> (NFD)</li>
+</ul><p>The combining marks are reordered.</p><p><strong>Example 1b</strong></p><p>If we add markers:</p><ul>
+<li><code>e\u{0300}\m{marker}\u{0320}</code> (input)</li>
+<li><code>e\m{marker}\u{0320}\u{0300}</code> (NFD)</li>
+</ul><p>Note that the marker is 'glued' to the <em>following</em> character. In the above example, <code>\m{marker}</code> was 'glued' to the <code>\u{0320}</code>.</p><p><strong>Example 2</strong></p><p>A second example:</p><ul>
+<li><code>e\m{marker0}\u{0300}\m{marker1}\u{0320}\m{marker2}</code> (input)</li>
+<li><code>e\m{marker1}\u{0320}\m{marker0}\u{0300}\m{marker2}</code> (NFD)</li>
+</ul><p>Here <code>\m{marker2}</code> is 'glued' to the end of the string. However, if additional text is added such as by a subsequent keystroke (which may add an additional combining character, for example), this marker may be 'glued' to that following text.</p><p>Markers remain in the same normalization-safe segment during normalization. Consider:</p><p><strong>Example 3</strong></p><ul>
+<li><code>e\u{0300}\m{marker1}\u{0320}a\u{0300}\m{marker2}\u{0320}</code> (original)</li>
+<li><code>e\m{marker1}\u{0320}\u{0300}a\m{marker2}\u{0320}\u{0300}</code> (NFD)</li>
+</ul><p>There are two normalization-safe segments here:</p><ol>
+<li><code>e\u{0300}\m{marker1}\u{0320}</code></li>
+<li><code>a\u{0300}\m{marker2}\u{0320}</code></li>
+</ol><p>Normalization (and marker rearranging) effectively occurs within each segment.  While <code>\m{marker1}</code> is 'glued' to the <code>\u{0320}</code>, it is glued within the first segment and has no effect on the second segment.</p><h3>Normalization and Character Classes</h3><p>If pre-composed (non-NFD) characters are used in <a href="#regex-like-syntax">character classes</a>, such as <code>[á-é]</code>, these may not match as keyboard authors expect, as the U+00E1 character (á) will not occur in NFD form. Thus this may be masking serious errors in the data.</p><p>Tools that process keyboard data must reject the data when character classes include non-NFD characters.</p><p>The above should be written instead as a regex <code>(á|â|ã|ä|å|æ|ç|è|é)</code>. Alternatively, it could be written as a set variable <code>&lt;set id="Example" value="á â ã ä å æ ç è é"/&gt;</code> and matched as <code>$[Example]</code>.</p><p>There is another case where there is no explicit mention of a non-NFD character, but the character class could include non-NFD characters, such as the range <code>[\u{0020}-\u{01FF}]</code>. For these, the tools should raise a warning by default.</p><h3>Normalization and Reorder elements</h3><p><a href="#element-reorder"><code>reorder</code></a> elements operate on NFD codepoints.</p><h3>Normalization-safe Segments</h3><p>For purposes of this algorithm, "normalization-safe segments" are defined as a string of codepoints which are</p><ol>
+<li>already in <a href="https://www.unicode.org/reports/tr15/#Norm_Forms">NFD</a>, and</li>
+<li>begin with a character with <a href="https://www.unicode.org/reports/tr44/#Canonical_Combining_Class_Values">Canonical Combining Class</a> of <code>0</code>.</li>
+</ol><p>See <a href="https://www.unicode.org/reports/tr15/#Stable_Code_Points">UAX #15 Section 9.1: Stable Code Points</a> for related discussion.
+Text under consideration can be segmented by locating such characters.</p><h3>Normalization and Output</h3><p>On output, text will be normalized into a specified normalization form. That form will typically be NFC, but an implementation may allow a calling application to override the choice of normalization form.
+For example, many platforms may request NFC as the output format. In such a case, all text emitted via the keyboard will be transformed into NFC.</p><p>Existing text in a document will only have normalization applied within a single normalization-safe segment from the caret.  The output will not contain any markers, thus any normalization is unaffected by any markers embedded within the segment.</p><p>For example, the sequence <code>e\m{marker}\u{300}</code> would be output in NFC as <code>è</code>. The marker is removed and has no effect on the output.</p><h3>Disabling Normalization</h3><p>The attribute value <code>normalization="disabled"</code> can be used to indicate that no automatic normalization is to be applied in input, matching, or output. Using this setting should be done with caution:</p><ul>
+<li>When this attribute value is used, all matching and output uses only the exact codepoints provided by the keyboard author.</li>
+<li>The input context from the application may not be normalized, which means that the keyboard author should consider all possible combinations, including NFC, NFD, and mixed normalization in <code>&lt;transform from=</code> attributes.</li>
+<li>See <a href="#element-settings"><code>&lt;settings&gt;</code></a> for further details.</li>
+</ul><p>The majority of the above section only applies when <code>normalization="disabled"</code> is not used.</p><hr><h2>Element Hierarchy</h2><p>This section describes the XML elements in a keyboard layout file, beginning with the top level element <code>&lt;keyboard3&gt;</code>.</p><h3>Element: keyboard3</h3><p>This is the top level element. All other elements defined below are under this element.</p><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;keyboard3 locale="…localeId"&gt;
+    &lt;!-- …definition of the layout as described by the elements defined below --&gt;
+&lt;/keyboard3&gt;
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <em>none</em></p>
+<p>Children: <a href="#element-displays">displays</a>, <a href="#element-flicks">flicks</a>, <a href="#element-forms">forms</a>, <a href="#element-import">import</a>, <a href="#element-info">info</a>, <a href="#element-keys">keys</a>, <a href="#element-layers">layers</a>, <a href="#element-locales">locales</a>, <a href="#element-settings">settings</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#element-transforms">transforms</a>, <a href="#element-variables">variables</a>, <a href="#element-version">version</a></p>
+<p>Occurrence: required, single</p>
+</small></blockquote><p><em>Attribute:</em> <code>conformsTo</code> (required)</p><p>This attribute value specifies the minimum supported CLDR major version required to properly interpret this keyboard.</p><p>The value must be a whole number of <code>45</code> or greater. See <a href="tr35-info.html#version-information"><code>cldrVersion</code></a></p><p>CLDR's stability policy is such that keyboards which conform to a CLDR version automatically are conformant to all future versions. In other words, a layout with <code>conformsTo="45"</code> could be changed to <code>conformsTo="46"</code> with no other changes and the layout would remain conformant.</p><p>To promote wider interchange, authors and tooling should use the minimum <code>conformsTo</code> value necessary to support the keyboard.</p><pre><code class="language-xml">&lt;keyboard3 …&nbsp;conformsTo="45"/&gt;
+</code></pre><p><em>Attribute:</em> <code>locale</code> (required)</p><p>This attribute value contains the primary locale of the keyboard using BCP 47 <a href="tr35.html#Canonical_Unicode_Locale_Identifiers">Unicode locale identifiers</a> - for example <code>"el"</code> for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: <code>"und-Deva"</code>. However, it is better to list out the languages explicitly using the <a href="#element-locales"><code>locales</code></a> element.</p><p>For further details about the choice of locale ID, see <a href="#keyboard-ids">Keyboard IDs</a>.</p><p><strong>Example</strong> (for illustrative purposes only, not indicative of the real data)</p><pre><code class="language-xml">&lt;keyboard3 locale="ka"&gt;
+  …
+&lt;/keyboard3&gt;
+</code></pre><pre><code class="language-xml">&lt;keyboard3 locale="fr-CH-t-k0-azerty"&gt;
+  …
+&lt;/keyboard3&gt;
+</code></pre><p><em>Attribute:</em> <code>draft</code></p><p>If this attribute is present, it indicates the status of all the data in this keyboard layout. See <a href="tr35.html#attribute-draft">draft attribute</a> for further details.</p><hr><h3>Element: import</h3><p>The <code>import</code> element is used to reference another xml file so that elements are imported from
+another file. The use case is to be able to import a standard set of <code>transform</code>s and similar
+from the CLDR repository, especially to be able to share common information relevant to a particular script.
+The intent is for each single XML file to contain all that is needed for a keyboard layout, other than required standard import data from the CLDR repository.</p><p><code>&lt;import&gt;</code> can be used as a child of a number of elements (see the <em>Parents</em> section immediately below). Multiple <code>&lt;import&gt;</code> elements may be used, however, <code>&lt;import&gt;</code> elements must come before any other sibling elements.
+If two identical elements are defined, the later element will take precedence, that is, override.
+Imported elements may contain other <code>&lt;import&gt;</code> statements. Implementations must prevent recursion, that is, each imported file may only be included once.</p><p><strong>Note:</strong> imported files do not have any indication of their normalization mode. For this reason, the keyboard author must verify that the imported file is of a compatible normalization mode. See the <a href="#element-settings"><code>settings</code> element</a> for further details.</p><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;import base="cldr" path="45/keys-Zyyy-punctuation.xml"/&gt;
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <a href="#element-displays">displays</a>, <a href="#element-flicks">flicks</a>, <a href="#element-forms">forms</a>, <a href="#element-keyboard3">keyboard3</a>, <a href="#element-keys">keys</a>, <a href="#element-layers">layers</a>, <a href="#element-transformgroup">transformGroup</a>, <a href="#element-transforms">transforms</a>, <a href="#element-variables">variables</a>
+Children: <em>none</em></p>
+<p>Occurrence: optional, multiple</p>
+</small></blockquote><p><em>Attribute:</em> <code>base</code></p><blockquote>
+<p>The base may be omitted (indicating a local import) or have the value <code>"cldr"</code>.</p>
+</blockquote><p><strong>Note:</strong> <code>base="cldr"</code> is required for all <code>&lt;import&gt;</code> statements within keyboard files in the CLDR repository.</p><p><em>Attribute:</em> <code>path</code> (required)</p><blockquote>
+<p>If <code>base</code> is <code>cldr</code>, then the <code>path</code> must start with a CLDR major version (such as <code>45</code>) representing the CLDR version to pull imports from. The imports are located in the <code>keyboard/import</code> subdirectory of the CLDR source repository.
+Implementations are not required to have all CLDR versions available to them.</p>
+<p>If <code>base</code> is omitted, then <code>path</code> is an absolute or relative file path.</p>
+</blockquote><p><strong>Further Examples</strong></p><pre><code class="language-xml">&lt;!-- in a keyboard xml file--&gt;
+…
+&lt;transforms type="simple"&gt;
+    &lt;import base="cldr" path="45/transforms-example.xml"/&gt;
+    &lt;transform from="` " to="`" /&gt;
+    &lt;transform from="^ " to="^" /&gt;
+&lt;/transforms&gt;
+…
+
+
+&lt;!-- contents of transforms-example.xml --&gt;
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;transforms&gt;
+    &lt;!-- begin imported part--&gt;
+    &lt;transform from="`a" to="à" /&gt;
+    &lt;transform from="`e" to="è" /&gt;
+    &lt;transform from="`i" to="ì" /&gt;
+    &lt;transform from="`o" to="ò" /&gt;
+    &lt;transform from="`u" to="ù" /&gt;
+    &lt;!-- end imported part --&gt;
+&lt;/transforms&gt;
+</code></pre><p><strong>Note:</strong> The root element, here <code>transforms</code>, is the same as
+the <em>parent</em> of the <code>&lt;import/&gt;</code> element. It is an error to import an XML file
+whose root element is different than the parent element of the <code>&lt;import/&gt;</code> element.</p><p>After loading, the above example will be the equivalent of the following.</p><pre><code class="language-xml">&lt;transforms type="simple"&gt;
+    &lt;!-- begin imported part--&gt;
+    &lt;transform from="`a" to="à" /&gt;
+    &lt;transform from="`e" to="è" /&gt;
+    &lt;transform from="`i" to="ì" /&gt;
+    &lt;transform from="`o" to="ò" /&gt;
+    &lt;transform from="`u" to="ù" /&gt;
+    &lt;!-- end imported part --&gt;
+
+    &lt;!-- this line is after the import --&gt;
+    &lt;transform from="^ " to="^" /&gt;
+    &lt;transform from="` " to="`" /&gt;
+&lt;/transforms&gt;
+</code></pre><hr><h3>Element: locales</h3><p>The optional <code>&lt;locales&gt;</code> element allows specifying additional or alternate locales.</p><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;locales&gt;
+    &lt;locale id="…"/&gt;
+    &lt;locale id="…"/&gt;
+&lt;/locales&gt;
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <a href="#element-locale">locale</a></p>
+<p>Occurrence: optional, single</p>
+</small></blockquote><h3>Element: locale</h3><p>The <code>&lt;locale&gt;</code> element specifies an additional or alternate locale. Denotes intentional support for an extra language, not just that a keyboard incidentally supports a language’s orthography.</p><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;locale id="…id"/&gt;
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <a href="#element-locales">locales</a></p>
+<p>Children: <em>none</em></p>
+<p>Occurrence: optional, multiple</p>
+</small></blockquote><p><em>Attribute:</em> <code>id</code> (required)</p><blockquote>
+<p>The <a href="tr35.html#Canonical_Unicode_Locale_Identifiers">BCP 47</a> locale ID of an additional language supported by this keyboard.
+Must <em>not</em> include the <code>-k0-</code> subtag for this additional language.</p>
+</blockquote><p><strong>Example</strong></p><p>See <a href="#principles-for-keyboard-ids">Principles for Keyboard IDs</a> for discussion and further examples.</p><pre><code class="language-xml">&lt;!-- Pan Nigerian Keyboard--&gt;
+&lt;keyboard3 locale="mul-Latn-NG-t-k0-panng"&gt;
+    &lt;locales&gt;
+        &lt;locale id="ha"/&gt;
+        &lt;locale id="ig"/&gt;
+        &lt;!-- others … --&gt;
+    &lt;/locales&gt;
+&lt;/keyboard3&gt;
+</code></pre><hr><h3>Element: version</h3><p>Element used to keep track of the source data version.</p><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;version number="…number"&gt;
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <em>none</em></p>
+<p>Occurrence: optional, single</p>
+</small></blockquote><p><em>Attribute:</em> <code>number</code> (required)</p><blockquote>
+<p>Must be a [<a href="https://semver.org">SEMVER</a>] compatible version number, such as <code>1.0.0</code> or <code>38.0.0-beta.11</code></p>
+</blockquote><p><em>Attribute:</em> <code>cldrVersion</code> (fixed by DTD)</p><blockquote>
+<p>The CLDR specification version that is associated with this data file. This value is fixed and is inherited from the <a href="https://github.com/unicode-org/cldr/tree/main/keyboards/dtd">DTD file</a> and therefore does not show up directly in the XML file.</p>
+</blockquote><p><strong>Example</strong></p><pre><code class="language-xml">&lt;keyboard3 locale="tok"&gt;
+    …
+    &lt;version number="1"/&gt;
+    …
+&lt;/keyboard3&gt;
+</code></pre><hr><h3>Element: info</h3><p>Element containing informative properties about the layout, for displaying in user interfaces etc.</p><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;info
+      name="…name"
+      author="…author"
+      layout="…hint of the layout"
+      indicator="…short identifier"
+      attribution="…attribution" /&gt;
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <em>none</em></p>
+<p>Occurrence: required, single</p>
+</small></blockquote><p><em>Attribute:</em> <code>name</code> (required)</p><blockquote>
+<p>Note that this is the only required attribute for the <code>&lt;info&gt;</code> element.</p>
+<p>This attribute is an informative name for the keyboard.</p>
+</blockquote><pre><code class="language-xml">&lt;keyboard3 locale="bg-t-k0-phonetic-trad"&gt;
+    …
+    &lt;info name="Bulgarian (Phonetic Traditional)" /&gt;
+    …
+&lt;/keyboard3&gt;
+</code></pre><hr><p><em>Attribute:</em> <code>author</code></p><blockquote>
+<p>The <code>author</code> attribute value contains the name of the author of the layout file.
+There is no requirement that an implementation display, store, or otherwise process this informative attribute.</p>
+</blockquote><hr><p><em>Attribute:</em> <code>layout</code></p><blockquote>
+<p>The <code>layout</code> attribute describes the layout pattern, such as QWERTY, DVORAK, INSCRIPT, etc. typically used to distinguish various layouts for the same language.</p>
+<p>This attribute is not localized, but is an informative identifier for implementation use.</p>
+</blockquote><hr><p><em>Attribute:</em> <code>indicator</code></p><blockquote>
+<p>The <code>indicator</code> attribute describes a short string to be used in currently selected layout indicator, such as <code>US</code>, <code>SI9</code> etc.
+Typically, this is shown on a UI element that allows switching keyboard layouts and/or input languages.</p>
+<p>This attribute is not localized.</p>
+</blockquote><hr><p><em>Attribute:</em> <code>attribution</code></p><blockquote>
+<p>The <code>attribution</code> attribute describes a short string which gives some indication of the originating entity of the keyboard design, if different from the author of the layout file.
+For example, an external standards body or other entity may have originated the layout used in the document.
+This attribute does not imply endorsement by the named entity.</p>
+<p>This attribute is not localized.
+There is no requirement that an implementation display, store, or otherwise process this attribute.</p>
+</blockquote><pre><code class="language-xml">&lt;info attribution="Malta Standards Authority"/&gt;
+</code></pre><hr><h3>Element: settings</h3><p>An element used to keep track of layout-specific settings by implementations. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.</p><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;settings normalization="disabled" /&gt;
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <em>none</em></p>
+<p>Occurrence: optional, single</p>
+</small></blockquote><p><em>Attribute:</em> <code>normalization="disabled"</code></p><blockquote>
+<p>The presence of this attribute indicates that normalization will not be applied to the input text, matching, or the output.
+See <a href="#normalization">Normalization</a> for additional details.</p>
+<p><strong>Note</strong>: while this attribute is allowed by the specification, it should be used with caution.</p>
+</blockquote><p><strong>Example</strong></p><pre><code class="language-xml">&lt;keyboard3 locale="bg"&gt;
+    …
+    &lt;settings normalization="disabled" /&gt;
+    …
+&lt;/keyboard3&gt;
+</code></pre><hr><h3>Element: displays</h3><p>The <code>displays</code> element consists of a list of <a href="#element-display"><code>display</code></a> subelements.</p><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;displays&gt;
+    &lt;display … /&gt;
+    &lt;display … /&gt;
+    …
+&lt;/displays&gt;
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <a href="#element-display">display</a>, <a href="#element-displayoptions">displayOptions</a>, <a href="tr35.html#special"><em>special</em></a></p>
+<p>Occurrence: optional, single</p>
+</small></blockquote><hr><h3>Element: display</h3><p>The <code>display</code> elements can be used to describe what is to be displayed on the keytops for various keys. For the most part, such explicit information is unnecessary since the <code>@to</code> element from the <code>keys/key</code> element will be used for keytop display.</p><ul>
+<li>Some characters, such as diacritics, do not display well on their own.</li>
+<li>Another useful scenario is where there are doubled diacritics, or multiple characters with spacing issues.</li>
+<li>Finally, the <code>display</code> element provides a way to specify the keytop for keys which do not otherwise produce output. Keys which switch layers using the <code>@layerId</code> attribute typically do not produce output.</li>
+</ul><blockquote>
+<p>Note: <code>displays</code> elements are designed to be shared across many different keyboard layout descriptions, and imported with <code>&lt;import&gt;</code> where needed.</p>
+</blockquote><h4>Non-spacing marks on keytops</h4><p>For non-spacing marks, U+25CC <code>◌</code> is used as a base. It is an error to use a nonspacing character without a base in the <code>display</code> attribute. For example, <code>display="\u{0303}"</code> would produce an error.</p><p>A key which outputs a combining tilde (U+0303) could be represented as either of the following:</p><pre><code class="language-xml">    &lt;display output="\u{0303}" display="◌̃" /&gt;  &lt;!-- \u{25CC} \u{0303}--&gt;
+    &lt;display output="\u{0303}" display="\u{25cc}\u{0303}" /&gt;  &lt;!-- also acceptable --&gt;
+</code></pre><p>This way, a key which outputs a combining tilde (U+0303) will be represented as <code>◌̃</code> (a tilde on a dotted circle).</p><p>Users of some scripts/languages may prefer a different base than U+25CC. See  <a href="#element-displayoptions"><code>&lt;displayOptions baseCharacter=…/&gt;</code></a>.</p><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;display output="…string" display="…string" /&gt;
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <a href="#element-displays">displays</a></p>
+<p>Children: <em>none</em></p>
+<p>Occurrence: required, multiple</p>
+</small></blockquote><p>One of the <code>output</code> or <code>id</code> attributes is required.</p><p><strong>Note</strong>: There is currently no way to indicate a custom display for a key without output (i.e. without a <code>to=</code> attribute), nor is there a way to indicate that such a key has a standardized identity (e.g. that a key should be identified as a “Shift”). These may be addressed in future versions of this standard.</p><p><em>Attribute:</em> <code>output</code> (optional)</p><blockquote>
+<p>Specifies the character or character sequence from the <code>keys/key</code> element that is to have a special display.
+This attribute may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.
+The <code>output</code> attribute may also contain the <code>\m{…}</code> syntax to reference a marker. See <a href="#markers">Markers</a>. Implementations may highlight a displayed marker, such as with a lighter text color, or a yellow highlight.
+String variables may be substituted. See <a href="#element-string">String variables</a></p>
+</blockquote><p><em>Attribute:</em> <code>keyId</code> (optional)</p><blockquote>
+<p>Specifies the <code>key</code> id. This is useful for keys which do not produce any output (no <code>output=</code> value), such as a shift key.</p>
+<p>Must match <code>[A-Za-z0-9][A-Za-z0-9_-]*</code></p>
+</blockquote><p><em>Attribute:</em> <code>display</code> (required)</p><blockquote>
+<p>Required and specifies the character sequence that should be displayed on the keytop for any key that generates the <code>@output</code> sequence or has the <code>@id</code>. (It is an error if the value of the <code>display</code> attribute is the same as the value of the <code>output</code> attribute, this would be an extraneous entry.)</p>
+</blockquote><blockquote>
+<p>String variables may be substituted. See <a href="#element-string">String variables</a></p>
+</blockquote><p>This attribute may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml">&lt;keyboard3&gt;
+    &lt;keys&gt;
+        &lt;key id="grave" output="\u{0300}" /&gt; &lt;!-- combining grave --&gt;
+        &lt;key id="marker" output="\m{acute}" /&gt; &lt;!-- generates a marker--&gt;
+        &lt;key id="numeric" layerId="numeric" /&gt; &lt;!-- changes layers--&gt;
+    &lt;/keys&gt;
+    &lt;displays&gt;
+        &lt;display output="\u{0300}" display="ˋ" /&gt; &lt;!-- \u{02CB} --&gt;
+        &lt;display keyId="numeric"  display="#" /&gt; &lt;!-- display the layer shift key as # --&gt;
+        &lt;display output="\m{acute}" display="´" /&gt; &lt;!-- Display \m{acute} as ´ --&gt;
+    &lt;/displays&gt;
+&lt;/keyboard3&gt;
+</code></pre><p>To allow <code>displays</code> elements to be shared across keyboards, there is no requirement that <code>@output</code> in a <code>display</code> element matches any <code>@output</code>/<code>@id</code> in any <code>keys/key</code> element in the keyboard description.</p><hr><h3>Element: displayOptions</h3><p>The <code>displayOptions</code> is an optional singleton element providing additional settings on this <code>displays</code>.  It is structured so as to provide for future flexibility in such options.</p><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;displays&gt;
+    &lt;display …/&gt;
+    &lt;displayOptions baseCharacter="x"/&gt;
+&lt;/displays&gt;
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <a href="#element-displays">displays</a></p>
+<p>Children: <em>none</em></p>
+<p>Occurrence: optional, single</p>
+</small></blockquote><p><em>Attribute:</em> <code>baseCharacter</code> (optional)</p><p><strong>Note:</strong> At present, this is the only option settable in the <code>displayOptions</code>.</p><blockquote>
+<p>Some scripts/languages may prefer a different base than U+25CC.
+For Lao for example, <code>x</code> is often used as a base instead of <code>◌</code>.
+Setting <code>baseCharacter="x"</code> (for example) is a <em>hint</em> to the implementation which
+requests U+25CC to be substituted with <code>x</code> on display.
+As a hint, the implementation may ignore this option.</p>
+<p><strong>Note</strong> that not all base characters will be suitable as bases for combining marks.</p>
+</blockquote><p>This attribute may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.</p><hr><h3>Element: keys</h3><p>This element defines the properties of all possible keys via <a href="#element-key"><code>&lt;key&gt;</code> elements</a> used in all layouts.
+It is a “bag of keys” without specifying any ordering or relation between the keys.
+There is only a single <code>&lt;keys&gt;</code> element in each layout.</p><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;keys&gt;
+    &lt;key … /&gt;
+    &lt;key … /&gt;
+    &lt;key … /&gt;
+&lt;/keys&gt;
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <a href="#element-keyboard3">keyboard3</a>
+Children: <a href="#element-key">key</a>
+Occurrence: optional, single</p>
+</small></blockquote><hr><h3>Element: key</h3><p>This element defines a mapping between an abstract key and its output. This element must have the <code>keys</code> element as its parent. The <code>key</code> element is referenced by the <code>keys=</code> attribute of the <a href="#element-row"><code>row</code> element</a>.</p><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;key
+ id="…keyId"
+ flickId="…flickId"
+ gap="true"
+ output="…string"
+ longPressKeyIds="…list of keyIds"
+ longPressDefaultKeyId="…keyId"
+ multiTapKeyIds="…listId"
+ stretch="true"
+ layerId="…layerId"
+ width="…number"
+ /&gt;
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <a href="#element-keys">keys</a></p>
+<p>Children: <em>none</em></p>
+</small><p><small>Occurrence: optional, multiple
+</small></p>
+</blockquote><p><strong>Note</strong>: The <code>id</code> attribute is required.</p><p><strong>Note</strong>: <em>at least one of</em> <code>layerId</code>, <code>gap</code>, or <code>output</code> are required.</p><p><em>Attribute:</em> <code>id</code></p><blockquote>
+<p>The <code>id</code> attribute uniquely identifies the key. NMTOKEN. It can (but needn't be) the key name (a, b, c, A, B, C, …), or any other valid token (e-acute, alef, alif, alpha, …).</p>
+<p>In the future, this attribute’s definition is expected to be updated to align with <a href="https://www.unicode.org/reports/tr31/">UAX#31</a>.</p>
+</blockquote><p><em>Attribute:</em> <code>flickId="…flickId"</code> (optional)</p><blockquote>
+<p>The <code>flickId</code> attribute indicates that this key makes use of a <a href="#element-flick"><code>flick</code></a> set with the specified id.</p>
+</blockquote><p><em>Attribute:</em> <code>gap="true"</code> (optional)</p><blockquote>
+<p>The <code>gap</code> attribute indicates that this key does not have any appearance, but causes a "gap" of the specified number of key widths. Can be used with <code>width</code> to set a width.
+Such elements may not be referred to by <code>display</code> elements, nor may they have any of the following attributes:  <code>flickId</code>, <code>longPressKeyId</code>, <code>longPressDefaultKeyId</code>, <code>multiTapKeyIds</code>, <code>layerId</code>, or <code>output</code>.</p>
+</blockquote><pre><code class="language-xml">&lt;key id="mediumgap" gap="true" width="1.5"/&gt;
+</code></pre><p><em>Attribute:</em> <code>output</code></p><blockquote>
+<p>The <code>output</code> attribute value contains the sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the <code>\u{…}</code> notation. More than one key may output the same output.</p>
+<p>The <code>output</code> attribute may also contain the <code>\m{…markerId}</code> syntax to insert a marker. See the definition of <a href="#markers">markers</a>.</p>
+</blockquote><p><em>Attribute:</em> <code>longPressKeyIds="…list of keyIds"</code> (optional)</p><blockquote>
+<p>A space-separated ordered list of <code>key</code> element ids, which keys which can be emitted by "long-pressing" this key. This feature is prominent in mobile devices.</p>
+<p>In a list of keys specified by <code>longPressKeyIds</code>, the key matching <code>longPressDefaultKeyId</code> attribute (if present) specifies the default long-press target, which could be different than the first element. It is an error if the <code>longPressDefaultKeyId</code> key is not in the <code>longPressKeyIds</code> list.</p>
+<p>Implementations shall ignore any gestures (such as flick, multiTap, longPress) defined on keys in the <code>longPressKeyIds</code> list.</p>
+<p>For example, if the default key is a key whose <a href="#element-displays">display</a> value is <code>{</code>, an implementation might render the key as follows:</p>
+<p><img src="images/keycapHint.png" alt="keycap hint"></p>
+<p><em>Example:</em></p>
+<ul>
+<li>pressing the <code>o</code> key will produce <code>o</code></li>
+<li>holding down the key will produce a list <code>ó</code>, <code>{</code> (where <code>{</code> is the default and produces a marker)</li>
+</ul>
+<pre><code class="language-xml">&lt;displays&gt;
+   &lt;display output="\m{marker}" display="{" /&gt;
+&lt;/displays&gt;
+
+&lt;keys&gt;
+   &lt;key id="o" output="o" longPressKeyIds="o-acute marker" longPressDefaultKeyId="marker"&gt;
+   &lt;key id="o-acute" output="ó"/&gt;
+   &lt;key id="marker" output="\m{marker}" /&gt;
+&lt;/key&gt;
+</code></pre>
+</blockquote><p><em>Attribute:</em> <code>longPressDefaultKeyId="…keyId"</code> (optional)</p><blockquote>
+<p>Specifies the default key, by id, in a list of long-press keys. See the discussion of <code>LongPressKeyIds</code>, above.</p>
+</blockquote><p><em>Attribute:</em> <code>multiTapKeyIds</code> (optional)</p><blockquote>
+<p>A space-separated ordered list of <code>key</code> element ids, which keys, where each successive key in the list is produced by the corresponding number of quick taps.
+It is an error for a key to reference itself in the <code>multiTapKeyIds</code> list.</p>
+<p>Implementations shall ignore any gestures (such as flick, multiTap, longPress) defined on keys in the <code>multiTapKeyIds</code> list.</p>
+<p><em>Example:</em></p>
+<ul>
+<li>first tap on the key will produce “a”</li>
+<li>two taps will produce “bb”</li>
+<li>three taps on the key will produce “c”</li>
+<li>four taps on the key will produce “d”</li>
+</ul>
+<pre><code class="language-xml">&lt;keys&gt;
+   &lt;key id="a" output="a" multiTapKeyIds="bb c d"&gt;
+   &lt;key id="bb" output="bb" /&gt;
+   &lt;key id="c" output="c" /&gt;
+   &lt;key id="d" output="d" /&gt;
+&lt;/key&gt;
+</code></pre>
+</blockquote><p><strong>Note</strong>: Behavior past the end of the multiTap list is implementation specific.</p><p><em>Attribute:</em> <code>stretch="true"</code> (optional)</p><blockquote>
+<p>The <code>stretch</code> attribute indicates that a touch layout may stretch this key to fill available horizontal space on the row.
+This is used, for example, on the spacebar. Note that <code>stretch=</code> is ignored for hardware layouts.</p>
+</blockquote><p><em>Attribute:</em> <code>layerId="shift"</code> (optional)</p><blockquote>
+<p>The <code>layerId</code> attribute indicates that this key switches to another <code>layer</code> with the specified id (such as <code>&lt;layer id="shift"/&gt;</code> in this example).
+Note that a key may have both a <code>layerId=</code> and a <code>output=</code> attribute, indicating that the key outputs <em>prior</em> to switching layers.
+Also note that <code>layerId=</code> is ignored for hardware layouts: their shifting is controlled via
+the modifier keys.</p>
+<p>This attribute is an NMTOKEN.</p>
+<p>In the future, this attribute’s definition is expected to be updated to align with <a href="https://www.unicode.org/reports/tr31/">UAX#31</a>.</p>
+</blockquote><p><em>Attribute:</em> <code>width="1.2"</code> (optional, default "1.0")</p><blockquote>
+<p>The <code>width</code> attribute indicates that this key has a different width than other keys, by the specified number of key widths.</p>
+</blockquote><pre><code class="language-xml">&lt;key id="wide-a" output="a" width="1.2"/&gt;
+&lt;key id="wide-gap" gap="true" width="2.5"/&gt;
+</code></pre><h5>Implied Keys</h5><p>Not all keys need to be listed explicitly.  The following two can be assumed to already exist:</p><pre><code class="language-xml">&lt;key id="gap" gap="true" width="1"/&gt;
+&lt;key id="space" output=" " stretch="true" width="1"/&gt;
+</code></pre><p>In addition, these 62 keys, comprising 10 digit keys, 26 Latin lower-case keys, and 26 Latin upper-case keys, where the <code>id</code> is the same as the <code>to</code>, are assumed to exist:</p><pre><code class="language-xml">&lt;key id="0" output="0"/&gt;
+&lt;key id="1" output="1"/&gt;
+&lt;key id="2" output="2"/&gt;
+…
+&lt;key id="A" output="A"/&gt;
+&lt;key id="B" output="B"/&gt;
+&lt;key id="C" output="C"/&gt;
+…
+&lt;key id="a" output="a"/&gt;
+&lt;key id="b" output="b"/&gt;
+&lt;key id="c" output="c"/&gt;
+…
+</code></pre><p>These implied keys are available in a data file named <code>keyboards/import/keys-Latn-implied.xml</code> in the CLDR distribution for the convenience of implementations.</p><p>Thus, the implied keys behave as if the following import were present.</p><pre><code class="language-xml">&lt;keyboard3&gt;
+    &lt;keys&gt;
+        &lt;import base="cldr" path="45/keys-Latn-implied.xml" /&gt;
+    &lt;/keys&gt;
+&lt;/keyboard3&gt;
+</code></pre><p><strong>Note:</strong> All implied keys may be overridden, as with all other imported data items. See the <a href="#element-import"><code>import</code></a> element for more details.</p><hr><h3>Element: flicks</h3><p>The <code>flicks</code> element is a collection of <code>flick</code> elements.</p><blockquote>
+<small>
+
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <a href="#element-flick">flick</a>, <a href="#element-import">import</a>, <a href="tr35.html#special"><em>special</em></a></p>
+</small><p><small>Occurrence: optional, single
+</small></p>
+</blockquote><hr><h4>Element: flick</h4><p>The <code>flick</code> element is used to generate results from a "flick" of the finger on a mobile device.</p><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;keyboard3&gt;
+    &lt;keys&gt;
+        &lt;key id="a" flickId="a-flicks" output="a" /&gt;
+    &lt;/keys&gt;
+    &lt;flicks&gt;
+        &lt;flick id="a-flicks"&gt;
+            &lt;flickSegment … /&gt;
+            &lt;flickSegment … /&gt;
+            &lt;flickSegment … /&gt;
+        &lt;/flick&gt;
+    &lt;/flicks&gt;
+&lt;/keyboard3&gt;
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <a href="#element-flicks">flicks</a></p>
+<p>Children: <a href="#element-flicksegment">flickSegment</a>, <a href="tr35.html#special"><em>special</em></a></p>
+<p>Occurrence: optional, multiple</p>
+</small></blockquote><p><em>Attribute:</em> <code>id</code> (required)</p><blockquote>
+<p>The <code>id</code> attribute identifies the flicks. It can be any NMTOKEN.</p>
+<p>The <code>id</code> attribute on <code>flick</code> elements are distinct from the <code>id</code> attribute on <code>key</code> elements.
+For example, it is permissible to have both <code>&lt;key id="a" /&gt;</code> and
+<code>&lt;flick id="a" /&gt;</code> which are two unrelated elements.</p>
+<p>In the future, this attribute’s definition is expected to be updated to align with <a href="https://www.unicode.org/reports/tr31/">UAX#31</a>.</p>
+</blockquote><hr><h4>Element: flickSegment</h4><blockquote>
+<small>
+
+<p>Parents: <a href="#element-flick">flick</a></p>
+<p>Children: <em>none</em></p>
+<p>Occurrence: required, multiple</p>
+</small></blockquote><p><em>Attribute:</em> <code>directions</code> (required)</p><blockquote>
+<p>The <code>directions</code> attribute value is a space-delimited list of keywords, that describe a path, currently restricted to the cardinal and intercardinal directions <code>{n e s w ne nw se sw}</code>.</p>
+</blockquote><p><em>Attribute:</em> <code>keyId</code> (required)</p><blockquote>
+<p>The <code>keyId</code> attribute value is the result of (one or more) flicks.</p>
+<p>Implementations shall ignore any gestures (such as flick, multiTap, longPress) defined on the key specified by <code>keyId</code>.</p>
+</blockquote><p><strong>Example</strong>
+where a flick to the Northeast then South produces <code>Å</code>.</p><pre><code class="language-xml">&lt;keys&gt;
+    &lt;key id="something" flickId="a" output="Something" /&gt;
+    &lt;key id="A-ring" output="A-ring" /&gt;
+&lt;/keys&gt;
+
+&lt;flicks&gt;
+    &lt;flick id="a"&gt;
+        &lt;flickSegment directions="ne s" keyId="A-ring" /&gt;
+    &lt;/flick&gt;
+&lt;/flicks&gt;
+</code></pre><hr><h3>Element: forms</h3><p>This element contains a set of <code>form</code> elements which define the layout of a particular hardware form.</p><blockquote>
+<small>
+
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <a href="#element-import">import</a>, <a href="#element-form">form</a>, <a href="tr35.html#special"><em>special</em></a></p>
+<p>Occurrence: optional, single</p>
+</small></blockquote><p><em><strong>Syntax</strong></em></p><pre><code class="language-xml">&lt;forms&gt;
+    &lt;form id="iso"&gt;
+        &lt;!-- … --&gt;
+    &lt;/form&gt;
+    &lt;form id="us"&gt;
+        &lt;!-- … --&gt;
+    &lt;/form&gt;
+&lt;/forms&gt;
+</code></pre><hr><h3>Element: form</h3><p>This element contains a specific <code>form</code> element which defines the layout of a particular hardware form.</p><blockquote>
+<p><em>Note:</em> Most keyboards will not need to use this element directly, and the CLDR repository will not accept keyboards which define a custom <code>form</code> element.  This element is provided for two reasons:</p>
+</blockquote><ol>
+<li><p>To formally specify the standard hardware arrangements used with CLDR for implementations. Implementations can verify the arrangement, and validate keyboards against the number of rows and the number of keys per row.</p>
+</li>
+<li><p>To allow a way to customize the scancode layout for keyboards not intended to be included in the common CLDR repository.</p>
+</li>
+</ol><p>See <a href="#implied-form-values">Implied Form Values</a>, below.</p><blockquote>
+<small>
+
+<p>Parents: <a href="#element-forms">forms</a></p>
+<p>Children: <a href="#element-scancodes">scanCodes</a>, <a href="tr35.html#special"><em>special</em></a></p>
+<p>Occurrence: optional, multiple</p>
+</small></blockquote><p><em>Attribute:</em> <code>id</code> (required)</p><blockquote>
+<p>This attribute specifies the form id. The value may not be <code>touch</code>.</p>
+</blockquote><blockquote>
+<p>Must match <code>[A-Za-z0-9][A-Za-z0-9_-]*</code></p>
+</blockquote><p><em><strong>Syntax</strong></em></p><pre><code class="language-xml">&lt;form id="us"&gt;
+    &lt;scanCodes codes="00 01 02"/&gt;
+    &lt;scanCodes codes="03 04 05"/&gt;
+&lt;/form&gt;
+</code></pre><h5>Implied Form Values</h5><p>There is an implied set of <code>&lt;form&gt;</code> elements corresponding to the default forms, thus implementations must behave as if there was the following import statement:</p><pre><code class="language-xml">&lt;keyboard3&gt;
+    &lt;forms&gt;
+        &lt;import base="cldr" path="45/scanCodes-implied.xml" /&gt; &lt;!-- the version will match the current conformsTo of the file --&gt;
+    &lt;/forms&gt;
+&lt;/keyboard3&gt;
+</code></pre><p>Here is a summary of the implied form elements. Keyboards included in the CLDR Repository must only use these <code>formId=</code> values and may not override the scanCodes.</p><blockquote>
+<ul>
+<li><code>touch</code> - Touch (non-hardware) layout.</li>
+<li><code>abnt2</code> - Brazilian 103 key ABNT2 layout (iso + extra key near right shift)</li>
+<li><code>iso</code> - European 102 key layout (extra key near left shift)</li>
+<li><code>jis</code> - Japanese 109 key layout</li>
+<li><code>us</code> - ANSI 101 key layout</li>
+<li><code>ks</code> - Korean KS layout</li>
+</ul>
+</blockquote><hr><h3>Element: scanCodes</h3><p>This element contains a keyboard row, and defines the scan codes for the non-frame keys in that row.</p><blockquote>
+<small>
+
+<p>Parents: <a href="#element-form">form</a></p>
+<p>Children: none</p>
+<p>Occurrence: required, multiple</p>
+</small></blockquote><blockquote>
+<p><em>Attribute:</em> <code>codes</code> (required)</p>
+</blockquote><blockquote>
+<p>The <code>codes</code> attribute is a space-separated list of 2-digit hex bytes, each representing a scan code.</p>
+</blockquote><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;scanCodes codes="29 02 03 04 05 06 07 08 09 0A 0B 0C 0D" /&gt;
+</code></pre><hr><h3>Element: layers</h3><p>This element contains a set of <code>layer</code> elements with a specific physical form factor, whether
+hardware or touch layout.</p><blockquote>
+<small>
+
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <a href="#element-import">import</a>, <a href="#element-layer">layer</a>, <a href="tr35.html#special"><em>special</em></a></p>
+<p>Occurrence: required, multiple</p>
+</small></blockquote><ul>
+<li>At least one <code>layers</code> element is required.</li>
+</ul><p><em>Attribute:</em> <code>formId</code> (required)</p><blockquote>
+<p>This attribute specifies the physical layout of a hardware keyboard,
+or that the form is a <code>touch</code> layout.</p>
+<p>When using an on-screen touch keyboard, if the keyboard does not specify a <code>&lt;layers formId="touch"&gt;</code>
+element, a <code>&lt;layers formId="…formId"&gt;</code> element can be used as an fallback alternative.
+If there is no <code>hardware</code> form, the implementation may need
+to choose a different keyboard file, or use some other fallback behavior when using a
+hardware keyboard.</p>
+<p>Because a hardware keyboard facilitates non-trivial amounts of text input,
+and many touch devices can also be connected to a hardware keyboard, it
+is recommended to always have a hardware (non-touch) form.</p>
+<p>Multiple <code>&lt;layers formId="touch"&gt;</code> elements are allowed with distinct <code>minDeviceWidth</code> values.
+At most one hardware (non-<code>formId="touch"</code>) <code>&lt;layers&gt;</code> element is allowed. If a different key arrangement is desired between, for example, <code>us</code> and <code>iso</code> formats, these should be separated into two different keyboards.</p>
+<p>The typical keyboard author will be designing a keyboard based on their circumstances and the hardware that they are using. So, for example, if they are in South East Asia, they will almost certainly be using an 101 key hardware keyboard with US key caps. So we want them to be able to reference that (<code>&lt;layers formId="us"&gt;</code>) in their design, rather than having to work with an unfamiliar form.</p>
+<p>A mismatch between the hardware layout in the keyboard file, and the actual hardware used by the user could result in some keys being inaccessible to the user if their hardware cannot generate the scancodes corresponding to the layout specified by the <code>formId=</code> attribute. Such keys could be accessed only via an on-screen keyboard utility. Conversely, a user with hardware keys that are not present in the specified <code>formId=</code> will result in some hardware keys which have no function when pressed.</p>
+<p>The value of the <code>formId=</code> attribute may be <code>touch</code>, or correspond to a <code>form</code> element. See <a href="#element-form"><code>form</code></a>.</p>
+</blockquote><p><em>Attribute:</em> <code>minDeviceWidth</code></p><blockquote>
+<p>This attribute specifies the minimum required width, in millimeters (mm), of the touch surface.  The <code>layers</code> entry with the greatest matching width will be selected. This attribute is intended for <code>formId="touch"</code>, but is supported for hardware forms.</p>
+<p>This must be a whole number between 1 and 999, inclusive.</p>
+</blockquote><h3>Element: layer</h3><p>A <code>layer</code> element describes the configuration of keys on a particular layer of a keyboard. It contains one or more <code>row</code> elements to describe which keys exist in each row.</p><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;layer id="…layerId" modifiers="…modifier modifier, …modifier modifier, …"&gt;
+    &lt;row …/&gt;
+    &lt;row …/&gt;
+    …
+&lt;/layer&gt;
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <a href="#element-row">row</a>, <a href="tr35.html#special"><em>special</em></a></p>
+<p>Occurrence: optional, multiple</p>
+</small></blockquote><p><em>Attribute</em> <code>id</code> (required for <code>touch</code>)</p><blockquote>
+<p>The <code>id</code> attribute identifies the layer for touch layouts.  This identifier specifies the layout as the target for layer switching, as specified by the <code>layerId=</code> attribute on the <a href="#element-key"><code>&lt;key&gt;</code></a> element.
+Touch layouts must have one <code>layer</code> with <code>id="base"</code> to serve as the base layer.</p>
+<p>Must match <code>[A-Za-z0-9][A-Za-z0-9_-]*</code></p>
+</blockquote><p><em>Attribute:</em> <code>modifiers</code> (required for <code>hardware</code>)</p><blockquote>
+<p>This has two roles. It acts as an identifier for the <code>layer</code> element for hardware keyboards (in the absence of the id= element) and also provides the linkage from the hardware modifiers into the correct <code>layer</code>.</p>
+<p>For hardware layouts, the use of <code>@modifiers</code> as an identifier for a layer is sufficient since it is always unique among the set of <code>layer</code> elements in each  <code>form</code>.</p>
+<p>This attribute value is a list of lists. It is a comma-separated (<code>,</code>) list of modifier sets, and each modifier set is a space-separated list of modifier components.</p>
+<p>Each modifier component must match <code>[A-Za-z0-9]+</code>. Extra whitespace is ignored.</p>
+<p>To indicate that no modifiers apply, the reserved name of <code>none</code> is used.</p>
+</blockquote><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;layer id="base"        modifiers="none"&gt;
+    &lt;row keys="a" /&gt;
+&lt;/layer&gt;
+
+&lt;layer id="upper"       modifiers="shift"&gt;
+    &lt;row keys="A" /&gt;
+&lt;/layer&gt;
+
+&lt;layer id="altgr"       modifiers="altR"&gt;
+    &lt;row keys="a-umlaut" /&gt;
+&lt;/layer&gt;
+
+&lt;layer id="upper-altgr" modifiers="altR shift"&gt;
+    &lt;row keys="A-umlaut" /&gt;
+&lt;/layer&gt;
+</code></pre><h4>Layer Modifier Sets</h4><p>The <code>@modifiers</code> attribute value contains one or more Layer Modifier Sets, separated by commas.
+For example, in the element <code>&lt;layer … modifiers="ctrlL altL, altR" …</code> the attribute value consists of two sets:</p><ul>
+<li><code>ctrlL altL</code> (two components)</li>
+<li><code>altR</code> (one component)</li>
+</ul><p>The order of the sets and the order of the components within each set is not significant. However, for clarity in reading, the canonical order within a set is in the order listed in Layout Modifier Components; the canonical order for the sets should be first by the cardinality of the sets (least first), then alphabetical.</p><h4>Layer Modifier Components</h4><p>Within a Layer Modifier Set, the following modifier components can be used, separated by spaces.</p><ul>
+<li><code>none</code> (no modifier)</li>
+<li><code>alt</code></li>
+<li><code>altL</code></li>
+<li><code>altR</code></li>
+<li><code>caps</code></li>
+<li><code>ctrl</code></li>
+<li><code>ctrlL</code></li>
+<li><code>ctrlR</code></li>
+<li><code>shift</code></li>
+<li><code>other</code> (matches if no other layers match)</li>
+</ul><ol>
+<li><p><code>alt</code> in this specification is referred to on some platforms as "opt" or "option".</p>
+</li>
+<li><p><code>none</code> and <code>other</code> may not be combined with any other components.</p>
+</li>
+</ol><h4 id="modifier-left--and-right--keys">Modifier Left- and Right- keys</h4><ol>
+<li><p><code>L</code> or <code>R</code> indicates a left- or right- side modifier only (such as <code>altL</code>)
+ whereas <code>alt</code> indicates <em>either</em> left or right alt key (that is, <code>altL</code> or <code>altR</code>). <code>ctrl</code> indicates either left or right ctrl key (that is, <code>ctrlL</code> or <code>ctrlR</code>).</p>
+</li>
+<li><p>Keyboard implementations must warn if a keyboard mixes <code>alt</code> with <code>altL</code>/<code>altR</code>, or <code>ctrl</code> with <code>ctrlL</code>/<code>ctrlR</code>.</p>
+</li>
+<li><p>Left- and right- side modifiers may not be mixed together in a single <code>modifier</code> attribute value, so neither <code>altL ctrlR"</code> nor <code>altL altR</code> are allowed.</p>
+</li>
+<li><p><code>shift</code> indicates either shift key. The left and right shift keys are not distinguishable in this specification.</p>
+</li>
+</ol><h4>Layer Modifier Matching</h4><p>Layers are matched exactly based on the modifier keys which are down. For example:</p><ul>
+<li><p><code>none</code> as a modifier will only match if <em>all</em> of the keys <code>caps</code>, <code>alt</code>, <code>ctrl</code> and <code>shift</code> are up.</p>
+</li>
+<li><p><code>alt</code> as a modifier will only match if either <code>alt</code> is down, <em>and</em> <code>caps</code>, <code>ctrl</code>, and <code>shift</code> are up.</p>
+</li>
+<li><p><code>altL ctrl</code> as a modifier will only match if the left <code>alt</code> is down, either <code>ctrl</code> is down, <em>and</em> <code>shift</code> and <code>caps</code> are up.</p>
+</li>
+<li><p><code>other</code> as a modifier will match if no other layers match.</p>
+</li>
+</ul><p>Multiple modifier sets are separated by commas.  For example, <code>none, shift caps</code> will match either no modifiers <em>or</em> shift and caps.  <code>ctrlL altL, altR</code> will match either  left-control and left-alt, <em>or</em> right-alt.</p><p>Keystrokes must be ignored where there isn’t a layer that explicitly matches nor a layer with <code>other</code>. Example: If there is a <code>ctrl</code> and <code>shift</code> layer, but no <code>ctrl shift</code> nor <code>other</code> layer, no output will result from <code>ctrl shift X</code>.</p><p>Layers are not allowed to overlap in their matching.  For example, the keyboard author will receive an error if one layer specifies <code>alt shift</code> and another layer specifies <code>altR shift</code>.</p><p>There is one special case:  the <code>other</code> layer matches if and only if no other layer matches. Thus logically the <code>other</code> layer is matched after all other layers have been checked.</p><p>Because there is no overlap allowed between layers, the order of <code>&lt;layer&gt;</code> elements is not significant.</p><blockquote>
+<p>Note: The modifier syntax may be enhanced in the future, but will remain backwards compatible with the syntax described here.</p>
+</blockquote><hr><h3>Element: row</h3><p>A <code>row</code> element describes the keys that are present in the row of a keyboard.</p><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;row keys="…keyId …keyId …" /&gt;
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <a href="#element-layer">layer</a></p>
+<p>Children: <em>none</em></p>
+<p>Occurrence: required, multiple</p>
+</small></blockquote><p><em>Attribute:</em> <code>keys</code> (required)</p><blockquote>
+<p>This is a string that lists the id of <a href="#element-key"><code>key</code> elements</a> for each of the keys in a row, whether those are explicitly listed in the file or are implied.  See the <code>key</code> documentation for more detail.</p>
+<p>For non-<code>touch</code> forms, the number of keys in each row may not exceed the number of scan codes defined for that row, and the number of rows may not exceed the defined number of rows for that form. See <a href="#element-scancodes"><code>scanCodes</code></a>;</p>
+</blockquote><p><strong>Example</strong></p><p>Here is an example of a <code>row</code> element:</p><pre><code class="language-xml">&lt;row keys="a z e r t y u i o p caret dollar" /&gt;
+</code></pre><hr><h3>Element: variables</h3><blockquote>
+<small>
+
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <a href="#element-import">import</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#element-string">string</a>, <a href="#element-set">set</a>, <a href="#element-uset">uset</a></p>
+</small><p><small>Occurrence: optional, single
+</small></p>
+</blockquote><p>This is a container for variables to be used with <a href="#element-transform">transform</a>, <a href="#element-display">display</a> and <a href="#element-key">key</a> elements.</p><p>Note that the <code>id=</code> attribute value must be unique across all children of the <code>variables</code> element.</p><p><strong>Example</strong></p><pre><code class="language-xml">&lt;variables&gt;
+    &lt;string id="y" value="yes" /&gt; &lt;!-- a simple string--&gt;
+    &lt;set id="upper" value="A B C D E FF" /&gt; &lt;!-- a set with 6 items --&gt;
+    &lt;uset id="consonants" value="[कसतनमह]" /&gt; &lt;!-- a UnicodeSet --&gt;
+&lt;/variables&gt;
+</code></pre><hr><h3>Element: string</h3><blockquote>
+<small>
+
+<p>Parents: <a href="#element-variables">variables</a></p>
+<p>Children: <em>none</em></p>
+</small><p><small>Occurrence: optional, multiple
+</small></p>
+</blockquote><blockquote>
+<p>This element contains a single string which is used by the <a href="#element-transform">transform</a> elements for string matching and substitution, as well as by the <a href="#element-key">key</a> and <a href="#element-display">display</a> elements.</p>
+</blockquote><p><em>Attribute:</em> <code>id</code> (required)</p><blockquote>
+<p>Specifies the identifier (name) of this string.
+All ids must be unique across all types of variables.</p>
+<p><code>id</code> must match <code>[0-9A-Za-z_]{1,32}</code></p>
+</blockquote><p><em>Attribute:</em> <code>value</code> (required)</p><blockquote>
+<p>Strings may contain whitespaces. However, for clarity, it is recommended to escape spacing marks, even in strings.
+This attribute value may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.
+Variables may refer to other string variables if they have been previously defined, using <code>${string}</code> syntax.
+<a href="#markers">Markers</a> may be included with the <code>\m{…}</code> notation.</p>
+</blockquote><p><strong>Example</strong></p><pre><code class="language-xml">&lt;variables&gt;
+    &lt;string id="cluster_hi" value="हि" /&gt; &lt;!-- a string --&gt;
+    &lt;string id="zwnj" value="\u{200C}"/&gt; &lt;!-- single codepoint --&gt;
+    &lt;string id="grave" value="\m{grave}"/&gt; &lt;!-- refer to a marker --&gt;
+    &lt;string id="backquote" value="`"/&gt;
+    &lt;string id="zwnj_grave" value="${zwnj}${grave}"  /&gt; &lt;!-- Combine two variables --&gt;
+    &lt;string id="zwnj_sp_grave" value="${zwnj}\u{0020}${grave}"  /&gt; &lt;!-- Combine two variables --&gt;
+&lt;/variables&gt;
+</code></pre><p>These may be then used in multiple contexts:</p><pre><code class="language-xml">&lt;!-- as part of a regex --&gt;
+&lt;transform from="${cluster_hi}X" to="X" /&gt;
+&lt;transform from="Y" to="${cluster_hi}" /&gt;
+…
+&lt;!-- as part of a key bag  --&gt;
+&lt;key id="hi_key" output="${cluster_hi}" /&gt;
+&lt;key id="grave_key" output="${grave}" /&gt;
+…
+&lt;!-- Display ` instead of the non-displayable marker --&gt;
+&lt;display output="${grave}" display="${backquote}" /&gt;
+</code></pre><hr><h3>Element: set</h3><blockquote>
+<small>
+
+<p>Parents: <a href="#element-variables">variables</a></p>
+<p>Children: <em>none</em></p>
+</small><p><small>Occurrence: optional, multiple
+</small></p>
+</blockquote><blockquote>
+<p>This element contains a set of strings used by the <a href="#element-transform">transform</a> elements for string matching and substitution.</p>
+</blockquote><p><em>Attribute:</em> <code>id</code> (required)</p><blockquote>
+<p>Specifies the identifier (name) of this set.
+All ids must be unique across all types of variables.</p>
+<p><code>id</code> must match <code>[0-9A-Za-z_]{1,32}</code></p>
+</blockquote><p><em>Attribute:</em> <code>value</code> (required)</p><blockquote>
+<p>The <code>value</code> attribute value is always a set of strings separated by whitespace, even if there is only a single item in the set, such as <code>"A"</code>.
+Leading and trailing whitespace is ignored.
+This attribute value may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.
+Sets may refer to other string variables if they have been previously defined, using <code>${string}</code> syntax, or to other previously-defined sets using <code>$[set]</code> syntax.
+Set references must be separated by whitespace: <code>$[set1]$[set2]</code> is an error; instead use <code>$[set1] $[set2]</code>.
+<a href="#markers">Markers</a> may be included with the <code>\m{…}</code> notation.</p>
+</blockquote><p><strong>Examples</strong></p><pre><code class="language-xml">&lt;variables&gt;
+    &lt;set id="upper" value="A B CC D E FF " /&gt; &lt;!-- 6 items --&gt;
+    &lt;set id="lower" value="a b c  d e  f " /&gt; &lt;!-- 6 items --&gt;
+    &lt;set id="upper_or_lower" value="$[upper] $[lower]"  /&gt; &lt;!-- Concatenate two sets --&gt;
+    &lt;set id="lower_or_upper" value="$[lower] $[upper]"  /&gt; &lt;!-- Concatenate two sets --&gt;
+    &lt;set id="a" value="A"/&gt; &lt;!-- Just one element, an 'A'--&gt;
+    &lt;set id="cluster_or_zwnj" value="${hi_cluster} ${zwnj}"/&gt; &lt;!-- 2 items: "हि \u${200C}"--&gt;
+&lt;/variables&gt;
+</code></pre><p>Match "X" followed by any uppercase letter:</p><pre><code class="language-xml">&lt;transform from="X$[upper]" to="…" /&gt;
+</code></pre><p>Map from upper to lower:</p><pre><code class="language-xml">&lt;transform from="($[upper])" to="$[1:lower]" /&gt;
+</code></pre><p>See <a href="#element-transform">transform</a> for further details and syntax.</p><hr><h3>Element: uset</h3><blockquote>
+<small>
+
+<p>Parents: <a href="#element-variables">variables</a></p>
+<p>Children: <em>none</em></p>
+</small><p><small>Occurrence: optional, multiple
+</small></p>
+</blockquote><blockquote>
+<p>This element contains a set, using a subset of the <a href="tr35.html#Unicode_Sets">UnicodeSet</a> format, used by the <a href="#element-transform"><code>transform</code></a> elements for string matching and substitution.
+Note important restrictions on the syntax below.</p>
+</blockquote><p><em>Attribute:</em> <code>id</code> (required)</p><blockquote>
+<p>Specifies the identifier (name) of this uset.
+All ids must be unique across all types of variables.</p>
+<p><code>id</code> must match <code>[0-9A-Za-z_]{1,32}</code></p>
+</blockquote><p><em>Attribute:</em> <code>value</code> (required)</p><blockquote>
+<p>String value in a subset of <a href="tr35.html#Unicode_Sets">UnicodeSet</a> format.
+Leading and trailing whitespace is ignored.
+Variables may refer to other string variables if they have been previously defined, using <code>${string}</code> syntax, or to other previously-defined <code>uset</code> elements (not <code>set</code> elements) using <code>$[...usetId]</code> syntax.</p>
+</blockquote><ul>
+<li>Warning: <code>uset</code> elements look superficially similar to regex character classes as used in <a href="#element-transform"><code>transform</code></a> elements, but they are different. <code>uset</code>s must be defined with a <code>uset</code> element, and referenced with the <code>$[...usetId]</code> notation in transforms. <code>uset</code>s cannot be specified inline in a transform, and can only be used indirectly by reference to the corresponding <code>uset</code> element.</li>
+<li>Multi-character strings (<code>{}</code>) are not supported, such as <code>[żġħ{ie}{għ}]</code>.</li>
+<li>UnicodeSet property notation (<code>\p{…}</code> or <code>[:…:]</code>) may <strong>NOT</strong> be used.</li>
+</ul><blockquote>
+<p><strong>Rationale</strong>: allowing property notation would make keyboard implementations dependent on a particular version of Unicode. However, implementations and tools may wish to pre-calculate the value of a particular uset, and "freeze" it as explicit code points.  The example below of <code>$[KhmrMn]</code> matches nonspacing marks in the <code>Khmr</code> script.</p>
+</blockquote><ul>
+<li><code>uset</code> elements may represent a very large number of codepoints. Keyboard implementations may set a limit on how many unique range entries may be matched.</li>
+<li>The <code>uset</code> element may not be used as the source or target for mapping operations (<code>$[1:variable]</code> syntax).</li>
+<li>The <code>uset</code> element may not be referenced by <a href="#element-key"><code>key</code></a> or <a href="#element-display"><code>display</code></a> elements.</li>
+</ul><p><strong>Examples</strong></p><pre><code class="language-xml">&lt;variables&gt;
+  &lt;uset id="consonants" value="[कसतनमह]" /&gt; &lt;!-- unicode set range --&gt;
+  &lt;uset id="range" value="[a-z D E F G \u{200A}]" /&gt; &lt;!-- a through z, plus a few others --&gt;
+  &lt;uset id="newrange" value="[$[range]-[G]]" /&gt; &lt;!-- The above range, but not including G --&gt;
+  &lt;uset id="KhmrMn" value="[\u{17B4}\u{17B5}\u{17B7}-\u{17BD}\u{17C6}\u{17C9}-\u{17D3}\u{17DD}]"&gt; &lt;!--  [[:Khmr:][:Mn:]] as of Unicode 15.0--&gt;
+&lt;/variables&gt;
+</code></pre><hr><h3>Element: transforms</h3><p>This element defines a group of one or more <code>transform</code> elements associated with this keyboard layout. This is used to support features such as dead-keys, character reordering, backspace behavior, etc. using a straightforward structure that works for all the keyboards tested, and that results in readable source data.</p><p>There can be multiple <code>&lt;transforms&gt;</code> elements, but only one for each <code>type</code>.</p><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;transforms type="…type"&gt;
+    &lt;transformGroup …/&gt;
+    &lt;transformGroup …/&gt;
+    …
+&lt;/transforms&gt;
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <a href="#element-import">import</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#element-transformgroup">transformGroup</a></p>
+<p>Occurrence: optional, multiple</p>
+</small></blockquote><p><em>Attribute:</em> <code>type</code> (required)</p><blockquote>
+<p>Values: <code>simple</code>, <code>backspace</code></p>
+</blockquote><p>There are other keying behaviors that are needed particularly in handing complex orthographies from various parts of the world. The behaviors intended to be covered by the transforms are:</p><ul>
+<li>Reordering combining marks. The order required for underlying storage may differ considerably from the desired typing order. In addition, a keyboard may want to allow for different typing orders.</li>
+<li>Error indication. Sometimes a keyboard layout will want to specify to the application that a particular keying sequence in a context is in error and that the application should indicate that that particular keypress is erroneous.</li>
+<li>Backspace handling. There are various approaches to handling the backspace key. An application may treat it as an undo of the last key input, or it may simply delete the last character in the currently output text, or it may use transform rules to tell it how much to delete.</li>
+</ul><h4>Markers</h4><p>Markers are placeholders which record some state, but without producing normal visible text output.  They were designed particularly to support dead-keys.</p><p>The marker ID is any valid <code>NMTOKEN</code>.</p><p>Consider the following abbreviated example:</p><pre><code class="language-xml">    &lt;display output="\m{circ_marker}" display="^" /&gt;
+…
+    &lt;key id="circ_key" output="\m{circ_marker}" /&gt;
+    &lt;key id="e" output="e" /&gt;
+…
+    &lt;transform from="\m{circ_marker}e" to="ê" /&gt;
+</code></pre><ol>
+<li><p>The user presses the <code>circ_key</code> key. The key can be shown with the keycap <code>^</code> due to the <code>&lt;display&gt;</code> element.</p>
+</li>
+<li><p>The special marker, <code>circ_marker</code>, is added to the end of the input context.</p>
+<p> The input context does not match any transforms.</p>
+<p> The input context has:</p>
+<ul>
+<li>…</li>
+<li>marker <code>circ_marker</code></li>
+</ul>
+</li>
+<li><p>Also due to the <code>&lt;display&gt;</code> element, implementations can opt to display a visible <code>^</code> (perhaps visually distinct from a plain <code>^</code> carat). Implementations may opt to display nothing and only store the marker in the input context.</p>
+</li>
+<li><p>The user now presses the <code>e</code> key, which is also added to the input context. The input context now has:</p>
+<ul>
+<li>…</li>
+<li>character <code>e</code></li>
+<li>marker <code>circ_marker</code></li>
+</ul>
+</li>
+<li><p>Now, the input context matches the transform.  The <code>e</code> and the marker are replaced with <code>ê</code>.</p>
+<p> The input context now has:</p>
+<ul>
+<li>…</li>
+<li>character <code>ê</code></li>
+</ul>
+</li>
+</ol><p><strong>Using markers to inhibit other transforms</strong></p><p>Sometimes it is desirable to prevent transforms from having an effect.
+Perhaps two different keys output the same characters, with different key or modifier combinations, but only one of them is intended to participate in a transform.</p><p>Consider the following case, where pressing the keys <code>X</code>, <code>e</code> results in <code>^e</code>, which is transformed into <code>ê</code>.</p><pre><code class="language-xml">&lt;keys&gt;
+    &lt;key id="X" output="^"/&gt;
+    &lt;key id="e" output="e" /&gt;
+&lt;/keys&gt;
+&lt;transforms&gt;
+    &lt;transform from="^e" output="ê"/&gt;
+&lt;/transforms&gt;
+</code></pre><p>However, what if the user wanted to produce <code>^e</code> without the transform taking effect?
+One strategy would be to use a marker, which won’t be visible in the output, but will inhibit the transform.</p><pre><code class="language-xml">&lt;keys&gt;
+    &lt;key id="caret" output="^\m{no_transform}"/&gt;
+    &lt;key id="X" output="^" /&gt;
+    &lt;key id="e" output="e" /&gt;
+&lt;/keys&gt;
+…
+&lt;transforms&gt;
+    &lt;!-- this wouldn't match the key caret output because of the marker --&gt;
+    &lt;transform from="^e" output="ê"/&gt;
+&lt;/transforms&gt;
+</code></pre><p>Pressing <code>caret</code> <code>e</code> will result in <code>^e</code> (with an invisible <em>no_transform</em> marker — note that any name could be used). The <code>^e</code> won’t have the transform applied, at least while the marker’s context remains valid.</p><p>Another strategy might be to use a marker to indicate where transforms are desired, instead of where they aren't desired.</p><pre><code class="language-xml">&lt;keys&gt;
+    &lt;key id="caret" output="^"/&gt;
+    &lt;key id="X" output="^\m{transform}"/&gt;
+    &lt;key id="e" output="e" /&gt;
+&lt;/keys&gt;
+…
+&lt;transforms …&gt;
+    &lt;!-- Won't match ^e without marker. --&gt;
+    &lt;transform from="^\m{transform}e" output="ê"/&gt;
+&lt;/transforms&gt;
+</code></pre><p>In this way, only the <code>X</code>, <code>e</code> keys will produce <code>^e</code> with a <em>transform</em> marker (again, any name could be used) which will cause the transform to be applied. One benefit is that navigating to an existing <code>^</code> in a document and adding an <code>e</code> will result in <code>^e</code>, and this output will not be affected by the transform, because there will be no marker present there (remember that markers are not stored with the document but only recorded in memory temporarily during text input).</p><p>Please note important considerations for <a href="#normalization-and-markers">Normalization and Markers</a>.</p><p><strong>Effect of markers on final text</strong></p><p>All markers must be removed before text is returned to the application from the input context.
+If the input context changes, such as if the cursor or mouse moves the insertion point somewhere else, all markers in the input context are removed.</p><p><strong>Implementation Notes</strong></p><p>Ideally, markers are implemented entirely out-of-band from the normal text stream. However, implementations <em>may</em> choose to map each marker to a <a href="https://www.unicode.org/glossary/#private_use_character">Unicode private-use character</a> for use only within the implementation’s processing and temporary storage in the input context.</p><p>For example, the first marker encountered could be represented as U+E000, the second by U+E001 and so on.  If a regex processing engine were used, then those PUA characters could be processed through the existing regex processing engine.  <code>[^\u{E000}-\u{E009}]</code> could be used as an expression to match a character that is not a marker, and <code>[Ee]\u{E000}</code> could match <code>E</code> or <code>e</code> followed by the first marker.</p><p>Such implementations must take care to remove all such markers (see prior section) from the resultant text. As well, implementations must take care to avoid conflicts if applications themselves are using PUA characters, such as is often done with not-yet-encoded scripts or characters.</p><hr><h3>Element: transformGroup</h3><blockquote>
+<small>
+
+<p>Parents: <a href="#element-transforms">transforms</a></p>
+<p>Children: <a href="#element-import">import</a>, <a href="#element-reorder">reorder</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#element-transform">transform</a></p>
+</small><p><small>Occurrence: optional, multiple
+</small></p>
+</blockquote><p>A <code>transformGroup</code> contains a set of transform elements or reorder elements.</p><p>Each <code>transformGroup</code> is processed entirely before proceeding to the next one.</p><p>Each <code>transformGroup</code> element, after imports are processed, must have either <a href="#element-reorder">reorder</a> elements or <a href="#element-transform">transform</a> elements, but not both. The <code>&lt;transformGroup&gt;</code> element may not be empty.</p><p><strong>Examples</strong></p><h4>Example: <code>transformGroup</code> with <code>transform</code> elements</h4><p>This is a <code>transformGroup</code> that consists of one or more <a href="#element-transform"><code>transform</code></a> elements, prefaced by one or more <code>import</code> elements. See the discussion of those elements for details. <code>import</code> elements in this group may not import <code>reorder</code> elements.</p><pre><code class="language-xml">&lt;transformGroup&gt;
+    &lt;import path="…"/&gt; &lt;!-- optional import elements--&gt;
+    &lt;transform /&gt;
+    &lt;!-- other &lt;transform/&gt; elements --&gt;
+&lt;/transformGroup&gt;
+</code></pre><h4>Example: <code>transformGroup</code> with <code>reorder</code> elements</h4><p>This is a <code>transformGroup</code> that consists of one or more <a href="#element-transform"><code>transform</code></a> elements, optionally prefaced by one or more <code>import</code> elements that import <code>transform</code> elements. See the discussion of those elements for details.</p><p><code>import</code> elements in this group may not import <code>transform</code> elements.</p><pre><code class="language-xml">&lt;transformGroup&gt;
+    &lt;import path="…"/&gt; &lt;!-- optional import elements--&gt;
+    &lt;reorder … /&gt;
+    &lt;!-- other &lt;reorder&gt; elements --&gt;
+&lt;/transformGroup&gt;
+</code></pre><hr><h3>Element: transform</h3><p>This element contains a single transform that may be performed using the keyboard layout. A transform is an element that specifies a set of conversions from sequences of code points into (one or more) other code points. For example, in most French keyboards hitting the <code>^</code> dead-key followed by the <code>e</code> key produces <code>ê</code>.</p><p>Matches are processed against the "input context", a temporary buffer containing all relevant text up to the insertion point. If the user moves the insertion point, the input context is discarded and recreated from the application’s text buffer.  Implementations may discard the input context at any time.</p><p>The input context may contain, besides regular text, any <a href="#markers">Markers</a> as a result of keys or transforms, since the insertion point was moved.</p><p>Using regular expression terminology, matches are done as if there was an implicit <code>$</code> (match end of buffer) at the end of each pattern. In other words, <code>&lt;transform from="ke" …&gt;</code> will not match an input context ending with <code>…keyboard</code>, but it will match the last two codepoints of an input context ending with <code>…awake</code>.</p><p>All of the <code>transform</code> elements in a <code>transformGroup</code> are tested for a match, in order, until a match is found. Then, the matching element is processed, and then processing proceeds to the <strong>next</strong> <code>transformGroup</code>. If none of the <code>transform</code> elements match, processing proceeds without modification to the buffer to the <strong>next</strong> <code>transformGroup</code>.</p><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;transform from="…matching pattern" to="…output pattern"/&gt;
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <a href="#element-transformgroup">transformGroup</a>
+Children: <em>none</em>
+Occurrence: required, multiple</p>
+</small></blockquote><p><em>Attribute:</em> <code>from</code> (required)</p><blockquote>
+<p>The <code>from</code> attribute value consists of an input rule for matching the input context.</p>
+<p>The <code>transform</code> rule and output pattern uses a modified, mostly subsetted, regular expression syntax, with EcmaScript syntax (with the <code>u</code> Unicode flag) as its baseline reference (see <a href="https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions">MDN-REGEX</a>). Differences from regex implementations will be noted.</p>
+</blockquote><h4>Regex-like Syntax</h4><ul>
+<li><p><strong>Simple matches</strong></p>
+<p>  <code>abc</code> <code>𐒵</code></p>
+</li>
+<li><p><strong>Unicode codepoint escapes</strong></p>
+<p>  <code>\u{1234} \u{012A}</code>
+  <code>\u{22} \u{012a} \u{1234A}</code></p>
+<p>  The hex escaping is case insensitive. The value may not match a surrogate or illegal character, nor a marker character.
+  The form <code>\u{…}</code> is preferred as it is the same regardless of codepoint length.</p>
+</li>
+<li><p><strong>Fixed character classes</strong></p>
+<p>  <code>\s \S \t \r \n \f \v \d \w \D \W</code></p>
+<p>  The value of these classes do not change with Unicode versions.</p>
+<p>  <code>\s</code> for example is exactly <code>[\f\n\r\t\v\u{00a0}\u{1680}\u{2000}-\u{200a}\u{2028}\u{2029}\u{202f}\u{205f}\u{3000}\u{feff}]</code></p>
+</li>
+<li><p><strong>Escapes</strong></p>
+<p>  <code>\. \( \) \? \[ \\ \] \{ \} \* \/ \^ \+ \| \$</code></p>
+<p>  For example, <code>\\</code>, <code>\*</code>, and <code>\$</code> match <code>\</code>, <code>*</code>, and <code>$</code>, respectively.</p>
+<p>  Some of these characters (such as <code>*</code>) aren't actually used as syntax in the keyboard transform syntax.
+  However, they are required to be escaped in keyboard transforms, to avoid confusion or problems with characters which are syntax in regular expressions.</p>
+<p>  Sequences not listed here as <strong>Fixed Character Classes</strong> nor as <strong>Escapes</strong> are disallowed.
+  For example:</p>
+<ul>
+<li><code>\0</code> (octal escape) and <code>\1</code> (backreference) are not allowed.</li>
+<li><code>\a</code> is not defined as a character class and is also disallowed.</li>
+</ul>
+</li>
+<li><p><strong>Character classes</strong></p>
+<p>  <code>[abc]</code> <code>[^def]</code> <code>[a-z]</code> <code>[ॲऄ-आइ-ऋ]</code> <code>[\u{093F}-\u{0944}\u{0962}\u{0963}]</code></p>
+<p>  If the character class begins with a caret (<code>^</code>) then it is a negation, matching all characters except for those listed.</p>
+<p>  Unicode properties such as <code>\p{…}</code> are not allowed.</p>
+<p>  One additional escape is allowed within character classes besides those listed above: <code>\-</code>, for escaping the hyphen character.</p>
+<p>  <strong>Note</strong>: Character classes look superficially similar to <a href="#element-uset"><code>uset</code></a> elements, but they are distinct and referenced with the <code>$[...usetId]</code> notation in transforms. The <code>uset</code> notation cannot be embedded directly in a transform.</p>
+</li>
+<li><p><strong>Bounded quantifier</strong></p>
+<p>  <code>{x,y}</code></p>
+<p>  <code>x</code> and <code>y</code> are required single digits (<code>0</code> to <code>9</code>) representing the minimum and maximum number of occurrences.</p>
+<p>  <code>x</code> must be ≥ 0, <code>y</code> must be ≥ x and ≥&nbsp;1. </p>
+<p>  Unbounded quantifiers such as <code>{3,}</code> are not allowed.</p>
+</li>
+<li><p><strong>Optional Specifier</strong></p>
+<p>  <code>?</code> - equivalent of <code>{0,1}</code></p>
+</li>
+<li><p><strong>Numbered Capture Groups</strong></p>
+<p>  <code>([abc])([def])</code> (up to 9 groups)</p>
+<p>  These refer to groups captured as a set, and can be referenced with the <code>$1</code> through <code>$9</code> operators in the <code>to=</code> pattern. May not be nested.</p>
+</li>
+<li><p><strong>Non-capturing groups</strong></p>
+<p>  <code>(?:thismatches)</code></p>
+</li>
+<li><p><strong>Nested capturing groups</strong></p>
+<p>  <code>(?:[abc]([def]))|(?:[ghi])</code></p>
+<p>  Capture groups may be nested, however only the innermost group is allowed to be a capture group. The outer group must be a non-capturing group.</p>
+</li>
+<li><p><strong>Disjunctions</strong></p>
+<p>  <code>abc|def</code></p>
+<p>  Match either <code>abc</code> or <code>def</code>.</p>
+</li>
+<li><p><strong>Match a single Unicode codepoint</strong></p>
+<p>  <code>.</code></p>
+<p>  Matches a codepoint, not individual code units. (See the ’u’ option in EcmaScript262 regex.)
+  For example, Osage <code>𐒵</code> is one match (<code>.</code>) not two.
+  Does not match <a href="#markers">markers</a>. (See <code>\m{.}</code> and <code>\m{marker}</code>, below.)</p>
+</li>
+<li><p><strong>Match the start of the text context</strong></p>
+<p>  <code>^</code></p>
+<p>  The start of the context could be the start of a line, a grid cell, or some other formatting boundary.
+  See description at the top of <a href="#element-transform"><code>transforms</code></a>.</p>
+</li>
+</ul><h4>Additional Features</h4><p>The following are additions to standard Regex syntax.</p><ul>
+<li><p><strong>Match a Marker</strong></p>
+<p>  <code>\m{Some_Marker}</code></p>
+<p>  Matches the named marker.
+  Also see <a href="#markers">Markers</a>.</p>
+</li>
+<li><p><strong>Match a single marker</strong></p>
+<p>  <code>\m{.}</code></p>
+<p>  Matches any single marker.
+  Also see <a href="#markers">Markers</a>.</p>
+</li>
+<li><p><strong>String Variables</strong></p>
+<p>  <code>${zwnj}</code></p>
+<p>  In this usage, the variable with <code>id="zwnj"</code> will be substituted in at this point in the expression. The variable can contain a range, a character, or any other portion of a pattern. If <code>zwnj</code> is a simple string, the pattern will match that string at this point.</p>
+</li>
+<li><p><strong><code>set</code> or <code>uset</code> variables</strong></p>
+<p>  <code>$[upper]</code></p>
+<p>  Given a space-separated <code>set</code> or <code>uset</code> variable, this syntax will match <em>any</em> of the substrings. This expression may be thought of  (and implemented) as if it were a <em>non-capturing group</em>. It may, however, be enclosed within a capturing group. For example, the following definition of <code>$[upper]</code> will match as if it were written <code>(?:A|B|CC|D|E|FF)</code>.</p>
+<pre><code class="language-xml">&lt;variables&gt;
+    &lt;set id="upper" value=" A B CC  D E  FF " /&gt;
+&lt;/variables&gt;
+</code></pre>
+<p>  This expression in a <code>from=</code> may be used to <strong>insert a mapped variable</strong>, see below under <a href="#replacement-syntax">Replacement syntax</a>.</p>
+</li>
+</ul><h4>Disallowed Regex Features</h4><ul>
+<li><p><strong>Matching an empty string</strong></p>
+<p>  Transforms may not match an empty string. For example, <code>&lt;transform from=""/&gt;</code> or <code>&lt;transform from="X{0,1}"/&gt;</code> are not allowed and must be flagged as an error to keyboard authors.</p>
+</li>
+<li><p><strong>Unicode properties</strong></p>
+<p>  <code>\p{property}</code> <code>\P{property}</code></p>
+<p>  <strong>Rationale:</strong> The behavior of this feature varies by Unicode version, and so would not have predictable results.</p>
+<p>  Tooling may choose to suggest an expansion of properties, such as <code>\p{Mn}</code> to all non spacing marks for a certain Unicode version.  As well, a set of variables could be constructed in an <code>import</code>-able file matching particularly useful Unicode properties.</p>
+<pre><code class="language-xml">&lt;uset id="Mn" value="[\u{034F}\u{0591}-\u{05AF}\u{05BD}\u{05C4}\u{05C5}\…]" /&gt; &lt;!-- 1,985 code points --&gt;
+</code></pre>
+</li>
+<li><p><strong>Backreferences</strong></p>
+<p>  <code>([abc])-\1</code> <code>\k&lt;something&gt;</code></p>
+<p>  <strong>Rationale:</strong> Implementation and cognitive complexity.</p>
+</li>
+<li><p><strong>Unbounded Quantifiers</strong></p>
+<p>  <code>* + *? +? {1,} {0,}</code></p>
+<p>  <strong>Rationale:</strong> Implementation and Computational complexity.</p>
+</li>
+<li><p><strong>Nested capture groups</strong></p>
+<p>  <code>((a|b|c)|(d|e|f))</code></p>
+<p>  <strong>Rationale:</strong> Computational and cognitive complexity.</p>
+</li>
+<li><p><strong>Named capture groups</strong></p>
+<p>  <code>(?&lt;something&gt;)</code></p>
+<p>  <strong>Rationale:</strong> Implementation complexity.</p>
+</li>
+<li><p><strong>Assertions</strong> other than <code>^</code></p>
+<p>  <code>\b</code> <code>\B</code> <code>(?&lt;!…)</code> …</p>
+<p>  <strong>Rationale:</strong> Implementation complexity.</p>
+</li>
+<li><p><strong>End marker</strong></p>
+<p>  <code>$</code></p>
+<p>  The end marker can be thought of as being implicitly at the end of every <code>from=</code> pattern, matching the insertion point. Transforms do not match past the insertion point.</p>
+</li>
+</ul><p><em>Attribute:</em> <code>to</code></p><blockquote>
+<p>This attribute value represents the characters that are output from the transform.</p>
+<p>If this attribute is absent, it indicates that the no characters are output, such as with a backspace transform.</p>
+<p>A final rule such as <code>&lt;transform from=".*"/&gt;</code> will remove all context which doesn’t match one of the prior rules.</p>
+</blockquote><h4>Replacement syntax</h4><p>Used in the <code>to=</code></p><ul>
+<li><p><strong>Literals</strong></p>
+<p>  <code>$$ \$ \\</code> = <code>$ $ \</code></p>
+</li>
+<li><p><strong>Entire matched substring</strong></p>
+<p>  <code>$0</code></p>
+</li>
+<li><p><strong>Insert the specified capture group</strong></p>
+<p>  <code>$1 $2 $3 …&nbsp;$9</code></p>
+</li>
+<li><p><strong>Insert an entire variable</strong></p>
+<p>  <code>${variable}</code></p>
+<p>  The entire contents of the named variable will be inserted at this point.</p>
+</li>
+<li><p><strong>Insert a mapped set</strong></p>
+<p>  <code>$[1:variable]</code> (Where "1" is any numbered capture group from 1 to 9)</p>
+<p>  Maps capture group 1 to variable <code>variable</code>. The <code>from=</code> side must also contain a grouped variable. This expression may appear anywhere or multiple times in the <code>to=</code> pattern.</p>
+<p>  <strong>Example</strong></p>
+<pre><code class="language-xml">&lt;set id="upper" value="A B CC D E  FF       G" /&gt;
+&lt;set id="lower" value="a b c  d e  \u{0192} g" /&gt;
+&lt;!-- note that values may be spaced for ease of reading --&gt;
+…
+&lt;transform from="($[upper])" to="$[1:lower]" /&gt;
+</code></pre>
+<ul>
+<li><p>The capture group on the <code>from=</code> side <strong>must</strong> contain exactly one set variable.  <code>from="Q($[upper])X"</code> can be used (other context before or after the capture group), but <code>from="(Q$[upper])"</code> may not be used with a mapped variable and is flagged as an error.</p>
+</li>
+<li><p>The <code>from=</code> and <code>to=</code> sides of the pattern must both be using <code>set</code> variables. There is no way to insert a set literal on either side and avoid using a variable.</p>
+</li>
+<li><p>The two variables (here <code>upper</code> and <code>lower</code>) must have exactly the same number of whitespace-separated items. Leading and trailing space is ignored. A variable without any spaces is considered to be a set variable of exactly one item.</p>
+</li>
+<li><p>As described in <a href="#additional-features">Additional Features</a>, the <code>upper</code> set variable as used here matches as if it is <code>((?:A|B|CC|D|E|FF|G))</code>, showing the enclosing capturing group. When text from the input context matches this expression, and all above conditions are met, the mapping proceeds as follows:</p>
+</li>
+</ul>
+<ol>
+<li><p>The portion of the input context, such as <code>CC</code>, is matched against the above calculated pattern.</p>
+</li>
+<li><p>The position within the <code>from=</code> variable (<code>upper</code>) is calculated. The regex match may not have this information, but the matched substring <code>CC</code> can be compared against the tokenized input variable: <code>A</code>, <code>B</code>, <code>CC</code>, <code>D</code>, …&nbsp;to find that the 3rd item matches exactly.</p>
+</li>
+<li><p>The same position within the <code>to=</code> variable (<code>lower</code>) is calculated. The 3rd item is <code>c</code>.</p>
+</li>
+<li><p><code>CC</code> in the input context is replaced with <code>c</code>, and processing proceeds to the next <code>transformGroup</code>.</p>
+</li>
+</ol>
+</li>
+<li><p><strong>Emit a marker</strong></p>
+<p>  <code>\m{Some_marker}</code></p>
+<p>  Emits the named mark. Also see <a href="#markers">Markers</a>.</p>
+</li>
+</ul><h4>Transform Grammar</h4><h5>Transform From Grammar</h5><p>The <code>from=</code> attribute MUST match the <code>from-match</code> rule in this grammar. Not all strings which match this grammar are valid, specifically</p><p>The following is the <a href="tr35.html#ebnf">LDML EBNF</a> format for the grammar:</p><pre><code class="language-ebnf">[ wfc: No more than 9 capture groups may be present. ]
+[ vc: all variables referenced must be defined in the &lt;variables&gt; element ]
+
+from-match
+         ::= '^'? atoms
+atoms    ::= atom ( '|'? atom )*
+atom     ::= quark quantifier?
+quark    ::= non-group
+           | group
+non-group
+         ::= simple-matcher
+           | escaped-codepoints
+           | variable
+variable ::= string-variable
+           | set-variable
+string-variable
+         ::= '${' var-id '}'
+set-variable
+         ::= '$[' var-id ']'
+var-id   ::= IDCHAR+
+group    ::= capturing-group
+           | non-capturing-group
+quantifier
+         ::= bounded-quantifier
+           | '?'
+escaped-codepoints
+         ::= '\' 'u' '{' codepoints-hex '}'
+escaped-codepoint
+         ::= '\' 'u' '{' codepoint-hex '}'
+bounded-quantifier
+         ::= '{' DIGIT ',' DIGIT '}'
+non-capturing-group
+         ::= '(' '?' ':' atoms ')'
+capturing-group
+         ::= '(' catoms ')'
+catoms   ::= catom+
+catom    ::= cquark quantifier?
+cquark   ::= non-group
+codepoints-hex
+         ::= codepoint-hex ( ' ' codepoint-hex )*
+codepoint-hex
+         ::= LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG LHEXDIG? )? )? )? )?
+simple-matcher
+         ::= text-char
+           | class
+           | '.'
+           | match-marker
+match-marker
+         ::= '\m{.}'
+           | match-named-marker
+match-named-marker
+         ::= '\m{' marker-id '}'
+marker-id
+         ::= NMTOKEN
+class    ::= fixed-class
+           | set-class
+fixed-class
+         ::= '\' fixed-class-char
+fixed-class-char
+         ::= 's'
+           | 'S'
+           | 't'
+           | 'r'
+           | 'n'
+           | 'f'
+           | 'v'
+           | 'd'
+           | 'w'
+           | 'D'
+           | 'W'
+set-class
+         ::= '[' set-negator set-members ']'
+set-members
+         ::= set-member+
+set-member
+         ::= char-range
+           | range-char
+           | match-marker
+           | escaped-codepoint
+char-range
+         ::= range-edge '-' range-edge
+range-edge
+         ::= escaped-codepoint
+           | range-char
+set-negator
+         ::= '^'?
+text-char
+         ::= content-char
+           | ws
+           | escaped-char
+           | '-'
+           | ':'
+range-char
+         ::= content-char
+           | ws
+           | escaped-range-char
+           | '.'
+           | '|'
+           | '{'
+           | '}'
+content-char
+         ::= ASCII-PUNCT
+           | ALPHA
+           | DIGIT
+           | NON-ASCII
+escaped-char
+         ::= '\' escapable-char
+escapable-char
+         ::= '.'
+           | '('
+           | ')'
+           | '?'
+           | '['
+           | '\'
+           | ']'
+           | '{'
+           | '}'
+           | '*'
+           | '/'
+           | '^'
+           | '+'
+           | '|'
+           | '$'
+escaped-range-char
+         ::= '\' escapable-range-char
+escapable-range-char
+         ::= escapable-char
+           | '-'
+ws       ::= [ #x3000]
+           | HTAB
+           | CR
+           | LF
+IDCHAR   ::= ALPHA
+           | DIGIT
+           | '_'
+ASCII-PUNCT
+         ::= [!-#%-',/;-&gt;_`#x7E-#x7F]
+NON-ASCII
+         ::= [#x7E-#xD7FF#xE000-#x10FFFF]
+DIGIT    ::= [0-9]
+ALPHA    ::= [A-Za-z]
+HTAB     ::= #xF900
+LF       ::= #xA
+CR       ::= #xD
+HEXDIG   ::= DIGIT
+           | 'A'
+           | 'B'
+           | 'C'
+           | 'D'
+           | 'E'
+           | 'F'
+LHEXDIG  ::= HEXDIG
+           | 'a'
+           | 'b'
+           | 'c'
+           | 'd'
+           | 'e'
+           | 'f'
+NAMESTARTCHAR
+         ::= [:_#xC0-#xD6#xD8-#xF6#xF8-#x2FF#x370-#x37D#x37F-#x1FFF#x200C-#x200D#x2070-#x218F#x2C00-#x2FEF#x3001-#xD7FF#xF900-#xFDCF#xFDF0-#xFFFD#x10000-#x10FFFF]
+           | ALPHA
+NAMECHAR ::= NAMESTARTCHAR
+           | [-.#xB7#x300-#x36F#x203F-#x2040]
+           | DIGIT
+NMTOKEN  ::= NAMECHAR+
+</code></pre><h5>Transform To Grammar</h5><p>This is the grammar for the <code>&lt;transform to="…"/&gt;</code> attribute.  The <code>to=</code> attribute MUST match the <code>to-replacement</code> rule in this grammar. Not all strings which match this grammar are valid:</p><p>The following is the <a href="tr35.html#ebnf">LDML EBNF</a> format for the grammar:</p><pre><code class="language-ebnf">[ vc: A referenced capture group must be present in the from= match string. ]
+[ vc: The `$[1:…]` set format may only be used where there is exactly one capture group with a set variable on the from= match string. ]
+[ vc: all variables referenced must be defined in the &lt;variables&gt; element ]
+
+to-replacement
+         ::= atoms
+atoms    ::= atom*
+atom     ::= replacement-char
+           | escaped-char
+           | group-reference
+           | escaped-codepoints
+           | named-marker
+           | string-variable
+           | mapped-set
+replacement-char
+         ::= content-char
+           | ws
+           | '-'
+           | ':'
+           | '('
+           | ')'
+           | '.'
+           | '*'
+           | '+'
+           | '?'
+           | '['
+           | ']'
+           | '^'
+           | '{'
+           | '}'
+           | '|'
+escaped-char
+         ::= '\' ( '\' | '$' )
+           | '$$'
+group-reference
+         ::= '$' DIGIT
+escaped-codepoints
+         ::= '\' 'u' '{' codepoints-hex '}'
+codepoints-hex
+         ::= codepoint-hex ( ' ' codepoint-hex )*
+codepoint-hex
+         ::= LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG LHEXDIG? )? )? )? )?
+named-marker
+         ::= '\m{' marker-id '}'
+marker-id
+         ::= NMTOKEN
+string-variable
+         ::= '${' var-id '}'
+var-id   ::= IDCHAR+
+mapped-set
+         ::= '$[1:' var-id ']'
+content-char
+         ::= ASCII-PUNCT
+           | ALPHA
+           | DIGIT
+           | NON-ASCII
+ws       ::= [ #x3000]
+           | HTAB
+           | CR
+           | LF
+IDCHAR   ::= ALPHA
+           | DIGIT
+           | '_'
+ASCII-PUNCT
+         ::= [!-#%-',/;-&gt;_`#x7E-#x7F]
+NON-ASCII
+         ::= [#x7E-#xD7FF#xE000-#x10FFFF]
+DIGIT    ::= [0-9]
+ALPHA    ::= [A-Za-z]
+HTAB     ::= #xF900
+LF       ::= #xA
+CR       ::= #xD
+HEXDIG   ::= DIGIT
+           | 'A'
+           | 'B'
+           | 'C'
+           | 'D'
+           | 'E'
+           | 'F'
+LHEXDIG  ::= HEXDIG
+           | 'a'
+           | 'b'
+           | 'c'
+           | 'd'
+           | 'e'
+           | 'f'
+NAMESTARTCHAR
+         ::= [:_#xC0-#xD6#xD8-#xF6#xF8-#x2FF#x370-#x37D#x37F-#x1FFF#x200C-#x200D#x2070-#x218F#x2C00-#x2FEF#x3001-#xD7FF#xF900-#xFDCF#xFDF0-#xFFFD#x10000-#x10FFFF]
+           | ALPHA
+NAMECHAR ::= NAMESTARTCHAR
+           | [-.#xB7#x300-#x36F#x203F-#x2040]
+           | DIGIT
+NMTOKEN  ::= NAMECHAR+
+</code></pre><h5>ABNF</h5><p>The grammar for the transform rules is also available in ABNF notation [<a href="https://www.rfc-editor.org/info/std68">STD68</a>],
+including the modifications found in <a href="https://www.rfc-editor.org/rfc/rfc7405">RFC 7405</a>.</p><p>RFC7405 defines a variation of ABNF that is case-sensitive.
+Some ABNF tools are only compatible with the specification found in
+<a href="https://www.rfc-editor.org/rfc/rfc5234">RFC 5234</a>.</p><p>The ABNF files are located in the <code>keyboards/abnf</code> directory in the CLDR source directory.  (The EBNF above was converted from the ABNF files.)</p><ul>
+<li><code>transform-from-required.abnf</code></li>
+<li><code>transform-to-required.abnf</code></li>
+</ul><hr><h3>Element: reorder</h3><p>The reorder transform consists of a <a href="#element-transformgroup"><code>&lt;transformGroup&gt;</code></a> element containing <code>&lt;reorder&gt;</code> elements.  Multiple such <code>&lt;transformGroup&gt;</code> elements may be contained in an enclosing <code>&lt;transforms&gt;</code> element.</p><p>One or more <a href="#element-import"><code>&lt;import&gt;</code></a> elements are allowed to precede the <code>&lt;reorder&gt;</code> elements.</p><p>This transform has the job of reordering sequences of characters that have been typed, from their typed order to the desired output order. The primary concern in this transform is to sort combining marks into their correct relative order after a base, as described in this section. The reorder transforms can be quite complex, keyboard layouts will almost always import them.</p><p>The reordering algorithm consists of four parts:</p><ol>
+<li>Create a sort key for each character in the input string. A sort key has 4 parts (primary, index, tertiary, quaternary):<ul>
+<li>The <strong>primary weight</strong> is the primary order value.</li>
+<li>The <strong>secondary weight</strong> is the index, a position in the input string, usually of the character itself, but it may be of a character earlier in the string.</li>
+<li>The <strong>tertiary weight</strong> is a tertiary order value (defaulting to 0).</li>
+<li>The <strong>quaternary weight</strong> is the index of the character in the string. This is solely to ensure a stable sort for sequences of characters with the same tertiary weight.</li>
+</ul>
+</li>
+<li>Mark each character as to whether it is a prebase character, one that is typed before the base and logically stored after. Thus it will have a primary order &gt; 0.</li>
+<li>Use the sort key and the prebase mark to identify runs. A run starts with a prefix that contains any prebase characters and a single base character whose primary and tertiary key is 0. The run extends until, but not including, the start of the prefix of the next run or end of the string.<ul>
+<li><code>run := preBase* (primary=0 &amp;&amp; tertiary=0) ((primary≠0 || tertiary≠0) &amp;&amp; !preBase)*</code></li>
+</ul>
+</li>
+<li>Sort the character order of each character in the run based on its sort key.</li>
+</ol><p>The primary order of a character with the Unicode property <code>Canonical_Combining_Class</code> (ccc) of 0 may well not be 0. In addition, a character may receive a different primary order dependent on context. For example, in the Devanagari sequence ka halant ka, the first ka would have a primary order 0 while the halant ka sequence would give both halant and the second ka a primary order &gt; 0, for example 2. Note that “base” character in this discussion is not a Unicode base character. It is instead a character with primary=0.</p><p>In order to get the characters into the correct relative order, it is necessary not only to order combining marks relative to the base character, but also to order some combining marks in a subsequence following another combining mark. For example in Devanagari, a nukta may follow a consonant character, but it may also follow a conjunct consisting of consonant, halant, consonant. Notice that the second consonant is not, in this model, the start of a new run because some characters may need to be reordered to before the first base, for example repha. The repha would get primary &lt; 0, and be sorted before the character with order = 0, which is, in the case of Devanagari, the initial consonant of the orthographic syllable.</p><p>The reorder transform consists of <code>&lt;reorder&gt;</code> elements encapsulated in a <code>&lt;transformGroup&gt;</code> element. Each element is a rule that matches against a string of characters with the action of setting the various ordering attributes (<code>primary</code>, <code>tertiary</code>, <code>tertiaryBase</code>, <code>preBase</code>) for the matched characters in the string.</p><p>The relative ordering of <code>&lt;reorder&gt;</code> elements is not significant.</p><p><strong>Syntax</strong></p><pre><code class="language-xml">&lt;transformGroup&gt;
+    &lt;!-- one or more &lt;import/&gt; elements are allowed at this point --&gt;
+    &lt;reorder from="…combination of characters"
+    before="…look-behind required match"
+    order="…list of weights"
+    tertiary="…list of weights"
+    tertiaryBase="…list of true/false"
+    preBase="…list of true/false" /&gt;
+    &lt;!-- other &lt;reorder/&gt; elements… --&gt;
+&lt;/transformGroup&gt;
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <a href="#element-transformgroup">transformGroup</a>
+Children: <em>none</em>
+Occurrence: optional, multiple</p>
+</small></blockquote><p><em>Attribute:</em> <code>from</code> (required)</p><blockquote>
+<p>This attribute value contains a string of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in <a href="tr35.html#Unicode_Sets">UTS #35 Part One</a>).</p>
+</blockquote><p><em>Attribute:</em> <code>before</code></p><blockquote>
+<p>This attribute value contains the element string that must match the string immediately preceding the start of the string that the @from matches.</p>
+</blockquote><p><em>Attribute:</em> <code>order</code></p><blockquote>
+<p>This attribute value gives the primary order for the elements in the matched string in the <code>@from</code> attribute. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. For a single integer, it is applied to all the elements in the matched string. Details of such list type attributes are given after all the attributes are described. If missing, the order value of all the matched characters is 0. We consider the order value for a matched character in the string.</p>
+<ul>
+<li>If the value is 0 and its tertiary value is 0, then the character is the base of a new run.</li>
+<li>If the value is 0 and its tertiary value is non-zero, then it is a normal character in a run, with ordering semantics as described in the <code>@tertiary</code> attribute.</li>
+<li>If the value is negative, then the character is a primary character and will reorder to be before the base of the run.</li>
+<li>If the value is positive, then the character is a primary character and is sorted based on the order value as the primary key following a previous base character.</li>
+</ul>
+<p>A character with a zero tertiary value is a primary character and receives a sort key consisting of:</p>
+<ul>
+<li>Primary weight is the order value</li>
+<li>Secondary weight is the index of the character. This may be any value (character index, codepoint index) such that its value is greater than the character before it and less than the character after it.</li>
+<li>Tertiary weight is 0.</li>
+<li>Quaternary weight is the same as the secondary weight.</li>
+</ul>
+</blockquote><p><em>Attribute:</em> <code>tertiary</code></p><blockquote>
+<p>This attribute value gives the tertiary order value to the characters matched. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. If missing, the value for all the characters matched is 0. We consider the tertiary value for a matched character in the string.</p>
+<ul>
+<li>If the value is 0 then the character is considered to have a primary order as specified in its order value and is a primary character.</li>
+<li>If the value is non zero, then the order value must be zero otherwise it is an error. The character is considered as a tertiary character for the purposes of ordering.</li>
+</ul>
+<p>A tertiary character receives its primary order and index from a previous character, which it is intended to sort closely after. The sort key for a tertiary character consists of:</p>
+<ul>
+<li>Primary weight is the primary weight of the primary character..</li>
+<li>Secondary weight is the index of the primary character, not the tertiary character</li>
+<li>Tertiary weight is the tertiary value for the character.</li>
+<li>Quaternary weight is the index of the tertiary character.</li>
+</ul>
+</blockquote><p><em>Attribute:</em> <code>tertiaryBase</code></p><blockquote>
+<p>This attribute value is a space separated list of <code>"true"</code> or <code>"false"</code> values corresponding to each character matched. It is illegal for a tertiary character to have a true <code>tertiaryBase</code> value. For a primary character it marks that this character may have tertiary characters moved after it. When calculating the secondary weight for a tertiary character, the most recently encountered primary character with a true <code>tertiaryBase</code> attribute value is used. Primary characters with an <code>@order</code> value of 0 automatically are treated as having <code>tertiaryBase</code> true regardless of what is specified for them.</p>
+</blockquote><p><em>Attribute:</em> <code>preBase</code></p><blockquote>
+<p>This attribute value gives the prebase attribute for each character matched. The value may be <code>"true"</code> or <code>"false"</code> or a space separated list of such values. If missing the value for all the characters matched is false. It is illegal for a tertiary character to have a true prebase value.</p>
+<p>If a primary character has a true prebase value then the character is marked as being typed before the base character of a run, even though it is intended to be stored after it. The primary order gives the intended position in the order after the base character, that the prebase character will end up. Thus <code>@order</code> shall not be 0. These characters are part of the run prefix. If such characters are typed then, in order to give the run a base character after which characters can be sorted, an appropriate base character, such as a dotted circle, is inserted into the output run, until a real base character has been typed. A value of <code>"false"</code> indicates that the character is not a prebase.</p>
+</blockquote><p>For <code>@from</code> attribute values with a match string length greater than 1, the sort key information (<code>@order</code>, <code>@tertiary</code>, <code>@tertiaryBase</code>, <code>@preBase</code>) may consist of a space-separated list of values, one for each element matched. The last value is repeated to fill out any missing values. Such a list may not contain more values than there are elements in the <code>@from</code> attribute:</p><pre><code class="language-java">if len(@from) &lt; len(@list) then error
+else
+    while len(@from) &gt; len(@list)
+        append lastitem(@list) to @list
+    endwhile
+endif
+</code></pre><p><strong>Example</strong></p><p>For example, consider the Northern Thai (<code>nod-Lana</code>, Tai Tham script) word: ᨡ᩠ᩅᩫ᩶ 'roasted'. This is ideally encoded as the following:</p><table>
+<thead>
+<tr>
+<th>name</th>
+<th><em>kha</em></th>
+<th><em>sakot</em></th>
+<th><em>wa</em></th>
+<th><em>o</em></th>
+<th><em>t2</em></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>1A21</td>
+<td>1A60</td>
+<td>1A45</td>
+<td>1A6B</td>
+<td>1A76</td>
+</tr>
+<tr>
+<td>ccc</td>
+<td>0</td>
+<td>9</td>
+<td>0</td>
+<td>0</td>
+<td>230</td>
+</tr>
+</tbody></table><p>(That sequence is already in NFC format.)</p><p>Some users may type the upper component of the vowel first, and the tone before or after the lower component. Thus someone might type it as:</p><table>
+<thead>
+<tr>
+<th>name</th>
+<th><em>kha</em></th>
+<th><em>o</em></th>
+<th><em>t2</em></th>
+<th><em>sakot</em></th>
+<th><em>wa</em></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>1A21</td>
+<td>1A6B</td>
+<td>1A76</td>
+<td>1A60</td>
+<td>1A45</td>
+</tr>
+<tr>
+<td>ccc</td>
+<td>0</td>
+<td>0</td>
+<td>230</td>
+<td>9</td>
+<td>0</td>
+</tr>
+</tbody></table><p>The Unicode NFC format of that typed value reorders to:</p><table>
+<thead>
+<tr>
+<th>name</th>
+<th><em>kha</em></th>
+<th><em>o</em></th>
+<th><em>sakot</em></th>
+<th><em>t2</em></th>
+<th><em>wa</em></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>1A21</td>
+<td>1A6B</td>
+<td>1A60</td>
+<td>1A76</td>
+<td>1A45</td>
+</tr>
+<tr>
+<td>ccc</td>
+<td>0</td>
+<td>0</td>
+<td>9</td>
+<td>230</td>
+<td>0</td>
+</tr>
+</tbody></table><p>Finally, the user might also type in the sequence with the tone <em>after</em> the lower component.</p><table>
+<thead>
+<tr>
+<th>name</th>
+<th><em>kha</em></th>
+<th><em>o</em></th>
+<th><em>sakot</em></th>
+<th><em>wa</em></th>
+<th><em>t2</em></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>1A21</td>
+<td>1A6B</td>
+<td>1A60</td>
+<td>1A45</td>
+<td>1A76</td>
+</tr>
+<tr>
+<td>ccc</td>
+<td>0</td>
+<td>0</td>
+<td>9</td>
+<td>0</td>
+<td>230</td>
+</tr>
+</tbody></table><p>(That sequence is already in NFC format.)</p><p>We want all of these sequences to end up ordered as the first. To do this, we use the following rules:</p><pre><code class="language-xml">&lt;reorder from="\u{1A60}" order="127" /&gt;      &lt;!-- max possible order --&gt;
+&lt;reorder from="\u{1A6B}" order="42" /&gt;
+&lt;reorder from="[\u{1A75}-\u{1A79}]" order="55" /&gt;
+&lt;reorder before="\u{1A6B}" from="\u{1A60}\u{1A45}" order="10" /&gt;
+&lt;reorder before="\u{1A6B}[\u{1A75}-\u{1A79}]" from="\u{1A60}\u{1A45}" order="10" /&gt;
+&lt;reorder before="\u{1A6B}" from="\u{1A60}[\u{1A75}-\u{1A79}]\u{1A45}" order="10 55 10" /&gt;
+</code></pre><p>The first reorder is the default ordering for the <em>sakot</em> which allows for it to be placed anywhere in a sequence, but moves any non-consonants that may immediately follow it, back before it in the sequence. The next two rules give the orders for the top vowel component and tone marks respectively. The next three rules give the <em>sakot</em> and <em>wa</em> characters a primary order that places them before the <em>o</em>. Notice particularly the final reorder rule where the <em>sakot</em>+<em>wa</em> is split by the tone mark. This rule is necessary in case someone types into the middle of previously normalized text.</p><p><code>&lt;reorder&gt;</code> elements are priority ordered based first on the length of string their <code>@from</code> attribute value matches and then the sum of the lengths of the strings their <code>@before</code> attribute value matches.</p><h4>Using <code>&lt;import&gt;</code> with <code>&lt;reorder&gt;</code> elements</h4><p>This section describes the impact of using <a href="#element-import"><code>import</code></a> elements with <code>&lt;reorder&gt;</code> elements.</p><p>The @from string in a <code>&lt;reorder&gt;</code> element describes a set of strings that it matches. This also holds for the <code>@before</code> attribute. The <strong>intersection</strong> of any two <code>&lt;reorder&gt;</code> elements consists of the intersections of their <code>@from</code> and <code>@before</code> string sets. Tooling should warn users if the intersection between any two <code>&lt;reorder&gt;</code> elements in the same <code>&lt;transformGroup&gt;</code> element to be non empty prior to processing imports.</p><p>If two <code>&lt;reorder&gt;</code> elements have a non empty intersection, then they are split and merged. They are split such that where there were two <code>&lt;reorder&gt;</code> elements, there are, in effect (but not actuality), three elements consisting of:</p><ul>
+<li><code>@from</code>, <code>@before</code> that match the intersection of the two rules. The other attribute values are merged, as described below.</li>
+<li><code>@from</code>, <code>@before</code> that match the set of strings in the first rule not in the intersection with the other attribute values from the first rule.</li>
+<li><code>@from</code>, <code>@before</code> that match the set of strings in the second rule not in the intersection, with the other attribute values from the second rule.</li>
+</ul><p>When merging the other attributes, the second rule is taken to have priority (being an override of the earlier element). Where the second rule does not define the value for a character but the first does, the value is taken from the first rule, otherwise it is taken from the second rule.</p><p>Notice that it is possible for two rules to match the same string, but for them not to merge because the distribution of the string across <code>@before</code> and <code>@from</code> is different. For example, the following would not merge:</p><pre><code class="language-xml">&lt;reorder before="ab" from="cd" /&gt;
+&lt;reorder before="a" from="bcd" /&gt;
+</code></pre><p>After <code>&lt;reorder&gt;</code> elements merge, the resulting <code>reorder</code> elements are sorted into priority order for matching.</p><p>Consider this fragment from a shared reordering for the Myanmar script:</p><pre><code class="language-xml">&lt;!-- File: "myanmar-reordering.xml" --&gt;
+&lt;transformGroup&gt;
+    &lt;!-- medial-r --&gt;
+    &lt;reorder from="\u{103C}" order="20" /&gt;
+
+    &lt;!-- [medial-wa or shan-medial-wa] --&gt;
+    &lt;reorder from="[\u{103D}\u{1082}]" order="25" /&gt;
+
+    &lt;!-- [medial-ha or shan-medial-wa]+asat = Mon asat --&gt;
+    &lt;reorder from="[\u{103E}\u{1082}]\u{103A}" order="27" /&gt;
+
+    &lt;!-- [medial-ha or mon-medial-wa] --&gt;
+    &lt;reorder from="[\u{103E}\u{1060}]" order="27" /&gt;
+
+    &lt;!-- [e-vowel (U+1031) or shan-e-vowel (U+1084)] --&gt;
+    &lt;reorder from="[\u{1031}\u{1084}]" order="30" /&gt;
+
+    &lt;reorder from="[\u{102D}\u{102E}\u{1033}-\u{1035}\u{1071}-\u{1074}\u{1085}\u{109D}\u{A9E5}]" order="35" /&gt;
+&lt;/transformGroup&gt;
+</code></pre><p>A particular Myanmar keyboard layout can have these <code>reorder</code> elements:</p><pre><code class="language-xml">&lt;transformGroup&gt;
+    &lt;import path="myanmar-reordering.xml"/&gt; &lt;!-- import the above transformGroup --&gt;
+    &lt;!-- Kinzi --&gt;
+    &lt;reorder from="\u{1004}\u{103A}\u{1039}" order="-1" /&gt;
+
+    &lt;!-- e-vowel --&gt;
+    &lt;reorder from="\u{1031}" preBase="1" /&gt;
+
+    &lt;!-- medial-r --&gt;
+    &lt;reorder from="\u{103C}" preBase="1" /&gt;
+&lt;/transformGroup&gt;
+</code></pre><p>The effect of this is that the <em>e-vowel</em> will be identified as a prebase and will have an order of 30. Likewise a <em>medial-r</em> will be identified as a prebase and will have an order of 20. Notice that a <em>shan-e-vowel</em> (<code>\u{1084}</code>) will not be identified as a prebase (even if it should be!). The <em>kinzi</em> is described in the layout since it moves something across a run boundary. By separating such movements (prebase or moving to in front of a base) from the shared ordering rules, the shared ordering rules become a self-contained combining order description that can be used in other keyboards or even in other contexts than keyboarding.</p><h4>Example Post-reorder transforms</h4><p>It may be desired to perform additional processing following reorder operations.  This may be aaccomplished by adding an additional <code>&lt;transformGroup&gt;</code> element after the group containing <code>&lt;reorder&gt;</code> elements.</p><p>First, a partial example from Khmer where split vowels are combined after reordering.</p><pre><code class="language-xml">…
+&lt;transformGroup&gt;
+    &lt;reorder&nbsp;… /&gt;
+    &lt;reorder&nbsp;… /&gt;
+    &lt;reorder&nbsp;… /&gt;
+    …
+&lt;/transformGroup&gt;
+&lt;transformGroup&gt;
+    &lt;transform from="\u{17C1}\u{17B8}" to="\u{17BE}" /&gt;
+    &lt;transform from="\u{17C1}\u{17B6}" to="\u{17C4}" /&gt;
+&lt;/transformGroup&gt;
+</code></pre><p>Another partial example allows a keyboard implementation to prevent people typing two lower vowels in a Burmese cluster:</p><pre><code class="language-xml">…
+&lt;transformGroup&gt;
+    &lt;reorder&nbsp;… /&gt;
+    &lt;reorder&nbsp;… /&gt;
+    &lt;reorder&nbsp;… /&gt;
+    …
+&lt;/transformGroup&gt;
+&lt;transformGroup&gt;
+    &lt;transform from="[\u{102F}\u{1030}\u{1048}\u{1059}][\u{102F}\u{1030}\u{1048}\u{1059}]"  /&gt;
+&lt;/transformGroup&gt;
+</code></pre><h4>Reorder and Markers</h4><p>Markers are not matched by <code>reorder</code> elements. However, if a character preceded by one or more markers is reordered due to a <code>reorder</code> element, those markers will be reordered with the characters, maintaining the same relative order.  This is a similar process to the algorithm used to normalize strings processed by <code>transform</code> elements.</p><p>Keyboard implementations must process <code>reorder</code> elements using the following algorithm.</p><p>Note that steps 1 and 3 are identical to the steps used for normalization using markers in the <a href="#marker-algorithm-overview">Marker Algorithm Overview</a>.</p><p>Given an input string from context or from a previous <code>transformGroup</code>:</p><ol>
+<li><p>Parsing/Removing Markers</p>
+</li>
+<li><p>Perform reordering (as in this section)</p>
+</li>
+<li><p>Re-Adding Markers</p>
+</li>
+</ol><hr><h3>Backspace Transforms</h3><p>The <code>&lt;transforms type="backspace"&gt;</code> describe an optional transform that is not applied on input of normal characters, but is only used to perform extra backspace modifications to previously committed text.</p><p>When the backspace key is pressed, the <code>&lt;transforms type="backspace"&gt;</code> element (if present) is processed, and then the <code>&lt;transforms type="simple"&gt;</code> element (if processed) as with any other key.</p><p>Keyboarding applications typically work, but are not required to, in one of two modes:</p><p><strong><em>text entry</em></strong></p><blockquote>
+<p>text entry happens while a user is typing new text. A user typically wants the backspace key to undo whatever they last typed, whether or not they typed things in the 'right' order.</p>
+</blockquote><p><strong><em>text editing</em></strong></p><blockquote>
+<p>text editing happens when a user moves the cursor into some previously entered text which may have been entered by someone else. As such, there is no way to know in which order things were typed, but a user will still want appropriate behavior when they press backspace. This may involve deleting more than one character or replacing a sequence of characters with a different sequence.</p>
+</blockquote><p>In text editing mode, different keyboard layouts may behave differently in the same textual context. The backspace transform allows the keyboard layout to specify the effect of pressing backspace in a particular textual context. This is done by specifying a set of backspace rules that match a string before the cursor and replace it with another string. The rules are expressed within a <code>transforms type="backspace"</code> element.</p><pre><code class="language-xml">&lt;transforms type="backspace"&gt;
+    &lt;transformGroup&gt;
+        &lt;transform from="…match pattern" to="…output pattern" /&gt;
+    &lt;/transformGroup&gt;
+&lt;/transforms&gt;
+</code></pre><p><strong>Example</strong></p><p>For example, consider deleting a Devanagari ksha क्श:</p><p>While this character is made up of three codepoints, the following rule causes all three to be deleted by a single press of the backspace.</p><pre><code class="language-xml">&lt;transforms type="backspace"&gt;
+    &lt;transformGroup&gt;
+        &lt;transform from="\u{0915}\u{094D}\u{0936}"/&gt;
+    &lt;/transformGroup&gt;
+&lt;/transforms&gt;
+</code></pre><p>Note that the optional attribute <code>@to</code> is omitted, since the whole string is being deleted. This is not uncommon in backspace transforms.</p><p>A more complex example comes from a Burmese visually ordered keyboard:</p><pre><code class="language-xml">&lt;transforms type="backspace"&gt;
+    &lt;transformGroup&gt;
+        &lt;!-- Kinzi --&gt;
+        &lt;transform from="[\u{1004}\u{101B}\u{105A}]\u{103A}\u{1039}" /&gt;
+
+        &lt;!-- subjoined consonant --&gt;
+        &lt;transform from="\u{1039}[\u{1000}-\u{101C}\u{101E}\u{1020}\u{1021}\u{1050}\u{1051}\u{105A}-\u{105D}]" /&gt;
+
+        &lt;!-- tone mark --&gt;
+        &lt;transform from="\u{102B}\u{103A}" /&gt;
+
+        &lt;!-- Handle prebases --&gt;
+        &lt;!-- diacritics stored before e-vowel --&gt;
+        &lt;transform from="[\u{103A}-\u{103F}\u{105E}-\u{1060}\u{1082}]\u{1031}" to="\u{1031}" /&gt;
+
+        &lt;!-- diacritics stored before medial r --&gt;
+        &lt;transform from="[\u{103A}-\u{103B}\u{105E}-\u{105F}]\u{103C}" to="\u{103C}" /&gt;
+
+        &lt;!-- subjoined consonant before e-vowel --&gt;
+        &lt;transform from="\u{1039}[\u{1000}-\u{101C}\u{101E}\u{1020}\u{1021}]\u{1031}" to="\u{1031}" /&gt;
+
+        &lt;!-- base consonant before e-vowel --&gt;
+        &lt;transform from="[\u{1000}-\u{102A}\u{103F}-\u{1049}\u{104E}]\u{1031}" to="\m{prebase}\u{1031}" /&gt;
+
+        &lt;!-- subjoined consonant before medial r --&gt;
+        &lt;transform from="\u{1039}[\u{1000}-\u{101C}\u{101E}\u{1020}\u{1021}]\u{103C}" to="\u{103C}" /&gt;
+
+        &lt;!-- base consonant before medial r --&gt;
+        &lt;transform from="[\u{1000}-\u{102A}\u{103F}-\u{1049}\u{104E}]\u{103C}" to="\m{prebase}\u{103C}" /&gt;
+
+        &lt;!-- delete lone medial r or e-vowel --&gt;
+        &lt;transform from="\m{prebase}[\u{1031}\u{103C}]" /&gt;
+    &lt;/transformGroup&gt;
+&lt;/transforms&gt;
+</code></pre><p>The above example is simplified, and doesn't fully handle the interaction between medial-r and e-vowel.</p><blockquote>
+<p>The character <code>\m{prebase}</code> does not represent a literal character, but is instead a special marker, used as a "filler string". When a keyboard implementation handles a user pressing a key that inserts a prebase character, it also has to insert a special filler string before the prebase to ensure that the prebase character does not combine with the previous cluster. See the reorder transform for details. See <a href="#markers">markers</a> for the <code>\m</code> syntax.</p>
+</blockquote><p>The first three transforms above delete various ligatures with a single keypress. The other transforms handle prebase characters. There are two in this Burmese keyboard. The transforms delete the characters preceding the prebase character up to base which gets replaced with the prebase filler string, which represents a null base. Finally the prebase filler string + prebase is deleted as a unit.</p><p>If no specified transform among all <code>transformGroup</code>s under the <code>&lt;transforms type="backspace"&gt;</code> element matches, a default will be used instead — an implied final transform that simply deletes the codepoint at the end of the input context. This implied transform is effectively similar to the following code sample, even though the <code>*</code> operator is not actually allowed in <code>from=</code>.  See the documentation for <em>Match a single Unicode codepoint</em> under <a href="#regex-like-syntax">transform syntax</a> and <a href="#markers">markers</a>, above.</p><p>It is important that implementations do not by default delete more than one non-marker codepoint at a time, except in the case of emoji clusters. Note that implementations will vary in the emoji handling due to the iterative nature of successive Unicode releases. See <a href="https://www.unicode.org/reports/tr51/#Emoji_Modifiers_in_Text">UTS#51 §2.4.2: Emoji Modifiers in Text</a></p><pre><code class="language-xml">&lt;transforms type="backspace"&gt;
+    &lt;!-- Other explicit transforms --&gt;
+
+    &lt;!-- Final implicit backspace transform: Delete the final codepoint. --&gt;
+    &lt;transformGroup&gt;
+        &lt;!-- (:?\m{.})*  - matches any number of contiguous markers --&gt;
+        &lt;transform from="(:?\m{.})*.(:?\m{.})*" /&gt; &lt;!-- deletes any number of markers directly on either side of the final pre-caret codepoint --&gt;
+    &lt;/transformGroup&gt;
+&lt;/transforms&gt;
+</code></pre><hr><h2>Invariants</h2><p>Beyond what the DTD imposes, certain other restrictions on the data are imposed on the data.
+Please note the constraints given under each element section above.
+DTD validation alone is not sufficient to verify a keyboard file.</p><hr><h2>Keyboard IDs</h2><p>There is a set of subtags that help identify the keyboards. Each of these are used after the <code>"t-k0"</code> subtags to help identify the keyboards. The first tag appended is a mandatory platform tag followed by zero or more tags that help differentiate the keyboard from others with the same locale code.</p><h3>Principles for Keyboard IDs</h3><p>The following are the design principles for the IDs.</p><ol>
+<li>BCP47 compliant.<ol>
+<li>Eg, <code>en</code>, <code>sr-Cyrl</code>, or <code>en-t-k0-extended</code>.</li>
+</ol>
+</li>
+<li>Use the minimal language id based on <code>likelySubtags</code>&nbsp;(see <a href="tr35.html#Likely_Subtags">Part 1: Likely Subtags</a>)<ol>
+<li>Eg, instead of <code>fa-Arab</code>, use <code>fa</code>.</li>
+<li>The data is in <a href="https://github.com/unicode-org/cldr/blob/main/common/supplemental/likelySubtags.xml">https://github.com/unicode-org/cldr/blob/main/common/supplemental/likelySubtags.xml</a></li>
+</ol>
+</li>
+<li>Keyboard files should be platform-independent, however, if included, a platform id is the first subtag after <code>-t-k0-</code>. If a keyboard on the platform changes over time, both are dated, eg <code>bg-t-k0-chromeos-2011</code>. When selecting, if there is no date, it means the latest one.</li>
+<li>Keyboards are only tagged that differ from the "standard for each language". That is, for each language on a platform, there will be a keyboard with no subtags. Subtags with common semantics across languages and platforms are used, such as <code>-extended</code>, <code>-phonetic</code>, <code>-qwerty</code>, <code>-qwertz</code>, <code>-azerty</code>, …</li>
+<li>In order to get to 8 letters, abbreviations are reused that are already in <a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/">bcp47</a> -u/-t extensions and in <a href="https://www.iana.org/assignments/language-subtag-registry">language-subtag-registry</a> variants, eg for Traditional use <code>-trad</code> or <code>-traditio</code> (both exist in <a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/">bcp47</a>).</li>
+<li>Multiple languages cannot be indicated in the locale id, so the predominant target is used.<ol>
+<li>For Finnish + Sami, use <code>fi-t-k0-smi</code> or <code>extended-smi</code></li>
+<li>The <a href="#element-locales"><code>&lt;locales&gt;</code></a> element may be used to identify additional languages.</li>
+</ol>
+</li>
+<li>In some cases, there are multiple subtags, like <code>en-US-t-k0-chromeos-intl-altgr.xml</code></li>
+<li>Otherwise, platform names are used as a guide.</li>
+</ol><p><strong>Examples</strong></p><pre><code class="language-xml">&lt;!-- Serbian Latin --&gt;
+&lt;keyboard3 locale="sr-Latn"/&gt;
+</code></pre><pre><code class="language-xml">&lt;!-- Serbian Cyrillic --&gt;
+&lt;keyboard3 locale="sr-Cyrl"/&gt;
+</code></pre><pre><code class="language-xml">&lt;!-- Pan Nigerian Keyboard--&gt;
+&lt;keyboard3 locale="mul-Latn-NG-t-k0-panng"&gt;
+    &lt;locales&gt;
+    &lt;locale id="ha"/&gt;
+    &lt;locale id="ig"/&gt;
+    &lt;!-- others … --&gt;
+    &lt;/locales&gt;
+&lt;/keyboard3&gt;
+</code></pre><pre><code class="language-xml">&lt;!-- Finnish Keyboard including Skolt Sami --&gt;
+&lt;keyboard3 locale="fi-t-k0-smi"&gt;
+    &lt;locales&gt;
+    &lt;locale id="sms"/&gt;
+    &lt;/locales&gt;
+&lt;/keyboard3&gt;
+</code></pre><hr><h2>Platform Behaviors in Edge Cases</h2><table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>No modifier combination match is available</th>
+<th>No map match is available for key position</th>
+<th>Transform fails (i.e. if ^d is pressed when that transform does not exist)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Chrome OS</td>
+<td>Fall back to base</td>
+<td>Fall back to character in a keyMap with same "level" of modifier combination. If this character does not exist, fall back to (n-1) level. (This is handled data-generation-side.) <br> In the specification: No output</td>
+<td>No output at all</td>
+</tr>
+<tr>
+<td>Mac OS X</td>
+<td>Fall back to base (unless combination is some sort of keyboard shortcut, e.g. cmd-c)</td>
+<td>No output</td>
+<td>Both keys are output separately</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>No output</td>
+<td>No output</td>
+<td>Both keys are output separately</td>
+</tr>
+</tbody></table><hr><p>© 2001–2025 Unicode, Inc.
+This publication is protected by copyright, and permission must be obtained from Unicode, Inc.
+prior to any reproduction, modification, or other use not permitted by the <a href="https://www.unicode.org/copyright.html">Terms of Use</a>.
+Specifically, you may make copies of this publication and may annotate and translate it solely for personal or internal business purposes and not for public distribution,
+provided that any such permitted copies and modifications fully reproduce all copyright and other legal notices contained in the original.
+You may not make copies of or modifications to this publication for public distribution, or incorporate it in whole or in part into any product or publication without the express written permission of Unicode.</p><p>Use of all Unicode Products, including this publication, is governed by the Unicode <a href="https://www.unicode.org/copyright.html">Terms of Use</a>.
+The authors, contributors, and publishers have taken care in the preparation of this publication,
+but make no express or implied representation or warranty of any kind and assume no responsibility or liability for errors or omissions or for consequential or incidental damages that may arise therefrom.
+This publication is provided “AS-IS” without charge as a convenience to users.</p><p>Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.</p></div>
+
+  <!--additional scripts and fixups-->
+  <script src="./js/anchor.min.js"></script>
+  <script src="./js/tr35search.js"></script>
+  <script>anchors.add('h2, h3, h4, h5, h6, caption, dfn');</script>
+</body></html>

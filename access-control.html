@@ -1,0 +1,2750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.7.1">
+<title>Gerrit Code Review - Access Controls</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Gerrit Code Review - Access Controls</h1>
+<div class="details">
+<span id="revnumber">version v3.10.4</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#system_groups">System Groups</a>
+<ul class="sectlevel2">
+<li><a href="#anonymous_users">Anonymous Users</a></li>
+<li><a href="#project_owners">Project Owners</a></li>
+<li><a href="#change_owner">Change Owner</a></li>
+<li><a href="#registered_users">Registered Users</a></li>
+</ul>
+</li>
+<li><a href="#_predefined_groups">Predefined Groups</a>
+<ul class="sectlevel2">
+<li><a href="#administrators">Administrators</a></li>
+<li><a href="#service_users">Service Users</a></li>
+</ul>
+</li>
+<li><a href="#_account_groups">Account Groups</a></li>
+<li><a href="#ldap_groups">LDAP Groups</a></li>
+<li><a href="#_project_access_control_lists">Project Access Control Lists</a>
+<ul class="sectlevel2">
+<li><a href="#_openid_authentication">OpenID Authentication</a></li>
+<li><a href="#_all_projects">All Projects</a></li>
+<li><a href="#_per_project">Per-Project</a></li>
+</ul>
+</li>
+<li><a href="#references">Special and magic references</a>
+<ul class="sectlevel2">
+<li><a href="#references_special">Special references</a></li>
+<li><a href="#references_magic">Magic references</a></li>
+</ul>
+</li>
+<li><a href="#access_categories">Access Categories</a>
+<ul class="sectlevel2">
+<li><a href="#category_abandon">Abandon</a></li>
+<li><a href="#category_create">Create (aka Create Reference)</a></li>
+<li><a href="#category_delete">Delete (aka Delete Reference)</a></li>
+<li><a href="#category_forge_author">Forge Author</a></li>
+<li><a href="#category_forge_committer">Forge Committer</a></li>
+<li><a href="#category_forge_server">Forge Server</a></li>
+<li><a href="#category_owner">Owner</a></li>
+<li><a href="#category_push">Push</a></li>
+<li><a href="#category_add_patch_set">Add Patch Set</a></li>
+<li><a href="#category_push_merge">Push Merge Commits</a></li>
+<li><a href="#category_create_annotated">Create Annotated Tag</a></li>
+<li><a href="#category_create_signed">Create Signed Tag</a></li>
+<li><a href="#category_read">Read</a></li>
+<li><a href="#category_rebase">Rebase</a></li>
+<li><a href="#category_revert">Revert</a></li>
+<li><a href="#category_remove_label">Remove Label (Remove Vote)</a></li>
+<li><a href="#category_remove_reviewer">Remove Reviewer</a></li>
+<li><a href="#category_review_labels">Review Labels</a></li>
+<li><a href="#category_submit">Submit</a></li>
+<li><a href="#category_submit_on_behalf_of">Submit (On Behalf Of)</a></li>
+<li><a href="#category_view_private_changes">View Private Changes</a></li>
+<li><a href="#category_toggle_work_in_progress_state">Toggle Work In Progress state</a></li>
+<li><a href="#category_delete_own_changes">Delete Own Changes</a></li>
+<li><a href="#category_delete_changes">Delete Changes</a></li>
+<li><a href="#category_edit_topic_name">Edit Topic Name</a></li>
+<li><a href="#category_edit_hashtags">Edit Hashtags</a></li>
+<li><a href="#category_edit_custom_keyed_values">Edit Custom Keyed Values</a></li>
+</ul>
+</li>
+<li><a href="#example_roles">Examples of typical roles in a project</a>
+<ul class="sectlevel2">
+<li><a href="#examples_contributor">Contributor</a></li>
+<li><a href="#examples_developer">Developer</a></li>
+<li><a href="#examples_cisystem">CI system</a></li>
+<li><a href="#examples_integrator">Integrator</a></li>
+<li><a href="#examples_project-owner">Project owner</a></li>
+<li><a href="#examples_administrator">Administrator</a></li>
+</ul>
+</li>
+<li><a href="#_enforcing_site_wide_access_policies">Enforcing site wide access policies</a>
+<ul class="sectlevel2">
+<li><a href="#block">'BLOCK' access rule</a></li>
+<li><a href="#_block_and_allow_rules_in_the_same_access_section">'BLOCK' and 'ALLOW' rules in the same access section</a></li>
+<li><a href="#_block_and_allow_rules_in_the_same_project_with_the_exclusive_flag">'BLOCK' and 'ALLOW' rules in the same project with the Exclusive flag</a></li>
+<li><a href="#_examples">Examples</a></li>
+</ul>
+</li>
+<li><a href="#global_capabilities">Global Capabilities</a>
+<ul class="sectlevel2">
+<li><a href="#capability_accessDatabase">Access Database</a></li>
+<li><a href="#capability_administrateServer">Administrate Server</a></li>
+<li><a href="#capability_batchChangesLimit">Batch Changes Limit</a></li>
+<li><a href="#capability_createAccount">Create Account</a></li>
+<li><a href="#capability_createGroup">Create Group</a></li>
+<li><a href="#capability_createProject">Create Project</a></li>
+<li><a href="#capability_emailReviewers">Email Reviewers</a></li>
+<li><a href="#capability_flushCaches">Flush Caches</a></li>
+<li><a href="#capability_kill">Kill Task</a></li>
+<li><a href="#capability_maintainServer">Maintain Server</a></li>
+<li><a href="#capability_modifyAccount">Modify Account</a></li>
+<li><a href="#capability_priority">Priority</a></li>
+<li><a href="#capability_queryLimit">Query Limit</a></li>
+<li><a href="#capability_readAs">Read As</a></li>
+<li><a href="#capability_runAs">Run As</a></li>
+<li><a href="#capability_runGC">Run Garbage Collection</a></li>
+<li><a href="#capability_streamEvents">Stream Events</a></li>
+<li><a href="#capability_viewAccess">View Access</a></li>
+<li><a href="#capability_viewAllAccounts">View All Accounts</a></li>
+<li><a href="#capability_viewCaches">View Caches</a></li>
+<li><a href="#capability_viewConnections">View Connections</a></li>
+<li><a href="#capability_viewPlugins">View Plugins</a></li>
+<li><a href="#capability_viewQueue">View Queue</a></li>
+<li><a href="#capability_viewSecondaryEmails">View Secondary Emails</a></li>
+</ul>
+</li>
+<li><a href="#reference">Permission evaluation reference</a>
+<ul class="sectlevel2">
+<li><a href="#_ref_permissions">Ref permissions</a></li>
+<li><a href="#_labels">Labels</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Access controls in Gerrit are group based.  Every user account is a
+member of one or more groups, and access and privileges are granted
+to those groups.  Access rights cannot be granted to individual
+users.</p>
+</div>
+<div class="paragraph">
+<p>To view/edit the access controls for a specific project, first
+navigate to the projects page: for example,
+<a href="https://gerrit-review.googlesource.com/admin/repos/" class="bare external" target="_blank" rel="noopener">https://gerrit-review.googlesource.com/admin/repos/</a>. Then click on
+the individual project, and then click Access. This will bring you
+to a url that looks like
+<a href="https://gerrit-review.googlesource.com/admin/repos/gerrit,access" class="bare external" target="_blank" rel="noopener">https://gerrit-review.googlesource.com/admin/repos/gerrit,access</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="system_groups">System Groups</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Gerrit comes with the following system groups:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Anonymous Users</p>
+</li>
+<li>
+<p>Change Owner</p>
+</li>
+<li>
+<p>Project Owners</p>
+</li>
+<li>
+<p>Registered Users</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The system groups are assigned special access and membership management
+privileges.</p>
+</div>
+<div class="sect2">
+<h3 id="anonymous_users">Anonymous Users</h3>
+<div class="paragraph">
+<p>All users are automatically a member of this group.  Users who are
+not signed in are a member of only this group, and no others.</p>
+</div>
+<div class="paragraph">
+<p>Any access rights assigned to this group are inherited by all users.</p>
+</div>
+<div class="paragraph">
+<p>Administrators and project owners can grant access rights to this
+group in order to permit anonymous users to view project changes,
+without requiring sign in first.  Currently it is only worthwhile
+to grant <code>Read</code> access to this group as Gerrit requires an account
+identity for all other operations.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="project_owners">Project Owners</h3>
+<div class="paragraph">
+<p>Access rights assigned to this group are always evaluated within the
+context of a project to which the access rights apply. These rights
+therefore apply to all the users who are owners of this project.</p>
+</div>
+<div class="paragraph">
+<p>By assigning access rights to this group on a parent project Gerrit
+administrators can define a set of default access rights for
+<a href="#category_owner">project owners</a>. Child projects inherit these
+access rights where they are resolved to the users that own the child
+project.  Having default access rights for
+<a href="#category_owner">project owners</a> assigned on a parent project may
+avoid the need to initially configure access rights for
+newly created child projects.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="change_owner">Change Owner</h3>
+<div class="paragraph">
+<p>Access rights assigned to this group are always evaluated within the
+context of a change to which the access rights apply. These rights
+therefore apply to the user who is the owner of this change.</p>
+</div>
+<div class="paragraph">
+<p>It is typical to assign a label to this group, allowing the change
+owner to vote on his change, but not actually cause it to become
+approved or rejected.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="registered_users">Registered Users</h3>
+<div class="paragraph">
+<p>All signed-in users are automatically a member of this group (and
+also <a href="#anonymous_users">'Anonymous Users'</a>, see above).</p>
+</div>
+<div class="paragraph">
+<p>Any access rights assigned to this group are inherited by all
+users as soon as they sign-in to Gerrit.  If OpenID authentication
+is being employed, moving from only 'Anonymous Users' into this
+group is very easy.  Caution should be taken when assigning any
+permissions to this group.</p>
+</div>
+<div class="paragraph">
+<p>It is typical to assign <code>Code-Review -1..+1</code> to this group,
+allowing signed-in users to vote on a change, but not actually
+cause it to become approved or rejected.</p>
+</div>
+<div class="paragraph">
+<p>Registered users are always permitted to make and publish comments
+on any change in any project they have <code>Read</code> access to.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_predefined_groups">Predefined Groups</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Predefined groups differs from system groups by the fact that they
+exist in NoteDb under refs/meta/group-names (like normal groups) but predefined
+groups are created on Gerrit site initialization and unique UUIDs are assigned
+to those groups. These UUIDs are different on different Gerrit sites.</p>
+</div>
+<div class="paragraph">
+<p>Gerrit comes with two predefined groups:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Administrators</p>
+</li>
+<li>
+<p>Service Users</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="administrators">Administrators</h3>
+<div class="paragraph">
+<p>This is a predefined group, created on Gerrit site initialization, that
+has the capability <a href="access-control.html#capability_administrateServer">
+'Administrate Server'</a> assigned.</p>
+</div>
+<div class="paragraph">
+<p>It is a normal Gerrit group without magic. This means if you remove
+the 'Administrate Server' capability from it, its members are no longer
+Gerrit administrators, despite the group name. The group may also be
+renamed.</p>
+</div>
+<div class="paragraph">
+<p><a id="non-interactive_users"></a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="service_users">Service Users</h3>
+<div class="paragraph">
+<p>This is the Gerrit "batch" identity. The capabilities
+<a href="access-control.html#capability_priority">'Priority BATCH'</a> and
+<a href="access-control.html#capability_streamEvents">'Stream Events'</a>
+are assigned to this predefined group on Gerrit site creation.</p>
+</div>
+<div class="paragraph">
+<p>The members of this group are not expected to perform interactive
+operations on the Gerrit web front-end.</p>
+</div>
+<div class="paragraph">
+<p>However, sometimes such a user may need a separate thread pool in
+order to prevent it from grabbing threads from the interactive users.</p>
+</div>
+<div class="paragraph">
+<p>These users live in a second thread pool, which separates operations
+made by the service users from the ones made by the interactive
+users. This ensures that the interactive users can keep working when
+resources are tight.</p>
+</div>
+<div class="paragraph">
+<p>Before Gerrit 3.3, the 'Service Users' group was named 'Non-Interactive Users'.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_account_groups">Account Groups</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Account groups contain a list of zero or more user account members,
+added individually by a group owner.  Any user account listed as
+a group member is given any access rights granted to the group.</p>
+</div>
+<div class="paragraph">
+<p>Every group has one other group designated as its owner.  Users who
+are members of the owner group can:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add users and other groups to this group</p>
+</li>
+<li>
+<p>Remove users and other groups from this group</p>
+</li>
+<li>
+<p>Change the name of this group</p>
+</li>
+<li>
+<p>Change the description of this group</p>
+</li>
+<li>
+<p>Change the owner of this group, to another group</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It is permissible for a group to own itself, allowing the group
+members to directly manage who their peers are.</p>
+</div>
+<div class="paragraph">
+<p>Newly created groups are automatically created as owning themselves,
+with the creating user as the only member.  This permits the group
+creator to add additional members, and change the owner to another
+group if desired.</p>
+</div>
+<div class="paragraph">
+<p>It is somewhat common to create two groups at the same time,
+for example <code>Foo</code> and <code>Foo-admin</code>, where the latter group
+<code>Foo-admin</code> owns both itself and also group <code>Foo</code>.  Users who
+are members of <code>Foo-admin</code> can thus control the membership of
+<code>Foo</code>, without actually having the access rights granted to <code>Foo</code>.
+This configuration can help prevent accidental submits when the
+members of <code>Foo</code> have submit rights on a project, and the members of
+<code>Foo-admin</code> typically do not need to have such rights.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ldap_groups">LDAP Groups</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>LDAP groups are Account Groups that are maintained inside of your
+LDAP instance. If you are using LDAP to manage your groups they will
+not appear in the Groups list. However you can use them just like
+regular Account Groups by prefixing your group with "ldap/" in the
+Access Control for a project. For example "ldap/foo-project" will
+add the LDAP "foo-project" group to the access list.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_project_access_control_lists">Project Access Control Lists</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A system wide access control list affecting all projects is stored in
+project &#8220;All-Projects&#8221;.  This inheritance can be configured
+through <a href="cmd-set-project-parent.html">gerrit set-project-parent</a>.</p>
+</div>
+<div class="paragraph">
+<p>When projects are set as parent projects, the child projects inherit
+all of the parent&#8217;s access rights. &#8220;All-Projects&#8221; is treated as a
+parent of all projects.</p>
+</div>
+<div class="paragraph">
+<p>Per-project access control lists are also supported.</p>
+</div>
+<div class="paragraph">
+<p>Users are permitted to use the maximum range granted to any of their
+groups on a label.  For example, a user is a member of <code>Foo Leads</code>, and
+the following ACLs are granted on a project:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Group</th>
+<th class="tableblock halign-left valign-top">Reference Name</th>
+<th class="tableblock halign-left valign-top">Label</th>
+<th class="tableblock halign-left valign-top">Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Anonymous Users</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refs/heads/*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code-Review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-1..+1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Registered Users</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refs/heads/*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code-Review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-1..+2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Foo Leads</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refs/heads/*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code-Review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-2..0</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Then the effective range permitted to be used by the user is
+<code>-2..+2</code>, as the user is a member of all three groups (see above
+about the system groups) and the maximum range is chosen (so the
+lowest value granted to any group, and the highest value granted
+to any group).</p>
+</div>
+<div class="paragraph">
+<p>Reference-level access control is also possible.</p>
+</div>
+<div class="paragraph">
+<p>Permissions can be set on a single reference name to match one
+branch (e.g. <code>refs/heads/master</code>), or on a reference namespace
+(e.g. <code>refs/heads/*</code>) to match any branch starting with that
+prefix. So a permission with <code>refs/heads/*</code> will match all of
+<code>refs/heads/master</code>, <code>refs/heads/experimental</code>, <code>refs/heads/release/1.0</code> etc.</p>
+</div>
+<div class="paragraph">
+<p>Reference names can also be described with a regular expression
+by prefixing the reference name with <code>^</code>.  For example
+<code>^refs/heads/[a-z]{1,8}</code> matches all lower case branch names
+between 1 and 8 characters long.  Within a regular expression <code>.</code>
+is a wildcard matching any character, but may be escaped as <code>\.</code>.
+The <a href="http://www.brics.dk/automaton/" class="external" target="_blank" rel="noopener">dk.brics.automaton library</a>
+is used for evaluation of regular expression access control
+rules. See the library documentation for details on this
+particular regular expression flavor. One quirk is that the
+shortest possible pattern expansion must be a valid ref name:
+thus <code>^refs/heads/.*/name</code> will fail because <code>refs/heads//name</code>
+is not a valid reference, but <code>^refs/heads/.+/name</code> will work.</p>
+</div>
+<div id="sharded-user-id" class="paragraph">
+<p>References can have the user name or the sharded account ID of the
+current user automatically included, creating dynamic access controls
+that change to match the currently logged in user.  For example to
+provide a personal sandbox space to all developers,
+<code>refs/heads/sandbox/${username}/*</code> allows the user 'joe' to use
+'refs/heads/sandbox/joe/foo'. The sharded account ID can be used to
+give users access to their user branch in the <code>All-Users</code> repository,
+for example <code>refs/users/${shardeduserid}</code> is resolved to
+'refs/users/23/1011123' if the account ID of the current user is
+<code>1011123</code>.</p>
+</div>
+<div class="paragraph">
+<p>When evaluating a reference-level access right, Gerrit will use
+the full set of access rights to determine if the user
+is allowed to perform a given action. For example, if a user is a
+member of <code>Foo Leads</code>, they are reviewing a change destined for
+the <code>refs/heads/qa</code> branch, and the following ACLs are granted
+on the project:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Group</th>
+<th class="tableblock halign-left valign-top">Reference Name</th>
+<th class="tableblock halign-left valign-top">Label</th>
+<th class="tableblock halign-left valign-top">Range</th>
+<th class="tableblock halign-left valign-top">Exclusive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Registered Users</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refs/heads/*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code-Review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-1..+1</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Foo Leads</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refs/heads/*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code-Review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-2..+2</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QA Leads</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refs/heads/qa</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code-Review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-2..+2</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Then the effective range permitted to be used by the user is
+<code>-2..+2</code>, as the user&#8217;s membership of <code>Foo Leads</code> effectively grant
+them access to the entire reference space, thanks to the wildcard.</p>
+</div>
+<div id="exclusive" class="paragraph">
+<p>Gerrit also supports exclusive reference-level access control.</p>
+</div>
+<div class="paragraph">
+<p>It is possible to configure Gerrit to grant an exclusive ref level
+access control so that only users of a specific group can perform
+an operation on a project/reference pair. This is done by ticking
+the exclusive flag when setting the permission for the
+<code>refs/heads/qa</code> branch.</p>
+</div>
+<div class="paragraph">
+<p>For example, if a user who is a member of <code>Foo Leads</code> tries to
+review a change destined for branch <code>refs/heads/qa</code> in a project,
+and the following ACLs are granted:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Group</th>
+<th class="tableblock halign-left valign-top">Reference Name</th>
+<th class="tableblock halign-left valign-top">Label</th>
+<th class="tableblock halign-left valign-top">Range</th>
+<th class="tableblock halign-left valign-top">Exclusive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Registered Users</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refs/heads/*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code-Review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-1..+1</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Foo Leads</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refs/heads/*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code-Review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-2..+2</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QA Leads</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refs/heads/qa</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code-Review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-2..+2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Then this user will not have <code>Code-Review</code> rights on that change,
+since there is an exclusive access right in place for the
+<code>refs/heads/qa</code> branch. This allows locking down access for a
+particular branch to a limited set of users, bypassing inherited
+rights and wildcards.</p>
+</div>
+<div class="paragraph">
+<p>In order to grant the ability to <code>Code-Review</code> to the members of
+<code>Foo Leads</code>, in <code>refs/heads/qa</code> then the following access rights
+would be needed:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Group</th>
+<th class="tableblock halign-left valign-top">Reference Name</th>
+<th class="tableblock halign-left valign-top">Category</th>
+<th class="tableblock halign-left valign-top">Range</th>
+<th class="tableblock halign-left valign-top">Exclusive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Registered Users</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refs/heads/*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code-Review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-1..+1</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Foo Leads</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refs/heads/*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code-Review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-2..+2</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">QA Leads</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refs/heads/qa</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code-Review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-2..+2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Foo Leads</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refs/heads/qa</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code-Review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-2..+2</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_openid_authentication">OpenID Authentication</h3>
+<div class="paragraph">
+<p>If the Gerrit instance is configured to use OpenID authentication,
+an account&#8217;s effective group membership will be restricted to only
+the <code>Anonymous Users</code> and <code>Registered Users</code> groups, unless <strong>all</strong>
+of its OpenID identities match one or more of the patterns listed
+in the <code>auth.trustedOpenID</code> list from <code>gerrit.config</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_all_projects">All Projects</h3>
+<div class="paragraph">
+<p>Any access right granted to a group within <code>All-Projects</code>
+is automatically inherited by every other project in the same
+Gerrit instance.  These rights can be seen, but not modified,
+in any other project&#8217;s <code>Access</code> administration tab.</p>
+</div>
+<div class="paragraph">
+<p>Only members of the groups with the <code>Administrate Server</code> capability
+may edit the access control list for <code>All-Projects</code>. By default this
+capability is given to the group <code>Administrators</code>, but can be given
+to more groups.</p>
+</div>
+<div class="paragraph">
+<p>Ownership of this project cannot be delegated to another group.
+This restriction is by design.  Granting ownership to another
+group gives nearly the same level of access as membership in
+<code>Administrators</code> does, as group members would be able to alter
+permissions for every managed project including global capabilities.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_per_project">Per-Project</h3>
+<div class="paragraph">
+<p>The per-project ACL is evaluated before the global <code>All-Projects</code> ACL,
+permitting some limited override capability to project owners. This
+behavior is generally only useful on the <code>Read</code> category when
+granting 'DENY' within a specific project to deny a group access.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="references">Special and magic references</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The reference namespaces used in git are generally two, one for branches and
+one for tags:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>refs/heads/*</p>
+</li>
+<li>
+<p>refs/tags/*</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>However, every reference under refs/* is really available, and in Gerrit this
+opportunity for giving other refs a special meaning is used.  In Gerrit they
+are sometimes used as magic/virtual references that give the push to Gerrit a
+special meaning.</p>
+</div>
+<div class="sect2">
+<h3 id="references_special">Special references</h3>
+<div class="paragraph">
+<p>The special references have content that&#8217;s either generated by Gerrit or
+contains important project configuration that Gerrit needs. When making
+changes to these references, Gerrit will take extra precautions to verify the
+contents compatibility at upload time.</p>
+</div>
+<div class="sect3">
+<h4 id="_refschanges">refs/changes/*</h4>
+<div class="paragraph">
+<p>Under this namespace each uploaded patch set for every change gets a static
+reference in their git.  The format is convenient but still intended to scale to
+hundreds of thousands of patch sets.  To access a given patch set you will
+need the change number and patch set number.</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p>'refs/changes/'&lt;last two digits of change number&gt;/
+  &lt;change number&gt;/
+  &lt;patch set number&gt;</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also find these static references linked on the page of each change.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_refsmetaconfig">refs/meta/config</h4>
+<div class="paragraph">
+<p>This is where the Gerrit configuration of each project resides.  This
+branch contains several files of importance: project.config, groups and
+rules.pl.  Together they control access and behavior during the change
+review process.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_refsmetadashboards">refs/meta/dashboards/*</h4>
+<div class="paragraph">
+<p>There&#8217;s a dedicated page where you can read more about
+<a href="user-dashboards.html">User Dashboards</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_refsnotesreview">refs/notes/review</h4>
+<div class="paragraph">
+<p>Autogenerated copy of review notes for all changes in the git.  Each log entry
+on the refs/notes/review branch also references the patch set on which the
+review is made.  This functionality is provided by the review-notes plugin.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="references_magic">Magic references</h3>
+<div class="paragraph">
+<p>These are references with added functionality to them compared to a regular
+git push operation.</p>
+</div>
+<div class="sect3">
+<h4 id="refs_for">refs/for/&lt;branch ref&gt;</h4>
+<div class="paragraph">
+<p>Most prominent is the <code>refs/for/&lt;branch ref&gt;</code> reference which is the reference
+upon which we build the code review intercept before submitting a commit to
+the branch it&#8217;s uploaded to.</p>
+</div>
+<div class="paragraph">
+<p>Further documentation on how to push can be found on the
+<a href="user-upload.html#push_create">Upload changes</a> page.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="access_categories">Access Categories</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Gerrit has several permission categories that can be granted to groups
+within projects, enabling functionality for that group&#8217;s members.</p>
+</div>
+<div class="sect2">
+<h3 id="category_abandon">Abandon</h3>
+<div class="paragraph">
+<p>This category controls whether users are allowed to abandon changes
+to projects in Gerrit. It can give permission to abandon a specific
+change to a given ref.</p>
+</div>
+<div class="paragraph">
+<p>The uploader of a change, anyone granted the <a href="#category_owner"><code>Owner</code></a>
+permission at the ref or project level, and anyone granted the
+<a href="#capability_administrateServer"><code>Administrate Server</code></a>
+permission can also Abandon changes.</p>
+</div>
+<div class="paragraph">
+<p>This also grants the permission to restore a change if the user also
+has <a href="#category_push">push permission</a> on the change&#8217;s destination
+ref.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_create">Create (aka Create Reference)</h3>
+<div class="paragraph">
+<p>The create category controls whether it is possible to create new
+references, branches or tags.  This implies that the reference must not
+already exist, it&#8217;s not a destructive permission in that you can&#8217;t
+overwrite or remove any previously existing references (and also
+discard any commits in the process).</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s probably most common to either permit the creation of a single
+branch in many gits (by granting permission on a parent project), or
+to grant this permission to a name pattern of branches.</p>
+</div>
+<div class="paragraph">
+<p>This permission is often given in conjunction with regular push
+branch permissions, allowing the holder of both to create new branches
+as well as bypass review for new commits on that branch.</p>
+</div>
+<div class="paragraph">
+<p>To push lightweight (non-annotated) tags, grant
+<code>Create Reference</code> for reference name <code>refs/tags/*</code>, as lightweight
+tags are implemented just like branches in Git. To push a lightweight
+tag on a new commit (commit not reachable from any branch/tag) grant
+<code>Push</code> permission on <code>refs/tags/*</code> too. The <code>Push</code> permission on
+<code>refs/tags/*</code> also allows fast-forwarding of lightweight tags.</p>
+</div>
+<div class="paragraph">
+<p>For example, to grant the possibility to create new branches under the
+namespace <code>foo</code>, you have to grant this permission on
+<code>refs/heads/foo/*</code> for the group that should have it.
+Finally, if you plan to grant each user a personal namespace in
+where they are free to create as many branches as they wish, you
+should grant the create reference permission so it&#8217;s possible
+to create new branches. This is done by using the special
+<code>${username}</code> keyword in the reference pattern, e.g.
+<code>refs/heads/sandbox/${username}/*</code>. If you do, it&#8217;s also recommended
+you grant the users the push force permission to be able to clean up
+stale branches.
+If <a href="config-gerrit.html#auth.userNameCaseInsensitive">auth.userNameCaseInsensitive</a>
+is enabled, the <code>${username}</code> is still case sensitive and will use
+the capitalization used during account creation. This is done, since
+git branches are case sensitive, so that sandbox branches containing
+<code>${username}</code> are still reachable by the users.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_delete">Delete (aka Delete Reference)</h3>
+<div class="paragraph">
+<p>The delete category controls whether it is possible to delete
+references, branches or tags. It doesn&#8217;t allow any other update of
+references.</p>
+</div>
+<div class="paragraph">
+<p>Deletion of references is also possible if <code>Push</code> with the force option
+is granted, however that includes the permission to fast-forward and
+force-update references to existing and new commits. Being able to push
+references for new commits is bad if bypassing of code review must be
+prevented.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_forge_author">Forge Author</h3>
+<div class="paragraph">
+<p>Normally Gerrit requires the author and the committer identity
+lines in a Git commit object (or tagger line in an annotated tag) to
+match one of the registered email addresses of the uploading user.
+This permission allows users to bypass parts of that validation, which
+may be necessary when mirroring changes from an upstream project.</p>
+</div>
+<div class="paragraph">
+<p>Permits the use of an unverified author line in commit objects.
+This can be useful when applying patches received by email from
+3rd parties, when cherry-picking changes written by others across
+branches, or when amending someone else&#8217;s commit to fix up a minor
+problem before submitting.</p>
+</div>
+<div class="paragraph">
+<p>By default this is granted to <code>Registered Users</code> in all projects,
+but a site administrator may disable it if verified authorship
+is required.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_forge_committer">Forge Committer</h3>
+<div class="paragraph">
+<p>Normally Gerrit requires the author and the committer identity
+lines in a Git commit object (or tagger line in an annotated tag) to
+match one of the registered email addresses of the uploading user.
+This permission allows users to bypass parts of that validation, which
+may be necessary when mirroring changes from an upstream project.</p>
+</div>
+<div class="paragraph">
+<p>Allows the use of an unverified committer line in commit objects, or an
+unverified tagger line in annotated tag objects.  Typically this is only
+required when mirroring commits from an upstream project repository.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_forge_server">Forge Server</h3>
+<div class="paragraph">
+<p>Normally Gerrit requires the author and the committer identity
+lines in a Git commit object (or tagger line in an annotated tag) to
+match one of the registered email addresses of the uploading user.
+This permission allows users to bypass parts of that validation, which
+may be necessary when mirroring changes from an upstream project.</p>
+</div>
+<div class="paragraph">
+<p>Allows the use of the server&#8217;s own name and email on the committer
+line of a new commit object.  This should only be necessary when force
+pushing a commit history which has been rewritten by 'git filter-branch'
+and that contains merge commits previously created by this Gerrit Code
+Review server.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_owner">Owner</h3>
+<div class="paragraph">
+<p>The <code>Owner</code> category on <code>refs/*</code> controls which groups own the project,
+i.e. the users who are members of an owner group are called the
+<code>project owners</code>.</p>
+</div>
+<div class="paragraph">
+<p>Project owners can change the <a href="config-project-config.html">project
+configuration</a>, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Granting/revoking any access rights (including the <code>Owner</code> access
+right)</p>
+</li>
+<li>
+<p>Changing the project description</p>
+</li>
+<li>
+<p>Changing the link to the parent project</p>
+</li>
+<li>
+<p>Changing the project options</p>
+</li>
+<li>
+<p>Changing <a href="config-labels.html">labels</a></p>
+</li>
+<li>
+<p>Changing <a href="config-submit-requirements.html">submit requirements</a></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Access rights that are assigned to the magic
+<a href="#project_owners">Project Owners</a> group are resolved to the users
+that are project owners by having the <code>Owner</code> permission assigned on
+<code>refs/*</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+To get branch access via Git project owners must grant an access right
+to a group they are a member of, just like for any other user.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+For the <code>All-Projects</code> root project any <code>Owner</code> access right on
+'refs/*' is ignored since this permission would allow users to edit the
+global capabilities, which is the same as being able to administrate
+the Gerrit server (e.g. the user could assign the <code>Administrate Server</code>
+capability to the own account).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Ownership over a particular branch subspace may be delegated by
+entering a branch pattern. E.g. to delegate control over all branches
+that begin with <code>qa/</code> to the QA group, add the <code>Owner</code> category
+for reference <code>refs/heads/qa/*</code>. Members of the QA group can
+further refine access, but only for references that begin with
+<code>refs/heads/qa/</code>. See <a href="#project_owners">project owners</a> to find
+out more about this role.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_push">Push</h3>
+<div class="paragraph">
+<p>This category controls how users are allowed to upload new commits
+to projects in Gerrit. It can either give permission to push
+directly into a branch, bypassing any code review process
+that would otherwise be used. Or it may give permission to upload
+new changes for code review, this depends on which namespace the
+permission is granted to.</p>
+</div>
+<div class="sect3">
+<h4 id="category_push_direct">Direct Push</h4>
+<div class="paragraph">
+<p>Any existing branch can be fast-forwarded to a new commit.
+Creation of new branches is controlled by the
+<a href="access-control.html#category_create">'Create Reference'</a>
+category.  Deletion of existing branches is rejected.  This is the
+safest mode as commits cannot be discarded.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Force option</p>
+<div class="paragraph">
+<p>Implies <a href="#category_delete">Delete Reference</a>. Since a force push is
+effectively a delete immediately followed by a create, but performed
+atomically on the server and logged, this option also permits forced
+push updates to branches.  Enabling this option allows existing commits
+to be discarded from a project history.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The push category is primarily useful for projects that only want to
+take advantage of Gerrit&#8217;s access control features and do not need
+its code review functionality.  Projects that need to require code
+reviews should not grant this category.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="category_push_review">Upload To Code Review</h4>
+<div class="paragraph">
+<p>The <code>Push</code> access right granted on the namespace
+<code>refs/for/refs/heads/BRANCH</code> permits the user to upload a non-merge
+commit to the project&#8217;s <code>refs/for/BRANCH</code> namespace, creating a new
+change for code review.</p>
+</div>
+<div class="paragraph">
+<p>A user must be able to clone or fetch the project in order to create
+a new commit on their local system, so in practice they must also
+have the <code>Read</code> access granted to upload a change.</p>
+</div>
+<div class="paragraph">
+<p>For an open source, public Gerrit installation, it is common to grant
+<code>Push</code> for <code>refs/for/refs/heads/*</code> to <code>Registered Users</code> in the
+<code>All-Projects</code> ACL.  For more private installations, its common to
+grant <code>Push</code> for <code>refs/for/refs/heads/*</code> to all users of a project.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Force option</p>
+<div class="paragraph">
+<p>The force option has no function when granted to a branch in the
+<code>refs/for/refs/heads/*</code> namespace.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_add_patch_set">Add Patch Set</h3>
+<div class="paragraph">
+<p>This category controls which users are allowed to upload new patch sets to
+existing changes. Irrespective of this permission, change owners are always
+allowed to upload new patch sets for their changes. This permission needs to be
+set on <code>refs/for/*</code>.</p>
+</div>
+<div class="paragraph">
+<p>By default, this permission is granted to <code>Registered Users</code> on <code>refs/for/*</code>,
+allowing all registered users to upload a new patch set to any change. Revoking
+this permission (by granting it to no groups and setting the "Exclusive" flag)
+will prevent users from uploading a patch set to a change they do not own.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_push_merge">Push Merge Commits</h3>
+<div class="paragraph">
+<p>The <code>Push Merge Commit</code> access right permits the user to upload merge
+commits.  It&#8217;s an add-on to the <a href="#category_push">Push</a> access right, and
+so it won&#8217;t be sufficient with only <code>Push Merge Commit</code> granted for a
+push to happen.  Some projects wish to restrict merges to being created
+by Gerrit. By granting <code>Push</code> without <code>Push Merge Commit</code>, the only
+merges that enter the system will be those created by Gerrit.</p>
+</div>
+<div class="paragraph">
+<p>The reference name connected to a <code>Push Merge Commit</code> entry must always
+be prefixed with <code>refs/for/</code>, for example <code>refs/for/refs/heads/BRANCH</code>.
+This applies even for an entry that complements a <code>Push</code> entry for
+<code>refs/heads/BRANCH</code> that allows direct pushes of non-merge commits, and
+the intention of the <code>Push Merge Commit</code> entry is to allow direct pushes
+of merge commits.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_create_annotated">Create Annotated Tag</h3>
+<div class="paragraph">
+<p>This category permits users to push an annotated tag object into the
+project&#8217;s repository.  Typically this would be done with a command line
+such as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  git push ssh://USER@HOST:PORT/PROJECT tag v1.0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  git push https://HOST/PROJECT tag v1.0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Tags must be annotated (created with <code>git tag -a</code>), should exist in
+the <code>refs/tags/</code> namespace, and should be new.</p>
+</div>
+<div class="paragraph">
+<p>This category is intended to be used to publish tags when a project
+reaches a stable release point worth remembering in history.</p>
+</div>
+<div class="paragraph">
+<p>It allows for a new annotated (unsigned) tag to be created.  The
+tagger email address must be verified for the current user.</p>
+</div>
+<div class="paragraph">
+<p>To push tags created by users other than the current user (such
+as tags mirrored from an upstream project), <code>Forge Committer Identity</code>
+must be also granted in addition to <code>Create Annotated Tag</code>.</p>
+</div>
+<div class="paragraph">
+<p>To push lightweight (non annotated) tags, grant
+<a href="#category_create"><code>Create Reference</code></a> for reference name
+<code>refs/tags/*</code>, as lightweight tags are implemented just like
+branches in Git.</p>
+</div>
+<div class="paragraph">
+<p>To delete or overwrite an existing tag, grant <code>Push</code> with the force
+option enabled for reference name <code>refs/tags/*</code>, as deleting a tag
+requires the same permission as deleting a branch.</p>
+</div>
+<div class="paragraph">
+<p>To push an annotated tag on a new commit (commit not reachable from any
+branch/tag) grant <code>Push</code> permission on <code>refs/tags/*</code> too.
+The <code>Push</code> permission on <code>refs/tags/*</code> does <strong>not</strong> allow updating of annotated
+tags, not even fast-forwarding of annotated tags. Update of annotated tags
+is only allowed by granting <code>Push</code> with <code>force</code> option on <code>refs/tags/*</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_create_signed">Create Signed Tag</h3>
+<div class="paragraph">
+<p>This category permits users to push a PGP signed tag object into the
+project&#8217;s repository.  Typically this would be done with a command
+line such as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  git push ssh://USER@HOST:PORT/PROJECT tag v1.0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  git push https://HOST/PROJECT tag v1.0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Tags must be signed (created with <code>git tag -s</code>), should exist in the
+<code>refs/tags/</code> namespace, and should be new.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_read">Read</h3>
+<div class="paragraph">
+<p>The <code>Read</code> category controls visibility to the project&#8217;s
+changes, comments, code diffs, and Git access over SSH or HTTP.
+A user must have this access granted in order to see a project, its
+changes, or any of its data.</p>
+</div>
+<div class="sect3">
+<h4 id="read_special_behaviors">Special behaviors</h4>
+<div class="paragraph">
+<p>This category has multiple special behaviors:</p>
+</div>
+<div class="paragraph">
+<p>The per-project ACL is evaluated before the global all projects ACL.
+If the per-project ACL has granted <code>Read</code> with 'DENY', and does not
+otherwise grant <code>Read</code> with 'ALLOW', then a <code>Read</code> in the all projects
+ACL is ignored.  This behavior is useful to hide a handful of projects
+on an otherwise public server.</p>
+</div>
+<div class="paragraph">
+<p>You cannot grant <code>Read</code> on the <code>refs/tags/</code> namespace.  Visibility to
+<code>refs/tags/</code> is derived from <code>Read</code> grants on refs namespaces other than
+<code>refs/tags/</code>, <code>refs/changes/</code>, and <code>refs/cache-automerge/</code> by finding
+tags reachable from those refs.  For example, if a tag <code>refs/tags/test</code>
+points to a commit on the branch <code>refs/heads/master</code>, then allowing
+<code>Read</code> access to <code>refs/heads/master</code> would also allow access to
+<code>refs/tags/test</code>.  If a tag is reachable from multiple refs, allowing
+access to any of those refs allows access to the tag.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="read_typical_usage">Typical usage</h4>
+<div class="paragraph">
+<p>For an open source, public Gerrit installation it is common to grant
+<code>Read</code> to <code>Anonymous Users</code> in the <code>All-Projects</code> ACL, enabling
+casual browsing of any project&#8217;s changes, as well as fetching any
+project&#8217;s repository over SSH or HTTP.  New projects can be
+temporarily hidden from public view by granting <code>Read</code> with 'DENY'
+to <code>Anonymous Users</code> and granting <code>Read</code> to the project owner&#8217;s
+group within the per-project ACL.</p>
+</div>
+<div class="paragraph">
+<p>For a private Gerrit installation using a trusted HTTP authentication
+source, granting <code>Read</code> to <code>Registered Users</code> may be more
+typical, enabling read access only to those users who have been
+able to authenticate through the HTTP access controls.  This may
+be suitable in a corporate deployment if the HTTP access control
+is already restricted to the correct set of users.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_rebase">Rebase</h3>
+<div class="paragraph">
+<p>This category permits users to rebase changes via the web UI by pushing
+the <code>REBASE</code> button.</p>
+</div>
+<div class="paragraph">
+<p>The change owner and submitters can always rebase changes in the web UI
+(even without having the <code>Rebase</code> access right assigned).</p>
+</div>
+<div class="paragraph">
+<p>Users without this access right who are able to upload new patch sets
+can still do the rebase locally and upload the rebased commit as a new
+patch set.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_revert">Revert</h3>
+<div class="paragraph">
+<p>This category permits users to revert changes via the web UI by pushing
+the <code>Revert Change</code> button.</p>
+</div>
+<div class="paragraph">
+<p>Users without this access right who are able to upload changes can
+still do the revert locally and upload the revert commit as a new change.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_remove_label">Remove Label (Remove Vote)</h3>
+<div class="paragraph">
+<p>For every configured label <code>My-Name</code> in the project, there is a
+corresponding permission <code>removeLabel-My-Name</code> with a range corresponding to
+the defined values. For these values, the users are permitted to remove
+other users' votes from a change.</p>
+</div>
+<div class="paragraph">
+<p>Change owners can always remove zero or positive votes (even without
+having the <code>Remove Vote</code> access right assigned).</p>
+</div>
+<div class="paragraph">
+<p>Project owners and site administrators can always remove any vote (even
+without having the <code>Remove Vote</code> access right assigned).</p>
+</div>
+<div class="paragraph">
+<p>Users without this access right can still remove their own votes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_remove_reviewer">Remove Reviewer</h3>
+<div class="paragraph">
+<p>This category permits users to remove other users from the list of
+reviewers on a change.</p>
+</div>
+<div class="paragraph">
+<p>Change owners can always remove reviewers who have given a zero or positive
+score (even without having the <code>Remove Reviewer</code> access right assigned).</p>
+</div>
+<div class="paragraph">
+<p>Project owners and site administrators can always remove any reviewer (even
+without having the <code>Remove Reviewer</code> access right assigned).</p>
+</div>
+<div class="paragraph">
+<p>Users without this access right can only remove themselves from the
+reviewer list on a change.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_review_labels">Review Labels</h3>
+<div class="paragraph">
+<p>For every configured label <code>My-Name</code> in the project, there is a
+corresponding permission <code>label-My-Name</code> with a range corresponding to
+the defined values. There is also a corresponding <code>labelAs-My-Name</code>
+permission that enables editing another user&#8217;s label.</p>
+</div>
+<div class="paragraph">
+<p>Gerrit comes pre-configured with a default 'Code-Review' label that can
+be granted to groups within projects, enabling functionality for that
+group&#8217;s members. <a href="config-labels.html">Custom labels</a> may also be
+defined globally or on a per-project basis.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_submit">Submit</h3>
+<div class="paragraph">
+<p>This category permits users to submit changes.</p>
+</div>
+<div class="paragraph">
+<p>Submitting a change causes it to be merged into the destination
+branch as soon as possible, making it a permanent part of the
+project&#8217;s history.</p>
+</div>
+<div class="paragraph">
+<p>In order to submit, all labels (such as <code>Verified</code> and <code>Code-Review</code>,
+above) must enable submit, and also must not block it.  See above for
+details on each label.</p>
+</div>
+<div class="paragraph">
+<p>To <a href="user-upload.html#auto_merge">immediately submit a change on push</a>
+the caller needs to have the Submit permission on <code>refs/for/&lt;ref&gt;</code>
+(e.g. on <code>refs/for/refs/heads/master</code>).</p>
+</div>
+<div class="paragraph">
+<p>Submitting to the <code>refs/meta/config</code> branch is only allowed to project
+owners. Any explicit submit permissions for non-project-owners on this
+branch are ignored. By submitting to the <code>refs/meta/config</code> branch the
+configuration of the project is changed, which can include changes to
+the access rights of the project. Allowing this to be done by a
+non-project-owner would open a security hole enabling editing of access
+rights, and thus granting of powers beyond submitting to the
+configuration.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_submit_on_behalf_of">Submit (On Behalf Of)</h3>
+<div class="paragraph">
+<p>This category permits users who have also been granted the <code>Submit</code>
+permission to submit changes on behalf of another user, by using the
+<code>on_behalf_of</code> field in <a href="rest-api-changes.html#submit-input">SubmitInput</a>
+when <a href="rest-api-changes.html#submit-change">submitting using the REST API</a>.</p>
+</div>
+<div class="paragraph">
+<p>Note that this permission is named <code>submitAs</code> in the <code>project.config</code>
+file.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_view_private_changes">View Private Changes</h3>
+<div class="paragraph">
+<p>This category permits users to view all private changes and all change edit refs.</p>
+</div>
+<div class="paragraph">
+<p>The change owner and any explicitly added reviewers can always see
+private changes (even without having the <code>View Private Changes</code> access
+right assigned).</p>
+</div>
+<div class="paragraph">
+<p><strong>NOTE</strong>: If <a href="config-gerrit.html#auth.skipFullRefEvaluationIfAllRefsAreVisible">
+auth.skipFullRefEvaluationIfAllRefsAreVisible</a> is <code>true</code> (which is the case by
+default) privates changes and all change edit refs are also visible to users
+that have read access on <code>refs/*</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_toggle_work_in_progress_state">Toggle Work In Progress state</h3>
+<div class="paragraph">
+<p>This category controls who is able to flip the Work In Progress bit.</p>
+</div>
+<div class="paragraph">
+<p>Change owner, server administrators and project owners can always flip
+the Work In Progress bit of the change (even without having the
+<code>Toggle Work In Progress state</code> access right assigned).</p>
+</div>
+<div class="paragraph">
+<p>Must be assigned on the target branch ref (i.e. on 'refs/heads/*', not on
+'refs/for/*').</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_delete_own_changes">Delete Own Changes</h3>
+<div class="paragraph">
+<p>This category permits users to delete their own changes if they are not merged
+yet. This means only own changes that are open or abandoned can be deleted.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_delete_changes">Delete Changes</h3>
+<div class="paragraph">
+<p>This category permits users to delete other users' changes if they are not merged
+yet. This means only changes that are open or abandoned can be deleted.</p>
+</div>
+<div class="paragraph">
+<p>Having this permission implies having the <a href="#category_delete_own_changes">
+Delete Own Changes</a> permission.</p>
+</div>
+<div class="paragraph">
+<p>Administrators may always delete changes without having this permission.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_edit_topic_name">Edit Topic Name</h3>
+<div class="paragraph">
+<p>This category permits users to edit the topic name of a change that
+is uploaded for review.</p>
+</div>
+<div class="paragraph">
+<p>The change owner, branch owners, project owners, and site administrators
+can always edit the topic name (even without having the <code>Edit Topic Name</code>
+access right assigned).</p>
+</div>
+<div class="paragraph">
+<p>Whether the topic can be edited on closed changes can be controlled
+by the 'Force Edit' flag. If this flag is not set the topic can only be
+edited on open changes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_edit_hashtags">Edit Hashtags</h3>
+<div class="paragraph">
+<p>This category permits users to add or remove
+<a href="intro-user.html#hashtags">hashtags</a> on a change that is uploaded for review.</p>
+</div>
+<div class="paragraph">
+<p>The change owner, branch owners, project owners, and site administrators
+can always edit or remove hashtags (even without having the <code>Edit Hashtags</code>
+access right assigned).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="category_edit_custom_keyed_values">Edit Custom Keyed Values</h3>
+<div class="paragraph">
+<p>This category permits users to add or remove
+custom keyed values on a change that is uploaded for review. Custom Keyed Values
+are used by plugins to store extra data. They are not surfaced in the UI, unless
+a plugin explicitly does so.</p>
+</div>
+<div class="paragraph">
+<p>The change owner and site administrators can always edit or remove custom
+keyed values (even without having the <code>Edit Custom Keyed Values</code> access right
+assigned).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="example_roles">Examples of typical roles in a project</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Below follows a set of typical roles on a server and which access
+rights these roles typically should be granted. You may see them as
+general guidelines for a typical way to set up your project on a
+brand new Gerrit instance.</p>
+</div>
+<div class="sect2">
+<h3 id="examples_contributor">Contributor</h3>
+<div class="paragraph">
+<p>This is the typical user on a public server. They are able to read
+your project and upload new changes to it. They are able to give
+feedback on other changes as well, but are unable to block or approve
+any changes.</p>
+</div>
+<div class="paragraph">
+<p>Suggested access rights to grant:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#category_read"><code>Read</code></a> on 'refs/heads/*'</p>
+</li>
+<li>
+<p><a href="#category_push"><code>Push</code></a> to 'refs/for/refs/heads/*'</p>
+</li>
+<li>
+<p><a href="config-labels.html#label_Code-Review"><code>Code-Review</code></a> with range '-1' to '+1' for 'refs/heads/*'</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If it&#8217;s desired to have the possibility to upload temporarily hidden
+changes there&#8217;s a specific permission for that.  This enables someone
+to add specific reviewers for early feedback before making the change
+publicly visible.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="examples_developer">Developer</h3>
+<div class="paragraph">
+<p>This is the typical core developer on a public server.  They are able
+to read the project, upload changes to a branch.  They are allowed to
+push merge commits to merge branches together.  Also, they are allowed
+to forge author identity, thus handling commits belonging to others
+than themselves, effectively allowing them to transfer commits
+between different branches.</p>
+</div>
+<div class="paragraph">
+<p>They are furthermore able to code review and verify commits, and
+eventually submit them.  If you have an automated CI system that
+builds all uploaded patch sets you might want to skip the
+verification rights for the developer and let the CI system do that
+exclusively.</p>
+</div>
+<div class="paragraph">
+<p>Suggested access rights to grant:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#category_read"><code>Read</code></a> on 'refs/heads/*'</p>
+</li>
+<li>
+<p><a href="#category_push"><code>Push</code></a> to 'refs/for/refs/heads/*'</p>
+</li>
+<li>
+<p><a href="#category_push_merge"><code>Push merge commit</code></a> to 'refs/for/refs/heads/*'</p>
+</li>
+<li>
+<p><a href="#category_forge_author"><code>Forge Author Identity</code></a> to 'refs/heads/*'</p>
+</li>
+<li>
+<p><a href="config-labels.html#label_Code-Review"><code>Label: Code-Review</code></a> with range '-2' to '+2' for 'refs/heads/*'</p>
+</li>
+<li>
+<p><a href="config-labels.html#label_Verified"><code>Label: Verified</code></a> with range '-1' to '+1' for 'refs/heads/*'</p>
+</li>
+<li>
+<p><a href="#category_submit"><code>Submit</code></a> on 'refs/heads/*'</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If the project is small or the developers are seasoned it might make
+sense to give them the freedom to push commits directly to a branch.</p>
+</div>
+<div class="paragraph">
+<p>Optional access rights to grant:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#category_push"><code>Push</code></a> to 'refs/heads/*'</p>
+</li>
+<li>
+<p><a href="#category_push_merge"><code>Push merge commit</code></a> to 'refs/heads/*'</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="examples_cisystem">CI system</h3>
+<div class="paragraph">
+<p>A typical Continuous Integration system should be able to download new changes
+to build and then leave a verdict somehow.</p>
+</div>
+<div class="paragraph">
+<p>As an example, the popular
+<a href="https://wiki.jenkins-ci.org/display/JENKINS/Gerrit+Trigger" class="external" target="_blank" rel="noopener">gerrit-trigger plugin</a>
+for Jenkins/Hudson can set labels at:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The start of a build</p>
+</li>
+<li>
+<p>A successful build</p>
+</li>
+<li>
+<p>An unstable build (tests fails)</p>
+</li>
+<li>
+<p>A failed build</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Usually the range chosen for this verdict is the <code>Verified</code> label.  Depending on
+the size of your project and discipline of involved developers you might want
+to limit access right to the +1 <code>Verified</code> label to the CI system only.  That
+way it&#8217;s guaranteed that submitted commits always get built and pass tests
+successfully.</p>
+</div>
+<div class="paragraph">
+<p>If the build doesn&#8217;t complete successfully the CI system can set the
+<code>Verified</code> label to -1.  However that means that a failed build will block
+submit of the change even if someone else sets <code>Verified</code> +1.  Depending on the
+project and how much the CI system can be trusted for accurate results, a
+blocking label might not be feasible.  A recommended alternative is to set the
+label <code>Code-review</code> to -1 instead, as it isn&#8217;t a blocking label but still
+shows a red label in the Gerrit UI.  Optionally, to enable the possibility to
+deliver different results (build error vs unstable for instance), it&#8217;s also
+possible to set <code>Code-review</code> +1 as well.</p>
+</div>
+<div class="paragraph">
+<p>If pushing new changes is granted, it&#8217;s possible to automate cherry-pick of
+submitted changes for upload to other branches under certain conditions.  This
+is probably not the first step of what a project wants to automate however,
+and so the push right can be found under the optional section.</p>
+</div>
+<div class="paragraph">
+<p>Suggested access rights to grant, that won&#8217;t block changes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#category_read"><code>Read</code></a> on 'refs/heads/*'</p>
+</li>
+<li>
+<p><a href="config-labels.html#label_Code-Review"><code>Label: Code-Review</code></a> with range '-1' to '0' for 'refs/heads/*'</p>
+</li>
+<li>
+<p><a href="config-labels.html#label_Verified"><code>Label: Verified</code></a> with range '0' to '+1' for 'refs/heads/*'</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Optional access rights to grant:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="config-labels.html#label_Code-Review"><code>Label: Code-Review</code></a> with range '-1' to '+1' for 'refs/heads/*'</p>
+</li>
+<li>
+<p><a href="#category_push"><code>Push</code></a> to 'refs/for/refs/heads/*'</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="examples_integrator">Integrator</h3>
+<div class="paragraph">
+<p>Integrators are like developers but with some additional rights granted due
+to their administrative role in a project.  They can upload or push any commit
+with any committer email (not just their own) and they can also create new
+tags and branches.</p>
+</div>
+<div class="paragraph">
+<p>Suggested access rights to grant:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#examples_developer">Developer rights</a></p>
+</li>
+<li>
+<p><a href="#category_push"><code>Push</code></a> to 'refs/heads/*'</p>
+</li>
+<li>
+<p><a href="#category_push_merge"><code>Push merge commit</code></a> to 'refs/heads/*'</p>
+</li>
+<li>
+<p><a href="#category_forge_committer"><code>Forge Committer Identity</code></a> to 'refs/heads/*'</p>
+</li>
+<li>
+<p><a href="#category_create"><code>Create Reference</code></a> to 'refs/heads/*'</p>
+</li>
+<li>
+<p><a href="#category_create_annotated"><code>Create Annotated Tag</code></a> to 'refs/tags/*'</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="examples_project-owner">Project owner</h3>
+<div class="paragraph">
+<p>The project owner is almost like an integrator but with additional destructive
+power in the form of being able to delete branches.  Optionally these users
+also have the power to configure access rights in gits assigned to them.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+These users should be really knowledgeable about git, for instance knowing why
+tags never should be removed from a server.  This role is granted potentially
+destructive access rights and cleaning up after such a mishap could be time
+consuming!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Suggested access rights to grant:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#examples_integrator">Integrator rights</a></p>
+</li>
+<li>
+<p><a href="#category_push"><code>Push</code></a> with the force option to 'refs/heads/*' and 'refs/tags/*'</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Optional access right to grant:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#category_owner"><code>Owner</code></a> in the gits they mostly work with.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="examples_administrator">Administrator</h3>
+<div class="paragraph">
+<p>The administrator role is the most powerful role known in the Gerrit universe.
+This role may grant itself (or others) any access right.  By default the
+<a href="#administrators"><code>Administrators</code> group</a> is the group that has this role.</p>
+</div>
+<div class="paragraph">
+<p>Mandatory access rights:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#capability_administrateServer">The <code>Administrate Server</code> capability</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Suggested access rights to grant:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#examples_project-owner"><code>Project owner rights</code></a></p>
+</li>
+<li>
+<p>Any <a href="#global_capabilities"><code>capabilities</code></a> needed by the administrator</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_enforcing_site_wide_access_policies">Enforcing site wide access policies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By granting the <a href="#category_owner"><code>Owner</code></a> access right on the <code>refs/*</code> to a
+group, Gerrit administrators can delegate the responsibility of maintaining
+access rights for that project to that group.</p>
+</div>
+<div class="paragraph">
+<p>In a corporate deployment it is often necessary to enforce some access
+policies. An example could be that no-one can update or delete a tag, not even
+the project owners. The 'ALLOW' and 'DENY' rules are not enough for this
+purpose as project owners can grant themselves any access right they wish and,
+thus, effectively override any inherited access rights from the
+&#8220;All-Projects&#8221; or some other common parent project.</p>
+</div>
+<div class="paragraph">
+<p>What is needed is a mechanism to block a permission in a parent project so
+that even project owners cannot allow a blocked permission in their child
+project. Still, project owners should retain the possibility to manage all
+non-blocked rules as they wish. This gives best of both worlds:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Gerrit administrators can concentrate on enforcing site wide policies
+and providing a meaningful set of default access permissions</p>
+</li>
+<li>
+<p>Project owners can manage access rights of their projects without a danger
+of violating a site wide policy</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="block">'BLOCK' access rule</h3>
+<div class="paragraph">
+<p>The 'BLOCK' rule can be used to take away rights from users. The BLOCK rule
+works across project inheritance, from the top down, so an administrator can
+use 'BLOCK' rules to enforce site-wide restrictions.</p>
+</div>
+<div class="paragraph">
+<p>For example, if a user in the 'Foo Users' group tries to push to
+'refs/heads/master' with the permissions below, that user will be blocked</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Project</th>
+<th class="tableblock halign-left valign-top">Inherits From</th>
+<th class="tableblock halign-left valign-top">Reference Name</th>
+<th class="tableblock halign-left valign-top">Permissions</th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All-Projects</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refs/*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">push = block Foo Users</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Foo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All-Projects</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">refs/heads/*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">push = Foo Users</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>'BLOCK' rules are evaluated starting from the parent project, and after a 'BLOCK'
+rule is found to apply, further rules are ignored. Hence, in this example, the
+permissions on child-project is ignored.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>All-Projects: project.config
+  [access "refs/heads/*"]
+    push = block group X
+
+child-project: project.config
+  [access "refs/heads/*"]
+    exclusiveGroupPermissions = push
+    push = group X</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this case push for group 'X' will be blocked, even though the Exclusive
+flag was set for the child-project.</p>
+</div>
+<div class="paragraph">
+<p>A 'BLOCK' rule that blocks the 'push' permission blocks any type of push,
+force or not. A blocking force push rule blocks only force pushes, but
+allows non-forced pushes if an 'ALLOW' rule would have permitted it.</p>
+</div>
+<div class="paragraph">
+<p>It is also possible to block label ranges. To block a group 'X' from voting
+'-2' and '+2', but keep their existing voting permissions for the '-1..+1'
+range intact we would define:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  [access "refs/heads/*"]
+    label-Code-Review = block -2..+2 group X</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The interpretation of the 'min..max' range in case of a blocking rule is: block
+every vote from '-INFINITE..min' and 'max..INFINITE'. For the example above it
+means that the range '-1..+1' is not affected by this block.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_block_and_allow_rules_in_the_same_access_section">'BLOCK' and 'ALLOW' rules in the same access section</h3>
+<div class="paragraph">
+<p>When an access section of a project contains a 'BLOCK' and an 'ALLOW' rule for
+the same permission then this 'ALLOW' rule overrides the 'BLOCK' rule:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  [access "refs/heads/*"]
+    push = block group X
+    push = group Y</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this case a user which is a member of the group 'Y' will still be allowed to
+push to 'refs/heads/*' even if it is a member of the group 'X'.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_block_and_allow_rules_in_the_same_project_with_the_exclusive_flag">'BLOCK' and 'ALLOW' rules in the same project with the Exclusive flag</h3>
+<div class="paragraph">
+<p>When a project contains a 'BLOCK' and 'ALLOW' that uses the Exclusive flag in a
+more specific reference, the 'ALLOW' rule with the Exclusive flag will override
+the 'BLOCK' rule:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  [access "refs/*"]
+    read = block group X
+
+  [access "refs/heads/*"]
+    exclusiveGroupPermissions = read
+    read = group X</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this case a user which is a member of the group 'X' will still be allowed to
+read 'refs/heads/*'.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+An 'ALLOW' rule overrides a 'BLOCK' rule only when both of them are
+inside the same access section of the same project. An 'ALLOW' rule in a
+different access section of the same project or in any access section in an
+inheriting project cannot override a 'BLOCK' rule.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_examples">Examples</h3>
+<div class="paragraph">
+<p>The following examples show some possible use cases for the 'BLOCK' rules.</p>
+</div>
+<div class="sect3">
+<h4 id="_make_sure_no_one_can_update_or_delete_a_tag">Make sure no one can update or delete a tag</h4>
+<div class="paragraph">
+<p>This requirement is quite common in a corporate deployment where
+reproducibility of a build must be guaranteed. To achieve that we block 'push'
+permission for the <a href="#anonymous_users">'Anonymous Users'</a> in &#8220;All-Projects&#8221;:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  [access "refs/tags/*"]
+    push = block group Anonymous Users</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By blocking the <a href="#anonymous_users">'Anonymous Users'</a> we effectively block
+everyone as everyone is a member of that group. Note that the permission to
+create a tag is still necessary. Assuming that only <a href="#category_owner">project
+owners</a> are allowed to create tags, we would extend the example above:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  [access "refs/tags/*"]
+    push = block group Anonymous Users
+    create = group Project Owners
+    pushTag = group Project Owners</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_let_only_a_dedicated_group_vote_in_a_special_category">Let only a dedicated group vote in a special category</h4>
+<div class="paragraph">
+<p>Assume there is a more restrictive process for submitting changes in stable
+release branches which is manifested as a new voting category
+'Release-Process'. Assume we want to make sure that only a 'Release Engineers'
+group can vote in this category and that even project owners cannot approve
+this category. We have to block everyone except the 'Release Engineers' to vote
+in this category and, of course, allow 'Release Engineers' to vote in that
+category. In the &#8220;All-Projects&#8221; we define the following rules:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  [access "refs/heads/stable*"]
+    label-Release-Process = block -1..+1 group Anonymous Users
+    label-Release-Process = -1..+1 group Release Engineers</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="global_capabilities">Global Capabilities</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The global capabilities control actions that the administrators of
+the server can perform which usually affect the entire
+server in some way.  The administrators may delegate these
+capabilities to trusted groups of users.</p>
+</div>
+<div class="paragraph">
+<p>Delegation of capabilities allows groups to be granted a subset of
+administrative capabilities without being given complete
+administrative control of the server.  This makes it possible to
+keep fewer users in the administrators group, even while spreading
+much of the server administration burden out to more users.</p>
+</div>
+<div class="paragraph">
+<p>Global capabilities are assigned to groups in the access rights settings
+of the root project (&#8220;All-Projects&#8221;).</p>
+</div>
+<div class="paragraph">
+<p>Below you find a list of capabilities available:</p>
+</div>
+<div class="sect2">
+<h3 id="capability_accessDatabase">Access Database</h3>
+<div class="paragraph">
+<p>Allow users to view code review metadata refs in repositories.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_administrateServer">Administrate Server</h3>
+<div class="paragraph">
+<p>This is in effect the owner and administrator role of the Gerrit
+instance. Any members of a group granted this capability will be
+able to grant any access right to any group. They will also have all
+capabilities granted to them automatically.</p>
+</div>
+<div class="paragraph">
+<p>In most installations only those users who have direct filesystem and
+database access should be granted this capability.</p>
+</div>
+<div class="paragraph">
+<p>This capability does not imply any other access rights. Users that have
+this capability do not automatically get code review approval or submit
+rights in projects. This is a feature designed to permit administrative
+users to otherwise access Gerrit as any other normal user would,
+without needing two different accounts.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_batchChangesLimit">Batch Changes Limit</h3>
+<div class="paragraph">
+<p>Allow site administrators to configure the batch changes limit for
+users to override the system config
+<a href="config-gerrit.html#receive.maxBatchChanges">'receive.maxBatchChanges'</a>.</p>
+</div>
+<div class="paragraph">
+<p>Administrators can add a global block to <code>All-Projects</code> with group(s)
+that should have different limits.</p>
+</div>
+<div class="paragraph">
+<p>When applying a batch changes limit to a user the largest value
+granted by any of their groups is used. 0 means no limit.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_createAccount">Create Account</h3>
+<div class="paragraph">
+<p>Allow <a href="cmd-create-account.html">account creation over the ssh prompt</a>.
+This capability allows the granted group members to create non-interactive
+service accounts.  These service accounts are generally used for automation
+and made to be members of the
+<a href="access-control.html#service_users">'Service users'</a> group.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_createGroup">Create Group</h3>
+<div class="paragraph">
+<p>Allow group creation.  Groups are used to grant users access to different
+actions in projects.  This capability allows the granted group members to
+either <a href="cmd-create-group.html">create new groups via ssh</a> or via the web UI
+by navigating at the top of the page to BROWSE &#8594; Groups, and then pushing the
+"CREATE NEW" button.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_createProject">Create Project</h3>
+<div class="paragraph">
+<p>Allow project creation.</p>
+</div>
+<div class="paragraph">
+<p>This capability allows the granted group to create projects via the web UI, via
+<a href="rest-api-projects.html#create-project]">REST</a> and via
+<a href="cmd-create-project.html">SSH</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_emailReviewers">Email Reviewers</h3>
+<div class="paragraph">
+<p>Allow or deny sending email to change reviewers and watchers.  This can be used
+to deny build bots from emailing reviewers and people who watch the change.
+Instead, only the authors of the change and those who starred it will be
+emailed.  The allow rules are evaluated before deny rules, however the default
+is to allow emailing, if no explicit rule is matched.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_flushCaches">Flush Caches</h3>
+<div class="paragraph">
+<p>Allow the flushing of Gerrit&#8217;s caches.  This capability allows the granted
+group to <a href="cmd-flush-caches.html">flush some or all Gerrit caches via ssh</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+This capability doesn&#8217;t imply permissions to the show-caches command.  For that
+you need the <a href="#capability_viewCaches">view caches capability</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_kill">Kill Task</h3>
+<div class="paragraph">
+<p>Allow the operation of the <a href="cmd-kill.html">kill command over ssh</a>.  The
+kill command ends tasks that currently occupy the Gerrit server, usually
+a replication task or a user initiated task such as an upload-pack or
+receive-pack.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_maintainServer">Maintain Server</h3>
+<div class="paragraph">
+<p>Allow basic, constrained server maintenance tasks, such as flushing caches and
+reindexing changes. Does not grant arbitrary database access, read/write, or
+ACL management permissions, as might the
+<a href="#capability_administrateServer">administrate server capability</a>.</p>
+</div>
+<div class="paragraph">
+<p>Implies the following capabilities:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#capability_flushCaches">Flush Caches</a></p>
+</li>
+<li>
+<p><a href="#capability_kill">Kill Task</a></p>
+</li>
+<li>
+<p><a href="#capability_runGC">Run Garbage Collection</a></p>
+</li>
+<li>
+<p><a href="#capability_viewCaches">View Caches</a></p>
+</li>
+<li>
+<p><a href="#capability_viewQueue">View Queue</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_modifyAccount">Modify Account</h3>
+<div class="paragraph">
+<p>Allow to <a href="cmd-set-account.html">modify accounts over the ssh prompt</a>.
+This capability allows the granted group members to modify any user account
+setting. In addition this capability allows to view secondary emails of other
+accounts.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_priority">Priority</h3>
+<div class="paragraph">
+<p>This capability allows users to use
+<a href="config-gerrit.html#sshd.batchThreads">the thread pool reserved</a> for
+<a href="access-control.html#service_users">'Service Users'</a>.
+It&#8217;s a binary value in that granted users either have access to the thread
+pool, or they don&#8217;t.</p>
+</div>
+<div class="paragraph">
+<p>There are three modes for this capability and they&#8217;re listed by rising
+priority:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">No capability configured.</dt>
+<dd>
+<p>The user isn&#8217;t a member of a group with any priority capability granted. By
+default the user is then in the 'INTERACTIVE' thread pool.</p>
+</dd>
+<dt class="hdlist1">'BATCH'</dt>
+<dd>
+<p>If there&#8217;s a thread pool configured for 'Service Users' and a user is
+granted the priority capability with the 'BATCH' mode selected, the user ends
+up in the separate batch user thread pool. This is true unless the user is
+also granted the below 'INTERACTIVE' option.</p>
+</dd>
+<dt class="hdlist1">'INTERACTIVE'</dt>
+<dd>
+<p>If a user is granted the priority capability with the 'INTERACTIVE' option,
+regardless if they also have the 'BATCH' option or not, they are in the
+'INTERACTIVE' thread pool.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_queryLimit">Query Limit</h3>
+<div class="paragraph">
+<p>Allow site administrators to configure the query limit for users to
+be above the default hard-coded value of 500.  Administrators can add
+a global block to <code>All-Projects</code> with group(s) that should have different
+limits.</p>
+</div>
+<div class="paragraph">
+<p>When applying a query limit to a user the largest value granted by
+any of their groups is used.</p>
+</div>
+<div class="paragraph">
+<p>This limit applies not only to the <a href="cmd-query.html"><code>gerrit query</code></a>
+command, but also to the web UI results pagination size.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_readAs">Read As</h3>
+<div class="paragraph">
+<p>Allow users to impersonate any user to see which refs they can read.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_runAs">Run As</h3>
+<div class="paragraph">
+<p>Allow users to impersonate any other user with the <code>X-Gerrit-RunAs</code>
+HTTP header on REST API calls, or the <a href="cmd-suexec.html">suexec</a>
+SSH command.</p>
+</div>
+<div class="paragraph">
+<p>When impersonating an administrator the Administrate Server capability
+is not honored.  This security feature tries to prevent a role with
+Run As capability from modifying the access controls in All-Projects,
+however modification may still be possible if the impersonated user
+has permission to push or submit changes on <code>refs/meta/config</code>.  Run
+As also blocks using most capabilities including Create User, Run
+Garbage Collection, etc., unless the capability is also explicitly
+granted to a group the administrator is a member of.</p>
+</div>
+<div class="paragraph">
+<p>Administrators do not automatically inherit this capability; it must
+be explicitly granted.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_runGC">Run Garbage Collection</h3>
+<div class="paragraph">
+<p>Allow users to run the Git garbage collection for the repositories of
+all projects.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_streamEvents">Stream Events</h3>
+<div class="paragraph">
+<p>Allow performing streaming of Gerrit events. This capability
+allows the granted group to
+<a href="cmd-stream-events.html">stream Gerrit events via ssh</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_viewAccess">View Access</h3>
+<div class="paragraph">
+<p>Allow checking access rights for arbitrary (user, project) pairs,
+using the <a href="rest-api-projects.html#check-access">check.access</a>
+endpoint</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_viewAllAccounts">View All Accounts</h3>
+<div class="paragraph">
+<p>Allow viewing all accounts for purposes of auto-completion, regardless
+of <a href="config-gerrit.html#accounts.visibility">accounts.visibility</a>
+setting.</p>
+</div>
+<div class="paragraph">
+<p>This capability allows to view all accounts but not all account data.
+E.g. secondary emails of all accounts can only be viewed with the
+<a href="#capability_viewSecondaryEmails">View Secondary Emails</a> capability
+or the <a href="#capability_modifyAccount">Modify Account</a> capability.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_viewCaches">View Caches</h3>
+<div class="paragraph">
+<p>Allow querying for status of Gerrit&#8217;s internal caches.  This capability allows
+the granted group to
+<a href="cmd-show-caches.html">look at some or all Gerrit caches via ssh</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_viewConnections">View Connections</h3>
+<div class="paragraph">
+<p>Allow querying for status of Gerrit&#8217;s current client connections.  This
+capability allows the granted group to
+<a href="cmd-show-connections.html">look at Gerrit&#8217;s current connections via ssh</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_viewPlugins">View Plugins</h3>
+<div class="paragraph">
+<p>Allow viewing the list of installed plugins.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_viewQueue">View Queue</h3>
+<div class="paragraph">
+<p>Allow querying for status of Gerrit&#8217;s internal task queue.  This capability
+allows the granted group to
+<a href="cmd-show-queue.html">look at the Gerrit task queue via ssh</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="capability_viewSecondaryEmails">View Secondary Emails</h3>
+<div class="paragraph">
+<p>Allows viewing secondary emails of other accounts.</p>
+</div>
+<div class="paragraph">
+<p>Users with the <a href="#capability_modifyAccount">Modify Account</a> capability have
+this capbility implicitly.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="reference">Permission evaluation reference</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Permission evaluation is expressed in the following concepts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>PermisssionRule: a single combination of {ALLOW, DENY, BLOCK} and
+group, and optionally a vote range and an 'exclusive' bit.</p>
+</li>
+<li>
+<p>Permission: groups PermissionRule by permission name. All
+PermissionRules for same access type (eg. "read", "push") are grouped
+into a Permission implicitly. The exclusive bit lives here.</p>
+</li>
+<li>
+<p>AccessSection: ties a list of Permissions to a single ref pattern.
+Each AccessSection comes from a single project.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here is how these play out in a <a href="config-project-config.html">project.config</a> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  # An AccessSection
+  [access "refs/heads/stable/*"]
+     exclusiveGroupPermissions = create
+
+     # Each of the following lines corresponds to a PermissionRule
+     # The next two PermissionRule together form the "read" Permission
+     read = group Administrators
+     read = group Registered Users
+
+     # A Permission with a block and block-override
+     create = block group Registered Users
+     create = group Project Owners
+
+     # A Permission and PermissionRule for a label
+     label-Code-Review = -2..+2 group Project Owners</pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ref_permissions">Ref permissions</h3>
+<div class="paragraph">
+<p>Access to refs can be blocked, allowed or denied.</p>
+</div>
+<div class="sect3">
+<h4 id="block-rule">BLOCK</h4>
+<div class="paragraph">
+<p>For blocking access, all rules marked BLOCK are tested, and if one
+such rule matches, the user is denied access.</p>
+</div>
+<div class="paragraph">
+<p>The rules are ordered by inheritance, starting from All-Projects down.
+Within a project, more specific ref patterns come first. The downward
+ordering lets administrators enforce access rules across all projects
+in a site.</p>
+</div>
+<div class="paragraph">
+<p>BLOCK rules can have exceptions defined on the same project (eg. BLOCK
+anonymous users, ie. everyone, but make an exception for Admin users),
+either by:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>adding ALLOW PermissionRules in the same Permission. This implies
+they apply to the same ref pattern.</p>
+</li>
+<li>
+<p>adding an ALLOW Permission in the same project with a more specific
+ref pattern, but marked "exclusive". This allows them to apply to
+different ref patterns.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Such additions not only bypass BLOCK rules, but they will also grant
+permissions when they are processed in the ALLOW/DENY processing, as
+described in the next subsection.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="allow-rule">ALLOW</h4>
+<div class="paragraph">
+<p>For allowing access, all ALLOW/DENY rules that might apply to a ref
+are tested until one granting access is found, or until either an
+"exclusive" rule ends the search, or all rules have been tested.</p>
+</div>
+<div class="paragraph">
+<p>The rules are ordered from specific ref patterns to general patterns,
+and for equally specific patterns, from originating project up to
+All-Projects.</p>
+</div>
+<div class="paragraph">
+<p>This ordering lets project owners apply permissions specific to their
+project, overwriting the site defaults specified in All-Projects.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deny-rule">DENY</h4>
+<div class="paragraph">
+<p>DENY is processed together with ALLOW.</p>
+</div>
+<div class="paragraph">
+<p>As said, during ALLOW/DENY processing, rules are tried out one by one.
+For each (permission, ref-pattern, group) only a single rule
+ALLOW/DENY rule is picked. If that first rule is a DENY rule, any
+following ALLOW rules for the same (permission, ref-pattern, group)
+will be ignored, canceling out their effect.</p>
+</div>
+<div class="paragraph">
+<p>DENY is confusing because it only works on a specific (ref-pattern,
+group) pair. The parent project can undo the effect of a DENY rule by
+introducing an extra rule which features a more general ref pattern or
+a different group.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_denyallow_example">DENY/ALLOW example</h4>
+<div class="paragraph">
+<p>Consider the ref "refs/a" and the following configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>child-project: project.config
+    [access "refs/a"]
+      read = deny group A
+
+All-Projects: project.config
+    [access "refs/a"]
+      read = group A      # ALLOW
+    [access "refs/*"]
+      read = group B      # ALLOW</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When determining access, first "read = DENY group A" on "refs/a" is
+encountered. The following rule to consider is "ALLOW read group A" on
+"refs/a". The latter rule applies to the same (permission,
+ref-pattern, group) tuple, so it it is ignored.</p>
+</div>
+<div class="paragraph">
+<p>The DENY rule does not affect the last rule for "refs/*", since that
+has a different ref pattern and a different group. If group B is a
+superset of group A, the last rule will still grant group A access to
+"refs/a".</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_double_use_of_exclusive">Double use of exclusive</h4>
+<div class="paragraph">
+<p>An 'exclusive' permission is evaluated both during BLOCK processing
+and during ALLOW/DENY: when looking BLOCK, 'exclusive' stops the
+search downward, while the same permission in the ALLOW/DENY
+processing will stop looking upward for further rule matches</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_force_permission">Force permission</h4>
+<div class="paragraph">
+<p>The 'force' setting may be set on ALLOW and BLOCK rules. In the case
+of ALLOW, the 'force' option makes the permission stronger (allowing
+both forced and unforced actions). For BLOCK, the 'force' option makes
+it weaker (the BLOCK with 'force' only blocks forced actions).</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_labels">Labels</h3>
+<div class="paragraph">
+<p>Labels use the same mechanism, with the following observations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The 'force' setting has no effect on label ranges.</p>
+</li>
+<li>
+<p>BLOCK specifies the values that a group cannot vote, eg.</p>
+<div class="listingblock">
+<div class="content">
+<pre>  label-Code-Review = block -2..+2 group Anonymous Users</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>prevents all users from voting -2 or +2.</p>
+</div>
+</li>
+<li>
+<p>DENY works for votes too, with the same caveats</p>
+</li>
+<li>
+<p>The blocked vote range is the union of the all the blocked vote
+ranges across projects, so in</p>
+<div class="listingblock">
+<div class="content">
+<pre>All-Projects: project.config
+     label-Code-Review = block -2..+1 group A
+
+Child-Project: project-config
+     label-Code-Review = block -1..+2 group A</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>members of group A cannot vote at all in the Child-Project.</p>
+</div>
+</li>
+<li>
+<p>The allowed vote range is the union of vote ranges allowed by all of
+the ALLOW rules. For example, in</p>
+<div class="listingblock">
+<div class="content">
+<pre>     label-Code-Review = -2..+1 group A
+     label-Code-Review = -1..+2 group B</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>a user that is both in A and B can vote -2..2.</p>
+</div>
+</li>
+</ul>
+</div>
+<hr style="
+  height: 2px;
+  color: silver;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+">
+<div class="paragraph">
+<p>Part of <a href="index.html">Gerrit Code Review</a></p>
+</div>
+<div style="
+  position:fixed;
+  top:0px;
+  right:0px;
+  text-align:
+  right;
+  padding-top:2px;
+  padding-right:0.5em;
+  padding-bottom:2px;">
+<input size="40"
+  style="line-height: 0.75em;font-size: 0.75em;"
+  id="docSearch"
+  type="text">
+<button style="
+  background:none!important;
+  border:none;
+  padding:0!important;
+  vertical-align:bottom;
+  font-family:'Open Sans','DejaVu Sans',sans-serif;
+  font-size:0.8em;
+  color:#1d4b8f;
+  text-decoration:none;"
+  type="button"
+  id="searchBox">
+  Search
+</button>
+
+<script type="text/javascript">
+var f = function() {
+  window.location = '../#/Documentation/q/' +
+    encodeURIComponent(document.getElementById("docSearch").value);
+}
+document.getElementById("searchBox").onclick = f;
+document.getElementById("docSearch").onkeypress = function(e) {
+  if (13 == (e.keyCode ? e.keyCode : e.which)) {
+    f();
+  }
+}
+</script>
+
+</div>
+<script type="text/javascript">
+    decorate(document.getElementsByTagName('h1'));
+    decorate(document.getElementsByTagName('h2'));
+    decorate(document.getElementsByTagName('h3'));
+    decorate(document.getElementsByTagName('h4'));
+
+    var divs = document.getElementsByTagName('div');
+    var arr = new Array();
+    var excluded = getExcludedIds();
+    for(var i = 0; i < divs.length; i++) {
+      var d = divs[i];
+      var id = d.getAttribute('id');
+      if (id != null && !(id in excluded)) {
+        arr[arr.length] = d;
+      }
+    }
+    decorate(arr);
+
+    var anchors = document.getElementsByTagName('a');
+    arr = new Array();
+    for(var i = 0; i < anchors.length; i++) {
+      var a = anchors[i];
+      // if the anchor has no id there is no target to
+      // which we can link
+      if (a.getAttribute('id') != null) {
+        // if the anchor is empty there is no content which
+        // can receive the mouseover event, an empty anchor
+        // applies to the element that follows, move the
+        // element that follows into the anchor so that there
+        // is content which can receive the mouseover event
+        if (a.firstChild == null) {
+          var next = a.nextSibling;
+          if (next != null) {
+            next.parentNode.removeChild(next);
+            a.appendChild(next);
+          }
+        }
+        arr[arr.length] = a;
+      }
+    }
+    decorate(arr);
+
+    function decorate(e) {
+      for(var i = 0; i < e.length; i++) {
+        e[i].onmouseover = function (evt) {
+          var element = this;
+          // do nothing if the link icon is currently showing
+          var a = element.firstChild;
+          if (a != null && a instanceof Element
+              && a.getAttribute('id') == 'LINK') {
+            return;
+          }
+
+          // if there is no id there is no target to link to
+          var id = element.getAttribute('id');
+          if (id == null) {
+            return;
+          }
+
+          // create and show a link icon that links to this element
+          a = document.createElement('a');
+          a.setAttribute('id', 'LINK');
+          a.setAttribute('href', '#' + id);
+          a.setAttribute('style', 'position: absolute;'
+              + ' left: ' + (element.offsetLeft - 16 - 2 * 4) + 'px;'
+              + ' padding-left: 4px; padding-right: 4px;');
+          var span = document.createElement('span');
+          span.setAttribute('style', 'height: ' + element.offsetHeight + 'px;'
+              + ' display: inline-block; vertical-align: baseline;'
+              + ' font-size: 16px; text-decoration: none; color: grey;');
+          a.appendChild(span);
+          var link = document.createTextNode('🔗');
+          span.appendChild(link);
+          element.insertBefore(a, element.firstChild);
+
+          // remove the link icon when the mouse is moved away,
+          // but keep it shown if the mouse is over the element, the link or
+          // the icon
+          hide = function(evt) {
+            if (document.elementFromPoint(evt.clientX, evt.clientY) != element
+                && document.elementFromPoint(evt.clientX, evt.clientY) != a
+                && document.elementFromPoint(evt.clientX, evt.clientY) != span
+                && document.elementFromPoint(evt.clientX, evt.clientY) != link
+                && element.contains(a)) {
+              element.removeChild(a);
+            }
+          }
+          element.onmouseout = hide;
+          a.onmouseout = hide;
+          span.onmouseout = hide;
+          link.onmouseout = hide;
+        }
+      }
+    }
+
+    function getExcludedIds() {
+      var excluded = {};
+      excluded['header'] = true;
+      excluded['toc'] = true;
+      excluded['toctitle'] = true;
+      excluded['content'] = true;
+      excluded['preamble'] = true;
+      excluded['footer'] = true;
+      excluded['footer-text'] = true;
+      return excluded;
+    }
+</script>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version v3.10.4<br>
+</div>
+</div>
+<link rel="stylesheet" href="./prettify.min.css">
+<script src="./prettify.min.js"></script>
+<script>prettyPrint()</script>
+</body>
+</html>
