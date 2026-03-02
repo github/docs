@@ -1,4 +1,4 @@
----
+github:main---
 title: Adding a billing manager to your organization
 intro: 'A *billing manager* is a user who manages the billing settings for your organization, such as updating payment information. This is a great option if regular members of your organization don''t typically have access to billing resources.'
 redirect_from:
