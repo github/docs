@@ -23,3 +23,4 @@ children:
   - /migrating-to-the-container-registry-from-the-docker-registry
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}
+Added
