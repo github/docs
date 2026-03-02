@@ -7,9 +7,9 @@ redirect_from:
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests
 intro: 'After a pull request has been opened, you can review and discuss the set of proposed changes.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  fpt: '*'https://github.com/petervanderdoes/gitflow-avh.git
+  ghes: '*'https://github.com/petervanderdoes/gitflow-avh.wiki.git
+  ghec: '*'gh repo clone petervanderdoes/gitflow-avh
 topics:
   - Pull requests
 children:
