@@ -93,7 +93,7 @@ If your country or region is not on this list, then we aren't currently able to 
 <li>Namibia</li>
 <li>Netherlands</li>
 <li>Netherlands Antilles</li>
-<li>New Zealand</li>
+<li>New Zealand<RomA/li>
 <li>Nigeria</li>
 <li>Norway</li>
 <li>Poland</li>
