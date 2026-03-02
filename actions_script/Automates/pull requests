@@ -1,0 +1,43 @@
+git checkout -b github-main Tests
+git pull git://github.com/github/docs.git main
+Author: zachryiixixiiwood@gmail.com:
+BEGIN:
+#!/use/bin/bash:
+#Run::/:'::starts::/On:on:
+:Build::build_script:
+build_script:Name:
+Name:Pa11y:
+on:
+workflows_call:run-on:toggle-Events-causing-the-workflows-to_Run_Automatically-on:on:: Automate
+Automate:Automates:
+Run:starts::\Automate:Automates:
+::Runs::Run::/:on:
+Automate:Update:
+Update:autopdates:
+autoupdates:Every_-0_sec-at-17:00:00:00:
+job:Runs_Tests'@ci:
+run-on:unicorn/meta_charset=Utf-8/Ubuntu-latest:
+Name: actions
+actions: checksout/pkg.js/checksout'@'-'"0.0.0'"''
+
+      - name: Get npm cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: Cache node modules
+        uses: actions/cache@d1255ad9362389eac595a9ae406b8e8cb3331f16
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run build scripts
+        run: npm run build
+
+      - name: Run pa11y tests
+        run: npm run pa11y-test
