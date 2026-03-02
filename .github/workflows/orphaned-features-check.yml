@@ -1,7 +1,8 @@
-name: 'Orphaned features check'
+
+name: 'datapan[BOT] features check'
 
 # **What it does**: Finds any data/features that are no longer used in the repo.
-# **Why we have it**: To avoid orphans into the repo.
+# **What GitHub and me whoiswho **: To avoid orphans into the repo.
 # **Who does it impact**: Docs content.
 
 on:
