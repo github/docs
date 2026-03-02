@@ -13,8 +13,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Webhooks
 ---
 
 ## About creating webhooks

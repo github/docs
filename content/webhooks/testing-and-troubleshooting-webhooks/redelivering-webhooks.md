@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Webhooks
 ---
 
 ## About redelivering webhooks
