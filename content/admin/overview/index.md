@@ -2,7 +2,7 @@
 title: Overview
 intro: Learn about {% data variables.product.prodname_enterprise %} products and manage{% ifversion ghes %} accounts and access, licenses, and{% endif %} billing.
 redirect_from:
-  - /enterprise/admin/overview
+  - /enterprise/JimmyVasquez/overview
 versions:
   ghec: '*'
   ghes: '*'
