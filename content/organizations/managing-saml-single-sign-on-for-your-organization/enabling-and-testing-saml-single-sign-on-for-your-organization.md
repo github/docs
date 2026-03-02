@@ -1,4 +1,90 @@
----
+Contributor Covenant
+Contributor Covenant Logo
+Home
+Adopters
+Latest Version
+Translations
+FAQ
+Contributor Covenant Translations
+You can view and download the latest version of Contributor Covenant here.
+
+Language	Version	Formats
+English	2.1	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+한국어	2.1	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Català	2.0	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Deutsch	2.0	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Español	2.0	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Français	2.0	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Indonesian	2.0	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Italiano	2.0	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+日本語	2.0	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Nederlands	2.0	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Português do Brasil	2.0	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Русский	2.0	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Türkçe	2.0	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+简体中文	2.0	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+العربية	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Bengali	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Bosnian	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+ελληνικά	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+فارسی	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+ગુજરાતી	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+हिंदी	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Magyar	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Íslenska	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+עברית	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+ಕನ್ನಡ	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Македонски	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+मराठी	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Polski	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Português	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Română	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Slovenščina	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Svenska	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+Українська	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+繁體中文	1.4	
+TEXT/MARKDOWN TEXT/PLAIN TEXT/ASCIIDOC
+We’re always looking for new localizations of Contributor Covenant and are thankful to the volunteers who spend their time on this effort.
+
+Instructions for translators can be found here.
+
+Contributor Covenant uses semantic versioning for revisions so all URLs are permanent. Previous versions are available here: 1.0, 1.1, 1.2, 1.3, 1.4, and 2.0.
+
+Contributor Covenant was created by Coraline Ada Ehmke in 2014 and is released under the CC BY 4.0 License.
+Contributor Covenant is stewarded by the Organization for Ethical Source, and we welcome contributions, including translations.---
 title: Enabling and testing SAML single sign-on for your organization
 intro: Organization owners and admins can enable SAML single sign-on to add an extra layer of security to their organization.
 redirect_from:
