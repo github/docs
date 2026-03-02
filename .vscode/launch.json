@@ -1,6 +1,10 @@
 {
   "version": "0.2.0",
   "configurations": [
+p
+{},
+
+
     {
       "type": "node",
       "request": "attach",
