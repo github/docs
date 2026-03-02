@@ -1,0 +1,209 @@
+Start a new discussion
+sparkles
+Show and tell
+Show off something you've made
+Answers enabled
+If this doesn’t look right you can choose a different category.
+
+Add a title
+dependabot wants to merge 1 commit into main from dependabot/npm_and_yarn/js/npm_and_yarn-12ee44bb0c  
++871 −737 
+ Conversation 0
+ Commits 1
+ Checks 0
+ Files changed 4
+Conversation
+dependabot[bot]
+dependabot bot commented on behalf of github on Mar 2
+Bumps the npm_and_yarn group with 2 updates in the /js directory: cross-spawn and nanoid.
+Bumps the npm_and_yarn group with 5 updates in the /website directory:
+
+Package	From	To
+cross-spawn	7.0.3	7.0.6
+nanoid	3.3.7	3.3.8
+tar	4.4.19	6.2.1
+@tensorflow/tfjs-node	4.17.0	4.22.0
+vite	5.1.7	5.4.14
+Updates cross-spawn from 7.0.3 to 7.0.6
+
+Changelog
+Commits
+
+Updates nanoid from 3.3.7 to 3.3.8
+
+Changelog
+Commits
+
+Updates cross-spawn from 7.0.3 to 7.0.6
+
+Changelog
+Commits
+
+Updates nanoid from 3.3.7 to 3.3.8
+
+Changelog
+Commits
+
+Updates tar from 4.4.19 to 6.2.1
+
+Release notes
+Changelog
+Commits
+
+Updates @tensorflow/tfjs-node from 4.17.0 to 4.22.0
+
+Release notes
+Commits
+
+Updates vite from 5.1.7 to 5.4.14
+
+Release notes
+Changelog
+Commits
+
+Updates esbuild from 0.19.12 to 0.21.5
+
+Release notes
+Changelog
+Commits
+
+Updates rollup from 4.11.0 to 4.34.9
+
+Release notes
+Changelog
+Commits
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting @dependabot rebase.
+
+Dependabot commands and options
+@dependabot
+build(deps): bump the npm_and_yarn group across 2 directories with 7 … 
+9b5c5c8
+@dependabot dependabot bot added dependencies javascript labels on Mar 2
+@tr4200812 tr4200812 enabled auto-merge (squash) now
+Merge info
+Checks awaiting conflict resolution
+1 expected check
+
+https://github.com/actions/checkout/actions/workflows/test.yml
+all checks
+Skip to content Navigation Menu tr4200812 magika Code Pull requests 2 Actions Projects Security 32 Insights Settings Settings: tr4200812/magika Access Code and automation Security Integrations Rulesets / New branch ruleset Protect your most important branches Rulesets define whether collaborators can delete or force push and set requirements for any pushes, such as passing status checks or a linear commit history. Ruleset Name * Targets/branches-targets Enforcement status Bypass list Exempt roles, teams, and apps from this ruleset by adding them to the bypass list. Repository adminRole Always allow Select bypass mode WriteRole Always allow Select bypass mode Learn Build Service (PROD) Learn Build Service (PROD)App • MicrosoftDocs Always allow Select bypass mode Dotnet Policy Service Dotnet Policy ServiceApp • microsoft1estools Always allow Select bypass mode changeset-bot changeset-botApp • changesets Always allow Select bypass mode dotnet-issue-labeler dotnet-issue-labelerApp • dotnet Always allow Select bypass mode Netlify NetlifyApp • netlify Always allow Select bypass mode Build Analysis Build AnalysisApp • dotnet-gh-app-bot Always allow Select bypass mode Welcome WelcomeApp • probot Always allow Select bypass mode .NET Helix .NET HelixApp • dotnet-gh-app-bot Always allow Select bypass mode WakaTime WakaTimeApp • wakatime Always allow Select bypass mode Snyk.io Snyk.ioApp • snyk Always allow Select bypass mode DCO DCOApp • dcoapp Always allow Select bypass mode CodeMaker AI App CodeMaker AI AppApp • codemakerai Always allow Select bypass mode Vercel VercelApp • vercel Always allow Select bypass mode Azure Boards Azure BoardsApp • microsoft Always allow Select bypass mode Google Cloud Build Google Cloud BuildApp • GoogleCloudBuild Always allow Select bypass mode Sweep AI Sweep AIApp • sweepai Always allow Select bypass mode Microsoft GitHub Policy Service Microsoft GitHub Policy ServiceApp • microsoft1estools Always allow Select bypass mode Dependabot DependabotApp • github Always allow Select bypass mode MaintainRole Always allow Select bypass mode Deploy keys Always allow Select bypass mode Targets Which branches do you want to make a ruleset for? Target branches Branch targeting determines which branches will be protected by this ruleset. Use inclusion patterns to expand the list of branches under this ruleset. Use exclusion patterns to exclude branches. Branch targeting criteria All branches Default workflow_executions Rules Which rules should be applied? Branch rules Restrict creations Only allow users with bypass permission to create matching refs. Restrict updates Only allow users with bypass permission to update matching refs. Allow fork syncing Branch can pull changes from its upstream repository Restrict deletions Only allow users with bypass permissions to delete matching refs. Require linear history Prevent merge commits from being pushed to matching refs. Require deployments to succeed Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule. Select deployment environments https://github.com/tr4200812/N00i1kat/issues/480 No deployment environments found No deployment environments have been added Learn more about deployment environments Require signed commits Commits pushed to matching refs must have verified signatures. Require a pull request before merging Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. Required approvals The number of approving reviews that are required before a pull request can be merged. Dismiss stale pull request approvals when new commits are pushed New, reviewable commits pushed will dismiss previous pull request review approvals. Require review from Code Owners Require an approving review in pull requests that modify files that have a designated code owner. Require approval of the most recent reviewable push Whether the most recent reviewable push must be approved by someone other than the person who pushed it. Require conversation resolution before merging All conversations on code must be resolved before a pull request can be merged. Request pull request review from Copilot Automatically request review from Copilot for new pull requests, if the author has access to Copilot code review. Allowed merge methods When merging pull requests, you can allow any combination of merge commits, squashing, or rebasing. At least one option must be enabled. Require status checks to pass Choose which status checks must pass before the ref is updated. When enabled, commits must first be pushed to another ref where the checks pass. Require branches to be up to date before merging Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled. Do not require status checks on creation Allow repositories and branches to be created if a check would otherwise prohibit it. No required checks No checks have been added Learn more about status checks Block force pushes Prevent users with push access from force pushing to refs. Require code scanning results Choose which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated. Footer © 2025 GitHub, Inc. Footer navigation Terms Privacy Security Status Docs Contact Manage cookies Do not share my personal information Settings · Ruleset · magika Add Checks Search for checks Items will be filtered as you type List updated, Focused item: Add H, not selected, 1 of 1Expected — Waiting for status to be reported
+Required
+This branch has conflicts that must be resolved
+Use the command line to resolve conflicts before continuing.
+Skip to content
+Navigation Menu
+google
+magika
+
+Code
+Issues
+95
+Pull requests
+7
+Actions
+Projects
+Security
+Insights
+issue templates #1076
+ Open
+tr4200812 wants to merge 2 commits into google:main from tr4200812:main  
++6 −6 
+ Conversation 0
+ Commits 2
+ Checks 0
+ Files changed 2
+ 
+File filter 
+ 
+2 / 2 files viewed
+  8 changes: 4 additions & 4 deletions8  
+.github/ISSUE_TEMPLATE/misdetection.md → .github/ISSUE_TEMPLATE/-misdetection-.md
+Viewed
+name	about	title	labels	assignees
+Misdetection
+Report a file, or files, that have been misdetected as something that they aren't.
+[Misdetection] <file> file misdetected as <file type>
+misdetection, needs triage
+name	about	title	labels	assignees
+|Misdetection,
+Report a file, or files, that have been misdetected as something that they aren't.
+[Misdetection] <file> file misdetected as <file type>
+duplicate
+tr4200812
+What should the file have been detected as? What has the file been misdetected as?😜What =? Buffaro ::shouldn't the file have been detected as? What has the file been misdetected as? Ex. "HTML pages are being mistaken for generic XML files.", "C# code misdetected as Java.", or "Can't tell the difference between exe and dll files."
+
+Please link or attach the misdetected file below (Do NOT upload PII!) Placeholder.zip
+
+Additional context Add any other context or screenshots about the feature request here.
+
+   4 changes: 2 additions & 2 deletions4  
+.github/ISSUE_TEMPLATE/new_content_type_request.md
+Viewed
+Author
+@tr4200812 tr4200812 Pending
+============|--------- token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
+@tr4200812	Reply...
+name	about	title	labels	assignees
+New content type request
+Suggest a new content type for Magika to detect
+[NEW CONTENT TYPE REQUEST]
+missing content type, needs triage
+name	about	title	labels	assignees
+New content type request
+Suggest a new content type for Magika to detect
+[NEW CONTENT TYPE REQUEST]
+What type of file would you like magika to detect? Write the full name of the file format, followed by the file extention in parenthesis. Examples:
+
+"Nintendo Binary Revolution RESource (.brres)"
+"Valve Map Format file (.vmf)"
+"Blender save file (.blend)"
+"RPG Maker 2000/2003 Lcf DataBase (.ldb)"
+"Blender save file (.blend)" -----‐|@tr4200812
+"COLLADA file (.dae)"
+"Unreal Engine Asset (.uasset)"
+What software can create/open these files? Examples:
+
+Simply state the name of the software, and where it can be obtained:
+"Valve Hammer Editor, included with any Source Engine game on Steam."
+If the file is common enough, write a general description:
+"Many 3D modeling softwares."
+"Any text editor."
+Link to the GitHub page:
+"BrawlCrate"
+Link to the software's websight main page or download page:
+"Blender"
+"Unreal Engine"
+If there are more than one software to open the file type, list them:
+"RPG Maker 2003, easyRPG, Wolf RPG Editor"
+Where can these files be found? Examples:
+
+Simply state where the files can be obtained:
+"Any RPGMaker 2000/2003 game."
+Provide instructions on how to obtain the files:
+"Dump the ISO of any of these Wii games"
+"Use bspsrc to decompile the BSP files of any Source Engine game. Use GCFScape to extract even more BSPs from 'dir.vpk' files. Make your own with Hammer."
+Link to a source of the files:
+"Unreal Marketplace"
+"https://blendermarket.com/categories/models, https://www.turbosquid.com/Search/3D-Models/marketplace/blend, https://sketchfab.com/store/3d-models/blend?ref=store-home"
+Provide some of your own:
+"placeholder.zip" as attachment.
+If possible, please provide a specification for this file type. Link to a resource that explains how the file works. Examples:
+
+A wiki page:
+"https://developer.valvesoftware.com/wiki/VMF_(Valve_Map_Format)"
+GitHub documentation:
+"https://gota7.github.io/NitroStudio2/specs/sequenceArchive.html"
+If you find more than one source, list them:
+"https://wiki.tockdom.com/wiki/BRRES_(File_Format), https://horizon.miraheze.org/wiki/.brres"
+"http://www.amnoid.de/gc/Rarc.txt, https://kuribo64.net/wiki/?page=RARC, https://wiki.tockdom.com/wiki/RARC_(File_Format)"
+"https://www.3dbrew.org/wiki/CGFX, https://mk3ds.com/index.php?title=CGFX_(File_Format)"
+"https://mk8.tockdom.com/wiki/BFRES_(File_Format), https://wiki.vg-resource.com/BFRES, https://wiki.oatmealdome.me/BFRES_(File_Format)"
+A PDF:
+"https://www.collada.org/2008/03/COLLADASchema"
+Additional context Add any other context or screenshots about the feature request here.
+
+###Footer__
+|>** *^:https://github.com/tr4200812/-/wiki
+https://github.com/tr4200812.eslint-plugin-local/code-amd-node-module.ts
