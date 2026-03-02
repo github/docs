@@ -1,0 +1,117 @@
+;;
+;; Domain:     tp-link.com.
+;; Exported:   2025-03-14 19:33:38
+;;
+;; This file is intended for use for informational and archival
+;; purposes ONLY and MUST be edited before use on a production
+;; DNS server.  In particular, you must:
+;;   -- update the SOA record with the correct authoritative name server
+;;   -- update the SOA record with the contact e-mail address information
+;;   -- update the NS record(s) with the authoritative name servers for this domain.
+;;
+;; For further information, please consult the BIND documentation
+;; located on the following website:
+;;
+;; http://www.isc.org/
+;;
+;; And RFC 1035:
+;;
+;; http://www.ietf.org/rfc/rfc1035.txt
+;;
+;; Please note that we do NOT offer technical support for any use
+;; of this zone data, the BIND name server, or any other third-party
+;; DNS software.
+;;
+;; Use at your own risk.
+;; SOA Record
+tp-link.com	3600	IN	SOA	jobs.ns.cloudflare.com. dns.cloudflare.com. 2049364741 10000 2400 604800 3600
+
+;; NS Records
+tp-link.com.	86400	IN	NS	jobs.ns.cloudflare.com.
+tp-link.com.	86400	IN	NS	josephine.ns.cloudflare.com.
+
+;; A Records
+ca.tp-link.com.	1	IN	A	164.68.212.114 ; cf_tags=cf-proxied:true
+chat.tp-link.com.	1	IN	A	3.230.58.255 ; cf_tags=cf-proxied:true
+cms.tp-link.com.	1	IN	A	13.224.14.4 ; cf_tags=cf-proxied:true
+cms.tp-link.com.	1	IN	A	13.224.14.45 ; cf_tags=cf-proxied:true
+cms.tp-link.com.	1	IN	A	13.224.14.86 ; cf_tags=cf-proxied:true
+cms.tp-link.com.	1	IN	A	13.224.14.52 ; cf_tags=cf-proxied:true
+email.tp-link.com.	1	IN	A	164.68.212.114 ; cf_tags=cf-proxied:true
+filesystem.tp-link.com.	1	IN	A	164.68.212.114 ; cf_tags=cf-proxied:false
+hr.tp-link.com.	1	IN	A	52.55.238.179 ; cf_tags=cf-proxied:true
+hr.tp-link.com.	1	IN	A	3.230.58.255 ; cf_tags=cf-proxied:true
+login.tp-link.com.	1	IN	A	192.168.0.5 ; cf_tags=cf-proxied:false
+nl.tp-link.com.	1	IN	A	52.55.238.179 ; cf_tags=cf-proxied:true
+nl.tp-link.com.	1	IN	A	3.230.58.255 ; cf_tags=cf-proxied:true
+ns.tp-link.com.	1	IN	A	50.63.189.17 ; cf_tags=cf-proxied:true
+portal.tp-link.com.	1	IN	A	164.68.212.114 ; cf_tags=cf-proxied:false
+test.tp-link.com.	1	IN	A	164.68.212.114 ; cf_tags=cf-proxied:true
+uk.tp-link.com.	1	IN	A	164.68.212.114 ; cf_tags=cf-proxied:true
+www.tp-link.com.	1	IN	A	18.172.170.97 ; cf_tags=cf-proxied:true
+www.tp-link.com.	1	IN	A	18.172.170.58 ; cf_tags=cf-proxied:true
+www.tp-link.com.	1	IN	A	18.172.170.4 ; cf_tags=cf-proxied:true
+www.tp-link.com.	1	IN	A	18.172.170.52 ; cf_tags=cf-proxied:true
+
+;; AAAA Records
+tp-link.com.	1	IN	AAAA	2600:9000:24ec:f000:0:275e:4840:93a1 ; cf_tags=cf-proxied:true
+tp-link.com.	1	IN	AAAA	2600:9000:24ec:9a00:0:275e:4840:93a1 ; cf_tags=cf-proxied:true
+tp-link.com.	1	IN	AAAA	2600:9000:24ec:b200:0:275e:4840:93a1 ; cf_tags=cf-proxied:true
+tp-link.com.	1	IN	AAAA	2600:9000:24ec:7400:0:275e:4840:93a1 ; cf_tags=cf-proxied:true
+tp-link.com.	1	IN	AAAA	2600:9000:24ec:d000:0:275e:4840:93a1 ; cf_tags=cf-proxied:true
+tp-link.com.	1	IN	AAAA	2600:9000:24ec:5c00:0:275e:4840:93a1 ; cf_tags=cf-proxied:true
+tp-link.com.	1	IN	AAAA	2600:9000:24ec:1000:0:275e:4840:93a1 ; cf_tags=cf-proxied:true
+tp-link.com.	1	IN	AAAA	2600:9000:24ec:c000:0:275e:4840:93a1 ; cf_tags=cf-proxied:true
+www.tp-link.com.	1	IN	AAAA	2600:9000:24ec:c400:0:275e:4840:93a1 ; cf_tags=cf-proxied:true
+www.tp-link.com.	1	IN	AAAA	2600:9000:24ec:b400:0:275e:4840:93a1 ; cf_tags=cf-proxied:true
+www.tp-link.com.	1	IN	AAAA	2600:9000:24ec:7200:0:275e:4840:93a1 ; cf_tags=cf-proxied:true
+www.tp-link.com.	1	IN	AAAA	2600:9000:24ec:1800:0:275e:4840:93a1 ; cf_tags=cf-proxied:true
+www.tp-link.com.	1	IN	AAAA	2600:9000:24ec:1e00:0:275e:4840:93a1 ; cf_tags=cf-proxied:true
+www.tp-link.com.	1	IN	AAAA	2600:9000:24ec:aa00:0:275e:4840:93a1 ; cf_tags=cf-proxied:true
+www.tp-link.com.	1	IN	AAAA	2600:9000:24ec:9c00:0:275e:4840:93a1 ; cf_tags=cf-proxied:true
+www.tp-link.com.	1	IN	AAAA	2600:9000:24ec:b600:0:275e:4840:93a1 ; cf_tags=cf-proxied:true
+
+;; CAA Records
+tp-link.com.	1	IN	CAA	0 issue "godaddy.com"
+tp-link.com.	1	IN	CAA	0 issue "digicert.com"
+tp-link.com.	1	IN	CAA	0 issue "amazon.com"
+
+;; CNAME Records
+autodiscover.tp-link.com.	1	IN	CNAME	autodiscover.outlook.com. ; cf_tags=cf-proxied:true
+crm.tp-link.com.	1	IN	CNAME	am.crm.tp-link.com. ; cf_tags=cf-proxied:true
+enterpriseenrollment.tp-link.com.	1	IN	CNAME	enterpriseenrollment.manage.microsoft.com. ; cf_tags=cf-proxied:true
+enterpriseregistration.tp-link.com.	1	IN	CNAME	enterpriseregistration.windows.net. ; cf_tags=cf-proxied:true
+lyncdiscover.tp-link.com.	1	IN	CNAME	webdir.online.lync.com. ; cf_tags=cf-proxied:true
+msoid.tp-link.com.	1	IN	CNAME	clientconfig.microsoftonline-p.net. ; cf_tags=cf-proxied:true
+selector1._domainkey.tp-link.com.	1	IN	CNAME	selector1-tplink-com0e._domainkey.tplinkglobal.onmicrosoft.com. ; cf_tags=cf-proxied:false
+selector2._domainkey.tp-link.com.	1	IN	CNAME	selector2-tplink-com0e._domainkey.tplinkglobal.onmicrosoft.com. ; cf_tags=cf-proxied:false
+sip.tp-link.com.	1	IN	CNAME	sipdir.online.lync.com. ; cf_tags=cf-proxied:true
+
+;; MX Records
+email.tp-link.com.	1	IN	MX	0 email-tplink-com02b.mail.protection.outlook.com.
+tp-link.com.	1	IN	MX	0 tplink-com0e.mail.protection.outlook.com.
+
+;; NS Records
+tp-link.com.	1	IN	NS	ns-597.awsdns-10.net.
+tp-link.com.	1	IN	NS	ns-238.awsdns-29.com.
+tp-link.com.	1	IN	NS	ns-1698.awsdns-20.co.uk.
+tp-link.com.	1	IN	NS	ns-1418.awsdns-49.org.
+
+;; SRV Records
+_sipfederationtls._tcp.tp-link.com.	1	IN	SRV	100 1 5061 sipfed.online.lync.com.
+_sip._tls.tp-link.com.	1	IN	SRV	100 1 443 sipdir.online.lync.com.
+
+;; TXT Records
+_dmarc.tp-link.com.	1	IN	TXT	"v=DMARC1; p=quarantine; rua=mailto:dmarc_agg@vali.email"
+_dnsauth.tp-link.com.	1	IN	TXT	"vqb8ck26m54vmdc7tlc6xtnzsypnplm5"
+_dnsauth.tp-link.com.	1	IN	TXT	"lf4ksxr2cwv0b2ty7thp26k0dt6cllmc"
+_dnsauth.tp-link.com.	1	IN	TXT	"jw6ds6hmdgsk0m36svxdy6bdg485ts6k"
+email.tp-link.com.	1	IN	TXT	"v=spf1 include:spf.protection.outlook.com include:servers.mcsv.net include:amazonses.com include:_spf.salesforce.com include:mail.zendesk.com -all"
+email.tp-link.com.	1	IN	TXT	"google-site-verification=62k32cwnWS5hwhrQ5xthKrOqDYhfYKxm8eZRq4-xPYc"
+email.tp-link.com.	1	IN	TXT	"google-site-verification=4m5_FtdzAzPh7Q12IWEi8BNnqWtHV4NXepUFyWHM_ww"
+tp-link.com.	1	IN	TXT	"v=spf1 include:spf.protection.outlook.com include:mail.zendesk.com -all"
+tp-link.com.	1	IN	TXT	"notion-domain-verification=3L3CIOlVjoSWwptjxwHJ95Q36Pjnw6ZTjGx4dLETHPq"
+tp-link.com.	1	IN	TXT	"klaviyo-site-verification=UKVW8j"
+tp-link.com.	1	IN	TXT	"google-site-verification=vInujwQi0ZyKjKeTFCrxxXLICVTsWOYxh_uSmD60vjw"
+tp-link.com.	1	IN	TXT	"google-site-verification=iAIKyl_mYdUW4ki0m50YoIIDFjeEUNk9ONMw80zri4M"
+zendeskverification.tp-link.com.	1	IN	TXT	"47539e3a47dc4fac"
