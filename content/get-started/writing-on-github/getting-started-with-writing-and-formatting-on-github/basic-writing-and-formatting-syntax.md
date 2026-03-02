@@ -106,6 +106,7 @@ Here are the currently supported color models.
 | HSL | <code>\`hsl(H,S,L)\`</code> | <code>\`hsl(212, 92%, 45%)\`</code> | ![Screenshot of rendered GitHub Markdown showing how HSL value 212, 92%, 45% appears with a blue circle.](/assets/images/help/writing/supported-color-models-hsl-rendered.png) |
 
 > [!NOTE]
+>
 > * A supported color model cannot have any leading or trailing spaces within the backticks.
 > * The visualization of the color is only supported in issues, pull requests, and discussions.
 
@@ -312,7 +313,7 @@ To create a nested list using the web editor on {% data variables.product.github
 
 To create a nested list in the comment editor on {% data variables.product.github %}, which doesn't use a monospaced font, you can look at the list item immediately above the nested list and count the number of characters that appear before the content of the item. Then type that number of space characters in front of the nested list item.
 
-In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100. `) before `First list item`.
+In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100.`) before `First list item`.
 
 ```markdown
 100. First list item
