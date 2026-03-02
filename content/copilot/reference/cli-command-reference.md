@@ -423,21 +423,22 @@ Custom agents are specialized AI agents defined in Markdown files. The filename 
 
 | Agent | Default model | Description |
 |-------|--------------|-------------|
-| `explore` | claude-haiku-4.5 | Fast codebase exploration. Searches files, reads code, and answers questions. Returns focused answers under 300 words. Safe to run in parallel. |
-| `task` | claude-haiku-4.5 | Command execution (tests, builds, lints). Returns brief summary on success, full output on failure. |
 | `code-review` | claude-sonnet-4.5 | High signal-to-noise code review. Analyzes diffs for bugs, security issues, and logic errors. |
+| `explore` | claude-haiku-4.5 | Fast codebase exploration. Searches files, reads code, and answers questions. Returns focused answers under 300 words. Safe to run in parallel. |
 | `general-purpose` | claude-sonnet-4.5 | Full-capability agent for complex multi-step tasks. Runs in a separate context window. |
+| `research` | claude-sonnet-4.6 | Deep research agent. Generates a report based on information in your codebase, in relevant repositories, and on the web. |
+| `task` | claude-haiku-4.5 | Command execution (tests, builds, lints). Returns brief summary on success, full output on failure. |
 
 ### Custom agent frontmatter fields
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `name` | string | No | Display name. Defaults to the filename. |
 | `description` | string | Yes | Description shown in the agent list and `task` tool. |
-| `model` | string | No | AI model for this agent. When unset, inherits the outer agent's model. |
-| `tools` | string[] | No | Tools available to the agent. Default: `["*"]` (all tools). |
-| `mcp-servers` | object | No | MCP servers to connect. Uses the same schema as `~/.copilot/mcp-config.json`. |
 | `infer` | boolean | No | Allow auto-delegation by the main agent. Default: `true`. |
+| `mcp-servers` | object | No | MCP servers to connect. Uses the same schema as `~/.copilot/mcp-config.json`. |
+| `model` | string | No | AI model for this agent. When unset, inherits the outer agent's model. |
+| `name` | string | No | Display name. Defaults to the filename. |
+| `tools` | string[] | No | Tools available to the agent. Default: `["*"]` (all tools). |
 
 ### Custom agent locations
 

@@ -110,3 +110,4 @@ Use autopilot mode when you want {% data variables.product.prodname_copilot_shor
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli#get-copilot-to-work-autonomously)
 * [AUTOTITLE](/copilot/concepts/agents/copilot-cli/fleet)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli)

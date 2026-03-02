@@ -122,7 +122,7 @@ copilot plugin uninstall PLUGIN-NAME   # Remove plugin completely
 
 ## Where plugins are stored
 
-Plugins installed from a marketplace are stored under: `~/.copilot/installed-plugins/MARKETPLACE/PLUGIN-NAME/`. Plugins installed directly (for example, from a local path) are stored under: `~/.copilot/installed-plugins/_direct/PLUGIN-NAME/`.
+Plugins installed from a marketplace are stored at: `~/.copilot/state/installed-plugins/MARKETPLACE/PLUGIN-NAME/`. Plugins installed directly (for example, from a local path) are stored at: `~/.copilot/state/installed-plugins/PLUGIN-NAME/`.
 
 ## Adding plugin marketplaces
 

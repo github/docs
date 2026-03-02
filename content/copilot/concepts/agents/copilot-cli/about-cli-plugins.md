@@ -72,3 +72,4 @@ Any functionality that you could add with a plugin, you could also add by config
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-creating)
 * [AUTOTITLE](/copilot/reference/cli-plugin-reference)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli)
