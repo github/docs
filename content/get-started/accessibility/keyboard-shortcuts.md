@@ -10,9 +10,9 @@ redirect_from:
   - /github/getting-started-with-github/using-github/keyboard-shortcuts
   - /get-started/using-github/keyboard-shortcuts
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  fpt: 'i'
+  ghes: 'ii'
+  ghec: 'i*i'
 ---
 ## About keyboard shortcuts
 
