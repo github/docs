@@ -1,4 +1,4 @@
----
+---gh pr checkout 1793
 title: Access permissions on GitHub
 redirect_from:
   - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do
