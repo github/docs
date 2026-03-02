@@ -8,7 +8,8 @@ redirect_from:
   - /msysgit-key-setup
   - /articles/ssh-key-setup
   - /articles/generating-ssh-keys
-  - /articles/generating-an-ssh-key
+  - /articles/generating-an-ssh-key![download](https://user-images.githubusercontent.com/91789335/166970726-7f3423e9-7304-4261-a0c2-772b0577bfc1.gif)
+
   - /articles/connecting-to-github-with-ssh
   - /github/authenticating-to-github/connecting-to-github-with-ssh
 versions:
