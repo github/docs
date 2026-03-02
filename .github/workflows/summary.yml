@@ -1,0 +1,37 @@
+name: Summarize new issues
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  summary:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      models: read
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run AI inference
+        id: inference
+        uses: actions/ai-inference@v1
+        with:
+          prompt: |
+            Summarize the following GitHub issue in one paragraph:
+            Title: ${{ github.event.issue.title }}
+            Body: ${{ github.event.issue.body }}
+
+      - name: Comment with AI summary
+        run: |
+          gh issue comment $ISSUE_NUMBER --body '${{ steps.inference.outputs.response }}'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          RESPONSE: ${{ steps.inference.outputs.response }}
+
+2017 - 2025
+<a id="cy-effective-orcid-url" class="underline" href="https://orcid.org/0009-0008-7540-6861" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align: top"> <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width: 1em; margin-inline-start: 0.5em" alt="ORCID iD icon"/> https://orcid.org/0009-0008-7540-6861 </a> diff --git a/tests/models/llama/test_modeling_llama.py b/tests/models/llama/test_modeling_llama.py index 61b33b3ec9ab1..3e84552ab7e21 100644 --- a/tests/models/llama/test_modeling_llama.py +++ b/tests/models/llama/test_modeling_llama.py @@ -729,11 +729,8 @@ def test_compile_static_cache(self): "my fries, my chicken, my burgers, my hot dogs, my sandwiches, my salads, my p", ], 7: [ - "Simply put, the theory of relativity states that 1. surely nothing is faster than light.\nThe theory " - "goes that nothing travels faster than light, but the faster you go, the slower everything else will " - "be.\nThe theory of relativity", - "My favorite all time favorite condiment is ketchup. I love it on hamburgers, hot dogs, fries, eggs, " - "and even on a good old fashioned cheeseburger. I love it on everything. I love it so", + "Simply put, the theory of relativity states that 1) the speed of light is constant in all inertial reference frames, and 2) the laws of physics are the same for all inertial reference frames.\nThe theory of relativ", + "My favorite all time favorite condiment is ketchup. I love it on everything. I love it on my eggs, my fries, my chicken, my burgers, my hot dogs, my sandwiches, my salads, my p", ], 9: [ "Simply put, the theory of relativity states that 1) the speed of light is constant in all inertial" diff --git a/tests/models/mistral/test_modeling_mistral.py b/tests/models/mistral/test_modeling_mistral.py index cead89058662e..9d3570bd4333c 100644 --- a/tests/models/mistral/test_modeling_mistral.py +++ b/tests/models/mistral/test_modeling_mistral.py @@ -27,6 +27,7 @@ is_flaky, require_bitsandbytes, require_flash_attn, + require_read_token, require_torch, require_torch_gpu, require_torch_sdpa, @@ -658,12 +659,16 @@ def test_speculative_generation(self): gc.collect() @slow + @require_read_token def test_compile_static_cache(self): # `torch==2.2` will throw an error on this test (as in other compilation tests), but torch==2.1.2 and torch>2.2 # work as intended. See https://github.com/pytorch/pytorch/issues/121943 if version.parse(torch.__version__) < version.parse("2.3.0"): self.skipTest("This test requires torch >= 2.3 to run.") + if self.cuda_compute_capability_major_version == 7: + self.skipTest("This test is failing (`torch.compile` fails) on Nvidia T4 GPU.") + vConsole
