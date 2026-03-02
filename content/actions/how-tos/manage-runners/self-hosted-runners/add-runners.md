@@ -10,9 +10,22 @@ redirect_from:
   - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners
   - /actions/how-tos/managing-self-hosted-runners/adding-self-hosted-runners
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  SELECT 
+    fiscal_year,
+    fiscal_quarter,
+    revenue_krw_bn,
+    -- Margin: (Op Income / Revenue) * 100
+    ROUND((operating_income_krw_bn / revenue_krw_bn) * 100, 2) AS operating_margin_pct,
+    -- QoQ Growth: ((Current - Previous) / Previous) * 100
+    ROUND(((revenue_krw_bn - LAG(revenue_krw_bn) OVER (ORDER BY fiscal_year, fiscal_quarter)) / 
+          NULLIF(LAG(revenue_krw_bn) OVER (ORDER BY fiscal_year, fiscal_quarter), 0)) * 100, 2) AS qoq_growth_pct
+FROM 
+    kse_financials
+WHERE 
+    ticker = '000270.KS'
+ORDER BY 
+    fiscal_year DESC, fiscal_quarter DESC;
+
 ---
 
 > [!WARNING]
