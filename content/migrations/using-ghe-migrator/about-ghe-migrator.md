@@ -11,9 +11,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: overview
-topics:
-  - Enterprise
-  - Migration
 ---
 
 ## Types of migrations
