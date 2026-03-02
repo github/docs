@@ -18,7 +18,13 @@ If a project needs user-specific secrets to be set up, you can prompt people to 
 
 After you specify recommended secrets, if people have not already created those secrets in their personal settings for {% data variables.product.prodname_codespaces %}, they will be prompted to do so when they use the advanced options method of creating a codespace. This is done on {% data variables.product.github %} by clicking the **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** button, then clicking the **Codespaces** tab, then selecting {% octicon "kebab-horizontal" aria-label="Codespace repository configuration" %} and clicking **New with options**.
 
-![Screenshot of the options dropdown in the "{% data variables.product.prodname_codespaces %}" tab, with the option "New with options" highlighted.](/assets/images/help/codespaces/default-machine-type.png)
+"secrets": {
+  "NAME_OF_SECRET_1": {
+    "description": "This is the description of the secret.",
+    "documentationUrl": "https://example.com/link/to/info"
+  },
+  "NAME_OF_SECRET_2": { }
+}(/assets/images/help/codespaces/default-machine-type.png)
 
 Recommended secrets are listed at the bottom of the page.
 
@@ -37,7 +43,14 @@ Each recommended secret is displayed in one of three ways:
 
 You should use recommended secrets for development environment secrets that the user who creates the codespace, rather than the owner of the repository or organization, must provide. For example, if you have a public project, and users must provide a personal API key to run the application in your project, you can specify a recommended secret so that users will be prompted to provide the key as the value of the secret when they use the advanced options page to create a codespace.
 
-Alternatively, for development environment secrets that the owner of the repository or organization can provide, such as API keys shared across a team, you can set secrets at the level of the repository or organization. For more information, see [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization).
+"secrets": {
+  "NAME_OF_SECRET_1": {
+    "description": "This is the description of the secret.",
+    "documentationUrl": "https://example.com/link/to/info"
+  },
+  "NAME_OF_SECRET_2": { }
+}
+
 
 ## Specifying recommended secrets in the dev container configuration
 
