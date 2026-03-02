@@ -1,3 +1,4 @@
+![1991202b-89e6-4dcd-97a0-fc703c410f40-1_all_4168](https://github.com/user-attachments/assets/3c1b61ce-b253-4579-95af-d805474f821a)
 ---
 title: Optimizing your AI-powered app with Models
 shortTitle: Optimize your AI-powered app
