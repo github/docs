@@ -1,0 +1,1293 @@
+---
+title: Submitting content removal requests
+redirect_from:
+  - /articles/submitting-content-removal-requests
+versions:
+  fpt: '*'
+topics:
+  - Policy
+  - Legal
+---
+
+We understand that copyrighted, trademarked, or private content may get published on GitHub – either accidentally or on purpose – sometimes in repositories that you do not own. Because the nature of this content varies, and because of different applicable laws, each category has its own, distinct reporting requirements outlined in our policies.
+
+If you'd like to request that content be removed from GitHub, please take some time to acquaint yourself with each of these policies and their respective reporting requirements before submitting a report. If we receive an incomplete report, we'll need to ask for clarifications or revisions and you’ll need to re-submit a revised report.
+
+Please note that we're not able to help you determine which policy is appropriate for your specific situation. If you’ve reviewed the policies below and still have questions about whether or not content should be reported as copyright, trademark, or private information, we recommend consulting with independent legal counsel.
+
+## [DMCA Takedown Policy](/articles/dmca-takedown-policy)
+The DMCA Takedown Policy can be used to report content that you believe infringes a copyright owned by you or your organization. Once you have reviewed the policy, you may also want to review our [Guide to Submitting a DMCA Takedown Notice](/articles/guide-to-submitting-a-dmca-takedown-notice/) before submitting a report.
+
+## [GitHub Trademark Policy](/articles/github-trademark-policy)
+The GitHub Trademark Policy can be used to report content that appears to use your company or business name, logo, or other trademark-protected materials in a manner that may mislead or confuse others about brand or business affiliation.
+
+## [GitHub Private Information Removal Policy](/github/site-policy/github-private-information-removal-policy)
+The GitHub Private Information Removal Policy can be used to report data that is private (confidential and poses a security risk), but that is not necessarily protected by copyright or trademark.
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://developer.github.com/</id>
+  <title>GitHub API Changes</title>
+  <updated>2020-10-01T07:00:00Z</updated>
+  <link rel="alternate" href="https://developer.github.com/"/>
+  <link rel="self" href="https://developer.github.com/changes.atom"/>
+  <author>
+    <name>hubot</name>
+    <uri>https://github.com/hubot</uri>
+  </author>
+  <entry>
+    <id>tag:developer.github.com,2020-10-01:/changes/2020-10-01-graduate-antiope-preview/</id>
+    <title type="html">Antiope preview graduation</title>
+    <published>2020-10-01T07:00:00Z</published>
+    <updated>2020-10-01T07:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-10-01-graduate-antiope-preview/"/>
+    <content type="html">&lt;p&gt;The &lt;code&gt;antiope&lt;/code&gt; preview is now an official part of the API. These preview headers are no longer required. The Checks API endpoints no longer require the &lt;code&gt;antiope&lt;/code&gt; preview header.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;application/vnd.github.antiope-preview+json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For more information, see the "&lt;a href="https://docs.github.com/en/rest/reference/checks"&gt;Checks API&lt;/a&gt;."&lt;/p&gt;
+
+&lt;p&gt;Thanks again to everyone that tried out these API features during the preview period.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-08-20:/changes/2020-08-20-graduate-machine-man-and-sailor-v-previews/</id>
+    <title type="html">Machine-man and sailor-v previews graduate</title>
+    <published>2020-08-20T07:00:00Z</published>
+    <updated>2020-08-20T07:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-08-20-graduate-machine-man-and-sailor-v-previews/"/>
+    <content type="html">&lt;p&gt;Some API previews have graduated and are now an official part of the API. These preview headers are no longer required.&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;a id="machine-man-preview-graduates" class="anchor" href="#machine-man-preview-graduates" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;&lt;code&gt;machine-man&lt;/code&gt; preview graduates&lt;/h3&gt;
+
+&lt;p&gt;The GitHub App endpoints and endpoints that returned the &lt;code&gt;performed_via_github_app&lt;/code&gt; property no longer require the &lt;code&gt;machine-man&lt;/code&gt; preview.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;application/vnd.github.machine-man-preview+json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For more information, see the "&lt;a href="https://docs.github.com/en/rest/reference/apps"&gt;GitHub Apps REST API&lt;/a&gt;."&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;a id="sailor-v-preview-graduates" class="anchor" href="#sailor-v-preview-graduates" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;&lt;code&gt;sailor-v&lt;/code&gt; preview graduates&lt;/h3&gt;
+
+&lt;p&gt;To add and view a lock reason to an issue, you no longer need to use the &lt;code&gt;sailor-v&lt;/code&gt; preview.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;application/vnd.github.sailor-v-preview+json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For more information about the affected endpoints, see the "&lt;a href="https://docs.github.com/en/rest/reference/pulls"&gt;Pull Requests&lt;/a&gt;" and "&lt;a href="https://docs.github.com/en/rest/reference/issues"&gt;Issues&lt;/a&gt;" REST APIs.&lt;/p&gt;
+
+&lt;p&gt;Thanks again to everyone that tried out these API features during the preview period.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-05-15:/changes/2020-05-15-actions-api-workflow-usage/</id>
+    <title type="html">GitHub Actions API - Introducing workflow usage endpoints</title>
+    <published>2020-05-15T07:00:00Z</published>
+    <updated>2020-05-15T07:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-05-15-actions-api-workflow-usage/"/>
+    <content type="html">&lt;div class="alert product"&gt;&lt;p&gt;
+
+GitHub Actions is available with GitHub Free, GitHub Pro, GitHub Free for organizations, GitHub Team, GitHub Enterprise Cloud, and GitHub One. GitHub Actions is not available for private repositories owned by accounts using legacy per-repository plans. For more information, see &lt;a href="https://help.github.com/github/getting-started-with-github/githubs-products"&gt;GitHub's products&lt;/a&gt; in the GitHub Help documentation.
+
+&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;We've added two new endpoints to the &lt;a href="/v3/actions/"&gt;GitHub Actions API&lt;/a&gt; that provide insight into the billable time used by your workflows.&lt;/p&gt;
+
+&lt;p&gt;The following endpoints are now available for you to use:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/actions/workflows/#get-workflow-usage"&gt;Get workflow usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/actions/workflow-runs/#get-workflow-run-usage"&gt;Get workflow run usage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We've released these endpoints into public beta. We may change aspects of these endpoints based on developer feedback.
+If we do, we will announce the changes here on the developer blog, but we will not provide any advance notice.&lt;/p&gt;
+
+&lt;p&gt;If you have any questions or feedback, please &lt;a href="https://github.com/contact?form%5Bsubject%5D=actions+api+public+beta"&gt;let us know&lt;/a&gt;!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-05-08:/changes/2020-05-08-skipped-conclusion/</id>
+    <title type="html">Introducing the skipped check run and check suite conclusion</title>
+    <published>2020-05-08T07:00:00Z</published>
+    <updated>2020-05-08T07:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-05-08-skipped-conclusion/"/>
+    <content type="html">&lt;p&gt;If a check run or suite is never started, you'll see the &lt;code&gt;skipped&lt;/code&gt; conclusion. This is a common check run conclusion for GitHub Actions that have a job using an &lt;code&gt;if&lt;/code&gt; condition.&lt;/p&gt;
+
+&lt;p&gt;We created the &lt;code&gt;skipped&lt;/code&gt; conclusion to help distinguish this type of scenario from when a check run or suite is &lt;code&gt;cancelled&lt;/code&gt;. A check run or suite has the &lt;code&gt;cancelled&lt;/code&gt; conclusion when the check run was planned or started but then stopped. For example, a &lt;code&gt;conclusion&lt;/code&gt; can be &lt;code&gt;cancelled&lt;/code&gt; due to manual intervention or possibly some service issues that cause the check run to stop.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-05-01:/changes/2020-05-01-suspending-a-github-app-installation/</id>
+    <title type="html">Suspending GitHub App installations</title>
+    <published>2020-05-01T07:00:00Z</published>
+    <updated>2020-05-01T07:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-05-01-suspending-a-github-app-installation/"/>
+    <content type="html">&lt;p&gt;Before you could suspend a GitHub App, if an organization admin or user wanted to temporarily block an app's access to their repositories' resources, they could only uninstall the GitHub App completely. This has been particularly challenging for large organizations that may need thousands of people to reauthorize an app.&lt;/p&gt;
+
+&lt;p&gt;Now you can suspend a GitHub App's access to your resources for as long as you need and unsuspend the app's access when you're ready. When you suspend a GitHub App you've installed, the app cannot access your resources, the GitHub API, or webhook events.&lt;/p&gt;
+
+&lt;p&gt;The integrator who owns and maintains a GitHub app, also called a GitHub App owner, can suspend or unsuspend a GitHub App installation using these REST API endpoints with a JWT: &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/apps/#suspend-an-app-installation"&gt;&lt;code&gt;PUT /app/installations/:installation_id/suspended&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/apps/#unsuspend-an-app-installation"&gt;&lt;code&gt;DELETE /app/installations/:installation_id/suspended&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;People who have installed a GitHub App, also called installation owners, can suspend or unsuspend a GitHub App through their app's installation settings. Before people can suspend a GitHub app installation, the GitHub App owner must opt-in to the beta release. For more information, see "&lt;a href="/apps/managing-github-apps/suspending-a-github-app-installation/"&gt;Suspending a GitHub App installation&lt;/a&gt;."&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-04-30:/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps/</id>
+    <title type="html">Expiring user-to-server access tokens for GitHub Apps</title>
+    <published>2020-04-30T07:00:00Z</published>
+    <updated>2020-04-30T07:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-04-30-expiring-user-to-server-access-tokens-for-github-apps/"/>
+    <content type="html">&lt;p&gt;Starting today owners of GitHub Apps can choose to have their user-to-server access tokens expire after 8 hours. Expiring user-to-server access tokens help to enforce regular token rotation and reduce the impact of a compromised token.&lt;/p&gt;
+
+&lt;p&gt;You can opt-in to this security feature in your App's &lt;strong&gt;Settings&lt;/strong&gt; page under the &lt;strong&gt;Beta Features&lt;/strong&gt; tab.&lt;/p&gt;
+
+&lt;p&gt;Once enabled, GitHub will provide a refresh token when your app &lt;a href="/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/"&gt;creates a user-to-server token&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  "access_token": "accesstoken",
+  "expires_in": "28800",
+  "refresh_token": "r1.refreshme",
+  "refresh_token_expires_in": "15811200",
+  "scope": "",
+  "token_type": "bearer"
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This refresh token is valid for 6 months and can be exchanged for a fresh user-to-server access token (valid for another 8 hours) and a new refresh token:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;POST /login/oauth/access_token HTTP/1.1
+Host: github.com
+
+grant_type=refresh_token
+refresh_token=r1.refreshme
+&amp;amp;client_id=xxxxxxxxxx
+&amp;amp;client_secret=xxxxxxxxxx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For more information, see "&lt;a href="/apps/building-github-apps/refreshing-user-to-server-access-tokens/"&gt;Refreshing user-to-server access tokens&lt;/a&gt;."&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-04-15:/changes/2020-04-15-replacing-the-installation-and-installation-repositories-events/</id>
+    <title type="html">Replacing the integration_installation and integration_installation_repositories webhook events</title>
+    <published>2020-04-15T07:00:00Z</published>
+    <updated>2020-04-15T07:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-04-15-replacing-the-installation-and-installation-repositories-events/"/>
+    <content type="html">&lt;p&gt;We are announcing the deprecation of two legacy GitHub Apps-related webhook events:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;integration_installation&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;integration_installation_repositories&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These events have been undocumented for some time and will be removed on the following timeline.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a id="deprecation-timeline" class="anchor" href="#deprecation-timeline" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Deprecation Timeline&lt;/h2&gt;
+
+&lt;h3&gt;
+&lt;a id="brownouts" class="anchor" href="#brownouts" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Brownouts&lt;/h3&gt;
+
+&lt;p&gt;During a brownout, the deprecated events will not be sent. The goal is to trigger alerts (assuming there are any) on our customers' services to help find unmigrated event subscriptions. If this brownout is causing significant disruptions for your service, please &lt;a href="https://github.com/contact?form%5Bsubject%5D=Replacing+the+installation+and+installation+repositories+webhook+events"&gt;contact support&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The brownouts are scheduled for:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;August 1 2020&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From 07:00 UTC to 10:00 UTC&lt;/li&gt;
+&lt;li&gt;From 16:00 UTC to 19:00 UTC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;September 1 2020&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From 07:00 UTC to 10:00 UTC&lt;/li&gt;
+&lt;li&gt;From 16:00 UTC to 19:00 UTC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;
+&lt;a id="removal-date" class="anchor" href="#removal-date" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Removal date&lt;/h3&gt;
+
+&lt;p&gt;The legacy &lt;code&gt;integration_installation&lt;/code&gt; and &lt;code&gt;integration_installation_repositories&lt;/code&gt; events will no longer be sent after October 1 2020.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a id="changes-to-make" class="anchor" href="#changes-to-make" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Changes to make&lt;/h2&gt;
+
+&lt;p&gt;Replace all uses of the &lt;code&gt;integration_installation&lt;/code&gt; and &lt;code&gt;integration_installation_repositories&lt;/code&gt; events with the new events:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/webhooks/event-payloads/#installation"&gt;&lt;code&gt;installation&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/webhooks/event-payloads/#installation_repositories"&gt;&lt;code&gt;installation_repositories&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you have any questions or feedback, please &lt;a href="https://github.com/contact?form%5Bsubject%5D=Replacing+the+installation+and+installation+repositories+webhook+events"&gt;let us know&lt;/a&gt;!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-04-15:/changes/2020-04-15-replacing-create-installation-access-token-endpoint/</id>
+    <title type="html">Replacing the GitHub Apps "Creating an installation access token" endpoint</title>
+    <published>2020-04-15T07:00:00Z</published>
+    <updated>2020-04-15T07:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-04-15-replacing-create-installation-access-token-endpoint/"/>
+    <content type="html">&lt;p&gt;We are announcing the deprecation plan of the &lt;a href="/changes/2018-08-16-renaming-and-deprecation-of-github-app-installation-access-token-route/"&gt;previously deprecated&lt;/a&gt; "Create an installation access token" endpoint: &lt;code&gt;POST /installations/:installation_id/access_tokens&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The supported replacement endpoint is named consistently with other GitHub Apps API endpoints and has been available since 2018.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a id="deprecation-timeline" class="anchor" href="#deprecation-timeline" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Deprecation Timeline&lt;/h2&gt;
+
+&lt;h3&gt;
+&lt;a id="brownouts" class="anchor" href="#brownouts" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Brownouts&lt;/h3&gt;
+
+&lt;p&gt;During a brownout, calls to the old version of this endpoint will temporarily fail. The goal is to trigger alerts (assuming there are any) on our customers' services to help find unmigrated endpoint calls.&lt;/p&gt;
+
+&lt;p&gt;The brownouts are scheduled for:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;August 1 2020&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From 07:00 UTC to 10:00 UTC&lt;/li&gt;
+&lt;li&gt;From 16:00 UTC to 19:00 UTC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;September 1 2020&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From 07:00 UTC to 10:00 UTC&lt;/li&gt;
+&lt;li&gt;From 16:00 UTC to 19:00 UTC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;
+&lt;a id="removal-date" class="anchor" href="#removal-date" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Removal Date&lt;/h3&gt;
+
+&lt;p&gt;The legacy "Create an installation access token" endpoint will be disabled at the earliest on October 1 2020.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a id="changes-to-make" class="anchor" href="#changes-to-make" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Changes to make&lt;/h2&gt;
+
+&lt;p&gt;Replace all uses of the deprecated endpoint for creating an installation token for a GitHub App with the new endpoint:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation"&gt;&lt;code&gt;POST /app/installations/:installation_id/access_tokens&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If you have any questions or feedback, please &lt;a href="https://github.com/contact?form%5Bsubject%5D=Deprecated+create+installation+access+tokens+api"&gt;let us know&lt;/a&gt;!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-04-07:/changes/2020-04-07-graduated-previews/</id>
+    <title type="html">Shadow-cat and Gambit previews graduate</title>
+    <published>2020-04-07T07:00:00Z</published>
+    <updated>2020-04-07T07:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-04-07-graduated-previews/"/>
+    <content type="html">&lt;p&gt;Some API previews have graduated and are now an official part of the API. These preview headers are no longer required.&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;a id="gambit-preview-graduates" class="anchor" href="#gambit-preview-graduates" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;&lt;code&gt;gambit&lt;/code&gt; preview graduates&lt;/h3&gt;
+
+&lt;p&gt;The "Delete an installation" endpoint no longer requires the &lt;code&gt;gambit&lt;/code&gt; preview.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; application/vnd.github.gambit-preview+json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For more information about this endpoint, see the "&lt;a href="/v3/apps/#delete-an-installation-for-the-authenticated-app"&gt;Delete an installation for the authenticated app&lt;/a&gt;."&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;a id="shadow-cat-preview-graduates" class="anchor" href="#shadow-cat-preview-graduates" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;&lt;code&gt;shadow-cat&lt;/code&gt; preview graduates&lt;/h3&gt;
+
+&lt;p&gt;To create a draft pull request or see whether a pull request is in a draft state, you no longer need to use the &lt;code&gt;shadow-cat&lt;/code&gt; preview.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;application/vnd.github.shadow-cat-preview+json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For more information about the affected endpoints, see the "&lt;a href="/v3/pulls/"&gt;Pull Requests API&lt;/a&gt;."&lt;/p&gt;
+
+&lt;p&gt;Thanks again to everyone that tried out these API features during the preview period.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-04-07:/changes/2020-04-07-expanding-rest-api-support-for-the-triage-and-maintain-roles/</id>
+    <title type="html">Expanding REST API support for triage and maintain roles</title>
+    <published>2020-04-07T07:00:00Z</published>
+    <updated>2020-04-07T07:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-04-07-expanding-rest-api-support-for-the-triage-and-maintain-roles/"/>
+    <content type="html">&lt;p&gt;We are expanding support for the triage and maintain permissions in the REST API. Users with the triage or maintain permissions can now use endpoints that reflect what they can do in a repository, such as adding a label to an issue. Additionally, these new permissions can now be granted and managed via the API and will show up as assigned roles in API responses.&lt;/p&gt;
+
+&lt;p&gt;For more information about these roles, see "&lt;a href="https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization"&gt;Repository permission levels for an organization&lt;/a&gt;" in the GitHub Help documentation.&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;a id="endpoints-you-can-access-with-the-triage-permission" class="anchor" href="#endpoints-you-can-access-with-the-triage-permission" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Endpoints you can access with the triage permission&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/issues/labels/#add-labels-to-an-issue"&gt;&lt;code&gt;POST /repos/:owner/:repo/issues/:issue_number/labels&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/issues/labels/#remove-a-label-from-an-issue"&gt;&lt;code&gt;DELETE /repos/:owner/:repo/issues/:issue_number/labels/:name&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/issues/assignees/#add-assignees-to-an-issue"&gt;&lt;code&gt;POST /repos/:owner/:repo/issues/:issue_number/assignees&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/issues/assignees/#remove-assignees-from-an-issue"&gt;&lt;code&gt;DELETE /repos/:owner/:repo/issues/:issue_number/assignees&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/pulls/review_requests/#request-reviewers-for-a-pull-request"&gt;&lt;code&gt;POST /repos/:owner/:repo/pulls/:pull_number/requested_reviewers&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;
+&lt;a id="endpoints-you-can-access-with-the-maintain-permission" class="anchor" href="#endpoints-you-can-access-with-the-maintain-permission" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Endpoints you can access with the maintain permission&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/repos/#replace-all-repository-topics"&gt;&lt;code&gt;PUT /repos/:owner/:repo/topics&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/interactions/repos/#set-interaction-restrictions-for-a-repository"&gt;&lt;code&gt;PUT /repos/:owner/:repo/interaction-limits&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;All of the endpoints that you can use with the triage permission role:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/issues/labels/#add-labels-to-an-issue"&gt;&lt;code&gt;POST /repos/:owner/:repo/issues/:issue_number/labels&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/issues/labels/#remove-a-label-from-an-issue"&gt;&lt;code&gt;DELETE /repos/:owner/:repo/issues/:issue_number/labels/:name&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/issues/assignees/#add-assignees-to-an-issue"&gt;&lt;code&gt;POST /repos/:owner/:repo/issues/:issue_number/assignees&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/issues/assignees/#remove-assignees-from-an-issue"&gt;&lt;code&gt;DELETE /repos/:owner/:repo/issues/:issue_number/assignees&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/pulls/review_requests/#request-reviewers-for-a-pull-request"&gt;&lt;code&gt;POST /repos/:owner/:repo/pulls/:pull_number/requested_reviewers&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;
+&lt;a id="endpoints-to-assign-update-or-view-permissions" class="anchor" href="#endpoints-to-assign-update-or-view-permissions" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Endpoints to assign, update, or view permissions&lt;/h3&gt;
+
+&lt;p&gt;These endpoints will now work to manage the triage and maintain permissions.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/repos/collaborators/#add-a-repository-collaborator"&gt;&lt;code&gt;PUT /repos/:owner/:repo/collaborators/:username&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/repos/invitations/#list-repository-invitations"&gt;&lt;code&gt;GET /repos/:owner/:repo/invitations&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/repos/invitations/#update-a-repository-invitation"&gt;&lt;code&gt;PATCH /repos/:owner/:repo/invitations/:invitation_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/repos/invitations/#list-repository-invitations-for-the-authenticated-user"&gt;&lt;code&gt;GET /user/repository_invitations&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#check-team-permissions-for-a-repository"&gt;&lt;code&gt;GET /orgs/:org/teams/:team_slug/repos/:owner/:repo&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#add-or-update-team-repository-permissions"&gt;&lt;code&gt;PUT /orgs/:org/teams/:team_slug/repos/:owner/:repo&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#list-team-repositories"&gt;&lt;code&gt;GET /orgs/:org/teams/:team_slug/repos&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-03-23:/changes/2020-03-23-ActionsGA/</id>
+    <title type="html">Actions API GA</title>
+    <published>2020-03-23T07:00:00Z</published>
+    <updated>2020-03-23T07:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-03-23-ActionsGA/"/>
+    <content type="html">&lt;p&gt;The Actions API is now generally available and out of Beta! For more information about this API, see the "&lt;a href="/v3/actions"&gt;Actions API&lt;/a&gt;."&lt;/p&gt;
+
+&lt;p&gt;Thank you to everyone who tried out this API and provided feedback during the beta period.&lt;/p&gt;
+
+&lt;div class="alert product"&gt;&lt;p&gt;
+
+GitHub Actions is available with GitHub Free, GitHub Pro, GitHub Free for organizations, GitHub Team, GitHub Enterprise Cloud, and GitHub One. GitHub Actions is not available for private repositories owned by accounts using legacy per-repository plans. For more information, see &lt;a href="https://help.github.com/github/getting-started-with-github/githubs-products"&gt;GitHub's products&lt;/a&gt; in the GitHub Help documentation.
+
+&lt;/p&gt;&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-03-20:/changes/2020-03-20-temporary-graphql-explorer-downtime/</id>
+    <title type="html">Temporary GraphQL Explorer downtime</title>
+    <published>2020-03-20T07:00:00Z</published>
+    <updated>2020-03-20T07:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-03-20-temporary-graphql-explorer-downtime/"/>
+    <content type="html">&lt;p&gt;We are temporarily removing access to &lt;a href="/v4/explorer"&gt;GraphQL Explorer&lt;/a&gt; so we can improve how it works in different browsers.&lt;/p&gt;
+
+&lt;p&gt;The downtime is scheduled for:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;March 20, 2020
+
+&lt;ul&gt;
+&lt;li&gt;From 15:00 UTC to 17:00 UTC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We apologize for any inconvenience during this time.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-03-06:/changes/2020-03-06-filtering-jobs-for-a-workflow-run/</id>
+    <title type="html">Filtering jobs for a workflow run</title>
+    <published>2020-03-06T08:00:00Z</published>
+    <updated>2020-03-06T08:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-03-06-filtering-jobs-for-a-workflow-run/"/>
+    <content type="html">&lt;p&gt;We are introducing a breaking change to the &lt;a href="/v3/actions/workflow-jobs/#list-jobs-for-a-workflow-run"&gt;List jobs for a workflow run endpoint&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The new default behavior will list jobs from the most recent execution of the workflow run. You can specify &lt;code&gt;all&lt;/code&gt; with the &lt;code&gt;filter&lt;/code&gt; parameter when you want to see all jobs for a particular workflow run, including from old executions of the workflow run.&lt;/p&gt;
+
+&lt;p&gt;Please update your code accordingly, and &lt;a href="https://github.com/contact?form%5Bsubject%5D=API+Breaking+Change+List+Jobs+Workflow+Run"&gt;let us know&lt;/a&gt; if you have any questions.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-02-26:/changes/2020-02-26-new-delete-reactions-endpoints/</id>
+    <title type="html">Replacing the "Delete reactions" endpoint</title>
+    <published>2020-02-26T08:00:00Z</published>
+    <updated>2020-02-26T08:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-02-26-new-delete-reactions-endpoints/"/>
+    <content type="html">&lt;p&gt;We are announcing a new set of "Deleting reactions" endpoints in the Reactions API to replace the existing "Delete reactions" endpoint &lt;a href="/v3/reactions/#delete-a-reaction-legacy"&gt;&lt;code&gt;DELETE /reactions/:reaction_id&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The new endpoints will allow us to scale and support the Reactions API long-term.&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;a id="deprecation-timeline" class="anchor" href="#deprecation-timeline" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Deprecation timeline&lt;/h3&gt;
+
+&lt;p&gt;The existing "Delete reaction" endpoint &lt;a href="/v3/reactions/#delete-a-reaction-legacy"&gt;deleting a reaction&lt;/a&gt; will be disabled a year from now at the earliest on February 1st 2021.&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;a id="replacement-endpoints" class="anchor" href="#replacement-endpoints" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Replacement endpoints&lt;/h3&gt;
+
+&lt;p&gt;These are the new replacement Reaction API endpoints for deleting reactions:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Delete a commit comment reaction
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/reactions/#delete-a-commit-comment-reaction"&gt;&lt;code&gt;DELETE /repos/:owner/:repo/comments/:comment_id/reactions/:reaction_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Delete an issue reaction
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/reactions/#delete-an-issue-reaction"&gt;&lt;code&gt;DELETE /repos/:owner/:repo/issues/:issue_number/reactions/:reaction_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Delete a reaction to a commit comment
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/reactions/#delete-an-issue-comment-reaction"&gt;&lt;code&gt;DELETE /repos/:owner/:repo/issues/comments/:comment_id/reactions/:reaction_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Delete a pull request comment reaction
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/reactions/#delete-a-pull-request-comment-reaction"&gt;&lt;code&gt;DELETE /repos/:owner/:repo/pulls/comments/:comment_id/reactions/:reaction_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Delete team discussion reaction
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/reactions/#delete-team-discussion-reaction"&gt;&lt;code&gt;DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/reactions/:reaction_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Delete team discussion comment reaction
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/reactions/#delete-team-discussion-comment-reaction"&gt;&lt;code&gt;DELETE /orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions/:reaction_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-02-14:/changes/2020-02-14-deprecating-password-auth/</id>
+    <title type="html">Deprecating password authentication</title>
+    <published>2020-02-14T08:00:00Z</published>
+    <updated>2020-02-14T08:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-02-14-deprecating-password-auth/"/>
+    <content type="html">&lt;p&gt;As mentioned in this &lt;a href="/changes/2019-11-05-deprecated-passwords-and-authorizations-api"&gt;previous blog post&lt;/a&gt;, GitHub no longer supports basic authentication using a username and password. Instead, we recommend using personal access tokens or the web application flow.&lt;/p&gt;
+
+&lt;p&gt;This deprecation has &lt;strong&gt;&lt;em&gt;not&lt;/em&gt;&lt;/strong&gt; been applied to GitHub Enterprise offerings yet. Please check the latest Enterprise &lt;a href="https://enterprise.github.com/releases/"&gt;release notes&lt;/a&gt; to learn when this deprecation is initiated and which version of GitHub Enterprise Server will have password authentication removed.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a id="deprecation-timeline" class="anchor" href="#deprecation-timeline" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Deprecation timeline&lt;/h2&gt;
+
+&lt;h3&gt;
+&lt;a id="brownouts" class="anchor" href="#brownouts" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Brownouts&lt;/h3&gt;
+
+&lt;p&gt;During a brownout, password authentication will temporarily fail. The goal is to trigger alerts (assuming there are any) on our customers' services to help find unmigrated endpoint calls.&lt;/p&gt;
+
+&lt;p&gt;The brownouts are scheduled for:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;September 30, 2020&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From 07:00 UTC to 10:00 UTC&lt;/li&gt;
+&lt;li&gt;From 16:00 UTC to 19:00 UTC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;October 28, 2020&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From 07:00 UTC to 10:00 UTC&lt;/li&gt;
+&lt;li&gt;From 16:00 UTC to 19:00 UTC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;
+&lt;a id="removal" class="anchor" href="#removal" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Removal&lt;/h3&gt;
+
+&lt;p&gt;All password authentication will return a status code of &lt;strong&gt;401&lt;/strong&gt; starting:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;November 13, 2020 at 16:00 UTC&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;
+&lt;a id="changes-to-make" class="anchor" href="#changes-to-make" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Changes to make&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Using &lt;code&gt;username&lt;/code&gt;/&lt;code&gt;password&lt;/code&gt; for basic auth&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you're using &lt;code&gt;username&lt;/code&gt; and &lt;code&gt;password&lt;/code&gt; to make API calls like:&lt;/p&gt;
+
+&lt;pre class="highlight highlight-bash"&gt;&lt;code&gt;curl -u my_user:my_password https://api.github.com/user/repos
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Instead, use a &lt;a href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line"&gt;personal access token&lt;/a&gt; when testing endpoints or doing local development:&lt;/p&gt;
+
+&lt;pre class="highlight highlight-bash"&gt;&lt;code&gt;curl -H &lt;span class="s1"&gt;'Authorization: token my_access_token'&lt;/span&gt; https://api.github.com/user/repos
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;For OAuth Apps, you should use the &lt;a href="/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow"&gt;web application flow&lt;/a&gt; to generate an OAuth token that's also  used in the header:&lt;/p&gt;
+
+&lt;pre class="highlight highlight-bash"&gt;&lt;code&gt;curl -H &lt;span class="s1"&gt;'Authorization: token my-oauth-token'&lt;/span&gt; https://api.github.com/user/repos
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;h2&gt;
+&lt;a id="endpoints-affected" class="anchor" href="#endpoints-affected" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Endpoints affected&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;All endpoints&lt;/strong&gt; called using password authentication are affected.&lt;/p&gt;
+
+&lt;p&gt;If you have any questions or feedback, please &lt;a href="https://github.com/contact?form%5Bsubject%5D=Deprecated+passwords+and+authorizations+api"&gt;let us know&lt;/a&gt;!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-02-14:/changes/2020-02-14-deprecating-oauth-auth-endpoint/</id>
+    <title type="html">Deprecating OAuth Authorization API</title>
+    <published>2020-02-14T08:00:00Z</published>
+    <updated>2020-02-14T08:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-02-14-deprecating-oauth-auth-endpoint/"/>
+    <content type="html">&lt;p&gt;As mentioned in this &lt;a href="/changes/2019-11-05-deprecated-passwords-and-authorizations-api"&gt;previous blog post&lt;/a&gt;, GitHub has deprecated the OAuth authorization endpoints and recommends that integrators switch to the &lt;a href="/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow"&gt;web application flow&lt;/a&gt; to generate access tokens.&lt;/p&gt;
+
+&lt;p&gt;Since the OAuth Authorization API requires password authentication, this API will not work once &lt;a href="/changes/2020-02-14-deprecating-password-auth"&gt;password authentication has been deprecated&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This deprecation has &lt;strong&gt;&lt;em&gt;not&lt;/em&gt;&lt;/strong&gt; been applied to GitHub Enterprise offerings, yet. Though, we still recommend GHES customers to make the changes in their applications, if possible. Please check the latest Enterprise &lt;a href="https://enterprise.github.com/releases/"&gt;release notes&lt;/a&gt; to learn when deprecation is initiated and on which GHES version OAuth Authorization API will be removed.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a id="deprecation-timeline" class="anchor" href="#deprecation-timeline" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Deprecation timeline&lt;/h2&gt;
+
+&lt;h3&gt;
+&lt;a id="removal-date" class="anchor" href="#removal-date" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Removal date&lt;/h3&gt;
+
+&lt;p&gt;All calls to the OAuth authorization endpoints will return a status code of 404 starting on:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;November 13, 2020 at 16:00 UTC&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;
+&lt;a id="brownouts" class="anchor" href="#brownouts" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Brownouts&lt;/h3&gt;
+
+&lt;p&gt;During a brownout, calls to the old version of the OAuth Authorization API will temporarily fail. The goal is to trigger alerts (assuming there are any) on our customers' services to help find unmigrated endpoint calls.&lt;/p&gt;
+
+&lt;p&gt;The brownouts are scheduled for:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;September 30, 2020&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From 07:00 UTC to 10:00 UTC&lt;/li&gt;
+&lt;li&gt;From 16:00 UTC to 19:00 UTC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;October 28, 2020&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From 07:00 UTC to 10:00 UTC&lt;/li&gt;
+&lt;li&gt;From 16:00 UTC to 19:00 UTC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;
+&lt;a id="changes-to-make" class="anchor" href="#changes-to-make" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Changes to make&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Calls to OAuth Authorizations API&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you're making &lt;a href="/v3/oauth_authorizations/"&gt;OAuth Authorization API&lt;/a&gt; calls to manage your OAuth app's authorizations or to create personal access or OAuth tokens like:&lt;/p&gt;
+
+&lt;pre class="highlight highlight-bash"&gt;&lt;code&gt;curl -u my_username:my_password -X POST &lt;span class="s2"&gt;"https://api.github.com/authorizations"&lt;/span&gt; -d &lt;span class="s1"&gt;'{"scopes":["public_repo"], "note":"my token", "client_id":"my_client_id", "client_secret":"my_client_secret"}'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Then you must switch to the &lt;a href="/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow"&gt;web application flow&lt;/a&gt; to generate access tokens.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a id="endpoints-affected" class="anchor" href="#endpoints-affected" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Endpoints affected&lt;/h2&gt;
+
+&lt;p&gt;The following list of &lt;strong&gt;OAuth authorization endpoints&lt;/strong&gt; are deprecated:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#list-your-authorizations"&gt;&lt;code&gt;GET /authorizations&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#get-a-single-authorization"&gt;&lt;code&gt;GET /authorizations/:authorization_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#create-a-new-authorization"&gt;&lt;code&gt;POST /authorizations&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app"&gt;&lt;code&gt;PUT /authorizations/clients/:client_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app-and-fingerprint"&gt;&lt;code&gt;PUT /authorizations/clients/:client_id/:fingerprint&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#update-an-existing-authorization"&gt;&lt;code&gt;PATCH /authorizations/:authorization_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#delete-an-authorization"&gt;&lt;code&gt;DELETE /authorizations/:authorization_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#list-your-grants"&gt;&lt;code&gt;GET /applications/grants&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#get-a-single-grant"&gt;&lt;code&gt;GET /applications/grants/:grant_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#delete-a-grant"&gt;&lt;code&gt;DELETE /applications/grants/:grant_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you have any questions or feedback, please &lt;a href="https://github.com/contact?form%5Bsubject%5D=Deprecated+passwords+and+authorizations+api"&gt;let us know&lt;/a&gt;!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-02-14:/changes/2020-02-14-deprecating-oauth-app-endpoint/</id>
+    <title type="html">Deprecating OAuth Application API</title>
+    <published>2020-02-14T08:00:00Z</published>
+    <updated>2020-02-14T08:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/"/>
+    <content type="html">&lt;p&gt;As mentioned in this &lt;a href="/changes/2019-11-05-deprecated-passwords-and-authorizations-api"&gt;previous blog post&lt;/a&gt;, GitHub no longer supports the OAuth application endpoints and have replaced them with a version that moves the access token to the request body for improved security.&lt;/p&gt;
+
+&lt;p&gt;This deprecation has &lt;strong&gt;&lt;em&gt;not&lt;/em&gt;&lt;/strong&gt; been applied to GitHub Enterprise offerings yet. Please check the latest Enterprise &lt;a href="https://enterprise.github.com/releases/"&gt;release notes&lt;/a&gt; to learn when this deprecation is initiated and which version of GitHub Enterprise Server will have the OAuth Application API removed.&lt;/p&gt;
+
+&lt;p&gt;As an alternative to authorizing your app, you can use the web application flow or the device flow. The device flow doesn't require using the &lt;code&gt;client_secret&lt;/code&gt; and can be used by headless apps. For more information, see "&lt;a href="https://docs.github.com/en/developers/apps/authorizing-oauth-apps"&gt;Authorizing OAuth Apps&lt;/a&gt;."&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a id="deprecation-timeline" class="anchor" href="#deprecation-timeline" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Deprecation timeline&lt;/h2&gt;
+
+&lt;h3&gt;
+&lt;a id="brownouts" class="anchor" href="#brownouts" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Brownouts&lt;/h3&gt;
+
+&lt;p&gt;During a brownout, calls to the old version of OAuth application endpoints will temporarily fail. The goal is to trigger alerts (assuming there are any) on our customers' services to help find unmigrated endpoint calls.&lt;/p&gt;
+
+&lt;p&gt;The brownouts are scheduled for:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;March 17, 2021&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From 07:00 UTC to 10:00 UTC&lt;/li&gt;
+&lt;li&gt;From 16:00 UTC to 19:00 UTC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;April 14, 2021&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From 07:00 UTC to 10:00 UTC&lt;/li&gt;
+&lt;li&gt;From 16:00 UTC to 19:00 UTC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;
+&lt;a id="removal-date" class="anchor" href="#removal-date" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Removal date&lt;/h3&gt;
+
+&lt;p&gt;All calls to the old version of the OAuth application endpoints will return a status code of 404 starting on:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;May 5, 2021 at 16:00 UTC&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;
+&lt;a id="changes-to-make" class="anchor" href="#changes-to-make" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Changes to make&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Using calls to OAuth Application API&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you're using the version of the &lt;a href="/v3/apps/oauth_applications/"&gt;OAuth Application API&lt;/a&gt; that includes &lt;code&gt;:access_token&lt;/code&gt; in the path like:&lt;/p&gt;
+
+&lt;pre class="highlight highlight-bash"&gt;&lt;code&gt;curl -u my_client_id:my_client_secret -X POST &lt;span class="s2"&gt;"https://api.github.com/applications/123/tokens/my_access_token"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Instead, you'll need to call the new version that moves &lt;code&gt;:access_token&lt;/code&gt; in the request body:&lt;/p&gt;
+
+&lt;pre class="highlight highlight-bash"&gt;&lt;code&gt;curl -u my_client_id:my_client_secret -X PATCH &lt;span class="s2"&gt;"https://api.github.com/applications/123/token -d {"&lt;/span&gt;access_token&lt;span class="s2"&gt;": "&lt;/span&gt;my_access_token&lt;span class="s2"&gt;"}"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;See the list of OAuth application endpoints below that you'll need to replace with the new endpoints.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a id="endpoints-affected" class="anchor" href="#endpoints-affected" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Endpoints affected&lt;/h2&gt;
+
+&lt;p&gt;The following list of &lt;strong&gt;OAuth Application endpoints&lt;/strong&gt; are deprecated and should be replaced with the new corresponding endpoints.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Deprecated Endpoint&lt;/th&gt;
+&lt;th&gt;Deprecated Path&lt;/th&gt;
+&lt;th&gt;New Endpoint&lt;/th&gt;
+&lt;th&gt;New Path&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="/v3/apps/oauth_applications/#check-an-authorization"&gt;Check an authorization&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="/v3/apps/oauth_applications/#check-an-authorization"&gt;&lt;code&gt;GET /applications/:client_id/tokens/:access_token&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="/v3/apps/oauth_applications/#check-a-token"&gt;Check a token&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="/v3/apps/oauth_applications/#check-a-token"&gt;&lt;code&gt;POST /applications/:client_id/token&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="/v3/apps/oauth_applications/#reset-an-authorization"&gt;Reset an authorization&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="/v3/apps/oauth_applications/#reset-an-authorization"&gt;&lt;code&gt;POST /applications/:client_id/tokens/:access_token&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="/v3/apps/oauth_applications/#reset-a-token"&gt;Reset a token&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="/v3/apps/oauth_applications/#reset-a-token"&gt;&lt;code&gt;PATCH /applications/:client_id/token&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="/v3/apps/oauth_applications/#revoke-an-authorization-for-an-application"&gt;Revoke app authorization&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="/v3/apps/oauth_applications/#revoke-an-authorization-for-an-application"&gt;&lt;code&gt;DELETE /applications/:client_id/tokens/:access_token&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="/v3/apps/oauth_applications/#delete-an-app-token"&gt;Delete app token&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="/v3/apps/oauth_applications/#delete-an-app-token"&gt;&lt;code&gt;DELETE /applications/:client_id/token&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="/v3/apps/oauth_applications/#revoke-a-grant-for-an-application"&gt;Revoke app grant&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="/v3/apps/oauth_applications/#revoke-a-grant-for-an-application"&gt;&lt;code&gt;DELETE /applications/:client_id/grants/:access_token&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="/v3/apps/oauth_applications/#delete-an-app-authorization"&gt;Delete app authorization&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="/v3/apps/oauth_applications/#delete-an-app-authorization"&gt;&lt;code&gt;DELETE /applications/:client_id/grant&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;If you have any questions or feedback, please &lt;a href="https://github.com/contact?form%5Bsubject%5D=Deprecated+passwords+and+authorizations+api"&gt;let us know&lt;/a&gt;!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-02-10:/changes/2020-02-10-deprecating-auth-through-query-param/</id>
+    <title type="html">Deprecating API authentication through query parameters</title>
+    <published>2020-02-10T08:00:00Z</published>
+    <updated>2020-02-10T08:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/"/>
+    <content type="html">&lt;p&gt;As mentioned in this &lt;a href="/changes/2019-11-05-deprecated-passwords-and-authorizations-api/#authenticating-using-query-parameters"&gt;previous blog post&lt;/a&gt;, GitHub no longer supports authentication through query parameters. Instead, we recommend users move the authentication in the header.&lt;/p&gt;
+
+&lt;p&gt;This deprecation has &lt;strong&gt;&lt;em&gt;not&lt;/em&gt;&lt;/strong&gt; been applied to GitHub Enterprise offerings yet. We still recommend GitHub Enterprise customers make changes in their applications if possible. Please check the latest Enterprise &lt;a href="https://enterprise.github.com/releases/"&gt;release notes&lt;/a&gt; to learn when this deprecation is initiated and which version of GitHub Enterprise Server will have authorization through query parameters removed.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a id="deprecation-timeline" class="anchor" href="#deprecation-timeline" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Deprecation timeline&lt;/h2&gt;
+
+&lt;h3&gt;
+&lt;a id="brownouts" class="anchor" href="#brownouts" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Brownouts&lt;/h3&gt;
+
+&lt;p&gt;During a brownout, authentication using query parameters will temporarily fail. The goal is to trigger alerts (assuming there are any) on our customers' services to help them find unmigrated authentication calls.&lt;/p&gt;
+
+&lt;p&gt;The brownouts are scheduled for:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;March 17, 2021&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From 07:00 UTC to 10:00 UTC&lt;/li&gt;
+&lt;li&gt;From 16:00 UTC to 19:00 UTC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;April 14, 2021&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;From 07:00 UTC to 10:00 UTC&lt;/li&gt;
+&lt;li&gt;From 16:00 UTC to 19:00 UTC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;
+&lt;a id="removal-date" class="anchor" href="#removal-date" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Removal date&lt;/h3&gt;
+
+&lt;p&gt;All authentication using query parameters will return a status code of 401 like all other auth failures starting on:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;May 5, 2021 at 16:00 UTC&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;
+&lt;a id="changes-to-make" class="anchor" href="#changes-to-make" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Changes to make&lt;/h2&gt;
+
+&lt;p&gt;Starting on May 5, 2021, using &lt;code&gt;access_token&lt;/code&gt; as a query parameter to access the API (as a user or as a GitHub App) or using &lt;code&gt;client_id&lt;/code&gt;/&lt;code&gt;client_secret&lt;/code&gt; to make OAuth app unauthenticated calls will be disabled. For examples, see below.&lt;/p&gt;
+
+&lt;p&gt;Common uses of &lt;code&gt;access_token&lt;/code&gt; as a query param include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Direct calls to the GitHub API using &lt;a href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line"&gt;personal access tokens&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;GitHub Apps that make &lt;a href="/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/"&gt;user-to-server&lt;/a&gt; calls on behalf of the user or with Apps using &lt;a href="/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation"&gt;installation tokens&lt;/a&gt; to manage repositories.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Using &lt;code&gt;access_token&lt;/code&gt; as a query param&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you're currently making an API call similar to&lt;/p&gt;
+
+&lt;pre class="highlight highlight-bash"&gt;&lt;code&gt;curl &lt;span class="s2"&gt;"https://api.github.com/user/repos?access_token=my_access_token"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Instead, you should send the token in the header:&lt;/p&gt;
+
+&lt;pre class="highlight highlight-bash"&gt;&lt;code&gt;curl -H &lt;span class="s1"&gt;'Authorization: token my_access_token'&lt;/span&gt; https://api.github.com/user/repos
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;For details on how to &lt;em&gt;generate&lt;/em&gt; a token, see "&lt;a href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line"&gt;Creating a personal access token&lt;/a&gt;."&lt;/p&gt;
+
+&lt;p&gt;For details on how to &lt;em&gt;set&lt;/em&gt; the token, see these &lt;a href="/v3/#oauth2-token-sent-in-a-header"&gt;guidelines&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Using &lt;code&gt;client_id&lt;/code&gt;/&lt;code&gt;client_secret&lt;/code&gt; as a query param&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you're using an OAuth app's &lt;code&gt;client_id&lt;/code&gt; and &lt;code&gt;client_secret&lt;/code&gt; to make unauthenticated calls with a higher rate limit similar to&lt;/p&gt;
+
+&lt;pre class="highlight highlight-bash"&gt;&lt;code&gt;curl &lt;span class="s2"&gt;"https://api.github.com/user/repos?client_id=my_client_id&amp;amp;client_secret=my_secret_id"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Instead, you should use the following format:&lt;/p&gt;
+
+&lt;pre class="highlight highlight-bash"&gt;&lt;code&gt;curl -u my_client_id:my_client_secret https://api.github.com/user/repos
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;h2&gt;
+&lt;a id="endpoints-affected" class="anchor" href="#endpoints-affected" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Endpoints affected&lt;/h2&gt;
+
+&lt;p&gt;All requests to endpoints that use the above style of authentication are affected.&lt;/p&gt;
+
+&lt;p&gt;If you have any questions or feedback, please &lt;a href="https://github.com/contact?form%5Bsubject%5D=Deprecated+passwords+and+authorizations+api"&gt;let us know&lt;/a&gt;!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-02-03:/changes/2020-02-03-stale-conclusion/</id>
+    <title type="html">Automatically marking old incomplete check runs as `stale`</title>
+    <published>2020-02-03T08:00:00Z</published>
+    <updated>2020-02-03T08:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-02-03-stale-conclusion/"/>
+    <content type="html">&lt;p&gt;If a check run is in an incomplete state for more than 14 days, GitHub will automatically change the check run's &lt;code&gt;conclusion&lt;/code&gt; to &lt;code&gt;stale&lt;/code&gt;. The new &lt;code&gt;stale&lt;/code&gt; state will be denoted with the &lt;span class="octicon octicon-issue-reopened" aria-label="The issue-reopened icon " title="The issue-reopened icon "&gt;&lt;/span&gt; symbol and behaves similarly to the &lt;code&gt;timed_out&lt;/code&gt; and &lt;code&gt;canceled&lt;/code&gt; conclusions. When GitHub marks a check run as stale, a &lt;a href="/webhooks/event-payloads/#check_run"&gt;check run webhook event&lt;/a&gt; is triggered. &lt;/p&gt;
+
+&lt;p&gt;This will prevent old incomplete check runs from stopping apps that rely on the &lt;code&gt;completed&lt;/code&gt; &lt;a href="/webhooks/event-payloads/#check_suite"&gt;check suite event&lt;/a&gt; to trigger a flow.  &lt;/p&gt;
+
+&lt;p&gt;Only GitHub can mark check runs as &lt;code&gt;stale&lt;/code&gt;. For more information about possible conclusions of a check run, see the &lt;a href="/v3/checks/runs/#parameters"&gt;&lt;code&gt;conclusion&lt;/code&gt; parameter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This new behavior will go into effect after February 26th, 2020. All incomplete check runs older than 14 days will be marked stale. This feature will roll out slowly over a couple of days.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-01-28:/changes/2020-01-28-actions-api/</id>
+    <title type="html">Actions API</title>
+    <published>2020-01-28T08:00:00Z</published>
+    <updated>2020-01-28T08:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-01-28-actions-api/"/>
+    <content type="html">&lt;div class="alert product"&gt;&lt;p&gt;
+
+GitHub Actions is available with GitHub Free, GitHub Pro, GitHub Free for organizations, GitHub Team, GitHub Enterprise Cloud, and GitHub One. GitHub Actions is not available for private repositories owned by accounts using legacy per-repository plans. For more information, see &lt;a href="https://help.github.com/github/getting-started-with-github/githubs-products"&gt;GitHub's products&lt;/a&gt; in the GitHub Help documentation.
+
+&lt;/p&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;UPDATE (2020-02-19):&lt;/strong&gt; The &lt;a href="/v3/actions/"&gt;Actions API&lt;/a&gt; now includes the new &lt;a href="/v3/actions/artifacts/#list-artifacts-for-a-repository"&gt;List artifacts for a repository&lt;/a&gt; endpoint.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;UPDATE (2020-02-18):&lt;/strong&gt; The &lt;a href="/v3/actions/workflow-runs/"&gt;Actions API for workflow runs&lt;/a&gt; will replace &lt;code&gt;check_suite_id&lt;/code&gt; with &lt;code&gt;check_suite_url&lt;/code&gt; in responses to better adhere to API conventions.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href="/v3/actions/"&gt;Actions API&lt;/a&gt; enables you to manage GitHub Actions using the REST API. This
+includes the management of Secrets and Self-hosted runners.&lt;/p&gt;
+
+&lt;p&gt;The following endpoints in the &lt;a href="/v3/actions/"&gt;Actions API&lt;/a&gt; are available for you to use:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/actions/artifacts"&gt;Artifacts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/actions/secrets"&gt;Secrets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/actions/self-hosted-runners"&gt;Self-hosted runners&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/actions/workflows"&gt;Workflows&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/actions/workflow-jobs"&gt;Workflow Jobs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/actions/workflow-runs"&gt;Workflow Runs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;During the public beta period, we may change aspects of these APIs based on developer feedback.
+If we do, we will announce the changes here on the developer blog, but we will not provide any advance notice.&lt;/p&gt;
+
+&lt;p&gt;If you have any questions or feedback, please &lt;a href="https://github.com/contact?form%5Bsubject%5D=actions+api+public+beta"&gt;let us know&lt;/a&gt;!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-01-22:/changes/2020-01-22-everest-preview-graduated/</id>
+    <title type="html">Creating a repository dispatch event now official part of GitHub API</title>
+    <published>2020-01-22T08:00:00Z</published>
+    <updated>2020-01-22T08:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-01-22-everest-preview-graduated/"/>
+    <content type="html">&lt;p&gt;The "Creating a repository dispatch event" endpoint no longer requires the &lt;code&gt;everest&lt;/code&gt; preview.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; application/vnd.github.everest-preview+json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For more information about this endpoint, see the "&lt;a href="/v3/repos/#create-a-repository-dispatch-event"&gt;Create a repository dispatch event&lt;/a&gt;."&lt;/p&gt;
+
+&lt;p&gt;Thanks again to everyone that tried out these API features during the preview period.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-01-21:/changes/2020-01-21-moving-the-team-api-endpoints/</id>
+    <title type="html">Moving the teams API</title>
+    <published>2020-01-21T08:00:00Z</published>
+    <updated>2020-01-21T08:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-01-21-moving-the-team-api-endpoints/"/>
+    <content type="html">&lt;p&gt;We are announcing a new set of endpoints in the Teams API. The new endpoints will allow us to scale and support the Teams API long-term.&lt;/p&gt;
+
+&lt;p&gt;The Team APIs will be moving from a top-level path under &lt;code&gt;/teams/:team_id&lt;/code&gt; to a scoped path under the organization that owns the team with a path like &lt;code&gt;/organizations/:org_id/team/:team_id&lt;/code&gt;. In this move we also are adding support to making these APIs available under a named path as well with &lt;code&gt;/orgs/:org/teams/:team_slug&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;a id="deprecation-timeline" class="anchor" href="#deprecation-timeline" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Deprecation timeline&lt;/h3&gt;
+
+&lt;p&gt;The existing API endpoints will be disabled a year from now at the earliest on February 1st 2021.&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;a id="what-changes-to-make" class="anchor" href="#what-changes-to-make" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;What changes to make&lt;/h3&gt;
+
+&lt;p&gt;If you're already using an API endpoint under &lt;code&gt;/teams/:team_id&lt;/code&gt;, the easiest way to update your code is to switch to the &lt;code&gt;/organizations/:org_id/team/:team_id&lt;/code&gt; endpoint. If you're unsure what &lt;code&gt;org_id&lt;/code&gt; to use, you can find it by retrieving the current team under &lt;code&gt;/teams/:team_id&lt;/code&gt;. You'll find the &lt;code&gt;org_id&lt;/code&gt; inside the &lt;code&gt;organization&lt;/code&gt; hash as the &lt;code&gt;id&lt;/code&gt; field in the response.&lt;/p&gt;
+
+&lt;div class="alert note"&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The endpoint routes using organization and team &lt;code&gt;id&lt;/code&gt; use the singular &lt;code&gt;team&lt;/code&gt;. The plural form of the route already exists. For example, &lt;code&gt;/organizations/:org_id/teams/:team_slug&lt;/code&gt;.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h3&gt;
+&lt;a id="endpoints-affected" class="anchor" href="#endpoints-affected" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Endpoints affected&lt;/h3&gt;
+
+&lt;p&gt;These endpoints are being deprecated:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#get-a-team-legacy"&gt;&lt;code&gt;GET /teams/:team_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#update-a-team-legacy"&gt;&lt;code&gt;PATCH /teams/:team_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#delete-a-team-legacy"&gt;&lt;code&gt;DELETE /teams/:team_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#list-child-teams-legacy"&gt;&lt;code&gt;GET /teams/:team_id/teams&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#list-team-repositories-legacy"&gt;&lt;code&gt;GET /teams/:team_id/repos&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#check-team-permissions-for-a-repository-legacy"&gt;&lt;code&gt;GET /teams/:team_id/repos/:owner/:repo&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#add-or-update-team-repository-permissions-legacy"&gt;&lt;code&gt;PUT /teams/:team_id/repos/:owner/:repo&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#remove-a-repository-from-a-team-legacy"&gt;&lt;code&gt;DELETE /teams/:team_id/repos/:owner/:repo&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#list-team-projects-legacy"&gt;&lt;code&gt;GET /teams/:team_id/projects&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#check-team-permissions-for-a-project-legacy"&gt;&lt;code&gt;GET /teams/:team_id/projects/:project_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#add-or-update-team-project-permissions-legacy"&gt;&lt;code&gt;PUT /teams/:team_id/projects/:project_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#remove-a-project-from-a-team-legacy"&gt;&lt;code&gt;DELETE /teams/:team_id/projects/:project_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These are the new replacement team API endpoints:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#get-a-team-by-name"&gt;&lt;code&gt;GET /orgs/:org/teams/:team_slug&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#update-a-team"&gt;&lt;code&gt;PATCH /orgs/:org/teams/:team_slug&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#delete-a-team"&gt;&lt;code&gt;DELETE /orgs/:org/teams/:team_slug&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#list-child-teams"&gt;&lt;code&gt;GET /orgs/:org/teams/:team_slug/teams&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#list-team-repositories"&gt;&lt;code&gt;GET /orgs/:org/teams/:team_slug/repos&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#check-team-permissions-for-a-repository"&gt;&lt;code&gt;GET /orgs/:org/teams/:team_slug/repos/:owner/:repo&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#add-or-update-team-repository-permissions"&gt;&lt;code&gt;PUT /orgs/:org/teams/:team_slug/repos/:owner/:repo&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#remove-a-repository-from-a-team"&gt;&lt;code&gt;DELETE /orgs/:org/teams/:team_slug/repos/:owner/:repo&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#list-team-projects"&gt;&lt;code&gt;GET /orgs/:org/teams/:team_slug/projects&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#check-team-permissions-for-a-project"&gt;&lt;code&gt;GET /orgs/:org/teams/:team_slug/projects/:project_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#add-or-update-team-project-permissions"&gt;&lt;code&gt;PUT /orgs/:org/teams/:team_slug/projects/:project_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/teams/#remove-a-project-from-a-team"&gt;&lt;code&gt;DELETE /orgs/:org/teams/:team_slug/projects/:project_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As mentioned, these new replacement team API endpoints are available both as &lt;code&gt;/orgs/:org/teams/:team_slug&lt;/code&gt; for name based access, and as &lt;code&gt;/organizations/:org_id/team/:team_id&lt;/code&gt; for &lt;code&gt;id&lt;/code&gt; based access.&lt;/p&gt;
+
+&lt;p&gt;If you have any questions or feedback, please &lt;a href="https://github.com/contact?form%5Bsubject%5D=Moving+the+teams+API"&gt;let us know&lt;/a&gt;!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-01-10:/changes/2020-01-10-revoke-installation-token/</id>
+    <title type="html">Revoke GitHub Apps installation tokens with the REST API</title>
+    <published>2020-01-10T08:00:00Z</published>
+    <updated>2020-01-10T08:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-01-10-revoke-installation-token/"/>
+    <content type="html">&lt;p&gt;Now you can revoke GitHub App installation tokens using the REST API.&lt;/p&gt;
+
+&lt;p&gt;To access this new endpoint during the preview period, you must provide a custom &lt;a href="/v3/media"&gt;media type&lt;/a&gt; in the &lt;code&gt;Accept&lt;/code&gt; header:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;application/vnd.github.gambit-preview+json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;During the preview period, we may change aspects of these API endpoints based on developer feedback.
+If we do, we will announce the changes here on the developer blog, but we will not provide any advance notice.&lt;/p&gt;
+
+&lt;p&gt;For more information, see the "&lt;a href="/v3/apps/installations/#revoke-an-installation-access-token"&gt;Revoke an installation access token&lt;/a&gt;" endpoint.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2020-01-08:/changes/2020-01-08-source-imports-now-official-part-of-API/</id>
+    <title type="html">The Source Import API ends preview</title>
+    <published>2020-01-08T08:00:00Z</published>
+    <updated>2020-01-08T08:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2020-01-08-source-imports-now-official-part-of-API/"/>
+    <content type="html">&lt;p&gt;The Source Import API is now an official part of the GitHub API.&lt;/p&gt;
+
+&lt;p&gt;To use the Source Import API, you no longer need the &lt;code&gt;barred-rock&lt;/code&gt; preview.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;application/vnd.github.barred-rock-preview
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For more information about this API, see "&lt;a href="/v3/migrations/source_imports/"&gt;Source Imports API&lt;/a&gt;."&lt;/p&gt;
+
+&lt;p&gt;Thanks again to everyone that tried out these API features during the preview period.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2019-12-13:/changes/2019-12-13-graduated-previews-announced/</id>
+    <title type="html">Several API previews graduate</title>
+    <published>2019-12-13T08:00:00Z</published>
+    <updated>2019-12-13T08:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2019-12-13-graduated-previews-announced/"/>
+    <content type="html">&lt;p&gt;There are several features that are now officially part of the &lt;a href="/v3/"&gt;GitHub REST API v3&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To use the affected API endpoints, you no longer need to pass preview headers. Before these previews graduated, you had to include preview headers as a custom &lt;a href="/v3/media"&gt;media type&lt;/a&gt; in the &lt;code&gt;Accept&lt;/code&gt; header to use these endpoints.&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;a id="graduated-previews" class="anchor" href="#graduated-previews" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Graduated previews&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;To transfer a repository, you no longer need the Nightshade preview.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;application/vnd.github.nightshade-preview+json
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To invite users to an organization, you no longer need to use the Dazzler preview.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;application/vnd.github.dazzler-preview+json
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To access the Team Discussions API, you no longer need the Echo preview.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;application/vnd.github.echo-preview+json
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To use emoji in label names, add descriptions to labels or search for labels in a repository, you no longer need to use the Symmetra preview.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;application/vnd.github.symmetra-preview+json
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To retrieve someone's hovercard information in different contexts using the Hovercard API, you no longer need the Hagar preview.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;application/vnd.github.hagar-preview+json
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To see nested teams in your responses or use the &lt;a href="/v3/teams/#list-child-teams"&gt;Nested Teams API&lt;/a&gt;, you no longer need the Hellcat preview.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;application/vnd.github.hellcat-preview+json
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Thanks again to everyone that tried out these API features during the preview period.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2019-12-03:/changes/2019-12-03-internal-visibility-changes/</id>
+    <title type="html">API changes to support internal repository visibility</title>
+    <published>2019-12-03T08:00:00Z</published>
+    <updated>2019-12-03T08:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2019-12-03-internal-visibility-changes/"/>
+    <content type="html">&lt;p&gt;Customers with an enterprise account using GitHub Enterprise Cloud and GitHub Enterprise Server 2.20+  have access to a third visibility option beyond public and private, called &lt;a href="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-an-internal-repository#about-internal-repositories"&gt;internal&lt;/a&gt;. We've made some recent API changes to support this option.&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;a id="repository-creation-policy" class="anchor" href="#repository-creation-policy" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Repository Creation Policy&lt;/h3&gt;
+
+&lt;p&gt;The REST v3 and GraphQL v4 APIs now support setting and retrieving granular repository creation permissions.&lt;/p&gt;
+
+&lt;h4&gt;
+&lt;a id="rest-v3-api" class="anchor" href="#rest-v3-api" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;REST v3 API&lt;/h4&gt;
+
+&lt;p&gt;In the REST v3 API, &lt;a href="/v3/orgs/#get-an-organization"&gt;Get an organization&lt;/a&gt;
+and &lt;a href="/v3/orgs/#update-an-organization"&gt;Update an organization&lt;/a&gt; endpoints have three
+new fields added to the existing &lt;code&gt;surtur&lt;/code&gt; preview:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;members_can_create_public_repositories&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;members_can_create_private_repositories&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;members_can_create_internal_repositories&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In &lt;a href="/v3/orgs/#get-an-organization"&gt;Get an organization&lt;/a&gt; and &lt;a href="/v3/orgs/#update-an-organization"&gt;Update an organization&lt;/a&gt;, the existing &lt;code&gt;members_allowed_repository_creation_type&lt;/code&gt; field remains for backward compatibility but is deprecated and will be removed in the future. Its return value ignores internal repositories.&lt;/p&gt;
+
+&lt;p&gt;Values provided in the new fields while &lt;a href="/v3/orgs/#update-an-organization"&gt;editing an organization&lt;/a&gt; override the existing &lt;code&gt;members_allowed_repository_creation_type&lt;/code&gt; field.&lt;/p&gt;
+
+&lt;h4&gt;
+&lt;a id="graphl-v4-api" class="anchor" href="#graphl-v4-api" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;GraphL v4 API&lt;/h4&gt;
+
+&lt;p&gt;Similar changes apply to the GraphQL v4 API. The &lt;a href="/v4/object/enterpriseownerinfo/"&gt;&lt;code&gt;EnterpriseOwnerInfo&lt;/code&gt; object&lt;/a&gt; has three new fields indicating the policy setting for Enterprise accounts:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;membersCanCreatePublicRepositoriesSetting&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;membersCanCreatePrivateRepositoriesSetting&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;membersCanCreateInternalRepositoriesSetting&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These new fields coexist with the old &lt;code&gt;membersCanCreateRepositoriesSetting&lt;/code&gt; which does not account for internal repository creation policy. This field is now deprecated and will be removed in the future.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href="/v4/input_object/updateenterprisememberscancreaterepositoriessettinginput/"&gt;&lt;code&gt;UpdateEnterpriseMembersCanCreateRepositoriesSetting&lt;/code&gt; mutation&lt;/a&gt; includes four new input fields:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;code&gt;membersCanCreateRepositoriesPolicyEnabled&lt;/code&gt;, which toggles enterprise policy enforcement over organizations.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;membersCanCreatePublicRepositories&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;membersCanCreatePrivateRepositories&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;membersCanCreateInternalRepositories&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These new fields coexist with the old &lt;code&gt;settingValue&lt;/code&gt; which does not account for internal repository creation policy. This field is also deprecated and will be removed in the future.&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;a id="repository-visibility-fields" class="anchor" href="#repository-visibility-fields" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Repository Visibility Fields&lt;/h3&gt;
+
+&lt;p&gt;You can now set and retrieve the visibility of a repository with a new field that accommodates &lt;code&gt;internal&lt;/code&gt; repositories, which are available to enterprise accounts using GitHub Enterprise Cloud  or GitHub Enterprise Server 2.20+. In the REST v3 API, you will see the following changes:&lt;/p&gt;
+
+&lt;p&gt;These endpoints show &lt;code&gt;visibility&lt;/code&gt; key in the response:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  &lt;a href="/v3/repos/#list-repositories-for-the-authenticated-user"&gt;List repositories for the authenticated user&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;  &lt;a href="/v3/repos/#list-repositories-for-a-user"&gt;List repositories for a user&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/repos/#list-organization-repositories"&gt;List organization repositories&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/repos/#create-a-repository-for-the-authenticated-user"&gt;Create a repository for the authenticated user&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/repos/#create-a-repository-using-a-template"&gt;Create a repository using a template&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/repos/#get-a-repository"&gt;Get a repository&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/repos/#update-a-repository"&gt;Update a repository&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These endpoints have new input parameters:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href="/v3/repos/#create-a-repository-for-the-authenticated-user"&gt;Create a repository for the authenticated user&lt;/a&gt; has a new &lt;code&gt;visibility&lt;/code&gt; field which can be &lt;code&gt;public&lt;/code&gt;, &lt;code&gt;private&lt;/code&gt;, or &lt;code&gt;internal&lt;/code&gt;. A value provided here overrides any value set in the existing &lt;code&gt;private&lt;/code&gt; field.&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="/v3/repos/#update-a-repository"&gt;Update a repository&lt;/a&gt; also has a new &lt;code&gt;visibility&lt;/code&gt; field with the same behavior as the &lt;a href="/v3/repos/#create-a-repository-for-the-authenticated-user"&gt;Create a repository for the authenticated user&lt;/a&gt; endpoint.&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="/v3/repos/#list-organization-repositories"&gt;List organization repositories&lt;/a&gt; has a new &lt;code&gt;internal&lt;/code&gt; input option for the &lt;code&gt;type&lt;/code&gt; parameter.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To access the &lt;code&gt;visibility&lt;/code&gt; field for any of these endpoints, you must provide a custom media type in the Accept header:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;application/vnd.github.nebula-preview+json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you have any questions or feedback, please &lt;a href="https://github.com/contact?form%5Bsubject%5D=API+changes+to+support+internal+repository+visibility"&gt;let us know&lt;/a&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2019-11-12:/changes/2019-11-12-managing-enterprise-accounts/</id>
+    <title type="html">Introducing the "Managing enterprise accounts" GraphQL API</title>
+    <published>2019-11-12T08:00:00Z</published>
+    <updated>2019-11-12T08:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2019-11-12-managing-enterprise-accounts/"/>
+    <content type="html">&lt;p&gt;Now you can manage your enterprise account using the GraphQL API, which efficiently returns just the data you request. This API is designed to handle all of your enterprise account management needs, from monitoring account settings, access changes, and users within your enterprise. The Managing Enterprise Accounts API is available for GitHub Enterprise Cloud and for GitHub Enterprise Server.&lt;/p&gt;
+
+&lt;p&gt;For more information, see "&lt;a href="/v4/guides/managing-enterprise-accounts"&gt;Managing enterprise accounts&lt;/a&gt;."&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2019-11-05:/changes/2019-11-05-deprecated-passwords-and-authorizations-api/</id>
+    <title type="html">Deprecated APIs and authentication</title>
+    <published>2019-11-05T08:00:00Z</published>
+    <updated>2019-11-05T08:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/"/>
+    <content type="html">&lt;p&gt;We are announcing deprecations that will improve the security of GitHub apps and APIs, but we haven't removed anything yet. We hope that communicating this information early will help you plan for the authentication and authorization changes you will need to make.&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;a id="deprecation-timeline" class="anchor" href="#deprecation-timeline" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Deprecation timeline&lt;/h3&gt;
+
+&lt;p&gt;We will provide more information during the following few months, including the exact timeline for discontinuing the support of these deprecations. While we are not removing anything right now, we will follow up with a blog post that outlines the changes and the timeline in which we will no longer support the following deprecated endpoints and authentication methods.  &lt;/p&gt;
+
+&lt;h3&gt;
+&lt;a id="authenticating-using-passwords" class="anchor" href="#authenticating-using-passwords" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Authenticating using passwords&lt;/h3&gt;
+
+&lt;p&gt;GitHub is deprecating password authentication to the API. Instead of using password authentication, create a personal access token using your &lt;a href="https://help.github.com/articles/creating-an-access-token-for-command-line-use"&gt;Personal access tokens settings page&lt;/a&gt; in limited situations like testing. You should authenticate apps in production by using the web applications flow. For more information, see "&lt;a href="/apps/building-oauth-apps/authorizing-oauth-apps/"&gt;Authorizing OAuth Apps&lt;/a&gt;."&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;a id="authenticating-using-query-parameters" class="anchor" href="#authenticating-using-query-parameters" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Authenticating using query parameters&lt;/h3&gt;
+
+&lt;p&gt;GitHub is deprecating authentication to the GitHub API using query parameters, such as using a &lt;code&gt;access_token&lt;/code&gt; query parameter for OAuth user authentication or a &lt;code&gt;client_id&lt;/code&gt;/&lt;code&gt;client_secret&lt;/code&gt; query parameter for OAuth application authentication. All authentication to the GitHub API should be done using &lt;a href="/v3/auth/#via-oauth-and-personal-access-tokens"&gt;HTTP basic authentication&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;a id="authenticating-with-saml-organizations" class="anchor" href="#authenticating-with-saml-organizations" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Authenticating with SAML organizations&lt;/h3&gt;
+
+&lt;p&gt;Apps must use the &lt;a href="/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow"&gt;web application flow&lt;/a&gt; to obtain OAuth tokens that work with GitHub SAML organizations. OAuth tokens created using the &lt;a href="/v3/oauth_authorizations"&gt;Authorizations API&lt;/a&gt; are unable to access resources for GitHub SAML organizations.&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;a id="deprecating-and-adding-endpoints-for-the-oauth-authorizations-and-oauth-applications-apis" class="anchor" href="#deprecating-and-adding-endpoints-for-the-oauth-authorizations-and-oauth-applications-apis" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Deprecating and adding endpoints for the OAuth Authorizations and OAuth Applications APIs&lt;/h3&gt;
+
+&lt;p&gt;GitHub is deprecating the &lt;a href="/v3/oauth_authorizations"&gt;Authorizations API&lt;/a&gt;, which includes these endpoints:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#list-your-authorizations"&gt;&lt;code&gt;GET /authorizations&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#get-a-single-authorization"&gt;&lt;code&gt;GET /authorizations/:authorization_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#create-a-new-authorization"&gt;&lt;code&gt;POST /authorizations&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app"&gt;&lt;code&gt;PUT /authorizations/clients/:client_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#get-or-create-an-authorization-for-a-specific-app-and-fingerprint"&gt;&lt;code&gt;PUT /authorizations/clients/:client_id/:fingerprint&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#update-an-existing-authorization"&gt;&lt;code&gt;PATCH /authorizations/:authorization_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#delete-an-authorization"&gt;&lt;code&gt;DELETE /authorizations/:authorization_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#list-your-grants"&gt;&lt;code&gt;GET /applications/grants&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3//oauth_authorizations/#get-a-single-grant"&gt;&lt;code&gt;GET /applications/grants/:grant_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/oauth_authorizations/#delete-a-grant"&gt;&lt;code&gt;DELETE /applications/grants/:grant_id&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Some client-side integrations use the deprecated Authorizations API to create personal access tokens and OAuth access tokens. These tokens must now be created using our &lt;a href="/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow"&gt;web application flow&lt;/a&gt;. When appropriate, personal access tokens can still be created by the user on the &lt;a href="https://github.com/settings/tokens"&gt;Personal access tokens&lt;/a&gt; page. However, most integrations should &lt;a href="https://github.com/settings/applications/new"&gt;register themselves&lt;/a&gt; as an OAuth application and use the web application flow to obtain an OAuth access token.&lt;/p&gt;
+
+&lt;p&gt;GitHub has replaced several deprecated endpoints with new ones. You can now find both the deprecated and new endpoints in the &lt;a href="/v3/apps/oauth_applications"&gt;OAuth Applications API&lt;/a&gt;. Specifically, we have deprecated OAuth Applications API endpoints containing an OAuth token as a path parameter:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/apps/oauth_applications/#check-an-authorization"&gt;&lt;code&gt;GET /applications/:client_id/tokens/:access_token&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/apps/oauth_applications/#reset-an-authorization"&gt;&lt;code&gt;POST /applications/:client_id/tokens/:access_token&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/apps/oauth_applications/#revoke-an-authorization-for-an-application"&gt;&lt;code&gt;DELETE /applications/:client_id/tokens/:access_token&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/apps/oauth_applications/#revoke-a-grant-for-an-application"&gt;&lt;code&gt;DELETE /applications/:client_id/grants/:access_token&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These new endpoints replace the deprecated endpoints:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="/v3/apps/oauth_applications/#check-a-token"&gt;&lt;code&gt;POST /applications/:client_id/token&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/apps/oauth_applications/#reset-a-token"&gt;&lt;code&gt;PATCH /applications/:client_id/token&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/apps/oauth_applications/#delete-an-app-token"&gt;&lt;code&gt;DELETE /applications/:client_id/token&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/v3/apps/oauth_applications/#delete-an-app-authorization"&gt;&lt;code&gt;DELETE /applications/:client_id/grant&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;
+&lt;a id="updating-command-line-utilities-to-use-localhost-based-redirect-urls" class="anchor" href="#updating-command-line-utilities-to-use-localhost-based-redirect-urls" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Updating command-line utilities to use localhost-based redirect URLs&lt;/h3&gt;
+
+&lt;p&gt;Command-line tools now support a web-based flow by using localhost-based redirect URLs and specifying a port. We have extended our support for localhost-based redirect URLs to securely improve the experience of command-line utilities for client-side integrations. Historically these tools have relied on the Authorizations API, and they have not been able to easily register an OAuth URL callback to use with our OAuth &lt;a href="/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow"&gt;web application flow&lt;/a&gt;. Please see our documentation on &lt;a href="/apps/building-oauth-apps/authorizing-oauth-apps/#localhost-redirect-urls"&gt;redirect URLs&lt;/a&gt; for more information.&lt;/p&gt;
+
+&lt;p&gt;If you have any questions or feedback, please &lt;a href="https://github.com/contact?form%5Bsubject%5D=Deprecated+passwords+and+authorizations+api"&gt;let us know&lt;/a&gt;!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2019-10-23:/changes/2019-10-23-get-installations-for-org/</id>
+    <title type="html">List GitHub App installations for an organization</title>
+    <published>2019-10-23T07:00:00Z</published>
+    <updated>2019-10-23T07:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2019-10-23-get-installations-for-org/"/>
+    <content type="html">&lt;p&gt;Now as an organization owner, you can &lt;a href="/v3/orgs/#list-app-installations-for-an-organization"&gt;list all GitHub App installations&lt;/a&gt; for an organization using the REST API. You must be an organization owner with &lt;code&gt;admin:read&lt;/code&gt; scope to use this endpoint. The installation count includes all GitHub Apps installed on repositories in the organization.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GET /orgs/:org/installations
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To list all GitHub App installations for an organization, you must provide the &lt;code&gt;machine-man&lt;/code&gt; custom &lt;a href="/v3/media"&gt;media type&lt;/a&gt; in the &lt;code&gt;Accept&lt;/code&gt; header:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;application/vnd.github.machine-man-preview+json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;During the preview period, we may change aspects of these APIs based on developer feedback.&lt;/p&gt;
+
+&lt;p&gt;If we do, we will announce the changes here on the developer blog, but we will not provide any advance notice.  If you have any questions or feedback, &lt;a href="https://github.com/contact?form%5Bsubject%5D=Feedback:+Listing+GitHub+App+installations+for+an+organization+via+the+API"&gt;let us know&lt;/a&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:developer.github.com,2019-10-04:/changes/2019-10-04-end-mister-fantastic-preview/</id>
+    <title type="html">GitHub Pages features become an official part of the REST API</title>
+    <published>2019-10-04T07:00:00Z</published>
+    <updated>2019-10-04T07:00:00Z</updated>
+    <link rel="alternate" href="https://developer.github.com/changes/2019-10-04-end-mister-fantastic-preview/"/>
+    <content type="html">&lt;p&gt;The features that are a part of the GitHub Pages &lt;code&gt;mister-fantastic-preview&lt;/code&gt; are now available on GitHub.com and will be available in the next versions of GitHub Enterprise (2.19 and higher). You will no longer need to pass a preview header to use most GitHub Pages API endpoints.&lt;/p&gt;
+
+&lt;h3&gt;
+&lt;a id="preview-media-type-no-longer-needed" class="anchor" href="#preview-media-type-no-longer-needed" aria-hidden="true"&gt;&lt;span aria-hidden="true" class="octicon octicon-link"&gt;&lt;/span&gt;&lt;/a&gt;Preview media type no longer needed&lt;/h3&gt;
+
+&lt;p&gt;Now that the preview period has ended (first announced in &lt;a href="/changes/2016-07-06-github-pages-preview-api/"&gt;July 2016&lt;/a&gt;), you no longer need to pass the &lt;code&gt;mister-fantastic-preview&lt;/code&gt; custom media type. Instead, we recommend that you specify v3 as the version in the Accept header:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;application/vnd.github.v3+json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Please note that if you use GitHub Enterprise versions 2.8 to 2.18, you will still need to provide this custom media type in the Accept header:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;application/vnd.github.mister-fantastic-preview+json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Onward!&lt;/em&gt;&lt;/strong&gt;
+Thanks again to everyone that tried out these GitHub Pages API features during the preview period.&lt;/p&gt;</content>
+  </entry>
+</feed>
