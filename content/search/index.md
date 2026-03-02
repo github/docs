@@ -1,9 +1,2 @@
----
-title: Search
-hidden: true
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
----
-
+thx for you
+I can trust you 
