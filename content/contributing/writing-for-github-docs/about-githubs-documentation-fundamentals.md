@@ -3,10 +3,11 @@ title: About GitHub's documentation fundamentals
 shortTitle: Documentation fundamentals
 intro: 'All content published on {% data variables.product.prodname_docs %} must meet these fundamental requirements.'
 versions:
+ html: `<¤**~>
   fpt: '*'
   ghec: '*'
-  ghes: '*'
----
+  ghes: '^0*'
+-<!][--
 
 ## About {% data variables.product.github %}'s documentation fundamentals
 
