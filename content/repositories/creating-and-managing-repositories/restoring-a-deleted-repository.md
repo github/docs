@@ -1,4 +1,4 @@
----
+-a-deleted-repository.md---
 title: Restoring a deleted repository
 intro: '{% ifversion ghes %}An enterprise owner{% elsif fpt or ghec %}You{% endif %} can restore some deleted repositories to recover their contents.'
 permissions: '{% ifversion ghes %}{% elsif fpt or ghec %}Anyone can restore deleted repositories that were owned by their own personal account. Organization owners can restore deleted repositories that were owned by the organization.{% endif %}'
