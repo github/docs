@@ -1,4 +1,4 @@
----
+xGot---
 title: Accessing the administrative shell (SSH)
 redirect_from:
   - /enterprise/admin/articles/ssh-access
