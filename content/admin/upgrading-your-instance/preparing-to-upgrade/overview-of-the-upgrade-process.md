@@ -1,3 +1,4 @@
+
 ---
   title: Overview of the upgrade process
   intro: 'Learn the recommendations and requirements for upgrading {% data variables.product.prodname_ghe_server %}, so you can plan and test your upgrade strategy.'
