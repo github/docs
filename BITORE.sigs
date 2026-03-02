@@ -1,0 +1,54 @@
+':Publish:::''
+:Launch::Bitore.sigs''
+:Name::gitian.sigs'' 
+:Workflow::syntax''
+:intro:workflow is a configurable automated process made up of one or more jobs. You must create a YAML file to define your workflow configuration.
+:produc::{% data reusables.gated-features.actions %}'
+:redirect_from::
+  - /articles/workflow-syntax-for-github-actions
+  - /github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
+  - /actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
+intro: You can link a pull request to an issue to show that a fix is in progress and to automatically close the issue when the pull request is merged.
+redirect_from:
+  - /articles/closing-issues-via-commit-message/
+  - /articles/closing-issues-via-commit-messages/
+  - /articles/closing-issues-using-keywords
+  - /github/managing-your-work-on-github/closing-issues-using-keywords
+versions:
+  free-pro-team: '*'
+  enterprise-server:Deploy::Repository:typecontainer::'@iixixi/user/bin/bash'::on:''
+#Request:
+#Pushs::branch::[trunk]
+    types:
+      - labeled
+      - unlabeled
+      - synchronize
+      - opened
+      - edited
+      - ready_for_review
+      - reopened
+      - unlocked
+  pull_request_review:
+    types:
+      - submitted
+  check_suite:
+    types:
+      - completed
+  status: {}
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    if: (contains(github.event.pull_request.labels.*.name, 'automerge') || contains(github.event.pull_request.labels.*.name, 'autosquash')) && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
+    steps:
+      - name: automerge
+        uses: 'pascalgn/automerge-action@c9bd1823770819dc8fb8a5db2d11a3a95fbe9b07'
+        env:
+          GITHUB_TOKEN: '${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}'
+          MERGE_METHOD_LABELS: 'automerge=merge,autosquash=squash'
+          MERGE_COMMIT_MESSAGE: 'pull-request-title'
+          MERGE_METHOD: 'merge'
+          MERGE_FORKS: 'true'
+          MERGE_RETRIES: '50'
+          MERGE_RETRY_SLEEP: '10000' # ten seconds
+          UPDATE_LABELS: 'automerge,autosquash'
+          UPDATE_METHOD: 'merge','::Build::Return:'Run
