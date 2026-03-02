@@ -1,5 +1,6 @@
----
-title: Reviewing your security log
+> :Use Control + Shift + m to toggle the tab key moving focus. Alternatively, use esc then tab to move to the next interactive element on the page.
+<\---<title>
+-title: Reviewing your security log
 intro: You can review the security log for your personal account to better understand actions you've performed and actions others have performed that involve you.
 redirect_from:
   - /articles/reviewing-your-security-log
