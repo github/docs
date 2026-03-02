@@ -8,10 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Contacting sponsors
-  - Privacy
-  - Open Source
 ---
 
 ## Managing the privacy setting for your sponsorship

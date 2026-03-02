@@ -8,9 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: overview
-topics:
-  - Open Source
-  - Fundamentals
 shortTitle: Open source contributors
 ---
 

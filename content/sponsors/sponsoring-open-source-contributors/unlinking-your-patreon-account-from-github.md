@@ -5,9 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Open Source
-  - Sponsors payments
 shortTitle: Unlink Patreon
 redirect_from:
   - /sponsors/sponsoring-open-source-contributors/unlinking-your-patreon-account-from-your-github-account

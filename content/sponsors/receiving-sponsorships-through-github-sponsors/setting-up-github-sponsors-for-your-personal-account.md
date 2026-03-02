@@ -10,9 +10,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - User account
-  - Sponsors profile
 shortTitle: Set up for personal account
 ---
 

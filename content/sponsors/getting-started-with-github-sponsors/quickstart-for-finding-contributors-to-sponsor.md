@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: quick_start
-topics:
-  - Open Source
 shortTitle: Quickstart
 ---
 

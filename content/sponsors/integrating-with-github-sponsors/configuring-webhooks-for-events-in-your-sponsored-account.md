@@ -7,10 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Webhooks
-  - Events
-  - Open Source
 shortTitle: Webhooks for events
 ---
 
