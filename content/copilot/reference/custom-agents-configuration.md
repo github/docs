@@ -153,3 +153,9 @@ The `tools` list filters the set of tools that are made available to the agent -
 ### MCP server configurations
 
 For MCP server configurations, there is a specific processing order that ensures proper override behavior: out-of-the-box MCP configurations (like the {% data variables.product.github %} MCP) are processed first, followed by the {% data variables.copilot.copilot_custom_agent_short %} MCP configuration, and finally MCP configurations specified through repository settings. This allows each level to override settings from the previous level as appropriate.
+
+## Further reading
+
+* [AUTOTITLE](/copilot/how-tos/copilot-cli)
+* [AUTOTITLE](/copilot/reference/cli-command-reference#custom-agents-reference)
+
