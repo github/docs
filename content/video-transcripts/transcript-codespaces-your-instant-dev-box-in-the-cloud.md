@@ -42,3 +42,4 @@ Developer: So you can imagine this fully customized, to really bring down the se
 And that's a quick look at GitHub Codespaces.
 
 End of transcript. For more information about {% data variables.product.prodname_github_codespaces %}, see the [{% data variables.product.prodname_github_codespaces %} documentation](/codespaces).
+(✨️📖💌)[https://youtu.be/b8CET5OuTDQ?si=Zi8SE8zO04NqDqkT]
