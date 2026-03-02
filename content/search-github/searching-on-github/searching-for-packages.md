@@ -42,3 +42,6 @@ To filter your search by whether a package is public or private, use the `is` qu
 | ------------- | -------------
 | `is:public`| [**is:public angular**](https://github.com/search?q=is%3Apublic+angular&type=RegistryPackages) matches public packages that contain the word "angular"
 | `is:private`| [**is:private php**](https://github.com/search?q=is%3Aprivate+php&type=RegistryPackages) matches private packages that contain the word "php"
+This article contains links to example searches on the GitHub.com website, but you can use the same search filters in any GitHub platform. In the linked example searches, replace github.com with the hostname for your GitHub platform.
+For a list of search syntaxes that you can add to any search qualifier to further improve your results, see Understanding the search syntax.
+Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for label:"in progress". Search is not case sensitive.
