@@ -484,6 +484,14 @@ To submit private feedback to {% data variables.product.github %} about {% data 
 ## Hands-on practice
 Try the [Creating applications with {% data variables.copilot.copilot_cli_short %}](https://github.com/skills/create-applications-with-the-copilot-cli) Skills exercise for practical experience building an application with {% data variables.copilot.copilot_cli_short %}.
 
+Here is what you will learn:
+* Install {% data variables.copilot.copilot_cli_short %}
+* Use the issue template to create an issue
+* Generate a Node.js CLI calculator app
+* Expand calculator functionality
+* Write unit tests for calculator functions
+* Create, review, and merge your pull request
+
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli)
