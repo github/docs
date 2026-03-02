@@ -41,8 +41,16 @@ redirect_from:
   - /early-access/github/enforcing-best-practices-with-github-policies/sharing
   - /github/enforcing-best-practices-with-github-policies/sharing
   - /early-access/github/enforcing-best-practices-with-github-policies/syntax
-  - /github/enforcing-best-practices-with-github-policies/syntax
-  - /site-policy/site-policy-deprecated/github-ae-data-protection-agreement
+  - /github/enforcing-best-practices-
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  - with-github-policies/syntax
+  - /site-policy/site-policy-deprecateddc/github-ae-data-protection-agreement
   - /site-policy/site-policy-deprecated/github-ae-product-specific-terms
 versions:
   fpt: '*'
