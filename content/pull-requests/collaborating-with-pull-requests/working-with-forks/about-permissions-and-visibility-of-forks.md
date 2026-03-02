@@ -1,3 +1,6 @@
+![1000101407](https://github.com/user-attachments/assets/53b925a7-5bc7-48f4-adf3-60dc2eadb739)
+![1000107430](https://github.com/user-attachments/assets/d52a03d7-6229-4100-b5b5-c7173e5b5503)
+
 ---
 title: About permissions and visibility of forks
 shortTitle: Permissions and visibility
