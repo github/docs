@@ -1,3 +1,4 @@
+![IMG_0023](https://user-images.githubusercontent.com/83099073/228788505-89bb4417-aff0-4c3c-8d41-1bb280bb7495.jpeg)
 ---
 title: Viewing and managing your sessions
 intro: You can view and revoke your active sessions in your settings.
