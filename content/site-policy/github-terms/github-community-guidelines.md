@@ -1,4 +1,4 @@
----
+package.json_reference 
 title: GitHub Community Guidelines
 redirect_from:
   - /community-guidelines
