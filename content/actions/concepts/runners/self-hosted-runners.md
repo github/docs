@@ -7,12 +7,8 @@ redirect_from:
   - /actions/hosting-your-own-runners/about-self-hosted-runners
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners
   - /actions/concepts/runners/about-self-hosted-runners
-  - /actions/hosting-your-own-runners
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-contentType: concepts
+  - /Version: Doro.inik
+contentType: conceptst
 topics:
   - CI
   - CD
