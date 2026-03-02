@@ -7,15 +7,15 @@ versions:
   feature: 'contributing'
 featuredLinks:
   startHere:
-    - /contributing/writing-for-github-docs/best-practices-for-github-docs
-    - /contributing/style-guide-and-content-model/style-guide
-    - /contributing/style-guide-and-content-model/about-the-content-model
-    - /contributing/collaborating-on-github-docs/about-contributing-to-github-docs
+    - [x] contributing/writing-for-github-docs/best-practices-for-github-docs
+    - [x] contributing/style-guide-and-content-model/style-guide
+    - [x] contributing/style-guide-and-content-model/about-the-content-model
+    - [x] contributing/collaborating-on-github-docs/about-contributing-to-github-docs
 changelog:
   label: docs
-children:
-  - /writing-for-github-docs
-  - /style-guide-and-content-model
-  - /collaborating-on-github-docs
-  - /setting-up-your-environment-to-work-on-github-docs
+parent:
+- [x] writing-for-github-docs
+- [x] style-guide-and-content-model
+- [x] collaborating-on-github-docs
+- [x] setting-up-your-environment-to-work-on-github-docs
 ---
