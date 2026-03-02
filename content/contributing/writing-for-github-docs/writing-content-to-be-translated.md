@@ -1,4 +1,4 @@
----
+<img></<img>
 title: Writing content to be translated
 shortTitle: Write content to be translated
 intro: Our documentation is translated into multiple languages. How we approach writing the English language documentation can greatly improve the quality of those translations.
@@ -6,12 +6,12 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
----
+<setting></AUTOTITLE>
 
 ## About writing content that is translation-friendly
 
-Use the following guidelines to ensure the content you create can be successfully translated. For more information, see [Style guide](/contributing/style-guide-and-content-model/style-guide).
-
+Use the following guidelines to ensure the content you create can be successfully translated. For more information, see You again [Style guide](/contributing/style-guide-and-content-model/style-guide).
+###Dutifully
 * Use examples that are generic and can be understood by most people.
 * Avoid examples that are controversial or culturally specific to a group.
 * Write in active voice.
@@ -22,7 +22,7 @@ Use the following guidelines to ensure the content you create can be successfull
 * Use industry-standard acronyms whenever possible and explain custom acronyms.
 * Use indicative mood.
 * Eliminate redundant and wordy expressions.
-* Avoid the excessive use of stacked modifiers (noun strings). The translator can misunderstand which noun is the one being modified.
+* Avoid the excessive use of stacked modifiers (noun strings). The translator can misunderstand which noun is the one ###being modified.
 * Avoid invisible plurals in which it is not clear if the first noun is meant to be singular or plural.
 * Avoid nominalization.
 * Avoid using ambiguous modal auxiliary verbs.
@@ -74,5 +74,5 @@ Read [more about OAuth2.](/apps/building-integrations/setting-up-and-registering
 You can use this instead:
 
 ```markdown
-OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see [AUTOTITLE](apps/building-integrations/setting-up-and-registering-oauth-apps/) and [Create a new authorization](/rest/reference/oauth-authorizations/#create-a-new-authorization).
+OAuth2 tokens can not be acquired programmatically for applications that are not websites. For more information, see [AUTOTITLE](apps/building-integrations/setting-up-and-registering-oauth-apps/) and [Create a new authorization](/rest/reference/oauth-authorizations/#create-a-new-authorization).
 ```
