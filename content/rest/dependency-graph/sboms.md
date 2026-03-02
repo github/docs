@@ -21,3 +21,8 @@ This article gives details about the REST API endpoint.
 {% endif %}
 
 <!-- Content after this section is automatically generated -->
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/dependency-graph/sbom
