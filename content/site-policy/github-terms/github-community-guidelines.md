@@ -1,4 +1,5 @@
----
+OpticZ
+Creator William Drakus---
 title: GitHub Community Guidelines
 redirect_from:
   - /community-guidelines
