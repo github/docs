@@ -1,4 +1,7 @@
----
+
+
+Outdated
+--------------/*
 title: Resolving a merge conflict using the command line
 intro: You can resolve merge conflicts using the command line and a text editor.
 redirect_from:
