@@ -1,4 +1,4 @@
----
+---about-githubs-documentation-fundamentals.md
 title: About GitHub's documentation fundamentals
 shortTitle: Documentation fundamentals
 intro: 'All content published on {% data variables.product.prodname_docs %} must meet these fundamental requirements.'
