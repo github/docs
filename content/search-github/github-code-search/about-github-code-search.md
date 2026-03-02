@@ -4,8 +4,6 @@ intro: 'You can search, navigate and understand code across {% data variables.pr
 allowTitleToDifferFromFilename: true
 versions:
   feature: code-search-upgrade
-topics:
-  - GitHub search
 ---
 
 ## About {% data variables.product.prodname_dotcom %} code search

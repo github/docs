@@ -29,6 +29,7 @@ People with the team maintainer role can manage team membership and settings.
 
 * [Add organization members to the team](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)
 * [Remove organization members from the team](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team)
+* Assign the team maintainer role to other team members
 * Remove the team's access to repositories
 * [Manage code review assignment for the team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team){% ifversion fpt or ghec %}
 * [Manage scheduled reminders for pull requests](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team){% endif %}

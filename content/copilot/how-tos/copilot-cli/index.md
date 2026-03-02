@@ -30,6 +30,7 @@ children:
   - /content/copilot/concepts/agents/copilot-cli/about-cli-plugins
   - /content/copilot/concepts/agents/copilot-cli/autopilot
   - /content/copilot/concepts/agents/copilot-cli/fleet
+  - /content/copilot/concepts/agents/copilot-cli/research
   - /set-up-copilot-cli/install-copilot-cli
   - /set-up-copilot-cli/configure-copilot-cli
   - /customize-copilot/add-custom-instructions

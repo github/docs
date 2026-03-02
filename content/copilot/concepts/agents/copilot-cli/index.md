@@ -11,5 +11,6 @@ children:
   - /comparing-cli-features
   - /autopilot
   - /fleet
+  - /research
 contentType: concepts
 ---

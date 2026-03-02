@@ -16,10 +16,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
-topics:
-  - API
-  - Enterprise
-  - Migration
 shortTitle: Export from GHES
 ---
 

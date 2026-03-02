@@ -7,7 +7,8 @@ versions:
   feature: copilot
 contentType: concepts
 category:
-  - Learn about Copilot CLI
+  - Learn about Copilot # Copilot discovery page
+  - Learn about Copilot CLI # Copilot CLI bespoke page
 ---
 
 ## Introduction
@@ -68,3 +69,5 @@ For more information about autopilot mode, see [AUTOTITLE](/copilot/concepts/age
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/speeding-up-task-completion)
+* [AUTOTITLE](/copilot/how-tos/copilot-cli)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/use-copilot-cli)

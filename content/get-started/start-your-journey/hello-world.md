@@ -6,9 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: quick_start
-topics:
-  - Pull requests
-  - Fundamentals
 redirect_from:
   - /get-started/quickstart/hello-world
 ---

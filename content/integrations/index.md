@@ -21,8 +21,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: landing
-topics:
-  - Integration
 includedCategories:
   - Learn about integrations
   - Administer integrations

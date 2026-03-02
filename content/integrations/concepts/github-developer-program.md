@@ -8,9 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - API
-  - Integration
 category:
   - Learn about integrations
   - Build integrations

@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Integration
 contentType: reference
 category:
   - Use integrations

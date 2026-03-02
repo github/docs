@@ -2687,7 +2687,7 @@
   base64Supported: true
   isduplicate: true
 - provider: Langchain
-  supportedSecret: Langchain API Personal Key
+  supportedSecret: LangSmith Personal Access Token
   secretType: langchain_api_personal_key
   isPublic: false
   isPrivateWithGhas: true
@@ -2697,7 +2697,7 @@
   base64Supported: false
   isduplicate: false
 - provider: Langchain
-  supportedSecret: Langchain API Server Key
+  supportedSecret: LangSmith Service Key
   secretType: langchain_api_server_key
   isPublic: false
   isPrivateWithGhas: true

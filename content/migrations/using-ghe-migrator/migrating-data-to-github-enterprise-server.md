@@ -19,9 +19,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Migration
 shortTitle: Migrate data
 ---
 

@@ -5,9 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: overview
-topics:
-  - GraphQL
-  - API
 shortTitle: Sponsors GraphQL API
 ---
 

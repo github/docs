@@ -9,8 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Notifications
 children:
   - /viewing-your-subscriptions
   - /managing-your-subscriptions

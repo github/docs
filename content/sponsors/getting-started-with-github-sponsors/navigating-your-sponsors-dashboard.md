@@ -5,11 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: overview
-topics:
-  - Open Source
-  - Fundamentals
-  - Sponsors
-  - Sponsors profile
 ---
 ## About your Sponsors dashboard
 

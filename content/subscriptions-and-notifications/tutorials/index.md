@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Notifications
 children:
   - /customizing-a-workflow-for-triaging-your-notifications
 ---

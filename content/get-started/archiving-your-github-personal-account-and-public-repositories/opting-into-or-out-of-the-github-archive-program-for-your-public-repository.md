@@ -8,9 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Policy
-  - Legal
 shortTitle: GitHub Archive program
 ---
 

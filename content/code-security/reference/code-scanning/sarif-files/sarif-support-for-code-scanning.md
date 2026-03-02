@@ -169,8 +169,6 @@ This is where you store details of the rules that are run during analysis. Infor
 
 Each `result` object contains details for one alert in the codebase. Within the `results` object, you can reference the rule that detected the alert. For more information, see [Rules and results](#rules-and-results) above.
 
-{% data reusables.code-scanning.upload-sarif-alert-limit %}
-
 | Name | Required | Description |
 |----|----|----|
 | `ruleId`| {% octicon "x" aria-label="Optional" %} | The unique identifier of the rule (`reportingDescriptor.id`). For more information, see the [`reportingDescriptor` object](#reportingdescriptor-object). {% data variables.product.prodname_code_scanning_caps %} uses the rule identifier to filter results by rule on {% data variables.product.prodname_dotcom %}.

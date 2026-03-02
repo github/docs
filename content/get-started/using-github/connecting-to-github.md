@@ -5,12 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - CLI
-  - Codespaces
-  - Desktop
-  - Git
-  - Fundamentals
 ---
 
 ## Introduction

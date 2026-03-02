@@ -21,8 +21,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Notifications
 ---
 
 ## Notification delivery options
