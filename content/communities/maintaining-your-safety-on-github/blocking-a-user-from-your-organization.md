@@ -1,3 +1,4 @@
+RWE REEVES 
 ---
 title: Blocking a user from your organization
 intro: Organization owners and moderators can block anyone who is not a member of the organization from collaborating on the organization's repositories.
