@@ -1,4 +1,4 @@
----
+|||---
 title: Managing the commit signoff policy for your organization
 intro: 'You can require users to automatically sign off all commits they make in {% data variables.product.github %}''s web interface to repositories owned by your organization.'
 versions:
