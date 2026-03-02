@@ -1,3 +1,4 @@
+![8605e42d-d567-40e4-a949-27dd82cd47a7-1_all_932](https://github.com/user-attachments/assets/dd153d12-f45f-48bb-b7d7-20969177db71)
 # GitHub Docs <!-- omit in toc -->
 
 Welcome to GitHub Docs! GitHub’s documentation is open source, meaning anyone from inside or outside the company can contribute. For full contributing guidelines, visit our [contributing guide](https://docs.github.com/en/contributing).
