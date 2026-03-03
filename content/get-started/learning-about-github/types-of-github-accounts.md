@@ -13,12 +13,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - CLI
-  - Mobile
-  - Desktop
-  - Security
 ---
 
 ## About accounts

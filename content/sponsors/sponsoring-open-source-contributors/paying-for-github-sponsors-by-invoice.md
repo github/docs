@@ -6,9 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Sponsors
-  - Open Source
 redirect_from:
   - /sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice
 ---

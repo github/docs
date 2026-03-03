@@ -551,6 +551,9 @@ Package manager | YAML value      | Supported versions |
 | pipenv         | `pip`            | <= 2024.4.1    |
 | pnpm   | `npm`            | v7, v8 <br>v9, v10 (version updates only)    |
 | poetry         | `pip`            | v2               |
+| {% ifversion dependabot-pre-commit-support %} |
+| pre-commit | `pre-commit` | Not applicable |
+| {% endif %} |
 | pub         | `pub`            | v2  |
 | {% ifversion dependabot-rust-toolchain-support %} |
 | Rust toolchain | `rust-toolchain` | Not applicable   |

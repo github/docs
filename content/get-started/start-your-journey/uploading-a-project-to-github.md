@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Repositories
 type: tutorial
 redirect_from:
   - /get-started/quickstart/uploading-a-project-to-github

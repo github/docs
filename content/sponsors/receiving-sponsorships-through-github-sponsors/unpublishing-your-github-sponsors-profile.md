@@ -5,9 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Open Source
-  - Sponsors payments
 shortTitle: Unpublish your profile
 ---
 

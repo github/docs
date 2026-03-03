@@ -13,9 +13,6 @@ redirect_from:
   - /site-policy/privacy-policies/github-codespaces-privacy-statement
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 ---
 <!-- markdownlint-disable search-replace -->
 

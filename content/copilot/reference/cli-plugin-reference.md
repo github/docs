@@ -166,11 +166,11 @@ If you install multiple plugins it's possible that some custom agents, skills, M
 The following diagram illustrates the loading order and precedence rules.
 
 ```text
-┌─────────────────────────────────────────────────────────┐
-│  BUILT-IN - HARDCODED, ALWAYS PRESENT                   │
-│  • tools: bash, view, apply_patch, glob, rg, task, ...  │
-│  • agents: explore, task, code-review, general-purpose  │
-└────────────────────────┬────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│  BUILT-IN - HARDCODED, ALWAYS PRESENT                            │
+│  • tools: bash, view, apply_patch, glob, rg, task, ...           │
+│  • agents: explore, task, code-review, general-purpose, research │
+└────────────────────────┬─────────────────────────────────────────┘
                          │
   ┌──────────────────────▼──────────────────────────────────────────────┐
   │  CUSTOM AGENTS - FIRST LOADED IS USED (dedup by ID)                 │

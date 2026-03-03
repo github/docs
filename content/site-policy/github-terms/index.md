@@ -2,9 +2,6 @@
 title: GitHub Terms
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 children:
   - /github-terms-of-service
   - /github-corporate-terms-of-service

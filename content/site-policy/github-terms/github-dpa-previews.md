@@ -3,9 +3,6 @@ title: GitHub DPA-Covered Previews
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 ---
 
 ## GitHub DPA-Covered Previews

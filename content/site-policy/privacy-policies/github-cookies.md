@@ -5,9 +5,6 @@ redirect_from:
   - /github-cookies
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 ---
 
 

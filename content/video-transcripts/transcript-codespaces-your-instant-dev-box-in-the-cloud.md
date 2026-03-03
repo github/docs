@@ -4,8 +4,6 @@ intro: Audio and visual transcript.
 shortTitle: Codespaces
 allowTitleToDifferFromFilename: true
 product_video: 'https://www.youtube-nocookie.com/embed/_W9B7qc9lVc'
-topics:
-  - Transcripts
 versions:
   fpt: '*'
   ghec: '*'

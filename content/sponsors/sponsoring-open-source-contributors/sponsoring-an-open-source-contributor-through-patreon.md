@@ -6,9 +6,6 @@ versions:
   ghec: '*'
 permissions: '{% data reusables.sponsors.sponsorship-permissions %}'
 type: how_to
-topics:
-  - Open Source
-  - Sponsors payments
 shortTitle: Sponsor through Patreon
 ---
 

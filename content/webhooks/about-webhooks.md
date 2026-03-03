@@ -19,8 +19,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Webhooks
 ---
 
 ## About webhooks

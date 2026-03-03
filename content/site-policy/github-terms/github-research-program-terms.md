@@ -5,9 +5,6 @@ redirect_from:
   - /github/site-policy/github-research-program-terms
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 ---
 
 Welcome to the GitHub Research Program (the "Program")! To participate, we’ll need you to agree to a special set of terms, the GitHub Research Program Agreement (“Agreement”).

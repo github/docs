@@ -9,9 +9,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Open Source
-  - Sponsors profile
 shortTitle: Manage payment tiers
 ---
 

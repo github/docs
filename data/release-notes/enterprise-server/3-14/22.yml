@@ -1,5 +1,8 @@
 date: '2026-01-06'
 sections:
+  security_fixes:
+    - | 
+      **HIGH:** An authenticated attacker with permission to configure webhooks could perform SSRF to access internal-only services on the instance, potentially disrupting background job processing. Exploitation required webhook configuration privileges and the ability to craft valid service requests. GitHub has requested CVE ID [CVE-2026-1999](https://www.cve.org/cverecord?id=CVE-2026-1999) for this vulnerability, which was reported via the [GitHub Bug Bounty](https://bounty.github.com/) program.
   bugs:
     - |
       On instances with GitHub Actions enabled, when administrators deleted a self-hosted runner from the service, the runner process continued running on the host and did not exit automatically.

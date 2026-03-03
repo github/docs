@@ -2,9 +2,6 @@
 title: GitHub SIRT description RFC 2350
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 ---
 <!-- markdownlint-disable search-replace -->
 

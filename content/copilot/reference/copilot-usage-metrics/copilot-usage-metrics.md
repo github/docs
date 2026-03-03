@@ -38,10 +38,10 @@ These metrics appear directly in the {% data variables.product.prodname_copilot_
 | Language usage per day | Daily breakdown of languages used. |
 | Model usage | Distribution of AI models used for chat. |
 | Model usage per day | Daily breakdown of chat model usage. |
-| Model usage per chat mode | Model usage by {% data variables.product.prodname_copilot_short %} feature (ask, edit, agent). |
+| Model usage per chat mode | Model usage by {% data variables.product.prodname_copilot_short %} feature (ask, edit, plan, agent). |
 | Model usage per language | Distribution of languages broken down by model. |
 | Most used chat model | The most frequently used chat model in the last 28 days. |
-| Requests per chat mode | Number of chat requests by mode (ask, edit, agent). |
+| Requests per chat mode | Number of chat requests by mode (ask, edit, plan, agent). |
 
 ## Code generation dashboard metrics
 
@@ -72,7 +72,7 @@ These fields appear in the exported NDJSON reports and in the {% data variables.
 | `enterprise_id` | Unique ID of the enterprise. |
 | `organization_id` (API only) | Unique ID of the organization. |
 | `user_id` / `user_login` | Unique identifier and {% data variables.product.github %} username for the user. |
-| `user_initiated_interaction_count` | Number of explicit prompts sent to {% data variables.product.prodname_copilot_short %}.<br><br> Only counts messages or prompts actively sent to the model. Does **not** include opening the chat panel, switching modes (for example, ask, edit, or agent), using keyboard shortcuts to open the inline UI, or making configuration changes. |
+| `user_initiated_interaction_count` | Number of explicit prompts sent to {% data variables.product.prodname_copilot_short %}.<br><br> Only counts messages or prompts actively sent to the model. Does **not** include opening the chat panel, switching modes (for example, ask, edit, plan, or agent), using keyboard shortcuts to open the inline UI, or making configuration changes. |
 | `chat_panel_agent_mode` | Captures user-initiated interactions in the chat panel with agent mode selected. |
 | `chat_panel_ask_mode` | Captures user-initiated interactions in the chat panel with ask mode selected. |
 | `chat_panel_custom_mode` | Captures user-initiated interactions in the chat panel with a custom agent selected. |

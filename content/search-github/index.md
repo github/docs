@@ -32,8 +32,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub search
 children:
   - /getting-started-with-searching-on-github
   - /searching-on-github

@@ -12,12 +12,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - CLI
-  - Mobile
-  - Desktop
-  - Security
 ---
 ## About {% data variables.product.prodname_dotcom %}'s plans
 

@@ -1,7 +1,7 @@
 ---
 title: Tracking security campaigns
 shortTitle: Track security campaign
-intro: You can monitor the progress of all your organization's security campaigns, and track the status of individual campaigns.
+intro: Use the campaign tracking views to monitor remediation progress, identify stalled work, and measure campaign impact across your organization.
 allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.security-org-enable %}'
 product: '{% data reusables.gated-features.security-campaigns %}'
@@ -23,9 +23,9 @@ redirect_from:
 
 ## Tracking campaigns across your organization
 
-The tracking view provides an overview of data for all open and closed campaigns. It helps you understand the impact of the campaigns, track progress through campaigns and measure success towards achieving your organization's goals.
+The tracking view helps you quickly assess the health of your organization’s campaigns. You can use it to identify campaigns with a high number of open alerts, check whether work has started, and determine whether campaigns are on track to meet their due dates.
 
-To display the campaign tracking view, navigate to the **Security** tab for the organization, then in the left sidebar click **{% octicon "goal" aria-hidden="true" aria-label="goal" %} Campaigns**. {% ifversion security-campaigns-secrets %}To display campaigns for secrets, click the **Secrets** at at the top of the page.
+To display the campaign tracking view, navigate to the **Security** tab for the organization, then in the left sidebar click **{% octicon "goal" aria-hidden="true" aria-label="goal" %} Campaigns**. {% ifversion security-campaigns-secrets %}To display campaigns for secrets, click the **Secrets** tab at the top of the page.
 
 ![Screenshot of the security campaigns overview page. The "Secrets" campaign tab is outlined in orange.](/assets/images/help/security/security-campaigns-tracking-overview-2tabs.png)
 
@@ -42,6 +42,8 @@ The tracking view shows you a summary of "Open" and "Closed" campaigns, with the
 * **Fixed**: the alert has been resolved, either within or outside of the campaign workflow.
 * **Dismissed**: the alert was reviewed but intentionally not fixed; it has been dismissed.
 
+Review the proportion of alerts in each status to understand where action is needed. A high number of **Open** alerts may indicate that remediation has not yet started, while a low number of **In progress** alerts could signal that teams need additional guidance or prioritization.
+
 ## Tracking a single campaign
 
 You can similarly track how a single campaign is progressing by viewing the campaign's own tracking page.
@@ -50,13 +52,17 @@ To display the tracking page for a campaign, navigate to the "Campaigns" page, {
 
 ![Screenshot of campaign tracking view for "Testing Campaigns for CodeQL". The campaign progress is outlined in dark orange.](/assets/images/help/security/driver-sec-campaign-view.png)
 
-The tracking view shows you a summary of:
+The tracking view for a single campaign helps you evaluate whether remediation is progressing as expected and whether additional follow-up is required.
+
+The following indicators help you evaluate whether remediation is progressing as expected and whether additional follow-up is required.
 
 * **Campaign progress**: how many alerts are closed (fixed or dismissed), in progress, or still left to review.
 * **Status**: how the campaign is progressing towards its due date.
 * **{% data variables.copilot.copilot_autofix_short %}** (code campaigns only): number of alerts where {% data variables.copilot.copilot_autofix_short %} can generate a fix to resolve the alert.
 
-You can also explore the campaign repositories and alerts to see where teams are engaging in the campaign, and where teams might need some extra encouragement to take part.
+For example, if many alerts remain open as the due date approaches, you may need to follow up with repository owners or adjust the campaign timeline.
+
+You can also explore campaign repositories and alerts to identify which teams are actively addressing alerts and which may need follow-up.
 
 * **Repository details:** you can expand any repository to show the progress in alert remediation.
 * **Alert details:** you can set the "Group by" option to **None** to show a list of all alerts.

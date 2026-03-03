@@ -14,8 +14,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Webhooks
 ---
 
 ## About validating webhook deliveries

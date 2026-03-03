@@ -5,8 +5,6 @@ intro: 'You can build search queries for the results you want with specialized c
 allowTitleToDifferFromFilename: true
 versions:
   feature: code-search-upgrade
-topics:
-  - GitHub search
 ---
 
 ## About code search query structure

@@ -22,12 +22,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Administrator
-  - Enterprise
-  - Migration
-  - Organizations
-  - Repositories
 children:
   - /overview
   - /ado

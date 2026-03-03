@@ -9,9 +9,6 @@ intro: '{% data reusables.user-settings.export-data %}'
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Policy
-  - Legal
 shortTitle: Request account archive
 ---
 

@@ -7,6 +7,7 @@ describe('honeypotting', () => {
   test('any GET with survey-vote and survey-token query strings is 400', async () => {
     const res = await get('/en?survey-vote=1&survey-token=2')
     expect(res.statusCode).toBe(400)
+    expect(res.headers['content-type']).toMatch('text/plain')
     expect(res.body).toMatch(/Honeypotted/)
     expect(res.headers['cache-control']).toMatch('private')
   })

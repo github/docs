@@ -3,9 +3,6 @@ title: GitHub Non-Consensual Intimate Imagery
 shortTitle: NCII
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 redirect_from:
   - /ncii
   - /github/site-policy/github-ncii

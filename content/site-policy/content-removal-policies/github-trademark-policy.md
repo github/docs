@@ -5,9 +5,6 @@ redirect_from:
   - /github/site-policy/github-trademark-policy
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 ---
 ## What is a GitHub Trademark Policy Violation?
 

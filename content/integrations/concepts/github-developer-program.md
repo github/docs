@@ -8,9 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - API
-  - Integration
 category:
   - Learn about integrations
   - Build integrations
@@ -20,7 +17,7 @@ Building an application that integrates with {% data variables.product.github %}
 
 ## Scratch an itch
 
-Build your own tools that seamlessly integrate with the place you push code every day.
+Build your own tools that seamlessly integrate with {% data variables.product.github %} APIs. For more information, see [AUTOTITLE](/rest/about-the-rest-api/comparing-githubs-rest-api-and-graphql-api).
 
 ## Take on the enterprise
 

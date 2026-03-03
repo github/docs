@@ -4,8 +4,6 @@ intro: You can set scheduled reminders for requested reviews on pull requests in
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
 contentType: concepts
 redirect_from:
   - /account-and-profile/concepts/scheduled-reminders

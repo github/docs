@@ -6,9 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profile
-  - Accounts
 type: how_to
 redirect_from:
   - /get-started/quickstart/setting-up-your-profile

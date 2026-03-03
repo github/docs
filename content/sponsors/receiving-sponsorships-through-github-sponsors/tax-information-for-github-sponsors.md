@@ -8,9 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: overview
-topics:
-  - Open Source
-  - Sponsors payments
 shortTitle: Tax information
 ---
 
