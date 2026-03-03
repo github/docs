@@ -1,5 +1,13 @@
 # Docs changelog
 
+**3 March 2026**
+
+We've added a new reference article, [Copilot customization cheat sheet](https://docs.github.com/copilot/reference/customization-cheat-sheet), to help you choose the right Copilot customization approach for your workflow.
+
+The article compares Copilot customization options, including what each one does, how to configure it, and where it is supported across IDEs and Copilot surfaces. It also explains what each option is best for, with common use cases to help you decide what to use.
+
+<hr>
+
 **2 March 2026**
 
 We've added an article about the new `/research` slash command in Copilot CLI:
