@@ -5,9 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage bots & service accounts
 ---
 ## About managing bots or service accounts with two-factor authentication (2FA)

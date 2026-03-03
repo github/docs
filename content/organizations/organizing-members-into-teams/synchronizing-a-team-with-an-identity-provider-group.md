@@ -7,9 +7,6 @@ permissions: 'Organization owners can synchronize a {% data variables.product.gi
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Synchronize with an IdP
 ---
 

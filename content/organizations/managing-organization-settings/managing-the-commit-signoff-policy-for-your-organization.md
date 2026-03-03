@@ -6,8 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 permissions: Organization owners can require all commits to repositories owned by the organization be signed off by the commit author.
-topics:
-  - Organizations
 shortTitle: Manage the commit signoff policy
 ---
 

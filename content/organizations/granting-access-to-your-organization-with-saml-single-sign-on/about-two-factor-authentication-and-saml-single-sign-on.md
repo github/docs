@@ -6,9 +6,6 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/about-two-factor-authentication-and-saml-single-sign-on
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: 2FA & SAML single sign-on
 ---
 

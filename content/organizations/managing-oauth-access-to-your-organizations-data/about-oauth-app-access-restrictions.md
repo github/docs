@@ -9,9 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: '{% data variables.product.prodname_oauth_app %} restrictions'
 ---
 

@@ -6,9 +6,6 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/preparing-to-enforce-saml-single-sign-on-in-your-organization
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Prepare to enforce SAML SSO
 ---
 

@@ -7,10 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
-  - Billing
 shortTitle: Add a billing manager
 ---
 

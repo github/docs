@@ -6,9 +6,6 @@ redirect_from:
   - /organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage allowed IP addresses
 permissions: Organization owners can manage allowed IP addresses for an organization.
 ---

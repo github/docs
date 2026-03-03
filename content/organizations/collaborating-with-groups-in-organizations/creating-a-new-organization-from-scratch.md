@@ -9,9 +9,6 @@ redirect_from:
   - /articles/creating-a-new-organization-from-scratch
   - /admin/user-management/creating-organizations
   - /github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch
-topics:
-  - Organizations
-  - Teams
 shortTitle: Create new organization
 ---
 

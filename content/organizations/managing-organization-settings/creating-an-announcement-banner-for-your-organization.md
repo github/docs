@@ -6,8 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Maintenance
 ---
 
 {% ifversion ghec %}

@@ -6,11 +6,6 @@ permissions: Organization owners can display IP addresses in the audit log for a
 versions:
   feature: display-ip-org-audit-log
 type: how_to
-topics:
-  - Auditing
-  - Organizations
-  - Networking
-  - Security
 ---
 
 > [!NOTE]

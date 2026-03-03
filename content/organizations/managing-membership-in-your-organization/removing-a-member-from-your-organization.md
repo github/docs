@@ -11,9 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Remove a member
 permissions: Organization owners can remove members from an organization.
 ---

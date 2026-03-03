@@ -9,9 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Require 2FA
 product: 'Requiring two-factor authentication is available to organizations on a {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %} plan, as well as organizations on {% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_ghe_server %}. With {% data variables.product.prodname_ghe_cloud %}, this feature is unavailable for organizations in an {% data variables.enterprise.prodname_emu_enterprise %}.'
 ---

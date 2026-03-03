@@ -3,8 +3,6 @@ title: About custom organization roles
 intro: "You can control access to your {% ifversion org-custom-role-with-repo-permissions %}organization's settings and repositories{% else %}organization's settings{% endif %} with custom organization roles."
 versions:
   feature: 'custom-org-roles'
-topics:
-  - Organizations
 shortTitle: Custom organization roles
 product: 'Organizations on {% data variables.product.prodname_ghe_cloud %}{% ifversion ghes %} and {% data variables.product.prodname_ghe_server %}{% endif %}'
 ---
