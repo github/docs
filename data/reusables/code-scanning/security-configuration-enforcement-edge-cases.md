@@ -1,0 +1,1 @@
+> [!NOTE] Some situations can break the enforcement of {% data variables.product.prodname_security_configurations %}. See [AUTOTITLE](/code-security/reference/security-at-scale/security-configuration-enforcement).
