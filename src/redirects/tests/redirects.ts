@@ -9,7 +9,6 @@ import enterpriseServerReleases, {
 } from '@/versions/lib/enterprise-server-releases'
 import Page from '@/frame/lib/page'
 import { get, head } from '@/tests/helpers/e2etest'
-import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -262,11 +261,9 @@ describe('redirects', () => {
       expect(res.statusCode).toBe(200)
     })
 
-    test('no version plus admin/guides redirects to the right place on latest version', async () => {
-      const shouldRedirect = versionSatisfiesRange(latest, `<${firstRestoredAdminGuides}`)
-      const expectedStatusCode = shouldRedirect ? 301 : 200
-      const res = await get(`/en/enterprise-server@${latest}/admin/guides`)
-      expect(res.statusCode).toBe(expectedStatusCode)
+    test('admin/overview returns 200 on latest version', async () => {
+      const res = await get(`/en/enterprise-server@${latest}/admin/overview`)
+      expect(res.statusCode).toBe(200)
     })
 
     test('admin/guides redirects to admin in deep links on <2.21', async () => {
