@@ -8,7 +8,7 @@ redirect_from:
   - /github/getting-started-with-github/fork-a-repo
   - /github/getting-started-with-github/quickstart/fork-a-repo
   - /get-started/quickstart/fork-a-repo
-intro: A fork is a new repository that shares code and visibility settings with the original “upstream” repository.
+intro: A fork is a new repository that shares code and visibility settings with the original upstream repository.
 permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
   fpt: '*'
