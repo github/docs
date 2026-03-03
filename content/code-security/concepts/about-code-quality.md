@@ -40,7 +40,6 @@ With {% data variables.product.prodname_code_quality_short %}, you can:
 
 > [!NOTE]
 > * You **don't** need a {% data variables.product.prodname_copilot_short %} or a {% data variables.product.prodname_code_security %} license to use {% data variables.product.prodname_code_quality_short %} or apply {% data variables.product.prodname_copilot_short %}-powered autofixes.
-> * During the {% data variables.release-phases.public_preview %}, an enterprise policy that blocks the use of {% data variables.product.prodname_code_security %} by repository owners will also block use of {% data variables.product.prodname_code_quality_short %}. See [AUTOTITLE](/code-security/code-quality/how-tos/allow-in-enterprise).
 
 ## Supported languages
 
@@ -77,5 +76,5 @@ Each {% data variables.product.prodname_codeql %} analysis will use {% data vari
 
 ## Next steps
 
-* Enable {% data variables.product.prodname_code_quality_short %} for your repository, see [AUTOTITLE](/code-security/code-quality/how-tos/enable-code-quality). Enterprise owners **may** need to first update their Advanced Security policies, see [AUTOTITLE](/code-security/code-quality/how-tos/allow-in-enterprise).
-* See how {% data variables.product.prodname_code_quality %} works on your default branch to surface code quality issues and help you understand your repository's code health at a glance. See [AUTOTITLE](/code-security/code-quality/get-started/quickstart).
+* **For your repository:** Turn on {% data variables.product.prodname_code_quality_short %} to start generating results. See [AUTOTITLE](/code-security/how-tos/maintain-quality-code/enable-code-quality).
+* **For your enterprise:** Ensure repositories in your enterprise can enable {% data variables.product.prodname_code_quality_short %}. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/allow-github-code-quality-in-enterprise).
