@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 ---
 
 ## Rate limit errors

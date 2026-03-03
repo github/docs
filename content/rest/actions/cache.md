@@ -5,8 +5,6 @@ shortTitle: Cache
 intro: >-
   Use the REST API to interact with the cache for repositories in {% data
   variables.product.prodname_actions %}.
-topics:
-  - API
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'

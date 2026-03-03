@@ -4,8 +4,6 @@ shortTitle: Secrets
 intro: >-
   Use the REST API to manage {% data variables.product.prodname_dependabot %}
   secrets for an organization or repository.
-topics:
-  - API
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'

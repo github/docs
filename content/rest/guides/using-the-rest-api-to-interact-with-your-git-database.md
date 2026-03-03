@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 shortTitle: Get started - Git database
 redirect_from:
   - /rest/guides/getting-started-with-the-git-database-api
