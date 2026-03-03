@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profiles
 shortTitle: Profile
 contentType: get-started
 ---

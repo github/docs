@@ -12,9 +12,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Notifications
 shortTitle: Backup email address
 contentType: how-tos
 ---

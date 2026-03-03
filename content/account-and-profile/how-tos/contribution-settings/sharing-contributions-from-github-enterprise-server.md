@@ -15,8 +15,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profiles
 shortTitle: Send enterprise contributions
 contentType: how-tos
 ---

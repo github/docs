@@ -4,8 +4,6 @@ intro: You can leave an enterprise after removing yourself from every organizati
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Leave an enterprise
 contentType: how-tos
 ---

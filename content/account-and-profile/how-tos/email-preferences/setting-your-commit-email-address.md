@@ -19,9 +19,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Notifications
 shortTitle: Set commit email address
 contentType: how-tos
 ---

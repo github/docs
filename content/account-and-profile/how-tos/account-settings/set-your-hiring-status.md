@@ -14,8 +14,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Set your hiring status
 contentType: how-tos
 ---

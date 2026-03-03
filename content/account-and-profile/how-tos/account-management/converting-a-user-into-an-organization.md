@@ -13,8 +13,6 @@ redirect_from:
 intro: You can convert your personal account into an organization. This allows more granular permissions for repositories that belong to the organization.
 versions:
   ghes: '<3.21'
-topics:
-  - Accounts
 shortTitle: Convert your account
 contentType: how-tos
 ---

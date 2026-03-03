@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Account
 contentType: get-started
 ---
