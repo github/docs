@@ -43,9 +43,9 @@ Before writing custom instructions, it's helpful to understand how {% data varia
 * **Context limits**: Very long instruction files may result in some instructions being overlooked.
 * **Specificity matters**: Clear, specific instructions work better than vague directives.
 
-{% data reusables.copilot.code-review.custom-instructions-limit %}
-
 Keep these factors in mind as you write your instructions—they'll help you set realistic expectations and write more effective guidance.
+
+{% data reusables.copilot.code-review.custom-instructions-limit %}
 
 ## Writing effective custom instructions
 
