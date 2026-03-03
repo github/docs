@@ -1,5 +1,13 @@
 # Docs changelog
 
+**2 March 2026**
+
+We've added an article about the new `/research` slash command in Copilot CLI:
+
+[Researching with GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/copilot-cli/research)
+
+<hr>
+
 **27 February 2026**
 
 We've extended the reference information for Copilot CLI, adding much more detail. See [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/cli-command-reference#custom-agents-reference).
