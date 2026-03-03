@@ -2,6 +2,12 @@ name: Sync llms.txt to github/github
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/llms-txt-config.yml'
+      - 'src/workflows/generate-llms-txt.ts'
   schedule:
     - cron: '20 16 * * 1-5' # Weekdays at ~9:20am Pacific
 
