@@ -12,11 +12,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Notifications
-  - Organizations
-  - Policy
 shortTitle: Restrict email notifications
 ---
 

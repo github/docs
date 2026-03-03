@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 children:
   - /setting-repository-visibility
   - /managing-teams-and-people-with-access-to-your-repository

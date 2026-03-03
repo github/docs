@@ -169,9 +169,9 @@
   dotcom: true
   vscode: true
   vs: true
-  eclipse: false
-  xcode: false
-  jetbrains: false
+  eclipse: true
+  xcode: true
+  jetbrains: true
 
 - name: Grok Code Fast 1
   dotcom: true

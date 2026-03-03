@@ -10,9 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Team maintainers
 permissions: Organization owners can promote team members to team maintainers.
 ---

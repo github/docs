@@ -7,9 +7,6 @@ redirect_from:
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: SSH certificate authorities
 ---
 

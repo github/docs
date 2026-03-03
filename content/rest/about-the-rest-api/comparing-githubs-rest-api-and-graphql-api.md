@@ -13,8 +13,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 ---
 
 ## About {% data variables.product.company_short %}'s APIs

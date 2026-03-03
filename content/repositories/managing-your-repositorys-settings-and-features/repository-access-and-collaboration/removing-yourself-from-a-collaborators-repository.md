@@ -16,9 +16,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Repositories
 shortTitle: Remove yourself
 contentType: other
 ---

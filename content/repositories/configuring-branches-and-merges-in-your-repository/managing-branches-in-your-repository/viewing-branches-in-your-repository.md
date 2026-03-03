@@ -9,8 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: View branches
 ---
 {% data reusables.repositories.navigate-to-repo %}

@@ -11,10 +11,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Actions
-  - Permissions
-  - Pull requests
 shortTitle: Manage GitHub Actions settings
 ---
 

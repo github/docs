@@ -7,8 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Repositories
 ---
 
 ## Searching for releases in a repository

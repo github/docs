@@ -5,9 +5,6 @@ permissions: Organization owners.
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage custom roles
 redirect_from:
   - /early-access/github/articles/managing-custom-repository-roles-for-an-organization

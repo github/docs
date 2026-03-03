@@ -11,8 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: 'Disable projects'
 allowTitleToDifferFromFilename: true
 ---

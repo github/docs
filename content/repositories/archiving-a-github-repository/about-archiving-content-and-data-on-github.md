@@ -8,8 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Archive content & data
 ---
 ## Persistence of public repositories

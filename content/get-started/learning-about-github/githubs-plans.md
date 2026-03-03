@@ -1,5 +1,5 @@
 ---
-title: GitHub’s plans
+title: GitHub's plans
 intro: 'An overview of {% data variables.product.prodname_dotcom %}''s pricing plans.'
 redirect_from:
   - /articles/github-s-products

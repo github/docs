@@ -6,9 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-- API
-- Ruby
 type: tutorial
 ---
 

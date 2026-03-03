@@ -15,8 +15,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 permissions: People with write access for a forked repository can sync the fork to the upstream repository.
 ---
 

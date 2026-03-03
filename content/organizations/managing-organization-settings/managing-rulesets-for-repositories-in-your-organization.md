@@ -6,8 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 permissions: Organization owners and users with the "Manage organization ref update rules and rulesets" permission can manage rulesets at the organization level.
-topics:
-  - Organizations
 shortTitle: Manage rulesets
 ---
 

@@ -7,9 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
 permissions: Organization owners can manage updates from accounts the organization sponsors.
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage sponsorship updates
 ---
 

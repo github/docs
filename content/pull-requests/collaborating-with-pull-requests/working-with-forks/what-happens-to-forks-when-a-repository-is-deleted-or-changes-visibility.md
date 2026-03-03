@@ -11,8 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Deleted or changes visibility
 ---
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}

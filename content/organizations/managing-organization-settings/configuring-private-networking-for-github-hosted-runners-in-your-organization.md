@@ -6,15 +6,6 @@ versions:
   feature: actions-private-networking-azure-vnet
 type: how_to
 permissions: '{% data reusables.actions.azure-vnet-organization-permissions %}'
-topics:
-  - Actions
-  - Action development
-  - Azure Virtual Network
-  - Administrator
-  - Developer
-  - CI
-  - CD
-  - Organizations
 ---
 
 ## About Azure private networking for {% data variables.product.company_short %}-hosted runners

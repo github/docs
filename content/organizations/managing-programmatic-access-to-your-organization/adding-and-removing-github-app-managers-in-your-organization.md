@@ -14,10 +14,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
-  - GitHub Apps
 shortTitle: GitHub App managers
 ---
 

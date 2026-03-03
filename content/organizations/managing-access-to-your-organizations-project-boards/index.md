@@ -7,9 +7,6 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-your-organizations-project-boards
 versions:
   feature: projects-v1
-topics:
-  - Organizations
-  - Teams
 children:
   - /project-board-permissions-for-an-organization
   - /managing-access-to-a-project-board-for-organization-members

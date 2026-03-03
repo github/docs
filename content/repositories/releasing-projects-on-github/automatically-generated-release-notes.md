@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Repositories
 shortTitle: Automated release notes
 communityRedirect:
   name: Provide GitHub Feedback

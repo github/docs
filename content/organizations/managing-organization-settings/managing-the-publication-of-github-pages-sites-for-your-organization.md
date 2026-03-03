@@ -10,9 +10,6 @@ versions:
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage Pages site publication
 ---
 

@@ -182,6 +182,9 @@ Custom instructions are enabled for {% data variables.copilot.copilot_code-revie
 1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then **Code review**.
 1. Toggle the “Use custom instructions when reviewing pull requests” option on or off.
 
+> [!NOTE]
+> {% data reusables.copilot.code-review.custom-instructions-branch %}
+
 ## Further reading
 
 * [AUTOTITLE](/copilot/reference/custom-instructions-support)
