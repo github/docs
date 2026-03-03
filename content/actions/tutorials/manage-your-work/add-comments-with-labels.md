@@ -12,9 +12,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Workflows
-  - Project management
 shortTitle: Add comments with labels
 ---
 

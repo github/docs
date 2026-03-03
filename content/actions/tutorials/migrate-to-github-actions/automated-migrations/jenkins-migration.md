@@ -6,10 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: tutorial
-topics:
-  - Migration
-  - CI
-  - CD
 shortTitle: Jenkins migration
 redirect_from:
   - /actions/migrating-to-github-actions/automated-migrations/migrating-from-jenkins-with-github-actions-importer

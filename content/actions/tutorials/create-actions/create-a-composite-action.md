@@ -13,8 +13,6 @@ versions:
   ghec: '*'
 type: tutorial
 defaultPlatform: linux
-topics:
-  - Action development
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -2,10 +2,6 @@
 title: Releasing and maintaining actions
 shortTitle: Release and maintain actions
 intro: You can leverage automation and open source best practices to release and maintain actions.
-topics:
-  - Action development
-  - Actions
-  - Community
 versions:
   fpt: '*'
   ghec: '*'

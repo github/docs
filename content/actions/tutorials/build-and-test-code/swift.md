@@ -12,9 +12,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CI
-  - Swift
 shortTitle: Swift
 ---
 

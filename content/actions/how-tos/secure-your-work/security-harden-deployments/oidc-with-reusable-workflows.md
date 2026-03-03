@@ -12,9 +12,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
-topics:
-  - Workflows
-  - Security
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -13,11 +13,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - GitLab
-  - Migration
-  - CI
-  - CD
 shortTitle: Migrate from GitLab CI/CD
 ---
 

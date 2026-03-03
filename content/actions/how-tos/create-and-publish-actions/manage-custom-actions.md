@@ -7,9 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
-topics:
-  - Action development
-  - Fundamentals
 redirect_from:
   - /actions/how-tos/administering-github-actions/managing-custom-actions
   - /actions/how-tos/creating-and-publishing-actions/managing-custom-actions

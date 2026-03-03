@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Security
 redirect_from:
   - /actions/reference/openid-connect-reference
 ---

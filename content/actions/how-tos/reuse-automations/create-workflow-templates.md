@@ -14,9 +14,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Workflows
-  - CI
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

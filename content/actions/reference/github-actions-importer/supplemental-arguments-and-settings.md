@@ -6,10 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: reference
-topics:
-  - Migration
-  - CI
-  - CD
 redirect_from:
   - /actions/migrating-to-github-actions/automated-migrations/supplemental-arguments-and-settings
   - /actions/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/supplemental-arguments-and-settings

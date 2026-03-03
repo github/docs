@@ -7,8 +7,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: overview
-topics:
-  - Actions Runner Controller
 defaultPlatform: linux
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller

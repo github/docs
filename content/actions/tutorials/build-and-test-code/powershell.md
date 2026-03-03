@@ -14,9 +14,6 @@ versions:
   ghec: '*'
 authors:
   - potatoqualitee
-topics:
-  - CI
-  - PowerShell
 shortTitle: PowerShell
 ---
 

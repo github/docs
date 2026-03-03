@@ -6,9 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CD
-  - Azure Static Web Apps
 redirect_from:
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-static-web-app
   - /actions/use-cases-and-examples/deploying/deploying-to-azure-static-web-app

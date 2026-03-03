@@ -13,11 +13,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Azure Pipelines
-  - Migration
-  - CI
-  - CD
 shortTitle: Migrate from Azure Pipelines
 ---
 

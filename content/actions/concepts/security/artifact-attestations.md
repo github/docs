@@ -1,9 +1,6 @@
 ---
 title: Artifact attestations
 intro: 'Understand the usage and security benefits of artifact attestations.'
-topics:
-  - Actions
-  - Security
 versions:
   fpt: '*'
   ghec: '*'
