@@ -4,6 +4,27 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>fullDatabaseId</code> was added to object type <code>CheckAnnotation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>Artifact.databaseId</code>:<code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead. <strong>Effective 2027-01-01</strong>.</p>",
+          "<p>On member <code>CheckAnnotation.databaseId</code>:<code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead. <strong>Effective 2027-01-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2026-03-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Input field <code>requireExplicitValues</code> of type <code>Boolean</code> was added to input object type <code>CreateRepositoryCustomPropertyInput</code></p>",
           "<p>Field <code>requireExplicitValues</code> was added to object type <code>RepositoryCustomProperty</code></p>",
           "<p>Input field <code>requireExplicitValues</code> of type <code>Boolean</code> was added to input object type <code>UpdateRepositoryCustomPropertyInput</code></p>"

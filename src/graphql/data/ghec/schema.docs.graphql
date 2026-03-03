@@ -3498,6 +3498,14 @@ type CheckAnnotation {
   Identifies the primary key from the database.
   """
   databaseId: Int
+    @deprecated(
+      reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2027-01-01 UTC."
+    )
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
 
   """
   The position of this annotation.
