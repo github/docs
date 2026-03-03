@@ -2,8 +2,6 @@
 title: Personal account reference
 shortTitle: Personal account
 intro: Find information about the side effects of deleting, converting, and merging your personal account on {% data variables.product.github %}.
-topics:
-  - Accounts
 versions:
   fpt: '*'
   ghes: '*'

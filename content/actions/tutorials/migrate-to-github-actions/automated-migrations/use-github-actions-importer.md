@@ -13,10 +13,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
-topics:
-  - Migration
-  - CI
-  - CD
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

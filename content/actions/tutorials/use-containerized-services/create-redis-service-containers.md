@@ -15,9 +15,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Containers
-  - Docker
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

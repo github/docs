@@ -14,8 +14,6 @@ redirect_from:
   - /actions/writing-workflows/about-workflows
   - /actions/concepts/use-cases/using-github-actions-for-project-management
   - /actions/concepts/workflows-and-actions/about-workflows
-topics:
-  - Workflows
 layout: inline
 ---
 

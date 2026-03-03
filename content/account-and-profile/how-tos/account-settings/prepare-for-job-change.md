@@ -13,8 +13,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Prepare for job change
 contentType: how-tos
 ---

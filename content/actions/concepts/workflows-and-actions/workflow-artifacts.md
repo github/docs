@@ -6,9 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
-topics:
-  - Actions
-  - Workflows
 ---
 
 ## About workflow artifacts

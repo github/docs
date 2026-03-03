@@ -18,8 +18,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Workflows
 allowTitleToDifferFromFilename: true
 ---
 

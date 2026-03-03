@@ -14,10 +14,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CI
-  - Node
-  - JavaScript
 shortTitle: Node.js
 ---
 

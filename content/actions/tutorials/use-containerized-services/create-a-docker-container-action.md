@@ -16,9 +16,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Action development
-  - Docker
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

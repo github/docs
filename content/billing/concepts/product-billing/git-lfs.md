@@ -125,6 +125,8 @@ In this example, you would pay for 1.5 GiB of additional storage for the month o
 
 {% data reusables.billing.default-over-quota-behavior %}
 
+You can also receive email notifications when your included {% data variables.large_files.product_name_short %} usage reaches 90% and 100% during a billing period. For more information, see [AUTOTITLE](/billing/concepts/budgets-and-alerts#included-usage-alerts).
+
 ## Further reading
 
 * [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)

@@ -120,6 +120,8 @@ The projected 1.6 GB of storage usage for the month would not exceed your 2 GB l
 
 {% data reusables.billing.default-over-quota-behavior %}
 
+You can also receive email notifications when your included {% data variables.product.prodname_registry %} usage reaches 90% and 100% during a billing period. For more information, see [AUTOTITLE](/billing/concepts/budgets-and-alerts#included-usage-alerts).
+
 ## Further reading
 
 * [AUTOTITLE](/packages/learn-github-packages/introduction-to-github-packages)

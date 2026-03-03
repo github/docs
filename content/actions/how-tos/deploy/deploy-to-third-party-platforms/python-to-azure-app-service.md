@@ -6,10 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CD
-  - Python
-  - Azure App Service
 redirect_from:
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-python-to-azure-app-service
   - /actions/use-cases-and-examples/deploying/deploying-python-to-azure-app-service

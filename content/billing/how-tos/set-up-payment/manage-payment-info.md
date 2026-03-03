@@ -52,7 +52,7 @@ You can view your payment history, including the date, amount, and payment metho
 
 ## Managing billing contacts
 
-Organizations and enterprises can add contacts to receive emails with billing notifications for payments and budget threshold alerts. One of the contacts is defined as the primary contact.
+Organizations and enterprises can add contacts to receive emails with billing notifications for payments, budget threshold alerts, and included usage alerts. One of the contacts is defined as the primary contact.
 
 ### Organization billing contacts
 

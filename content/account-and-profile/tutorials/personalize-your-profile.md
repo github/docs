@@ -16,8 +16,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profiles
 shortTitle: Personalize your profile
 contentType: tutorials
 ---

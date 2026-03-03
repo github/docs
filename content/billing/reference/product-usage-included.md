@@ -97,4 +97,7 @@ The table below shows the usage available in each plan. When you exceed these am
 </table>
 
 > [!TIP]
-> For information about included requests for {% data variables.product.prodname_copilot %} plans, see [AUTOTITLE](/copilot/about-github-copilot/plans-for-github-copilot).
+> You can receive email notifications when your included usage reaches 90% and 100% during a billing period. To opt in, see [AUTOTITLE](/billing/how-tos/set-up-budgets#managing-included-usage-alerts).
+
+For information about included requests for {% data variables.product.prodname_copilot %} plans, see [AUTOTITLE](/copilot/about-github-copilot/plans-for-github-copilot).
+

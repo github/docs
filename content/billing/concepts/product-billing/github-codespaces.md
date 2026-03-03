@@ -136,6 +136,8 @@ A {% data variables.enterprise.prodname_managed_user %} cannot be the billable o
 
 {% data reusables.billing.default-over-quota-behavior %}
 
+You can also receive email notifications when your included {% data variables.product.prodname_github_codespaces %} usage reaches 90% and 100% during a billing period. For more information, see [AUTOTITLE](/billing/concepts/budgets-and-alerts#included-usage-alerts).
+
 {% data reusables.codespaces.exporting-changes %}
 
 ## Further reading

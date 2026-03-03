@@ -17,8 +17,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
-topics:
-  - CI
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

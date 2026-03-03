@@ -16,8 +16,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Security
 ---
 
 Find information about security best practices when you are writing workflows and using {% data variables.product.prodname_actions %} security features.

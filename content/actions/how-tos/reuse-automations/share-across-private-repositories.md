@@ -3,9 +3,6 @@ title: Sharing actions and workflows from your private repository
 intro: You can share an action or reusable workflow without publishing them publicly.
 versions:
   fpt: '*'
-topics:
-  - Actions
-  - Action development
 shortTitle: Share across private repositories
 redirect_from:
   - /actions/creating-actions/sharing-actions-and-workflows-from-your-private-repository

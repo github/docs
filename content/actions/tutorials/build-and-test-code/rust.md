@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - CI
 shortTitle: Rust
 redirect_from:
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-rust

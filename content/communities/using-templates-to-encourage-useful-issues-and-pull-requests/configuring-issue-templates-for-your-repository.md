@@ -9,8 +9,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Community
 shortTitle: Configure
 ---
 

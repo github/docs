@@ -12,10 +12,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CI
-  - Java
-  - Ant
 shortTitle: Java with Ant
 ---
 

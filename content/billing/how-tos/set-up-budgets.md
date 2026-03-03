@@ -69,6 +69,15 @@ You can set budgets and receive alerts when your usage of a product reaches 75%,
 
 To edit or delete a budget, on the "Budget and alerts" page, click **Edit** or **Delete** next to the budget you want to edit or delete. Follow the prompts.
 
+### Managing included usage alerts for your personal account
+
+{% data variables.product.github %} can send you email notifications when the included usage for your plan reaches 90% and 100% during a billing period. To learn more about what these alerts cover, see [AUTOTITLE](/billing/concepts/budgets-and-alerts#included-usage-alerts).
+
+{% data reusables.user-settings.access_billing_settings_url %}
+
+1. Click **Budgets and alerts**.
+1. Under "Included usage alerts", select or clear **Receive alerts when my included usage reaches 90% and 100%** to opt in or out of email notifications.
+
 ## Managing budgets for your organization or enterprise
 
 > [!IMPORTANT]
@@ -114,6 +123,13 @@ To limit spending on premium requests across all features, enable "Bundled premi
    Under "Alert Recipients", select the people who will receive the alerts.
 
 {% data reusables.billing.budget-create-button %}
+
+### Managing included usage alerts
+
+{% data variables.product.github %} can send email notifications when the included usage for your account reaches 90% and 100% during a billing period. To learn more about what these alerts cover, see [AUTOTITLE](/billing/concepts/budgets-and-alerts#included-usage-alerts).
+
+1. Navigate to the "Budgets and alerts" view. See [Viewing budgets](#viewing-budgets).
+1. Under "Included usage alerts", select or clear **Receive alerts when my included usage reaches 90% and 100%** to opt in or out of email notifications.
 
 ### Editing or deleting a budget
 
