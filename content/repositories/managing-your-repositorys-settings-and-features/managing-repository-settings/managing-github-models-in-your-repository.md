@@ -5,10 +5,6 @@ intro: You can enable or disable {% data variables.product.prodname_github_model
 versions:
   feature: github-models
 permissions: 'Repository administrators'
-topics:
-  - Repositories
-  - AI
-  - GitHub Models
 allowTitleToDifferFromFilename: true
 ---
 

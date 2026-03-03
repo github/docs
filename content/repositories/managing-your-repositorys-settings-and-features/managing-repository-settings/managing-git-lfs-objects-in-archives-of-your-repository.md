@@ -6,8 +6,6 @@ permissions: 'People with admin permissions for a repository can manage whether 
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Repositories
 redirect_from:
   - /github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository
   - /github/administering-a-repository/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository

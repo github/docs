@@ -13,8 +13,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Edit files
 ---
 

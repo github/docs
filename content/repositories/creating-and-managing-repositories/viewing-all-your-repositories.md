@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>=3.22'
-topics:
-  - Repositories
 shortTitle: View all repositories
 type: how_to
 ---

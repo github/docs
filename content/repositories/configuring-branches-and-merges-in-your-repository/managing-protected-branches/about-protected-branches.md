@@ -22,8 +22,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 ---
 
 ## About branch protection rules

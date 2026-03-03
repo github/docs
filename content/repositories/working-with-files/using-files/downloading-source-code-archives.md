@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Source code archives
 ---
 ## Overview of source code archives

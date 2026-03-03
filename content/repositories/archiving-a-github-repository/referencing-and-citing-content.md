@@ -8,8 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Reference & cite content
 ---
 ## Issuing a persistent identifier for your repository with Zenodo

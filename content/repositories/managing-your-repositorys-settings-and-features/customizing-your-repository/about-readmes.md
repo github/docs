@@ -12,8 +12,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 ---
 ## About READMEs
 

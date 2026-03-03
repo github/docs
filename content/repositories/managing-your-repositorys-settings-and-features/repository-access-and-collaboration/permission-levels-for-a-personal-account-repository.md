@@ -13,8 +13,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Repository permissions
 contentType: other
 ---

@@ -15,9 +15,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Repositories
 shortTitle: Invite collaborators
 contentType: other
 ---

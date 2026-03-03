@@ -7,8 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 permissions: People with maintainer permissions can manage auto-merge for pull requests in a repository.
-topics:
-  - Repositories
 redirect_from:
   - /github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository
   - /github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository

@@ -12,8 +12,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Delete & restore branches
 ---
 ## Deleting a branch used for a pull request

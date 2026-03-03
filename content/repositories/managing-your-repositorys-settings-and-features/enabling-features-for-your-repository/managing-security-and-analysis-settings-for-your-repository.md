@@ -14,13 +14,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Dependabot
-  - Alerts
-  - Code Security
-  - Dependency graph
-  - Secret scanning
-  - Repositories
 shortTitle: Security & analysis
 ---
 
