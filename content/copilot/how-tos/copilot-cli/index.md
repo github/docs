@@ -1,7 +1,7 @@
 ---
 title: '{% data variables.copilot.copilot_cli %}'
 shortTitle: '{% data variables.copilot.copilot_cli_short %}'
-intro: 'Use {% data variables.product.prodname_copilot_short %} directly from your terminal to answer questions, write and debug code, and interact with {% data variables.product.github %}.'
+intro: Use {% data variables.product.prodname_copilot_short %} directly from your terminal to answer questions, write and debug code, and interact with {% data variables.product.github %}.
 versions:
   feature: copilot
 contentType: landing
@@ -21,7 +21,7 @@ children:
   - /cli-best-practices
   - /set-up-copilot-cli
   - /customize-copilot
-  - /use-copilot-cli
+  - /use-copilot-cli-agents
   - /administer-copilot-cli-for-your-enterprise
   - /automate-with-actions
   - /speeding-up-task-completion
@@ -50,7 +50,7 @@ children:
   - /content/copilot/responsible-use/copilot-cli
 carousels:
   recommended:
-    - /copilot/how-tos/copilot-cli/use-copilot-cli
+    - /copilot/how-tos/copilot-cli/use-copilot-cli-agents/overview
     - /copilot/how-tos/copilot-cli/cli-best-practices
     - /copilot/reference/cli-command-reference
 includedCategories:
@@ -60,3 +60,4 @@ includedCategories:
   - Build with Copilot CLI
   - Administer Copilot CLI
 ---
+

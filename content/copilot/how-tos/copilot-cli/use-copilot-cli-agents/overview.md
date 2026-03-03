@@ -1,17 +1,18 @@
 ---
 title: Using GitHub Copilot CLI
-shortTitle: Use Copilot CLI
+shortTitle: Overview
 intro: Learn how to use {% data variables.product.prodname_copilot %} from the command line.
 product: '{% data reusables.gated-features.copilot-cli %}'
 redirect_from:
   - /copilot/how-tos/use-copilot-cli
   - /copilot/how-tos/use-copilot-agents/use-copilot-cli
+  - /copilot/how-tos/copilot-cli/use-copilot-cli
 versions:
   feature: copilot
 contentType: how-tos
 category:
-  - Author and optimize with Copilot # Copilot discovery page
-  - Build with Copilot CLI # Copilot CLI bespoke page
+  - Author and optimize with Copilot
+  - Build with Copilot CLI
 ---
 
 The command-line interface (CLI) for {% data variables.product.prodname_copilot %} allows you to use {% data variables.product.prodname_copilot_short %} directly from your terminal. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).
@@ -85,10 +86,6 @@ If you enter a prompt and then decide you want to stop {% data variables.product
 
 Plan mode lets you collaborate with {% data variables.product.prodname_copilot_short %} on an implementation plan before any code is written. Press <kbd>Shift</kbd>+<kbd>Tab</kbd> to cycle in and out of plan mode.
 
-### Steer the conversation while {% data variables.product.prodname_copilot_short %} is thinking
-
-You can interact with {% data variables.product.prodname_copilot_short %} while it's thinking. Send follow-up messages to steer the conversation in a different direction, or queue additional instructions for {% data variables.product.prodname_copilot_short %} to process after it finishes its current response.
-
 ### Include a specific file in your prompt
 
 To add a specific file to your prompt, use `@` followed by the relative path to the file. For example: `Explain @config/ci/ci-required-checks.yml` or `Fix the bug in @src/app.js`. This adds the contents of the file to your prompt as context for {% data variables.product.prodname_copilot_short %}.
@@ -118,37 +115,6 @@ You can prepend your input with `!` to directly run shell commands, without maki
 ```shell
 !git clone https://github.com/github/copilot-cli
 ```
-
-### Get {% data variables.product.prodname_copilot_short %} to work autonomously
-
-You can tell {% data variables.product.prodname_copilot_short %} to use its best judgment to complete a task autonomously, rather than the CLI prompting you for input at each decision point within a task. You do this by using the CLI's autopilot mode.
-
-There are two ways to use autopilot mode:
-
-* **Interactively:** In an interactive session, press <kbd>Shift</kbd>+<kbd>Tab</kbd> until you see "autopilot" in the status bar. If prompted to choose permissions for autopilot mode, allow full permissions, then enter your prompt.
-* **Programmatically:** Pass the CLI a prompt directly in a command, and include the `--autopilot` option. For example, to use autopilot mode with full permissions, restricting it to 10 continuations, enter `{% data reusables.cli.autopilot-programmatic-prompt %}`.
-
-For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot).
-
-### Delegate tasks to {% data variables.copilot.copilot_coding_agent %}
-
-The delegate command lets you push your current session to {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.github %}. This lets you hand off work while preserving all the context {% data variables.product.prodname_copilot_short %} needs to complete your task.
-
-You can delegate a task using the slash command, followed by a prompt:
-
-```shell
-/delegate complete the API integration tests and fix any failing edge cases
-```
-
-Alternatively, prefix a prompt with `&` to delegate it:
-
-```shell
-& complete the API integration tests and fix any failing edge cases
-```
-
-{% data variables.product.prodname_copilot_short %} will ask to commit any of your unstaged changes as a checkpoint in a new branch it creates. {% data variables.copilot.copilot_coding_agent %} will open a draft pull request, make changes in the background, and request a review from you.
-
-{% data variables.product.prodname_copilot_short %} will provide a link to the pull request and agent session on {% data variables.product.github %} once the session begins.
 
 ### Resume an interactive session
 
@@ -267,8 +233,6 @@ To extend the functionality available to you in {% data variables.copilot.copilo
 
 Details of your configured MCP servers are stored in the `mcp-config.json` file, which is located, by default, in the `~/.copilot` directory. This location can be changed by setting the `XDG_CONFIG_HOME` environment variable. For information about the JSON structure of a server definition, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
 
-For more detailed information on adding and managing MCP servers in {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers).
-
 ### Context management
 
 {% data variables.copilot.copilot_cli_short %} provides several slash commands to help you monitor and manage your context window:
@@ -283,10 +247,6 @@ For more detailed information on adding and managing MCP servers in {% data vari
 * `/compact`: Manually compresses your conversation history to free up context space
 
 {% data variables.copilot.copilot_cli %} automatically compresses your history in the background when your conversation approaches 95% of the token limit, without interrupting your workflow.
-
-### Review code changes
-
-You can use the `/review` slash command to have {% data variables.product.prodname_copilot_short %} analyze code changes without leaving the CLI. This lets you get quick feedback on your changes prior to committing.
 
 ### Enable all permissions
 
@@ -324,6 +284,17 @@ For additional information use one of the following commands in your terminal:
   `copilot help permissions`
 
 {% data reusables.cli.feedback %}
+
+## Next steps
+
+{% data variables.copilot.copilot_cli_short %} can operate as a conversational assistant, answering questions and helping you write code interactively. Beyond chat, {% data variables.copilot.copilot_cli_short %} supports a range of agentic modes that allow you to delegate tasks with greater autonomy.
+
+You can work with agents in {% data variables.copilot.copilot_cli_short %} to support a full task lifecycle, from delegating work to reviewing results:
+
+* **Delegate tasks autonomously**: Run {% data variables.copilot.copilot_cli_short %} in autopilot mode to complete multi-step tasks without requiring approval at each step. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli-agents/delegate-tasks-to-cca).
+* **Invoke custom agents**: Invoke specialized agents tailored to specific tasks, such as code review, documentation, or security audits. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli-agents/invoke-custom-agents).
+* **Steer agents**: Guide and refine agent behavior during task execution to keep work on track. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli-agents/steer-agents).
+* **Request a code review**: Use {% data variables.copilot.copilot_cli_short %} to get an AI-powered review of your code changes. See [AUTOTITLE](/copilot/how-tos/copilot-cli/use-copilot-cli-agents/agentic-code-review).
 
 ## Further reading
 
