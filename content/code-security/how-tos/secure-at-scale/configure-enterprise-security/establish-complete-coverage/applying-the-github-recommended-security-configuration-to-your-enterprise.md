@@ -41,6 +41,7 @@ The {% data variables.product.prodname_github_security_configuration %} includes
 {% data reusables.enterprise-accounts.advanced-security-tab %}
 1. In the "Configurations" section, select "{% data variables.product.company_short %} recommended".
 1. In the "Policy" section, next to "Enforce configuration", select **Enforce** from the dropdown menu.
-1. Click **Save configuration** to save your change to the {% data variables.product.prodname_github_security_configuration %}.
 
-{% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases-enterprise %}
+    {% data reusables.code-scanning.security-configuration-enforcement-edge-cases %}
+
+1. Click **Save configuration** to save your change to the {% data variables.product.prodname_github_security_configuration %}.

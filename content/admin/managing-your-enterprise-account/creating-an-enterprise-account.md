@@ -70,7 +70,7 @@ The following changes also apply to single organizations that are automatically 
 
 ## Next steps
 
-Follow the [Get started with your enterprise account](/admin/guides#get-started-with-your-enterprise-account) learning path.
+Set up your new enterprise with our [AUTOTITLE](/enterprise-cloud@latest/enterprise-onboarding) journey for {% data variables.product.prodname_ghe_cloud %}.
 
 ## Further reading
 

@@ -16,5 +16,6 @@ topics:
 contentType: reference
 children:
   - /available-filters-for-security-overview
+  - /security-configuration-enforcement
   - /troubleshoot-security-configurations
 ---

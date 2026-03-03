@@ -19,6 +19,7 @@ children:
   - /analyze-organization-data
   - /viewing-code-scanning-logs
   - /viewing-dependabot-job-logs
-  - /metrics-for-custom-patterns
+  - /view-custom-pattern-metrics
   - /change-used-by-data
 ---
+

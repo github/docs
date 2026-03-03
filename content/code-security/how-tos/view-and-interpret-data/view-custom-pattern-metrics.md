@@ -1,7 +1,7 @@
 ---
-title: Metrics for custom patterns
-shortTitle: Custom pattern metrics
-intro: You can view alert metrics for custom patterns at the repository, organization, and enterprise levels.
+title: Viewing metrics for custom patterns
+shortTitle: View custom pattern metrics
+intro: Find out how many alerts are being raised and addressed for a custom pattern.
 permissions: '{% data reusables.permissions.security-enterprise-enable %}'
 versions:
   fpt: '*'
@@ -13,15 +13,12 @@ topics:
   - Secret scanning
 redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/metrics-for-custom-patterns
+  - /code-security/how-tos/view-and-interpret-data/metrics-for-custom-patterns
 ---
-
-## Metrics for custom patterns
-
-Organization owners and people with admin permission for a repository can see an overview of the activity for custom patterns. The overview includes alert and push protection activity for the custom pattern during the last 30 days.
 
 > [!NOTE] Metrics for custom patterns are in {% data variables.release-phases.public_preview %} and subject to change.
 
-## Viewing metrics for custom patterns
+Activity overviews for custom patterns are available at the repository, organization, and enterprise levels. Each overview displays alerts generated and push protection blocks over the last 30 days.
 
 {% data reusables.secret-scanning.view-custom-pattern %}
 1. Under "Custom patterns", click the custom pattern you want to view.

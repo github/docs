@@ -73,9 +73,9 @@ With {% data variables.product.prodname_custom_security_configurations %}, you c
         {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
    * **Enforce configuration**. Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.
 
-1. To finish creating your {% data variables.product.prodname_custom_security_configuration %}, click **Save configuration**.
+    {% data reusables.code-scanning.security-configuration-enforcement-edge-cases %}
 
-{% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases-enterprise %}
+{% data reusables.code-scanning.save-custom-configuration %}
 
 ## Creating a {% data variables.product.prodname_GHAS %} configuration
 
@@ -114,7 +114,7 @@ With {% data variables.product.prodname_custom_security_configurations %}, you c
         {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
    * **Enforce configuration**. Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.
 
-1. To finish creating your {% data variables.product.prodname_custom_security_configuration %}, click **Save configuration**.
+{% data reusables.code-scanning.save-custom-configuration %}
 
 {% else %}
 
@@ -149,9 +149,9 @@ With {% data variables.product.prodname_custom_security_configurations %}, you c
     {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
 1. Optionally, in the "Policy" section, you can enforce the configuration and block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Next to "Enforce configuration", select **Enforce** from the dropdown menu.
 
-    {% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases %}
+    {% data reusables.code-scanning.security-configuration-enforcement-edge-cases %}
 
-1. To finish creating your {% data variables.product.prodname_custom_security_configuration %}, click **Save configuration**.
+{% data reusables.code-scanning.save-custom-configuration %}
 
 {% endif %}
 
