@@ -2,6 +2,12 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Arm Debugger (Attach)",
+      "type": "arm-debugger",
+      "request": "attach",
+      "address": "Websocket (ws://<host>:<port>) or socket (<host>:<port>) to connect to"
+    },
+    {
       "type": "node",
       "request": "attach",
       "name": "Node: Nodemon",
