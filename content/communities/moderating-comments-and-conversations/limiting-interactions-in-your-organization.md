@@ -9,8 +9,6 @@ versions:
   fpt: '*'
   ghec: '*'
 permissions: Organization owners and moderators can limit interactions in an organization.
-topics:
-  - Community
 shortTitle: Limit interactions in org
 ---
 

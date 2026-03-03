@@ -7,8 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Community
 shortTitle: Add a code of conduct
 ---
 
