@@ -6,8 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Projects
 ---
 {% ifversion ghes %}
 

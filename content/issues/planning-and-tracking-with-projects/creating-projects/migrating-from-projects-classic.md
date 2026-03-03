@@ -6,8 +6,6 @@ versions:
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/migrating-your-project
 type: tutorial
-topics:
-  - Projects
 allowTitleToDifferFromFilename: true
 ---
 

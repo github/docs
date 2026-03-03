@@ -5,8 +5,6 @@ intro: 'You can show an issue''s parent issue and view sub-issue progress in you
 versions:
   feature: sub-issues
 type: tutorial
-topics:
-  - Projects
 ---
 
 If your organization uses sub-issues, you can enable the "Parent issue" and "Sub-issue progress" fields on your projects to see the relationships between your issues and the progress made on those issues.

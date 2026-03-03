@@ -9,8 +9,6 @@ versions:
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/managing-access-to-projects
 type: tutorial
-topics:
-  - Projects
 allowTitleToDifferFromFilename: true
 ---
 

@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Projects
 ---
 
 You can enable the "Linked pull requests" and "Reviewers" fields on your projects to see information about a pull request, making a project the way to plan and track your issues, pull request, and code.

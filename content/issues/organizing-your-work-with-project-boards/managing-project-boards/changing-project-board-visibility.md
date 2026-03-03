@@ -7,8 +7,6 @@ redirect_from:
   - /github/managing-your-work-on-github/changing-project-board-visibility
 versions:
   feature: projects-v1
-topics:
-  - Pull requests
 shortTitle: Change visibility
 allowTitleToDifferFromFilename: true
 ---

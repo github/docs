@@ -8,11 +8,6 @@ redirect_from:
   - /github/managing-your-work-on-github/creating-a-project-board
 versions:
   feature: projects-v1-can-create
-topics:
-  - Pull requests
-  - Issues
-  - Projects
-  - Project management
 type: how_to
 allowTitleToDifferFromFilename: true
 ---

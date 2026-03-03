@@ -4,9 +4,6 @@ shortTitle: Understanding fields
 intro: 'Learn about the different fields and custom field types, how to add fields to your project, and how to manage custom fields.'
 versions:
   feature: projects-v2
-topics:
-  - Issues
-  - Projects
 children:
   - /about-text-and-number-fields
   - /about-date-fields

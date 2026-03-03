@@ -9,8 +9,6 @@ versions:
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/about-projects
 type: overview
-topics:
-  - Projects
 ---
 
 ## About {% data variables.product.prodname_projects_v2 %}

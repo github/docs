@@ -23,10 +23,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
-  - Issues
-  - Project management
 shortTitle: Create an issue
 type: how_to
 ---

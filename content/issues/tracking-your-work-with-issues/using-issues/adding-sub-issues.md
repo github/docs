@@ -4,8 +4,6 @@ intro: 'Learn about using sub-issues to break down your work into tasks.'
 versions:
   feature: 'sub-issues'
 type: overview
-topics:
-  - Project management
 permissions: 'People with at least triage permissions for a repository can add sub-issues.'
 redirect_from:
   - /early-access/issues/about-tasklists

@@ -8,8 +8,6 @@ redirect_from:
   - /github/managing-your-work-on-github/closing-a-project-board
 versions:
   feature: projects-v1
-topics:
-  - Pull requests
 allowTitleToDifferFromFilename: true
 ---
 {% data reusables.projects.project_boards_old %}

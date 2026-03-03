@@ -7,8 +7,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: tutorial
-topics:
-  - Projects
 ---
 
 ## Converting draft issues in table layout
