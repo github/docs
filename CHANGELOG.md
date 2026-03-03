@@ -1,5 +1,11 @@
 # Docs changelog
 
+**27 February 2026**
+
+We've extended the reference information for Copilot CLI, adding much more detail. See [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/cli-command-reference#custom-agents-reference).
+
+<hr>
+
 **25 February 2026**
 
 We've added many new articles to coincide with the [general availability release](https://github.blog/changelog/2026-02-25-github-copilot-cli-is-now-generally-available/) of Copilot CLI. These include:
