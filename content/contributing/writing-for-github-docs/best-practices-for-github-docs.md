@@ -1,7 +1,7 @@
 ---
 title: Best practices for GitHub Docs
 shortTitle: Best practices for GitHub Docs
-intro: Follow these best practices to create documentation that's user-friendly and easy to understand.
+intro: Follow these best practices to create documentation that is user-friendly, clear, and easy to understand.
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,9 +10,9 @@ versions:
 
 ## About {% data variables.product.prodname_dotcom %} documentation
 
-At {% data variables.product.prodname_dotcom %}, we strive to create documentation that is accurate, valuable, inclusive, accessible, and easy to use.
+At {% data variables.product.prodname_dotcom %}, we aim to create documentation that is accurate, valuable, inclusive, accessible, and easy to use.
 
-Before contributing to {% data variables.product.prodname_docs %}, please take a moment to familiarize yourself with {% data variables.product.prodname_dotcom %}'s documentation philosophy, fundamentals, and content design principles:
+Before contributing to {% data variables.product.prodname_docs %}, review {% data variables.product.prodname_dotcom %}'s documentation philosophy, fundamentals, and content design principles:
 
 * [AUTOTITLE](/contributing/writing-for-github-docs/about-githubs-documentation-philosophy)
 * [AUTOTITLE](/contributing/writing-for-github-docs/about-githubs-documentation-fundamentals)
@@ -20,7 +20,7 @@ Before contributing to {% data variables.product.prodname_docs %}, please take a
 
 ## Best practices for writing {% data variables.product.prodname_dotcom %} documentation
 
-Whether you're creating a new article or updating an existing one, you should follow these guidelines when writing for {% data variables.product.prodname_docs %}:
+When creating or updating an article, follow these guidelines:
 
 * [Align content to user needs](#align-content-to-user-needs)
 * [Structure content for readability](#structure-content-for-readability)
@@ -29,21 +29,22 @@ Whether you're creating a new article or updating an existing one, you should fo
 
 ## Align content to user needs
 
-Before you begin, it’s important to understand who you’re writing for, what their goals are, the core tasks or concepts that the article will address, and what type of content to write.
+Before writing, identify your audience, their goals, and the main tasks or concepts the article will cover.
 
 ### Define the audience
 
-* Who will read this content?
-* What are they trying to do?
+* Who is the intended reader?
+* What are they trying to accomplish?
 
 ### Define the core purpose
 
-* What should someone be able to do or understand after reading this article? Choose one or two tasks or concepts that the content will discuss.
-* If there are additional tasks, concepts, or information that are not essential, consider if they can be placed lower in the article, moved to another article, or omitted completely.
+* What should readers be able to do or understand after reading this article?
+* Focus on one or two primary tasks or concepts.
+* Move secondary information lower in the article, to another article, or remove it if unnecessary.
 
 ### Determine the content type
 
-Determine which type of content you will write, based on the intended audience and the core purpose of the content. {% data variables.product.prodname_docs %} use the following content types:
+Choose the content type based on your audience and purpose. {% data variables.product.prodname_docs %} supports:
 
 * [Conceptual content](/contributing/style-guide-and-content-model/conceptual-content-type)
 * [Referential content](/contributing/style-guide-and-content-model/referential-content-type)
@@ -52,54 +53,56 @@ Determine which type of content you will write, based on the intended audience a
 * [Quickstart](/contributing/style-guide-and-content-model/quickstart-content-type)
 * [Tutorial](/contributing/style-guide-and-content-model/tutorial-content-type)
 
-For example, use the conceptual content type to help readers understand the basics of a feature or topic and how it can help them accomplish their goals. Use the procedural content type to help people complete a specific task from start to finish.
+For example:
+- Use conceptual content to explain what a feature does and why it matters.
+- Use procedural content to guide readers through completing a specific task.
 
 ## Structure content for readability
 
-Use the following best practices to structure the content. When adding content to an existing article, follow the existing structure whenever possible.
+When adding content to an existing article, follow its structure whenever possible.
 
-* **Provide initial context**. Define the topic and state its relevance to the reader.
-* **Structure the content in a logical order** by importance and relevance. Place information in order of priority, and in the order users will need it.
-* **Avoid long sentences and paragraphs**.
-  * Introduce concepts one by one.
+* **Provide initial context.** Define the topic and explain why it matters.
+* **Organize content logically.** Present information in order of importance and in the sequence users need it.
+* **Avoid long sentences and paragraphs.**
+  * Introduce concepts one at a time.
   * Use one idea per paragraph.
-  * Use one idea per sentence.
-* **Emphasize the most important information**.
-  * Begin each sentence or paragraph with the most important words and takeaways.
-  * When explaining a concept, start with the conclusion, then explain it in more detail. (This is sometimes called an "inverted pyramid.")
-  * When explaining a complex topic, present readers with the basic information first, and disclose the details later in the article.
-* **Use meaningful subheadings**. Organize related paragraphs into sections. Give each section a subheading that is unique and that accurately describes the content.
-* **Consider using in-page links** for longer content. This allows readers to jump to areas of interest and skip content that is irrelevant to them.
+  * Keep sentences focused and concise.
+* **Highlight key information.**
+  * Begin with the most important takeaway.
+  * When explaining concepts, start with the conclusion, then add supporting details (the “inverted pyramid” approach).
+  * Present basic information first, then introduce complexity.
+* **Use clear, meaningful subheadings.** Ensure each section title accurately reflects its content.
+* **Add in-page links for longer articles.** This helps readers navigate directly to relevant sections.
 
 ## Write for readability
 
-Make it easy for busy users to read and understand the text.
+Help busy readers quickly understand the content.
 
-* **Use plain language.** Use common, everyday words, and avoid jargon when possible. Terms that are well known to developers are fine, but don't assume that the reader knows the details of how {% data variables.product.prodname_dotcom %} works.
+* **Use plain language.** Prefer clear, everyday words. Avoid unnecessary jargon.
 * **Use active voice.**
 * **Be concise.**
-  * Write sentences that are simple and brief.
-  * Avoid complex sentences that contain multiple concepts.
-  * Pare down unnecessary details.
+  * Write short, direct sentences.
+  * Avoid combining multiple ideas in one sentence.
+  * Remove unnecessary detail.
 
-For related information, see "Voice and tone" in [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#voice-and-tone) and [AUTOTITLE](/contributing/writing-for-github-docs/writing-content-to-be-translated).
+For related guidance, see "Voice and tone" in [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#voice-and-tone) and [AUTOTITLE](/contributing/writing-for-github-docs/writing-content-to-be-translated).
 
 ## Format for scannability
 
-Most readers don't consume articles in their entirety. Instead they either _scan_ the page to locate specific information, or _skim_ the page to get a general idea of the concepts.
+Most readers scan or skim documentation rather than reading every word.
 
-When scanning or skimming content, readers skip over large chunks of text. They look for elements that are related to their task or that stand out on the page, such as headings, alerts, lists, tables, code blocks, visuals, and the first few words in each section.
+When scanning, readers focus on headings, alerts, lists, tables, code blocks, visuals, and the first few words of sections.
 
-Once the article has a clearly defined purpose and structure, you can apply the following formatting techniques to optimize the content for scanning and skimming. These techniques can also help to make content more understandable for all readers.
+Once your article has a clear purpose and structure, use these formatting techniques:
 
-* **Use text highlighting** such as boldface and hyperlinks to call attention to the most important points. Use text highlighting sparingly. Do not highlight more than 10% of the total text in an article.
-* **Use formatting elements** to separate the content and create space on the page. For example:
-  * Bulleted lists (with optional run-in subheads)
+* **Use text highlighting** (bold text and hyperlinks) to emphasize key points. Use it sparingly—avoid highlighting more than 10% of the article.
+* **Use formatting elements** to break up text and create visual structure, such as:
+  * Bulleted lists
   * Numbered lists
   * [Alerts](/contributing/style-guide-and-content-model/style-guide#alerts)
   * Tables
   * Visuals
-  * Code blocks and code annotations
+  * Code blocks with annotations
 
 ## Further reading
 
