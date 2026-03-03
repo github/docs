@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Commit to PR branch from fork
 ---
 You can only make commits on pull request branches that:

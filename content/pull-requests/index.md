@@ -26,8 +26,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Pull requests
 children:
   - /committing-changes-to-your-project
   - /collaborating-with-pull-requests

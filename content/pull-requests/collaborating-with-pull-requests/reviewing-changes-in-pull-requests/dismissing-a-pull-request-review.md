@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Dismiss a PR review
 ---
 {% data reusables.pull_requests.dismiss_review %}

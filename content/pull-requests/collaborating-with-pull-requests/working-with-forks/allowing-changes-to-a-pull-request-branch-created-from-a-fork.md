@@ -11,8 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Allow changes to a branch
 ---
 When a user creates a pull request from their fork, the user generally has the authority to decide if other users can commit to the pull request's compare branch. If the pull request author wants greater collaboration, they can grant maintainers of the upstream repository (that is, anyone with push access to the upstream repository) permission to commit to the pull request's compare branch. To learn more about upstream repositories, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
