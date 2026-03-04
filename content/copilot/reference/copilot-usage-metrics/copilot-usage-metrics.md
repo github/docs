@@ -94,7 +94,7 @@ These fields appear in the exported NDJSON reports and in the {% data variables.
 
 ### {% data variables.copilot.copilot_cli_short %} metrics fields (API only)
 
-The `totals_by_cli` object contains the following nested fields when CLI usage is present. These metrics are currently only available in the enterprise-level reports. 
+The `totals_by_cli` object contains the following nested fields when CLI usage is present. These metrics are currently only available in the enterprise-level and user-level reports. 
 
 | Field | Description |
 |:--|:--|
