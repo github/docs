@@ -9,7 +9,7 @@ category:
   - Configure Copilot
 ---
 
-## About {% data variables.copilot.copilot_student %} access
+## About {% data variables.copilot.copilot_student_short %} access
 
 Verified students on {% data variables.product.prodname_education %} are eligible for **free access to {% data variables.product.prodname_copilot_short %}'s premium features**. See [AUTOTITLE](/copilot/concepts/billing/individual-plans#github-copilot-student).
 
