@@ -7,11 +7,6 @@ redirect_from:
   - /github/managing-your-work-on-github/configuring-automation-for-project-boards
 versions:
   feature: projects-v1
-topics:
-  - Pull requests
-  - Projects
-  - Issues
-  - Project management
 shortTitle: Configure automation
 type: how_to
 allowTitleToDifferFromFilename: true

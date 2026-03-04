@@ -5,9 +5,6 @@ permissions: 'Anyone on {% data variables.product.prodname_dotcom_the_website %}
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Issues
-  - Project management
 shortTitle: Triage an issue
 ---
 

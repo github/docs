@@ -38,9 +38,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Issues
-  - Pull requests
 shortTitle: Filter and search
 type: how_to
 ---

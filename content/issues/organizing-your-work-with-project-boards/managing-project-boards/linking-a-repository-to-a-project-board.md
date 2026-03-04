@@ -7,8 +7,6 @@ redirect_from:
   - /github/managing-your-work-on-github/linking-a-repository-to-a-project-board
 versions:
   feature: projects-v1
-topics:
-  - Pull requests
 shortTitle: Link repository to board
 allowTitleToDifferFromFilename: true
 ---

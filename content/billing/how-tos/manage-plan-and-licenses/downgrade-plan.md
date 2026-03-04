@@ -22,13 +22,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Accounts
-  - Downgrades
-  - Organizations
-  - Repositories
-  - User account
 shortTitle: Downgrade plan
 contentType: how-tos
 ---

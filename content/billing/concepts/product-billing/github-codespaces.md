@@ -5,9 +5,6 @@ intro: 'Learn about the costs for using {% data variables.product.prodname_githu
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
-  - Billing
 redirect_from:
   - /billing/managing-billing-for-github-codespaces/about-billing-for-codespaces
   - /github/developing-online-with-codespaces/about-billing-for-codespaces

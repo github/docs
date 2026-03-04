@@ -20,8 +20,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
 children:
   - /view-productlicense-use
   - /download-license-use

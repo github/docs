@@ -8,8 +8,6 @@ redirect_from:
   - /authentication/authenticating-with-saml-single-sign-on/viewing-and-managing-your-active-saml-sessions
 versions:
   ghec: '*'
-topics:
-  - SSO
 type: how_to
 shortTitle: Active SSO sessions
 ---

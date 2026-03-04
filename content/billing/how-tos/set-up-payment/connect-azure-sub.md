@@ -14,8 +14,6 @@ versions:
   ghes: '*'
 shortTitle: Connect Azure sub
 permissions: 'Billing managers or owners'
-topics:
-  - Billing
 contentType: how-tos
 ---
 

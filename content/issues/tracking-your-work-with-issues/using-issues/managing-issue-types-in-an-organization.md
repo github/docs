@@ -6,8 +6,6 @@ redirect_from:
 versions:
   feature: issue-types
 type: overview
-topics:
-  - Project management
 shortTitle: 'Managing issue types'
 permissions: 'Organization owners can modify issue types.'
 ---

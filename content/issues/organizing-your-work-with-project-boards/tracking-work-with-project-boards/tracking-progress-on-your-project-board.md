@@ -7,8 +7,6 @@ redirect_from:
   - /github/managing-your-work-on-github/tracking-progress-on-your-project-board
 versions:
   feature: projects-v1
-topics:
-  - Pull requests
 shortTitle: 'Track progress on {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
 ---

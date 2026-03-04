@@ -24,12 +24,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Organizations
-  - Troubleshooting
-  - Upgrades
-  - User account
 shortTitle: Upgrade plan
 contentType: how-tos
 ---

@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Licensing
 shortTitle: Combined enterprise use
 redirect_from:
   - /billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise

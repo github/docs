@@ -10,10 +10,6 @@ versions:
   ghec: '*'
   ghes: '*'
 product: '{% data reusables.gated-features.enterprise-invoices %}'
-topics:
-  - Billing
-  - Enterprise
-  - Licensing
 contentType: how-tos
 ---
 

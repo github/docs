@@ -29,6 +29,7 @@ When you remove an organization from your enterprise:
 * The organization will be governed by our standard Terms of Service.
 * Any internal repositories within the organization will be converted to private repositories.
 * Depending on your policy settings, people who are not members of any other organization may remain in the enterprise as unaffiliated users. These users retain access to {% data variables.product.prodname_copilot_short %} if they were granted access directly from the enterprise. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/control-offboarding).
+* Any IP allow list configured for the organization will be disabled, as IP allow lists are only available on {% data variables.product.prodname_ghe_cloud %}. See [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization).
 
 As part of the downgrade to the free plan:
 

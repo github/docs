@@ -9,8 +9,6 @@ redirect_from:
   - /issues/organizing-your-work-with-project-boards/managing-project-boards/copying-a-project-board
 versions:
   feature: projects-v1
-topics:
-  - Pull requests
 allowTitleToDifferFromFilename: true
 ---
 

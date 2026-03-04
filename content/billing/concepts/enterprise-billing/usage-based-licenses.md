@@ -14,9 +14,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
 permissions: Enterprise administrators
 product: '{% data variables.product.prodname_enterprise %}'
 shortTitle: Usage-based licenses

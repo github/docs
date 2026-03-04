@@ -3,8 +3,6 @@ title: Duplicating an issue
 intro: 'To quickly create a similar issue, you can duplicate an existing open issue into the same repository or a different one.'
 versions:
   feature: duplicating-an-issue
-topics:
-  - Issues
 shortTitle: Duplicate an issue
 ---
 

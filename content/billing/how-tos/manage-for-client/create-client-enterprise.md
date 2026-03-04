@@ -4,11 +4,6 @@ intro: 'You can create and pay for an enterprise account on {% data variables.pr
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - User account
-  - Enterprise
-  - Upgrades
 shortTitle: Create client enterprise
 product: '{% data variables.product.github %} partners setting up {% data variables.product.prodname_enterprise %}. <br> Microsoft Cloud Solution Provider (CSP) partners should see [AUTOTITLE](/billing/how-tos/manage-for-client/create-as-csp-partner).'
 redirect_from:

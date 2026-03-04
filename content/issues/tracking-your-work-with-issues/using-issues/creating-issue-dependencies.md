@@ -5,8 +5,6 @@ versions:
   fpt: '*' 
   ghec: '*' 
 type: overview
-topics:
-  - Project management
 permissions: 'People with at least triage permissions for a repository can create issue dependencies.'
 product: 'Issue dependencies are available for users on {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, and {% data variables.product.prodname_ghe_cloud %} plans.'
 ---

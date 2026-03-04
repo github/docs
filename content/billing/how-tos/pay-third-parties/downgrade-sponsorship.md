@@ -10,10 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Downgrades
-  - Sponsors
 shortTitle: Downgrade sponsorship
 contentType: how-tos
 ---

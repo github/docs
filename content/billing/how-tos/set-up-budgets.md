@@ -20,12 +20,6 @@ redirect_from:
   - /billing/managing-billing-for-your-products/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages
   - /billing/managing-your-billing/using-budgets-control-spending
   - /billing/tutorials/set-up-budgets
-topics:
-  - Billing
-  - Enterprise
-  - Organizations
-  - Spending limits
-  - User account
 permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
 shortTitle: Set up budgets
 contentType: how-tos

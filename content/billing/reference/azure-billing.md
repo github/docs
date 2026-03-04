@@ -6,9 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
 allowTitleToDifferFromFilename: true
 contentType: reference
 ---

@@ -15,10 +15,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Actions
-  - Billing
-  - Spending limits
 shortTitle: GitHub Actions
 contentType: concepts
 ---

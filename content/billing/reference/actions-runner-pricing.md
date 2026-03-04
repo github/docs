@@ -6,9 +6,6 @@ versions:
   fpt: "*"
   ghec: "*"
   ghes: "*"
-topics:
-  - Billing
-  - Actions
 contentType: reference
 redirect_from:
   - /billing/reference/actions-minute-multipliers

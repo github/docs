@@ -6,8 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: tutorial
-topics:
-  - Projects
 ---
 
 {% data reusables.projects.access-insights %}
