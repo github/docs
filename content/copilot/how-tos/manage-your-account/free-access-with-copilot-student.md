@@ -1,6 +1,7 @@
 ---
 title: 'Access GitHub Copilot for free as a student'
 shortTitle: Get free access with Copilot Student
+allowTitleToDifferFromFilename: true
 intro: 'Learn how to access {% data variables.product.prodname_copilot_short %}''s premium features for free as a student.'
 versions:
   feature: copilot
