@@ -60,12 +60,10 @@ If you are the owner of a repository where {% data variables.copilot.copilot_mem
 
 ## About enabling {% data variables.copilot.copilot_memory %}
 
-{% data variables.copilot.copilot_memory %} is turned off by default and can be enabled in the enterprise, organization, and personal settings.
-
 The ability to use {% data variables.copilot.copilot_memory %} is granted to users, rather than being enabled for repositories. After {% data variables.copilot.copilot_memory %} has been enabled for a user, {% data variables.product.prodname_copilot_short %} will be able to use agentic memory in any repository in which that person uses {% data variables.product.prodname_copilot %}.
 
-When enabled at the enterprise or organization level, {% data variables.copilot.copilot_memory %} will be available to all organization members who receive a {% data variables.product.prodname_copilot_short %} subscription from that organization.
+For users who have an individual {% data variables.product.prodname_copilot_short %} subscription to a {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan, {% data variables.copilot.copilot_memory %} is enabled by default. These users can disable {% data variables.copilot.copilot_memory %} in their personal {% data variables.product.prodname_copilot_short %} settings on {% data variables.product.github %}.
 
-Users who have an individual {% data variables.product.prodname_copilot_short %} subscription, from a {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan, must enable {% data variables.copilot.copilot_memory %} in their personal {% data variables.product.prodname_copilot_short %} settings on {% data variables.product.github %}.
+For enterprise and organization-managed {% data variables.product.prodname_copilot_short %} subscriptions, {% data variables.copilot.copilot_memory %} is turned off by default and can be enabled in the enterprise or organization settings. When enabled at the enterprise or organization level, {% data variables.copilot.copilot_memory %} will be available to all organization members who receive a {% data variables.product.prodname_copilot_short %} subscription from that organization.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/copilot-memory).
