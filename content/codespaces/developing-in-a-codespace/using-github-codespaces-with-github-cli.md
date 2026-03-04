@@ -6,10 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Codespaces
-  - CLI
-  - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/using-codespaces-with-github-cli
   - /codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli

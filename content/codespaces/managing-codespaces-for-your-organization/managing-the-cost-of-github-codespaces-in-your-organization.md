@@ -7,9 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: reference
-topics:
-  - Codespaces
-  - Billing
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization
   - /codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization

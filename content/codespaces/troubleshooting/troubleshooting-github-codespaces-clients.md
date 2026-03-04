@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: reference
-topics:
-  - Codespaces
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-codespaces-clients
 ---

@@ -7,8 +7,6 @@ versions:
   ghec: '*'
 redirect_from:
   - /codespaces/developing-in-codespaces/changing-the-machine-type-for-your-codespace
-topics:
-  - Codespaces
 type: how_to
 ---
 

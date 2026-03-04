@@ -6,10 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: overview
-topics:
-  - Codespaces
-  - Fundamentals
-  - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/default-environment-variables-for-your-codespace
 ---

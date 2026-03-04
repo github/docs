@@ -6,9 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: overview
-topics:
-  - Codespaces
-  - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/codespaces-lifecycle
   - /codespaces/developing-in-codespaces/the-codespace-lifecycle
