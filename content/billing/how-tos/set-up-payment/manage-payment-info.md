@@ -17,11 +17,6 @@ redirect_from:
   - /billing/managing-your-github-billing-settings/setting-your-billing-email
   - /billing/managing-your-github-billing-settings/viewing-your-payment-history-and-receipts
   - /billing/managing-your-billing/managing-your-payment-and-billing-information
-topics:
-  - Billing
-  - Enterprise
-  - Team
-  - Receipts
 permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
 shortTitle: Manage payment info
 contentType: how-tos

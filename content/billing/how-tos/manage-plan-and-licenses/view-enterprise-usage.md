@@ -15,9 +15,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
 shortTitle: View enterprise usage
 contentType: how-tos
 ---

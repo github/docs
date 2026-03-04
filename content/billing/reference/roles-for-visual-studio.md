@@ -5,10 +5,6 @@ intro: 'Learn about the different roles required to set up {% data variables.vis
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Team
 permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 contentType: reference

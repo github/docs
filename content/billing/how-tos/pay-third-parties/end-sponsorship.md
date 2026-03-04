@@ -7,9 +7,6 @@ versions:
 redirect_from:
   - /billing/managing-billing-for-github-sponsors/setting-an-end-date-to-a-sponsorship
   - /billing/managing-billing-for-your-products/managing-billing-for-github-sponsors/setting-an-end-date-to-a-sponsorship
-topics:
-  - Billing
-  - Sponsors
 shortTitle: End sponsorship
 contentType: how-tos
 ---

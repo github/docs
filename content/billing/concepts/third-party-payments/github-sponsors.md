@@ -10,9 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Sponsors
 shortTitle: GitHub Sponsors
 contentType: concepts
 ---

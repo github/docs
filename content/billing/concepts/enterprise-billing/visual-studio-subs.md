@@ -15,10 +15,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Licensing
 shortTitle: Visual Studio subs
 contentType: concepts
 ---

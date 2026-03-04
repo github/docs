@@ -9,8 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
 ---
 When running remote Git commands or SSH, your connection might time out:
 

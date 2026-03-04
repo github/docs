@@ -17,11 +17,6 @@ versions:
   fpt: '*'
   ghec: '*'
 product: '{% data variables.product.github %} partners setting up {% data variables.product.prodname_team %}'
-topics:
-  - Billing
-  - User account
-  - Organizations
-  - Upgrades
 shortTitle: Create client org
 contentType: how-tos
 ---

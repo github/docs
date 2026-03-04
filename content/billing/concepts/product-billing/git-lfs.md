@@ -38,12 +38,6 @@ redirect_from:
   - /billing/using-the-new-billing-platform/about-git-large-file-storage
   - /billing/using-the-new-billing-platform/about-billing-for-git-large-file-storage
   - /billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage
-topics:
-  - Billing
-  - LFS
-  - Enterprise
-  - Team
-  - Upgrades
 shortTitle: Git LFS
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 contentType: concepts

@@ -9,10 +9,6 @@ redirect_from:
   - /billing/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing
   - /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing
   - /billing/how-tos/products/manage-ghas-license
-topics:
-  - Billing
-  - Advanced Security
-  - Enterprise
 shortTitle: Manage GHAS licenses
 contentType: how-tos
 ---

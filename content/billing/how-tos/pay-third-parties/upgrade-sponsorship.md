@@ -10,10 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Sponsors
-  - Upgrades
 shortTitle: Upgrade sponsorship
 contentType: how-tos
 ---

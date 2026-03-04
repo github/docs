@@ -13,10 +13,6 @@ redirect_from:
   - /billing/managing-your-billing/adding-licenses-to-an-organization
   - /billing/how-tos/manage-plan-and-licenses/manage-organization-licenses
   - /billing/how-tos/manage-plan-and-licenses/add-licenses
-topics:
-  - Billing
-  - Enterprise
-  - Team
 shortTitle: Manage user licenses
 contentType: how-tos
 ---

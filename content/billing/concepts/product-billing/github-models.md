@@ -4,9 +4,6 @@ shortTitle: GitHub Models
 intro: 'If you want to use {% data variables.product.prodname_github_models %} beyond the free usage included in your account, you can choose to opt in to paid usage.'
 versions:
   feature: github-models
-topics:
-  - Enterprise
-  - Billing
 redirect_from:
   - /billing/managing-billing-for-your-products/about-billing-for-github-models
 contentType: concepts

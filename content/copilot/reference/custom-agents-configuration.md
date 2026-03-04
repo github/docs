@@ -96,7 +96,7 @@ mcp-servers:
     args: ['--arg1', '--arg2']
     tools: ["*"]
     env:
-      ENV_VAR_NAME: ${{ secrets.COPILOT_MCP_ENV_VAR_VALUE }}
+      ENV_VAR_NAME: {% raw %}${{ secrets.COPILOT_MCP_ENV_VAR_VALUE }}{% endraw %}
 ---
 
 Prompt with suggestions for behavior and output

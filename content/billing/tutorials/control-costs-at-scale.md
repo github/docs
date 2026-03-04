@@ -5,10 +5,6 @@ shortTitle: 'Control costs at scale'
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Enterprise
-  - Billing
-  - REST
 permissions: 'Enterprise owners and billing managers'
 product: '{% data reusables.billing.cta-ghec-cost-centers %}'
 contentType: tutorials

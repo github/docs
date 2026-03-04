@@ -13,10 +13,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Packages
-  - Spending limits
 shortTitle: GitHub Packages
 contentType: concepts
 ---

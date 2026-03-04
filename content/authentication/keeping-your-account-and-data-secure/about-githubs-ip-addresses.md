@@ -13,9 +13,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: GitHub's IP addresses
 ---
 

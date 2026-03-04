@@ -4,9 +4,6 @@ intro: 'When you sign in for the first time from a new or unrecognized device wi
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Verifying devices on sign in
 ---
 

@@ -3,8 +3,6 @@ title: Authorizing an app for single sign-on
 intro: 'To use an {% data variables.product.prodname_oauth_app %} or {% data variables.product.prodname_github_app %} with an organization that uses single sign-on (SSO), you must first set up your SSO sessions and then authorize the application.'
 versions:
   ghec: '*'
-topics:
-  - SSO
 shortTitle: Apps and SSO
 ---
 

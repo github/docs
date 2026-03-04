@@ -3,9 +3,6 @@ title: GitHub Copilot licenses
 intro: 'Learn how licenses for {% data variables.product.prodname_copilot_short %} work, including usage measurement and managing your budget.'
 versions:
   feature: copilot
-topics:
-  - Billing
-  - Copilot
 redirect_from:
   - /billing/concepts/product-billing/github-copilot
   - /billing/managing-billing-for-github-copilot/about-billing-for-github-copilot
