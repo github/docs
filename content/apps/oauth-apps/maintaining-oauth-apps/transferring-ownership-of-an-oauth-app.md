@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - OAuth apps
 shortTitle: Transfer ownership
 ---
 {% data reusables.user-settings.access_settings %}

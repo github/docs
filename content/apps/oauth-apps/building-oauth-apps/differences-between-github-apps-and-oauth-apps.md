@@ -13,9 +13,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
-  - OAuth apps
 shortTitle: GitHub Apps & {% data variables.product.prodname_oauth_apps %}
 ---
 

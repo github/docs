@@ -12,8 +12,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 shortTitle: App manifest
 ---
 ## About {% data variables.product.prodname_github_app %} Manifests

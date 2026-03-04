@@ -6,10 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
-  - GitHub Apps
 redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps
   - /authentication/keeping-your-account-and-data-secure/authorizing-github-apps

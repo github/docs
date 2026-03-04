@@ -4,9 +4,6 @@ shortTitle: SAML with apps
 intro: "If your organization or enterprise is SSO protected, you may need to start an active SSO session for your organization before authorizing, installing, or requesting a {% data variables.product.prodname_github_app %}."
 versions:
   ghec: '*'
-topics:
-  - GitHub Apps
-  - SSO
 ---
 
 ## Authorizing {% data variables.product.prodname_github_apps %} for users
