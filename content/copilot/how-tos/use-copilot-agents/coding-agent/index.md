@@ -14,6 +14,7 @@ children:
   - /test-custom-agents
   - /create-skills
   - /extend-coding-agent-with-mcp
+  - /integrate-coding-agent-with-jira
   - /integrate-coding-agent-with-slack
   - /integrate-coding-agent-with-teams
   - /integrate-coding-agent-with-linear

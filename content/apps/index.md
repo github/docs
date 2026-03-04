@@ -30,8 +30,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 children:
   - /overview
   - /using-github-apps

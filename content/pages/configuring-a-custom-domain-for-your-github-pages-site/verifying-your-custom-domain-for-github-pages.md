@@ -8,6 +8,8 @@ versions:
 topics:
   - Pages
 shortTitle: Verify a custom domain
+category:
+  - Managing a GitHub Pages site
 ---
 
 ## About domain verification for GitHub Pages

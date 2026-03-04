@@ -14,6 +14,8 @@ versions:
 topics:
   - Pages
 shortTitle: Custom domains in GitHub Pages
+category:
+  - Learn about GitHub Pages
 ---
 
 ## Supported custom domains

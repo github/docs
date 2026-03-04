@@ -16,6 +16,12 @@ For clustering, you can designate a node as your backup server. To minimize late
 > [!IMPORTANT] 
 > Only one node can be specified as a `backup-server` node.
 
-1. To configure your backup server, set up a backup disk on one of the cluster nodes of your choice. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server/configuring-the-backup-service).
+1. To configure your backup server, run the following commands to set up a backup disk on one of the cluster nodes of your choice. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server/configuring-the-backup-service).
 
-1. After `ghe-storage-init-backup` is executed, the `backup-server` role will be set on this cluster node. You can now run `ghe-backup` directly on this node, or use the management console to schedule backups.
+```shell
+ghe-storage-init-backup /dev/YOUR_DEVICE_NAME
+
+ghe-config-apply
+```
+   
+1. After `ghe-config-apply` is executed, the `backup-server` role will be set on this cluster node. You can now run `ghe-backup` directly on this node, or use the management console to schedule backups.

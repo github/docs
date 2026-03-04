@@ -14,6 +14,8 @@ versions:
 topics:
   - Pages
 shortTitle: Test site locally with Jekyll
+category:
+  - Set up a GitHub Pages site
 ---
 
 Anyone with read permissions for a repository can test a {% data variables.product.prodname_pages %} site locally.

@@ -9,6 +9,8 @@ versions:
 topics:
   - Pages
 shortTitle: Troubleshoot 404 errors
+category:
+  - Troubleshoot a GitHub Pages site error
 ---
 
 ## Troubleshooting 404 errors

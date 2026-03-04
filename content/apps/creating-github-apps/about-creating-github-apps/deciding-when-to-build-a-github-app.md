@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 ---
 
 ## Using a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}

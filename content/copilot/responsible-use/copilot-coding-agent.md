@@ -9,7 +9,7 @@ redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-copilot-coding-agent-on-githubcom
   - /copilot/responsible-use-of-github-copilot-features/copilot-coding-agent
 contentType: rai
-category: 
+category:
   - Responsible use
 ---
 
@@ -167,7 +167,7 @@ Users need to evaluate potential specific legal and regulatory obligations when 
 
 ## External integrations with Copilot coding agent
 
-{% data variables.copilot.copilot_coding_agent %} can receive information and context from external applications like Microsoft Teams, Linear, and Slack. When you mention the external application in these platforms or assign a task to the coding agent via a connected workflow, it can access relevant context, such as conversation history in threads where it’s mentioned or issue details and activity timelines. This allows the coding agent to better understand your development needs and provide more relevant assistance. These integrations enable teams to collaborate on code, assign tasks, and track progress directly within their existing workflows, without switching tools. Ensure your team understands what information is being shared and configure integrations according to your organization’s privacy and data handling policies.
+{% data variables.copilot.copilot_coding_agent %} can receive information and context from external applications like Microsoft Teams, Linear, Slack, and Jira. When you mention the external application in these platforms or assign a task to the coding agent via a connected workflow, it can access relevant context, such as conversation history in threads where it’s mentioned or issue details and activity timelines. This allows the coding agent to better understand your development needs and provide more relevant assistance. These integrations enable teams to collaborate on code, assign tasks, and track progress directly within their existing workflows, without switching tools. Ensure your team understands what information is being shared and configure integrations according to your organization’s privacy and data handling policies.
 
 For more information about external integrations with {% data variables.copilot.copilot_coding_agent %}, see:
 * [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-teams)

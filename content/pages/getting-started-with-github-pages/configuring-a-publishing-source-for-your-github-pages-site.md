@@ -14,6 +14,8 @@ versions:
 topics:
   - Pages
 shortTitle: Configure publishing source
+category:
+  - Set up a GitHub Pages site
 ---
 
 ## About publishing sources

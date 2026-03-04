@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 shortTitle: Setup URL
 redirect_from:
   - /apps/creating-github-apps/setting-up-a-github-app/about-the-setup-url

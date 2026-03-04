@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 redirect_from:
   - /apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events
 layout: inline

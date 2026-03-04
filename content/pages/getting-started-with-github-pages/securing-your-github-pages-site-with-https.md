@@ -11,6 +11,8 @@ versions:
 topics:
   - Pages
 shortTitle: Secure site with HTTPS
+category:
+  - Set up a GitHub Pages site
 ---
 
 People with admin permissions for a repository can enforce HTTPS for a {% data variables.product.prodname_pages %} site.

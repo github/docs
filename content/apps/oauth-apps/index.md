@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - OAuth apps
 children:
   - /using-oauth-apps
   - /building-oauth-apps
