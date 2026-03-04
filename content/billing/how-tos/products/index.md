@@ -28,6 +28,7 @@ children:
   - /use-cost-centers
   - /manage-ghas-licenses
   - /view-ghas-committers
+  - /disable-ghas-for-enterprise
 contentType: how-tos
 ---
 
