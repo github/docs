@@ -33,6 +33,8 @@ versions:
 topics:
   - Pages
 shortTitle: Troubleshoot Jekyll errors
+category:
+  - Troubleshoot a GitHub Pages site error
 ---
 
 ## Troubleshooting build errors

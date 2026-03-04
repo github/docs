@@ -12,6 +12,8 @@ versions:
 topics:
   - Pages
 shortTitle: Use submodules with Pages
+category:
+  - Set up a GitHub Pages site
 ---
 
 If the repository for your {% data variables.product.prodname_pages %} site contains submodules, their contents will automatically be pulled in when your site is built.

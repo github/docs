@@ -14,6 +14,8 @@ versions:
 topics:
   - Pages
 shortTitle: Jekyll build errors for Pages
+category:
+  - Set up a GitHub Pages site
 ---
 
 {% data reusables.pages.actions-is-preferred %}

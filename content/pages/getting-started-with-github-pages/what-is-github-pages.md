@@ -19,6 +19,8 @@ versions:
   ghec: '*'
 topics:
   - Pages
+category:
+  - Learn about GitHub Pages
 ---
 
 ## About {% data variables.product.prodname_pages %}

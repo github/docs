@@ -12,6 +12,8 @@ versions:
 topics:
   - Pages
 shortTitle: Add content to Pages site
+category:
+  - Managing a GitHub Pages site
 ---
 
 {% data reusables.pages.actions-is-preferred %}
