@@ -35,7 +35,8 @@ Most individual developers can start using {% data variables.copilot.copilot_fre
 * You have a {% data variables.enterprise.prodname_managed_user %}.
 * You are assigned a {% data variables.product.prodname_copilot_short %} seat through an organization.
 * You have an existing {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan or {% data variables.copilot.copilot_pro_short %} trial.
-* You have free access to {% data variables.copilot.copilot_pro_short %} as a student, teacher, or open-source maintainer.
+* You have free access to {% data variables.copilot.copilot_student_short %}.
+* You have free access to {% data variables.copilot.copilot_pro_short %} as a teacher or open-source maintainer.
 
 There are a few ways to start using {% data variables.copilot.copilot_free_short %}, depending on where you're working.
 
