@@ -14,7 +14,8 @@ copilot_enterprise: 'GitHub Copilot Enterprise'
 copilot_enterprise_short: 'Copilot Enterprise'
 copilot_free: 'GitHub Copilot Free'
 copilot_free_short: 'Copilot Free'
-copilot_student: 'Copilot Student'
+copilot_student: 'GitHub Copilot Student'
+copilot_student_short: 'Copilot Student'
 
 ## Copilot billing
 # Price per additional premium request
