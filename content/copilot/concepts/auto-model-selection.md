@@ -46,6 +46,8 @@ When you select **Auto** in {% data variables.copilot.copilot_chat_short %}, {% 
   * {% data variables.copilot.copilot_gpt_53_codex %}
   * {% data variables.copilot.copilot_claude_haiku_45 %}
   * {% data variables.copilot.copilot_claude_sonnet_45 %}
+  * {% data variables.copilot.copilot_grok_code %}
+  * {% data variables.copilot.copilot_raptor_mini %}
 
 > [!TIP] To see which model was used for each response, hover over the response in {% data variables.copilot.copilot_chat_short %}.
 
