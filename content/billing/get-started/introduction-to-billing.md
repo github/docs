@@ -10,11 +10,6 @@ redirect_from:
   - /billing/using-the-new-billing-platform/getting-started-with-the-new-billing-platform
   - /billing/managing-your-billing/about-the-new-billing-platform
   - /billing/reference/previous-billing-platform-endpoints
-topics:
-  - Billing
-  - Personal account
-  - Enterprise
-  - Team
 shortTitle: Introduction to billing
 contentType: get-started
 ---

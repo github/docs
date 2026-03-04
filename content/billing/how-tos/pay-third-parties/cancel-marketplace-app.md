@@ -12,13 +12,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Cancellation
-  - Marketplace
-  - Organizations
-  - Trials
-  - User account
 shortTitle: Cancel Marketplace app
 contentType: how-tos
 ---

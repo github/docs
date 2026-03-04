@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 product: Enterprise accounts using Microsoft Entra ID as their identity provider, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)
-topics:
-  - Billing
-  - Enterprise
-  - Licensing
 shortTitle: Azure DevOps licenses
 contentType: concepts
 ---

@@ -4,10 +4,6 @@ intro: 'Learn how your spending is assigned to cost centers for licensed and met
 shortTitle: Cost center allocation
 versions:
   feature: enhanced-billing-platform
-topics:
-  - Billing
-  - Enterprise
-  - Team
 contentType: reference
 product: '{% data variables.product.prodname_ghe_cloud %}'
 ---

@@ -3,9 +3,6 @@ title: GitHub Copilot premium requests
 intro: 'Learn how premium requests in {% data variables.product.prodname_copilot_short %} work, including usage measurement and managing your budget.'
 versions:
   feature: copilot
-topics:
-  - Billing
-  - Copilot
 contentType: concepts
 ---
 

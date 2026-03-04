@@ -4,10 +4,6 @@ intro: 'You can upload your license file for {% data variables.product.prodname_
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Licensing
 shortTitle: Upload new license
 redirect_from:
   - /billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server

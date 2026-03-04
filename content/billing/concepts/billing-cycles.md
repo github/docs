@@ -11,10 +11,6 @@ redirect_from:
   - /billing/using-the-new-billing-platform/viewing-your-subscriptions-and-billing-date
   - /billing/using-the-new-billing-platform/about-the-billing-cycle
   - /billing/managing-your-billing/about-the-billing-cycle
-topics:
-  - Billing
-  - Enterprise
-  - Team
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 contentType: concepts
 ---

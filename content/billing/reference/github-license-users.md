@@ -14,12 +14,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Downgrades
-  - Enterprise
-  - Licensing
-  - Organizations
-  - Billing
 contentType: reference
 ---
 

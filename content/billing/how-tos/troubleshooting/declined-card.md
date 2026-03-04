@@ -13,9 +13,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Troubleshooting
 shortTitle: Declined card
 contentType: how-tos
 ---
