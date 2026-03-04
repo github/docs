@@ -290,7 +290,7 @@ Results files can be integrated into your own code-review or debugging infrastru
 
 When you analyze a {% data variables.product.prodname_codeql %} database using a {% data variables.product.prodname_code_scanning %} query suite, in addition to generating detailed information about alerts, the CLI reports diagnostic data from the database generation step and summary metrics. If you choose to generate SARIF output, the additional data is also included in the SARIF file. For repositories with few alerts, you may find this information useful for determining if there are genuinely few problems in the code, or if there were errors generating the {% data variables.product.prodname_codeql %} database. For more detailed output from `codeql database analyze`, use the `--verbose` option.
 
-For more information about the type of diagnostic information available, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/viewing-code-scanning-logs#about-analysis-and-diagnostic-information).
+For more information about the type of diagnostic information available, see [AUTOTITLE](/code-security/reference/code-scanning/code-scanning-logs).
 
 You can choose to export and upload diagnostic information to {% data variables.product.github %} even if a {% data variables.product.prodname_codeql %} analysis fails. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/uploading-codeql-analysis-results-to-github#uploading-diagnostic-information-to-github-if-the-analysis-fails).
 

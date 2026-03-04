@@ -17,7 +17,7 @@ topics:
 contentType: how-tos
 children:
   - /analyze-organization-data
-  - /viewing-code-scanning-logs
+  - /view-code-scanning-logs
   - /viewing-dependabot-job-logs
   - /view-custom-pattern-metrics
   - /change-used-by-data
