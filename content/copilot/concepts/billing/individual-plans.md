@@ -38,7 +38,7 @@ Verified students can access unlimited completions and additional models at no c
 * Includes **unlimited completions** in IDEs
 * Access to {% data variables.copilot.copilot_chat_short %} and additional models
 * Includes up to **300 premium requests** per month (additional at {% data variables.copilot.additional_premium_requests %} each)
-* Free for verified students.
+* Free for verified students
 
 ## {% data variables.copilot.copilot_pro %}
 
