@@ -10,9 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 ---
 To host your images, {% data variables.product.github %} uses the [open-source project Camo](https://github.com/atmos/camo). Camo generates an anonymous URL proxy for each file which hides your browser details and related information from other users. On {% data variables.product.prodname_dotcom_the_website %}, the URL starts `https://<subdomain>.githubusercontent.com/`, with different subdomains depending on how you uploaded the image.
 

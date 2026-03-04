@@ -5,9 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - 2FA
-  - Authentication
 shortTitle: Troubleshooting 2FA
 ---
 

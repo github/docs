@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
 redirect_from:
   - /github/authenticating-to-github/error-unknown-key-type
   - /github/authenticating-to-github/troubleshooting-ssh/error-unknown-key-type

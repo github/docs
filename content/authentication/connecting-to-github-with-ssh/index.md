@@ -15,8 +15,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
 children:
   - /about-ssh
   - /using-ssh-agent-forwarding
