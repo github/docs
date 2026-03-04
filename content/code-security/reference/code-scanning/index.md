@@ -17,4 +17,5 @@ children:
   - sarif-files
   - codeql
   - troubleshoot-analysis-errors
+  - code-scanning-logs
 ---

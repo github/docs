@@ -1,5 +1,5 @@
 ---
-title: Accessing logs
+title: Accessing logs for {% data variables.product.prodname_codeql %} in {% data variables.product.prodname_vscode %}
 shortTitle: Access logs
 versions:
   fpt: '*'
@@ -14,27 +14,9 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /code-security/codeql-for-vs-code/troubleshooting-codeql-for-vs-code/accessing-logs
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-codeql-for-vs-code/accessing-logs
-contentType: reference
+  - /code-security/reference/code-scanning/codeql/codeql-for-vs-code/accessing-logs
+contentType: how-tos
 ---
-
-## About logs
-
-Progress and error messages are displayed as notifications in the bottom right corner of the {% data variables.product.prodname_vscode %} workspace. These link to more detailed logs and error messages in the "Output" window.
-
-You can access the following logs:
-
-* {% data variables.product.prodname_codeql %} Extension
-
-* {% data variables.product.prodname_codeql %} Language Server
-
-* {% data variables.product.prodname_codeql %} Query Server
-
-* {% data variables.product.prodname_codeql %} Tests
-
-> [!NOTE]
-> The {% data variables.product.prodname_codeql %} Language Server log contains more advanced debug logs for {% data variables.product.prodname_codeql %} language maintainers. You should only need these to provide details in a bug report.
-
-## Accessing logs
 
 1. In {% data variables.product.prodname_vscode %}, open the "Output" window.
 
