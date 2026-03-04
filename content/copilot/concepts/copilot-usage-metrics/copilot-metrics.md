@@ -35,14 +35,12 @@ Metrics are available through:
 
 ## Which usage is included?
 
-The {% data variables.product.prodname_copilot_short %} usage metrics are derived exclusively from telemetry sent by IDEs. In order for an end user to be counted towards these metrics, they **must have telemetry enabled in their IDE**.
+The {% data variables.product.prodname_copilot_short %} usage metrics are derived from telemetry across multiple Copilot surfaces. Because many metrics come from IDE telemetry, **end users must have telemetry enabled in their IDE to be included in these metrics**.
 
-This means the data **does not include** activity from other {% data variables.product.prodname_copilot_short %} surfaces, such as:
+The data **does not include** activity from other {% data variables.product.prodname_copilot_short %} surfaces, such as:
 
 * {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %}
 * {% data variables.product.prodname_mobile %}
-* {% data variables.copilot.copilot_code-review_short %}
-* {% data variables.copilot.copilot_cli_short %}
 
 License and seat management data are not included in {% data variables.product.prodname_copilot_short %} usage metrics reports. To view or manage license assignments, use the {% data variables.product.prodname_copilot_short %} user management API, which is the source of truth for license and seat information. See [AUTOTITLE](/rest/copilot/copilot-user-management).
 
