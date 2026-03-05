@@ -11,10 +11,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Clustering
-  - Enterprise
-  - Infrastructure
 ---
 
 ## About replacement of {% data variables.product.prodname_ghe_server %} cluster nodes

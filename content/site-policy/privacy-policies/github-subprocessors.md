@@ -8,9 +8,6 @@ redirect_from:
   - /site-policy/privacy-policies/github-subprocessors-and-cookies
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 ---
 
 GitHub defines customer data as all data provided by the customer to GitHub through their use of GitHub services. Some customer data is personal data as defined under GDPR.
@@ -37,7 +34,7 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | Google Cloud Platform (GCP)   | Cloud Hosted Infrastructure, AI Inference and AI Services                      | United States, Belgium, Singapore                 | United States      |
 | Hewlett-Packard Limited       | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
 | LambdaTest                    | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
-| Microsoft (Azure)             | Cloud Hosted Infrastructure, Data Hosting, AI Inference and AI Services        | United States                                     | United States      |
+| Microsoft (Azure)             | Cloud Hosted Infrastructure, Data Hosting, AI Inference and AI Services        | United States, Canada                             | United States      |
 | Microsoft (Azure)             | Cognitive Services and customer support ticketing analysis                     | United States                                     | United States      |
 | Microsoft                     | Technical Services                                                             | Australia, Brazil, Canada, France, Japan, Norway, Spain, Sweden, Switzerland, United Kingdom, United States | United States|
 | Moveworks                     | Customer support ticketing analysis                                            | United States                                     | United States      |

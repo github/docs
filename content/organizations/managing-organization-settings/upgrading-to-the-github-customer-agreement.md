@@ -8,9 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Upgrade to Corporate ToS
 ---
 

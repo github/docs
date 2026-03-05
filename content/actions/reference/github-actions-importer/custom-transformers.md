@@ -6,10 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
-topics:
-  - Migration
-  - CI
-  - CD
 shortTitle: Custom transformers
 redirect_from:
   - /actions/migrating-to-github-actions/automated-migrations/extending-github-actions-importer-with-custom-transformers

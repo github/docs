@@ -4,10 +4,6 @@ intro: Learn special considerations and best practices for replacing an organiza
 permissions: Enterprise owners can configure SAML single sign-on for an enterprise account.
 versions:
   ghec: '*'
-topics:
-  - Authentication
-  - Enterprise
-  - Organizations
 type: how_to
 shortTitle: From organization to enterprise
 redirect_from:

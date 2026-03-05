@@ -11,9 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Commit signature verification
 ---
 ## About commit signature verification

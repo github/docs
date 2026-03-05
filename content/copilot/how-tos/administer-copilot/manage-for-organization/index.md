@@ -10,8 +10,6 @@ redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization
   - /copilot/how-tos/administer/organizations
   - /copilot/how-tos/administer/manage-for-organization
-topics:
-  - Copilot
 children:
   - /manage-plan
   - /manage-access

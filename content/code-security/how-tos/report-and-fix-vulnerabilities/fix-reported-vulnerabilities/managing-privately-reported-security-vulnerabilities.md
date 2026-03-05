@@ -15,15 +15,7 @@ redirect_from:
   - /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/managing-privately-reported-security-vulnerabilities
 ---
 
-{% data reusables.security-advisory.private-vulnerability-reporting-enable %}
-
-## About privately reporting a security vulnerability
-
-Private vulnerability reporting makes it easy for security researchers to report vulnerabilities directly to you using a simple form.
-
 When a security researcher reports a vulnerability privately, you are notified and can choose to either accept it, ask more questions, or reject it. If you accept the report, you're ready to collaborate on a fix for the vulnerability in private with the security researcher.
-
-## Managing security vulnerabilities that are privately reported
 
 {% data reusables.security-advisory.private-vulnerability-reporting-configure-notifications %}
 

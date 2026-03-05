@@ -6,15 +6,6 @@ permissions: '{% data reusables.actions.azure-vnet-organization-permissions %}'
 versions:
   feature: actions-private-networking-azure-vnet
 type: how_to
-topics:
-  - Actions
-  - Action development
-  - Azure Virtual Network
-  - Administrator
-  - Developer
-  - CI
-  - CD
-  - Organizations
 ---
 
 ## About network configurations

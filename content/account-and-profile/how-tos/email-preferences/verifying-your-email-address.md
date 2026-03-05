@@ -13,8 +13,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Verify your email address
 contentType: how-tos
 ---

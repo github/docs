@@ -11,8 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Configure a remote repository
 ---
 {% data reusables.command_line.open_the_multi_os_terminal %}

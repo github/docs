@@ -14,8 +14,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub search
 ---
 
 ## About searching on {% data variables.product.prodname_dotcom %}

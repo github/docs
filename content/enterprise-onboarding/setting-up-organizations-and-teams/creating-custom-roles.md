@@ -5,9 +5,6 @@ intro: 'Create custom organization roles with fine-grained permissions tailored 
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Permissions
 ---
 
 {% data reusables.enterprise-onboarding.create-custom-roles %}

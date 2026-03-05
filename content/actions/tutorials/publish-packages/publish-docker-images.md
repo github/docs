@@ -14,10 +14,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Packaging
-  - Publishing
-  - Docker
 layout: inline
 ---
 

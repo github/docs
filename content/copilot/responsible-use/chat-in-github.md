@@ -4,8 +4,6 @@ shortTitle: Chat in GitHub
 intro: 'Learn how to use {% data variables.copilot.copilot_chat_dotcom %} responsibly by understanding its purposes, capabilities, and limitations.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-chat-in-githubcom
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-chat-in-github

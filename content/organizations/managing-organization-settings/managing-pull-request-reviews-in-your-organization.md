@@ -4,9 +4,6 @@ intro: You can limit which users can approve or request changes to a pull reques
 versions:
   feature: pull-request-approval-limit
 permissions: Organization owners can limit which users can submit reviews that approve or request changes to a pull request.
-topics:
-  - Organizations
-  - Pull requests
 shortTitle: Manage pull request reviews
 ---
 

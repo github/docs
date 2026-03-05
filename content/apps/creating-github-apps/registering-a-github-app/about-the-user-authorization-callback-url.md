@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 shortTitle: Callback URL
 redirect_from:
   - /apps/creating-github-apps/creating-github-apps/about-the-user-authorization-callback-url

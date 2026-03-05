@@ -10,11 +10,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - High availability
-  - Infrastructure
-  - Networking
 shortTitle: Use a load balancer
 ---
 

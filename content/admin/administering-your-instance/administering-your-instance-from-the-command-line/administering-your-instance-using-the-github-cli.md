@@ -4,9 +4,6 @@ intro: 'You can administer your {% data variables.product.prodname_ghe_server %}
 versions:
   feature: ghes-manage-api-cli-extension
 type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
 shortTitle: Using the GitHub CLI
 ---
 ## About the `gh es` extension for {% data variables.product.prodname_cli %}

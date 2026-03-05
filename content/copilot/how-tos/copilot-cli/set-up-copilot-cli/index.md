@@ -6,6 +6,9 @@ versions:
   feature: copilot
 children:
   - /install-copilot-cli
+  - /authenticate-copilot-cli
   - /configure-copilot-cli
+  - /troubleshoot-copilot-cli-auth
+
 contentType: how-tos
 ---

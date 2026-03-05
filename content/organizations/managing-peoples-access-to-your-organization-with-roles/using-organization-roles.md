@@ -5,11 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Organizations
-  - Access management
-  - Administrator
-  - Permissions
 permissions: 'Organization owners{% ifversion ghec %} and users with the "Manage custom organization roles" permission{% endif %}'
 product: 'Organizations on {% data variables.product.prodname_free_team %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_cloud %}, and {% data variables.product.prodname_ghe_server %}'
 shortTitle: Use organization roles

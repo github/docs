@@ -35,6 +35,6 @@ After creating and applying a {% data variables.product.prodname_custom_security
 1. Edit the enablement settings of your {% data variables.product.prodname_custom_security_configuration %} as desired.
 1. In the "Policy" section, you can modify the configuration's enforcement status. Enforcing a configuration will block repository owners from changing features that are enabled or disabled by the configuration, but features that are not set aren't enforced. Next to "Enforce configuration", select **Enforce** or **Don't enforce** from the dropdown menu.
 
-    {% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases-enterprise %}
+    {% data reusables.code-scanning.security-configuration-enforcement-edge-cases %}
 
 1. To apply your changes, click **Update configuration**.

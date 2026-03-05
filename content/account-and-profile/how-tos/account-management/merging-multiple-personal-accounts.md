@@ -14,8 +14,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Merge multiple accounts
 contentType: how-tos
 ---

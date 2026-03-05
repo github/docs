@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Manage branch updates
 permissions: People with maintainer permissions can enable or disable the setting to suggest updating pull request branches.
 ---

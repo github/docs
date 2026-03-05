@@ -29,8 +29,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 children:
   - /creating-and-managing-repositories
   - /managing-your-repositorys-settings-and-features

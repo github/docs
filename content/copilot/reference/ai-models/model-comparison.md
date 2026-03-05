@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'Compare available AI models in {% data variables.copilot.copilot_chat_short %} and choose the best model for your task.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Learn about Copilot
 redirect_from:
@@ -95,6 +93,7 @@ These models are designed for tasks that require step-by-step reasoning, complex
 | {% data variables.copilot.copilot_claude_sonnet_40 %} | Improves on 3.7 with more reliable completions and smarter reasoning under pressure.                                                                            |
 | {% data variables.copilot.copilot_claude_opus_46 %}   | Anthropic’s most powerful model. Improves on {% data variables.copilot.copilot_claude_opus_45 %}.                                                               |
 | {% data variables.copilot.copilot_gemini_3_pro %}     | Advanced reasoning across long contexts and scientific or technical analysis.                                                                                   |
+| {% data variables.copilot.copilot_goldeneye %}     | Complex problem-solving challenges and sophisticated reasoning.                                                                                   |
 
 ### When to use these models
 

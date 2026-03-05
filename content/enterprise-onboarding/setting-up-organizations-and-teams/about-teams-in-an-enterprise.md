@@ -5,9 +5,6 @@ intro: 'Discover how teams help organize users, manage repository access, and st
 versions:
   ghec: '*'
 type: overview
-topics:
-  - Enterprise
-  - Teams
 redirect_from:
   - /enterprise-onboarding/setting-up-organizations-and-teams/managing-organization-members
 ---

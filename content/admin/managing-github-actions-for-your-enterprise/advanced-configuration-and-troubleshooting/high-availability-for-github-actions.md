@@ -4,12 +4,6 @@ intro: 'There are some special considerations for administering {% data variable
 versions:
   ghes: '*'
 type: reference
-topics:
-  - Actions
-  - Enterprise
-  - High availability
-  - Infrastructure
-  - Storage
 redirect_from:
   - /admin/github-actions/high-availability-for-github-actions
   - /admin/github-actions/advanced-configuration-and-troubleshooting/high-availability-for-github-actions

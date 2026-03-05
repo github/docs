@@ -3,9 +3,6 @@ title: GitHub Bullying and Harassment
 shortTitle: Bullying and Harassment
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 redirect_from:
   - /github/site-policy/github-bullying-and-harassment
   - /github/site-policy/github-community-guidelines#bullying-and-harassment

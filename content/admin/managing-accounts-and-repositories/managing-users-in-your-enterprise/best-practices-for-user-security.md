@@ -8,10 +8,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: reference
-topics:
-  - Enterprise
-  - Security
-  - User account
 shortTitle: User security best practices
 ---
 

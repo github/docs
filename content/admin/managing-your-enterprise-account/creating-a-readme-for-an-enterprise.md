@@ -4,9 +4,6 @@ intro: 'You can create a README to tell your members what is happening in your e
 versions:
   feature: enterprise-readme
 type: how_to
-topics:
-  - Accounts
-  - Enterprise
 permissions: Enterprise owners can create and edit an enterprise README.
 shortTitle: Create a README
 redirect_from:

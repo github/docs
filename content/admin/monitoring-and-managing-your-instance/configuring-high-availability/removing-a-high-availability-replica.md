@@ -10,11 +10,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Clustering
-  - High availability
-  - Enterprise
-  - Infrastructure
 shortTitle: Remove a HA replica
 ---
 ## Stopping replication temporarily

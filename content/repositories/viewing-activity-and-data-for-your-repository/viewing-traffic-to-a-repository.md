@@ -9,8 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: View repository traffic
 ---
 

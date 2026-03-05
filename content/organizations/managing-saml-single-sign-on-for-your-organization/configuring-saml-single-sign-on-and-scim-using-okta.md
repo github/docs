@@ -6,9 +6,6 @@ redirect_from:
 permissions: Organization owners can configure SAML SSO and SCIM using Okta for an organization.
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Configure SAML & SCIM with Okta
 ---
 

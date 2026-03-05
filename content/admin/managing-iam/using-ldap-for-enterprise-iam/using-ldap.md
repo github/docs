@@ -16,11 +16,6 @@ intro: 'If you use Lightweight Directory Access Protocol (LDAP) to centralize ac
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
 ---
 
 ## About LDAP authentication for {% data variables.product.prodname_ghe_server %}

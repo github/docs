@@ -7,8 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Community
 ---
 
 > [!NOTE]

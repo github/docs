@@ -14,10 +14,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - CD
-  - Containers
-  - Google Kubernetes Engine
 ---
 
 ## Prerequisites

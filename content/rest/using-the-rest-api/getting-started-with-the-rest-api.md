@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 redirect_from:
   - /rest/guides/getting-started-with-the-rest-api
   - /rest/initialize-the-repo

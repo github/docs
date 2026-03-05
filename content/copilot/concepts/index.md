@@ -4,8 +4,6 @@ shortTitle: Concepts
 intro: Learn the core concepts that you'll need to understand {% data variables.product.prodname_copilot %}.
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /completions
   - /chat

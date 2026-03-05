@@ -2,8 +2,6 @@
 title: Using GitHub Copilot to explore issues and discussions
 shortTitle: Explore issues and discussions
 intro: '{% data variables.copilot.copilot_chat %} can help you quickly gain context of lengthy discussions and issues.'
-topics:
-  - Copilot
 versions:
   feature: copilot
 redirect_from:

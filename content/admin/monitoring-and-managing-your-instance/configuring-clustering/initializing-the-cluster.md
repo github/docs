@@ -11,9 +11,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Clustering
-  - Enterprise
 ---
 
 ## About initialization of a {% data variables.product.prodname_ghe_server %} cluster

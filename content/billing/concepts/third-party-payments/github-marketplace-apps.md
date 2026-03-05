@@ -11,9 +11,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Marketplace
 shortTitle: GitHub Marketplace apps
 contentType: concepts
 ---

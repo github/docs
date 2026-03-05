@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Projects
 shortTitle: 'Manage {% data variables.projects.projects_v2 %} base permissions'
 allowTitleToDifferFromFilename: true
 ---

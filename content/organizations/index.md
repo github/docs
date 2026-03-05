@@ -30,9 +30,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /collaborating-with-groups-in-organizations
   - /managing-membership-in-your-organization

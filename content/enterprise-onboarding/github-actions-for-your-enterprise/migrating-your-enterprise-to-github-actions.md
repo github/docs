@@ -5,10 +5,6 @@ intro: 'Plan a migration to {% data variables.product.prodname_actions %} for yo
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Actions
-  - Enterprise
-  - Migration
 allowTitleToDifferFromFilename: true
 ---
 

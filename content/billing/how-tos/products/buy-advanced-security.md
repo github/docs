@@ -10,10 +10,6 @@ redirect_from:
   - /billing/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security
   - /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security
   - /billing/how-tos/products/add-advanced-security
-topics:
-  - Billing
-  - Advanced Security
-  - Enterprise
 shortTitle: Buy Advanced Security
 contentType: how-tos
 ---

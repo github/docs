@@ -6,8 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
-topics:
-  - Workflows
 ---
 
 ## About workflow dependency caching

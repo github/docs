@@ -9,8 +9,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: overview
-topics:
-  - Projects
 ---
 
 ## Browsing all of your projects

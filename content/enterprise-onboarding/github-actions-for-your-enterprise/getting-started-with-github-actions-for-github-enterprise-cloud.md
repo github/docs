@@ -5,9 +5,6 @@ intro: 'Configure {% data variables.product.prodname_actions %} on {% data varia
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Actions
-  - Enterprise
 allowTitleToDifferFromFilename: true
 ---
 

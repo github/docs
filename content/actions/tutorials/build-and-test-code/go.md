@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CI
 shortTitle: Go
 redirect_from:
   - /actions/automating-builds-and-tests/building-and-testing-go

@@ -6,9 +6,6 @@ permissions: Enterprise owners can manage search indices for a {% data variables
 versions:
   ghes: '*'
 type: reference
-topics:
-  - Enterprise
-  - Fundamentals
 ---
 
 ## About search for {% data variables.product.prodname_ghe_server %}

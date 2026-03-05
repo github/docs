@@ -27,13 +27,15 @@ jobs:
         if: ${{ github.event_name == 'issues' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh issue close ${{ github.event.issue.html_url }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: gh issue close "$ISSUE_URL"
 
       - name: Close PR
         if: ${{ github.event_name == 'pull_request_target' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr close ${{ github.event.pull_request.html_url }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: gh pr close "$PR_URL"
 
       - name: Check out repo
         if: ${{ failure() && github.event_name != 'pull_request_target' }}

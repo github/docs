@@ -12,9 +12,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Review OAuth apps
 ---
 {% data reusables.user-settings.access_settings %}

@@ -12,8 +12,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: quick_start
-topics:
-  - Fundamentals
 shortTitle: Quickstart
 ---
 

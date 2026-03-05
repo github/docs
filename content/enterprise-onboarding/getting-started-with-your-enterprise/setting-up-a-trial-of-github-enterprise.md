@@ -4,9 +4,6 @@ intro: 'Understand what is included in the {% data variables.product.prodname_gh
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Accounts
-  - Enterprise
 shortTitle: Start a trial
 redirect_from:
   - /enterprise-onboarding/getting-started-with-your-enterprise/ending-a-trial-of-github-enterprise

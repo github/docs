@@ -15,9 +15,6 @@ redirect_from:
   - /actions/managing-workflow-runs-and-deployments/managing-workflow-deployments/managing-environments-for-deployment
   - /actions/managing-workflow-runs-and-deployments/managing-deployments/managing-environments-for-deployment
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-deployments/managing-environments-for-deployment
-topics:
-  - CD
-  - Deployment
 versions:
   fpt: '*'
   ghes: '*'

@@ -11,8 +11,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Marketplace
 ---
 
 {% data reusables.marketplace.marketplace-apps-not-actions %}

@@ -8,10 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Enterprise
-  - Billing
-  - REST
 permissions: 'Enterprise owners, organization owners, and billing managers'
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 contentType: tutorials

@@ -15,9 +15,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Action development
-  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

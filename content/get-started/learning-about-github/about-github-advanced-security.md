@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Security
 redirect_from:
   - /github/getting-started-with-github/about-github-advanced-security
   - /github/getting-started-with-github/learning-about-github/about-github-advanced-security
@@ -154,6 +152,16 @@ A site administrator must enable {% data variables.product.prodname_AS %} for {%
 {% ifversion security-configurations %}{% else %}Once your system is set up, you can enable and disable these features at the organization or repository level. See [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization) and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository).{% endif %}
 
 If you are on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan, license use for the entire team or enterprise is shown on your license page. {% ifversion fpt or ghec %}See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage).{% endif %}
+
+{% ifversion disable-ghas-button %}
+
+## Managing {% data variables.product.prodname_GHAS %}
+
+Enterprise owners can manage {% data variables.product.prodname_GHAS %} licensing and access for their enterprise, including disabling {% data variables.product.prodname_GHAS %} across all repositories and preventing future re-enablement. See [AUTOTITLE](/billing/how-tos/products/manage-ghas-licenses#disabling-github-advanced-security-across-your-enterprise).
+
+For information about managing your {% data variables.product.prodname_GHAS %} license, see [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/managing-your-github-advanced-security-license-usage).
+
+{% endif %}
 
 {% ifversion copilot-chat-ghas-alerts %}
 

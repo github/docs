@@ -10,10 +10,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Infrastructure
-  - Performance
 shortTitle: Increase CPU or memory
 ---
 

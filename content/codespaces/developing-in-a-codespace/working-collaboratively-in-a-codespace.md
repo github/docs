@@ -6,9 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Codespaces
-  - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/working-collaboratively-in-a-codespace
 ---

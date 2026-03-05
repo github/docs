@@ -7,11 +7,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
-  - Forks
-  - GitHub
-  - Open Source
 redirect_from:
   - /get-started/quickstart/contributing-to-projects
 ---

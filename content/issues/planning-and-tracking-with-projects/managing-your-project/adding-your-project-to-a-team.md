@@ -7,8 +7,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: tutorial
-topics:
-  - Projects
 allowTitleToDifferFromFilename: true
 permissions: Organization owners or people with the team maintainer role and admin permissions on a project can add a project to a team.
 ---

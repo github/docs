@@ -25,9 +25,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Fundamentals
 contentType: get-started
 ---
 

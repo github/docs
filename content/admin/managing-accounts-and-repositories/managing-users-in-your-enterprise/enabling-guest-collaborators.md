@@ -3,8 +3,6 @@ title: Enabling guest collaborators
 intro: "Learn how to enable guest collaborators in your identity provider and add guest collaborators to your enterprise."
 versions:
   feature: guest-collaborators
-topics:
-  - Enterprise
 ---
 
 ## About guest collaborators

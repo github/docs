@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 shortTitle: Refresh user access tokens
 ---
 ## About user access tokens that expire

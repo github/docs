@@ -22,8 +22,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Webhooks
 children:
   - /about-webhooks
   - /types-of-webhooks

@@ -27,4 +27,6 @@ children:
   - /customizing-settings
   - /setting-up-a-codeql-workspace
   - /configuring-access-to-the-codeql-cli
+  - /accessing-logs
 ---
+

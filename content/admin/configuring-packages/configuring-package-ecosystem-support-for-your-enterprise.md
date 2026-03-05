@@ -9,9 +9,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Packages
 shortTitle: Configure package ecosystems
 ---
 

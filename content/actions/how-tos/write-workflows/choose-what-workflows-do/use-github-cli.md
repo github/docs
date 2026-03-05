@@ -13,9 +13,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CLI
-  - Workflows
 type: how_to
 ---
 

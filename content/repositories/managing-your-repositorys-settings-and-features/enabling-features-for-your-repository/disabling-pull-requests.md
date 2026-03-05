@@ -8,8 +8,6 @@ redirect_from:
   - /github/administering-a-repository/managing-repository-settings/disabling-pull-requests
 versions:
   feature: disable-restrict-prs
-topics:
-  - Pull requests
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

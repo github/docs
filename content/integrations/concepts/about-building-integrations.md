@@ -7,8 +7,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics: 
-  - Integration
 category:
   - Learn about integrations
   - Build integrations

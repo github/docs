@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: View a PR review
 ---
 {% data reusables.search.requested_reviews_search %}

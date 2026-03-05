@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 redirect_from:
   - /apps/creating-github-apps/setting-up-a-github-app/making-your-github-app-available-for-github-enterprise-server
 ---

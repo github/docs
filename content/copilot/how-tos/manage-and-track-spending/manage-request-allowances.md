@@ -5,8 +5,6 @@ intro: 'Configure policies and budgets for premium requests, or upgrade users to
 permissions: Enterprise owners and organization owners
 versions:
   feature: copilot
-topics:
-  - Copilot
 allowTitleToDifferFromFilename: true
 product: '{% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %}'
 redirect_from:
@@ -30,8 +28,6 @@ Premium request usage beyond the allowance is governed by two complementary cont
 The **Premium request paid usage policy** must be enabled for any additional billing to occur. Budgets then control whether and when usage is stopped.
 
 You can increase the allowance for users by ensuring the policy is enabled, editing your budgets, or upgrading users to {% data variables.copilot.copilot_enterprise_short %}.
-
-{% data reusables.copilot.zero-budget-changes %}
 
 ## Prerequisites
 

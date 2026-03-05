@@ -8,8 +8,6 @@ redirect_from:
   - /authentication/authenticating-with-saml-single-sign-on
 versions:
   ghec: '*'
-topics:
-  - SSO
 children:
   - /authenticating-with-a-managed-user-account
   - /about-authentication-with-single-sign-on

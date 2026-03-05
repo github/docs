@@ -12,13 +12,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CI
-  - Xamarin
-  - Xamarin.iOS
-  - Xamarin.Android
-  - Android
-  - iOS
 shortTitle: Xamarin apps
 ---
 

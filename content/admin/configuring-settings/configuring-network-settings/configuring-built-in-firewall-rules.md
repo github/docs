@@ -10,11 +10,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Networking
 shortTitle: Configure firewall rules
 ---
 ## About {% data variables.location.product_location %}'s firewall

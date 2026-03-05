@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: reference
-topics:
-  - Codespaces
 shortTitle: Creation and deletion
 ---
 

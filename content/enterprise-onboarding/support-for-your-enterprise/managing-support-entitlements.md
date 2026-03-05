@@ -5,10 +5,6 @@ versions:
   ghec: '*'
 allowTitleToDifferFromFilename: true
 type: how_to
-topics:
-  - Enterprise
-  - Set up
-  - Support
 shortTitle: Manage support entitlements
 ---
 

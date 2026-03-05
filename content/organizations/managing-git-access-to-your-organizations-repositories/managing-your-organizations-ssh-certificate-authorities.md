@@ -7,9 +7,6 @@ redirect_from:
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage SSH authorities
 permissions: Organization owners can manage an organization's SSH certificate authorities (CA).
 ---

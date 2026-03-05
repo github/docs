@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Repositories
 ---
 ## Choosing the right license
 

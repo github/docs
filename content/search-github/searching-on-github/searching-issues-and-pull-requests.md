@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub search
 shortTitle: Search issues & PRs
 ---
 You can search for issues and pull requests globally across all of {% data variables.product.github %}, or search for issues and pull requests within a particular organization. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).

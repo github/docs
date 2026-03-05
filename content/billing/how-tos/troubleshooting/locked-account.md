@@ -18,12 +18,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Accounts
-  - Downgrades
-  - Organizations
-  - User account
 shortTitle: Locked account
 contentType: how-tos
 ---

@@ -18,11 +18,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Git
-  - Enterprise
-  - LFS
-  - Storage
 shortTitle: Configure Git LFS
 ---
 ## About {% data variables.large_files.product_name_long %}

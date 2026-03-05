@@ -6,8 +6,6 @@ intro: >-
   Use the REST API to get information about {% data
   variables.product.prodname_github_app %} installations and perform actions
   within those installations.
-topics:
-  - API
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'

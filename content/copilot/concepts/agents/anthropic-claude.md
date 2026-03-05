@@ -2,11 +2,9 @@
 title: Anthropic Claude
 shortTitle: Anthropic Claude
 intro: 'Use the {% data variables.product.prodname_anthropic_claude %} coding agent powered by {% data variables.product.prodname_copilot_short %}.'
-product: '{% data reusables.gated-features.anthropic-claude %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_plan=pro-plus&ref_type=purchase&ref_style=button&utm_source=docs-web-3p-agents-claude&utm_medium=docs&utm_campaign=agent-3p-platform-feb-2026" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.anthropic-claude %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: concepts
 ---
 

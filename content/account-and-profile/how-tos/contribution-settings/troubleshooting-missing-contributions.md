@@ -13,8 +13,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profiles
 shortTitle: Troubleshoot missing contributions
 contentType: how-tos
 ---

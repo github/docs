@@ -4,10 +4,6 @@ intro: 'Sync licenses manually or with {% data variables.product.prodname_github
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Licensing
 shortTitle: Sync license usage
 redirect_from:
   - /billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud

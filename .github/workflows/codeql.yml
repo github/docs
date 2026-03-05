@@ -8,10 +8,6 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - '**/*.ts'
-      - '**/*.tsx'
-      - '.github/workflows/codeql.yml'
   # This is so that when CodeQL runs on a pull request, it can compare
   # against the state of the base branch.
   push:

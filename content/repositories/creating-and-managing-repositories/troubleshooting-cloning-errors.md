@@ -16,8 +16,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 ---
 
 ## HTTPS cloning errors

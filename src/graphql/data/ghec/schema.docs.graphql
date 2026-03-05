@@ -3498,6 +3498,14 @@ type CheckAnnotation {
   Identifies the primary key from the database.
   """
   databaseId: Int
+    @deprecated(
+      reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2027-01-01 UTC."
+    )
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
 
   """
   The position of this annotation.
@@ -8790,6 +8798,11 @@ input CreateRepositoryCustomPropertyInput {
   The regex pattern that the value of the custom property must match, if the `value_type` is `string`.
   """
   regex: String
+
+  """
+  Whether this repository custom property requires explicit values.
+  """
+  requireExplicitValues: Boolean
 
   """
   Whether the custom property is required.
@@ -20691,6 +20704,16 @@ enum IssueTimelineItemsItemType {
   Represents a comment on an Issue.
   """
   ISSUE_COMMENT
+
+  """
+  Represents a 'issue_comment_pinned' event on a given issue.
+  """
+  ISSUE_COMMENT_PINNED_EVENT
+
+  """
+  Represents a 'issue_comment_unpinned' event on a given issue.
+  """
+  ISSUE_COMMENT_UNPINNED_EVENT
 
   """
   Represents a 'issue_field_added' event on a given issue.
@@ -41984,6 +42007,21 @@ type PullRequestContributionsByRepository {
 }
 
 """
+The policy controlling who can create pull requests in a repository.
+"""
+enum PullRequestCreationPolicy {
+  """
+  Anyone can create pull requests.
+  """
+  ALL
+
+  """
+  Only collaborators can create pull requests.
+  """
+  COLLABORATORS_ONLY
+}
+
+"""
 An edge in a connection.
 """
 type PullRequestEdge {
@@ -43662,6 +43700,16 @@ enum PullRequestTimelineItemsItemType {
   Represents a comment on an Issue.
   """
   ISSUE_COMMENT
+
+  """
+  Represents a 'issue_comment_pinned' event on a given issue.
+  """
+  ISSUE_COMMENT_PINNED_EVENT
+
+  """
+  Represents a 'issue_comment_unpinned' event on a given issue.
+  """
+  ISSUE_COMMENT_UNPINNED_EVENT
 
   """
   Represents a 'issue_field_added' event on a given issue.
@@ -50719,6 +50767,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   hasProjectsEnabled: Boolean!
 
   """
+  Indicates if the repository has the pull requests feature enabled.
+  """
+  hasPullRequestsEnabled: Boolean!
+
+  """
   Indicates if the repository displays a Sponsor button for financial contributions.
   """
   hasSponsorshipsEnabled: Boolean!
@@ -51418,6 +51471,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     """
     number: Int!
   ): PullRequest
+
+  """
+  The policy controlling who can create pull requests in this repository.
+  """
+  pullRequestCreationPolicy: PullRequestCreationPolicy
 
   """
   Returns a list of pull request templates associated to the repository
@@ -52286,6 +52344,11 @@ type RepositoryCustomProperty implements Node {
   regex: String
 
   """
+  Whether this repository custom property requires explicit values.
+  """
+  requireExplicitValues: Boolean
+
+  """
   Whether the custom property is required.
   """
   required: Boolean
@@ -52587,6 +52650,11 @@ interface RepositoryInfo {
   hasProjectsEnabled: Boolean!
 
   """
+  Indicates if the repository has the pull requests feature enabled.
+  """
+  hasPullRequestsEnabled: Boolean!
+
+  """
   Indicates if the repository displays a Sponsor button for financial contributions.
   """
   hasSponsorshipsEnabled: Boolean!
@@ -52670,6 +52738,11 @@ interface RepositoryInfo {
   The User owner of the repository.
   """
   owner: RepositoryOwner!
+
+  """
+  The policy controlling who can create pull requests in this repository.
+  """
+  pullRequestCreationPolicy: PullRequestCreationPolicy
 
   """
   Identifies the date and time when the repository was last pushed to.
@@ -66630,6 +66703,11 @@ input UpdateRepositoryCustomPropertyInput {
   repositoryCustomPropertyId: ID! @possibleTypes(concreteTypes: ["RepositoryCustomProperty"])
 
   """
+  Whether this repository custom property requires explicit values.
+  """
+  requireExplicitValues: Boolean
+
+  """
   Whether the updated custom property is required.
   """
   required: Boolean
@@ -66685,6 +66763,11 @@ input UpdateRepositoryInput {
   hasProjectsEnabled: Boolean
 
   """
+  Indicates if the repository should have the pull requests feature enabled.
+  """
+  hasPullRequestsEnabled: Boolean
+
+  """
   Indicates if the repository displays a Sponsor button for financial contributions.
   """
   hasSponsorshipsEnabled: Boolean
@@ -66703,6 +66786,11 @@ input UpdateRepositoryInput {
   The new name of the repository.
   """
   name: String
+
+  """
+  The policy controlling who can create pull requests in this repository.
+  """
+  pullRequestCreationPolicy: PullRequestCreationPolicy
 
   """
   The ID of the repository to update.

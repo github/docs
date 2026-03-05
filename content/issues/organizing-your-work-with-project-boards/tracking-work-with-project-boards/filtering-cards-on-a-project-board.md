@@ -7,8 +7,6 @@ redirect_from:
   - /github/managing-your-work-on-github/filtering-cards-on-a-project-board
 versions:
   feature: projects-v1
-topics:
-  - Pull requests
 shortTitle: 'Filter cards on {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
 ---

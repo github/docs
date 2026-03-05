@@ -33,8 +33,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
 shortTitle: View product/license use
 permissions: '{% data reusables.permissions.enhanced-billing-cloud-all %}'
 product: Cloud only

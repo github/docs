@@ -5,11 +5,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Auditing
-  - Enterprise
-  - Logging
-  - Organizations
 shortTitle: Stream audit logs
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
@@ -128,6 +123,9 @@ From {% data variables.product.prodname_dotcom %}:
 {% ifversion streaming-oidc-s3 %}
 
 #### Setting up streaming to S3 with OpenID Connect
+
+> [!NOTE]
+> Audit log streaming to S3 with OpenID Connect for {% data variables.enterprise.data_residency %} is currently unavailable. See [AUTOTITLE](/admin/data-residency/feature-overview-for-github-enterprise-cloud-with-data-residency#currently-unavailable-features).
 
 From AWS:
 

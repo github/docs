@@ -19,6 +19,8 @@ spotlight:
   - article: /grid-category-two/grid-article-three
     image: /assets/images/placeholder.png
 children:
+  - /grid-category-one/grid-article-one
+  - /grid-category-one/grid-article-two
   - /grid-category-one
   - /grid-category-two
 ---

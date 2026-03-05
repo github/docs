@@ -7,9 +7,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Authentication
 ---
 
 {% data reusables.enterprise_site_admin_settings.management-console-access %}

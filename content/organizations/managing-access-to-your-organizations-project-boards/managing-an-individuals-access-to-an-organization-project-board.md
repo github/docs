@@ -7,9 +7,6 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-an-individuals-access-to-an-organization-project-board
 versions:
   feature: projects-v1
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage individual access
 allowTitleToDifferFromFilename: true
 ---

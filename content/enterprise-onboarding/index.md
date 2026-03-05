@@ -59,10 +59,6 @@ journeyTracks:
       - href: '/enterprise-onboarding/github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud'
 versions:
   ghec: '*'
-topics:
-  - Administrator
-  - Enterprise
-  - Set up
 children:
   - /getting-started-with-your-enterprise
   - /setting-up-organizations-and-teams

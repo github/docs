@@ -4,10 +4,6 @@ intro: 'You can access {% data variables.product.company_short %}''s compliance 
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Accounts
-  - Enterprise
-  - Fundamentals
 permissions: Enterprise owners can access compliance reports for the enterprise.
 shortTitle: Access compliance reports
 ---

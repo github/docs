@@ -9,9 +9,6 @@ redirect_from:
 permissions: Organization owners can manage team synchronization for an organization.
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage team synchronization
 ---
 

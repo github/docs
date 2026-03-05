@@ -4,8 +4,6 @@ shortTitle: Change the completion model
 intro: 'Learn how to change the default LLM for {% data variables.product.prodname_copilot_short %} inline suggestions to a different model.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion
   - /copilot/how-tos/ai-models/changing-the-ai-model-for-copilot-code-completion

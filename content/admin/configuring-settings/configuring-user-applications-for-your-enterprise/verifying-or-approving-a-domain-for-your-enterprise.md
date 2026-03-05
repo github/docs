@@ -8,11 +8,6 @@ versions:
   ghes: '*'
 permissions: Enterprise owners can verify or approve a domain for an enterprise account.
 type: how_to
-topics:
-  - Enterprise
-  - Notifications
-  - Organizations
-  - Policy
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/verifying-or-approving-a-domain-for-your-enterprise-account

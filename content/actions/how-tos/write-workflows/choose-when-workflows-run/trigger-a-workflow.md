@@ -7,10 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Workflows
-  - CI
-  - CD
 redirect_from:
   - /actions/using-workflows/triggering-a-workflow
   - /actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow

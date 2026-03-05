@@ -9,13 +9,15 @@ import fs from 'fs'
 import path from 'path'
 
 import { allVersions } from '@/versions/lib/all-versions'
+import { latestStable } from '@/versions/lib/enterprise-server-releases'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import type { Context, Page } from '@/types'
 
 // Link patterns for Markdown
 const INTERNAL_LINK_PATTERN = /\]\(\/[^)]+\)/g
 const AUTOTITLE_LINK_PATTERN = /\[AUTOTITLE\]\(([^)]+)\)/g
-const EXTERNAL_LINK_PATTERN = /\]\((https?:\/\/[^)]+)\)/g
+// Handles one level of balanced parentheses in URLs (e.g., Wikipedia links)
+const EXTERNAL_LINK_PATTERN = /\]\((https?:\/\/(?:[^()\s]+|\([^()]*\))*)\)/g
 const IMAGE_LINK_PATTERN = /!\[[^\]]*\]\(([^)]+)\)/g
 
 // Anchor link patterns (for same-page links)
@@ -81,10 +83,19 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
   const anchorLinks: ExtractedLink[] = []
   const imageLinks: ExtractedLink[] = []
 
+  // Strip fenced code blocks to avoid checking example/placeholder URLs
+  // Replaces non-newline characters with spaces to preserve line numbers and positions
+  const strippedContent = content.replace(
+    /^ {0,3}(`{3,})[^\n]*\n[\s\S]*?^ {0,3}\1\s*$/gm,
+    (match) => {
+      return match.replace(/[^\n]/g, ' ')
+    },
+  )
+
   // Extract AUTOTITLE links first (they're a special case of internal links)
   let match
-  while ((match = AUTOTITLE_LINK_PATTERN.exec(content)) !== null) {
-    const { line, column } = getLineAndColumn(content, match.index)
+  while ((match = AUTOTITLE_LINK_PATTERN.exec(strippedContent)) !== null) {
+    const { line, column } = getLineAndColumn(strippedContent, match.index)
     const href = match[1].split('#')[0] // Remove anchor if present
     if (href.startsWith('/')) {
       internalLinks.push({
@@ -101,17 +112,17 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
   AUTOTITLE_LINK_PATTERN.lastIndex = 0
 
   // Extract regular internal links
-  while ((match = INTERNAL_LINK_PATTERN.exec(content)) !== null) {
+  while ((match = INTERNAL_LINK_PATTERN.exec(strippedContent)) !== null) {
     // Skip if this is an AUTOTITLE link (already captured)
     const fullMatch = match[0]
-    if (content.substring(match.index - 10, match.index).includes('AUTOTITLE')) {
+    if (strippedContent.substring(match.index - 10, match.index).includes('AUTOTITLE')) {
       continue
     }
 
-    const { line, column } = getLineAndColumn(content, match.index)
+    const { line, column } = getLineAndColumn(strippedContent, match.index)
     // Extract href from ](/path) format
     const href = fullMatch.substring(2, fullMatch.length - 1).split('#')[0]
-    const text = extractLinkText(content, match.index)
+    const text = extractLinkText(strippedContent, match.index)
 
     internalLinks.push({
       href,
@@ -126,10 +137,10 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
   INTERNAL_LINK_PATTERN.lastIndex = 0
 
   // Extract external links
-  while ((match = EXTERNAL_LINK_PATTERN.exec(content)) !== null) {
-    const { line, column } = getLineAndColumn(content, match.index)
+  while ((match = EXTERNAL_LINK_PATTERN.exec(strippedContent)) !== null) {
+    const { line, column } = getLineAndColumn(strippedContent, match.index)
     const href = match[1]
-    const text = extractLinkText(content, match.index)
+    const text = extractLinkText(strippedContent, match.index)
 
     externalLinks.push({
       href,
@@ -143,8 +154,8 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
   EXTERNAL_LINK_PATTERN.lastIndex = 0
 
   // Extract anchor links
-  while ((match = ANCHOR_LINK_PATTERN.exec(content)) !== null) {
-    const { line, column } = getLineAndColumn(content, match.index)
+  while ((match = ANCHOR_LINK_PATTERN.exec(strippedContent)) !== null) {
+    const { line, column } = getLineAndColumn(strippedContent, match.index)
     const href = match[0].substring(2, match[0].length - 1)
 
     anchorLinks.push({
@@ -159,8 +170,8 @@ export function extractLinksFromMarkdown(content: string): LinkExtractionResult 
   ANCHOR_LINK_PATTERN.lastIndex = 0
 
   // Extract image links
-  while ((match = IMAGE_LINK_PATTERN.exec(content)) !== null) {
-    const { line, column } = getLineAndColumn(content, match.index)
+  while ((match = IMAGE_LINK_PATTERN.exec(strippedContent)) !== null) {
+    const { line, column } = getLineAndColumn(strippedContent, match.index)
     const href = match[1]
 
     // Only include internal images (starting with /)
@@ -307,22 +318,31 @@ export function checkInternalLink(
 ): { exists: boolean; isRedirect: boolean; redirectTarget?: string } {
   const normalized = normalizeLinkPath(href)
 
+  // Resolve enterprise-server@latest to actual version, mirroring runtime behavior.
+  // Handle both /enterprise-server@latest/... and /en/enterprise-server@latest/...
+  const latestPrefix = '/enterprise-server@latest'
+  const stablePrefix = `/enterprise-server@${latestStable}`
+  const resolved =
+    normalized.startsWith(latestPrefix) || normalized.startsWith(`/en${latestPrefix}`)
+      ? normalized.replace(latestPrefix, stablePrefix)
+      : normalized
+
   // Check if it's a direct page
-  if (pageMap[normalized]) {
+  if (pageMap[resolved]) {
     return { exists: true, isRedirect: false }
   }
 
   // Check if it's a redirect
-  if (redirects[normalized]) {
+  if (redirects[resolved]) {
     return {
       exists: true,
       isRedirect: true,
-      redirectTarget: redirects[normalized],
+      redirectTarget: redirects[resolved],
     }
   }
 
   // Check with /en prefix (FPT pages are stored with language prefix)
-  const withLang = `/en${normalized}`
+  const withLang = `/en${resolved}`
   if (pageMap[withLang]) {
     return { exists: true, isRedirect: false }
   }
@@ -332,6 +352,19 @@ export function checkInternalLink(
       exists: true,
       isRedirect: true,
       redirectTarget: redirects[withLang],
+    }
+  }
+
+  // Strip language prefix and check redirects (which are stored without it)
+  const langPrefixMatch = resolved.match(/^\/[a-z]{2}\//)
+  if (langPrefixMatch) {
+    const withoutLang = resolved.slice(langPrefixMatch[0].length - 1)
+    if (redirects[withoutLang]) {
+      return {
+        exists: true,
+        isRedirect: true,
+        redirectTarget: redirects[withoutLang],
+      }
     }
   }
 

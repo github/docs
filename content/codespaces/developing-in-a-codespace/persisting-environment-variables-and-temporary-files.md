@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Codespaces
-  - Fundamentals
-  - Developer
 shortTitle: Persist variables and files
 redirect_from:
   - /codespaces/developing-in-codespaces/persisting-environment-variables-and-temporary-files

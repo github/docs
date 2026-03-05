@@ -5,12 +5,11 @@ allowTitleToDifferFromFilename: true
 intro: 'Modify {% data variables.product.prodname_copilot_short %}''s behavior and abilities when it works on particular tasks.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category:
-  - Configure Copilot
-  - Author and optimize with Copilot
+  - Configure Copilot # Copilot discovery page
+  - Author and optimize with Copilot # Copilot discovery page
+  - Configure Copilot CLI # Copilot CLI bespoke page
 ---
 
 Agent skills are folders of instructions, scripts, and resources that {% data variables.product.prodname_copilot_short %} can load when relevant to improve its performance in specialized tasks. For more information, see [AUTOTITLE](/copilot/concepts/agents/about-agent-skills).

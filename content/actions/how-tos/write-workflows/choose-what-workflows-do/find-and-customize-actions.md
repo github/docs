@@ -16,8 +16,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-marketplace-actions %}

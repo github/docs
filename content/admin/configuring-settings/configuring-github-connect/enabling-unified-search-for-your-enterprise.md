@@ -16,10 +16,6 @@ permissions: 'Enterprise owners'
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - GitHub Connect
-  - GitHub search
 ---
 
 ## About {% data variables.enterprise.prodname_unified_search %}

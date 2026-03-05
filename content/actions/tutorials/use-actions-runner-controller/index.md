@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Actions Runner Controller
 children:
   - /quickstart
   - /authenticate-to-the-api

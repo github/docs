@@ -50,9 +50,8 @@ export class BespokeLandingTransformer implements PageTransformer {
     // Process carousels (each carousel becomes a section)
     const carousels = bespokePage.carousels ?? bespokePage.rawCarousels
     if (carousels && typeof carousels === 'object') {
-      const { default: getLearningTrackLinkData } = await import(
-        '@/learning-track/lib/get-link-data'
-      )
+      const { default: getLearningTrackLinkData } =
+        await import('@/learning-track/lib/get-link-data')
 
       for (const [carouselKey, articles] of Object.entries(carousels)) {
         if (!Array.isArray(articles) || articles.length === 0) continue

@@ -5,8 +5,6 @@ intro: '{% data variables.contact.special_events_support %} is an optional suppo
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Support
 ---
 
 ## About {% data variables.contact.special_events_support %}

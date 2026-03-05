@@ -6,10 +6,6 @@ versions:
   ghec: '*'
 allowTitleToDifferFromFilename: true
 type: overview
-topics:
-  - Enterprise
-  - Set up
-  - Support
 ---
 
 ## About {% data variables.contact.github_support %}

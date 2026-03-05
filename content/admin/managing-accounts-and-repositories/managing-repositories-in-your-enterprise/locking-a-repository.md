@@ -4,9 +4,6 @@ intro: You can prevent changes to a repository's code and other resources, such 
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Repositories
 shortTitle: Lock a repository
 redirect_from: 
   - /admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository

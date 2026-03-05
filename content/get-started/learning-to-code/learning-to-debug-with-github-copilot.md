@@ -1,8 +1,6 @@
 ---
 title: Learning to debug with GitHub Copilot
 intro: 'Identify and fix errors in your code by asking {% data variables.product.prodname_copilot %} for help.'
-topics:
-  - Copilot
 versions:
   fpt: '*'
 shortTitle: Debug with Copilot

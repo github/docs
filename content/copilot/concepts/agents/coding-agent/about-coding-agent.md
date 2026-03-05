@@ -5,8 +5,6 @@ intro: You can ask {% data variables.product.prodname_copilot_short %} to open a
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/concepts/about-assigning-tasks-to-copilot
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/about-assigning-tasks-to-copilot
@@ -66,6 +64,18 @@ Having {% data variables.copilot.copilot_coding_agent %} as an additional coding
 {% data variables.copilot.copilot_coding_agent %} can start a task, which you then pick up and continue working on yourself. By assigning the initial work to {% data variables.product.prodname_copilot_short %}, you free up time that you would otherwise have spent doing repetitive tasks, such as setting up the scaffolding for a new project.
 
 You can create specialized {% data variables.copilot.custom_agents_short %} for different tasks. For example, you might create a {% data variables.copilot.copilot_custom_agent_short %} specialized for frontend development that focuses on React components and styling, a documentation agent that excels at writing and updating technical documentation, or a testing agent that specializes in generating comprehensive unit tests. Each {% data variables.copilot.copilot_custom_agent_short %} can be tailored with specific prompts and tools suited to its particular task.
+
+## Measuring pull request outcomes for {% data variables.copilot.copilot_coding_agent %}
+
+Enterprise administrators and organization owners can use {% data variables.product.prodname_copilot_short %} usage metrics to analyze pull request outcomes for pull requests created by {% data variables.copilot.copilot_coding_agent %}.
+
+The {% data variables.product.prodname_copilot_short %} usage metrics APIs include pull request lifecycle metrics such as:
+
+* The total number of pull requests created and merged
+* The number of pull requests created by {% data variables.copilot.copilot_coding_agent %} that have been merged
+* Median time to merge for merged pull requests, including pull requests created by {% data variables.copilot.copilot_coding_agent %}
+
+These metrics can help you track adoption of {% data variables.copilot.copilot_coding_agent %} and monitor changes in pull request throughput and time to merge over time. See [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics).
 
 ## Integrating {% data variables.copilot.copilot_coding_agent %} with third-party tools
 

@@ -7,9 +7,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: reference
-topics:
-  - Actions
-  - Support
 redirect_from:
   - /actions/monitoring-and-troubleshooting-workflows/working-with-support-for-github-actions
   - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/working-with-support-for-github-actions

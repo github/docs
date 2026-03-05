@@ -26,8 +26,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Community
 children:
   - /setting-up-your-project-for-healthy-contributions
   - /using-templates-to-encourage-useful-issues-and-pull-requests

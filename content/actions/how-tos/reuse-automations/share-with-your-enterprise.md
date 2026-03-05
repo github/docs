@@ -5,9 +5,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: tutorial
-topics:
-  - Actions
-  - Action development
 shortTitle: Share with your enterprise
 redirect_from:
   - /actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise

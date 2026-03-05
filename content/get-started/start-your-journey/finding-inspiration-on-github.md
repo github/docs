@@ -14,10 +14,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profile
-  - Accounts
-  - Repositories
 ---
 
 ## Introduction

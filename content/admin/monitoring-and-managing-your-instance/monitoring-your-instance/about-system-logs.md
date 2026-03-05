@@ -4,11 +4,6 @@ intro: 'To help administrators understand activity and errors, {% data variables
 versions:
   ghes: '*'
 type: overview
-topics:
-  - Auditing
-  - Enterprise
-  - Logging
-  - Security
 redirect_from:
   - /admin/enterprise-management/monitoring-your-appliance/about-system-logs
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/about-system-logs

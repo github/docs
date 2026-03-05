@@ -9,9 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 ---
 
 ## About sudo mode
@@ -37,8 +34,6 @@ After you authenticate to perform a sensitive action, your session is temporaril
 > If your enterprise uses {% data variables.product.prodname_emus %}, only the setup user will receive prompts to enter sudo mode, as {% data variables.enterprise.prodname_managed_users %} don't have credentials stored on {% data variables.product.github %}.
 
 {% endif %}
-
-"sudo" is a reference to a program on Unix systems, where the name is short for "**su**peruser **do**." For more information, see [sudo](https://wikipedia.org/wiki/Sudo) on Wikipedia.
 
 ## Confirming access for sudo mode
 

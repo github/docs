@@ -10,14 +10,15 @@ on:
 
 permissions:
   contents: read
-  issues: write
-  pull-requests: write
 
 jobs:
   stale_contributor:
     name: Identify and close stale issues and PRs
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
 
     steps:
       - uses: actions/stale@3a9db7e6a41a89f618792c92c0e97cc736e1b13f # v10.0.0
@@ -55,6 +56,9 @@ jobs:
     name: Remind staff about PRs waiting for review
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
     steps:
       - uses: actions/stale@3a9db7e6a41a89f618792c92c0e97cc736e1b13f # v10.0.0
         with:

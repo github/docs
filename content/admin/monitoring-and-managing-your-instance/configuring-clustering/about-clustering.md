@@ -13,9 +13,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: overview
-topics:
-  - Clustering
-  - Enterprise
 ---
 
 ## About clustering for {% data variables.product.prodname_ghe_server %}

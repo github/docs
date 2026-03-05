@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Actions Runner Controller
 redirect_from:
   - /actions/concepts/runners/about-runner-scale-sets
 ---

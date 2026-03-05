@@ -1,8 +1,6 @@
 ---
 title: Asking GitHub Copilot questions in your IDE
 intro: Use {% data variables.copilot.copilot_chat_short %} in your editor to give you code suggestions, explain code, generate unit tests, and suggest code fixes.
-topics:
-  - Copilot
 redirect_from:
   - /copilot/github-copilot-chat/using-github-copilot-chat
   - /copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide
@@ -185,7 +183,13 @@ When the {% data variables.copilot.subagent_short %} completes its task, its res
 
 ### Plan mode
 
-{% data reusables.copilot.plan-agent-intro %}
+Plan mode helps you to create detailed implementation plans before executing them. This ensures that all requirements are considered and addressed before any code changes are made. The plan agent does not make any code changes until the plan is reviewed and approved by you. Once approved, you can hand off the plan to the default agent or save it for further refinement, review, or team discussions.
+
+The plan agent is designed to:
+
+* Research the task comprehensively using read-only tools and codebase analysis to identify requirements and constraints.
+* Break down the task into manageable, actionable steps and include open questions about ambiguous requirements.
+* Present a concise plan draft, based on a standardized plan format, for user review and iteration.
 
 #### Using plan mode
 
@@ -199,7 +203,7 @@ When the {% data variables.copilot.subagent_short %} completes its task, its res
 
 {% data reusables.copilot.plan-agent-steps %}
 
-For more information, see [Planning in VS Code chat](https://code.visualstudio.com/docs/copilot/chat/chat-planning) in the {% data variables.product.prodname_vscode %} documentation.
+For more information, see [Planning in VS Code chat](https://code.visualstudio.com/docs/copilot/chat/copilot-chat) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Using images in {% data variables.copilot.copilot_chat_short %}
 

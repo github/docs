@@ -6,12 +6,6 @@ allowTitleToDifferFromFilename: true
 versions:
   ghes: '<= 3.15'
 type: how_to
-topics:
-  - Alerts
-  - Advanced Security
-  - Dependency graph
-  - Secret scanning
-  - Repositories
 shortTitle: Manage {% data variables.product.prodname_GHAS %}
 redirect_from:
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise

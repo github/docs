@@ -12,9 +12,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Permissions
-  - Accounts
 shortTitle: Access permissions
 ---
 

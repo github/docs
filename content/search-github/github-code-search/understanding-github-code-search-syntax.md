@@ -5,8 +5,6 @@ intro: 'You can build search queries for the results you want with specialized c
 allowTitleToDifferFromFilename: true
 versions:
   feature: code-search-upgrade
-topics:
-  - GitHub search
 ---
 
 ## About code search query structure
@@ -153,7 +151,7 @@ This searches repositories owned by organizations in the `octocorp` enterprise. 
 
 ### Language qualifier
 
-To narrow down to a specific languages, use the `language:` qualifier. For example:
+To narrow down to a specific language, use the `language:` qualifier. For example:
 
 ```text
 language:ruby OR language:cpp OR language:csharp

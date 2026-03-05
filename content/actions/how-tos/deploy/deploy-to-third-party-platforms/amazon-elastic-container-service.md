@@ -13,10 +13,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CD
-  - Containers
-  - Amazon ECS
 ---
 
 ## Prerequisites

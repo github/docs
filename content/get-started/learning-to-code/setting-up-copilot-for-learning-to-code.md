@@ -3,8 +3,6 @@ title: Setting up Copilot for learning to code
 intro: 'Configure {% data variables.product.prodname_copilot_short %} to help you learn coding concepts and actively build your programming skills.'
 versions:
   fpt: '*'
-topics:
-  - Copilot
 shortTitle: Set up Copilot for learning
 ---
 

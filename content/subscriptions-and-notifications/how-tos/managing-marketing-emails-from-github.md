@@ -12,9 +12,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Notifications
 shortTitle: Manage marketing emails
 ---
 

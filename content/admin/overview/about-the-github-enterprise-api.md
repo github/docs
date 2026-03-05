@@ -10,8 +10,6 @@ redirect_from:
   - /admin/overview/about-the-github-enterprise-server-api
 versions:
   ghes: '*'
-topics:
-  - Enterprise
 shortTitle: GitHub Enterprise API
 ---
 

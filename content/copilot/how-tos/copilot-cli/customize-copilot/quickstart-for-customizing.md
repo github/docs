@@ -5,11 +5,10 @@ allowTitleToDifferFromFilename: true
 intro: "{% data variables.copilot.copilot_cli_short %} works best when customized for your specific project and workflow."
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category:
-  - Configure Copilot
+  - Configure Copilot # Copilot discovery page
+  - Configure Copilot CLI # Copilot CLI bespoke page
 ---
 
 You can download and install {% data variables.copilot.copilot_cli_short %}, and start using it straight away, without any additional configuration. However, you'll find that you can improve {% data variables.product.prodname_copilot_short %}'s responses if you spend a little time providing it with guidelines and context, and giving it access to tools that are relevant to your project. This article introduces the various ways in which you can customize {% data variables.copilot.copilot_cli_short %}.
@@ -61,3 +60,5 @@ For more information, see [AUTOTITLE](/copilot/concepts/context/mcp).
 {% data variables.copilot.copilot_cli_short %} plugins are distributable packages that provide a simple way to extend the functionality of the CLI.
 
 They bundle multiple customization components together into a single installable unit. You can install plugins directly from a repository, from a plugin marketplace, or from a local path.
+
+For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-cli-plugins).

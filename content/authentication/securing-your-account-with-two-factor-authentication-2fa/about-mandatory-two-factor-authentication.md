@@ -4,8 +4,6 @@ intro: 'Enable mandatory two-factor authentication to secure your account and ma
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - 2FA
 shortTitle: About mandatory 2FA
 ---
 

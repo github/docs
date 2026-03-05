@@ -8,8 +8,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Community
 ---
 
 It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct{% ifversion fpt or ghec %} or {% data variables.product.github %}'s [Community Guidelines](/free-pro-team@latest/site-policy/github-terms/github-community-guidelines){% endif %}. When you lock a conversation, you can also specify a reason, which is publicly visible.

@@ -5,9 +5,6 @@ intro: 'Create GitHub Apps that can access enterprise-level resources and automa
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Enterprise
-  - GitHub Apps
 ---
 
 {% data reusables.enterprise-onboarding.create-enterprise-apps %}

@@ -2,10 +2,6 @@
 title: Verifying attestations offline
 shortTitle: Verify attestations offline
 intro: Artifact attestations can be verified without an internet connection.
-topics:
-  - Actions
-  - Security
-  - Workflows
 versions:
   fpt: '*'
   ghec: '*'

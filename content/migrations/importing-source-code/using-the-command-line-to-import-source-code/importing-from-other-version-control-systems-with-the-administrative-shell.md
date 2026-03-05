@@ -9,9 +9,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Migration
 shortTitle: Administrative shell
 permissions: Site administrators can use the administrative shell to import data from other version control systems.
 ---

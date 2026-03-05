@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Notifications
-  - Troubleshooting
 shortTitle: Troubleshoot email verification
 contentType: how-tos
 redirect_from:

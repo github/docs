@@ -20,11 +20,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Infrastructure
-  - Monitoring
-  - Performance
 shortTitle: External monitoring with collectd
 ---
 

@@ -4,8 +4,6 @@ shortTitle: Add personal instructions
 intro: 'Customize {% data variables.copilot.copilot_chat %} responses to match your personal preferences.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/customizing-copilot/adding-personal-custom-instructions-for-github-copilot
   - /copilot/how-tos/custom-instructions/adding-personal-custom-instructions-for-github-copilot

@@ -4,9 +4,6 @@ intro: 'Set up an organization in your enterprise.'
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Organizations
-  - Enterprise
 shortTitle: Set up an organization
 redirect_from:
   - /enterprise-onboarding/setting-up-organizations-and-teams/managing-your-organizations

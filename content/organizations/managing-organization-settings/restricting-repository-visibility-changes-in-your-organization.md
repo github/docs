@@ -8,9 +8,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Set visibility changes policy
 permissions: Organization owners can restrict repository visibility changes for an organization.
 ---

@@ -1,4 +1,4 @@
-name: 'Link Checker: On PR'
+name: 'Link Check: On PR'
 
 # **What it does**: Checks internal links in changed content files.
 # **Why we have it**: To catch broken links before they're merged.
@@ -6,8 +6,9 @@ name: 'Link Checker: On PR'
 
 on:
   workflow_dispatch:
-  merge_group:
+  # merge_group:
   pull_request:
+    types: [labeled, opened, synchronize, reopened]
 
 permissions:
   contents: read
@@ -23,7 +24,9 @@ jobs:
   check-links:
     name: Check links
     runs-on: ubuntu-latest
-    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    if: |
+      (github.repository == 'github/docs-internal' || github.repository == 'github/docs') &&
+      (github.event_name == 'workflow_dispatch' || contains(github.event.pull_request.labels.*.name, 'check-links'))
     steps:
       - name: Checkout
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1

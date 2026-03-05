@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CLI
 ---
 
 ## About {% data variables.product.prodname_cli %} extensions

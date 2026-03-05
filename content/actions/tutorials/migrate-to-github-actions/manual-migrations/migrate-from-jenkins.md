@@ -13,11 +13,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Jenkins
-  - Migration
-  - CI
-  - CD
 shortTitle: Migrate from Jenkins
 ---
 

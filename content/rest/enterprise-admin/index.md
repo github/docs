@@ -9,8 +9,6 @@ redirect_from:
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 shortTitle: Enterprise administration
 children:
   - /admin-stats

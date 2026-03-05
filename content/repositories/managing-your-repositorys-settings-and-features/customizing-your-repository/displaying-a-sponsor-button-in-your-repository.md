@@ -9,8 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Display a sponsor button
 ---
 ## About FUNDING files

@@ -6,14 +6,6 @@ permissions: Enterprise owners can configure private networking for hosted compu
 versions:
   ghec: '*'
 type: overview
-topics:
-  - Actions
-  - Action development
-  - Administrator
-  - Developer
-  - CI
-  - CD
-  - Enterprise
 redirect_from:
   - /admin/configuration/configuring-private-networking-for-hosted-compute-products/about-networking-for-hosted-compute-products
   - /admin/configuration/configuring-private-networking-for-hosted-compute-products/about-networking-for-hosted-compute-products-in-your-enterprise

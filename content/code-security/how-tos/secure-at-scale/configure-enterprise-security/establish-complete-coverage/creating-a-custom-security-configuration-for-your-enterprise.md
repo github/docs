@@ -56,7 +56,10 @@ When creating a security configuration, keep in mind that:
 1. To help identify your {% data variables.product.prodname_custom_security_configuration %} and clarify its purpose on the "{% data variables.product.prodname_security_configurations_caps %}" page, name your configuration and create a description.
 1. Optionally, enable "{% data variables.product.prodname_secret_protection %}", a paid feature for private {% ifversion ghec %}and internal {% endif %} repositories. Enabling {% data variables.product.prodname_secret_protection %} enables alerts for {% data variables.product.prodname_secret_scanning %}. In addition, you can choose whether to enable, disable, or keep the existing settings for the following {% data variables.product.prodname_secret_scanning %} features:
     {% ifversion secret-scanning-validity-check-partner-patterns %}
-    * **Validity checks**. To learn more about validity checks for partner patterns, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).{% endif %}{% ifversion org-npp-enablement-security-configurations %}
+    * **Validity checks**.  To learn more about validity checks for partner patterns, see [AUTOTITLE](/code-security/concepts/secret-security/about-validity-checks) and [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).{% endif %}{% ifversion fpt or ghec %}
+    * **Extended metadata**. To learn more about extended metadata checks, see [About extended metadata checks](/code-security/concepts/secret-security/about-validity-checks#about-extended-metadata-checks) and [AUTOTITLE](/code-security/tutorials/remediate-leaked-secrets/evaluating-alerts#reviewing-extended-metadata-for-a-token).
+    > [!NOTE]
+    > You can only enable extended metadata checks if validity checks are enabled.{% endif %}{% ifversion org-npp-enablement-security-configurations %}
     * **Non-provider patterns**. To learn more about scanning for non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns) and [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).{% endif %}{% ifversion secret-scanning-ai-generic-secret-detection %}
     * **Scan for generic passwords**. To learn more, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).{% endif %}
     * **Push protection**. To learn about push protection, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).{% ifversion push-protection-delegated-bypass-configurations-enterprise %}
@@ -81,9 +84,9 @@ When creating a security configuration, keep in mind that:
         {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
    * **Enforce configuration**. Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.
 
-1. To finish creating your {% data variables.product.prodname_custom_security_configuration %}, click **Save configuration**.
+    {% data reusables.code-scanning.security-configuration-enforcement-edge-cases %}
 
-{% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases-enterprise %}
+{% data reusables.code-scanning.save-custom-configuration %}
 
 ## Creating a {% data variables.product.prodname_GHAS %} configuration
 
@@ -121,9 +124,9 @@ When creating a security configuration, keep in mind that:
         {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
    * **Enforce configuration**. Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.
 
-1. To finish creating your {% data variables.product.prodname_custom_security_configuration %}, click **Save configuration**.
+    {% data reusables.code-scanning.security-configuration-enforcement-edge-cases %}
 
-{% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases-enterprise %}
+{% data reusables.code-scanning.save-custom-configuration %}
 
 {% else %}
 
@@ -153,9 +156,9 @@ When creating a security configuration, keep in mind that:
 
 1. Optionally, in the "Policy" section, you can enforce the configuration and block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Next to "Enforce configuration", select **Enforce** from the dropdown menu.
 
-    {% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases-enterprise %}
+    {% data reusables.code-scanning.security-configuration-enforcement-edge-cases %}
 
-1. To finish creating your {% data variables.product.prodname_custom_security_configuration %}, click **Save configuration**.
+{% data reusables.code-scanning.save-custom-configuration %}
 
 {% endif %}
 

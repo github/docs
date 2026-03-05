@@ -10,11 +10,6 @@ intro: 'Site administrators can promote any normal user account to a site admini
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Access management
-  - Accounts
-  - User account
-  - Enterprise
 shortTitle: Manage administrators
 ---
 

@@ -5,8 +5,6 @@ intro: 'You can administer your instance using the {% data variables.enterprise.
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
 children:
   - /administering-your-instance-from-the-web-ui
   - /administering-your-instance-from-the-command-line

@@ -1,15 +1,13 @@
 ---
 title: Code review
 shortTitle: Request a code review
-intro: 'Learn how you can request and configure reviews from {% data variables.product.prodname_copilot_short %}.'
+intro: 'Request and configure code reviews from {% data variables.product.prodname_copilot_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /use-code-review
   - /configure-automatic-review
-  - /manage-tools
+  - /configure-self-hosted-runners
 redirect_from:
   - /copilot/using-github-copilot/code-review
   - /copilot/how-tos/agents/copilot-code-review

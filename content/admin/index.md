@@ -63,6 +63,7 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-data-in-github-insights/managing-organizations
   - /insights/installing-and-configuring-github-insights/managing-data-in-github-insights/managing-repositories
   - /admin/configuration/configuring-your-enterprise/configuring-data-encryption-for-your-enterprise
+  - /admin/guides
 introLinks:
   overview: '{% ifversion ghes %}/admin/overview/about-github-enterprise-server{% elsif ghec %}/admin/overview/about-github-enterprise-cloud{% endif %}'
   releases: '{% ifversion ghes %}/admin/all-releases{% endif %}'
@@ -116,7 +117,6 @@ children:
   - /managing-github-actions-for-your-enterprise
   - /configuring-packages
   - /managing-code-security
-  - /guides
   - /release-notes
   - /all-releases
 ---

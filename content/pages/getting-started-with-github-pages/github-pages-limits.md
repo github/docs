@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 topics:
   - Pages
+category:
+  - Set up a GitHub Pages site
 ---
 
 ## Usage limits

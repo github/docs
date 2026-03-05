@@ -9,8 +9,6 @@ versions:
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/quickstart
 type: quick_start
-topics:
-  - Projects
 ---
 
 ## Introduction

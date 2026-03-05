@@ -1,4 +1,6 @@
 import { GetServerSideProps } from 'next'
+import type { ExtendedRequest } from '@/types'
+import type { ServerResponse } from 'http'
 
 import {
   MainContextT,
@@ -36,8 +38,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const { getPreviews } = await import('@/graphql/lib/index')
   const { getAutomatedPageMiniTocItems } = await import('@/frame/lib/get-mini-toc-items')
 
-  const req = context.req as any
-  const res = context.res as any
+  const req = context.req as unknown as ExtendedRequest
+  const res = context.res as unknown as ServerResponse
   const currentVersion = context.query.versionId as string
   const schema = getPreviews(currentVersion) as PreviewT[]
   if (!schema) throw new Error(`No graphql preview schema found for ${currentVersion}`)
@@ -47,7 +49,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // content/graphql/reference/*
   const automatedPageContext = getAutomatedPageContextFromRequest(req)
   const titles = schema.map((item) => item.title)
-  const changelogMiniTocItems = await getAutomatedPageMiniTocItems(titles, req.context.context, 2)
+  const changelogMiniTocItems = await getAutomatedPageMiniTocItems(titles, req.context!, 2)
   // Update the existing context to include the miniTocItems from GraphQL
   automatedPageContext.miniTocItems.push(...changelogMiniTocItems)
 

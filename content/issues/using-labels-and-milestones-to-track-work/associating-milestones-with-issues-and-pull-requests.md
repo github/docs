@@ -9,8 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Add to milestones
 ---
 {% data reusables.repositories.navigate-to-repo %}

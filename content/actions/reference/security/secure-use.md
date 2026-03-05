@@ -16,8 +16,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Security
 ---
 
 Find information about security best practices when you are writing workflows and using {% data variables.product.prodname_actions %} security features.
@@ -30,7 +28,7 @@ Because there are multiple ways a secret value can be transformed, automatic red
 
 * **Principle of least privilege**
   * Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
-  * Actions can use the `GITHUB_TOKEN` by accessing it from the `github.token` context. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts#github-context). You should therefore make sure that the `GITHUB_TOKEN` is granted the minimum required permissions. It's good security practice to set the default permission for the `GITHUB_TOKEN` to read access only for repository contents. The permissions can then be increased, as required, for individual jobs within the workflow file. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token).
+  * Actions can use the `GITHUB_TOKEN` by accessing it from the `github.token` context. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts#github-context). You should therefore make sure that the `GITHUB_TOKEN` is granted the minimum required permissions. It's good security practice to set the default permission for the `GITHUB_TOKEN` to read access only for repository contents. The permissions can then be increased, as required, for individual jobs within the workflow file. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token).
 * **Mask sensitive data**
   * Sensitive data should **never** be stored as plaintext in workflow files. Mask all sensitive information that is not a {% data variables.product.prodname_dotcom %} secret by using `::add-mask::VALUE`. This causes the value to be treated as a secret and redacted from logs. For more information about masking data, see [AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#masking-a-value-in-a-log).
 * **Delete and rotate exposed secrets**

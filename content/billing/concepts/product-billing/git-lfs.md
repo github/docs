@@ -38,12 +38,6 @@ redirect_from:
   - /billing/using-the-new-billing-platform/about-git-large-file-storage
   - /billing/using-the-new-billing-platform/about-billing-for-git-large-file-storage
   - /billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage
-topics:
-  - Billing
-  - LFS
-  - Enterprise
-  - Team
-  - Upgrades
 shortTitle: Git LFS
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 contentType: concepts
@@ -125,7 +119,7 @@ In this example, you would pay for 1.5 GiB of additional storage for the month o
 
 {% data reusables.billing.default-over-quota-behavior %}
 
-{% data reusables.billing.migrated-budgets %}
+You can also receive email notifications when your included {% data variables.large_files.product_name_short %} usage reaches 90% and 100% during a billing period. For more information, see [AUTOTITLE](/billing/concepts/budgets-and-alerts#included-usage-alerts).
 
 ## Further reading
 

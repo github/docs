@@ -6,14 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - Security
-  - SSO
-  - Troubleshooting
 redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication
 ---

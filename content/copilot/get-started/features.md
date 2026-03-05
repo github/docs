@@ -3,8 +3,6 @@ title: GitHub Copilot features
 intro: '{% data variables.product.prodname_copilot %} offers a suite of features. {% data variables.product.prodname_copilot_short %} also offers a suite of features for administrators.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 shortTitle: Features
 redirect_from:
   - /copilot/copilot-business/github-copilot-business-feature-set
@@ -37,7 +35,7 @@ An autonomous AI agent that can make code changes for you. You can assign a {% d
 
 You can use third-party coding agents alongside {% data variables.copilot.copilot_coding_agent %}. See [AUTOTITLE](/free-pro-team@latest/copilot/concepts/agents/about-third-party-agents).
 
-### {% data variables.copilot.copilot_cli_short %} ({% data variables.release-phases.public_preview %})
+### {% data variables.copilot.copilot_cli_short %}
 
 A command line interface that lets you use {% data variables.product.prodname_copilot_short %} from within the terminal. You can get answers to questions, or you can ask {% data variables.product.prodname_copilot_short %} to make changes to your local files. You can also use {% data variables.copilot.copilot_cli_short %} to interact with {% data variables.product.prodname_dotcom_the_website %}—for example, listing your open pull requests, or asking {% data variables.product.prodname_copilot_short %} to create an issue. See [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).
 
@@ -45,15 +43,11 @@ A command line interface that lets you use {% data variables.product.prodname_co
 
 AI-generated code review suggestions to help you write better code. See [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
 
-{% data variables.copilot.copilot_code-review-tools_cap_short %} is in {% data variables.release-phases.public_preview %} and subject to change. See [AUTOTITLE](/copilot/concepts/agents/code-review).
+Several {% data variables.copilot.copilot_code-review-tools_short %} are in {% data variables.release-phases.public_preview %} and subject to change. See [AUTOTITLE](/copilot/concepts/agents/code-review).
 
 ### {% data variables.copilot.copilot_for_prs %}
 
 AI-generated summaries of the changes that were made in a pull request, which files they impact, and what a reviewer should focus on when they conduct their review. See [AUTOTITLE](/copilot/using-github-copilot/creating-a-pull-request-summary-with-github-copilot).
-
-### {% data variables.copilot.copilot_autocomplete_pr %} ({% data variables.release-phases.public_preview %})
-
-AI-generated text completion to help you write pull request descriptions quickly and accurately. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-text-completion).
 
 ### {% data variables.copilot.copilot_edits_short %}
 

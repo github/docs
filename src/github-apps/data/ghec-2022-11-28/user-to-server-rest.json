@@ -1293,6 +1293,24 @@
   ],
   "billing": [
     {
+      "slug": "list-usage-report-exports",
+      "subcategory": "usage-reports",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/reports"
+    },
+    {
+      "slug": "create-a-usage-report-export",
+      "subcategory": "usage-reports",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/reports"
+    },
+    {
+      "slug": "get-a-usage-report-export",
+      "subcategory": "usage-reports",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/reports/{report_id}"
+    },
+    {
       "slug": "get-github-advanced-security-active-committers-for-an-organization",
       "subcategory": "billing",
       "verb": "get",
@@ -2353,6 +2371,42 @@
   ],
   "copilot": [
     {
+      "slug": "get-copilot-content-exclusion-rules-for-an-enterprise",
+      "subcategory": "copilot-content-exclusion-management",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/content_exclusion"
+    },
+    {
+      "slug": "set-copilot-content-exclusion-rules-for-an-enterprise",
+      "subcategory": "copilot-content-exclusion-management",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/copilot/content_exclusion"
+    },
+    {
+      "slug": "get-custom-agents-for-an-enterprise",
+      "subcategory": "copilot-custom-agents",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/custom-agents"
+    },
+    {
+      "slug": "get-the-source-organization-for-custom-agents-in-an-enterprise",
+      "subcategory": "copilot-custom-agents",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/custom-agents/source"
+    },
+    {
+      "slug": "set-the-source-organization-for-custom-agents-in-an-enterprise",
+      "subcategory": "copilot-custom-agents",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/copilot/custom-agents/source"
+    },
+    {
+      "slug": "delete-the-custom-agents-source-for-an-enterprise",
+      "subcategory": "copilot-custom-agents",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/copilot/custom-agents/source"
+    },
+    {
       "slug": "get-copilot-enterprise-usage-metrics-for-a-specific-day",
       "subcategory": "copilot-usage-metrics",
       "verb": "get",
@@ -2411,6 +2465,18 @@
       "subcategory": "copilot-user-management",
       "verb": "delete",
       "requestPath": "/orgs/{org}/copilot/billing/selected_users"
+    },
+    {
+      "slug": "get-copilot-content-exclusion-rules-for-an-organization",
+      "subcategory": "copilot-content-exclusion-management",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/content_exclusion"
+    },
+    {
+      "slug": "set-copilot-content-exclusion-rules-for-an-organization",
+      "subcategory": "copilot-content-exclusion-management",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/copilot/content_exclusion"
     },
     {
       "slug": "get-copilot-metrics-for-an-organization",
@@ -5821,24 +5887,6 @@
       "subcategory": "repos",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/tags"
-    },
-    {
-      "slug": "closing-down---list-tag-protection-states-for-a-repository",
-      "subcategory": "tags",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/tags/protection"
-    },
-    {
-      "slug": "closing-down---create-a-tag-protection-state-for-a-repository",
-      "subcategory": "tags",
-      "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/tags/protection"
-    },
-    {
-      "slug": "closing-down---delete-a-tag-protection-state-for-a-repository",
-      "subcategory": "tags",
-      "verb": "delete",
-      "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}"
     },
     {
       "slug": "download-a-repository-archive-tar",

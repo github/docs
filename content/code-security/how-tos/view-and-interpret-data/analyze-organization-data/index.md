@@ -18,6 +18,7 @@ contentType: how-tos
 children:
   - /assessing-code-security-risk
   - /assessing-adoption-code-security
+  - /explore-code-quality
   - /exporting-data-from-security-overview
   - /viewing-security-insights
   - /interpreting-security-findings

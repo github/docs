@@ -15,10 +15,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Actions
-  - Billing
-  - Spending limits
 shortTitle: GitHub Actions
 contentType: concepts
 ---
@@ -165,7 +161,7 @@ For cached storage, billing charts and reports show only the cost of usage beyon
 
 {% data reusables.billing.default-over-quota-behavior %}
 
-{% data reusables.billing.migrated-budgets %}
+You can also receive email notifications when your included {% data variables.product.prodname_actions %} usage reaches 90% and 100% during a billing period. For more information, see [AUTOTITLE](/billing/concepts/budgets-and-alerts#included-usage-alerts).
 
 ## Further reading
 

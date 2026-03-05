@@ -4,8 +4,6 @@ shortTitle: Copilot requests
 intro: 'Learn about requests in {% data variables.product.prodname_copilot_short %}, including premium requests, how they work, and how to manage your usage effectively.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs
   - /copilot/managing-copilot/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs
@@ -81,8 +79,6 @@ If you need more premium requests beyond your monthly allowance:
 * For an individual subscription, set a budget for additional premium requests or upgrade to a higher plan. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
 * If you're an enterprise or organization owner, ensure that the "Premium request paid usage" policy is enabled and that extra spending is not prevented by a budget. See [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
 
-{% data reusables.copilot.zero-budget-changes-link %}
-
 ## Model multipliers
 
 The available models vary depending on your {% data variables.product.prodname_copilot_short %} plan. See [AUTOTITLE](/copilot/about-github-copilot/plans-for-github-copilot#models).
@@ -92,6 +88,7 @@ The available models vary depending on your {% data variables.product.prodname_c
 > * Discounted multipliers are available for using {% data variables.copilot.copilot_auto_model_selection %} in {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}. See [AUTOTITLE](/copilot/concepts/auto-model-selection).
 >   * {% data reusables.copilot.auto-model-multiplier-discount %} For example, Sonnet 4 would be billed at .9x rather than 1x when using {% data variables.copilot.copilot_auto_model_selection_short %}.
 >   * Discounted multipliers are not available for {% data variables.copilot.copilot_free_short %}.
+> * The multiplier for {% data variables.copilot.copilot_claude_sonnet_46 %} may be subject to change.
 
 Each model has a premium request multiplier, based on its complexity and resource usage. If you are on a paid {% data variables.product.prodname_copilot_short %} plan, your premium request allowance is deducted according to this multiplier.
 

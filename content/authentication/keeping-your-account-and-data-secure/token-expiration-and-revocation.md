@@ -5,9 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Token expiration
 redirect_from:
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation

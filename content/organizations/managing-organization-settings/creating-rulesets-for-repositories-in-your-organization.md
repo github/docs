@@ -6,8 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 permissions: Organization owners can create rulesets at the organization level.
-topics:
-  - Organizations
 shortTitle: Create rulesets
 ---
 

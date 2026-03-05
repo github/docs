@@ -13,11 +13,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - CircleCI
-  - Migration
-  - CI
-  - CD
 shortTitle: Migrate from CircleCI
 ---
 

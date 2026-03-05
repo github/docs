@@ -13,9 +13,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: reference
-topics:
-  - Enterprise
-  - Upgrades
 ---
 
 > [!NOTE]

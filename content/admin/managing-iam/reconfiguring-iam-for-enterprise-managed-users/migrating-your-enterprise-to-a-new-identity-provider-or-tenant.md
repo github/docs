@@ -6,13 +6,6 @@ product: '{% data reusables.gated-features.emus %}'
 permissions: Enterprise owners and people with administrative access to your IdP can migrate your enterprise to a new IdP or tenant.
 versions:
   feature: idp-tenant-migration
-topics:
-  - Access management
-  - Accounts
-  - Administrator
-  - Authentication
-  - Enterprise
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-your-enterprise-to-a-new-identity-provider-or-tenant
   - /admin/identity-and-access-management/reconfiguring-iam-for-enterprise-managed-users/migrating-your-enterprise-to-a-new-identity-provider-or-tenant

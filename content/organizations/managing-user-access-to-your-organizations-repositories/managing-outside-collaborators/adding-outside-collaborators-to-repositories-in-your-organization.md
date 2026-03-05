@@ -10,9 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Add outside collaborator
 permissions: People with admin access to a repository can add an outside collaborator to the repository.
 ---

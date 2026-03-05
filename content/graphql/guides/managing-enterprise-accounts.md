@@ -6,8 +6,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - API
 shortTitle: Manage enterprise accounts
 ---
 

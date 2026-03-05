@@ -11,8 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 shortTitle: 'Migrate from {% data variables.product.prodname_oauth_apps %}'
 ---
 

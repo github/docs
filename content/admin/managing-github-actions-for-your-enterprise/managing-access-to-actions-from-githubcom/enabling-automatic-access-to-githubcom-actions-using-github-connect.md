@@ -9,10 +9,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Actions
-  - Enterprise
-  - GitHub Connect
 shortTitle: Use GitHub Connect for actions
 ---
 

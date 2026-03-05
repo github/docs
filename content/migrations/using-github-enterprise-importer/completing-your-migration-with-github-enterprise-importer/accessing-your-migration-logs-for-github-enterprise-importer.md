@@ -62,7 +62,7 @@ If your migration source is Azure DevOps, you can download the latest migration 
 gh ado2gh download-logs --github-target-org DESTINATION --target-repo REPOSITORY --migration-log-file FILENAME
 ```
 
-* {% data reusables.enterprise-migration-tool.add-pat-to-download-logs %} For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens).
+* {% data reusables.enterprise-migration-tool.add-pat-to-download-logs %}{% ifversion fpt or ghec %} For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens).{% endif %}
 * {% data reusables.enterprise-migration-tool.add-target-api-url %}
 
 ### Downloading a repository migration log with the {% data variables.product.prodname_bbs2gh_cli_short %}

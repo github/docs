@@ -14,11 +14,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Packaging
-  - Publishing
-  - Java
-  - Gradle
 ---
 
 ## Introduction

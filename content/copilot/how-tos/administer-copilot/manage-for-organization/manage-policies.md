@@ -22,9 +22,6 @@ redirect_from:
   - /copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization
   - /copilot/how-tos/administer/organizations/manage-policies
   - /copilot/how-tos/administer/manage-for-organization/manage-policies
-topics:
-  - Copilot
-  - Organizations
 shortTitle: Manage policies
 contentType: how-tos
 category: 

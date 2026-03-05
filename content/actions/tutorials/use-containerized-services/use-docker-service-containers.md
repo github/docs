@@ -16,9 +16,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
-topics:
-  - Containers
-  - Docker
 ---
 
 ## Communicating with Docker service containers

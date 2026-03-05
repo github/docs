@@ -23,6 +23,7 @@ These {% data variables.product.prodname_oauth_apps %} are :
 * {% data variables.product.prodname_android %}
 * {% data variables.product.prodname_cli %}
 * {% data variables.product.prodname_github_codespaces %} for JetBrains
+* {% data variables.copilot.copilot_cli %}
 * {% data variables.product.prodname_desktop %}
 * {% data variables.product.prodname_education %}
 * github-importer-production <!-- markdownlint-disable-line GHD034 -->

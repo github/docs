@@ -10,8 +10,6 @@ category:
 complexity:
   - Simple
 octicon: book
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

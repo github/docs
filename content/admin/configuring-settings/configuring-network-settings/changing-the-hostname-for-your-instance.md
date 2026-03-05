@@ -5,10 +5,6 @@ intro: 'If you want to change the hostname for an existing {% data variables.pro
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
 redirect_from:
   - /admin/configuration/configuring-network-settings/changing-the-hostname-for-your-instance
 ---

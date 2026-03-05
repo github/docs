@@ -9,9 +9,6 @@ redirect_from:
   - /github/site-policy/github-terms-of-service
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 ---
 <!-- markdownlint-disable search-replace -->
 

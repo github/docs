@@ -7,9 +7,6 @@ versions:
   ghes: '*'
 permissions: People with admin permissions can manage merge queues for pull requests targeting selected branches of a repository.
 product: '{% data reusables.gated-features.merge-queue %}'
-topics:
-  - Repositories
-  - Pull requests
 shortTitle: Managing merge queue
 redirect_from:
   - /repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/using-a-merge-queue

@@ -6,8 +6,6 @@ versions:
   feature: copilot
 category:
   - Author and optimize with Copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/reference/keyboard-shortcuts-for-github-copilot-in-the-ide
 contentType: reference

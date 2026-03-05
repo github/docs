@@ -6,8 +6,6 @@ versions:
   ghec: '*'
 redirect_from:
   - /github/building-a-strong-community/about-community-management-and-moderation
-topics:
-  - Community
 shortTitle: Management & moderation
 ---
 

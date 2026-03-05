@@ -4,9 +4,6 @@ intro: Explore migrating your current solution into {% data variables.product.pr
 versions:
   ghec: '*'
 type: overview
-topics:
-  - Accounts
-  - Enterprise
 shortTitle: Migrations
 contentType: other
 ---

@@ -10,13 +10,15 @@ on:
     - cron: '20 16 * * 1-5' # Run Mon-Fri at 16:20 UTC / 8:20 PST
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 jobs:
   update_graphql_files:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     outputs:
       ignored-changes: ${{ steps.sync.outputs.ignored-changes }}
       ignored-count: ${{ steps.sync.outputs.ignored-count }}

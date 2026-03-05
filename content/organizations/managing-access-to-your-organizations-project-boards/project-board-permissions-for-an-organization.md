@@ -6,9 +6,6 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/project-board-permissions-for-an-organization
 versions:
   feature: projects-v1
-topics:
-  - Organizations
-  - Teams
 shortTitle: '{% data variables.product.prodname_project_v1_caps %} permissions'
 allowTitleToDifferFromFilename: true
 ---
