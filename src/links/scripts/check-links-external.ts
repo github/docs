@@ -155,10 +155,20 @@ async function extractAllExternalLinks(): Promise<Map<string, { file: string; li
 
   // Find all Markdown files
   const files = await glob('content/**/*.md')
+  console.log(`Found ${files.length} Markdown files to scan`)
 
-  for (const file of files) {
+  const extractStart = Date.now()
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i]
+    const fileStart = Date.now()
     const content = fs.readFileSync(file, 'utf-8')
     const result = extractLinksFromMarkdown(content)
+    const fileMs = Date.now() - fileStart
+
+    // Warn if a single file takes longer than 1 second (possible regex issue)
+    if (fileMs > 1000) {
+      console.warn(`  ⚠️  Slow extraction: ${file} took ${(fileMs / 1000).toFixed(1)}s`)
+    }
 
     for (const link of result.externalLinks) {
       // Only check HTTPS links
@@ -173,7 +183,15 @@ async function extractAllExternalLinks(): Promise<Map<string, { file: string; li
       }
       links.get(url)!.push({ file, line: link.line })
     }
+
+    if ((i + 1) % 500 === 0) {
+      const elapsed = ((Date.now() - extractStart) / 1000).toFixed(0)
+      console.log(`  Scanned ${i + 1}/${files.length} files (${elapsed}s elapsed)`)
+    }
   }
+
+  const totalElapsed = ((Date.now() - extractStart) / 1000).toFixed(1)
+  console.log(`Extraction complete in ${totalElapsed}s`)
 
   return links
 }
@@ -275,7 +293,13 @@ async function main() {
 
     // Progress update every 100 URLs
     if (checkedCount % 100 === 0) {
-      console.log(`  Checked ${checkedCount}/${maxUrls} URLs...`)
+      const elapsed = ((Date.now() - startTime) / 1000).toFixed(0)
+      const rate = (checkedCount / (Date.now() - startTime)) * 1000 * 60
+      const remaining = maxUrls - checkedCount
+      const etaMin = (remaining / rate).toFixed(0)
+      console.log(
+        `  Checked ${checkedCount}/${maxUrls} URLs (${cachedCount} cached) — ${elapsed}s elapsed, ~${etaMin}m remaining`,
+      )
     }
 
     // Small delay between non-cached requests to avoid rate limiting

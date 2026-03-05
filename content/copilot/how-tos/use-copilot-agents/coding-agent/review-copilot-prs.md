@@ -30,6 +30,8 @@ After {% data variables.product.prodname_copilot_short %} has finished working o
 
 You can ask {% data variables.product.prodname_copilot_short %} to make changes by mentioning `@copilot` in pull request comments, or you can check out {% data variables.product.prodname_copilot_short %}'s branch and make changes yourself.
 
+Optionally, when submitting a pull request comment (not a review or review comment) through the {% data variables.product.github %} web interface, you can select a model using the model picker. By default, {% data variables.product.prodname_copilot_short %} will use the model originally used to create the pull request.
+
 > [!TIP]
 > We recommend you batch your review comments instead of submitting them individually.
 
