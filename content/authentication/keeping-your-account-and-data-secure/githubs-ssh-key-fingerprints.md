@@ -28,6 +28,7 @@ For more information, see [AUTOTITLE](/rest/meta/meta#get-github-meta-informatio
 ## GPG
 
 This GPG key is used to sign {% data variables.product.prodname_cli %} archive and package releases (for example, Debian and RPM repositories served from `cli.github.com`). It is not used by {% data variables.product.prodname_dotcom %} to sign commits or releases in the web UI.
+
 > [!IMPORTANT]
 > _The key expired in Sep. 2024. [It was updated](https://github.com/orgs/community/discussions/138304) and will be valid until Sep. 5, 2026._
 
