@@ -108,6 +108,7 @@ jobs:
     needs: [setup-matrix, check-internal-links]
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       issues: write
     steps:
       - name: Checkout
