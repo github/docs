@@ -7,7 +7,7 @@ name: 'Orphaned files check'
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 16 * * 3' # Run every Wednesday at 16:20 UTC / 8:20 PST — orphan & hygiene cleanup theme
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
   pull_request:
     paths:
       - .github/workflows/orphaned-assets-check.yml

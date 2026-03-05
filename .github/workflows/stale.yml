@@ -6,7 +6,7 @@ name: Stale check for stalled pull requests in the docs-internal repository
 
 on:
   schedule:
-    - cron: '20 16 * * 2' # Run every Tuesday at 16:20 UTC / 8:20 PST — staleness & triage theme
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
   push:
     paths:
       - .github/workflows/stale.yml

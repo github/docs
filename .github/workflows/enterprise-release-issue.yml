@@ -7,7 +7,7 @@ name: Open Enterprise release or deprecation issue
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 16 * * 4' # Run every Thursday at 16:20 UTC / 8:20 PST — infrastructure & releases theme
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
 
 permissions:
   contents: read
