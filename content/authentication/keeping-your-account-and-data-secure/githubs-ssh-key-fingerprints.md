@@ -39,6 +39,7 @@ Fingerprint is:
 Key ID is:
 
     23F3D4EA75716059
+
 For cli/terminal verifications:
 
     2C61 0620 1985 B60E 6C7A C873 23F3 D4EA 7571 6059
