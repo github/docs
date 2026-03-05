@@ -151,6 +151,22 @@ describe('GitHub Actions workflows', () => {
   )
 
   test.each(alertWorkflows)(
+    'scheduled workflows create failure issue on fail $filename',
+    ({ filename, data }) => {
+      for (const [name, job] of Object.entries(data.jobs)) {
+        if (
+          !job.steps.find(
+            (step: Record<string, any>) =>
+              step.uses === './.github/actions/create-workflow-failure-issue',
+          )
+        ) {
+          throw new Error(`Job ${filename} # ${name} missing create-workflow-failure-issue on fail`)
+        }
+      }
+    },
+  )
+
+  test.each(alertWorkflows)(
     'performs a checkout before calling composite action $filename',
     ({ filename, data }) => {
       for (const [name, job] of Object.entries(data.jobs)) {
