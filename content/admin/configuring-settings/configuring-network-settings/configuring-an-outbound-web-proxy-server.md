@@ -11,11 +11,6 @@ permissions: 'Site administrators can configure an outbound web proxy server for
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Networking
 shortTitle: Configure an outbound proxy
 ---
 

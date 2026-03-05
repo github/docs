@@ -9,8 +9,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Accounts
 shortTitle: Enterprise Cloud trial
 ---
 

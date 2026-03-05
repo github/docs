@@ -6,11 +6,6 @@ permissions: 'Enterprise owners can enforce policies for {% data variables.produ
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Codespaces
-  - Enterprise
-  - Organizations
-  - Policies
 redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-codespaces-in-your-enterprise
 ---

@@ -4,10 +4,6 @@ intro: 'Set up {% data variables.product.prodname_registry %} with Azure Blob St
 versions:
   ghes: '*'
 type: tutorial
-topics:
-  - Enterprise
-  - Packages
-  - Storage
 shortTitle: Enable Packages with Azure
 redirect_from:
   - /admin/packages/enabling-github-packages-with-azure-blob-storage

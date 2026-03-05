@@ -153,7 +153,7 @@
   enterprise: true
 
 - name: Grok Code Fast 1
-  free: false
+  free: true
   pro: true
   pro_plus: true
   business: true

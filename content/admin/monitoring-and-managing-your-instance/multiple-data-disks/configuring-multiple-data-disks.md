@@ -5,8 +5,6 @@ intro: 'You can configure additional data disks and use them to host data of dif
 versions:
   ghes: '>= 3.19'
 type: overview
-topics:
-  - Enterprise
 ---
 
 > [!NOTE]

@@ -9,8 +9,6 @@ redirect_from:
   - /codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces
   - /codespaces/customizing-your-codespace/setting-your-default-region-for-codespaces
   - /codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces
-topics:
-  - Codespaces
 type: how_to
 ---
 

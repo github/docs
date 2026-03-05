@@ -5,9 +5,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: overview
-topics:
-  - Enterprise
-  - Fundamentals
 ---
 
 ## Why should my business choose {% data variables.product.github %}?

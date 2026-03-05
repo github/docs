@@ -13,6 +13,8 @@ category:
 
 > [!NOTE]
 > This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
+>
+> You can provide feedback about the {% data variables.product.prodname_copilot %} for Jira integration in the [{% data variables.product.github %} survey](https://www.surveymonkey.com/r/CCAforJira).
 
 The {% data variables.product.prodname_copilot %} integration in Jira allows you to invoke {% data variables.copilot.copilot_coding_agent %} without leaving your Jira workspace. From within a Jira work item you can initiate {% data variables.copilot.copilot_coding_agent_short %} sessions and open pull requests, using the context of the work item's title, description, labels, and comments.
 
@@ -105,6 +107,16 @@ For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-c
 
 ## Troubleshooting
 
+If you run into problems, try the following solutions.
+
+### You can see the {% data variables.copilot.copilot_coding_agent %} but it is not possible to assign it to a Jira work item
+
+Check that you have connected your personal account on {% data variables.product.github %} to the {% data variables.product.prodname_copilot %} for Jira app.
+
+1. In Jira, go to the personal settings page for your user account.
+1. Under your general settings, select the **{% data variables.product.prodname_copilot %} for Jira** app.
+1. If you are not already signed in with {% data variables.product.github %}, follow the prompts to authorize the application.
+
 ### {% data variables.product.prodname_copilot %} is not responding
 
 * Check {% data variables.product.github %}'s [Status page](https://githubstatus.com) for any active incidents.
@@ -115,3 +127,4 @@ For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-c
 
 * [AUTOTITLE](/copilot/concepts/coding-agent/coding-agent)
 * [AUTOTITLE](/copilot/concepts/coding-agent/enable-coding-agent)
+* [Collaborate on work items with AI agents](https://support.atlassian.com/jira-software-cloud/docs/collaborate-on-work-items-with-ai-agents/) in the Atlassian documentation

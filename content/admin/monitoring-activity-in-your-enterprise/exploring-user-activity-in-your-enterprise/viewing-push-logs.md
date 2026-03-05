@@ -11,11 +11,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Auditing
-  - Enterprise
-  - Git
-  - Logging
 ---
 Push log entries show:
 

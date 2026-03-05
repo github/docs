@@ -6,10 +6,6 @@ permissions: 'Enterprise owners'
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Administrator
-  - Enterprise
-  - User account
 product: 'Enterprises that use **personal accounts** on {% data variables.product.prodname_dotcom_the_website %}.'
 ---
 

@@ -188,7 +188,7 @@ code_security_actions:
     - >-
       /code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/configuring-default-setup-for-code-scanning
     - >-
-      /code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/customizing-your-advanced-setup-for-code-scanning
+      /code-security/reference/code-scanning/workflow-configuration-options
     - >-
       /code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/codeql-code-scanning-for-compiled-languages
     - >-

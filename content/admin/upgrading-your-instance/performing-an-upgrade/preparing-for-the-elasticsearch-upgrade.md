@@ -4,9 +4,6 @@ intro: 'As part of upgrading {% data variables.product.prodname_ghe_server %} to
 versions:
   ghes: '>3.10 <3.15'
 type: reference
-topics:
-  - Enterprise
-  - Upgrades
 shortTitle: Elasticsearch upgrade in 3.13
 allowTitleToDifferFromFilename: true
 redirect_from:

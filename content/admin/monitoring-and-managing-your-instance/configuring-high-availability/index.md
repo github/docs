@@ -11,8 +11,6 @@ redirect_from:
 intro: '{% data variables.product.prodname_ghe_server %} supports a high availability mode of operation designed to minimize service disruption in the event of hardware failure or major network outage affecting the primary appliance.'
 versions:
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /about-high-availability-configuration
   - /answers-to-common-questions-about-high-availability-replicas

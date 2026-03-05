@@ -14,11 +14,6 @@ permissions: Site administrators can configure email for notifications.
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Notifications
 shortTitle: Configure email notifications
 ---
 

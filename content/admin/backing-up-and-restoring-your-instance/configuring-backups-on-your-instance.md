@@ -21,11 +21,6 @@ intro: 'As part of a disaster recovery plan, you can protect production data on 
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Backups
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
 ---
 
 {% ifversion ghes > 3.16 %}

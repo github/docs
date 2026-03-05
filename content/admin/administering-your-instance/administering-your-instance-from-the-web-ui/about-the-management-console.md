@@ -6,12 +6,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: overview
-topics:
-  - Administrator
-  - Enterprise
-  - Fundamentals
-  - Networking
-  - Monitoring
 ---
 
 ## About the {% data variables.enterprise.management_console %}

@@ -204,7 +204,7 @@ steps:
 
 You can only specify manual build steps if you have enabled advanced setup, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-a-repository).
 
-{% data reusables.code-scanning.autobuild-add-build-steps %} For information on how to edit the workflow file, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#editing-a-code-scanning-workflow).
+{% data reusables.code-scanning.autobuild-add-build-steps %}
 
 Update your workflow to define the `build-mode` as `manual`.
 

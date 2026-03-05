@@ -6,10 +6,6 @@ permissions: 'To manage development environment secrets for {% data variables.pr
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
-  - Secret store
-  - Security
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-secrets-for-your-repository-and-organization-for-github-codespaces
   - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces

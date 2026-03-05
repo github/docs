@@ -38,11 +38,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Policies
-  - Repositories
-  - Security
 shortTitle: Repository management policies
 ---
 

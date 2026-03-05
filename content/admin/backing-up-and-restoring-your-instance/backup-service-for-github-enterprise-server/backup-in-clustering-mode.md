@@ -5,8 +5,6 @@ intro: 'Enable backup from a node in cluster.'
 versions:
   ghes: '> 3.19'
 type: how_to
-topics:
-  - Backups
 ---
 
 ## Configuring backups from a cluster node

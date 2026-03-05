@@ -5,9 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: reference
-topics:
-  - Codespaces
-  - Visual Studio Code
 shortTitle: VS Code Command Palette
 allowTitleToDifferFromFilename: true
 redirect_from:

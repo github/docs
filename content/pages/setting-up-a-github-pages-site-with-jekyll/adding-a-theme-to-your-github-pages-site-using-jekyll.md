@@ -12,8 +12,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pages
 shortTitle: Add theme to Pages site
 category:
   - Set up a GitHub Pages site

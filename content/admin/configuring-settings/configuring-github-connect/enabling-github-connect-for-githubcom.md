@@ -16,11 +16,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - GitHub Connect
-  - Infrastructure
-  - Networking
 ---
 
 You can access additional features and workflows on {% data variables.location.product_location %} by enabling {% data variables.product.prodname_github_connect %}. See [AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect).

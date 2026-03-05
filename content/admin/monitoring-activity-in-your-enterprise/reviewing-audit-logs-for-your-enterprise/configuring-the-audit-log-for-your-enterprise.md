@@ -6,10 +6,6 @@ permissions: Enterprise owners can configure the audit log.
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Auditing
-  - Enterprise
-  - Logging
 ---
 
 ## About audit log configuration

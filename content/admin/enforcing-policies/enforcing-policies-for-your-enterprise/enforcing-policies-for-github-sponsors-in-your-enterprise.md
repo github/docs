@@ -5,10 +5,6 @@ permissions: 'Enterprise owners can enforce policies for {% data variables.produ
 versions:
   feature: enterprise-orgs-sponsors-with-cc
 type: how_to
-topics:
-  - Sponsors
-  - Enterprise
-  - Policies
 shortTitle: '{% data variables.product.prodname_sponsors %} policies'
 redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-sponsors-in-your-enterprise

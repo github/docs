@@ -4,10 +4,6 @@ intro: 'See an overview of workarounds for issues that impact the upgrade proces
 versions:
   ghes: '*'
 type: overview
-topics:
-  - Enterprise
-  - Troubleshooting
-  - Upgrades
 shortTitle: Known issues with upgrades
 redirect_from:
   - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance

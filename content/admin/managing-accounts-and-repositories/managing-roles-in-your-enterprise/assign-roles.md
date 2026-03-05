@@ -4,8 +4,6 @@ intro: Govern what people can do in your enterprise by assigning roles to users 
 versions:
   feature: enterprise-custom-roles
 type: how_to
-topics:
-  - Enterprise
 shortTitle: Assign roles
 redirect_from:
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/assign-roles

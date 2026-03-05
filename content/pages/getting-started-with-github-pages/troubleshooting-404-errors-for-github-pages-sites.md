@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pages
 shortTitle: Troubleshoot 404 errors
 category:
   - Troubleshoot a GitHub Pages site error

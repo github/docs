@@ -5,10 +5,6 @@ intro: 'You can use the {% data variables.codespaces.serverless %} web-based edi
 versions:
   feature: githubdev-editor
 type: how_to
-topics:
-  - Codespaces
-  - Visual Studio Code
-  - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/web-based-editor
 ---

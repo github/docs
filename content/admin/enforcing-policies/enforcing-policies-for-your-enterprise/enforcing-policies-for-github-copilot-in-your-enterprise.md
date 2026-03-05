@@ -6,11 +6,6 @@ product: '{% data reusables.gated-features.copilot-billing %}'
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Copilot
-  - Enterprise
-  - Organizations
-  - Policies
 shortTitle: GitHub Copilot policies
 redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise

@@ -14,8 +14,10 @@ contentType: reference
 redirect_from:
   - /code-security/code-scanning/reference
 children:
+  - workflow-configuration-options
   - sarif-files
   - codeql
   - troubleshoot-analysis-errors
   - code-scanning-logs
 ---
+

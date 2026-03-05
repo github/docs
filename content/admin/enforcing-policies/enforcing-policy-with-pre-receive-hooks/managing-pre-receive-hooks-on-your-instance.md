@@ -11,10 +11,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Policies
-  - Pre-receive hooks
 shortTitle: Manage pre-receive hooks
 ---
 ## Creating pre-receive hooks

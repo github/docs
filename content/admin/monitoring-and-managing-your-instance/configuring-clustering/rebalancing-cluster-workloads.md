@@ -7,9 +7,6 @@ permissions: 'People with administrative SSH access to a {% data variables.produ
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Clustering
-  - Enterprise
 redirect_from:
   - /admin/enterprise-management/configuring-clustering/rebalancing-cluster-workloads
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/rebalancing-cluster-workloads

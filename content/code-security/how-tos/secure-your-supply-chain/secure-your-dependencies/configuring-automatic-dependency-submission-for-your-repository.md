@@ -15,19 +15,7 @@ topics:
 contentType: how-tos
 ---
 
-## About automatic dependency submission
-
-> [!NOTE]
-> Automatic dependency submission does not support all package ecosystems. For the current list of supported ecosystems, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems).
-
-Dependency graph analyzes the manifest and lock files in a repository, in order to help users understand the upstream packages that their software project depends on. However, in some ecosystems, the resolution of transitive dependencies occurs at build-time and {% data variables.product.company_short %} isn't able to automatically discover all dependencies based on the contents of the repository alone.
-
-When you enable automatic dependency submission for a repository, {% data variables.product.company_short %} automatically identifies the transitive dependencies in the repository and will submit these dependencies to {% data variables.product.company_short %} using the {% data variables.dependency-submission-api.name %}. You can then explore these dependencies using the dependency graph. {% data variables.product.prodname_dependabot %} will notify you about security updates for these dependencies by generating {% data variables.product.prodname_dependabot_alerts %} .
-
-Using automatic dependency submission counts toward your {% data variables.product.prodname_actions %} minutes. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
-
-Optionally, you can choose to configure self-hosted runners or {% data variables.product.company_short %}-hosted {% data variables.actions.hosted_runners %} for automatic dependency submission. For more information, see [Accessing private registries with self-hosted runners](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository#accessing-private-registries-with-self-hosted-runners) and [Using GitHub-hosted larger runners for automatic dependency submission](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository#using-github-hosted-larger-runners-for-automatic-dependency-submission
-).
+Automatic dependency submission is a method of submitting data to the dependency graph. It allows you to automatically resolve and submit indirect dependencies that are not captured by static analysis. For more information, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependency-graph-data).
 
 ## Prerequisites
 

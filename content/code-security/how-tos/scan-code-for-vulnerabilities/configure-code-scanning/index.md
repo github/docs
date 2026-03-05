@@ -14,7 +14,7 @@ topics:
 children:
   - /configuring-default-setup-for-code-scanning
   - /configuring-advanced-setup-for-code-scanning
-  - /customizing-your-advanced-setup-for-code-scanning
 redirect_from:
   - /code-security/code-scanning/enabling-code-scanning
 ---
+

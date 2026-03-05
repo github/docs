@@ -9,11 +9,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: tutorial
-topics:
-  - Administrator
-  - Enterprise
-  - Infrastructure
-  - Set up
 shortTitle: Install on Azure
 ---
 You can deploy {% data variables.product.prodname_ghe_server %} on global Azure or Azure Government.

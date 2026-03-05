@@ -5,11 +5,6 @@ intro: 'If you''re using OpenID Connect (OIDC) to authenticate members in your {
 product: '{% data reusables.gated-features.emus %}'
 versions:
   feature: oidc-for-emu
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-oidc-to-saml
   - /admin/identity-and-access-management/reconfiguring-iam-for-enterprise-managed-users/migrating-from-oidc-to-saml

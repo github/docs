@@ -15,10 +15,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Policies
-  - Security
 shortTitle: Policies for security settings
 ---
 

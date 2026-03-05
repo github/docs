@@ -11,12 +11,6 @@ redirect_from:
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/about-identity-and-access-management
   - /admin/managing-iam/understanding-iam-for-enterprises/about-identity-and-access-management
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - SSO
 ---
 
 ## What is IAM for {% data variables.product.github %}?

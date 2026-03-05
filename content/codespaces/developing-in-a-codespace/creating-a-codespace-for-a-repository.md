@@ -10,10 +10,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Codespaces
-  - Fundamentals
-  - Developer
 shortTitle: Create a codespace for a repo
 ---
 

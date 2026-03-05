@@ -6,15 +6,6 @@ versions:
   ghec: '*'
 type: how_to
 permissions: Enterprise owners can configure private networking for GitHub-hosted runners at the enterprise level.
-topics:
-  - Actions
-  - Action development
-  - Azure Virtual Network
-  - Administrator
-  - Developer
-  - CI
-  - CD
-  - Enterprise
 redirect_from:
   - /actions/using-github-hosted-runners/connecting-to-a-private-network/configuring-an-azure-virtual-network-for-your-enterprise
   - /actions/using-github-hosted-runners/connecting-to-a-private-network/configuring-azure-resources-for-private-networking-with-github-hosted-runners

@@ -5,8 +5,6 @@ permissions: Enterprise owners can remove any organization from their enterprise
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Enterprise
 shortTitle: Remove organizations
 redirect_from:
   - /admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise
