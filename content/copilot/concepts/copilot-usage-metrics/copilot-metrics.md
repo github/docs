@@ -93,9 +93,7 @@ To be included in the {% data variables.product.prodname_copilot_short %} usage 
 
 The data in the {% data variables.product.prodname_copilot_short %} usage metrics dashboard and API reports is updated on a regular schedule.
 
-During the preview, you can expect data to be available within **three full days**. This means that data for a given day is processed and made available within three full UTC days after that day closes.
-
-For example, all usage data for a Monday (which closes at midnight UTC) will be visible in the dashboard and API by the end of Thursday UTC. In some cases, such as processing delays over weekends, data may appear up to four calendar days behind the current date.
+You can expect data to be available within **two full days**. This means that data for a given day is processed and made available within two full UTC days after that day closes.
 
 ## What does the data measure?
 
