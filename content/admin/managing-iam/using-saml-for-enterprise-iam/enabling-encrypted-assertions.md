@@ -6,13 +6,6 @@ permissions: Site administrators
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - Security
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions
 ---

@@ -12,10 +12,6 @@ permissions: Enterprise owners can enable automatic user license synchronization
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - GitHub Connect
-  - Licensing
 shortTitle: Automatic user license sync
 ---
 ## About automatic license synchronization

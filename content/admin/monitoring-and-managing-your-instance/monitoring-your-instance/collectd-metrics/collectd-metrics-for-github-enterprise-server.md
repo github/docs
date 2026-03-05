@@ -5,12 +5,6 @@ intro: 'You can review the metrics that `collectd` gathers for {% data variables
 versions:
   ghes: '*'
 type: reference
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
 redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/collectd-metrics-for-github-enterprise-server
 ---

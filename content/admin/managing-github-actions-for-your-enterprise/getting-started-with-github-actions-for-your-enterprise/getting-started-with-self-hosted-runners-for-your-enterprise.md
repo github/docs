@@ -7,10 +7,6 @@ versions:
   ghes: '*'
 permissions: 'Enterprise owners{% ifversion custom-org-roles %} and users with permissions{% endif %} can configure policies for {% data variables.product.prodname_actions %} and add self-hosted runners to the enterprise.'
 type: quick_start
-topics:
-  - Actions
-  - Enterprise
-  - Fundamentals
 redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
 ---

@@ -7,13 +7,6 @@ product: '{% data reusables.gated-features.cluster %}'
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Clustering
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
 redirect_from:
   - /admin/enterprise-management/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service

@@ -4,11 +4,6 @@ intro: 'Set up {% data variables.product.prodname_registry %} with AWS as your e
 versions:
   ghes: '*'
 type: tutorial
-topics:
-  - Administrator
-  - Enterprise
-  - Packages
-  - Packages
 shortTitle: Enable Packages with AWS
 redirect_from:
   - /admin/packages/enabling-github-packages-with-aws

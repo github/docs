@@ -13,11 +13,6 @@ intro: 'Open network ports selectively based on the network services you need to
 versions:
   ghes: '*'
 type: reference
-topics:
-  - Enterprise
-  - Infrastructure
-  - Networking
-  - Security
 ---
 ## Administrative ports
 

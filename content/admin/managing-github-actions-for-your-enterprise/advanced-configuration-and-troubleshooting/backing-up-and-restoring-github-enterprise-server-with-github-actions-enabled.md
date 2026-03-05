@@ -5,11 +5,6 @@ intro: 'To restore a backup of {% data variables.location.product_location %} wh
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Actions
-  - Backups
-  - Enterprise
-  - Infrastructure
 redirect_from:
   - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
   - /admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled

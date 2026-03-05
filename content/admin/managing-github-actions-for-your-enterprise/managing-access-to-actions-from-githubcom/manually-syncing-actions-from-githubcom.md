@@ -8,9 +8,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: tutorial
-topics:
-  - Actions
-  - Enterprise
 shortTitle: Manually sync actions
 ---
 

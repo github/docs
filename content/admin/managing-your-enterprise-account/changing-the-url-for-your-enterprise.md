@@ -4,9 +4,6 @@ intro: 'If you want to change the URL where your enterprise is accessed, you can
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Accounts
-  - Enterprise
 permissions: Enterprise owners can change the URL for the enterprise.
 shortTitle: Change enterprise URL
 ---

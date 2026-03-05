@@ -13,11 +13,6 @@ intro: 'If a user leaves or moves to a different part of the company, you should
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Access management
-  - Enterprise
-  - Security
-  - User account
 shortTitle: Manage user suspension
 ---
 

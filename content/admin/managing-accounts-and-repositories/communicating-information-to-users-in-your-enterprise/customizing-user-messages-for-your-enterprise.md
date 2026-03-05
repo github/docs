@@ -12,9 +12,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Maintenance
 ---
 ## About user messages
 

@@ -5,12 +5,6 @@ redirect_from:
   - /enterprise/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/enable-advanced-dashboards
 versions:
   feature: ghes-opentelemetry
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
 type: how_to
 shortTitle: Advanced dashboards
 ---

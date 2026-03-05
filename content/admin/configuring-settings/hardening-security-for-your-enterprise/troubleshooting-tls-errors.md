@@ -13,13 +13,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Errors
-  - Infrastructure
-  - Networking
-  - Security
-  - Troubleshooting
 shortTitle: Troubleshoot TLS errors
 ---
 ## Removing the passphrase from your key file

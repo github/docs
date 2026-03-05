@@ -5,11 +5,6 @@ intro: 'You can sign into {% data variables.product.github %} even if your ident
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 permissions: Enterprise owners can use a recovery code to access an enterprise account.
 redirect_from:
   - /admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable

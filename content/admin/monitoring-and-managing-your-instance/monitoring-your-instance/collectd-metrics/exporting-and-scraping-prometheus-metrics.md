@@ -5,12 +5,6 @@ intro: "{% data variables.product.prodname_ghe_server %} provides Prometheus-com
 versions:
   feature: prometheus-metrics-exporter
 type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
 redirect_from:
   - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/exporting-and-scraping-prometheus-metrics
 ---

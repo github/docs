@@ -3,12 +3,6 @@ title: Setting up external monitoring with OpenTelemetry
 intro: 'Configure external monitoring systems to collect and analyze OpenTelemetry metrics from your {% data variables.product.prodname_ghe_server %} instance.'
 versions:
   feature: ghes-opentelemetry
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
 type: how_to
 shortTitle: External monitoring OpenTelemetry
 ---

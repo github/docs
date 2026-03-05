@@ -6,8 +6,6 @@ intro: 'You can build security into your developers'' workflow with features tha
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /managing-github-advanced-security-for-your-enterprise
 redirect_from:

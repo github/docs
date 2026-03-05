@@ -11,11 +11,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: reference
-topics:
-  - Clustering
-  - Enterprise
-  - High availability
-  - Infrastructure
 shortTitle: Choosing cluster or HA
 ---
 

@@ -4,8 +4,6 @@ intro: 'You can configure a repository cache for {% data variables.product.prodn
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
 redirect_from:
   - /admin/enterprise-management/caching-repositories/configuring-a-repository-cache
   - /admin/monitoring-managing-and-updating-your-instance/caching-repositories/configuring-a-repository-cache

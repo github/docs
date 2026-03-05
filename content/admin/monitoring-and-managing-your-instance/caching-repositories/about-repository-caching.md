@@ -4,8 +4,6 @@ intro: You can increase the performance of Git read operations for distributed t
 versions:
   ghes: '*'
 type: overview
-topics:
-  - Enterprise
 redirect_from:
   - /admin/enterprise-management/caching-repositories/about-repository-caching
   - /admin/monitoring-managing-and-updating-your-instance/caching-repositories/about-repository-caching

@@ -5,12 +5,6 @@ intro: 'You can configure SAML for your enterprise account, with the same config
 versions:
   ghec: '*'
 type: overview
-topics:
-  - Accounts
-  - Access management
-  - Authentication
-  - Enterprise
-  - Identity
 redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/deciding-whether-to-configure-saml-for-your-enterprise-or-your-organizations
 ---

@@ -5,11 +5,6 @@ permissions: Site administrators
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
 shortTitle: Disable passkeys
 ---
 

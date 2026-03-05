@@ -4,9 +4,6 @@ intro: "Review information for each version of {% data variables.product.prodnam
 allowTitleToDifferFromFilename: true
 versions:
   ghes: '*'
-topics:
-  - Enterprise
-  - Upgrades
 shortTitle: Releases
 ---
 

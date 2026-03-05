@@ -15,10 +15,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Policies
-  - Projects
 shortTitle: Projects policies
 ---
 

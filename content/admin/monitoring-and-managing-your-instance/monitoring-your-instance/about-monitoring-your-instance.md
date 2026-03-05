@@ -3,8 +3,6 @@ title: About monitoring your instance
 intro: 'You can configure monitoring and alerting so that you''re aware of potential issues before they negatively impact application performance or availability.'
 versions:
   ghes: '*'
-topics:
-  - Enterprise
 shortTitle: About monitoring
 ---
 
