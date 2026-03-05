@@ -9,10 +9,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: overview
-topics:
-  - Enterprise
-  - Policies
-  - Pre-receive hooks
 ---
 
 ## About pre-receive hooks

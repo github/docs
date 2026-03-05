@@ -11,10 +11,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Infrastructure
-  - Performance
 ---
 
 ## About rate limits for {% data variables.product.prodname_ghe_server %}

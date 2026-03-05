@@ -7,12 +7,6 @@ versions:
   feature: scim-for-ghes-public-beta
   ghec: '*'
 type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - SSO
 ---
 
 {% data reusables.scim.ghes-beta-note %}

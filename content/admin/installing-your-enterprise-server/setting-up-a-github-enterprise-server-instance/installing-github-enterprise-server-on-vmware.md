@@ -12,11 +12,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: tutorial
-topics:
-  - Administrator
-  - Enterprise
-  - Infrastructure
-  - Set up
 shortTitle: Install on VMware
 ---
 ## Prerequisites

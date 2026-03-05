@@ -7,11 +7,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Authentication
-  - SSH
-  - User account
 ---
 
 {% data reusables.enterprise_site_admin_settings.management-console-access %} For more information about {% data variables.enterprise.management_console %} access, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console).

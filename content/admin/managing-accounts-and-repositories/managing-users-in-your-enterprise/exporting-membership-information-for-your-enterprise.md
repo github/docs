@@ -3,8 +3,6 @@ title: Exporting membership information for your enterprise
 intro: "You can export information about all of your enterprise's members from {% data variables.product.prodname_dotcom %}'s web UI."
 versions:
   feature: enterprise-member-csv
-topics:
-  - Enterprise
 shortTitle: Export membership information
 permissions: Enterprise owners can export membership information for an enterprise.
 redirect_from:

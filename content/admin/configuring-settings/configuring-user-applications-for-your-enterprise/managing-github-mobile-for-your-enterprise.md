@@ -5,9 +5,6 @@ permissions: 'Enterprise owners'
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Mobile
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/managing-github-for-mobile-for-your-enterprise
   - /admin/configuration/managing-github-for-mobile-for-your-enterprise

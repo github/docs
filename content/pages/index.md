@@ -26,8 +26,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pages
 children:
   - /quickstart
   - /getting-started-with-github-pages

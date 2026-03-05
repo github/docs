@@ -5,11 +5,6 @@ permissions: Enterprise owners can manage team synchronization for an enterprise
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Accounts
-  - Enterprise
-  - SSO
-  - Teams
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/managing-team-synchronization-for-organizations-in-your-enterprise-account

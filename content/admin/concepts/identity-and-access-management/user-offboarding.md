@@ -5,12 +5,6 @@ intro: 'Manage access with confidence by understanding the recommended approach 
 versions:
   ghec: '*'
 contentType: concepts
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - SSO
 ---
 
 ## How should I offboard users?

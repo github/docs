@@ -16,9 +16,6 @@ redirect_from:
 versions:
   ghec: '*'
   feature: scim-for-ghes-public-beta
-topics:
-  - Accounts
-  - Enterprise
 ---
 
 {% data reusables.scim.ghes-beta-note %}

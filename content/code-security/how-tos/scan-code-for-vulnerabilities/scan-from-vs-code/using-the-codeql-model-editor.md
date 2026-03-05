@@ -22,7 +22,7 @@ contentType: how-tos
 
 With {% data variables.product.prodname_codeql %} model packs, you can expand your {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} analysis to recognize custom libraries and frameworks used by your codebase that are not supported by default. With the {% data variables.product.prodname_codeql %} model editor, you can create your own model packs. The model editor guides you through modeling the calls to external dependencies in your application, or fully modeling all the public entry and exit points in an external dependency.
 
-For more information about customizing {% data variables.product.prodname_code_scanning %} analysis with model packs, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup) and [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#extending-codeql-coverage-with-codeql-model-packs).
+For more information about customizing {% data variables.product.prodname_code_scanning %} analysis with model packs, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup) and [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#codeql-model-packs).
 
 When you open the model editor, it analyzes the currently selected {% data variables.product.prodname_codeql %} database and identifies where the application uses external APIs and all public methods. An external (or third-party) API is any API that is not part of the {% data variables.product.prodname_codeql %} database you have selected.
 
@@ -159,5 +159,5 @@ If your model is working well, you should see a difference in the results of the
 ## Further reading
 
 * [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup)
-* [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#extending-codeql-coverage-with-codeql-model-packs)
+* [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#codeql-model-packs)
 [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#using-model-packs-to-analyze-calls-to-custom-dependencies).

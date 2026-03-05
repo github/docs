@@ -14,9 +14,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Pages
 shortTitle: Configure GitHub Pages
 ---
 

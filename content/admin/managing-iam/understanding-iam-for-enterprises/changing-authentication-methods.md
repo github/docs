@@ -12,11 +12,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: overview
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
 shortTitle: Change authentication methods
 ---
 User accounts on {% data variables.location.product_location %} are preserved when you change the authentication method and users will continue to log into the same account as long as their username doesn't change.

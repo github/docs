@@ -6,9 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
-topics:
-  - Actions
-  - Enterprise
 redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
 ---

@@ -5,9 +5,6 @@ intro: 'Learn about how features and bug fixes are added to {% data variables.pr
 versions:
   ghes: '*'
 type: overview
-topics:
-  - Enterprise
-  - Upgrades
 ---
 
 {% data reusables.enterprise.constantly-improving %}

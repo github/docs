@@ -10,9 +10,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
-  - Policies
 children:
   - /enforcing-repository-management-policies-in-your-enterprise
   - /enforcing-policies-for-projects-in-your-enterprise

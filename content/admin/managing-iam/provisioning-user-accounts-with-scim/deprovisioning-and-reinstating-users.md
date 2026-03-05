@@ -6,12 +6,6 @@ versions:
   ghec: '*'
   feature: scim-for-ghes-public-beta
 type: overview
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - SSO
 allowTitleToDifferFromFilename: true
 product: 'Enterprises that use {% data variables.product.prodname_emus %}, or {% data variables.product.prodname_ghe_server %} instances with SCIM enabled'
 ---

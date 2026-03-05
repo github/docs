@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: reference
-topics:
-  - Codespaces
 shortTitle: Port forwarding
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-port-forwarding-for-codespaces

@@ -11,9 +11,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Upgrades
 shortTitle: Enable automatic update checks
 ---
 

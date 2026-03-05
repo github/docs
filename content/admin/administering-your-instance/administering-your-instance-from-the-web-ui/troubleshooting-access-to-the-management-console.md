@@ -7,11 +7,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Authentication
-  - SSH
-  - Troubleshooting
 ---
 
 ## About problems with {% data variables.enterprise.management_console %} access

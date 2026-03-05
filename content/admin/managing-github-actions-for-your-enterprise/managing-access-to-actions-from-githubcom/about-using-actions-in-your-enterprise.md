@@ -10,9 +10,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: overview
-topics:
-  - Actions
-  - Enterprise
 shortTitle: About actions in your enterprise
 ---
 

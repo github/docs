@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: reference
-topics:
-  - Codespaces
 shortTitle: Personalization
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-dotfiles-for-codespaces

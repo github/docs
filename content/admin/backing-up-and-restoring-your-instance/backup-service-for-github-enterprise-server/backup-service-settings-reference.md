@@ -5,8 +5,6 @@ intro: 'Reference for all configurable options available in the Backup Service s
 versions:
   ghes: '>= 3.17'
 type: reference
-topics:
-  - Backups
 ---
 
 You can configure the following options in the "Backup Service" section of the {% data variables.enterprise.management_console %}.

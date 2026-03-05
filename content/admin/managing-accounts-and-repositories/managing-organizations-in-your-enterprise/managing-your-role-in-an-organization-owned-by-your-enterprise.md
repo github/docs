@@ -8,10 +8,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
-topics:
-  - Administrator
-  - Enterprise
-  - Organizations
 shortTitle: Manage your organization roles
 ---
 

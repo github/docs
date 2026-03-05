@@ -10,10 +10,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - High availability
-  - Infrastructure
 shortTitle: Recover a HA configuration
 ---
 

@@ -8,5 +8,6 @@ versions:
   ghec: '*'
 children:
     - /slack
+    - /teams
 contentType: reference
 ---

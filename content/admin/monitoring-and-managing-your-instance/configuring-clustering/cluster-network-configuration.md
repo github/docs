@@ -11,11 +11,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: reference
-topics:
-  - Clustering
-  - Enterprise
-  - Infrastructure
-  - Networking
 shortTitle: Configure a cluster network
 ---
 

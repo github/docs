@@ -6,8 +6,6 @@ versions:
 permissions: 'Enterprise owners can enable {% data variables.product.prodname_server_statistics %}.'
 redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/about-server-statistics
-topics:
-  - Enterprise
 ---
 
 ## About the benefits of {% data variables.product.prodname_server_statistics %}

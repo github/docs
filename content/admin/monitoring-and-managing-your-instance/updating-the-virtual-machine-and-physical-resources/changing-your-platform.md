@@ -3,10 +3,6 @@ title: Changing your platform
 shortTitle: Changing platform
 intro: 'How to change the platform that runs {% data variables.location.product_location %}'
 type: how_to
-topics:
-  - Infrastructure
-  - Migration
-  - Enterprise
 versions:
   ghes: '*'
 ---

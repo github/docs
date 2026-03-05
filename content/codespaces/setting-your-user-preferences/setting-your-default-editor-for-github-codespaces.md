@@ -9,8 +9,6 @@ redirect_from:
   - /codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces
   - /codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces
   - /codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces
-topics:
-  - Codespaces
 type: how_to
 ---
 

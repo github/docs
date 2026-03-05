@@ -6,9 +6,6 @@ intro: 'You can manage the repositories that {% data variables.product.prodname_
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
-  - Security
 redirect_from:
   - /codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces
   - /codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces

@@ -5,8 +5,6 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Pages
 shortTitle: Verify a custom domain
 category:
   - Managing a GitHub Pages site

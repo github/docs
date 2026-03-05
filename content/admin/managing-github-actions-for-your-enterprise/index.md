@@ -8,8 +8,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /getting-started-with-github-actions-for-your-enterprise
   - /enabling-github-actions-for-github-enterprise-server

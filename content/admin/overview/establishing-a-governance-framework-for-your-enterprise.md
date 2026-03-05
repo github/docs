@@ -7,9 +7,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: overview
-topics:
-  - Enterprise
-  - Fundamentals
 ---
 
 As an enterprise owner, you are responsible for maintaining a strong security posture, complying with regulations, mitigating risks, and protecting intellectual property, within your enterprise. {% data variables.product.company_short %} has tools that can help with that.

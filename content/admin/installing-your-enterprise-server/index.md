@@ -14,10 +14,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Set up
 children:
   - /setting-up-a-github-enterprise-server-instance
 ---

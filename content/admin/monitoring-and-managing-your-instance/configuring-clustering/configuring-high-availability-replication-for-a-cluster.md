@@ -8,11 +8,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Clustering
-  - Enterprise
-  - High availability
-  - Infrastructure
 shortTitle: Configure HA replication
 ---
 

@@ -5,8 +5,6 @@ intro: You can change your shell in a codespace to keep the setup you're used to
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
 type: how_to
 ---
 

@@ -6,9 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Codespaces
-  - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/getting-started-with-github-codespaces-for-machine-learning
 ---

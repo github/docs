@@ -6,12 +6,6 @@ permissions: Enterprise owners can configure IP allow lists.
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Access management
-  - Enterprise
-  - Fundamentals
-  - Networking
-  - Security
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise

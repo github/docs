@@ -11,8 +11,6 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance
 versions:
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /about-monitoring-your-instance
   - /about-the-monitor-dashboards

@@ -6,8 +6,6 @@ permissions: 'People with access to the {% data variables.enterprise.management_
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
 redirect_from:
   - /admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps
 ---

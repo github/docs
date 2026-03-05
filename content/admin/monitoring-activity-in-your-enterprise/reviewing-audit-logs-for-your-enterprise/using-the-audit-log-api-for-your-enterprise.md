@@ -7,11 +7,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: tutorial
-topics:
-  - Auditing
-  - Enterprise
-  - Logging
-  - API
 ---
 
 >[!NOTE] {% data reusables.webhooks.webhooks-as-audit-log-alternative %}

@@ -4,9 +4,6 @@ intro: 'Simplify administration of user access, licensing, and communication wit
 versions:
   feature: enterprise-teams
 shortTitle: Teams
-topics:
-  - Enterprise
-  - Fundamentals
 redirect_from:
   - /admin/overview/about-teams
 contentType: concepts

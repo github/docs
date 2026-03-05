@@ -5,11 +5,6 @@ intro: 'Enable and configure the built-in backup service in the {% data variable
 versions:
   ghes: '>=3.17'
 type: how_to
-topics:
-  - Backups
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
 ---
 
 Before configuring the backup service, ensure you have:

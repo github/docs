@@ -5,11 +5,6 @@ intro: 'Learn what the built-in backup service offers and how it differs from a 
 versions:
   ghes: '>=3.17'
 type: overview
-topics:
-  - Backups
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
 ---
 
 {% ifversion ghes < 3.20 %}

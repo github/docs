@@ -10,10 +10,6 @@ redirect_from:
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Administrator
-  - Enterprise
-  - Organizations
 shortTitle: Add organizations
 permissions: Enterprise owners
 ---
