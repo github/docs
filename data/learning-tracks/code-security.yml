@@ -15,7 +15,7 @@ security_advisories:
     - >-
       /code-security/tutorials/fix-reported-vulnerabilities/write-security-advisories
     - >-
-      /code-security/how-tos/report-and-fix-vulnerabilities/report-a-vulnerability/privately-reporting-a-security-vulnerability
+      /code-security/how-tos/report-and-fix-vulnerabilities/privately-reporting-a-security-vulnerability
     - >-
       /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/managing-privately-reported-security-vulnerabilities
     - >-
