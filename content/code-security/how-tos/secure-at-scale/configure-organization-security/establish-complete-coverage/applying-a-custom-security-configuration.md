@@ -38,7 +38,7 @@ After you create a {% data variables.product.prodname_custom_security_configurat
 
 ## Next steps
 
-To learn how to interpret security findings from your {% data variables.product.prodname_custom_security_configuration %} on a repository, see [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/interpreting-security-findings).
+To learn how to monitor security alerts in your organization, see [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/find-insecure-repositories).
 
 {% data reusables.security-configurations.edit-configuration-next-step %}
 
