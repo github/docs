@@ -9,7 +9,7 @@ For code reviews, follow guidelines, tests, and validate instructions. For creat
 ## Guidelines
 
 - If available, use ripgrep (`rg`) instead of `grep`.
-- When using gh cli, always _escape backticks_.
+- When using gh cli in double-quoted strings, escape backticks to prevent bash command substitution. In single-quoted strings, backticks do not need escaping.
 - All scripts should be listed in `package.json` and use `tsx`.
 - Whenever you create or comment on an issue or pull request, indicate you are GitHub Copilot.
 - Be careful fetching full HTML pages off the internet. Prefer to use MCP or gh cli whenever possible for github.com. Limit the number of tokens when grabbing HTML.
@@ -17,6 +17,8 @@ For code reviews, follow guidelines, tests, and validate instructions. For creat
 - All new code should be written in TypeScript and not JavaScript.
 - We use absolute imports, relative to the `src` directory, using the `@` symbol. For example, `getRedirect` which lives in `src/redirects/lib/get-redirect.ts` can be imported with `import getRedirect from '@/redirects/lib/get-redirect'`. The same rule applies for TypeScript (`.ts`) imports, e.g. `import type { GeneralSearchHit } from '@/search/types'`
 - For updates to the content linter, read important information in `src/content-linter/README.md`.
+- Do not commit to `main` branch.
+- Do not use git force push, and avoid git rebase.
 
 ## Tests
 

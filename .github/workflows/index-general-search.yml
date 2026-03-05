@@ -285,7 +285,7 @@ jobs:
           } >> "$GITHUB_OUTPUT"
 
       - name: Send consolidated Slack notification
-        if: ${{ steps.check-artifacts.outputs.has_artifacts == 'true' }}
+        if: ${{ steps.check-artifacts.outputs.has_artifacts == 'true' && fromJSON(steps.aggregate.outputs.result).hasFailures }}
         uses: ./.github/actions/slack-alert
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
