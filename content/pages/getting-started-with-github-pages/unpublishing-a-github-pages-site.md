@@ -14,8 +14,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pages
 shortTitle: Unpublish Pages site
 category:
   - Managing a GitHub Pages site

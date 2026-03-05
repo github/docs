@@ -8,8 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Pages
 shortTitle: Secure site with HTTPS
 category:
   - Set up a GitHub Pages site

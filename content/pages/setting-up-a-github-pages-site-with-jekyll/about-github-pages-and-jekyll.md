@@ -23,8 +23,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pages
 shortTitle: GitHub Pages & Jekyll
 category:
   - Learn about GitHub Pages
