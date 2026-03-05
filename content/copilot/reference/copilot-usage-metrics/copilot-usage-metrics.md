@@ -91,6 +91,10 @@ These fields appear in the exported NDJSON reports and in the {% data variables.
 | `last_known_ide_version` / `last_known_plugin_version` | The most recent IDE and {% data variables.copilot.copilot_chat_short %} extension version detected for each user. |
 | `daily_active_cli_users` | Number of unique users in the enterprise who used {% data variables.product.prodname_copilot_short %} via the CLI on a given day. This field is **independent** of IDE active user counts and is **not** included in IDE-based active user definitions. Omitted for enterprises with no CLI usage on that day. |
 | `totals_by_cli` | Breakdown of CLI-specific metrics for the enterprise on a given day. Independent of IDE metrics—CLI usage is **not** reflected in other fields such as `totals_by_ide` or `totals_by_feature`. Omitted for enterprises with no CLI usage on that day. See [{% data variables.copilot.copilot_cli_short %} metrics fields](#copilot-cli-metrics-fields-api-only) below. |
+| `used_cli` | Captures whether the user has used {% data variables.copilot.copilot_cli_short %} that day. |
+| `used_agent` | Captures whether the user has used IDE agent mode that day. |
+| `used_chat` | Captures whether the user has used IDE chat that day. |
+
 
 ### {% data variables.copilot.copilot_cli_short %} metrics fields (API only)
 
@@ -103,6 +107,8 @@ The `totals_by_cli` object contains the following nested fields when CLI usage i
 | `totals_by_cli.token_usage.output_tokens_sum` | Total number of output tokens generated across all CLI requests on this day. |
 | `totals_by_cli.token_usage.prompt_tokens_sum` | Total number of prompt tokens sent across all CLI requests on this day. |
 | `totals_by_cli.token_usage.avg_tokens_per_request` | Average number of **output** and **prompt** tokens per CLI request, computed as `(output_tokens_sum + prompt_tokens_sum) ÷ request_count`.|
+| `totals_by_cli.prompt_count` | Total number of user prompts, commands, or queries executed within a session. |
+| `totals_by_cli.last_known_cli_version` | Most recent Copilot CLI version detected for the user that day. |
 
 ### Pull request activity fields (API only)
 
