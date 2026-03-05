@@ -25,6 +25,7 @@ Currently, {% data variables.copilot.copilot_coding_agent %} supports integratio
 * **Slack**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-slack) - Learn how to set up the Slack integration to trigger {% data variables.copilot.copilot_coding_agent %} directly from your Slack workspace.
 * **Linear**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-linear) - Learn how to set up the Linear integration to trigger {% data variables.copilot.copilot_coding_agent %} directly from your Linear issues.
 * **Azure Boards**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-azure-boards) - Learn how to set up the Azure Boards integration to trigger {% data variables.copilot.copilot_coding_agent %} directly from your Azure Boards work items.
+* **Jira**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-jira) - Learn how to set up the Jira integration to trigger {% data variables.copilot.copilot_coding_agent %} directly from your Jira workspace.
 
 ## Benefits of integrations
 
