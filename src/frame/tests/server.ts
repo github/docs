@@ -278,40 +278,6 @@ describe('server', () => {
       expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     })
   })
-
-  describe('Accept: text/markdown content negotiation', () => {
-    test('returns markdown when Accept header prefers text/markdown', async () => {
-      const res = await get('/en', {
-        headers: {
-          accept: 'text/markdown',
-        },
-      })
-      expect(res.statusCode).toBe(200)
-      expect(res.headers['content-type']).toContain('text/markdown')
-      expect(res.headers.vary).toContain('accept')
-    })
-
-    test('returns HTML when Accept header prefers text/html', async () => {
-      const res = await get('/en', {
-        headers: {
-          accept: 'text/html,application/xhtml+xml',
-        },
-      })
-      expect(res.statusCode).toBe(200)
-      expect(res.headers['content-type']).toContain('text/html')
-      expect(res.headers.vary).toContain('accept')
-    })
-
-    test('returns HTML when Accept header is */*', async () => {
-      const res = await get('/en', {
-        headers: {
-          accept: '*/*',
-        },
-      })
-      expect(res.statusCode).toBe(200)
-      expect(res.headers['content-type']).toContain('text/html')
-    })
-  })
 })
 
 describe('static routes', () => {

@@ -2,7 +2,7 @@ name: 'Link Check: External'
 
 on:
   schedule:
-    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST — link & content quality theme
   workflow_dispatch:
     inputs:
       max_urls:
@@ -82,8 +82,3 @@ jobs:
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-
-      - uses: ./.github/actions/create-workflow-failure-issue
-        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
-        with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

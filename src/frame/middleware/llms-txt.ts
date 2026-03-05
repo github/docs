@@ -53,17 +53,13 @@ function generateBasicLlmsTxt(): string {
 
 > Help for wherever you are on your GitHub journey.
 
-## How to Use
+## Docs Content
 
-To find a specific article, use the **Search API** with a query. To browse all available pages, use the **Page List API** to get a list of paths, then fetch individual articles with the **Article API**. The \`/api/article/body\` endpoint returns clean markdown, ideal for LLM consumption.
-
-## APIs
-
-- [Page List API](${BASE_API_URL}/en/free-pro-team@latest): Returns all article paths for a given version. Use this to discover what content is available.
-- [Article API](https://docs.github.com/api/article): Fetches a single article as JSON (metadata and markdown body). Use \`/api/article/body\` for markdown only. Example: \`/api/article/body?pathname=/en/get-started/start-your-journey/about-github-and-git\`
-- [Search API](https://docs.github.com/api/search/v1): Full-text search across all articles. Returns matching pages with context. Example: \`/api/search/v1?query=actions&language=en&version=free-pro-team@latest&client_name=curl\`
-- [Versions API](${BASE_API_URL}/versions): Lists all available documentation versions.
-- [Languages API](${BASE_API_URL}/languages): Lists all available languages.
+- [Page List API](${BASE_API_URL}/en/free-pro-team@latest)
+- [Versions API](${BASE_API_URL}/versions): \`curl "https://docs.github.com/api/pagelist/versions"\`
+- [Languages API](${BASE_API_URL}/languages): \`curl "https://docs.github.com/api/pagelist/languages"\`
+- [Article API](https://docs.github.com/api/article): \`curl "https://docs.github.com/api/article?pathname=/en/get-started/start-your-journey/about-github-and-git"\`
+- [Search API](https://docs.github.com/api/search): \`curl "https://docs.github.com/api/search?query=actions&language=en&version=free-pro-team@latest"\`
 
 ## Translations
 

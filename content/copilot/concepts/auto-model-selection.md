@@ -62,6 +62,8 @@ During the {% data variables.release-phases.public_preview %}, if you're using a
 
 ## {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} in {% data variables.copilot.copilot_coding_agent %}
 
+> [!NOTE] {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} for {% data variables.copilot.copilot_coding_agent %} is generally available and currently only available for {% data variables.copilot.copilot_pro %} and {% data variables.copilot.copilot_pro_plus %} plans.
+
 When you select **Auto** in {% data variables.copilot.copilot_coding_agent %}, {% data variables.copilot.copilot_auto_model_selection_short_cap_a %} currently chooses from the following list of models, subject to your policies and subscription type:
   {% data reusables.copilot.copilot-coding-agent-auto-models %}
 

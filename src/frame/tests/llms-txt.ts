@@ -20,17 +20,6 @@ describe('llms.txt endpoint', () => {
     expect(content).toMatch(/^# .*GitHub.*Docs/m)
   })
 
-  test('includes how to use guidance', async () => {
-    const res = await get('/llms.txt')
-    const content = res.body
-
-    // Should explain the workflow for LLMs
-    expect(content).toMatch(/Search API/)
-    expect(content).toMatch(/Page List API/)
-    expect(content).toMatch(/Article API/)
-    expect(content).toMatch(/markdown/i)
-  })
-
   test('includes programmatic access section', async () => {
     const res = await get('/llms.txt')
     const content = res.body
@@ -38,7 +27,6 @@ describe('llms.txt endpoint', () => {
     // Should mention the existing APIs
     expect(content).toMatch(/Article API/i)
     expect(content).toMatch(/Page List API/i)
-    expect(content).toMatch(/Search API/i)
     expect(content).toMatch(/api\/article/i)
     expect(content).toMatch(/api\/pagelist\/en\/free-pro-team@latest/i)
   })
@@ -48,8 +36,7 @@ describe('llms.txt endpoint', () => {
     const content = res.body
 
     // Should have all the main sections we expect
-    expect(content).toMatch(/## How to Use/i)
-    expect(content).toMatch(/## APIs/i)
+    expect(content).toMatch(/## Docs Content/i)
     expect(content).toMatch(/## Translations/i)
     expect(content).toMatch(/## Versions/i)
   })
@@ -88,6 +75,7 @@ describe('llms.txt endpoint', () => {
 
     // Should prominently feature the pagelist API as the main content source
     expect(content).toMatch(/Page List API.*api\/pagelist\/en\/free-pro-team@latest/i)
+    expect(content).not.toMatch(/Machine-readable list/i) // Removed descriptions
   })
 
   test.each(['free-pro-team@latest', 'enterprise-cloud@latest'])(
@@ -112,7 +100,7 @@ describe('llms.txt endpoint', () => {
     expect(content).toMatch(/api\/pagelist\/en\/enterprise-server@\d+\.\d+/)
   })
 
-  test('follows llms.txt specification structure', async () => {
+  test('follows llms.txt specification structure and has reasonable length', async () => {
     const res = await get('/llms.txt')
     const content = res.body
 
@@ -128,6 +116,10 @@ describe('llms.txt endpoint', () => {
     // Check for markdown links
     expect(content).toMatch(/\[.+\]\(.+\)/m)
 
+    // Should include translations and versions but still be reasonable
+    expect(content.length).toBeGreaterThan(500)
+    expect(content.length).toBeLessThan(5000)
+
     // Split into lines for structure analysis
     const lines = content.split('\n')
 
@@ -139,8 +131,8 @@ describe('llms.txt endpoint', () => {
     const hasBlockquote = lines.some((line: string) => line.trim().startsWith('>'))
     expect(hasBlockquote).toBe(true)
 
-    // Should have multiple H2 sections (How to Use, APIs, Translations, Versions)
+    // Should have multiple H2 sections (Docs Content, Translations, Versions)
     const h2Sections = lines.filter((line: string) => line.trim().startsWith('## '))
-    expect(h2Sections.length).toBeGreaterThanOrEqual(4)
+    expect(h2Sections.length).toBeGreaterThanOrEqual(3)
   })
 })

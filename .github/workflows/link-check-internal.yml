@@ -2,7 +2,7 @@ name: 'Link Check: Internal'
 
 on:
   schedule:
-    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST — link & content quality theme
   workflow_dispatch:
     inputs:
       version:
@@ -53,11 +53,6 @@ jobs:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
 
-      - uses: ./.github/actions/create-workflow-failure-issue
-        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
-        with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
-
   check-internal-links:
     if: github.repository == 'github/docs-internal'
     needs: setup-matrix
@@ -107,18 +102,12 @@ jobs:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
 
-      - uses: ./.github/actions/create-workflow-failure-issue
-        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
-        with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
-
   # Create combined report after all matrix jobs complete
   create-report:
     if: always() && github.repository == 'github/docs-internal'
     needs: [setup-matrix, check-internal-links]
     runs-on: ubuntu-latest
     permissions:
-      contents: read
       issues: write
     steps:
       - name: Checkout
@@ -173,8 +162,3 @@ jobs:
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-
-      - uses: ./.github/actions/create-workflow-failure-issue
-        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
-        with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

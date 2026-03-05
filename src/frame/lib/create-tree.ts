@@ -40,18 +40,14 @@ export default async function createTree(
       }
       // Throw an error if we can't find a content file associated with the children: entry.
       // But don't throw an error if the user is running the site locally and hasn't cloned the Early Access repo.
-      // Also don't throw for missing children *within* early-access content — a broken
-      // early-access article should not block every docs-internal PR from merging.
-      const msg = `Cannot find a content file at ${originalPath}. Check the 'children' frontmatter in the parent index.md.`
-
-      if (
-        originalPath === 'content/early-access' ||
-        originalPath.startsWith('content/early-access/')
-      ) {
-        console.warn(`Warning: ${msg}`)
+      if (originalPath === 'content/early-access') {
         return
       }
-      throw new Error(msg)
+      throw new Error(
+        `Cannot find a content file at ${originalPath}. Fix the children frontmatter entry "/${path.basename(
+          originalPath,
+        )}" in ${path.dirname(originalPath)}/index.md.\n`,
+      )
     }
   }
 

@@ -16,9 +16,8 @@ import type { Context, Page } from '@/types'
 // Link patterns for Markdown
 const INTERNAL_LINK_PATTERN = /\]\(\/[^)]+\)/g
 const AUTOTITLE_LINK_PATTERN = /\[AUTOTITLE\]\(([^)]+)\)/g
-// Handles one level of balanced parentheses in URLs (e.g., Wikipedia links).
-// Uses an unrolled loop to avoid catastrophic backtracking on malformed URLs.
-const EXTERNAL_LINK_PATTERN = /\]\((https?:\/\/[^()\s]*(?:\([^()]*\)[^()\s]*)*)\)/g
+// Handles one level of balanced parentheses in URLs (e.g., Wikipedia links)
+const EXTERNAL_LINK_PATTERN = /\]\((https?:\/\/(?:[^()\s]+|\([^()]*\))*)\)/g
 const IMAGE_LINK_PATTERN = /!\[[^\]]*\]\(([^)]+)\)/g
 
 // Anchor link patterns (for same-page links)
