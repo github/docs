@@ -42,6 +42,7 @@ carousels:
 includedCategories:
   - Set up your account on GitHub
   - Explore GitHub plans and features
+  - Set up Git
   - Work with Git
   - Explore and contribute
   - Write and format content

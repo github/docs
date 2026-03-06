@@ -6,7 +6,7 @@ versions:
   ghec: '*'
 shortTitle: Allow network access
 category:
-  - Customize your experience
+  - Set up your account on GitHub
 ---
 
 ## About access to {% data variables.product.github %} from a restricted network

@@ -9,7 +9,7 @@ shortTitle: Docs versions
 redirect_from:
   - /get-started/learning-about-github/about-versions-of-github-docs
 category:
-  - Customize your experience
+  - Explore GitHub plans and features
 ---
 
 ## About versions of {% data variables.product.prodname_docs %}

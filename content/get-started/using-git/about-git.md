@@ -7,7 +7,7 @@ versions:
   ghec: '*'
 type: overview
 category:
-  - Explore GitHub plans and features
+  - Set up Git
 ---
 
 ## About version control and Git

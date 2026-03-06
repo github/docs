@@ -20,7 +20,7 @@ versions:
   ghes: '*'
   ghec: '*'
 category:
-  - Set up your account on GitHub
+  - Set up Git
 ---
 ## Using Git
 

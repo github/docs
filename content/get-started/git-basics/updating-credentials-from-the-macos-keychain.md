@@ -14,7 +14,7 @@ versions:
   ghec: '*'
 shortTitle: macOS Keychain credentials
 category:
-  - Set up your account on GitHub
+  - Set up Git
 ---
 
 > [!NOTE]

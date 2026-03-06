@@ -12,7 +12,7 @@ versions:
   ghes: '*'
   ghec: '*'
 category:
-  - Customize your experience
+  - Set up your account on GitHub
 ---
 
 ## About web browser support

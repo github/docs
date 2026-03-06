@@ -13,7 +13,7 @@ versions:
   ghec: '*'
 shortTitle: Set your username
 category:
-  - Set up your account on GitHub
+  - Set up Git
 ---
 ## About Git usernames
 

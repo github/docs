@@ -10,7 +10,7 @@ type: overview
 redirect_from:
   - /get-started/quickstart/about-github-and-git
 category:
-  - Explore GitHub plans and features
+  - Set up your account on GitHub
 ---
 
 ## About {% data variables.product.github %}

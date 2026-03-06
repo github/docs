@@ -16,7 +16,7 @@ authors:
   - GitHub
 shortTitle: Learning resources
 category:
-  - Explore GitHub plans and features
+  - Set up your account on GitHub
 ---
 
 ## Using {% data variables.product.github %}

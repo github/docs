@@ -6,7 +6,7 @@ versions:
   ghec: '*'
   ghes: '*'
 category:
-  - Customize your experience
+  - Set up your account on GitHub
 ---
 
 ## Introduction
