@@ -15,9 +15,7 @@ redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning
 ---
 
-## About enabling delegated alert dismissal
-
-{% data reusables.security.delegated-alert-dismissal-intro %}
+{% data reusables.security.delegated-alert-dismissal-capacity %}
 
 ## Configuring delegated dismissal for a repository
 
