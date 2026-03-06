@@ -91,6 +91,7 @@ jobs:
           fi
 
       - name: Run content pipeline update script
+        id: update
         env:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -133,27 +134,48 @@ jobs:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           UPDATE_BRANCH: ${{ steps.branch.outputs.update_branch }}
           PIPELINE_ID: ${{ matrix.id }}
+          COMPARE_URL: ${{ steps.update.outputs.compare_url }}
+          SHORT_RANGE: ${{ steps.update.outputs.short_range }}
         run: |
           PR_NUMBER="${{ steps.check-pr.outputs.pr_number }}"
           PR_TITLE="docs: update ${PIPELINE_ID} content from source docs"
-
-          PR_BODY="_GitHub Copilot generated this pull request._"$'\n\n'
-          PR_BODY+="> [!NOTE]"$'\n'
-          PR_BODY+="> This PR is **automatically generated** by the [content pipeline update workflow](${{ github.server_url }}/${{ github.repository }}/actions/workflows/content-pipelines.yml). Each run adds a new commit with any documentation changes detected."$'\n\n'
-          PR_BODY+="## What this does"$'\n\n'
-          PR_BODY+="Runs the \`content-pipeline-update\` agent (${PIPELINE_ID}) against the latest source docs and updates official articles under \`content/\` that have fallen out of sync."$'\n\n'
-          PR_BODY+="## Review"$'\n\n'
-          PR_BODY+="* Review each commit for accuracy — the agent uses AI, so spot-check important changes"$'\n'
-          PR_BODY+="* To adjust agent behavior, see [Modifying results](${{ github.server_url }}/${{ github.repository }}/blob/main/src/content-pipelines/README.md#modifying-results)"$'\n'
-          PR_BODY+="* Once satisfied, merge to keep docs up to date"$'\n'
-          PR_BODY+="* A new PR will be created on the next run if there are further changes"
+          NEW_ITEM="* [\`${SHORT_RANGE}\`](${COMPARE_URL})"
 
           if [ -n "$PR_NUMBER" ]; then
-            echo "PR #$PR_NUMBER already exists — new commit pushed"
+            echo "PR #$PR_NUMBER already exists — appending source changes to body"
+
+            EXISTING_BODY=$(gh pr view "$PR_NUMBER" --json body --jq '.body')
+
+            # Append a new bullet before the SOURCE_CHANGES end marker
+            # Uses bash parameter expansion for safe literal string replacement
+            MARKER="<!-- /SOURCE_CHANGES -->"
+            INSERTION="${NEW_ITEM}"$'\n'
+            INSERTION+="${MARKER}"
+            UPDATED_BODY="${EXISTING_BODY/$MARKER/$INSERTION}"
+
+            gh pr edit "$PR_NUMBER" --body "$UPDATED_BODY"
+
             echo "Ensuring PR #$PR_NUMBER is marked ready for review"
             gh pr ready "$PR_NUMBER" || echo "Unable to mark PR #$PR_NUMBER as ready (it may already be ready)"
           else
             echo "Creating new PR"
+
+            PR_BODY="_GitHub Copilot generated this pull request._"$'\n\n'
+            PR_BODY+="> [!NOTE]"$'\n'
+            PR_BODY+="> This PR is **automatically generated** by the [content pipeline update workflow](${{ github.server_url }}/${{ github.repository }}/actions/workflows/content-pipelines.yml). Each run adds a new commit with any documentation changes detected."$'\n\n'
+            PR_BODY+="## What this does"$'\n\n'
+            PR_BODY+="Runs the \`content-pipeline-update\` agent (${PIPELINE_ID}) against the latest source docs and updates official articles under \`content/\` that have fallen out of sync."$'\n\n'
+            PR_BODY+="## Source changes"$'\n\n'
+            PR_BODY+="Changes in the source repo that triggered this update:"$'\n\n'
+            PR_BODY+="<!-- SOURCE_CHANGES -->"$'\n'
+            PR_BODY+="${NEW_ITEM}"$'\n'
+            PR_BODY+="<!-- /SOURCE_CHANGES -->"$'\n\n'
+            PR_BODY+="## Review"$'\n\n'
+            PR_BODY+="* Review each commit for accuracy — the agent uses AI, so spot-check important changes"$'\n'
+            PR_BODY+="* To adjust agent behavior, see [Modifying results](${{ github.server_url }}/${{ github.repository }}/blob/main/src/content-pipelines/README.md#modifying-results)"$'\n'
+            PR_BODY+="* Once satisfied, merge to keep docs up to date"$'\n'
+            PR_BODY+="* A new PR will be created on the next run if there are further changes"
+
             gh pr create \
               --title "$PR_TITLE" \
               --body "$PR_BODY" \
