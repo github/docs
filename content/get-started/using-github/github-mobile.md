@@ -10,6 +10,8 @@ redirect_from:
   - /get-started/using-github/github-for-mobile
   - /github/getting-started-with-github/github-for-mobile
   - /github/getting-started-with-github/using-github/github-for-mobile
+category:
+  - Customize your experience
 ---
 
 ## About {% data variables.product.prodname_mobile %}

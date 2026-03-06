@@ -4,6 +4,8 @@ intro: 'Set up the products available in your {% data variables.product.prodname
 versions:
   fpt: '*'
   ghec: '*'
+category:
+  - Set up your account on GitHub
 ---
 
 This guide will walk you through setting up the products in your {% data variables.product.prodname_ghe_cloud %} trial, and provide you with the resources you need to get the most out of the trial.

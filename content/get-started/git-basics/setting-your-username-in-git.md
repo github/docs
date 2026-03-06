@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Set your username
+category:
+  - Set up your account on GitHub
 ---
 ## About Git usernames
 

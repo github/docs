@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Allow network access
+category:
+  - Customize your experience
 ---
 
 ## About access to {% data variables.product.github %} from a restricted network

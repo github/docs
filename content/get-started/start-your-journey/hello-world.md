@@ -8,6 +8,8 @@ versions:
 type: quick_start
 redirect_from:
   - /get-started/quickstart/hello-world
+category:
+  - Explore and contribute
 ---
 
 ## Introduction

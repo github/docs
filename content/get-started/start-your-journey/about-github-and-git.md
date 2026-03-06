@@ -9,6 +9,8 @@ versions:
 type: overview
 redirect_from:
   - /get-started/quickstart/about-github-and-git
+category:
+  - Explore GitHub plans and features
 ---
 
 ## About {% data variables.product.github %}

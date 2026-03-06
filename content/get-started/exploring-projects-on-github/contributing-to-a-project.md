@@ -9,6 +9,8 @@ versions:
   ghec: '*'
 redirect_from:
   - /get-started/quickstart/contributing-to-projects
+category:
+  - Explore and contribute
 ---
 
 Contributing to a project on {% data variables.product.github %} is an essential skill for developers and collaborators working together to achieve shared goals. Whether you're fixing bugs, adding features, or improving documentation, the process of contributing ensures structured and efficient collaboration.

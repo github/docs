@@ -15,6 +15,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Associate text editors
+category:
+  - Set up your account on GitHub
 ---
 
 ## Using {% data variables.product.prodname_vscode %} as your editor

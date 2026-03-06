@@ -14,6 +14,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Caching credentials
+category:
+  - Set up your account on GitHub
 ---
 
 > [!TIP]

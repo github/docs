@@ -15,6 +15,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Handle line endings
+category:
+  - Work with Git
 ---
 ## About line endings
 

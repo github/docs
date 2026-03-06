@@ -13,6 +13,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Customize your experience
 ---
 ## About keyboard shortcuts
 

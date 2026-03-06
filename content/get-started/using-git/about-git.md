@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
+category:
+  - Explore GitHub plans and features
 ---
 
 ## About version control and Git

@@ -15,6 +15,8 @@ versions:
 authors:
   - GitHub
 shortTitle: Learning resources
+category:
+  - Explore GitHub plans and features
 ---
 
 ## Using {% data variables.product.github %}
