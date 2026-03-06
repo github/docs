@@ -21,6 +21,5 @@ children:
   - /customizing-analysis-with-codeql-packs
   - /creating-codeql-query-suites
   - /creating-and-working-with-codeql-packs
-  - /publishing-and-using-codeql-packs
 ---
 

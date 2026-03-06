@@ -1,9 +1,14 @@
 ---
-title: About custom organization roles
+title: Permissions of custom organization roles
 intro: "You can control access to your {% ifversion org-custom-role-with-repo-permissions %}organization's settings and repositories{% else %}organization's settings{% endif %} with custom organization roles."
+redirect_from:
+  - /organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles
 versions:
   feature: 'custom-org-roles'
-shortTitle: Custom organization roles
+topics:
+  - Organizations
+shortTitle: Custom roles permissions
+
 product: 'Organizations on {% data variables.product.prodname_ghe_cloud %}{% ifversion ghes %} and {% data variables.product.prodname_ghe_server %}{% endif %}'
 ---
 
@@ -12,6 +17,8 @@ product: 'Organizations on {% data variables.product.prodname_ghe_cloud %}{% ifv
 You can create and assign custom organization roles in your organization's settings. You can also manage custom roles using the REST API. See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-organization-roles).
 
 {% ifversion org-custom-role-with-repo-permissions %}
+
+## Combining organization and repository permissions
 
 You can also create a custom organization role that includes permissions for repositories. Repository permissions grant access to all current and future repositories in the organization.
 
