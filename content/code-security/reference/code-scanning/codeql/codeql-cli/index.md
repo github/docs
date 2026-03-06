@@ -14,6 +14,7 @@ topics:
 children:
   - /sarif-output
   - /csv-output
+  - /codeql-query-packs
   - /extractor-options
   - /exit-codes
 redirect_from:

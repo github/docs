@@ -1,6 +1,6 @@
 ---
 title: Queries for CodeQL analysis
-shortTitle: CodeQL queries
+shortTitle: Built-in CodeQL queries
 intro: Explore the CodeQL queries that code scanning uses to analyze code.
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
@@ -27,4 +27,3 @@ redirect_from:
   - /code-security/code-scanning/reference/code-ql-built-in-queries
 contentType: reference
 ---
-
