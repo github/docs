@@ -9,6 +9,8 @@ versions:
 type: tutorial
 redirect_from:
   - /get-started/quickstart/downloading-files-from-github
+category:
+  - Explore and contribute
 ---
 
 ## Introduction

@@ -10,6 +10,8 @@ redirect_from:
   - /github/getting-started-with-github/about-github-advanced-security
   - /github/getting-started-with-github/learning-about-github/about-github-advanced-security
 shortTitle: GitHub Advanced Security
+category:
+  - Explore GitHub plans and features
 ---
 
 ## About {% data variables.product.prodname_GHAS %} {% ifversion ghas-products %}products{% endif %}

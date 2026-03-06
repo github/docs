@@ -5,6 +5,8 @@ allowTitleToDifferFromFilename: true
 versions:
   feature: github-certification
 shortTitle: Registering for an exam
+category:
+  - Explore GitHub plans and features
 ---
 
 {% ifversion ghec %}

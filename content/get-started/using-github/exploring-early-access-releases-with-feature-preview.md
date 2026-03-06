@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Feature preview
+category:
+  - Customize your experience
 ---
 ## {% data variables.product.prodname_dotcom %}'s release cycle
 

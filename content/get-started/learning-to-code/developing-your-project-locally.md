@@ -4,6 +4,8 @@ intro: 'Learn how to create a local development environment by working with an e
 versions:
   fpt: '*'
 shortTitle: Local development
+category:
+  - Learn to code
 ---
 
 ## Overview

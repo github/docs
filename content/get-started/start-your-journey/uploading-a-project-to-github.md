@@ -9,6 +9,8 @@ versions:
 type: tutorial
 redirect_from:
   - /get-started/quickstart/uploading-a-project-to-github
+category:
+  - Explore and contribute
 ---
 
 ## Introduction

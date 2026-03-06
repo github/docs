@@ -4,6 +4,8 @@ intro: 'Earn a {% data variables.product.prodname_certifications_singular %} to 
 allowTitleToDifferFromFilename: true
 versions:
   feature: github-certification
+category:
+  - Explore GitHub plans and features
 ---
 
 {% ifversion ghec %}

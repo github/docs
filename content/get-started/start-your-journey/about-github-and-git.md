@@ -9,6 +9,8 @@ versions:
 type: overview
 redirect_from:
   - /get-started/quickstart/about-github-and-git
+category:
+  - Set up your account on GitHub
 ---
 
 ## About {% data variables.product.github %}
