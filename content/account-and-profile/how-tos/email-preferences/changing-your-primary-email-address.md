@@ -26,7 +26,10 @@ contentType: how-tos
 {% data reusables.user-settings.emails %}
 1. If you'd like to add a new email address to set as your primary email address, under "Add email address", type a new email address and click **Add**.
 1. Under "Primary email address", use the drop-down menu to click the email address you'd like to set as your primary email address, and click **Save**.
-1. To remove the old email address from your account, next to the old email, click {% octicon "trash" aria-label="The trash symbol" %}.
+> [!WARNING]
+> If you remove an email address that was used for previous commits, those commits may no longer be associated with your account and may stop appearing in your contribution graph. Before removing an email address, make sure your commits are linked to another verified email on your account.
+
+1. To remove the old email address from your account, next to the old email, click the trash icon.
 {% ifversion fpt or ghec %}
 1. Verify your new primary email address. Without a verified email address, you won't be able to use all of {% data variables.product.github %}'s features. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).
 {% endif %}
