@@ -13,8 +13,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Email notifications for pushes
 ---
 {% data reusables.notifications.outbound_email_tip %}

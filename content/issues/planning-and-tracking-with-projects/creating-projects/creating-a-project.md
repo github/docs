@@ -8,8 +8,6 @@ versions:
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/creating-a-project
 type: tutorial
-topics:
-  - Projects
 allowTitleToDifferFromFilename: true
 ---
 

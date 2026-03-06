@@ -7,8 +7,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: tutorial
-topics:
-  - Projects
 redirect_from:
   - /issues/planning-and-tracking-with-projects/understanding-field-types/about-single-select-fields
 ---

@@ -7,13 +7,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
-topics:
-  - Advanced Security
-  - Code scanning
-  - Enterprise
-  - Policies
-  - Secret scanning
-  - Security
 redirect_from:
   - /admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account

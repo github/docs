@@ -1,11 +1,11 @@
 import { describe, expect, test } from 'vitest'
-import cheerio from 'cheerio'
+import type { CheerioAPI } from 'cheerio'
 
 import { get, getDOMCached as getDOM } from '@/tests/helpers/e2etest'
 
 describe('guides', () => {
   test("page's title should be document title", async () => {
-    const $: cheerio.Root = await getDOM('/code-security/guides')
+    const $: CheerioAPI = await getDOM('/code-security/guides')
     // This is what you'd find in src/fixtures/fixtures/content/code-security/guides.md
     const title = 'Guides for cool security'
     expect($('title').text()).toMatch(title)
@@ -19,7 +19,7 @@ describe('guides', () => {
 
 describe('learning tracks', () => {
   test('start the first learning track and come back via the navigation banner', async () => {
-    const $: cheerio.Root = await getDOM('/code-security/guides')
+    const $: CheerioAPI = await getDOM('/code-security/guides')
     const links = $('[data-testid=learning-track] a')
     const link = links
       .filter((_: number, el: any) => $(el).text() === 'Start learning path')
@@ -28,7 +28,7 @@ describe('learning tracks', () => {
     expect(link.attr('href')).toMatch('learnProduct=code-security')
 
     // Go the first "Start learning path" link
-    const $2: cheerio.Root = await getDOM(link.attr('href')!)
+    const $2: CheerioAPI = await getDOM(link.attr('href')!)
     const card2 = $2('[data-testid=learning-track-card]')
     // The card has 2 links. One to go back to the guide page
     // whose title is the name of the learning track
@@ -57,7 +57,7 @@ describe('learning tracks', () => {
     expect(navNextLink.text()).toBe('Securing your organization')
 
     // Go to the next (last) page
-    const $3: cheerio.Root = await getDOM(nextLink.attr('href')!)
+    const $3: CheerioAPI = await getDOM(nextLink.attr('href')!)
     const card3 = $3('[data-testid=learning-track-card]')
     const span3 = card3.find('span').filter((_: number, el: any) => $(el).text().includes('2 of 2'))
     expect(span3.text()).toBe('2 of 2 in learning path')
@@ -82,15 +82,13 @@ describe('learning tracks', () => {
   test('with and without a valid ?learn= query string', async () => {
     // Valid
     {
-      const $: cheerio.Root = await getDOM(
-        '/code-security/getting-started/quickstart?learn=foo_bar',
-      )
+      const $: CheerioAPI = await getDOM('/code-security/getting-started/quickstart?learn=foo_bar')
       expect($('[data-testid=learning-track-card]').length).toBe(1)
       expect($('[data-testid=learning-track-nav]').length).toBe(1)
     }
     // Invalid
     {
-      const $: cheerio.Root = await getDOM(
+      const $: CheerioAPI = await getDOM(
         '/code-security/getting-started/quickstart?learn=blablainvalid',
       )
       expect($('[data-testid=learning-track-card]').length).toBe(0)
@@ -98,13 +96,13 @@ describe('learning tracks', () => {
     }
     // Empty
     {
-      const $: cheerio.Root = await getDOM('/code-security/getting-started/quickstart?learn=')
+      const $: CheerioAPI = await getDOM('/code-security/getting-started/quickstart?learn=')
       expect($('[data-testid=learning-track-card]').length).toBe(0)
       expect($('[data-testid=learning-track-nav]').length).toBe(0)
     }
     // Missing
     {
-      const $: cheerio.Root = await getDOM('/code-security/getting-started/quickstart')
+      const $: CheerioAPI = await getDOM('/code-security/getting-started/quickstart')
       expect($('[data-testid=learning-track-card]').length).toBe(0)
       expect($('[data-testid=learning-track-nav]').length).toBe(0)
     }

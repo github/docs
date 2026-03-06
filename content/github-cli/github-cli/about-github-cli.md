@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CLI
 type: overview
 redirect_from:
   - /github/getting-started-with-github/github-cli

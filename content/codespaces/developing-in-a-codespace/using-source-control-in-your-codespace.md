@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Codespaces
-  - Fundamentals
-  - Developer
 shortTitle: Source control
 redirect_from:
   - /codespaces/developing-in-codespaces/using-source-control-in-your-codespace

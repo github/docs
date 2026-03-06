@@ -28,8 +28,8 @@ Security campaigns are created and managed from the **Security** tab for your or
 
 You choose the alerts that you want to include in the campaign by using either:
 
- * **Campaign templates**: Campaign templates contain filters for the most common alert selections. {% ifversion security-campaigns-autofix %}For code campaigns, they also all include the requirement that {% data variables.copilot.copilot_autofix %} is supported for all the alert types included (that is, `autofix:supported`).{% endif %}
- * **Custom filters**: Creating a campaign using custom filters lets you define your own criteria for selecting alerts for the campaign, and lets you tailor your campaign to your organization's specific needs.
+* **Campaign templates**: Campaign templates contain filters for the most common alert selections. {% ifversion security-campaigns-autofix %}For code campaigns, they also all include the requirement that {% data variables.copilot.copilot_autofix %} is supported for all the alert types included (that is, `autofix:supported`).{% endif %}
+* **Custom filters**: Creating a campaign using custom filters lets you define your own criteria for selecting alerts for the campaign, and lets you tailor your campaign to your organization's specific needs.
 
 {% data reusables.code-scanning.campaigns-api %}
 

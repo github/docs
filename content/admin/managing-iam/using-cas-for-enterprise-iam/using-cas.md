@@ -13,12 +13,6 @@ intro: 'If you use Central Authentication Service (CAS) to centralize access to 
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - SSO
 ---
 
 ## About CAS authentication for {% data variables.product.prodname_ghe_server %}

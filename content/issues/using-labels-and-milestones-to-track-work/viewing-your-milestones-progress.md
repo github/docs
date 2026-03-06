@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: View progress to milestone
 ---
 {% data reusables.repositories.navigate-to-repo %}

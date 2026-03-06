@@ -3,8 +3,6 @@ title: Plans for GitHub Copilot
 intro: 'Learn about the available plans for {% data variables.product.prodname_copilot_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 shortTitle: Plans
 redirect_from:
   - /copilot/about-github-copilot/subscription-plans-for-github-copilot

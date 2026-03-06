@@ -8,10 +8,6 @@ versions:
 type: how_to
 redirect_from:
   - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-requests-for-copilot-business-from-organizations-in-your-enterprise
-topics:
-  - Administrator
-  - Enterprise
-  - Organizations
 shortTitle: Manage requests for Copilot
 ---
 

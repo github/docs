@@ -1085,6 +1085,30 @@
       }
     ]
   },
+  "org_copilot_content_exclusion": {
+    "title": "Copilot content exclusion",
+    "displayTitle": "Organization permissions for \"Copilot content exclusion\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "get-copilot-content-exclusion-rules-for-an-organization",
+        "subcategory": "copilot-content-exclusion-management",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/content_exclusion",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "set-copilot-content-exclusion-rules-for-an-organization",
+        "subcategory": "copilot-content-exclusion-management",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/copilot/content_exclusion",
+        "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
   "organization_custom_org_roles": {
     "title": "Custom organization roles",
     "displayTitle": "Organization permissions for \"Custom organization roles\"",
@@ -4921,33 +4945,6 @@
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/forks",
         "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "repos",
-        "slug": "closing-down---list-tag-protection-states-for-a-repository",
-        "subcategory": "tags",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/tags/protection",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "repos",
-        "slug": "closing-down---create-a-tag-protection-state-for-a-repository",
-        "subcategory": "tags",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/tags/protection",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "repos",
-        "slug": "closing-down---delete-a-tag-protection-state-for-a-repository",
-        "subcategory": "tags",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}",
-        "additional-permissions": false,
         "access": "write"
       },
       {

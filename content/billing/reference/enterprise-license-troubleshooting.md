@@ -4,10 +4,6 @@ intro: Troubleshoot license usage for your enterprise by understanding consumpti
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Licensing
 shortTitle: Enterprise license troubleshooting
 contentType: reference
 redirect_from:

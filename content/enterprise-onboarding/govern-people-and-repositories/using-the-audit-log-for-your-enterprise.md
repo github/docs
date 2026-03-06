@@ -4,8 +4,6 @@ intro: Use the audit log to monitor activity in your enterprise.
 versions:
   ghec: '*'
 type: overview
-topics:
-  - Enterprise
 shortTitle: Use the audit log
 redirect_from:
   - /enterprise-onboarding/feature-enhancements/about-the-audit-log-for-your-enterprise

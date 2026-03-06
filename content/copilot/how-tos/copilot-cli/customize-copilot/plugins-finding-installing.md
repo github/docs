@@ -5,11 +5,10 @@ allowTitleToDifferFromFilename: true
 intro: 'Extend {% data variables.product.prodname_copilot_short %}''s functionality by installing plugins created by the community or by your team.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
-  - Configure Copilot
-  - Author and optimize with Copilot
+  - Configure Copilot # Copilot discovery page
+  - Author and optimize with Copilot # Copilot discovery page
+  - Configure Copilot CLI # Copilot CLI bespoke page
 contentType: how-tos
 ---
 
@@ -123,7 +122,7 @@ copilot plugin uninstall PLUGIN-NAME   # Remove plugin completely
 
 ## Where plugins are stored
 
-Plugins installed from a marketplace are stored under: `~/.copilot/installed-plugins/MARKETPLACE/PLUGIN-NAME/`. Plugins installed directly (for example, from a local path) are stored under: `~/.copilot/installed-plugins/_direct/PLUGIN-NAME/`.
+Plugins installed from a marketplace are stored at: `~/.copilot/state/installed-plugins/MARKETPLACE/PLUGIN-NAME/`. Plugins installed directly (for example, from a local path) are stored at: `~/.copilot/state/installed-plugins/PLUGIN-NAME/`.
 
 ## Adding plugin marketplaces
 

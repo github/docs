@@ -10,10 +10,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Organizations
-  - Sponsors profile
-  - Open Source
 shortTitle: Set up for organization
 ---
 

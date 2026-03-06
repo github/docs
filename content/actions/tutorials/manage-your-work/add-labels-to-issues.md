@@ -13,9 +13,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Workflows
-  - Project management
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

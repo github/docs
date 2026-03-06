@@ -5,11 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Organizations
-  - Access management
-  - Administrator
-  - Permissions
 permissions: 'Organization owners{% ifversion ghec %} and users with the "Manage custom organization roles" permission{% endif %}'
 product: 'Organizations on {% data variables.product.prodname_free_team %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_cloud %}, and {% data variables.product.prodname_ghe_server %}'
 shortTitle: Use organization roles
@@ -26,10 +21,6 @@ In addition to pre-defined roles, you can also create up to 20 custom roles that
 {% endif %}
 
 {% ifversion org-pre-defined-roles %}
-
-## About pre-defined organization roles
-
-{% data reusables.organizations.pre-defined-organization-roles %}
 
 ## Viewing organization role permissions
 

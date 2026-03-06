@@ -10,10 +10,6 @@ intro: You can prevent users from creating organizations in your enterprise.
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Organizations
-  - Policies
 shortTitle: Prevent organization creation
 ---
 {% data reusables.enterprise-accounts.access-enterprise %}

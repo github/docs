@@ -5,8 +5,6 @@ permissions: Organization owners
 versions:
   feature: repo-policy-rules
 type: how_to
-topics:
-  - Repositories
 shortTitle: Govern repository usage
 ---
 

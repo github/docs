@@ -6,10 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CD
-  - Java
-  - Azure App Service
 redirect_from:
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-java-to-azure-app-service
   - /actions/use-cases-and-examples/deploying/deploying-java-to-azure-app-service

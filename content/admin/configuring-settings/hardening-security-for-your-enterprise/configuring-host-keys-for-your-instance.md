@@ -9,13 +9,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Authentication
-  - Enterprise
-  - Infrastructure
-  - Networking
-  - Security
-  - SSH
 ---
 
 ## About host keys for your instance

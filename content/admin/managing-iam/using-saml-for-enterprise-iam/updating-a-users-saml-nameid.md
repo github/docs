@@ -5,12 +5,6 @@ intro: 'When an account''s `NameID` changes on your identity provider (IdP) and 
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid
 ---

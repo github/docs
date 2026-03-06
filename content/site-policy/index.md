@@ -7,9 +7,6 @@ redirect_from:
   - /github/site-policy
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 children:
   - /github-terms
   - /acceptable-use-policies

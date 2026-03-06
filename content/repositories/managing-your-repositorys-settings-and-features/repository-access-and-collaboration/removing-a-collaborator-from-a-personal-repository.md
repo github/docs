@@ -18,9 +18,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Repositories
 shortTitle: Remove a collaborator
 contentType: other
 ---

@@ -15,8 +15,6 @@ category:
 complexity:
   - Intermediate
 octicon: beaker
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

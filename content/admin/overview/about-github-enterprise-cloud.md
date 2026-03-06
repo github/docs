@@ -4,9 +4,6 @@ intro: 'Learn about {% data variables.product.prodname_ghe_cloud %}, its feature
 versions:
   ghec: '*'
 type: overview
-topics:
-  - Enterprise
-  - Fundamentals
 ---
 
 {% data variables.product.prodname_ghe_cloud %} is a deployment option for {% data variables.product.prodname_enterprise %}, adding advanced features to {% data variables.product.prodname_dotcom %}, including:

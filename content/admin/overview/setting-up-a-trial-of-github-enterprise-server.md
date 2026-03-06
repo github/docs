@@ -10,8 +10,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Accounts
 shortTitle: Enterprise Server trial
 ---
 

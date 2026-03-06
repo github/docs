@@ -6,9 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
-topics:
-  - Action development
-  - Fundamentals
 ---
 
 ## About

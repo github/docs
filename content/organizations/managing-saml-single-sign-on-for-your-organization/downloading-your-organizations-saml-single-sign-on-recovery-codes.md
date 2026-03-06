@@ -7,9 +7,6 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/downloading-your-organizations-saml-single-sign-on-recovery-codes
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Download SAML recovery codes
 ---
 

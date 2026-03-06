@@ -9,8 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: How changed files appear
 ---
 Use a _.gitattributes_ file to mark files that match a given "pattern" with the specified attributes. A _.gitattributes_ file uses the same rules for matching as _.gitignore_ files. For more information, see [PATTERN FORMAT](https://www.git-scm.com/docs/gitignore#_pattern_format) in the Git documentation.

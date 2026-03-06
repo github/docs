@@ -5,9 +5,6 @@ intro: You can plan how to roll out {% data variables.product.prodname_actions %
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Actions
-  - Enterprise
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /enterprise-onboarding/github-actions-for-your-enterprise/security-hardening-for-github-actions

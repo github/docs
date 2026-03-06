@@ -5,9 +5,6 @@ redirect_from:
   - /github/site-policy/github-corporate-terms-of-service
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 ---
 <!-- markdownlint-disable search-replace -->
 

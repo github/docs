@@ -17,9 +17,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
-topics:
-  - Actions
-  - Workflows
 ---
 
 ## `cache` action usage

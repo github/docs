@@ -3,8 +3,7 @@ title: Verifying the integrity of a release
 shortTitle: Verify release integrity
 intro: You can avoid tampering and accidental changes by ensuring the releases you use have not been modified after publication.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: immutable-releases
 topics:
   - Code Security
   - Vulnerabilities

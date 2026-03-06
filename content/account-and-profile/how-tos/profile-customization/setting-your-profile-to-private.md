@@ -3,8 +3,6 @@ title: Setting your profile to private
 intro: A private profile displays only limited information, and hides some activity.
 versions:
   fpt: '*'
-topics:
-  - Profiles
 shortTitle: Set profile to private
 redirect_from:
   - /account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/setting-your-profile-to-private

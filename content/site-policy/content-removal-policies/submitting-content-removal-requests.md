@@ -6,9 +6,6 @@ redirect_from:
   - /github/site-policy/github-terms-and-other-site-policies/submitting-content-removal-requests
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 ---
 
 We understand that copyrighted, trademarked, or private content may get published on GitHub – either accidentally or on purpose – sometimes in repositories that you do not own. Because the nature of this content varies, and because of different applicable laws, each category has its own, distinct reporting requirements outlined in our policies.

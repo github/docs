@@ -16,11 +16,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Maintenance
-  - Upgrades
 shortTitle: Configure maintenance mode
 ---
 

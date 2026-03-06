@@ -13,10 +13,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CI
-  - Java
-  - Maven
 shortTitle: Java with Maven
 ---
 

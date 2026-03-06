@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Repositories
 shortTitle: Restore deleted repository
 ---
 

@@ -6,11 +6,10 @@ intro: 'Find out about using {% data variables.product.prodname_copilot_short %}
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: concepts
 category:
-  - Learn about Copilot
+  - Learn about Copilot # Copilot discovery page
+  - Learn about Copilot CLI # Copilot CLI bespoke page
 redirect_from:
   - /copilot/concepts/agents/about-copilot-cli
 ---
@@ -20,8 +19,6 @@ redirect_from:
 The command-line interface (CLI) for {% data variables.product.prodname_copilot %} allows you to use {% data variables.product.prodname_copilot_short %} directly from your terminal. You can use it to answer questions, write and debug code, and interact with {% data variables.product.prodname_dotcom_the_website %}. For example, you can ask {% data variables.product.prodname_copilot_short %} to make some changes to a project and create a pull request.
 
 {% data variables.copilot.copilot_cli %} gives you quick access to a powerful AI agent, without having to leave your terminal. It can help you complete tasks more quickly by working on your behalf, and you can work iteratively with {% data variables.copilot.copilot_cli %} to build the code you need.
-
-{% data reusables.cli.preview-note-cli %}
 
 ## Supported operating systems
 

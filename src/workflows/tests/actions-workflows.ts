@@ -104,22 +104,21 @@ describe('GitHub Actions workflows', () => {
 
   test.each(dailyWorkflows)('daily scheduled workflows only run Mon-Fri $filename', ({ data }) => {
     for (const { cron } of data.on.schedule) {
-      const dayOfWeek = cron.split(' ')[4]
+      const fields = cron.trim().split(/\s+/)
+      const dayOfWeek = fields[4]
       // Day-of-week must be 1-5 (Mon-Fri) or a range within 1-5
       expect(dayOfWeek).toMatch(/^[1-5](-[1-5])?$/)
     }
   })
 
-  test.each(weeklyWorkflows)(
-    'weekly scheduled workflows only run Mon-Fri $filename',
-    ({ data }) => {
-      for (const { cron } of data.on.schedule) {
-        const dayOfWeek = cron.split(' ')[4]
-        // Day-of-week must be a single day 1 (Mon) through 5 (Fri)
-        expect(dayOfWeek).toMatch(/^[1-5]$/)
-      }
-    },
-  )
+  test.each(weeklyWorkflows)('weekly scheduled workflows run on Monday $filename', ({ data }) => {
+    for (const { cron } of data.on.schedule) {
+      const fields = cron.trim().split(/\s+/)
+      const dayOfWeek = fields[4]
+      // Day-of-week must be 1 (Monday)
+      expect(dayOfWeek).toBe('1')
+    }
+  })
 
   test.each(workflows)(
     'contains contents:read permissions when permissions are used $filename',
@@ -146,6 +145,22 @@ describe('GitHub Actions workflows', () => {
           )
         ) {
           throw new Error(`Job ${filename} # ${name} missing slack alert on fail`)
+        }
+      }
+    },
+  )
+
+  test.each(alertWorkflows)(
+    'scheduled workflows create failure issue on fail $filename',
+    ({ filename, data }) => {
+      for (const [name, job] of Object.entries(data.jobs)) {
+        if (
+          !job.steps.find(
+            (step: Record<string, any>) =>
+              step.uses === './.github/actions/create-workflow-failure-issue',
+          )
+        ) {
+          throw new Error(`Job ${filename} # ${name} missing create-workflow-failure-issue on fail`)
         }
       }
     },

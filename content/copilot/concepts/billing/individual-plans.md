@@ -4,8 +4,6 @@ shortTitle: Individual plans
 intro: '{% data variables.product.company_short %} offers several {% data variables.product.prodname_copilot_short %} plans for individual developers, each with different features, model access, and usage limits to support a wide range of coding needs.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free

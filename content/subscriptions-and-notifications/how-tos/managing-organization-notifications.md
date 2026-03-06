@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Notifications
 shortTitle: Manage organization notifications
 ---
 

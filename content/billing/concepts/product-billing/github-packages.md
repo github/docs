@@ -13,10 +13,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Packages
-  - Spending limits
 shortTitle: GitHub Packages
 contentType: concepts
 ---
@@ -86,7 +82,7 @@ If your account does not have a valid payment method on file, usage is blocked o
 
 You pay for any additional use above your quota using the payment method set up for your {% data variables.product.github %} account. See [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info).
 
-Data transfer is billed for each GB of data transfered. Storage is billed by calculating an hourly usage rate.
+Data transfer is billed for each GB of data transferred. Storage is billed by calculating an hourly usage rate.
 
 * {% data reusables.dotcom_billing.pricing_calculator.pricing_cal_packages %}
 * To view your current storage and bandwidth, see [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage).
@@ -120,7 +116,7 @@ The projected 1.6 GB of storage usage for the month would not exceed your 2 GB l
 
 {% data reusables.billing.default-over-quota-behavior %}
 
-{% data reusables.billing.migrated-budgets %}
+You can also receive email notifications when your included {% data variables.product.prodname_registry %} usage reaches 90% and 100% during a billing period. For more information, see [AUTOTITLE](/billing/concepts/budgets-and-alerts#included-usage-alerts).
 
 ## Further reading
 

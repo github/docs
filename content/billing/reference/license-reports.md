@@ -6,10 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Team
 permissions: '{% data reusables.permissions.enhanced-billing-enterprise %}'
 contentType: reference
 ---

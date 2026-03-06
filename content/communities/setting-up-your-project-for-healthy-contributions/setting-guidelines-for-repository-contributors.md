@@ -9,8 +9,6 @@ redirect_from:
   - /articles/how-do-i-set-up-guidelines-for-contributors
   - /articles/setting-guidelines-for-repository-contributors
   - /github/building-a-strong-community/setting-guidelines-for-repository-contributors
-topics:
-  - Community
 shortTitle: Contributor guidelines
 ---
 ## About contributing guidelines

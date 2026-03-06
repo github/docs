@@ -9,8 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Configure commit squashing
 ---
 {% data reusables.pull_requests.configure_pull_request_merges_intro %}

@@ -8,8 +8,6 @@ versions:
   ghec: '*'
 type: tutorial
 permissions: 'People with admin permissions for a project in an organization can set the project as a template. People with admin or write permissions for a project in an organization can copy the project and set the copied project as a template.'
-topics:
-  - Projects
 allowTitleToDifferFromFilename: true
 ---
 

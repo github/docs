@@ -4,8 +4,6 @@ shortTitle: Customization cheat sheet
 intro: 'Compare the different customization options for {% data variables.product.prodname_copilot %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Author and optimize with Copilot
 contentType: reference
@@ -51,7 +49,7 @@ This table shows which customization features are supported in each IDE and surf
 * ✗ = not supported
 * P = under preview
 
-| Feature | {% data variables.product.prodname_vscode_shortname %} | {% data variables.product.prodname_vs %} | JetBrains IDEs | Eclipse | Xcode | <span style="white-space: nowrap;">{% data variables.product.prodname_dotcom_the_website %}</span> | {% data variables.copilot.copilot_cli_short %} |
+| Feature | {% data variables.product.prodname_vscode_shortname %} | {% data variables.product.prodname_vs %} | JetBrains IDEs | Eclipse | Xcode | {% data variables.product.prodname_dotcom %} .com | {% data variables.copilot.copilot_cli_short %} |
 |---------|:-------:|:-------------:|:---------:|:-------:|:-----:|:-------:|:---:|
 | Custom instructions | ✓ | ✓ | P | P | P | ✓ | ✓ |
 | Prompt files | ✓ | ✓ | P | ✗ | P | ✗ | ✓ |

@@ -10,9 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Create a strong password
 ---
 You must choose or generate a password for your account on {% data variables.product.prodname_dotcom %} that is at least:

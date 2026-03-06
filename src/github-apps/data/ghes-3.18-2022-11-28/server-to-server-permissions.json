@@ -4212,39 +4212,6 @@
       },
       {
         "category": "repos",
-        "slug": "closing-down---list-tag-protection-states-for-a-repository",
-        "subcategory": "tags",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/tags/protection",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "repos",
-        "slug": "closing-down---create-a-tag-protection-state-for-a-repository",
-        "subcategory": "tags",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/tags/protection",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "repos",
-        "slug": "closing-down---delete-a-tag-protection-state-for-a-repository",
-        "subcategory": "tags",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "repos",
         "slug": "list-repository-teams",
         "subcategory": "repos",
         "verb": "get",

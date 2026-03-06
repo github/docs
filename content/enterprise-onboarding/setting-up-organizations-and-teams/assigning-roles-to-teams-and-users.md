@@ -5,9 +5,6 @@ intro: 'Assign enterprise roles to manage access and permissions.'
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Teams
 ---
 
 {% data reusables.enterprise-onboarding.assign-roles %}

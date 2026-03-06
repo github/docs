@@ -6,9 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Integration
 children:
     - /slack
+    - /teams
 contentType: reference
 ---

@@ -6,8 +6,6 @@ permissions: Organization owners
 product: 'Organizations with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} plan'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/copilot-business/enabling-and-setting-up-github-copilot-business
   - /copilot/overview-of-github-copilot/enabling-and-setting-up-github-copilot-for-business

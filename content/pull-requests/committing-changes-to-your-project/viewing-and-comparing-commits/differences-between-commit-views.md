@@ -13,8 +13,8 @@ shortTitle: Commit views
 ---
 On {% data variables.product.github %}, you can see the commit history of a repository by:
 
-* Navigating directly to [the commits page](https://github.com/rust-lang/rust/commits/master) of a repository
-* Clicking on a file, then clicking **History**, to get to [the commit history for a specific file](https://github.com/rust-lang/rust/commits/master/README.md)
+* Navigating to [the commits page](https://github.com/rust-lang/rust/commits/main) of a repository by clicking the clock icon with the number of commits at the top of the main repository view.
+* Navigating to [the commit history for a specific file](https://github.com/rust-lang/rust/commits/main/README.md) by clicking on a file, then clicking **History**, to get.
 
 These two commit views may show _different_ information at times. The history for a single file may omit commits found on the repository's commit history.
 

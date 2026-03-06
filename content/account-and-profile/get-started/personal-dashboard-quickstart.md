@@ -15,8 +15,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Personal dashboard quickstart
 contentType: get-started
 ---

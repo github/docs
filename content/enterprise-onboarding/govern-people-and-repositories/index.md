@@ -5,9 +5,6 @@ intro: 'Implement policies, custom properties, and rulesets to govern users and 
 versions:
   ghec: '*'
 type: overview
-topics:
-  - Enterprise
-  - Policies
 children:
   - /about-enterprise-policies
   - /create-custom-properties

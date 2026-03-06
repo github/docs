@@ -13,12 +13,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
 shortTitle: About monitor {% ifversion ghes > 3.15 %}dashboards{% else %}dashboard{% endif %}
 ---
 
@@ -60,6 +54,8 @@ On this more detailed dashboard you can get further insights into all aspects of
 {% ifversion ghes-opentelemetry %}
 
 Starting with {% data variables.product.prodname_ghe_server %} 3.18, you can create custom Grafana dashboards and alerts directly inside the {% data variables.enterprise.management_console %}. These custom dashboards and alerts will persist over upgrades, making it easier to maintain your monitoring configuration.
+
+> [!IMPORTANT] Pre-built dashboards can be opened and edited for inspection, but changes cannot be saved. Create a copy of a dashboard to apply and retain any customizations.
 
 You can use OpenTelemetry and collectd metrics concurrently for external monitoring. During the {% data variables.release-phases.public_preview %}, collectd remains enabled and cannot be disabled.
 

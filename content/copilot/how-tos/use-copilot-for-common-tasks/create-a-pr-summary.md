@@ -4,8 +4,6 @@ shortTitle: Create a PR summary
 intro: 'You can generate a summary in the description of a pull request, or as a comment.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 product: '{% data reusables.gated-features.copilot-free-availability %}'
 redirect_from:
   - /copilot/using-github-copilot/using-github-copilot-for-pull-requests/creating-a-pull-request-summary-with-github-copilot

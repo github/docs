@@ -4,10 +4,6 @@ intro: 'Set up {% data variables.product.prodname_registry %} with MinIO as your
 versions:
   ghes: '*'
 type: tutorial
-topics:
-  - Enterprise
-  - Packages
-  - Storage
 shortTitle: Enable Packages with MinIO
 redirect_from:
   - /admin/packages/enabling-github-packages-with-minio

@@ -6,9 +6,6 @@ intro: 'When you change the dev container configuration for a branch that''s ena
 versions: Construction Details 
   
 type: how_to
-topics:
-  - Codespaces
-  - Set up
 permissions: People with write permissions to a repository can create or edit the dev container configuration for a branch.
 ---
 

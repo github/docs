@@ -3498,6 +3498,14 @@ type CheckAnnotation {
   Identifies the primary key from the database.
   """
   databaseId: Int
+    @deprecated(
+      reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2027-01-01 UTC."
+    )
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
 
   """
   The position of this annotation.
@@ -8790,6 +8798,11 @@ input CreateRepositoryCustomPropertyInput {
   The regex pattern that the value of the custom property must match, if the `value_type` is `string`.
   """
   regex: String
+
+  """
+  Whether this repository custom property requires explicit values.
+  """
+  requireExplicitValues: Boolean
 
   """
   Whether the custom property is required.
@@ -50794,7 +50807,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   isArchived: Boolean!
 
   """
-  Returns true if blank issue creation is allowed
+  Returns true if the viewer can create a blank issue in this repository
   """
   isBlankIssuesEnabled: Boolean!
 
@@ -52329,6 +52342,11 @@ type RepositoryCustomProperty implements Node {
   The regex pattern that the value of the custom property must match, if the `value_type` is `string`.
   """
   regex: String
+
+  """
+  Whether this repository custom property requires explicit values.
+  """
+  requireExplicitValues: Boolean
 
   """
   Whether the custom property is required.
@@ -66683,6 +66701,11 @@ input UpdateRepositoryCustomPropertyInput {
   The global relay id of the source of the custom property.
   """
   repositoryCustomPropertyId: ID! @possibleTypes(concreteTypes: ["RepositoryCustomProperty"])
+
+  """
+  Whether this repository custom property requires explicit values.
+  """
+  requireExplicitValues: Boolean
 
   """
   Whether the updated custom property is required.

@@ -2,9 +2,6 @@
 title: GitHub Company Policies
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 children:
   - /github-statement-against-modern-slavery-and-child-labor
   - /github-anti-bribery-statement

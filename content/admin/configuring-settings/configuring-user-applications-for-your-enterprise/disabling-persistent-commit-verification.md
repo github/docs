@@ -5,12 +5,6 @@ intro: 'You can disable persistent commit verification on {% data variables.prod
 versions:
   ghes: '>=3.17'
 type: how_to
-topics:
-  - Access management
-  - Enterprise
-  - Fundamentals
-  - Identity
-  - Security
 permissions: 'Site administrators'
 ---
 

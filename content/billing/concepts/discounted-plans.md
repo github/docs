@@ -13,13 +13,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Accounts
-  - Education
-  - Discounts
-  - Nonprofits
-  - User account
 shortTitle: Discounted plans
 contentType: concepts
 ---

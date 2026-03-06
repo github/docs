@@ -8,10 +8,6 @@ versions:
   ghec: '*'
 permissions: People who are organization owners of both organizations can attribute one organization's sponsorships to another organization.
 type: how_to
-topics:
-  - Open Source
-  - Organizations
-  - Sponsors profile
 shortTitle: Attribute sponsorships
 ---
 

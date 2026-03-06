@@ -5,11 +5,6 @@ intro: 'Learn how to create and configure an {% data variables.enterprise.prodna
 versions:
   ghec: '*'
 type: overview
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users

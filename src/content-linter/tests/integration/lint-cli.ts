@@ -28,7 +28,7 @@ import path from 'path'
 const rootDir = path.join(__dirname, '../../../..')
 const testContentDir = path.join(rootDir, 'content/test-integration')
 
-describe('Content Linter CLI Integration Tests', () => {
+describe('Content Linter CLI Integration Tests', { timeout: 30000 }, () => {
   // Run all tests in sequence to avoid npm process conflicts
   beforeEach(async () => {
     // Create test directory

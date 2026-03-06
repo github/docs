@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CLI
 allowTitleToDifferFromFilename: true
 ---
 

@@ -4,12 +4,6 @@ intro: 'You can gain insight into the general health and Git and API requests of
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
 product: '{% data reusables.gated-features.generated-health-checks %}'
 redirect_from:
   - /admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise

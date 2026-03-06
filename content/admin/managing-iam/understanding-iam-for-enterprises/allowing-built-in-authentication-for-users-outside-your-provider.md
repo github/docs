@@ -12,11 +12,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
 shortTitle: Fallback authentication
 ---
 

@@ -28,7 +28,6 @@ You can combine multiple filters to narrow your results. For example, you can sh
 
 For a complete list of available filters, see [AUTOTITLE](/code-security/reference/security-alert-management/available-filters-for-security-overview).
 
-
 > [!NOTE]
 > {% data reusables.security-overview.information-varies-GHAS %}
 

@@ -4,8 +4,6 @@ shortTitle: Add repository instructions
 intro: 'Create repository custom instructions files that give {% data variables.product.prodname_copilot_short %} additional context on how to understand your project and how to build, test and validate its changes.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 redirect_from:
   - /copilot/customizing-copilot/adding-custom-instructions-for-github-copilot
@@ -183,6 +181,9 @@ Custom instructions are enabled for {% data variables.copilot.copilot_code-revie
 {% data reusables.repositories.sidebar-settings %}
 1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then **Code review**.
 1. Toggle the “Use custom instructions when reviewing pull requests” option on or off.
+
+> [!NOTE]
+> {% data reusables.copilot.code-review.custom-instructions-branch %}
 
 ## Further reading
 

@@ -23,8 +23,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
 children:
   - /about-the-management-console
   - /managing-access-to-the-management-console

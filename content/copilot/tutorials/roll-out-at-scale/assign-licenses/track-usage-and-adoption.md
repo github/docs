@@ -5,8 +5,6 @@ intro: Identify and act on {% data variables.product.prodname_copilot %} adoptio
 permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: tutorials
 redirect_from:
   - /copilot/tutorials/roll-out-at-scale/measure-adoption/analyze-usage-over-time
@@ -22,8 +20,6 @@ category:
   - Copilot usage metrics
   - Measure success
 ---
-
-{% data reusables.copilot.usage-metrics-preview %}
 
 After you assign {% data variables.product.prodname_copilot_short %} licenses across your enterprise, you can use the {% data variables.product.prodname_copilot_short %} usage metrics dashboard and APIs to verify that licenses are active and monitor early usage trends. This helps you evaluate whether your rollout is reaching the right people and take quick action if adoption is slower than expected.
 
@@ -58,7 +54,7 @@ Once licenses are active, focus on the metrics that indicate healthy early adopt
 | Signal | Where to find it in the dashboard | What to look for |
 |:--|:--|:--|
 | Consistent DAU growth | “IDE daily active users” graph | Steady increase in daily users over the first month. |
-| Feature variety | “Requests per chat mode” graph | Developers trying multiple chat modes (Ask, Edit, Agent) suggests curiosity and engagement. |
+| Feature variety | “Requests per chat mode” graph | Developers trying multiple chat modes (Ask, Edit, Plan, Agent) suggests curiosity and engagement. |
 | Initial agent usage | “Agent adoption” card | Even small agent adoption (5–10%) early on is a positive signal of experimentation. |
 
 Healthy early adoption usually looks like 60–80% of assigned users showing activity within the first month.

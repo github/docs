@@ -14,8 +14,6 @@ redirect_from:
   - /actions/about-github-actions/about-continuous-deployment-with-github-actions
   - /actions/concepts/overview/about-continuous-deployment-with-github-actions
   - /actions/concepts/overview/continuous-deployment
-topics:
-  - CD
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -4,8 +4,6 @@ shortTitle: Customize the agent firewall
 intro: 'Learn how to control the domains and URLs that {% data variables.copilot.copilot_coding_agent %} can access.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent
   - /copilot/how-tos/agents/copilot-coding-agent/customizing-or-disabling-the-firewall-for-copilot-coding-agent

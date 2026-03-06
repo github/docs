@@ -9,9 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /verifying-or-approving-a-domain-for-your-organization
   - /renaming-an-organization

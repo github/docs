@@ -7,9 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: quick_start
-topics:
-  - Issues
-  - Project management
 redirect_from:
   - /issues/tracking-your-work-with-issues/quickstart
   - /issues/tracking-your-work-with-issues/configuring-issues/quickstart

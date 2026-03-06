@@ -5,8 +5,6 @@ intro: Follow these steps to start using Copilot.
 permissions: Individuals
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself
   - /copilot/get-started/setting-up-github-copilot/setting-up-github-copilot-for-yourself

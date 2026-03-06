@@ -11,9 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Permanent links to code
+category:
+  - Write and format content
 ---
 
 ## Linking to code

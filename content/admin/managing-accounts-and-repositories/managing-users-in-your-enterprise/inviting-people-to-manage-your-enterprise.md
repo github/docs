@@ -13,10 +13,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
-topics:
-  - Administrator
-  - Enterprise
-  - User account
 shortTitle: Invite people to manage
 ---
 

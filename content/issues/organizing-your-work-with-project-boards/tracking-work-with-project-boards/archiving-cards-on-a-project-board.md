@@ -7,8 +7,6 @@ redirect_from:
   - /github/managing-your-work-on-github/archiving-cards-on-a-project-board
 versions:
   feature: projects-v1
-topics:
-  - Pull requests
 shortTitle: 'Archive cards on {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
 ---

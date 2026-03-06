@@ -70,8 +70,8 @@
 - is: https://moodle.org
 - is: https://azure.microsoft.com
 - is: https://api.octocorp.ghe.com
-- is: https://platform.openai.com/docs/guides/safety-best-practices
-- is: https://platform.openai.com/docs/guides/function-calling
+- startsWith: https://platform.openai.com/docs
+- startsWith: https://openai.com
 - is: https://global.rel.tunnels.api.visualstudio.com/api/version
 - is: https://www.wireguard.com/quickstart/
 - is: https://docs.openstack.org/horizon/latest/
@@ -85,8 +85,6 @@
 - is: https://jsonformatter.org/
 - is: https://mvnrepository.com/artifact/org.xwiki.platform/xwiki-platform-oldcore
 - is: https://mvnrepository.com/artifact/com.google.guava/guava
-- startsWith: https://platform.openai.com/docs/models
-- startsWith: https://openai.com/index
 - is: https://github.com/github-linguist/linguist/compare/master...octocat:master
 - is: https://www.servicenow.com/docs/bundle/utah-devops/page/product/enterprise-dev-ops/concept/github-integration-dev-ops.html
 - startsWith: https://www.ilo.org
@@ -95,8 +93,7 @@
 - is: https://www.nongnu.org/oath-toolkit/man-oathtool.html
 - is: https://www.gnu.org/software/emacs/
 - is: https://www.transparency.org/what-is-corruption
-- startsWith: https://platform.openai.com/docs/api-reference/
-- is: https://azuredownloads-g3ahgwb5b8bkbxhd.b01.azurefd.net/github-copilot/
+- startsWith: https://azuredownloads-g3ahgwb5b8bkbxhd.b01.azurefd.net/github-copilot/
 - is: https://www.anthropic.com/claude/sonnet
 - is: https://www.psiexams.com/become-psi-test-center/computer-specifications/
 - is: https://www.buymeacoffee.com/
@@ -115,3 +112,21 @@
 - is: https://collectd.org/documentation/manpages/collectd.conf.html#plugin-fhcount
 - is: https://mywiki.wooledge.org/BashPitfalls
 - startsWith: https://code.visualstudio.com/docs/configure/telemetry
+
+# npmjs.com blocks automated link checkers with 403.
+- startsWith: https://www.npmjs.com
+
+# Azure Marketplace blocks automated link checkers with 403.
+- startsWith: https://azuremarketplace.microsoft.com
+
+# Splunk docs blocks automated link checkers with 403.
+- startsWith: https://docs.splunk.com
+
+# HashiCorp rate-limits automated requests (429).
+- startsWith: https://www.hashicorp.com
+
+# ISO website blocks automated link checkers with 403.
+- startsWith: https://www.iso.org
+
+# Example domain used in style guide documentation.
+- startsWith: https://some-docs.com

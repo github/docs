@@ -5,9 +5,6 @@ intro: Learn about the product and SKU identifiers used in the billing platform 
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Enterprise
 contentType: reference
 ---
 

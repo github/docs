@@ -7,11 +7,6 @@ versions:
   ghes: '*'
 permissions: Enterprise owners can restrict email notifications for an enterprise.
 type: how_to
-topics:
-  - Enterprise
-  - Notifications
-  - Organizations
-  - Policies
 redirect_from:
   - /admin/policies/restricting-email-notifications-for-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/restricting-email-notifications-for-your-enterprise-account-to-approved-domains

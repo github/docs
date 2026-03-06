@@ -4,8 +4,6 @@ shortTitle: MCP management
 intro: 'You can manage MCP server usage to provide your developers with valuable tools while maintaining security and compliance.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: concepts
 category:
   - Learn about Copilot

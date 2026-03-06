@@ -22,8 +22,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Notifications
 shortTitle: View subscriptions
 ---
 You receive notifications for your subscriptions of ongoing activity on {% data variables.product.github %}. There are many reasons you can be subscribed to a conversation. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications#notifications-and-subscriptions).

@@ -10,10 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
-  - Issues
-  - Project management
 shortTitle: Create & edit milestones
 type: how_to
 ---

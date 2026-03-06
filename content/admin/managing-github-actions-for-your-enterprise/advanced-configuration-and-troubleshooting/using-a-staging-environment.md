@@ -4,11 +4,6 @@ intro: 'Learn about using {% data variables.product.prodname_actions %} with {% 
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Actions
-  - Enterprise
-  - Infrastructure
-  - Upgrades
 redirect_from:
   - /admin/github-actions/using-a-staging-environment
   - /admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment

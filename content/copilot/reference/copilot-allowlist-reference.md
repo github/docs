@@ -4,8 +4,6 @@ intro: 'Learn how to allow certain traffic through your firewall or proxy server
 permissions: Proxy server maintainers or firewall maintainers
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Configure Copilot
 redirect_from:
@@ -37,6 +35,7 @@ If your company employs security measures like a firewall or proxy server, you s
 | `https://*.enterprise.githubcopilot.com`[^4]                | API service for {% data variables.product.prodname_copilot_short %} suggestions |
 | `https://*.SUBDOMAIN.ghe.com`                                      | For {% data variables.product.prodname_copilot_short %} users on {% data variables.enterprise.data_residency_site %} |
 | `https://SUBDOMAIN.ghe.com`                                        | For {% data variables.product.prodname_copilot_short %} users on {% data variables.enterprise.data_residency_site %} |
+| `https://copilot-reports-*.b01.azurefd.net`                        | {% data variables.product.prodname_copilot_short %} usage metrics report downloads |
 
 Depending on the security policies and editors your organization uses, you may need to allowlist additional domains and URLs. For more information on specific editors, see [Further reading](#further-reading).
 

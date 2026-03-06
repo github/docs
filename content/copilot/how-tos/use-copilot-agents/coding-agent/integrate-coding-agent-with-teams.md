@@ -4,8 +4,6 @@ shortTitle: Integrate coding agent with Teams
 intro: 'You can use the {% data variables.product.github %} integration in Teams to provide context and open pull requests all from within your Teams channels.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category: 
   - Integrate Copilot with your tools

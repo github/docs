@@ -4,10 +4,6 @@ intro: You can cancel your sponsorship.
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Cancellation
-  - Sponsors
 shortTitle: Cancel sponsorship
 contentType: how-tos
 ---

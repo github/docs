@@ -9,8 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 children:
   - /modifying-a-github-app-registration
   - /activating-optional-features-for-github-apps

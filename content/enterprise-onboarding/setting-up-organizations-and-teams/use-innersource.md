@@ -5,10 +5,6 @@ intro: Help dispersed teams to collaborate by setting up open source–style wor
 versions:
   ghec: '*'
 contentType: concepts
-topics:
-  - Accounts
-  - Enterprise
-  - Fundamentals
 allowTitleToDifferFromFilename: true
 ---
 

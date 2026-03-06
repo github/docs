@@ -7,8 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Community
 shortTitle: Unblock from your account
 ---
 

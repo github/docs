@@ -4,8 +4,6 @@ shortTitle: Reference
 intro: 'Find information to apply to your work with {% data variables.product.prodname_copilot %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /chat-cheat-sheet
   - /customization-cheat-sheet

@@ -4,8 +4,6 @@ intro: 'As a security precaution, SSH keeps track of which hosts it has previous
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - SSH
 ---
 
 This error means that the server to which you're connecting presented a key that doesn't match the keys seen for this server in the past.

@@ -5,8 +5,6 @@ intro: 'Create and apply custom properties to categorize and manage repositories
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Enterprise
 ---
 
 {% data reusables.enterprise-onboarding.creating-custom-properties %}

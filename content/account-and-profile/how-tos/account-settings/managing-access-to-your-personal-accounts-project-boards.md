@@ -13,8 +13,6 @@ redirect_from:
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-access-to-your-personal-accounts-project-boards
 versions:
   feature: projects-v1
-topics:
-  - Accounts
 shortTitle: Manage access
 allowTitleToDifferFromFilename: true
 contentType: how-tos

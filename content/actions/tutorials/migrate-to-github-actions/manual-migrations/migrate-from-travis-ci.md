@@ -13,11 +13,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Travis CI
-  - Migration
-  - CI
-  - CD
 shortTitle: Migrate from Travis CI
 ---
 

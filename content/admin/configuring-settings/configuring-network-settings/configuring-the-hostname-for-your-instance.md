@@ -12,10 +12,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
 ---
 
 ## About the hostname for {% data variables.product.prodname_ghe_server %}

@@ -7,11 +7,6 @@ versions:
 permissions: 'Enterprise owners'
 shortTitle: Create rulesets
 type: how_to
-topics:
-  - Enterprise
-  - Policies
-  - Repositories
-  - Security
 ---
 
 ## Introduction

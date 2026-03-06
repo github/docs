@@ -6,8 +6,6 @@ intro: >-
   Use the REST API to interact with {% data
   variables.product.prodname_oauth_apps %} and OAuth authorizations of {% data
   variables.product.prodname_github_apps %}
-topics:
-  - API
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'

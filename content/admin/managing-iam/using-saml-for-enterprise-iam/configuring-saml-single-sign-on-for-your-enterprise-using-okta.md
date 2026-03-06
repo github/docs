@@ -11,9 +11,6 @@ redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise-using-okta
 versions:
   ghec: '*'
-topics:
-  - Authentication
-  - Enterprise
 type: how_to
 shortTitle: Configure SAML SSO with Okta
 ---

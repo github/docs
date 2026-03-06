@@ -6,8 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: tutorial
-topics:
-  - Workflows
 shortTitle: Customize runners
 redirect_from:
   - /actions/using-github-hosted-runners/customizing-github-hosted-runners

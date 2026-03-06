@@ -24,8 +24,7 @@ on:
       - .github/actions/install-cocofix/action.yml
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 jobs:
   generate-security-query-lists:
@@ -89,7 +88,7 @@ jobs:
           done
 
       - name: Upload security query lists
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: security-query-lists
           path: data/reusables/code-scanning/codeql-query-tables/
@@ -151,7 +150,7 @@ jobs:
           done
 
       - name: Upload quality query lists
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: quality-query-lists
           path: data/reusables/code-quality/codeql-query-tables/
@@ -159,6 +158,9 @@ jobs:
   create-pull-request:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     needs: [generate-security-query-lists, generate-quality-query-lists]
     steps:
       - name: Checkout repository code
@@ -181,13 +183,13 @@ jobs:
           echo "Copied files from github/codeql repo. Commit SHA: $OPENAPI_COMMIT_SHA"
 
       - name: Download security query lists
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
         with:
           name: security-query-lists
           path: data/reusables/code-scanning/codeql-query-tables/
 
       - name: Download quality query lists
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
         with:
           name: quality-query-lists
           path: data/reusables/code-quality/codeql-query-tables/

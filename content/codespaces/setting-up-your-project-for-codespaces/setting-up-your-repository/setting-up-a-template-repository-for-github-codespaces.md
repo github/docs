@@ -6,9 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Codespaces
-  - Set up
 redirect_from:
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-a-template-repository-for-github-codespaces
 ---

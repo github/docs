@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 ---
 
 If you want to create a new branch for your pull request and do not have write permissions to the repository, you can fork the repository first. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork) and [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).

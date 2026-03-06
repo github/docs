@@ -7,11 +7,6 @@ redirect_from:
   - /authentication/authenticating-with-saml-single-sign-on/authenticating-with-a-managed-user-account
 versions:
   ghec: '*'
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 allowTitleToDifferFromFilename: true
 ---
 

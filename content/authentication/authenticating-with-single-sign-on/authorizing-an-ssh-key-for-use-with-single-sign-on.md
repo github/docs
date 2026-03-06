@@ -9,8 +9,6 @@ redirect_from:
   - /authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
 versions:
   ghec: '*'
-topics:
-  - SSO
 shortTitle: SSH Key with SSO
 ---
 

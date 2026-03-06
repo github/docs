@@ -1,6 +1,6 @@
 ---
 title: Adding a collaborator to a repository security advisory
-intro: You can add other users or teams to collaborate on a security advisory with you.
+intro: Add other users or teams to collaborate on a security advisory with you.
 permissions: '{% data reusables.permissions.security-repo-enable %}'
 redirect_from:
   - /articles/adding-a-collaborator-to-a-maintainer-security-advisory
@@ -21,9 +21,7 @@ topics:
 shortTitle: Add collaborators
 ---
 
-{% data reusables.security-advisory.repository-level-advisory-note %}
-
-## Adding a collaborator to a security advisory
+This article applies to repository-level security advisories in a public repository. To edit a global advisory in the {% data variables.product.prodname_advisory_database %}, see [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database).
 
 Collaborators have write permissions to the security advisory. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/permission-levels-for-repository-security-advisories).
 
@@ -40,6 +38,4 @@ Collaborators have write permissions to the security advisory. For more informat
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/permission-levels-for-repository-security-advisories)
 * [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)
-* [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory).

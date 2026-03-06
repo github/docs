@@ -4,8 +4,6 @@ shortTitle: Response customization
 intro: Learn about customizing the behavior of {% data variables.product.prodname_copilot %} to fit with your preferences and requirements.
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/customizing-copilot/about-customizing-github-copilot-chat-responses
   - /copilot/concepts/about-customizing-github-copilot-chat-responses
@@ -92,6 +90,8 @@ Here are some common use cases and examples for each type of custom instructions
   * Describe how to answer certain questions: `For questions related to security, use the Security Docs Knowledge Base or advise people to consult with #security on Slack.`
   * Preferred language for a company which exclusively speaks a single language: `Always respond in Portuguese.`
   * Organization-wide preferences: `Do not generate code blocks in responses.`
+
+{% data reusables.copilot.code-review.custom-instructions-limit %}
 
 {% data reusables.copilot.custom-instructions-effective %}
 

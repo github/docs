@@ -17,9 +17,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Usernames
 shortTitle: Username changes
 contentType: concepts
 ---

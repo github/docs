@@ -7,11 +7,6 @@ redirect_from:
 allowTitleToDifferFromFilename: true
 versions:
   ghes: '*'
-topics:
-  - Enterprise
-  - Security
-  - Dependabot
-  - Dependencies
 shortTitle: Dependabot updates
 ---
 

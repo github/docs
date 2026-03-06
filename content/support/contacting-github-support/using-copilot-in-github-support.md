@@ -1,8 +1,6 @@
 ---
 title: Using Copilot in GitHub Support
 intro: 'You can use {% data variables.copilot.copilot_in_support %} to find an answer to your question before submitting a support ticket.'
-topics:
-  - Support
 redirect_from:
   - /early-access/copilot/about-copilot-in-github-support
 versions:

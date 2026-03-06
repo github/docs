@@ -4,11 +4,8 @@ shortTitle: Getting feedback on your code
 intro: "Learn how you can ask {% data variables.product.prodname_copilot %} to review your code changes and apply the suggested changes it creates."
 versions:
   fpt: '*'
-topics:
-  - Copilot
-  - Pull requests
-  - GitHub
-  - Open Source
+category:
+  - Learn to code
 ---
 
 ## About coding collaboratively

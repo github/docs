@@ -17,11 +17,6 @@ redirect_from:
   - /billing/managing-your-github-billing-settings/setting-your-billing-email
   - /billing/managing-your-github-billing-settings/viewing-your-payment-history-and-receipts
   - /billing/managing-your-billing/managing-your-payment-and-billing-information
-topics:
-  - Billing
-  - Enterprise
-  - Team
-  - Receipts
 permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
 shortTitle: Manage payment info
 contentType: how-tos
@@ -52,7 +47,7 @@ You can view your payment history, including the date, amount, and payment metho
 
 ## Managing billing contacts
 
-Organizations and enterprises can add contacts to receive emails with billing notifications for payments and budget threshold alerts. One of the contacts is defined as the primary contact.
+Organizations and enterprises can add contacts to receive emails with billing notifications for payments, budget threshold alerts, and included usage alerts. One of the contacts is defined as the primary contact.
 
 ### Organization billing contacts
 

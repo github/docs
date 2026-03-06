@@ -3,9 +3,6 @@ title: Disabling SAML single sign-on for your enterprise
 intro: You can disable SAML single sign-on (SSO) for your enterprise account.
 versions:
   ghec: '*'
-topics:
-  - Authentication
-  - Enterprise
 type: how_to
 shortTitle: Disable SAML SSO
 redirect_from:

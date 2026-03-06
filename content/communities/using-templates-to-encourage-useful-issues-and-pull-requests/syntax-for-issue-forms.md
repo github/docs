@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Community
 ---
 
 {% data reusables.community.issue-forms-beta %}

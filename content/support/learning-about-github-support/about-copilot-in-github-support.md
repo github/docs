@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Support
 shortTitle: About Copilot in GitHub Support
 type: rai
 ---

@@ -15,11 +15,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Packaging
-  - Publishing
-  - Node
-  - JavaScript
 ---
 
 ## Introduction

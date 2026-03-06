@@ -8,8 +8,6 @@ redirect_from:
   - /github/managing-your-work-on-github/adding-notes-to-a-project-board
 versions:
   feature: projects-v1
-topics:
-  - Pull requests
 shortTitle: 'Add notes to {% data variables.product.prodname_project_v1 %}'
 allowTitleToDifferFromFilename: true
 ---

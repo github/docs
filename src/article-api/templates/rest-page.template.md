@@ -5,6 +5,7 @@
 {{ manualContent }}
 
 {% for operation in restOperations %}
+
 ## {{ operation.title }}
 
 ```
@@ -14,22 +15,27 @@
 {{ operation.description }}
 
 {% if operation.hasParameters %}
+
 ### Parameters
 
 {% if operation.showHeaders %}
+
 #### Headers
 
 {% if operation.needsContentTypeHeader %}
+
 - **`content-type`** (string, required)
   Setting to `application/json` is required.
 
 {% endif %}
+
 - **`accept`** (string)
   Setting to `application/vnd.github+json` is recommended.
 
 {% endif %}
 
 {% if operation.parameters.size > 0 %}
+
 #### Path and query parameters
 
 {% for param in operation.parameters %}
@@ -39,6 +45,7 @@
 {% endif %}
 
 {% if operation.bodyParameters.size > 0 %}
+
 #### Body parameters
 
 {% for param in operation.bodyParameters %}
@@ -49,19 +56,23 @@
 {% endif %}
 
 {% if operation.statusCodes.size > 0 %}
+
 ### HTTP response status codes
 
 {% for statusCode in operation.statusCodes %}
+
 - **{{ statusCode.httpStatusCode }}**{% if statusCode.description %} - {{ statusCode.description }}{% elsif statusCode.httpStatusMessage %} - {{ statusCode.httpStatusMessage }}{% endif %}
 
 {% endfor %}
 {% endif %}
 
 {% if operation.codeExamples.size > 0 %}
+
 ### Code examples
 
 {% for example in operation.codeExamples %}
 {% if example.request.description %}
+
 #### {{ example.request.description }}
 
 {% endif %}
@@ -80,18 +91,10 @@ curl -L \
   -d '{{ example.request.bodyParameters }}'{% endif %}
 ```
 
-**Response schema:**
+**Response schema (Status: {{ example.response.statusCode }}):**
 
 {% if example.response.schema %}
-```json
-Status: {{ example.response.statusCode }}
-
 {{ example.response.schema }}
-```
-{% else %}
-```
-Status: {{ example.response.statusCode }}
-```
 {% endif %}
 
 {% endfor %}

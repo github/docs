@@ -11,8 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} delete an organization repository, and these users may be prevented from deleting a repository by an organization or enterprise policy. {% data reusables.organizations.new-repo-permissions-more-info %}

@@ -14,9 +14,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CI
-  - Python
 shortTitle: Python
 ---
 

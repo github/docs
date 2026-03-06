@@ -13,10 +13,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CI
-  - Java
-  - Gradle
 shortTitle: Java with Gradle
 ---
 

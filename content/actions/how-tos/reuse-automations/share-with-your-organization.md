@@ -3,9 +3,6 @@ title: Sharing actions and workflows with your organization
 intro: You can share an action or reusable workflow with your organization without publishing the action or workflow publicly.
 versions:
   fpt: '*'
-topics:
-  - Actions
-  - Action development
 shortTitle: Share with your organization
 redirect_from:
   - /actions/creating-actions/sharing-actions-and-workflows-with-your-organization

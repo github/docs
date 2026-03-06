@@ -8,9 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Open Source
-  - Contacting sponsors
 ---
 
 ## About sponsorship updates

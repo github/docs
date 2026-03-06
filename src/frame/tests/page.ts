@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 
-import cheerio from 'cheerio'
+import { load } from 'cheerio'
 import { beforeAll, beforeEach, describe, expect, test } from 'vitest'
 
 import Page, { FrontmatterErrorsError } from '@/frame/lib/page'
@@ -97,7 +97,7 @@ describe('Page class', () => {
       }
       context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page!.relativePath}`
       let rendered = await page!.render(context)
-      let $ = cheerio.load(rendered)
+      let $ = load(rendered)
       expect(($ as any).text()).toBe(
         'This text should render on any actively supported version of Enterprise Server',
       )
@@ -108,7 +108,7 @@ describe('Page class', () => {
       context.currentVersion = `enterprise-server@${enterpriseServerReleases.oldestSupported}`
       context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page!.relativePath}`
       rendered = await page!.render(context)
-      $ = cheerio.load(rendered)
+      $ = load(rendered)
       expect(($ as any).text()).toBe(
         'This text should render on any actively supported version of Enterprise Server',
       )
@@ -119,7 +119,7 @@ describe('Page class', () => {
       context.currentVersion = nonEnterpriseDefaultVersion
       context.currentPath = `/${context.currentLanguage}/${context.currentVersion}/${page!.relativePath}`
       rendered = await page!.render(context)
-      $ = cheerio.load(rendered)
+      $ = load(rendered)
       expect(($ as any).text()).not.toBe(
         'This text should render on any actively supported version of Enterprise Server',
       )

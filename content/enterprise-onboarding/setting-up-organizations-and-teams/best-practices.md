@@ -4,9 +4,6 @@ intro: Structure your enterprise and organizations for the best developer experi
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Organizations
-  - Enterprise
 shortTitle: Best practices
 redirect_from:
   - /enterprise-onboarding/setting-up-organizations-and-teams/best-practices-for-organizations-in-your-enterprise

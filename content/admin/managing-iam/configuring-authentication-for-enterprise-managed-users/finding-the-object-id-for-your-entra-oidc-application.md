@@ -5,11 +5,6 @@ intro: 'Learn how to find the object ID associated with your {% data variables.p
 product: '{% data reusables.gated-features.emus %}'
 versions:
   feature: oidc-for-emu
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/finding-the-object-id-for-your-entra-oidc-application
 ---

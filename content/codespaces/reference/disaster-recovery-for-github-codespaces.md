@@ -4,8 +4,6 @@ intro: 'This article describes guidance for a disaster recovery scenario, when a
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
 shortTitle: Disaster recovery
 redirect_from:
   - /codespaces/codespaces-reference/disaster-recovery-for-codespaces

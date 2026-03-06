@@ -13,10 +13,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Auditing
-  - Enterprise
-  - Logging
 ---
 
 ## About search for the enterprise audit log

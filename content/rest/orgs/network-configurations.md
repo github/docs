@@ -5,8 +5,6 @@ intro: REST API endpoints for network configurations
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
-topics:
-  - API
 redirect_from:
   - /rest/settings/network-configurations
   - /rest/settings

@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Notifications
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification
   - /github/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/triaging-a-single-notification

@@ -5,10 +5,6 @@ permissions: 'Site administrators can troubleshoot {% data variables.product.pro
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Actions
-  - Enterprise
-  - Troubleshooting
 redirect_from:
   - /admin/github-actions/troubleshooting-github-actions-for-your-enterprise
   - /admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise

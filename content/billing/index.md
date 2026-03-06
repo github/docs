@@ -37,8 +37,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Billing
 children:
   - /get-started
   - /concepts

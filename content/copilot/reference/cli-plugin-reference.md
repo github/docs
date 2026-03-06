@@ -5,9 +5,8 @@ intro: 'Find commands and configuration details for CLI plugins.'
 versions:
   feature: copilot
 category:
-  - Author and optimize with Copilot
-topics:
-  - Copilot
+  - Author and optimize with Copilot # Copilot discovery page
+  - Configure Copilot CLI # Copilot CLI bespoke page
 contentType: reference
 ---
 
@@ -23,6 +22,9 @@ You can use the following commands in the terminal to manage plugins for {% data
 | `copilot plugin uninstall NAME`                | Remove a plugin |
 | `copilot plugin list`                          | List installed plugins |
 | `copilot plugin update NAME`                   | Update a plugin |
+| `copilot plugin update --all`                  | Update all installed plugins |
+| `copilot plugin disable NAME`                  | Temporarily disable a plugin without uninstalling it |
+| `copilot plugin enable NAME`                   | Re-enable a disabled plugin |
 | `copilot plugin marketplace add SPECIFICATION` | Register a marketplace |
 | `copilot plugin marketplace list`              | List registered marketplaces |
 | `copilot plugin marketplace browse NAME`       | Browse marketplace plugins |
@@ -137,7 +139,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-cop
 
 | Item                 | Path |
 |----------------------|------|
-| Installed plugins    | `~/.copilot/installed-plugins/` and `~/.copilot/installed-plugins/_direct` |
+| Installed plugins    | `~/.copilot/state/installed-plugins/MARKETPLACE/PLUGIN-NAME` (installed via a marketplace) and `~/.copilot/state/installed-plugins/PLUGIN-NAME` (installed directly) |
 | Marketplace cache    | `~/.copilot/state/marketplace-cache/` |
 | Plugin manifest      | `plugin.json`, `.github/plugin/plugin.json`, or `.claude-plugin/plugin.json` |
 | Marketplace manifest | `.github/plugin/marketplace.json` or `.claude-plugin/marketplace.json` |
@@ -164,11 +166,11 @@ If you install multiple plugins it's possible that some custom agents, skills, M
 The following diagram illustrates the loading order and precedence rules.
 
 ```text
-┌─────────────────────────────────────────────────────────┐
-│  BUILT-IN - HARDCODED, ALWAYS PRESENT                   │
-│  • tools: bash, view, apply_patch, glob, rg, task, ...  │
-│  • agents: explore, task, code-review, general-purpose  │
-└────────────────────────┬────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│  BUILT-IN - HARDCODED, ALWAYS PRESENT                            │
+│  • tools: bash, view, apply_patch, glob, rg, task, ...           │
+│  • agents: explore, task, code-review, general-purpose, research │
+└────────────────────────┬─────────────────────────────────────────┘
                          │
   ┌──────────────────────▼──────────────────────────────────────────────┐
   │  CUSTOM AGENTS - FIRST LOADED IS USED (dedup by ID)                 │

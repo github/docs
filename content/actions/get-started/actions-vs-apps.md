@@ -7,8 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
-topics:
-  - CD
 redirect_from:
   - /actions/concepts/overview/github-actions-vs-github-apps
   - /actions/get-started/github-actions-vs-github-apps

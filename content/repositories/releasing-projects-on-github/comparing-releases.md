@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 redirect_from:
   - /github/administering-a-repository/comparing-releases
   - /github/administering-a-repository/releasing-projects-on-github/comparing-releases

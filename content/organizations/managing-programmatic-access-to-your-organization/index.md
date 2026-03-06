@@ -10,9 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 children:
   - /about-programmatic-access-in-your-organization
   - /adding-and-removing-github-app-managers-in-your-organization

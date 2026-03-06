@@ -10,8 +10,6 @@ redirect_from:
   - /issues/trying-out-the-new-projects-experience/customizing-your-project-views
   - /issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view
 type: tutorial
-topics:
-  - Projects
 ---
 
 ## About the table layout

@@ -6,9 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Actions
-  - Workflows
 shortTitle: Create an example workflow
 layout: inline
 redirect_from:

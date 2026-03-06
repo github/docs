@@ -4,10 +4,6 @@ intro: 'Find information about high availability replica types, communication pa
 versions:
   ghes: '*'
 contentType: concepts
-topics:
-  - Enterprise
-  - High availability
-  - Infrastructure
 shortTitle: HA replica information
 ---
 

@@ -13,9 +13,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
-topics:
-  - CI
-  - CD
 ---
 
 A self-hosted runner is a system that you deploy and manage to execute jobs from {% data variables.product.prodname_actions %} on {% data variables.product.github %}.

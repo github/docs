@@ -6,8 +6,6 @@ permissions: Enterprise owners and organization owners
 product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: concepts
 category: 
   - Manage Copilot for a team

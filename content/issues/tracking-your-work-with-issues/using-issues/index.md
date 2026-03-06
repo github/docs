@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Issues
 children:
   - /creating-an-issue
   - /adding-sub-issues

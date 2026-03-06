@@ -5,9 +5,6 @@ permissions: Organization owners can export member information for an organizati
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Export member information
 ---
 

@@ -7,8 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: quick_start
-topics:
-  - Codespaces
 redirect_from:
   - /codespaces/getting-started/deep-dive
 ---

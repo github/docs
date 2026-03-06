@@ -6,10 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: tutorial
-topics:
-  - Migration
-  - CI
-  - CD
 shortTitle: Bitbucket Pipelines migration
 redirect_from:
   - /actions/migrating-to-github-actions/automated-migrations/migrating-from-bitbucket-pipelines-with-github-actions-importer

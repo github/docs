@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Set up your account on GitHub
 ---
 
 This guide will walk you through setting up your {% data variables.product.company_short %} account and getting started with {% data variables.product.github %}'s features for collaboration and community.

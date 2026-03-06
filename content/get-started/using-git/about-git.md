@@ -6,9 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
-topics:
-  - Fundamentals
-  - Git
+category:
+  - Set up Git
 ---
 
 ## About version control and Git

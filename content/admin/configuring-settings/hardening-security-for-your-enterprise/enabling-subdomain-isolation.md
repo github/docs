@@ -11,12 +11,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Networking
-  - Security
 shortTitle: Enable subdomain isolation
 ---
 ## About subdomain isolation

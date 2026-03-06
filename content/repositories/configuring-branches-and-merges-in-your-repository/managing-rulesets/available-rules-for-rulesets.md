@@ -7,8 +7,6 @@ versions:
   ghec: '*'
   ghes: '*'
 permissions: '{% data reusables.repositories.repo-rules-permissions %}'
-topics:
-  - Repositories
 shortTitle: Available rules
 redirect_from:
   - /actions/sharing-automations/required-workflows

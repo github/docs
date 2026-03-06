@@ -7,8 +7,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: tutorial
-topics:
-  - Security
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-google-cloud-platform
   - /actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-google-cloud-platform

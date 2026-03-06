@@ -5,9 +5,6 @@ versions:
   fpt: '*'
   ghes: '>= 3.21'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Move work to organization
 ---
 

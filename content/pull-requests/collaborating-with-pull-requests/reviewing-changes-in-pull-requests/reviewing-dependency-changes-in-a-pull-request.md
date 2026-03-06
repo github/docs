@@ -7,12 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Pull requests
-  - Dependency review
-  - Code Security
-  - Vulnerabilities
-  - Dependencies
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request

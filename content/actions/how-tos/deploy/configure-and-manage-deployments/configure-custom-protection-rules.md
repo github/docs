@@ -7,10 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Actions
-  - CD
-  - Deployment
 redirect_from:
   - /actions/deployment/protecting-deployments/configuring-custom-deployment-protection-rules
   - /actions/managing-workflow-runs-and-deployments/managing-deployments/configuring-custom-deployment-protection-rules

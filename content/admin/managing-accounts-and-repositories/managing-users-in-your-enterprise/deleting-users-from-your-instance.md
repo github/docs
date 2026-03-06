@@ -4,11 +4,6 @@ intro: "You can delete a user's account to permanently remove their data from {%
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Access management
-  - Enterprise
-  - Security
-  - User account
 shortTitle: Delete a user
 permissions: Site administrators
 ---

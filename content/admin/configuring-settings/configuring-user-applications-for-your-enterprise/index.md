@@ -5,8 +5,6 @@ intro: You can configure applications for users in your enterprise.
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /configuring-applications
   - /configuring-email-for-notifications

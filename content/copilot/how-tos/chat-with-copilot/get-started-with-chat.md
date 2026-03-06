@@ -1,8 +1,6 @@
 ---
 title: Getting started with prompts for GitHub Copilot Chat
 intro: Get an overview of ways to use {% data variables.copilot.copilot_chat_short %}.
-topics:
-  - Copilot
 defaultTool: vscode
 versions:
   feature: copilot

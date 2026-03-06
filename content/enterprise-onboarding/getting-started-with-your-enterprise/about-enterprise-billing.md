@@ -4,9 +4,6 @@ intro: 'Understand billing for {% data variables.product.prodname_ghe_cloud %}.'
 versions:
   ghec: '*'
 type: overview
-topics:
-  - Accounts
-  - Enterprise
 shortTitle: Billing
 ---
 

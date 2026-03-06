@@ -5,9 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Troubleshooting
 shortTitle: Azure sub connection
 contentType: how-tos
 ---

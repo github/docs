@@ -8,9 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Sponsors payments
-  - Open Source
 shortTitle: Manage payouts
 ---
 

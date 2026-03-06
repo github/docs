@@ -10,8 +10,6 @@ category:
 complexity:
   - Simple
 octicon: rocket
-topics:
-  - Copilot
 redirect_from:
   - /copilot/copilot-chat-cookbook/refactoring-code/translating-code-to-a-different-programming-language
   - /copilot/tutorials/copilot-chat-cookbook/refactoring-code/translating-code-to-a-different-programming-language

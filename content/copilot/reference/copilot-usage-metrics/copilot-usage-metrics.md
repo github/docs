@@ -8,16 +8,11 @@ versions:
   fpt: '*'
   ghec: '*'
 type: reference
-topics:
-  - Copilot
-  - Enterprise
 category:
   - Copilot usage metrics
   - Understand available data
   - Track Copilot usage
 ---
-
-{% data reusables.copilot.usage-metrics-preview %}
 
 The {% data variables.product.prodname_copilot_short %} usage metrics dashboard and APIs display and export data using a consistent set of fields. This reference lists all available metrics and describes how to interpret their values in both dashboard visuals and NDJSON or API exports.
 
@@ -28,7 +23,7 @@ For guidance on how to read and interpret these metrics, see [AUTOTITLE](/copilo
 
 ## {% data variables.product.prodname_copilot_short %} usage dashboard metrics
 
-These metrics appear directly in the {% data variables.product.prodname_copilot_short %} usage dashboard.
+These metrics appear directly in the {% data variables.product.prodname_copilot_short %} usage dashboard. These charts do **not** include {% data variables.copilot.copilot_cli_short %} usage.
 
 | Metric | Description |
 |:--|:--|
@@ -43,10 +38,10 @@ These metrics appear directly in the {% data variables.product.prodname_copilot_
 | Language usage per day | Daily breakdown of languages used. |
 | Model usage | Distribution of AI models used for chat. |
 | Model usage per day | Daily breakdown of chat model usage. |
-| Model usage per chat mode | Model usage by {% data variables.product.prodname_copilot_short %} feature (ask, edit, agent). |
+| Model usage per chat mode | Model usage by {% data variables.product.prodname_copilot_short %} feature (ask, edit, plan, agent). |
 | Model usage per language | Distribution of languages broken down by model. |
 | Most used chat model | The most frequently used chat model in the last 28 days. |
-| Requests per chat mode | Number of chat requests by mode (ask, edit, agent). |
+| Requests per chat mode | Number of chat requests by mode (ask, edit, plan, agent). |
 
 ## Code generation dashboard metrics
 
@@ -77,7 +72,7 @@ These fields appear in the exported NDJSON reports and in the {% data variables.
 | `enterprise_id` | Unique ID of the enterprise. |
 | `organization_id` (API only) | Unique ID of the organization. |
 | `user_id` / `user_login` | Unique identifier and {% data variables.product.github %} username for the user. |
-| `user_initiated_interaction_count` | Number of explicit prompts sent to {% data variables.product.prodname_copilot_short %}.<br><br> Only counts messages or prompts actively sent to the model. Does **not** include opening the chat panel, switching modes (for example, ask, edit, or agent), using keyboard shortcuts to open the inline UI, or making configuration changes. |
+| `user_initiated_interaction_count` | Number of explicit prompts sent to {% data variables.product.prodname_copilot_short %}.<br><br> Only counts messages or prompts actively sent to the model. Does **not** include opening the chat panel, switching modes (for example, ask, edit, plan, or agent), using keyboard shortcuts to open the inline UI, or making configuration changes. |
 | `chat_panel_agent_mode` | Captures user-initiated interactions in the chat panel with agent mode selected. |
 | `chat_panel_ask_mode` | Captures user-initiated interactions in the chat panel with ask mode selected. |
 | `chat_panel_custom_mode` | Captures user-initiated interactions in the chat panel with a custom agent selected. |
@@ -94,21 +89,44 @@ These fields appear in the exported NDJSON reports and in the {% data variables.
 | `totals_by_language_feature` | Breakdown combining language and feature dimensions. |
 | `totals_by_model_feature` / `totals_by_language_model` | Model-specific breakdowns for chat activity (not completions). |
 | `last_known_ide_version` / `last_known_plugin_version` | The most recent IDE and {% data variables.copilot.copilot_chat_short %} extension version detected for each user. |
+| `daily_active_cli_users` | Number of unique users in the enterprise who used {% data variables.product.prodname_copilot_short %} via the CLI on a given day. This field is **independent** of IDE active user counts and is **not** included in IDE-based active user definitions. Omitted for enterprises with no CLI usage on that day. |
+| `totals_by_cli` | Breakdown of CLI-specific metrics for the enterprise on a given day. Independent of IDE metrics—CLI usage is **not** reflected in other fields such as `totals_by_ide` or `totals_by_feature`. Omitted for enterprises with no CLI usage on that day. See [{% data variables.copilot.copilot_cli_short %} metrics fields](#copilot-cli-metrics-fields-api-only) below. |
+| `used_cli` | Captures whether the user has used {% data variables.copilot.copilot_cli_short %} that day. |
+| `used_agent` | Captures whether the user has used IDE agent mode that day. |
+| `used_chat` | Captures whether the user has used IDE chat that day. |
 
-### Pull request activity fields (API only)
 
-These fields capture daily pull request creation, review, merge, and suggestion activity across the enterprise, including activity performed by {% data variables.product.prodname_copilot_short %}.
+### {% data variables.copilot.copilot_cli_short %} metrics fields (API only)
+
+The `totals_by_cli` object contains the following nested fields when CLI usage is present. These metrics are currently only available in the enterprise-level and user-level reports. 
 
 | Field | Description |
 |:--|:--|
-| `pull_requests.total_created` | Total number of pull requests created across the enterprise on this specific day. <br/><br/>Creation is a one-time event. Each pull request is counted only on the day it is created. |
-| `pull_requests.total_reviewed` | Total number of pull requests reviewed across the enterprise on this specific day. <br/><br/>The same pull request may be counted on multiple days if it receives reviews on multiple days. Within a single day, each pull request is counted once, even if multiple review actions occur. |
-| `pull_requests.total_merged` | Total number of pull requests merged across the enterprise on this specific day. <br/><br/>Merging is a one-time event. Each pull request is counted only on the day it is merged. |
+| `totals_by_cli.session_count` | Number of distinct CLI sessions initiated on this day. |
+| `totals_by_cli.request_count` | Total number of requests made to {% data variables.product.prodname_copilot_short %} via the CLI on this day, including both user-initiated prompts and automated agentic follow-up calls. |
+| `totals_by_cli.token_usage.output_tokens_sum` | Total number of output tokens generated across all CLI requests on this day. |
+| `totals_by_cli.token_usage.prompt_tokens_sum` | Total number of prompt tokens sent across all CLI requests on this day. |
+| `totals_by_cli.token_usage.avg_tokens_per_request` | Average number of **output** and **prompt** tokens per CLI request, computed as `(output_tokens_sum + prompt_tokens_sum) ÷ request_count`.|
+| `totals_by_cli.prompt_count` | Total number of user prompts, commands, or queries executed within a session. |
+| `totals_by_cli.last_known_cli_version` | Most recent Copilot CLI version detected for the user that day. |
+
+### Pull request activity fields (API only)
+
+> [!IMPORTANT]
+> Organization- and enterprise-level reports may show different totals due to differences in user deduplication and attribution timing. For guidance on interpreting pull request metrics across scopes, see [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics#interpreting-pull-request-lifecycle-metrics-across-scopes).
+
+These fields capture daily pull request creation, review, merge, and suggestion activity at the enterprise or organization scope, including activity performed by {% data variables.product.prodname_copilot_short %}.
+
+| Field | Description |
+|:--|:--|
+| `pull_requests.total_created` | Total number of pull requests created on this specific day. <br/><br/>Creation is a one-time event. Each pull request is counted only on the day it is created. |
+| `pull_requests.total_reviewed` | Total number of pull requests reviewed on this specific day. <br/><br/>The same pull request may be counted on multiple days if it receives reviews on multiple days. Within a single day, each pull request is counted once, even if multiple review actions occur. |
+| `pull_requests.total_merged` | Total number of pull requests merged on this specific day. <br/><br/>Merging is a one-time event. Each pull request is counted only on the day it is merged. |
 | `pull_requests.median_minutes_to_merge` | Median time, in minutes, between pull request creation and merge for pull requests merged on this specific day. <br/><br/>Median is used to reduce the impact of outliers from unusually long-running pull requests. |
 | `pull_requests.total_suggestions` | Total number of pull request review suggestions generated on this specific day, regardless of author. |
 | `pull_requests.total_applied_suggestions` | Total number of pull request review suggestions that were applied on this specific day, regardless of author. |
-| `pull_requests.total_created_by_copilot` | Number of pull requests created by {% data variables.product.prodname_copilot_short %} across the enterprise on this specific day. |
-| `pull_requests.total_reviewed_by_copilot` | Number of pull requests reviewed by {% data variables.product.prodname_copilot_short %} across the enterprise on this specific day. <br/><br/>A pull request may be counted on multiple days if {% data variables.product.prodname_copilot_short %} reviews it on multiple days. |
+| `pull_requests.total_created_by_copilot` | Number of pull requests created by {% data variables.product.prodname_copilot_short %} on this specific day. |
+| `pull_requests.total_reviewed_by_copilot` | Number of pull requests reviewed by {% data variables.product.prodname_copilot_short %} on this specific day. <br/><br/>A pull request may be counted on multiple days if {% data variables.product.prodname_copilot_short %} reviews it on multiple days. |
 | `pull_requests.total_merged_created_by_copilot` | Number of pull requests created by {% data variables.product.prodname_copilot_short %} that were merged on this specific day. Each pull request is counted only on the day it is merged. |
 | `pull_requests.median_minutes_to_merge_copilot_authored` | Median time, in minutes, between pull request creation and merge for pull requests created by {% data variables.product.prodname_copilot_short %} and merged on this specific day. |
 | `pull_requests.total_copilot_suggestions` | Number of pull request review suggestions generated by {% data variables.product.prodname_copilot_short %} on this specific day. |

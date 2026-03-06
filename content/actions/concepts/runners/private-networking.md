@@ -6,14 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Actions
-  - Action development
-  - Azure Virtual Network
-  - Administrator
-  - Developer
-  - CI
-  - CD
 redirect_from:
   - /actions/using-github-hosted-runners/connecting-to-a-private-network/about-private-networking-with-github-hosted-runners
   - /actions/concepts/runners/about-private-networking-with-github-hosted-runners

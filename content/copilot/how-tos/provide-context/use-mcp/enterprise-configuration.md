@@ -5,8 +5,6 @@ shortTitle: Enterprise configuration
 versions:
   feature: copilot
 defaultTool: vscode
-topics:
-  - Copilot
 contentType: how-tos
 category:
   - Configure Copilot

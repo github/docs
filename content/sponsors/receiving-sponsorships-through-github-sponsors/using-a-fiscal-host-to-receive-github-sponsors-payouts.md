@@ -5,9 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - User account
-  - Sponsors profile
 shortTitle: Using a fiscal host
 ---
 

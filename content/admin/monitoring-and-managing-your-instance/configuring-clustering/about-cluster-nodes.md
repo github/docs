@@ -11,9 +11,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: overview
-topics:
-  - Clustering
-  - Enterprise
 ---
 
 ## About {% data variables.product.prodname_ghe_server %} cluster nodes

@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
 shortTitle: Agent failure to sign
 ---
 When trying to SSH into {% data variables.location.product_location %} on a Linux computer, you may see the following message in your terminal:

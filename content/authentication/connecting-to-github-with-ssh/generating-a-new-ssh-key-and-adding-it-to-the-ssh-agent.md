@@ -11,8 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
 shortTitle: Generate new SSH key
 ---
 
@@ -162,6 +160,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
    ```powershell
    ssh-add c:/Users/YOU/.ssh/id_ed25519
    ```
+
 {% data reusables.ssh.add-public-key-to-github %}
 
 > ### Troubleshooting SSH agent conflicts in Windows

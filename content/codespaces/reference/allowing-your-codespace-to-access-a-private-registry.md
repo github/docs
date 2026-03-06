@@ -4,8 +4,6 @@ intro: 'You can allow {% data variables.product.prodname_github_codespaces %} to
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
 redirect_from:
   - /codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry
   - /codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-registry

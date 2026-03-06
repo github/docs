@@ -14,9 +14,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Open Source
 shortTitle: Finding open source projects
+category:
+  - Explore and contribute
 ---
 
 Open source software powers much of the technology you use daily, from the web browser on your screen to the [NASA Ingenuity helicopter that flew on Mars](https://github.com/readme/featured/nasa-ingenuity-helicopter).

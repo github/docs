@@ -7,8 +7,6 @@ versions:
   ghes: '*'
 
 type: how_to
-topics:
-  - SSO
 shortTitle: Viewing and managing sessions
 ---
 

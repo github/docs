@@ -5,11 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Repositories
-  - Privacy
-  - Open Source
 shortTitle: Access to repositories
 contentType: other
 redirect_from:

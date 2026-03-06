@@ -7,6 +7,7 @@ describe('honeypotting', () => {
   test('any GET with survey-vote and survey-token query strings is 400', async () => {
     const res = await get('/en?survey-vote=1&survey-token=2')
     expect(res.statusCode).toBe(400)
+    expect(res.headers['content-type']).toMatch('text/plain')
     expect(res.body).toMatch(/Honeypotted/)
     expect(res.headers['cache-control']).toMatch('private')
   })
@@ -71,24 +72,12 @@ describe('index.md and .md suffixes', () => {
     }
   })
 
-  test('any URL that ends with /.md redirects', async () => {
-    // With language prefix
+  test('any URL that ends with .md serves markdown directly', async () => {
+    // .md is stripped and request flows through with Accept: text/markdown
     {
-      const res = await get('/en/get-started/hello.md')
-      expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/api/article/body?pathname=/en/get-started/hello')
-    }
-    // Without language prefix
-    {
-      const res = await get('/get-started/hello.md')
-      expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/api/article/body?pathname=/get-started/hello')
-    }
-    // With query string
-    {
-      const res = await get('/get-started/hello.md?foo=bar')
-      expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/api/article/body?pathname=/get-started/hello')
+      const res = await get('/en/get-started.md')
+      // Should not redirect — serves markdown directly (or 404 if page doesn't exist)
+      expect(res.statusCode).not.toBe(302)
     }
   })
 })

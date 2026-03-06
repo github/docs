@@ -3,8 +3,6 @@ title: Troubleshooting common issues with GitHub Spark
 intro: 'This guide describes common issues with {% data variables.product.prodname_spark_short %} and how to resolve them.'
 versions:
   feature: spark
-topics:
-  - Copilot
 shortTitle: Troubleshoot Spark
 contentType: how-tos
 category:

@@ -4,8 +4,6 @@ intro: 'You can use the administrative shell (SSH) and command-line utilities to
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
 children:
   - /accessing-the-administrative-shell-ssh
   - /administering-your-instance-using-the-github-cli

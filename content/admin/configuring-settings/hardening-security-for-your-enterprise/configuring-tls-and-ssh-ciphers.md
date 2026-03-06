@@ -10,12 +10,6 @@ redirect_from:
 versions:
   ghes: '>=3.19'
 type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Networking
-  - Security
 ---
 
 

@@ -5,11 +5,6 @@ versions:
   ghes: '*'
 permissions: 'Site administrators can monitor a high-availability configuration for a {% data variables.product.prodname_ghe_server %} instance.'
 type: how_to
-topics:
-  - Enterprise
-  - High availability
-  - Infrastructure
-  - Monitoring
 shortTitle: Monitor HA configuration
 redirect_from:
   - /admin/enterprise-management/configuring-high-availability/monitoring-a-high-availability-configuration

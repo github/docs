@@ -9,8 +9,6 @@ versions:
   fpt: '*'
   ghec: '*'
 permissions: 'People with admin permissions to a repository, and organization moderators, can temporarily limit interactions in that repository.'
-topics:
-  - Community
 shortTitle: Limit interactions in repo
 ---
 

@@ -4,9 +4,6 @@ shortTitle: GitHub Models
 intro: 'If you want to use {% data variables.product.prodname_github_models %} beyond the free usage included in your account, you can choose to opt in to paid usage.'
 versions:
   feature: github-models
-topics:
-  - Enterprise
-  - Billing
 redirect_from:
   - /billing/managing-billing-for-your-products/about-billing-for-github-models
 contentType: concepts
@@ -111,8 +108,6 @@ You are considered to be directly billed by {% data variables.product.github %} 
 Enterprises and organizations can opt in to paid usage to access expanded model capabilities, including increased request allowances and larger context windows. You can manage their spending by setting a budget.
 
 Enterprises, organizations and personal accounts may have default budgets to limit spending. Check the budgets for your account to ensure they are appropriate for your usage needs.
-
-{% data reusables.billing.migrated-budgets %}
 
 For more information, see [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
 

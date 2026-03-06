@@ -11,10 +11,6 @@ redirect_from:
   - /billing/using-the-new-billing-platform/estimating-spending
   - /billing/managing-your-billing/estimating-spending
   - /billing/tutorials/estimate-spending
-topics:
-  - Billing
-  - Enterprise
-  - Team
 permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 contentType: how-tos

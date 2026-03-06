@@ -6,15 +6,13 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>=3.22'
-topics:
-  - Repositories
 shortTitle: View all repositories
 type: how_to
 ---
 
 ## Viewing repositories
 
-Your repository dashboard is available at the top of any page. On the dashboard, you can see repositories by `My contributions`, `My repositories`, and `My forks`.
+Your repository dashboard is available at the top of any page. On the dashboard, you can see repositories by `My contributions`, `My repositories`, `My forks`, and `Admin access`.
 
 1. At the top of any page, click **{% octicon "repo" aria-hidden="true" aria-label="repo" %}** to see your repositories.
 

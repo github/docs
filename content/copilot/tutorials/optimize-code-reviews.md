@@ -6,8 +6,6 @@ intro: Automate reviews with {% data variables.product.prodname_copilot_short %}
 product: '{% data variables.copilot.copilot_code-review_short %} is available for {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus %}, {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}. See [Copilot plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text).'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: tutorials
 category:
   - Accelerate PR velocity

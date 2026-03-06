@@ -16,10 +16,6 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: concepts
-topics:
-  - Accounts
-  - Enterprise
-  - Fundamentals
 ---
 
 An enterprise account is the central point of administration for your business on {% data variables.product.github %}. It brings together administrative tools for access management, policies, billing, and more. Enterprise administrators can set up features and policies efficiently at scale before deploying them across the business.

@@ -7,9 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Codespaces
-  - Administrator
 product: '{% data reusables.gated-features.codespaces-org %}'
 ---
 

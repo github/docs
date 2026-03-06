@@ -5,8 +5,6 @@ intro: 'Create spaces to organize and centralize relevant content that grounds {
 permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.copilot.copilot_spaces_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/how-tos/provide-context/use-copilot-spaces/create-and-use-copilot-spaces
   - /copilot/using-github-copilot/copilot-spaces/creating-and-using-copilot-spaces

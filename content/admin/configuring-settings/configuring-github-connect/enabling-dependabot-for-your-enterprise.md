@@ -16,11 +16,6 @@ permissions: 'Enterprise owners can set up {% data variables.product.prodname_de
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Security
-  - Dependency graph
-  - Dependabot
 ---
 
 ## About {% data variables.product.prodname_dependabot %} for {% data variables.product.prodname_ghe_server %}

@@ -5,9 +5,6 @@ intro: 'Learn how {% data variables.product.prodname_github_apps %}, external se
 versions:
   ghec: '*'
 type: overview
-topics:
-  - Enterprise
-  - Fundamentals
 ---
 
 {% data reusables.enterprise-onboarding.automations %}

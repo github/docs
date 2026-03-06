@@ -9,8 +9,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Community
 shortTitle: Configure
 ---
 
@@ -40,7 +38,9 @@ shortTitle: Configure
 
 {% data reusables.community.issue-forms-beta %}
 
-With issue forms, you can create issue templates that have customizable web form fields. You can encourage contributors to include specific, structured information by using issue forms in your repository. Issue forms are written in YAML using the {% data variables.product.prodname_dotcom %} form schema. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema). {% data reusables.actions.learn-more-about-yaml %}
+With issue forms, you can create issue templates that have customizable web form fields. You can encourage contributors to include specific, structured information by using issue forms in your repository. 
+
+{% ifversion issue-form-upload %}Issue forms support several field types, including text inputs, dropdowns, checkboxes, and file uploads.{% endif %} Issue forms are written in YAML using the {% data variables.product.prodname_dotcom %} form schema. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema). {% data reusables.actions.learn-more-about-yaml %}
 
 To use an issue form in your repository, you must create a new file and add it to the `.github/ISSUE_TEMPLATE` folder in your repository.
 

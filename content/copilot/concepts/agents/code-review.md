@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'Find out how {% data variables.product.prodname_copilot_short %} can review pull requests for you.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/code-review
   - /copilot/concepts/code-review/code-review

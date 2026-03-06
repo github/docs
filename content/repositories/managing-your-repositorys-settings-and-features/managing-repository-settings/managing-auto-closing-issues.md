@@ -6,10 +6,6 @@ versions:
   ghes: '>=3.18'
   ghec: '*'
 permissions: Repository administrators and maintainers can configure the automating closing of issues in the repository, once related pull requests are merged.
-topics:
-  - Repositories
-  - Issues
-  - Pull requests
 shortTitle: Manage auto-closing issues
 allowTitleToDifferFromFilename: true
 ---

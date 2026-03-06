@@ -13036,7 +13036,17 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers. Use <code>fullDatabaseId</code> instead. Removal on 2027-01-01 UTC.</p>"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "location",
@@ -66420,7 +66430,7 @@
         },
         {
           "name": "isBlankIssuesEnabled",
-          "description": "<p>Returns true if blank issue creation is allowed.</p>",
+          "description": "<p>Returns true if the viewer can create a blank issue in this repository.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -69153,6 +69163,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "requireExplicitValues",
+          "description": "<p>Whether this repository custom property requires explicit values.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "required",
@@ -101749,6 +101767,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "requireExplicitValues",
+          "description": "<p>Whether this repository custom property requires explicit values.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "required",
           "description": "<p>Whether the custom property is required.</p>",
           "type": "Boolean",
@@ -111714,6 +111740,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        },
+        {
+          "name": "requireExplicitValues",
+          "description": "<p>Whether this repository custom property requires explicit values.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "required",

@@ -1,4 +1,4 @@
-import cheerio from 'cheerio'
+import { load } from 'cheerio'
 import { decode } from 'html-entities'
 
 // Given a piece of HTML return it without HTML. E.g.
@@ -13,6 +13,6 @@ export function fastTextOnly(html: string): string {
     const middle = html.slice(3, -4)
     if (!middle.includes('<')) return decode(middle.trim())
   }
-  const $ = cheerio.load(html, { xmlMode: true })
+  const $ = load(html, { xmlMode: true })
   return $.root().text().trim()
 }

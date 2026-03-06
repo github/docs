@@ -6,10 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: concepts
-topics:
-  - Accounts
-  - Enterprise
-  - Fundamentals
 allowTitleToDifferFromFilename: true
 ---
 

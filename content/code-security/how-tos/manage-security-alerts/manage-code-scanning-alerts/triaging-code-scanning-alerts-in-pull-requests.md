@@ -23,43 +23,9 @@ topics:
   - Repositories
 ---
 
+Depending on your configuration, {% data variables.product.prodname_code_scanning %} results may appear as check results and annotations on pull requests. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/about-code-scanning-alerts#about-alerts-in-pull-requests).
 
-## About {% data variables.product.prodname_code_scanning %} results on pull requests
-
-In repositories where {% data variables.product.prodname_code_scanning %} is configured as a pull request check, {% data variables.product.prodname_code_scanning %} checks the code in the pull request. By default, this is limited to pull requests that target the default branch, but you can change this configuration within {% data variables.product.prodname_actions %} or in a third-party CI/CD system.
-
-If the lines of code changed in the pull request generate {% data variables.product.prodname_code_scanning %} alerts, the alerts are reported in the following places on the pull request.
-
-* Check results in the pull request
-* The **Conversation** tab of the pull request, as part of a pull request review
-* The **Files changed** tab of the pull request
-
-> [!NOTE]
-> {% data variables.product.prodname_code_scanning_caps %} displays alerts in pull requests only when all the lines of code identified by the alert exist in the pull request diff. For more information, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#source-file-locations).
-
-{% ifversion code-scanning-autofix %}
-
-{% data variables.copilot.copilot_autofix %} will suggest fixes for alerts from {% data variables.product.prodname_code_scanning %} analysis (including {% data variables.product.prodname_codeql %} analysis) in private repositories. For more information on working with suggestions from {% data variables.copilot.copilot_autofix_short %} in pull requests, see [Working with {% data variables.copilot.copilot_autofix_short %} suggestions for alerts on a pull request](#working-with-copilot-autofix-suggestions-for-alerts-on-a-pull-request).
-
-{% endif %}
-
-If you have write permission for the repository, you can see any existing {% data variables.product.prodname_code_scanning %} alerts on the **Security** tab. For information about repository alerts, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository).
-
-In repositories where {% data variables.product.prodname_code_scanning %} is configured to scan each time code is pushed, {% data variables.product.prodname_code_scanning %} will also map the results to any open pull requests and add the alerts as annotations in the same places as other pull request checks. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#scanning-on-push).
-
-If your pull request targets a protected branch that uses {% data variables.product.prodname_code_scanning %}, and the repository owner has configured required status checks, then the "{% data variables.product.prodname_code_scanning_caps %} results" check must pass before you can merge the pull request. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging).
-
-{% ifversion copilot-chat-ghas-alerts %}
-
-With a {% data variables.copilot.copilot_enterprise %} license, you can also ask {% data variables.copilot.copilot_chat %} for help to better understand {% data variables.product.prodname_code_scanning %} alerts in repositories in your organization. For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
-
-{% endif %}
-
-## About {% data variables.product.prodname_code_scanning %} as a pull request check
-
-There are many options for configuring {% data variables.product.prodname_code_scanning %} as a pull request check, so the exact configuration of each repository will vary and some will have more than one check.
-
-### {% data variables.product.prodname_code_scanning_caps %} results check
+## Viewing results of the {% data variables.product.prodname_code_scanning %} check
 
 For all configurations of {% data variables.product.prodname_code_scanning %}, the check that contains the results of {% data variables.product.prodname_code_scanning %} is: **{% data variables.product.prodname_code_scanning_caps %} results**. The results for each analysis tool used are shown separately. Any new alerts on lines of code changed in the pull request are shown as annotations.
 
@@ -67,7 +33,7 @@ To see the full set of alerts for the analyzed branch, click **View all branch a
 
 ![Screenshot of the {% data variables.product.prodname_code_scanning_caps %} results check on a pull request. The "View all branch alerts" link is highlighted with a dark orange outline.](/assets/images/help/repository/code-scanning-results-check.png)
 
-### {% data variables.product.prodname_code_scanning_caps %} results check failures
+## Managing severity levels for check failures
 
 If the {% data variables.product.prodname_code_scanning %} results check finds any problems with a severity of `error`, `critical`, or `high`, the check fails and the error is reported in the check results. If all the results found by {% data variables.product.prodname_code_scanning %} have lower severities, the alerts are treated as warnings or notes and the check succeeds.
 
@@ -75,7 +41,7 @@ If the {% data variables.product.prodname_code_scanning %} results check finds a
 
 You can override the default behavior in your repository settings, by specifying the level of severities and security severities that will cause a pull request check failure. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#defining-the-severities-causing-pull-request-check-failure).
 
-### Other {% data variables.product.prodname_code_scanning %} checks
+## Diagnosing issues with your {% data variables.product.prodname_code_scanning %} configuration
 
 Depending on your configuration, you may see additional checks running on pull requests with {% data variables.product.prodname_code_scanning %} configured. These are usually workflows that analyze the code or that upload {% data variables.product.prodname_code_scanning %} results. These checks are useful for troubleshooting when there are problems with the analysis.
 

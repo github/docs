@@ -21,8 +21,6 @@ children:
   - /reference
   - /tutorials
   - /responsible-use
-topics:
-  - Copilot
 contentType: landing
 includedCategories:
   - Learn about Copilot
@@ -33,4 +31,5 @@ includedCategories:
   - Track Copilot usage
   - Troubleshooting Copilot
   - Responsible use
+  - Copilot in the CLI
 ---

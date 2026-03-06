@@ -16,8 +16,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Marketplace
 shortTitle: Write listing descriptions
 ---
 

@@ -12,8 +12,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 shortTitle: App query parameters
 ---
 ## About URL parameters for registering {% data variables.product.prodname_github_apps %}

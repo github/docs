@@ -4,9 +4,6 @@ intro: Create roles with fine-grained permissions for consistent access to setti
 versions:
   feature: ent-owner-custom-org-roles
 type: how_to
-topics:
-  - Enterprise
-  - Organizations
 shortTitle: Create custom roles
 redirect_from:
   - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/custom-organization-roles

@@ -6,15 +6,6 @@ versions:
   feature: actions-private-networking-azure-vnet
 type: overview
 permissions: '{% data reusables.actions.azure-vnet-organization-permissions %}'
-topics:
-  - Actions
-  - Action development
-  - Azure Virtual Network
-  - Administrator
-  - Developer
-  - CI
-  - CD
-  - Organizations
 redirect_from:
   - /organizations/managing-organization-settings/about-using-github-hosted-runners-in-your-azure-virtual-network
 ---

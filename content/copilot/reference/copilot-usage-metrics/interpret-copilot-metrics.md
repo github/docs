@@ -5,8 +5,6 @@ intro: '{% data variables.product.prodname_copilot_short %} usage and adoption m
 permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: reference
 allowTitleToDifferFromFilename: true
 redirect_from:
@@ -17,8 +15,6 @@ category:
   - Understand metrics
   - Track Copilot usage
 ---
-
-{% data reusables.copilot.usage-metrics-preview %}
 
 After you’ve viewed the {% data variables.product.prodname_copilot_short %} usage metrics dashboard, you can use this article to interpret each chart and identify opportunities to increase adoption and engagement.
 
@@ -38,7 +34,7 @@ The "Requests per chat mode" and "Agent adoption" charts show how developers are
 
 | Signal | What it tells you | What to look for |
 |:--|:--|:--|
-| Requests per chat mode | Breakdown of chat interactions by mode—Ask, Edit, or Agent. | A balanced distribution suggests users are exploring multiple capabilities. Heavy use of one mode can highlight where enablement should focus. |
+| Requests per chat mode | Breakdown of chat interactions by mode—Ask, Edit, Plan, or Agent. | A balanced distribution suggests users are exploring multiple capabilities. Heavy use of one mode can highlight where enablement should focus. |
 | Agent adoption | Percentage of active users who used {% data variables.copilot.copilot_agent_short %}. | Growth over time shows that developers are progressing from basic completions to more advanced {% data variables.product.prodname_copilot_short %} features. |
 
 ## Reviewing model adoption
@@ -48,7 +44,7 @@ The "Model usage per day" and "Model usage per chat mode" charts help you unders
 | Chart | Description | Insights to derive |
 |:--|:--|:--|
 | Model usage per day | Shows which AI models power {% data variables.copilot.copilot_chat_short %} activity. | Identify whether users are primarily engaging with default models or experimenting with newer ones. |
-| Model usage per chat mode | Breaks down model usage by chat mode (Ask, Edit, Agent). | Monitor how model adoption evolves as new models are released. |
+| Model usage per chat mode | Breaks down model usage by chat mode (Ask, Edit, Plan, Agent). | Monitor how model adoption evolves as new models are released. |
 
 > [!NOTE]
 > Model usage charts currently represent chat activity only. Completions data is not included in model breakdowns.

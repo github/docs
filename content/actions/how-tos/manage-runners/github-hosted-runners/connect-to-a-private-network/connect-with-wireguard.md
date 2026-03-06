@@ -7,9 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Actions
-  - Developer
 redirect_from:
   - /actions/using-github-hosted-runners/using-github-hosted-runners/using-wireguard-to-create-a-network-overlay
   - /actions/using-github-hosted-runners/connecting-to-a-private-network/using-wireguard-to-create-a-network-overlay

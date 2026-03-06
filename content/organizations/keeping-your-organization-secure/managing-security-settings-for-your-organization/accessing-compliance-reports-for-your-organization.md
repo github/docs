@@ -5,9 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Organizations
-  - Teams
 permissions: Organization owners can access compliance reports for the organization.
 shortTitle: Access compliance reports
 ---

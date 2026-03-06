@@ -5,10 +5,6 @@ intro: 'You can use the security log to review all actions related to {% data va
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
-  - Developer
-  - Security
 redirect_from:
   - /codespaces/managing-your-codespaces/reviewing-your-security-logs-for-codespaces
 ---

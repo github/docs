@@ -1,10 +1,6 @@
 ---
 title: Troubleshooting firewall settings for GitHub Copilot
 intro: Troubleshooting help for firewall-related errors.
-topics:
-  - Copilot
-  - Troubleshooting
-  - Networking
 versions:
   feature: copilot
 shortTitle: Troubleshoot firewall settings

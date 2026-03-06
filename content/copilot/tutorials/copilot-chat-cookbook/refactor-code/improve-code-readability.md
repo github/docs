@@ -16,8 +16,6 @@ category:
 complexity:
   - Simple
 octicon: rocket
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

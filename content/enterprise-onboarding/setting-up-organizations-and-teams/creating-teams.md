@@ -6,9 +6,6 @@ versions:
 shortTitle: Create teams
 type: how_to
 permissions: Enterprise owners or organization owners
-topics:
-  - Organizations
-  - Enterprise
 allowTitleToDifferFromFilename: true
 ---
 

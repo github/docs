@@ -4,11 +4,6 @@ shortTitle: Identify events by token
 intro: 'You can identify the actions performed by a specific token in your organization.'
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Authentication
-  - OAuth apps
-  - GitHub Apps
 ---
 
 ## About token data in the audit log for an organization

@@ -11,8 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Billing
 ---
 
 ## About billing for {% data variables.product.prodname_actions %}

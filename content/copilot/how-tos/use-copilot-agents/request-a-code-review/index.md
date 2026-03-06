@@ -4,8 +4,6 @@ shortTitle: Request a code review
 intro: 'Request and configure code reviews from {% data variables.product.prodname_copilot_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /use-code-review
   - /configure-automatic-review

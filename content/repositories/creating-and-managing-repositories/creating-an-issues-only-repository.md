@@ -11,8 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Issues-only repository
 ---
 1. Create a **private** repository to host the source code from your project.

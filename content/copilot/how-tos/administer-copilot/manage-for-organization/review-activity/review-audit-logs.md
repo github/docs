@@ -19,8 +19,6 @@ versions:
   feature: copilot
 product: '{% data reusables.gated-features.copilot-audit-logs %}'
 permissions: 'Organization owners{% ifversion ghec %} and enterprise administrators{% endif %} can interact with the audit logs.'
-topics:
-  - Copilot
 contentType: how-tos
 category: 
   - Manage Copilot for a team

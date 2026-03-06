@@ -10,10 +10,6 @@ redirect_from:
   - /codespaces/getting-started-with-codespaces/getting-started-with-your-python-project-in-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces
 type: tutorial
-topics:
-  - Codespaces
-  - Developer
-  - Set up
 ---
 
 ## Introduction

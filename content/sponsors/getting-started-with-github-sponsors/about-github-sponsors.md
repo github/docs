@@ -8,9 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: overview
-topics:
-  - Open Source
-  - Fundamentals
 ---
 
 ## About {% data variables.product.prodname_sponsors %}

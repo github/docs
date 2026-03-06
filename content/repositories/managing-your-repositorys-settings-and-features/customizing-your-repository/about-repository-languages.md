@@ -14,8 +14,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
 shortTitle: Repository languages
 ---
 {% data variables.product.github %} uses the open source [Linguist library](https://github.com/github-linguist/linguist) to

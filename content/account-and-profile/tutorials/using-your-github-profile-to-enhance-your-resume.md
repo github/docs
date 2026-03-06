@@ -3,8 +3,6 @@ title: Using your GitHub profile to enhance your resume
 intro: Demonstrate your skills to hiring managers with your {% data variables.product.github %} profile.
 versions:
   fpt: '*'
-topics:
-  - Profiles
 shortTitle: Enhance your resume
 redirect_from:
   - /account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/using-your-github-profile-to-enhance-your-resume

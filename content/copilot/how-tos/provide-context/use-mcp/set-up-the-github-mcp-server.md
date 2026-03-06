@@ -5,8 +5,6 @@ shortTitle: Set up the GitHub MCP Server
 versions:
   feature: copilot
 defaultTool: vscode
-topics:
-  - Copilot
 redirect_from:
   - /copilot/how-tos/use-copilot-extensions/build-a-copilot-agent/communicate-with-copilot-platform
   - /copilot/how-tos/use-copilot-extensions/build-a-copilot-agent/communicate-with-github

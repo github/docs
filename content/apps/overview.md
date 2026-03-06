@@ -8,8 +8,6 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
-topics:
-  - GitHub Apps
 ---
 
 ## About {% data variables.product.prodname_github_apps %}

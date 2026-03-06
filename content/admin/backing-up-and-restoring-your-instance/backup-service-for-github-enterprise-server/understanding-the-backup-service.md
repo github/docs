@@ -4,8 +4,6 @@ shortTitle: Understand the backup service
 intro: 'Answers to common questions about using the backup service with {% data variables.product.prodname_ghe_server %}.'
 versions:
   ghes: '>= 3.17'
-topics:
-  - Backups
 ---
 
 ## Does backing up or restoring impact performance?

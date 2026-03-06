@@ -8,9 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - 2FA
 shortTitle: Unlink your email
 contentType: how-tos
 ---

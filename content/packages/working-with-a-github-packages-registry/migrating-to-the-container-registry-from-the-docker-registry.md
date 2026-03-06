@@ -11,10 +11,6 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Migration to Container registry
-topics:
-  - Containers
-  - Docker
-  - Migration
 ---
 
 {% data reusables.package_registry.container-registry-ghes-beta %}
