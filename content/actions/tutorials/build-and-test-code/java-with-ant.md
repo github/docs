@@ -7,14 +7,9 @@ redirect_from:
   - /actions/automating-builds-and-tests/building-and-testing-java-with-ant
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-java-with-ant
   - /actions/how-tos/writing-workflows/building-and-testing/building-and-testing-java-with-ant
-  - /actions/tutorials/build-and-test-code/building-and-testing-java-with-ant
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-shortTitle: Java with Ant
----
-
+  - /actions/tutorials/build-and-test-code/building-and-testing-js-uniIl-G:Chart.js
+  - ci
+  - cg {background}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
