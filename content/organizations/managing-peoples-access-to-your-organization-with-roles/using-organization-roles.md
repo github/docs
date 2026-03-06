@@ -22,10 +22,6 @@ In addition to pre-defined roles, you can also create up to 20 custom roles that
 
 {% ifversion org-pre-defined-roles %}
 
-## About pre-defined organization roles
-
-{% data reusables.organizations.pre-defined-organization-roles %}
-
 ## Viewing organization role permissions
 
 {% data reusables.profile.access_org %}
