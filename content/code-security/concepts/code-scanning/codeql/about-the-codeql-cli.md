@@ -115,6 +115,12 @@ The {% data variables.product.prodname_codeql_cli %} uses special programs, call
 
 {% data reusables.code-scanning.codeql-license %}
 
+## About {% data variables.product.prodname_codeql_cli %} database bundles
+
+The {% data variables.product.prodname_codeql_cli %} database bundle command can be used to create a relocatable archive of a {% data variables.product.prodname_codeql %} database.
+
+A copy of a database bundle can be used to share troubleshooting information with your team members or with {% data variables.contact.github_support %}. See [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/scan-from-the-command-line/creating-database-bundle-for-troubleshooting).
+
 ## Getting started
 
 For the simplest way to get started, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli).
