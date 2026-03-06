@@ -4,10 +4,6 @@ intro: Disable {% data variables.product.prodname_GHAS %} and prevent accidental
 permissions: Enterprise owners
 versions:
   feature: disable-ghas-button
-topics:
-  - Billing
-  - Advanced Security
-  - Enterprise
 shortTitle: Disable GHAS for enterprise
 contentType: how-tos
 ---
