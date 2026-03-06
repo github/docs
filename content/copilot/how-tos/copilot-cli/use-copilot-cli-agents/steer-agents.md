@@ -5,8 +5,6 @@ intro: Guide {% data variables.product.prodname_copilot_short %} during task exe
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category:
   - Build with Copilot CLI 

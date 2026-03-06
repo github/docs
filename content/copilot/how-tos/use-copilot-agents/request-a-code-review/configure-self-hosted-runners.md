@@ -5,8 +5,6 @@ intro: 'Learn how to configure self-hosted runners for {% data variables.copilot
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category:
   - Author and optimize with Copilot

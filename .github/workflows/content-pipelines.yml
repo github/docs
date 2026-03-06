@@ -62,8 +62,10 @@ jobs:
           echo "pr_number=$PR_NUMBER" >> "$GITHUB_OUTPUT"
 
       - name: Setup branch
+        id: setup-branch
         env:
           UPDATE_BRANCH: ${{ steps.branch.outputs.update_branch }}
+          PR_NUMBER: ${{ steps.check-pr.outputs.pr_number }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -76,7 +78,12 @@ jobs:
               git merge --abort 2>/dev/null || true
               git checkout main
               git branch -D "$UPDATE_BRANCH"
-              git push origin --delete "$UPDATE_BRANCH" || true
+              if [ -z "$PR_NUMBER" ]; then
+                git push origin --delete "$UPDATE_BRANCH" || true
+              else
+                echo "Skipping remote branch delete — PR #$PR_NUMBER is open"
+                echo "force_push=true" >> "$GITHUB_OUTPUT"
+              fi
               git checkout -b "$UPDATE_BRANCH"
             }
           else
@@ -111,12 +118,19 @@ jobs:
         if: steps.commit.outputs.has_changes == 'true'
         env:
           UPDATE_BRANCH: ${{ steps.branch.outputs.update_branch }}
-        run: git push origin "$UPDATE_BRANCH"
+          FORCE_PUSH: ${{ steps.setup-branch.outputs.force_push }}
+        run: |
+          if [ "$FORCE_PUSH" = "true" ]; then
+            echo "Force-pushing to align branch after merge conflict reset"
+            git push --force-with-lease origin "$UPDATE_BRANCH"
+          else
+            git push origin "$UPDATE_BRANCH"
+          fi
 
       - name: Create or update PR
         if: steps.commit.outputs.has_changes == 'true'
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           UPDATE_BRANCH: ${{ steps.branch.outputs.update_branch }}
           PIPELINE_ID: ${{ matrix.id }}
         run: |
@@ -136,6 +150,8 @@ jobs:
 
           if [ -n "$PR_NUMBER" ]; then
             echo "PR #$PR_NUMBER already exists — new commit pushed"
+            echo "Ensuring PR #$PR_NUMBER is marked ready for review"
+            gh pr ready "$PR_NUMBER" || echo "Unable to mark PR #$PR_NUMBER as ready (it may already be ready)"
           else
             echo "Creating new PR"
             gh pr create \
@@ -143,8 +159,7 @@ jobs:
               --body "$PR_BODY" \
               --base main \
               --head "$UPDATE_BRANCH" \
-              --label "workflow-generated,content-pipeline-update" \
-              --draft
+              --label "workflow-generated,content-pipeline-update,ready-for-doc-review"
           fi
 
       - uses: ./.github/actions/slack-alert

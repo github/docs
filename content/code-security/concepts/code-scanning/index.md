@@ -15,6 +15,7 @@ contentType: concepts
 children:
   - /about-code-scanning
   - /about-code-scanning-alerts
+  - /copilot-autofix-for-code-scanning
   - /setup-types
   - /about-integration-with-code-scanning
   - /sarif-files

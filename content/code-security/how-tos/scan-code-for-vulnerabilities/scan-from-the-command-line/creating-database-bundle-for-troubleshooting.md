@@ -1,7 +1,7 @@
 ---
 title: Creating CodeQL CLI database bundles
 shortTitle: Creating CodeQL CLI database bundles
-intro: You can create a database bundle with {% data variables.product.prodname_codeql %} troubleshooting information.
+intro: Create a database bundle with {% data variables.product.prodname_codeql %} troubleshooting information.
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.codeql %}'
 versions:
@@ -19,18 +19,9 @@ contentType: how-tos
 
 {% data reusables.code-scanning.codeql-database-archive-contains-source-code %}
 
-## About creating {% data variables.product.prodname_codeql_cli %} database bundles
-
 {% data reusables.code-scanning.codeql-cli-version-ghes %}
 
-The {% data variables.product.prodname_codeql_cli %} database bundle command can be used to create a relocatable archive of a {% data variables.product.prodname_codeql %} database.
-
-A copy of a database bundle can be used to share troubleshooting information with your team members or with {% data variables.contact.github_support %}.
-
-The following {% data variables.product.prodname_codeql_cli %} command syntax is suggested when creating a database bundle for troubleshooting purposes:
-
-> [!NOTE]
-> This sample `database bundle` command requires {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_version_min_version_create_bundle %} or higher.
+The following {% data variables.product.prodname_codeql_cli %} command syntax is suggested when creating a database bundle for troubleshooting purposes. This sample `database bundle` command requires {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_version_min_version_create_bundle %} or higher.
 
 ```shell
 codeql database bundle --output=codeql-debug-artifacts.zip --include-diagnostics --include-logs --include-results -- <dir>

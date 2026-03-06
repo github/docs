@@ -17,8 +17,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pages
 category:
   - Learn about GitHub Pages
 ---

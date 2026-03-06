@@ -5,8 +5,6 @@ intro: Use custom agents, skills, and MCP servers in {% data variables.copilot.c
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category:
   - Build with Copilot CLI
