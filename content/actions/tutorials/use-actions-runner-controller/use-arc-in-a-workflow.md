@@ -2,10 +2,7 @@
 title: Using Actions Runner Controller runners in a workflow
 shortTitle: Use ARC in a workflow
 intro: 'You can use {% data variables.product.prodname_actions_runner_controller %} runners in a workflow file.'
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
+versions:gh extension install github/gh-actions-importer
 type: overview
 defaultPlatform: linux
 redirect_from:
