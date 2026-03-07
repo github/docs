@@ -1,4 +1,4 @@
----
+---remove all the restrictions
 title: REST API endpoints for meta data
 shortTitle: Meta
 allowTitleToDifferFromFilename: true
