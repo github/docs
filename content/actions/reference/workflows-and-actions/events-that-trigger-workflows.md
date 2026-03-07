@@ -1107,7 +1107,7 @@ on: workflow_call
 | [workflow_dispatch](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_dispatch) | Not applicable | Last commit on the `GITHUB_REF` branch or tag | Branch or tag that received dispatch |
 
 > [!NOTE]
-> {% data reusables.actions.branch-requirement %}
+> To trigger the workflow manually using the Github UI, the workflow file must exist on the default branch.
 
 To enable a workflow to be triggered manually, you need to configure the `workflow_dispatch` event. You can manually trigger a workflow run using the {% data variables.product.github %} API, {% data variables.product.prodname_cli %}, or the {% data variables.product.github %} UI. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/manually-running-a-workflow).
 
