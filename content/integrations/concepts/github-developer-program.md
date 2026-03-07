@@ -34,5 +34,5 @@ Awesome! Here’s how you can spread the word:
 
 Membership is open to individual developers and companies who have:
 
-* An integration in production or development using the {% data variables.product.github %} API.
+* An integration in production or development using the {% data variables.product.github %} APIs.
 * An email address where {% data variables.product.github %} users can contact you for support.
