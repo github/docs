@@ -59,6 +59,7 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% 数据variables', '{% data variables')
     content = content.replaceAll('{% 数据 variables', '{% data variables')
     content = content.replaceAll('{% 数据可重用', '{% data reusables')
+    content = content.replaceAll('{% 数据可重用s.', '{% data reusables.')
   }
 
   if (context.code === 'ru') {
@@ -80,6 +81,10 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% ifversion ghec или fpt %}', '{% ifversion ghec or fpt %}')
     content = content.replaceAll('{% ghes или ghec %}', '{% ifversion ghes or ghec %}')
     content = content.replaceAll('{% elsif ghec или ghes %}', '{% elsif ghec or ghes %}')
+    // Catch remaining "или" between any plan names in ifversion/elsif tags
+    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?или[^%]*?%\}/g, (match) => {
+      return match.replace(/ или /g, ' or ')
+    })
     content = content.replaceAll('{% endif _%}', '{% endif %}')
     content = content.replaceAll('{% конечным %}', '{% endif %}')
     content = content.replaceAll('{% конец %}', '{% endif %}')
@@ -117,6 +122,12 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% autre %}', '{% else %}')
     content = content.replaceAll('{%- ifversion fpt ou ghec %}', '{%- ifversion fpt or ghec %}')
     content = content.replaceAll('{% ifversion fpt ou ghec %}', '{% ifversion fpt or ghec %}')
+    content = content.replaceAll('{%- ifversion fpt ou ghec ou', '{%- ifversion fpt or ghec or')
+    content = content.replaceAll('{% ifversion fpt ou ghec ou', '{% ifversion fpt or ghec or')
+    // Catch remaining "ou" between any plan names in ifversion tags
+    content = content.replace(/\{%-? ifversion [^%]*?ou [^%]*?%\}/g, (match) => {
+      return match.replace(/ ou /g, ' or ')
+    })
   }
 
   if (context.code === 'ko') {
@@ -134,10 +145,16 @@ export function correctTranslatedContentStrings(
   if (context.code === 'de') {
     content = content.replaceAll('{% Daten variables', '{% data variables')
     content = content.replaceAll('{% daten variables', '{% data variables')
+    content = content.replaceAll('{% Data variables', '{% data variables')
+    content = content.replaceAll('{% Daten reusables', '{% data reusables')
     content = content.replaceAll('{%-Daten variables', '{%- data variables')
     content = content.replaceAll('{%-Daten-variables', '{%- data variables')
     content = content.replaceAll('{%- ifversion fpt oder ghec %}', '{%- ifversion fpt or ghec %}')
     content = content.replaceAll('{% ifversion fpt oder ghec %}', '{% ifversion fpt or ghec %}')
+    // Catch remaining "oder" between any plan names in ifversion tags
+    content = content.replace(/\{%-? ifversion [^%]*?oder [^%]*?%\}/g, (match) => {
+      return match.replace(/ oder /g, ' or ')
+    })
   }
 
   // --- Generic fixes (all languages) ---

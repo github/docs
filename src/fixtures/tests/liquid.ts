@@ -131,10 +131,10 @@ describe('rowheaders', () => {
     // `scope` attribute.
     // See "Scope attribute should be used correctly on tables"
     // https://dequeuniversity.com/rules/axe/4.1/scope-attr-valid?application=RuleDescription
-    $('thead th', firstTable).each((i: number, element: any) => {
+    $('thead th', firstTable).each((i, element) => {
       expect($(element).attr('scope')).toBe('col')
     })
-    $('tbody th', firstTable).each((i: number, element: any) => {
+    $('tbody th', firstTable).each((i, element) => {
       expect($(element).attr('scope')).toBe('row')
     })
     // The 5 here is the other `expect(...)` that happens before these
@@ -222,7 +222,7 @@ describe('misc Liquid', () => {
     const links = $(`#article-contents a[href="${url}"]`)
     expect(links.length).toBe(2)
     const texts = links
-      .map((i: number, element: any) => {
+      .map((i, element) => {
         return $(element).text()
       })
       .get()
@@ -293,7 +293,7 @@ describe('data tag', () => {
     // But because `{% data reusables.injectables.paragraphs %}` is
     // inserted with some indentation, that's replicated on every line.
     const li = $('#article-contents li')
-      .filter((_: number, element: any) => {
+      .filter((_, element) => {
         return $(element).text().trim().startsWith('Point 1')
       })
       .eq(0)
