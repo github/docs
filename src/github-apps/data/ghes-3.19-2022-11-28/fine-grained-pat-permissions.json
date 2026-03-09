@@ -3445,7 +3445,7 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites",
         "additional-permissions": false,
-        "access": "write"
+        "access": "read"
       },
       {
         "category": "repos",
@@ -3454,7 +3454,7 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}",
         "additional-permissions": false,
-        "access": "write"
+        "access": "read"
       },
       {
         "category": "repos",
