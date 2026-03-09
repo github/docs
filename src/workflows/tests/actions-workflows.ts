@@ -30,6 +30,7 @@ const workflows: WorkflowMeta[] = fs
   .readdirSync(workflowsDir)
   .filter((filename) => filename.endsWith('.yml') || filename.endsWith('.yaml'))
   .filter((filename) => filename !== 'moda-ci.yaml') // Skip moda-ci
+  .filter((filename) => !filename.endsWith('.lock.yml')) // Skip auto-generated agentic workflow lock files
   .map((filename) => {
     const fullpath = path.join(workflowsDir, filename)
     const data = yaml.load(fs.readFileSync(fullpath, 'utf8')) as WorkflowMeta['data']
