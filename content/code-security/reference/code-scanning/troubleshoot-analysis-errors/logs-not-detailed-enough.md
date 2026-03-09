@@ -1,7 +1,7 @@
 ---
 title: Logs are not detailed enough
 shortTitle: Logs not detailed enough
-intro: If you'd like to increase the level of detail in your logs, try these steps.
+intro: Increase log verbosity and generate debugging artifacts when logs lack diagnostic detail.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -16,9 +16,18 @@ contentType: reference
 
 If your logs are not detailed enough to troubleshoot a problem, there are several steps you can take to obtain extra information and make logs more useful.
 
-## Enable step debug logging
+## Enabling step debug logging
 
-You can enable step debug logging in {% data variables.product.prodname_actions %} to increase the verbosity of a job's logs during a job's execution. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging#enabling-step-debug-logging).
+Step debug logging increases the verbosity of a job’s logs during and after execution.
+
+To enable step debug logging:
+
+1. In the repository that contains the workflow, set the following secret or variable: `ACTIONS_STEP_DEBUG` to `true`. If both the secret and variable are set, the value of the secret takes precedence over the variable.
+1. Re-run the workflow or trigger a new run.
+
+After setting the secret or variable, more debug events are shown in the step logs. See [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
+
+You can also use the `runner.debug` context to conditionally run steps only when debug logging is enabled. See [AUTOTITLE](/actions/reference/workflows-and-actions/contexts#runner-context).
 
 ## Creating {% data variables.product.prodname_codeql %} debugging artifacts
 
@@ -28,11 +37,11 @@ You can enable step debug logging in {% data variables.product.prodname_actions 
 You can obtain artifacts to help you debug {% data variables.product.prodname_codeql %}.
 The debug artifacts will be uploaded to the workflow run as artifacts with names starting with `debug-artifacts`. If {% data variables.product.prodname_codeql %} analyzes multiple languages concurrently as part of the workflow run, there will be one such artifact for every language. The data contains the {% data variables.product.prodname_codeql %} logs, {% data variables.product.prodname_codeql %} databases, extracted source code files, and any SARIF files produced by the workflow. For more information about downloading {% data variables.product.prodname_codeql %} artifacts, see [AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts).
 
-These artifacts will help you debug problems with {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. If you contact GitHub support, they might ask for this data.
+These artifacts will help you debug problems with {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. If you contact {% data variables.contact.github_support %}, they might ask for this data.
 
 ### Creating {% data variables.product.prodname_codeql %} debugging artifacts for {% data variables.product.prodname_codeql %} default setup
 
-You can create {% data variables.product.prodname_codeql %} debugging artifacts by enabling {% data variables.product.prodname_actions %} step debug logging and triggering a new {% data variables.product.prodname_codeql %} analysis by, for example, pushing a new commit to a pull request branch. For information on how to enable {% data variables.product.prodname_actions %} step debug logging, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging#enabling-step-debug-logging).
+You can create {% data variables.product.prodname_codeql %} debugging artifacts by enabling step debug logging (see [Enabling step debug logging](#enabling-step-debug-logging)) and triggering a new {% data variables.product.prodname_codeql %} analysis, for example, by pushing a new commit to a pull request branch.
 
 {% ifversion org-private-registry %}
 
@@ -63,4 +72,4 @@ You can create {% data variables.product.prodname_codeql %} debugging artifacts 
 
 #### Using {% data variables.product.prodname_actions %} step debug logging
 
-If you have enabled {% data variables.product.prodname_actions %} step debug logging, {% data variables.product.prodname_codeql %} will also produce debugging artifacts and upload them. See [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging#enabling-step-debug-logging).
+If you enable {% data variables.product.prodname_actions %} step debug logging, {% data variables.product.prodname_codeql %} will also produce debugging artifacts and upload them as part of the workflow run. For instructions, see [Enabling step debug logging](#enabling-step-debug-logging).

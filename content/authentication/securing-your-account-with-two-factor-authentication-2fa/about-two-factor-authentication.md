@@ -9,8 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - 2FA
 shortTitle: About 2FA
 ---
 

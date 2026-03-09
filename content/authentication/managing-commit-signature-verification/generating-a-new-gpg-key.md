@@ -9,9 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 ---
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 

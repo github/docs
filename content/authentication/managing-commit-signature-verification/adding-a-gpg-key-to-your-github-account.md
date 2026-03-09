@@ -14,9 +14,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Add a GPG key
 ---
 

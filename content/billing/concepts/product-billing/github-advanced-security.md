@@ -17,11 +17,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Advanced Security
-  - Billing
-  - Enterprise
-  - Licensing
 shortTitle: GitHub Advanced Security
 contentType: concepts
 ---

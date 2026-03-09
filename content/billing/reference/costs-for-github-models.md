@@ -4,8 +4,6 @@ shortTitle: Costs for GitHub Models
 intro: Reference information for calculating the cost of using different {% data variables.product.prodname_github_models %} directly (outside {% data variables.product.prodname_copilot %}).
 versions:
   feature: github-models
-topics:
-  - Billing
 contentType: reference
 redirect_from:
   - /billing/reference/models-multipliers-and-costs

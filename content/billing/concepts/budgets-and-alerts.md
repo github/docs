@@ -4,10 +4,6 @@ intro: 'Budgets help you track and control spending on different products.'
 shortTitle: Budgets and alerts
 versions:
   feature: enhanced-billing-platform
-topics:
-  - Billing
-  - Enterprise
-  - Team
 contentType: concepts
 ---
 

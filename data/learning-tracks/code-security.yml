@@ -21,8 +21,6 @@ security_advisories:
     - >-
       /code-security/how-tos/report-and-fix-vulnerabilities/configure-vulnerability-reporting/configuring-private-vulnerability-reporting-for-a-repository
     - >-
-      /code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/configuring-private-vulnerability-reporting-for-an-organization
-    - >-
       /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/creating-a-repository-security-advisory
     - >-
       /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/adding-a-collaborator-to-a-repository-security-advisory

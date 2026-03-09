@@ -21,10 +21,6 @@ versions:
   fpt: '*'
   ghec: '*'
 permissions: 'Billing manager or organization owner'
-topics:
-  - Billing
-  - Organizations
-  - Upgrades
 shortTitle: Manage client org
 contentType: how-tos
 ---

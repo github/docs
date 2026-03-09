@@ -10,8 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
 shortTitle: SSH key audit
 ---
 When using an unverified key to perform Git operations, you will be prompted to perform an audit of your SSH keys.

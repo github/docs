@@ -5,12 +5,6 @@ intro: Check the size of the allowance for usage-based products included in each
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Actions
-  - Codespaces
-  - Packages
-  - LFS
 contentType: reference
 ---
 

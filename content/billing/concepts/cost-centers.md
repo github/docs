@@ -4,10 +4,6 @@ intro: 'Attribute spending to specific parts of your business.'
 shortTitle: Cost centers
 versions:
   feature: enhanced-billing-platform
-topics:
-  - Billing
-  - Enterprise
-  - Team
 contentType: concepts
 product: '{% data variables.product.prodname_ghe_cloud %}'
 ---

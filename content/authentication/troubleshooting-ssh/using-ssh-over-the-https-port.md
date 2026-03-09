@@ -8,8 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - SSH
 shortTitle: Use SSH over HTTPS port
 ---
 

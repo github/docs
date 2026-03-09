@@ -4,11 +4,6 @@ intro: Learn how to set up an enterprise account for your customer as a Microsof
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - User account
-  - Enterprise
-  - Upgrades
 shortTitle: Create as CSP partner
 product: 'Microsoft Cloud Solution Provider (CSP) partners setting up {% data variables.product.prodname_enterprise %}. <br>{% data variables.product.github %} partners should see [AUTOTITLE](/billing/how-tos/manage-for-client/create-client-enterprise).'
 redirect_from:

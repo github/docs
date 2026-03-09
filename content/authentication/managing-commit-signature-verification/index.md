@@ -10,9 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 children:
   - /about-commit-signature-verification
   - /displaying-verification-statuses-for-all-of-your-commits

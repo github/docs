@@ -12,12 +12,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Downgrades
-  - Marketplace
-  - Organizations
-  - User account
 shortTitle: Downgrade Marketplace app
 contentType: how-tos
 ---

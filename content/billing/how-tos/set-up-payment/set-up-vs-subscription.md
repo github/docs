@@ -9,10 +9,6 @@ redirect_from:
   - /billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise
   - /billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise
   - /billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise
-topics:
-  - Billing
-  - Enterprise
-  - Licensing
 shortTitle: Set up VS subscription
 contentType: how-tos
 ---
