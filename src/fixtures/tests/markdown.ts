@@ -23,11 +23,11 @@ describe('alerts', () => {
     const svgs = $('svg', alerts)
     expect(svgs.length).toBe(5)
     const titles = $('.ghd-alert-title', alerts)
-      .map((_, el) => $(el).text())
+      .map((_: number, el: any) => $(el).text())
       .get()
     expect(titles).toEqual(['Tip', 'Note', 'Important', 'Warning', 'Caution'])
     const bodies = $('p:nth-child(2)', alerts)
-      .map((_, el) => $(el).text())
+      .map((_: number, el: any) => $(el).text())
       .get()
       .map((s: string) => s.trim())
     expect(bodies).toEqual([

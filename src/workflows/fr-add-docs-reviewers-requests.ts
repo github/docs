@@ -8,46 +8,12 @@ import {
   generateUpdateProjectV2ItemFieldMutation,
 } from './projects'
 
-interface PRNode {
-  id: string
-  isDraft: boolean
-  reviewRequests: { nodes: Array<{ requestedReviewer: { name: string } | null }> }
-  labels: { nodes: Array<{ name: string }> }
-  reviews: { nodes: Array<{ onBehalfOf: { nodes: Array<{ name: string }> } }> }
-  author: { login: string }
-}
-
-interface PRQueryResponse {
-  repository: {
-    pullRequests: {
-      pageInfo: { startCursor: string; hasPreviousPage: boolean }
-      nodes: PRNode[]
-    }
-  }
-}
-
-interface ProjectQueryResponse {
-  organization: {
-    projectV2: {
-      id: string
-      items: { nodes: Array<{ id: string }> }
-      fields: {
-        nodes: Array<{
-          id: string
-          name: string
-          options?: Array<{ id: string; name: string }>
-        }>
-      }
-    }
-  }
-}
-
 async function getAllOpenPRs() {
   let prsRemaining = true
   let cursor
-  let prData: PRNode[] = []
+  let prData: any[] = []
   while (prsRemaining) {
-    const data: PRQueryResponse = await graphql<PRQueryResponse>(
+    const data: Record<string, any> = await graphql(
       `
         query ($organization: String!, $repo: String!) {
           repository(name: $repo, owner: $organization) {
@@ -116,16 +82,14 @@ async function run() {
   const prs = prData.filter(
     (pr) =>
       !pr.isDraft &&
-      !pr.labels.nodes.find((label: { name: string }) => label.name === 'Deploy train 🚂') &&
+      !pr.labels.nodes.find((label: Record<string, any>) => label.name === 'Deploy train 🚂') &&
       pr.reviewRequests.nodes.find(
-        (requestedReviewers: { requestedReviewer: { name: string } | null }) =>
+        (requestedReviewers: Record<string, any>) =>
           requestedReviewers.requestedReviewer?.name === process.env.REVIEWER,
       ) &&
       !pr.reviews.nodes
-        .flatMap(
-          (review: { onBehalfOf: { nodes: Array<{ name: string }> } }) => review.onBehalfOf.nodes,
-        )
-        .find((behalf: { name: string }) => behalf.name === process.env.REVIEWER),
+        .flatMap((review: Record<string, any>) => review.onBehalfOf.nodes)
+        .find((behalf: Record<string, any>) => behalf.name === process.env.REVIEWER),
   )
   if (prs.length === 0) {
     console.log('No PRs found. Exiting.')
@@ -137,7 +101,7 @@ async function run() {
   console.log(`PRs found: ${prIDs}`)
 
   // Get info about the docs-content review board project
-  const projectData = await graphql<ProjectQueryResponse>(
+  const projectData: Record<string, any> = await graphql(
     `
       query ($organization: String!, $projectNumber: Int!) {
         organization(login: $organization) {
@@ -185,7 +149,7 @@ async function run() {
   // this is how we (roughly) avoid overwriting PRs that are already on the board.
   // If we are overwriting items, query for more items.
   const existingItemIDs = projectData.organization.projectV2.items.nodes.map(
-    (node: { id: string }) => node.id,
+    (node: Record<string, any>) => node.id,
   )
 
   // Get the ID of the fields that we want to populate
@@ -210,8 +174,8 @@ async function run() {
   // Exclude existing items going forward.
   // Until we have a way to check from a PR whether the PR is in a project,
   // this is how we (roughly) avoid overwriting PRs that are already on the board
-  const newItemIDs: string[] = []
-  const newItemAuthors: string[] = []
+  const newItemIDs: any[] = []
+  const newItemAuthors: any[] = []
   for (let index = 0; index < itemIDs.length; index++) {
     const id = itemIDs[index]
     if (!existingItemIDs.includes(id)) {

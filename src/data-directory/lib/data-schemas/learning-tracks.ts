@@ -2,7 +2,7 @@ import { schema } from '@/frame/lib/frontmatter'
 
 // Some learning tracks have `versions` blocks that match `versions` frontmatter,
 // so we can import that part of the FM schema.
-const versionsProps = Object.assign({}, schema.properties.versions)
+const versionsProps = Object.assign({}, (schema.properties as any).versions)
 
 // `versions` are not required in learning tracks the way they are in FM.
 delete versionsProps.required

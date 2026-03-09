@@ -88,8 +88,7 @@ export async function getContentsForBlob(owner: string, repo: string, sha: strin
 // https://docs.github.com/rest/reference/repos#get-repository-content
 export async function getContents(owner: string, repo: string, ref: string, path: string) {
   const { data } = await getContent(owner, repo, ref, path)
-  if (Array.isArray(data)) throw new Error(`Expected file response for ${path}`)
-  if (!('content' in data) || !data.content) {
+  if (!data.content) {
     return await getContentsForBlob(owner, repo, data.sha)
   }
   // decode Base64 encoded contents
@@ -99,16 +98,19 @@ export async function getContents(owner: string, repo: string, ref: string, path
 // https://docs.github.com/rest/reference/repos#get-repository-content
 export async function getContentAndData(owner: string, repo: string, ref: string, path: string) {
   const { data } = await getContent(owner, repo, ref, path)
-  if (Array.isArray(data)) throw new Error(`Expected file response for ${path}`)
-  const content =
-    'content' in data && data.content
-      ? Buffer.from(data.content, 'base64').toString()
-      : await getContentsForBlob(owner, repo, data.sha)
+  const content = data.content
+    ? Buffer.from(data.content, 'base64').toString()
+    : await getContentsForBlob(owner, repo, data.sha)
   // decode Base64 encoded contents
   return { content, blobSha: data.sha }
 }
 
-async function getContent(owner: string, repo: string, ref: string, path: string) {
+async function getContent(
+  owner: string,
+  repo: string,
+  ref: string,
+  path: string,
+): Promise<Record<string, any>> {
   try {
     return await github.repos.getContent({
       owner,
@@ -176,7 +178,7 @@ export async function getPathsWithMatchingStrings(
 
       do {
         const data = await searchCode(q, perPage, currentPage, cache, forceDownload)
-        data.items.map((el: { path: string }) => paths.add(el.path))
+        data.items.map((el: Record<string, any>) => paths.add(el.path))
         totalCount = data.total_count
         currentCount += data.items.length
         currentPage++
@@ -206,16 +208,11 @@ async function searchCode(
   if (!forceDownload && cache) {
     try {
       return JSON.parse(await fs.readFile(tempFilename, 'utf8'))
-    } catch (error: unknown) {
-      if (
-        error instanceof Error &&
-        'code' in error &&
-        (error as NodeJS.ErrnoException).code === 'ENOENT'
-      ) {
-        console.log(`Cache miss on ${tempFilename} (${cacheKey})`)
-      } else {
+    } catch (error: any) {
+      if (error.code !== 'ENOENT') {
         throw error
       }
+      console.log(`Cache miss on ${tempFilename} (${cacheKey})`)
     }
   }
 
@@ -246,7 +243,7 @@ async function secondaryRateLimitRetry<T, TArgs = Record<string, unknown>>(
   try {
     const response = await callable(args)
     return response
-  } catch (err: unknown) {
+  } catch (err: any) {
     // If you get a secondary rate limit error (403) you'll get a data
     // response that includes:
     //
@@ -258,13 +255,9 @@ async function secondaryRateLimitRetry<T, TArgs = Record<string, unknown>>(
     // Let's look for that an manually self-recurse, under certain conditions
     const lookFor = 'You have exceeded a secondary rate limit.'
     if (
-      err instanceof RequestError &&
+      err.status &&
       err.status === 403 &&
-      typeof err.response?.data === 'object' &&
-      err.response?.data !== null &&
-      'message' in err.response.data &&
-      typeof (err.response.data as Record<string, unknown>).message === 'string' &&
-      (err.response.data as Record<string, string>).message.includes(lookFor) &&
+      err.response?.data?.message.includes(lookFor) &&
       maxAttempts > 0
     ) {
       console.warn(
@@ -294,14 +287,13 @@ export async function getDirectoryContents(
   path: string,
 ) {
   const { data } = await getContent(owner, repo, branch, path)
-  if (!Array.isArray(data)) throw new Error(`Expected directory response for ${path}`)
-  const files: { path: string; content: string }[] = []
+  const files: any[] = []
 
   for (const blob of data) {
     if (blob.type === 'dir') {
       files.push(...(await getDirectoryContents(owner, repo, branch, blob.path)))
     } else if (blob.type === 'file') {
-      if (!blob.content) {
+      if (!data.content) {
         const blobContents = await getContentsForBlob(owner, repo, blob.sha)
         files.push({ path: blob.path, content: blobContents })
       } else {

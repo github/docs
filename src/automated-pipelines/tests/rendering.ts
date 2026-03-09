@@ -12,8 +12,8 @@ type Page = {
   fullPath: string
   permalinks: Array<{ href: string }>
   versions: {
-    feature?: string | string[]
-    [key: string]: string | string[] | undefined
+    feature?: any
+    [key: string]: any
   }
 }
 
