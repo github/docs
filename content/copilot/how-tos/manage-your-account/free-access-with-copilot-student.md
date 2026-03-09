@@ -20,6 +20,8 @@ To learn about becoming a verified student, see [AUTOTITLE](/free-pro-team@lates
 
 ## Accessing {% data variables.copilot.copilot_student_short %}
 
-{% data reusables.copilot.your-copilot %}
-1. If you qualify for {% data variables.copilot.copilot_student_short %}, you will see a page titled "{% data variables.copilot.copilot_student_short %}" informing you that you are eligible. Click **Get access to {% data variables.product.prodname_copilot %}**.
-1. On the page that appears, configure the {% data variables.product.prodname_copilot_short %} use policies to meet your needs, then click **Save and complete**.
+1. Navigate to https://github.com/settings/education/benefits.
+   
+   If you're not yet a verified student, you'll need to click **Start an application** and complete the verification process.
+1. Under "Free {% data variables.product.github %} developer resources for students and teachers", click **Learn more**.
+1. Follow the prompts to activate {% data variables.copilot.copilot_student_short %}, configuring the {% data variables.product.prodname_copilot_short %} use policies to meet your needs.
