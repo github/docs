@@ -1,5 +1,5 @@
 ---
-title: 'Error: "Out of disk" or Error: "Out of memory"'
+title: '"Out of disk" and "Out of memory" errors'
 shortTitle: Out of disk or memory
 intro: If you see one of these errors with {% data variables.product.prodname_actions %}, {% ifversion ghes %}try reviewing the specifications of your self-hosted runners.{% else %}you can try alternative runners.{% endif %}
 allowTitleToDifferFromFilename: true
@@ -17,15 +17,10 @@ contentType: reference
 
 ## About these errors
 
-```text
-Out of disk
-```
+You may see these errors when running {% data variables.product.prodname_code_scanning %} if {% ifversion ghes %}the runners you're using do not have sufficient free memory or disk space.{% else %}the runners you're using don't meet the recommended hardware requirements.{% endif %}
 
-```text
-Out of memory
-```
-
-You may see these errors when running {% data variables.product.prodname_code_scanning %}.
+* `Out of disk`
+* `Out of memory`
 
 ## Confirming the cause of the problem
 
