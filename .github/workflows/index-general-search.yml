@@ -294,13 +294,65 @@ jobs:
             echo 'EOF'
           } >> "$GITHUB_OUTPUT"
 
+      - name: Close previous scraping failure issues
+        if: ${{ steps.check-artifacts.outputs.has_artifacts == 'true' && fromJSON(steps.aggregate.outputs.result || '{"hasFailures":false}').hasFailures }}
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          open_issues=$(gh issue list \
+            --repo github/docs-engineering \
+            --label "search-scraping-failures" \
+            --state open \
+            --json number \
+            --jq '.[].number')
+          for issue in $open_issues; do
+            gh issue close "$issue" \
+              --repo github/docs-engineering \
+              --comment "Closing in favor of a newer scraping failure report from $RUN_URL"
+          done
+
+      - name: Create scraping failure issue
+        if: ${{ steps.check-artifacts.outputs.has_artifacts == 'true' && fromJSON(steps.aggregate.outputs.result || '{"hasFailures":false}').hasFailures }}
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          FAILURE_MESSAGE: ${{ fromJSON(steps.aggregate.outputs.result || '{"message":""}').message }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          FILE_URL: ${{ github.server_url }}/${{ github.repository }}/blob/main/.github/workflows/index-general-search.yml
+          WORKFLOW_NAME: ${{ github.workflow }}
+        run: |
+          body=$(cat <<EOF
+          ### Search index scraping failures
+
+          $FAILURE_MESSAGE
+
+          ---
+          **Workflow run:** $RUN_URL
+          **Workflow file:** $FILE_URL
+
+          This issue was automatically created by the \`$WORKFLOW_NAME\` workflow.
+          EOF
+          )
+          gh issue create \
+            --repo github/docs-engineering \
+            --label "search-scraping-failures" \
+            --title "[Search Scraping Failures] $(date -u +%Y-%m-%d)" \
+            --body "$body"
+
       - name: Send consolidated Slack notification
-        if: ${{ steps.check-artifacts.outputs.has_artifacts == 'true' && fromJSON(steps.aggregate.outputs.result).hasFailures }}
+        if: ${{ steps.check-artifacts.outputs.has_artifacts == 'true' && fromJSON(steps.aggregate.outputs.result || '{"hasFailures":false}').hasFailures }}
         uses: ./.github/actions/slack-alert
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-          message: ${{ fromJSON(steps.aggregate.outputs.result).message }}
+          color: warning
+          message: ${{ fromJSON(steps.aggregate.outputs.result || '{"message":""}').message }}
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
 
       - uses: ./.github/actions/create-workflow-failure-issue
         if: ${{ failure() }}
