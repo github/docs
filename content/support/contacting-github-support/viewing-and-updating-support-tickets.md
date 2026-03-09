@@ -36,11 +36,9 @@ Your capabilities in the {% data variables.contact.landing_page_portal %} depend
 You can only view archived tickets for an enterprise account. Archived tickets are retained for up to three years.
 
 {% data reusables.support.navigate-to-my-tickets %}
-1. Select the **My Tickets** drop-down menu and click the name of the enterprise account.
+1. Select the **Account** dropdown menu and click the name of the enterprise account.
 
 {% indented_data_reference reusables.support.entitlements-note spaces=3 %}
-
-   ![Screenshot showing the "My Tickets" dropdown menu highlighted in dark orange.](/assets/images/help/support/ticket-context.png)
 1. Under the "My tickets" table, click **View archived tickets**.
 
 {% endif %}

@@ -54,7 +54,7 @@ contentType: reference
 | <kbd>Ctrl</kbd>+<kbd>F</kbd>        | Move to the next character.                  |
 | <kbd>Ctrl</kbd>+<kbd>G</kbd>        | Edit the prompt in an external editor.       |
 | <kbd>Ctrl</kbd>+<kbd>H</kbd>        | Delete the previous character.               |
-| <kbd>Ctrl</kbd>+<kbd>K</kbd>        | Delete from cursor to end of the line.       |
+| <kbd>Ctrl</kbd>+<kbd>K</kbd>        | Delete from cursor to end of the line. If the cursor is at the end of the line, delete the line break. |
 | <kbd>Ctrl</kbd>+<kbd>U</kbd>        | Delete from cursor to beginning of the line. |
 | <kbd>Ctrl</kbd>+<kbd>W</kbd>        | Delete the previous word.                    |
 | <kbd>Home</kbd>                     | Move to the start of the current line.       |
@@ -152,6 +152,7 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--no-color`                       | Disable all color output. |
 | `--no-custom-instructions`         | Disable loading of custom instructions from `AGENTS.md` and related files. |
 | `--no-experimental`                | Disable experimental features. |
+| `--output-format FORMAT`           | FORMAT can be `text` (default) or `json` (outputs JSONL: one JSON object per line). |
 | `-p PROMPT`, `--prompt PROMPT`     | Execute a prompt programmatically (exits after completion). |
 | `--plain-diff`                     | Disable rich diff rendering (syntax highlighting via the diff tool specified by your git config). |
 | `--resume [SESSION-ID]`            | Resume a previous interactive session by choosing from a list (optionally specify a session ID). |
@@ -204,10 +205,9 @@ copilot --allow-tool 'MyMCP'
 | `COPILOT_SKILLS_DIRS` | Comma-separated list of additional directories for skills. |
 | `COPILOT_EDITOR` | Editor command for interactive editing (checked after `$VISUAL` and `$EDITOR`). Defaults to `vi` if none are set. |
 | `COPILOT_GITHUB_TOKEN` | Authentication token. Takes precedence over `GH_TOKEN` and `GITHUB_TOKEN`. |
+| `COPILOT_HOME` | Override the configuration and state directory. Default: `$HOME/.copilot`. |
 | `GH_TOKEN` | Authentication token. Takes precedence over `GITHUB_TOKEN`. |
 | `GITHUB_TOKEN` | Authentication token. |
-| `XDG_CONFIG_HOME` | Override the configuration directory. Default: `$HOME/.copilot`. |
-| `XDG_STATE_HOME` | Override the state directory. Default: `$HOME/.copilot`. |
 | `USE_BUILTIN_RIPGREP` | Set to `false` to use the system ripgrep instead of the bundled version. |
 | `PLAIN_DIFF` | Set to `true` to disable rich diff rendering. |
 | `COLORFGBG` | Fallback for dark/light terminal background detection. |
@@ -215,7 +215,15 @@ copilot --allow-tool 'MyMCP'
 
 ## Configuration file settings
 
-User settings are stored in `~/.copilot/config.json`. Project-level settings can be placed in `.copilot/settings.json` (committed to the repository) or `.copilot/settings.local.json` (personal overrides—add to `.gitignore`). Settings cascade from user to project to local, with more specific scopes overriding more general ones. Command-line flags and environment variables always take the highest precedence.
+Settings cascade from user to repository to local, with more specific scopes overriding more general ones. Command-line flags and environment variables always take the highest precedence.
+
+| Scope | Location | Purpose |
+|-------|----------|---------|
+| User | `~/.copilot/config.json` | Global defaults for all repositories. Use the `COPILOT_HOME` environment variable to specify an alternative path. |
+| Repository | `.github/copilot/settings.json` | Shared repository configuration (committed to the repository). |
+| Local | `.github/copilot/settings.local.json` | Personal overrides (add this to `.gitignore`). |
+
+### User settings (`~/.copilot/config.json`)
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
@@ -230,7 +238,7 @@ User settings are stored in `~/.copilot/config.json`. Project-level settings can
 | `denied_urls` | `string[]` | `[]` | URLs or domains blocked (takes precedence over `allowed_urls`). |
 | `experimental` | `boolean` | `false` | Enable experimental features. |
 | `include_coauthor` | `boolean` | `true` | Add a `Co-authored-by` trailer to git commits made by the agent. |
-| `launch_messages` | `string[]` | `[]` | Custom messages shown randomly on startup. |
+| `companyAnnouncements` | `string[]` | `[]` | Custom messages shown randomly on startup. |
 | `log_level` | `"none"` \| `"error"` \| `"warning"` \| `"info"` \| `"debug"` \| `"all"` \| `"default"` | `"default"` | Logging verbosity. |
 | `model` | `string` | varies | AI model to use (see the `/model` command). |
 | `reasoning_effort` | `"low"` \| `"medium"` \| `"high"` \| `"xhigh"` | `"medium"` | Reasoning effort level for extended thinking. Higher levels use more compute. |
@@ -243,13 +251,33 @@ User settings are stored in `~/.copilot/config.json`. Project-level settings can
 | `trusted_folders` | `string[]` | `[]` | Folders with pre-granted file access. |
 | `update_terminal_title` | `boolean` | `true` | Show the current intent in the terminal title. |
 
+### Repository settings (`.github/copilot/settings.json`)
+
+Repository settings apply to everyone who works in the repository. Only a subset of settings is supported at the repository level. Unsupported keys are ignored.
+
+| Key | Type | Merge behavior | Description |
+|-----|------|---------------|-------------|
+| `companyAnnouncements` | `string[]` | Replaced—repository takes precedence | Messages shown randomly on startup. |
+| `enabledPlugins` | `Record<string, boolean>` | Merged—repository overrides user for same key | Declarative plugin auto-install. |
+| `marketplaces` | `Record<string, {...}>` | Merged—repository overrides user for same key | Plugin marketplaces available in this repository. |
+
+### Local settings (`.github/copilot/settings.local.json`)
+
+Create `.github/copilot/settings.local.json` in the repository, for personal overrides that should not be committed. Add this file to `.gitignore`.
+
+The local configuration file uses the same schema as the repository configuration file (`.github/copilot/settings.json`) and takes precedence over it.
+
 ## Hooks reference
 
 Hooks are external commands that execute at specific lifecycle points during a session, enabling custom automation, security controls, and integrations. Hook configuration files are loaded automatically from `.github/hooks/*.json` in your repository.
 
 ### Hook configuration format
 
-Hook configuration files use JSON format with version `1`:
+Hook configuration files use JSON format with version `1`.
+
+#### Command hooks
+
+Command hooks run shell scripts and are supported on all hook types.
 
 ```json
 {
@@ -277,6 +305,29 @@ Hook configuration files use JSON format with version `1`:
 | `cwd` | string | No | Working directory for the command (relative to repository root or absolute). |
 | `env` | object | No | Environment variables to set (supports variable expansion). |
 | `timeoutSec` | number | No | Timeout in seconds. Default: `30`. |
+
+#### Prompt hooks
+
+Prompt hooks auto-submit text as if the user typed it. They are only supported on `sessionStart` and run before any initial prompt passed via `--prompt`. The text can be a natural language prompt or a slash command.
+
+```json
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "type": "prompt",
+        "prompt": "Your prompt text or /slash-command"
+      }
+    ]
+  }
+}
+```
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `type` | `"prompt"` | Yes | Must be `"prompt"`. |
+| `prompt` | string | Yes | Text to submit—can be a natural language message or a slash command. |
 
 ### Hook events
 
