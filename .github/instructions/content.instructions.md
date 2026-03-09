@@ -72,6 +72,14 @@ Examples:
 * ❌ Incorrect: `For more information, see [Using GitHub Copilot](/copilot/using-github-copilot).`
 * ❌ Incorrect: `For more information, see {% link /copilot/using-github-copilot %}.`
 
+## RAI application and platform cards
+
+Articles with `contentType: rai` in their frontmatter are **application or platform cards**—legally mandated documents describing the responsible use of AI-powered features. The content linter enforces the required section structure (GHD064) and reusable isolation (GHD035).
+
+* **Template**: See `content/contributing/writing-for-github-docs/templates.md` for the full application/platform card template with all required sections and boilerplate reusables.
+* **Reusables**: RAI articles must only reference reusables from `data/reusables/rai/`. Place new RAI reusables there too.
+* **Frontmatter**: New application cards use `contentType: rai`. The older `type: rai` is for legacy transparency notes not yet migrated.
+
 ## Parenthetical dashes
 
 Where a sentence of normal body text contains a parenthetical dash, the dash should always be an em dash without spaces at either side. This rule does not apply to text within code blocks.

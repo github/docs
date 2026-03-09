@@ -5,11 +5,6 @@ permissions: 'Site administrators can enable {% data variables.product.prodname_
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Actions
-  - Enterprise
-  - Infrastructure
-  - Storage
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-amazon-s3-storage
   - /admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-amazon-s3-storage

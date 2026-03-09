@@ -61,7 +61,7 @@ When configuring private registries for the first time, you need to disable and 
 
 For languages supporting private package registries, {% data variables.product.prodname_code_scanning %} default setup will produce information on the {% data variables.code-scanning.tool_status_page %}. This shows you which private registry configurations were available to an analysis, but not whether {% data variables.product.prodname_code_scanning %} default setup was able to successfully download private dependencies from them. For more information about the {% data variables.code-scanning.tool_status_page %}, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page).
 
-Alternatively, you can confirm whether private registries were configured for a {% data variables.product.prodname_code_scanning %} analysis by looking in the Actions logs. See [Diagnostic information for private package registries](/code-security/code-scanning/managing-your-code-scanning-configuration/viewing-code-scanning-logs#diagnostic-information-for-private-package-registries).
+Alternatively, you can confirm whether private registries were used successfully by {% data variables.product.prodname_code_scanning %} analysis by looking in the Actions log files, see [AUTOTITLE](/code-security/reference/code-scanning/code-scanning-logs#diagnostic-information-for-private-package-registries).
 
 ## {% data variables.product.prodname_code_scanning_caps %} advanced setup access to private registries
 

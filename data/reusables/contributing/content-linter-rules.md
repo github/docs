@@ -65,6 +65,7 @@
 | GHD061 | frontmatter-hero-image | Hero image paths must be absolute, extensionless, and point to valid images in /assets/images/banner-images/ | error | frontmatter, images |
 | GHD062 | frontmatter-intro-links | introLinks keys must be valid keys defined in data/ui.yml under product_landing | error | frontmatter, single-source |
 | GHD063 | frontmatter-children | Children frontmatter paths must exist. Supports relative paths and absolute /content/ paths for cross-product inclusion. | error | frontmatter, children |
+| GHD064 | rai-app-card-structure | RAI application/platform card articles must follow the required template structure | warning | feature, rai |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: octicon-<icon-name> | The octicon liquid syntax used is deprecated. Use this format instead `octicon "<octicon-name>" aria-label="<Octicon aria label>"` | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: site.data | Catch occurrences of deprecated liquid data syntax. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | developer-domain | Catch occurrences of developer.github.com domain. | error |  |

@@ -5,9 +5,6 @@ permissions: Enterprise owners can view user-owned repositories.
 versions:
   feature: 'emu-owned-repos'
 type: how_to
-topics:
-  - Enterprise
-  - Repositories
 shortTitle: View user-owned repositories
 redirect_from:
   - /admin/user-management/managing-repositories-in-your-enterprise/viewing-user-owned-repositories-in-your-enterprise

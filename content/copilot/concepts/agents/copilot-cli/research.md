@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'The `/research` slash command turns {% data variables.product.prodname_copilot_short %} into your research assistant, gathering in-depth information and insights on a topic.'
 versions:
   feature: copilot
-topics:
-  - CLI
 contentType: concepts
 category:
   - Learn about Copilot # Copilot discovery page

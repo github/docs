@@ -6,9 +6,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: reference
-topics:
-  - Enterprise
-  - Upgrades
 shortTitle: Generation 2 virtual machines
 allowTitleToDifferFromFilename: true
 ---

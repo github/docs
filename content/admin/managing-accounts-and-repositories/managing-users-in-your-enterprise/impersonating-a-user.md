@@ -5,10 +5,6 @@ permissions: Enterprise owners can impersonate users within their enterprise.
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Administrator
-  - Enterprise
-  - User account
 shortTitle: Impersonate a user
 redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/impersonating-a-user

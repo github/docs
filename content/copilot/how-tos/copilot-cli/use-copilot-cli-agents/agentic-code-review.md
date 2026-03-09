@@ -6,8 +6,6 @@ intro: 'Use {% data variables.copilot.copilot_cli_short %} to review your code c
 product: '{% data reusables.gated-features.copilot-cli %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category:
   - Build with Copilot CLI 

@@ -9,7 +9,7 @@ on:
       - 'data/llms-txt-config.yml'
       - 'src/workflows/generate-llms-txt.ts'
   schedule:
-    - cron: '20 16 * * 1-5' # Weekdays at ~9:20am Pacific
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
 
 permissions:
   contents: read
@@ -75,8 +75,7 @@ jobs:
           REPO="github/github"
 
           echo "Checking if branch '$BRANCH' exists..."
-          BRANCH_SHA=$(gh api "repos/$REPO/git/ref/heads/$BRANCH" --jq '.object.sha' 2>/dev/null || true)
-          if [ -n "$BRANCH_SHA" ]; then
+          if BRANCH_SHA=$(gh api "repos/$REPO/git/ref/heads/$BRANCH" --jq '.object.sha' 2>/dev/null); then
             echo "Branch exists at $BRANCH_SHA"
           else
             echo "Branch does not exist, creating from default branch..."
@@ -99,11 +98,11 @@ jobs:
           CONTENT=$(base64 -w 0 /tmp/llms.txt)
 
           echo "Checking for existing file SHA on branch..."
-          EXISTING_SHA=$(gh api "repos/$REPO/contents/public/llms.txt?ref=$BRANCH" \
-            --jq '.sha' 2>/dev/null || true)
-          if [ -n "$EXISTING_SHA" ]; then
+          if EXISTING_SHA=$(gh api "repos/$REPO/contents/public/llms.txt?ref=$BRANCH" \
+            --jq '.sha' 2>/dev/null); then
             echo "Existing file SHA: $EXISTING_SHA"
           else
+            EXISTING_SHA=""
             echo "No existing file on branch (new file)"
           fi
 
@@ -128,9 +127,8 @@ jobs:
           REPO="github/github"
 
           echo "Checking for existing PR from '$BRANCH'..."
-          EXISTING_PR=$(gh pr list --repo "$REPO" --head "$BRANCH" \
-            --json number --jq '.[0].number' 2>/dev/null || true)
-          if [ -n "$EXISTING_PR" ]; then
+          if EXISTING_PR=$(gh pr list --repo "$REPO" --head "$BRANCH" \
+            --json number --jq '.[0].number' 2>/dev/null) && [ -n "$EXISTING_PR" ]; then
             echo "PR #$EXISTING_PR already exists, updated with new commit"
             exit 0
           fi
@@ -169,3 +167,8 @@ jobs:
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

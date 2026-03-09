@@ -12,11 +12,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Auditing
-  - Enterprise
-  - Logging
-  - Security
 ---
 
 ## About log forwarding

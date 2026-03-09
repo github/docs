@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Codespaces
-  - Developer
-  - Security
 redirect_from:
   - /github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces
   - /codespaces/working-with-your-codespace/managing-gpg-verification-for-codespaces

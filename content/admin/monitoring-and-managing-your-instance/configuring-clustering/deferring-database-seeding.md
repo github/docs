@@ -5,9 +5,6 @@ product: '{% data reusables.gated-features.cluster %}'
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Clustering
-  - Enterprise
 redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/deferring-database-seeding
 ---

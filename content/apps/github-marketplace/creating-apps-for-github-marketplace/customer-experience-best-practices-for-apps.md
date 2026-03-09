@@ -5,8 +5,6 @@ shortTitle: Customer experience best practice
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Marketplace
 redirect_from:
   - /developers/github-marketplace/customer-experience-best-practices-for-apps
   - /developers/github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps

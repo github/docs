@@ -10,10 +10,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: tutorial
-topics:
-  - Codespaces
-  - Developer
-  - Set up
 ---
 
 ## Introduction

@@ -2,7 +2,7 @@
 title: Assessing adoption of security features
 shortTitle: Assess adoption of features
 allowTitleToDifferFromFilename: true
-intro: You can use security overview to see which teams and repositories have already enabled features for secure coding, and identify any that are not yet protected.
+intro: See which teams and repositories have already enabled features for secure coding, and identify any that are not yet protected.
 permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-both %}'
 contentType: how-tos
@@ -21,9 +21,7 @@ redirect_from:
   - /code-security/security-overview/assessing-adoption-code-security
 ---
 
-## About adoption of features for secure coding
-
-You can use security overview to see which repositories and teams have already enabled each security feature, and where people need more encouragement to adopt these features. The "Security coverage" view shows a summary and detailed information on feature enablement for an organization. You can filter the view to show a subset of repositories using the "enabled" and "not enabled" links, the "Teams" dropdown menu, and a search field in the page header.
+You can use security overview to see which repositories and teams have already enabled each security feature, and where people need more encouragement to adopt these features.
 
 {% ifversion security-configurations %}
 ![Screenshot of the header section of the "Security coverage" view on the "Security" tab for an organization.](/assets/images/help/security-overview/security-coverage-view-summary.png)
@@ -33,12 +31,6 @@ You can use security overview to see which repositories and teams have already e
 {% endif %}
 
 >[!NOTE] "Pull request alerts" are reported as enabled only when {% data variables.product.prodname_code_scanning %} has analyzed at least one pull request since alerts were enabled for the repository.
-
-{% ifversion security-overview-export-data %}
-You can download a CSV file of the data displayed on the "Security coverage" page. This data file can be used for efforts like security research and in-depth data analysis, and can integrate easily with external datasets. For more information, see [AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview).
-{% endif %}
-
-You can use the "Enablement trends" view to see enablement status and enablement status trends over time for {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_code_scanning %}, or {% data variables.product.prodname_secret_scanning %} for repositories in an organization, or across organizations in an enterprise. For each of these features, you can view a graph visualizing the percentage of repositories that have the feature enabled, as well as a detailed table with enablement percentages for different points in time. For more information, see [Viewing enablement trends for an organization](#viewing-enablement-trends-for-an-organization) and [Viewing enablement trends for an enterprise](#viewing-enablement-trends-for-an-enterprise).
 
 ## Viewing the enablement of security features for an organization
 
@@ -116,10 +108,21 @@ You can view data to assess the enablement status and enablement status trends o
 
 >[!TIP] You can use the `owner:` filter in the search field to filter the data by organization. For more information, see [AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview).
 
-## Interpreting and acting on the enablement data
+## Acting on enablement data
 
-Some security features can and should be enabled on all repositories. For example, {% data variables.secret-scanning.alerts %} and push protection reduce the risk of a security leak no matter what information is stored in the repository. If you see repositories that don't already use these features, you should either enable them or discuss an enablement plan with the team who owns the repository. For information on enabling features for a whole organization, see {% ifversion security-configurations %}[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization){% else %}[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization){% endif %}.
+After you have reviewed enablement coverage, consider the following actions.
 
-Other features are not suitable for use in all repositories. For example, there would be no point in enabling {% data variables.product.prodname_dependabot %} for repositories that only use ecosystems or languages that are unsupported. As such, it's normal to have some repositories where these features are not enabled.
+1. Check if your enterprise has configured overly restrictive policies that limit the use of security features. See [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
+1. Enable features that should be enabled on all repositories. For information on enabling features for a whole organization, see {% ifversion security-configurations %}[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization){% else %}[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization){% endif %}.
 
-Your enterprise may also have configured policies to limit the use of some security features. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
+   For example, {% data variables.secret-scanning.alerts %} and push protection reduce the risk of a security leak no matter what information is stored in the repository. If you see repositories that don't already use these features, you should either enable them or discuss an enablement plan with the team who owns the repository.
+
+1. For other features, consider whether the feature should be enabled in more repositories. For example, there would be no point in enabling {% data variables.product.prodname_dependabot %} for repositories that only use ecosystems or languages that are unsupported. As such, it's normal to have some repositories where these features are not enabled.
+
+## Next steps
+
+{% ifversion security-overview-export-data %}
+You can download a CSV file of the data displayed on the "Security coverage" page. This data file can be used for efforts like security research and in-depth data analysis, and can integrate easily with external datasets. See [AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview).
+{% endif %}
+
+You can use the "Enablement trends" view to see enablement status and enablement status trends over time for {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_code_scanning %}, or {% data variables.product.prodname_secret_scanning %} across repositories or organizations. See [Viewing enablement trends for an organization](#viewing-enablement-trends-for-an-organization) or [Viewing enablement trends for an enterprise](#viewing-enablement-trends-for-an-enterprise).

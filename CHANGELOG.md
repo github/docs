@@ -1,5 +1,21 @@
 # Docs changelog
 
+<<<<<<< changelog-update-1772664132
+**4 March 2026**
+
+We've published a new article to coincide with the public preview of the Copilot coding agent for Jira integration.
+
+See [Integrating Copilot coding agent with Jira](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-jira).
+=======
+**5 March 2026**
+
+We've updated our documentation to include a series of articles about the GitHub integration in Teams (previously, docs for the integration lived in a public repository).
+
+See [GitHub integration in Teams](https://docs.github.com/integrations/how-tos/teams).
+>>>>>>> main
+
+<hr>
+
 **3 March 2026**
 
 We've added a new reference article, [Copilot customization cheat sheet](https://docs.github.com/copilot/reference/customization-cheat-sheet), to help you choose the right Copilot customization approach for your workflow.

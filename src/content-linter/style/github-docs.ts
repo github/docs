@@ -187,6 +187,13 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
+  'rai-app-card-structure': {
+    // GHD064
+    // Disabled until RAI content migration is complete (github/docs-team#6340).
+    // To enable, change severity to 'error'.
+    severity: 'warning',
+    'partial-markdown-files': false,
+  },
 }
 
 export const githubDocsFrontmatterConfig = {

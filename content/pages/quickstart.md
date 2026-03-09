@@ -7,10 +7,10 @@ versions:
   ghes: '*'
   ghec: '*'
 type: quick_start
-topics:
-  - Pages
 shortTitle: Quickstart
 product: '{% data reusables.gated-features.pages %}'
+category:
+  - Set up a GitHub Pages site
 ---
 
 ## Introduction

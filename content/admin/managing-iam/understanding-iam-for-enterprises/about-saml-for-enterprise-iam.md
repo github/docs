@@ -6,12 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: overview
-topics:
-  - Accounts
-  - Access management
-  - Authentication
-  - Enterprise
-  - Identity
 redirect_from:
   - /admin/authentication/about-identity-and-access-management-for-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/about-identity-and-access-management-for-your-enterprise-account

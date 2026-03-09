@@ -4,9 +4,6 @@ intro: 'Overview of the {% data variables.product.prodname_github_codespaces %} 
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
-  - Security
 type: reference
 shortTitle: Security in Codespaces
 redirect_from:

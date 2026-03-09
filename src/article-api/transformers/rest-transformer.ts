@@ -3,6 +3,7 @@ import type { PageTransformer } from './types'
 import type { Operation } from '@/rest/components/types'
 import { renderContent } from '@/content-render/index'
 import { loadTemplate } from '@/article-api/lib/load-template'
+import { summarizeSchema } from '@/article-api/lib/summarize-schema'
 import matter from '@gr2m/gray-matter'
 import { fastTextOnly } from '@/content-render/unified/text-only'
 
@@ -193,7 +194,7 @@ export class RestTransformer implements PageTransformer {
           response: {
             statusCode: example.response?.statusCode,
             schema: (example.response as any)?.schema
-              ? JSON.stringify((example.response as any).schema, null, 2)
+              ? summarizeSchema((example.response as any).schema)
               : null,
           },
         }

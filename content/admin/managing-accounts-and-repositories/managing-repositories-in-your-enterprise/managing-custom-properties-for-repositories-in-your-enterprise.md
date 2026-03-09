@@ -4,8 +4,6 @@ intro: 'Create custom properties to give organizations a consistent way to categ
 permissions: Enterprise owners
 versions:
   feature: custom-properties-enterprise
-topics:
-  - Repositories
 shortTitle: Custom properties
 ---
 

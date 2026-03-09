@@ -6,9 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Codespaces
-  - Set up
 permissions: People with admin access to a repository can configure prebuilds for the repository.
 product: '{% data reusables.gated-features.codespaces-repo %}'
 ---

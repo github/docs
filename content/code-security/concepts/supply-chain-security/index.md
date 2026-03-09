@@ -12,6 +12,7 @@ children:
   - about-supply-chain-security
   - best-practices-for-maintaining-dependencies
   - about-the-dependency-graph
+  - dependency-graph-data
   - about-dependency-review
   - about-dependabot-alerts
   - about-metrics-for-dependabot-alerts

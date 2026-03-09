@@ -16,9 +16,7 @@ redirect_from:
   - /code-security/dependabot/dependabot-alerts/enable-delegated-alert-dismissal
 ---
 
-## About enabling delegated alert dismissal
-
-{% data reusables.security.delegated-alert-dismissal-intro %}
+{% data reusables.security.delegated-alert-dismissal-capacity %}
 
 ## Configuring delegated dismissal for a repository
 

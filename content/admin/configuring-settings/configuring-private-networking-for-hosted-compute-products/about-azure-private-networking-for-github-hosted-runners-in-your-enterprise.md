@@ -5,15 +5,6 @@ intro: 'You can create a private network configuration for your enterprise to us
 versions:
   ghec: '*'
 type: overview
-topics:
-  - Actions
-  - Action development
-  - Azure Virtual Network
-  - Administrator
-  - Developer
-  - CI
-  - CD
-  - Enterprise
 permissions: 'Enterprise owners can create private network configurations at the enterprise level to use {% data variables.product.company_short %}-hosted runners with an Azure VNET.'
 redirect_from:
   - /actions/using-github-hosted-runners/connecting-to-a-private-network/about-using-github-hosted-runners-in-your-azure-virtual-network

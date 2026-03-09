@@ -5,8 +5,6 @@ permissions: Enterprise owners or IdP administrators
 versions:
   feature: remove-enterprise-members
 type: how_to
-topics:
-  - Enterprise
 shortTitle: Remove member
 redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise

@@ -6,11 +6,6 @@ product: 'Enterprises with managed users, or enterprises that have enabled SAML 
 versions:
   feature: revoke-enterprise-tokens
 type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
 shortTitle: Lock down SSO
 ---
 

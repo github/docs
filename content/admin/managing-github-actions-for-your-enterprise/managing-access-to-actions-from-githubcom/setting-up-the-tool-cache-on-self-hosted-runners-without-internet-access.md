@@ -8,11 +8,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: tutorial
-topics:
-  - Actions
-  - Enterprise
-  - Networking
-  - Storage
 shortTitle: Tool cache for offline runners
 ---
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -5,9 +5,6 @@ permissions: Enterprise owners
 versions:
   feature: repo-policy-rules
 type: how_to
-topics:
-  - Enterprise
-  - Repositories
 shortTitle: Govern repository usage
 ---
 

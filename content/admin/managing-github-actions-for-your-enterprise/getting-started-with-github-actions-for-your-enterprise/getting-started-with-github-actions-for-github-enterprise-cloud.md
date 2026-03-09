@@ -6,9 +6,6 @@ permissions: 'Enterprise owners can configure {% data variables.product.prodname
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Actions
-  - Enterprise
 redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
 ---

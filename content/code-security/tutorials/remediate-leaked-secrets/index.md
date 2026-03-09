@@ -7,6 +7,8 @@ versions:
   ghec: '*'
 contentType: tutorials
 children:
+  - /calculating-the-cost-savings-of-push-protection
   - /evaluating-alerts
   - /remediating-a-leaked-secret
 ---
+

@@ -12,13 +12,14 @@ topics:
   - CodeQL
 children:
   - /setting-up-the-codeql-cli
-  - /advanced-setup-of-the-codeql-cli
-  - /writing-and-sharing-custom-queries-for-the-codeql-cli
+  - /write-custom-queries
+  - /publish-and-use-packs
   - /testing-custom-queries
   - /testing-query-help-files
+  - /download-databases
+  - /check-out-source-code
   - /specifying-command-options-in-a-codeql-configuration-file
   - /creating-database-bundle-for-troubleshooting
-
 redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli
   - /code-security/codeql-cli/getting-started-with-the-codeql-cli

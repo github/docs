@@ -20,11 +20,6 @@ redirect_from:
 versions:
   ghec: '*'
 contentType: concepts
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 allowTitleToDifferFromFilename: true
 ---
 

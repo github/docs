@@ -5,11 +5,6 @@ versions:
   ghes: '*'
 permissions: 'Enterprise owners can invite people to create a user account on a {% data variables.product.prodname_ghe_server %} instance.'
 type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
 shortTitle: Invite people
 redirect_from:
   - /admin/identity-and-access-management/using-built-in-authentication/inviting-people-to-use-your-instance

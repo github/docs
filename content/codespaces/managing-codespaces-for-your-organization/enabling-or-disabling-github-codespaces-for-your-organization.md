@@ -11,10 +11,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Codespaces
-  - Billing
-  - Administrator
 product: '{% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}'
 ---
 

@@ -6,9 +6,6 @@ permissions: Enterprise owners
 versions:
   ghes: '*'
 type: reference
-topics:
-  - Enterprise
-  - Fundamentals
 ---
 
 ## About reserved usernames

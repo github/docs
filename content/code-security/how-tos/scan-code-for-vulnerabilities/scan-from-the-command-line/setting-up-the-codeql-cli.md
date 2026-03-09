@@ -29,7 +29,7 @@ To run {% data variables.product.prodname_codeql %} commands, you need to set up
 
 The {% data variables.product.prodname_codeql_cli %} supports a range of use cases and directory structures. This article walks through a simple setup that works for most users and environments.
 
-If you plan to use the {% data variables.product.prodname_codeql_cli %} for security research or to test or contribute queries, you may need a more advanced setup. For more information, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/advanced-setup-of-the-codeql-cli).
+If you plan to use the {% data variables.product.prodname_codeql_cli %} for security research or to test or contribute queries, you may need a more advanced setup. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/codeql/about-the-codeql-cli#getting-started).
 
 ### Before you begin
 

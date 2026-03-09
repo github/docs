@@ -13,12 +13,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: reference
-topics:
-  - Enterprise
-  - Infrastructure
-  - Monitoring
-  - Performance
-  - Storage
 shortTitle: Recommended alert thresholds
 ---
 

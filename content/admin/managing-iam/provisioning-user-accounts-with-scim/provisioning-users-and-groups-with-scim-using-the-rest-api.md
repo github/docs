@@ -11,11 +11,6 @@ redirect_from:
   - /admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api
   - /admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api
   - /admin/managing-iam/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 ---
 
 {% ifversion ghec %}

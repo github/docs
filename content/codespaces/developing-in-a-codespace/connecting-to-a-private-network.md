@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Codespaces
-  - Fundamentals
-  - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/connecting-to-a-private-network
 ---

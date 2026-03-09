@@ -1,7 +1,7 @@
 ---
 title: Calculating the cost savings of push protection
-shortTitle: Push protection cost savings
-intro: Learn how to use the {% data variables.secret-scanning.roi-calculator %} to estimate the remediation time and labor costs you'll avoid by preventing leaked secrets.
+shortTitle: Calculate cost savings
+intro: Estimate the remediation time and labor costs you'll avoid by preventing leaked secrets.
 product: '{% data reusables.gated-features.secret-risk-assessment-calculators %}'
 versions:
   feature: secret-risk-assessment
@@ -9,9 +9,10 @@ permissions: '{% data reusables.permissions.push-protection-roi-calculator %}'
 topics:
   - Secret scanning
   - Secret Protection
-contentType: how-tos
+contentType: tutorials
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/calculating-the-cost-savings-of-push-protection
+  - /code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/calculating-the-cost-savings-of-push-protection
 ---
 
 ## What is the cost savings calculator?

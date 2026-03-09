@@ -13,13 +13,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Clustering
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
 ---
 
 ## About {% data variables.product.prodname_ghe_server %} cluster health

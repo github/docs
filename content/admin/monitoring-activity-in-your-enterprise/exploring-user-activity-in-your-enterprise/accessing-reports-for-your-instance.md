@@ -5,8 +5,6 @@ intro: "You can download reports with information about the users, organizations
 permissions: Enterprise owners can download reports for a {% data variables.product.prodname_ghe_server %} instance.
 versions:
   ghes: '*'
-topics:
-  - Enterprise
 ---
 
 ## About reports for {% data variables.product.prodname_ghe_server %}

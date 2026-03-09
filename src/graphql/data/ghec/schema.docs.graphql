@@ -50807,7 +50807,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   isArchived: Boolean!
 
   """
-  Returns true if blank issue creation is allowed
+  Returns true if the viewer can create a blank issue in this repository
   """
   isBlankIssuesEnabled: Boolean!
 

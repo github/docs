@@ -4,9 +4,6 @@ intro: '{% data variables.product.prodname_github_connect %} enhances {% data va
 versions:
   ghes: '*'
 type: overview
-topics:
-  - Enterprise
-  - GitHub Connect
 redirect_from:
   - /admin/configuration/configuring-github-connect/about-github-connect
 ---

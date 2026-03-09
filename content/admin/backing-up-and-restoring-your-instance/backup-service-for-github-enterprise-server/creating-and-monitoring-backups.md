@@ -5,9 +5,6 @@ intro: 'Run manual backups, understand backup types, and monitor backup activity
 versions:
   ghes: '>= 3.17'
 type: how_to
-topics:
-  - Backups
-  - Monitoring
 ---
 
 ## About backup types

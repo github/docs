@@ -7,12 +7,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: overview
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Security
-  - Storage
 ---
 
 ## About {% data variables.product.prodname_ghe_server %}

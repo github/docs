@@ -12,10 +12,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Codespaces
-  - Visual Studio Code
-  - Developer
 ---
 
 ## About {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}

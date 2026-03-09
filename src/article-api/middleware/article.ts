@@ -59,6 +59,7 @@ router.get(
     }
 
     incrementArticleLookup(req, 'full', cacheInfo)
+    recordBodySize(req, bodyContent)
 
     defaultCacheControl(res)
     return res.json({
@@ -100,6 +101,7 @@ router.get(
     }
 
     incrementArticleLookup(req, 'body')
+    recordBodySize(req, bodyContent)
 
     defaultCacheControl(res)
     return res.type('text/markdown').send(bodyContent)
@@ -200,6 +202,15 @@ function incrementArticleLookup(
   if (cacheInfo) tags.push(`cache:${cacheInfo}`)
 
   statsd.increment('api.article.lookup', 1, tags)
+}
+
+function recordBodySize(req: ExtendedRequestWithPageInfo, body: string) {
+  const sizeBytes = Buffer.byteLength(body, 'utf8')
+  const tags = [
+    `pathname:${req.pageinfo.pathname}`.slice(0, 200),
+    `language:${req.pageinfo.page?.languageCode || 'en'}`,
+  ]
+  statsd.distribution('api.article.body_size_bytes', sizeBytes, tags)
 }
 
 export default router

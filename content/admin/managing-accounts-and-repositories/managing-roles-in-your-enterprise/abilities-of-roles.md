@@ -15,8 +15,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 allowTitleToDifferFromFilename: true
 contentType: reference
 ---

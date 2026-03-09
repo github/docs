@@ -8,6 +8,6 @@ versions:
   ghec: '*'
 children:
     - /slack
+    - /teams
 contentType: how-tos
 ---
-

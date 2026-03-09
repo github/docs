@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Codespaces
 shortTitle: Rebuilding a container
 redirect_from:
   - /codespaces/codespaces-reference/performing-a-full-rebuild-of-a-container
