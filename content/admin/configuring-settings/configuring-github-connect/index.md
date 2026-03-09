@@ -14,8 +14,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
 children:
   - /about-github-connect
   - /enabling-github-connect-for-githubcom

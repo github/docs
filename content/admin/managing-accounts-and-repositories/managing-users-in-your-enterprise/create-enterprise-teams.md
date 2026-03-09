@@ -4,9 +4,6 @@ intro: 'Organize users into teams to simplify license management.'
 versions:
   feature: enterprise-teams
 type: how_to
-topics:
-  - Enterprise
-  - User account
 shortTitle: Create enterprise teams
 permissions: Enterprise owners
 redirect_from:

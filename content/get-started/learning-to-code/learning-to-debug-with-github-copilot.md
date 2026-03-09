@@ -4,6 +4,8 @@ intro: 'Identify and fix errors in your code by asking {% data variables.product
 versions:
   fpt: '*'
 shortTitle: Debug with Copilot
+category:
+  - Learn to code
 ---
 
 Finding and fixing bugs in code can be frustrating, especially when you're a new developer. Thankfully, tools like {% data variables.product.prodname_copilot %} can quickly identify and squash bugs, letting you focus on more creative, interesting work.

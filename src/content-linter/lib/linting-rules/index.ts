@@ -54,6 +54,7 @@ import { journeyTracksUniqueIds } from './journey-tracks-unique-ids'
 import { frontmatterHeroImage } from './frontmatter-hero-image'
 import { frontmatterIntroLinks } from './frontmatter-intro-links'
 import { frontmatterChildren } from './frontmatter-children'
+import { raiAppCardStructure } from '@/content-linter/lib/linting-rules/rai-app-card-structure'
 
 // Using any type because @github/markdownlint-github doesn't provide TypeScript declarations
 // The elements in the array have a 'names' property that contains rule identifiers
@@ -119,6 +120,7 @@ export const gitHubDocsMarkdownlint = {
     frontmatterHeroImage, // GHD061
     frontmatterIntroLinks, // GHD062
     frontmatterChildren, // GHD063
+    raiAppCardStructure, // GHD064
 
     // Search-replace rules
     searchReplace, // Open-source plugin

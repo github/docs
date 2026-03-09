@@ -11,8 +11,6 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering
 versions:
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /about-clustering
   - /differences-between-clustering-and-high-availability-ha

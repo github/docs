@@ -6,11 +6,6 @@ intro: 'You can disable SAML or OIDC single sign-on (SSO) authentication for {% 
 versions:
   ghec: '*'
 type: overview
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 permissions: 'The setup user can disable SAML or OIDC authentication for {% data variables.product.prodname_emus %}.'
 redirect_from:
   - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/disabling-authentication-for-enterprise-managed-users

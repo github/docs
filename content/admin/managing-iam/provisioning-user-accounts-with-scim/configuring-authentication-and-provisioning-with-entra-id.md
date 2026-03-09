@@ -6,12 +6,6 @@ permissions: Site administrators with admin access to the IdP
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad

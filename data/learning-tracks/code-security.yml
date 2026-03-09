@@ -15,7 +15,7 @@ security_advisories:
     - >-
       /code-security/tutorials/fix-reported-vulnerabilities/write-security-advisories
     - >-
-      /code-security/how-tos/report-and-fix-vulnerabilities/report-a-vulnerability/privately-reporting-a-security-vulnerability
+      /code-security/how-tos/report-and-fix-vulnerabilities/privately-reporting-a-security-vulnerability
     - >-
       /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/managing-privately-reported-security-vulnerabilities
     - >-
@@ -188,7 +188,7 @@ code_security_actions:
     - >-
       /code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/configuring-default-setup-for-code-scanning
     - >-
-      /code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/customizing-your-advanced-setup-for-code-scanning
+      /code-security/reference/code-scanning/workflow-configuration-options
     - >-
       /code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/codeql-code-scanning-for-compiled-languages
     - >-

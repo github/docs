@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Codespaces
 product: '{% data reusables.gated-features.codespaces-repo %}'
 ---
 

@@ -8,11 +8,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Networking
-  - Privacy
-  - Security
 ---
 
 ## About the referrer policy for your enterprise

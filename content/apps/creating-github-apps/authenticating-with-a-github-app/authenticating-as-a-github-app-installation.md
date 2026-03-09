@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 ---
 
 ## About authentication as a {% data variables.product.prodname_github_app %} installation

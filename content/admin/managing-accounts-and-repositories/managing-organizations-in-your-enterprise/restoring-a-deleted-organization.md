@@ -4,10 +4,6 @@ intro: 'You can partially restore an organization that was previously deleted on
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Administrator
-  - Enterprise
-  - Organizations
 shortTitle: Restore organization
 permissions: 'Site administrators'
 redirect_from:

@@ -1,5 +1,5 @@
 1. Using the dropdown menu in the prompt field, select the repository you want {% data variables.product.prodname_copilot_short %} to work in.
-1. Type a prompt describing your request.
+1. Type a prompt describing your request. You can also add visual inputs like screenshots or UI mockups by pasting, dragging, or uploading an image. Files supported: image/png, image/jpeg, image/gif, image/webp.
 
     For example, `Implement a user friendly message for common errors.`
 

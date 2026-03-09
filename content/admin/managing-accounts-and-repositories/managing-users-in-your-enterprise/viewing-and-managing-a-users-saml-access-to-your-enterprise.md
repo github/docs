@@ -12,8 +12,6 @@ redirect_from:
 versions:
   ghec: '*'
   feature: scim-for-ghes-public-beta
-topics:
-  - Enterprise
 shortTitle: View & manage SAML access
 ---
 

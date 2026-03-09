@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'Extend {% data variables.product.prodname_copilot_short %}''s capabilities by connecting Model Context Protocol (MCP) servers to provide additional tools and context.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category:
   - Configure Copilot CLI # Copilot CLI bespoke page

@@ -5,11 +5,6 @@ intro: 'When your enterprise uses OIDC SSO, {% data variables.product.prodname_d
 product: '{% data reusables.gated-features.emus %}'
 versions:
   feature: oidc-for-emu
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy
   - /admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/about-support-for-your-idps-conditional-access-policy

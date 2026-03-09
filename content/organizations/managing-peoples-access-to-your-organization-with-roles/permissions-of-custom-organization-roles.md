@@ -1,9 +1,14 @@
 ---
-title: About custom organization roles
+title: Permissions of custom organization roles
 intro: "You can control access to your {% ifversion org-custom-role-with-repo-permissions %}organization's settings and repositories{% else %}organization's settings{% endif %} with custom organization roles."
+redirect_from:
+  - /organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles
 versions:
   feature: 'custom-org-roles'
-shortTitle: Custom organization roles
+topics:
+  - Organizations
+shortTitle: Custom roles permissions
+
 product: 'Organizations on {% data variables.product.prodname_ghe_cloud %}{% ifversion ghes %} and {% data variables.product.prodname_ghe_server %}{% endif %}'
 ---
 
@@ -12,6 +17,8 @@ product: 'Organizations on {% data variables.product.prodname_ghe_cloud %}{% ifv
 You can create and assign custom organization roles in your organization's settings. You can also manage custom roles using the REST API. See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-organization-roles).
 
 {% ifversion org-custom-role-with-repo-permissions %}
+
+## Combining organization and repository permissions
 
 You can also create a custom organization role that includes permissions for repositories. Repository permissions grant access to all current and future repositories in the organization.
 
@@ -22,7 +29,7 @@ There are several ways to combine permissions for repositories and organizations
 
 Without repository permissions or a base repository role, the organization role doesn't grant access to any repositories.
 
->[!NOTE] Adding repository permissions to a custom organization role is currently in {% data variables.release-phases.public_preview %} and subject to change.
+{% data reusables.organizations.custom-role-repo-perms-preview-note %}
 
 {% endif %}
 
@@ -66,6 +73,16 @@ Organization permissions do not grant read, write, or administrator access to an
 | {% endif %}                                                                                      |
 | {% ifversion secret-scanning-alert-dismiss-custom-role %}                                        |
 | Review and manage {% data variables.product.prodname_secret_scanning %} alert dismissal requests | Review and manage {% data variables.product.prodname_secret_scanning %} alert dismissal requests for your organization. | [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning) |
+| {% endif %}                                                                                      |
+| {% ifversion security-delegated-alert-dismissal %}                                        |
+| Bypass {% data variables.product.prodname_code_scanning %} alert dismissal requests | Bypass {% data variables.product.prodname_code_scanning %} alert dismissal requests for your organization. | [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/enabling-delegated-alert-dismissal-for-code-scanning) |
+| Review {% data variables.product.prodname_code_scanning %} alert dismissal requests | Review and manage {% data variables.product.prodname_code_scanning %} alert dismissal requests for your organization. | [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/enabling-delegated-alert-dismissal-for-code-scanning) |
+| View {% data variables.product.prodname_code_scanning %} alert dismissal requests | View {% data variables.product.prodname_code_scanning %} alert dismissal requests for your organization. | [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/enabling-delegated-alert-dismissal-for-code-scanning) |
+| {% endif %}                                                                                      |
+| {% ifversion dependabot-delegated-alert-dismissal %}                                        |
+| Bypass {% data variables.product.prodname_dependabot %} alert dismissal requests | Bypass {% data variables.product.prodname_dependabot %} alert dismissal requests for your organization. | [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/enable-delegated-alert-dismissal) |
+| Review {% data variables.product.prodname_dependabot %} alert dismissal requests | Review and manage {% data variables.product.prodname_dependabot %} alert dismissal requests for your organization. | [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/enable-delegated-alert-dismissal) |
+| View {% data variables.product.prodname_dependabot %} alert dismissal requests | View {% data variables.product.prodname_dependabot %} alert dismissal requests for your organization. | [AUTOTITLE](/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/enable-delegated-alert-dismissal) |
 | {% endif %}                                                                                      |
 | {% ifversion copilot %}                                  |
 | View organization {% data variables.product.prodname_copilot_short %} metrics                    | View {% data variables.product.prodname_copilot_short %} usage metrics for your organization. | [AUTOTITLE](/copilot/concepts/copilot-metrics) |

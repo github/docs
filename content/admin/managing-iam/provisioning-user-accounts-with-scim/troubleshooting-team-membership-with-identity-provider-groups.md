@@ -7,11 +7,6 @@ versions:
   ghec: '*'
   feature: scim-for-ghes-public-beta
 type: how_to
-topics:
-  - Accounts
-  - Enterprise
-  - Teams
-  - Troubleshooting
 redirect_from:
   - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/troubleshooting-team-membership-with-identity-provider-groups
   - /admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/troubleshooting-team-membership-with-identity-provider-groups

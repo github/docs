@@ -37,3 +37,11 @@ For information about using policies to control use of licenses in your enterpri
 {% data reusables.billing.click-licensing %}
 1. To the right of "{% data variables.product.prodname_AS %}", select {% octicon "kebab-horizontal" aria-label="Open menu" %}, then click **Cancel subscription**.
 1. To confirm your cancellation, click **I understand, cancel {% data variables.product.prodname_AS %}**.
+
+{% ifversion disable-ghas-button %}
+
+## Disabling {% data variables.product.prodname_GHAS %} in an enterprise
+
+Enterprise owners can disable {% data variables.product.prodname_GHAS %} completely and set a policy to prevent future re-enablement. See [AUTOTITLE](/billing/how-tos/products/disable-ghas-for-enterprise).
+
+{% endif %}

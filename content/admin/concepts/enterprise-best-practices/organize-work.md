@@ -6,10 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: concepts
-topics:
-  - Accounts
-  - Enterprise
-  - Fundamentals
 redirect_from:
   - /admin/overview/best-practices-for-enterprises
   - /admin/user-management/managing-organizations-in-your-enterprise/best-practices-for-structuring-organizations-in-your-enterprise

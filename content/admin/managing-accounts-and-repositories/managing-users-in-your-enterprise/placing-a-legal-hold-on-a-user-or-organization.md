@@ -8,12 +8,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Accounts
-  - Auditing
-  - Enterprise
-  - Organizations
-  - User account
 shortTitle: Place a legal hold
 ---
 

@@ -13,11 +13,6 @@ permissions: 'Site administrators can disable unauthenticated sign-ups on a {% d
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
 shortTitle: Block unauthenticated sign-up
 ---
 

@@ -18,10 +18,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
-topics:
-  - Actions
-  - Enterprise
-  - Policies
 shortTitle: GitHub Actions policies
 ---
 

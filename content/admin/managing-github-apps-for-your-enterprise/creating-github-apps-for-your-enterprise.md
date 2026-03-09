@@ -4,8 +4,6 @@ intro: Learn how to create a {% data variables.product.prodname_github_app %} fo
 versions:
   feature: enterprise-apps-public-beta
 type: how_to
-topics:
-  - Enterprise
 permissions: Enterprise owners.
 shortTitle: Create a GitHub App
 redirect_from:

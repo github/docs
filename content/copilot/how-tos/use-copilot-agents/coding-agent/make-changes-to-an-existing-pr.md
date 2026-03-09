@@ -16,7 +16,7 @@ category:
 
 ## Introduction
 
-You can ask {% data variables.product.prodname_copilot_short %} to make changes to an existing pull request created by a human developer.
+You can ask {% data variables.product.prodname_copilot_short %} to make changes to an existing pull request created by a human developer by mentioning `@copilot` in a comment.
 
 {% data variables.product.prodname_copilot_short %} will create a child pull request, using the existing pull request's branch as the base branch.  Once it has finished work on the changes you requested, it requests your review on the child pull request.
 
@@ -27,7 +27,9 @@ You can ask {% data variables.product.prodname_copilot_short %} to make changes 
 ## Asking {% data variables.product.prodname_copilot_short %} to make changes
 
 1. Navigate to the pull request that you want {% data variables.product.prodname_copilot_short %} to make changes to.
-1. Leave a comment or review mentioning {% data variables.product.prodname_copilot_short %} with `@copilot`.
+1. Write a comment or review mentioning {% data variables.product.prodname_copilot_short %} with `@copilot`.
+1. Optionally, when leaving a pull request comment (not a review or review comment) through the {% data variables.product.github %} web interface, select a model using the model picker.
+1. Submit your comment or review.
 
 {% data variables.product.prodname_copilot_short %} will open a child pull request, using the existing pull request's branch as the base branch.
 

@@ -17,10 +17,6 @@ intro: 'To migrate from {% data variables.product.prodname_enterprise %} 11.10.x
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Migration
-  - Upgrades
 shortTitle: Migrate from 11.10.x to 2.1.23
 ---
 

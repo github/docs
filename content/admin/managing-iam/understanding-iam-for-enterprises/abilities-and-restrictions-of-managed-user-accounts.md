@@ -5,10 +5,6 @@ intro: 'Learn what users can and cannot do if you manage accounts from an identi
 versions:
   ghec: '*'
 type: reference
-topics:
-  - Accounts
-  - Enterprise
-  - Fundamentals
 redirect_from:
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/abilities-and-restrictions-of-managed-user-accounts
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts

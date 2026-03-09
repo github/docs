@@ -13,10 +13,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
-topics:
-  - Accounts
-  - Enterprise
-  - Licensing
 ---
 
 ## About dormant users

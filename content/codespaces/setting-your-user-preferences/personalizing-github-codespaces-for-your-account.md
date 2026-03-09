@@ -12,10 +12,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Codespaces
-  - Set up
-  - Fundamentals
 ---
 
 

@@ -10,12 +10,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Auditing
-  - Enterprise
-  - Organizations
-  - Security
-  - User account
 shortTitle: Audit users
 ---
 ## Accessing the audit log

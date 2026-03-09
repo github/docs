@@ -12,6 +12,8 @@ redirect_from:
   - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings
   - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-your-theme-settings
 shortTitle: Manage theme settings
+category:
+  - Customize your experience
 ---
 
 For choice and flexibility in how and when you use {% data variables.product.github %}, you can configure theme settings to change how {% data variables.product.github %} looks to you. You can choose from themes that are light or dark, or you can configure {% data variables.product.github %} to follow your system settings.

@@ -4,10 +4,6 @@ intro: 'You can update the actions that are bundled with your enterprise, or use
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Actions
-  - Enterprise
-  - GitHub Connect
 redirect_from:
   - /admin/github-actions/using-the-latest-version-of-the-official-bundled-actions
   - /admin/github-actions/managing-access-to-actions-from-githubcom/using-the-latest-version-of-the-official-bundled-actions

@@ -6,14 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - Security
-  - SSO
-  - Troubleshooting
 redirect_from:
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/troubleshooting-identity-and-access-management-for-your-enterprise
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/troubleshooting-identity-and-access-management-for-your-enterprise

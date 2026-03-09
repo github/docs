@@ -7,10 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Codespaces
-  - Billing
-  - Administrator
 product: 'Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans can pay for their members'' use of {% data variables.product.prodname_github_codespaces %}. These organizations can then access policies that apply to codespaces paid for by the organization. See [AUTOTITLE](/get-started/learning-about-github/githubs-products).'
 ---
 

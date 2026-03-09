@@ -18,11 +18,6 @@ redirect_from:
   - /admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-with-okta
   - /admin/managing-iam/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-with-okta
 type: tutorial
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 ---
 
 {% data reusables.scim.ghes-beta-note %}

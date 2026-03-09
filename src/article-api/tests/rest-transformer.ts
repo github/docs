@@ -107,7 +107,7 @@ describe('REST transformer', () => {
 
     // Check for request/response labels
     expect(res.body).toContain('**Request:**')
-    expect(res.body).toContain('**Response schema:**')
+    expect(res.body).toContain('**Response schema (Status: 200):**')
 
     // Check for curl code block
     expect(res.body).toContain('```curl')
@@ -173,36 +173,19 @@ describe('REST transformer', () => {
     expect(res.body).toMatch(/\[.*?\]\(\/en\/.*?\)/)
   })
 
-  test('Response schema is formatted correctly', async () => {
+  test('Response schema is formatted as markdown', async () => {
     const res = await get(makeURL('/en/rest/actions/artifacts'))
     expect(res.statusCode).toBe(200)
 
-    // Check for JSON code block with schema label
-    expect(res.body).toContain('**Response schema:**')
-    expect(res.body).toContain('```json')
-    expect(res.body).toContain('Status: 200')
+    // Check for markdown-formatted schema
+    expect(res.body).toContain('**Response schema (Status: 200):**')
 
-    // Verify schema structure is present (not an example)
-    expect(res.body).toContain('"type":')
-    expect(res.body).toContain('"properties":')
+    // Schema should be rendered as a markdown bullet list, not JSON
+    expect(res.body).toContain('* `total_count`:')
+    expect(res.body).toContain('* `artifacts`:')
 
-    // Check for common schema keywords
-    const schemaMatch = res.body.match(/```json\s+Status: 200\s+([\s\S]*?)```/)
-    expect(schemaMatch).toBeTruthy()
-
-    if (schemaMatch) {
-      const schemaContent = schemaMatch[1]
-      const schema = JSON.parse(schemaContent)
-
-      // Verify it's a valid OpenAPI/JSON schema structure
-      expect(schema).toHaveProperty('type')
-      expect(schema.type).toBe('object')
-      expect(schema).toHaveProperty('properties')
-
-      // Verify it has expected properties for artifacts response
-      expect(schema.properties).toHaveProperty('total_count')
-      expect(schema.properties).toHaveProperty('artifacts')
-    }
+    // Should not contain raw JSON Schema keywords
+    expect(res.body).not.toContain('"properties":')
   })
 
   test('Non-REST pages return appropriate error', async () => {

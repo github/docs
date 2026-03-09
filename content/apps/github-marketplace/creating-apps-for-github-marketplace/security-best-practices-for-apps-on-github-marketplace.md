@@ -13,8 +13,6 @@ shortTitle: Security best practice
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Marketplace
 ---
 
 {% data reusables.marketplace.marketplace-apps-not-actions %}

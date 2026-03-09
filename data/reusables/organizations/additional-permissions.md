@@ -58,13 +58,13 @@ For more information, see [AUTOTITLE](/repositories/configuring-branches-and-mer
 
 ### Security
 
-* View {% data variables.product.prodname_code_scanning %} results
-* Dismiss or reopen {% data variables.product.prodname_code_scanning %} results
-* Delete {% data variables.product.prodname_code_scanning %} results
+* View {% data variables.product.prodname_code_scanning %} alerts
+* Dismiss or reopen {% data variables.product.prodname_code_scanning %} alerts
+* Delete {% data variables.product.prodname_code_scanning %} alerts
 * View {% data variables.product.prodname_dependabot_alerts %}
 * Dismiss or reopen {% data variables.product.prodname_dependabot_alerts %}
-* View {% data variables.product.prodname_secret_scanning %} results
-* Dismiss or reopen {% data variables.product.prodname_secret_scanning %} results
+* View {% data variables.product.prodname_secret_scanning %} alerts
+* Dismiss, reopen, or assign {% data variables.product.prodname_secret_scanning %} alerts
 
 {%- ifversion ghec %}
 ### Actions

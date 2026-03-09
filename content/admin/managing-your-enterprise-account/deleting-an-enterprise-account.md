@@ -4,10 +4,6 @@ intro: 'You can delete an enterprise account to stop paying for {% data variable
 versions:
   ghec: '*'
 type: how_to
-topics:
-  - Accounts
-  - Enterprise
-  - Fundamentals
 permissions: Enterprise owners can delete an enterprise account if the company pays by credit card or PayPal.
 shortTitle: Delete enterprise account
 redirect_from:

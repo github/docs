@@ -14,10 +14,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
-topics:
-  - Auditing
-  - Enterprise
-  - Logging
 ---
 {% data reusables.audit_log.retention-periods %}
 

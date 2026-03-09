@@ -204,7 +204,7 @@ steps:
 
 You can only specify manual build steps if you have enabled advanced setup, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-a-repository).
 
-{% data reusables.code-scanning.autobuild-add-build-steps %} For information on how to edit the workflow file, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#editing-a-code-scanning-workflow).
+{% data reusables.code-scanning.autobuild-add-build-steps %}
 
 Update your workflow to define the `build-mode` as `manual`.
 
@@ -333,7 +333,7 @@ When you enable default setup for a repository that contains C# code, the build 
 
 {% data variables.product.prodname_codeql %} restores dependencies and generates a few additional source files, to give more accurate results, before creating a database from all the source files and dependencies.
 
-Dependencies are restored using multiple heuristics and strategies. The following files are the primary source of information: `*.csproj`, `*.sln`, `nuget.config`, `packages.config`, `global.json`, and `project.assets.json`. {% ifversion org-private-registry %}If a private NuGet feed is defined for the organization, this is also used, see [Code scanning default setup access to private registries](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries) and [Diagnostic information for private package registries](/code-security/code-scanning/managing-your-code-scanning-configuration/viewing-code-scanning-logs#diagnostic-information-for-private-package-registries).{% endif %}
+Dependencies are restored using multiple heuristics and strategies. The following files are the primary source of information: `*.csproj`, `*.sln`, `nuget.config`, `packages.config`, `global.json`, and `project.assets.json`. {% ifversion org-private-registry %}If a private NuGet feed is defined for the organization, this is also used, see [Code scanning default setup access to private registries](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries) and [AUTOTITLE](/code-security/reference/code-scanning/code-scanning-logs#diagnostic-information-for-private-package-registries).{% endif %}
 
 The following generated source files are optional, but significantly increase the correctness of the {% data variables.product.prodname_codeql %} database:
 
@@ -464,7 +464,7 @@ If you later add Kotlin code to a repository that uses the `none` build mode, {%
 
 {% data variables.product.prodname_codeql %} will attempt to run Gradle or Maven to extract accurate dependency information (but not to invoke a build), before creating a database from all Java files present. Every root Maven or Gradle project file (a build script without any build script present in an ancestor directory) is queried for dependency information, and more recent dependency versions are preferred if there is a clash. For information about the runner requirements to run Maven or Gradle, see [Runner requirements for Java](#runner-requirements-for-java).
 
- {% ifversion org-private-registry %}If a private Maven registry is defined for the organization, this is also used, see [Code scanning default setup access to private registries](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries) and [Diagnostic information for private package registries](/code-security/code-scanning/managing-your-code-scanning-configuration/viewing-code-scanning-logs#diagnostic-information-for-private-package-registries).{% endif %}
+{% ifversion org-private-registry %}If a private Maven registry is defined for the organization, this is also used, see [Code scanning default setup access to private registries](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries#code-scanning-default-setup-access-to-private-registries) and [AUTOTITLE](/code-security/reference/code-scanning/code-scanning-logs##diagnostic-information-for-private-package-registries).{% endif %}
 
 #### Accuracy of no build analysis for Java
 

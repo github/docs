@@ -16,9 +16,6 @@ permissions: 'Enterprise owners'
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - GitHub Connect
 ---
 
 ## About unified contributions

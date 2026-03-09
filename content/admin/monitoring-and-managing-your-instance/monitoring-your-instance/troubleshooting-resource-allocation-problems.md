@@ -6,13 +6,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
-  - Troubleshooting
 shortTitle: Troubleshooting resource allocation problems
 ---
 

@@ -8,10 +8,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Infrastructure
-  - Upgrades
 shortTitle: Set up a staging instance
 ---
 

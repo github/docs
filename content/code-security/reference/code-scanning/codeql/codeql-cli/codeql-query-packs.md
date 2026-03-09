@@ -1,6 +1,7 @@
 ---
-title: Publishing and using CodeQL packs
-intro: You can publish your own {% data variables.product.prodname_codeql %} packs and use packs published by other people.
+title: CodeQL query packs reference
+shortTitle: CodeQL query packs
+intro: Understand the compatibility, contents, and structure of {% data variables.product.prodname_codeql %} packs.
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
@@ -10,195 +11,38 @@ topics:
   - Code Security
   - Code scanning
   - CodeQL
-redirect_from:
-  - /code-security/codeql-cli/publishing-and-using-codeql-packs
-  - /code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs
-  - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs
-contentType: tutorials
+  - Repositories
+  - Integration
+  - CI
+contentType: reference
 ---
 
-{% ifversion ghec or ghes %}
+## {% data variables.product.prodname_codeql %} pack compatibility
 
-## Working with {% data variables.product.prodname_codeql %} packs on {% data variables.enterprise.gh_enterprise %}
+When a query pack is published, it includes pre-compiled representations of all the queries in it to increase analysis speed. However, if the version of {% data variables.product.prodname_codeql %} that performs the analysis is over 6 months newer than the the version that ran `codeql pack publish`, it may be necessary to compile the queries from source during analysis, slowing the process significantly.
 
-By default, the {% data variables.product.prodname_codeql_cli %} expects to download {% data variables.product.prodname_codeql %} packs from and publish packs to the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %}. However, you can also work with {% data variables.product.prodname_codeql %} packs in a {% data variables.product.prodname_container_registry %} on {% data variables.enterprise.gh_enterprise %} by creating a `qlconfig.yml` file to tell the CLI which {% data variables.product.prodname_container_registry %} to use for each pack.
+A pack published by the _latest_ public release of {% data variables.product.prodname_codeql %} will be useable by the version of {% data variables.product.prodname_codeql %} that is used by {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_actions %}, even though that is often a slightly older release.
 
-Create a `~/.codeql/qlconfig.yml` file on Linux/MacOS or `%HOMEPATH%\.codeql\qlconfig.yml` on Windows using your preferred text editor, and add entries to specify which registry to use for one or more package name patterns.
-For example, the following `qlconfig.yml` file associates all packs with the {% data variables.product.prodname_container_registry %} at `{% data variables.enterprise.gh_enterprise_domain %}`, except packs matching `codeql/\*` or the `other-org/*` organization, which are associated with the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %}:
-
-```yaml
-registries:
-- packages:
-  - 'codeql/*'
-  - 'other-org/*'
-  # {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %}
-  url: https://ghcr.io/v2/
-- packages: '*'
-  # {% data variables.product.prodname_container_registry %} hosted at `{% data variables.enterprise.gh_enterprise_domain %}`
-  url: {% data variables.enterprise.gh_enterprise_container_registry %}
-```
-
-The {% data variables.product.prodname_codeql_cli %} will determine which registry to use for a given package name by finding the first item in the `registries` list with a `packages` property that matches that package name.
-This means that you’ll generally want to define the most specific package name patterns first. The `packages` property may be a single package name, a glob pattern, or a YAML list of package names and glob patterns.
-
-The `registries` list can also be placed inside a `codeql-workspace.yml` file. Doing so will allow you to define the registries to be used within a specific workspace, so that it can be shared amongst other {% data variables.product.prodname_codeql %} users of the workspace. The `registries` list in `codeql-workspace.yml` will be merged with and take precedence over the list in the global `qlconfig.yml`. For more information about `codeql-workspace.yml`, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/about-codeql-workspaces#about-codeql-workspaces).
-
-You can now use `codeql pack publish`, `codeql pack download`, and `codeql database analyze` to manage packs on {% data variables.enterprise.gh_enterprise %}.
-
-{% endif %}
-
-## Authenticating to {% data variables.product.github %} {% data variables.product.prodname_container_registries %}
-
-You can publish packs and download private packs by authenticating to the appropriate {% data variables.product.github %} {% data variables.product.prodname_container_registry %}.
-
-{% ifversion ghec or ghes %}
-
-### Authenticating to {% data variables.product.prodname_container_registries %} on {% data variables.product.prodname_dotcom_the_website %}
-
-{% endif %}
-
-You can authenticate to the {% data variables.product.prodname_container_registry %} in two ways:
-
-1. Pass the `--github-auth-stdin` option to the {% data variables.product.prodname_codeql_cli %}, then supply a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} via standard input.
-1. Set the `GITHUB_TOKEN` environment variable to a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %}.
-
-{% ifversion ghec or ghes %}
-
-### Authenticating to {% data variables.product.prodname_container_registries %} on {% data variables.enterprise.gh_enterprise %}
-
-Similarly, you can authenticate to a {% data variables.product.prodname_container_registry %} on {% data variables.enterprise.gh_enterprise %}, or authenticate to multiple registries simultaneously (for example, to download or run private packs from multiple registries) in two ways:
-
-1. Pass the `--registries-auth-stdin` option to the {% data variables.product.prodname_codeql_cli %}, then supply a registry authentication string via standard input.
-1. Set the `CODEQL_REGISTRIES_AUTH` environment variable to a registry authentication string.
-
-A registry authentication string is a comma-separated list of `<registry-url>=<token>` pairs, where `registry-url` is a {% data variables.product.prodname_container_registry %} URL, such as `{% data variables.enterprise.gh_enterprise_container_registry %}`, and `token` is a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} for that {% data variables.product.prodname_container_registry %}.
-This ensures that each token is only passed to the {% data variables.product.prodname_container_registry %} you specify.
-
-For example, the following registry authentication string specifies that the {% data variables.product.prodname_codeql_cli %} should authenticate as follows:
-
-* Use the token `<token1>` to authenticate to {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %}.
-* Use the token `<token2>` to authenticate to the {% data variables.product.prodname_container_registry %} for the enterprise at `{% data variables.enterprise.gh_enterprise_container_registry %}`.
-
-```shell
-https://ghcr.io/v2/=<token1>,{% data variables.enterprise.gh_enterprise_container_registry %}=<token2>
-```
-
-{% endif %}
-
-## Configuring the `qlpack.yml` file before publishing
-
-{% data reusables.code-scanning.codeql-cli-version-ghes %}
-
-You can check and modify the configuration details of your {% data variables.product.prodname_codeql %} pack prior to publishing. Open the `qlpack.yml` file in your preferred text editor.
-
-```yaml
-library: # set to true if the pack is a library. Set to false or omit for a query pack
-name: <scope>/<pack>
-version: <x.x.x>
-description: <Description to publish with the package>
-defaultSuite: # optional, one or more queries in the pack to run by default
-    - query: <relative-path>/query-file>.ql
-defaultSuiteFile: default-queries.qls # optional, a pointer to a query-suite in this pack
-license: # optional, the license under which the pack is published
-dependencies: # map from CodeQL pack name to version range
-```
-
-* `name:` must follow the `<scope>/<pack>` format, where `<scope>` is the {% data variables.product.prodname_dotcom %} organization that you will publish to and `<pack>` is the name for the pack.
-
-* A maximum of one of `defaultSuite` or `defaultSuiteFile` is allowed. These are two different ways to define a default query suite to be run, the first by specifying queries directly in the qlpack.yml file and the second by specifying a query suite in the pack.
-
-## Running `codeql pack publish`
-
-When you are ready to publish a pack to the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}, you can run the following command in the root of the pack directory:
-
-```shell
-codeql pack publish
-```
-
-The published package will be displayed in the packages section of {% data variables.product.prodname_dotcom %} organization specified by the scope in the `qlpack.yml` file.
-
-> [!NOTE]
-> If you're publishing model packs to the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %} in order to extend coverage to all repositories in an organization as part of a default setup configuration, then you need to ensure that repositories running code scanning can access those model packs. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup) and [AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility).
-
-## Running `codeql pack download <scope>/<pack>`
-
-To run a pack that someone else has created, you must first download it by running the following command:
-
-```shell
-codeql pack download <scope>/<pack>@x.x.x
-```
-
-* `<scope>`: the name of the {% data variables.product.prodname_dotcom %} organization that you will download from.
-* `<pack>`: the name for the pack that you want to download.
-* `@x.x.x`: an optional version number. If omitted, the latest version will be downloaded.
-
-This command accepts arguments for multiple packs.
-
-If you write scripts that specify a particular version number of a
-query pack to download, keep in mind that when you update your version of
-{% data variables.product.prodname_codeql %} to a newer one, you may
-also need to switch to a newer version of the query pack. Newer
-versions of {% data variables.product.prodname_codeql %} _may_ provide
-degraded performance when used with query packs that have been pinned
-to a very old version. For more information, see [About {% data variables.product.prodname_codeql %}
-pack compatibility](#about-codeql-pack-compatibility).
-
-## Using a {% data variables.product.prodname_codeql %} pack to analyze a {% data variables.product.prodname_codeql %} database
-
-To analyze a {% data variables.product.prodname_codeql %} database with a {% data variables.product.prodname_codeql %} pack, run the following command:
-
-```shell
-codeql database analyze <database> <scope>/<pack>@x.x.x:<path>
-```
-
-* `<database>`: the {% data variables.product.prodname_codeql %} database to be analyzed.
-* `<scope>`: the name of the {% data variables.product.prodname_dotcom %} organization that the pack is published to.
-* `<pack>`: the name for the pack that you are using.
-* `@x.x.x`: an optional version number. If omitted, the latest version will be used.
-* `:<path>`: an optional path to a query, directory, or query suite. If omitted, the pack’s default query suite will be used.
-
-The `analyze` command will run the default suite of any specified {% data variables.product.prodname_codeql %} packs. You can specify multiple {% data variables.product.prodname_codeql %} packs to be used for analyzing a {% data variables.product.prodname_codeql %} database. For example:
-
-```shell
-codeql <database> analyze <scope>/<pack> <scope>/<other-pack>
-```
-
-> [!NOTE]
-> The `codeql pack download` command stores the pack it downloads in an internal location that is not intended for local modification. Unexpected (and hard to troubleshoot) behavior may result if the pack is modified after downloading. For more information about customizing packs, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs).
-
-## About {% data variables.product.prodname_codeql %} pack compatibility
-
-When a query pack is published, it includes pre-compiled representations of all the queries in it. These pre-compiled queries are generally much faster to execute than it is to compile the QL source from scratch during the analysis. However, the pre-compiled queries also depend on certain internals of the QL evaluator, so if the version of {% data variables.product.prodname_codeql %} that performs the analysis is too different from the version that ran `codeql pack publish`, it may be necessary to compile the queries from source instead during analysis. The recompilation happens automatically and will not affect the _results_ of the analysis, but it can make the
-analysis significantly slower.
-
-It can generally be assumed that if a pack is published with one release of {% data variables.product.prodname_codeql %}, the precompiled queries in it can be used directly by _later_ releases of {% data variables.product.prodname_codeql %}, as long as there is no more than 6 months between the release dates. We will make reasonable efforts to keep new releases compatible for longer than that, but make no promises.
-
-It can also be assumed that a pack published by the _latest_ public release of {% data variables.product.prodname_codeql %} will be useable by the version of {% data variables.product.prodname_codeql %} that is used by {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_actions %}, even though that is often a slightly older release.
-
-As a user of a published query pack, you can check that the {% data variables.product.prodname_codeql %} makes use of the precompiled queries in it by inspecting the terminal output from an analysis runs that uses the query pack. If it contains lines looking like the following, then the precompiled queries were used successfully:
+If your analysis contains lines like the following, then {% data variables.product.prodname_codeql %} is successfully using precompiled queries:
 
 ```shell
 [42/108] Loaded /long/path/to/query/Filename.qlx.
 ```
 
-However, if they instead look like the following, then usage of the precompiled queries failed:
+If your analysis instead contains lines that look like the following, then {% data variables.product.prodname_codeql %} manually recompiled the queries from source:
 
 ```shell
 Compiling query plan for /long/path/to/query/Filename.ql.
 [42/108 comp 25s] Compiled /long/path/to/query/Filename.ql.
 ```
 
-The results of the analysis will still be good in this case, but to get optimal performance you may need to upgrade to a newer version of the {% data variables.product.prodname_codeql_cli %} and/or of the query pack.
+To help users of your query pack benefit from pre-compiled queries, we recommend using a recent release of {% data variables.product.prodname_codeql %} to publish your packs. Additionally, you should publish a fresh version of your pack with an updated {% data variables.product.prodname_codeql %} version every 6 months.
 
-If you publish query packs on the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %} for others to use, we recommend that you use a recent release of {% data variables.product.prodname_codeql %} to run `codeql pack publish`, and that you publish a fresh version of your pack with an updated {% data variables.product.prodname_codeql %} version before the version you used turns 6 months old. That way you can ensure that users of your pack who keep _their_ {% data variables.product.prodname_codeql %} up to date will benefit from the pre-compiled queries in your pack.
+If you publish query packs with the intention of using them on a {% data variables.product.prodname_ghe_server %} installation that uses its bundled {% data variables.product.prodname_codeql %} binaries, use the same {% data variables.product.prodname_codeql %} version to run `codeql pack publish`.
 
-If you publish query packs with the intention of using them on a {% data variables.product.prodname_ghe_server %} installation that uses its bundled {% data variables.product.prodname_codeql %} binaries, use the same {% data variables.product.prodname_codeql %} version to run `codeql pack publish`. Newer versions might produce pre-compiled queries that the one in {% data variables.product.prodname_ghe_server %} may not recognize. Your {% data variables.product.prodname_ghe_server %} administrator may choose to upgrade to a newer version of {% data variables.product.prodname_codeql %} periodically. If so, follow their lead.
+## `qlpack.yml` files
 
-## About `qlpack.yml` files
-
-When executing query-related commands, {% data variables.product.prodname_codeql %} first looks in siblings of the installation directory (and their subdirectories) for `qlpack.yml` files.
-Then it checks the package cache for {% data variables.product.prodname_codeql %} packs which have been downloaded. This means that when you are developing queries locally, the local packages
-in the installation directory override packages of the same name in the package cache, so that you can test your local changes.
+When executing query-related commands, {% data variables.product.prodname_codeql %} first looks in siblings of the installation directory (and their subdirectories) for `qlpack.yml` files, then checks the package cache for downloaded {% data variables.product.prodname_codeql %} packs. This means that when your local packages in the installation directory override packages of the same name in the package cache, so you can test your local changes.
 
 The metadata in each `qlpack.yml` file tells {% data variables.product.prodname_codeql %} how to compile any queries in the pack, what libraries the pack depends on, and where to
 find query suite definitions.
@@ -388,7 +232,7 @@ The following properties are supported in `qlpack.yml` files.
   warnOnImplicitThis: true
   ```
 
-## About `codeql-pack.lock.yml` files
+## `codeql-pack.lock.yml` files
 
 `codeql-pack.lock.yml` files store the versions of the resolved transitive dependencies of a {% data variables.product.prodname_codeql %} pack. This file is created by the `codeql pack install` command if it does not already exist and should be added to your version control system. The `dependencies` section of the `qlpack.yml` file contains version ranges that are compatible with the pack. The `codeql-pack.lock.yml` file locks the versions to precise dependencies. This ensures that running `codeql pack install` on this the pack will always retrieve the same versions of dependencies even if newer compatible versions exist.
 
@@ -417,9 +261,9 @@ The `codeql/cpp-all` dependency is locked to version 0.1.4. The `my-user/my-lib`
 
 In most cases, the `codeql-pack.lock.yml` file is only relevant for query packs since library packs are non-executable and usually do not need their transitive dependencies to be fixed. The exception to this is for library packs that contain tests. In this case, the `codeql-pack.lock.yml` file is used to ensure that the tests are always run with the same versions of dependencies to avoid spurious failures when there are mismatched dependencies.
 
-## Examples of custom {% data variables.product.prodname_codeql %} packs
+## Example custom {% data variables.product.prodname_codeql %} packs
 
-When you write custom queries or tests, you should save them in custom {% data variables.product.prodname_codeql %} packs. For simplicity, try to organize each pack logically. For more information, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#codeql-pack-structure). Save files for queries and tests in separate packs and, where possible, organize custom packs into specific folders for each target language. This is particularly useful if you intend to publish your {% data variables.product.prodname_codeql %} packs so they can be shared with others or used in code scanning. For more information, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql).
+You should save files for custom queries and tests in separate packs, and organize custom packs into specific folders for each target language.
 
 ### {% data variables.product.prodname_codeql %} packs for custom libraries
 
@@ -461,7 +305,7 @@ databases. You may also wish to specify the `tests` property.
 
 For more information about running tests, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/testing-custom-queries).
 
-## Examples of {% data variables.product.prodname_codeql %} packs in the {% data variables.product.prodname_codeql %} repository
+## Example {% data variables.product.prodname_codeql %} packs in the {% data variables.product.prodname_codeql %} repository
 
 Each of the languages in the {% data variables.product.prodname_codeql %} repository has four main {% data variables.product.prodname_codeql %} packs:
 

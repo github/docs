@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Explore and contribute
 ---
 
 ## About followers

@@ -6,9 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
 shortTitle: Configure custom footers
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-custom-footers

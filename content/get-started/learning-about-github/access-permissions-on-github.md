@@ -13,6 +13,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Access permissions
+category:
+  - Explore GitHub plans and features
 ---
 
 ## About access permissions on {% data variables.product.github %}

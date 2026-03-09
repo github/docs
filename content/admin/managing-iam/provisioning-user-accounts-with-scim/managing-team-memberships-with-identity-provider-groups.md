@@ -15,11 +15,6 @@ versions:
   ghec: '*'
   feature: scim-for-ghes-public-beta
 type: how_to
-topics:
-  - Accounts
-  - Enterprise
-  - SSO
-  - Teams
 ---
 
 {% data reusables.scim.ghes-beta-note %}

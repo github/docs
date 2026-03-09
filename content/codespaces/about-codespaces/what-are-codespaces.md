@@ -7,8 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: overview
-topics:
-  - Codespaces
 redirect_from:
   - /codespaces/overview
 ---

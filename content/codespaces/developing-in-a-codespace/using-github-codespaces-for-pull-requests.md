@@ -6,10 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: how_to
-topics:
-  - Codespaces
-  - Visual Studio Code
-  - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/using-codespaces-for-pull-requests
   - /codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests

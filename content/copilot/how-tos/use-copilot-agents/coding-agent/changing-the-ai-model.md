@@ -20,7 +20,7 @@ In supported entrypoints, you can select the model used by {% data variables.cop
 You may find that different models perform better, or provide more useful responses, depending on the type of tasks you give {% data variables.product.prodname_copilot_short %}.
 
 > [!NOTE]
-> Model selection for {% data variables.copilot.copilot_coding_agent %} is only supported when assigning an issue to {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}, or when starting a task from the agents tab, agents panel, {% data variables.product.prodname_mobile %} or the Raycast launcher. Where a model picker is not available, Auto will be used automatically. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr).
+> Model selection for {% data variables.copilot.copilot_coding_agent %} is only supported when assigning an issue to {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}, when mentioning `@copilot` in a pull request comment on {% data variables.product.prodname_dotcom_the_website %}, or when starting a task from the agents tab, agents panel, {% data variables.product.prodname_mobile %} or the Raycast launcher. Where a model picker is not available, Auto will be used automatically. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr).
 
 ## Supported models
 

@@ -7,7 +7,7 @@ name: Validate github/github docs URLs
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 16 * * 3' # Run every Wednesday at 16:20 UTC / 8:20 PST — orphan & hygiene cleanup theme
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
   # See https://gh.io/AAsyyao before uncommenting:
   # pull_request:
   #   paths:
@@ -129,3 +129,8 @@ jobs:
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name == 'schedule' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

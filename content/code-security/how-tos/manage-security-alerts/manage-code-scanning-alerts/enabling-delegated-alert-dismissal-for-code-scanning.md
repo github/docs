@@ -15,9 +15,7 @@ redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration/enabling-delegated-alert-dismissal-for-code-scanning
 ---
 
-## About enabling delegated alert dismissal
-
-{% data reusables.security.delegated-alert-dismissal-intro %}
+{% data reusables.security.delegated-alert-dismissal-capacity %}
 
 ## Configuring delegated dismissal for a repository
 

@@ -1,6 +1,6 @@
 ---
-title: Writing and sharing custom queries for the CodeQL CLI
-shortTitle:  Write and share queries
+title: Writing custom queries for the CodeQL CLI
+shortTitle: Write custom queries
 intro: You can write your own {% data variables.product.prodname_codeql %} queries to find specific vulnerabilities and errors.
 product: '{% data reusables.gated-features.codeql %}'
 allowTitleToDifferFromFilename: true
@@ -16,6 +16,7 @@ redirect_from:
   - /code-security/codeql-cli/using-custom-queries-with-the-codeql-cli
   - /code-security/codeql-cli/using-the-codeql-cli/using-custom-queries-with-the-codeql-cli
   - /code-security/how-tos/scan-code-for-vulnerabilities/scan-from-the-command-line/using-custom-queries-with-the-codeql-cli
+  - /code-security/how-tos/scan-code-for-vulnerabilities/scan-from-the-command-line/writing-and-sharing-custom-queries-for-the-codeql-cli
 contentType: how-tos
 ---
 
@@ -34,21 +35,6 @@ When running queries with the `database analyze` command, you must include the f
 * Query type (`@kind`): identifies the query as a simple alert (`@kind problem`), an alert documented by a sequence of code locations (`@kind path-problem`), for extractor troubleshooting (`@kind diagnostic`), or a summary metric (`@kind metric` and `@tags summary`).
 
 For more information about these metadata properties, see [Metadata for {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/#metadata-for-codeql-queries) and the [Query metadata style guide](https://github.com/github/codeql/blob/main/docs/query-metadata-style-guide.md).
-
-## Packaging custom queries
-
-When you write queries to share with others, save them in a custom {% data variables.product.prodname_codeql %} pack.
-
-To package your custom queries:
-
-1. Create a {% data variables.product.prodname_codeql %} pack with a `qlpack.yml` file in the root directory.
-1. Save your custom queries (`.ql` files) in the pack root or its subdirectories.
-1. Configure the `qlpack.yml` file to specify:
-   * How to compile the queries
-   * Dependencies on other {% data variables.product.prodname_codeql %} packs and libraries
-   * Query suite definitions
-   For more information about `qlpack.yml` properties, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#codeqlpack-yml-properties).
-1. Publish your pack to {% data variables.product.prodname_registry %} - the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs).
 
 ## Including query help for custom {% data variables.product.prodname_codeql %} queries in SARIF files
 
@@ -69,6 +55,6 @@ To include query help in SARIF files when running code scanning analyses:
 	 > The `--sarif-add-query-help` option is available from {% data variables.product.prodname_codeql_cli %} v2.7.1 onwards.
 1. Upload the SARIF file to {% data variables.product.github %}.
 
-## Further reading
+## Next steps
 
-* [{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)
+To share and use your custom queries, see [AUTOTITLE](/code-security/how-tos/scan-code-for-vulnerabilities/scan-from-the-command-line/publish-and-use-packs).

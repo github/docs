@@ -5,12 +5,6 @@ intro: 'You can enable auto-signing of commits made in the web interface of {% d
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Access management
-  - Enterprise
-  - Fundamentals
-  - Identity
-  - Security
 permissions: 'Site administrators'
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-web-commit-signing

@@ -7,9 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
 type: overview
-topics:
-  - Codespaces
-  - Developer
 ---
 
 ## {% data variables.product.prodname_github_codespaces %} features

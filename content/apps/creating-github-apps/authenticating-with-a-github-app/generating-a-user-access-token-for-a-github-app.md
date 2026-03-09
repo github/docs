@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
 shortTitle: Generate a user access token
 ---
 

@@ -6,9 +6,6 @@ versions:
   ghes: '*'
 shortTitle: Policies
 contentType: concepts
-topics:
-  - Enterprise
-  - Policies
 redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies
   - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/about-enterprise-policies

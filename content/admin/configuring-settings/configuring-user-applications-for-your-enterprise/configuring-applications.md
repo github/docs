@@ -10,9 +10,6 @@ redirect_from:
 versions:
   ghes: '*'
 type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
 ---
 ## Adjusting image caching
 

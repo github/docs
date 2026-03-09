@@ -6,12 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: reference
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference
   - /admin/identity-and-access-management/iam-configuration-reference/saml-configuration-reference
