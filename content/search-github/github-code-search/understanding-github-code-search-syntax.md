@@ -100,6 +100,7 @@ You can use specialized keywords to qualify your search.
 * [Organization and user qualifiers](#organization-and-user-qualifiers)
 * [Enterprise qualifier](#enterprise-qualifier)
 * [Language qualifier](#language-qualifier)
+* [License qualifier](#license-qualifier)
 * [Path qualifier](#path-qualifier)
 * [Symbol qualifier](#symbol-qualifier)
 * [Content qualifier](#content-qualifier)
@@ -158,6 +159,16 @@ language:ruby OR language:cpp OR language:csharp
 ```
 
 For a complete list of supported language names, see [languages.yaml](https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml) in [github-linguist/linguist](https://github.com/github-linguist/linguist). If your preferred language is not on the list, you can open a pull request to add it.
+
+### License qualifier
+
+You can filter repositories based on their license or license family using the `license` qualifier and the exact license keyword, e.g. `Apache-2.0`, `CC`, `MIT`.
+
+```text
+license:MIT
+```
+
+See [Licensing a Repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository#searching-github-by-license-type) for a list of license keywords.
 
 ### Path qualifier
 
