@@ -1,5 +1,5 @@
 ---
-title: Invoking custom agents 
+title: Invoking custom agents
 shortTitle: Invoke custom agents
 intro: Use custom agents, skills, and MCP servers in {% data variables.copilot.copilot_cli_short %} to extend its capabilities.
 product: '{% data reusables.gated-features.copilot-cli %}'
@@ -102,7 +102,7 @@ To extend the functionality available to you in {% data variables.copilot.copilo
 1. Fill in the details for the MCP server you want to add, using the <kbd>Tab</kbd> key to move between fields.
 1. Press <kbd>Ctrl</kbd>+<kbd>S</kbd> to save the details.
 
-Details of your configured MCP servers are stored in the `mcp-config.json` file, which is located, by default, in the `~/.copilot` directory. This location can be changed by setting the `XDG_CONFIG_HOME` environment variable. For information about the JSON structure of a server definition, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
+Details of your configured MCP servers are stored in the `mcp-config.json` file, which is located, by default, in the `~/.copilot` directory. This location can be changed by setting the `COPILOT_HOME` environment variable. For information about the JSON structure of a server definition, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
 
 For more detailed information on adding and managing MCP servers in {% data variables.copilot.copilot_cli_short %}, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers).
 
