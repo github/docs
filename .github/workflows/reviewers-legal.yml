@@ -36,20 +36,20 @@ jobs:
 
       - name: Get changed files
         id: changed_files
-        uses: ./.github/actions/get-changed-files
+        uses: tj-actions/changed-files@22103cc46bda19c2b464ffe86db46df6922fd323 # v47.0.5
         with:
           files: 'content/**'
 
       - name: Set up Node and dependencies
-        if: steps.changed_files.outputs.filtered_changed_files
+        if: steps.changed_files.outputs.any_modified == 'true'
         uses: ./.github/actions/node-npm-setup
 
       - name: Check content type
-        if: steps.changed_files.outputs.filtered_changed_files
+        if: steps.changed_files.outputs.any_modified == 'true'
         id: checkContentType
         run: npm run check-content-type
         env:
-          CHANGED_FILE_PATHS: ${{ steps.changed_files.outputs.filtered_changed_files }}
+          CHANGED_FILE_PATHS: ${{ steps.changed_files.outputs.all_modified_files }}
           CONTENT_TYPE: 'rai'
 
       - name: Add legal as a reviewer

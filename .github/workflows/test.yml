@@ -126,10 +126,12 @@ jobs:
 
       - name: Gather files changed
         if: ${{ matrix.name == 'content-linter' }}
-        uses: ./.github/actions/get-changed-files
-        with:
-          head: ${{ github.event.pull_request.head.ref || github.event.merge_group.head_ref }}
-          output_file: get_diff_files.txt
+        id: changed_files
+        uses: tj-actions/changed-files@22103cc46bda19c2b464ffe86db46df6922fd323 # v47.0.5
+
+      - name: Write changed files to diff file
+        if: ${{ matrix.name == 'content-linter' }}
+        run: echo "${{ steps.changed_files.outputs.all_modified_files }}" > get_diff_files.txt
 
       - uses: ./.github/actions/cache-nextjs
 
