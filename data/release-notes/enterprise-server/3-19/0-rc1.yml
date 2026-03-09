@@ -244,6 +244,8 @@ sections:
       Users may see a mismatch between repository-level Dependabot alerts and the overall Security Risk dashboard metrics. This can be resolved by reloading the page.
     - |
       The setting to define private registries at the organization level for code scanning is only available if dependabot is also enabled for the instance.
+    - |
+      When viewing the status of an ongoing backup on the "Backups" page of the Management Console, the backup may initially report as "incomplete" instead of "in progress". You can ignore this initial "incomplete" status; the backup is still running and will report the correct status once it has progressed further. In some configurations, such as cluster topologies, this may take up to 5 minutes.
 
   closing_down:
     # https://github.com/github/releases/issues/7007

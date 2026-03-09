@@ -17,6 +17,7 @@ topics:
   - Vulnerabilities
 contentType: reference
 children:
+  - /automatic-dependency-submission
   - /dependabot-options-reference
   - /dependabot-alerts-filters
   - /supported-ecosystems-and-manifests-for-dependency-scope
