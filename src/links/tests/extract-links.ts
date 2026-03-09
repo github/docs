@@ -7,7 +7,6 @@ import {
   isAssetLink,
 } from '../lib/extract-links'
 import { latestStable } from '@/versions/lib/enterprise-server-releases'
-import type { Page } from '@/types'
 
 describe('extractLinksFromMarkdown', () => {
   test('extracts simple internal links', () => {
@@ -247,10 +246,10 @@ describe('normalizeLinkPath', () => {
 
 describe('checkInternalLink', () => {
   const pageMap = {
-    '/en/actions/getting-started': {} as unknown as Page,
-    '/en/repositories/overview': {} as unknown as Page,
-    '/actions/guides': {} as unknown as Page,
-    [`/en/enterprise-server@${latestStable}/admin/overview`]: {} as unknown as Page,
+    '/en/actions/getting-started': {} as any,
+    '/en/repositories/overview': {} as any,
+    '/actions/guides': {} as any,
+    [`/en/enterprise-server@${latestStable}/admin/overview`]: {} as any,
   }
 
   const redirects = {

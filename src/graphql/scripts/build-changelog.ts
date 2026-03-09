@@ -57,8 +57,6 @@ interface IgnoredChangesSummary {
   types: IgnoredChangeType[]
 }
 
-let lastIgnoredChanges: Change[] = []
-
 /**
  * Tag `changelogEntry` with `date: YYYY-mm-dd`, then prepend it to the JSON
  * structure written to `targetPath`. (`changelogEntry` and that file are modified in place.)
@@ -91,8 +89,9 @@ export async function createChangelogEntry(
   newUpcomingChanges: UpcomingChange[],
 ): Promise<ChangelogEntry | null> {
   // Create schema objects out of the strings
-  const oldSchema = await loadSchema(oldSchemaString, { loaders: [] })
-  const newSchema = await loadSchema(newSchemaString, { loaders: [] })
+  // Using 'as any' because loadSchema accepts string schema directly without requiring loaders
+  const oldSchema = await loadSchema(oldSchemaString, {} as any)
+  const newSchema = await loadSchema(newSchemaString, {} as any)
 
   // Generate changes between the two schemas
   const changes = await diff(oldSchema, newSchema)
@@ -123,7 +122,7 @@ export async function createChangelogEntry(
   }
 
   // Store ignored changes for potential workflow outputs
-  lastIgnoredChanges = ignoredChanges
+  ;(createChangelogEntry as any).lastIgnoredChanges = ignoredChanges
 
   const { schemaChangesToReport, previewChangesToReport } = segmentPreviewChanges(
     changesToReport,
@@ -334,7 +333,7 @@ const CHANGES_TO_REPORT = [
  * Get the ignored change types from the last changelog entry creation
  */
 export function getLastIgnoredChanges(): Change[] {
-  return lastIgnoredChanges
+  return (createChangelogEntry as any).lastIgnoredChanges || []
 }
 
 /**

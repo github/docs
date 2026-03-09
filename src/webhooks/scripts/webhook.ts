@@ -22,7 +22,7 @@ export interface WebhookSchema {
   requestBody?: {
     content: {
       'application/json': {
-        schema: Record<string, unknown>
+        schema: Record<string, any>
       }
     }
   }

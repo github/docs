@@ -317,7 +317,7 @@ function escapeRegex(string: string) {
   return string.replace(/[/\-\\^$*+?.()|[\]{}]/g, '\\$&')
 }
 
-function isFloat(x: string | number) {
+function isFloat(x: any) {
   return !!(Number(x) + 1)
 }
 strictEqual(isFloat('1.2'), true)
