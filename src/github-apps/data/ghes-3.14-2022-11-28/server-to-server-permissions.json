@@ -3774,7 +3774,7 @@
         "subcategory": "rule-suites",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites",
-        "access": "write",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
@@ -3785,7 +3785,7 @@
         "subcategory": "rule-suites",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}",
-        "access": "write",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
