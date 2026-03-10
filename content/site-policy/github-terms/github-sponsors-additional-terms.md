@@ -17,21 +17,59 @@ The purpose of this Agreement is to: 1) set forth the terms under which Sponsors
 
 "**GitHub Policies**" means all then-current policies and procedures of GitHub that Sponsored Developer must follow as noted in the Program, including the [GitHub Community Guidelines](/site-policy/github-terms/github-community-guidelines).
 
-"**Sponsor**" means the User who purchased a Subscription from or paid a Sponsorship to you through your Sponsored Developer Account.
+"**Sponsor**" means the User who purchased a Subscription from or paid a Sponsorship to a Sponsored Developer through a Sponsored Developer Account.
 
-“**Sponsored Developer**” means the individual or entity that develops content under the Program and receives Sponsored Developer Payments while participating in the Program.
+"**Sponsored Developer**" means the individual or entity that develops content under the Program and receives Sponsored Developer Payments while participating in the Program.
 
-"**Sponsored Developer Account**" means the account that you establish through the Program to receive payment from Sponsors.
+"**Sponsored Developer Account**" means the account at Stripe that a Sponsored Developer establishes through the Program to receive payment from Sponsors.
 
-"**Sponsored Developer Content**" means all content you submit to GitHub in connection with the Program, including User-Generated Content and Your Content; your brand names, trademarks, service marks, trade names, logos, or indicia of origin ("**Sponsored Developer Marks**"); and data associated with your Sponsored Developer Account.
+"**Sponsored Developer Content**" means all content a Sponsored Developer submits to GitHub in connection with the Program, including User-Generated Content and Your Content; the Sponsored Developer's brand names, trademarks, service marks, trade names, logos, or indicia of origin ("**Sponsored Developer Marks**"); and data associated with a Sponsored Developer Account.
 
-"**Sponsorship**" means a payment paid to you through the Program and the Service.
+"**Sponsorship**" means a payment paid to a Sponsored Developer through the Program and Stripe.
 
-"**Subscription**" means a recurring or one-time Sponsorship in exchange for goods, services, or other offers you provide to Sponsors.
+"**Subscription**" means a recurring or one-time Sponsorship in exchange for goods, services, or other offers a Sponsored Developer provides to Sponsors.
 
-"**Sponsored Developer Payment**" means the net of one hundred percent (100%) of GitHub's gross monthly payments received from Sponsorships and Subscriptions to Sponsored Developer Accounts, plus any applicable Matching Funds, and other proceeds from monetization options that the Sponsored Developer elects to use, as applicable, less any discounts, taxes, fees, amounts that GitHub did not collect or which were refunded or charged back, amounts owed to any third-party in connection with the Program with respect to a Sponsored Developer Account, and other Exclusions as outlined in Section 4.
+"**Sponsored Developer Payment**" means the net of one hundred percent (100%) of gross monthly payments received from Sponsorships and Subscriptions to Sponsored Developer Accounts, plus any applicable Matching Funds, and other proceeds from monetization options that the Sponsored Developer elects to use, as applicable, less any discounts, taxes, fees, amounts not collected or which were refunded or charged back, amounts owed to any third-party in connection with the Program with respect to a Sponsored Developer Account, and other Exclusions as outlined in Section 4.
 
 "**USD**" means United States Dollar.
+
+## 1A. Payment Processing by Stripe.
+
+### 1A.1 Stripe as Payment Processor.
+
+All payment processing, money transmission, and fund transfers made in connection with the GitHub Sponsors Program are performed by Stripe, Inc. and its affiliates ("Stripe"), not by GitHub. GitHub acts solely as a technical platform connecting Sponsors with Sponsored Developers.
+
+### 1A.2 Direct Relationship with Stripe.
+
+(a) When you participate in GitHub Sponsors as a Sponsored Developer, you enter into a direct contractual relationship with Stripe for payment processing services, separate from your relationship with GitHub. Stripe establishes and maintains a "Stripe Connected Account" for the benefit of participating Sponsored Developers.
+
+(b) All Sponsorship funds contributed by Sponsors are held in the Stripe Connected Accounts FBO Sponsored Developers established and maintained by Stripe pursuant to Stripe's terms and conditions, including:
+
+* The [Stripe Connected Account Agreement](https://stripe.com/connect-account/legal/full)
+* The Stripe Services Agreement
+* The [Stripe Terms of Service](https://stripe.com/legal)
+* All other applicable Stripe policies and terms
+
+(collectively, "Stripe Terms")
+
+(c) Each participating Sponsored Developer acknowledges that use of Stripe's payment processing services is governed by and subject to the Stripe Terms, which are incorporated herein by reference.
+
+### 1A.3 GitHub's Limited Role.
+
+GitHub's role in the GitHub Sponsors Program is limited to:
+
+(a) Providing the platform and user interface through which Sponsors can identify and select Sponsored Developers for funding;
+
+(b) Facilitating the communication of payment instructions in connection with the Program;
+
+(c) Displaying balance and transaction information provided by Stripe; and
+
+GitHub does not:
+
+* Act as a money transmitter, payment processor, or financial institution
+* Hold, possess, or have control over Sponsor or Sponsored Developer funds
+* Transmit, transfer, or distribute money between parties
+* Guarantee, insure, or take responsibility for funds held by Stripe
 
 # Terms For Sponsored Developer
 
@@ -39,7 +77,7 @@ The purpose of this Agreement is to: 1) set forth the terms under which Sponsors
 
 ### 1.1. GitHub Sponsors Program
 
-In order to participate in the Program, you must comply with your country's minimum age laws (for example, you must be at least 13 years of age if you live in the United States), have a valid GitHub account, and have agreed to the [Acceptable Use section](/site-policy/github-terms/github-terms-of-service#c-acceptable-use) in the Agreement and applicable GitHub Policies, and these GitHub Sponsors Additional Terms.
+In order to participate in the Program, Developers must comply with your country's minimum age laws (for example, you must be at least 13 years of age if you live in the United States), have a valid GitHub account, and have agreed to the [Acceptable Use section](/site-policy/github-terms/github-terms-of-service#c-acceptable-use) in the Agreement and applicable GitHub Policies, and these GitHub Sponsors Additional Terms.
 
 If you are over the age of 13 but are under 18, you can give and receive Sponsor funds, provided that Stripe, our payment processor, can collect verification information from your legal guardian.
 
@@ -117,7 +155,7 @@ While we understand that you may want to promote your Sponsors by posting their 
 
 ### 3.1. Payment.
 
-GitHub will pay you the Sponsored Developer Payment in accordance with this Section 3, so long as you meet the Sponsored Developer Obligations in Section 2 and are not in violation of these Additional Terms. If you fail to meet these obligations for any given month, we may at our sole discretion withhold the Sponsored Developer Payment for that month. If you fail to meet or maintain the Sponsored Developer Obligations for two (2) or more months during the Term (consecutively or non-consecutively), then GitHub may terminate these Additional Terms as provided in Section 5.
+All payments to Sponsored Developers are processed and distributed by Stripe, not by GitHub. GitHub does not transmit or transfer funds to Sponsored Developers. All payment timing, methods, and processes are controlled by Stripe pursuant to the Stripe Terms. GitHub has no control over the timing or method of payment distribution by Stripe.
 
 ### 3.2. Sponsored Developer Payment Exclusions.
 
@@ -129,31 +167,33 @@ You will bear all expenses you incur in connection with your performance under t
 
 #### 3.2.2. Taxes.
 
-GitHub intends to comply with all applicable tax information reporting and tax withholding laws that GitHub reasonably determines in its judgment apply to these payments. If taxes are required to be withheld on any amounts to be paid by GitHub to you or from amounts which are subject to tax information reporting under applicable laws, GitHub will deduct such taxes from the amount owed and pay them to the appropriate taxing authority and, as required, will secure and deliver to you an official receipt for any such taxes withheld as required under applicable laws. GitHub will use reasonable efforts to minimize such taxes to the extent permissible under applicable law, and each party will reasonably cooperate with the other to obtain the lowest tax rates or elimination of such taxes pursuant to the applicable income tax laws or treaties. This includes you providing to GitHub adequate information required under applicable laws, such as IRS Forms W-8, W-9, or other information to establish exemptions from withholding. You will also be responsible for complying with any third-party payment processor’s terms and conditions regarding tax withholding and reporting, if applicable. Furthermore, GitHub reserves the right to suspend payments to your account until you provide GitHub with adequate documentation or information required under applicable laws for GitHub to determine any applicable tax withholding or reporting obligations that apply to the payments under these Additional Terms or Agreement.
+GitHub intends to comply with all applicable tax information reporting and tax withholding laws that GitHub reasonably determines in its judgment apply to these payments. If taxes are required to be withheld on any amounts to be paid by GitHub to you or from amounts which are subject to tax information reporting under applicable laws, GitHub will deduct such taxes from the amount owed and pay them to the appropriate taxing authority and, as required, will secure and deliver to you an official receipt for any such taxes withheld as required under applicable laws. GitHub will use reasonable efforts to minimize such taxes to the extent permissible under applicable law, and each party will reasonably cooperate with the other to obtain the lowest tax rates or elimination of such taxes pursuant to the applicable income tax laws or treaties. This includes you providing to GitHub adequate information required under applicable laws, such as IRS Forms W-8, W-9, or other information to establish exemptions from withholding. You will also be responsible for complying with any third-party payment processor's terms and conditions regarding tax withholding and reporting, if applicable. Furthermore, GitHub reserves the right to suspend payments to your account until you provide GitHub with adequate documentation or information required under applicable laws for GitHub to determine any applicable tax withholding or reporting obligations that apply to the payments under these Additional Terms or Agreement.
 
 #### 3.2.3. Withholding of Sponsored Developer Payment for Breach.
 
-In the event of a Sponsored Developer's breach, or suspected breach, of these Additional Terms or the Agreement, GitHub reserves the right to withhold payment to the Sponsored Developer under these Additional Terms or otherwise, pending GitHub's reasonable investigation of the same. If GitHub determines, in its sole discretion, that a Sponsored Developer is in breach of these Additional Terms or the Agreement, GitHub may permanently withhold any amounts due to the Sponsored Developer.
+In the event of a Sponsored Developer's breach, or suspected breach, of these Additional Terms or the Agreement, GitHub reserves the right to withhold payment to the Sponsored Developer under these Additional Terms or otherwise, pending GitHub's reasonable investigation of the same. If GitHub determines, in its sole discretion, that a Sponsored Developer is in breach of these Additional Terms or the Agreement, GitHub may permanently withhold any amounts due to the Sponsored Developer and the Sponsor can choose to reallocate those funds to another Sponsored Developer.
 
 ### 3.3. Payment Timing.
 
-During the term, GitHub will remit to you all Sponsored Developer Payments received in a given month within 30 days after the close of that month, subject to the variables below. Payouts are sent through Stripe Connect, ACH transfer, or wire transfer to the bank account you provided when you applied for GitHub Sponsors. We are not responsible for delay or misapplication of any Sponsored Developer Payment because of incorrect or incomplete information supplied by you or a bank, or for failure of a bank to credit your account.
+During the term, Stripe will process and remit to you via your Stripe Connect Account all Sponsored Developer Payments received in a given month within 30 days after the close of that month, subject to the variables below. Payouts are sent through Stripe Connect to the bank account you provided when you applied for GitHub Sponsors. Neither GitHub nor Stripe is responsible for delay or misapplication of any Sponsored Developer Payment because of incorrect or incomplete information supplied by you or a bank, or for failure of a bank to credit your account. GitHub is not responsible for any delays, failures, or errors in payment processing or distribution by Stripe. All such matters are governed by the Stripe Terms.
 
-* For first payments, GitHub will remit to you all Sponsored Developer Payments 60 days after the first sponsorship is initiated, subject to the variables below. This probation period is applied to all Sponsored Developer Accounts and helps ensure the integrity of the program. Payments thereafter will be remitted within 30 days of the close of that month, in accordance with this section.
+* For first payments, Stripe will process and remit to you via Stripe Connect all Sponsored Developer Payments 60 days after the first sponsorship is initiated, subject to the variables below. This probation period is applied to all Sponsored Developer Accounts and helps ensure the integrity of the program. Payments thereafter will be remitted within 30 days of the close of that month, in accordance with this section.
 
 * If you are paid through Stripe Connect, you will receive payouts on the 22nd of the month for the balance accrued since the last payout, regardless of the amount of the balance. Payout initiation dates vary by country, and can change from month to month due to public holidays, weekends, and other factors. When the payout is a cross-border payout, a minimum payout amount may apply. For more information, see [Receiving payouts](https://stripe.com/docs/payouts#cbp-minimum-payout-amounts) in the Stripe documentation.
 
-* If you are paid through ACH transfer or wire transfer, you will receive payouts on the third Thursday of the month. GitHub will issue a payout to you for any month that your balance reaches $100 USD. Contributions from the GitHub Sponsors Matching Fund do not count towards this threshold. If your balance is below $100 at the end of the month, the balance will accrue until the next time your balance is above the threshold at the end of the month. If you leave GitHub Sponsors, GitHub will issue a payout for your remaining balance even if the balance is below $100.
+* If you are paid through ACH transfer or wire transfer, you will receive payouts on the third Thursday of the month. Stripe will issue a payout to you for any month that your balance reaches $100 USD. Contributions from the GitHub Sponsors Matching Fund do not count towards this threshold. If your balance is below $100 at the end of the month, the balance will accrue until the next time your balance is above the threshold at the end of the month. If you leave GitHub Sponsors, Stripe will issue a payout for your remaining balance even if the balance is below $100.
 
-* After termination, we will remit to you all Sponsored Developer Payments received and unpaid within approximately 90 days after the end of the calendar month in which we recognize that these Additional Terms have been terminated.
+* Payments from Pooled Funds. For Sponsored Developers participating in a SOSS Fund or similar pooled funding mechanism, the payment timing and process remains as described above. When a Sponsorship is allocated to you from a Fund Profile: The allocation will draw from the pooled funds held and controlled by Stripe; Upon confirmation of the Sponsorship allocation by GitHub, funds will be transferred by Stripe to your Stripe Connect account immediately, subject to standard Stripe Connect settlement timing as determined by Stripe pursuant to the Stripe Terms; The same payout schedule, payment methods, and bank account requirements apply as for non-pooled Sponsorships and are determined by Stripe pursuant to the Stripe Terms. GitHub does not control the timing, method, or execution of payments from Stripe to Sponsored Developers. All payment processing is subject to the Stripe Terms.
+
+* After termination, Stripe will process and remit to you via Stripe Connect all Sponsored Developer Payments received and unpaid within approximately 90 days after the end of the calendar month in which we recognize that these Additional Terms have been terminated.
 
 ### 3.4. Payment Method.
 
-We will remit Sponsored Developer Payments by ACH/SEPA or wire to an account that you specify subject to the thresholds, methods and timeframes provided in our then-current payment policies, which we may update from time to time. The payment method and threshold may vary depending on the country and account information you provide. We may, at our sole discretion, combine the Sponsored Developer Payment with any other payments that may be owed to you.
+Stripe will remit Sponsored Developer Payments by ACH/SEPA or wire to an account that you specify subject to the thresholds, methods and timeframes provided in GitHub's then-current payment policies, which GitHub may update from time to time. The payment method and threshold may vary depending on the country and account information you provide. Stripe may, at its sole discretion, combine the Sponsored Developer Payment with any other Sponsored Developer Payments that may be owed to you in connection with the Program.
 
 ### 3.5. Currency.
 
-All references to currency are to USD. If you are outside of the United States, we may convert USD to the local currency of your address for payment, using our then-current conversion rates.
+All references to currency are in USD. If you are outside of the United States, we may convert USD to the local currency of your address for payment, using our then-current conversion rates.
 
 ### 3.6. Refund Requirements.
 
@@ -161,7 +201,7 @@ You will be responsible for specifying the terms and conditions regarding any re
 
 ### 3.7. Requested Payment Information.
 
-To pay you, you must provide us with complete and accurate financial, tax, and banking information that we request (for example, by means of account creation or setup, or otherwise). We will notify you, by any means of communication, of changes to what information is required. If you fail to accurately provide (or accurately maintain) such information, (a) we can deduct from your Sponsored Developer Payment any related bank fees, and (b) we can terminate these Additional Terms and you may forfeit any amounts owed to you by GitHub.
+To receive Sponsored Developer Payments, you must provide us with complete and accurate financial, tax, and banking information that we request (for example, by means of account creation or setup, or otherwise). We will notify you, by any means of communication, of changes to what information is required. If you fail to accurately provide (or accurately maintain) such information, (a) we can deduct from your Sponsored Developer Payment any related bank fees, and (b) we can terminate these Additional Terms and you may forfeit any Sponsored Developer Payments owed to you in connection with the Program.
 
 ### 3.8. Stripe Connect
 
@@ -171,13 +211,44 @@ If you are paid through Stripe Connect, the following additional terms apply to 
 
 _Applies to Sponsored Developer Accounts registered in Australia, Austria, Belgium, Canada, Denmark, Estonia, Finland, France, Germany, Greece, Hong Kong, Ireland, Italy, Japan, Latvia, Lithuania, Luxembourg, Netherlands, New Zealand, Norway, Poland, Portugal, Slovakia, Slovenia, Spain, Sweden, Switzerland, United Kingdom, United States._
 
-Payment processing services for Sponsored Developer Accounts on GitHub Sponsors are provided by Stripe and are subject to the [Stripe Connected Account Agreement](https://stripe.com/connect-account/legal/full), which includes the [Stripe Terms of Service](https://stripe.com/legal) (collectively, the “Stripe Services Agreement”). By agreeing to these terms or continuing to operate as a Sponsored Developer Account on GitHub Sponsors, you agree to be bound by the Stripe Services Agreement, as the same may be modified by Stripe from time to time. As a condition of GitHub enabling payment processing services through Stripe, you agree to provide GitHub accurate and complete information about you and your business, and you authorize GitHub to share it and transaction information related to your use of the payment processing services provided by Stripe.
+Payment processing services for Sponsored Developer Accounts on GitHub Sponsors are provided by Stripe and are subject to the [Stripe Connected Account Agreement](https://stripe.com/connect-account/legal/full), which includes the [Stripe Terms of Service](https://stripe.com/legal) (collectively, the "Stripe Services Agreement"). By agreeing to these terms or continuing to operate as a Sponsored Developer Account on GitHub Sponsors, you agree to be bound by the Stripe Services Agreement, as the same may be modified by Stripe from time to time. As a condition of GitHub enabling payment processing services through Stripe, you agree to provide GitHub accurate and complete information about you and your business, and you authorize GitHub to share it and transaction information related to your use of the payment processing services provided by Stripe.
 
 **Recipient service agreement**
 
 _Applies to Sponsored Developer Accounts in all other countries._
 
 We use Stripe to make payouts to Sponsored Developer Accounts. The [Stripe Recipient Agreement](https://stripe.com/connect-account/legal/recipient) applies to your receipt of such payouts. To receive payouts from GitHub Sponsors, you must provide us accurate and complete information about you and your business, and you authorize us to share it and transaction information related to your payout with Stripe.
+
+### 3.9. No GitHub Liability for Payment Processing.
+
+#### 3.9.1 Stripe's Sole Responsibility.
+
+Sponsored Developer acknowledges and agrees that:
+
+(a) All payment processing, fund custody, and payment distribution functions are performed solely by Stripe;
+
+(b) GitHub does not receive, hold, control, transmit, or distribute Sponsored Developer Payments;
+
+(c) GitHub has no responsibility or liability for any failure, delay, error, or omission by Stripe in processing or distributing payments;
+
+(d) Any disputes, claims, or issues regarding payment processing must be resolved directly with Stripe in accordance with the Stripe Terms;
+
+(e) GitHub makes no representations or warranties regarding the performance of Stripe's payment processing services or the safety of funds held by Stripe.
+
+#### 3.9.2 Limitation of GitHub's Role.
+
+GitHub's role is limited to:
+
+* Facilitating the connection between Sponsors and Sponsored Developers
+* Communicating payment instructions and allocation decisions to Stripe
+* Displaying payment and balance information provided by Stripe
+
+GitHub does not and cannot:
+
+* Guarantee the receipt of any payment
+* Control the timing or method of payment by Stripe
+* Recover funds from Stripe in the event of Stripe's failure or insolvency
+* Provide insurance, bonding, or other protection for funds held by Stripe
 
 ## 4. Representations and Warranties; Limitation of Liability; Indemnification.
 
@@ -213,7 +284,7 @@ Either party may terminate these Additional Terms and your Sponsored Developer A
 
 ### 5.4. Effect of Termination.
 
-If either Party terminates under Section 5.3, GitHub’s sole obligation will be to pay Sponsored Developer the amount of the Sponsored Developer Payment accrued up until the date of termination, unless such payments are prohibited by law.
+If either Party terminates under Section 5.3, Stripe's sole obligation will be to process and remit to Sponsored Developer the amount of the Sponsored Developer Payment accrued up until the date of termination, unless such payments are prohibited by law.
 
 # Terms for Sponsors
 
@@ -221,7 +292,7 @@ If either Party terminates under Section 5.3, GitHub’s sole obligation will be
 
 ### 1.1 Description.
 
-GitHub will identify Projects based on the Sponsor’s dependencies for which investment is available at [Explore GitHub Sponsors](https://github.com/sponsors/explore)· Sponsor shall invest in Projects in its sole discretion, including which Projects it sponsors and the amount of its sponsorship.
+GitHub will identify Projects based on the Sponsor's dependencies for which investment is available at [Explore GitHub Sponsors](https://github.com/sponsors/explore). Sponsor shall invest in Projects in its sole discretion, including which Projects it sponsors and the amount of its sponsorship.
 
 ### 1.2 Invoice creation.
 
@@ -237,41 +308,61 @@ Sponsors may provide Feedback to GitHub regarding the Program. Feedback is volun
 
 ## 2. Payment.
 
-### 2.1 Payment.
+### 2.1. Payment.
 
-Sponsor may create an invoice to add funds to their account balance for the purpose of investing in Projects. GitHub will issue an invoice to Sponsor upon completion of the invoice creation form. Sponsor will pay the Fees set forth in each invoice in full, without deduction or set-off of any kind, within thirty (30) days of the GitHub invoice date. Amounts reflected on each Invoice and which are payable under this Agreement are non-refundable.
+Sponsor may create an invoice to add funds for deposit into the Stripe Account managed and controlled by Stripe for the purpose of investing in Projects. GitHub will issue an invoice to Sponsor upon completion of the invoice creation form. Sponsor will pay the Fees set forth in each invoice in full, without deduction or set-off of any kind, within thirty (30) days of the GitHub invoice date. Amounts reflected on each Invoice and which are payable under this Agreement are non-refundable except as may be provided in the Stripe Terms. Upon payment, funds are transferred directly to and held by Stripe in the Stripe Account. GitHub does not receive, hold, or possess Sponsor funds. All fund custody, safeguarding, and distribution is performed by Stripe pursuant to the Stripe Terms.
 
-### 2.2 Fees.
+### 2.2. Fees.
 
-An additional service fee (“Service Fee”) of 3% per transaction will be deducted from Sponsor’s account to cover GitHub’s administrative costs associated with offering the Program. If payment is made via credit card, an additional 3% fee will be applied.
+An additional service fee ("Service Fee") of 3% per transaction will be deducted from Sponsor's account to cover GitHub's administrative costs associated with offering the Program. If payment is made via credit card, an additional 3% fee will be applied.
 
-### 2.3 Taxes.
+### 2.3. Taxes.
 
 Sponsor is solely responsible for all taxes, fees, duties and governmental assessments (except for taxes based on GitHub's net income) that are imposed or become due in connection with this Agreement.
 
 ## 3. Term and Termination.
 
-### 3.1 Term.
+### 3.1. Term.
 
 This Agreement is effective for a period of one year commencing on the Effective Date, unless terminated earlier, as set forth below. Unless terminated as set forth herein, this Agreement will automatically renew for additional annual terms.
 
-### 3.2 Termination.
+### 3.2. Termination.
 
-If there is no active invoice pending, either party may terminate this Agreement on thirty (30) days’ prior written notice.
+If there is no active invoice pending, either party may terminate this Agreement on thirty (30) days' prior written notice.
 
 ## 4. Disclaimer; Limitation of Liability.
 
-### 4.1 Disclaimer.
+### 4.1. Disclaimer.
 
-GitHub provides the Sponsor Program “AS IS” and “AS AVAILABLE,” and GitHub expressly disclaims all warranties, whether express, implied or statutory, regarding the Service, including, without limitation, any implied warranty of merchantability, fitness for a particular purpose, title, security, accuracy or non-infringement.
+GitHub provides the Sponsor Program "AS IS" and "AS AVAILABLE," and GitHub expressly disclaims all warranties, whether express, implied or statutory, regarding the Service, including, without limitation, any implied warranty of merchantability, fitness for a particular purpose, title, security, accuracy or non-infringement.
 
-### 4.2 Limitation of Liability.
+### 4.1A. Payment Processing Disclaimer.
 
-#### 4.2.1 Exclusion of Indirect Damages.
+GitHub specifically disclaims any responsibility, liability, or warranty regarding:
+
+(a) The processing, transmission, holding, safeguarding, or distribution of funds by Stripe;
+
+(b) The security, safety, or availability of funds held in Stripe accounts;
+
+(c) The accuracy, timeliness, or completeness of payment processing by Stripe;
+
+(d) Any failure, delay, error, or omission by Stripe in processing or distributing payments;
+
+(e) The insolvency, bankruptcy, or business failure of Stripe or any bank or financial institution holding Stripe funds;
+
+(f) Any loss, theft, misappropriation, or unauthorized access to funds held by Stripe;
+
+(g) Any acts, omissions, representations, or warranties made by Stripe.
+
+All matters relating to payment processing and fund transfers are governed solely by the Stripe Terms. Sponsors and Sponsored Developers acknowledge that they rely on Stripe, not GitHub, for all payment processing services.
+
+### 4.2. Limitation of Liability.
+
+#### 4.2.1. Exclusion of Indirect Damages.
 
 To the maximum extent permitted by applicable law, in no event will either party be liable to the other party for any indirect, special, incidental, punitive, or consequential damages (including for loss of profits, revenue, or data) or for the cost of obtaining substitute products arising out of or in connection with this Agreement, however caused, whether such liability arises from any claim based upon contract, warranty, tort (including negligence), strict liability or otherwise, and whether or not a party has been advised of the possibility of such damages.
 
-#### 4.2.2 Limitation of Total Liability.
+#### 4.2.2. Limitation of Total Liability.
 
 To the maximum extent permitted by applicable law, in no event will either party's total cumulative liability under this Agreement from all causes of action and all theories of liability exceed the Fees Sponsor has actually paid to GitHub during the twelve month period immediately preceding the event triggering potential liability.
 
@@ -279,11 +370,11 @@ To the maximum extent permitted by applicable law, in no event will either party
 
 ## A. Confidentiality.
 
-The terms and conditions of this Agreement are the Confidential Information of both parties. Neither party will use Confidential Information provided by the other party hereunder, except as permitted by this Agreement. Each party agrees to maintain in confidence and protect the other party's Confidential Information using at least the same degree of care as it uses for its own information of a similar nature, but in any event at least a reasonable degree of care. Each party will take all reasonable precautions to prevent any unauthorized disclosure of the other party's Confidential Information and will only disclose such Confidential Information to its employees, officers, directors, agents, independent contractors, consultants, and legal and financial advisors (“**representatives**”) who (i) have a need to know such information, (ii) are parties to appropriate agreements sufficient to comply with this Section, and (iii) are informed of the restrictions on use and disclosure set forth in this Section. Each party is responsible for all acts and omissions of its representatives. The foregoing obligations will not restrict the receiving party from disclosing the other party’s Confidential Information pursuant to an order or requirement of a court, administrative agency, or other governmental body, provided that the receiving party gives reasonable notice to the disclosing party to enable such party to contest such order or requirement, unless such notice is prohibited by law.
+The terms and conditions of this Agreement are the Confidential Information of both parties. Neither party will use Confidential Information provided by the other party hereunder, except as permitted by this Agreement.
 
 ## B. Publicity.
 
-GitHub may issue press releases, blog posts, social media posts, and/or other public communication related to Sponsor’s (with Sponsor’s permission) or Sponsored Developer’s participation in the Program. Other than as necessary for such use, GitHub shall acquire no rights to use or refer to, or interest in, such Sponsor’s logo, name or names under this Agreement.
+GitHub may issue press releases, blog posts, social media posts, and/or other public communication related to Sponsor's (with Sponsor's permission) or Sponsored Developer's participation in the Program. Other than as necessary for such use, GitHub shall acquire no rights to use or refer to, or interest in, such Sponsor's logo, name or names under this Agreement.
 
 ## C. Notices.
 
