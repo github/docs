@@ -23,4 +23,5 @@ children:
   - /multi-repository-variant-analysis
   - /codeql
   - /tool-status-page
+  - /pull-request-alert-metrics
 ---

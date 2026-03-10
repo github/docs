@@ -11804,7 +11804,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_role.create",
@@ -11841,7 +11841,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_role.destroy",
@@ -11877,7 +11877,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_role.revoke",
@@ -11911,7 +11911,7 @@
       "created_at",
       "operation_type"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "organization_role.update",
@@ -11950,7 +11950,7 @@
       "actor_is_bot",
       "old_base_role"
     ],
-    "docs_reference_titles": "About custom organization roles"
+    "docs_reference_titles": "Permissions of custom organization roles"
   },
   {
     "action": "packages.package_deleted",

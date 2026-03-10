@@ -1,6 +1,6 @@
 ---
 title: About forks
-intro: A fork is a new repository that shares code and visibility settings with the original “upstream” repository.
+intro: A fork is a new repository that shares code and visibility settings with the original "upstream" repository.
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/about-forks
   - /articles/about-forks
