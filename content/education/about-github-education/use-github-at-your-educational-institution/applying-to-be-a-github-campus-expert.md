@@ -1,6 +1,6 @@
 ---
 title: Applying to be a GitHub Campus Expert
-intro: 'As a student, you can apply to be a {% data variables.product.prodname_student_leader_program_singular %} to gain new skills and grow your college’s technical community.'
+intro: "As a student, you can apply to be a {% data variables.product.prodname_student_leader_program_singular %} to gain new skills and grow your college's technical community."
 versions:
   fpt: '*'
 shortTitle: Apply to Campus Experts

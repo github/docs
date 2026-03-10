@@ -1,7 +1,7 @@
 ---
 title: Participating in a code security campaign
 shortTitle: Participate in campaigns
-intro: If you’ve been assigned alerts as part of a security campaign, this guide explains what campaigns are, what to expect, and how to resolve alerts effectively.
+intro: If you've been assigned alerts as part of a security campaign, this guide explains what campaigns are, what to expect, and how to resolve alerts effectively.
 allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.code-scanning-all-alerts %}'
 product: '{% data reusables.gated-features.security-campaigns %}'

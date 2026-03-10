@@ -1,7 +1,7 @@
 ---
 title: How-tos for analyzing security data for an organization
 shortTitle: Analyze organization data
-intro: Learn how to assess security risks, track feature adoption, view key metrics, and export data to analyze your organization’s security posture.
+intro: Learn how to assess security risks, track feature adoption, view key metrics, and export data to analyze your organization's security posture.
 versions:
   fpt: '*'
   ghes: '*'
