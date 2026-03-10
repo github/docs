@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>viewerCopilotAgentTaskUpdatesChannel</code> was added to interface <code>Agentic</code></p>",
+          "<p>Field <code>viewerCopilotAgentTaskUpdatesChannel</code> was added to object type <code>User</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-03-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>fullDatabaseId</code> was added to object type <code>CheckAnnotation</code></p>"
         ]
       }
