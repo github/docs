@@ -14,7 +14,6 @@ permissions:
 timeout-minutes: 90
 engine:
   id: copilot
-  model: claude-opus-4.6
   env:
     COPILOT_GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_COPILOT }}
 tools:
