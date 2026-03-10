@@ -23,7 +23,7 @@
 
 - name: Claude Opus 4.5
   free: false
-  student: true
+  student: false
   pro: true
   pro_plus: true
   business: true
@@ -31,7 +31,7 @@
 
 - name: Claude Opus 4.6
   free: false
-  student: true
+  student: false
   pro: true
   pro_plus: true
   business: true
@@ -47,7 +47,7 @@
 
 - name: Claude Sonnet 4
   free: false
-  student: true
+  student: false
   pro: true
   pro_plus: true
   business: true
@@ -55,7 +55,7 @@
 
 - name: Claude Sonnet 4.5
   free: false
-  student: true
+  student: false
   pro: true
   pro_plus: true
   business: true
@@ -63,7 +63,7 @@
 
 - name: Claude Sonnet 4.6
   free: false
-  student: true
+  student: false
   pro: true
   pro_plus: true
   business: true
@@ -183,6 +183,7 @@
 
 - name: Grok Code Fast 1
   free: true
+  student: true
   pro: true
   pro_plus: true
   business: true
