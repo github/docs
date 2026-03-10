@@ -1,6 +1,6 @@
 ---
 title: How-tos for customizing secret leak detection
-shortTitle: Detection customization
+shortTitle: Customize leak detection
 intro: Learn how to customize {% data variables.product.github %}'s secret leak detection tools.
 versions:
   fpt: '*'
