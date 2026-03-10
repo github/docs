@@ -294,7 +294,7 @@
     "cross-env": "^10.1.0",
     "csp-parse": "0.0.2",
     "csv-parse": "6.1.0",
-    "eslint": "^9.39.3",
+    "eslint": "^10.0.3",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-custom-rules": "file:src/eslint-rules",
