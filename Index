@@ -1,0 +1,399 @@
+The job failed due to Markdownlint errors in content/pages/index.md. Here’s how to resolve each issue:
+
+1. MD031 (Blanks around fences, Line 180):  
+Add a blank line before and after the code fence.  
+Change from:
+```markdown
+    - Contohnya, tambah pautan Bootstrap dalam `<head>`:
+      ```html
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+      ```
+```
+To:
+```markdown
+    - Contohnya, tambah pautan Bootstrap dalam `<head>`:
+
+      ```html
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+      ```
+
+```
+
+2. MD029 (Ordered list prefix, Lines 44 & 45):  
+Change ordered list numbers to be sequential:
+```markdown
+ 2.  **Mencipta Laman Web Baharu**: ...
+ 4.  **Semakan Status Domain**: ...
+```
+Should become:
+```markdown
+ 2.  **Mencipta Laman Web Baharu**: ...
+ 3.  **Semakan Status Domain**: ...
+```
+
+3. MD030 (List marker space, Line 45):  
+Ensure there is only one space after list markers in nested lists.
+
+After making these changes in content/pages/index.md, the Markdownlint validation should pass. See the file for reference: https://github.com/github/docs/blob/32aa6a29ebd8adc53d085101305a448add15372a/content/pages/index.md
+Berikut adalah fail `index.md` yang lengkap untuk laman web peribadi Muhamad Sazwan Bin Ismail, direka untuk digunakan dengan Jekyll di GitHub Pages. Fail ini mengandungi metadata front matter, struktur markdown yang kemas, dan maklumat lengkap seperti yang terdapat dalam dokumen PDF asal.
+
+```markdown
+---
+layout: default
+title: Muhamad Sazwan Bin Ismail
+description: Pengasas Teknologi & Usahawan Digital | AI, Blockchain, Automasi
+---
+
+# Muhamad Sazwan Bin Ismail
+
+**Pengasas Teknologi & Usahawan Digital**  
+*@sazwan96*
+
+> “Profesional teknologi dalam blockchain, automasi, kejuruteraan elektrik. Memacu inovasi melalui integrasi AI & penyelesaian data‑driven untuk tenaga dan digital.”
+
+---
+
+## Maklumat Peribadi
+
+- **Warganegara:** Malaysia
+- **Tarikh Lahir:** 22 Oktober 1996
+- **Bahasa:** Melayu (Native), English (Advanced)
+- **Alamat:** F262 Kampung Pinang Tunggal, 08000 Sungai Petani, Kedah
+
+### Emel Utama
+- sazwan96@gmail.com
+- xxsazend12345@gmail.com
+- sazwanismail98@gmail.com
+- sazwanismail96@gmail.com
+- Sazwan96@outlook.com
+- Muhamadsazwanbinismail@mid.edu
+
+---
+
+## Pendidikan & Kelayakan
+
+- **Ijazah Sarjana Muda Kejuruteraan Elektrik** – Universiti Teknologi MARA (UiTM)
+- **Sarjana Sains (M.Sc.) Kecerdasan Buatan** – Universiti Teknologi Malaysia (UTM) (tamat 2025)
+- **Sijil Profesional Blockchain Mining** (2023)
+- **Sijil Profesional AI & Big Data** (2024)
+
+---
+
+## Pengalaman Kerja
+
+### Pengasas & CEO – Sazwan Solutions (2019–kini)
+AI, blockchain, automasi. Memimpin pembangunan produk dan strategi perniagaan.
+
+### Pengasas – Sazwan Hobby Shop (2023–kini)
+E-dagang koleksi eksklusif + integrasi NFT.
+
+### Pengasas – End AI Global (2024–kini)
+Inisiatif AI sumber terbuka etikal.
+
+### Pengasas – Fairbase (2024–kini)
+Keselamatan & pengurusan data.
+
+### Pengasas – Sazwan Digital (2024–kini)
+Perkhidmatan digital.
+
+### ERP Implementation Specialist – SAP (2024–kini)
+Pelaksanaan sistem SAP ERP.
+
+### Software Developer – AdGuard (2022–kini)
+Pembangunan perisian fokus privasi.
+
+### Production Technologist – PETRONAS Carigali
+Operasi pengeluaran minyak & gas.
+
+### Founder & Consultant – Muhamad Sazwan Bin Ismail Enterprise (2023–2024)
+Konsultansi digital – automasi CRM, pemasaran digital, implementasi ERP.
+
+### Research Contributor – IGI Global (2023–2024)
+Penyelidikan & penerbitan saintifik.
+
+### Data Analyst – ISS Data (2023–2024)
+Analisis data perniagaan.
+
+### CRM System Analyst – Salesforce (2023)
+Pengoptimuman sistem CRM.
+
+### Digital Marketing & Automation Consultant – HubSpot (2023)
+Automasi pemasaran digital.
+
+### Technical Executive – Tenaga Nasional Berhad (TNB) (2015–kini)
+Latihan teknologi elektrik, peranan eksekutif teknikal.
+
+### Technician – Tenaga Nasional Berhad (TNB) (2013–2015)
+Peranan teknikal awal.
+
+---
+
+## Pemilikan Syarikat
+
+| Syarikat | Fokus | Peranan | Tahun |
+|----------|-------|---------|-------|
+| Sazwan Solutions | AI, blockchain, automasi | Founder & CEO | 2019–kini |
+| Sazwan Hobby Shop | E-dagang + NFT | Founder | 2023–kini |
+| End AI Global | AI sumber terbuka etikal | Co-Founder | 2024–kini |
+| Fairbase | Data & security | Founder | 2024–kini |
+| Sazwan Digital | Perkhidmatan digital | Founder | 2024–kini |
+| Muhamad Sazwan Bin Ismail Enterprise | Konsultansi digital | Founder | 2023–2024 |
+
+**Rakan Strategik:** Microsoft, Google, Meta, Salesforce, HubSpot, SAP, TNB, Petronas, JurisTech, CADS, YTL Power, Telekom Malaysia, ByteDance, Alipay, ISO, IUCN, CS Global, GitHub, GitLab, The Org, Copilot.com.
+
+---
+
+## Projek & Inovasi
+
+- **AI Engine untuk Automasi Industri** – Computer vision, deep learning untuk kilang (Sazwan Solutions)
+- **Sistem NFT & Blockchain Kolektibel** – Pengesahan pemilikan koleksi fizikal (Sazwan Hobby Shop)
+- **End AI Global – Model Sumber Terbuka AI Etikal** – Model bahasa percuma untuk komuniti
+- **SHA-256 Hash Simulation** – Simulasi algoritma hashing (GitHub)
+- **Smart Power Grid Monitoring** – IoT + data analytics (GitHub)
+- **Digital Resume Generator** – Platform menjana resume automatik (Giblub)
+
+---
+
+## Kemahiran Teknikal
+
+**Bahasa Pengaturcaraan:** Python, JavaScript, Solidity, Rust  
+**Alat & Platform:** TensorFlow, PyTorch, OpenCV, LangChain, Docker, Kubernetes, GitHub Actions, GitLab CI, React, Node.js, Next.js, SQL, MongoDB, Firebase, Salesforce, HubSpot, SAP, Azure, GCP, AWS  
+**Bidang Kepakaran:** AI/ML, Blockchain, NFT, Kriptografi, Automasi Sistem, IoT, Data Analytics, Big Data (HDFS, Spark, Delta Lake, BigQuery)
+
+---
+
+## Pencapaian Blockchain & Identiti Digital
+
+- **Nonce:** 518,676
+- **Hash:** `00000d6f...e39d46d`
+- **SHA-256:** `32D8A53CC4C299E60424CD0DE96D3B06575D51...`
+- **SHA-512:** `CF83E1357EEFB8BDF1542850D66D8007D620...`
+- **SHA-1:** `A591A6D40BF420404A011733CFB7B190D62C65...`
+- **MD5:** `E10ADC3949BA59ABBE56E057F20F88...`
+
+**QR Pengesahan:** [https://sazwan96.github.io](https://sazwan96.github.io)  
+*Disahkan oleh ChatGPT Blockchain Simulator*
+
+---
+
+## Pengiktirafan 2025
+
+- 🏆 Top 5% pakar AI/Blockchain global
+- 🌍 Top 3% pemimpin inovasi teknologi Asia
+- 🇲🇾 Top 1% transformasi digital Malaysia
+- 🔍 “sazwan96” dalam 5 carian teknologi Malaysia
+
+---
+
+## Misi & Moto
+
+> “Membina penyelesaian teknologi yang bukan sahaja pintar, tetapi juga beretika dan inklusif untuk semua.”
+
+**Moto:** *Automate Intelligently. Share Openly. Innovate Globally.*
+
+---
+
+## Hubungi Saya
+
+- **LinkedIn:** [linkedin.com/in/sazwan96](https://linkedin.com/in/sazwan96)
+- **GitHub:** [github.com/Sazwanend](https://github.com/Sazwanend)
+- **GitLab:** [gitlab.com/sazwan96](https://gitlab.com/sazwan96)
+- **Blog:** Medium / Giblub / Fairbase
+
+---
+
+## Notis Pematuhan
+
+Laman ini mematuhi **Akta Keselamatan Dalam Talian 2025 (Akta 866)** dan Dasar e-Penyertaan Kerajaan Malaysia. Sebarang pertanyaan aduan: sazwan96@gmail.com
+
+---
+
+© 2025 Muhamad Sazwan Bin Ismail. Hak Cipta Terpelihara.  
+Cap jari digital: SHA-256 `32D8A53CC4C299E60424CD0DE96D3B06575D51`
+
+```
+
+**Cara Penggunaan:**
+1. Simpan fail ini sebagai `index.md` dalam repositori `sazwan96.github.io`.
+2. Pastikan repositori menggunakan Jekyll (biasanya aktif secara default untuk GitHub Pages).
+3. Anda boleh menggunakan tema minima atau tema lain dengan menambah fail `_config.yml` seperti:
+   ```yaml
+   theme: minima
+   title: Muhamad Sazwan Ismail
+   description: Pengasas Teknologi & Usahawan Digital
+   ```
+4. Commit dan push ke GitHub. Laman web akan diterbitkan secara automatik di `https://sazwan96.github.io`.
+
+Fail markdown ini mudah dibaca, diselenggara, dan boleh dikembangkan dengan mudah untuk menambah halaman lain.
+# Panduan Fail Index untuk Pelbagai Platform Web
+
+Fail `index` adalah halaman utama yang dimuatkan secara lalai oleh pelayan web apabila pengunjung mengakses direktori root laman web. Bergantung pada teknologi dan bahasa pengaturcaraan yang digunakan, fail ini boleh mempunyai sambungan yang berbeza. Berikut adalah penjelasan dan contoh untuk tiga jenis fail yang anda minta: `index.esm.js`, `index.php`, dan `index.do`.
+
+---
+
+## 1. **index.esm.js** – Modul JavaScript (ES Module)
+
+### Apa Itu?
+Fail `.esm.js` (atau `.mjs`) adalah fail JavaScript yang menggunakan sintaks **ES Module (ECMAScript Module)**. Ia membolehkan penggunaan `import` dan `export` untuk mengatur kod secara modular, biasanya digunakan dalam aplikasi web moden (React, Vue, Angular) dan Node.js.
+
+### Contoh Kod `index.esm.js`
+
+```javascript
+// index.esm.js
+import { greeting } from './modules/utils.js';
+import data from './data.json' assert { type: 'json' };
+
+console.log(greeting('Sazwan'));
+console.log(`Data dari fail JSON: ${data.message}`);
+
+// Eksport fungsi utama untuk digunakan oleh fail lain
+export function initApp() {
+    document.addEventListener('DOMContentLoaded', () => {
+        document.body.innerHTML = `<h1>${greeting('Pengunjung')}</h1>`;
+    });
+}
+```
+
+### Penggunaan dalam HTML
+Fail ini perlu dimuatkan dengan atribut `type="module"` dalam HTML:
+
+```html
+<script type="module" src="index.esm.js"></script>
+<script type="module">
+    import { initApp } from './index.esm.js';
+    initApp();
+</script>
+```
+
+### Keperluan Hosting
+- Fail ini berjalan di sisi pelanggan (browser), jadi ia boleh dihosting secara statik seperti di **GitHub Pages**.
+- Pastikan pelayan menyediakan MIME type yang betul untuk `.mjs` (kebanyakan pelayan moden sudah menyokong).
+
+---
+
+## 2. **index.php** – Hypertext Preprocessor
+
+### Apa Itu?
+Fail `.php` adalah halaman yang diproses di **pelayan (server-side)** oleh PHP. Ia boleh mengandungi kod HTML, CSS, JavaScript, dan kod PHP yang menghasilkan kandungan dinamik (contoh: capaian pangkalan data, sesi pengguna).
+
+### Contoh Kod `index.php`
+
+```php
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <title>Laman PHP Sazwan</title>
+</head>
+<body>
+    <h1>Selamat Datang, <?php echo "Muhamad Sazwan Ismail"; ?>!</h1>
+
+    <?php
+    // Contoh sambungan pangkalan data (MySQLi)
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "portfolio";
+
+    // Buat sambungan
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Semak sambungan
+    if ($conn->connect_error) {
+        die("Sambungan gagal: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT nama, projek FROM rekod ORDER BY tarikh DESC LIMIT 5";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        echo "<h2>Projek Terkini</h2><ul>";
+        while($row = $result->fetch_assoc()) {
+            echo "<li>" . $row["nama"] . " – " . $row["projek"] . "</li>";
+        }
+        echo "</ul>";
+    } else {
+        echo "Tiada rekod.";
+    }
+    $conn->close();
+    ?>
+
+    <p>Laman ini dijana pada: <?php echo date("d-m-Y H:i:s"); ?></p>
+</body>
+</html>
+```
+
+### Keperluan Hosting
+- Memerlukan pelayan web yang menyokong PHP (Apache, Nginx dengan PHP-FPM).
+- **Tidak boleh** dihosting di GitHub Pages (kerana ia statik).
+- Pilihan hosting percuma dengan PHP: **InfinityFree**, **000webhost**, atau pelayan berbayar seperti **Hostinger**, **Exabytes** (Malaysia).
+
+---
+
+## 3. **index.do** – Java Servlet (atau Struts Action)
+
+### Apa Itu?
+Fail dengan sambungan `.do` biasanya dikaitkan dengan **Java Servlet** atau rangka kerja seperti **Struts**. Dalam aplikasi web Java, pelayan memetakan URL yang berakhir dengan `.do` kepada servlet tertentu (menggunakan fail konfigurasi `web.xml` atau anotasi). Ia memproses permintaan di sisi pelayan dan mengembalikan respons (biasanya HTML atau JSON).
+
+### Contoh Kod `index.do` (Sebenarnya Fail Java Servlet)
+Secara teknikal, `.do` bukan fail fizikal, sebaliknya adalah **URL pattern** yang dipetakan ke kelas Java. Berikut adalah contoh kelas servlet yang dipetakan ke `/index.do`:
+
+#### **Fail: `IndexServlet.java`**
+```java
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class IndexServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println("<head><title>Laman Utama</title></head>");
+        out.println("<body>");
+        out.println("<h1>Selamat Datang, Muhamad Sazwan Ismail!</h1>");
+        out.println("<p>Ini dijana oleh servlet Java.</p>");
+        out.println("</body></html>");
+    }
+}
+```
+
+#### **Pemetaan dalam `web.xml`**
+```xml
+<web-app>
+    <servlet>
+        <servlet-name>IndexServlet</servlet-name>
+        <servlet-class>IndexServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IndexServlet</servlet-name>
+        <url-pattern>/index.do</url-pattern>
+    </servlet-mapping>
+</web-app>
+```
+
+Apabila pengguna melawat `http://contoh.com/index.do`, pelayan akan memanggil `IndexServlet.doGet()`.
+
+### Keperluan Hosting
+- Memerlukan pelayan aplikasi Java seperti **Apache Tomcat**, **Jetty**, atau **JBoss**.
+- Tidak boleh dihoskan di hosting statik biasa.
+- Pilihan hosting Java: **Heroku** (dengan sokongan Java), **Google App Engine**, atau VPS yang dipasang Tomcat.
+
+---
+
+## 📌 **Ringkasan dan Cadangan untuk Laman Web Muhamad Sazwan**
+
+| Fail | Teknologi | Hosting Sesuai | Nota |
+|------|-----------|----------------|------|
+| `index.esm.js` | JavaScript (client-side) | GitHub Pages, Netlify, Vercel | Ideal untuk portfolio interaktif ringan. |
+| `index.php` | PHP (server-side) | Hosting dengan PHP | Perlu pangkalan data untuk kandungan dinamik. |
+| `index.do` | Java Servlet | Pelayan Java (Tomcat, dll.) | Sesuai untuk aplikasi perusahaan berskala besar. |
+
+Berdasarkan profil anda yang banyak terlibat dengan teknologi moden (AI, blockchain, automasi), laman web peribadi anda boleh menggunakan gabungan:
+- **Halaman statik** (HTML/CSS/JS) di GitHub Pages untuk profil ringkas.
+- **Integrasi API** menggunakan JavaScript untuk memaparkan data dinamik tanpa perlu pelayan sendiri (contoh: memanggil API dari GitHub, Medium, atau perkhidmatan lain).
+- Jika anda memerlukan ciri seperti borang hubungan yang menyimpan data, anda boleh menggunakan perkhidmatan **serverless** seperti **Netlify Functions** atau **Vercel Serverless Functions** (yang menyokong JavaScript/TypeScript) tanpa perlu mengurus pelayan PHP atau Java.
+
+Jika anda ingin meneroka lebih lanjut, beritahu saya jenis fungsi yang anda perlukan pada laman web anda, dan saya boleh bantu memilih teknologi yang paling sesuai.
