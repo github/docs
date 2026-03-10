@@ -1,7 +1,7 @@
 ---
 title: Reviewing requests to bypass push protection
 shortTitle: Review bypass requests
-intro: You can use security overview to review requests to bypass push protection from contributors pushing to repositories across your organization.
+intro: Approve or deny requests from contributors who need to push commits containing secrets to your organization's repositories.
 permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-sp-only %}'
 contentType: how-tos
@@ -18,13 +18,11 @@ redirect_from:
   - /code-security/security-overview/reviewing-requests-to-bypass-push-protection
 ---
 
-## About bypass requests
+## Prerequisites
 
-If your organization has configured delegated bypass for push protection, a designated team of reviewers controls which organization members can push secrets to repositories in your organization, and which members must first make a "bypass request" in order to push the secret.
+Before you can review bypass requests, delegated bypass must be enabled for your organization or repositories. See [AUTOTITLE](/code-security/how-tos/secure-your-secrets/manage-bypass-requests/enabling-delegated-bypass-for-push-protection).
 
-On the "Push protection bypass" page in security overview, reviewers can find, review (approve or deny) and manage these requests.
-
-For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/managing-requests-to-bypass-push-protection).
+You can review and manage these requests in security overview.
 
 ## Reviewing bypass requests for an organization
 
