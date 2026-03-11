@@ -28,14 +28,25 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% de datos variables', '{% data variables')
     content = content.replaceAll('{% datos reusables', '{% data reusables')
     content = content.replaceAll('{% data reutilizables.', '{% data reusables.')
-    content = content.replaceAll('{%- ifversion fpt o ghec %}', '{%- ifversion fpt or ghec %}')
-    content = content.replaceAll('{% ifversion fpt o ghec %}', '{% ifversion fpt or ghec %}')
+    // Catch "o" between any plan names in ifversion/elsif tags
+    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?\bo\b[^%]*?%\}/g, (match) => {
+      return match.replace(/ o /g, ' or ')
+    })
   }
 
   if (context.code === 'ja') {
     content = content.replaceAll('{% データ variables', '{% data variables')
     content = content.replaceAll('{% データvariables', '{% data variables')
     content = content.replaceAll('{% データ reusables', '{% data reusables')
+    content = content.replaceAll('{% データ変数.', '{% data variables.')
+    content = content.replaceAll('{% データ再利用可能な.', '{% data reusables.')
+    content = content.replaceAll('{% データ再利用可能.', '{% data reusables.')
+    content = content.replaceAll('{% データ再利用.', '{% data reusables.')
+    content = content.replaceAll('{% メモ %}', '{% note %}')
+    // Catch "または" between any plan names in ifversion/elsif tags
+    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?または[^%]*?%\}/g, (match) => {
+      return match.replace(/ または /g, ' or ')
+    })
 
     // Fix trailing quote on YAML value
     content = content.replace(/^(\s*asked_too_many_times:\s*.+)"\s*$/m, '$1')
@@ -53,6 +64,11 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% dados reusables', '{% data reusables')
     content = content.replaceAll('{{% dados ', '{% data ')
     content = content.replaceAll('{{% datas ', '{% data ')
+    content = content.replaceAll('{% senão %}', '{% else %}')
+    // Catch "ou" between any plan names in ifversion/elsif tags
+    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?ou [^%]*?%\}/g, (match) => {
+      return match.replace(/ ou /g, ' or ')
+    })
   }
 
   if (context.code === 'zh') {
@@ -60,6 +76,12 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% 数据 variables', '{% data variables')
     content = content.replaceAll('{% 数据可重用', '{% data reusables')
     content = content.replaceAll('{% 数据可重用s.', '{% data reusables.')
+    content = content.replaceAll('{% 其他 %}', '{% else %}')
+    content = content.replaceAll('{% 原始 %}', '{% raw %}')
+    // Catch "或" between any plan names in ifversion/elsif tags
+    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?或[^%]*?%\}/g, (match) => {
+      return match.replace(/ 或 /g, ' or ')
+    })
   }
 
   if (context.code === 'ru') {
@@ -120,12 +142,8 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% données réutilisables.', '{% data reusables.')
     content = content.replaceAll('{% variables de données.', '{% data variables.')
     content = content.replaceAll('{% autre %}', '{% else %}')
-    content = content.replaceAll('{%- ifversion fpt ou ghec %}', '{%- ifversion fpt or ghec %}')
-    content = content.replaceAll('{% ifversion fpt ou ghec %}', '{% ifversion fpt or ghec %}')
-    content = content.replaceAll('{%- ifversion fpt ou ghec ou', '{%- ifversion fpt or ghec or')
-    content = content.replaceAll('{% ifversion fpt ou ghec ou', '{% ifversion fpt or ghec or')
-    // Catch remaining "ou" between any plan names in ifversion tags
-    content = content.replace(/\{%-? ifversion [^%]*?ou [^%]*?%\}/g, (match) => {
+    // Catch remaining "ou" between any plan names in ifversion/elsif tags
+    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?ou [^%]*?%\}/g, (match) => {
       return match.replace(/ ou /g, ' or ')
     })
   }
@@ -137,6 +155,12 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% 데이터 변수.', '{% data variables.')
     content = content.replaceAll('{% 데이터 변숫값.', '{% data variables.')
     content = content.replaceAll('{% dada variables', '{% data variables')
+    content = content.replaceAll('{% 기타 %}', '{% else %}')
+    content = content.replaceAll('{% 참고 %}', '{% note %}')
+    // Catch "또는" between any plan names in ifversion/elsif tags
+    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?또는[^%]*?%\}/g, (match) => {
+      return match.replace(/ 또는 /g, ' or ')
+    })
 
     // Korean translation of github-glossary.md
     content = content.replaceAll('{{ 용어집.term }}', '{{ glossary.term }}')
@@ -151,8 +175,8 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{%-Daten-variables', '{%- data variables')
     content = content.replaceAll('{%- ifversion fpt oder ghec %}', '{%- ifversion fpt or ghec %}')
     content = content.replaceAll('{% ifversion fpt oder ghec %}', '{% ifversion fpt or ghec %}')
-    // Catch remaining "oder" between any plan names in ifversion tags
-    content = content.replace(/\{%-? ifversion [^%]*?oder [^%]*?%\}/g, (match) => {
+    // Catch remaining "oder" between any plan names in ifversion/elsif tags
+    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?oder [^%]*?%\}/g, (match) => {
       return match.replace(/ oder /g, ' or ')
     })
   }
@@ -182,6 +206,9 @@ export function correctTranslatedContentStrings(
   // Common Latin-script typos across multiple languages.
   content = content.replaceAll('{% variables.', '{% data variables.')
   content = content.replaceAll('{% datavariables', '{% data variables')
+
+  // Fix spaces inside Liquid tag delimiters, e.g. `{ % endif % }` → `{% endif %}`
+  content = content.replace(/\{ +%([^%]+?)% +\}/g, '{%$1%}')
 
   // Recover linebreaks that translations lose after Liquid closing tags.
   // Compares each `{% ... %} ` in the translation against the English
