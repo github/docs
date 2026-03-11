@@ -64,6 +64,8 @@ These metrics appear in the code generation dashboard and provide a breakdown of
 
 These fields appear in the exported NDJSON reports and in the {% data variables.product.prodname_copilot_short %} usage metrics APIs. They provide daily records at the enterprise, organization, or user scope, depending on the metric.
 
+For example schemas of the data returned by the APIs, see [AUTOTITLE](/copilot/reference/copilot-usage-metrics/example-schema).
+
 | Field | Description |
 |:--|:--|
 | `agent_edit` | Captures lines added and deleted when {% data variables.product.prodname_copilot_short %} (in agent and edit mode) writes changes directly into your files in the IDE. `agent_edit` is not included in suggestion-based metrics and may not populate suggestion-style fields (for example, `user_initiated_interaction_count`). Counts edits from custom agents as well. |
@@ -98,7 +100,7 @@ These fields appear in the exported NDJSON reports and in the {% data variables.
 
 ### {% data variables.copilot.copilot_cli_short %} metrics fields (API only)
 
-The `totals_by_cli` object contains the following nested fields when CLI usage is present. These metrics are currently only available in the enterprise-level and user-level reports. 
+The `totals_by_cli` object contains the following nested fields when CLI usage is present. These metrics are currently only available in the enterprise-level and user-level reports.
 
 | Field | Description |
 |:--|:--|

@@ -2,7 +2,7 @@
 title: Viewing metrics for pull request alerts
 shortTitle: View PR alert metrics
 allowTitleToDifferFromFilename: true
-intro: You can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests for repositories across your organizations, and to identify repositories where you may need to take action.
+intro: Monitor {% data variables.product.prodname_codeql %}'s performance in pull requests across your organizations to identify repositories where you may need to take action.
 permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
 contentType: how-tos
@@ -18,36 +18,6 @@ versions:
 redirect_from:
   - /code-security/security-overview/viewing-metrics-for-pull-request-alerts
 ---
-
-## About {% data variables.product.prodname_codeql %} pull request alerts metrics
-
-The metrics overview for {% data variables.product.prodname_codeql %} pull request alerts helps you to understand how well {% data variables.product.prodname_codeql %} is preventing vulnerabilities in your organizations. You can use the metrics to assess how {% data variables.product.prodname_codeql %} is performing in pull requests, and to easily identify the repositories where you may need to take action in order to identify and reduce security risks.
-
-The overview shows you a summary of how many vulnerabilities prevented by {% data variables.product.prodname_codeql %} have been caught in pull requests. The metrics are only tracked for pull requests that have been merged into the default branches of repositories in your organizations.
-
-You can also find more granular metrics, such as how many alerts were fixed{% ifversion code-scanning-autofix %} with and without {% data variables.copilot.copilot_autofix_short %} suggestions{% endif %}, how many were unresolved and merged, and how many were dismissed as false positive or as risk accepted.
-
-You can also view:
-
-* The rules that are causing the most alerts, and how many alerts each rule is associated with.
-
-* The number of alerts that were merged into the default branch without resolution, and the number of alerts dismissed as an acceptable risk.
-
-{% ifversion code-scanning-autofix %}
-* The number of alerts that were fixed with an accepted {% data variables.copilot.copilot_autofix_short %} suggestion, displayed as a fraction of how many total {% data variables.copilot.copilot_autofix_short %} suggestions were available.
-
-* Remediation rates, in a graph showing the percentage of alerts that were remediated with an available {% data variables.copilot.copilot_autofix_short %} suggestion, and the percentage of alerts that were remediated without a {% data variables.copilot.copilot_autofix_short %} suggestion.
-
-* Mean time to remediate, in a graph showing the average age of closed alerts that were remediated with an available {% data variables.copilot.copilot_autofix_short %} suggestion, and the average age of closed alerts that were remediated without a {% data variables.copilot.copilot_autofix_short %} suggestion.
-{% endif %}
-
-You can apply filters to the data. The metrics are based on activity from the default period or your selected period.
-
-{% ifversion code-scanning-autofix %}
-> [!NOTE] Metrics for {% data variables.copilot.copilot_autofix_short %} will be shown only for repositories where {% data variables.copilot.copilot_autofix_short %} is enabled.
-{% else %}
-> [!NOTE] Metrics for {% data variables.copilot.copilot_autofix_short %} are omitted because {% data variables.copilot.copilot_autofix_short %} is available only on {% data variables.product.github %} cloud platforms.
-{% endif %}
 
 ## Viewing {% data variables.product.prodname_codeql %} pull request alerts metrics for an organization
 

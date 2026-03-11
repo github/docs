@@ -43,12 +43,12 @@ jobs:
 
       - name: Get changed files
         id: changed_files
-        uses: ./.github/actions/get-changed-files
+        uses: tj-actions/changed-files@22103cc46bda19c2b464ffe86db46df6922fd323 # v47.0.5
         with:
           files: 'content/**'
 
       - name: Run tests
         env:
-          CHANGED_FILES: ${{ steps.changed_files.outputs.filtered_changed_files }}
-          DELETED_FILES: ${{ steps.changed_files.outputs.filtered_deleted_files }}
+          CHANGED_FILES: ${{ steps.changed_files.outputs.all_modified_files }}
+          DELETED_FILES: ${{ steps.changed_files.outputs.deleted_files }}
         run: npm test -- src/content-render/tests/render-changed-and-deleted-files.ts

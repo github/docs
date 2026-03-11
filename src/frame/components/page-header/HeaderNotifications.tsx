@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import cx from 'classnames'
 import { XIcon } from '@primer/octicons-react'
@@ -11,11 +11,14 @@ import { useVersion } from '@/versions/components/useVersion'
 import { useUserLanguage } from '@/languages/components/useUserLanguage'
 import styles from './HeaderNotifications.module.scss'
 import { useSharedUIContext } from '@/frame/components/context/SharedUIContext'
+import Cookies from '@/frame/components/lib/cookies'
+import { MACHINE_TRANSLATION_BANNER_COOKIE_NAME } from '@/frame/lib/constants'
 
 enum NotificationType {
   RELEASE = 'RELEASE',
   TRANSLATION = 'TRANSLATION',
   EARLY_ACCESS = 'EARLY_ACCESS',
+  MACHINE_TRANSLATION = 'MACHINE_TRANSLATION',
 }
 
 type Notif = {
@@ -35,6 +38,11 @@ export const HeaderNotifications = () => {
   const { setHasOpenHeaderNotifications } = useSharedUIContext()
 
   const { t } = useTranslation('header')
+
+  const [machineTranslationDismissed, setMachineTranslationDismissed] = useState(true)
+  useEffect(() => {
+    setMachineTranslationDismissed(Cookies.get(MACHINE_TRANSLATION_BANNER_COOKIE_NAME) === 'true')
+  }, [])
 
   const translationNotices: Array<Notif> = []
   if (router.locale === 'en') {
@@ -61,6 +69,22 @@ export const HeaderNotifications = () => {
       })
     }
   }
+
+  if (router.locale !== 'en' && !machineTranslationDismissed) {
+    translationNotices.push({
+      type: NotificationType.MACHINE_TRANSLATION,
+      content: t('notices.machine_translation'),
+      onClose: () => {
+        setMachineTranslationDismissed(true)
+        try {
+          Cookies.set(MACHINE_TRANSLATION_BANNER_COOKIE_NAME, 'true')
+        } catch (err) {
+          console.warn('Unable to set cookie', err)
+        }
+      },
+    })
+  }
+
   const releaseNotices: Array<Notif> = []
   if (currentVersion === data.variables.release_candidate.version) {
     releaseNotices.push({
@@ -100,6 +124,7 @@ export const HeaderNotifications = () => {
               styles.container,
               'text-center f5 color-fg-default py-4 px-6 z-1',
               type === NotificationType.TRANSLATION && 'color-bg-accent',
+              type === NotificationType.MACHINE_TRANSLATION && 'color-bg-accent',
               type === NotificationType.RELEASE && 'color-bg-accent',
               type === NotificationType.EARLY_ACCESS && 'color-bg-danger',
               !isLast && 'border-bottom color-border-default',

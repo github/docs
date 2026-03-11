@@ -82439,6 +82439,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "viewerCopilotAgentTaskUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for task updates.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "viewerCopilotAgentUpdatesChannel",
           "description": "<p>Channel value for subscribing to live updates for session updates.</p>",
           "type": "String",
@@ -84358,6 +84366,14 @@
         {
           "name": "viewerCopilotAgentLogUpdatesChannel",
           "description": "<p>Channel value for subscribing to live updates for session log updates.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "viewerCopilotAgentTaskUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for task updates.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",

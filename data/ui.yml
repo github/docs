@@ -9,6 +9,7 @@ header:
       ' is currently available as a <a href="/admin/overview/about-upgrades-to-new-releases">release candidate</a>.'
     early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about a private preview feature.
     release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
+    machine_translation: Some of this page may have been machine-translated or translated using AI.
     # GHES release notes
     ghes_release_notes_upgrade_patch_only: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.
     ghes_release_notes_upgrade_release_only: 📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
