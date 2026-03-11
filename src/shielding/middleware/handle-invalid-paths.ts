@@ -89,6 +89,7 @@ export default function handleInvalidPaths(
     return res.redirect(newUrl)
   } else if (req.path.endsWith('.md')) {
     req.url = req.url.replace(/\.md($|\?)/, '$1')
+    req.originalUrl = req.originalUrl.replace(/\.md($|\?)/, '$1')
     req.headers.accept = 'text/markdown'
     return next()
   }

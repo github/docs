@@ -2497,6 +2497,12 @@
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/events"
     },
     {
+      "slug": "list-issue-field-values-for-an-issue",
+      "subcategory": "issue-field-values",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values"
+    },
+    {
       "slug": "list-labels-for-an-issue",
       "subcategory": "labels",
       "verb": "get",

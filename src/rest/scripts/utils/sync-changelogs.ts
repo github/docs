@@ -17,6 +17,22 @@ interface VersionSection {
   content: string
 }
 
+// The initial REST API version (2022-11-28) predates the changelog system
+// in rest-api-description, so it has no CHANGELOG.md entry. We hardcode
+// the "no breaking changes" description here so it always appears in the
+// generated output. Keyed by ifversion expression.
+const INITIAL_VERSION = '2022-11-28'
+const INITIAL_VERSION_SECTIONS: Record<string, VersionSection> = {
+  fpt: {
+    version: INITIAL_VERSION,
+    content: `## Version ${INITIAL_VERSION}\n\nVersion \`${INITIAL_VERSION}\` is the first version of the GitHub Free, Pro & Team REST API after date-based versioning was introduced. This version does not include any breaking changes.`,
+  },
+  ghec: {
+    version: INITIAL_VERSION,
+    content: `## Version ${INITIAL_VERSION}\n\nVersion \`${INITIAL_VERSION}\` is the first version of the GitHub Enterprise Cloud REST API after date-based versioning was introduced. This version does not include any breaking changes.`,
+  },
+}
+
 // Build a list of { sourceDir, ifversionExpr } tuples from allVersions.
 // For example:
 //   fpt → source dir "api.github.com", ifversion "fpt"
@@ -140,13 +156,22 @@ export async function syncChangelogs(
   for (const { sourceDir, ifversionExpr } of mappings) {
     const changelogPath = getChangelogPath(sourceRepoDir, sourceDir)
 
+    let sections: VersionSection[]
+
     if (!existsSync(changelogPath)) {
-      console.log(`  ⏭️  No changelog found for ${sourceDir}, skipping.`)
-      continue
+      console.log(`  ⏭️  No changelog found for ${sourceDir}.`)
+      sections = []
+    } else {
+      const markdown = await readFile(changelogPath, 'utf-8')
+      sections = parseVersionSections(markdown)
     }
 
-    const markdown = await readFile(changelogPath, 'utf-8')
-    const sections = parseVersionSections(markdown)
+    // Inject the hardcoded initial version section if the changelog
+    // doesn't already include it and we have one for this product.
+    const hasInitialVersion = sections.some((s) => s.version === INITIAL_VERSION)
+    if (!hasInitialVersion && ifversionExpr in INITIAL_VERSION_SECTIONS) {
+      sections.push(INITIAL_VERSION_SECTIONS[ifversionExpr])
+    }
 
     if (sections.length === 0) {
       console.log(`  ⏭️  No version sections found in changelog for ${sourceDir}, skipping.`)
