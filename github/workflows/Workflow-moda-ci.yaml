@@ -1,0 +1,257 @@
+Berikut adalah contoh fail workflow `moda-ci.yaml` yang memanggil reusable workflow `docker_security.yml` dari repositori dalaman `github/internal-actions`. Anda perlu menyesuaikan nilai input dan memastikan sebarang rahsia (secrets) yang diperlukan telah ditetapkan dalam repositori.
+
+```yaml
+# .github/workflows/moda-ci.yaml
+name: MODA CI Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:   # allow manual trigger
+
+jobs:
+  # Panggil reusable workflow untuk keselamatan Docker
+  security-scan:
+    name: Docker Security Scan
+    uses: github/internal-actions/.github/workflows/docker_security.yml@main
+    with:
+      # Input yang diperlukan oleh workflow docker_security.yml
+      # Gantikan dengan nilai yang sesuai untuk projek anda
+      image-name: ${{ github.repository }}:${{ github.sha }}
+      dockerfile-path: ./Dockerfile
+      build-context: .
+      # Tambah input lain seperti yang dinyatakan dalam workflow tersebut
+    secrets:
+      # Sekiranya workflow memerlukan token pendaftaran Docker atau rahsia lain,
+      # hantarkan di sini. Gantikan dengan nama rahsia yang sesuai.
+      registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+      # GITHUB_TOKEN dihantar secara automatik, jadi tidak perlu dinyatakan
+```
+
+**Penjelasan:**
+
+- **`uses`**: Merujuk kepada workflow di repositori `github/internal-actions`, fail `.github/workflows/docker_security.yml` pada branch `main`.
+- **`with`**: Menghantar input ke workflow yang dipanggil. Gantikan placeholder (`image-name`, `dockerfile-path`, dll.) dengan nilai sebenar yang diperlukan oleh workflow tersebut. Lihat dokumentasi workflow dalaman untuk senarai input penuh.
+- **`secrets`**: Menghantar rahsia yang diperlukan. `registry-password` hanyalah contoh; gantikan dengan nama rahsia yang betul. Pastikan rahsia tersebut telah ditetapkan di repositori anda (Settings → Secrets and variables → Actions).
+
+**Langkah seterusnya:**
+
+1. **Semak dokumentasi** workflow `docker_security.yml` untuk mengetahui input dan rahsia yang diperlukan.
+2. **Tetapkan sebarang rahsia** di repositori anda.
+3. **Sesuaikan nama branch** dalam `on.push.branches` mengikut keperluan anda.
+
+Workflow ini akan dijalankan secara automatik setiap kali anda menolak kod ke `main` atau `develop`, atau membuat pull request ke `main`. Anda juga boleh menjalankannya secara manual melalui tab Actions.
+Berikut adalah beberapa contoh tambahan workflow yang memanggil reusable workflow `docker_security.yml` dari repositori dalaman `github/internal-actions`. Setiap contoh menunjukkan situasi berbeza dan cara mengendalikan input, rahsia, serta kawalan aliran.
+
+---
+
+## 📁 **Contoh 1: Workflow dengan Matrix Strategy (Pelbagai Platform)**
+
+Jika projek anda perlu membina imej Docker untuk pelbagai seni bina (AMD64, ARM64), anda boleh menggunakan matrix untuk memanggil reusable workflow secara berulang.
+
+```yaml
+# .github/workflows/moda-ci-matrix.yaml
+name: MODA CI with Matrix
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  # Panggil reusable workflow untuk setiap platform
+  security-scan:
+    name: Docker Security Scan (${{ matrix.platform }})
+    uses: github/internal-actions/.github/workflows/docker_security.yml@main
+    strategy:
+      matrix:
+        platform: [linux/amd64, linux/arm64]
+    with:
+      image-name: ${{ github.repository }}:${{ github.sha }}-${{ matrix.platform }}
+      dockerfile-path: ./Dockerfile
+      build-context: .
+      platform: ${{ matrix.platform }}           # input tambahan untuk workflow
+    secrets:
+      registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+```
+
+---
+
+## 🔐 **Contoh 2: Menghantar Banyak Rahsia dan Menggunakan Condition**
+
+Kadangkala reusable workflow memerlukan pelbagai rahsia (misalnya untuk imbasan Snyk, Docker Hub, dsb.). Anda juga boleh mengawal bila workflow dipanggil menggunakan `if`.
+
+```yaml
+# .github/workflows/moda-ci-advanced.yaml
+name: MODA CI Advanced
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    tags: [ 'v*' ]
+
+jobs:
+  call-security:
+    name: Run Docker Security Checks
+    # Hanya panggil jika perubahan melibatkan Dockerfile atau fail berkaitan
+    if: contains(github.event.head_commit.modified, 'Dockerfile') || github.event_name == 'pull_request'
+    uses: github/internal-actions/.github/workflows/docker_security.yml@main
+    with:
+      image-name: ${{ github.repository }}:${{ github.sha }}
+      dockerfile-path: ./Dockerfile
+      build-context: .
+      fail-on-critical: true   # contoh input boolean
+    secrets:
+      registry-username: ${{ secrets.DOCKER_USERNAME }}
+      registry-password: ${{ secrets.DOCKER_PASSWORD }}
+      snyk-token: ${{ secrets.SNYK_TOKEN }}
+      slack-webhook: ${{ secrets.SLACK_WEBHOOK }}
+```
+
+---
+
+## 🧪 **Contoh 3: Menguji dan Debug dengan Input Pilihan**
+
+Jika reusable workflow menyokong mod debug, anda boleh menambah input khas untuk debugging.
+
+```yaml
+# .github/workflows/moda-ci-debug.yaml
+name: MODA CI Debug
+
+on:
+  workflow_dispatch:
+    inputs:
+      debug:
+        description: 'Enable debug mode'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  debug-scan:
+    name: Debug Security Scan
+    uses: github/internal-actions/.github/workflows/docker_security.yml@main
+    with:
+      image-name: ${{ github.repository }}:${{ github.sha }}
+      dockerfile-path: ./Dockerfile
+      build-context: .
+      debug: ${{ github.event.inputs.debug }}
+      # input debug mungkin digunakan dalam workflow untuk menghidupkan logging verbose
+    secrets:
+      registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+```
+
+---
+
+## 🔄 **Contoh 4: Memanggil Workflow daripada Branch Berbeza**
+
+Jika anda sedang membangunkan perubahan pada workflow dalaman, anda boleh memanggilnya dari branch lain (bukan `main`) untuk ujian.
+
+```yaml
+# .github/workflows/moda-ci-test-branch.yaml
+name: MODA CI (Test Branch)
+
+on:
+  push:
+    branches: [ feature/new-security-checks ]
+
+jobs:
+  test-workflow:
+    name: Test Workflow from dev branch
+    # Gantikan @main dengan @nama-branch
+    uses: github/internal-actions/.github/workflows/docker_security.yml@feature/add-trivy
+    with:
+      image-name: ${{ github.repository }}:test
+      dockerfile-path: ./Dockerfile
+      build-context: .
+    secrets:
+      registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+```
+
+---
+
+## ⚠️ **Contoh 5: Mengendalikan Kegagalan (Continue on Error)**
+
+Anda boleh membenarkan workflow terus walaupun langkah tertentu gagal, misalnya jika imbasan keselamatan tidak kritikal.
+
+```yaml
+# .github/workflows/moda-ci-continue.yaml
+name: MODA CI (Continue on Error)
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  call-security:
+    uses: github/internal-actions/.github/workflows/docker_security.yml@main
+    with:
+      image-name: ${{ github.repository }}:${{ github.sha }}
+      dockerfile-path: ./Dockerfile
+      build-context: .
+    secrets:
+      registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+    # Jika workflow dalaman gagal, job lain masih boleh dijalankan
+    continue-on-error: true
+
+  deploy:
+    needs: call-security
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy application
+        run: echo "Deploying..."
+```
+
+---
+
+## 🧩 **Senarai Semak Input dan Rahsia**
+
+Sebelum menggunakan reusable workflow, pastikan anda mengetahui input dan rahsia yang diperlukan. Biasanya dokumentasi workflow akan menyenaraikannya. Contoh input yang mungkin:
+
+| Input | Jenis | Penerangan |
+|-------|-------|------------|
+| `image-name` | string | Nama penuh imej Docker (termasuk tag) |
+| `dockerfile-path` | string | Laluan ke Dockerfile (contoh: `./Dockerfile`) |
+| `build-context` | string | Konteks pembinaan (contoh: `.`) |
+| `platform` | string | Platform sasaran (contoh: `linux/amd64`) |
+| `fail-on-critical` | boolean | Gagalkan job jika terdapat isu kritikal |
+| `debug` | boolean | Hidupkan output verbose |
+
+Rahsia biasa:
+
+| Rahsia | Penerangan |
+|--------|------------|
+| `registry-username` | Nama pengguna untuk Docker registry |
+| `registry-password` | Kata laluan/token untuk registry |
+| `snyk-token` | Token API Snyk untuk imbasan |
+| `slack-webhook` | Webhook Slack untuk notifikasi |
+
+---
+
+## 🔍 **Menguji Workflow Tempatan**
+
+Anda boleh menggunakan alat seperti [`act`](https://github.com/nektos/act) untuk menjalankan GitHub Actions secara tempatan. Ini membantu menguji sebelum push.
+
+```bash
+# Pasang act (macOS)
+brew install act
+
+# Jalankan workflow secara tempatan
+act push -j call-security
+```
+
+Pastikan anda menyediakan fail `.secrets` untuk rahsia tempatan.
+
+---
+
+## 📌 **Kesimpulan**
+
+Dengan menggunakan reusable workflow, anda dapat:
+- Mengurangkan penduaan kod.
+- Memastikan konsistensi merentas repositori.
+- Memudahkan pengurusan kemas kini keselamatan.
+
+Sesuaikan contoh di atas dengan keperluan sebenar projek anda. Jika workflow dalaman `docker_security.yml` tidak mempunyai dokumentasi yang jelas, hubungi pemilik repositori untuk mendapatkan senarai input dan rahsia yang tepat.
