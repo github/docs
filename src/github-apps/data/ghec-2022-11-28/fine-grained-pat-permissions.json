@@ -1538,6 +1538,48 @@
       }
     ]
   },
+  "issue_fields": {
+    "title": "Issue Fields",
+    "displayTitle": "Organization permissions for \"Issue Fields\"",
+    "permissions": [
+      {
+        "category": "orgs",
+        "slug": "list-issue-fields-for-an-organization",
+        "subcategory": "issue-fields",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/issue-fields",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "orgs",
+        "slug": "create-issue-field-for-an-organization",
+        "subcategory": "issue-fields",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/issue-fields",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "update-issue-field-for-an-organization",
+        "subcategory": "issue-fields",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/issue-fields/{issue_field_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "delete-issue-field-for-an-organization",
+        "subcategory": "issue-fields",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/issue-fields/{issue_field_id}",
+        "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
   "issue_types": {
     "title": "Issue Types",
     "displayTitle": "Organization permissions for \"Issue Types\"",
@@ -7064,6 +7106,15 @@
       },
       {
         "category": "issues",
+        "slug": "list-issue-field-values-for-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "issues",
         "slug": "list-labels-for-an-issue",
         "subcategory": "labels",
         "verb": "get",
@@ -7304,6 +7355,33 @@
         "requestPath": "/repos/{owner}/{repo}/milestones/{milestone_number}/labels",
         "additional-permissions": true,
         "access": "read"
+      },
+      {
+        "category": "issues",
+        "slug": "add-issue-field-values-to-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "post",
+        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "issues",
+        "slug": "set-issue-field-values-for-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "put",
+        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "issues",
+        "slug": "delete-an-issue-field-value-from-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "delete",
+        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}",
+        "additional-permissions": true,
+        "access": "write"
       }
     ]
   },
@@ -8284,6 +8362,33 @@
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch",
         "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "issues",
+        "slug": "add-issue-field-values-to-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "post",
+        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "issues",
+        "slug": "set-issue-field-values-for-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "put",
+        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "issues",
+        "slug": "delete-an-issue-field-value-from-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "delete",
+        "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}",
+        "additional-permissions": true,
         "access": "write"
       }
     ]

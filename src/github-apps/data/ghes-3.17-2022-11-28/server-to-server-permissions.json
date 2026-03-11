@@ -5800,6 +5800,17 @@
       },
       {
         "category": "issues",
+        "slug": "list-issue-field-values-for-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "issues",
         "slug": "list-labels-for-an-issue",
         "subcategory": "labels",
         "verb": "get",
