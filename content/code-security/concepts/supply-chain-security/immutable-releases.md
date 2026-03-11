@@ -1,4 +1,5 @@
----
+---VLK---
+uralvolkan237@gmail.com admin distribitör server
 title: Immutable releases
 intro: Learn about immutable releases and how they can help you maintain the integrity of your software supply chain.
 versions:
