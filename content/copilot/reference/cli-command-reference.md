@@ -121,23 +121,23 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--allow-all-paths`                | Disable file path verification and allow access to any path. |
 | `--allow-all-tools`                | Allow all tools to run automatically without confirmation. Required when using the CLI programmatically (env: `COPILOT_ALLOW_ALL`). |
 | `--allow-all-urls`                 | Allow access to all URLs without confirmation. |
-| `--allow-tool [TOOLS...]`          | Tools the CLI has permission to use. Will not prompt for permission. |
-| `--allow-url [URLS...]`            | Allow access to specific URLs or domains. |
+| `--allow-tool=TOOL ...`            | Tools the CLI has permission to use. Will not prompt for permission. For multiple tools, use a quoted, comma-separated list. |
+| `--allow-url=URL ...`              | Allow access to specific URLs or domains. For multiple URLs, use a quoted, comma-separated list. |
 | `--alt-screen [VALUE]`             | Use the terminal alternate screen buffer (`on` or `off`). |
 | `--autopilot`                      | Enable autopilot continuation in prompt mode. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot). |
-| `--available-tools [TOOLS...]`     | Only these tools will be available to the model. |
+| `--available-tools=TOOL ...`       | Only these tools will be available to the model. For multiple tools, use a quoted, comma-separated list. |
 | `--banner`                         | Show the startup banner. |
-| `--bash-env [VALUE]`               | Enable `BASH_ENV` support for bash shells (`on` or `off`). |
+| `--bash-env`                       | Enable `BASH_ENV` support for bash shells. |
 | `--config-dir PATH`         | Set the configuration directory (default: `~/.copilot`). |
 | `--continue`                       | Resume the most recent session. |
-| `--deny-tool [TOOLS...]`           | Tools the CLI does not have permission to use. Will not prompt for permission. |
-| `--deny-url [URLS...]`             | Deny access to specific URLs or domains, takes precedence over `--allow-url`. |
+| `--deny-tool=TOOL ...`             | Tools the CLI does not have permission to use. Will not prompt for permission. For multiple tools, use a quoted, comma-separated list. |
+| `--deny-url=URL ...`               | Deny access to specific URLs or domains, takes precedence over `--allow-url`. For multiple URLs, use a quoted, comma-separated list. |
 | `--disable-builtin-mcps`           | Disable all built-in MCP servers (currently: `github-mcp-server`). |
 | `--disable-mcp-server SERVER-NAME` | Disable a specific MCP server (can be used multiple times). |
 | `--disable-parallel-tools-execution` | Disable parallel execution of tools (LLM can still make parallel tool calls, but they will be executed sequentially). |
 | `--disallow-temp-dir`              | Prevent automatic access to the system temporary directory. |
 | `--enable-all-github-mcp-tools`    | Enable all {% data variables.product.github %} MCP server tools, instead of the default CLI subset. Overrides the `--add-github-mcp-toolset` and `--add-github-mcp-tool` options. |
-| `--excluded-tools [TOOLS...]`      | These tools will not be available to the model. |
+| `--excluded-tools=TOOL ...`        | These tools will not be available to the model. For multiple tools, use a quoted, comma-separated list. |
 | `--experimental`                   | Enable experimental features (use `--no-experimental` to disable). |
 | `-h`, `--help`                     | Display help. |
 | `-i PROMPT`, `--interactive PROMPT`  | Start an interactive session and automatically execute this prompt. |
@@ -155,10 +155,10 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--output-format FORMAT`           | FORMAT can be `text` (default) or `json` (outputs JSONL: one JSON object per line). |
 | `-p PROMPT`, `--prompt PROMPT`     | Execute a prompt programmatically (exits after completion). |
 | `--plain-diff`                     | Disable rich diff rendering (syntax highlighting via the diff tool specified by your git config). |
-| `--resume [SESSION-ID]`            | Resume a previous interactive session by choosing from a list (optionally specify a session ID). |
+| `--resume[=SESSION-ID]`            | Resume a previous interactive session by choosing from a list (optionally specify a session ID). |
 | `-s`, `--silent`                   | Output only the agent response (without usage statistics), useful for scripting with `-p`. |
 | `--screen-reader`                  | Enable screen reader optimizations. |
-| `--share [PATH]`                   | Share a session to a Markdown file after completion of a programmatic session (default path: `./copilot-session-<ID>.md`). |
+| `--share[=PATH]`                   | Share a session to a Markdown file after completion of a programmatic session (default path: `./copilot-session-<ID>.md`). |
 | `--share-gist`                     | Share a session to a secret {% data variables.product.github %} gist after completion of a programmatic session. |
 | `--stream MODE`                    | Enable or disable streaming mode (mode choices: `on` or `off`). |
 | `-v`, `--version`                  | Show version information. |
@@ -185,13 +185,13 @@ Deny rules always take precedence over allow rules, even when `--allow-all` is s
 
 ```shell
 # Allow all git commands except git push
-copilot --allow-tool 'shell(git:*)' --deny-tool 'shell(git push)'
+copilot --allow-tool='shell(git:*)' --deny-tool='shell(git push)'
 
 # Allow a specific MCP server tool
-copilot --allow-tool 'MyMCP(create_issue)'
+copilot --allow-tool='MyMCP(create_issue)'
 
 # Allow all tools from a server
-copilot --allow-tool 'MyMCP'
+copilot --allow-tool='MyMCP'
 ```
 
 ## Environment variables
@@ -241,6 +241,7 @@ Settings cascade from user to repository to local, with more specific scopes ove
 | `companyAnnouncements` | `string[]` | `[]` | Custom messages shown randomly on startup. |
 | `log_level` | `"none"` \| `"error"` \| `"warning"` \| `"info"` \| `"debug"` \| `"all"` \| `"default"` | `"default"` | Logging verbosity. |
 | `model` | `string` | varies | AI model to use (see the `/model` command). |
+| `powershell_flags` | `string[]` | `["-NoProfile", "-NoLogo"]` | Flags passed to PowerShell (`pwsh`) on startup. Windows only. |
 | `reasoning_effort` | `"low"` \| `"medium"` \| `"high"` \| `"xhigh"` | `"medium"` | Reasoning effort level for extended thinking. Higher levels use more compute. |
 | `render_markdown` | `boolean` | `true` | Render Markdown in terminal output. |
 | `screen_reader` | `boolean` | `false` | Enable screen reader optimizations. |
@@ -259,7 +260,8 @@ Repository settings apply to everyone who works in the repository. Only a subset
 |-----|------|---------------|-------------|
 | `companyAnnouncements` | `string[]` | Replaced—repository takes precedence | Messages shown randomly on startup. |
 | `enabledPlugins` | `Record<string, boolean>` | Merged—repository overrides user for same key | Declarative plugin auto-install. |
-| `marketplaces` | `Record<string, {...}>` | Merged—repository overrides user for same key | Plugin marketplaces available in this repository. |
+| `extraKnownMarketplaces` | `Record<string, {...}>` | Merged—repository overrides user for same key | Plugin marketplaces available in this repository. |
+| `marketplaces` | `Record<string, {...}>` | Merged—repository overrides user for same key | Plugin marketplaces (deprecated—use `extraKnownMarketplaces`). | <!-- markdownlint-disable-line GHD046 --> 
 
 ### Local settings (`.github/copilot/settings.local.json`)
 
@@ -434,6 +436,21 @@ The CLI includes built-in MCP servers that are available without additional setu
 
 Use `--disable-builtin-mcps` to disable all built-in servers, or `--disable-mcp-server SERVER-NAME` to disable a specific one.
 
+### MCP server trust levels
+
+MCP servers are loaded from multiple sources, each with a different trust level.
+
+| Source | Trust level | Review required |
+|--------|-------------|----------------|
+| Built-in | High | No |
+| Repository (`.github/mcp.json`) | Medium | Recommended |
+| Workspace (`.mcp.json`, `.vscode/mcp.json`) | Medium | Recommended |
+| Dev Container (`.devcontainer/devcontainer.json`) | Medium | Recommended |
+| User config (`~/.copilot/mcp-config.json`) | User-defined | User responsibility |
+| Remote servers | Low | Always |
+
+All MCP tool invocations require explicit permission. This applies even to read-only operations on external services.
+
 ## Skills reference
 
 Skills are Markdown files that extend what the CLI can do. Each skill lives in its own directory containing a `SKILL.md` file. When invoked (via `/SKILL-NAME` or automatically by the agent), the skill's content is injected into the conversation.
@@ -525,3 +542,170 @@ Session approvals reset when you run `/clear` or start a new session.
 | `PLAN_COMMAND` | `on` | Interactive planning mode. |
 | `AGENTIC_MEMORY` | `on` | Persistent memory across sessions. |
 | `CUSTOM_AGENTS` | `on` | Custom agent definitions. |
+
+## OpenTelemetry monitoring
+
+{% data variables.copilot.copilot_cli_short %} can export traces and metrics via [OpenTelemetry](https://opentelemetry.io/) (OTel), giving you visibility into agent interactions, LLM calls, tool executions, and token usage. All signal names and attributes follow the [OTel GenAI Semantic Conventions](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/).
+
+OTel is off by default with zero overhead. It activates when any of the following conditions are met:
+
+* `COPILOT_OTEL_ENABLED=true`
+* `OTEL_EXPORTER_OTLP_ENDPOINT` is set
+* `COPILOT_OTEL_FILE_EXPORTER_PATH` is set
+
+### OTel environment variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `COPILOT_OTEL_ENABLED` | `false` | Explicitly enable OTel. Not required if `OTEL_EXPORTER_OTLP_ENDPOINT` is set. |
+| `OTEL_EXPORTER_OTLP_ENDPOINT` | — | OTLP endpoint URL. Setting this automatically enables OTel. |
+| `COPILOT_OTEL_EXPORTER_TYPE` | `otlp-http` | Exporter type: `otlp-http` or `file`. Auto-selects `file` when `COPILOT_OTEL_FILE_EXPORTER_PATH` is set. |
+| `OTEL_SERVICE_NAME` | `github-copilot` | Service name in resource attributes. |
+| `OTEL_RESOURCE_ATTRIBUTES` | — | Extra resource attributes as comma-separated `key=value` pairs. Use percent-encoding for special characters. |
+| `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` | `false` | Capture full prompt and response content. See [Content capture](#content-capture). |
+| `OTEL_LOG_LEVEL` | — | OTel diagnostic log level: `NONE`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `VERBOSE`, `ALL`. |
+| `COPILOT_OTEL_FILE_EXPORTER_PATH` | — | Write all signals to this file as JSON-lines. Setting this automatically enables OTel. |
+| `COPILOT_OTEL_SOURCE_NAME` | `github.copilot` | Instrumentation scope name for tracer and meter. |
+| `OTEL_EXPORTER_OTLP_HEADERS` | — | Auth headers for the OTLP exporter (for example, `Authorization=Bearer token`). |
+
+### Traces
+
+The runtime emits a hierarchical span tree for each agent interaction. Each tree contains an `invoke_agent` root span, with `chat` and `execute_tool` child spans.
+
+#### `invoke_agent` span attributes
+
+Wraps the entire agent invocation: all LLM calls and tool executions for one user message. Span kind: `CLIENT`.
+
+| Attribute | Description |
+|-----------|-------------|
+| `gen_ai.operation.name` | `invoke_agent` |
+| `gen_ai.provider.name` | Provider (for example, `github`, `anthropic`) |
+| `gen_ai.agent.id` | Session identifier |
+| `gen_ai.agent.name` | Agent name (subagents only) |
+| `gen_ai.agent.description` | Agent description (subagents only) |
+| `gen_ai.agent.version` | Runtime version |
+| `gen_ai.conversation.id` | Session identifier |
+| `gen_ai.request.model` | Requested model |
+| `gen_ai.response.model` | Resolved model |
+| `gen_ai.response.id` | Last response ID |
+| `gen_ai.response.finish_reasons` | `["stop"]` or `["error"]` |
+| `gen_ai.usage.input_tokens` | Total input tokens (all turns) |
+| `gen_ai.usage.output_tokens` | Total output tokens (all turns) |
+| `gen_ai.usage.cache_read.input_tokens` | Cached input tokens read |
+| `gen_ai.usage.cache_creation.input_tokens` | Cached input tokens created |
+| `github.copilot.turn_count` | Number of LLM round-trips |
+| `github.copilot.cost` | Monetary cost |
+| `github.copilot.aiu` | AI units consumed |
+| `server.address` | Server hostname |
+| `server.port` | Server port |
+| `error.type` | Error class name (on error) |
+| `gen_ai.input.messages` | Full input messages as JSON (content capture only) |
+| `gen_ai.output.messages` | Full output messages as JSON (content capture only) |
+| `gen_ai.system_instructions` | System prompt content as JSON (content capture only) |
+| `gen_ai.tool.definitions` | Tool schemas as JSON (content capture only) |
+
+#### `chat` span attributes
+
+One span per LLM request. Span kind: `CLIENT`.
+
+| Attribute | Description |
+|-----------|-------------|
+| `gen_ai.operation.name` | `chat` |
+| `gen_ai.provider.name` | Provider name |
+| `gen_ai.request.model` | Requested model |
+| `gen_ai.conversation.id` | Session identifier |
+| `gen_ai.response.id` | Response ID |
+| `gen_ai.response.model` | Resolved model |
+| `gen_ai.response.finish_reasons` | Stop reasons |
+| `gen_ai.usage.input_tokens` | Input tokens this turn |
+| `gen_ai.usage.output_tokens` | Output tokens this turn |
+| `gen_ai.usage.cache_read.input_tokens` | Cached tokens read |
+| `gen_ai.usage.cache_creation.input_tokens` | Cached tokens created |
+| `github.copilot.cost` | Turn cost |
+| `github.copilot.aiu` | AI units consumed this turn |
+| `github.copilot.server_duration` | Server-side duration |
+| `github.copilot.initiator` | Request initiator |
+| `github.copilot.turn_id` | Turn identifier |
+| `github.copilot.interaction_id` | Interaction identifier |
+| `server.address` | Server hostname |
+| `server.port` | Server port |
+| `error.type` | Error class name (on error) |
+| `gen_ai.input.messages` | Full prompt messages as JSON (content capture only) |
+| `gen_ai.output.messages` | Full response messages as JSON (content capture only) |
+| `gen_ai.system_instructions` | System prompt content as JSON (content capture only) |
+
+#### `execute_tool` span attributes
+
+One span per tool call. Span kind: `INTERNAL`.
+
+| Attribute | Description |
+|-----------|-------------|
+| `gen_ai.operation.name` | `execute_tool` |
+| `gen_ai.provider.name` | Provider name (when available) |
+| `gen_ai.tool.name` | Tool name (for example, `readFile`) |
+| `gen_ai.tool.type` | `function` |
+| `gen_ai.tool.call.id` | Tool call identifier |
+| `gen_ai.tool.description` | Tool description |
+| `error.type` | Error class name (on error) |
+| `gen_ai.tool.call.arguments` | Tool input arguments as JSON (content capture only) |
+| `gen_ai.tool.call.result` | Tool output as JSON (content capture only) |
+
+### Metrics
+
+#### GenAI convention metrics
+
+| Metric | Type | Unit | Description |
+|--------|------|------|-------------|
+| `gen_ai.client.operation.duration` | Histogram | s | LLM API call and agent invocation duration |
+| `gen_ai.client.token.usage` | Histogram | tokens | Token counts by type (`input`/`output`) |
+| `gen_ai.client.operation.time_to_first_chunk` | Histogram | s | Time to receive first streaming chunk |
+| `gen_ai.client.operation.time_per_output_chunk` | Histogram | s | Inter-chunk latency after first chunk |
+
+#### Vendor-specific metrics
+
+| Metric | Type | Unit | Description |
+|--------|------|------|-------------|
+| `github.copilot.tool.call.count` | Counter | calls | Tool invocations by `gen_ai.tool.name` and `success` |
+| `github.copilot.tool.call.duration` | Histogram | s | Tool execution latency by `gen_ai.tool.name` |
+| `github.copilot.agent.turn.count` | Histogram | turns | LLM round-trips per agent invocation |
+
+### Span events
+
+Lifecycle events recorded on the active `chat` or `invoke_agent` span.
+
+| Event | Description | Key attributes |
+|-------|-------------|----------------|
+| `github.copilot.session.truncation` | Conversation history was truncated | `github.copilot.token_limit`, `github.copilot.pre_tokens`, `github.copilot.post_tokens`, `github.copilot.tokens_removed`, `github.copilot.messages_removed` |
+| `github.copilot.session.compaction_start` | History compaction began | None |
+| `github.copilot.session.compaction_complete` | History compaction completed | `github.copilot.success`, `github.copilot.pre_tokens`, `github.copilot.post_tokens`, `github.copilot.tokens_removed`, `github.copilot.messages_removed` |
+| `github.copilot.skill.invoked` | A skill was invoked | `github.copilot.skill.name`, `github.copilot.skill.path`, `github.copilot.skill.plugin_name`, `github.copilot.skill.plugin_version` |
+| `github.copilot.session.shutdown` | Session is shutting down | `github.copilot.shutdown_type`, `github.copilot.total_premium_requests`, `github.copilot.lines_added`, `github.copilot.lines_removed`, `github.copilot.files_modified_count` |
+| `github.copilot.session.abort` | User cancelled the current operation | `github.copilot.abort_reason` |
+| `exception` | Session error | `github.copilot.error_type`, `github.copilot.error_status_code`, `github.copilot.error_provider_call_id` |
+
+### Resource attributes
+
+All signals carry these resource attributes.
+
+| Attribute | Value |
+|-----------|-------|
+| `service.name` | `github-copilot` (configurable via `OTEL_SERVICE_NAME`) |
+| `service.version` | Runtime version |
+
+### Content capture
+
+By default, no prompt content, responses, or tool arguments are captured—only metadata like model names, token counts, and durations. To capture full content, set `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT=true`.
+
+> [!WARNING]
+> Content capture may include sensitive information such as code, file contents, and user prompts. Only enable this in trusted environments.
+
+When content capture is enabled, the following attributes are populated.
+
+| Attribute | Content |
+|-----------|---------|
+| `gen_ai.input.messages` | Full prompt messages (JSON) |
+| `gen_ai.output.messages` | Full response messages (JSON) |
+| `gen_ai.system_instructions` | System prompt content (JSON) |
+| `gen_ai.tool.definitions` | Tool schemas (JSON) |
+| `gen_ai.tool.call.arguments` | Tool input arguments |
+| `gen_ai.tool.call.result` | Tool output |

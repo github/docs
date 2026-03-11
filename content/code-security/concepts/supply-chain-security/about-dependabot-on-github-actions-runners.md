@@ -43,6 +43,16 @@ Running {% data variables.product.prodname_dependabot %} on standard {% data var
 
 {% data reusables.dependabot.vnet-arc-note %}
 
+## How runner settings interact
+
+The {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners and {% data variables.product.prodname_dependabot %} on self-hosted runners settings are interdependent:
+
+* Enabling "{% data variables.product.prodname_dependabot %} on self-hosted runners" automatically enables "{% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners". Disabling "{% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners" automatically disables "{% data variables.product.prodname_dependabot %} on self-hosted runners".
+* When both settings are enabled, {% data variables.product.prodname_dependabot %} jobs run **only** on self-hosted runners or {% data variables.actions.hosted_runners %} with a `dependabot` label—not on standard {% data variables.product.prodname_dotcom %}-hosted runners.
+
+> [!WARNING]
+> If both settings are enabled but no self-hosted runners or {% data variables.actions.hosted_runners %} with a `dependabot` label are available, {% data variables.product.prodname_dependabot %} jobs will remain queued indefinitely. Ensure runners with this label are configured before enabling "{% data variables.product.prodname_dependabot %} on self-hosted runners".
+
 ## Access and permissions
 
 If you are transitioning to using {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners and you restrict access to your organization's or repository's private resources, you may need to update your list of allowed IP addresses. For example, if you currently limit access to your private resources to the IP addresses that {% data variables.product.prodname_dependabot %} uses, you should update your allowlist to use the {% data variables.product.prodname_dotcom %}-hosted runners IP addresses sourced from the meta API endpoint. For more information, see [AUTOTITLE](/rest/meta).

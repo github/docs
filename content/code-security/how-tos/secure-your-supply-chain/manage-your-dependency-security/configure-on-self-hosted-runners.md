@@ -36,6 +36,9 @@ contentType: how-tos
 
 ## Enabling self-hosted runners for {% data variables.product.prodname_dependabot_updates %}
 
+> [!WARNING]
+> Before enabling "{% data variables.product.prodname_dependabot %} on self-hosted runners", ensure that your self-hosted runners or {% data variables.actions.hosted_runners %} are configured with the runner label used by {% data variables.product.prodname_dependabot %} (by default, `dependabot`). When this setting is enabled, {% data variables.product.prodname_dependabot %} jobs will only run on runners with this label. If no runners with this label are available, jobs will remain queued indefinitely. See [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners#how-runner-settings-interact).
+
 Once you have configured self-hosted runners for {% data variables.product.prodname_dependabot_updates %}, you can enable or disable {% data variables.product.prodname_dependabot_updates %} on self-hosted runners at the organization or repository level.
 
 > [!NOTE]

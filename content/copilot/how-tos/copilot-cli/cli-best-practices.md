@@ -76,7 +76,7 @@ To reset previously approved tools, use:
 You can also preconfigure allowed tools via CLI flags:
 
 ```bash
-copilot --allow-tool 'shell(git:*)' --deny-tool 'shell(git push)'
+copilot --allow-tool='shell(git:*)' --deny-tool='shell(git push)'
 ```
 
 **Common permission patterns:**
