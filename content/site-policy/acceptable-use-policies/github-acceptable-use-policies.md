@@ -114,6 +114,7 @@ If you decide to post any promotional materials in your Account, you are solely 
 
 ## 11. User Protection
 
+<!-- localization update 2026-03-11 - Feedback 1131974 -->
 You must not engage in activity that significantly harms other users.
 
 We will interpret our policies and resolve disputes in favor of protecting users as a whole.
