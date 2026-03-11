@@ -168,7 +168,7 @@ You can filter repositories based on their license or license family using the `
 license:MIT
 ```
 
-See [Licensing a Repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository#searching-github-by-license-type) for a list of license keywords.
+See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository#searching-github-by-license-type) for a list of license keywords.
 
 ### Path qualifier
 
