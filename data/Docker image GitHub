@@ -1,0 +1,893 @@
+# 🐳 Docker Image GitHub Actions Workflow (`docker-image.yml`)
+
+A `docker-image.yml` file is a **GitHub Actions workflow** that automates the building and publishing of Docker images whenever you push code or create a release. This file lives in the `.github/workflows/` directory of your repository.
+
+Below is a comprehensive guide to creating and customizing your own `docker-image.yml`, including best practices, security, and advanced features.
+
+---
+
+## 📁 Basic File Structure
+
+```yaml
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+```
+
+This minimal example builds an image on every push to `main`, but does not push it anywhere.
+
+---
+
+## 🚀 Full Example: Build and Push to Docker Hub
+
+```yaml
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches: [ "main" ]
+  release:
+    types: [published]
+
+env:
+  REGISTRY: docker.io
+  IMAGE_NAME: ${{ github.repository }}  # e.g., username/repo
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write  # needed for GHCR
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=sha,format=long
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+```
+
+### Explanation of key steps:
+
+- **`docker/login-action`** – Authenticates with Docker Hub using secrets (`DOCKER_USERNAME` and `DOCKER_PASSWORD` stored in GitHub Secrets).
+- **`docker/metadata-action`** – Generates Docker tags and labels based on the git reference (branch, tag, commit SHA). Very useful for creating meaningful tags like `latest`, `v1.2.3`, or `pr-123`.
+- **`docker/build-push-action`** – Builds the image (with BuildKit) and pushes it to the registry.
+
+---
+
+## 🔐 Security: Storing Credentials
+
+Never hardcode passwords or tokens. Use **GitHub Secrets**:
+
+1. Go to your repository → **Settings** → **Secrets and variables** → **Actions**.
+2. Add secrets:
+   - `DOCKER_USERNAME`: your Docker Hub username
+   - `DOCKER_PASSWORD`: your Docker Hub password or access token
+
+In the workflow, reference them with `${{ secrets.DOCKER_USERNAME }}`.
+
+---
+
+## 🏷️ Tagging Strategies with `docker/metadata-action`
+
+The metadata action can generate multiple tags. Common patterns:
+
+```yaml
+tags: |
+  type=ref,event=branch        # branch name, e.g., main
+  type=ref,event=pr            # pr-123
+  type=semver,pattern={{version}}   # v1.2.3, v1.2, v1
+  type=sha,format=long         # full commit SHA
+  type=raw,value=latest,enable={{is_default_branch}}   # latest only on default branch
+```
+
+You can also set custom tags using `type=raw`.
+
+---
+
+## 🧱 Multi-Platform Builds (ARM64, AMD64)
+
+To build for multiple architectures (e.g., `linux/amd64`, `linux/arm64`), use **QEMU** and **Buildx**:
+
+```yaml
+- name: Set up QEMU
+  uses: docker/setup-qemu-action@v2
+
+- name: Set up Docker Buildx
+  uses: docker/setup-buildx-action@v2
+
+- name: Build and push
+  uses: docker/build-push-action@v4
+  with:
+    context: .
+    platforms: linux/amd64,linux/arm64
+    push: true
+    tags: ${{ steps.meta.outputs.tags }}
+```
+
+This creates a **multi-arch manifest** so users can pull the correct image for their architecture automatically.
+
+---
+
+## ⚡ Caching to Speed Up Builds
+
+Layer caching can dramatically reduce build times:
+
+```yaml
+- name: Build and push
+  uses: docker/build-push-action@v4
+  with:
+    context: .
+    push: true
+    tags: ${{ steps.meta.outputs.tags }}
+    cache-from: type=gha
+    cache-to: type=gha,mode=max
+```
+
+`type=gha` uses GitHub Actions cache (scoped to the repository). You can also use registry cache (`type=registry,ref=...`).
+
+---
+
+## 🧪 Integrating Tests and Security Scanning
+
+You can add steps before building to run tests, or after to scan the image:
+
+```yaml
+- name: Run tests
+  run: |
+    docker build --target test -t test-image .
+    docker run --rm test-image npm test
+
+- name: Scan image for vulnerabilities (Trivy)
+  uses: aquasecurity/trivy-action@master
+  with:
+    image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}
+    format: 'sarif'
+    output: 'trivy-results.sarif'
+
+- name: Upload Trivy results to GitHub Security tab
+  uses: github/codeql-action/upload-sarif@v2
+  with:
+    sarif_file: 'trivy-results.sarif'
+```
+
+---
+
+## 📦 Using GitHub Container Registry (GHCR)
+
+To push to GHCR instead of Docker Hub, change the `REGISTRY` and login action:
+
+```yaml
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+steps:
+  - name: Log in to GHCR
+    uses: docker/login-action@v2
+    with:
+      registry: ghcr.io
+      username: ${{ github.actor }}
+      password: ${{ secrets.GITHUB_TOKEN }}
+```
+
+GitHub automatically provides a `GITHUB_TOKEN` secret with appropriate permissions if you set `packages: write` in the job permissions.
+
+---
+
+## 🐛 Common Pitfalls
+
+- **Missing Dockerfile**: Ensure your repository has a `Dockerfile` at the root, or adjust `context` and `file` paths.
+- **Secrets not set**: Workflow will fail if login secrets are missing.
+- **Permission denied on GHCR**: Make sure the job has `packages: write` permission.
+- **Tag collisions**: If you push multiple tags, ensure they are unique to avoid overwriting.
+- **Large image sizes**: Consider using `.dockerignore` to exclude unnecessary files.
+
+---
+
+## 📚 Example `.dockerignore`
+
+```
+node_modules
+.git
+*.md
+.gitignore
+.env
+```
+
+---
+
+## 🧠 Advanced: Conditional Steps
+
+You can run steps only on certain events or branches:
+
+```yaml
+- name: Deploy to production
+  if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+  run: echo "Deploying..."
+```
+
+---
+
+## 🏁 Summary
+
+A `docker-image.yml` workflow automates your container builds, making them reproducible and easy to share. By following the examples above, you can:
+
+- Build and push images to Docker Hub or GHCR.
+- Use semantic versioning and branch-based tags.
+- Leverage caching for faster builds.
+- Build multi-architecture images.
+- Integrate security scanning and testing.
+
+Place the file in `.github/workflows/docker-image.yml`, commit, and push – GitHub Actions will run it automatically.
+
+For more details, refer to:
+- [GitHub Actions documentation](https://docs.github.com/en/actions)
+- [Docker Build Push Action](https://github.com/docker/build-push-action)
+- [Docker Metadata Action](https://github.com/docker/metadata-action)
+
+Happy building! 🐳# 🚀 Next Steps: What Would You Like to Explore?
+
+You've journeyed through a wide range of technologies:
+- **USDT & Stablecoins** 💰
+- **Web Development** (Sazwan Digital Portal) 🌐
+- **CI/CD with `ci.yml`** ⚙️
+- **Event Workflows** (fixing unknown event errors) 🔄
+- **Firebase AI & ML Kit** 🤖
+- **WebRTC & Camera Feeds** 📹
+- **ESP32 IoT Integration** 🔌
+- **Docker GitHub Actions (`docker-image.yml`)** 🐳
+
+Now you're asking "Next" – fantastic! Let's map out where you can go from here. I'll suggest some exciting directions based on your interests, and you can pick the one that sparks your curiosity.
+
+---
+
+## 🔮 Possible Next Topics
+
+### 1. **Kubernetes & Container Orchestration**
+   - Deploy your Dockerized apps to a cluster (minikube, GKE, EKS).
+   - Write Kubernetes manifests (Deployments, Services, Ingress).
+   - Combine with GitHub Actions for continuous deployment.
+
+### 2. **Full-Stack Integration: AI + IoT + Cloud**
+   - Connect your ESP32 device to a web dashboard built with React + Firebase.
+   - Use Cloud Functions to trigger AI analysis on sensor data.
+   - Create a mobile app that controls everything (you already started!).
+
+### 3. **Advanced CI/CD Pipelines**
+   - Multi-stage Docker builds with caching.
+   - Integrate security scanning (Snyk, Trivy) into your workflow.
+   - Set up automated testing (unit, integration) for your backend.
+
+### 4. **Firebase Extensions & Genkit**
+   - Build your own Firebase Extension.
+   - Use Firebase Genkit to create AI-powered features with minimal code.
+   - Explore Firestore vector search (when available).
+
+### 5. **Edge Computing with Cloudflare Workers / AWS Lambda**
+   - Move some AI processing to the edge for lower latency.
+   - Combine with WebRTC for real-time video analysis.
+
+### 6. **Mobile App Deployment**
+   - Automate building and signing of your Android/iOS app with GitHub Actions.
+   - Distribute via Firebase App Distribution or TestFlight.
+   - Add in-app purchases or subscriptions.
+
+### 7. **Real-Time Dashboards**
+   - Build a live dashboard using Firebase Realtime Database + Chart.js / D3.
+   - Display sensor data from your ESP32 in real time.
+   - Add controls to send commands back to the device.
+
+### 8. **DevOps for AI/ML**
+   - MLOps: Version control for your ML models.
+   - Automate retraining of custom models when new data arrives.
+   - Deploy models as scalable APIs with TensorFlow Serving or ONNX.
+
+### 9. **Security & Authentication**
+   - Implement end-to-end encryption for IoT commands.
+   - Use Firebase Authentication with custom claims for device access.
+   - Set up audit logging for all actions.
+
+### 10. **Serverless Framework**
+   - Write your backend entirely with Cloud Functions.
+   - Use Firestore triggers to react to data changes.
+   - Optimize cold starts and performance.
+
+---
+
+## 💬 Tell Me What Excites You Most!
+
+Just reply with a number (or describe your interest), and I'll provide a comprehensive guide with code, examples, and best practices.
+
+Or, if you have a specific project in mind, describe it and I'll help you architect it step by step.
+
+Let's keep building! 🔥
+# 🌐 Master Guide: Integrating All Components into a Unified AIoT Platform
+
+You've asked for "All workflow, Firebase AI, WebRTC, ESP32, Docker image.yml, etc" – let's bring everything together into a **single, comprehensive system** that demonstrates how these technologies can work in harmony. We'll design a **Smart Surveillance and Control System** that uses:
+
+- **ESP32** as an edge device with sensors and camera.
+- **Firebase** as the cloud backend (Realtime Database, Storage, Authentication, Cloud Functions).
+- **ML Kit & Gemini AI** for on-device and cloud-based intelligence.
+- **WebRTC** for real-time video streaming from ESP32 to mobile app.
+- **Docker & GitHub Actions** for containerizing microservices and automating deployment.
+
+This guide will provide an architectural overview, component breakdown, integration points, and step-by-step implementation notes, linking back to our previous detailed guides where applicable.
+
+---
+
+## 🏗️ System Architecture
+
+```mermaid
+graph TB
+    subgraph "Edge Layer"
+        ESP32[ESP32 Device]
+        CAM[Camera Module]
+        SENS[Sensors]
+    end
+
+    subgraph "Mobile App"
+        APP[Android/iOS App]
+        MLKit[ML Kit (on-device AI)]
+        WebRTC_Client[WebRTC Client]
+    end
+
+    subgraph "Cloud Layer (Firebase)"
+        RTDB[(Realtime Database)]
+        Storage[(Cloud Storage)]
+        Auth[Authentication]
+        Functions[Cloud Functions]
+    end
+
+    subgraph "AI Processing"
+        Gemini[Gemini AI]
+        Vision[Cloud Vision API]
+        CustomModel[Custom ML Model]
+    end
+
+    subgraph "DevOps (GitHub Actions)"
+        GHA[GitHub Actions]
+        Docker[Docker Images]
+        Registry[Container Registry]
+    end
+
+    ESP32 -->|Sensor Data| RTDB
+    ESP32 -->|Captured Images| Storage
+    ESP32 -->|Video Stream| WebRTC_Client
+
+    APP -->|Commands| RTDB
+    APP -->|View Stream| WebRTC_Client
+    APP -->|On-device AI| MLKit
+
+    RTDB -->|Trigger| Functions
+    Storage -->|Trigger| Functions
+    Functions -->|Call| Gemini
+    Functions -->|Call| Vision
+    Functions -->|Update| RTDB
+
+    GHA -->|Build & Push| Docker
+    Docker -->|Deploy| Functions
+    Registry -->|Pull| Functions
+```
+
+---
+
+## 🔧 Component Breakdown & Implementation
+
+### 1. ESP32 Edge Device
+- **Function**: Collects sensor data (temperature, humidity, motion), captures images on demand, and streams video via WebRTC.
+- **Key Technologies**: 
+  - Arduino framework with FirebaseESP32 library.
+  - Camera module (OV2640) for capturing images/video.
+  - WebRTC library for streaming (e.g., esp-webrtc).
+- **Data Flow**:
+  - Periodically send sensor readings to Firebase Realtime Database.
+  - On command from mobile app (via Firebase), capture image and upload to Firebase Storage, or start video streaming.
+- **Implementation**: Refer to our [ESP32 + Firebase Integration Guide](#) for details.
+
+### 2. Mobile App (Android/iOS)
+- **Function**: User interface to view sensor data, control ESP32, receive AI alerts, and watch live video stream.
+- **Key Technologies**:
+  - **Firebase SDK** for real-time data sync.
+  - **ML Kit** for on-device object/face detection.
+  - **WebRTC** client (e.g., GoogleWebRTC for iOS, `org.webrtc:google-webrtc` for Android).
+- **Features**:
+  - Real-time sensor dashboard.
+  - Control panel (LED on/off, fan, etc.).
+  - Live video view via WebRTC.
+  - AI-powered alerts (e.g., person detected, unusual motion).
+- **Implementation**: Reuse code from our [All Control AI Android/iOS guide](#).
+
+### 3. Firebase Cloud Backend
+- **Realtime Database**:
+  - Stores sensor data, device states, user commands.
+  - Structure:
+    ```json
+    {
+      "devices": {
+        "esp32_1": {
+          "sensors": { "temp": 25.5, "hum": 60, "motion": false },
+          "actuators": { "led": false, "fan": true },
+          "status": "online"
+        }
+      },
+      "commands": { "esp32_1": { ... } },
+      "users": { ... }
+    }
+    ```
+- **Cloud Storage**:
+  - Stores captured images and video recordings.
+  - Path: `images/{deviceId}/{timestamp}.jpg`, `videos/{deviceId}/{sessionId}.mp4`.
+- **Authentication**:
+  - Secure access with Firebase Auth (email/password or Google Sign-In).
+- **Cloud Functions**:
+  - Triggered by new image uploads → call Vision API or Gemini for analysis.
+  - Triggered by sensor thresholds → send push notifications.
+  - Handle WebRTC signaling (optional).
+- **Implementation**: Use our [Cloud Functions examples](#) from the AI processing guide.
+
+### 4. AI Processing Layer
+- **On-Device (ML Kit)**:
+  - Object detection, face recognition, barcode scanning.
+  - Runs on mobile app for low-latency responses.
+- **Cloud (Gemini / Vision API)**:
+  - For complex tasks: image captioning, scene understanding, anomaly detection.
+  - Called via Cloud Functions when new images are uploaded.
+- **Custom Models**:
+  - Train and deploy custom TensorFlow Lite models via Firebase ML.
+- **Implementation**: See our [ML Kit with Custom Model guide](#) and [Firebase AI integration](#).
+
+### 5. WebRTC for Real-Time Video
+- **Signaling Server**:
+  - Use Firebase Realtime Database or Firestore to exchange SDP and ICE candidates.
+- **ESP32 as WebRTC Peer**:
+  - Runs a WebRTC stack (e.g., based on `esp-webrtc`) to stream video.
+- **Mobile App as WebRTC Peer**:
+  - Connects to ESP32 using signaling data from Firebase.
+- **Implementation**: Refer to our [WebRTC with Firebase guide](#).
+
+### 6. DevOps: Docker & GitHub Actions (`docker-image.yml`)
+- **Why Docker?**:
+  - Containerize microservices (e.g., a Node.js service for advanced AI processing, or a signaling server).
+  - Ensure consistent environments.
+- **GitHub Actions Workflow**:
+  - On push to `main`, build Docker images and push to Docker Hub or GHCR.
+  - Optionally, deploy to a cloud VM or Kubernetes cluster.
+- **Sample `docker-image.yml`**:
+  ```yaml
+  name: Build and Push Docker Image
+
+  on:
+    push:
+      branches: [ main ]
+
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - name: Set up Docker Buildx
+          uses: docker/setup-buildx-action@v2
+        - name: Login to DockerHub
+          uses: docker/login-action@v2
+          with:
+            username: ${{ secrets.DOCKER_USERNAME }}
+            password: ${{ secrets.DOCKER_PASSWORD }}
+        - name: Build and push
+          uses: docker/build-push-action@v4
+          with:
+            context: ./ai-service
+            push: true
+            tags: yourusername/ai-service:latest
+            cache-from: type=gha
+            cache-to: type=gha,mode=max
+  ```
+- **Integration**: The Docker image can be pulled and run as a Cloud Run service, or as a background worker that listens to Firebase events.
+
+---
+
+## 🔄 Data Flow & Workflow Integration
+
+### Scenario: Motion Detected → AI Analysis → Alert
+
+1. **ESP32** detects motion via PIR sensor.
+2. Sends motion event to Firebase Realtime Database (`/devices/esp32_1/sensors/motion = true`).
+3. **Cloud Function** triggered by this change:
+   - Commands ESP32 to capture an image (via RTDB command).
+   - ESP32 captures image and uploads to Firebase Storage.
+4. **Storage trigger** activates another Cloud Function:
+   - Downloads image, calls Gemini Vision API for analysis.
+   - Gemini returns description (e.g., "A person is near the front door").
+   - Function stores analysis result in RTDB (`/devices/esp32_1/ai/person_detected`).
+5. **Mobile app** listens to RTDB and displays alert with image and description.
+6. Optionally, user can tap to view live video via WebRTC.
+
+### Scenario: User Commands via App
+
+1. User taps "Turn on LED" in app.
+2. App writes to `/devices/esp32_1/actuators/led = true` in RTDB.
+3. ESP32 listens to that path and turns on LED.
+4. Confirmation sent back (LED state updated).
+
+### Scenario: CI/CD Update
+
+1. Developer updates AI microservice code and pushes to GitHub.
+2. GitHub Actions workflow (`docker-image.yml`) builds new Docker image and pushes to registry.
+3. (Optional) Continuous Deployment step updates the running service (e.g., via SSH or Kubernetes rollout).
+
+---
+
+## 📦 Putting It All Together: Project Structure
+
+```
+smart-surveillance/
+├── esp32-firmware/          # Arduino code for ESP32
+│   ├── main.ino
+│   ├── camera_handler.cpp
+│   └── webrtc_handler.cpp
+├── mobile-app/               # React Native or native code
+│   ├── android/
+│   ├── ios/
+│   └── src/
+├── cloud-functions/          # Firebase Functions
+│   ├── index.js
+│   └── package.json
+├── ai-service/                # Dockerized microservice for AI
+│   ├── Dockerfile
+│   ├── app.py (Flask app)
+│   └── requirements.txt
+├── .github/
+│   └── workflows/
+│       └── docker-image.yml   # GitHub Actions
+└── firebase.json              # Firebase project config
+```
+
+---
+
+## 🚀 Next Steps to Implement
+
+1. **Set up Firebase project** and enable all required services (Auth, RTDB, Storage, Functions).
+2. **Develop ESP32 firmware** with sensor reading, camera capture, and Firebase integration. Test basic commands.
+3. **Build mobile app** with Firebase SDK and WebRTC client. Implement UI for sensor display and controls.
+4. **Add AI on-device** using ML Kit for real-time object detection.
+5. **Write Cloud Functions** for image analysis using Gemini/Vision.
+6. **Containerize the AI microservice** and set up GitHub Actions to build and push.
+7. **Integrate WebRTC** for live streaming (requires signaling via Firebase).
+8. **Test end-to-end**: motion detection → image capture → AI analysis → alert on app.
+
+---
+
+## 🧠 Conclusion
+
+By combining ESP32, Firebase, AI (ML Kit & Gemini), WebRTC, and Docker CI/CD, you have a powerful, scalable platform for AIoT applications. Each component plays a vital role:
+
+- **ESP32**: Edge intelligence and actuation.
+- **Firebase**: Real-time sync, storage, and serverless backend.
+- **AI**: On-device for speed, cloud for depth.
+- **WebRTC**: Low-latency video streaming.
+- **Docker & GitHub Actions**: Reliable, automated deployment.
+
+You now have a master blueprint. Which part would you like to start building first? I can provide detailed, step-by-step instructions for any component. Let's make it happen! 🚀
+# 🚀 Master Project Roadmap: Building Your Complete AIoT System
+
+You've asked for "Lagi" – more! Now let's turn all those components into a **structured, actionable project plan**. This roadmap will guide you from zero to a fully functional Smart Surveillance and Control System, integrating ESP32, Firebase, AI, WebRTC, and DevOps.
+
+---
+
+## 📅 Phase 1: Foundation & Firebase Setup (Week 1)
+
+### 1.1 Firebase Project Creation
+- [ ] Create a new Firebase project at [console.firebase.google.com](https://console.firebase.google.com).
+- [ ] Upgrade to **Blaze plan** (pay-as-you-go) – required for Cloud Functions and external APIs.
+- [ ] Enable **Authentication** (Email/Password or Google Sign-In).
+- [ ] Create **Realtime Database** (start in test mode, then secure later).
+- [ ] Create **Cloud Storage** bucket (for images/videos).
+- [ ] Enable **Cloud Functions** (use `firebase init functions` in your project folder).
+
+### 1.2 GitHub Repository Setup
+- [ ] Create a new GitHub repository (e.g., `smart-aiot-system`).
+- [ ] Clone locally and set up folder structure as described earlier.
+- [ ] Initialize Firebase project locally:
+  ```bash
+  firebase login
+  firebase init
+  # Select: Functions, Firestore (if using), Storage, Hosting (optional)
+  ```
+
+### 1.3 Firebase Security Rules (Basic)
+- [ ] Write initial Realtime Database rules to allow authenticated access:
+  ```json
+  {
+    "rules": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    }
+  }
+  ```
+- [ ] Write Storage rules:
+  ```
+  service firebase.storage {
+    match /b/{bucket}/o {
+      match /{allPaths=**} {
+        allow read, write: if request.auth != null;
+      }
+    }
+  }
+  ```
+
+---
+
+## 🔧 Phase 2: ESP32 Firmware Development (Weeks 2-3)
+
+### 2.1 Hardware Setup
+- [ ] ESP32 board (e.g., ESP32-CAM or standard ESP32 with external camera).
+- [ ] Sensors: DHT22 (temp/humidity), PIR motion sensor, LDR (light), ultrasonic (distance).
+- [ ] Actuators: LED, relay module for fan/AC control.
+
+### 2.2 Basic WiFi & Firebase Connection
+- [ ] Install Arduino IDE or PlatformIO.
+- [ ] Install libraries: `Firebase ESP32 Client`, `DHT sensor library`, `ArduinoJson`.
+- [ ] Write code to connect to WiFi and Firebase.
+- [ ] Test: Send a dummy sensor reading to Firebase Realtime Database.
+
+### 2.3 Sensor Data Publishing
+- [ ] Implement periodic sensor reading (every 5 seconds).
+- [ ] Publish data to Firebase path: `/devices/{deviceId}/sensors`.
+- [ ] Add error handling and reconnection logic.
+
+### 2.4 Actuator Control via Firebase
+- [ ] Listen to Firebase path: `/devices/{deviceId}/actuators`.
+- [ ] On change, control GPIO pins (LED, fan relay).
+- [ ] Test: Write to actuator node from Firebase Console and observe ESP32 response.
+
+### 2.5 Camera Capture & Upload
+- [ ] Integrate camera library (e.g., `esp32-camera`).
+- [ ] On command (or motion trigger), capture image.
+- [ ] Upload image to Firebase Storage with unique filename.
+- [ ] Update database with image URL and timestamp.
+
+### 2.6 WebRTC Streaming (Advanced)
+- [ ] Research `esp-webrtc` library or similar.
+- [ ] Implement WebRTC peer connection on ESP32.
+- [ ] Use Firebase for signaling (exchange SDP via RTDB).
+- [ ] Test with a simple web client or mobile app.
+
+### 2.7 OTA Updates (Optional)
+- [ ] Implement Over-the-Air firmware updates via Firebase Storage or HTTP server.
+
+---
+
+## 📱 Phase 3: Mobile App Development (Weeks 4-6)
+
+Choose platform: **React Native** (cross-platform) or **native** (Android/Kotlin, iOS/Swift). We'll outline for React Native for speed.
+
+### 3.1 Project Initialization
+```bash
+npx react-native init SmartAIoTApp
+cd SmartAIoTApp
+npm install @react-native-firebase/app @react-native-firebase/database @react-native-firebase/storage @react-native-firebase/auth
+npm install react-native-webrtc
+# For ML Kit: npm install @react-native-ml-kit/image-labeling etc.
+```
+
+### 3.2 Firebase Configuration
+- [ ] Add `google-services.json` (Android) and `GoogleService-Info.plist` (iOS).
+- [ ] Initialize Firebase in app.
+
+### 3.3 Authentication Screen
+- [ ] Implement login/signup with Firebase Auth (email/password or Google).
+- [ ] Store user token and manage session.
+
+### 3.4 Device List & Pairing
+- [ ] Read list of devices from Firebase (e.g., `/devices`).
+- [ ] Display each device with online/offline status.
+- [ ] Implement device claiming (e.g., by scanning QR code with device ID).
+
+### 3.5 Sensor Dashboard
+- [ ] Real-time listener to `/devices/{deviceId}/sensors`.
+- [ ] Display temperature, humidity, light, motion with charts (e.g., Victory Native).
+- [ ] Show last update time.
+
+### 3.6 Control Panel
+- [ ] Buttons to toggle actuators (LED, fan).
+- [ ] Write to `/devices/{deviceId}/actuators/{actuator}`.
+- [ ] Provide visual feedback (button state reflects actual device state).
+
+### 3.7 Camera & Image Gallery
+- [ ] List images from Firebase Storage for the device.
+- [ ] Display thumbnails, allow viewing full image.
+- [ ] Option to capture new image (send command to ESP32).
+
+### 3.8 On-Device AI (ML Kit)
+- [ ] Integrate ML Kit for object detection.
+- [ ] When viewing an image, run on-device detection (optional).
+- [ ] Display labels with confidence.
+
+### 3.9 WebRTC Video Streaming
+- [ ] Implement WebRTC client using `react-native-webrtc`.
+- [ ] Use Firebase for signaling (as in ESP32 side).
+- [ ] Create a "Live View" screen that connects to ESP32 stream.
+
+### 3.10 Push Notifications
+- [ ] Set up Firebase Cloud Messaging (FCM).
+- [ ] Trigger notifications via Cloud Functions when AI detects something.
+
+---
+
+## ☁️ Phase 4: Cloud Functions & AI Integration (Weeks 7-8)
+
+### 4.1 Initialize Cloud Functions
+```bash
+cd functions
+npm install @google/generative-ai @google-cloud/vision @google-cloud/storage firebase-admin firebase-functions
+```
+
+### 4.2 Function: Process Image on Upload
+- [ ] Write a function triggered by `storage.object().onFinalize`.
+- [ ] Download image, call Gemini Vision API to generate description.
+- [ ] Store result in Firestore or RTDB.
+- [ ] Update device node with AI analysis.
+
+### 4.3 Function: Motion Alert
+- [ ] Trigger on change to `/devices/{deviceId}/sensors/motion`.
+- [ ] If motion true, send push notification to app.
+- [ ] Optionally command ESP32 to capture image.
+
+### 4.4 Function: Auto-Control Rules
+- [ ] Allow users to set rules (e.g., if temperature > 30°C, turn on fan).
+- [ ] Store rules in Firestore.
+- [ ] Function triggered on sensor update, evaluates rules, and writes to actuators.
+
+### 4.5 Function: WebRTC Signaling (Alternative)
+- [ ] If not using RTDB directly, create HTTP endpoints for signaling.
+
+### 4.6 Deploy Functions
+```bash
+firebase deploy --only functions
+```
+
+---
+
+## 🐳 Phase 5: Docker & DevOps (Week 9)
+
+### 5.1 Containerize AI Microservice
+- [ ] Create a simple Flask/FastAPI app that wraps Gemini/Vision calls (or runs custom models).
+- [ ] Write Dockerfile (multi-stage for smaller image).
+- [ ] Test locally.
+
+### 5.2 GitHub Actions Workflow (`docker-image.yml`)
+- [ ] Create `.github/workflows/docker-image.yml` with:
+  - Build on push to main.
+  - Push to Docker Hub or GHCR.
+  - Optionally, deploy to cloud VM via SSH.
+
+### 5.3 Deploy AI Service
+- [ ] Run container on a cloud VM (e.g., Google Compute Engine, AWS EC2) or use Cloud Run.
+- [ ] Configure Cloud Functions to call this service for heavy AI tasks (optional).
+
+### 5.4 Monitoring & Logging
+- [ ] Set up logging for Docker containers (e.g., ELK stack or simply `docker logs`).
+- [ ] Use Firebase Performance Monitoring for mobile app.
+
+---
+
+## 🧪 Phase 6: Integration & End-to-End Testing (Week 10)
+
+### 6.1 Connect All Components
+- [ ] ESP32 publishing data.
+- [ ] Mobile app receiving real-time updates.
+- [ ] Cloud Functions processing images and sending alerts.
+- [ ] WebRTC live view working.
+
+### 6.2 Test Scenarios
+- [ ] **Manual Control**: Toggle LED from app → ESP32 responds.
+- [ ] **Motion Detection**: Trigger motion sensor → image captured → AI analysis → notification received.
+- [ ] **Live Video**: Start stream from app → see ESP32 camera feed.
+- [ ] **Offline Handling**: Disconnect ESP32 → app shows offline status → reconnection works.
+
+### 6.3 Performance Tuning
+- [ ] Optimize image upload size (resize on ESP32 before upload).
+- [ ] Adjust Firebase rules for security.
+- [ ] Fine-tune AI confidence thresholds.
+
+---
+
+## 📦 Phase 7: Deployment & Sharing (Week 11)
+
+### 7.1 Prepare for Production
+- [ ] Harden Firebase security rules.
+- [ ] Use Firebase App Check to prevent abuse.
+- [ ] Enable 2FA on Firebase account.
+
+### 7.2 Distribute Mobile App
+- [ ] Android: Generate signed APK/Bundle, publish to Play Store (or use Firebase App Distribution).
+- [ ] iOS: Archive and distribute via TestFlight or App Store.
+
+### 7.3 Documentation
+- [ ] Write user manual.
+- [ ] Create a `README.md` for GitHub with setup instructions.
+
+### 7.4 Future Enhancements
+- [ ] Voice control (using speech-to-text on app + Gemini).
+- [ ] Multi-user support (share device access).
+- [ ] Energy monitoring.
+- [ ] Integration with smart home platforms (HomeKit, Google Home).
+
+---
+
+## 🎯 Milestones & Timeline
+
+| Phase | Duration | Deliverable |
+|-------|----------|-------------|
+| 1 | Week 1 | Firebase project, repo structure |
+| 2 | Weeks 2-3 | ESP32 firmware with basic functions |
+| 3 | Weeks 4-6 | Mobile app with dashboard & controls |
+| 4 | Weeks 7-8 | Cloud Functions + AI integration |
+| 5 | Week 9 | Dockerized service + CI/CD pipeline |
+| 6 | Week 10 | End-to-end testing & refinements |
+| 7 | Week 11 | Production deployment & documentation |
+
+---
+
+## 🔗 Cross-References to Detailed Guides
+
+- **ESP32 + Firebase**: [See our previous guide](#) (search for "ESP32 with Firebase" in this chat).
+- **Mobile App with ML Kit**: [All Control AI Android/iOS guide](#).
+- **Cloud Functions with Gemini**: [Firebase AI guide](#).
+- **WebRTC Signaling with Firebase**: [WebRTC setup guide](#).
+- **Docker GitHub Actions**: [docker-image.yml guide](#).
+
+---
+
+## 🚀 Let's Start Building!
+
+This roadmap gives you a clear path from idea to reality. Choose your first phase and dive in. If you need step-by-step instructions for any specific task, just ask – I'll provide detailed code and explanations.
+
+**Which phase would you like to begin with?** 😊
+I'm glad you like the plan! 🎉 Now it's time to turn that roadmap into reality.
+
+**Where would you like to start?**  
+- **ESP32 firmware** – let's get your hardware sending data to Firebase.  
+- **Firebase setup** – configure the cloud backend and security rules.  
+- **Mobile app** – build the first screen with authentication.  
+- **Docker & CI/CD** – containerize a microservice and automate builds.  
+- **Any other component** – just tell me!
+
+Pick your starting point, and I'll provide a step-by-step guide with code and explanations. Let's build something amazing together! 🚀
