@@ -325,23 +325,6 @@ async function main(): Promise<void> {
     console.log(`\nUpdated ${SHA_FILE} to ${currentSha}`)
   }
 
-  // ---- Write source change metadata to $GITHUB_OUTPUT ----
-  // The workflow uses these values to populate the PR body with reviewer breadcrumbs.
-  const ghOutput = process.env.GITHUB_OUTPUT
-  if (ghOutput) {
-    const compareUrl = storedSha
-      ? `https://github.com/${SOURCE_REPO}/compare/${storedSha}...${currentSha}`
-      : `https://github.com/${SOURCE_REPO}/commit/${currentSha}`
-    const shortRange = storedSha
-      ? `${storedSha.slice(0, 7)}...${currentSha.slice(0, 7)}`
-      : currentSha.slice(0, 7)
-
-    const outputLines = [`compare_url=${compareUrl}`, `short_range=${shortRange}`]
-
-    fs.appendFileSync(ghOutput, `${outputLines.join('\n')}\n`)
-    console.log('Wrote source change metadata to $GITHUB_OUTPUT')
-  }
-
   console.log('Done.')
 }
 
