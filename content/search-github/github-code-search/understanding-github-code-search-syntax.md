@@ -162,7 +162,7 @@ For a complete list of supported language names, see [languages.yaml](https://gi
 
 ### License qualifier
 
-You can filter repositories based on their license or license family using the `license:` qualifier and the exact license keyword, e.g. `Apache-2.0`, `CC`, `MIT`.
+To filter repositories based on their license or license family, use the `license:` qualifier and the exact license keyword, for example `Apache-2.0`, `CC`, `MIT`.
 
 ```text
 license:MIT
