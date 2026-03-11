@@ -12,6 +12,7 @@ const DEFAULT_MAX_REQUEST_TIMEOUT = isDev ? 15_000 : 10_000
 
 export const ROOT = process.env.ROOT || '.'
 export const USER_LANGUAGE_COOKIE_NAME = 'user_language'
+export const MACHINE_TRANSLATION_BANNER_COOKIE_NAME = 'machine_translation_banner_seen'
 export const USER_VERSION_COOKIE_NAME = 'user_version'
 export const TRANSLATIONS_ROOT = process.env.TRANSLATIONS_ROOT || 'translations'
 export const MAX_REQUEST_TIMEOUT = process.env.REQUEST_TIMEOUT
