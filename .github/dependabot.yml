@@ -45,3 +45,135 @@ updates:
           - '*'
     ignore:
       - dependency-name: 'node' # Ignore Dockerfile.openapi_decorator
+# 📦 Dependabot Configuration (`dependabot.yml`)
+
+**Dependabot** is GitHub's automated dependency update tool. It scans your repository for outdated dependencies and opens pull requests to update them. It supports many ecosystems (npm, pip, Maven, Gradle, Docker, GitHub Actions, etc.) and is configured via a `dependabot.yml` file placed in the `.github` directory.
+
+## 📁 File Location
+
+Create the file at:
+```
+.github/dependabot.yml
+```
+
+## ⚙️ Basic Configuration
+
+Here is a minimal configuration for a Node.js project with dependencies checked weekly:
+
+```yaml
+version: 2
+updates:
+  - package-ecosystem: "npm"                # see below for ecosystem list
+    directory: "/"                           # location of package.json
+    schedule:
+      interval: "weekly"                      # daily, weekly, monthly
+```
+
+## 📋 Common Package Ecosystems
+
+| Ecosystem        | `package-ecosystem` value | Example files           |
+|------------------|---------------------------|-------------------------|
+| npm / yarn       | `npm`                     | package.json, package-lock.json |
+| pip              | `pip`                     | requirements.txt, pyproject.toml |
+| Maven            | `maven`                   | pom.xml                 |
+| Gradle           | `gradle`                  | build.gradle, build.gradle.kts |
+| Docker           | `docker`                  | Dockerfile              |
+| GitHub Actions   | `github-actions`          | `.github/workflows/*.yml` |
+| Composer         | `composer`                | composer.json           |
+| Bundler          | `bundler`                 | Gemfile                 |
+| Cargo            | `cargo`                   | Cargo.toml              |
+| Go modules       | `gomod`                   | go.mod                  |
+| Terraform        | `terraform`               | *.tf files              |
+| NuGet            | `nuget`                   | *.csproj, *.sln         |
+
+## 🔧 Advanced Configuration Options
+
+```yaml
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "09:00"               # 9 AM UTC
+      timezone: "Asia/Kuala_Lumpur"
+    open-pull-requests-limit: 10   # max open PRs at any time
+    labels:
+      - "dependencies"
+      - "npm"
+    reviewers:
+      - "username"                 # GitHub username
+      - "my-team"                   # team name
+    assignees:
+      - "username"
+    milestone: 5                    # milestone number
+    versioning-strategy: increase   # or lockfile-only (for npm)
+    allow:
+      - dependency-type: "direct"   # only direct dependencies
+    ignore:
+      - dependency-name: "express"
+        versions: ["4.x", "5.x"]    # ignore specific versions
+    commit-message:
+      prefix: "chore(deps)"
+      prefix-development: "chore(deps-dev)"
+    target-branch: "develop"         # target branch for PRs
+```
+
+## 🧩 Example for a Multi‑Ecosystem Project
+
+Suppose your project has a Node.js frontend, a Python backend, and uses Docker and GitHub Actions. You can configure multiple update blocks:
+
+```yaml
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/frontend"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "pip"
+    directory: "/backend"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+```
+
+## 🔒 Security Updates vs Version Updates
+
+- **Version updates**: Dependabot checks for newer versions and opens PRs based on your schedule. This must be enabled in the repository settings.
+- **Security updates**: GitHub automatically opens PRs for vulnerable dependencies regardless of schedule. They appear as "security" PRs.
+
+To enable version updates, you must have `dependabot.yml` and ensure the feature is enabled in the repository (Settings → Code security and analysis → Dependabot version updates).
+
+## 🚀 Enabling Dependabot on GitHub
+
+1. Go to your repository on GitHub.
+2. Click **Settings** → **Code security and analysis**.
+3. Under **Dependabot**, enable **Dependabot alerts** and **Dependabot security updates**.
+4. For version updates, you need the `dependabot.yml` file; GitHub will automatically pick it up.
+
+## 💡 Tips & Best Practices
+
+- **Start with `open-pull-requests-limit`** to avoid flooding your PR list.
+- **Use `labels` and `reviewers`** to automate assignment.
+- For monorepos, set multiple update blocks pointing to different subdirectories.
+- **Combine with GitHub Actions** – Dependabot PRs can trigger your CI workflows to test the updates.
+- **Ignore major updates** if you're not ready, using the `ignore` option.
+- **Monitor Dependabot logs**: GitHub provides logs under **Insights** → **Dependency graph** → **Dependabot**.
+
+## 📚 Official Documentation
+
+For a full reference, see [GitHub Dependabot documentation](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file).
+
+---
+
+Would you like me to create a `dependabot.yml` tailored specifically to your project stack (Node.js, Python, Docker, GitHub Actions)? Just tell me the folders and ecosystems!
