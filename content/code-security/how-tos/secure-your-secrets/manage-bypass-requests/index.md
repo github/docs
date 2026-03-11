@@ -1,6 +1,6 @@
 ---
 title: How-tos for bypass requests
-shortTitle: Bypass requests
+shortTitle: Manage bypass requests
 intro: Learn how to use the delegated bypass feature.
 versions:
   fpt: '*'
@@ -15,4 +15,3 @@ children:
   - /managing-requests-to-bypass-push-protection
   - /reviewing-requests-to-bypass-push-protection
 ---
-

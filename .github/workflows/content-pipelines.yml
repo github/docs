@@ -181,7 +181,7 @@ jobs:
               --body "$PR_BODY" \
               --base main \
               --head "$UPDATE_BRANCH" \
-              --label "workflow-generated,content-pipeline-update,ready-for-doc-review"
+              --label "workflow-generated,content-pipeline-update,ready-for-doc-review,skip FR board"
           fi
 
       - uses: ./.github/actions/slack-alert

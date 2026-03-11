@@ -135,13 +135,14 @@ export async function getMetadata(req: ExtendedRequestWithPageInfo) {
   // So by the time we get here, the pathname should be one of the
   // page's valid permalinks.
   const { page, pathname, archived } = req.pageinfo
+  const documentType = page?.documentType ?? null
 
   if (archived && archived.isArchived) {
     const { requestedVersion } = archived
     const title = `GitHub Enterprise Server ${requestedVersion} Help Documentation`
     const intro = ''
     const product = 'GitHub Enterprise Server'
-    return { meta: { intro, title, product } }
+    return { meta: { intro, title, product, documentType } }
   }
 
   if (!page) {
@@ -156,5 +157,5 @@ export async function getMetadata(req: ExtendedRequestWithPageInfo) {
   const fromCache = await getPageInfoFromCache(page, pathname)
   const { cacheInfo, ...meta } = fromCache
 
-  return { meta, cacheInfo }
+  return { meta: { ...meta, documentType }, cacheInfo }
 }

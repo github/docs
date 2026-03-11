@@ -19,7 +19,7 @@ export const ViewMarkdownButton = ({ currentPath }: ViewMarkdownButtonProps) => 
   const handleClick = () => {
     sendEvent({
       type: EventType.link,
-      link_url: markdownUrl,
+      link_url: `${window.location.origin}${markdownUrl}`,
       link_samesite: false,
       link_container: 'view-markdown-button',
     })
