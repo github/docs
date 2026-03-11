@@ -21,7 +21,9 @@ The {% data variables.product.prodname_copilot %} integration in Jira allows you
 ## Prerequisites
 
 * You must have a {% data variables.product.github %} account with access to {% data variables.product.prodname_copilot_short %} through {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, or {% data variables.copilot.copilot_enterprise_short %}.
-* You must have a Jira Cloud account with [AI features enabled](https://support.atlassian.com/organization-administration/docs/activate-atlassian-intelligence-for-products).
+* You must have a Jira Cloud account with the following AI features enabled for your organization:
+    * **Jira must be an AI-enabled app** and Rovo must be activated. See [Activate AI for apps](https://support.atlassian.com/organization-administration/docs/activate-atlassian-intelligence-for-products) in the Atlassian documentation.
+    * **Beta AI features** must be turned on. See [Control access to beta AI features](https://support.atlassian.com/organization-administration/docs/control-access-to-beta-ai-features/) in the Atlassian documentation.<!-- markdownlint-disable-line GHD046 -->
 * Installation and authentication must be completed for both Jira and {% data variables.product.github %}.
 
 ## Installation
@@ -77,8 +79,16 @@ The first time you use {% data variables.copilot.copilot_coding_agent %} in Jira
 
 Only users with **write** access to a repository can trigger {% data variables.copilot.copilot_coding_agent %} to work in that repository.
 
+You can trigger {% data variables.copilot.copilot_coding_agent %} in three ways:
+
+* **Assign** {% data variables.product.prodname_copilot %} to a work item using the Assignee field.
+* **Mention** `@{% data variables.product.prodname_copilot %}` in a comment on a work item.
+* **Add {% data variables.product.prodname_copilot_short %} to a workflow transition** so it is triggered automatically when a work item moves to a specific status. See [Collaborate on work items with AI agents](https://support.atlassian.com/jira-software-cloud/docs/collaborate-on-work-items-with-ai-agents/#Add-an-agent-to-workflow-transitions) for setup instructions.
+
 > [!NOTE]
 > When you assign {% data variables.product.prodname_copilot_short %} to a Jira work item, the context the agent captures from Jira will be added to the pull request and **visible to everyone** if the repository is public.
+
+### Example: Triggering {% data variables.copilot.copilot_coding_agent %} from a Jira work item
 
 1. In Jira, open or create a work item that contains clear requirements you want to delegate to {% data variables.copilot.copilot_coding_agent %}.
 1. To specify a repository you want {% data variables.product.prodname_copilot_short %} to work in, mention it in the work item description or in a comment.
@@ -108,6 +118,13 @@ For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-c
 ## Troubleshooting
 
 If you run into problems, try the following solutions.
+
+### You can't see the {% data variables.copilot.copilot_coding_agent %} and it is not possible to assign it to a Jira work item
+
+In Jira, check your Atlassian Administration settings for your organization are set as follows.
+
+1. Jira is an AI-enabled app, see [Activate AI for apps](https://support.atlassian.com/organization-administration/docs/activate-atlassian-intelligence-for-products) in the Atlassian documentation.
+1. Beta AI features are enabled, see [Control access to beta AI features](https://support.atlassian.com/organization-administration/docs/control-access-to-beta-ai-features/) in the Atlassian documentation.<!-- markdownlint-disable-line GHD046 -->
 
 ### You can see the {% data variables.copilot.copilot_coding_agent %} but it is not possible to assign it to a Jira work item
 
