@@ -99,7 +99,15 @@ pages:
   about_versions: About versions
   permissions_callout_title: Who can use this feature?
   video_from_transcript: See video for this transcript
-  view_page_as_markdown: View page as Markdown
+  copy_as_markdown: Copy as Markdown
+  copy_as_markdown_desc: Use with any LLM
+  view_as_markdown: View as Markdown
+  view_as_markdown_desc: Open page in another tab
+  ask_copilot: Ask Copilot
+  ask_copilot_desc: Open directly in Copilot Chat
+  more_markdown_options: More Markdown options
+  opens_in_new_tab: (opens in new tab)
+  copied: Copied!
 support:
   still_need_help: Still need help?
   contact_support: Contact support
