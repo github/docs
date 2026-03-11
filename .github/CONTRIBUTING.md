@@ -120,3 +120,78 @@ This site can be developed on Windows, however a few potential gotchas need to b
 4. Filename too long error: There is a 260 character limit for a filename when Git is compiled with `msys`. While the suggestions below are not guaranteed to work and could cause other issues, a few workarounds include:
     - Update Git configuration: `git config --system core.longpaths true`
     - Consider using a different Git client on Windows
+//+------------------------------------------------------------------+
+//|                                                       Calc.mqh   |
+//|                                                                  |
+//|                    KnitPkg for MetaTrader — Demo                 |
+//|                                                                  |
+//|                          MIT License                             |
+//|                    Copyright (c) 2025 Douglas Rechia             |
+//|                                                                  |
+//|  Common technical analysis functions built on @douglasrechia/bar.|
+//|  Provides lightweight implementations of SMA, ATR, and other     |
+//|  indicators for use in KnitPkg packages and MetaTrader projects. |
+//|                                                                  |
+//|  DISCLAIMER:                                                     |
+//|  This code is provided AS-IS for educational purposes only.      |
+//|  No warranty is given. The author assumes no liability for any   |
+//|  damages or legal consequences arising from its use.             |
+//|                                                                  |
+//+------------------------------------------------------------------+
+
+//------------------------------------------------------------------
+// Development autocomplete — resolves dependencies and enables
+// MetaEditor IntelliSense; automatically neutralized by KnitPkg 
+// installer.
+// Run `kp autocomplete` to regenerate.
+//------------------------------------------------------------------
+#include "../../../autocomplete/autocomplete.mqh"
+
+
+//------------------------------------------------------------------
+// KnitPkg include directives — used by KnitPkg installer at the time 
+// this package is installed as a dependency into another KnitPkg 
+// project.
+//------------------------------------------------------------------
+/* @knitpkg:include "douglasrechia/bar/TimeSeries.mqh" */
+/* @knitpkg:include "douglasrechia/bar/Bar.mqh" */
+
+namespace douglasrechia
+{
+//+------------------------------------------------------------------+
+//| Simple Moving Average                                            |
+//+------------------------------------------------------------------+
+double SMA(douglasrechia::ITimeSeries<double> &series, int period, int shift = 0)
+  {
+   if(series.Size() < (period + shift))
+      return 0.0;
+
+   double sum = 0.0;
+   for(int i = shift; i < shift + period; i++)
+      sum += series.ValueAtShift(i);
+
+   return sum / period;
+  }
+
+//+------------------------------------------------------------------+
+//| Average True Range                                               |
+//+------------------------------------------------------------------+
+double ATR(douglasrechia::IBar &bar, int period, int shift = 0)
+  {
+   if(bar.Size() < (period + shift + 1))
+      return 0.0;
+
+   double sum = 0.0;
+   for(int i = shift; i < shift + period; i++)
+     {
+      double tr = MathMax(bar.High(i) - bar.Low(i),
+                          MathMax(MathAbs(bar.High(i) - bar.Close(i+1)),
+                                  MathAbs(bar.Low(i)  - bar.Close(i+1))));
+      sum += tr;
+     }
+
+   return sum / period;
+  }
+
+}
+//+------------------------------------------------------------------+
