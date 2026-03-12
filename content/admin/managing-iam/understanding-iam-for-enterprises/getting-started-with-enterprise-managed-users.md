@@ -26,15 +26,17 @@ The setup process for the environments is similar. However, you will need to **p
 
 ## Create the setup user
 
-After we create your enterprise, you will receive an email inviting you to choose a password for the setup user, which is used to configure authentication and provisioning. The username is your enterprise's shortcode (chosen by you or randomly generated), suffixed with `_admin`. For example: `fabrikam_admin`.
+After we create your enterprise, you will receive an email inviting you to choose a password for the setup user, which is used to configure authentication and provisioning. This is the first enterprise owner account, and the only user account in the enterprise that is not SCIM-provisioned. The username is your enterprise's shortcode (chosen by you or randomly generated), suffixed with `_admin`. For example: `fabrikam_admin`.
 
 Using an **incognito or private browsing window**:
 
 1. Set the user's password.
-1. Enable two-factor authentication (2FA), and save the recovery codes. See [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
+1. Enable two-factor authentication (2FA) for the setup user account, and save the recovery codes. See [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
 
    > [!WARNING]
-   > All subsequent login attempts for the setup user account will require a successful 2FA challenge response.
+   > All subsequent login attempts to the setup user account will require a successful 2FA challenge response.
+1. Download the enterprise recovery codes. See [AUTOTITLE](/admin/managing-iam/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes).
+
 {% data reusables.enterprise-accounts.emu-recommend-password-manager %}
 
 {% data reusables.enterprise-accounts.about-setup-user %}
