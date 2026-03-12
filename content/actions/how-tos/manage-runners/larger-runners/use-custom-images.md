@@ -159,3 +159,11 @@ Once your custom image is ready, you can install it on a new {% data variables.a
     ```
 
 1. Run your workflow to verify that it completes successfully. The job logs will show the image name and version in the "Set up job" section.
+
+## Security best practices for custom images
+
+To prevent unauthorized changes to your images, follow these best practices.
+
+* **Use dedicated runner groups for image generation.** Runners that generate production images must remain in a dedicated runner group. Do not share runner groups between production and development or test repositories, as anyone with access to a development or test repository could inject malicious code into a production image.
+* **Do not allow public repositories to access image-generation runners.** Limit the repositories that can use image-generation runners to only those that require it, and review access regularly.
+* **Apply least privilege to repositories.** Avoid granting organization-wide `write` access for repositories that have access to image-generation runners. Because images can be generated from any branch, anyone with write access could create a branch with arbitrary code and trigger image generation.
