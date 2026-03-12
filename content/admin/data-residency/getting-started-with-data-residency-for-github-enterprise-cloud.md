@@ -47,8 +47,9 @@ To get started with {% data variables.enterprise.data_residency_short %}, you wi
 1. Select **Get started with managed users**.
 1. Under "Data hosting", use the dropdown menu to select your region for {% data variables.enterprise.data_residency_short %}.
 1. Complete the signup form. Pay close attention to the following fields:
-
    * **Subdomain**: This will appear in your enterprise's dedicated domain. For example: `{% data variables.enterprise.data_residency_example_domain %}`.
+      > [!NOTE]
+      > Please select the subdomain carefully. You cannot change it later.
    * **Identity Provider**: {% data variables.product.github %} partners with certain identity providers to provide a "paved-path" experience. Check whether your identity provider is a partner and ensure you understand the requirements for other systems. See [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).
    * **Admin work email**: This is where you will receive the invitation to sign in and configure the enterprise for the first time.
 
