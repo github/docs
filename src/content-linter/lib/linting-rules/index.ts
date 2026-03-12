@@ -54,6 +54,7 @@ import { journeyTracksUniqueIds } from './journey-tracks-unique-ids'
 import { frontmatterHeroImage } from './frontmatter-hero-image'
 import { frontmatterIntroLinks } from './frontmatter-intro-links'
 import { frontmatterChildren } from './frontmatter-children'
+import { frontmatterCurlyQuotes } from './frontmatter-curly-quotes'
 import { raiAppCardStructure } from '@/content-linter/lib/linting-rules/rai-app-card-structure'
 
 // Using any type because @github/markdownlint-github doesn't provide TypeScript declarations
@@ -98,6 +99,7 @@ export const gitHubDocsMarkdownlint = {
     imageAltTextExcludeStartWords, // GHD031
     imageAltTextEndPunctuation, // GHD032
     incorrectAltTextLength, // GHD033
+    frontmatterCurlyQuotes, // GHD034
     raiReusableUsage, // GHD035
     imageNoGif, // GHD036
     expiredContent, // GHD038

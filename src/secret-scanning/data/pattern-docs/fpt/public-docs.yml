@@ -2066,7 +2066,7 @@
   supportedSecret: Figma SCIM API Token
   secretType: figma_scim_token
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
@@ -2085,6 +2085,16 @@
 - provider: Firebase
   supportedSecret: Firebase Cloud Messaging Server Key
   secretType: firebase_cloud_messaging_server_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Flickr
+  supportedSecret: Flickr API Key
+  secretType: flickr_api_key
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2702,6 +2712,26 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Langchain
+  supportedSecret: LangSmith License Key
+  secretType: langsmith_license_key
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Langchain
+  supportedSecret: LangSmith SCIM Bearer Token
+  secretType: langsmith_scim_bearer_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false

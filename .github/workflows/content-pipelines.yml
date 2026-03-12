@@ -91,7 +91,6 @@ jobs:
           fi
 
       - name: Run content pipeline update script
-        id: update
         env:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -128,32 +127,31 @@ jobs:
             git push origin "$UPDATE_BRANCH"
           fi
 
+      - name: Read source repo info from config
+        id: source-info
+        env:
+          PIPELINE_ID: ${{ matrix.id }}
+        run: |
+          SOURCE_REPO=$(yq -r ".[\"${PIPELINE_ID}\"].\"source-repo\"" src/content-pipelines/config.yml)
+          SOURCE_PATH=$(yq -r ".[\"${PIPELINE_ID}\"].\"source-path\"" src/content-pipelines/config.yml)
+          echo "source_repo=$SOURCE_REPO" >> "$GITHUB_OUTPUT"
+          echo "source_path=$SOURCE_PATH" >> "$GITHUB_OUTPUT"
+
       - name: Create or update PR
         if: steps.commit.outputs.has_changes == 'true'
         env:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           UPDATE_BRANCH: ${{ steps.branch.outputs.update_branch }}
           PIPELINE_ID: ${{ matrix.id }}
-          COMPARE_URL: ${{ steps.update.outputs.compare_url }}
-          SHORT_RANGE: ${{ steps.update.outputs.short_range }}
+          SOURCE_REPO: ${{ steps.source-info.outputs.source_repo }}
+          SOURCE_PATH: ${{ steps.source-info.outputs.source_path }}
         run: |
           PR_NUMBER="${{ steps.check-pr.outputs.pr_number }}"
           PR_TITLE="docs: update ${PIPELINE_ID} content from source docs"
-          NEW_ITEM="* [\`${SHORT_RANGE}\`](${COMPARE_URL})"
+          SOURCE_LINK="See the [upstream repo](https://github.com/${SOURCE_REPO}/tree/main/${SOURCE_PATH}) for changes that triggered this update."
 
           if [ -n "$PR_NUMBER" ]; then
-            echo "PR #$PR_NUMBER already exists — appending source changes to body"
-
-            EXISTING_BODY=$(gh pr view "$PR_NUMBER" --json body --jq '.body')
-
-            # Append a new bullet before the SOURCE_CHANGES end marker
-            # Uses bash parameter expansion for safe literal string replacement
-            MARKER="<!-- /SOURCE_CHANGES -->"
-            INSERTION="${NEW_ITEM}"$'\n'
-            INSERTION+="${MARKER}"
-            UPDATED_BODY="${EXISTING_BODY/$MARKER/$INSERTION}"
-
-            gh pr edit "$PR_NUMBER" --body "$UPDATED_BODY"
+            echo "PR #$PR_NUMBER already exists"
 
             echo "Ensuring PR #$PR_NUMBER is marked ready for review"
             gh pr ready "$PR_NUMBER" || echo "Unable to mark PR #$PR_NUMBER as ready (it may already be ready)"
@@ -166,10 +164,7 @@ jobs:
             PR_BODY+="## What this does"$'\n\n'
             PR_BODY+="Runs the \`content-pipeline-update\` agent (${PIPELINE_ID}) against the latest source docs and updates official articles under \`content/\` that have fallen out of sync."$'\n\n'
             PR_BODY+="## Source changes"$'\n\n'
-            PR_BODY+="Changes in the source repo that triggered this update:"$'\n\n'
-            PR_BODY+="<!-- SOURCE_CHANGES -->"$'\n'
-            PR_BODY+="${NEW_ITEM}"$'\n'
-            PR_BODY+="<!-- /SOURCE_CHANGES -->"$'\n\n'
+            PR_BODY+="${SOURCE_LINK}"$'\n\n'
             PR_BODY+="## Review"$'\n\n'
             PR_BODY+="* Review each commit for accuracy — the agent uses AI, so spot-check important changes"$'\n'
             PR_BODY+="* To adjust agent behavior, see [Modifying results](${{ github.server_url }}/${{ github.repository }}/blob/main/src/content-pipelines/README.md#modifying-results)"$'\n'
@@ -181,7 +176,7 @@ jobs:
               --body "$PR_BODY" \
               --base main \
               --head "$UPDATE_BRANCH" \
-              --label "workflow-generated,content-pipeline-update,ready-for-doc-review"
+              --label "workflow-generated,content-pipeline-update,ready-for-doc-review,skip FR board"
           fi
 
       - uses: ./.github/actions/slack-alert

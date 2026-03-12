@@ -1,6 +1,6 @@
 ---
 title: About GitHub Campus Experts
-intro: 'Enrich your college’s technical community by becoming a {% data variables.product.prodname_student_leader_program_singular %}.'
+intro: "Enrich your college's technical community by becoming a {% data variables.product.prodname_student_leader_program_singular %}."
 redirect_from:
   - /education/teach-and-learn-with-github-education/about-campus-experts
   - /github/teaching-and-learning-with-github-education/about-campus-experts

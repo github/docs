@@ -123,7 +123,7 @@ describe('REST transformer', () => {
     expect(res.statusCode).toBe(200)
 
     // Check for API version header in curl example
-    expect(res.body).toContain('-H "X-GitHub-Api-Version: 2022-11-28"')
+    expect(res.body).toContain('-H "X-GitHub-Api-Version: 2026-03-10"')
   })
 
   test('Code examples include specified API version', async () => {
@@ -233,7 +233,7 @@ describe('REST transformer', () => {
 
     expect(res.statusCode).toBe(200)
     // Should include the default API version header
-    expect(res.body).toContain('-H "X-GitHub-Api-Version: 2022-11-28"')
+    expect(res.body).toContain('-H "X-GitHub-Api-Version: 2026-03-10"')
   })
 
   test('Multiple operations on a page are all rendered', async () => {

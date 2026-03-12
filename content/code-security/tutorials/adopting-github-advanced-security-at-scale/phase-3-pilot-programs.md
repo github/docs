@@ -86,7 +86,7 @@ Next, enable push protection for each pilot project.
 
 If you plan to configure a link to a resource in the message that's displayed when a developer attempts to push a blocked secret, now would be a good time to test and start to refine the guidance that you plan to make available.
 
-Start to review activity using the push protection metrics page in security overview. For more information, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection).
+Start to review activity using the push protection metrics page in security overview. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/push-protection-metrics).
 
 If you have collated any custom patterns specific to your enterprise, especially any related to the projects piloting {% data variables.product.prodname_secret_scanning %}, you can configure those. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).
 

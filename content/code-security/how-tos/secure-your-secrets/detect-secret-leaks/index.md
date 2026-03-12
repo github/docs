@@ -1,6 +1,6 @@
 ---
 title: How-tos for detecting secret leaks
-shortTitle: Leak detection
+shortTitle: Detect secret leaks
 intro: Learn how to use {% data variables.product.github %}'s tools to detect secret leaks.
 versions:
   fpt: '*'

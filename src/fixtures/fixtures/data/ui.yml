@@ -9,6 +9,7 @@ header:
       ' is currently available as a <a href="/admin/overview/about-upgrades-to-new-releases">release candidate</a>.'
     early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about a private preview feature.
     release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
+    machine_translation: Some of this page may have been machine-translated or translated using AI.
     # GHES release notes
     ghes_release_notes_upgrade_patch_only: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.
     ghes_release_notes_upgrade_release_only: 📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
@@ -98,7 +99,15 @@ pages:
   about_versions: About versions
   permissions_callout_title: Who can use this feature?
   video_from_transcript: See video for this transcript
-  view_page_as_markdown: View page as Markdown
+  copy_as_markdown: Copy as Markdown
+  copy_as_markdown_desc: Use with any LLM
+  view_as_markdown: View as Markdown
+  view_as_markdown_desc: Open page in another tab
+  ask_copilot: Ask Copilot
+  ask_copilot_desc: Open directly in Copilot Chat
+  more_markdown_options: More Markdown options
+  opens_in_new_tab: (opens in new tab)
+  copied: Copied!
 support:
   still_need_help: Still need help?
   contact_support: Contact support

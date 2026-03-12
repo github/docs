@@ -1,6 +1,6 @@
 ---
 title: Enabling delegated bypass for push protection
-intro: You can use delegated bypass for your organization or repository to control who can push commits that contain secrets identified by {% data variables.product.prodname_secret_scanning %}.
+intro: Control who can push code containing secrets by requiring bypass approval from designated reviewers.
 permissions: '{% data reusables.permissions.delegated-bypass %}'
 versions:
   fpt: '*'
@@ -17,19 +17,13 @@ redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection
 ---
 
-## About enabling delegated bypass for push protection
-
 {% data reusables.secret-scanning.push-protection-delegate-bypass-beta-note %}
 
-{% data reusables.secret-scanning.push-protection-delegated-bypass-intro %}
+Delegated bypass for push protection lets you define who can push commits containing secrets and adds an approval process for other contributors. See [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection).
 
-For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection).
+To enable delegated bypass, create the teams or roles that will manage bypass requests.{% ifversion push-protection-bypass-fine-grained-permissions %} Alternatively, use fine-grained permissions for more granular control. See [Using fine-grained permissions to control who can review and manage bypass requests](#using-fine-grained-permissions-to-control-who-can-review-and-manage-bypass-requests).{% endif %}
 
-When you enable this feature, you will create a bypass list of roles and teams who can manage requests to bypass push protection. If you don't already have appropriate teams or roles to use, you should create additional teams before you start.
-
-{% ifversion push-protection-bypass-fine-grained-permissions %}Alternatively, you can grant specific organization members the ability to review and manage bypass requests using fine-grained permissions, which give you more refined control over which individuals and teams can approve and deny bypass requests. For more information, see [Using fine-grained permissions to control who can review and manage bypass requests](#using-fine-grained-permissions-to-control-who-can-review-and-manage-bypass-requests).{% endif %}
-
-## Configuring delegated bypass for a repository
+## Enabling delegated bypass for a repository
 
 >[!NOTE] If an organization owner configures delegated bypass at the organization-level, the repository-level settings are disabled.
 
@@ -48,7 +42,7 @@ When you enable this feature, you will create a bypass list of roles and teams w
 
 1. In the dialog box, select the roles and teams that you want to add to the bypass list, then click **Add selected**.
 
-## Configuring delegated bypass for an organization
+## Enabling delegated bypass for an organization
 
 {% ifversion push-protection-delegated-bypass-configurations %}
 
@@ -125,7 +119,7 @@ When you apply the configuration, delegated bypass settings are enforced for the
 
 You can grant specific individuals or teams in your organization the ability to review and manage bypass requests using fine-grained permissions.
 
-1. Ensure that delegated bypass is enabled for the organization. For more information, follow steps 1-3 in [Configuring delegated bypass for your organization](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection#configuring-delegated-bypass-for-an-organization) and ensure you have saved and applied the security configuration to your selected repositories.
+1. Ensure that delegated bypass is enabled for the organization. For more information, follow steps 1-3 in [Enabling delegated bypass for your organization](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection#enabling-delegated-bypass-for-an-organization) and ensure you have saved and applied the security configuration to your selected repositories.
 1. Create (or edit) a custom organization role. For information on creating and editing custom roles, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-organization-roles#creating-a-custom-role).
 1. When choosing which permissions to add to the custom role, select the "Review and manage {% data variables.product.prodname_secret_scanning %} bypass requests" permission.
 1. Assign the custom role to individual members or teams in your organization. For more information on assigning custom roles, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles#assigning-an-organization-role).

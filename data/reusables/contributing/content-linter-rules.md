@@ -44,6 +44,7 @@
 | GHD031 | image-alt-text-exclude-words | Alternate text for images should not begin with words like "image" or "graphic" | error | accessibility, images |
 | GHD032 | image-alt-text-end-punctuation | Alternate text for images should end with punctuation | error | accessibility, images |
 | GHD033 | incorrect-alt-text-length | Images alternate text should be between 40-150 characters | error | accessibility, images |
+| GHD034 | frontmatter-curly-quotes | Frontmatter title and intro should not contain curly quotes | error | frontmatter, format |
 | GHD035 | rai-reusable-usage | RAI articles and reusables can only reference reusable content in the data/reusables/rai directory | error | feature, rai |
 | GHD036 | image-no-gif | Image must not be a gif, styleguide reference: contributing/style-guide-and-content-model/style-guide.md#images | error | images |
 | GHD038 | expired-content | Expired content must be remediated. | warning | expired |

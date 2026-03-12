@@ -1,6 +1,5 @@
 import { describe, expect, test, vi, beforeEach, afterEach } from 'vitest'
 import { mkdtemp, mkdir, writeFile, readFile, rm } from 'fs/promises'
-import { existsSync } from 'fs'
 import path from 'path'
 import os from 'os'
 
@@ -258,7 +257,7 @@ No breaking changes.`,
     expect(output).toContain(`{% ifversion ghes = ${release} %}`)
   })
 
-  test('skips release directories with no changelog file', async () => {
+  test('injects hardcoded initial version when no changelog file exists', async () => {
     const githubDir = path.join(tmpDir, 'github')
     // Only create a changelog for fpt, not ghec or ghes
     await createChangelog(
@@ -275,10 +274,14 @@ No breaking changes.`,
 
     const output = await readFile(outputPath, 'utf-8')
     expect(output).toContain('{% ifversion fpt %}')
-    expect(output).not.toContain('{% ifversion ghec %}')
+    // ghec gets the hardcoded initial version even without a changelog file
+    expect(output).toContain('{% ifversion ghec %}')
+    expect(output).toContain(
+      'first version of the GitHub Enterprise Cloud REST API after date-based versioning',
+    )
   })
 
-  test('skips changelog files with no version sections', async () => {
+  test('injects hardcoded initial version when changelog has no version sections', async () => {
     const githubDir = path.join(tmpDir, 'github')
 
     // fpt has valid sections
@@ -292,7 +295,7 @@ No breaking changes.`,
 Content.`,
     )
 
-    // ghec has a changelog but no version sections
+    // ghec has a changelog but no version sections — still gets the hardcoded initial version
     await createChangelog(
       githubDir,
       'ghec',
@@ -305,16 +308,55 @@ This file has no version headings yet.`,
 
     const output = await readFile(outputPath, 'utf-8')
     expect(output).toContain('{% ifversion fpt %}')
-    expect(output).not.toContain('{% ifversion ghec %}')
+    expect(output).toContain('{% ifversion ghec %}')
+    expect(output).toContain(
+      'first version of the GitHub Enterprise Cloud REST API after date-based versioning',
+    )
   })
 
-  test('does not write output when no changelogs are found', async () => {
+  test('writes hardcoded initial versions even when no changelog files exist', async () => {
     const githubDir = path.join(tmpDir, 'github')
     await mkdir(githubDir, { recursive: true })
 
     await syncChangelogs(githubDir, versionNames, outputPath)
 
-    expect(existsSync(outputPath)).toBe(false)
+    // fpt and ghec get hardcoded initial version entries even with no changelog files
+    const output = await readFile(outputPath, 'utf-8')
+    expect(output).toContain('{% ifversion fpt %}')
+    expect(output).toContain('{% ifversion ghec %}')
+    expect(output).toContain(
+      'first version of the GitHub Free, Pro & Team REST API after date-based versioning',
+    )
+    expect(output).toContain(
+      'first version of the GitHub Enterprise Cloud REST API after date-based versioning',
+    )
+  })
+
+  test('does not duplicate initial version when changelog already includes it', async () => {
+    const githubDir = path.join(tmpDir, 'github')
+
+    await createChangelog(
+      githubDir,
+      'api.github.com',
+      `# Breaking Changes
+
+## Version 2026-03-10
+
+- **Breaking change**
+
+## Version 2022-11-28
+
+No breaking changes.`,
+    )
+
+    await syncChangelogs(githubDir, versionNames, outputPath)
+
+    const output = await readFile(outputPath, 'utf-8')
+
+    // Extract only the fpt ifversion block to avoid counting the hardcoded ghec entry
+    const fptMatch = output.match(/\{%\s*ifversion fpt\s*%\}([\s\S]*?)\{%\s*ifversion /)?.[1] ?? ''
+    const matches = fptMatch.match(/## Version 2022-11-28/g)
+    expect(matches).toHaveLength(1)
   })
 
   test('combines multiple release changelogs into a single output', async () => {
