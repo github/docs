@@ -11,6 +11,8 @@ redirect_from:
   - /github/administering-a-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks
   - /repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks
 shortTitle: Required status checks
+category:
+  - Merge and close pull requests
 ---
 If you have a check and a status with the same name, and you select that name as a required status check, both the check and the status are required. For more information, see [AUTOTITLE](/rest/checks).
 

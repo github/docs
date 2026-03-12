@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Deleted or changes visibility
+category:
+  - Work with forks
 ---
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 

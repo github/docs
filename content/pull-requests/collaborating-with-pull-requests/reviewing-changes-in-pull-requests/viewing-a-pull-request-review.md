@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: View a PR review
+category:
+  - Review pull requests
 ---
 {% data reusables.search.requested_reviews_search %}
 
