@@ -12,6 +12,8 @@ versions:
   ghec: '*'
 type: how_to
 shortTitle: Manage GitHub Actions settings
+category:
+  - Manage access and repository policies
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

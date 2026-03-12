@@ -10,6 +10,8 @@ product: '{% data reusables.gated-features.merge-queue %}'
 shortTitle: Managing merge queue
 redirect_from:
   - /repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/using-a-merge-queue
+category:
+  - Configure merges and pull requests
 ---
 
 ## About merge queues

@@ -10,6 +10,8 @@ contentType: other
 redirect_from:
   - /account-and-profile/concepts/personal-repository-access-and-collaboration
   - /account-and-profile/concepts/access-to-repositories
+category:
+  - Manage access and repository policies
 ---
 
 ## About collaboration in a personal repository

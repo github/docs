@@ -21,6 +21,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Large files
+category:
+  - Store large files with Git LFS
 ---
 
 ## About size limits on {% data variables.product.github %}

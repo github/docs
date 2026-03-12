@@ -12,6 +12,8 @@ redirect_from:
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories
 shortTitle: Ownership continuity
 contentType: other
+category:
+  - Manage access and repository policies
 ---
 
 ## Inviting a successor

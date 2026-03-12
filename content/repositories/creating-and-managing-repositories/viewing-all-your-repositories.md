@@ -8,6 +8,8 @@ versions:
   ghes: '>=3.22'
 shortTitle: View all repositories
 type: how_to
+category:
+  - Manage, move, and archive a repository
 ---
 
 ## Viewing repositories

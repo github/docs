@@ -30,6 +30,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Working with non-code files
+category:
+  - Work with files
 ---
 
 ## Rendering and diffing images

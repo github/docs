@@ -15,6 +15,8 @@ versions:
   ghec: '*'
 type: how_to
 shortTitle: Security & analysis
+category:
+  - Manage access and repository policies
 ---
 
 {% ifversion dependabot-alerts-enterprise-enablement %}

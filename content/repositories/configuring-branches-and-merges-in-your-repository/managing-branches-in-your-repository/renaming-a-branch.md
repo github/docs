@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /github/administering-a-repository/renaming-a-branch
   - /github/administering-a-repository/managing-branches-in-your-repository/renaming-a-branch
+category:
+  - Manage branches and protect code
 ---
 ## About renaming branches
 

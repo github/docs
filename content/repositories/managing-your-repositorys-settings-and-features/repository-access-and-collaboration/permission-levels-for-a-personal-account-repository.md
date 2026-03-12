@@ -15,6 +15,8 @@ versions:
   ghec: '*'
 shortTitle: Repository permissions
 contentType: other
+category:
+  - Manage access and repository policies
 ---
 
 > [!TIP]
