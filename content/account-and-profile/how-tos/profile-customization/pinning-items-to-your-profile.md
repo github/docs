@@ -14,6 +14,8 @@ versions:
   ghec: '*'
 shortTitle: Pin items
 contentType: how-tos
+category:
+  - Customize your profile
 ---
 
 ## Pinning items to your profile

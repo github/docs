@@ -15,6 +15,8 @@ versions:
   ghes: '<3.21'
 shortTitle: Convert your account
 contentType: how-tos
+category:
+  - Change or close your account
 ---
 
 ## Prerequisites

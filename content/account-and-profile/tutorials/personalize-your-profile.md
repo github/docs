@@ -18,6 +18,8 @@ versions:
   ghec: '*'
 shortTitle: Personalize your profile
 contentType: tutorials
+category:
+  - Customize your profile
 ---
 
 > [!NOTE]
