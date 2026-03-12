@@ -6,6 +6,8 @@ versions:
   ghes: '>= 3.21'
   ghec: '*'
 shortTitle: Move work to organization
+category:
+  - Change or close your account
 ---
 
 ## Keeping your username for the organization

@@ -69,7 +69,7 @@ You can upgrade or downgrade your {% data variables.product.prodname_copilot_sho
 
 You can cancel your {% data variables.product.prodname_copilot_short %} plan or trial at any time. You’ll retain access to your current features until your billing cycle ends. You will automatically be downgraded to {% data variables.copilot.copilot_free_short %} at the end of your billing cycle.
 
-If you have been granted a free access to {% data variables.copilot.copilot_pro_short %} as a verified student, teacher, or maintainer of a popular open source project, you won’t be able to cancel your plan. If you have access to {% data variables.product.prodname_copilot_short %} through an organization{% ifversion ghec %} or enterprise{% endif %}, you will not be able to cancel your plan. In these cases, you can disable {% data variables.product.prodname_copilot_short %} in your environment. See [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment).
+If you have been granted a free access to {% data variables.product.prodname_copilot_short %} as a verified student, teacher, or maintainer of a popular open source project, you won’t be able to cancel your plan. If you have access to {% data variables.product.prodname_copilot_short %} through an organization{% ifversion ghec %} or enterprise{% endif %}, you will not be able to cancel your plan. In these cases, you can disable {% data variables.product.prodname_copilot_short %} in your environment. See [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment).
 
 {% data reusables.copilot.copilot-one-account-short %}
 

@@ -12,6 +12,8 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
 shortTitle: Review dependency changes
+category:
+  - Review pull requests
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review {% data variables.release-phases.public_preview %}" and "Reviewing dependency changes in a pull request".-->
 

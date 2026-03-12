@@ -6,6 +6,7 @@ import { loadTemplate } from '@/article-api/lib/load-template'
 import { summarizeSchema } from '@/article-api/lib/summarize-schema'
 import matter from '@gr2m/gray-matter'
 import { fastTextOnly } from '@/content-render/unified/text-only'
+import GithubSlugger from 'github-slugger'
 
 const DEBUG = process.env.RUNNER_DEBUG === '1' || process.env.DEBUG === '1'
 
@@ -133,6 +134,30 @@ export class RestTransformer implements PageTransformer {
     const preparedOperations = await Promise.all(
       operations.map(async (operation) => await this.prepareOperation(operation)),
     )
+
+    // Deduplicate identical response schemas across operations on the same page.
+    // When multiple endpoints share the same schema, render it once and reference it.
+    const slugger = new GithubSlugger()
+    const titleToSlug = new Map<string, string>()
+    for (const op of preparedOperations) {
+      titleToSlug.set(op.title, slugger.slug(op.title))
+    }
+    const schemaMap = new Map<string, string>()
+    for (const op of preparedOperations) {
+      if (!op.codeExamples) continue
+      for (const example of op.codeExamples as any[]) {
+        const schema = example.response?.schema
+        if (!schema || typeof schema !== 'string') continue
+
+        const existing = schemaMap.get(schema)
+        if (existing && existing !== op.title) {
+          const slug = titleToSlug.get(existing) || ''
+          example.response.schema = `Same response schema as [${existing}](#${slug}).`
+        } else if (!existing) {
+          schemaMap.set(schema, op.title)
+        }
+      }
+    }
 
     return {
       page: {

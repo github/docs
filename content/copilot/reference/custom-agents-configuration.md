@@ -120,14 +120,14 @@ For compatibility, the `stdio` type used by Claude Code and {% data variables.pr
 
 Both the repository-level MCP JSON configuration and the {% data variables.copilot.copilot_custom_agent_short %} YAML configuration support the following syntax patterns:
 
-* `COPILOT_MCP_ENV_VAR_VALUE` - Environment variable only (not recommended due to header differences)
 * `$COPILOT_MCP_ENV_VAR_VALUE` - Environment variable and header
 * `${COPILOT_MCP_ENV_VAR_VALUE}` - Environment variable and header (Claude Code syntax)
+* `${COPILOT_MCP_ENV_VAR_VALUE:-default}` - Environment variable and header with default
 
 The {% data variables.copilot.copilot_custom_agent_short %} YAML configuration supports the following additional syntax patterns:
 
 * `{% raw %}${{ secrets.COPILOT_MCP_ENV_VAR_VALUE }}{% endraw %}` - Environment variable and header
-* `{% raw %}${{ var.COPILOT_MCP_ENV_VAR_VALUE }}{% endraw %}` - Environment variable and header
+* `{% raw %}${{ vars.COPILOT_MCP_ENV_VAR_VALUE }}{% endraw %}` - Environment variable and header
 
 ## Example {% data variables.copilot.agent_profile %} configurations
 
@@ -158,5 +158,4 @@ For MCP server configurations, there is a specific processing order that ensures
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli)
-* [AUTOTITLE](/copilot/reference/cli-command-reference#custom-agents-reference)
-
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#custom-agents-reference)

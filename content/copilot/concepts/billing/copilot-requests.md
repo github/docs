@@ -35,6 +35,8 @@ Some {% data variables.product.prodname_copilot_short %} features use more advan
 
 The following {% data variables.product.prodname_copilot_short %} features can use premium requests.
 
+{% rowheaders %}
+
 | Feature | Premium request consumption | SKU Attribution |
 | ------- | ----------- | ----------- |
 | [{% data variables.copilot.copilot_chat_short %}](/copilot/using-github-copilot/copilot-chat) | {% data variables.copilot.copilot_chat_short %} uses **one premium request** per user prompt, multiplied by the model's rate. This includes ask, edit, agent, and plan modes in {% data variables.copilot.copilot_chat_short %} in an IDE. | {% data variables.product.prodname_copilot_short %} premium requests |
@@ -46,6 +48,8 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 | [{% data variables.product.prodname_openai_codex %} {% data variables.product.prodname_vscode %} integration](/copilot/concepts/agents/openai-codex) | While in preview, each prompt to {% data variables.product.prodname_openai_codex %} uses **one premium request** multiplied by the model multiplier rates. | {% data variables.product.prodname_copilot_short %} premium requests |
 | [Third-party coding agents](/free-pro-team@latest/copilot/concepts/agents/about-third-party-agents) | While in preview, each prompt to a third-party coding agent uses **one premium request**. | {% data variables.product.prodname_copilot_short %} premium requests |
 
+{% endrowheaders %}
+
 
 > [!TIP]
 > For instructions on viewing how many premium requests you have used and advice on how to optimize usage, see [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/monitor-premium-requests).
@@ -54,9 +58,9 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 
 If you use **{% data variables.copilot.copilot_free_short %}**, your plan comes with up to 2,000 inline suggestion requests and up to 50 premium requests per month. All chat interactions count as premium requests.
 
-If you're on a **paid plan**, you get unlimited inline suggestions and unlimited chat interactions using the included models ({% data variables.copilot.copilot_gpt_5_mini %}, {% data variables.copilot.copilot_gpt_41 %} and {% data variables.copilot.copilot_gpt_4o %}). Rate limiting is in place to accommodate for high demand. See [AUTOTITLE](/copilot/concepts/rate-limits).
+If you're on a **paid plan** or **{% data variables.copilot.copilot_student_short %}**, you get unlimited inline suggestions and unlimited chat interactions using the included models ({% data variables.copilot.copilot_gpt_5_mini %}, {% data variables.copilot.copilot_gpt_41 %} and {% data variables.copilot.copilot_gpt_4o %}). Rate limiting is in place to accommodate for high demand. See [AUTOTITLE](/copilot/concepts/rate-limits).
 
-Paid plans also receive a monthly allowance of premium requests, which can be used for advanced chat interactions, inline suggestions using premium models, and other premium features. For an overview of the amount of premium requests included in each plan, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
+Paid plans and {% data variables.copilot.copilot_student_short %} also receive a monthly allowance of premium requests, which can be used for advanced chat interactions, inline suggestions using premium models, and other premium features. For an overview of the amount of premium requests included in each plan, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
 
 {% data reusables.copilot.premium-request-entity-selection %}
 

@@ -15,6 +15,8 @@ versions:
   ghec: '*'
 shortTitle: Show or hide membership
 contentType: how-tos
+category:
+  - Participate in organizations
 ---
 
 {% data reusables.profile.access_org %}

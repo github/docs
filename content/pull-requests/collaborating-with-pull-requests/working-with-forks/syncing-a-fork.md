@@ -16,6 +16,8 @@ versions:
   ghes: '*'
   ghec: '*'
 permissions: People with write access for a forked repository can sync the fork to the upstream repository.
+category:
+  - Work with forks
 ---
 
 ## Syncing a fork branch from the web UI

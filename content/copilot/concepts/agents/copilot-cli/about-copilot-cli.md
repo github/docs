@@ -240,7 +240,7 @@ The `--deny-tool` and `--allow-tool` options require one of the following argume
 
 * `'shell(COMMAND)'`
 
-  For example, `copilot --deny-tool 'shell(rm)'` prevents {% data variables.product.prodname_copilot_short %} from using any `rm` command.
+  For example, `copilot --deny-tool='shell(rm)'` prevents {% data variables.product.prodname_copilot_short %} from using any `rm` command.
 
   For `git` and `gh` commands, you can specify a particular first-level subcommand to allow or deny. For example:
 
@@ -311,7 +311,7 @@ Each time you submit a prompt to {% data variables.product.prodname_copilot_shor
 
 ACP (the Agent Client Protocol) is an open standard for interacting with AI agents. It allows you to use {% data variables.copilot.copilot_cli_short %} as an agent in any third-party tools, IDEs, or automation systems that support this protocol.
 
-For more information, see [AUTOTITLE](/copilot/reference/acp-server).
+For more information, see [AUTOTITLE](/copilot/reference/copilot-cli-reference/acp-server).
 
 {% data reusables.cli.feedback %}
 

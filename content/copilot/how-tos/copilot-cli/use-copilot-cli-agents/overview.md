@@ -299,5 +299,5 @@ You can work with agents in {% data variables.copilot.copilot_cli_short %} to su
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli/cli-best-practices)
-* [AUTOTITLE](/copilot/reference/cli-command-reference)
-* [AUTOTITLE](/copilot/reference/acp-server)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/acp-server)

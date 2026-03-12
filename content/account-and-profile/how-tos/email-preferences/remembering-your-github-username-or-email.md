@@ -16,6 +16,8 @@ versions:
   ghec: '*'
 shortTitle: Find your username or email
 contentType: how-tos
+category:
+  - Manage your email
 ---
 
 

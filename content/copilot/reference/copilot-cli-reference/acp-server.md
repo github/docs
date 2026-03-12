@@ -8,6 +8,8 @@ category:
   - Configure Copilot # Copilot discovery page
   - Configure Copilot CLI # Copilot CLI bespoke page
 contentType: reference
+redirect_from:
+  - /copilot/reference/acp-server
 ---
 
 > [!NOTE]

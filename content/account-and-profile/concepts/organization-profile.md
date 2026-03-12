@@ -15,6 +15,8 @@ versions:
   ghec: '*'
 shortTitle: Organization profile
 contentType: concepts
+category:
+  - Participate in organizations
 ---
 
 You can customize your organization's profile by adding any of the following:

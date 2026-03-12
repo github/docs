@@ -7,6 +7,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Create pull requests
 ---
 
 You can use query parameters to open pull requests. Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results or a pull request template on {% data variables.product.prodname_dotcom %}. To create your own query parameters, you must match the key and value pair. For more information on creating pull request templates, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository).

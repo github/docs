@@ -41,7 +41,6 @@ For more information, see [`lib/frontmatter.ts`](https://github.com/github/docs/
 * [`includeGuides`](#includeguides)
 * [`journeyTracks`](#journeytracks)
 * [`type`](#type)
-* [`topics`](#topics)
 * [`communityRedirect`](#communityredirect)
 * [`effectiveDate`](#effectivedate)
 
@@ -346,4 +345,4 @@ To create a product guides page (e.g. [{% data variables.product.prodname_action
 * Define which articles to include with [`includeGuides`](#includeguides). Optional.
 
 If using learning tracks, they need to be defined in [`data/learning-tracks/*.yml`](https://github.com/github/docs/tree/main/data/learning-tracks).
-If using `includeGuides`, make sure each of the articles in this list has [`topics`](#topics) and [`type`](#type) in its frontmatter.
+If using `includeGuides`, make sure each of the articles in this list has [`type`](#type) in its frontmatter.

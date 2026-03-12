@@ -4,6 +4,9 @@
 
 {{ manualContent }}
 
+> [!NOTE]
+> Most endpoints use `Authorization: Bearer <YOUR-TOKEN>` and `Accept: application/vnd.github+json` headers{% if apiVersion %}, plus `X-GitHub-Api-Version: {{ apiVersion }}`{% endif %}. Curl examples below omit these standard headers for brevity.
+
 {% for operation in restOperations %}
 
 ## {{ operation.title }}
@@ -81,13 +84,8 @@
 ```curl
 curl -L \
   -X {{ operation.verb | upcase }} \
-  {{ example.request.url }} \
-{%- if example.request.acceptHeader %}
-  -H "Accept: {{ example.request.acceptHeader }}" \
-{%- endif %}
-  -H "Authorization: Bearer <YOUR-TOKEN>"{% if apiVersion %} \
-  -H "X-GitHub-Api-Version: {{ apiVersion }}"{% endif -%}
-{%- if example.request.bodyParameters %} \
+  {{ example.request.url }}{% if example.request.acceptHeader and example.request.acceptHeader != 'application/vnd.github+json' and example.request.acceptHeader != 'application/vnd.github.v3+json' %} \
+  -H "Accept: {{ example.request.acceptHeader }}"{% endif %}{% if example.request.bodyParameters %} \
   -d '{{ example.request.bodyParameters }}'{% endif %}
 ```
 

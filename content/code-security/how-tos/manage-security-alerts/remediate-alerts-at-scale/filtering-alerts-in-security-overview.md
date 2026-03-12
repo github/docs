@@ -52,7 +52,7 @@ All security views have features to help you define filters. These provide an ea
 
 ## Applying simple filters
 
-1. In security overview, select the view of your choice on the left navigation panel. For instructions about how to access security overview, see [Accessing security overview for your organization](#accessing-ecurity-overview-for-your-organization) or [Accessing security overview for your enterprise](#accessing-ecurity-overview-for-your-enterprise).
+1. In security overview, select the view of your choice on the left navigation panel. For instructions about how to access security overview, see [Accessing security overview for your organization](#accessing-security-overview-for-your-organization) or [Accessing security overview for your enterprise](#accessing-security-overview-for-your-enterprise).
 1. Click in the box adjacent to the **{% octicon "filter" aria-hidden="true" aria-label="filter" %} Filter** control. If there is text in the box, delete it. A popup shows available filters for the current view.
 1. Select a filter and a value for the filter.
 1. Press <kbd>Enter</kbd>.

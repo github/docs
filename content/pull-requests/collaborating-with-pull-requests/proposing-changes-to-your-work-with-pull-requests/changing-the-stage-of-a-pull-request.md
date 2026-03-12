@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Change the state
+category:
+  - Create pull requests
 ---
 ## Marking a pull request as ready for review
 

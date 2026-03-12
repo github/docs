@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Change the base branch
+category:
+  - Create pull requests
 ---
 
 > [!WARNING]
