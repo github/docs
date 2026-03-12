@@ -27,7 +27,6 @@ See the [contributing docs](https://docs.github.com/en/contributing) for general
   - [`includeGuides`](#includeguides)
   - [`journeyTracks`](#journeytracks)
   - [`type`](#type)
-  - [`topics`](#topics)
   - [`communityRedirect`](#communityRedirect)
   - [`effectiveDate`](#effectiveDate)
   - [Escaping single quotes](#escaping-single-quotes)
@@ -443,4 +442,4 @@ To create a product guides page (e.g. [Actions' Guide page](https://docs.github.
 1. (optional) Define which articles to include with [`includeGuides`](#includeGuides).
 
 If using learning tracks, they need to be defined in [`data/learning-tracks/*.yml`](../data/learning-tracks/README.md).
-If using `includeGuides`, make sure each of the articles in this list has [`topics`](#topics) and [`type`](#type) in its frontmatter.
+If using `includeGuides`, make sure each of the articles in this list has [`type`](#type) in its frontmatter.

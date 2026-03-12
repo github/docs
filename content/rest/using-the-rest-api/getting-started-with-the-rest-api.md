@@ -177,7 +177,7 @@ Body parameters allow you to pass additional data to the API. These parameters c
 
 For example, the ["Create an issue" endpoint](/rest/issues/issues#create-an-issue) requires that you specify a title for the new issue in your request. It also allows you to optionally specify other information, such as text to put in the issue body, users to assign to the new issue, or labels to apply to the new issue. For an example of a request that uses body parameters, see [Making a request](#making-a-request).
 
-You must authenticate your request to pass body parameters. For more information, see [Authenticating](#authenticating).
+You must authenticate your request to pass body parameters. For more information, see [Authentication](#authentication).
 
 #### Query parameters
 

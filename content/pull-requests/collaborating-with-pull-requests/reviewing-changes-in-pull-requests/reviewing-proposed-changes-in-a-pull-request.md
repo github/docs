@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Review proposed changes
+category:
+  - Review pull requests
 ---
 ## About reviewing pull requests
 

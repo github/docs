@@ -44,4 +44,4 @@ Press <kbd>Esc</kbd> to exit the task list and return to the main CLI prompt.
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/reference/cli-command-reference#slash-commands-in-the-interactive-interface)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#slash-commands-in-the-interactive-interface)

@@ -136,5 +136,5 @@ Each {% data variables.copilot.copilot_custom_agent_short %} is defined by a Mar
 
 * [AUTOTITLE](/copilot/concepts/agents/copilot-cli/comparing-cli-features)
 * [AUTOTITLE](/copilot/reference/custom-agents-configuration)
-* [AUTOTITLE](/copilot/reference/cli-command-reference#custom-agents-reference)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#custom-agents-reference)
 * [AUTOTITLE](/copilot/tutorials/customization-library/custom-agents)—a curated collection of examples

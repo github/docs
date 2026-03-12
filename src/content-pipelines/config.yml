@@ -20,9 +20,9 @@ copilot-cli:
   source-repo: github/copilot-agent-runtime
   source-path: docs/cli
   target-articles:
-    - content/copilot/reference/cli-command-reference.md
-    - content/copilot/reference/cli-plugin-reference.md
-    - content/copilot/reference/acp-server.md
+    - content/copilot/reference/copilot-cli-reference/cli-command-reference.md
+    - content/copilot/reference/copilot-cli-reference/cli-plugin-reference.md
+    - content/copilot/reference/copilot-cli-reference/acp-server.md
   exclusions: []
   content-mapping: |
     cli-plugin-reference.md covers only plugin-specific content.

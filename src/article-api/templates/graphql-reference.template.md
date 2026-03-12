@@ -4,6 +4,14 @@
 
 {{ manualContent }}
 
+{% if connectionEdgeSummary %}
+## Connection and Edge types
+
+Connection types with only the standard pagination fields (`edges`, `nodes`, `pageInfo`, `totalCount`) and Edge types with only `cursor` and `node` are summarized here. Connection and Edge types with additional fields are documented individually below.
+
+{% for name in connectionEdgeSummary %}`{{ name }}`{% unless forloop.last %}, {% endunless %}{% endfor %}
+
+{% endif %}
 {% for item in items %}
 
 ## {{ item.name }}
@@ -17,15 +25,13 @@
 {% endif %}
 
 {% if pageType == 'queries' %}
-**Type:** [{{ item.type }}]({{ item.href }})
+**Type:** {{ item.type }}
 
 {% if item.args.size > 0 %}
 
 ### Arguments for `{{ item.name }}`
 
-| Name | Type | Description |
-| --- | --- | --- |
-{% for arg in item.args %}| `{{ arg.name }}` | [`{{ arg.type }}`]({{ arg.href }}) | {{ arg.description }} |
+{% for arg in item.args %}* `{{ arg.name }}` ({{ arg.type }}): {{ arg.description }}
 {% endfor %}
 {% endif %}
 
@@ -34,9 +40,7 @@
 
 ### Input fields for `{{ item.name }}`
 
-| Name | Type | Description |
-| --- | --- | --- |
-{% for field in item.inputFields %}| `{{ field.name }}` | [`{{ field.type }}`]({{ field.href }}) | {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %} |
+{% for field in item.inputFields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %}
 {% endfor %}
 {% endif %}
 
@@ -44,28 +48,23 @@
 
 ### Return fields for `{{ item.name }}`
 
-| Name | Type | Description |
-| --- | --- | --- |
-{% for field in item.returnFields %}| `{{ field.name }}` | [`{{ field.type }}`]({{ field.href }}) | {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %} |
+{% for field in item.returnFields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %}
 {% endfor %}
 {% endif %}
 
 {% elsif pageType == 'objects' %}
 {% if item.implements.size > 0 %}
+**Implements:** {% for impl in item.implements %}{{ impl.name }}{% unless forloop.last %}, {% endunless %}{% endfor %}
 
-### Implements
-
-{% for impl in item.implements %}- [`{{ impl.name }}`]({{ impl.href }})
-{% endfor %}
 {% endif %}
 
 {% if item.fields.size > 0 %}
 
 ### Fields for `{{ item.name }}`
 
-| Name | Type | Description |
-| --- | --- | --- |
-{% for field in item.fields %}| `{{ field.name }}` | [`{{ field.type }}`]({{ field.href }}) | {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %}{% if field.arguments.size > 0 %}<br><br>**Arguments:**<br>{% for arg in field.arguments %}- `{{ arg.name }}` ([`{{ arg.type.name }}`]({{ arg.type.href }})): {{ arg.description }}{% if arg.defaultValue %} Default: `{{ arg.defaultValue }}`.{% endif %}<br>{% endfor %}{% endif %} |
+{% for field in item.fields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %}{% if field.arguments.size > 0 %}
+{% for arg in field.arguments %}  * `{{ arg.name }}` ({{ arg.type.name }}): {{ arg.description }}{% if arg.defaultValue %} Default: `{{ arg.defaultValue }}`.{% endif %}
+{% endfor %}{% endif %}
 {% endfor %}
 {% endif %}
 
@@ -74,9 +73,9 @@
 
 ### Fields for `{{ item.name }}`
 
-| Name | Type | Description |
-| --- | --- | --- |
-{% for field in item.fields %}| `{{ field.name }}` | [`{{ field.type }}`]({{ field.href }}) | {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %}{% if field.arguments.size > 0 %}<br><br>**Arguments:**<br>{% for arg in field.arguments %}- `{{ arg.name }}` ([`{{ arg.type.name }}`]({{ arg.type.href }})): {{ arg.description }}{% if arg.defaultValue %} Default: `{{ arg.defaultValue }}`.{% endif %}<br>{% endfor %}{% endif %} |
+{% for field in item.fields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %}{% if field.arguments.size > 0 %}
+{% for arg in field.arguments %}  * `{{ arg.name }}` ({{ arg.type.name }}): {{ arg.description }}{% if arg.defaultValue %} Default: `{{ arg.defaultValue }}`.{% endif %}
+{% endfor %}{% endif %}
 {% endfor %}
 {% endif %}
 
@@ -85,10 +84,7 @@
 
 ### Values for `{{ item.name }}`
 
-{% for value in item.values %}**`{{ value.name }}`**
-
-{{ value.description }}
-
+{% for value in item.values %}* `{{ value.name }}`: {{ value.description }}
 {% endfor %}
 {% endif %}
 
@@ -97,7 +93,7 @@
 
 ### Possible types for `{{ item.name }}`
 
-{% for type in item.possibleTypes %}- [`{{ type.name }}`]({{ type.href }})
+{% for type in item.possibleTypes %}* {{ type.name }}
 {% endfor %}
 {% endif %}
 
@@ -106,9 +102,7 @@
 
 ### Input fields for `{{ item.name }}`
 
-| Name | Type | Description |
-| --- | --- | --- |
-{% for field in item.inputFields %}| `{{ field.name }}` | [`{{ field.type }}`]({{ field.href }}) | {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %} |
+{% for field in item.inputFields %}* `{{ field.name }}` ({{ field.type }}): {{ field.description }}{% if field.defaultValue %} Default: `{{ field.defaultValue }}`.{% endif %}{% if field.isDeprecated %} **Deprecated:** {{ field.deprecationReason }}{% endif %}
 {% endfor %}
 {% endif %}
 

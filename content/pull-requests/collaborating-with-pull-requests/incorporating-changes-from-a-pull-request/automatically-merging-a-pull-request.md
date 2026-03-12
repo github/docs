@@ -11,6 +11,8 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request
 shortTitle: Merge PR automatically
+category:
+  - Merge and close pull requests
 ---
 ## About auto-merge
 

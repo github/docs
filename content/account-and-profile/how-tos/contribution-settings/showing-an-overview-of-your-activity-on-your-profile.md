@@ -14,6 +14,8 @@ versions:
   ghec: '*'
 shortTitle: Show an overview
 contentType: how-tos
+category:
+  - Track your contributions
 ---
 
 ## Managing the visibility of the activity overview on your profile

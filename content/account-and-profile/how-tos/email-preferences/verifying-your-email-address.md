@@ -15,6 +15,8 @@ versions:
   ghec: '*'
 shortTitle: Verify your email address
 contentType: how-tos
+category:
+  - Manage your email
 ---
 
 ## Verifying your email address

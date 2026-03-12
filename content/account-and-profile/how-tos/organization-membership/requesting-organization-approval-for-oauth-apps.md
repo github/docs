@@ -16,6 +16,8 @@ versions:
 permissions: Organization members can request owner approval for {% data variables.product.prodname_oauth_apps %}. Outside collaborators can request owner approval for {% data variables.product.prodname_oauth_apps %} if integration access requests are enabled. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests).
 shortTitle: Request {% data variables.product.prodname_oauth_app %} approval
 contentType: how-tos
+category:
+  - Participate in organizations
 ---
 
 ## Prerequisites

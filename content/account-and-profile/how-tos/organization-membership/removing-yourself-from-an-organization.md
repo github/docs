@@ -15,6 +15,8 @@ versions:
   ghec: '*'
 shortTitle: Leave an organization
 contentType: how-tos
+category:
+  - Participate in organizations
 ---
 {% ifversion fpt or ghec %}
 

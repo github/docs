@@ -11,6 +11,8 @@ redirect_from:
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
 defaultTool: webui
 product: '{% data reusables.gated-features.merge-queue %}'
+category:
+  - Merge and close pull requests
 ---
 
 ## About merge queues

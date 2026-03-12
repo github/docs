@@ -16,6 +16,8 @@ versions:
   ghec: '*'
 shortTitle: View contributions
 contentType: how-tos
+category:
+  - Track your contributions
 ---
 
 ## Prerequisites

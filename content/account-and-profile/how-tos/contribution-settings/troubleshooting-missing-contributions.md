@@ -15,6 +15,8 @@ versions:
   ghec: '*'
 shortTitle: Troubleshoot missing contributions
 contentType: how-tos
+category:
+  - Track your contributions
 ---
 
 ## Commit was made less than 24 hours ago

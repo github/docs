@@ -8,6 +8,8 @@ category:
   - Author and optimize with Copilot # Copilot discovery page
   - Configure Copilot CLI # Copilot CLI bespoke page
 contentType: reference
+redirect_from:
+  - /copilot/reference/cli-plugin-reference
 ---
 
 {% data reusables.copilot.cli-help-note %}
@@ -205,3 +207,9 @@ The following diagram illustrates the loading order and precedence rules.
   │  4. --additional-mcp-config flag     (highest priority)             │
   └─────────────────────────────────────────────────────────────────────┘
 ```
+
+## Further reading
+
+* [AUTOTITLE](/copilot/how-tos/copilot-cli)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-programmatic-reference)

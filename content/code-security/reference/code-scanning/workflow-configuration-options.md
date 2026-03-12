@@ -294,7 +294,7 @@ In the example below, `scope` is the organization or personal account that publi
 > [!NOTE]
 > If you specify a particular version of a query pack to use, beware that the version you specify may eventually become too old to be used efficiently by the default {% data variables.product.prodname_codeql %} engine used by the {% data variables.product.prodname_codeql %} action. To ensure optimal performance, if you need to specify exact query pack versions, you should consider reviewing periodically whether the pinned version of the query pack needs to be moved forward.
 >
-> For more information about pack compatibility, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility).
+> For more information about pack compatibility, see [AUTOTITLE](/code-security/reference/code-scanning/codeql/codeql-cli/codeql-query-packs#codeql-pack-compatibility).
 
 ### Downloading {% data variables.product.prodname_codeql %} packs from {% data variables.product.prodname_ghe_server %}
 

@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 permissions: People with admin access for a forked repository can delete the forked repository.
+category:
+  - Work with forks
 ---
 
 {% ifversion ghes > 3.16 %}

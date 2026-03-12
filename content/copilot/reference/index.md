@@ -10,12 +10,10 @@ children:
   - /ai-models
   - /copilot-feature-matrix
   - /keyboard-shortcuts
-  - /cli-command-reference
-  - /cli-plugin-reference
+  - /copilot-cli-reference
   - /custom-agents-configuration
-  - /acp-server
-  - /hooks-configuration
   - /custom-instructions-support
+  - /hooks-configuration
   - /policy-conflicts
   - /copilot-allowlist-reference
   - /mcp-allowlist-enforcement
