@@ -232,7 +232,7 @@ To leave feedback about the {% data variables.copilot.copilot_chat %} extension,
 ## Further reading
 
 * [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
-* [Using {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/copilot-chat) and [Getting started with {% data variables.copilot.copilot_chat %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/getting-started-chat) in the {% data variables.product.prodname_vscode %} documentation
+* [Using {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/copilot-chat) and [Getting started with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/getting-started) in the {% data variables.product.prodname_vscode %} documentation
 * [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)
 * [AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
