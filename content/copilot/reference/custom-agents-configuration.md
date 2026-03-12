@@ -158,5 +158,4 @@ For MCP server configurations, there is a specific processing order that ensures
 ## Further reading
 
 * [AUTOTITLE](/copilot/how-tos/copilot-cli)
-* [AUTOTITLE](/copilot/reference/cli-command-reference#custom-agents-reference)
-
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-command-reference#custom-agents-reference)

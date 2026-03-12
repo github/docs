@@ -20,10 +20,10 @@ children:
   - /cli-getting-started
   - /cli-best-practices
   - /set-up-copilot-cli
+  - /automate-copilot-cli
   - /customize-copilot
   - /use-copilot-cli-agents
   - /administer-copilot-cli-for-your-enterprise
-  - /automate-with-actions
   - /speeding-up-task-completion
   - /content/copilot/concepts/agents/copilot-cli/about-copilot-cli
   - /content/copilot/concepts/agents/copilot-cli/comparing-cli-features
@@ -33,26 +33,30 @@ children:
   - /content/copilot/concepts/agents/copilot-cli/research
   - /set-up-copilot-cli/install-copilot-cli
   - /set-up-copilot-cli/configure-copilot-cli
+  - /automate-copilot-cli/quickstart
+  - /automate-copilot-cli/automate-with-actions
+  - /automate-copilot-cli/run-cli-programmatically
   - /customize-copilot/add-custom-instructions
   - /customize-copilot/create-custom-agents-for-cli
   - /customize-copilot/create-skills
   - /customize-copilot/plugins-creating
   - /customize-copilot/plugins-finding-installing
   - /customize-copilot/plugins-marketplace
-  - /customize-copilot/quickstart-for-customizing
+  - /customize-copilot/overview
   - /customize-copilot/use-hooks
   - /content/copilot/concepts/agents/about-agent-skills
-  - /content/copilot/reference/cli-command-reference
+  - /content/copilot/reference/copilot-cli-reference/cli-command-reference
+  - /content/copilot/reference/copilot-cli-reference/cli-plugin-reference
+  - /content/copilot/reference/copilot-cli-reference/cli-programmatic-reference
+  - /content/copilot/reference/copilot-cli-reference/acp-server
   - /content/copilot/reference/hooks-configuration
-  - /content/copilot/reference/cli-plugin-reference
-  - /content/copilot/reference/acp-server
   - /content/copilot/tutorials/copilot-cli-hooks
   - /content/copilot/responsible-use/copilot-cli
 carousels:
   recommended:
     - /copilot/how-tos/copilot-cli/use-copilot-cli-agents/overview
     - /copilot/how-tos/copilot-cli/cli-best-practices
-    - /copilot/reference/cli-command-reference
+    - /copilot/reference/copilot-cli-reference/cli-command-reference
 includedCategories:
   - Quickstarts
   - Learn about Copilot CLI
@@ -60,4 +64,3 @@ includedCategories:
   - Build with Copilot CLI
   - Administer Copilot CLI
 ---
-

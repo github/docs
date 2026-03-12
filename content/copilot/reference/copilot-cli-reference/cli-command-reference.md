@@ -8,6 +8,8 @@ category:
   - Author and optimize with Copilot # Copilot discovery page
   - Build with Copilot CLI # Copilot CLI bespoke landing page
 contentType: reference
+redirect_from:
+  - /copilot/reference/cli-command-reference
 ---
 
 ## Command-line commands
@@ -112,39 +114,39 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | Option                             | Purpose                                  |
 |------------------------------------|------------------------------------------|
 | `--acp`                            | Start the Agent Client Protocol server.  |
-| `--add-dir PATH`            | Add a directory to the allowed list for file access (can be used multiple times). |
-| `--add-github-mcp-tool TOOL`       | Add a tool to enable for the {% data variables.product.github %} MCP server, instead of the default CLI subset (can be used multiple times). Use `*` for all tools. |
-| `--add-github-mcp-toolset TOOLSET` | Add a toolset to enable for the {% data variables.product.github %} MCP server, instead of the default CLI subset (can be used multiple times). Use `all` for all toolsets. |
-| `--additional-mcp-config JSON`     | Add an MCP server for this session only. The server configuration can be supplied as a JSON string or a file path (prefix with `@`). Augments the configuration from `~/.copilot/mcp-config.json`. Overrides any installed MCP server configuration with the same name. |
-| `--agent AGENT`                    | Specify a {% data variables.copilot.copilot_custom_agent_short %} to use. |
+| `--add-dir=PATH`                   | Add a directory to the allowed list for file access (can be used multiple times). |
+| `--add-github-mcp-tool=TOOL`       | Add a tool to enable for the {% data variables.product.github %} MCP server, instead of the default CLI subset (can be used multiple times). Use `*` for all tools. |
+| `--add-github-mcp-toolset=TOOLSET` | Add a toolset to enable for the {% data variables.product.github %} MCP server, instead of the default CLI subset (can be used multiple times). Use `all` for all toolsets. |
+| `--additional-mcp-config=JSON`     | Add an MCP server for this session only. The server configuration can be supplied as a JSON string or a file path (prefix with `@`). Augments the configuration from `~/.copilot/mcp-config.json`. Overrides any installed MCP server configuration with the same name. |
+| `--agent=AGENT`                    | Specify a {% data variables.copilot.copilot_custom_agent_short %} to use. |
 | `--allow-all`                      | Enable all permissions (equivalent to `--allow-all-tools --allow-all-paths --allow-all-urls`). |
 | `--allow-all-paths`                | Disable file path verification and allow access to any path. |
 | `--allow-all-tools`                | Allow all tools to run automatically without confirmation. Required when using the CLI programmatically (env: `COPILOT_ALLOW_ALL`). |
 | `--allow-all-urls`                 | Allow access to all URLs without confirmation. |
 | `--allow-tool=TOOL ...`            | Tools the CLI has permission to use. Will not prompt for permission. For multiple tools, use a quoted, comma-separated list. |
 | `--allow-url=URL ...`              | Allow access to specific URLs or domains. For multiple URLs, use a quoted, comma-separated list. |
-| `--alt-screen [VALUE]`             | Use the terminal alternate screen buffer (`on` or `off`). |
+| `--alt-screen=VALUE`             | Use the terminal alternate screen buffer (`on` or `off`). |
 | `--autopilot`                      | Enable autopilot continuation in prompt mode. See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot). |
 | `--available-tools=TOOL ...`       | Only these tools will be available to the model. For multiple tools, use a quoted, comma-separated list. |
 | `--banner`                         | Show the startup banner. |
 | `--bash-env`                       | Enable `BASH_ENV` support for bash shells. |
-| `--config-dir PATH`         | Set the configuration directory (default: `~/.copilot`). |
+| `--config-dir=PATH`         | Set the configuration directory (default: `~/.copilot`). |
 | `--continue`                       | Resume the most recent session. |
 | `--deny-tool=TOOL ...`             | Tools the CLI does not have permission to use. Will not prompt for permission. For multiple tools, use a quoted, comma-separated list. |
 | `--deny-url=URL ...`               | Deny access to specific URLs or domains, takes precedence over `--allow-url`. For multiple URLs, use a quoted, comma-separated list. |
 | `--disable-builtin-mcps`           | Disable all built-in MCP servers (currently: `github-mcp-server`). |
-| `--disable-mcp-server SERVER-NAME` | Disable a specific MCP server (can be used multiple times). |
+| `--disable-mcp-server=SERVER-NAME` | Disable a specific MCP server (can be used multiple times). |
 | `--disable-parallel-tools-execution` | Disable parallel execution of tools (LLM can still make parallel tool calls, but they will be executed sequentially). |
 | `--disallow-temp-dir`              | Prevent automatic access to the system temporary directory. |
 | `--enable-all-github-mcp-tools`    | Enable all {% data variables.product.github %} MCP server tools, instead of the default CLI subset. Overrides the `--add-github-mcp-toolset` and `--add-github-mcp-tool` options. |
 | `--excluded-tools=TOOL ...`        | These tools will not be available to the model. For multiple tools, use a quoted, comma-separated list. |
 | `--experimental`                   | Enable experimental features (use `--no-experimental` to disable). |
 | `-h`, `--help`                     | Display help. |
-| `-i PROMPT`, `--interactive PROMPT`  | Start an interactive session and automatically execute this prompt. |
-| `--log-dir DIRECTORY`              | Set the log file directory (default: `~/.copilot/logs/`). |
-| `--log-level LEVEL`                | Set the log level (choices: `none`, `error`, `warning`, `info`, `debug`, `all`, `default`). |
-| `--max-autopilot-continues COUNT`  | Maximum number of continuation messages in autopilot mode (default: unlimited). See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot). |
-| `--model MODEL`                    | Set the AI model you want to use. |
+| `-i PROMPT`, `--interactive=PROMPT`  | Start an interactive session and automatically execute this prompt. |
+| `--log-dir=DIRECTORY`              | Set the log file directory (default: `~/.copilot/logs/`). |
+| `--log-level=LEVEL`                | Set the log level (choices: `none`, `error`, `warning`, `info`, `debug`, `all`, `default`). |
+| `--max-autopilot-continues=COUNT`  | Maximum number of continuation messages in autopilot mode (default: unlimited). See [AUTOTITLE](/copilot/concepts/agents/copilot-cli/autopilot). |
+| `--model=MODEL`                    | Set the AI model you want to use. |
 | `--no-alt-screen`                  | Disable the terminal alternate screen buffer. |
 | `--no-ask-user`                    | Disable the `ask_user` tool (the agent works autonomously without asking questions). |
 | `--no-auto-update`                 | Disable downloading CLI updates automatically. |
@@ -152,15 +154,16 @@ For a complete list of available slash commands enter `/help` in the CLI's inter
 | `--no-color`                       | Disable all color output. |
 | `--no-custom-instructions`         | Disable loading of custom instructions from `AGENTS.md` and related files. |
 | `--no-experimental`                | Disable experimental features. |
-| `--output-format FORMAT`           | FORMAT can be `text` (default) or `json` (outputs JSONL: one JSON object per line). |
-| `-p PROMPT`, `--prompt PROMPT`     | Execute a prompt programmatically (exits after completion). |
+| `--output-format=FORMAT`           | FORMAT can be `text` (default) or `json` (outputs JSONL: one JSON object per line). |
+| `-p PROMPT`, `--prompt=PROMPT`     | Execute a prompt programmatically (exits after completion). |
 | `--plain-diff`                     | Disable rich diff rendering (syntax highlighting via the diff tool specified by your git config). |
-| `--resume[=SESSION-ID]`            | Resume a previous interactive session by choosing from a list (optionally specify a session ID). |
+| `--resume=SESSION-ID`              | Resume a previous interactive session by choosing from a list (optionally specify a session ID). |
 | `-s`, `--silent`                   | Output only the agent response (without usage statistics), useful for scripting with `-p`. |
 | `--screen-reader`                  | Enable screen reader optimizations. |
-| `--share[=PATH]`                   | Share a session to a Markdown file after completion of a programmatic session (default path: `./copilot-session-<ID>.md`). |
+| `--secret-env-vars=VAR ...`        | An environment variable whose value you want redacted in output. For multiple variables, use a quoted, comma-separated list. The values in the `GITHUB_TOKEN` and `COPILOT_GITHUB_TOKEN` environment variables are redacted by default. |
+| `--share=PATH`                     | Share a session to a Markdown file after completion of a programmatic session (default path: `./copilot-session-<ID>.md`). |
 | `--share-gist`                     | Share a session to a secret {% data variables.product.github %} gist after completion of a programmatic session. |
-| `--stream MODE`                    | Enable or disable streaming mode (mode choices: `on` or `off`). |
+| `--stream=MODE`                    | Enable or disable streaming mode (mode choices: `on` or `off`). |
 | `-v`, `--version`                  | Show version information. |
 | `--yolo`                           | Enable all permissions (equivalent to `--allow-all`). |
 
@@ -261,7 +264,7 @@ Repository settings apply to everyone who works in the repository. Only a subset
 | `companyAnnouncements` | `string[]` | Replaced—repository takes precedence | Messages shown randomly on startup. |
 | `enabledPlugins` | `Record<string, boolean>` | Merged—repository overrides user for same key | Declarative plugin auto-install. |
 | `extraKnownMarketplaces` | `Record<string, {...}>` | Merged—repository overrides user for same key | Plugin marketplaces available in this repository. |
-| `marketplaces` | `Record<string, {...}>` | Merged—repository overrides user for same key | Plugin marketplaces (deprecated—use `extraKnownMarketplaces`). | <!-- markdownlint-disable-line GHD046 --> 
+| `marketplaces` | `Record<string, {...}>` | Merged—repository overrides user for same key | Plugin marketplaces (deprecated—use `extraKnownMarketplaces`). | <!-- markdownlint-disable-line GHD046 -->
 
 ### Local settings (`.github/copilot/settings.local.json`)
 
@@ -709,3 +712,9 @@ When content capture is enabled, the following attributes are populated.
 | `gen_ai.tool.definitions` | Tool schemas (JSON) |
 | `gen_ai.tool.call.arguments` | Tool input arguments |
 | `gen_ai.tool.call.result` | Tool output |
+
+## Further reading
+
+* [AUTOTITLE](/copilot/how-tos/copilot-cli)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-plugin-reference)
+* [AUTOTITLE](/copilot/reference/copilot-cli-reference/cli-programmatic-reference)
