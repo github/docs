@@ -1,4 +1,89 @@
-name: docs-internal Moda CI
+ชื่อ : docs-internal Moda CI
+
+#ข้อมูลเพิ่มเติมเกี่ยวกับการตั้งค่าการดำเนินการ CI สามารถดูได้ที่นี่:
+# https://github.com/github/ops/blob/master/docs/playbooks/build-systems/moving-moda-apps-from-bp-to-actions.md
+
+บน :
+  การส่งเวิร์กโฟลว์ :
+  ดัน :
+    ละเว้นสาขา :
+      - ' gh-readonly-queue/** '
+  กลุ่มผสาน :
+    ประเภท : [ตรวจสอบที่ร้องขอ]
+
+งาน :
+  # #########################
+  #สร้างคีย์ Vault
+  # #########################
+  set-vault-keys :
+    runs-on : ubuntu-latest
+    ผลลัพธ์ :
+      modified_vault_keys : ${{ steps.modify_vault_keys.outputs.modified }}
+    ขั้นตอน :
+      - name : ตั้งค่าเอาต์พุต vault-keys
+        id : modify_vault_keys
+        วิ่ง : |
+          ถ้า [ -z "${{ vars.VAULT_KEYS }}" ]; แล้ว
+            # เราต้องการเพิ่ม DOCS_BOT_PAT_BASE ลงในรายการคีย์
+            # เพื่อให้การสร้างดึงข้อมูลลับจากคลังข้อมูลภายในของเอกสาร
+            # โดยที่ --environment คือ "ci"
+            echo "modified=DOCS_BOT_PAT_BASE" >> $GITHUB_OUTPUT
+          อื่น
+            echo "modified=${{ vars.VAULT_KEYS }},DOCS_BOT_PAT_BASE" >> $GITHUB_OUTPUT
+          ไฟ
+  # ############
+  #งานโมดา
+  # ############
+  ชุดการตั้งค่า moda :
+    ถ้า : ${{ github.repository == 'github/docs-internal' }}
+    ชื่อ : ${{ matrix.ci_job.job }}
+    ต้องใช้ : set-vault-keys
+    กลยุทธ์ :
+      ล้มเหลวอย่างรวดเร็ว : เท็จ
+      เมทริกซ์ :
+        ci_job : [{ 'job': 'docs-internal-moda-config-bundle' }]
+    ใช้ไฟล์ : github/internal-actions/.github/workflows/moda.yml@main
+    กับ :
+      ชื่องานที่จัดรูปแบบตาม ci : ${{ matrix.ci_job.job }}
+      vault-keys : ${{ needs.set-vault-keys.outputs.modified_vault_keys }}
+    ความลับ :
+      dx-bot-token : ${{ secrets.INTERNAL_ACTIONS_DX_BOT_ACCOUNT_TOKEN }}
+      datadog-api-key : ${{ Secrets.DATADOG_API_KEY }}
+
+  # ############
+  #งานเกี่ยวกับอิมเมจ Docker
+  # ############
+  อิมเมจ Docker :
+    ถ้า : ${{ github.repository == 'github/docs-internal' }}
+    ชื่อ : ${{ matrix.ci_job.job }}
+    ต้องใช้ : set-vault-keys
+    กลยุทธ์ :
+      ล้มเหลวอย่างรวดเร็ว : เท็จ
+      เมทริกซ์ :
+        ci_job : [{ 'job': 'docs-internal-docker-image' }]
+    ใช้ไฟล์ : github/internal-actions/.github/workflows/kube.yml@main
+    กับ :
+      ชื่องานที่จัดรูปแบบตาม ci : ${{ matrix.ci_job.job }}
+      vault-keys : ${{ needs.set-vault-keys.outputs.modified_vault_keys }}
+      #ส่งผ่านความลับ 'DOCS_BOT_PAT_BASE' จาก Vault ไปยัง docker โดยใช้ --secret id=DOCS_BOT_PAT_BASE,src=<PAT value>
+      รับรอง : จริง
+      docker-build-env-secrets : ' DOCS_BOT_PAT_BASE '
+    ความลับ :
+      dx-bot-token : ${{ secrets.INTERNAL_ACTIONS_DX_BOT_ACCOUNT_TOKEN }}
+      datadog-api-key : ${{ Secrets.DATADOG_API_KEY }}
+
+  # ############
+  #งานด้านความปลอดภัยของ Docker
+  # ############
+  ความปลอดภัยของ Docker :
+    ถ้า : ${{ github.repository == 'github/docs-internal' }}
+    ชื่อ : ${{ matrix.ci_job.job }}
+    ต้องใช้ : set-vault-keys
+    กลยุทธ์ :
+      ล้มเหลวอย่างรวดเร็ว : เท็จ
+      เมทริกซ์ :
+        ci_job : [{ 'job': 'docs-internal-docker-security' }]
+    ใช้ไฟล์ : github/internal-actions/.github/workflows/name: docs-internal Moda CI
 
 # More info on CI actions setup can be found here:
 # https://github.com/github/ops/blob/master/docs/playbooks/build-systems/moving-moda-apps-from-bp-to-actions.md
