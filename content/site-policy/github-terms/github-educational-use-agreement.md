@@ -15,7 +15,7 @@ If you are entering into this Agreement on behalf of an organization or other le
 
 When you click "I agree", “I accept”, or similar buttons, you accept all the terms and conditions of this Agreement.
 
-As an educational institution, you’d like to allow Qualified Users to use and access GitHub products listed on an Order Form solely for their non-commercial, academic use. GitHub is willing allow such use and access subject to compliance with this Agreement. GitHub and Education Partner are the "Parties", and each a “Party.” The Parties agree as follows:
+As an educational institution, you’d like to allow Qualified Users to use and access GitHub products listed on an Order Form solely for their non-commercial, academic use. GitHub is willing to allow such use and access subject to compliance with this Agreement. GitHub and Education Partner are the "Parties", and each a “Party.” The Parties agree as follows:
 
 ## 1. Definitions
 
