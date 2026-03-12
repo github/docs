@@ -1,13 +1,13 @@
 ---
-title: 'Getting started with {% data variables.product.prodname_emus %}'
+title: Getting started with {% data variables.product.prodname_emus %}
 shortTitle: Get started with managed users
-intro: 'Learn how to create and configure an {% data variables.enterprise.prodname_emu_enterprise %}.'
+intro: Learn how to create and configure an {% data variables.enterprise.prodname_emu_enterprise %}.
 versions:
   ghec: '*'
-type: overview
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users
+contentType: concepts
 ---
 
 Before your developers can use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}, you must follow a series of configuration steps.

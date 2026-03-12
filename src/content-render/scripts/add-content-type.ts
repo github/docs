@@ -19,7 +19,6 @@ const OTHER_TYPE = 'other'
 interface ScriptOptions {
   dryRun?: boolean
   paths?: string[]
-  removeType?: boolean
   verbose?: boolean
 }
 
@@ -29,7 +28,6 @@ program
     '-p, --paths [paths...]',
     'One or more specific paths to process (e.g., copilot or content/copilot/how-tos/file.md)',
   )
-  .option('-r, --remove-type', `Remove the legacy 'type' frontmatter property if present`)
   .option('-d, --dry-run', 'Preview changes without modifying files')
   .option('-v, --verbose', 'Show detailed output of changes made')
   .addHelpText(
@@ -39,10 +37,10 @@ Possible contentType values:
   ${contentTypesEnum.join(', ')}
 
 Examples:
-  npm run-script -- add-content-type // runs on all content files, does not remove legacy 'type' prop
-  npm run-script -- add-content-type --paths copilot actions --remove-type --dry-run
-  npm run-script -- add-content-type --paths content/copilot/how-tos
-  npm run-script -- add-content-type --verbose`,
+  npm run add-content-type // runs on all content files
+  npm run add-content-type -- --paths copilot actions --dry-run
+  npm run add-content-type -- --paths content/copilot/how-tos
+  npm run add-content-type -- --verbose`,
   )
   .parse(process.argv)
 
@@ -99,18 +97,12 @@ function processFile(filePath: string, scriptOptions: ScriptOptions) {
 
   if (!data) return { processed: false, updated: false }
 
-  // Remove the legacy type property if option is passed
-  const removeLegacyType = Boolean(scriptOptions.removeType && data.type)
-
-  const newContentType = determineContentType(relativePath, data.type || '')
+  const newContentType = determineContentType(relativePath)
 
   if (scriptOptions.dryRun) {
     console.log(`\n${relativePath}`)
     if (!data.contentType) {
       console.log(`   ✅  Would set contentType: "${newContentType}"`)
-    }
-    if (removeLegacyType) {
-      console.log(`   ✂️  Would remove legacy type: "${data.type}"`)
     }
     return { processed: true, updated: false }
   }
@@ -135,27 +127,18 @@ function processFile(filePath: string, scriptOptions: ScriptOptions) {
     return { processed: true, updated: false }
   }
 
-  let legacyTypeValue
-  if (removeLegacyType) {
-    legacyTypeValue = data.type
-    delete data.type
-  }
-
   // Write the file back
   fs.writeFileSync(filePath, frontmatter.stringify(content, data, { lineWidth: -1 } as any))
 
   if (scriptOptions.verbose) {
     console.log(`\n${relativePath}`)
     console.log(`   ✅  Set contentType: "${newContentType}"`)
-    if (removeLegacyType) {
-      console.log(`   ✂️  Removed legacy type: "${legacyTypeValue}"`)
-    }
   }
 
   return { processed: true, updated: true }
 }
 
-function determineContentType(relativePath: string, legacyType: string): string {
+function determineContentType(relativePath: string): string {
   // The split path array will be structured like:
   // [ 'copilot', 'how-tos', 'troubleshoot', 'index.md' ]
   // where the content type we want is in slot 1.
@@ -168,9 +151,8 @@ function determineContentType(relativePath: string, legacyType: string): string 
   if (topLevelDirectory === 'index.md') return 'homepage'
 
   // SPECIAL HANDLING FOR RAI
-  // If a legacy type includes 'rai', use it for the contentType.
   // If a directory name includes a responsible-use string, assume the 'rai' type.
-  if (legacyType === 'rai' || derivedContentType.includes(RESPONSIBLE_USE_STRING)) {
+  if (derivedContentType.includes(RESPONSIBLE_USE_STRING)) {
     return RAI_TYPE
   }
 

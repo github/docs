@@ -1,13 +1,13 @@
 ---
 title: Managing your passkeys
-intro: 'You may be prompted to register a passkey during sign-in, or you can choose to register a new passkey in your account settings. For 2FA users, you can upgrade existing eligible security keys into passkeys.'
+intro: You may be prompted to register a passkey during sign-in, or you can choose to register a new passkey in your account settings. For 2FA users, you can upgrade existing eligible security keys into passkeys.
 permissions: '{% ifversion fpt or ghec%}Personal account owners who manage their own credentials{% endif %}'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
 shortTitle: Manage your passkeys
+contentType: how-tos
 ---
 
 {% data reusables.passkeys.ghes-disable %}

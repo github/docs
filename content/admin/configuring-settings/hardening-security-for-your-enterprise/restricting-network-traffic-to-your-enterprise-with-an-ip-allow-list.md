@@ -5,12 +5,12 @@ intro: You can restrict access to your enterprise and only allow access to your 
 permissions: Enterprise owners can configure IP allow lists.
 versions:
   ghec: '*'
-type: how_to
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
   - /admin/configuration/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
+contentType: how-tos
 ---
 
 ## About network traffic restrictions

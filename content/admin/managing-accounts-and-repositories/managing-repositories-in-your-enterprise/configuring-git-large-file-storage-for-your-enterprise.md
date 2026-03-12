@@ -17,8 +17,8 @@ redirect_from:
   - /admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/migrating-to-internal-repositories
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Configure Git LFS
+contentType: how-tos
 ---
 ## About {% data variables.large_files.product_name_long %}
 

@@ -15,8 +15,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: reference
 allowTitleToDifferFromFilename: true
+contentType: reference
 category:
   - Reuse and share automations
 ---

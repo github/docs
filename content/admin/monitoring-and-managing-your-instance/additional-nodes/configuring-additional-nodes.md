@@ -4,7 +4,7 @@ shortTitle: Adding nodes to HA
 intro: 'Add nodes to the primary high availability (HA) datacenter. This is intended to offload CPU-intensive tasks from the primary node, allowing for horizontal scaling of the {% data variables.product.prodname_ghe_server %} instance.'
 versions:
   ghes: '>= 3.18'
-type: how_to
+contentType: how-tos
 topics:
   - High availability
   - Enterprise

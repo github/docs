@@ -1,6 +1,6 @@
 ---
 title: Filtering and searching issues and pull requests
-intro: 'To find detailed information about a repository on {% data variables.product.github %}, you can filter, sort, and search issues and pull requests that are relevant to the repository.'
+intro: To find detailed information about a repository on {% data variables.product.github %}, you can filter, sort, and search issues and pull requests that are relevant to the repository.
 redirect_from:
   - /github/managing-your-work-on-github/finding-information-in-a-repository/filtering-issues-and-pull-requests-by-assignees
   - /articles/filtering-issues-and-pull-requests-by-assignees
@@ -39,7 +39,7 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Filter and search
-type: how_to
+contentType: how-tos
 ---
 
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}

@@ -14,7 +14,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
+contentType: tutorials
 category:
   - Build and test code
 ---

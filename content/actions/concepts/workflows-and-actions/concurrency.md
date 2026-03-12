@@ -1,11 +1,11 @@
 ---
 title: Concurrency
-intro: 'Learn about running workflows and jobs simultaneously.'
+intro: Learn about running workflows and jobs simultaneously.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
+contentType: concepts
 category:
   - Write workflows
 ---

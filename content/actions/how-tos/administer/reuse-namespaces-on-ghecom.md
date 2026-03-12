@@ -1,14 +1,14 @@
 ---
 title: Making retired namespaces available on GHE.com
 shortTitle: Reuse namespaces on GHE.com
-intro: 'Allow people to use namespaces that match actions you have used from {% data variables.product.prodname_dotcom_the_website %}.'
+intro: Allow people to use namespaces that match actions you have used from {% data variables.product.prodname_dotcom_the_website %}.
 versions:
   ghec: '*'
-type: how_to
 permissions: Enterprise owners
 redirect_from:
   - /actions/administering-github-actions/making-retired-namespaces-available-on-ghecom
   - /actions/how-tos/administering-github-actions/making-retired-namespaces-available-on-ghecom
+contentType: how-tos
 category:
   - Administer GitHub Actions
 ---

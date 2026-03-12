@@ -13,7 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
+contentType: tutorials
 category:
   - Deploy to environments
 ---

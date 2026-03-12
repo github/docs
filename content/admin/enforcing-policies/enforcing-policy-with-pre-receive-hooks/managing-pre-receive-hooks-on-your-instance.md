@@ -1,6 +1,6 @@
 ---
 title: Managing pre-receive hooks on your instance
-intro: 'Configure how people will use pre-receive hooks on {% data variables.location.product_location %}.'
+intro: Configure how people will use pre-receive hooks on {% data variables.location.product_location %}.
 redirect_from:
   - /enterprise/admin/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
   - /enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-appliance
@@ -10,8 +10,8 @@ redirect_from:
   - /admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-your-instance
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Manage pre-receive hooks
+contentType: how-tos
 ---
 ## Creating pre-receive hooks
 

@@ -6,7 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
+contentType: tutorials
 ---
 
 ## About the roadmap layout

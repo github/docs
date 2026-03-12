@@ -7,8 +7,8 @@ versions:
   fpt: '*'
   ghec: '*'
 permissions: People who are organization owners of both organizations can attribute one organization's sponsorships to another organization.
-type: how_to
 shortTitle: Attribute sponsorships
+contentType: how-tos
 ---
 
 1. Navigate to the organization whose sponsorships you want to attribute to another organization.

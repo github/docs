@@ -11,7 +11,7 @@ redirect_from:
   - /admin/administering-your-instance/command-line-utilities
 versions:
   ghes: '*'
-type: reference
+contentType: reference
 ---
 
 You can execute these commands from anywhere on the VM after signing in as an SSH admin user. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).

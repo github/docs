@@ -1,12 +1,12 @@
 ---
 title: Creating issue dependencies
-intro: 'Learn how to create issue dependencies so that you can see which issues are blocked by, or blocking, other work.'
+intro: Learn how to create issue dependencies so that you can see which issues are blocked by, or blocking, other work.
 versions:
-  fpt: '*' 
-  ghec: '*' 
-type: overview
-permissions: 'People with at least triage permissions for a repository can create issue dependencies.'
-product: 'Issue dependencies are available for users on {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, and {% data variables.product.prodname_ghe_cloud %} plans.'
+  fpt: '*'
+  ghec: '*'
+permissions: People with at least triage permissions for a repository can create issue dependencies.
+product: Issue dependencies are available for users on {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, and {% data variables.product.prodname_ghe_cloud %} plans.
+contentType: concepts
 ---
 
 Issue dependencies let you define issues that are blocked by, or blocking, other work.

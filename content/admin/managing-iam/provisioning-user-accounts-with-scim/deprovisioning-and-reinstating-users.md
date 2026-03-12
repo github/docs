@@ -1,13 +1,13 @@
 ---
 title: Deprovisioning and reinstating users with SCIM
 shortTitle: Deprovision and reinstate users
-intro: 'Learn details about deprovisioning or reinstating users{% ifversion ghec %} with {% data variables.product.prodname_emus %}{% endif %}.'
+intro: Learn details about deprovisioning or reinstating users{% ifversion ghec %} with {% data variables.product.prodname_emus %}{% endif %}.
 versions:
   ghec: '*'
   feature: scim-for-ghes-public-beta
-type: overview
 allowTitleToDifferFromFilename: true
-product: 'Enterprises that use {% data variables.product.prodname_emus %}, or {% data variables.product.prodname_ghe_server %} instances with SCIM enabled'
+product: Enterprises that use {% data variables.product.prodname_emus %}, or {% data variables.product.prodname_ghe_server %} instances with SCIM enabled
+contentType: concepts
 ---
 
 {% data reusables.scim.ghes-beta-note %}

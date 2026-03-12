@@ -1,12 +1,12 @@
 ---
 title: Editing an issue
-intro: 'Learn how to make changes to an existing issue.'
-permissions: 'Issue authors, people with write access or higher in repositories owned by an organization, and collaborators in repositories owned by a personal account can make changes to issues. {% data reusables.enterprise-accounts.emu-permission-repo %}'
+intro: Learn how to make changes to an existing issue.
+permissions: Issue authors, people with write access or higher in repositories owned by an organization, and collaborators in repositories owned by a personal account can make changes to issues. {% data reusables.enterprise-accounts.emu-permission-repo %}
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 ---
 
 ## Editing an issue title

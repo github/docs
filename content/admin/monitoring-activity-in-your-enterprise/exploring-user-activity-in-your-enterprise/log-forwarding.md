@@ -11,7 +11,7 @@ redirect_from:
   - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding
 versions:
   ghes: '*'
-type: how_to
+contentType: how-tos
 ---
 
 ## About log forwarding

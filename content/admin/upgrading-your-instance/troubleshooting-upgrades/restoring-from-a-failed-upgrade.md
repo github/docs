@@ -1,16 +1,16 @@
 ---
-  title: Restoring from a failed upgrade
-  intro: 'Learn how to roll back from a failed upgrade.'
-  redirect_from:
-    - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#restoring-from-a-failed-upgrade
-  versions:
-    ghes: '*'
-  type: how_to
-  topics:
-    - Enterprise
-    - Upgrades
-    - Troubleshooting
-  shortTitle: Restore from a failed upgrade
+title: Restoring from a failed upgrade
+intro: Learn how to roll back from a failed upgrade.
+redirect_from:
+  - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#restoring-from-a-failed-upgrade
+versions:
+  ghes: '*'
+topics:
+  - Enterprise
+  - Upgrades
+  - Troubleshooting
+shortTitle: Restore from a failed upgrade
+contentType: how-tos
 ---
 
 If an upgrade fails or is interrupted, you should revert your instance back to its previous state. The process for completing this depends on the type of upgrade.

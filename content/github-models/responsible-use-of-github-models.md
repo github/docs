@@ -1,10 +1,10 @@
 ---
 title: Responsible use of GitHub Models
 shortTitle: Responsible use
-intro: 'Learn how to use {% data variables.product.prodname_github_models %} responsibly by understanding its purposes, capabilities, and limitations.'
+intro: Learn how to use {% data variables.product.prodname_github_models %} responsibly by understanding its purposes, capabilities, and limitations.
 versions:
   feature: github-models
-type: rai
+contentType: rai
 ---
 
 With {% data variables.product.prodname_github_models %}, you build your understanding of AI model capabilities by experimenting with model settings and sending prompts through a chat interface. Additionally, you can directly interact with models through an SDK. Refer to a model's "Getting Started" tab for more information about how to use the SDK. Refer to a model’s "README" tab for more information on the model. Remember when interacting with a model you are experimenting with AI, so content mistakes are possible.

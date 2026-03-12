@@ -1,6 +1,6 @@
 ---
 title: Configuring SAML single sign-on for your enterprise using Okta
-intro: 'You can use Security Assertion Markup Language (SAML) single sign-on (SSO) with Okta to automatically manage access to your enterprise account on {% data variables.product.github %}.'
+intro: You can use Security Assertion Markup Language (SAML) single sign-on (SSO) with Okta to automatically manage access to your enterprise account on {% data variables.product.github %}.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/configuring-single-sign-on-for-your-enterprise-account-using-okta
   - /github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-for-your-enterprise-account-using-okta
@@ -11,8 +11,8 @@ redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise-using-okta
 versions:
   ghec: '*'
-type: how_to
 shortTitle: Configure SAML SSO with Okta
+contentType: how-tos
 ---
 
 {% data reusables.enterprise-accounts.emu-saml-note %}

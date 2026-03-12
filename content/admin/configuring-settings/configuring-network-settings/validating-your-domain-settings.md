@@ -1,6 +1,6 @@
 ---
 title: Validating your domain settings
-intro: 'Ensure that your domain settings are properly configured before booting up {% data variables.location.product_location %} for the first time.'
+intro: Ensure that your domain settings are properly configured before booting up {% data variables.location.product_location %} for the first time.
 redirect_from:
   - /enterprise/admin/installation/validating-your-domain-settings
   - /enterprise/admin/configuration/validating-your-domain-settings
@@ -8,8 +8,8 @@ redirect_from:
   - /admin/configuration/configuring-network-settings/validating-your-domain-settings
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Validate domain settings
+contentType: how-tos
 ---
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

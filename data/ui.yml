@@ -321,10 +321,10 @@ product_guides:
     one: 1 guide found
     none: No guides found
   guide_types:
-    overview: Overview
-    quick_start: Quickstart
-    tutorial: Tutorial
-    how_to: How-to guide
+    get-started: Quickstart
+    concepts: Concepts
+    how-tos: How-to guide
+    tutorials: Tutorial
     reference: Reference
 learning_track_nav:
   prev_guide: Previous

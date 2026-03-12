@@ -1,10 +1,10 @@
 ---
 title: Backup in clustering mode
 shortTitle: Backup in clustering
-intro: 'Enable backup from a node in cluster.'
+intro: Enable backup from a node in cluster.
 versions:
   ghes: '> 3.19'
-type: how_to
+contentType: how-tos
 ---
 
 ## Configuring backups from a cluster node

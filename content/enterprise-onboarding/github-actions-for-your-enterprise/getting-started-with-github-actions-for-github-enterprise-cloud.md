@@ -1,11 +1,11 @@
 ---
 title: Getting started with GitHub Actions for GitHub Enterprise Cloud
 shortTitle: Get started
-intro: 'Configure {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_cloud %}.'
+intro: Configure {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_cloud %}.
 versions:
   ghec: '*'
-type: how_to
 allowTitleToDifferFromFilename: true
+contentType: how-tos
 ---
 
 {% data variables.product.prodname_actions %} is enabled for your enterprise by default. To get started using {% data variables.product.prodname_actions %} within your enterprise, you can manage the policies that control how enterprise members use {% data variables.product.prodname_actions %} and optionally add self-hosted runners to run workflows.

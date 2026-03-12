@@ -1,16 +1,16 @@
 ---
 title: Triggering a workflow
 shortTitle: Trigger a workflow
-intro: 'How to automatically trigger {% data variables.product.prodname_actions %} workflows'
+intro: How to automatically trigger {% data variables.product.prodname_actions %} workflows
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 redirect_from:
   - /actions/using-workflows/triggering-a-workflow
   - /actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow
   - /actions/how-tos/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow
+contentType: tutorials
 category:
   - Write workflows
 ---

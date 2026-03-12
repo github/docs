@@ -1,11 +1,11 @@
 ---
 title: Managing your views
-intro: 'Learn how to create, save, and manage your project views.'
+intro: Learn how to create, save, and manage your project views.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
+contentType: tutorials
 ---
 
 

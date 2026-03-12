@@ -1,11 +1,11 @@
 ---
 title: Governing how people use repositories in your organization
-intro: "Create a repository policy to control who can do things like create and delete repositories."
+intro: Create a repository policy to control who can do things like create and delete repositories.
 permissions: Organization owners
 versions:
   feature: repo-policy-rules
-type: how_to
 shortTitle: Govern repository usage
+contentType: how-tos
 ---
 
 {% data reusables.enterprise.repo-policy-rules-preview %}

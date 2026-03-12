@@ -1,17 +1,17 @@
 ---
 title: Getting help from GitHub Support about GitHub Actions
 shortTitle: Get support
-intro: 'Learn how {% data variables.contact.github_support %} can assist with {% data variables.product.prodname_actions %}'
+intro: Learn how {% data variables.contact.github_support %} can assist with {% data variables.product.prodname_actions %}
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: reference
 redirect_from:
   - /actions/monitoring-and-troubleshooting-workflows/working-with-support-for-github-actions
   - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/working-with-support-for-github-actions
   - /actions/how-tos/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/working-with-support-for-github-actions
   - /actions/how-tos/getting-help-from-github-support-about-github-actions
+contentType: reference
 category:
   - Administer GitHub Actions
 ---

@@ -1,7 +1,7 @@
 ---
 title: Publishing Node.js packages
 shortTitle: Publish Node.js packages
-intro: 'In this tutorial, you''ll learn how to publish Node.js packages to a registry as part of your continuous integration (CI) workflow.'
+intro: In this tutorial, you'll learn how to publish Node.js packages to a registry as part of your continuous integration (CI) workflow.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages
   - /actions/language-and-framework-guides/publishing-nodejs-packages
@@ -14,7 +14,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
+contentType: tutorials
 category:
   - Build and test code
 ---

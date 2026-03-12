@@ -326,13 +326,12 @@ function validateReusables(
 
 interface Frontmatter {
   contentType?: string
-  type?: string
   [key: string]: unknown
 }
 
 function isFileRaiCard(params: RuleParams): boolean {
   const fm: Frontmatter = (getFrontmatter(params.frontMatterLines) as Frontmatter) || {}
-  return fm.contentType === 'rai' || fm.type === 'rai'
+  return fm.contentType === 'rai'
 }
 
 export const raiAppCardStructure: Rule = {

@@ -1,14 +1,14 @@
 ---
 title: Troubleshooting GitHub Actions for your enterprise
-intro: 'Troubleshooting common issues that occur when using {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}.'
-permissions: 'Site administrators can troubleshoot {% data variables.product.prodname_actions %} issues and modify {% data variables.product.prodname_ghe_server %} configurations.'
+intro: Troubleshooting common issues that occur when using {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}.
+permissions: Site administrators can troubleshoot {% data variables.product.prodname_actions %} issues and modify {% data variables.product.prodname_ghe_server %} configurations.
 versions:
   ghes: '*'
-type: how_to
 redirect_from:
   - /admin/github-actions/troubleshooting-github-actions-for-your-enterprise
   - /admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise
 shortTitle: Troubleshoot GitHub Actions
+contentType: how-tos
 ---
 
 ## Checking the health of {% data variables.product.prodname_actions %}

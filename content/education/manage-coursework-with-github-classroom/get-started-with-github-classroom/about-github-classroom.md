@@ -1,9 +1,9 @@
 ---
 title: About GitHub Classroom
-intro: 'Teachers and school administrators can use {% data variables.product.prodname_classroom %} to create virtual classrooms, make and edit assignments, automatically grade assignment submissions, and more.'
-type: overview
+intro: Teachers and school administrators can use {% data variables.product.prodname_classroom %} to create virtual classrooms, make and edit assignments, automatically grade assignment submissions, and more.
 versions:
   fpt: '*'
+contentType: concepts
 ---
 
 ## About {% data variables.product.prodname_classroom %}

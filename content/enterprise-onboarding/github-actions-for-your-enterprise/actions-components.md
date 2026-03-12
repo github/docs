@@ -4,11 +4,10 @@ shortTitle: Actions components
 intro: Understand the basics of {% data variables.product.prodname_actions %}, including core concepts and essential terminology.
 versions:
   ghec: '*'
-type: overview
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /enterprise-onboarding/github-actions-for-your-enterprise/understanding-github-actions
-contentType: other
+contentType: concepts
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -1,13 +1,13 @@
 ---
 title: GitHub Apps overview
 shortTitle: Overview
-intro: 'You can use {% data variables.product.prodname_github_apps %} to extend the functionality of {% data variables.product.company_short %}.'
+intro: You can use {% data variables.product.prodname_github_apps %} to extend the functionality of {% data variables.product.company_short %}.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
+contentType: concepts
 ---
 
 ## About {% data variables.product.prodname_github_apps %}

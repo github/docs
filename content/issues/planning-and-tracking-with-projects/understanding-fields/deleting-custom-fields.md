@@ -1,13 +1,13 @@
 ---
 title: Deleting custom fields
-intro: 'Learn how to delete a custom field from your {% data variables.projects.project_v2 %}.'
+intro: Learn how to delete a custom field from your {% data variables.projects.project_v2 %}.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
 redirect_from:
   - /issues/planning-and-tracking-with-projects/understanding-field-types/deleting-fields
+contentType: tutorials
 ---
 
 {% data reusables.projects.project-settings %}

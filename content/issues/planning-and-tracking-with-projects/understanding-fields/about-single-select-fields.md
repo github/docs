@@ -1,14 +1,14 @@
 ---
 title: About single select fields
 shortTitle: About single select fields
-intro: 'You can create single select fields with multiple options, each with a description and a color, that can be selected from a dropdown menu.'
+intro: You can create single select fields with multiple options, each with a description and a color, that can be selected from a dropdown menu.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
 redirect_from:
   - /issues/planning-and-tracking-with-projects/understanding-field-types/about-single-select-fields
+contentType: tutorials
 ---
 
 You can filter by your single select fields by specifying the option, for example: `fieldname:option`. You can filter for multiple values by providing a comma-separated list of options, for example: `fieldname:option,option`. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects).

@@ -6,11 +6,11 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault
   - /actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault
   - /actions/how-tos/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault
+contentType: tutorials
 category:
   - Secure your workflows
 ---

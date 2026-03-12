@@ -1,11 +1,10 @@
 ---
 title: Continuous deployment
-intro: 'You can create custom continuous deployment (CD) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
+intro: You can create custom continuous deployment (CD) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
 redirect_from:
   - /actions/deployment/about-continuous-deployment
   - /actions/deployment/about-deployments/about-continuous-deployment
@@ -14,6 +13,7 @@ redirect_from:
   - /actions/about-github-actions/about-continuous-deployment-with-github-actions
   - /actions/concepts/overview/about-continuous-deployment-with-github-actions
   - /actions/concepts/overview/continuous-deployment
+contentType: concepts
 category:
   - Get started with GitHub Actions
 ---

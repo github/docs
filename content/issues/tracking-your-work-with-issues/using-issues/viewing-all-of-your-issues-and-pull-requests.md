@@ -1,6 +1,6 @@
 ---
 title: Viewing all issues and pull requests
-intro: 'The Issues and Pull Request dashboards list the open issues and pull requests you''ve created{% ifversion issues-saved-views %}, as well as your saved views{% endif %}. You can use them to update items that have gone stale, close them, or keep track of where you''ve been mentioned across all repositories—including those you''re not subscribed to.'
+intro: The Issues and Pull Request dashboards list the open issues and pull requests you've created{% ifversion issues-saved-views %}, as well as your saved views{% endif %}. You can use them to update items that have gone stale, close them, or keep track of where you've been mentioned across all repositories—including those you're not subscribed to.
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/viewing-all-of-your-issues-and-pull-requests
   - /articles/viewing-all-of-your-issues-and-pull-requests
@@ -13,7 +13,7 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: View all issues & PRs
-type: how_to
+contentType: how-tos
 ---
 
 ## Viewing your issues and pull requests

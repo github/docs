@@ -1,14 +1,14 @@
 ---
 title: Creating an enterprise account
-intro: "Learn the steps and effects of creating an enterprise account."
+intro: Learn the steps and effects of creating an enterprise account.
 versions:
   ghec: '*'
-type: how_to
 permissions: Organization owners
 product: '{% data variables.product.prodname_ghe_cloud %}'
 shortTitle: Create enterprise account
 redirect_from:
   - /admin/overview/creating-an-enterprise-account
+contentType: how-tos
 ---
 
 <!-- expires 2027-01-30 -->

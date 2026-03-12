@@ -1,6 +1,6 @@
 ---
 title: Upgrade requirements
-intro: 'Before upgrading {% data variables.product.prodname_ghe_server %}, review these recommendations and requirements to plan your upgrade strategy.'
+intro: Before upgrading {% data variables.product.prodname_ghe_server %}, review these recommendations and requirements to plan your upgrade strategy.
 redirect_from:
   - /enterprise/admin/installation/upgrade-requirements
   - /enterprise/admin/guides/installation/finding-the-current-github-enterprise-release
@@ -12,7 +12,7 @@ redirect_from:
   - /admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/upgrade-requirements
 versions:
   ghes: '*'
-type: reference
+contentType: reference
 ---
 
 > [!NOTE]

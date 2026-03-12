@@ -1,6 +1,6 @@
 ---
 title: Administering your instance from the web UI
-intro: 'To perform administrative tasks for {% data variables.location.product_location %}, you can use the {% data variables.enterprise.management_console %} and site admin dashboard.'
+intro: To perform administrative tasks for {% data variables.location.product_location %}, you can use the {% data variables.enterprise.management_console %} and site admin dashboard.
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/accessing-the-management-console
   - /enterprise/admin/articles/about-the-management-console
@@ -22,7 +22,6 @@ redirect_from:
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/site-admin-dashboard
 versions:
   ghes: '*'
-type: how_to
 children:
   - /about-the-management-console
   - /managing-access-to-the-management-console
@@ -30,5 +29,6 @@ children:
   - /troubleshooting-access-to-the-management-console
   - /managing-search-indices-for-your-instance
 shortTitle: Web UI
+contentType: how-tos
 ---
 

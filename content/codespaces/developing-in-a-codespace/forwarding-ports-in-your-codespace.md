@@ -8,7 +8,7 @@ versions:
 redirect_from:
   - /github/developing-online-with-codespaces/forwarding-ports-in-your-codespace
   - /codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace
-type: how_to
+contentType: how-tos
 ---
 
 ## About forwarded ports

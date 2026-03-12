@@ -1,6 +1,6 @@
 ---
 title: Increasing storage capacity
-intro: 'You can increase or change the amount of storage available for Git repositories, databases, search indexes, and other persistent application data.'
+intro: You can increase or change the amount of storage available for Git repositories, databases, search indexes, and other persistent application data.
 redirect_from:
   - /enterprise/admin/installation/increasing-storage-capacity
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
@@ -9,8 +9,8 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Increase storage capacity
+contentType: how-tos
 ---
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 

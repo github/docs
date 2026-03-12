@@ -1,11 +1,11 @@
 ---
 title: Changing the URL for your enterprise
-intro: 'If you want to change the URL where your enterprise is accessed, you can change your enterprise slug.'
+intro: If you want to change the URL where your enterprise is accessed, you can change your enterprise slug.
 versions:
   ghec: '*'
-type: how_to
 permissions: Enterprise owners can change the URL for the enterprise.
 shortTitle: Change enterprise URL
+contentType: how-tos
 ---
 
 ## About changes to enterprise slugs

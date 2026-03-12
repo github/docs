@@ -2,12 +2,12 @@
 title: Restricting access to machine types
 shortTitle: Restrict machine types
 intro: You can set constraints on the types of machines users can choose when they create codespaces in your organization.
-permissions: 'To manage access to machine types for the repositories in an organization, you must be an owner of the organization.'
+permissions: To manage access to machine types for the repositories in an organization, you must be an owner of the organization.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 product: '{% data reusables.gated-features.codespaces-org %}'
+contentType: how-tos
 ---
 
 ## Overview

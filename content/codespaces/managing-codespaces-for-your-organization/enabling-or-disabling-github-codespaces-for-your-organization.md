@@ -1,8 +1,8 @@
 ---
 title: Enabling or disabling GitHub Codespaces for your organization
-shortTitle: 'Enable or disable Codespaces'
-intro: 'You can control which users can use {% data variables.product.prodname_github_codespaces %} in your organization''s private {% ifversion ghec %}and internal {% endif %}repositories.'
-permissions: 'Organization owners'
+shortTitle: Enable or disable Codespaces
+intro: You can control which users can use {% data variables.product.prodname_github_codespaces %} in your organization's private {% ifversion ghec %}and internal {% endif %}repositories.
+permissions: Organization owners
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization
   - /codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization
@@ -10,8 +10,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 product: '{% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}'
+contentType: how-tos
 ---
 
 ## About enabling and disabling {% data variables.product.prodname_github_codespaces %}

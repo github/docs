@@ -1,13 +1,13 @@
 ---
 title: Getting started with GitHub Codespaces for machine learning
 shortTitle: Machine learning
-intro: 'Learn about working on machine learning projects with {% data variables.product.prodname_github_codespaces %} and its out-of-the-box tools.'
+intro: Learn about working on machine learning projects with {% data variables.product.prodname_github_codespaces %} and its out-of-the-box tools.
 versions:
   fpt: '*'
   ghec: '*'
-type: tutorial
 redirect_from:
   - /codespaces/developing-in-codespaces/getting-started-with-github-codespaces-for-machine-learning
+contentType: tutorials
 ---
 
 ## Introduction

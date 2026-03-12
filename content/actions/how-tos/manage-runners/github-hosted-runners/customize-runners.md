@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
 shortTitle: Customize runners
 redirect_from:
   - /actions/using-github-hosted-runners/customizing-github-hosted-runners
@@ -13,6 +12,7 @@ redirect_from:
   - /actions/using-github-hosted-runners/using-github-hosted-runners/customizing-github-hosted-runners
   - /actions/how-tos/using-github-hosted-runners/using-github-hosted-runners/customizing-github-hosted-runners
   - /actions/how-tos/using-github-hosted-runners/customizing-github-hosted-runners
+contentType: tutorials
 category:
   - Set up runners
 ---

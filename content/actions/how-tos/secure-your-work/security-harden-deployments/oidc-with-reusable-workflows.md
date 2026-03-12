@@ -11,7 +11,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
+contentType: how-tos
 category:
   - Secure your workflows
 ---

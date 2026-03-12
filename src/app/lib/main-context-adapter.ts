@@ -72,7 +72,6 @@ export function createMinimalMainContext(
     introPlainText?: string
     topics?: string[]
     documentType?: string
-    type?: string
     hidden?: boolean
   },
   appContext?: AppRouterContext,
@@ -95,7 +94,6 @@ export function createMinimalMainContext(
     page: pageData
       ? {
           documentType: pageData.documentType || 'article',
-          type: pageData.type,
           topics: pageData.topics || [],
           title: pageData.title || 'Page Not Found',
           fullTitle: pageData.fullTitle || pageData.title,

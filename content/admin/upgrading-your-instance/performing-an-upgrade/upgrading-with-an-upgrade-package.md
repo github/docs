@@ -1,16 +1,16 @@
 ---
-  title: Upgrading with an upgrade package
-  intro: 'Learn how to use an upgrade package to upgrade {% data variables.product.prodname_ghe_server %} to a newer feature release.'
-  redirect_from:
-    - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-a-standalone-instance-using-an-upgrade-package
-    - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-with-an-upgrade-package
-  versions:
-    ghes: '*'
-  type: how_to
-  topics:
-    - Enterprise
-    - Upgrades
-  shortTitle: Upgrade with an upgrade package
+title: Upgrading with an upgrade package
+intro: Learn how to use an upgrade package to upgrade {% data variables.product.prodname_ghe_server %} to a newer feature release.
+redirect_from:
+  - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-a-standalone-instance-using-an-upgrade-package
+  - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-with-an-upgrade-package
+versions:
+  ghes: '*'
+topics:
+  - Enterprise
+  - Upgrades
+shortTitle: Upgrade with an upgrade package
+contentType: how-tos
 ---
 
 Using the administrative shell, you can install an upgrade package with the `ghe-upgrade` utility.

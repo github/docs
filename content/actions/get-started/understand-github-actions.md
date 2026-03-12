@@ -1,7 +1,7 @@
 ---
 title: Understanding GitHub Actions
 shortTitle: Understand GitHub Actions
-intro: 'Learn the basics of core concepts and essential terminology in {% data variables.product.prodname_actions %}.'
+intro: Learn the basics of core concepts and essential terminology in {% data variables.product.prodname_actions %}.
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
   - /actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
@@ -16,7 +16,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
+contentType: concepts
 category:
   - Get started with GitHub Actions
 ---

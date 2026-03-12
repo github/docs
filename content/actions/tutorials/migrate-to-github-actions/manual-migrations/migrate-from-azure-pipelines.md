@@ -12,8 +12,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 shortTitle: Migrate from Azure Pipelines
+contentType: tutorials
 category:
   - Migrate to GitHub Actions
 ---

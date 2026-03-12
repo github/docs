@@ -1,11 +1,11 @@
 ---
 title: Variables
-intro: 'Learn about variables in {% data variables.product.prodname_actions %} workflows.'
+intro: Learn about variables in {% data variables.product.prodname_actions %} workflows.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
+contentType: concepts
 category:
   - Write workflows
 ---

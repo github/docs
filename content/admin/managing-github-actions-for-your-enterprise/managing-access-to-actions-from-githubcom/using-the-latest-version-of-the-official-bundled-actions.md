@@ -1,13 +1,13 @@
 ---
 title: Using the latest version of the official bundled actions
-intro: 'You can update the actions that are bundled with your enterprise, or use actions directly from {% data variables.product.prodname_dotcom_the_website %}.'
+intro: You can update the actions that are bundled with your enterprise, or use actions directly from {% data variables.product.prodname_dotcom_the_website %}.
 versions:
   ghes: '*'
-type: how_to
 redirect_from:
   - /admin/github-actions/using-the-latest-version-of-the-official-bundled-actions
   - /admin/github-actions/managing-access-to-actions-from-githubcom/using-the-latest-version-of-the-official-bundled-actions
 shortTitle: Use the latest bundled actions
+contentType: how-tos
 ---
 {% data reusables.actions.enterprise-github-hosted-runners %}
 

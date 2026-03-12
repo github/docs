@@ -1,7 +1,7 @@
 ---
 title: Managing team memberships with identity provider groups
 shortTitle: Manage teams with your IdP
-intro: 'Connect IdP groups with teams on {% data variables.product.prodname_dotcom %} to manage team and organization membership through your identity provider.'
+intro: Connect IdP groups with teams on {% data variables.product.prodname_dotcom %} to manage team and organization membership through your identity provider.
 product: '{% data reusables.gated-features.emus %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups
@@ -14,7 +14,7 @@ redirect_from:
 versions:
   ghec: '*'
   feature: scim-for-ghes-public-beta
-type: how_to
+contentType: how-tos
 ---
 
 {% data reusables.scim.ghes-beta-note %}

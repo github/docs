@@ -5,7 +5,7 @@ intro: '{% data variables.product.prodname_ghe_server %} uses Elasticsearch to p
 permissions: Enterprise owners can manage search indices for a {% data variables.product.prodname_ghe_server %} instance.
 versions:
   ghes: '*'
-type: reference
+contentType: reference
 ---
 
 ## About search for {% data variables.product.prodname_ghe_server %}

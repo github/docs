@@ -1,13 +1,13 @@
 ---
 title: Restricting the number of organization-billed codespaces a user can create
 shortTitle: Restrict codespace creation
-intro: 'You can specify the maximum number of codespaces that any member of your organization, or collaborator, can create for the repositories in your organization.'
-permissions: 'To manage this constraint for an organization, you must be an owner of the organization.'
+intro: You can specify the maximum number of codespaces that any member of your organization, or collaborator, can create for the repositories in your organization.
+permissions: To manage this constraint for an organization, you must be an owner of the organization.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 product: '{% data reusables.gated-features.codespaces-org %}'
+contentType: how-tos
 ---
 
 ## Overview

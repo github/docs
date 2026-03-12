@@ -11,7 +11,7 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Create & edit milestones
-type: how_to
+contentType: how-tos
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}

@@ -1,14 +1,14 @@
 ---
 title: Rebuilding the container in a codespace
-intro: 'You can rebuild the dev container of a codespace you are working in to apply configuration changes. From time to time, you may want to perform a full rebuild.'
+intro: You can rebuild the dev container of a codespace you are working in to apply configuration changes. From time to time, you may want to perform a full rebuild.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 shortTitle: Rebuilding a container
 redirect_from:
   - /codespaces/codespaces-reference/performing-a-full-rebuild-of-a-container
   - /codespaces/developing-in-codespaces/rebuilding-the-container-in-a-codespace
+contentType: how-tos
 ---
 
 ## About rebuilding the dev container

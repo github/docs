@@ -1,10 +1,10 @@
 ---
 title: About GitHub for enterprises
-intro: 'Learn about {% data variables.product.prodname_dotcom %}''s enterprise products and deployment options for {% data variables.product.prodname_enterprise %}.'
+intro: Learn about {% data variables.product.prodname_dotcom %}'s enterprise products and deployment options for {% data variables.product.prodname_enterprise %}.
 versions:
   ghec: '*'
   ghes: '*'
-type: overview
+contentType: concepts
 ---
 
 ## Why should my business choose {% data variables.product.github %}?

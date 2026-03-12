@@ -5,11 +5,11 @@ intro: Use OpenID Connect within your workflows to authenticate with PyPI.
 versions:
   fpt: '*'
   ghec: '*'
-type: tutorial
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-pypi
   - /actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-pypi
   - /actions/how-tos/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-pypi
+contentType: tutorials
 category:
   - Secure your workflows
 ---

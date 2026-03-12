@@ -1,10 +1,10 @@
 ---
 title: Configuring the backup service
 shortTitle: Configure the backup service
-intro: 'Enable and configure the built-in backup service in the {% data variables.enterprise.management_console %}, and optionally migrate legacy settings.'
+intro: Enable and configure the built-in backup service in the {% data variables.enterprise.management_console %}, and optionally migrate legacy settings.
 versions:
   ghes: '>=3.17'
-type: how_to
+contentType: how-tos
 ---
 
 Before configuring the backup service, ensure you have:

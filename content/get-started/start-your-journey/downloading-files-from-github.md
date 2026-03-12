@@ -1,16 +1,16 @@
 ---
 title: Downloading files from GitHub
 shortTitle: Download files
-intro: 'Learn how to download files from {% data variables.product.github %}, and understand the difference between downloading, cloning, and forking.'
+intro: Learn how to download files from {% data variables.product.github %}, and understand the difference between downloading, cloning, and forking.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
 redirect_from:
   - /get-started/quickstart/downloading-files-from-github
 category:
   - Explore and contribute
+contentType: tutorials
 ---
 
 ## Introduction

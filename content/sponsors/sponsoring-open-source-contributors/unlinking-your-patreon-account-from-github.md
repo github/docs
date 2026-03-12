@@ -1,13 +1,13 @@
 ---
 title: Unlinking your Patreon account from GitHub
-intro: 'You can disconnect your Patreon account from {% data variables.product.prodname_dotcom %} to stop receiving recognition for Patreon sponsorships on {% data variables.product.prodname_dotcom %}.'
+intro: You can disconnect your Patreon account from {% data variables.product.prodname_dotcom %} to stop receiving recognition for Patreon sponsorships on {% data variables.product.prodname_dotcom %}.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 shortTitle: Unlink Patreon
 redirect_from:
   - /sponsors/sponsoring-open-source-contributors/unlinking-your-patreon-account-from-your-github-account
+contentType: how-tos
 ---
 
 > [!NOTE]

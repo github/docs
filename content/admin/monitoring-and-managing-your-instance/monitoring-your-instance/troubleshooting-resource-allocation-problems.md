@@ -5,8 +5,8 @@ redirect_from:
   - /enterprise/admin/installation/troubleshooting-resource-allocation-problems
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Troubleshooting resource allocation problems
+contentType: how-tos
 ---
 
 ## Troubleshooting common resource allocation problems on your appliance

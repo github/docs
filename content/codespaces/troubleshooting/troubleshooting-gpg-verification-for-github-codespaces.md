@@ -5,7 +5,7 @@ intro: This article provides troubleshooting advice for errors related to signin
 versions:
   fpt: '*'
   ghec: '*'
-type: reference
+contentType: reference
 ---
 
 If you enable GPG verification, {% data variables.product.prodname_github_codespaces %} automatically signs your commits in codespaces that you create from selected repositories. For more information, see [AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces).

@@ -1,11 +1,11 @@
 ---
 title: Contexts
-intro: 'Learn about contexts in {% data variables.product.prodname_actions %}.'
+intro: Learn about contexts in {% data variables.product.prodname_actions %}.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
+contentType: concepts
 category:
   - Write workflows
 ---

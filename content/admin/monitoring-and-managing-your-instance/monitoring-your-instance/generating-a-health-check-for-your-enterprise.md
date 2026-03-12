@@ -1,14 +1,14 @@
 ---
 title: Generating a Health Check for your enterprise
-intro: 'You can gain insight into the general health and Git and API requests of {% data variables.location.product_location %} by generating a Health Check.'
+intro: You can gain insight into the general health and Git and API requests of {% data variables.location.product_location %} by generating a Health Check.
 versions:
   ghes: '*'
-type: how_to
 product: '{% data reusables.gated-features.generated-health-checks %}'
 redirect_from:
   - /admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/generating-a-health-check-for-your-enterprise
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/generating-a-health-check-for-your-enterprise
+contentType: how-tos
 ---
 
 > [!NOTE]

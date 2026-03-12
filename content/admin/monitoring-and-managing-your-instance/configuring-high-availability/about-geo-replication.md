@@ -1,6 +1,6 @@
 ---
 title: About geo-replication
-intro: 'Geo-replication on {% data variables.product.prodname_ghe_server %} uses multiple active replicas to fulfill requests from geographically distributed data centers.'
+intro: Geo-replication on {% data variables.product.prodname_ghe_server %} uses multiple active replicas to fulfill requests from geographically distributed data centers.
 redirect_from:
   - /enterprise/admin/installation/about-geo-replication
   - /enterprise/admin/enterprise-management/about-geo-replication
@@ -9,7 +9,7 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/about-geo-replication
 versions:
   ghes: '*'
-type: overview
+contentType: concepts
 ---
 Multiple active replicas can provide a shorter distance to the nearest replica. For example, an organization with offices in San Francisco, New York, and London could run the primary appliance in a datacenter near New York and two replicas in datacenters near San Francisco and London. Using geolocation-aware DNS, users can be directed to the closest server available and access repository data faster. Designating the appliance near New York as the primary helps reduce the latency between the hosts, compared to the appliance near San Francisco being the primary which has a higher latency to London.
 

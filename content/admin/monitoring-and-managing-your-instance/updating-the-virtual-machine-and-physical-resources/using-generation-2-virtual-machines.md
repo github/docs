@@ -1,13 +1,13 @@
 ---
 title: Using generation 2 virtual machines
-intro: 'New installs of {% data variables.product.prodname_ghe_server %} 3.14 or later can use generation 2 virtual machines.'
+intro: New installs of {% data variables.product.prodname_ghe_server %} 3.14 or later can use generation 2 virtual machines.
 redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/using-generation-2-virtual-machines
 versions:
   ghes: '*'
-type: reference
 shortTitle: Generation 2 virtual machines
 allowTitleToDifferFromFilename: true
+contentType: reference
 ---
 
 ## About generation 2 virtual machines

@@ -1,12 +1,12 @@
 ---
 title: Updating a user's SAML NameID
 shortTitle: Update SAML NameID
-intro: 'When an account''s `NameID` changes on your identity provider (IdP) and the person can no longer sign into {% data variables.location.product_location %}, you must update the `NameID` mapping on {% data variables.location.product_location %}.'
+intro: When an account's `NameID` changes on your identity provider (IdP) and the person can no longer sign into {% data variables.location.product_location %}, you must update the `NameID` mapping on {% data variables.location.product_location %}.
 versions:
   ghes: '*'
-type: how_to
 redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid
+contentType: how-tos
 ---
 
 ## About updates to users' SAML `NameID`

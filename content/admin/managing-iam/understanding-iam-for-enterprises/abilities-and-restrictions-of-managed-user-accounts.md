@@ -1,13 +1,13 @@
 ---
 title: Abilities and restrictions of managed user accounts
 shortTitle: Restrictions for managed users
-intro: 'Learn what users can and cannot do if you manage accounts from an identity provider (IdP).'
+intro: Learn what users can and cannot do if you manage accounts from an identity provider (IdP).
 versions:
   ghec: '*'
-type: reference
 redirect_from:
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/abilities-and-restrictions-of-managed-user-accounts
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts
+contentType: reference
 ---
 
 With {% data variables.product.prodname_emus %}, you can control the user accounts of your enterprise members through your identity provider (IdP). See [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).

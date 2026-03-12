@@ -1,14 +1,14 @@
 ---
 title: About networking for hosted compute products in your enterprise
 shortTitle: About hosted compute networking
-intro: 'You can manage private networking for {% data variables.product.company_short %}-hosted products using network configurations.'
+intro: You can manage private networking for {% data variables.product.company_short %}-hosted products using network configurations.
 permissions: Enterprise owners can configure private networking for hosted compute products at the enterprise level.
 versions:
   ghec: '*'
-type: overview
 redirect_from:
   - /admin/configuration/configuring-private-networking-for-hosted-compute-products/about-networking-for-hosted-compute-products
   - /admin/configuration/configuring-private-networking-for-hosted-compute-products/about-networking-for-hosted-compute-products-in-your-enterprise
+contentType: concepts
 ---
 
 ## About network configurations

@@ -7,8 +7,8 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
 shortTitle: Manage your organization roles
+contentType: how-tos
 ---
 
 ## About role management

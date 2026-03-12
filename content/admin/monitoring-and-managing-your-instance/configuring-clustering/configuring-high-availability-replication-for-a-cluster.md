@@ -1,14 +1,14 @@
 ---
 title: Configuring high availability replication for a cluster
-intro: 'You can configure a replica of your entire {% data variables.product.prodname_ghe_server %} cluster in a separate datacenter, allowing your cluster to fail over to redundant nodes.'
+intro: You can configure a replica of your entire {% data variables.product.prodname_ghe_server %} cluster in a separate datacenter, allowing your cluster to fail over to redundant nodes.
 redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
   - /admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Configure HA replication
+contentType: how-tos
 ---
 
 ## About high availability replication for clusters

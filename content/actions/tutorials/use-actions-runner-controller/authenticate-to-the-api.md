@@ -1,17 +1,17 @@
 ---
 title: Authenticating ARC to the GitHub API
 shortTitle: Authenticate to the API
-intro: 'Learn how to authenticate {% data variables.product.prodname_actions_runner_controller %} to the {% data variables.product.company_short %} API.'
+intro: Learn how to authenticate {% data variables.product.prodname_actions_runner_controller %} to the {% data variables.product.company_short %} API.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: overview
 defaultPlatform: linux
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api
   - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api#deploying-using-personal-access-token-classic-authentication
   - /actions/tutorials/actions-runner-controller/authenticating-arc-to-the-github-api
+contentType: concepts
 category:
   - Use and manage runners
 ---

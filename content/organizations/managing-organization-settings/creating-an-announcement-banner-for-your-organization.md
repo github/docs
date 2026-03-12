@@ -5,7 +5,7 @@ intro: Organization owners can create announcement banners for the organization.
 versions:
   ghes: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 ---
 
 {% ifversion ghec %}

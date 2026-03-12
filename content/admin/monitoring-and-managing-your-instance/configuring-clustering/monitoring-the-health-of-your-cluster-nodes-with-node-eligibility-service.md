@@ -1,15 +1,15 @@
 ---
 title: Monitoring the health of your cluster nodes with Node Eligibility Service
 shortTitle: Node Eligibility Service
-intro: 'You can monitor when nodes in a {% data variables.product.prodname_ghe_server %} cluster have been offline long enough to cause issues by using {% data variables.product.prodname_nes %}.'
-permissions: 'People with administrative SSH access to a {% data variables.product.prodname_ghe_server %} instance can monitor cluster nodes.'
+intro: You can monitor when nodes in a {% data variables.product.prodname_ghe_server %} cluster have been offline long enough to cause issues by using {% data variables.product.prodname_nes %}.
+permissions: People with administrative SSH access to a {% data variables.product.prodname_ghe_server %} instance can monitor cluster nodes.
 product: '{% data reusables.gated-features.cluster %}'
 versions:
   ghes: '*'
-type: how_to
 redirect_from:
   - /admin/enterprise-management/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service
+contentType: how-tos
 ---
 
 ## About {% data variables.product.prodname_nes %}

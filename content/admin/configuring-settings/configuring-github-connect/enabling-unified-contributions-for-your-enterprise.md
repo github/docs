@@ -1,7 +1,7 @@
 ---
 title: Enabling unified contributions for your enterprise
 shortTitle: Unified contributions
-intro: 'You can allow users to include anonymized contribution counts for their work on {% data variables.location.product_location %} in their contribution graphs on {% data variables.product.prodname_ghe_cloud %}.'
+intro: You can allow users to include anonymized contribution counts for their work on {% data variables.location.product_location %} in their contribution graphs on {% data variables.product.prodname_ghe_cloud %}.
 redirect_from:
   - /enterprise/admin/guides/developer-workflow/enabling-unified-contributions-between-github-enterprise-and-github-com
   - /enterprise/admin/guides/developer-workflow/enabling-unified-contributions-between-github-enterprise-server-and-github-com
@@ -12,10 +12,10 @@ redirect_from:
   - /admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
   - /admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-unified-contributions-between-your-enterprise-account-and-githubcom
   - /admin/configuration/configuring-github-connect/enabling-unified-contributions-for-your-enterprise
-permissions: 'Enterprise owners'
+permissions: Enterprise owners
 versions:
   ghes: '*'
-type: how_to
+contentType: how-tos
 ---
 
 ## About unified contributions

@@ -1,10 +1,10 @@
 ---
 title: Automations in your enterprise
 shortTitle: Automations
-intro: 'Learn how {% data variables.product.prodname_github_apps %}, external services, and {% data variables.product.prodname_actions %} work together to automate processes in your enterprise.'
+intro: Learn how {% data variables.product.prodname_github_apps %}, external services, and {% data variables.product.prodname_actions %} work together to automate processes in your enterprise.
 versions:
   feature: enterprise-apps-public-beta
-type: overview
+contentType: concepts
 ---
 
 Automation on {% data variables.product.github %} typically involves multiple components working together. The most important {% data variables.product.github %} native components are:
