@@ -32,7 +32,6 @@ export const ArticleCards = () => {
         {guides.map((card, i) => {
           return (
             <ArticleCard
-              tabIndex={-1}
               key={card.href + i}
               card={card}
               typeLabel={guideTypes[card.type] as string}

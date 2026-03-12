@@ -2821,6 +2821,12 @@
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/events"
     },
     {
+      "slug": "list-issue-field-values-for-an-issue",
+      "subcategory": "issue-field-values",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values"
+    },
+    {
       "slug": "list-labels-for-an-issue",
       "subcategory": "labels",
       "verb": "get",
@@ -2963,6 +2969,24 @@
       "subcategory": "labels",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/milestones/{milestone_number}/labels"
+    },
+    {
+      "slug": "add-issue-field-values-to-an-issue",
+      "subcategory": "issue-field-values",
+      "verb": "post",
+      "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values"
+    },
+    {
+      "slug": "set-issue-field-values-for-an-issue",
+      "subcategory": "issue-field-values",
+      "verb": "put",
+      "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values"
+    },
+    {
+      "slug": "delete-an-issue-field-value-from-an-issue",
+      "subcategory": "issue-field-values",
+      "verb": "delete",
+      "requestPath": "/repositories/{repository_id}/issues/{issue_number}/issue-field-values/{issue_field_id}"
     }
   ],
   "licenses": [
@@ -3339,6 +3363,30 @@
       "subcategory": "members",
       "verb": "get",
       "requestPath": "/orgs/{org}/invitations/{invitation_id}/teams"
+    },
+    {
+      "slug": "list-issue-fields-for-an-organization",
+      "subcategory": "issue-fields",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/issue-fields"
+    },
+    {
+      "slug": "create-issue-field-for-an-organization",
+      "subcategory": "issue-fields",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/issue-fields"
+    },
+    {
+      "slug": "update-issue-field-for-an-organization",
+      "subcategory": "issue-fields",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/issue-fields/{issue_field_id}"
+    },
+    {
+      "slug": "delete-issue-field-for-an-organization",
+      "subcategory": "issue-fields",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/issue-fields/{issue_field_id}"
     },
     {
       "slug": "list-issue-types-for-an-organization",

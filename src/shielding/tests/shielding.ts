@@ -77,6 +77,7 @@ describe('index.md and .md suffixes', () => {
     {
       const res = await get('/en/get-started.md')
       // Should not redirect — serves markdown directly (or 404 if page doesn't exist)
+      expect(res.statusCode).not.toBe(301)
       expect(res.statusCode).not.toBe(302)
     }
   })

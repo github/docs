@@ -14,7 +14,7 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/extend-coding-agent-with-mcp
   - /copilot/how-tos/agents/coding-agent/extend-coding-agent-with-mcp
 contentType: how-tos
-category: 
+category:
   - Integrate Copilot with your tools
 ---
 
@@ -95,6 +95,15 @@ The configuration object can contain the following keys:
 Note that all `string` and `string[]` fields besides `tools` & `type` support substitution with a variable or secret you have configured in your {% data variables.product.prodname_copilot_short %} environment, beginning with `COPILOT_MCP_` preceded by a `$`.
 
 ## Example configurations
+
+The examples below show MCP server configurations for different providers.
+
+* [Sentry](#example-sentry)
+* [Notion](#example-notion)
+* [Azure](#example-azure)
+* [Cloudflare](#example-cloudflare)
+* [Azure DevOps](#example-azure-devops)
+* [Atlassian](#example-atlassian)
 
 ### Example: Sentry
 
@@ -249,6 +258,39 @@ To use the Azure DevOps MCP server with {% data variables.copilot.copilot_coding
     }
   }
    ```
+
+### Example: Atlassian
+
+The [Atlassian MCP server](https://github.com/atlassian/atlassian-mcp-server) gives {% data variables.product.prodname_copilot_short %} authenticated access to your Atlassian apps, including Jira, Compass, and Confluence.
+
+For more information about authenticating to the Atlassian MCP server using an API key, see [Configuring authentication via API token](https://support.atlassian.com/atlassian-rovo-mcp-server/docs/configuring-authentication-via-api-token/) in the Atlassian documentation.
+
+```javascript copy
+// If you copy and paste this example, you will need to remove the comments prefixed with `//`, which are not valid JSON.
+{
+  "mcpServers": {
+    "atlassian-rovo-mcp": {
+      "command": "npx",
+      "type": "local",
+      "tools": ["*"],
+      "args": [
+        "mcp-remote@latest",
+        "https://mcp.atlassian.com/v1/mcp",
+        // We can use the $ATLASSIAN_API_KEY environment variable which is passed
+        // to the server because of the `env` value below.
+        "--header",
+        "Authorization: Basic $ATLASSIAN_API_KEY"
+      ],
+      "env": {
+        // The value of the `COPILOT_MCP_ATLASSIAN_API_KEY` secret will be passed
+        // to the server command as an environment variable
+        // called `ATLASSIAN_API_KEY`.
+        "ATLASSIAN_API_KEY": "$COPILOT_MCP_ATLASSIAN_API_KEY"
+      }
+    }
+  }
+}
+```
 
 ## Reusing your MCP configuration from {% data variables.product.prodname_vscode %}
 
