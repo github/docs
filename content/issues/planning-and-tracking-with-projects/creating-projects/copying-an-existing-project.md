@@ -1,13 +1,13 @@
 ---
-title: 'Copying an existing {% data variables.projects.project_v2 %}'
+title: Copying an existing {% data variables.projects.project_v2 %}
 shortTitle: Copying a project
 intro: You can use an existing project as a template by copying it.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 allowTitleToDifferFromFilename: true
+contentType: tutorials
 ---
 
 ## About copying projects

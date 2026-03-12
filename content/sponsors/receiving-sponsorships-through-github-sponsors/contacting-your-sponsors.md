@@ -7,7 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 ---
 
 ## About sponsorship updates

@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Release software
 ---
 
 ## Linking to the latest release

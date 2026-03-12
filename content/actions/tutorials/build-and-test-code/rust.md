@@ -11,6 +11,8 @@ redirect_from:
   - /actions/how-tos/use-cases-and-examples/building-and-testing/building-and-testing-rust
   - /actions/how-tos/writing-workflows/building-and-testing/building-and-testing-rust
   - /actions/tutorials/build-and-test-code/building-and-testing-rust
+category:
+  - Build and test code
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

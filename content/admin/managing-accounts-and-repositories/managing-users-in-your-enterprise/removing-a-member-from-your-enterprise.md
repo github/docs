@@ -4,10 +4,10 @@ intro: Offboard users from an enterprise by following the recommended approach f
 permissions: Enterprise owners or IdP administrators
 versions:
   feature: remove-enterprise-members
-type: how_to
 shortTitle: Remove member
 redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise
+contentType: how-tos
 ---
 
 The recommended offboarding approach for your enterprise depends on whether you use personal accounts or {% data variables.product.prodname_emus %}. To learn more about the effects of offboarding users, see [AUTOTITLE](/admin/concepts/identity-and-access-management/user-offboarding).

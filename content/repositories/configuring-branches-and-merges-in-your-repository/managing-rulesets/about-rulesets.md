@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 permissions: '{% data reusables.repositories.repo-rules-permissions %}'
 shortTitle: About rulesets
+category:
+  - Manage branches and protect code
 ---
 
 ## About rulesets

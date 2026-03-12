@@ -14,6 +14,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Edit files
+category:
+  - Work with files
 ---
 
 ## Editing files in your repository

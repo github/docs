@@ -11,6 +11,8 @@ redirect_from:
   - /actions/use-cases-and-examples/deploying/deploying-to-azure-static-web-app
   - /actions/how-tos/use-cases-and-examples/deploying/deploying-to-azure-static-web-app
   - /actions/how-tos/managing-workflow-runs-and-deployments/deploying-to-third-party-platforms/deploying-to-azure-static-web-app
+category:
+  - Deploy to environments
 ---
 
 ## Prerequisites

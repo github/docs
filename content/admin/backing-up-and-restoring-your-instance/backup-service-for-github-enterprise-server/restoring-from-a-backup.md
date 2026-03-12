@@ -1,10 +1,10 @@
 ---
 title: Restoring from a backup
 shortTitle: Restore from backup
-intro: 'Restore a {% data variables.product.prodname_ghe_server %} instance using a previously created backup snapshot.'
+intro: Restore a {% data variables.product.prodname_ghe_server %} instance using a previously created backup snapshot.
 versions:
   ghes: '>= 3.17'
-type: how_to
+contentType: how-tos
 ---
 
 You can restore a {% data variables.product.prodname_ghe_server %} instance from a backup using the command line. The backup service supports full instance restoration, including configuration and user data.

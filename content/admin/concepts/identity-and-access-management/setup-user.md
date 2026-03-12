@@ -29,8 +29,8 @@ When you create the password, we strongly recommend that you **enable two-factor
 
 Unlike provisioned managed users, the setup user cannot sign in via SSO. 
 
-- **Without 2FA enabled**, you must provide a recovery code **every** time you sign in.
-- If **2FA is enabled**, you can sign in with a successful 2FA challenge response. You only need to provide a recovery code to access enterprise settings.
+- **Without 2FA enabled**, you must provide an enterprise recovery code **every** time you sign in.
+- If **2FA is enabled**, you must sign in with a successful 2FA challenge response. You only need to enter an enterprise recovery code to access enterprise settings.
 
 {% data reusables.enterprise-accounts.emu-password-reset-session %}
 

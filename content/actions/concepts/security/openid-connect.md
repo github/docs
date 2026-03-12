@@ -5,11 +5,13 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect
   - /actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect
   - /actions/concepts/security/about-security-hardening-with-openid-connect
+contentType: tutorials
+category:
+  - Secure your workflows
 ---
 
 ## Overview of OpenID Connect (OIDC)

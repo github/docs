@@ -1,6 +1,6 @@
 ---
 title: Creating a high availability replica
-intro: 'In an active/passive configuration, the replica appliance is a redundant copy of the primary appliance. If the primary appliance fails, high availability mode allows the replica to act as the primary appliance, allowing minimal service disruption.'
+intro: In an active/passive configuration, the replica appliance is a redundant copy of the primary appliance. If the primary appliance fails, high availability mode allows the replica to act as the primary appliance, allowing minimal service disruption.
 redirect_from:
   - /enterprise/admin/installation/creating-a-high-availability-replica
   - /enterprise/admin/enterprise-management/creating-a-high-availability-replica
@@ -9,8 +9,8 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/creating-a-high-availability-replica
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Create HA replica
+contentType: how-tos
 ---
 {% data reusables.enterprise_installation.replica-limit %}
 

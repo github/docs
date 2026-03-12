@@ -1,16 +1,16 @@
 ---
 title: About GitHub and Git
 shortTitle: About GitHub and Git
-intro: 'You can use {% data variables.product.github %} and Git to collaborate on work.'
+intro: You can use {% data variables.product.github %} and Git to collaborate on work.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
 redirect_from:
   - /get-started/quickstart/about-github-and-git
 category:
   - Set up your account on GitHub
+contentType: concepts
 ---
 
 ## About {% data variables.product.github %}

@@ -14,6 +14,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Set up runners
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

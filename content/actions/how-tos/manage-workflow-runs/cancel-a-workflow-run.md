@@ -11,6 +11,8 @@ redirect_from:
   - /actions/managing-workflow-runs/canceling-a-workflow
   - /actions/managing-workflow-runs-and-deployments/managing-workflow-runs/canceling-a-workflow
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/canceling-a-workflow
+category:
+  - Manage and monitor workflow runs
 ---
 
 ## Canceling a workflow run

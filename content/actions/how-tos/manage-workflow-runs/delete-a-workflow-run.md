@@ -10,6 +10,8 @@ redirect_from:
   - /actions/managing-workflow-runs/deleting-a-workflow-run
   - /actions/managing-workflow-runs-and-deployments/managing-workflow-runs/deleting-a-workflow-run
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/deleting-a-workflow-run
+category:
+  - Manage and monitor workflow runs
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

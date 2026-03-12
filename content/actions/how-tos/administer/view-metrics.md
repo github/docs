@@ -11,6 +11,8 @@ redirect_from:
   - /actions/administering-github-actions/viewing-github-actions-metrics-for-your-organization
   - /actions/administering-github-actions/viewing-github-actions-metrics
   - /actions/how-tos/administering-github-actions/viewing-github-actions-metrics
+category:
+  - Administer GitHub Actions
 ---
 
 ## Viewing {% data variables.product.prodname_actions %} metrics for your organization

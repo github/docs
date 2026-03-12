@@ -10,6 +10,8 @@ redirect_from:
   - /actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds
   - /actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds
   - /actions/how-tos/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds
+category:
+  - Secure your workflows
 ---
 
 ## Prerequisites

@@ -15,7 +15,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
+contentType: concepts
+category:
+  - Set up runners
 ---
 
 ## Requirements for self-hosted runner machines

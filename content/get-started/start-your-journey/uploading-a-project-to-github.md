@@ -1,16 +1,16 @@
 ---
 title: Uploading a project to GitHub
 shortTitle: Upload a project
-intro: 'Learn how to upload the files for your project to {% data variables.product.github %}.'
+intro: Learn how to upload the files for your project to {% data variables.product.github %}.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
 redirect_from:
   - /get-started/quickstart/uploading-a-project-to-github
 category:
   - Explore and contribute
+contentType: tutorials
 ---
 
 ## Introduction

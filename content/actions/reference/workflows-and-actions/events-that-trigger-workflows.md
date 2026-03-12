@@ -13,6 +13,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Write workflows
 ---
 
 ## About events that trigger workflows

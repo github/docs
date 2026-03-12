@@ -15,6 +15,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Node.js
+category:
+  - Build and test code
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

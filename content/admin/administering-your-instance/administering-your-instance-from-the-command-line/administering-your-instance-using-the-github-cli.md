@@ -1,10 +1,10 @@
 ---
 title: Administering your instance using the GitHub CLI
-intro: 'You can administer your {% data variables.product.prodname_ghe_server %} instance using the {% data variables.product.prodname_cli %} extension for GHES Manage API.'
+intro: You can administer your {% data variables.product.prodname_ghe_server %} instance using the {% data variables.product.prodname_cli %} extension for GHES Manage API.
 versions:
   feature: ghes-manage-api-cli-extension
-type: how_to
 shortTitle: Using the GitHub CLI
+contentType: how-tos
 ---
 ## About the `gh es` extension for {% data variables.product.prodname_cli %}
 

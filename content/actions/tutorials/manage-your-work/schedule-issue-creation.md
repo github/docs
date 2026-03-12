@@ -1,7 +1,7 @@
 ---
 title: Scheduling issue creation
 shortTitle: Schedule issue creation
-intro: 'You can use {% data variables.product.prodname_actions %} to create an issue on a regular basis for things like daily meetings or quarterly reviews.'
+intro: You can use {% data variables.product.prodname_actions %} to create an issue on a regular basis for things like daily meetings or quarterly reviews.
 redirect_from:
   - /actions/guides/scheduling-issue-creation
   - /actions/managing-issues-and-pull-requests/scheduling-issue-creation
@@ -12,7 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
+contentType: tutorials
+category:
+  - Reuse and share automations
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

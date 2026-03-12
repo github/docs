@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Secure your workflows
 ---
 
 ## About the `GITHUB_TOKEN`

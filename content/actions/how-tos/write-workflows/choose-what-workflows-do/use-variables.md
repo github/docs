@@ -17,6 +17,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Write workflows
 ---
 
 ## Defining environment variables for a single workflow

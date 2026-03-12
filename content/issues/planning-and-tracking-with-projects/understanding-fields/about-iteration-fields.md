@@ -9,7 +9,7 @@ versions:
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/managing-iterations
   - /issues/planning-and-tracking-with-projects/understanding-field-types/about-iteration-fields
-type: tutorial
+contentType: tutorials
 ---
 
 You can create an iteration field to associate items with specific repeating blocks of time. Iterations can be set to any length of time, can include breaks, and can be individually edited to modify name and date range. With projects, you can group by iteration to visualize the balance of upcoming work, use filters to focus on a single iteration, and sort by iteration.

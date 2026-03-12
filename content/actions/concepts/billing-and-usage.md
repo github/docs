@@ -11,6 +11,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Administer GitHub Actions
 ---
 
 ## About billing for {% data variables.product.prodname_actions %}

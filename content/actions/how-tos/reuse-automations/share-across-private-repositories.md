@@ -8,6 +8,8 @@ redirect_from:
   - /actions/creating-actions/sharing-actions-and-workflows-from-your-private-repository
   - /actions/sharing-automations/sharing-actions-and-workflows-from-your-private-repository
   - /actions/how-tos/sharing-automations/sharing-actions-and-workflows-from-your-private-repository
+category:
+  - Reuse and share automations
 ---
 
 > [!WARNING]

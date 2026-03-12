@@ -1,15 +1,15 @@
 ---
 title: Getting started with GitHub Packages for your enterprise
 shortTitle: Getting started with GitHub Packages
-intro: 'You can start using {% data variables.product.prodname_registry %} on {% data variables.location.product_location %} by enabling the feature, configuring third-party storage, configuring the ecosystems you want to support, and updating your TLS certificate.'
-permissions: 'Site administrators can enable and configure {% data variables.product.prodname_registry %}.'
+intro: You can start using {% data variables.product.prodname_registry %} on {% data variables.location.product_location %} by enabling the feature, configuring third-party storage, configuring the ecosystems you want to support, and updating your TLS certificate.
+permissions: Site administrators can enable and configure {% data variables.product.prodname_registry %}.
 redirect_from:
   - /enterprise/admin/packages/enabling-github-packages-for-your-enterprise
   - /admin/packages/enabling-github-packages-for-your-enterprise
   - /admin/packages/getting-started-with-github-packages-for-your-enterprise
 versions:
   ghes: '*'
-type: how_to
+contentType: how-tos
 ---
 
 

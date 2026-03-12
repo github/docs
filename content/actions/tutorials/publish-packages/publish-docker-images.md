@@ -1,7 +1,7 @@
 ---
 title: Publishing Docker images
 shortTitle: Publish Docker images
-intro: 'In this tutorial, you''ll learn how to publish Docker images to a registry, such as Docker Hub or {% data variables.product.prodname_registry %}, as part of your continuous integration (CI) workflow.'
+intro: In this tutorial, you'll learn how to publish Docker images to a registry, such as Docker Hub or {% data variables.product.prodname_registry %}, as part of your continuous integration (CI) workflow.
 redirect_from:
   - /actions/language-and-framework-guides/publishing-docker-images
   - /actions/guides/publishing-docker-images
@@ -13,8 +13,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 layout: inline
+contentType: tutorials
+category:
+  - Build and test code
 ---
 
 ## Introduction

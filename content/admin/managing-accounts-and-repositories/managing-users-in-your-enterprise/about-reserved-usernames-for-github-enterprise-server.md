@@ -5,7 +5,7 @@ intro: Certain words are reserved for internal use and cannot be used as usernam
 permissions: Enterprise owners
 versions:
   ghes: '*'
-type: reference
+contentType: reference
 ---
 
 ## About reserved usernames

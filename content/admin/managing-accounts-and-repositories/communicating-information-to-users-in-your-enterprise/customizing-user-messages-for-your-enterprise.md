@@ -7,11 +7,11 @@ redirect_from:
   - /admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-for-your-enterprise
   - /admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise
-intro: 'You can create custom messages that users will see on {% data variables.product.github %}.'
+intro: You can create custom messages that users will see on {% data variables.product.github %}.
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
+contentType: how-tos
 ---
 ## About user messages
 

@@ -7,6 +7,8 @@ versions:
   feature: actions-metrics
 redirect_from:
   - /actions/concepts/about-github-actions-metrics
+category:
+  - Administer GitHub Actions
 ---
 
 {% data reusables.actions.about-actions-metrics %}

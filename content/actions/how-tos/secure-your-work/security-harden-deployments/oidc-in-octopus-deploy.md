@@ -5,7 +5,9 @@ intro: Use OpenID Connect within your workflows to authenticate with Octopus Dep
 versions:
   fpt: '*'
   ghec: '*'
-type: tutorial
+contentType: tutorials
+category:
+  - Secure your workflows
 ---
 
 ## Overview

@@ -1,14 +1,14 @@
 ---
 title: Enforcing policies for GitHub Copilot in your enterprise
-intro: 'You can enforce policies for {% data variables.product.prodname_copilot %} within your enterprise''s organizations, or allow policies to be set in each organization.'
-permissions: 'Enterprise owners can enforce policies for {% data variables.product.prodname_copilot %} in an enterprise.'
+intro: You can enforce policies for {% data variables.product.prodname_copilot %} within your enterprise's organizations, or allow policies to be set in each organization.
+permissions: Enterprise owners can enforce policies for {% data variables.product.prodname_copilot %} in an enterprise.
 product: '{% data reusables.gated-features.copilot-billing %}'
 versions:
   ghec: '*'
-type: how_to
 shortTitle: GitHub Copilot policies
 redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise
+contentType: how-tos
 ---
 
 Enterprise admins can:

@@ -13,6 +13,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Release software
 ---
 ## About releases
 

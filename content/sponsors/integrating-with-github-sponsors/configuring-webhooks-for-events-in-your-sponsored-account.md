@@ -6,8 +6,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 shortTitle: Webhooks for events
+contentType: how-tos
 ---
 
 ## About webhooks for events in your sponsored account

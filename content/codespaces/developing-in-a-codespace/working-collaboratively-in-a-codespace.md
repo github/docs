@@ -1,13 +1,13 @@
 ---
 title: Working collaboratively in a codespace
 shortTitle: Work collaboratively
-intro: 'You can work collaboratively with other people in a codespace by using {% data variables.product.prodname_vs %} Live Share.'
+intro: You can work collaboratively with other people in a codespace by using {% data variables.product.prodname_vs %} Live Share.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 redirect_from:
   - /codespaces/developing-in-codespaces/working-collaboratively-in-a-codespace
+contentType: how-tos
 ---
 
 {% data variables.product.prodname_vs %} Live Share lets you collaboratively edit and debug with others in real time, within a codespace. You can securely share your current codespace, or access a codespace created by someone else.

@@ -1,11 +1,11 @@
 ---
 title: Deleting users from your instance
-intro: "You can delete a user's account to permanently remove their data from {% data variables.location.product_location %}."
+intro: You can delete a user's account to permanently remove their data from {% data variables.location.product_location %}.
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Delete a user
 permissions: Site administrators
+contentType: how-tos
 ---
 
 ## What happens when I delete a user account?

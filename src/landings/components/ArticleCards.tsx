@@ -34,7 +34,7 @@ export const ArticleCards = () => {
             <ArticleCard
               key={card.href + i}
               card={card}
-              typeLabel={guideTypes[card.type] as string}
+              typeLabel={guideTypes[card.contentType] as string}
             />
           )
         })}

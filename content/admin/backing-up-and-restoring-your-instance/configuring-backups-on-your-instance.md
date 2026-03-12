@@ -17,10 +17,10 @@ redirect_from:
   - /admin/configuration/configuring-backups-on-your-appliance
   - /admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance
   - /admin/configuration/configuring-your-enterprise/configuring-backups-on-your-instance
-intro: 'As part of a disaster recovery plan, you can protect production data on {% data variables.location.product_location %} by configuring automated backups.'
+intro: As part of a disaster recovery plan, you can protect production data on {% data variables.location.product_location %} by configuring automated backups.
 versions:
   ghes: '*'
-type: how_to
+contentType: how-tos
 ---
 
 {% ifversion ghes > 3.16 %}

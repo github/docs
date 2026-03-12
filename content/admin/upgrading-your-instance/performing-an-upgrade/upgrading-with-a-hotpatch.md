@@ -1,16 +1,16 @@
 ---
-  title: Upgrading with a hotpatch
-  intro: 'You can use a hotpatch package to upgrade {% data variables.product.prodname_ghe_server %} to a newer patch release within a feature series.'
-  redirect_from:
-    - /admin/guides/installation/upgrading-github-enterprise-server#upgrading-with-a-hotpatch
-    - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-with-a-hotpatch
-  versions:
-    ghes: '*'
-  type: how_to
-  topics:
-    - Enterprise
-    - Upgrades
-  shortTitle: Upgrade with a hotpatch
+title: Upgrading with a hotpatch
+intro: You can use a hotpatch package to upgrade {% data variables.product.prodname_ghe_server %} to a newer patch release within a feature series.
+redirect_from:
+  - /admin/guides/installation/upgrading-github-enterprise-server#upgrading-with-a-hotpatch
+  - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-with-a-hotpatch
+versions:
+  ghes: '*'
+topics:
+  - Enterprise
+  - Upgrades
+shortTitle: Upgrade with a hotpatch
+contentType: how-tos
 ---
 
 {% data reusables.enterprise_installation.hotpatching-explanation %}

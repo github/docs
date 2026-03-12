@@ -1,12 +1,12 @@
 ---
 title: Connecting to a private network
-intro: 'You can connect {% data variables.product.prodname_github_codespaces %} to resources on a private network, including package registries, license servers, and on-premises databases.'
+intro: You can connect {% data variables.product.prodname_github_codespaces %} to resources on a private network, including package registries, license servers, and on-premises databases.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 redirect_from:
   - /codespaces/developing-in-codespaces/connecting-to-a-private-network
+contentType: how-tos
 ---
 
 ## About codespace networking

@@ -11,6 +11,8 @@ redirect_from:
   - /actions/use-cases-and-examples/deploying/deploying-docker-to-azure-app-service
   - /actions/how-tos/use-cases-and-examples/deploying/deploying-docker-to-azure-app-service
   - /actions/how-tos/managing-workflow-runs-and-deployments/deploying-to-third-party-platforms/deploying-docker-to-azure-app-service
+category:
+  - Deploy to environments
 ---
 
 ## Prerequisites

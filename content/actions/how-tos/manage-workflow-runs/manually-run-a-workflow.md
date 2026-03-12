@@ -12,6 +12,8 @@ redirect_from:
   - /actions/managing-workflow-runs-and-deployments/managing-workflow-runs/manually-running-a-workflow
   - /articles/configuring-a-workflow
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/manually-running-a-workflow
+category:
+  - Manage and monitor workflow runs
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

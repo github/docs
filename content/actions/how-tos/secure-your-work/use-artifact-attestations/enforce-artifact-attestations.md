@@ -9,6 +9,8 @@ redirect_from:
   - /actions/security-guides/enforcing-artifact-attestations-with-a-kubernetes-admission-controller
   - /actions/security-for-github-actions/using-artifact-attestations/enforcing-artifact-attestations-with-a-kubernetes-admission-controller
   - /actions/how-tos/security-for-github-actions/using-artifact-attestations/enforcing-artifact-attestations-with-a-kubernetes-admission-controller
+category:
+  - Secure your workflows
 ---
 
 >[!NOTE] Before proceeding, ensure you have enabled build provenance for container images, including setting the `push-to-registry` attribute in the [`attest-build-provenance` action](https://github.com/actions/attest-build-provenance) as documented in [Generating build provenance for container images](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds#generating-build-provenance-for-container-images). This is required for the Policy Controller to verify the attestation.

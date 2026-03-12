@@ -1,14 +1,14 @@
 ---
 title: Quickstart for GitHub Models
-intro: 'Run your first model with {% data variables.product.prodname_github_models %} in minutes.'
+intro: Run your first model with {% data variables.product.prodname_github_models %} in minutes.
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /models/quickstart
 versions:
   fpt: '*'
   ghec: '*'
-type: quick_start
 shortTitle: Quickstart
+contentType: get-started
 ---
 
 ## Introduction

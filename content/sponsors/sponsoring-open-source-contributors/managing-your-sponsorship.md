@@ -7,7 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
+contentType: how-tos
 ---
 
 ## Managing the privacy setting for your sponsorship

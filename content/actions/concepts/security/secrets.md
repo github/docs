@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /actions/security-for-github-actions/security-guides/about-secrets
   - /actions/concepts/security/about-secrets
+category:
+  - Secure your workflows
 ---
 
 ## About secrets

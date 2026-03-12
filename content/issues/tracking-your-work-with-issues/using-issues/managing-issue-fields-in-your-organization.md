@@ -5,7 +5,7 @@ redirect_from:
   - /issues/tracking-your-work-with-issues/using-issues/managing-issue-fields-in-an-organization
 versions:
   feature: issue-fields
-type: overview
+contentType: concepts
 topics:
   - Project management
 shortTitle: 'Managing issue fields'

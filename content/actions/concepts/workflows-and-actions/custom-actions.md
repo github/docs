@@ -1,7 +1,7 @@
 ---
 title: About custom actions
 shortTitle: Custom actions
-intro: 'Actions are individual tasks that you can combine to create jobs and customize your workflow. You can create your own actions, or use and customize actions shared by the {% data variables.product.prodname_dotcom %} community.'
+intro: Actions are individual tasks that you can combine to create jobs and customize your workflow. You can create your own actions, or use and customize actions shared by the {% data variables.product.prodname_dotcom %} community.
 redirect_from:
   - /articles/about-actions
   - /github/automating-your-workflow-with-github-actions/about-actions
@@ -15,7 +15,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
+contentType: concepts
+category:
+  - Reuse and share automations
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

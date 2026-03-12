@@ -10,6 +10,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+category:
+  - Reuse and share automations
 ---
 
 ## Introduction

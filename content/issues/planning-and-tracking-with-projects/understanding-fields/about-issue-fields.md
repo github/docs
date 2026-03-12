@@ -4,7 +4,7 @@ shortTitle: About issue fields
 intro: 'Learn how to use organization-level issue fields in your projects to track structured metadata like priority, effort, and dates.'
 versions:
   feature: issue-fields
-type: tutorial
+contentType: tutorials
 topics:
   - Projects
   - Issues

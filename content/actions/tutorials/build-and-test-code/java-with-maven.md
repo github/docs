@@ -14,6 +14,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Java with Maven
+category:
+  - Build and test code
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

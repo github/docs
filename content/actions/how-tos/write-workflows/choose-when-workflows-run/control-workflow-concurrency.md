@@ -13,6 +13,8 @@ redirect_from:
   - /actions/writing-workflows/choosing-what-your-workflow-does/control-the-concurrency-of-workflows-and-jobs
   - /actions/how-tos/writing-workflows/choosing-what-your-workflow-does/control-the-concurrency-of-workflows-and-jobs
   - /actions/how-tos/writing-workflows/choosing-when-your-workflow-runs/control-the-concurrency-of-workflows-and-jobs
+category:
+  - Write workflows
 ---
 
 ## Using concurrency in different scenarios

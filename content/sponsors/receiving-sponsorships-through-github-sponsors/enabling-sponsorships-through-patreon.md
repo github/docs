@@ -1,11 +1,11 @@
 ---
 title: Enabling sponsorships through Patreon
-intro: 'You can connect your Patreon and {% data variables.product.prodname_dotcom %} accounts to receive {% data variables.product.prodname_sponsors %} sponsorships through Patreon.'
+intro: You can connect your Patreon and {% data variables.product.prodname_dotcom %} accounts to receive {% data variables.product.prodname_sponsors %} sponsorships through Patreon.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 shortTitle: Enable Patreon sponsorships
+contentType: how-tos
 ---
 
 ## Prerequisites

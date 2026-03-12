@@ -57,10 +57,10 @@ type CommunityRedirect = {
   href: string
 }
 
-type GuideWithType = {
+type GuideWithContentType = {
   href: string
   title: string
-  type?: string
+  contentType?: string
   topics?: string[]
 }
 
@@ -91,7 +91,7 @@ class Page {
   public redirect_from?: string[]
   public learningTracks?: any[]
   public rawLearningTracks?: string[]
-  public includeGuides?: GuideWithType[]
+  public includeGuides?: GuideWithContentType[]
   public rawIncludeGuides?: string[]
   public introLinks?: Record<string, string>
   public rawIntroLinks?: Record<string, string>
@@ -378,10 +378,13 @@ class Page {
     }
 
     if (this.rawIncludeGuides) {
-      this.includeGuides = (await getLinkData(this.rawIncludeGuides, context)) as GuideWithType[]
+      this.includeGuides = (await getLinkData(
+        this.rawIncludeGuides,
+        context,
+      )) as GuideWithContentType[]
       this.includeGuides?.map((guide: any) => {
         const { page } = guide
-        guide.type = page.type
+        guide.contentType = page.contentType
         if (page.topics) {
           guide.topics = page.topics
         }

@@ -8,8 +8,8 @@ redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/rebuilding-contributions-data
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Rebuild contributions
+contentType: how-tos
 ---
 Whenever a commit is pushed to {% data variables.product.prodname_enterprise %}, it is linked to a user account if they are both associated with the same email address. However, existing commits are _not_ retroactively linked when a user registers a new email address or creates a new account.
 

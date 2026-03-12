@@ -19,7 +19,7 @@ title: 'About <subject>'
 shortTitle: '<subject>'
 intro: 'Article intro. See tips for a great intro below.'
 product: "optional product callout"
-type: overview
+contentType: concepts
 versions:
   - version
 ---
@@ -69,7 +69,7 @@ title: Nouns describing your subject
 shortTitle: <subject> # Max 31 characters
 intro: 'Article intro. See tips for a great intro below.'
 product: "{{ optional product callout }}"
-type: reference
+contentType: reference
 versions:
   - <version>
 ---
@@ -119,7 +119,7 @@ title: Start with a present participle
 shortTitle: <subject> # Max 31 characters
 intro: 'Article intro. See tips for a great intro below.'
 product: "{{ optional product callout }}"
-type: how_to
+contentType: how-tos
 versions:
   - <version>
 ---
@@ -168,7 +168,7 @@ Use the content model for full instructions and examples on how to write quickst
 title: Quickstart title
 shortTitle: <subject> # Max 31 characters
 intro: 'Article intro. Highlight that the guide is quick and to the point.'
-type: quick_start
+contentType: get-started
 versions:
   - <version>
 ---
@@ -235,7 +235,7 @@ title: Tutorial title
 shortTitle: <subject> # Max 31 characters
 intro: 'Article intro. See tips for a great intro below'
 product: "{{ optional product callout }}"
-type: tutorial
+contentType: tutorials
 versions:
   - <version>
 ---
@@ -308,7 +308,7 @@ title: Guide title
 shortTitle: <subject> # Max 31 characters
 intro: 'Article intro. See tips for a great intro below'
 product: "{{ optional product callout }}"
-type: tutorial
+contentType: tutorials
 versions:
   - <version>
 ---

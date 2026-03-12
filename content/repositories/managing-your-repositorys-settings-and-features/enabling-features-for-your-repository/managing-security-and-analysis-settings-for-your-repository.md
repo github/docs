@@ -1,6 +1,6 @@
 ---
 title: Managing security and analysis settings for your repository
-intro: 'You can control features that secure and analyze the code in your project on {% data variables.product.github %}.'
+intro: You can control features that secure and analyze the code in your project on {% data variables.product.github %}.
 permissions: People with admin permissions to a repository can manage security and analysis settings for the repository.
 redirect_from:
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organization-s-repositories
@@ -13,8 +13,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
 shortTitle: Security & analysis
+contentType: how-tos
+category:
+  - Manage access and repository policies
 ---
 
 {% ifversion dependabot-alerts-enterprise-enablement %}

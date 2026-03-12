@@ -26,7 +26,7 @@ See the [contributing docs](https://docs.github.com/en/contributing) for general
   - [`learningTracks`](#learningtracks)
   - [`includeGuides`](#includeguides)
   - [`journeyTracks`](#journeytracks)
-  - [`type`](#type)
+  - [`contentType`](#contenttype)
   - [`communityRedirect`](#communityRedirect)
   - [`effectiveDate`](#effectiveDate)
   - [Escaping single quotes](#escaping-single-quotes)
@@ -238,7 +238,7 @@ defaultTool: cli
 **Note: the featured track is set by a specific property in the learning tracks YAML. See that [README](../data/learning-tracks/README.md) for details.*
 
 ### `includeGuides`
-- Purpose: Render a list of articles, filterable by `type` and `topics`. Only applicable when used with `layout: product-guides`.
+- Purpose: Render a list of articles, filterable by `contentType` and `topics`. Only applicable when used with `layout: product-guides`.
 - Type: `Array`
 - Optional.
 
@@ -284,9 +284,9 @@ journeyTracks:
       - href: '/actions/deployment/deploying-with-github-actions'
 ```
 
-### `type`
+### `contentType`
 - Purpose: Indicate the type of article.
-- Type: `String`, one of the `overview`, `quick_start`, `tutorial`, `how_to`, `reference`.
+- Type: `String`, one of `get-started`, `concepts`, `how-tos`, `reference`, `tutorials`, `rai`, `landing` (only applies to `content/<product>/index.md` files).
 - Optional.
 
 ### `communityRedirect`
@@ -442,4 +442,4 @@ To create a product guides page (e.g. [Actions' Guide page](https://docs.github.
 1. (optional) Define which articles to include with [`includeGuides`](#includeGuides).
 
 If using learning tracks, they need to be defined in [`data/learning-tracks/*.yml`](../data/learning-tracks/README.md).
-If using `includeGuides`, make sure each of the articles in this list has [`type`](#type) in its frontmatter.
+If using `includeGuides`, make sure each of the articles in this list has [`contentType`](#contenttype) in its frontmatter.

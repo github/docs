@@ -1,11 +1,11 @@
 ---
 title: Renaming a codespace
-intro: 'You can change the codespace display name to one of your choice on {% data variables.product.github %} or using the {% data variables.product.prodname_cli %}.'
+intro: You can change the codespace display name to one of your choice on {% data variables.product.github %} or using the {% data variables.product.prodname_cli %}.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 shortTitle: Rename a codespace
+contentType: how-tos
 ---
 
 ## About renaming a codespace

@@ -1,11 +1,13 @@
 ---
 title: Dependency caching
-intro: 'Learn about dependency caching for workflow speed and efficiency.'
+intro: Learn about dependency caching for workflow speed and efficiency.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
+contentType: concepts
+category:
+  - Write workflows
 ---
 
 ## About workflow dependency caching

@@ -1,11 +1,11 @@
 ---
 title: Configuring private networking for GitHub-hosted runners in your organization
 shortTitle: Configuring private networking
-intro: 'Learn how to use {% data variables.product.company_short %}-hosted runners with an Azure private network in your organization.'
+intro: Learn how to use {% data variables.product.company_short %}-hosted runners with an Azure private network in your organization.
 versions:
   feature: actions-private-networking-azure-vnet
-type: how_to
 permissions: '{% data reusables.actions.azure-vnet-organization-permissions %}'
+contentType: how-tos
 ---
 
 ## About Azure private networking for {% data variables.product.company_short %}-hosted runners

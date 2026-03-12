@@ -6,11 +6,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
 redirect_from:
   - /actions/using-github-hosted-runners/using-github-hosted-runners/using-an-api-gateway-with-oidc
   - /actions/using-github-hosted-runners/connecting-to-a-private-network/using-an-api-gateway-with-oidc
   - /actions/how-tos/using-github-hosted-runners/connecting-to-a-private-network/using-an-api-gateway-with-oidc
+contentType: how-tos
+category:
+  - Use and manage runners
 ---
 
 ## Using an API gateway with OIDC

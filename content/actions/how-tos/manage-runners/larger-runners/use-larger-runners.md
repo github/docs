@@ -12,6 +12,8 @@ redirect_from:
   - /actions/using-github-hosted-runners/using-larger-runners/running-jobs-on-larger-runners
   - /actions/how-tos/using-github-hosted-runners/using-larger-runners/running-jobs-on-larger-runners
   - /actions/how-tos/using-larger-runners/running-jobs-on-larger-runners
+category:
+  - Use and manage runners
 ---
 
 ## Running jobs on your runner

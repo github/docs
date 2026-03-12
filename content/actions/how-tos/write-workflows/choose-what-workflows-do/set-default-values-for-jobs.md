@@ -11,6 +11,8 @@ redirect_from:
   - /actions/writing-workflows/choosing-what-your-workflow-does/setting-default-values-for-jobs
   - /actions/writing-workflows/choosing-what-your-workflow-does/setting-a-default-shell-and-working-directory
   - /actions/how-tos/writing-workflows/choosing-what-your-workflow-does/setting-a-default-shell-and-working-directory
+category:
+  - Write workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 redirect_from:
   - /actions/reference/github-hosted-runners-reference
+category:
+  - Set up runners
 ---
 
 {% ifversion ghes %}

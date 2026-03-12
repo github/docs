@@ -5,11 +5,13 @@ intro: Use OpenID Connect within your workflows to authenticate with JFrog.
 versions:
   fpt: '*'
   ghec: '*'
-type: tutorial
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-jfrog
   - /actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-jfrog
   - /actions/how-tos/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-jfrog
+contentType: tutorials
+category:
+  - Secure your workflows
 ---
 
 ## Overview

@@ -1,12 +1,12 @@
 ---
 title: Switching between accounts
-intro: 'Learn how to switch between multiple {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} accounts and {% data variables.enterprise.prodname_managed_users %}{% else %}accounts{% endif %}.'
+intro: Learn how to switch between multiple {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} accounts and {% data variables.enterprise.prodname_managed_users %}{% else %}accounts{% endif %}.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: overview
+contentType: concepts
 ---
 
 If you need to use multiple accounts on {% data variables.product.prodname_dotcom %}, you can sign in to your accounts and switch between them without always being required to reauthenticate. You can use the account switcher if you have a personal account and service accounts (sometimes called machine users){% ifversion fpt or ghec %} or if you need to switch between your personal account and {% data variables.enterprise.prodname_managed_users %} in an enterprise that uses {% data variables.product.prodname_emus %}{% endif %}.

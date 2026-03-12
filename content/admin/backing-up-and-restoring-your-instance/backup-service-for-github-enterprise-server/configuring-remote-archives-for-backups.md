@@ -1,10 +1,10 @@
 ---
 title: Configuring remote archives for backups
 shortTitle: Configure remote archives
-intro: 'Enable a remote archive for backups through SSH.'
+intro: Enable a remote archive for backups through SSH.
 versions:
   ghes: '> 3.19'
-type: how_to
+contentType: how-tos
 ---
 
 If you are running {% data variables.product.prodname_ghe_server %} on a cloud platform or virtualization platform that supports disk snapshots, we recommend that you use snapshots to archive your backup disk, and recreate a new backup disk for testing, restoring, or disaster recovery purposes. However, if your infrastructure does not support disk snapshots or similar solutions, you can setup a {% data variables.product.prodname_ghe_server %} backup archive on a remote {% data variables.product.prodname_ghe_server %} appliance for data replication and restoration purposes.

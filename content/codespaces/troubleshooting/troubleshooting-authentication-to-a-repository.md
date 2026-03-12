@@ -1,11 +1,11 @@
 ---
 title: Troubleshooting authentication to a repository
-intro: 'Learn how to troubleshoot common authentication issues when you clone, push to, or pull from a repository in a codespace.'
+intro: Learn how to troubleshoot common authentication issues when you clone, push to, or pull from a repository in a codespace.
 versions:
   fpt: '*'
   ghec: '*'
-type: reference
 shortTitle: Authenticating to repositories
+contentType: reference
 ---
 
 When you create a codespace for a repository, you can generally use `git pull` and `git push` to pull and push changes to that repository without any additional authentication. However, occasionally you may see authentication errors when trying to run these operations.

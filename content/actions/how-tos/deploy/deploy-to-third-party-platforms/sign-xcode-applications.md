@@ -14,6 +14,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Deploy to environments
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

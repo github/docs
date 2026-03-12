@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository
   - /github/administering-a-repository/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository
+category:
+  - Store large files with Git LFS
 ---
 ## About {% data variables.large_files.product_name_short %} objects in archives
 

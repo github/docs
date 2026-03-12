@@ -18,7 +18,7 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
+contentType: how-tos
 ---
 
 ## About global webhooks

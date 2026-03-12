@@ -7,8 +7,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 shortTitle: View sponsors & sponsorships
+contentType: how-tos
 ---
 
 ## About sponsors and sponsorships

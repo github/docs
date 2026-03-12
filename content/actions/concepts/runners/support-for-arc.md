@@ -10,6 +10,8 @@ redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-support-for-actions-runner-controller
   - /actions/concepts/runners/about-support-for-actions-runner-controller
   - /actions/concepts/runners/support-for-actions-runner-controller
+category:
+  - Set up runners
 ---
 
 ## Overview

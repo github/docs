@@ -13,7 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
+contentType: tutorials
+category:
+  - Reuse and share automations
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

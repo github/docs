@@ -1,12 +1,12 @@
 ---
 title: System overview
-intro: 'Learn more about {% data variables.product.prodname_ghe_server %}''s system internals, functionality, and security.'
+intro: Learn more about {% data variables.product.prodname_ghe_server %}'s system internals, functionality, and security.
 redirect_from:
   - /enterprise/admin/installation/system-overview
   - /enterprise/admin/overview/system-overview
 versions:
   ghes: '*'
-type: overview
+contentType: concepts
 ---
 
 ## About {% data variables.product.prodname_ghe_server %}

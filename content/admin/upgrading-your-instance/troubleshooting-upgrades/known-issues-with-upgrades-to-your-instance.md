@@ -1,14 +1,14 @@
 ---
 title: Known issues with upgrades to your instance
-intro: 'See an overview of workarounds for issues that impact the upgrade process for {% data variables.product.prodname_ghe_server %}, or impact your instance after you complete an upgrade.'
+intro: See an overview of workarounds for issues that impact the upgrade process for {% data variables.product.prodname_ghe_server %}, or impact your instance after you complete an upgrade.
 versions:
   ghes: '*'
-type: overview
 shortTitle: Known issues with upgrades
 redirect_from:
   - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance
   - /admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance
+contentType: concepts
 ---
 
 ## About known issues with {% data variables.product.prodname_ghe_server %} upgrades

@@ -8,8 +8,8 @@ redirect_from:
   - /authentication/authenticating-with-saml-single-sign-on/viewing-and-managing-your-active-saml-sessions
 versions:
   ghec: '*'
-type: how_to
 shortTitle: Active SSO sessions
+contentType: how-tos
 ---
 
 You can view a list of devices that have logged into your account, and revoke any SSO sessions that you don't recognize.

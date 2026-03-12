@@ -1,12 +1,12 @@
 ---
 title: Deciding whether to configure SAML for your enterprise or your organizations
 shortTitle: Enterprise or organization
-intro: 'You can configure SAML for your enterprise account, with the same configuration applying to all of its organizations, or you can create separate configurations for individual organizations.'
+intro: You can configure SAML for your enterprise account, with the same configuration applying to all of its organizations, or you can create separate configurations for individual organizations.
 versions:
   ghec: '*'
-type: overview
 redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/deciding-whether-to-configure-saml-for-your-enterprise-or-your-organizations
+contentType: concepts
 ---
 
 {% data reusables.enterprise.ghec-authentication-options %} For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise).

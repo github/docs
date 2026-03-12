@@ -1,13 +1,15 @@
 ---
 title: Viewing all repositories
-intro: 'The repository dashboard lists the repositories you''ve created as well as where you''ve made contributions. You can use search and filters to find the right repositories and create saved views.'
+intro: The repository dashboard lists the repositories you've created as well as where you've made contributions. You can use search and filters to find the right repositories and create saved views.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '>=3.22'
 shortTitle: View all repositories
-type: how_to
+contentType: how-tos
+category:
+  - Manage, move, and archive a repository
 ---
 
 ## Viewing repositories

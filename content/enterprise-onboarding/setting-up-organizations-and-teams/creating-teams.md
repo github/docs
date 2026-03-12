@@ -1,12 +1,12 @@
 ---
 title: Creating enterprise teams
-intro: 'Use teams to manage permissions and access.'
+intro: Use teams to manage permissions and access.
 versions:
   ghec: '*'
 shortTitle: Create teams
-type: how_to
 permissions: Enterprise owners or organization owners
 allowTitleToDifferFromFilename: true
+contentType: how-tos
 ---
 
 {% data reusables.enterprise-onboarding.create-enterprise-teams %}

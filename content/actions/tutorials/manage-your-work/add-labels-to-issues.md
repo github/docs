@@ -1,7 +1,7 @@
 ---
 title: Adding labels to issues
 shortTitle: Add labels to issues
-intro: 'You can use {% data variables.product.prodname_actions %} to automatically label issues.'
+intro: You can use {% data variables.product.prodname_actions %} to automatically label issues.
 redirect_from:
   - /actions/guides/adding-labels-to-issues
   - /actions/managing-issues-and-pull-requests/adding-labels-to-issues
@@ -12,7 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
+contentType: tutorials
+category:
+  - Reuse and share automations
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

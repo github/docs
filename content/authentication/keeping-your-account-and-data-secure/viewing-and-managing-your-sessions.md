@@ -5,9 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-
-type: how_to
 shortTitle: Viewing and managing sessions
+contentType: how-tos
 ---
 
 You can view a list of devices that have logged into your account, and revoke any sessions that you don't recognize.

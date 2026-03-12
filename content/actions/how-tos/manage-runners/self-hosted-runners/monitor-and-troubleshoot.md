@@ -15,6 +15,8 @@ versions:
   ghes: '*'
   ghec: '*'
 defaultPlatform: linux
+category:
+  - Use and manage runners
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

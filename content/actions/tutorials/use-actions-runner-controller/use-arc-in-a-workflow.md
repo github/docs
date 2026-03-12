@@ -1,17 +1,19 @@
 ---
 title: Using Actions Runner Controller runners in a workflow
 shortTitle: Use ARC in a workflow
-intro: 'You can use {% data variables.product.prodname_actions_runner_controller %} runners in a workflow file.'
+intro: You can use {% data variables.product.prodname_actions_runner_controller %} runners in a workflow file.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: overview
 defaultPlatform: linux
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow
   - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow
   - /actions/tutorials/actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow
+contentType: concepts
+category:
+  - Use and manage runners
 ---
 
 ## Using ARC runners in a workflow file

@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Limits
+category:
+  - Administer GitHub Actions
 ---
 
 You may be rate limited by {% data variables.product.prodname_actions %} when you scale your usage. Some limits can be increased by contacting {% data variables.contact.contact_support %}.

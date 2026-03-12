@@ -31,7 +31,9 @@ export const LearningTrack = ({ track }: Props) => {
         <ol className="pl-4 my-3 f4">
           {track.guides.map((guide) => (
             <li key={guide.href + track.trackName}>
-              <span className="mr-2">{tObject('guide_types')[guide.type || ''] as string}</span>
+              <span className="mr-2">
+                {tObject('guide_types')[guide.contentType || ''] as string}
+              </span>
               <Link
                 href={`${guide.href}?learn=${track.trackName}&learnProduct=${track.trackProduct}`}
                 className="text-underline"

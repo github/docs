@@ -10,6 +10,8 @@ redirect_from:
   - /actions/managing-workflow-runs/skipping-workflow-runs
   - /actions/managing-workflow-runs-and-deployments/managing-workflow-runs/skipping-workflow-runs
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/skipping-workflow-runs
+category:
+  - Manage and monitor workflow runs
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

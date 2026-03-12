@@ -11,6 +11,8 @@ redirect_from:
   - /actions/sharing-automations/avoiding-duplication
   - /actions/concepts/workflows-and-actions/avoiding-duplication
   - /actions/concepts/workflows-and-actions/reusable-workflows
+category:
+  - Reuse and share automations
 ---
 
 ## Reusable workflows

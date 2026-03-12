@@ -1,16 +1,18 @@
 ---
 title: Troubleshooting Actions Runner Controller errors
 shortTitle: Troubleshoot
-intro: 'Learn how to troubleshoot {% data variables.product.prodname_actions_runner_controller %} errors.'
+intro: Learn how to troubleshoot {% data variables.product.prodname_actions_runner_controller %} errors.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors
   - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors
   - /actions/tutorials/actions-runner-controller/troubleshooting-actions-runner-controller-errors
+contentType: how-tos
+category:
+  - Use and manage runners
 ---
 
 ## Logging

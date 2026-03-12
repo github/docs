@@ -3,7 +3,7 @@ title: Adding and managing issue fields
 intro: 'You can set, edit, and clear issue field values on individual issues to capture structured metadata for your team.'
 versions:
   feature: issue-fields
-type: how_to
+contentType: how-tos
 topics:
   - Project management
 shortTitle: 'Using issue fields'

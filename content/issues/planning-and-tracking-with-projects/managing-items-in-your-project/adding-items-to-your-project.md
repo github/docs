@@ -1,13 +1,13 @@
 ---
-title: 'Adding items to your {% data variables.projects.project_v2 %}'
+title: Adding items to your {% data variables.projects.project_v2 %}
 shortTitle: Adding items
-intro: 'Learn how to add pull requests, issues, and draft issues to your projects individually or in bulk.'
+intro: Learn how to add pull requests, issues, and draft issues to your projects individually or in bulk.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
 allowTitleToDifferFromFilename: true
+contentType: tutorials
 ---
 
 > [!NOTE]

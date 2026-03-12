@@ -10,6 +10,8 @@ redirect_from:
   - /github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository
   - /github/administering-a-repository/managing-repository-settings/enabling-or-disabling-github-discussions-for-a-repository
 shortTitle: Discussions
+category:
+  - Customize and configure a repository
 ---
 
 ## Enabling or disabling {% data variables.product.prodname_discussions %} for your repository

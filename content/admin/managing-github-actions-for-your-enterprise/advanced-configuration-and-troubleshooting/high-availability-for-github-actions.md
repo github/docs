@@ -1,13 +1,13 @@
 ---
 title: High availability for GitHub Actions
-intro: 'There are some special considerations for administering {% data variables.product.prodname_actions %} in a high availability configuration.'
+intro: There are some special considerations for administering {% data variables.product.prodname_actions %} in a high availability configuration.
 versions:
   ghes: '*'
-type: reference
 redirect_from:
   - /admin/github-actions/high-availability-for-github-actions
   - /admin/github-actions/advanced-configuration-and-troubleshooting/high-availability-for-github-actions
 shortTitle: HA for GitHub Actions
+contentType: reference
 ---
 ## Replication or redundancy of your {% data variables.product.prodname_actions %} data
 

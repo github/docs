@@ -1,6 +1,6 @@
 ---
 title: Enabling subdomain isolation
-intro: 'You can set up subdomain isolation to securely separate user-supplied content from other portions of your {% data variables.product.prodname_ghe_server %} appliance.'
+intro: You can set up subdomain isolation to securely separate user-supplied content from other portions of your {% data variables.product.prodname_ghe_server %} appliance.
 redirect_from:
   - /enterprise/admin/guides/installation/about-subdomain-isolation
   - /enterprise/admin/installation/enabling-subdomain-isolation
@@ -10,8 +10,8 @@ redirect_from:
   - /admin/configuration/hardening-security-for-your-enterprise/enabling-subdomain-isolation
 versions:
   ghes: '*'
-type: how_to
 shortTitle: Enable subdomain isolation
+contentType: how-tos
 ---
 ## About subdomain isolation
 

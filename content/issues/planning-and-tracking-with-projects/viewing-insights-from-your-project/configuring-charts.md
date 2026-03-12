@@ -5,7 +5,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
+contentType: tutorials
 ---
 
 {% data reusables.projects.access-insights %}

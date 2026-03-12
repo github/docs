@@ -1,13 +1,13 @@
 ---
 title: GitHub CLI quickstart
-intro: 'Start using {% data variables.product.prodname_cli %} to work with {% data variables.product.company_short %} in the command line.'
+intro: Start using {% data variables.product.prodname_cli %} to work with {% data variables.product.company_short %} in the command line.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
 allowTitleToDifferFromFilename: true
 shortTitle: Quickstart
+contentType: concepts
 ---
 
 ## About {% data variables.product.prodname_cli %}

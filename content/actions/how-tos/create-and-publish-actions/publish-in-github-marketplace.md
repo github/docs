@@ -13,6 +13,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Publish in GitHub Marketplace
+category:
+  - Reuse and share automations
 ---
 
 ## Prerequisites

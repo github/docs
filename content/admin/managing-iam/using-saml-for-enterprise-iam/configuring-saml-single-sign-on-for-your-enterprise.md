@@ -1,12 +1,11 @@
 ---
 title: Configuring SAML single sign-on for your enterprise
 shortTitle: Configure SAML SSO
-intro: 'You can control and secure access to {% ifversion ghec %}resources like repositories, issues, and pull requests within your enterprise''s organizations{% elsif ghes %}{% data variables.location.product_location %}{% endif %} by {% ifversion ghec %}enforcing{% elsif ghes %}configuring{% endif %} SAML single sign-on (SSO) through your identity provider (IdP).'
+intro: You can control and secure access to {% ifversion ghec %}resources like repositories, issues, and pull requests within your enterprise's organizations{% elsif ghes %}{% data variables.location.product_location %}{% endif %} by {% ifversion ghec %}enforcing{% elsif ghes %}configuring{% endif %} SAML single sign-on (SSO) through your identity provider (IdP).
 permissions: '{% ifversion ghes %}Site administrators{% elsif ghec %}Enterprise owners{% endif %} can configure SAML SSO for {% ifversion ghec %}an enterprise on {% data variables.product.github %}{% elsif ghes %}a {% data variables.product.prodname_ghe_server %} instance{% endif %}.'
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
 redirect_from:
   - /admin/authentication/configuring-saml-single-sign-on-for-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account
@@ -15,6 +14,7 @@ redirect_from:
   - /admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise
+contentType: how-tos
 ---
 
 {% ifversion ghec %}

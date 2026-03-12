@@ -12,6 +12,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Manage and monitor workflow runs
 ---
 
 > [!NOTE]

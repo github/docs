@@ -5,9 +5,9 @@ intro: You can configure your project to prebuild a codespace automatically each
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 permissions: People with admin access to a repository can configure prebuilds for the repository.
 product: '{% data reusables.gated-features.codespaces-repo %}'
+contentType: how-tos
 ---
 
 You can set up a prebuild configuration for the combination of a specific branch of your repository with a specific dev container configuration file.

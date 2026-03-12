@@ -1,11 +1,11 @@
 ---
-title: 'Using {% data variables.product.prodname_classroom %} with {% data variables.product.prodname_cli %}'
+title: Using {% data variables.product.prodname_classroom %} with {% data variables.product.prodname_cli %}
 shortTitle: '{% data variables.product.prodname_classroom %} CLI'
 allowTitleToDifferFromFilename: true
-intro: 'You can use `gh`, the {% data variables.product.github %} command line interface, to work with {% data variables.product.prodname_classroom %} directly from your command line.'
+intro: You can use `gh`, the {% data variables.product.github %} command line interface, to work with {% data variables.product.prodname_classroom %} directly from your command line.
 versions:
   fpt: '*'
-type: how_to
+contentType: how-tos
 ---
 
 ## About {% data variables.product.prodname_classroom %} CLI <!-- omit in toc -->

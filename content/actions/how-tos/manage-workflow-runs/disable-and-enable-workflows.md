@@ -11,6 +11,8 @@ redirect_from:
   - /actions/using-workflows/disabling-and-enabling-a-workflow
   - /actions/managing-workflow-runs-and-deployments/managing-workflow-runs/disabling-and-enabling-a-workflow
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/disabling-and-enabling-a-workflow
+category:
+  - Manage and monitor workflow runs
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

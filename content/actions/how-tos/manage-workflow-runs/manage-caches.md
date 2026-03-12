@@ -9,6 +9,8 @@ shortTitle: Manage caches
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/manage-caches
+category:
+  - Manage and monitor workflow runs
 ---
 
 This article describes managing caches with the {% data variables.product.prodname_dotcom %} web interface, but you can also manage them:

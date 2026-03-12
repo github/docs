@@ -10,6 +10,8 @@ redirect_from:
   - /actions/using-jobs/choosing-the-runner-for-a-job
   - /actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job
   - /actions/how-tos/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job
+category:
+  - Write workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

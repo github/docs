@@ -11,6 +11,8 @@ redirect_from:
   - /actions/managing-workflow-runs/reviewing-deployments
   - /actions/managing-workflow-runs-and-deployments/managing-deployments/reviewing-deployments
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-deployments/reviewing-deployments
+category:
+  - Deploy to environments
 ---
 
 ## Approving or rejecting a job

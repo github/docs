@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 redirect_from:
   - /actions/reference/workflow-cancellation-reference
+category:
+  - Manage and monitor workflow runs
 ---
 
 When canceling a workflow run, you may be running other software that uses resources related to the workflow run. To help you free up resources related to the workflow run, it may help to understand the steps {% data variables.product.prodname_dotcom %} performs to cancel a workflow run.

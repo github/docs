@@ -11,6 +11,8 @@ redirect_from:
   - /actions/sharing-automations/creating-actions/releasing-and-maintaining-actions
   - /actions/how-tos/sharing-automations/creating-actions/releasing-and-maintaining-actions
   - /actions/how-tos/creating-and-publishing-actions/releasing-and-maintaining-actions
+category:
+  - Reuse and share automations
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -1,6 +1,6 @@
 ---
 title: Enabling private mode
-intro: 'In private mode, {% data variables.product.prodname_ghe_server %} requires every user to sign in to access the installation.'
+intro: In private mode, {% data variables.product.prodname_ghe_server %} requires every user to sign in to access the installation.
 redirect_from:
   - /enterprise/admin/articles/private-mode
   - /enterprise/admin/guides/installation/security
@@ -12,7 +12,7 @@ redirect_from:
   - /admin/configuration/hardening-security-for-your-enterprise/enabling-private-mode
 versions:
   ghes: '*'
-type: how_to
+contentType: how-tos
 ---
 You must enable private mode if {% data variables.location.product_location %} is publicly accessible over the Internet. In private mode, users cannot anonymously clone repositories. If built-in authentication is also enabled, an administrator must invite new users to create an account on the instance. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication).
 

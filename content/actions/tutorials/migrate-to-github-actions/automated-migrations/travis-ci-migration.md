@@ -1,17 +1,19 @@
 ---
 title: Migrating from Travis CI with GitHub Actions Importer
-intro: 'Learn how to use {% data variables.product.prodname_actions_importer %} to automate the migration of your Travis CI pipelines to {% data variables.product.prodname_actions %}.'
+intro: Learn how to use {% data variables.product.prodname_actions_importer %} to automate the migration of your Travis CI pipelines to {% data variables.product.prodname_actions %}.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
 shortTitle: Travis CI migration
 redirect_from:
   - /actions/migrating-to-github-actions/automated-migrations/migrating-from-travis-ci-with-github-actions-importer
   - /actions/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/migrating-from-travis-ci-with-github-actions-importer
   - /actions/how-tos/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/migrating-from-travis-ci-with-github-actions-importer
   - /actions/tutorials/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/migrating-from-travis-ci-with-github-actions-importer
+contentType: tutorials
+category:
+  - Migrate to GitHub Actions
 ---
 
 ## About migrating from Travis CI with GitHub Actions Importer

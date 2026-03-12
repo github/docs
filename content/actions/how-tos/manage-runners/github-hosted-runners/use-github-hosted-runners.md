@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /actions/how-tos/using-github-hosted-runners/using-github-hosted-runners
   - /actions/using-github-hosted-runners/using-github-hosted-runners
+category:
+  - Use and manage runners
 ---
 
 {% ifversion ghes %}

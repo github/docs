@@ -8,8 +8,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 shortTitle: Delete a codespace
+contentType: how-tos
 ---
 
 ## Overview

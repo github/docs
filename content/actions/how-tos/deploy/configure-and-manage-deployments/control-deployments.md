@@ -6,13 +6,15 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
 redirect_from:
   - /actions/deployment/deploying-with-github-actions
   - /actions/deployment/about-deployments/deploying-with-github-actions
   - /actions/use-cases-and-examples/deploying/deploying-with-github-actions
   - /actions/concepts/use-cases/deploying-with-github-actions
   - /actions/tutorials/deploying-with-github-actions
+contentType: concepts
+category:
+  - Deploy to environments
 ---
 
 ## Prerequisites

@@ -1,12 +1,12 @@
 ---
 title: Managing access to the Management Console
 shortTitle: Manage Management Console access
-intro: 'You can increase the security of {% data variables.location.product_location %} by creating or deleting {% data variables.enterprise.management_console %} users. As the root site administrator, you can access the {% data variables.enterprise.management_console %} as well as configure {% data variables.enterprise.management_console %} authentication rate limits.'
+intro: You can increase the security of {% data variables.location.product_location %} by creating or deleting {% data variables.enterprise.management_console %} users. As the root site administrator, you can access the {% data variables.enterprise.management_console %} as well as configure {% data variables.enterprise.management_console %} authentication rate limits.
 redirect_from:
   - /admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console
 versions:
   ghes: '*'
-type: how_to
+contentType: how-tos
 ---
 
 {% data reusables.enterprise_site_admin_settings.management-console-access %} For more information about {% data variables.enterprise.management_console %} access, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console).
