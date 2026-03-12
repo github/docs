@@ -11,6 +11,8 @@ redirect_from:
   - /actions/using-github-hosted-runners/using-github-hosted-runners/using-an-api-gateway-with-oidc
   - /actions/using-github-hosted-runners/connecting-to-a-private-network/using-an-api-gateway-with-oidc
   - /actions/how-tos/using-github-hosted-runners/connecting-to-a-private-network/using-an-api-gateway-with-oidc
+category:
+  - Use and manage runners
 ---
 
 ## Using an API gateway with OIDC

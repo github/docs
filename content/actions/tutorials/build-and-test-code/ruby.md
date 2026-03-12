@@ -13,6 +13,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Ruby
+category:
+  - Build and test code
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -12,6 +12,8 @@ redirect_from:
   - /actions/security-for-github-actions/security-guides/security-hardening-your-deployments/configuring-openid-connect-in-azure
   - /actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-azure
   - /actions/how-tos/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-azure
+category:
+  - Secure your workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

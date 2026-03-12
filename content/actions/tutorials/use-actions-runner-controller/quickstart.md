@@ -12,6 +12,8 @@ redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/quickstart-for-actions-runner-controller
   - /actions/tutorials/quickstart-for-actions-runner-controller
   - /actions/tutorials/actions-runner-controller/quickstart-for-actions-runner-controller
+category:
+  - Set up runners
 ---
 
 ## Prerequisites

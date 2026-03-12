@@ -10,6 +10,8 @@ redirect_from:
   - /actions/managing-workflow-runs/removing-workflow-artifacts
   - /actions/managing-workflow-runs-and-deployments/managing-workflow-runs/removing-workflow-artifacts
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/removing-workflow-artifacts
+category:
+  - Manage and monitor workflow runs
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

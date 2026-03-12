@@ -16,6 +16,8 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
+category:
+  - Build and test code
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

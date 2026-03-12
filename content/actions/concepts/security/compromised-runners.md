@@ -7,6 +7,8 @@ versions:
   ghec: '*'
 redirect_from:
   - /actions/concepts/security/compromised-runner
+category:
+  - Secure your workflows
 ---
 
 ## Potential impact of a compromised runner

@@ -7,6 +7,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /actions/concepts/runners/about-runner-groups
+category:
+  - Set up runners
 ---
 
 ## About runner groups

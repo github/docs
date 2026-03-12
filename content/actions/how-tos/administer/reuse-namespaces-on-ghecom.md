@@ -9,6 +9,8 @@ permissions: Enterprise owners
 redirect_from:
   - /actions/administering-github-actions/making-retired-namespaces-available-on-ghecom
   - /actions/how-tos/administering-github-actions/making-retired-namespaces-available-on-ghecom
+category:
+  - Administer GitHub Actions
 ---
 
 ## Overview

@@ -12,6 +12,8 @@ redirect_from:
   - /actions/using-github-hosted-runners/using-larger-runners/controlling-access-to-larger-runners
   - /actions/how-tos/using-github-hosted-runners/using-larger-runners/controlling-access-to-larger-runners
   - /actions/how-tos/using-larger-runners/controlling-access-to-larger-runners
+category:
+  - Use and manage runners
 ---
 
 > [!NOTE]

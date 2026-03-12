@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /actions/reference/openid-connect-reference
+category:
+  - Secure your workflows
 ---
 
 ## OIDC token claims

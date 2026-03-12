@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /actions/concepts/runners/about-runner-scale-sets
+category:
+  - Set up runners
 ---
 
 ## About runner scale sets

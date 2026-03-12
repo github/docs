@@ -13,6 +13,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Java with Ant
+category:
+  - Build and test code
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller
   - /actions/concepts/runners/about-actions-runner-controller
+category:
+  - Set up runners
 ---
 
 ## About {% data variables.product.prodname_actions_runner_controller %}

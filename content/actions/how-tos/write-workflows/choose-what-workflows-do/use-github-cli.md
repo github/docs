@@ -14,6 +14,8 @@ versions:
   ghes: '*'
   ghec: '*'
 type: how_to
+category:
+  - Write workflows
 ---
 
 

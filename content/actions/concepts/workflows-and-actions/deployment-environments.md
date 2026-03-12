@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
+category:
+  - Deploy to environments
 ---
 
 {% data reusables.actions.about-environments %}

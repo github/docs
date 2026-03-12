@@ -11,6 +11,8 @@ layout: inline
 redirect_from:
   - /actions/use-cases-and-examples/creating-an-example-workflow
   - /actions/tutorials/creating-an-example-workflow
+category:
+  - Get started with GitHub Actions
 ---
 
 ## Introduction

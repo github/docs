@@ -13,6 +13,8 @@ redirect_from:
   - /actions/how-tos/troubleshooting-workflows
   - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/using-copilot-to-troubleshoot-workflows
   - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows
+category:
+  - Manage and monitor workflow runs
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

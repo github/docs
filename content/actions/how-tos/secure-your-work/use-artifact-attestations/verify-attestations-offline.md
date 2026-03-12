@@ -9,6 +9,8 @@ redirect_from:
   - /actions/security-guides/verifying-attestations-offline
   - /actions/security-for-github-actions/using-artifact-attestations/verifying-attestations-offline
   - /actions/how-tos/security-for-github-actions/using-artifact-attestations/verifying-attestations-offline
+category:
+  - Secure your workflows
 ---
 
 ## Prerequisites

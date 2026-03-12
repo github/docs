@@ -15,6 +15,8 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
+category:
+  - Build and test code
 ---
 
 ## Introduction

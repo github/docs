@@ -13,6 +13,8 @@ versions:
   ghec: '*'
 type: tutorial
 defaultPlatform: linux
+category:
+  - Reuse and share automations
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

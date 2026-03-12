@@ -12,6 +12,8 @@ redirect_from:
   - /actions/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/migrating-from-gitlab-with-github-actions-importer
   - /actions/how-tos/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/migrating-from-gitlab-with-github-actions-importer
   - /actions/tutorials/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/migrating-from-gitlab-with-github-actions-importer
+category:
+  - Migrate to GitHub Actions
 ---
 
 ## About migrating from GitLab with GitHub Actions Importer

@@ -10,6 +10,8 @@ redirect_from:
   - /actions/using-github-hosted-runners/about-larger-runners/about-larger-runners
   - /actions/using-github-hosted-runners/using-larger-runners/about-larger-runners
   - /actions/concepts/runners/about-larger-runners
+category:
+  - Set up runners
 ---
 
 {% ifversion ghes %}

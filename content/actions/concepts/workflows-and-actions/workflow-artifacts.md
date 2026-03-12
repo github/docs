@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
+category:
+  - Write workflows
 ---
 
 ## About workflow artifacts

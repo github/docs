@@ -11,6 +11,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+category:
+  - Manage and monitor workflow runs
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

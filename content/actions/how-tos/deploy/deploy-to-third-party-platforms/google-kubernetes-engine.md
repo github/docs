@@ -14,6 +14,8 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
+category:
+  - Deploy to environments
 ---
 
 ## Prerequisites

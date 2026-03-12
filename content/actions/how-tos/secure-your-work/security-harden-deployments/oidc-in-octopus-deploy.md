@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 type: tutorial
+category:
+  - Secure your workflows
 ---
 
 ## Overview

@@ -10,6 +10,8 @@ redirect_from:
   - /actions/using-jobs/using-jobs-in-a-workflow
   - /actions/writing-workflows/choosing-what-your-workflow-does/using-jobs-in-a-workflow
   - /actions/how-tos/writing-workflows/choosing-what-your-workflow-does/using-jobs-in-a-workflow
+category:
+  - Write workflows
 ---
 
 ## Prerequisites

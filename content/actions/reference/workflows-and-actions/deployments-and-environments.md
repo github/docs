@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 redirect_from:
   - /actions/reference/deployments-and-environments
+category:
+  - Deploy to environments
 ---
 
 ## Deployment protection rules

@@ -15,6 +15,8 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
+category:
+  - Reuse and share automations
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

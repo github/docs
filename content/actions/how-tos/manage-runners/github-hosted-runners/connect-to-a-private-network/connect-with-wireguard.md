@@ -11,6 +11,8 @@ redirect_from:
   - /actions/using-github-hosted-runners/using-github-hosted-runners/using-wireguard-to-create-a-network-overlay
   - /actions/using-github-hosted-runners/connecting-to-a-private-network/using-wireguard-to-create-a-network-overlay
   - /actions/how-tos/using-github-hosted-runners/connecting-to-a-private-network/using-wireguard-to-create-a-network-overlay
+category:
+  - Use and manage runners
 ---
 
 ## Using WireGuard to create a network overlay

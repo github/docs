@@ -11,6 +11,8 @@ redirect_from:
   - /actions/deployment/protecting-deployments/creating-custom-deployment-protection-rules
   - /actions/managing-workflow-runs-and-deployments/managing-deployments/creating-custom-deployment-protection-rules
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-deployments/creating-custom-deployment-protection-rules
+category:
+  - Deploy to environments
 ---
 
 ## Prerequisites

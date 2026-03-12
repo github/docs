@@ -17,6 +17,8 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
+category:
+  - Get started with GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

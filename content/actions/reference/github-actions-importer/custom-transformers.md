@@ -12,6 +12,8 @@ redirect_from:
   - /actions/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/extending-github-actions-importer-with-custom-transformers
   - /actions/how-tos/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/extending-github-actions-importer-with-custom-transformers
   - /actions/reference/extending-github-actions-importer-with-custom-transformers
+category:
+  - Migrate to GitHub Actions
 ---
 
 ## About custom transformers

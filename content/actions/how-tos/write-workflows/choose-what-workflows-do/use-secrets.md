@@ -20,6 +20,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Secure your workflows
 ---
 
 ## Creating secrets for a repository

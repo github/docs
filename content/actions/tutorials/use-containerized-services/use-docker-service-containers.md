@@ -16,6 +16,8 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
+category:
+  - Build and test code
 ---
 
 ## Communicating with Docker service containers

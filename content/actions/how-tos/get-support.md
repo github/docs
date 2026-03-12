@@ -12,6 +12,8 @@ redirect_from:
   - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/working-with-support-for-github-actions
   - /actions/how-tos/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/working-with-support-for-github-actions
   - /actions/how-tos/getting-help-from-github-support-about-github-actions
+category:
+  - Administer GitHub Actions
 ---
 
 You can [contact {% data variables.contact.github_support %}](/support/contacting-github-support) for assistance with {% data variables.product.prodname_actions %}.

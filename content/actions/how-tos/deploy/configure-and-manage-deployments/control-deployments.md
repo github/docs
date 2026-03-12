@@ -13,6 +13,8 @@ redirect_from:
   - /actions/use-cases-and-examples/deploying/deploying-with-github-actions
   - /actions/concepts/use-cases/deploying-with-github-actions
   - /actions/tutorials/deploying-with-github-actions
+category:
+  - Deploy to environments
 ---
 
 ## Prerequisites

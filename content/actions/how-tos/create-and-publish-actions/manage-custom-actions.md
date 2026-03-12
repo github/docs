@@ -10,6 +10,8 @@ type: overview
 redirect_from:
   - /actions/how-tos/administering-github-actions/managing-custom-actions
   - /actions/how-tos/creating-and-publishing-actions/managing-custom-actions
+category:
+  - Reuse and share automations
 ---
 
 ## Choosing a location for your action

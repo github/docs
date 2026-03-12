@@ -10,6 +10,8 @@ redirect_from:
   - /actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise
   - /actions/sharing-automations/sharing-actions-and-workflows-with-your-enterprise
   - /actions/how-tos/sharing-automations/sharing-actions-and-workflows-with-your-enterprise
+category:
+  - Reuse and share automations
 ---
 
 ## Overview

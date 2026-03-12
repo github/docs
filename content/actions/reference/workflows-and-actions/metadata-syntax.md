@@ -17,6 +17,8 @@ versions:
   ghec: '*'
 type: reference
 allowTitleToDifferFromFilename: true
+category:
+  - Reuse and share automations
 ---
 
 {% data reusables.actions.types-of-actions %}

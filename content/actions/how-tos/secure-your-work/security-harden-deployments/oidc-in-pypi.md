@@ -10,6 +10,8 @@ redirect_from:
   - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-pypi
   - /actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-pypi
   - /actions/how-tos/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-pypi
+category:
+  - Secure your workflows
 ---
 
 ## Overview

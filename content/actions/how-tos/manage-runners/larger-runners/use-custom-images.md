@@ -6,6 +6,8 @@ versions:
   feature: actions-hosted-runners
 product: '{% data variables.actions.github_hosted_larger_runners %} are only available for organizations and enterprises using the {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} plans. <br><a href="https://github.com/pricing?ref_product=ghec&ref_type=trial&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_actions %}</span> {% octicon "link-external" height:16 %}</a>'
 
+category:
+  - Set up runners
 ---
 
 {% data reusables.actions.custom-images-public-preview-note %}

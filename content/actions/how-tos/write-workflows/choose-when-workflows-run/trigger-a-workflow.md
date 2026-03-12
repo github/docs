@@ -11,6 +11,8 @@ redirect_from:
   - /actions/using-workflows/triggering-a-workflow
   - /actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow
   - /actions/how-tos/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow
+category:
+  - Write workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -15,6 +15,8 @@ versions:
   ghec: '*'
 type: tutorial
 layout: inline
+category:
+  - Build and test code
 ---
 
 ## Introduction

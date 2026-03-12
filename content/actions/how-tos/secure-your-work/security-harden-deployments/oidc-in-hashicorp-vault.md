@@ -11,6 +11,8 @@ redirect_from:
   - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault
   - /actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault
   - /actions/how-tos/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault
+category:
+  - Secure your workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

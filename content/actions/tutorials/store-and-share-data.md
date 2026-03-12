@@ -19,6 +19,8 @@ versions:
   ghec: '*'
 type: tutorial
 allowTitleToDifferFromFilename: true
+category:
+  - Write workflows
 ---
 
 ## Prerequisites

@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 redirect_from:
   - /actions/reference/variables-reference
+category:
+  - Write workflows
 ---
 
 This article lists the supported variables you can use in {% data variables.product.prodname_actions %} workflows, including environment variables, configuration variables, and default variables provided by {% data variables.product.github %}. Use this reference to look up variable names, naming conventions, limits, and supported contexts when configuring your workflows.

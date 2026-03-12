@@ -4,6 +4,8 @@ shortTitle: Use immutable releases
 intro: 'Learn how you can use a combination of immutable releases on {% data variables.product.github %} and Git tags to manage your action''s releases.'
 versions:
   feature: immutable-releases
+category:
+  - Reuse and share automations
 ---
 
 If you enable immutable releases on your action's repository, you can manage your action's releases as follows:

@@ -13,6 +13,8 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
+category:
+  - Migrate to GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

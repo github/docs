@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /actions/reference/secrets-reference
+category:
+  - Secure your workflows
 ---
 
 ## Naming your secrets

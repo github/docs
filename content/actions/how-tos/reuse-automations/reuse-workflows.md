@@ -11,6 +11,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Reuse and share automations
 ---
 
 ## Creating a reusable workflow

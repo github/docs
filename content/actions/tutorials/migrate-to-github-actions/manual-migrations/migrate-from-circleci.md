@@ -14,6 +14,8 @@ versions:
   ghec: '*'
 type: tutorial
 shortTitle: Migrate from CircleCI
+category:
+  - Migrate to GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

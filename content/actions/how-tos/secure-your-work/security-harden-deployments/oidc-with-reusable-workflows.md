@@ -12,6 +12,8 @@ versions:
   ghec: '*'
   ghes: '*'
 type: how_to
+category:
+  - Secure your workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -18,6 +18,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Set up runners
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

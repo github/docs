@@ -19,6 +19,8 @@ versions:
   ghes: '*'
   ghec: '*'
 type: tutorial
+category:
+  - Write workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

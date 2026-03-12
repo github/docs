@@ -12,6 +12,8 @@ redirect_from:
   - /actions/how-tos/using-github-hosted-runners/monitoring-your-current-jobs#viewing-active-jobs-in-your-organization-or-enterprise
   - /actions/how-tos/using-github-hosted-runners/monitoring-your-current-jobs
   - /actions/how-tos/using-github-hosted-runners/viewing-your-current-jobs
+category:
+  - Use and manage runners
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

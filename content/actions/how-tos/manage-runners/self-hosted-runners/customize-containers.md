@@ -9,6 +9,8 @@ redirect_from:
   - /actions/how-tos/managing-self-hosted-runners/customizing-the-containers-used-by-jobs
 versions:
   feature: container-hooks
+category:
+  - Use and manage runners
 ---
 
 > [!NOTE]

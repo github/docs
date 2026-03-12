@@ -17,6 +17,8 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
+category:
+  - Write workflows
 ---
 
 ## `cache` action usage

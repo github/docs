@@ -16,6 +16,8 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
+category:
+  - Set up runners
 ---
 
 ## Requirements for self-hosted runner machines

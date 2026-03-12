@@ -13,6 +13,8 @@ redirect_from:
   - /actions/using-github-hosted-runners/using-github-hosted-runners/customizing-github-hosted-runners
   - /actions/how-tos/using-github-hosted-runners/using-github-hosted-runners/customizing-github-hosted-runners
   - /actions/how-tos/using-github-hosted-runners/customizing-github-hosted-runners
+category:
+  - Set up runners
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

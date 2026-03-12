@@ -11,6 +11,8 @@ redirect_from:
   - /actions/writing-workflows/choosing-what-your-workflow-does/expressions
   - /actions/writing-workflows/choosing-what-your-workflow-does/evaluate-expressions-in-workflows-and-actions
   - /actions/reference/evaluate-expressions-in-workflows-and-actions
+category:
+  - Write workflows
 ---
 
 ## Literals

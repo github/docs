@@ -12,6 +12,8 @@ redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller
   - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller
   - /actions/tutorials/actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller
+category:
+  - Set up runners
 ---
 
 ## Deploying a runner scale set

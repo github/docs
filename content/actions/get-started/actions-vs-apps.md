@@ -10,6 +10,8 @@ type: overview
 redirect_from:
   - /actions/concepts/overview/github-actions-vs-github-apps
   - /actions/get-started/github-actions-vs-github-apps
+category:
+  - Get started with GitHub Actions
 ---
 
 {% data variables.product.prodname_marketplace %} offers both {% data variables.product.prodname_actions %} and {% data variables.product.prodname_github_apps %}, each of which can be valuable automation and workflow tools. Understanding the differences and the benefits of each option will allow you to select the best fit for your job.

@@ -21,6 +21,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Authenticate with GITHUB_TOKEN
+category:
+  - Secure your workflows
 ---
 
 This tutorial leads you through how to use the `GITHUB_TOKEN` for authentication in {% data variables.product.prodname_actions %} workflows, including examples for passing the token to actions, making API requests, and configuring permissions for secure automation.
