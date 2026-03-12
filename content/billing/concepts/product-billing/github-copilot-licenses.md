@@ -21,7 +21,7 @@ Usage of {% data variables.product.prodname_copilot %} is measured through a com
 
 | Account type      | Options                                                                 |
 |-------------------|-------------------------------------------------------------------------|
-| **Personal accounts** | <ul><li>{% data variables.copilot.copilot_pro_short %}: {% data variables.copilot.cfi_price_per_month %} per calendar month or {% data variables.copilot.cfi_price_per_year %} per year.</li><li>{% data variables.copilot.copilot_pro_plus_short %}: {% data variables.copilot.cpp_price_per_month %} per calendar month or {% data variables.copilot.cpp_price_per_year %} per year.</li><li>{% data variables.copilot.copilot_free_short %} offers limited access to {% data variables.product.prodname_copilot_short %} features at no cost.</li></ul> |
+| **Personal accounts** | <ul><li>{% data variables.copilot.copilot_pro_short %}: {% data variables.copilot.cfi_price_per_month %} per calendar month or {% data variables.copilot.cfi_price_per_year %} per year.</li><li>{% data variables.copilot.copilot_pro_plus_short %}: {% data variables.copilot.cpp_price_per_month %} per calendar month or {% data variables.copilot.cpp_price_per_year %} per year.</li><li>{% data variables.copilot.copilot_student_short %}: access to {% data variables.product.prodname_copilot_short %} premium features at no cost.</li><li>{% data variables.copilot.copilot_free_short %}: limited access to {% data variables.product.prodname_copilot_short %} features at no cost.</li></ul> |
 | **Organizations** | {% data variables.copilot.copilot_business_short %}: {% data variables.copilot.cfb_price_per_month %} per user per month (billed monthly). |
 | **Enterprises**   | Choose {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}, or mix them across organizations. Both are billed monthly, pricing varies. |
 
@@ -48,7 +48,8 @@ There are several ways to use {% data variables.product.prodname_copilot_short %
 
 ### Educational and open source benefits
 
-* {% data variables.copilot.copilot_pro_short %} is free for verified students, teachers, and maintainers of popular open source projects. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-free-access-to-copilot-pro-as-a-student-teacher-or-maintainer).
+* {% data variables.copilot.copilot_student_short %} offers free access to {% data variables.product.prodname_copilot_short %}'s premium features for verified students. See [AUTOTITLE](/copilot/how-tos/manage-your-account/free-access-with-copilot-student).
+* {% data variables.copilot.copilot_pro_short %} is free for verified teachers and maintainers of popular open source projects. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-free-access-to-copilot-pro-as-a-student-teacher-or-maintainer).
 
 ## How usage of {% data variables.product.prodname_copilot_short %} licenses is measured
 
