@@ -9,6 +9,8 @@ versions:
 topics:
   - Integration
 contentType: reference
+category:
+  - Use integrations
 ---
 
 ## Creating issues with the {% data variables.product.github %} integration in Slack

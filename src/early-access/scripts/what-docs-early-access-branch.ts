@@ -2,7 +2,6 @@ import { getOctokit } from '@actions/github'
 import { setOutput } from '@actions/core'
 
 async function main(): Promise<void> {
-  // TODO Is there a lib function for this?
   const { BRANCH_NAME, GITHUB_TOKEN } = process.env
   if (!BRANCH_NAME) throw new Error("'BRANCH_NAME' env var not set")
   if (!GITHUB_TOKEN) throw new Error("'GITHUB_TOKEN' env var not set")

@@ -1,128 +1,228 @@
 # Tests
 
-This directory contains utilities to support our automated testing efforts.
+The tests subject contains utilities, helpers, and infrastructure to support automated testing across docs.github.com. This includes test helpers, mock servers, schema validation, and shared testing patterns.
 
-**This directory should not include test suites.** Please use the best subject folder available.
+> [!NOTE]
+> This directory should not include test suites. Test files belong in their respective subject directories (e.g., `src/search/tests/`, `src/frame/tests/`).
 
-It's not strictly necessary to run tests locally while developing. You can
-always open a pull request and rely on the CI service to run tests for you,
-but it's helpful to run tests locally before pushing your changes to
-GitHub.
+## Purpose & Scope
 
-Tests are written using [vitest](https://vitest.dev/).
+This subject is responsible for:
+- Test utilities and helper functions shared across subjects
+- Mock server infrastructure for integration tests
+- Schema validation utilities (AJV)
+- Test data and fixtures management
+- Vitest configuration and setup
+- TypeScript declarations for test tooling
+- Shared testing patterns and conventions
 
-`vitest` runs tests and handles assertions.
+Tests are written using [Vitest](https://vitest.dev/) for unit and integration tests, and [Playwright](https://playwright.dev/) for end-to-end browser tests.
 
-## Install optional dependencies
+## Architecture & Key Assets
 
-We typically rely on CI to run our tests, so some large test-only
-dependencies are considered **optional**. To run the tests locally, you'll
-need to make sure optional dependencies are installed by running:
+### Key capabilities and their locations
 
-```shell
+- `lib/validate-json-schema.ts` - AJV validator factory for JSON schema validation
+- `mocks/start-mock-server.ts` - Creates mock HTTP server for integration tests
+- `helpers/e2etest.ts` - Utilities for end-to-end testing scenarios
+- `vitest.setup.ts` - Global Vitest configuration and hooks
+
+## Setup & Usage
+
+### Installing test dependencies
+
+Test-only dependencies are optional to keep standard installs faster:
+
+```bash
 npm ci --include=optional
 ```
 
-## Running all the tests
+### Running all tests
 
-Once you've followed the development instructions above, you can run the entire
-test suite locally:
-
-```shell
+```bash
 npm test
 ```
 
-## Watching all the tests
+### Running tests in watch mode
 
-You can run a script that continually watches for changes and
-re-runs the tests whenever a change is made. This command notifies you
-when tests change to and from a passing or failing state, and it prints
-out a test coverage report so you can see what files need testing.
+Continuously re-runs tests on file changes:
 
-```shell
+```bash
 npm run test-watch
 ```
 
-## Running individual tests
+### Running specific tests
 
-You can run specific tests in two ways:
-
-```shell
-# The TEST_NAME can be a filename, partial filename, or path to a file or directory
+```bash
+# By filename or path
 npm test -- <TEST_NAME>
 
-vitest path/to/tests/directory
+# By directory
+vitest src/search/tests
+
+# Single test file
+vitest src/versions/tests/versions.ts
 ```
 
-## Allowing logging in tests
+### Viewing console output
 
-If you set up a `console.log` in the code and want to see the output, simply append the `--silent false` flag to your test to see console output.
+By default, console.log is suppressed. To see output:
 
-## Failed Local Tests
+```bash
+npm test -- <TEST_NAME> --silent=false
+```
 
-If the tests fail locally with an error like this:
+### Building before tests
 
-`Could not find a production build in the '/Users/username/repos/docs-internal/.next' directory.`
+Some tests require a production build:
 
-You may need to run this before every test run:
-
-```shell
+```bash
 npx next build
+npm test
 ```
 
-## Linting
+Error: `Could not find a production build` means you need to run `next build`.
 
-To validate all your JavaScript code (and auto-format some easily reparable mistakes),
-run the linter:
+## Data & External Dependencies
 
-```shell
+### Dependencies
+- **Vitest** - Test runner and assertion library
+- **Playwright** - Browser automation for E2E tests
+- **AJV** - JSON schema validation
+- Mock server libraries for HTTP mocking
+
+### Test data
+- Fixture content in `src/fixtures/`
+- Schema files in `helpers/schemas/`
+- Mock responses in `mocks/`
+
+### Server management
+
+Tests that make HTTP requests to `localhost:4000`:
+- Vitest automatically starts/stops server via hooks
+- Disable with `START_VITEST_SERVER=false` for manual server control
+
+Manual server for debugging:
+```bash
+# Terminal 1
+NODE_ENV=test PORT=4000 tsx src/frame/server.ts
+
+# Terminal 2
+START_VITEST_SERVER=false vitest src/versions/tests
+```
+
+## Cross-links & Ownership
+
+### Related subjects
+- [`src/fixtures`](../fixtures/README.md) - Fixture-based testing with minimal content
+- All subjects with `/tests/` directories - Test consumers
+- CI workflows in `.github/workflows/` - Automated test execution
+
+### Testing documentation
+- [Fixture content](../fixtures/README.md) - Fixture-based testing patterns
+- [Playwright E2E tests](../fixtures/PLAYWRIGHT.md) - Headless browser testing
+
+### Ownership
+- Team: Docs Engineering
+
+## Current State & Next Steps
+
+### Testing patterns
+
+**Unit tests** - Test individual functions/modules:
+```typescript
+import { describe, test, expect } from 'vitest'
+
+describe('myFunction', () => {
+  test('returns expected value', () => {
+    expect(myFunction('input')).toBe('output')
+  })
+})
+```
+
+**Integration tests** - Test HTTP endpoints:
+```typescript
+import { get } from '@/tests/helpers/e2etest'
+
+test('GET /search returns results', async () => {
+  const res = await get('/search?query=test')
+  expect(res.statusCode).toBe(200)
+})
+```
+
+**Playwright tests** - Browser automation:
+```typescript
+test('search works in browser', async ({ page }) => {
+  await page.goto('/search')
+  await page.fill('input[name="query"]', 'test')
+  // ...assertions
+})
+```
+
+### Debugging middleware errors
+
+Middleware errors are suppressed by default in tests. To see full errors:
+
+```bash
+export DEBUG_MIDDLEWARE_TESTS=true
+vitest src/shielding/tests
+```
+
+### Linting tests
+
+```bash
 npm run lint
 ```
 
-## Keeping the server running
+### Known limitations
+- Optional dependencies must be installed for local testing
+- Some tests require production build (`next build`)
+- Server startup/shutdown adds overhead to test runs
+- Fixtures may lag behind actual content structure
 
-When you run `vitest` tests that depend on making real HTTP requests
-to `localhost:4000`, the `vitest` tests have a hook that starts the
-server before running all/any tests and stops the server when done.
+### Test organization
 
-You can disable this, which might make it easier when debugging tests
-since the server won't need to start and stop every time you run tests.
+Tests should be co-located with their subject:
+- ✅ `src/search/tests/api-search.ts`
+- ✅ `src/versions/tests/middleware.ts`
+- ❌ `src/tests/search-tests.ts` (wrong - not in subject)
 
-In one terminal, type:
+Shared utilities belong in `src/tests/`:
+- Helper functions used across subjects
+- Mock servers and fixtures
+- Schema validation utilities
+- Test infrastructure
 
-```shell
-NODE_ENV=test PORT=4000 tsx src/frame/server.ts
-```
+### Adding test helpers
 
-In another terminal, type:
+1. Create a file in `src/tests/helpers/`
+2. Export reusable functions
+3. Document usage with JSDoc
+4. Add tests for the helper itself
+5. Import in test files across subjects
 
-```shell
-START_VITEST_SERVER=false vitests src/versions/tests
-```
+### CI integration
 
-Or whatever the testing command you use is.
+Tests run automatically in GitHub Actions:
+- On pull requests
+- On pushes to main
+- Various test suites in parallel for speed
 
-The `START_VITEST_SERVER` environment variable needs to be set to `false`,
-or else `vitest` will try to start a server on `:4000` too.
+See `.github/workflows/` for CI configuration.
 
-## Debugging middleware errors
+### Troubleshooting
 
-By default, errors handled by the middleware are dealt with just like
-any error in production. It's common to have end-to-end tests that expect
-a page to throw a 500 Internal Server Error response.
+**Tests fail with missing build:**
+Run `npx next build` before tests.
 
-If you don't expect that and you might struggle to see exactly where the
-error is happening, set `$DEBUG_MIDDLEWARE_TESTS` to `true`. For example:
+**Tests hang or timeout:**
+Check if server started correctly. Use `DEBUG_MIDDLEWARE_TESTS=true`.
 
-```shell
-export DEBUG_MIDDLEWARE_TESTS=true
-vitest src/shielding/tests -b
-```
+**Flaky tests:**
+- Check for race conditions
+- Ensure proper test isolation
+- Verify mocks are properly reset
 
-## Fixture based testing
+**Mock server issues:**
+Check `src/tests/mocks/start-mock-server.ts` is running and configured correctly.
 
-See [Fixture content](src/fixtures/README.md).
-
-## Headless tests with Playwright
-
-See [Headless tests with Playwright](src/fixtures/PLAYWRIGHT.md)

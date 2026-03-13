@@ -124,6 +124,11 @@ const context = {
       type: 'boolean',
       description: 'The cookie value of staffonly',
     },
+    octo_client_id: {
+      type: 'string',
+      description:
+        'The _octo cookie client ID for cross-subdomain tracking with github.com analytics.',
+    },
 
     // Device information
     os: {

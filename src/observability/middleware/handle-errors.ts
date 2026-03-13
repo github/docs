@@ -1,6 +1,7 @@
 import type { NextFunction, Response } from 'express'
 
 import FailBot from '../lib/failbot'
+import { shouldLogException, type ErrorWithCode } from '../lib/should-log-exception'
 import { nextApp } from '@/frame/middleware/next'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 import { errorCacheControl } from '@/frame/middleware/cache-control'
@@ -8,26 +9,6 @@ import statsd from '@/observability/lib/statsd'
 import { ExtendedRequest } from '@/types'
 
 const DEBUG_MIDDLEWARE_TESTS = Boolean(JSON.parse(process.env.DEBUG_MIDDLEWARE_TESTS || 'false'))
-
-type ErrorWithCode = Error & {
-  code: string
-  statusCode?: number
-  status?: string
-}
-
-function shouldLogException(error: ErrorWithCode) {
-  const IGNORED_ERRORS = [
-    // Client connected aborted
-    'ECONNRESET',
-  ]
-
-  if (IGNORED_ERRORS.includes(error.code)) {
-    return false
-  }
-
-  // We should log this exception
-  return true
-}
 
 async function logException(error: ErrorWithCode, req: ExtendedRequest) {
   if (process.env.NODE_ENV !== 'test' && shouldLogException(error)) {

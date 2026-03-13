@@ -19,7 +19,7 @@ You can migrate individual repositories or all repositories from a BitBucket Ser
 At this time, migrating from Bitbucket Server with the {% data variables.product.prodname_dotcom %} API is not supported.
 
 {% ifversion repo-rules-enterprise %}
-{% data reusables.enterprise-migration-tool.deploy-key-bypass %}
+{% data reusables.enterprise-migration-tool.repository-migrations-bypass %}
 {% endif %}
 
 ## Prerequisites

@@ -17,6 +17,9 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
+topics:
+  - Actions
+  - Workflows
 ---
 
 ## `cache` action usage
@@ -226,14 +229,14 @@ For example, if a pull request contains a `feature` branch and targets the defau
 
 If you are caching the package managers listed below, using their respective setup-* actions requires minimal configuration and will create and restore dependency caches for you.
 
-| Package managers | setup-* action for caching |
-|---|---|
-| npm, Yarn, pnpm | [setup-node](https://github.com/actions/setup-node#caching-global-packages-data) |
-| pip, pipenv, Poetry | [setup-python](https://github.com/actions/setup-python#caching-packages-dependencies) |
-| Gradle, Maven | [setup-java](https://github.com/actions/setup-java#caching-packages-dependencies) |
-| RubyGems | [setup-ruby](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically) |
-| Go `go.sum` | [setup-go](https://github.com/actions/setup-go#caching-dependency-files-and-build-outputs) |
-| .NET NuGet | [setup-dotnet](https://github.com/actions/setup-dotnet?tab=readme-ov-file#caching-nuget-packages) |
+| Package managers    | setup-* action for caching                                                                        |
+| ------------------- | ------------------------------------------------------------------------------------------------- |
+| npm, Yarn, pnpm     | [setup-node](https://github.com/actions/setup-node#caching-global-packages-data)                  |
+| pip, pipenv, Poetry | [setup-python](https://github.com/actions/setup-python#caching-packages-dependencies)             |
+| Gradle, Maven       | [setup-java](https://github.com/actions/setup-java#caching-packages-dependencies)                 |
+| RubyGems            | [setup-ruby](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically)             |
+| Go `go.sum`         | [setup-go](https://github.com/actions/setup-go#caching-dependency-files-and-build-outputs)        |
+| .NET NuGet          | [setup-dotnet](https://github.com/actions/setup-dotnet?tab=readme-ov-file#caching-nuget-packages) |
 
 ## Restrictions for accessing a cache
 
@@ -261,9 +264,27 @@ Multiple workflow runs in a repository can share caches. A cache created for a b
 
 ## Usage limits and eviction policy
 
-{% data variables.product.prodname_dotcom %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited{% ifversion ghes %}. By default, the limit is 10 GB per repository, but this limit might be different depending on policies set by your enterprise owners or repository administrators.{% else %} to 10 GB.{% endif %} {% data reusables.actions.cache-eviction-policy %}
+{% data variables.product.prodname_dotcom %} applies limits to cache storage and retention to manage storage costs and prevent abuse. Understanding these limits helps you optimize your cache usage.
 
-{% data reusables.actions.cache-eviction-process %} The cache eviction process may cause cache thrashing, where caches are created and deleted at a high frequency. To reduce this, you can review the caches for a repository and take corrective steps, such as removing caching from specific workflows. See [AUTOTITLE](/actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/manage-caches).{% ifversion ghes %} You can also increase the cache size limit for a repository. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository).
+### Default limits
+
+{% data variables.product.github %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited. By default, the limit is 10 GB per repository, but this limit can be increased by enterprise owners, organization owners, or repository administrators. {% ifversion fpt or ghec %}Any usage beyond 10 GB is billed to your account.{% endif %} {% data reusables.actions.cache-eviction-policy %}
+
+{% data reusables.actions.cache-eviction-process %} The cache eviction process may cause cache thrashing, where caches are created and deleted at a high frequency. To reduce this, you can review the caches for a repository and take corrective steps, such as removing caching from specific workflows{% ifversion fpt or ghec %} or increasing your cache size. This functionality is only available to users with a payment method on file who opt in by configuring cache settings{% endif %}. See [AUTOTITLE](/actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/manage-caches).{% ifversion ghes %} You can also increase the cache size limit for a repository. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository).
+
+{% endif %}
+{% ifversion fpt or ghec %}
+
+You can create cache entries at a rate of up to 200 uploads per minute per repository. If you exceed this rate, subsequent cache upload attempts will fail until the rate limit resets. The time until the rate limit resets is returned in the `Retry-After` header of the response.
+
+### Increasing cache size
+
+If you want to reduce the rate at which cache entries are evicted, you can increase the storage limits for your cache in the Actions Settings. Repositories owned by users can configure up to 10 TB per repository. For repositories owned by organizations, the maximum configurable limit is determined by the organization's settings. For organizations owned by an enterprise, the maximum configurable limit is determined by the enterprise's settings. Increasing the limit beyond the default 10 GB will incur additional costs, if that storage is used.
+
+For more information, see:
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-settings-for-your-repository)
+* [AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-cache-storage-for-your-organization)
+* [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#artifact-and-log-retention)
 
 {% endif %}
 

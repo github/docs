@@ -36,6 +36,7 @@ For public repositories, jobs using the workflow labels shown in the table below
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-latest</a></code>,
          <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-2025</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-vs2026-Readme.md">windows-2025-vs2026</a></code> ({% data variables.release-phases.public_preview %}),
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-2022</a></code>
       </td>
     </tr>
@@ -81,7 +82,7 @@ For public repositories, jobs using the workflow labels shown in the table below
         <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md">macos-latest</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-arm64-Readme.md">macos-14</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-arm64-Readme.md">macos-15</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md">macos-26</a></code> ({% data variables.release-phases.public_preview %})
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md">macos-26</a></code> ({% data variables.release-phases.public_preview %}),
       </td>
     </tr>
   </tbody>
@@ -108,7 +109,7 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
     <tr>
       <td>Linux</td>
       <td>2</td>
-      <td>7 GB</td>
+      <td>8 GB</td>
       <td>14 GB</td>
       <td> x64 </td>
       <td>
@@ -120,13 +121,34 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
     <tr>
       <td>Windows</td>
       <td>2</td>
-      <td>7 GB</td>
+      <td>8 GB</td>
       <td>14 GB</td>
       <td> x64 </td>
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-latest</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-2025</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-2022</a></code>
+      </td>
+    </tr>
+    <tr>
+      <td>Linux</td>
+      <td>2</td>
+      <td>8 GB</td>
+      <td>14 GB</td>
+      <td> arm64 </td>
+      <td>
+        <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-ubuntu-24-image.md">ubuntu-24.04-arm</a></code>,
+        <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-ubuntu-22-image.md">ubuntu-22.04-arm</a></code>
+      </td>
+    </tr>
+    <tr>
+      <td>Windows</td>
+      <td>2</td>
+      <td>8 GB</td>
+      <td>14 GB</td>
+      <td> arm64 </td>
+      <td>
+        <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-windows-11-image.md">windows-11-arm</a></code>
       </td>
     </tr>
     <tr>

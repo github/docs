@@ -23,7 +23,7 @@ category:
 
 Autocomplete-style suggestions from {% data variables.product.prodname_copilot_short %} in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Azure Data Studio, Xcode, Vim/Neovim, and Eclipse)_. See [AUTOTITLE](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot).
 
-If you use {% data variables.product.prodname_vscode_shortname %}, you can also use {% data variables.copilot.next_edit_suggestions %}, which will predict the location of the next edit you are likely to make and suggest a completion for it.
+If you use {% data variables.product.prodname_vscode_shortname %}, Xcode, and Eclipse, you can also use {% data variables.copilot.next_edit_suggestions %} ({% data variables.release-phases.public_preview %}), which will predict the location of the next edit you are likely to make and suggest a completion for it.
 
 ### {% data variables.copilot.copilot_chat_short %}
 
@@ -32,6 +32,10 @@ A chat interface that lets you ask coding-related questions. {% data variables.c
 ### {% data variables.copilot.copilot_coding_agent %}
 
 An autonomous AI agent that can make code changes for you. You can assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %} and the agent will work on making the required changes, and will create a pull request for you to review. You can also ask {% data variables.product.prodname_copilot_short %} to create a pull request from {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent).
+
+### Third-party coding agents ({% data variables.release-phases.public_preview %})
+
+You can use third-party coding agents alongside {% data variables.copilot.copilot_coding_agent %}. See [AUTOTITLE](/free-pro-team@latest/copilot/concepts/agents/about-third-party-agents).
 
 ### {% data variables.copilot.copilot_cli_short %} ({% data variables.release-phases.public_preview %})
 
@@ -59,6 +63,10 @@ AI-generated text completion to help you write pull request descriptions quickly
 
 Enhance {% data variables.copilot.copilot_chat_short %} responses by providing contextual details on your preferences, tools, and requirements. See [AUTOTITLE](/copilot/concepts/about-customizing-github-copilot-chat-responses).
 
+### {% data variables.copilot.copilot_memory %} ({% data variables.release-phases.public_preview %})
+
+{% data variables.product.prodname_copilot_short %} can deduce and store useful information about a repository, which {% data variables.copilot.copilot_coding_agent %} and {% data variables.copilot.copilot_code-review_short %} can use to improve the quality of their output when working in that repository. For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-memory).
+
 ### {% data variables.copilot.copilot_desktop_short %}
 
 Automatically generate commit messages and descriptions with {% data variables.copilot.copilot_desktop_short %} based on the changes you make to your project.
@@ -66,10 +74,6 @@ Automatically generate commit messages and descriptions with {% data variables.c
 ### {% data variables.copilot.copilot_spaces %}
 
 Organize and centralize relevant content—like code, docs, specs, and more—into {% data variables.copilot.copilot_spaces_short %} that ground {% data variables.product.prodname_copilot_short %}’s responses in the right context for a specific task. See [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).
-
-### {% data variables.product.prodname_copilot_short %} knowledge bases _({% data variables.copilot.copilot_enterprise_short %} only)_
-
-Create and manage collections of documentation to use as context for chatting with {% data variables.product.prodname_copilot_short %}. When you ask a question in {% data variables.copilot.copilot_chat_dotcom_short %} or in {% data variables.product.prodname_vscode_shortname %}, you can specify a knowledge base as the context for your question. See [AUTOTITLE](/copilot/customizing-copilot/managing-copilot-knowledge-bases).
 
 ### {% data variables.product.prodname_spark %} ({% data variables.release-phases.public_preview %})
 

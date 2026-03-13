@@ -9,6 +9,8 @@ versions:
 topics:
   - Integration
 contentType: reference
+category:
+  - Use integrations
 ---
 
 ## Managing issues in Slack

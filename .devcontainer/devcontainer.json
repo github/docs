@@ -12,6 +12,9 @@
   // Install features. Type 'feature' in the VS Code command palette for a full list.
   "features": {
     "sshd": "latest",
+    "ghcr.io/devcontainers/features/copilot-cli:1": {
+      "version": "prerelease"
+    },
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
 
@@ -59,10 +62,8 @@
   },
 
   // Lifecycle commands
-  // Install dependencies then install Copilot CLI
-  "onCreateCommand": "npm ci && npm install -g @github/copilot@prerelease",
   // Start a web server and keep it running
-  "postStartCommand": "nohup bash -c 'npm start &'",
+  "postStartCommand": "nohup bash -c 'npm ci && npm start &'",
   // Set port 4000 to be public
   "postAttachCommand": "gh cs ports visibility 4000:public -c \"$CODESPACE_NAME\"",
   

@@ -10,6 +10,7 @@ children:
   - /create-an-example-workflow
   - /build-and-test-code
   - /authenticate-with-github_token
+  - /migrate-to-github-runners
   - /create-actions
   - /publish-packages
   - /manage-your-work

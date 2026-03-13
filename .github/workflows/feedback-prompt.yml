@@ -45,17 +45,32 @@ jobs:
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
-            // Get PR author username
             const pr = context.payload.pull_request;
             const prAuthor = pr.user.login;
+            const assignees = (pr.assignees ?? [])
+              .filter(a => a.login.toLowerCase() !== "copilot")
+              .map(a => "@" + a.login)
+              .join(" ");
 
-            // Compose the comment body as a plain text message to post on the PR
-            const commentBody =
-              "👋 @" + prAuthor +
-              " - Please leave us feedback on your contributing experience! " +
-              "To do this, please go to `#docs-contributor-feedback` on Slack.";
+            let commentBody;
 
-            // Post the comment
+            if (assignees) {
+              commentBody =
+                "👋 " + assignees +
+                " - Please leave us feedback on your contributing experience! " +
+                "To do this, please go to `#docs-contributor-feedback` on Slack.";
+            } else if (prAuthor.toLowerCase() !== "copilot") {
+              commentBody =
+                "👋 @" + prAuthor +
+                " - Please leave us feedback on your contributing experience! " +
+                "To do this, please go to `#docs-contributor-feedback` on Slack.";
+            } else {
+              // nobody to mention!
+              commentBody =
+                "👋 Please leave us feedback on your contributing experience! " +
+                "To do this, please go to `#docs-contributor-feedback` on Slack.";
+            }
+
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,

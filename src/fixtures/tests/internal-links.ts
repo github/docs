@@ -9,7 +9,7 @@ describe('autotitle', () => {
   test('internal links with AUTOTITLE resolves', async () => {
     const $: cheerio.Root = await getDOM('/get-started/foo/autotitling')
     const links = $('#article-contents a[href]')
-    links.each((i: number, element: any) => {
+    links.each((i: number, element: cheerio.Element) => {
       if ($(element).attr('href')?.includes('/get-started/start-your-journey/hello-world')) {
         expect($(element).text()).toBe('Hello World')
       }
@@ -49,13 +49,14 @@ describe('cross-version-links', () => {
 
       // Tests that the hardcoded prefix is always removed
       const firstLink = links.filter(
-        (i: number, element: any) => $(element).text() === 'Hello world always in free-pro-team',
+        (i: number, element: cheerio.Element) =>
+          $(element).text() === 'Hello world always in free-pro-team',
       )
       expect(firstLink.attr('href')).toBe('/en/get-started/start-your-journey/hello-world')
 
       // Tests that the second link always goes to enterprise-server@X.Y
       const secondLink = links.filter(
-        (i: number, element: any) =>
+        (i: number, element: cheerio.Element) =>
           $(element).text() === 'Autotitling page always in enterprise-server latest',
       )
       expect(secondLink.attr('href')).toBe(
@@ -72,7 +73,7 @@ describe('link-rewriting', () => {
 
     {
       const link = links.filter(
-        (i: number, element: any) => $(element).text() === 'Cross Version Linking',
+        (i: number, element: cheerio.Element) => $(element).text() === 'Cross Version Linking',
       )
       expect(link.attr('href')).toMatch('/en/get-started/')
     }
@@ -80,21 +81,25 @@ describe('link-rewriting', () => {
     // Some links are left untouched
 
     {
-      const link = links.filter((i: number, element: any) =>
+      const link = links.filter((i: number, element: cheerio.Element) =>
         $(element).text().includes('Enterprise 11.10'),
       )
       expect(link.attr('href')).toMatch('/en/enterprise/')
     }
     {
-      const link = links.filter((i: number, element: any) => $(element).text().includes('peterbe'))
+      const link = links.filter((i: number, element: cheerio.Element) =>
+        $(element).text().includes('peterbe'),
+      )
       expect(link.attr('href')).toMatch(/^https:/)
     }
     {
-      const link = links.filter((i: number, element: any) => $(element).text().includes('Picture'))
+      const link = links.filter((i: number, element: cheerio.Element) =>
+        $(element).text().includes('Picture'),
+      )
       expect(link.attr('href')).toMatch(/^\/assets\//)
     }
     {
-      const link = links.filter((i: number, element: any) =>
+      const link = links.filter((i: number, element: cheerio.Element) =>
         $(element).text().includes('GraphQL Schema'),
       )
       expect(link.attr('href')).toMatch(/^\/public\//)
@@ -108,7 +113,7 @@ describe('link-rewriting', () => {
     const links = $('#article-contents a[href]')
 
     const link = links.filter(
-      (i: number, element: any) => $(element).text() === 'Cross Version Linking',
+      (i: number, element: cheerio.Element) => $(element).text() === 'Cross Version Linking',
     )
     expect(link.attr('href')).toMatch('/en/enterprise-cloud@latest/get-started/')
   })
@@ -121,7 +126,7 @@ describe('link-rewriting', () => {
     const links = $('#article-contents a[href]')
 
     const link = links.filter(
-      (i: number, element: any) => $(element).text() === 'Cross Version Linking',
+      (i: number, element: cheerio.Element) => $(element).text() === 'Cross Version Linking',
     )
     expect(link.attr('href')).toMatch(
       `/en/enterprise-server@${enterpriseServerReleases.latestStable}/get-started/`,
@@ -133,14 +138,14 @@ describe('subcategory links', () => {
   test('no free-pro-team prefix', async () => {
     const $: cheerio.Root = await getDOM('/rest/actions')
     const links = $('[data-testid="table-of-contents"] a[href]')
-    links.each((i: number, element: any) => {
+    links.each((i: number, element: cheerio.Element) => {
       expect($(element).attr('href')).not.toContain('/free-pro-team@latest')
     })
   })
   test('enterprise-server prefix', async () => {
     const $: cheerio.Root = await getDOM('/enterprise-server@latest/rest/actions')
     const links = $('[data-testid="table-of-contents"] a[href]')
-    links.each((i: number, element: any) => {
+    links.each((i: number, element: cheerio.Element) => {
       expect($(element).attr('href')).toMatch(/\/enterprise-server@\d/)
     })
   })

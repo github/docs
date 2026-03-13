@@ -1,9 +1,8 @@
 ---
 title: REST API endpoints for an organization's custom property values
 shortTitle: Custom properties for organizations
-intro: 'Use the REST API to manage custom property values for an organization'
+intro: Use the REST API to manage custom property values for an organization
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
-  fpt: '*'
   ghec: '*'
 topics:
   - API

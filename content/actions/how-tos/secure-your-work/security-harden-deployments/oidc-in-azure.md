@@ -77,8 +77,6 @@ The [`azure/login`](https://github.com/Azure/login) action receives a JWT from t
 
 The following example exchanges an OIDC ID token with Azure to receive an access token, which can then be used to access cloud resources.
 
-{% raw %}
-
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 name: Run Azure Login with OIDC
@@ -94,17 +92,15 @@ jobs:
       - name: 'Az CLI login'
         uses: azure/login@8c334a195cbb38e46038007b304988d888bf676a
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          client-id: {% raw %}${{ secrets.AZURE_CLIENT_ID }}{% endraw %}
+          tenant-id: {% raw %}${{ secrets.AZURE_TENANT_ID }}{% endraw %}
+          subscription-id: {% raw %}${{ secrets.AZURE_SUBSCRIPTION_ID }}{% endraw %}
 
       - name: 'Run az commands'
         run: |
           az account show
           az group list
 ```
-
- {% endraw %}
 
 ## Further reading
 

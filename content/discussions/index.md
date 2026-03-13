@@ -10,6 +10,9 @@ redirect_from:
   - /organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion
   - /organizations/collaborating-with-your-team/pinning-a-team-discussion
   - /organizations/collaborating-with-your-team
+  - /rest/teams/discussion-comments
+  - /rest/teams/discussions
+  - /rest/repos/discussions
 featuredLinks:
   startHere:
     - /discussions/collaborating-with-your-community-using-discussions/about-discussions

@@ -119,11 +119,36 @@ export default async function createTree(
               childPreviousTree = previousTree.childPages[i]
             }
           }
-          const subTree = await createTree(
-            path.posix.join(originalPath, child),
-            basePath,
-            childPreviousTree,
-          )
+
+          // Handle absolute /content/ paths - allows cross-product directory inclusion
+          // e.g., /content/actions/workflows will include the entire actions/workflows tree
+          let childPath: string
+          if (child.startsWith('/content/')) {
+            // Absolute content path - resolve from the content root
+            // Strip '/content/' prefix and join with the base content directory
+            const absoluteChildPath = child.slice('/content/'.length)
+            childPath = path.posix.join(basePath, absoluteChildPath)
+
+            // Security check: ensure the resolved path stays within the content directory
+            // This prevents path traversal attacks using sequences like '../'
+            const resolvedPath = path.resolve(childPath)
+            const resolvedBasePath = path.resolve(basePath)
+            if (!resolvedPath.startsWith(resolvedBasePath + path.sep)) {
+              throw new Error(
+                `Invalid child path "${child}" in ${originalPath}/index.md - path traversal detected. ` +
+                  `Resolved path "${resolvedPath}" escapes content directory "${resolvedBasePath}".`,
+              )
+            }
+          } else {
+            // Traditional relative path
+            childPath = path.posix.join(originalPath, child)
+          }
+
+          const subTree = await createTree(childPath, basePath, childPreviousTree)
+          if (subTree && child.startsWith('/content/')) {
+            // Mark this subtree as a cross-product child so it can be excluded from the sidebar
+            subTree.crossProductChild = true
+          }
           if (!subTree) {
             // Remove that children.
             // For example, the 'early-access' might have been in the

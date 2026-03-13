@@ -15,9 +15,9 @@ product: 'Enterprises that use **personal accounts** on {% data variables.produc
 
 You can invite people directly to your enterprise as **unaffiliated users**. You can then add these users to organizations or enterprise teams and assign {% data variables.product.prodname_copilot_short %} licenses to them. For more information about unaffiliated users, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise#unaffiliated-users).
 
->[!NOTE] If you use {% data variables.product.prodname_emus %}, you must add users to your enterprise from your identity provider using SCIM.
-
 ## Inviting users
+
+>[!NOTE] These steps apply to enterprises that use personal accounts. If you use {% data variables.product.prodname_emus %}, you must add users to your enterprise from your identity provider using SCIM.
 
 {% data reusables.enterprise-onboarding.inviting-users-to-your-enterprise %}
 

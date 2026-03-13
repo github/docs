@@ -51,11 +51,11 @@ This table lists the AI models available in {% data variables.product.prodname_c
 
 ## Model retirement history
 
-The following table lists AI models that have been retired from {% data variables.product.prodname_copilot_short %}, along with their retirement dates and suggested alternatives.
+The following table lists AI models that are retired or scheduled for retirement from {% data variables.product.prodname_copilot_short %}, along with their retirement dates and suggested alternatives.
 
 {% rowheaders %}
 
-| Model name                                                  | Retired date                | Suggested alternative             |
+| Model name                                                  | Retirement date             | Suggested alternative             |
 |-------------------------------------------------------------|-----------------------------|-----------------------------------|
 | {% for model in tables.copilot.model-deprecation-history %} |
 | {{ model.name }}                                            | {{ model.retirement_date }} | {{ model.suggested_alternative }} |

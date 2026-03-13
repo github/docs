@@ -17,12 +17,6 @@ topics:
 shortTitle: Create a codespace for a repo
 ---
 
-{% ifversion ghec %}
-
-{% data reusables.codespaces.data-residency-availability %}
-
-{% endif %}
-
 ## About creating a codespace for a repository
 
 {% data reusables.codespaces.ways-to-create-a-codespace %} Use the tabs in this article to display instructions for each of these ways of creating a codespace.

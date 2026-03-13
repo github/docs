@@ -37,7 +37,7 @@ const config: NextConfig = {
   },
   // Don't use automatic Next.js logging in dev unless the log level is `debug` or higher
   // See `src/observability/logger/README.md` for log levels
-  logging: getLogLevelNumber() < 3 ? false : {},
+  logging: getLogLevelNumber() < 3 ? undefined : {},
   async rewrites() {
     const DEFAULT_VERSION = 'free-pro-team@latest'
     return productIds.map((productId) => {
@@ -46,6 +46,11 @@ const config: NextConfig = {
         destination: `/${DEFAULT_VERSION}/${productId}/:path*`,
       }
     })
+  },
+
+  webpack: (webpackConfig) => {
+    webpackConfig.resolve.fallback = { fs: false, async_hooks: false }
+    return webpackConfig
   },
 
   // Turbopack is the default bundler in Next.js 16
@@ -60,14 +65,13 @@ const config: NextConfig = {
       async_hooks: {
         browser: './empty.ts', // Point to empty module when async_hooks is requested for browser
       },
+      '@/observability/logger': {
+        browser: './empty.ts',
+      },
+      '@/observability/logger/lib/logger-context': {
+        browser: './empty.ts',
+      },
     },
-  },
-
-  webpack: (webpackConfig) => {
-    webpackConfig.experiments = webpackConfig.experiments || {}
-    webpackConfig.experiments.topLevelAwait = true
-    webpackConfig.resolve.fallback = { fs: false, async_hooks: false }
-    return webpackConfig
   },
 
   // https://nextjs.org/docs/api-reference/next.config.js/compression
@@ -78,18 +82,6 @@ const config: NextConfig = {
   // This causes problems with serving stale content, since upon revalidating
   // the CDN marks the cached content as "fresh".
   generateEtags: false,
-
-  experimental: {
-    // The output of our getServerSideProps() return large chunks of
-    // data because it contains our rendered Markdown.
-    // The default, for a "Large Page Data" warning is 128KB
-    // but many of our pages are much larger.
-    // The warning is: https://nextjs.org/docs/messages/large-page-data
-    largePageDataBytes: 1024 * 1024, // 1 MB
-
-    // This makes it so that going Back will scroll to the previous position
-    scrollRestoration: true,
-  },
 
   compiler: {
     styledComponents: true,

@@ -12,7 +12,7 @@ redirect_from:
   - /copilot/concepts/prompt-engineering-for-copilot-chat
   - /copilot/concepts/prompt-engineering
 contentType: concepts
-category: 
+category:
   - Configure Copilot
 ---
 
@@ -117,17 +117,6 @@ If you aren't getting the responses you want when you ask {% data variables.prod
 
 >[!Tip]
 > Use {% data variables.product.prodname_copilot_short %} to help your code follow best practices. For example, ask {% data variables.product.prodname_copilot_short %} to add comments or to break a large function into smaller functions.
-
-{% ifversion ghec %}
-
-Similarly, if you aren't getting the responses you want when you use {% data variables.product.prodname_copilot_short %} with knowledge bases, apply these best practices to your knowledge base files:
-
-* Organize the files into a logical hierarchy
-* Use clear and concise language
-* Include examples and use cases, if relevant
-* Cross reference between related files
-
-{% endif %}
 
 ## Further reading
 

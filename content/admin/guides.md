@@ -30,6 +30,7 @@ includeGuides:
   - /admin/concepts/identity-and-access-management/enterprise-managed-users
   - /admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users
   - /admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users
+  - /admin/managing-iam/provisioning-user-accounts-with-scim/migrating-from-ldap-to-saml-with-scim
   - /admin/identity-and-access-management/provisioning-user-accounts-with-scim/configuring-scim-provisioning-using-okta
   - /admin/managing-iam/provisioning-user-accounts-with-scim/managing-team-memberships-with-identity-provider-groups
   - /admin/managing-iam/using-cas-for-enterprise-iam/using-cas
@@ -40,12 +41,12 @@ includeGuides:
   - /admin/configuring-settings/configuring-network-settings/changing-the-hostname-for-your-instance
   - /admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance
   - /admin/configuring-settings/configuring-network-settings/configuring-built-in-firewall-rules
-  - /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance
+  - /code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-code-scanning-for-your-appliance
   - /admin/configuration/configuring-data-encryption-for-your-enterprise
-  - /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-dependency-review-for-your-appliance
+  - /code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-dependency-review-for-your-appliance
   - /admin/configuring-settings/configuring-network-settings/configuring-dns-nameservers
   - /admin/configuring-settings/configuring-user-applications-for-your-enterprise/configuring-rate-limits
-  - /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance
+  - /code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-secret-scanning-for-your-appliance
   - /admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls
   - /admin/configuring-settings/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise
   - /admin/configuring-settings/configuring-user-applications-for-your-enterprise/managing-github-mobile-for-your-enterprise

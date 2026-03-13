@@ -25,11 +25,10 @@ When setting up a sponsorship, organizations paying by invoice have the option t
 
 ### Requirements
 
-* The organization needs to sign the sponsorship agreement which is a 3 year commitment. The {% data variables.product.company_short %} Invoiced Sponsor Agreement is separate from other services.
-* The organization needs a minimum spend of 5,000 US dollars (USD) per year on sponsoring.
+* The minimum amount for each invoice is 5,000 US dollars (USD).
 * The organization needs to pay the invoice within 30 days.
 
-Once the organization reaches the yearly minimum spend, they can opt out of being invoiced for the rest of the year.
+Organizations can request invoices as needed, as long as each invoice meets the $5,000 minimum. Once an invoice is paid, the amount paid will be credited to the organization's account and can be used over time without expiration. 
 
 ## Switching to paying by invoice
 

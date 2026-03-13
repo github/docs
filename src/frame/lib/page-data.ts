@@ -259,6 +259,12 @@ async function translateTree(
       translatedData,
     ) as any,
   ) as any
+
+  // Preserve the crossProductChild flag from the English tree
+  if (enTree.crossProductChild) {
+    ;(item as UnversionedTree).crossProductChild = true
+  }
+
   if (
     ((item as UnversionedTree).page as any).children &&
     ((item as UnversionedTree).page as any).children.length > 0

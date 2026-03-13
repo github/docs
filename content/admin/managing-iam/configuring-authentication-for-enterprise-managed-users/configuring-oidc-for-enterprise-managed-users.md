@@ -43,6 +43,8 @@ Each Entra ID tenant can support only one OIDC integration with {% data variable
 
 OIDC does not support IdP-initiated authentication.
 
+>[!NOTE] Custom OIDC claims and attributes are not supported.
+
 ## Configuring OIDC for Enterprise Managed Users
 
 1. Sign into {% data variables.product.prodname_dotcom %} as the setup user for your new enterprise with the username **@SHORT-CODE_admin**.

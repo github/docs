@@ -9,6 +9,7 @@ topics:
   - Enterprise
   - GitHub Apps
 children:
+  - /automations-in-your-enterprise
   - /create-enterprise-apps
   - /install-enterprise-apps
 ---

@@ -1,4 +1,4 @@
-import type { SearchTotalHits } from '@elastic/elasticsearch/lib/api/types'
+import type { estypes } from '@elastic/elasticsearch'
 
 import type {
   AdditionalIncludes,
@@ -73,7 +73,7 @@ export type SearchResultAggregations = {
 }
 
 type SearchResultsMeta = {
-  found: SearchTotalHits
+  found: estypes.SearchTotalHits
   took: {
     query_msec: number
     total_msec: number

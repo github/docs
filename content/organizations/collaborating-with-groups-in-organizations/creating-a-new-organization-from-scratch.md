@@ -27,4 +27,4 @@ When you create a new organization from scratch, it doesn't have any repositorie
 {% ifversion fpt or ghec %}
 * [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information){% endif %}
 * [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/converting-a-user-into-an-organization)
+{% ifversion ghes < 3.21 %}* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/converting-a-user-into-an-organization){% endif %}

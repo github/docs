@@ -1,0 +1,160 @@
+name: Check Internal Links
+
+# Runs weekly (Tuesday) at 16:20 UTC
+# On schedule: checks English free-pro-team and latest enterprise-server
+# On workflow_dispatch: run any version/language combo
+
+on:
+  schedule:
+    - cron: '20 16 * * 2' # Tuesday at 16:20 UTC
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to check (e.g., free-pro-team@latest, enterprise-server@3.19)'
+        type: string
+        required: true
+      language:
+        description: 'Language to check (e.g., en, es, ja)'
+        type: string
+        required: true
+        default: 'en'
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  # Determine which version/language combos to run
+  setup-matrix:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Set matrix
+        id: set-matrix
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            # Manual run: use the provided version and language
+            echo 'matrix={"include":[{"version":"${{ inputs.version }}","language":"${{ inputs.language }}"}]}' >> $GITHUB_OUTPUT
+          else
+            # Scheduled run: English free-pro-team + English latest enterprise-server
+            LATEST_GHES=$(npx tsx -e "import { latest } from './src/versions/lib/enterprise-server-releases'; console.log(latest)")
+            echo "matrix={\"include\":[{\"version\":\"free-pro-team@latest\",\"language\":\"en\"},{\"version\":\"enterprise-server@${LATEST_GHES}\",\"language\":\"en\"}]}" >> $GITHUB_OUTPUT
+          fi
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+  check-internal-links:
+    if: github.repository == 'github/docs-internal'
+    needs: setup-matrix
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.setup-matrix.outputs.matrix) }}
+    env:
+      # Disable Elasticsearch for faster warmServer
+      ELASTICSEARCH_URL: ''
+    steps:
+      - name: Checkout
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Clone translations if not English
+      - name: Clone translations
+        if: matrix.language != 'en'
+        uses: ./.github/actions/clone-translations
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
+      - name: Check internal links
+        env:
+          VERSION: ${{ matrix.version }}
+          LANGUAGE: ${{ matrix.language }}
+          CHECK_ANCHORS: true
+          ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: npm run check-links-internal
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: link-report-${{ matrix.version }}-${{ matrix.language }}
+          path: artifacts/link-report-*.md
+          retention-days: 5
+          if-no-files-found: ignore
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+  # Create combined report after all matrix jobs complete
+  create-report:
+    if: always() && github.repository == 'github/docs-internal'
+    needs: [setup-matrix, check-internal-links]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          path: reports
+          pattern: link-report-*
+          merge-multiple: true
+
+      - name: Combine reports
+        id: combine
+        run: |
+          # Check if any reports exist
+          if ls reports/*.md 1> /dev/null 2>&1; then
+            echo "has_reports=true" >> $GITHUB_OUTPUT
+
+            # Combine all markdown reports
+            echo "# Internal Links Report" > combined-report.md
+            echo "" >> combined-report.md
+            echo "Generated: $(date -u +'%Y-%m-%d %H:%M UTC')" >> combined-report.md
+            echo "[Action run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> combined-report.md
+            echo "" >> combined-report.md
+
+            for report in reports/*.md; do
+              echo "---" >> combined-report.md
+              cat "$report" >> combined-report.md
+              echo "" >> combined-report.md
+            done
+          else
+            echo "has_reports=false" >> $GITHUB_OUTPUT
+            echo "No broken link reports generated - all links valid!"
+          fi
+
+      - name: Create issue if broken links found
+        if: steps.combine.outputs.has_reports == 'true'
+        uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v5
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          repository: github/docs-content
+          title: '🔗 Broken Internal Links Report'
+          content-filepath: combined-report.md
+          labels: broken link report
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

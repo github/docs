@@ -136,30 +136,23 @@
     background-color: var(--bgColor-muted, var(--color-canvas-subtle, #f6f8fa));
     position: relative;
 
-    background-position: unset;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: inherit;
-      background-size: contain;
-      background-position: bottom;
-      background-repeat: no-repeat;
-      opacity: 0.5;
-      z-index: 0;
-    }
+    background-position: center right;
   }
 
   .heroContent {
     width: 100%;
     order: 2;
-    padding: 0 1rem;
+    padding: 1rem;
     position: relative;
     z-index: 1;
+    backdrop-filter: blur(1rem);
+    background-color: color-mix(
+      in srgb,
+      var(--color-canvas-subtle) 70%,
+      transparent
+    );
+    border-radius: 12px;
+    margin: 0 1rem;
   }
 
   .heroHeading {
@@ -172,8 +165,6 @@
 
   .heroActions {
     flex-direction: column;
-    align-self: baseline;
-    margin-left: 5rem;
     justify-content: center;
     align-items: center;
   }
@@ -201,28 +192,23 @@
     justify-content: center;
     position: relative;
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: inherit;
-      background-size: contain;
-      background-position: bottom;
-      background-repeat: no-repeat;
-      opacity: 0.8;
-      z-index: 0;
-    }
+    background-position: center right;
   }
 
   .heroContent {
     width: 100%;
     order: 2;
-    padding: 0 1rem;
+    padding: 1rem;
     position: relative;
     z-index: 1;
+    backdrop-filter: blur(1rem);
+    background-color: color-mix(
+      in srgb,
+      var(--color-canvas-subtle) 70%,
+      transparent
+    );
+    border-radius: 12px;
+    margin: 0 0.5rem;
   }
 
   .heroText {
@@ -239,8 +225,6 @@
 
   .heroActions {
     flex-direction: column;
-    align-self: baseline;
-    margin-left: 2rem;
     justify-content: center;
     align-items: center;
   }

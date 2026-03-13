@@ -46,8 +46,9 @@ For {% ifversion ghes or ghec %}internal or {% endif %}private repositories, the
 
 ### Limitations of reusable workflows
 
-* You can connect up to ten levels of workflows. For more information, see [Nesting reusable workflows](/actions/how-tos/sharing-automations/reuse-workflows#nesting-reusable-workflows).
-* You can call a maximum of 50 unique reusable workflows from a single workflow file. This limit includes any trees of nested reusable workflows that may be called starting from your top-level caller workflow file.
+
+* You can connect up to {% ifversion fpt or ghec %}ten {% else %}four {% endif %}levels of workflows. For more information, see [Nesting reusable workflows](/actions/how-tos/sharing-automations/reuse-workflows#nesting-reusable-workflows).
+* You can call a maximum of {% ifversion fpt or ghec %}50 {% else %}20 {% endif %}unique reusable workflows from a single workflow file. This limit includes any trees of nested reusable workflows that may be called starting from your top-level caller workflow file.
 
   For example, _top-level-caller-workflow.yml_ → _called-workflow-1.yml_ → _called-workflow-2.yml_ counts as 2 reusable workflows.
 
@@ -169,33 +170,9 @@ jobs:
 
 The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
 
-   ```json copy
-   {
-       "name": "Octo Organization Workflow",
-       "description": "Octo Organization CI workflow template.",
-       "iconName": "example-icon",
-       "categories": [
-           "Go"
-       ],
-       "filePatterns": [
-           "package.json$",
-           "^Dockerfile",
-           ".*\\.md$"
-       ]
-   }
-   ```
+{% data reusables.actions.workflow-templates-metadata-example %}
 
-* `name` - **Required.** The name of the workflow. This is displayed in the list of available workflows.
-* `description` - **Required.** The description of the workflow. This is displayed in the list of available workflows.
-* `iconName` - _Optional._ Specifies an icon for the workflow that is displayed in the list of workflows. `iconName` can one of the following types:
-  * An SVG file that is stored in the `workflow-templates` directory. To reference a file, the value must be the file name without the file extension. For example, an SVG file named `example-icon.svg` is referenced as `example-icon`.
-  * An icon from {% data variables.product.prodname_dotcom %}'s set of [Octicons](https://primer.style/octicons/). To reference an octicon, the value must be `octicon <icon name>`. For example, `octicon smiley`.
-* `categories` - **Optional.** Defines the categories that the workflow is shown under. You can use category names from the following lists:
-  * General category names from the [starter-workflows](https://github.com/actions/starter-workflows/blob/main/README.md#categories) repository.
-  * Linguist languages from the list in the [linguist](https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml) repository.
-  * Supported tech stacks from the list in the [starter-workflows](https://github.com/github-starter-workflows/repo-analysis-partner/blob/main/tech_stacks.yml) repository.
-
-* `filePatterns` - **Optional.** Allows the workflow to be used if the user's repository has a file in its root directory that matches a defined regular expression.
+{% data reusables.actions.workflow-templates-metadata-keys %}
 
 {% ifversion fpt or ghec %}
 

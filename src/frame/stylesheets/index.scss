@@ -15,3 +15,6 @@
 
 @import "src/content-render/stylesheets/index.scss";
 @import "src/links/stylesheets/hover-card.scss";
+
+// For primer Spinners and other animated components
+@import "@primer/primitives/dist/css/base/motion/motion.css";

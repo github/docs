@@ -15,6 +15,8 @@ redirect_from:
   - /copilot/how-tos/troubleshoot/troubleshooting-common-issues-with-github-copilot
   - /copilot/how-tos/troubleshoot/troubleshoot-common-issues
 contentType: how-tos
+category:
+  - Troubleshooting Copilot
 ---
 
 
@@ -113,7 +115,7 @@ If you experience authentication issues when you try to use {% data variables.co
 
 If a chat response terminates unexpectedly, before the response is complete, try resubmitting the question.
 
-In {% data variables.copilot.copilot_chat_short %}'s immersive view (the [github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text), you can resubmit your question by clicking the {% octicon "sync" aria-label="Retry" %} button under the chat response.
+In {% data variables.copilot.copilot_chat_short %} ([github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text)), you can resubmit your question by clicking the {% octicon "sync" aria-label="Retry" %} button under the chat response.
 
 ## Further reading
 

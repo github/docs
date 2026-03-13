@@ -20,13 +20,15 @@ Make sure your network is configured to allow {% data variables.product.prodname
 
 If you're having connectivity problems on your company or organization's network, check with your network administrator to find out if the network has rules in place to block certain traffic. If there are rules in place, ask your network administrator to allow traffic to {% data variables.product.prodname_dotcom %}.
 
-## Troubleshooting the captcha
+## Troubleshooting the CAPTCHA
 
-If you're unable to verify with the captcha:
+If you're unable to verify with the CAPTCHA:
 * Ensure JavaScript is enabled on your browser.
 * Ensure your browser is supported. If your browser isn't supported, upgrade your browser or install a supported browser. For a list of supported browsers, see [AUTOTITLE](/get-started/using-github/supported-browsers).
-* Ensure your network configuration is not blocking https://octocaptcha.com/ or https://arkoselabs.com/. If you're behind a corporate firewall, contact your IT administrator to allow those domains. To verify access to these domains, visit https://octocaptcha.com/test and ensure the text "Connection successfully made!" is displayed. Then, visit [Arkose Labs Demo](https://demo.arkoselabs.com/?key=DF9C4D87-CB7B-4062-9FEB-BADB6ADA61E6) for a captcha test page, and ensure you are able to load the captcha.
-* Ensure your browser does not have plug-ins or extensions that may be interfering with GitHub. If so, temporarily disable the plug-ins or extensions during captcha verification.
+* Ensure your network configuration is not blocking https://octocaptcha.com/ or https://arkoselabs.com/. If you're behind a corporate firewall, contact your IT administrator to allow those domains. To verify access to these domains, visit https://octocaptcha.com/test and ensure the text "Connection successfully made!" is displayed. Then, visit [Arkose Labs Demo](https://demo.arkoselabs.com/?key=DF9C4D87-CB7B-4062-9FEB-BADB6ADA61E6) for a CAPTCHA test page, and ensure you are able to load the CAPTCHA.
+* Ensure your browser does not have plug-ins or extensions that may be interfering with {% data variables.product.github %}. If so, temporarily disable the plug-ins or extensions during CAPTCHA verification.
+
+You can also try creating an account with an alternate email address or with a social login (including Google). Once your account is successfully created, you can update the email address associated with your account to your preferred email in your [Emails](https://github.com/settings/emails) settings page. See [AUTOTITLE](/account-and-profile/how-tos/email-preferences).
 
 ## Switching cloning methods
 

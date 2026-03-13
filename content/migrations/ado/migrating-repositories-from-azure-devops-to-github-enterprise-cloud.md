@@ -27,7 +27,7 @@ contentType: other
 {% endapi %}
 
 {% ifversion repo-rules-enterprise %}
-{% data reusables.enterprise-migration-tool.deploy-key-bypass %}
+{% data reusables.enterprise-migration-tool.repository-migrations-bypass %}
 {% endif %}
 
 ## Prerequisites

@@ -44,18 +44,33 @@ If {% data variables.product.prodname_dotcom %} is unable to synchronize team me
 
 ### Error: "Out of sync due to insufficient licenses"
 
-If your enterprise does not have sufficient licenses and {% data variables.product.prodname_dotcom %} is unable to synchronize team membership with a group on your IdP, you'll see a message that reads "Out of sync due to insufficient licenses".
+{% data variables.product.prodname_dotcom %} stores IdP group membership data for {% ifversion ghes %}SCIM-provisioned users{% else %}{% data variables.product.prodname_emus %}{% endif %} at the enterprise level. This data is populated and updated through Group SCIM API calls from your identity provider (IdP).
+
+For IdP groups that are mapped to teams, {% data variables.product.prodname_dotcom %} runs a **daily reconciliation job** to synchronize team membership with the stored enterprise-level IdP group data. The reconciliation also runs whenever a Group SCIM API call updates group membership, or when an admin links or unlinks a team to a stored group on GitHub.
+
+If your enterprise does not have enough licenses available, {% data variables.product.prodname_dotcom %} may be unable to complete this synchronization. When this occurs, you’ll see the message:
+> "Out of sync due to insufficient licenses"
+
+As a result, the affected team or organization may be missing members.
 
 ![Screenshot of the IdP group page. A warning that a team is out of sync due to insufficient licenses is outlined in dark orange.](/assets/images/help/enterprises/emu-group-team-not-synced-missing-licenses.png)
 
-The team may be missing members because your enterprise does not have sufficient licenses available. {% data variables.product.prodname_dotcom %} is unable to synchronize the team's membership with a group on your IdP, and any unlicensed user cannot be added to an organization.
+To investigate this issue, review your enterprise's total available licenses, as well as detailed information about which users are consuming licenses and why. For more information, see [AUTOTITLE](/billing/reference/github-license-users#organizations-on-github-enterprise-cloud) and [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise).
 
-1. Review the available licenses for your enterprise. For more information, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise).
-1. To resolve the problem, choose one of the following solutions.
+#### Resolving the issue
 
-   * Remove users from the IdP group.
-   * Deprovision users from your enterprise.
-   * Purchase additional licenses to allow synchronization to complete. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing#about-changes-to-your-subscription).
+To allow synchronization to complete successfully, make additional enterprise licenses available using one of the following approaches:
+
+* **Free up existing licenses**  
+  * Identify which users are consuming licenses and whether they still need access.  
+  * Remove users from organizations or IdP groups as needed, depending on how you manage organization and team membership (see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#filtering-by-member-type-in-an-enterprise-with-managed-users)):
+    * If you manage your organization's membership via IdP groups, remove users from the relevant group(s).
+  * Monitor these enterprise audit log events to track SCIM API calls that update group membership or managed user accounts (see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise):  
+    * `external_group.scim_api_failure` / `external_group.scim_api_success`  
+    * `external_identity.scim_api_failure` / `external_identity.scim_api_success`
+
+* **Purchase additional licenses**  
+  * If all current users require access, purchase more licenses for your enterprise. For more information, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/manage-user-licenses#enterprises-on-github-enterprise-cloud).
 
 {% endif %}
 

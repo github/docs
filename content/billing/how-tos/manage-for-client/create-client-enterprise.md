@@ -43,7 +43,7 @@ If you already have a personal account on {% data variables.product.prodname_dot
 1. Complete the form with your client's information.
 
    If you chose Enterprise managed users, define your data hosting requirements [AUTOTITLE](/admin/data-residency/about-github-enterprise-cloud-with-data-residency).
-1. Click **Create your enterprise**.
+{% data reusables.billing.enterprise-create-button %}
 
 ## Step 3: Upgrade the enterprise to a yearly paid subscription
 
@@ -51,7 +51,7 @@ If you already have a personal account on {% data variables.product.prodname_dot
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
 1. At the top of the page, click **Buy Enterprise**.
-1. Under "How often do you want to be billed?", select **Pay yearly**.
+{% data reusables.billing.client-billing-yearly %}
 1. Under "How many seats do you want to include?", type the number of seats your client wants.
 1. Under "Payment method", input your payment details.
 1. Click **Complete {% data variables.product.prodname_enterprise %} purchase**.

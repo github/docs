@@ -71,7 +71,6 @@ describe('index.md and .md suffixes', () => {
     }
   })
 
-  // TODO-ARTICLEAPI: unskip tests or replace when ready to ship article API
   test('any URL that ends with /.md redirects', async () => {
     // With language prefix
     {

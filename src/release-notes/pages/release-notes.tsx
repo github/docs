@@ -1,6 +1,8 @@
 import { GetServerSideProps } from 'next'
 import { Liquid } from 'liquidjs'
 import pick from 'lodash/pick'
+import get from 'lodash/get'
+import type { Response } from 'express'
 
 import {
   MainContextT,
@@ -11,6 +13,7 @@ import {
 import { DefaultLayout } from '@/frame/components/DefaultLayout'
 import { GHESReleaseNotes } from '@/release-notes/components/GHESReleaseNotes'
 import { GHESReleaseNotesContextT } from '@/release-notes/components/types'
+import type { ExtendedRequest } from '@/types'
 
 const liquid = new Liquid()
 type Props = {
@@ -33,22 +36,30 @@ export default function ReleaseNotes({ mainContext, ghesContext }: Props) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const req = context.req as any
-  const res = context.res as any
+export const getServerSideProps: GetServerSideProps<Props> = async (
+  context,
+): Promise<{ props: Props }> => {
+  const req = context.req as unknown as ExtendedRequest
+  const res = context.res as unknown as Response
 
   // The `req.context.allVersion[X]` entries contains more keys (and values)
   // than we need so only pick out the keys that are actually needed
   // explicitly in the components served from these props.
-  const currentVersion = pick(req.context.allVersions[req.context.currentVersion], [
+  const currentVersion = pick(req.context!.allVersions?.[req.context!.currentVersion!] || {}, [
     'plan',
     'planTitle',
     'versionTitle',
     'currentRelease',
     'releases',
-  ])
+  ]) as {
+    plan?: string
+    planTitle?: string
+    versionTitle?: string
+    currentRelease?: string
+    releases?: string[]
+  }
 
-  const { latestPatch = '', latestRelease = '' } = req.context
+  const { latestPatch = '', latestRelease = '' } = req.context!
 
   const mainContext = await getMainContext(req, res)
   addUINamespaces(req, mainContext.data.ui, ['release_notes'])
@@ -58,28 +69,39 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       mainContext,
       ghesContext:
         currentVersion.plan === 'enterprise-server'
-          ? {
+          ? ({
               currentVersion,
               latestPatch,
               latestRelease,
-              releaseNotes: req.context.ghesReleaseNotes,
-              releases: req.context.ghesReleases,
+              releaseNotes: req.context!.ghesReleaseNotes || [],
+              releases: req.context!.ghesReleases || [],
               message: {
                 ghes_release_notes_upgrade_patch_only: liquid.parseAndRenderSync(
-                  req.context.site.data.ui.header.notices.ghes_release_notes_upgrade_patch_only,
+                  get(
+                    req.context,
+                    'site.data.ui.header.notices.ghes_release_notes_upgrade_patch_only',
+                    '',
+                  ) as string,
                   { latestPatch, latestRelease },
                 ),
                 ghes_release_notes_upgrade_release_only: liquid.parseAndRenderSync(
-                  req.context.site.data.ui.header.notices.ghes_release_notes_upgrade_release_only,
+                  get(
+                    req.context,
+                    'site.data.ui.header.notices.ghes_release_notes_upgrade_release_only',
+                    '',
+                  ) as string,
                   { latestPatch, latestRelease },
                 ),
                 ghes_release_notes_upgrade_patch_and_release: liquid.parseAndRenderSync(
-                  req.context.site.data.ui.header.notices
-                    .ghes_release_notes_upgrade_patch_and_release,
+                  get(
+                    req.context,
+                    'site.data.ui.header.notices.ghes_release_notes_upgrade_patch_and_release',
+                    '',
+                  ) as string,
                   { latestPatch, latestRelease },
                 ),
               },
-            }
+            } as unknown as GHESReleaseNotesContextT)
           : null,
     },
   }

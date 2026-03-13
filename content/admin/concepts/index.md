@@ -11,7 +11,7 @@ children:
   - /enterprise-fundamentals
   - /identity-and-access-management
   - /security-and-compliance
-  - /best-practices
+  - /enterprise-best-practices
 contentType: concepts
 ---
 

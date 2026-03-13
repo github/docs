@@ -5,58 +5,58 @@ security_advisories:
     vulnerability and get a CVE.
   guides:
     - >-
-      /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/about-coordinated-disclosure-of-security-vulnerabilities
+      /code-security/concepts/vulnerability-reporting-and-management/about-coordinated-disclosure-of-security-vulnerabilities
     - >-
-      /code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database
+      /code-security/concepts/vulnerability-reporting-and-management/about-the-github-advisory-database
     - >-
-      /code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-global-security-advisories
+      /code-security/concepts/vulnerability-reporting-and-management/about-global-security-advisories
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories
+      /code-security/concepts/vulnerability-reporting-and-management/about-repository-security-advisories
     - >-
-      /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/best-practices-for-writing-repository-security-advisories
+      /code-security/tutorials/fix-reported-vulnerabilities/write-security-advisories
     - >-
-      /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability
+      /code-security/how-tos/report-and-fix-vulnerabilities/report-a-vulnerability/privately-reporting-a-security-vulnerability
     - >-
-      /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/managing-privately-reported-security-vulnerabilities
+      /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/managing-privately-reported-security-vulnerabilities
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository
+      /code-security/how-tos/report-and-fix-vulnerabilities/configure-vulnerability-reporting/configuring-private-vulnerability-reporting-for-a-repository
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-an-organization
+      /code-security/how-tos/secure-at-scale/configure-organization-security/configure-specific-tools/configuring-private-vulnerability-reporting-for-an-organization
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory
+      /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/creating-a-repository-security-advisory
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
+      /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/adding-a-collaborator-to-a-repository-security-advisory
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
+      /code-security/tutorials/fix-reported-vulnerabilities/collaborate-in-a-fork
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/publishing-a-repository-security-advisory
+      /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/publishing-a-repository-security-advisory
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory
+      /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/editing-a-repository-security-advisory
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/deleting-a-repository-security-advisory
+      /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/deleting-a-repository-security-advisory
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
+      /code-security/how-tos/report-and-fix-vulnerabilities/fix-reported-vulnerabilities/removing-a-collaborator-from-a-repository-security-advisory
 dependabot_alerts:
   title: Get notifications for insecure dependencies
   description: >-
     Set up Dependabot to alert you to new vulnerabilities or malware in your
     dependencies.
   guides:
-    - /code-security/dependabot/dependabot-alerts/about-dependabot-alerts
+    - /code-security/concepts/supply-chain-security/about-dependabot-alerts
     - >-
       /repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository
     - >-
-      /code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts
+      /code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/viewing-and-updating-dependabot-alerts
     - >-
-      /code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules
+      /code-security/concepts/supply-chain-security/about-dependabot-auto-triage-rules
     - >-
-      /code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts
+      /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-notifications-for-dependabot-alerts
     - >-
-      /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
+      /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/managing-pull-requests-for-dependency-updates
     - >-
-      /code-security/dependabot/troubleshooting-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
+      /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/troubleshooting-the-detection-of-vulnerable-dependencies
     - >-
-      /code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-errors
+      /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/troubleshooting-dependabot-errors
 dependabot_security_updates:
   title: Get pull requests to update your vulnerable dependencies
   description: >-
@@ -64,17 +64,17 @@ dependabot_security_updates:
     reported.
   guides:
     - >-
-      /code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates
+      /code-security/concepts/supply-chain-security/about-dependabot-security-updates
     - >-
-      /code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
+      /code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configuring-dependabot-security-updates
     - >-
-      /code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts
+      /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-notifications-for-dependabot-alerts
     - >-
       /repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository
     - >-
-      /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
+      /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/managing-pull-requests-for-dependency-updates
     - >-
-      /code-security/dependabot/troubleshooting-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
+      /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/troubleshooting-the-detection-of-vulnerable-dependencies
 dependency_version_updates:
   title: Keep your dependencies up-to-date
   description: >-
@@ -82,103 +82,103 @@ dependency_version_updates:
     your dependencies.
   guides:
     - >-
-      /code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates
+      /code-security/concepts/supply-chain-security/about-dependabot-version-updates
     - >-
-      /code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates
+      /code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/configuring-dependabot-version-updates
     - >-
-      /code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs
+      /code-security/tutorials/secure-your-dependencies/customizing-dependabot-prs
     - >-
-      /code-security/dependabot/working-with-dependabot/dependabot-options-reference
+      /code-security/reference/supply-chain-security/dependabot-options-reference
     - >-
-      /code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot
+      /code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/keeping-your-actions-up-to-date-with-dependabot
     - >-
-      /code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
+      /code-security/tutorials/secure-your-dependencies/automating-dependabot-with-github-actions
     - >-
-      /code-security/dependabot/troubleshooting-dependabot/listing-dependencies-configured-for-version-updates
+      /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/listing-dependencies-configured-for-version-updates
     - >-
-      /code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot
+      /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot
     - >-
-      /code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot
+      /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/guidance-for-the-configuration-of-private-registries-for-dependabot
     - >-
-      /code-security/dependabot/maintain-dependencies/removing-dependabot-access-to-public-registries
+      /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/removing-dependabot-access-to-public-registries
     - >-
-      /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
+      /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/managing-pull-requests-for-dependency-updates
     - >-
-      /code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-errors
+      /code-security/how-tos/secure-your-supply-chain/troubleshoot-dependency-security/troubleshooting-dependabot-errors
 secret_scanning:
   title: Scan for secrets
   description: >-
     Set up secret scanning to guard against accidental check-ins of tokens,
     passwords, and other secrets to your repository.
   guides:
-    - /code-security/secret-scanning/introduction/about-secret-scanning
-    - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository
-    - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository
+    - /code-security/concepts/secret-security/about-secret-scanning
+    - /code-security/how-tos/secure-your-secrets/detect-secret-leaks/enabling-secret-scanning-for-your-repository
+    - /code-security/how-tos/secure-your-secrets/prevent-future-leaks/enabling-push-protection-for-your-repository
     - >-
       {% ifversion secret-scanning-validity-check-partner-patterns %}
-      /code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository{% endif %}
+      /code-security/how-tos/secure-your-secrets/customize-leak-detection/enabling-validity-checks-for-your-repository{% endif %}
     - >-
       {% ifversion not fpt
-      %}/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning{%
+      %}/code-security/how-tos/secure-your-secrets/customize-leak-detection/defining-custom-patterns-for-secret-scanning{%
       endif %}
-    - /code-security/secret-scanning/managing-alerts-from-secret-scanning
-    - /code-security/secret-scanning/introduction/supported-secret-scanning-patterns
+    - /code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts
+    - /code-security/reference/secret-security/supported-secret-scanning-patterns
     - >-
       {% ifversion secret-scanning-push-protection
-      %}/code-security/secret-scanning/introduction/about-push-protection{%
+      %}/code-security/concepts/secret-security/about-push-protection{%
       endif %}
     - >-
       {% ifversion secret-scanning-push-protection-for-users
-      %}/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users{%
+      %}/code-security/how-tos/secure-your-secrets/prevent-future-leaks/push-protection-for-users{%
       endif %}
     - >-
       {% ifversion secret-scanning-push-protection
-      %}/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line{%
+      %}/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/working-with-push-protection-from-the-command-line{%
       endif %}
     - >-
       {% ifversion secret-scanning-push-protection
-      %}/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui{%
+      %}/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/working-with-push-protection-in-the-github-ui{%
       endif %}
     - >-
-      /code-security/secret-scanning/troubleshooting-secret-scanning-and-push-protection/troubleshooting-secret-scanning
+      /code-security/how-tos/secure-your-secrets/troubleshooting-secret-scanning
 security_alerts:
   title: Explore and manage security alerts
   description: Learn where to find and resolve security alerts.
   guides:
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/security-overview/about-security-overview {% endif %}
+      %}/code-security/concepts/security-at-scale/about-security-overview {% endif %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/security-overview/assessing-adoption-code-security {%
+      %}/code-security/how-tos/view-and-interpret-data/analyze-organization-data/assessing-adoption-code-security{%
       endif %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/security-overview/assessing-code-security-risk {% endif
+      %}/code-security/how-tos/view-and-interpret-data/analyze-organization-data/assessing-code-security-risk{% endif
       %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/secret-scanning/managing-alerts-from-secret-scanning {%
+      %}/code-security/how-tos/manage-security-alerts/manage-secret-scanning-alerts {%
       endif %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository{%
+      %}/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository{%
       endif %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts{%
+      %}/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/resolving-code-scanning-alerts{%
       endif %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests{%
+      %}/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests{%
       endif %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts{%
+      %}/code-security/how-tos/manage-security-alerts/manage-dependabot-alerts/viewing-and-updating-dependabot-alerts{%
       endif %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/getting-started/auditing-security-alerts {% endif %}
+      %}/code-security/concepts/security-at-scale/auditing-security-alerts {% endif %}
 code_security_actions:
   title: Run code scanning with GitHub Actions
   description: >-
@@ -186,28 +186,28 @@ code_security_actions:
     errors out of your repository.
   guides:
     - >-
-      /code-security/code-scanning/introduction-to-code-scanning/about-code-scanning
+      /code-security/concepts/code-scanning/about-code-scanning
     - >-
-      /code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning
+      /code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/configuring-default-setup-for-code-scanning
     - >-
-      /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning
+      /code-security/how-tos/scan-code-for-vulnerabilities/configure-code-scanning/customizing-your-advanced-setup-for-code-scanning
     - >-
-      /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages
+      /code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/codeql-code-scanning-for-compiled-languages
     - >-
-      /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/running-codeql-code-scanning-in-a-container
-    - /code-security/code-scanning/troubleshooting-code-scanning
+      /code-security/tutorials/customize-code-scanning/running-codeql-code-scanning-in-a-container
+    - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors
     - >-
-      /code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page
+      /code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/about-the-tool-status-page
 code_security_integration:
   title: Integrate with code scanning
   description: Upload code analysis results from third-party systems to GitHub using SARIF.
   guides:
     - >-
-      /code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning
+      /code-security/concepts/code-scanning/about-integration-with-code-scanning
     - >-
-      /code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github
+      /code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github
     - >-
-      /code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning
+      /code-security/reference/code-scanning/sarif-support-for-code-scanning
     - /rest/code-scanning
 end_to_end_supply_chain:
   title: End-to-end supply chain
@@ -216,9 +216,9 @@ end_to_end_supply_chain:
     process.
   guides:
     - >-
-      /code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview
+      /code-security/tutorials/implement-supply-chain-best-practices/end-to-end-supply-chain-overview
     - >-
-      /code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts
-    - /code-security/supply-chain-security/end-to-end-supply-chain/securing-code
+      /code-security/tutorials/implement-supply-chain-best-practices/securing-accounts
+    - /code-security/tutorials/implement-supply-chain-best-practices/securing-code
     - >-
-      /code-security/supply-chain-security/end-to-end-supply-chain/securing-builds
+      /code-security/tutorials/implement-supply-chain-best-practices/securing-builds

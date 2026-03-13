@@ -24,6 +24,12 @@ topics:
 
 To accommodate the SSH clients in your environment, you can configure the types of connections that {% data variables.location.product_location %} will accept.
 
+{% ifversion ghes > 3.18 %}
+
+You can also configure the cryptographic algorithms (ciphers, MAC algorithms, key exchange algorithms, and signature types) that {% data variables.location.product_location %} uses for SSH connections. For more information, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls-and-ssh-ciphers).
+
+{% endif %}
+
 ## Configuring SSH connections with RSA keys
 
 When users perform Git operations on {% data variables.location.product_location %} via SSH over port 22, the client can authenticate with an RSA key. The client may sign the attempt using the SHA-1 hash function. In this context, the SHA-1 hash function is no longer secure. For more information, see [SHA-1](https://en.wikipedia.org/wiki/SHA-1) on Wikipedia.

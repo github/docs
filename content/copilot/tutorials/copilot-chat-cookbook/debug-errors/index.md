@@ -12,6 +12,6 @@ topics:
 children:
   - /debug-invalid-json
   - /handle-api-rate-limits
+  - /diagnose-test-failures
 contentType: tutorials
 ---
-

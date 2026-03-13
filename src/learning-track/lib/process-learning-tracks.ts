@@ -25,7 +25,7 @@ export default async function processLearningTracks(
       ? await executeWithFallback(
           context,
           () => renderContent(rawTrackName, context, renderOpts),
-          () => '', // todo use english rawTrackName
+          (enContext: Context) => renderContent(rawTrackName, enContext, renderOpts),
         )
       : rawTrackName
     if (!renderedTrackName) continue

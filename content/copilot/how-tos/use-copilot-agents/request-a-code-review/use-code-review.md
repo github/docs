@@ -28,6 +28,8 @@ For a full introduction to {% data variables.copilot.copilot_code-review %}, see
 
 {% webui %}
 
+{% data variables.copilot.copilot_code-review_short %} is also available for organization members without a {% data variables.product.prodname_copilot_short %} license, when enabled by an enterprise administrator or organization owner. See [{% data variables.copilot.copilot_code-review_short %} for organization members without a {% data variables.product.prodname_copilot_short %} license](/copilot/concepts/agents/code-review#copilot-code-review-for-organization-members-without-a-copilot-license).
+
 ## Using {% data variables.copilot.copilot_code-review_short %}
 
 These instructions explain how to use {% data variables.copilot.copilot_code-review_short %} in the {% data variables.product.github %} website. To see instructions for other popular coding environments, click the appropriate tab at the top of the page.

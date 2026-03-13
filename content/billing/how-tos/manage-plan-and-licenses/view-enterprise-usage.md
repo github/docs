@@ -86,8 +86,8 @@ If your {% data variables.product.github %} license includes {% data variables.v
 
 * Under "User licenses", view your total licenses, number of consumed licenses, and your subscription expiration date.
 * To view details for license usage or download a JSON file with license details, click **View users** or **Export license usage**.
-* Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses.
-* If you have purchased {% data variables.product.prodname_AS %}, you can review your total licenses used as well as a per-organization breakdown of active committers. See [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise).
+* Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses.{% ifversion ghes < 3.15 %}
+* If you have purchased {% data variables.product.prodname_AS %}, you can review your total licenses used as well as a per-organization breakdown of active committers. See [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise).{% endif %}
 
 ## Reporting license information using the REST API
 

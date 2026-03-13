@@ -9,14 +9,20 @@ topics:
 children:
   - /cheat-sheet
   - /ai-models
+  - /copilot-feature-matrix
   - /keyboard-shortcuts
+  - /cli-command-reference
   - /custom-agents-configuration
+  - /acp-server
+  - /hooks-configuration
+  - /custom-instructions-support
   - /policy-conflicts
   - /copilot-allowlist-reference
   - /mcp-allowlist-enforcement
   - /metrics-data
   - /copilot-billing
   - /agentic-audit-log-events
+  - /review-excluded-files
   - /copilot-usage-metrics
 contentType: reference
 ---

@@ -28,7 +28,7 @@ Organizations that pay for {% data variables.product.prodname_sponsors %} by inv
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and licensing**.
+{% data reusables.billing.access-billing-sidebar %}
 1. Under "{% data variables.product.prodname_sponsors %}", in the yellow banner with the start date, click **Undo**.
 1. Review the alert about undoing the activation of the sponsorship, then click **OK**.
 

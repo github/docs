@@ -14,6 +14,8 @@ versions:
   feature: copilot
 shortTitle: Troubleshoot network errors
 contentType: how-tos
+category:
+  - Troubleshooting Copilot
 ---
 
 If you're working on company equipment and connecting to a corporate network, you may be connecting to the Internet via a VPN or an HTTP proxy server. In some cases, these types of network setups may prevent {% data variables.product.prodname_copilot %} from connecting to {% data variables.product.prodname_dotcom %}'s server. For more information about the options for setting up proxies with {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot).

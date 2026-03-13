@@ -26,16 +26,15 @@ topics:
 
 ## About team management with {% ifversion ghec %}{% data variables.product.prodname_emus %}{% else %}SCIM{% endif %}
 
-{% data reusables.emus.about-team-management-with-idp %} When you connect a team in one of your enterprise's organizations to an IdP group, changes to membership from the IdP group are reflected in your enterprise automatically, reducing the need for manual updates and custom scripts.
+{% data reusables.emus.about-team-management-with-idp %}
 
-When a change to an IdP group or a new team connection results in a user joining a team in an organization they were not already a member of, the user will automatically be added to the organization. When you disconnect a group from a team, users who became members of the organization via team membership are removed from the organization if they are not assigned membership in the organization by any other means.
+The following sections explain how {% data variables.product.github %} uses SCIM provisioning and reconciliation jobs to keep team and organization membership in sync with your IdP.
 
-> [!NOTE]
-> Organization owners can also add users to organizations manually, as long as the accounts have already been provisioned via SCIM.
+When {% data variables.product.github %} receives a **Group SCIM API call** from your IdP, it generates an `external_group.scim_api_success` or `external_group.scim_api_failure` event in the enterprise audit log. These events capture detailed information about the call, including the payload and operation performed, and are recorded in the audit log with the **actor** set to the {% ifversion ghes %}built-in/local user{% else %}setup user{% endif %}, the account used to configure SCIM provisioning.
 
-When group membership changes on your IdP, your IdP sends a SCIM request with the changes to {% data variables.product.prodname_dotcom %} according to the schedule determined by your IdP, so change may not be immediate. Any requests that change team or organization membership will register in the audit log as changes made by the account used to configure user provisioning.
+Once {% data variables.product.github %} stores the group data at the enterprise level, it runs a daily reconciliation job to synchronize team membership with the stored IdP group data. This reconciliation also runs whenever a Group SCIM API call updates group membership, and if an admin links or unlinks a team to a stored group.
 
-{% data variables.product.prodname_dotcom %} also runs a reconciliation job once per day, which synchronizes team membership with IdP group membership that is stored on {% data variables.product.prodname_dotcom %}, based on information previously sent from the IdP via SCIM. If this job finds that a user is a member of an IdP group in the enterprise, but they are not a member of the mapped team or its organization, the job will attempt to add the user to the organization and team.
+When a change to an IdP group or a new team connection results in a user joining a team in an organization they were not already a member of, {% data variables.product.github %} automatically adds the user to the organization. When you disconnect a group from a team, {% data variables.product.github %} removes users who became members of the organization via team membership if they do not have membership in the organization by any other means.
 
 Teams connected to IdP groups cannot be parents of other teams nor a child of another team. If the team you want to connect to an IdP group is a parent or child team, we recommend creating a new team or removing the nested relationships that make your team a parent team.
 
@@ -43,7 +42,7 @@ To manage repository access for any team in your enterprise, including teams con
 
 ## Requirements for connecting IdP groups with teams
 
-Before you can connect an IdP group with a team on {% data variables.product.prodname_dotcom %}, you must assign the group to the {% ifversion ghec %}{% data variables.product.prodname_emu_idp_application %}{% else %}relevant{% endif %} application in your IdP. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users).
+Before you can connect an IdP group with a team on {% data variables.product.github %}, you must assign the group to the {% ifversion ghec %}{% data variables.product.prodname_emu_idp_application %}{% else %}relevant{% endif %} application in your IdP. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users).
 
 You can connect a team in your enterprise to one IdP group. You can assign the same IdP group to multiple teams in your enterprise.
 

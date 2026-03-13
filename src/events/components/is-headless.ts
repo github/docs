@@ -2,7 +2,7 @@
 
 declare global {
   interface Window {
-    GHDOCSPLAYWRIGHT: any
+    GHDOCSPLAYWRIGHT: boolean | number
   }
 }
 

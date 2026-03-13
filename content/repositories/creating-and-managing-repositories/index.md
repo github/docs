@@ -27,6 +27,7 @@ children:
   - /transferring-a-repository
   - /deleting-a-repository
   - /restoring-a-deleted-repository
+  - /viewing-all-your-repositories
 shortTitle: Create & manage repositories
 ---
 

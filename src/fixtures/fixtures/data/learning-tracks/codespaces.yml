@@ -1,0 +1,6 @@
+# Codespaces learning tracks
+foo_bar:
+  title: Sample learning track
+  description: A sample track for testing
+  guides:
+    - /get-started/start-your-journey/hello-world

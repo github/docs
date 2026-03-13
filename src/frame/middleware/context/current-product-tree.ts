@@ -127,6 +127,7 @@ async function getCurrentProductTreeTitles(input: Tree, context: Context): Promi
   if (page.hidden) node.hidden = true
   if (page.sidebarLink) node.sidebarLink = page.sidebarLink
   if (page.layout && typeof page.layout === 'string') node.layout = page.layout
+  if (input.crossProductChild) node.crossProductChild = true
   return node
 }
 
@@ -146,7 +147,9 @@ function excludeHidden(tree: TitlesTree) {
 
 function sidebarTree(tree: TitlesTree) {
   const { href, title, shortTitle, childPages, sidebarLink } = tree
-  const childChildPages = childPages.map(sidebarTree)
+  // Filter out cross-product children from the sidebar
+  const filteredChildPages = childPages.filter((child) => !child.crossProductChild)
+  const childChildPages = filteredChildPages.map(sidebarTree)
   const newTree: TitlesTree = {
     href,
     title: shortTitle || title,

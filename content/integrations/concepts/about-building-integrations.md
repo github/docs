@@ -9,6 +9,9 @@ versions:
   ghec: '*'
 topics: 
   - Integration
+category:
+  - Learn about integrations
+  - Build integrations
 ---
 
 Integrations are tools that extend {% data variables.product.company_short %}'s functionality. Integrations can do things on {% data variables.product.company_short %} like open issues, comment on pull requests, and manage projects. They can also do things outside of {% data variables.product.company_short %} based on events that happen on {% data variables.product.company_short %}. For example, an integration can post on Slack when an issue is opened on {% data variables.product.company_short %}.

@@ -128,6 +128,12 @@ For guidance on writing deployment-specific steps, see [Finding deployment examp
 
 When a {% data variables.product.prodname_actions %} workflow deploys to an environment, the environment is displayed on the main page of the repository. For more information about viewing deployments to environments, see [AUTOTITLE](/actions/deployment/managing-your-deployments/viewing-deployment-history).
 
+{% ifversion virtual-registry %}
+
+Your organization can collect deployment records for all your builds in a single place by uploading data to the {% data variables.product.virtual_registry %}. See [AUTOTITLE](/code-security/concepts/supply-chain-security/linked-artifacts).
+
+{% endif %}
+
 ## Monitoring workflow runs
 
 Every workflow run generates a real-time graph that illustrates the run progress. You can use this graph to monitor and debug deployments. For more information see, [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph).

@@ -352,10 +352,9 @@ export function getResponseExamples(operation: Operation): ResponseExample[] {
             contentType,
             description: examples[key].summary || operation.responses[statusCode].description,
             example: examples[key].value,
-            // TODO adding the schema quadruples the JSON file size. Changing
-            // how we write the JSON file helps a lot, but we should revisit
-            // adding the response schema to ensure we have a way to view the
-            // prettified JSON before minimizing it.
+            // Note: Including the schema significantly increases JSON file size (~4x),
+            // but it's necessary to support the schema/example toggle in the UI.
+            // Users can switch between viewing the example response and the full schema.
             schema: operation.responses[statusCode].content[contentType].schema,
           },
         }

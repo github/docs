@@ -66,13 +66,8 @@ The options available to you vary according to your role and {% data variables.p
 
 ### Organization and enterprise accounts
 
-1. Display the settings for the organization or enterprise account you want to view data for. For example, using the context switcher shown on all personal and organization account settings pages.
-
-   ![Screenshot of the "Public profile" settings for The Octocat. Next to "Your personal profile," a "Switch settings context" link is outlined in orange.](/assets/images/help/settings/context-switcher-button.png)
-
-1. Click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing** to display the billing and licensing overview for the account:
-   * **Organization** accounts: under "Access" in the sidebar for settings.
-   * **Enterprise** accounts: a separate tab at the top of the page.
+{% data reusables.billing.nav-to-org-or-ent %}
+{% data reusables.billing.access-org-or-ent-page %}
 
 ## Exploring usage data in more detail
 

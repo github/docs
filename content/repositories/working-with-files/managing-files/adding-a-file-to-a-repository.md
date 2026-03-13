@@ -23,7 +23,7 @@ shortTitle: Add a file
 
 Files that you add to a repository via a browser are limited to {% data variables.large_files.max_github_browser_size %} per file. You can add larger files, up to {% data variables.large_files.max_github_size %} each, via the command line. For more information, see [Adding a file to a repository using the command line](#adding-a-file-to-a-repository-using-the-command-line). To add files larger than {% data variables.large_files.max_github_size %}, you must use {% data variables.large_files.product_name_long %}. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github).
 
-You can upload multiple files to {% data variables.product.github %} at the same time.
+You can upload up to 100 files to {% data variables.product.github %} at the same time.
 
 {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 

@@ -23,8 +23,9 @@ You can ask {% data variables.product.prodname_copilot_short %} different questi
 You can ask {% data variables.product.prodname_copilot_short %} to summarize a pull request, or to provide information about the status of a pull request.
 
 1. On {% data variables.product.github %}, navigate to a pull request in a repository.
-{% data reusables.copilot.open-chat-panel %}
-{% data reusables.copilot.chat-previous-conversation %}
+1. In the top right corner of the page, click the {% data variables.product.prodname_copilot_short %} icon (**{% octicon "copilot" aria-label="Copilot icon" %}**) to open {% data variables.copilot.copilot_chat_short %}.
+
+    {% data variables.product.prodname_copilot_short %} will use the pull request as context for your question.
 1. At the bottom of the {% data variables.copilot.copilot_chat_short %} panel, in the prompt box, type a question and press <kbd>Enter</kbd>.
 
 ### Example prompts
@@ -41,7 +42,9 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain the c
 
 1. On {% data variables.product.github %}, navigate to a pull request in a repository.
 1. Click the **Files changed** tab.
-1. Click {% octicon "kebab-horizontal" aria-label="Show options" %} at the top right of the file, then click **Ask {% data variables.product.prodname_copilot_short %} about this diff**.
+1. To the right side of a line in the file you want to ask about, click the {% octicon "triangle-down" aria-hidden="true" aria-label="Show file actions" %} icon, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, and select **Ask about this diff**.
+
+    This opens {% data variables.copilot.copilot_chat_short %} with the file changes indicated as the context of your question.
 1. Type a question in the prompt box at the bottom of the chat panel and press <kbd>Enter</kbd>.
 
 ### Example prompts
@@ -56,9 +59,10 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain speci
 1. On {% data variables.product.github %}, navigate to a pull request in a repository.
 1. Click the **Files changed** tab.
 1. Click the line number for the first line you want to select, then hold down <kbd>Shift</kbd> and click the line number for the last line you want to select.
-1. Ask {% data variables.product.prodname_copilot_short %} a question, or choose from a list of predefined questions.
-   * _To ask your own question about the selected lines_, to the right of your selection, click the {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %} icon.
-   This displays the {% data variables.copilot.copilot_chat %} panel with the selected lines indicated as the context of your question.
+1. To the right side of one of the selected lines, click the {% octicon "triangle-down" aria-hidden="true" aria-label="Show file actions" %} icon, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, and select **Ask about this diff**.
+
+    This opens {% data variables.copilot.copilot_chat_short %} with the selected lines indicated as the context of your question.
+1. Type a question in the prompt box at the bottom of the chat panel and press <kbd>Enter</kbd>.
 
 ### Example prompts
 
@@ -70,12 +74,9 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain speci
 You can ask {% data variables.product.prodname_copilot_short %} to explain why a workflow has failed in a pull request, and provide suggestions for how to fix the issue.
 
 1. On {% data variables.product.github %}, navigate to a pull request in a repository.
-1. Scroll to the bottom of the page, then, next to one of the failing checks, click **Details**.
-{% data reusables.copilot.open-chat-panel %}
-{% data reusables.copilot.chat-previous-conversation %}
-1. At the bottom of the {% data variables.copilot.copilot_chat_short %} panel, in the prompt box, ask {% data variables.product.prodname_copilot_short %} why the pull request has failed and press <kbd>Enter</kbd>.
+1. Scroll to the bottom of the page, then, next to one of the failing checks, click the ellipsis, and then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Explain error.**
 
-   {% data variables.product.prodname_copilot_short %} responds with information about why the pull request failed. {% data variables.product.prodname_copilot_short %} may also provide suggestions for how to fix the issue.
+    This opens {% data variables.copilot.copilot_chat_short %} with the workflow failure indicated as the context of your question and a prompt pre-filled in the chat input box. {% data variables.product.prodname_copilot_short %} responds with information about why the pull request failed. {% data variables.product.prodname_copilot_short %} may also provide suggestions for how to fix the issue.
 
 1. If {% data variables.product.prodname_copilot_short %} has provided steps to fix the issue, you can follow the steps to resolve the problem.
 

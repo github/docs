@@ -43,8 +43,6 @@ If a new top-level doc set is created, it is added to the homepage.
 
 If a category serves as the starting point for using a {% data variables.product.prodname_dotcom %} product or feature, it can be added to the homepage.
 
-For example, under the "Security" grouping on the homepage, in addition to the [Code security](/code-security) top-level doc set, the [Supply chain security](/code-security/supply-chain-security), [Security advisories](/code-security/security-advisories), [{% data variables.product.prodname_dependabot %}](/code-security/dependabot), [{% data variables.product.prodname_code_scanning_caps %}](/code-security/code-scanning), and [{% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning) categories are included because each of those categories are the entry point to {% data variables.product.prodname_dotcom %} products and features. [Security overview](/code-security/security-overview) is not included on the homepage because it provides additional information for using secure coding features and is not an introduction to a product or feature.
-
 ## Top-level doc set
 
 Top-level doc sets are organized around a {% data variables.product.prodname_dotcom %} product, feature, or core workflow. All top-level doc sets appear on the {% data variables.product.prodname_docs %} homepage. You should only create a top-level doc set when there is a large amount of content to be contained in the new doc set, multiple categories that are broken down into map topics, and the topic applies across products, features, or account types. If the content could fit in any existing top-level doc set, it probably belongs in that existing doc set.

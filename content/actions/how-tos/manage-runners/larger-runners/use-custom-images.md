@@ -4,9 +4,11 @@ shortTitle: Use custom images
 intro: 'Create, manage, and use custom images for {% data variables.actions.github_hosted_larger_runners %} in your organization or enterprise.'
 versions:
   feature: actions-hosted-runners
-product: '{% data variables.actions.github_hosted_larger_runners %} are only available for organizations and enterprises using the {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} plans. <br><a href="https://github.com/pricing?ref_product=ghec&ref_type=trial&ref_style=button&utm_source=docs-signup-actions&utm_medium=docs&utm_campaign=universe25post" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_actions %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data variables.actions.github_hosted_larger_runners %} are only available for organizations and enterprises using the {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} plans. <br><a href="https://github.com/pricing?ref_product=ghec&ref_type=trial&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_actions %}</span> {% octicon "link-external" height:16 %}</a>'
 
 ---
+
+{% data reusables.actions.custom-images-public-preview-note %}
 
 ## Custom images
 
@@ -55,6 +57,9 @@ To configure a workflow for image generation:
   * Each job that includes the `snapshot` keyword creates a separate image. To generate only one image or image version, include all workflow steps in a single job.
   * Each successful run of a job that includes the `snapshot` keyword creates a new version of that image.
 
+ > [!NOTE]
+ > {% data variables.product.company_short %} recommends configuring image generation as a scheduled workflow on a weekly basis. This approach ensures dependencies remain up-to-date and have the latest security patches. For more information, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#schedule).
+
 It can take some time for your image to be fully generated and ready to use after the workflow completes. Provisioning time varies based on runner size and configuration, and may take several hours for larger runners.
 
 The image is generated only when the job completes successfully. This prevents new image versions from being created when a workflow fails or ends in an incomplete state.
@@ -88,24 +93,6 @@ jobs:
     steps:
       # Add any steps to download and setup any dependencies here
 ```
-
-### Conditionals
-
-The `snapshot` keyword supports conditional execution using the `if` keyword around the snapshot mapping. You can use conditions to control when an image snapshot is created. For example, the following job skips image creation for tag builds.
-
-```yaml
-jobs: 
-  build:
-    runs-on: my-image-generation-runner
-    snapshot: 
-        if: {% raw %}${{ ! startsWith(github.ref, 'refs/tags/') }}{% endraw %}
-        image-name: my-custom-image
-        version: 2.*
-    steps:
-      # Add any steps to download and setup any dependencies here
-```
-
-For more information about the `if` keyword, see [AUTOTITLE](/actions/writing-workflows/choosing-when-your-workflow-runs/using-conditions-to-control-job-execution).
 
 ## Versioning
 

@@ -70,7 +70,7 @@ Reports generated on instances of {% data variables.enterprise.data_residency %}
 | Visual studio subscription user | Whether or not the user is a {% data variables.visual_studio.prodname_vs_subscriber %} |
 | License type | Can be one of: `Visual Studio subscription` or `Enterprise` |
 | GitHub com profile | The URL for the user's profile page on GHEC |
-| GitHub com member roles | For each of the organizations the user belongs to on GHEC, the organization name and the user's role in that organization (`Owner` or `Member`) separated by a colon<br><br>Organizations delimited by commas |
+| GitHub com member roles | For each of the organizations the user belongs to on GHEC, the organization name and the user's role in that organization (`Owner` or `Member`) separated by a colon. Organizations are delimited by commas.<br><br> For outside collaborators on private repositories, the value will appear as `ORG/REPO:Collaborator`, specifying which organization and repository the collaborator has access to.|
 | GitHub com enterprise roles | Can be one of: `Owner`, `Member`, `Outside collaborator` (for an enterprise with personal accounts on {% data variables.product.prodname_dotcom_the_website %}), or `Repository collaborator` (for an enterprise that uses {% data variables.enterprise.prodname_managed_users %}) |
 | GitHub com verified domain emails | All email addresses associated with the user's GHEC account that match your enterprise's verified domains |
 | GitHub com saml name | The SAML username |

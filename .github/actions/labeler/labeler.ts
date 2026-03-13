@@ -1,6 +1,6 @@
 /* See function main in this file for documentation */
 
-import coreLib from '@actions/core'
+import * as coreLib from '@actions/core'
 import { type Octokit } from '@octokit/rest'
 import { CoreInject } from '@/links/scripts/action-injections'
 

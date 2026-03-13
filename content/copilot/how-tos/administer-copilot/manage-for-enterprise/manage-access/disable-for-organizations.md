@@ -16,9 +16,11 @@ redirect_from:
   - /copilot/how-tos/administer/enterprises/manage-access/disable-for-organizations
   - /copilot/how-tos/administer/manage-for-enterprise/manage-access/disable-for-organizations
 contentType: how-tos
-category: 
+category:
   - Manage Copilot for a team
 ---
+
+When you disable {% data variables.product.prodname_copilot %} for organizations, organization owners cannot assign {% data variables.product.prodname_copilot %} licenses to members of their organization. Enterprise owners will still be able to assign {% data variables.copilot.copilot_business_short %} licenses to users and teams in the enterprise settings.
 
 {% data reusables.enterprise-accounts.copilot-licensing %}
 1. Next to "Organization access", choose whether to disable {% data variables.product.prodname_copilot_short %} for all organizations or allow for specific organizations.
@@ -32,6 +34,8 @@ category:
    1. To the right of the organization name, select the **{% data variables.product.prodname_copilot_short %}** dropdown menu.
        * If your enterprise has a {% data variables.copilot.copilot_business_short %} plan, click **Disabled**.
        * If your enterprise has a {% data variables.copilot.copilot_enterprise_short %} plan, click **Remove access**.
+
+Once {% data variables.product.prodname_copilot_short %} is disabled, licenses that are currently granted through the organization will be revoked at the end of the billing period. You will **not** be double-billed if a user also receives a license from your enterprise during this period.
 
 ## Further reading
 

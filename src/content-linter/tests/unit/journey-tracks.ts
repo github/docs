@@ -40,7 +40,7 @@ journeyTracks:
     title: "Track with {% invalid liquid"
     description: "Description with {{ unclosed liquid"
     guides:
-      - /article-one
+      - href: /article-one
 ---
 
 # Journey with Liquid Issues
@@ -54,6 +54,36 @@ This journey landing page has invalid liquid syntax in journeyTracks.
     expect(result['test-invalid-liquid.md']).toHaveLength(2) // title and description both have invalid liquid
     expect(result['test-invalid-liquid.md'][0].ruleDescription).toMatch(/liquid syntax/i)
     expect(result['test-invalid-liquid.md'][1].ruleDescription).toMatch(/liquid syntax/i)
+  })
+
+  test('invalid liquid syntax in alternativeNextStep fails', async () => {
+    const invalidAlternativeNextStepContent = `---
+title: Journey with Invalid Alternative Next Step
+layout: journey-landing
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+journeyTracks:
+  - id: track-1
+    title: "Test Track"
+    guides:
+      - href: /article-one
+        alternativeNextStep: "Want to skip? See {% invalid liquid syntax"
+---
+
+# Journey with Invalid Alternative Next Step
+`
+    const result = await runRule(journeyTracksLiquid, {
+      strings: { 'test-invalid-alternative-next-step.md': invalidAlternativeNextStepContent },
+      ...fmOptions,
+    })
+
+    expect(result['test-invalid-alternative-next-step.md']).toHaveLength(1)
+    expect(result['test-invalid-alternative-next-step.md'][0].errorDetail).toMatch(
+      /alternativeNextStep/,
+    )
+    expect(result['test-invalid-alternative-next-step.md'][0].errorDetail).toMatch(/liquid syntax/i)
   })
 })
 

@@ -9,8 +9,9 @@ import styles from './DeprecationBanner.module.scss'
 export const DeprecationBanner = () => {
   const { data, enterpriseServerReleases } = useMainContext()
   const { currentVersion } = useVersion()
+  const currentRelease = currentVersion.replace('enterprise-server@', '')
 
-  if (!currentVersion.includes(enterpriseServerReleases.oldestSupported)) {
+  if (!enterpriseServerReleases.releasesWithOldestDeprecationDate.includes(currentRelease)) {
     return null
   }
 

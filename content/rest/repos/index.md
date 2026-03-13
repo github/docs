@@ -15,6 +15,7 @@ versions:
 topics:
   - API
 children:
+  - /attestations
   - /autolinks
   - /bypass-requests
   - /contents

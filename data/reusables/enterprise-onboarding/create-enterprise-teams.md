@@ -48,10 +48,10 @@ If you use {% data variables.product.prodname_emus %}, you can sync membership o
 
 #### Limits on IdP group sizes
 
-If an IdP group goes over the team size limit of 500 users, the team will stop being synced.
+If an IdP group goes over the team size limit of 5,000 users, the team will stop being synced.
 
 For example:
 
 * An enterprise team is initially synced with an IdP group of 5 users.
-* 500 more users are added to the IdP group. Because the IdP group now has 505 users, the group isn't synced and the enterprise team remains at 5 members.
-* 5 users are removed from the IdP group to bring it to 500 users. Syncing resumes and the enterprise team now contains the same 500 users as the IdP group.
+* 5,000 more users are added to the IdP group. Because the IdP group now has 5,005 users, the group isn't synced and the enterprise team remains at 5 members.
+* 5 users are removed from the IdP group to bring it to 5,000 users. Syncing resumes and the enterprise team now contains the same 5,000 users as the IdP group.

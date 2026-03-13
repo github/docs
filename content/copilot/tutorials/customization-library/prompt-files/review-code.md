@@ -25,7 +25,7 @@ You can also use {% data variables.copilot.copilot_code-review_short %} in {% da
 
 ```text copy
 ---
-mode: 'agent'
+agent: 'agent'
 description: 'Perform a comprehensive code review'
 ---
 

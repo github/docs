@@ -27,7 +27,7 @@ Migrations to {% data variables.product.prodname_ghe_cloud %} include migrations
 {% endapi %}
 
 {% ifversion repo-rules-enterprise %}
-{% data reusables.enterprise-migration-tool.deploy-key-bypass %}
+{% data reusables.enterprise-migration-tool.repository-migrations-bypass %}
 {% endif %}
 
 ## Prerequisites

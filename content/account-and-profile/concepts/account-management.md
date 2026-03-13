@@ -13,18 +13,25 @@ redirect_from:
   - /account-and-profile/concepts/personal-account-management
 ---
 
+{% ifversion ghes < 3.21 %}
 ## About converting your personal account
 
 Converting a personal account into an organization allows you move to a shared account where a large number of people can collaborate across many projects at once. Converting your account:
 * Preserves the repositories as they are without the need to transfer them to another account manually
 * Automatically invites collaborators to teams with permissions equivalent to what they had before
-{%- ifversion fpt or ghec %}
-* For personal accounts on {% data variables.product.prodname_pro %}, automatically transitions billing to [the paid {% data variables.product.prodname_team %}](/billing/managing-the-plan-for-your-github-account/about-billing-for-plans) without the need to re-enter payment information, adjust your billing cycle, or double pay at any time
-{%- endif %}
 
 When you convert a personal account into an organization, we'll add collaborators on repositories that belong to the account to the new organization as outside collaborators. You can then invite outside collaborators to become members of your new organization if you wish. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators).
 
 To convert your personal account into an organization, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/converting-a-user-into-an-organization).
+
+{% else %}
+
+## About moving your work to an organization
+
+You can move repositories and projects from your personal account to an organization while keeping your personal account intact. This enables team collaboration with granular permissions across your existing work.
+
+For more information, see [AUTOTITLE](/account-and-profile/how-tos/account-management/moving-your-work-to-an-organization).
+{% endif %}
 
 ## About deletion of your personal account
 

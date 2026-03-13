@@ -7,6 +7,9 @@ topics:
   - Copilot
 shortTitle: Test custom agents
 contentType: how-tos
+category:
+  - Configure Copilot
+  - Manage Copilot for a team
 ---
 
 {% data reusables.copilot.custom-agents-preview-note %}
@@ -27,7 +30,7 @@ Before you can test a {% data variables.copilot.copilot_custom_agent_short %}, y
 
 ## 2. Test your {% data variables.copilot.copilot_custom_agent_short %}
 
-1. Navigate to the agents tab at [https://github.com/copilot/agents](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-signup-custom-agents&utm_medium=docs&utm_campaign=universe25post).
+1. Navigate to the agents tab at [https://github.com/copilot/agents](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text).
 1. Using the dropdown menu in the prompt box, select your `.github-private` repository.
 1. Select {% octicon "copilot" aria-label="Select a custom agent" %}, then click your test agent.
 1. To test your {% data variables.copilot.copilot_custom_agent_short %}, send {% data variables.product.prodname_copilot_short %} a prompt.

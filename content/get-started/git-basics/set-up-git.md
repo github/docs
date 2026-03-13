@@ -27,7 +27,7 @@ topics:
 ---
 ## Using Git
 
-To use Git on the command line, you will need to download, install, and configure Git on your computer. You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.prodname_dotcom %} from the command line. For more information, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
+To use Git on the command line, you need to download, install, and configure Git on your computer. You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.prodname_dotcom %} from the command line. For more information, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
 
 If you want to work with Git locally, but do not want to use the command line, you can download and install the [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) client. For more information, see [AUTOTITLE](/desktop/overview/about-github-desktop).
 
@@ -54,10 +54,10 @@ If you do not need to work with files locally, {% data variables.product.github 
 
 ## Authenticating with {% data variables.product.github %} from Git
 
-When you connect to a {% data variables.product.github %} repository from Git, you will need to authenticate with {% data variables.product.github %} using either HTTPS or SSH.
+When you connect to a {% data variables.product.github %} repository from Git, you need to authenticate with {% data variables.product.github %} using either HTTPS or SSH.
 
 > [!NOTE]
-> You can authenticate to {% data variables.product.github %} using {% data variables.product.prodname_cli %}, for either HTTP or SSH. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+> You can authenticate to {% data variables.product.github %} using {% data variables.product.prodname_cli %}, for either HTTPS or SSH. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
 ### Connecting over HTTPS (recommended)
 
@@ -69,7 +69,8 @@ If you clone with SSH, you must generate SSH keys on each computer you use to pu
 
 ## Next steps
 
-You now have Git and {% data variables.product.github %} all set up. You may now choose to create a repository where you can put your projects. Saving your code in a repository allows you to back up your code and share it around the world.
+You now have Git and {% data variables.product.github %} all set up. You can now choose to create a repository where you can store your projects. Saving your code in a repository allows you to back up your work and share it around the world.
+
 
 * {% data reusables.getting-started.create-a-repository %}
 

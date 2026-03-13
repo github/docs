@@ -11,5 +11,6 @@ children:
   - /enterprise-accounts
   - /teams-in-an-enterprise
   - /roles-in-an-enterprise
+  - /automations-in-your-enterprise
 contentType: concepts
 ---

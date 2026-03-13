@@ -225,7 +225,7 @@ To check SSH ciphers:
 ghe-crypto check ssh-ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com
 ```
 
-For more information about configuring cipher suites and cryptographic algorithms, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls#configuring-cipher-suites-and-cryptographic-algorithms).
+For more information about configuring cipher suites and cryptographic algorithms, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls-and-ssh-ciphers).
 
 {% endif %}
 

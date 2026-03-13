@@ -1,7 +1,7 @@
 ---
 title: Interpreting usage and adoption metrics for GitHub Copilot
 shortTitle: Interpret usage metrics
-intro: 'Evaluate trends surfaced in {% data variables.product.prodname_copilot_short %} usage metrics to enable adoption in your enterprise.'
+intro: '{% data variables.product.prodname_copilot_short %} usage and adoption metrics reveal patterns in how developers engage with {% data variables.product.prodname_copilot_short %} across your enterprise.'
 permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
@@ -12,11 +12,17 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /early-access/copilot-metrics/dashboards/interpreting-the-metrics
   - /copilot/reference/interpret-copilot-metrics
+category:
+  - Copilot usage metrics
+  - Manage Copilot for a team
+  - Understand metrics
 ---
 
->[!NOTE] The {% data variables.product.prodname_copilot %} usage metrics dashboard is currently in {% data variables.release-phases.public_preview %} and subject to change.
+>[!NOTE] The {% data variables.product.prodname_copilot_short %} usage metrics dashboard is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
-After you’ve viewed usage data in the {% data variables.product.prodname_copilot_short %} usage metrics dashboard, you can use this article to interpret what each chart means and identify opportunities to increase adoption and engagement across your enterprise.
+After you’ve viewed the {% data variables.product.prodname_copilot_short %} usage metrics dashboard, you can use this article to interpret each chart and identify opportunities to increase adoption and engagement.
+
+> [!NOTE] The dashboard reports enterprise-level data. Organization-level views are available through the {% data variables.product.prodname_copilot_short %} usage metrics APIs.
 
 ## Reviewing overall usage trends
 
@@ -71,7 +77,6 @@ Use trends in usage, feature adoption, and language activity to guide enablement
 > [!TIP]
 > Consider combining dashboard trends with feedback from surveys or retrospectives to get a full picture of {% data variables.product.prodname_copilot_short %}’s impact on developer productivity.
 
-## Further reading
+## Next steps
 
-* [AUTOTITLE](/copilot/reference/copilot-usage-metrics/reconciling-usage-metrics)
-* [AUTOTITLE](/copilot/reference/copilot-usage-metrics/lines-of-code-metrics)
+* To access metrics programmatically, including enterprise, organization, and user-level records, see [AUTOTITLE](/rest/copilot/copilot-usage-metrics).

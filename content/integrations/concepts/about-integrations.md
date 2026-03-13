@@ -4,12 +4,15 @@ shortTitle: About integrations
 intro: 'Learn how to connect, extend, and customize GitHub with apps and tools.'
 redirect_from:
   - /get-started/exploring-integrations/about-integrations
+  - /get-started/exploring-integrations/about-using-integrations
 versions:
     fpt: '*'
     ghes: '*'
     ghec: '*'
 topics:
     - Integration
+category:
+  - Learn about integrations
 ---
 
 Integrations are tools that extend {% data variables.product.github %} functionality by allowing you to connect your {% data variables.product.github %} account with other applications and services, enabling you to streamline your workflow and enhance collaboration.

@@ -34,3 +34,6 @@ export const minimumNotFoundHtml = `
  &bull; <a href=https://docs.github.com/site-policy/privacy-policies/github-privacy-statement>Privacy</a>
 </small>
 `.replace(/\n/g, '')
+
+export const ANALYTICS_ENABLED = true
+export const HOVERCARDS_ENABLED = true

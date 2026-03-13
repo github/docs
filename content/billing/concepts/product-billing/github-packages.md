@@ -25,7 +25,10 @@ contentType: concepts
 
 {% data variables.product.prodname_registry %} usage is **free** for **public packages**. In addition, data transferred in from any source is free.
 
-For **private** repositories, each {% data variables.product.github %} account receives a quota of storage and data transfer for use with {% data variables.product.prodname_registry %}, depending on the account's plan. Any usage beyond the included amounts is billed to your account. Data transfer resets every month, while storage usage does not.
+For **private** repositories, each {% data variables.product.github %} account receives a quota of storage and data transfer for use with {% data variables.product.prodname_registry %}, depending on the account's plan. Any usage beyond the included amounts is billed to your account. 
+
+* **Data transfer** Your free quota resets at the start of each billing cycle. 
+* **Storage:** Charges accrue continuously throughout the month based on your hourly usage. At the start of each billing cycle, your accrued storage total resets to zero and begins accumulating again.
 
 Working in a private repository with packages:
 
@@ -57,8 +60,10 @@ Plan | Storage | Data transfer (per month)
 
 {% endrowheaders %}
 
+The storage amounts shown are **shared** with {% data variables.product.prodname_actions %}. This means your total storage across Packages, Actions artifacts, and Actions caches cannot exceed the included amount for your plan.
+
 > [!NOTE]
-> **Billing for container image storage:** Container image storage and bandwidth for the {% data variables.product.prodname_container_registry %} is currently free. If you use {% data variables.product.prodname_container_registry %}, you'll be informed at least one month in advance of any change to this policy. For more information about the {% data variables.product.prodname_container_registry %}, see [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
+> * **Billing for container image storage:** Container image storage and bandwidth for the {% data variables.product.prodname_container_registry %} is currently free. If you use {% data variables.product.prodname_container_registry %}, you'll be informed at least one month in advance of any change to this policy. For more information about the {% data variables.product.prodname_container_registry %}, see [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
 
 ### Package downloads by {% data variables.product.prodname_actions %}
 

@@ -55,7 +55,7 @@ You can ask {% data variables.copilot.copilot_chat_short %} for help understandi
 
 1. At the top right of the pull request page, click the **{% octicon "copilot" aria-label="Copilot icon" %}** button next to the search bar.
 
-   The full-page, immersive, mode of {% data variables.copilot.copilot_chat_short %} is displayed, with the pull request attached as context to the prompt window.
+   {% data variables.copilot.copilot_chat_short %} is displayed, with the pull request attached as context to the prompt window.
 
 1. In the prompt box, type a question and press <kbd>Enter</kbd>. For example, you could enter:
 

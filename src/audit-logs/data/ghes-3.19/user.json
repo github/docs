@@ -169,7 +169,8 @@
       "pricing_target_type",
       "pricing_target_id",
       "budget_limit_type",
-      "alert_recipient_user_ids"
+      "alert_recipient_user_ids",
+      "exclude_cost_center_usage"
     ]
   },
   {

@@ -9,6 +9,8 @@ topics:
 children:
   - /extend-copilot-chat-with-mcp
   - /set-up-the-github-mcp-server
+  - /enterprise-configuration
+  - /configure-toolsets
   - /use-the-github-mcp-server
   - /change-mcp-registry
 redirect_from:

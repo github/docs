@@ -37,6 +37,10 @@ const RECOGNIZED_KEYS_BY_ANY = new Set([
   'search-overlay-ask-ai',
   // The drop-downs on "Webhook events and payloads"
   'actionType',
+  // Landing page article grid filters
+  'articles-category',
+  'articles-filter',
+  'articles-page',
   // Legacy domain tracking parameter (no longer processed but still recognized)
   'ghdomain',
   // UTM campaign tracking

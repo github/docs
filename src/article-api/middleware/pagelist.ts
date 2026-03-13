@@ -8,10 +8,84 @@ import { getLanguageCodeFromPath } from '@/languages/middleware/detect-language'
 import { pagelistValidationMiddleware } from './validation'
 import catchMiddlewareError from '@/observability/middleware/catch-middleware-error'
 import statsd from '@/observability/lib/statsd'
+import { allVersions, allVersionKeys } from '@/versions/lib/all-versions'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
+import { languages, languageKeys } from '@/languages/lib/languages'
 
 const router = express.Router()
 
 // pagelistValidationMiddleware is used for every route to normalize the lang and version from the path
+
+/**
+ * Get all available product versions for the docs site.
+ * @route GET /api/pagelist/versions
+ * @returns {object} JSON object with version information
+ * @example
+ * ❯ curl -s https://docs.github.com/api/pagelist/versions | jq
+ * {
+ *   "versions": ["free-pro-team@latest", "enterprise-cloud@latest", "enterprise-server@3.19", ...],
+ *   "ghesVersions": ["3.19", "3.18", "3.17", ...],
+ *   "ghesLatest": "3.19",
+ *   ...
+ * }
+ */
+router.get(
+  '/versions',
+  catchMiddlewareError(async function (req: ExtendedRequest, res: Response) {
+    defaultCacheControl(res)
+
+    const response = {
+      // Simple list of all version strings
+      versions: allVersionKeys,
+      // GHES-specific information
+      ghesVersions: enterpriseServerReleases.supported,
+      ghesLatest: enterpriseServerReleases.latest,
+      ghesLatestStable: enterpriseServerReleases.latestStable,
+      ghesReleaseCandidate: enterpriseServerReleases.releaseCandidate,
+      ghesDeprecated: enterpriseServerReleases.deprecated,
+      // Full version details
+      allVersions,
+    }
+
+    res.json(response)
+  }) as RequestHandler,
+)
+
+/**
+ * Get all available languages for the docs site.
+ * @route GET /api/pagelist/languages
+ * @returns {object} JSON object with language information
+ * @example
+ * ❯ curl -s https://docs.github.com/api/pagelist/languages | jq
+ * {
+ *   "languages": ["en", "es", "ja", "pt", "zh", "ru", "fr", "ko", "de"],
+ *   "allLanguages": { ... }
+ * }
+ */
+router.get(
+  '/languages',
+  catchMiddlewareError(async function (req: ExtendedRequest, res: Response) {
+    defaultCacheControl(res)
+
+    // Remove redirectPatterns from output as they are RegExp objects and not JSON serializable
+    const sanitizedLanguages = Object.fromEntries(
+      Object.entries(languages).map(([code, lang]) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { redirectPatterns, ...rest } = lang
+        return [code, rest]
+      }),
+    )
+
+    const response = {
+      // Simple list of language codes
+      languages: languageKeys,
+      // Full language details (without redirectPatterns)
+      allLanguages: sanitizedLanguages,
+    }
+
+    res.json(response)
+  }) as RequestHandler,
+)
 
 // If no version or lang is provided we'll assume english and fpt and redirect there
 router.get(

@@ -17,6 +17,6 @@ topics:
 children:
   - /how-billing-works
   - /introduction-to-billing
+  - /billing-manager-onboard
 contentType: get-started
 ---
-

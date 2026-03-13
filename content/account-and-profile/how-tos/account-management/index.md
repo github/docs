@@ -1,6 +1,6 @@
 ---
 title: Managing your personal account
-intro: You can manage your personal account on {% data variables.product.github %}. For example, you can {% ifversion fpt or ghec %}manage multiple accounts, {% endif %}convert an account to an organization, or delete an account.
+intro: You can manage your personal account on {% data variables.product.github %}. For example, you can change your username, {% ifversion fpt or ghec %}manage multiple accounts, {% endif %}{% ifversion ghes < 3.21 %}convert an account to an organization, {% else %}move your work to an organization, {% endif %}or delete an account.
 shortTitle: Personal account management
 versions:
   fpt: '*'
@@ -12,6 +12,7 @@ children:
   - /managing-multiple-accounts
   - /merging-multiple-personal-accounts
   - /changing-your-username
+  - /moving-your-work-to-an-organization
   - /converting-a-user-into-an-organization
   - /unlinking-your-email-address-from-a-locked-account
   - /deleting-your-personal-account
