@@ -1,6 +1,6 @@
 ---
 title: Issue manager
-intro: 'Create well-structured issues and responses.'
+intro: Create well-structured issues and responses.
 versions:
   feature: copilot
 category:
@@ -10,6 +10,7 @@ category:
 complexity:
   - Simple
 octicon: book
+contentType: tutorials
 ---
 
 {% data reusables.copilot.customization-examples-note %}

@@ -1,7 +1,7 @@
 ---
 title: Using GitHub-hosted runners
 shortTitle: Use GitHub-hosted runners
-intro: 'You can assign a job to run on a virtual machine hosted by {% data variables.product.github %}.'
+intro: You can assign a job to run on a virtual machine hosted by {% data variables.product.github %}.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,7 @@ redirect_from:
   - /actions/using-github-hosted-runners/using-github-hosted-runners
 category:
   - Use and manage runners
+contentType: how-tos
 ---
 
 {% ifversion ghes %}

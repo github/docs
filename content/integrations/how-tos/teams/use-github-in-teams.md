@@ -1,11 +1,12 @@
 ---
-title: 'Using {% data variables.product.github %} in Teams'
-shortTitle: 'Use GitHub in Teams'
-intro: 'Learn how to use {% data variables.product.github %} in Teams to improve collaboration and streamline your workflow.'
+title: Using {% data variables.product.github %} in Teams
+shortTitle: Use GitHub in Teams
+intro: Learn how to use {% data variables.product.github %} in Teams to improve collaboration and streamline your workflow.
 versions:
-    fpt: '*'
-    ghes: '*'
-    ghec: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+contentType: how-tos
 ---
 
 The {% data variables.product.github %} integration for Microsoft Teams lets you connect your {% data variables.product.github %} account to the {% data variables.product.github %} app in Teams. Once connected, you can subscribe to notifications, run commands, and collaborate on issues and pull requests directly within Teams.

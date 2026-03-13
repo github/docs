@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Permission denied (publickey)
+category:
+  - Troubleshoot authentication issues
 ---
 {% ifversion ghec %}
 

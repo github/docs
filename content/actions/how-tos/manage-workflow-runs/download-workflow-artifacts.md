@@ -1,7 +1,7 @@
 ---
 title: Downloading workflow artifacts
 intro: You can download archived artifacts before they automatically expire.
-permissions: 'People who are signed into {% data variables.product.github %} and have read access to a repository can download workflow artifacts.'
+permissions: People who are signed into {% data variables.product.github %} and have read access to a repository can download workflow artifacts.
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,6 +14,7 @@ redirect_from:
   - /actions/how-tos/manage-workflow-runs/downloading-workflow-artifacts
 category:
   - Manage and monitor workflow runs
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

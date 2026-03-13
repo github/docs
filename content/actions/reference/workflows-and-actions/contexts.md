@@ -1,7 +1,7 @@
 ---
 title: Contexts reference
 shortTitle: Contexts
-intro: 'Find information about contexts available in {% data variables.product.prodname_actions %} workflows, including available properties, access methods, and usage examples.'
+intro: Find information about contexts available in {% data variables.product.prodname_actions %} workflows, including available properties, access methods, and usage examples.
 redirect_from:
   - /articles/contexts-and-expression-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/contexts-and-expression-syntax-for-github-actions
@@ -19,6 +19,7 @@ versions:
   ghec: '*'
 category:
   - Write workflows
+contentType: reference
 ---
 
 ## Available contexts

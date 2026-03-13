@@ -9,7 +9,7 @@ versions:
 redirect_from:
   - /actions/concepts/overview/github-actions-vs-github-apps
   - /actions/get-started/github-actions-vs-github-apps
-contentType: concepts
+contentType: get-started
 category:
   - Get started with GitHub Actions
 ---

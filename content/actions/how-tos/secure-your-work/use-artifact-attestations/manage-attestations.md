@@ -9,6 +9,7 @@ redirect_from:
   - /actions/how-tos/security-for-github-actions/using-artifact-attestations/managing-the-lifecycle-of-artifact-attestations
 category:
   - Secure your workflows
+contentType: how-tos
 ---
 
 {% data reusables.actions.lifecycle-of-attestations %}

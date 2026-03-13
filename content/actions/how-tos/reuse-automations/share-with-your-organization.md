@@ -11,6 +11,7 @@ redirect_from:
   - /actions/administering-github-actions/sharing-workflows-secrets-and-runners-with-your-organization
 category:
   - Reuse and share automations
+contentType: how-tos
 ---
 
 > [!WARNING]

@@ -6,6 +6,7 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Manage organization notifications
+contentType: how-tos
 ---
 
 ## Organization alerts notification options

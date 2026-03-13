@@ -13,6 +13,7 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Manage from your inbox
+contentType: how-tos
 ---
 
 ## Prerequisites

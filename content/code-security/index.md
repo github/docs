@@ -48,4 +48,6 @@ children:
   - /reference
   - /tutorials
   - /responsible-use
+contentType: landing
 ---
+

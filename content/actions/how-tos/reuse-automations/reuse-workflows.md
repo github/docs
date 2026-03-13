@@ -13,6 +13,7 @@ versions:
   ghes: '*'
 category:
   - Reuse and share automations
+contentType: how-tos
 ---
 
 ## Creating a reusable workflow

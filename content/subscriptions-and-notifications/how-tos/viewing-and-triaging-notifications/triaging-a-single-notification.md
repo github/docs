@@ -1,6 +1,6 @@
 ---
 title: Triaging a single notification
-intro: 'When you review and investigate a single notification, you have several triaging options that are optimized for the detailed notification view.'
+intro: When you review and investigate a single notification, you have several triaging options that are optimized for the detailed notification view.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,7 @@ redirect_from:
   - /account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/triaging-a-single-notification
   - /subscriptions-and-notifications/viewing-and-triaging-notifications/triaging-a-single-notification
 shortTitle: Triage a notification
+contentType: how-tos
 ---
 ## Saving a single notification
 

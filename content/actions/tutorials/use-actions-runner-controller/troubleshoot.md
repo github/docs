@@ -10,7 +10,7 @@ redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors
   - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors
   - /actions/tutorials/actions-runner-controller/troubleshooting-actions-runner-controller-errors
-contentType: how-tos
+contentType: tutorials
 category:
   - Use and manage runners
 ---

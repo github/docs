@@ -2,12 +2,12 @@
 title: Managing issues with the GitHub integration in Teams
 shortTitle: Manage issues and PRs
 allowTitleToDifferFromFilename: true
-intro: 'Learn how to manage issues and pull requests with the {% data variables.product.github %} integration in Teams.'
+intro: Learn how to manage issues and pull requests with the {% data variables.product.github %} integration in Teams.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-contentType: reference
+contentType: tutorials
 ---
 
 ## Managing issues in Teams

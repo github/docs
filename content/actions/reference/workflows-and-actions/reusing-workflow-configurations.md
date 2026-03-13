@@ -11,6 +11,7 @@ redirect_from:
   - /actions/reference/workflows-and-actions/reusable-workflows
 category:
   - Reuse and share automations
+contentType: reference
 ---
 
 ## Reusable workflows

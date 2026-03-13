@@ -1,6 +1,6 @@
 ---
 title: Use GITHUB_TOKEN for authentication in workflows
-intro: 'Learn how to use the `GITHUB_TOKEN` to authenticate on behalf of {% data variables.product.prodname_actions %}.'
+intro: Learn how to use the `GITHUB_TOKEN` to authenticate on behalf of {% data variables.product.prodname_actions %}.
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
   - /actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
@@ -23,6 +23,7 @@ versions:
 shortTitle: Authenticate with GITHUB_TOKEN
 category:
   - Secure your workflows
+contentType: tutorials
 ---
 
 This tutorial leads you through how to use the `GITHUB_TOKEN` for authentication in {% data variables.product.prodname_actions %} workflows, including examples for passing the token to actions, making API requests, and configuring permissions for secure automation.

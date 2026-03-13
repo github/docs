@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Manage your passkeys
+category:
+  - Sign in with SSO or a passkey
 contentType: how-tos
 ---
 

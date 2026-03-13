@@ -1,7 +1,7 @@
 ---
 title: GitHub-hosted runners reference
 shortTitle: GitHub-hosted runners
-intro: 'Find information about {% data variables.product.github %}-hosted runners, including their specifications and customization options.'
+intro: Find information about {% data variables.product.github %}-hosted runners, including their specifications and customization options.
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,6 +10,7 @@ redirect_from:
   - /actions/reference/github-hosted-runners-reference
 category:
   - Set up runners
+contentType: reference
 ---
 
 {% ifversion ghes %}

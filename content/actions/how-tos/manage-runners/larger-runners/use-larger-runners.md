@@ -1,7 +1,7 @@
 ---
 title: Running jobs on larger runners
 shortTitle: Use larger runners
-intro: 'You can speed up your workflows by configuring them to run on {% data variables.actions.hosted_runner %}s.'
+intro: You can speed up your workflows by configuring them to run on {% data variables.actions.hosted_runner %}s.
 permissions: '{% data reusables.actions.larger-runner-permissions %}'
 defaultPlatform: linux
 versions:
@@ -14,6 +14,7 @@ redirect_from:
   - /actions/how-tos/using-larger-runners/running-jobs-on-larger-runners
 category:
   - Use and manage runners
+contentType: how-tos
 ---
 
 ## Running jobs on your runner

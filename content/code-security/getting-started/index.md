@@ -15,4 +15,6 @@ children:
   - /github-security-features
   - /quickstart-for-securing-your-repository
   - /quickstart-for-securing-your-organization
+contentType: get-started
 ---
+

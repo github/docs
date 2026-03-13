@@ -15,7 +15,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-contentType: concepts
+contentType: reference
 category:
   - Set up runners
 ---

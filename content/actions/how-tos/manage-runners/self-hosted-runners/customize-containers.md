@@ -11,6 +11,7 @@ versions:
   feature: container-hooks
 category:
   - Use and manage runners
+contentType: how-tos
 ---
 
 > [!NOTE]

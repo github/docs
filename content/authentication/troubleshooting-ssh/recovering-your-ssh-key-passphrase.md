@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Recover SSH key passphrase
+category:
+  - Troubleshoot authentication issues
 ---
 {% mac %}
 

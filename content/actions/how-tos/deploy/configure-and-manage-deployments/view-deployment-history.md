@@ -14,6 +14,7 @@ redirect_from:
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-deployments/viewing-deployment-history
 category:
   - Deploy to environments
+contentType: how-tos
 ---
 
 ## Viewing your repository's deployment history

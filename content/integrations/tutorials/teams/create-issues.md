@@ -1,12 +1,12 @@
 ---
 title: Creating issues with the GitHub integration in Teams
 shortTitle: Create issues
-intro: 'Learn how to create issues with the {% data variables.product.github %} integration in Teams.'
+intro: Learn how to create issues with the {% data variables.product.github %} integration in Teams.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-contentType: reference
+contentType: tutorials
 ---
 
 ## Creating issues with the {% data variables.product.github %} integration in Teams

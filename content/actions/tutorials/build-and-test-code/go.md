@@ -14,6 +14,7 @@ redirect_from:
   - /actions/tutorials/build-and-test-code/building-and-testing-go
 category:
   - Build and test code
+contentType: tutorials
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

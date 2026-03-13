@@ -6,6 +6,7 @@ versions:
   ghec: '*'
 category:
   - Secure your workflows
+contentType: concepts
 ---
 
 ## About Kubernetes admission controller

@@ -9,7 +9,7 @@ redirect_from:
   - /actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise
   - /actions/sharing-automations/sharing-actions-and-workflows-with-your-enterprise
   - /actions/how-tos/sharing-automations/sharing-actions-and-workflows-with-your-enterprise
-contentType: tutorials
+contentType: how-tos
 category:
   - Reuse and share automations
 ---

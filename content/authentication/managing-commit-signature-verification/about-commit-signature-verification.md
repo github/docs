@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Commit signature verification
+category:
+  - Learn about authentication
 ---
 ## About commit signature verification
 

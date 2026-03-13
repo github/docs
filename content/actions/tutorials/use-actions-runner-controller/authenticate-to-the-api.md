@@ -11,7 +11,7 @@ redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api
   - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api#deploying-using-personal-access-token-classic-authentication
   - /actions/tutorials/actions-runner-controller/authenticating-arc-to-the-github-api
-contentType: concepts
+contentType: tutorials
 category:
   - Use and manage runners
 ---

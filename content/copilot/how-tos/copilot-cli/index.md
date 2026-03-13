@@ -4,7 +4,7 @@ shortTitle: '{% data variables.copilot.copilot_cli_short %}'
 intro: Use {% data variables.product.prodname_copilot_short %} directly from your terminal to answer questions, write and debug code, and interact with {% data variables.product.github %}.
 versions:
   feature: copilot
-contentType: landing
+contentType: how-tos
 layout: bespoke-landing
 heroImage: /assets/images/banner-images/hero-4
 sidebarLink:
@@ -14,9 +14,6 @@ introLinks:
   overview: /copilot/concepts/agents/copilot-cli/about-copilot-cli
   quickstart: /copilot/how-tos/copilot-cli/cli-getting-started
 children:
-  # Top-level articles and sub-categories in the Copilot How-to's are listed at the top of this list.
-  # This sets the order we show them in the side nav.
-  # All content from other directories and in any sub-directories can be added in any order underneath.
   - /cli-getting-started
   - /cli-best-practices
   - /set-up-copilot-cli
@@ -64,3 +61,4 @@ includedCategories:
   - Build with Copilot CLI
   - Administer Copilot CLI
 ---
+

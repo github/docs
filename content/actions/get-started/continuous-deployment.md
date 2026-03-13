@@ -13,7 +13,7 @@ redirect_from:
   - /actions/about-github-actions/about-continuous-deployment-with-github-actions
   - /actions/concepts/overview/about-continuous-deployment-with-github-actions
   - /actions/concepts/overview/continuous-deployment
-contentType: concepts
+contentType: get-started
 category:
   - Get started with GitHub Actions
 ---

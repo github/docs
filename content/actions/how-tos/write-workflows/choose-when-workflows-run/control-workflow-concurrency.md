@@ -15,6 +15,7 @@ redirect_from:
   - /actions/how-tos/writing-workflows/choosing-when-your-workflow-runs/control-the-concurrency-of-workflows-and-jobs
 category:
   - Write workflows
+contentType: how-tos
 ---
 
 ## Using concurrency in different scenarios

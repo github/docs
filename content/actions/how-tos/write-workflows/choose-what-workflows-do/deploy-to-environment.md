@@ -14,6 +14,7 @@ redirect_from:
   - /actions/how-tos/writing-workflows/choosing-what-your-workflow-does/deploying-to-a-specific-environment
 category:
   - Deploy to environments
+contentType: how-tos
 ---
 
 ## Prerequisites

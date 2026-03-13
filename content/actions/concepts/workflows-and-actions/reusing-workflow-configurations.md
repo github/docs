@@ -13,6 +13,7 @@ redirect_from:
   - /actions/concepts/workflows-and-actions/reusable-workflows
 category:
   - Reuse and share automations
+contentType: concepts
 ---
 
 ## Reusable workflows

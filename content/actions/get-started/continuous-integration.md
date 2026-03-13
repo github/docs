@@ -16,7 +16,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-contentType: concepts
+contentType: get-started
 category:
   - Get started with GitHub Actions
 ---

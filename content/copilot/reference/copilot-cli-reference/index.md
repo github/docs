@@ -1,7 +1,7 @@
 ---
 title: '{% data variables.copilot.copilot_cli_short %} reference'
 shortTitle: '{% data variables.copilot.copilot_cli_short %} reference'
-intro: 'Find information on options and settings for {% data variables.copilot.copilot_cli_short %}.'
+intro: Find information on options and settings for {% data variables.copilot.copilot_cli_short %}.
 versions:
   feature: copilot
 children:
@@ -9,4 +9,6 @@ children:
   - /cli-plugin-reference
   - /cli-programmatic-reference
   - /acp-server
+contentType: reference
 ---
+

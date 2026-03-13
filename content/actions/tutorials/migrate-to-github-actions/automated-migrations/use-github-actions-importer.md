@@ -12,7 +12,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-contentType: how-tos
+contentType: tutorials
 category:
   - Migrate to GitHub Actions
 ---

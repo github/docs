@@ -1,6 +1,6 @@
 ---
 title: Subscriptions and notifications documentation
-intro: 'You can specify how to receive notifications, the repositories you are interested in, and the types of activity you want to hear about.'
+intro: You can specify how to receive notifications, the repositories you are interested in, and the types of activity you want to hear about.
 redirect_from:
   - /categories/76/articles
   - /categories/notifications
@@ -26,5 +26,6 @@ children:
   - /tutorials
   - /reference
 shortTitle: Subscriptions & notifications
+contentType: landing
 ---
 

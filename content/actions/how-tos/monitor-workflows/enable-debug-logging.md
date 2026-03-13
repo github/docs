@@ -1,7 +1,7 @@
 ---
 title: Enabling debug logging
 shortTitle: Enable debug logging
-intro: 'If the workflow logs do not provide enough detail to diagnose why a workflow, job, or step is not working as expected, you can enable additional debug logging.'
+intro: If the workflow logs do not provide enough detail to diagnose why a workflow, job, or step is not working as expected, you can enable additional debug logging.
 redirect_from:
   - /actions/managing-workflow-runs/enabling-debug-logging
   - /actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging
@@ -14,6 +14,7 @@ versions:
   ghec: '*'
 category:
   - Manage and monitor workflow runs
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
