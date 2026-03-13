@@ -12,6 +12,7 @@ children:
   - /configuring-dependabot-security-updates
   - /configuring-dependabot-version-updates
   - /keeping-your-actions-up-to-date-with-dependabot
+  - /configuring-multi-ecosystem-updates
   - /enabling-the-dependency-graph
   - /exploring-the-dependencies-of-a-repository
   - /configuring-automatic-dependency-submission-for-your-repository
