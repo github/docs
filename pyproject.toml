@@ -1,0 +1,100 @@
+[project]
+name = "harbor"
+version = "0.1.45"
+description = "A framework for evaluating and optimizing agents and models using sandboxed environments."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "Alex Shaw", email = "alexgshaw64@gmail.com" }]
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.11.7",
+    "shortuuid>=1.0.13",
+    "typer>=0.16.0",
+    "requests>=2.32.4",
+    "pyyaml>=6.0.2",
+    "rich>=14.1.0",
+    "toml>=0.10.2",
+    "tenacity>=9.1.2",
+    "python-dotenv>=1.1.1",
+    "litellm>=1.80.8",
+    "jinja2>=3.1.6",
+    "dirhash>=0.5.0",
+    "dockerfile-parse>=2.0.1",
+    "e2b>=2.4.2",
+    "datasets>=4.4.1",
+    "runloop-api-client>=1.2.0",
+    "daytona>=0.121.0",
+    "kubernetes>=32.0.0",
+    "claude-agent-sdk>=0.1.17",
+    "supabase>=2.27.0",
+    "packaging>=25.0",
+    "fastapi>=0.128.0",
+    "uvicorn>=0.38.0",
+    "modal>=1.3.2",
+    "ruff>=0.13.0",
+]
+
+[project.scripts]
+harbor = "harbor.cli.main:app"
+hr = "harbor.cli.main:app"
+hb = "harbor.cli.main:app"
+
+[build-system]
+requires = ["uv_build>=0.8.4,<0.9.0"]
+build-backend = "uv_build"
+
+[project.optional-dependencies]
+tinker = [
+    "tinker",
+    "tinker_cookbook",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.30.1",
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.2.0",
+    "pytest-cov>=7.0.0",
+    "ruff>=0.15.4",
+    "ty>=0.0.19",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["harbor"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = ["-v", "--tb=short", "--strict-markers", "--strict-config"]
+markers = [
+    "asyncio: marks tests as async tests",
+    "runtime: marks tests as runtime tests (may need docker)",
+    "unit: marks tests as unit tests (fast, no external dependencies)",
+    "integration: marks tests as integration tests (requires external services, could be mocked)",
+]
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+source = ["src/harbor"]
+omit = ["*/tests/*", "*/__pycache__/*", "*/migrations/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+]
+
+[tool.ty.environment]
+python = ".venv"
+
+[tool.ty.src]
+include = ["src/harbor"]
