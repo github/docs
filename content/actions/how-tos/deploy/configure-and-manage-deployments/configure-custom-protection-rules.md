@@ -1,7 +1,7 @@
 ---
 title: Configuring custom deployment protection rules
 shortTitle: Configure custom protection rules
-intro: 'Use {% data variables.product.prodname_github_apps %} to automate protecting deployments with third-party systems.'
+intro: Use {% data variables.product.prodname_github_apps %} to automate protecting deployments with third-party systems.
 product: '{% data reusables.actions.custom-deployment-protection-rules-availability %}'
 versions:
   fpt: '*'
@@ -13,6 +13,7 @@ redirect_from:
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-deployments/configuring-custom-deployment-protection-rules
 category:
   - Deploy to environments
+contentType: how-tos
 ---
 
 {% data reusables.actions.custom-deployment-protection-rules-beta-note %}

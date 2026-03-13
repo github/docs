@@ -9,7 +9,7 @@ versions:
 redirect_from:
   - /actions/how-tos/administering-github-actions/managing-custom-actions
   - /actions/how-tos/creating-and-publishing-actions/managing-custom-actions
-contentType: concepts
+contentType: how-tos
 category:
   - Reuse and share automations
 ---

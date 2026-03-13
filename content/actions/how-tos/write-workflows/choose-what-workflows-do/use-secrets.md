@@ -1,7 +1,7 @@
 ---
 title: Using secrets in GitHub Actions
 shortTitle: Use secrets
-intro: 'Learn how to create secrets at the repository, environment, and organization levels for {% data variables.product.prodname_actions %} workflows.'
+intro: Learn how to create secrets at the repository, environment, and organization levels for {% data variables.product.prodname_actions %} workflows.
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -22,6 +22,7 @@ versions:
   ghec: '*'
 category:
   - Secure your workflows
+contentType: how-tos
 ---
 
 ## Creating secrets for a repository

@@ -20,6 +20,7 @@ versions:
   ghec: '*'
 category:
   - Set up runners
+contentType: concepts
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

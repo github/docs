@@ -156,6 +156,11 @@ function determineContentType(relativePath: string): string {
     return RAI_TYPE
   }
 
+  // Allow 'getting-started' as an alternative directory name for 'get-started'.
+  if (derivedContentType === 'getting-started') {
+    return 'get-started'
+  }
+
   // When the content directory matches any of the allowed
   // content type values (such as 'get-started',
   // 'concepts', 'how-tos', 'reference', and 'tutorials'),

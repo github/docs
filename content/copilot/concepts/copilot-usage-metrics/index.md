@@ -27,4 +27,6 @@ includedCategories:
   - Measure success
   - View metrics
   - Understand available data
+contentType: concepts
 ---
+

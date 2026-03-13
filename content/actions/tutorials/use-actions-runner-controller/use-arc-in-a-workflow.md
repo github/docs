@@ -11,7 +11,7 @@ redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow
   - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow
   - /actions/tutorials/actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow
-contentType: concepts
+contentType: tutorials
 category:
   - Use and manage runners
 ---

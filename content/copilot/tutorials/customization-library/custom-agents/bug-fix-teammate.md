@@ -9,6 +9,7 @@ complexity:
 octicon: copilot
 versions:
   feature: copilot
+contentType: tutorials
 ---
 
 {% data reusables.copilot.custom-agents-examples-note %}

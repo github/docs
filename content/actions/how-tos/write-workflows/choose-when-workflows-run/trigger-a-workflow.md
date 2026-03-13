@@ -10,7 +10,7 @@ redirect_from:
   - /actions/using-workflows/triggering-a-workflow
   - /actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow
   - /actions/how-tos/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow
-contentType: tutorials
+contentType: how-tos
 category:
   - Write workflows
 ---

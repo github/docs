@@ -1,6 +1,6 @@
 ---
 title: GitHub Developer Program
-intro: 'If you build tools that integrate with GitHub, you can join the GitHub Developer Program.'
+intro: If you build tools that integrate with GitHub, you can join the GitHub Developer Program.
 redirect_from:
   - /program
   - /developers/overview/github-developer-program
@@ -11,6 +11,7 @@ versions:
 category:
   - Learn about integrations
   - Build integrations
+contentType: concepts
 ---
 
 Building an application that integrates with {% data variables.product.github %}? Register for our Developer Program! The possibilities are endless, and you enjoy the kudos. [Register now](https://github.com/developer/register).

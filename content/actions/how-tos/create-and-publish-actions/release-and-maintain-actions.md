@@ -13,6 +13,7 @@ redirect_from:
   - /actions/how-tos/creating-and-publishing-actions/releasing-and-maintaining-actions
 category:
   - Reuse and share automations
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

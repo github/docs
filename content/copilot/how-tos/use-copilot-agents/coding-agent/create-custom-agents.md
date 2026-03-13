@@ -1,13 +1,14 @@
 ---
 title: Creating custom agents for {% data variables.copilot.copilot_coding_agent %}
 shortTitle: Create custom agents
-intro: 'You can create specialized agents with tailored expertise for specific development tasks.'
+intro: You can create specialized agents with tailored expertise for specific development tasks.
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 category:
   - Configure Copilot
   - Author and optimize with Copilot
+contentType: how-tos
 ---
 
 {% data variables.copilot.custom_agents_caps_short %} allow you to tailor {% data variables.product.prodname_copilot_short %}'s expertise for specific tasks. For a conceptual overview of {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents).

@@ -12,6 +12,7 @@ redirect_from:
   - /actions/how-tos/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job
 category:
   - Write workflows
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

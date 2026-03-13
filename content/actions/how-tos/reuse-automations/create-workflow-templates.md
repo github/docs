@@ -13,7 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-contentType: tutorials
+contentType: how-tos
 category:
   - Reuse and share automations
 ---

@@ -1,7 +1,7 @@
 ---
 title: Workflow cancellation reference
 shortTitle: Workflow cancellation
-intro: 'Find information on the steps {% data variables.product.prodname_dotcom %} takes to cancel a workflow run.'
+intro: Find information on the steps {% data variables.product.prodname_dotcom %} takes to cancel a workflow run.
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,6 +10,7 @@ redirect_from:
   - /actions/reference/workflow-cancellation-reference
 category:
   - Manage and monitor workflow runs
+contentType: reference
 ---
 
 When canceling a workflow run, you may be running other software that uses resources related to the workflow run. To help you free up resources related to the workflow run, it may help to understand the steps {% data variables.product.prodname_dotcom %} performs to cancel a workflow run.

@@ -1,11 +1,12 @@
 ---
-title: 'Integrating {% data variables.product.github %} with Teams'
+title: Integrating {% data variables.product.github %} with Teams
 shortTitle: Integrate GitHub with Teams
-intro: 'Set up the GitHub integration with Teams to improve collaboration and streamline workflows.'
+intro: Set up the GitHub integration with Teams to improve collaboration and streamline workflows.
 versions:
-    fpt: '*'
-    ghes: '*'
-    ghec: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+contentType: how-tos
 ---
 
 ## About the {% data variables.product.github %} integration for Teams

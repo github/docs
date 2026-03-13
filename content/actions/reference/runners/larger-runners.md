@@ -1,7 +1,7 @@
 ---
 title: Larger runners reference
 shortTitle: Larger runners
-intro: 'Find information about larger runners, including their specifications and customization options.'
+intro: Find information about larger runners, including their specifications and customization options.
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,6 +10,7 @@ redirect_from:
   - /actions/reference/larger-runners-reference
 category:
   - Set up runners
+contentType: reference
 ---
 
 {% ifversion ghes %}

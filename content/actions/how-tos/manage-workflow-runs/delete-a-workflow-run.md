@@ -1,7 +1,7 @@
 ---
 title: Deleting a workflow run
 shortTitle: Delete a workflow run
-intro: 'You can delete a workflow run that has been completed, or is more than two weeks old.'
+intro: You can delete a workflow run that has been completed, or is more than two weeks old.
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,6 +12,7 @@ redirect_from:
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/deleting-a-workflow-run
 category:
   - Manage and monitor workflow runs
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

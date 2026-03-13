@@ -1,6 +1,6 @@
 ---
 title: Customizing a workflow for triaging your notifications
-intro: 'To create an ideal workflow for triaging your notifications, you can adapt and customize these example workflows.'
+intro: To create an ideal workflow for triaging your notifications, you can adapt and customize these example workflows.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,7 @@ redirect_from:
   - /account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/customizing-a-workflow-for-triaging-your-notifications
   - /subscriptions-and-notifications/viewing-and-triaging-notifications/customizing-a-workflow-for-triaging-your-notifications
 shortTitle: Triage your notifications
+contentType: tutorials
 ---
 ## Starting your inbox triage
 

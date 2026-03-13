@@ -1,6 +1,6 @@
 ---
 title: Managing caches
-intro: 'You can monitor, filter, and delete dependency caches created from your workflows.'
+intro: You can monitor, filter, and delete dependency caches created from your workflows.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,7 @@ redirect_from:
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/manage-caches
 category:
   - Manage and monitor workflow runs
+contentType: how-tos
 ---
 
 This article describes managing caches with the {% data variables.product.prodname_dotcom %} web interface, but you can also manage them:

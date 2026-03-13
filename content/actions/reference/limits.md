@@ -1,6 +1,6 @@
 ---
 title: Actions limits
-intro: 'There are limits in {% data variables.product.prodname_actions %} which you may hit as you scale up, some may be increased by contacting support.'
+intro: There are limits in {% data variables.product.prodname_actions %} which you may hit as you scale up, some may be increased by contacting support.
 redirect_from:
   - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/actions-limits
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/usage-limits-for-self-hosted-runners
@@ -13,6 +13,7 @@ versions:
 shortTitle: Limits
 category:
   - Administer GitHub Actions
+contentType: reference
 ---
 
 You may be rate limited by {% data variables.product.prodname_actions %} when you scale your usage. Some limits can be increased by contacting {% data variables.contact.contact_support %}.

@@ -13,6 +13,7 @@ redirect_from:
   - /actions/how-tos/writing-workflows/choosing-what-your-workflow-does/passing-information-between-jobs
 category:
   - Write workflows
+contentType: how-tos
 ---
 
 ## Defining and using job outputs

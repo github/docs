@@ -18,7 +18,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-contentType: tutorials
+contentType: how-tos
 category:
   - Write workflows
 ---

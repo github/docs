@@ -6,6 +6,7 @@ versions:
   feature: copilot
 category:
   - Learn about Copilot
+contentType: concepts
 ---
 
 ## About {% data variables.copilot.custom_agents_short %}

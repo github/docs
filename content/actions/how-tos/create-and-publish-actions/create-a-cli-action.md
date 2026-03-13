@@ -1,7 +1,7 @@
 ---
 title: Creating a third party CLI action
 shortTitle: Create a CLI action
-intro: 'Learn how to develop an action to set up a CLI on {% data variables.product.prodname_actions %} runners.'
+intro: Learn how to develop an action to set up a CLI on {% data variables.product.prodname_actions %} runners.
 redirect_from:
   - /actions/creating-actions/developing-a-third-party-cli-action
   - /actions/sharing-automations/creating-actions/developing-a-third-party-cli-action
@@ -12,6 +12,7 @@ versions:
   ghec: '*'
 category:
   - Reuse and share automations
+contentType: how-tos
 ---
 
 ## Introduction

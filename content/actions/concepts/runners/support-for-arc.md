@@ -1,7 +1,7 @@
 ---
 title: Support for Actions Runner Controller
 shortTitle: Support for ARC
-intro: 'What to know before you [contact {% data variables.contact.github_support %}](support/contacting-github-support) for assistance with Actions Runner Controller.'
+intro: What to know before you [contact {% data variables.contact.github_support %}](/support/contacting-github-support) for assistance with Actions Runner Controller.
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,6 +12,7 @@ redirect_from:
   - /actions/concepts/runners/support-for-actions-runner-controller
 category:
   - Set up runners
+contentType: concepts
 ---
 
 ## Overview

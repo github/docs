@@ -1,15 +1,15 @@
 ---
 title: Best practices for GitHub Copilot CLI
 shortTitle: Copilot CLI best practices
-intro: 'Learn how to get the most out of {% data variables.copilot.copilot_cli %}.'
+intro: Learn how to get the most out of {% data variables.copilot.copilot_cli %}.
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
-contentType: get-started
+contentType: how-tos
 category:
-  - Build with Copilot CLI # Copilot CLI bespoke page
-  - Copilot in the CLI # Copilot CLI bespoke page
-  - Author and optimize with Copilot # Copilot discovery page
+  - Build with Copilot CLI
+  - Copilot in the CLI
+  - Author and optimize with Copilot
 ---
 
 ## Introduction

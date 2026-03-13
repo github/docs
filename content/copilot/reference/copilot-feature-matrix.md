@@ -1,10 +1,11 @@
 ---
 title: Copilot feature matrix
-intro: 'Identify which IDEs support which {% data variables.product.prodname_copilot %} features.'
+intro: Identify which IDEs support which {% data variables.product.prodname_copilot %} features.
 versions:
   feature: copilot
 category:
   - Learn about Copilot
+contentType: reference
 ---
 
 > [!NOTE]

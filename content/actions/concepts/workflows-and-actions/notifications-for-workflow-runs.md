@@ -10,6 +10,7 @@ redirect_from:
   - /actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/notifications-for-workflow-runs
 category:
   - Write workflows
+contentType: concepts
 ---
 
 If you enable email or web notifications for {% data variables.product.prodname_actions %}, you'll receive a notification when any workflow runs that you've triggered have completed. The notification will include the workflow run's status (including successful, failed, neutral, and canceled runs). You can also choose to receive a notification only when a workflow run has failed. For more information about enabling or disabling notifications, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
