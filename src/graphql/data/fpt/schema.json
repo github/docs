@@ -52177,7 +52177,7 @@
       "fields": [
         {
           "name": "content",
-          "description": "<p>The content of the referenced draft issue, issue, or pull request.</p>",
+          "description": "<p>The content of the referenced draft issue, issue, pull request.</p>",
           "type": "ProjectV2ItemContent",
           "id": "projectv2itemcontent",
           "kind": "unions",

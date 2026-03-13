@@ -133,6 +133,24 @@
       "requestPath": "/orgs/{org}/actions/hosted-runners/{hosted_runner_id}"
     },
     {
+      "slug": "list-oidc-custom-property-inclusions-for-an-organization",
+      "subcategory": "oidc",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/oidc/customization/properties/repo"
+    },
+    {
+      "slug": "create-an-oidc-custom-property-inclusion-for-an-organization",
+      "subcategory": "oidc",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/actions/oidc/customization/properties/repo"
+    },
+    {
+      "slug": "delete-an-oidc-custom-property-inclusion-for-an-organization",
+      "subcategory": "oidc",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/oidc/customization/properties/repo/{custom_property_name}"
+    },
+    {
       "slug": "get-the-customization-template-for-an-oidc-subject-claim-for-an-organization",
       "subcategory": "oidc",
       "verb": "get",

@@ -1253,6 +1253,39 @@
       },
       {
         "category": "actions",
+        "slug": "list-oidc-custom-property-inclusions-for-an-organization",
+        "subcategory": "oidc",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/oidc/customization/properties/repo",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "create-an-oidc-custom-property-inclusion-for-an-organization",
+        "subcategory": "oidc",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/actions/oidc/customization/properties/repo",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "delete-an-oidc-custom-property-inclusion-for-an-organization",
+        "subcategory": "oidc",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/oidc/customization/properties/repo/{custom_property_name}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
         "slug": "get-the-customization-template-for-an-oidc-subject-claim-for-an-organization",
         "subcategory": "oidc",
         "verb": "get",
