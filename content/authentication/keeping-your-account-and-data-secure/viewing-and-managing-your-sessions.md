@@ -6,6 +6,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Viewing and managing sessions
+category:
+  - Manage access credentials
 contentType: how-tos
 ---
 

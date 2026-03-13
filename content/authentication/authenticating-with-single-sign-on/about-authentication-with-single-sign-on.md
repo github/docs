@@ -9,6 +9,8 @@ redirect_from:
 versions:
   ghec: '*'
 shortTitle: Single sign-on
+category:
+  - Learn about authentication
 ---
 ## About authentication with SSO
 

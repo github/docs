@@ -14,6 +14,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: GitHub's IP addresses
+category:
+  - Learn about authentication
 ---
 
 You can retrieve a list of the IP addresses for your {% data variables.product.github %} environment from the [meta](https://api.github.com/meta) API endpoint. For more information, see [AUTOTITLE](/rest/meta).
