@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Member <code>User</code> was added to Union type <code>BypassActor</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-03-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>CreateIssueFieldInput</code> was added</p>",
           "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>CreateIssueFieldInput</code></p>",
           "<p>Input field <code>dataType</code> of type <code>IssueFieldDataType!</code> was added to input object type <code>CreateIssueFieldInput</code></p>",
