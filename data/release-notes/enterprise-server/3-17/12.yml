@@ -1,4 +1,10 @@
 date: '2026-03-10'
+intro: |
+  {% warning %}
+   
+  **Warning**: {% data variables.product.prodname_ghe_server %} 3.17.12 has been unpublished due to mismatched Git versions between containers. Please use the most recent available patch release of 3.17. [Updated: 2026-03-13]
+  
+  {% endwarning %}
 sections:
   security_fixes:
     - |
@@ -30,6 +36,8 @@ sections:
     - |
       On instances with a license for GitHub Advanced Security, code scanning-specific rate limits have been lifted and aligned with the default GitHub rate limits. Users can access higher limits through an exemption mechanism. 
   known_issues:
+    - |
+     The Git version included in the release did not match the version used by the gitrpcd service due to incorrect version determination during the build process. [Updated: 2026-03-13]
     - |
       During an upgrade of GitHub Enterprise Server, custom firewall rules are removed. If you use custom firewall rules, you must reapply them after upgrading.
     - |
