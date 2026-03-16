@@ -6,13 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Security updates
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Dependency best practices
 redirect_from:
   - /code-security/dependabot/maintain-dependencies/best-practices-for-maintaining-dependencies

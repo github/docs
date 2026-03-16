@@ -3,10 +3,6 @@ title: Immutable releases
 intro: Learn about immutable releases and how they can help you maintain the integrity of your software supply chain.
 versions:
   feature: immutable-releases
-topics:
-  - Code Security
-  - Vulnerabilities
-  - Dependencies
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/immutable-releases
 contentType: concepts

@@ -4,9 +4,6 @@ shortTitle: Enable security features in trial
 allowTitleToDifferFromFilename: true
 intro: Quickly create an enterprise-level configuration and apply {% data variables.product.prodname_cs_and_sp %} features across all repositories in your trial enterprise.
 permissions: '{% data reusables.permissions.security-configuration-enterprise-enable %}'
-topics:
-  - Code Security
-  - Secret Protection
 versions:
   fpt: '*'
   ghec: '*'

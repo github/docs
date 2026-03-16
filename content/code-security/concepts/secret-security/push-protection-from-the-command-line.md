@@ -7,11 +7,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
-  - Repositories
 contentType: concepts
 ---
 

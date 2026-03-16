@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: Information on how CodeQL-powered analysis for {% data variables.product.prodname_code_quality_short %} works, the workflow used, and the status checks reported on pull requests.
 versions:
   feature: code-quality
-topics:
-  - Code Quality
 contentType: reference
 redirect_from:
   - /code-security/code-quality/reference/codeql-detection

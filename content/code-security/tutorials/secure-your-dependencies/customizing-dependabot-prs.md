@@ -8,12 +8,6 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: tutorials
-topics:
-  - Dependabot
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Customize Dependabot PRs
 redirect_from:
   - /code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs

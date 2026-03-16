@@ -5,11 +5,6 @@ intro: If you are on a subscription-based billing model for GHAS, you need avail
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/troubleshooting-security-configurations/not-enough-github-advanced-security-licenses
   - /code-security/how-tos/secure-at-scale/troubleshoot-security-configurations/not-enough-github-advanced-security-licenses

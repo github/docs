@@ -7,11 +7,6 @@ product: '{% data reusables.rai.code-scanning.gated-feature-autofix %}'
 versions:
   feature: code-scanning-autofix
 contentType: how-tos
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
-  - AI
 redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning
 ---

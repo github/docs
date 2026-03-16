@@ -6,12 +6,6 @@ allowTitleToDifferFromFilename: true
 contentType: how-tos
 versions:
   feature: dependabot-multi-ecosystem-support
-topics:
-  - Dependabot
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Configure multi-ecosystem updates
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/configuring-multi-ecosystem-updates

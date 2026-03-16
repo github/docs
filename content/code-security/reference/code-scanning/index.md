@@ -6,10 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - Vulnerabilities
 contentType: reference
 redirect_from:
   - /code-security/code-scanning/reference

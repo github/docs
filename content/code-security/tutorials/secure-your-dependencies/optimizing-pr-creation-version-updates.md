@@ -8,12 +8,6 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: tutorials
-topics:
-  - Dependabot
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Optimize PR creation
 redirect_from:
   - /code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates

@@ -2,9 +2,6 @@
 title: About setup types for code scanning
 shortTitle: Setup types
 intro: Depending on your needs, {% data variables.product.github %} offers a default or advanced setup for {% data variables.product.prodname_code_scanning %}.
-topics:
-  - Code Security
-  - Code scanning
 versions:
   fpt: '*'
   ghes: '*'

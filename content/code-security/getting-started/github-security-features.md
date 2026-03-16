@@ -6,12 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: get-started
-topics:
-  - Repositories
-  - Dependencies
-  - Vulnerabilities
-  - Code Security
-  - Secret Protection
 ---
 
 ## About {% data variables.product.github %}'s security features

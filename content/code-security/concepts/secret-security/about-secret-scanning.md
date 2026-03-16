@@ -13,9 +13,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret scanning
-  - Secret Protection
 shortTitle: Secret scanning
 contentType: concepts
 ---

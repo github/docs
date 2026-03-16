@@ -10,11 +10,6 @@ audience:
 contentType: how-tos
 versions:
   feature: security-campaigns
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-tracking-security-campaigns
   - /code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns

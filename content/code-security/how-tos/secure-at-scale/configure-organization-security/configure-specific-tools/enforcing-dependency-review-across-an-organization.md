@@ -7,12 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Dependency review
-  - Vulnerabilities
-  - Dependencies
-  - Pull requests
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/enforcing-dependency-review-across-an-organization
 contentType: how-tos

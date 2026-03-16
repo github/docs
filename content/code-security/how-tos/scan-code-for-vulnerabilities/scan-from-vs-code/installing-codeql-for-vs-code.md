@@ -6,10 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 product: '{% data reusables.gated-features.codeql %}'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: To get started with {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %}, you need to install and set up the extension.
 allowTitleToDifferFromFilename: true
 redirect_from:

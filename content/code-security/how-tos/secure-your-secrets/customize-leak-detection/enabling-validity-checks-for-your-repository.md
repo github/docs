@@ -6,10 +6,6 @@ product: '{% data reusables.gated-features.partner-pattern-validity-check-ghas %
 versions:
   feature: secret-scanning-validity-check-partner-patterns
 contentType: how-tos
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
 redirect_from:
   - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository
 ---

@@ -7,11 +7,6 @@ permissions: '{% data reusables.permissions.security-org-enable %}'
 product: '{% data reusables.gated-features.ghas-billing %}'
 versions:
   feature: security-configurations
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/managing-your-github-advanced-security-license-usage
 contentType: how-tos

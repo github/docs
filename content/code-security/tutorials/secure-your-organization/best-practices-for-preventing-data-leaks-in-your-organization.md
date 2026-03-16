@@ -5,11 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Organizations
-  - Vulnerabilities
-  - Secret scanning
-  - Secret Protection
 shortTitle: Prevent data leaks
 redirect_from:
   - /code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization

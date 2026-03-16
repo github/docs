@@ -6,9 +6,6 @@ product: '{% data reusables.gated-features.secret-risk-assessment-calculators %}
 versions:
   feature: secret-risk-assessment
 permissions: '{% data reusables.permissions.push-protection-roi-calculator %}'
-topics:
-  - Secret scanning
-  - Secret Protection
 contentType: tutorials
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/calculating-the-cost-savings-of-push-protection

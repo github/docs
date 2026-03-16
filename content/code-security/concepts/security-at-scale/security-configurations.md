@@ -4,11 +4,6 @@ intro: '{% data variables.product.prodname_security_configurations_caps %} are c
 permissions: 'Organization owners, {% ifversion security-configuration-enterprise-level %}enterprise owners, {% endif %}security managers, and organization members with the **admin** role'
 versions:
   feature: security-configurations
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/choosing-a-security-configuration-for-your-repositories
   - /code-security/concepts/security-at-scale/choosing-a-security-configuration-for-your-repositories

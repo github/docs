@@ -6,8 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: reference
-topics:
-  - Security
 shortTitle: Code scanning logs
 ---
 

@@ -11,13 +11,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Repositories
-  - Version updates
-  - Security updates
-  - Pull requests
-  - Dependencies
-  - Vulnerabilities
 shortTitle: Manage Dependabot PRs
 contentType: how-tos
 ---

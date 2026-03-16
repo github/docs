@@ -6,11 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
-  - Repositories
 shortTitle: Evaluate alerts
 allowTitleToDifferFromFilename: true
 redirect_from:

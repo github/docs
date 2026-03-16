@@ -6,9 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Dependabot
-  - Version updates
 shortTitle: Remove access to public registries
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/configuring-dependabot-to-only-access-private-registries

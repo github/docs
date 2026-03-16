@@ -7,11 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Organizations
-  - Teams
-  - Dependencies
-  - Code Security
 redirect_from:
   - /code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview
 contentType: tutorials

@@ -7,11 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: reference
-topics:
-  - Code scanning
-  - Errors
-  - SARIF
-  - Troubleshooting
 children:
   - /missing-token
   - /sarif-invalid

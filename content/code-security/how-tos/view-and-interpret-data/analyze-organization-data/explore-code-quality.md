@@ -7,8 +7,6 @@ permissions: 'Organization members'
 contentType: how-tos
 versions:
   feature: code-quality
-topics:
-  - Code Quality
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}

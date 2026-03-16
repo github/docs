@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: When you're working with {% data variables.product.prodname_codeql %}, you need access to the standard libraries and queries.
 allowTitleToDifferFromFilename: true
 redirect_from:

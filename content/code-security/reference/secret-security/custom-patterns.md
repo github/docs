@@ -6,9 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Secret scanning
-  - Secret Protection
 contentType: reference
 ---
 

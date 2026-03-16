@@ -8,10 +8,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: tutorials
-topics:
-  - Dependency graph
-  - Dependencies
-  - Repositories
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/customizing-your-dependency-review-action-configuration
 ---

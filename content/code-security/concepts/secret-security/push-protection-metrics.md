@@ -8,12 +8,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Security overview
-  - Secret Protection
-  - Secret scanning
-  - Organizations
-  - Teams
 contentType: concepts
 ---
 

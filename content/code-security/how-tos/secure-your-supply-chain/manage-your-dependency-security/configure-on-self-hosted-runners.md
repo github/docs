@@ -5,13 +5,6 @@ shortTitle: Configure on self-hosted runners
 permissions: '{% data reusables.permissions.dependabot-actions %}'
 versions:
   feature: dependabot-on-actions-self-hosted
-topics:
-  - Dependabot
-  - Security updates
-  - Version updates
-  - Actions
-  - Dependencies
-  - Repositories
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners
   - /code-security/dependabot/maintain-dependencies/managing-dependabot-on-self-hosted-runners

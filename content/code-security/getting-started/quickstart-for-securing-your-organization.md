@@ -7,12 +7,6 @@ redirect_from:
 versions:
   feature: pre-security-configurations
 contentType: get-started
-topics:
-  - Organizations
-  - Dependencies
-  - Vulnerabilities
-  - Code Security
-  - Secret Protection
 shortTitle: Secure organization quickstart
 ---
 <!--Reminder that this article describes the process for older versions of GHES. GHES 3.12 - 3.14 only. All other versions see "Securing your organization" instead.-->

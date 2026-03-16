@@ -8,12 +8,6 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: how-tos
-topics:
-  - Dependabot
-  - Alerts
-  - Vulnerabilities
-  - Repositories
-  - Dependencies
 shortTitle: Manage auto-dismissed alerts
 redirect_from:
   - /code-security/dependabot/dependabot-alert-rules/managing-automatically-dismissed-alerts

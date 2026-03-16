@@ -3,10 +3,6 @@ title: 'Error: "{% data variables.product.prodname_GHAS_or_code_security %} must
 shortTitle: '{% data variables.product.prodname_code_security %} must be enabled'
 intro: If you see this error, make sure that {% data variables.product.prodname_GH_code_security %} is enabled.
 allowTitleToDifferFromFilename: true
-topics:
-  - Code scanning
-  - Errors
-  - Troubleshooting
 versions:
   fpt: '*'
   ghes: '*'

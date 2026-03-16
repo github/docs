@@ -15,16 +15,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Security overview
-  - Code Security
-  - Secret Protection
-  - Alerts
-  - Code scanning
-  - Dependabot
-  - Organizations
-  - Secret scanning
-  - Teams
 contentType: concepts
 ---
 

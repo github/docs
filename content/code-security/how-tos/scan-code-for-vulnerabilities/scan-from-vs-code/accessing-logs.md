@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: If you need to troubleshoot problems with {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %}, there are several logs you can access.
 allowTitleToDifferFromFilename: true
 redirect_from:

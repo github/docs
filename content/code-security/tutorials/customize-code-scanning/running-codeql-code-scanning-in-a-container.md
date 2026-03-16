@@ -14,14 +14,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
-  - Actions
-  - Repositories
-  - Containers
-  - Java
 contentType: tutorials
 ---
 

@@ -6,12 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Alerts
-  - Vulnerabilities
-  - Repositories
-  - Dependencies
 shortTitle: Dependabot auto-triage rules
 redirect_from:
   - /code-security/dependabot/dependabot-alerts/using-alert-rules-to-prioritize-dependabot-alerts

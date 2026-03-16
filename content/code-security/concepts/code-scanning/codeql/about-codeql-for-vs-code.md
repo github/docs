@@ -6,10 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 product: '{% data reusables.gated-features.codeql %}'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: You can write, run, and test {% data variables.product.prodname_codeql %} queries inside {% data variables.product.prodname_vscode %} with the {% data variables.product.prodname_codeql %} extension.
 redirect_from:
   - /code-security/codeql-for-vs-code/about-codeql-for-visual-studio-code

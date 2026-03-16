@@ -5,10 +5,6 @@ intro: Run {% data variables.product.prodname_code_scanning %} default setup mor
 product: '{% data reusables.actions.larger-runner-permissions %}'
 versions:
   feature: default-setup-larger-runners
-topics:
-  - Code scanning
-  - CodeQL
-  - Actions
 redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration/configuring-larger-runners-for-default-setup
 contentType: how-tos

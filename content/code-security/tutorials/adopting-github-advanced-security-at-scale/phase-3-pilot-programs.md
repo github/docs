@@ -4,9 +4,6 @@ intro: You may benefit from beginning with a few high-impact projects and teams 
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Secret Protection
 shortTitle: 3. Pilot programs
 redirect_from:
   - /code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs

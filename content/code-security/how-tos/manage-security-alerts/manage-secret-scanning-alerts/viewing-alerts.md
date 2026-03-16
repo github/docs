@@ -7,11 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
-  - Repositories
 shortTitle: View alerts
 allowTitleToDifferFromFilename: true
 redirect_from:

@@ -5,13 +5,6 @@ shortTitle: Dependabot on Actions
 product: '{% data reusables.gated-features.dependabot-on-actions %}'
 versions:
   feature: dependabot-on-actions-opt-in
-topics:
-  - Dependabot
-  - Security updates
-  - Version updates
-  - Actions
-  - Dependencies
-  - Repositories
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners
 contentType: concepts

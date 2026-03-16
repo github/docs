@@ -2,9 +2,6 @@
 title: Repository properties for {% data variables.product.prodname_code_scanning %}
 shortTitle: Repository properties
 intro: You can use repository properties to adjust {% data variables.product.prodname_code_scanning %} to suit your needs.
-topics:
-  - Code Security
-  - Code scanning
 versions:
   feature: codeql-custom-properties
 contentType: concepts

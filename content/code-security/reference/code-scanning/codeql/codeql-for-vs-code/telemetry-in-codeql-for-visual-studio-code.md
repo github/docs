@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 allowTitleToDifferFromFilename: true
 intro: If {% data variables.product.prodname_vscode_shortname %} telemetry is enabled, {% data variables.product.company_short %} will collect usage data and metrics for the purposes of helping the core developers to improve the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode_shortname %}.
 redirect_from:

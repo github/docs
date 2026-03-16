@@ -2,11 +2,6 @@
 title: Using the dependency submission API
 intro: You can use the {% data variables.dependency-submission-api.name %} to submit dependencies for projects, such as the dependencies resolved when a project is built or compiled.
 shortTitle: Use dependency submission API
-topics:
-  - API
-  - Dependency graph
-  - Dependencies
-  - REST
 versions:
   fpt: '*'
   ghes: '*'

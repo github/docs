@@ -4,16 +4,14 @@ shortTitle: Code quality
 intro: Use {% data variables.product.prodname_code_quality %} responsibly by understanding its purposes, capabilities, and limitations.
 versions:
   feature: code-quality
-topics:
-  - Code Quality
-  - CodeQL
-  - AI
 contentType: rai
 redirect_from:
   - /code-security/code-quality/responsible-use/code-quality
 ---
 
-{% data reusables.code-quality.code-quality-preview-note %}
+> [!NOTE]
+> {% data variables.product.prodname_code_quality %} is currently in {% data variables.release-phases.public_preview %} and subject to change.
+> During {% data variables.release-phases.public_preview %}, {% data variables.product.prodname_code_quality_short %} will not be billed, although {% data variables.product.prodname_code_quality_short %} scans will consume {% data variables.product.prodname_actions %} minutes.
 
 ## About {% data variables.product.prodname_code_quality %}
 

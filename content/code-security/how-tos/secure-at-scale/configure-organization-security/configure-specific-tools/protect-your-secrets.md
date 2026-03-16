@@ -10,12 +10,6 @@ versions:
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/choosing-github-secret-protection
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/protect-your-secrets
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Code Security
-  - Organizations
-  - Security
 ---
 
 ## Prerequisites

@@ -5,10 +5,6 @@ shortTitle: Enable dependency graph
 permissions: Site administrators can enable the dependency graph.
 versions:
   ghes: '*'
-topics:
-  - Enterprise
-  - Security
-  - Dependency graph
 redirect_from:
   - /admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise
   - /admin/managing-code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise

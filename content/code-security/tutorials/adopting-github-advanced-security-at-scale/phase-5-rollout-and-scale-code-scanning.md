@@ -4,9 +4,6 @@ intro: You can {% ifversion security-configuration-enterprise-level %}use securi
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Secret Protection
 shortTitle: 5. Rollout code scanning
 redirect_from:
   - /code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning

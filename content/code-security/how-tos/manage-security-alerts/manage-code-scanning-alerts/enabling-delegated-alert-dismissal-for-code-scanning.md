@@ -5,11 +5,6 @@ permissions: '{% data reusables.permissions.delegated-alert-dismissal %}'
 versions:
   feature: security-delegated-alert-dismissal
 contentType: how-tos
-topics:
-  - Code scanning
-  - Advanced Security
-  - Alerts
-  - Repositories
 shortTitle: Enable delegated alert dismissal
 redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration/enabling-delegated-alert-dismissal-for-code-scanning

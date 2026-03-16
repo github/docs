@@ -13,9 +13,6 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Security advisories
-  - Vulnerabilities
 shortTitle: Delete repository advisories
 ---
 

@@ -5,10 +5,6 @@ intro: Change the enablement settings in your {% data variables.product.prodname
 permissions: '{% data reusables.permissions.security-configuration-enterprise-enable %}'
 versions:
   feature: security-configuration-enterprise-level
-topics:
-  - Advanced Security
-  - Organizations
-  - Security
 redirect_from:
   - /admin/managing-code-security/securing-your-enterprise/editing-a-custom-security-configuration
 contentType: how-tos

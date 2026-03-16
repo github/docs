@@ -7,12 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Code Security
-  - Dependabot
-  - Security updates
-  - Alerts
-  - Repositories
 children:
   - viewing-and-updating-dependabot-alerts
   - managing-automatically-dismissed-alerts

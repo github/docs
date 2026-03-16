@@ -6,11 +6,6 @@ intro: Changes to your {% data variables.product.prodname_ghe_server %} instance
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations-ghes-only
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/troubleshooting-security-configurations/feature-disappears
   - /code-security/how-tos/secure-at-scale/troubleshoot-security-configurations/feature-disappears

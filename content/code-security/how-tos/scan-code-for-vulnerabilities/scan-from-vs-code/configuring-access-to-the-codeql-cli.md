@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: The {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension uses the {% data variables.product.prodname_codeql_cli %} to compile and run queries.
 allowTitleToDifferFromFilename: true
 redirect_from:

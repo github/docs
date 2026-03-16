@@ -11,9 +11,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
 allowTitleToDifferFromFilename: true
 contentType: how-tos
 ---

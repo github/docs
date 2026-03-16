@@ -9,12 +9,6 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: how-tos
-topics:
-  - Security overview
-  - Code Security
-  - Secret Protection
-  - Alerts
-  - Organizations
 redirect_from:
   - /code-security/security-overview/viewing-security-insights-for-your-organization
   - /code-security/security-overview/viewing-security-insights

@@ -14,9 +14,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Secret Protection
-  - Secret scanning
 ---
 
 {% ifversion secret-scanning-custom-pattern-ai-generated %}
