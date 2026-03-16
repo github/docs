@@ -71,6 +71,17 @@ Your repository is eligible for default setup for {% data variables.product.prod
    > [!NOTE]
    > If you are switching to default setup from advanced setup, you will see a warning informing you that default setup will override existing {% data variables.product.prodname_code_scanning %} configurations. This warning means default setup will disable the existing workflow file and block any {% data variables.product.prodname_codeql %} analysis API uploads.
 
+{% ifversion org-private-registry %}
+
+1. If projects in your repository depend on dependencies in private package registries, you can grant {% data variables.product.prodname_code_scanning %} access to them. This can improve the outcomes and quality of analyses. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-organization-security/manage-usage-and-access/giving-org-access-private-registries).
+
+{% endif %}
+{% ifversion codeql-custom-properties %}
+
+1. Optionally, adjust other configuration options which affect default setup. See [AUTOTITLE](/code-security/concepts/code-scanning/repository-properties).
+
+{% endif %}
+
 1. Optionally, to view your default setup configuration after enablement, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} View {% data variables.product.prodname_codeql %} configuration**.
 
 > [!NOTE]

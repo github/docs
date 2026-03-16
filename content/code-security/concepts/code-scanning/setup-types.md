@@ -30,8 +30,6 @@ If the code in a repository changes to include any {% data variables.product.pro
 
 After running an initial analysis of your code with default setup, you can make changes to your configuration to better meet your needs.
 
-If you need more granular control over your {% data variables.product.prodname_code_scanning %} configuration, you should instead configure advanced setup.
-
 ### Configuration options
 
 For existing configurations of default setup, you can edit:
@@ -41,6 +39,12 @@ For existing configurations of default setup, you can edit:
 * The threat models ({% data variables.release-phases.public_preview %}) to use for analysis. Your choice of threat model determines which sources of tainted data are treated as a risk to your application. During the {% data variables.release-phases.public_preview %}, threat models are supported only for analysis of {% data variables.code-scanning.code_scanning_threat_model_support %}. For more information about threat models, see [Including local sources of tainted data in default setup](/code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/editing-your-configuration-of-default-setup#including-local-sources-of-tainted-data-in-default-setup).
 
 If your codebase depends on a library or framework that is not recognized by the standard libraries included with {% data variables.product.prodname_codeql %}, you can also extend the {% data variables.product.prodname_codeql %} coverage in default setup using {% data variables.product.prodname_codeql %} model packs. For more information, see [Extending CodeQL coverage with CodeQL model packs in default setup](/code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup).
+
+{% ifversion codeql-custom-properties %}
+
+Additional configuration options that are shared between all {% data variables.product.prodname_code_scanning %} setup types are available. See [AUTOTITLE](/code-security/concepts/code-scanning/repository-properties).
+
+{% endif %}
 
 ### Available runners
 
@@ -60,7 +64,7 @@ Unless you have a specific use case, we recommend that you only assign runners w
 
 ## About advanced setup
 
-Advanced setup for {% data variables.product.prodname_code_scanning %} is helpful when you need to customize your {% data variables.product.prodname_code_scanning %}. You can set up {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_actions %} or an external continuous integration or continuous delivery/deployment (CI/CD) system.
+If you need more granular control over your {% data variables.product.prodname_code_scanning %} configuration, you should instead configure advanced setup. Advanced setup for {% data variables.product.prodname_code_scanning %} is helpful when you need to customize your {% data variables.product.prodname_code_scanning %}. You can set up {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_actions %} or an external continuous integration or continuous delivery/deployment (CI/CD) system.
 
 {% data reusables.code-scanning.about-multiple-configurations-link %}
 
