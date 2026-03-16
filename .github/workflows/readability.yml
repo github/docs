@@ -27,10 +27,11 @@ jobs:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repo with full history
+      - name: Check out repo
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
-          fetch-depth: 0
+          # Fetch 2 commits so tj-actions/changed-files can diff without extra API calls
+          fetch-depth: 2
 
       - name: Checkout PR for manual dispatch
         if: ${{ github.event_name == 'workflow_dispatch' }}
