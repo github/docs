@@ -24,4 +24,5 @@ children:
   - /codeql
   - /tool-status-page
   - /pull-request-alert-metrics
+  - /repository-properties
 ---
