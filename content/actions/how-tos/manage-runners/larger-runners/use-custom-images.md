@@ -123,6 +123,12 @@ If you specify an older major version in the YAML (for example, version: 1.* whe
 > [!NOTE]
 > {% data variables.actions.github_hosted_larger_runner %} creation does not support wildcards in image version selection.
 
+## Billing and storage for custom images
+
+Jobs that use custom images are billed at the same per-minute rate as the {% data variables.actions.hosted_runner %} that uses the image. Storage for custom images is billed separately through {% data variables.product.prodname_actions %} storage.
+
+If you rebuild images frequently and retain older versions, your storage usage can grow quickly because each successful workflow job that includes the `snapshot` keyword creates a new image version. For more information, see [AUTOTITLE](/billing/concepts/product-billing/github-actions#custom-image-storage) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#custom-images-retention-policies).
+
 ## Managing custom images
 
 You can view detailed information about each image, delete unused images or specific versions, and track image versions over time.

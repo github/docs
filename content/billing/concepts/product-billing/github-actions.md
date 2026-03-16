@@ -73,6 +73,27 @@ Deleting artifacts reduces your current storage and prevents future charges, but
 
 Your monthly bill converts GB-Hours to GB-Months by dividing by the hours in the month (usually 720 hours for a 30-day month).
 
+### Custom image storage
+
+For {% data variables.actions.github_hosted_larger_runners %}, storage for custom images is billed through {% data variables.product.prodname_actions %} storage.
+
+Custom image storage uses the same hourly accrual model as other {% data variables.product.prodname_actions %} storage. Your bill is based on the amount of image data that is stored over time, measured in GB-Hours.
+
+Storage usage for custom images depends on:
+
+* The size of each image version
+* The number of image versions that you retain
+* How long each version is stored
+
+Each successful workflow job that includes the `snapshot` keyword creates a new custom image version. Each retained version contributes to your storage usage until the version is deleted or removed by a retention policy. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/use-custom-images) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#custom-images-retention-policies).
+
+Custom image storage is based on retained image data over time, not on the number of times that a runner uses or pulls an existing image.
+
+For example:
+
+* Storing one 150 GB custom image version for 24 hours uses 3,600 GB-Hours.
+* Storing four 150 GB versions of the same image for 24 hours uses 14,400 GB-Hours.
+
 ### Examples of how usage is measured
 
 * If you run a workflow on a Linux runner and it takes 10 minutes to complete, you'll use 10 minutes of the repository owner's allowance. If the workflow generates a 10 MB artifact, then you'll also use 10 MB of the repository owner's artifact storage allowance.
