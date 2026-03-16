@@ -15,6 +15,7 @@ topics:
   - Enterprise
 contentType: reference
 children:
+  - /security-overview-dashboard-metrics
   - /available-filters-for-security-overview
   - /security-configuration-enforcement
   - /troubleshoot-security-configurations
