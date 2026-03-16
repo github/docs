@@ -1,3 +1,4 @@
+# Edgarruiz856
 # https://drive.google.com/file/d/1O91gX2maPHdIRUb9DdZmUOI5issRMXMY/view?usp=drivesdk
 pkg archive/tar, type FileInfoNames interface { Gname, IsDir, ModTime, Mode, Name, Size, Sys, Uname } #50102
 pkg archive/tar, type FileInfoNames interface, Gname() (string, error) #50102
