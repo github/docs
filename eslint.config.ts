@@ -102,6 +102,16 @@ export default [
 
       // Custom rules (disabled by default for now)
       'custom-rules/use-custom-logger': 'off',
+
+      // Prevent direct res.redirect() usage — use res.safeRedirect() instead
+      // to avoid open redirect vulnerabilities via protocol-relative URLs.
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: "CallExpression[callee.object.name='res'][callee.property.name='redirect']",
+          message: 'Use res.safeRedirect() instead of res.redirect() to prevent open redirects.',
+        },
+      ],
     },
   },
 

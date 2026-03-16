@@ -66,6 +66,7 @@ import mockVaPortal from './mock-va-portal'
 import dynamicAssets from '@/assets/middleware/dynamic-assets'
 import generalSearchMiddleware from '@/search/middleware/general-search-middleware'
 import shielding from '@/shielding/middleware'
+import safeRedirect from './safe-redirect'
 import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants'
 import { initLoggerContext } from '@/observability/logger/lib/logger-context'
 import { getAutomaticRequestLogger } from '@/observability/logger/middleware/get-automatic-request-logger'
@@ -124,6 +125,10 @@ export default function index(app: Express) {
   // otherwise we won't be able to benefit from that functionality
   // for static assets as well.
   app.use(setDefaultFastlySurrogateKey)
+
+  // Attaches res.safeRedirect() to every response. Must appear before
+  // any middleware that redirects.
+  app.use(safeRedirect)
 
   // archivedEnterpriseVersionsAssets must come before static/assets
   app.use(asyncMiddleware(archivedEnterpriseVersionsAssets))
