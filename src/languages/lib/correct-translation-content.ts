@@ -23,14 +23,44 @@ export function correctTranslatedContentStrings(
   // --- Per-language fixes (es, ja, pt, zh, ru, fr, ko, de) ---
 
   if (context.code === 'es') {
+    // Remove colon prefix on Liquid tags: `{%:` → `{%`
+    content = content.replace(/\{%:/g, '{%')
+
     content = content.replaceAll('{% vulnerables variables.', '{% data variables.')
     content = content.replaceAll('{% datos variables', '{% data variables')
     content = content.replaceAll('{% de datos variables', '{% data variables')
     content = content.replaceAll('{% datos reusables', '{% data reusables')
     content = content.replaceAll('{% data reutilizables.', '{% data reusables.')
-    // Catch "o" between any plan names in ifversion/elsif tags
-    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?\bo\b[^%]*?%\}/g, (match) => {
-      return match.replace(/ o /g, ' or ')
+    // Translated Liquid keywords
+    content = content.replaceAll('{% comentario %}', '{% comment %}')
+    content = content.replaceAll('{% si ', '{% if ')
+    content = content.replaceAll('{% sin procesar %}', '{% raw %}')
+    content = content.replaceAll('{% %} sin procesar', '{% raw %}')
+    // "sin formato" is another translation of "raw"
+    content = content.replace(/\{%\s*%?sin formato\s*\}/g, '{% raw %}')
+    content = content.replaceAll(
+      '{% para glosario en glosarios %}',
+      '{% for glossary in glossaries %}',
+    )
+    content = content.replaceAll('{{ glosario.term }}', '{{ glossary.term }}')
+    content = content.replaceAll('{{ glosario.description }}', '{{ glossary.description }}')
+    // Catch "o" and "y/o" between any plan names in ifversion/elsif tags
+    content = content.replace(
+      /\{%-? (?:ifversion|elsif) [^%]*?(?:\by\/o\b|\bo\b)[^%]*?%\}/g,
+      (match) => {
+        return match.replace(/ y\/o /g, ' or ').replace(/ o /g, ' or ')
+      },
+    )
+    // Spanish "no" for "not" in ifversion tags
+    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?\bno\b[^%]*?%\}/g, (match) => {
+      return match.replace(/ no /g, ' not ')
+    })
+    // Translated for-loop keywords
+    content = content.replace(/\{%-? para (?:la )?entrada en /g, (match) => {
+      return match.replace(/para (?:la )?entrada en/, 'for entry in')
+    })
+    content = content.replace(/\{%-? cuando /g, (match) => {
+      return match.replace('cuando', 'when')
     })
   }
 
@@ -43,6 +73,8 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% データ再利用可能.', '{% data reusables.')
     content = content.replaceAll('{% データ再利用.', '{% data reusables.')
     content = content.replaceAll('{% メモ %}', '{% note %}')
+    // Double-brace corruption of `{% data`: `{% {{データ}} variables.` → `{% data variables.`
+    content = content.replaceAll('{{データ}} variables.', 'data variables.')
     // Catch "または" between any plan names in ifversion/elsif tags
     content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?または[^%]*?%\}/g, (match) => {
       return match.replace(/ または /g, ' or ')
@@ -56,6 +88,96 @@ export function correctTranslatedContentStrings(
     // space (\u200A) between `]` and `(` so the parser treats them as
     // separate tokens.
     content = content.replace(/\[(\[.*?\])(\(\S+\)\]\()/g, '[$1\u200A$2')
+
+    // Translated Liquid keywords in case/when/comment/endcomment statements
+    content = content.replaceAll('{%- それ以外の場合 %}', '{%- else %}')
+    content = content.replaceAll('{% それ以外の場合 %}', '{% else %}')
+    content = content.replaceAll('{%- エンドケース -%}', '{%- endcase -%}')
+    content = content.replaceAll('{% エンドケース %}', '{% endcase %}')
+    content = content.replaceAll('{%- コメント %}', '{%- comment %}')
+    content = content.replaceAll('{% コメント %}', '{% comment %}')
+    content = content.replaceAll('{%- 終了コメント %}', '{%- endcomment %}')
+    content = content.replaceAll('{% 終了コメント %}', '{% endcomment %}')
+    content = content.replaceAll('{% エンドビジュアルスタジオ %}', '{% endvisualstudio %}')
+    content = content.replaceAll('{% エクリプス %}', '{% eclipse %}')
+    // `{%- "supported" %}` → `{%- when "supported" %}` (missing `when`)
+    // Preserves original trim syntax (`{%-` vs `{%`)
+    content = content.replace(/\{%-?\s*"(supported|not_supported|preview)"\s*%\}/g, (match) => {
+      return match.replace(/(%-?)\s*"/, '$1 when "')
+    })
+    content = content.replace(
+      /\{%-?\s*"(サポートされている|サポートされていません|プレビュー)"\s*%\}/g,
+      (match) => {
+        return match
+          .replace('サポートされている', 'supported')
+          .replace('サポートされていません', 'not_supported')
+          .replace('プレビュー', 'preview')
+          .replace(/(%-?)\s*"/, '$1 when "')
+      },
+    )
+
+    // Empty trim tag `{%- %}C` → `{%- when "closing-down" %}C` (translation stripped `when "closing-down"`)
+    content = content.replaceAll('{%- %}C', '{%- when "closing-down" %}C')
+
+    // Deeply translated Liquid for-loops in table-generation templates.
+    // `{%- COLLECTION の VARNAME -%}` → `{%- for VARNAME in COLLECTION -%}`
+    // Covers `tables.X`, `groupVersions`, `ideEntry.features`, etc.
+    content = content.replace(
+      /\{%-?\s*([\w.]+(?:\[[\w"']+\])?)\s+の\s+(\w+)\s*-?%\}/g,
+      (match, collectionPath, varName) => {
+        const dash = match.startsWith('{%-') ? '{%-' : '{%'
+        const closeDash = match.endsWith('-%}') ? '-%}' : '%}'
+        return `${dash} for ${varName} in ${collectionPath} ${closeDash}`
+      },
+    )
+    // `{%- COLLECTION %} の VARNAME の場合` → `{%- for VARNAME in COLLECTION %}`
+    // Variant where の and variable name appear OUTSIDE the tag close
+    content = content.replace(
+      /\{%-?\s*([\w.]+(?:\[[\w"']+\])?)\s*-?%\}\s+の(\w+)の場合/g,
+      (match, collectionPath, varName) => {
+        const dash = match.startsWith('{%-') ? '{%-' : '{%'
+        return `${dash} for ${varName} in ${collectionPath} %}`
+      },
+    )
+    // `{{ バージョン }}` → `{{ version }}`
+    content = content.replaceAll('{{ バージョン }}', '{{ version }}')
+    content = content.replaceAll('{{ 言語 }}', '{{ language }}')
+    // `{%- 言語を割り当てる = X %}` → `{%- assign language = X %}`
+    content = content.replace(/\{%-?\s*言語を割り当てる\s*=\s*/g, (match) =>
+      match.startsWith('{%-') ? '{%- assign language = ' : '{% assign language = ',
+    )
+    // `{%- featureData = X %} を割り当てる` → `{%- assign featureData = X %}`
+    // and similar `= X %} を割り当てる` patterns
+    content = content.replace(
+      /\{%-?\s*(\w+)\s*=\s*([^%]+?)%\}\s*を割り当てる/g,
+      (match, varName, value) => {
+        const dash = match.startsWith('{%-') ? '{%-' : '{%'
+        return `${dash} assign ${varName} = ${value.trim()} %}`
+      },
+    )
+    // `{%- ... -%} の割り当て` (stray "assignment of" after a tag) → strip it
+    content = content.replaceAll(' の割り当て', '')
+    // `{%- ... -%} の場合` ("in the case of" = if) → strip, the `if` is already in the tag
+    content = content.replaceAll(' の場合', '')
+
+    // Missing `if` in condition checks: `{%- featureData.X %}` → `{%- if featureData.X %}`
+    content = content.replace(
+      /\{%-?\s*((?:featureData|supportLevel|languageData|entry)\.\w+)\s*-?%\}/g,
+      (match, condition) => {
+        const dash = match.startsWith('{%-') ? '{%-' : '{%'
+        const closeDash = match.endsWith('-%}') ? '-%}' : '%}'
+        return `${dash} if ${condition} ${closeDash}`
+      },
+    )
+    // Missing `assign` in assignments: `{%- varName = value %}` (no trailing keyword)
+    content = content.replace(
+      /\{%-?\s*(featureKey|featureData|supportLevel|languageData|groupName|groupVersions)\s*=\s*([^%]+?)-?%\}/g,
+      (match, varName, value) => {
+        const dash = match.startsWith('{%-') ? '{%-' : '{%'
+        const closeDash = match.endsWith('-%}') ? '-%}' : '%}'
+        return `${dash} assign ${varName} = ${value.trim()} ${closeDash}`
+      },
+    )
   }
 
   if (context.code === 'pt') {
@@ -65,6 +187,13 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{{% dados ', '{% data ')
     content = content.replaceAll('{{% datas ', '{% data ')
     content = content.replaceAll('{% senão %}', '{% else %}')
+    content = content.replaceAll('{% mais %}', '{% else %}')
+    content = content.replaceAll('{% se ', '{% if ')
+    content = content.replaceAll('{% atribuir ', '{% assign ')
+    content = content.replaceAll('{% %} bruto', '{% raw %}')
+    content = content.replaceAll('{% %de dados reusables.', '{% data reusables.')
+    content = content.replaceAll('{% %de dados variables.', '{% data variables.')
+    content = content.replaceAll('{% %móvel }', '{% mobile %}')
     // Catch "ou" between any plan names in ifversion/elsif tags
     content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?ou [^%]*?%\}/g, (match) => {
       return match.replace(/ ou /g, ' or ')
@@ -78,6 +207,11 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% 数据可重用s.', '{% data reusables.')
     content = content.replaceAll('{% 其他 %}', '{% else %}')
     content = content.replaceAll('{% 原始 %}', '{% raw %}')
+    // Chinese `如果` = "if": `{ 如果 X %}` → `{% if X %}`
+    content = content.replace(/\{ 如果 /g, '{% if ')
+    // Stray Chinese `，则为` ("then") merged with `{%` before HTML: `，则为 {%<tag>` → `<tag>`
+    // The regex consumes the `<` to avoid producing a double `<<`.
+    content = content.replace(/，则为 \{%</g, '<')
     // Catch "或" between any plan names in ifversion/elsif tags
     content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?或[^%]*?%\}/g, (match) => {
       return match.replace(/ 或 /g, ' or ')
@@ -87,6 +221,7 @@ export function correctTranslatedContentStrings(
   if (context.code === 'ru') {
     content = content.replaceAll('[«AUTOTITLE»](', '[AUTOTITLE](')
     content = content.replaceAll('{% данных variables', '{% data variables')
+    content = content.replaceAll('{% данных, variables', '{% data variables')
     content = content.replaceAll('{% данными variables', '{% data variables')
     content = content.replaceAll('{% данных организации variables', '{% data variables')
     content = content.replaceAll('{% данным variables.', '{% data variables.')
@@ -94,9 +229,24 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% данных reusables', '{% data reusables')
     content = content.replaceAll('{% данные reusables', '{% data reusables')
     content = content.replaceAll('{% данных переменных.', '{% data variables.')
-    content = content.replaceAll('{% данных.product.', '{% data variables.product.')
-    content = content.replaceAll('{% data переменных.product.', '{% data variables.product.')
-    content = content.replaceAll('{% переменным данных.product.', '{% data variables.product.')
+    // Broaden `{% данных.X` → `{% data variables.X` (covers .product., .dependency-review., .code-scanning., etc.)
+    content = content.replaceAll('{% данных.', '{% data variables.')
+    content = content.replaceAll('{% data переменных.', '{% data variables.')
+    content = content.replaceAll('{% переменным данных.', '{% data variables.')
+    // Broader "переменных данных" pattern — covers .dependency-review, .code-scanning, etc.
+    content = content.replaceAll('{% переменных данных.', '{% data variables.')
+    // Dot-prefix paths where `data variables` was entirely dropped
+    content = content.replaceAll('{% .dependency-review.', '{% data variables.dependency-review.')
+    content = content.replaceAll('{% .code-scanning.', '{% data variables.code-scanning.')
+    // Same without space after `{%`
+    content = content.replaceAll('{%.dependency-review.', '{% data variables.dependency-review.')
+    content = content.replaceAll('{%.code-scanning.', '{% data variables.code-scanning.')
+    content = content.replaceAll('{%.copilot.', '{% data variables.copilot.')
+    // Stray `"` between `данных` and `variables`
+    content = content.replaceAll('{% данных" variables', '{% data variables')
+    content = content.replaceAll('{%" variables.', '{% data variables.')
+    // Stray `,` replacing `data`
+    content = content.replaceAll('{%, variables.', '{% data variables.')
     content = content.replaceAll('{% необработанного %}', '{% raw %}')
     content = content.replaceAll('{%- ifversion fpt или ghec %}', '{%- ifversion fpt or ghec %}')
     content = content.replaceAll('{% ifversion fpt или ghec %}', '{% ifversion fpt or ghec %}')
@@ -109,7 +259,23 @@ export function correctTranslatedContentStrings(
     })
     content = content.replaceAll('{% endif _%}', '{% endif %}')
     content = content.replaceAll('{% конечным %}', '{% endif %}')
+    // `{% конец %}` after `{% raw %}` means `{% endraw %}`, not `{% endif %}`.
+    // Handle this BEFORE the generic `{% конец %}` → `{% endif %}` fallback.
+    content = content.replace(/(\{% raw %\}[^]*?)\{% конец %\}/g, '$1{% endraw %}')
     content = content.replaceAll('{% конец %}', '{% endif %}')
+    // Cyrillic transliteration of `elsif` (lossy → else, since version param is lost)
+    content = content.replaceAll('{% Эльсиф %}', '{% else %}')
+    // Translated feature flag names
+    content = content.replaceAll(
+      'обязательный-2fa-dotcom-участник',
+      'mandatory-2fa-dotcom-contributors',
+    )
+    content = content.replaceAll(
+      'обязательный-2fa-участник-2023',
+      'mandatory-2fa-contributors-2023',
+    )
+    // `не` = "not" in ifversion tags
+    content = content.replaceAll('{% ifversion не ', '{% ifversion not ')
     content = content.replaceAll('{% переменных данных.', '{% data variables.')
     content = content.replaceAll('{% повторно используемых данных.', '{% data reusables.')
     content = content.replaceAll('{% примечание %}', '{% note %}')
@@ -118,6 +284,11 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% еще %}', '{% else %}')
     content = content.replaceAll('{% ещё %}', '{% else %}')
     content = content.replaceAll('{% необработанные %}', '{% raw %}')
+    content = content.replaceAll('{% необработанный %}', '{% raw %}')
+    content = content.replaceAll('{% сырой %}', '{% raw %}')
+    content = content.replaceAll('{% нарисовать %}', '{% endraw %}')
+    content = content.replaceAll('{% эндкёрл %}', '{% endcurl %}')
+    content = content.replaceAll('{% запроса %}', '{% endraw %}')
 
     // Fix double quotes in Russian YAML files that cause parsing errors
     content = content.replace(/href=""https:\/\//g, 'href="https://')
@@ -135,6 +306,19 @@ export function correctTranslatedContentStrings(
     )
     content = content.replaceAll('{{ глоссарий.term }}', '{{ glossary.term }}')
     content = content.replaceAll('{{ глоссарий.description }}', '{{ glossary.description }}')
+
+    // Rearranged `{% data VARIABLE_PATH %}` → `VARIABLE_PATH %данн... {% }`
+    // The translation moved `data` (as `данных`/`данными`/`данные`) after the path
+    // and split `%}` into `{% }` or `{%  }`. Reconstruct the original tag.
+    content = content.replace(/([\w.-]+\.[\w.-]+\.[\w_]+) %данн\w*[^{]*\{%\s+\}/g, '{% data $1 %}')
+    // Variant where `%}` appears BEFORE `данных`: `PATH %}данных {% .`
+    content = content.replace(/([\w.-]+\.[\w.-]+\.[\w_]+) %\}данн\w*\s*\{%\s*\./g, '{% data $1 %}.')
+
+    // Translated octicon names
+    content = content.replaceAll(
+      '{% octicon "организация" aria-hidden="true" aria-label="organization" %}',
+      '{% octicon "organization" aria-hidden="true" aria-label="organization" %}',
+    )
   }
 
   if (context.code === 'fr') {
@@ -142,6 +326,10 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% données réutilisables.', '{% data reusables.')
     content = content.replaceAll('{% variables de données.', '{% data variables.')
     content = content.replaceAll('{% autre %}', '{% else %}')
+    content = content.replaceAll('{% brut %}', '{% raw %}')
+    content = content.replaceAll('{% %brut }', '{% raw %}')
+    content = content.replaceAll('{% redessiner %}', '{% endraw %}')
+    content = content.replaceAll('{% données ', '{% data ')
     // Catch remaining "ou" between any plan names in ifversion/elsif tags
     content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?ou [^%]*?%\}/g, (match) => {
       return match.replace(/ ou /g, ' or ')
@@ -155,8 +343,11 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% 데이터 변수.', '{% data variables.')
     content = content.replaceAll('{% 데이터 변숫값.', '{% data variables.')
     content = content.replaceAll('{% dada variables', '{% data variables')
+    // Extra `%` before data: `{% % data` → `{% data`
+    content = content.replaceAll('{% % data', '{% data')
     content = content.replaceAll('{% 기타 %}', '{% else %}')
     content = content.replaceAll('{% 참고 %}', '{% note %}')
+    content = content.replaceAll('{% 원시 %}', '{% raw %}')
     // Catch "또는" between any plan names in ifversion/elsif tags
     content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?또는[^%]*?%\}/g, (match) => {
       return match.replace(/ 또는 /g, ' or ')
@@ -199,16 +390,90 @@ export function correctTranslatedContentStrings(
   content = content.replaceAll('{{% data reusables.', '{% data reusables.')
   content = content.replaceAll('{{% ifversion ', '{% ifversion ')
   content = content.replaceAll('{{% else %}}', '{% else %}')
+  content = content.replaceAll('{{% elsif ', '{% elsif ')
   content = content.replaceAll('{{% vscode %}}', '{% vscode %}')
   content = content.replaceAll('{{% endvscode %}}', '{% endvscode %}')
   content = content.replaceAll('{{% endvisualstudio %}}', '{% endvisualstudio %}')
+
+  // Double `{% {% ` or `{%{% ` where the tag opener was duplicated.
+  content = content.replaceAll('{% {% ', '{% ')
+  content = content.replaceAll('{%{% ', '{% ')
+
+  // Multiple-percent corruptions: `{%%...` → `{%` and `%%}` → `%}`.
+  content = content.replace(/\{%{2,}/g, '{%')
+  content = content.replaceAll('%%}', '%}')
+
+  // Stray `%` before tag open: `%{% data` → `{% data`
+  content = content.replaceAll('%{% data', '{% data')
+  content = content.replaceAll('%{% ifversion', '{% ifversion')
+
+  // Corrupted `{ endif %}%` → `{% endif %}` (delimiters shuffled)
+  content = content.replaceAll('{ endif %}%', '{% endif %}')
+  // Empty tag `{%}` (no space, no name) — typically `{% else %}`
+  content = content.replace(/\{%\}(?!})/g, '{% else %}')
+  // `{% }` or `{%  }` (tag with just `}` or spaces as name) — almost always `{% endif %}`
+  content = content.replace(/\{%\s+\}/g, '{% endif %}')
+
+  // Missing `%` after opening `{`: `{else %}` → `{% else %}`
+  content = content.replaceAll('{else %}', '{% else %}')
+  content = content.replaceAll('{endif %}', '{% endif %}')
+  // Missing space after `{%`: `{%else %}` → `{% else %}`
+  content = content.replaceAll('{%else %}', '{% else %}')
+
+  // `{%` immediately followed by Markdown bold `**` (missing `else %}`): `{%**` → `{% else %}**`
+  content = content.replaceAll('{%**', '{% else %}**')
+
+  // Markdown bold `**` injected inside Liquid tag closing: `%**}` → `%}**`
+  content = content.replaceAll('%**}', '%}**')
+
+  // Double-brace with missing `data`: `{{% variables.` → `{% data variables.`
+  content = content.replaceAll('{{% variables.', '{% data variables.')
+
+  // Extra closing brace: `%}}` → `%}` (common in Portuguese and other languages)
+  content = content.replaceAll('%}}', '%}')
 
   // Common Latin-script typos across multiple languages.
   content = content.replaceAll('{% variables.', '{% data variables.')
   content = content.replaceAll('{% datavariables', '{% data variables')
 
-  // Fix spaces inside Liquid tag delimiters, e.g. `{ % endif % }` → `{% endif %}`
-  content = content.replace(/\{ +%([^%]+?)% +\}/g, '{%$1%}')
+  // Empty `{% %}` corruptions where the tag name was removed.
+  content = content.replaceAll('{% %} de dados reusables.', '{% data reusables.')
+  content = content.replaceAll('{% %} de dados variables.', '{% data variables.')
+
+  // Fix `{% %}` used as `{% endraw %}` (follows raw content with Liquid expressions).
+  content = content.replace(/(\{% raw %\}[^]*?)\{% %\}/g, '$1{% endraw %}')
+
+  // Fix `{% %}` used as `{% else %}` when it appears between ifversion and
+  // endif on the same line: `{% ifversion X %}A{% %}B{% endif %}`.
+  content = content.replace(
+    /(\{% ifversion [^%]*?%\}[^{]*?)\{% %\}([^{]*?\{% endif %\})/g,
+    '$1{% else %}$2',
+  )
+
+  // Remaining `{% %}` is almost always `{% endif %}`.
+  content = content.replaceAll('{% %}', '{% endif %}')
+
+  // Fix spaces inside Liquid tag delimiters, e.g. `{ % endif % }` or `{ % endif %}`
+  content = content.replace(/\{ +%([^%]+?)% *\}/g, '{%$1%}')
+
+  // Strip stray `{% ` openers that precede non-ASCII text (Cyrillic, CJK, etc.)
+  // after all per-language keyword translations have run. Any remaining
+  // `{% ` followed by a non-ASCII character is never a valid Liquid tag.
+  // eslint-disable-next-line no-control-regex
+  content = content.replace(/\{% (?=[^\x00-\x7F])/g, '')
+
+  // Strip stray `{% .` (dot as tag name) — deeply corrupted data tag remnant.
+  content = content.replace(/\{% \. /g, '')
+
+  // Fix unclosed `{% data ... %}` tags where translated text was injected
+  // between `%` and `}`: e.g. `{% data variables.product.github %las herramientas}`
+  // Insert the missing `}` right after `%` to properly close the tag.
+  content = content.replace(/({% data [\w.-]+ %)(?!})/g, '$1}')
+
+  // Fix unclosed `{% data PATH` where `%}` was completely dropped and
+  // non-ASCII translated text follows directly after the variable path.
+  // eslint-disable-next-line no-control-regex
+  content = content.replace(/({% data [\w.-]+) (?=[^\x00-\x7F])/g, '$1 %} ')
 
   // Recover linebreaks that translations lose after Liquid closing tags.
   // Compares each `{% ... %} ` in the translation against the English
@@ -232,6 +497,14 @@ export function correctTranslatedContentStrings(
 
   // Collapsed Markdown table rows — restore linebreaks between `|` cells.
   content = content.replaceAll(' | | ', ' |\n| ')
+
+  // Final catch-all: earlier normalizations (e.g. space-in-braces regex) can
+  // recreate `{{% KEYWORD` patterns after the per-keyword fixes already ran.
+  // Strip the extra `{` for known Liquid tag names.
+  content = content.replace(
+    /\{\{(%\s*(?:data |ifversion |elsif |endif|else |else\b|octicon |note|endnote|tip|endtip|raw|endraw|comment|endcomment|for |endfor|assign |vscode|endvscode|visualstudio|endvisualstudio|rowheaders|endrowheaders))/g,
+    '{$1',
+  )
 
   return content
 }
