@@ -190,6 +190,7 @@ export type Context = {
   renderedPage?: string
   miniTocItems?: MiniTocItem[]
   markdownRequested?: boolean
+  markdownViaUrl?: boolean
 }
 export type LearningTracks = {
   [group: string]: {
