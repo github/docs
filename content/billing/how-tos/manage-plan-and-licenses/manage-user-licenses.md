@@ -31,6 +31,9 @@ If you're the **owner** or **billing manager** of an organization on a {% data v
 1. Define the number of new seats you require. The details of the prorated cost for the remainder of the billing cycle and the total for your next bill are updated automatically.
 1. Click **Add seats** or **Remove seats**.
 
+> [!NOTE]
+> **Remove seats** is only displayed when you have unassigned seats available.
+
 ### Changing members to outside collaborators
 
 To reduce the number of paid licenses your organization requires, you can convert members to outside collaborators and give them access to only public repositories. For more information, see:
