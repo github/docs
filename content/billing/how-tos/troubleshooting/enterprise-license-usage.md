@@ -10,6 +10,8 @@ shortTitle: Enterprise license usage
 redirect_from:
   - /billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise
 contentType: how-tos
+category:
+  - Manage enterprise licenses
 ---
 
 ## About unexpected license usage

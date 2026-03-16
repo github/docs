@@ -7,6 +7,8 @@ versions:
 contentType: reference
 redirect_from:
   - /billing/reference/models-multipliers-and-costs
+category:
+  - Understand product costs
 ---
 
 ## Use of models in {% data variables.product.github %}

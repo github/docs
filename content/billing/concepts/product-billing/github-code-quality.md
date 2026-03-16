@@ -6,6 +6,8 @@ versions:
   feature: code-quality
 shortTitle: GitHub Code Quality
 contentType: concepts
+category:
+  - Understand product costs
 ---
 
 > [!NOTE]

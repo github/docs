@@ -9,6 +9,8 @@ redirect_from:
   - /billing/using-the-new-billing-platform/roles-for-the-new-billing-platform
   - /billing/managing-your-billing/roles-for-the-new-billing-platform
 contentType: reference
+category:
+  - Get started with billing
 ---
 
 The following roles have access to the billing platform:

@@ -41,6 +41,8 @@ redirect_from:
 shortTitle: Git LFS
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 contentType: concepts
+category:
+  - Understand product costs
 ---
 
 ## How use of {% data variables.large_files.product_name_short %} is measured

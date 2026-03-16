@@ -10,6 +10,8 @@ redirect_from:
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 shortTitle: Gather insights
 contentType: tutorials
+category:
+  - Track spending and control costs
 ---
 
 The new billing platform provides you with the tools to:

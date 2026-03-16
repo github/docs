@@ -21,6 +21,8 @@ redirect_from:
   - /billing/managing-your-license-for-github-enterprise
   - /billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise
 contentType: how-tos
+category:
+  - Manage enterprise licenses
 ---
 
 

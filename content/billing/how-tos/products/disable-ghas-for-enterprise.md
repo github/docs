@@ -6,6 +6,8 @@ versions:
   feature: disable-ghas-button
 shortTitle: Disable GHAS for enterprise
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 If you want to immediately disable {% data variables.product.prodname_GHAS %} in all repositories, prevent organizations from re-enabling it and avoid unexpected billing charges, you can use the **Disable {% data variables.product.prodname_AS %}** option available in the enterprise licensing page. This is different from canceling your {% data variables.product.prodname_AS %} subscription:

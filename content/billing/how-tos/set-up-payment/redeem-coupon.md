@@ -18,6 +18,8 @@ versions:
 product: 'Personal, organization, and enterprise account owners<br>Organization and enterprise billing managers'
 shortTitle: Redeem coupon
 contentType: how-tos
+category:
+  - Set up payment
 ---
 
 ## Prerequisites

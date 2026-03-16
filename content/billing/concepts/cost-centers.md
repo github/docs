@@ -6,6 +6,8 @@ versions:
   feature: enhanced-billing-platform
 contentType: concepts
 product: '{% data variables.product.prodname_ghe_cloud %}'
+category:
+  - Track spending and control costs
 ---
 
 Cost centers allow you to attribute usage and spending to business units, improving accountability, forecasting, and cost allocation. You can also apply one or more budgets to them to control costs.

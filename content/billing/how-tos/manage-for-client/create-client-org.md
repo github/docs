@@ -19,6 +19,8 @@ versions:
 product: '{% data variables.product.github %} partners setting up {% data variables.product.prodname_team %}'
 shortTitle: Create client org
 contentType: how-tos
+category:
+  - Pay third parties and manage client accounts
 ---
 
 If you want to create an enterprise account for a client, see [AUTOTITLE](/billing/how-tos/manage-for-client/create-client-enterprise) or [AUTOTITLE](/billing/how-tos/manage-for-client/create-as-csp-partner).

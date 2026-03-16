@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: reference
+category:
+  - Manage your plan and licenses
 ---
 
 When working with billing through the REST API to create budgets or query usage, you'll need to use specific product and SKU identifiers. This reference provides the valid values for these identifiers.

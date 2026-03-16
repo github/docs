@@ -15,6 +15,8 @@ redirect_from:
   - /billing/how-tos/manage-plan-and-licenses/add-licenses
 shortTitle: Manage user licenses
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 ## Organizations on {% data variables.product.prodname_team %}

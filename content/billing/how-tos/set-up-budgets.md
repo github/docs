@@ -23,6 +23,8 @@ redirect_from:
 permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
 shortTitle: Set up budgets
 contentType: how-tos
+category:
+  - Track spending and control costs
 ---
 
 Budgets help you track and control spending on different products. To learn more, see [AUTOTITLE](/billing/concepts/budgets-and-alerts).

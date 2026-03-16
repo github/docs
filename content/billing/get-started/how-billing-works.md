@@ -26,6 +26,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: get-started
+category:
+  - Get started with billing
 ---
 
 <!--

@@ -6,6 +6,8 @@ versions:
   feature: enhanced-billing-platform
 contentType: reference
 product: '{% data variables.product.prodname_ghe_cloud %}'
+category:
+  - Track spending and control costs
 ---
 
 This article contains reference information for how spending is assigned to cost centers. To create and manage cost centers, see [AUTOTITLE](/billing/how-tos/products/use-cost-centers).
