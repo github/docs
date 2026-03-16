@@ -30,6 +30,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          # Fetch 2 commits so tj-actions/changed-files can diff without extra API calls
+          fetch-depth: 2
 
       - uses: ./.github/actions/node-npm-setup
 

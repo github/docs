@@ -17,6 +17,7 @@ import { DiscoveryLandingTransformer } from './discovery-landing-transformer'
 import { ProductGuidesTransformer } from './product-guides-transformer'
 import { ProductLandingTransformer } from './product-landing-transformer'
 import { SearchPageTransformer } from './search-page-transformer'
+import { ArticleTransformer } from './article-transformer'
 
 /**
  * Global transformer registry
@@ -42,6 +43,8 @@ transformerRegistry.register(new DiscoveryLandingTransformer())
 transformerRegistry.register(new ProductGuidesTransformer())
 transformerRegistry.register(new ProductLandingTransformer())
 transformerRegistry.register(new SearchPageTransformer())
+// ArticleTransformer is the catch-all — must be registered last.
+transformerRegistry.register(new ArticleTransformer())
 
 export { TransformerRegistry } from './types'
 export type { PageTransformer } from './types'

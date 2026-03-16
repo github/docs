@@ -60,7 +60,7 @@ export default function handleInvalidQuerystringValues(
           defaultCacheControl(res)
           let newURL = req.path
           if (sp.toString()) newURL += `?${sp}`
-          res.redirect(302, newURL)
+          res.safeRedirect(302, newURL)
 
           const tags = ['response:302', `url:${req.url}`, `path:${req.path}`, `key:${key}`]
           statsd.increment(STATSD_KEY, 1, tags)
