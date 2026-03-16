@@ -5,11 +5,6 @@ intro: Build a {% data variables.product.prodname_custom_security_configuration 
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration
   - /code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration

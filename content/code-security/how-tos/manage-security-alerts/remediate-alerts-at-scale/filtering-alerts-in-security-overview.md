@@ -9,13 +9,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Security overview
-  - Code Security
-  - Secret Protection
-  - Alerts
-  - Organizations
-  - Teams
 shortTitle: Filter security alerts
 redirect_from:
   - /code-security/security-overview/filtering-alerts-in-the-security-overview

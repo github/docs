@@ -5,11 +5,6 @@ intro: You can apply your {% data variables.product.prodname_custom_security_con
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/applying-a-custom-security-configuration
   - /code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration

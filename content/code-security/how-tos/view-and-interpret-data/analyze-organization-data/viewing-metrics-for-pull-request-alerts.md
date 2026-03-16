@@ -6,13 +6,6 @@ intro: Monitor {% data variables.product.prodname_codeql %}'s performance in pul
 permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
 contentType: how-tos
-topics:
-  - Security overview
-  - Code Security
-  - Code scanning
-  - CodeQL
-  - Organizations
-  - Teams
 versions:
   feature: security-overview-org-codeql-pr-alerts
 redirect_from:

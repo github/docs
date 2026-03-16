@@ -10,13 +10,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: reference
-topics:
-  - Security overview
-  - Code Security
-  - Secret Protection
-  - Alerts
-  - Organizations
-  - Teams
 redirect_from:
   - /code-security/reference/security-alert-management/available-filters-for-security-overview
   - /code-security/reference/security-alert-management

@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 contentType: tutorials
 redirect_from:
   - /code-security/how-tos/scan-code-for-vulnerabilities/customize-code-scanning

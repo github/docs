@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: Visualize how your code maps to {% data variables.product.prodname_codeql %} classes in {% data variables.product.prodname_vscode_shortname %}.
 redirect_from:
   - /code-security/codeql-for-vs-code/exploring-the-structure-of-your-source-code

@@ -4,10 +4,6 @@ shortTitle: Prevent release changes
 intro: You can enforce immutable releases for a repository or organization to prevent potential vulnerabilities.
 versions:
   feature: immutable-releases
-topics:
-  - Code Security
-  - Vulnerabilities
-  - Dependencies
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/preventing-changes-to-your-releases
 contentType: how-tos

@@ -7,10 +7,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-cli/specifying-command-options-in-a-codeql-configuration-file
   - /code-security/codeql-cli/using-the-codeql-cli/specifying-command-options-in-a-codeql-configuration-file

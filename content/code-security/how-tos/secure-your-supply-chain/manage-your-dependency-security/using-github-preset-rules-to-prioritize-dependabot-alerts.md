@@ -6,12 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Alerts
-  - Vulnerabilities
-  - Repositories
-  - Dependencies
 shortTitle: Prioritize with preset rules
 redirect_from:
   - /code-security/dependabot/dependabot-alert-rules/using-github-curated-alert-rules-to-prioritize-dependabot-alerts

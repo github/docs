@@ -15,11 +15,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - Integration
-  - SARIF
 contentType: reference
 ---
 

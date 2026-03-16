@@ -3,9 +3,6 @@ title: Auditing your organization's builds on the {% data variables.product.virt
 intro: View or export metadata for build runs, storage details, and deployment context.
 versions:
   feature: virtual-registry
-topics:
-  - Vulnerabilities
-  - Dependencies
 contentType: how-tos
 product: Organization accounts on any plan
 permissions: Anyone with read access to an organization-owned repository

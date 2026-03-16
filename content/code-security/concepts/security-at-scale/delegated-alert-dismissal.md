@@ -3,13 +3,6 @@ title: Delegated alert dismissal
 intro: 'Increase your governance over security alerts with delegated alert dismissal.'
 versions:
   feature: security-delegated-alert-dismissal
-topics:
-  - Alerts
-  - Repositories
-  - Dependencies
-  - Vulnerabilities
-  - Secret scanning
-  - Code scanning
 contentType: concepts
 ---
 

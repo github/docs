@@ -9,11 +9,6 @@ audience:
 contentType: concepts
 versions:
   feature: security-campaigns
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/fixing-security-alerts-at-scale/about-security-campaigns
 ---

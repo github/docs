@@ -5,10 +5,6 @@ intro: Secure your code with the security enablement settings created, managed, 
 permissions: '{% data reusables.permissions.security-configuration-enterprise-enable %}'
 versions:
   ghec: '*'
-topics:
-  - Advanced Security
-  - Enterprise
-  - Security
 redirect_from:
   - /admin/managing-code-security/securing-your-enterprise/applying-the-github-recommended-security-configuration-to-your-enterprise
 contentType: how-tos

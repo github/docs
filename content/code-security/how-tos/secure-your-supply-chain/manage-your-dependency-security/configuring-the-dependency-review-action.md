@@ -7,12 +7,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Dependency review
-  - Vulnerabilities
-  - Dependencies
-  - Pull requests
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-review-action

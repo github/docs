@@ -11,12 +11,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: get-started
-topics:
-  - Repositories
-  - Dependencies
-  - Vulnerabilities
-  - Code Security
-  - Secret Protection
 shortTitle: Secure repository quickstart
 ---
 

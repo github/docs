@@ -5,11 +5,6 @@ intro: Customize {% data variables.product.prodname_AS %} features for your orga
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization
 contentType: how-tos

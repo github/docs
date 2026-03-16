@@ -4,11 +4,6 @@ shortTitle: Organization security
 intro: You can quickly secure your organization at scale with {% data variables.product.prodname_security_configurations %} and {% data variables.product.prodname_global_settings %}.
 versions:
   feature: security-configurations
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale
 contentType: concepts

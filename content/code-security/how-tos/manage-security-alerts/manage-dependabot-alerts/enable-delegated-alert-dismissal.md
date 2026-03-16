@@ -6,12 +6,6 @@ shortTitle: Enable delegated alert dismissal
 versions:
   feature: dependabot-delegated-alert-dismissal
 contentType: how-tos
-topics:
-  - Dependabot
-  - Code Security
-  - Security updates
-  - Alerts
-  - Dependencies
 redirect_from:
   - /code-security/dependabot/dependabot-alerts/enable-delegated-alert-dismissal
 ---

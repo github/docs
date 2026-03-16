@@ -7,9 +7,6 @@ product: |
 
   {% data variables.secret-scanning.secret-risk-assessment-cta-product %}{% endif %}
 contentType: concepts
-topics:
-  - Secret scanning
-  - Secret Protection
 versions:
   fpt: '*'
   ghec: '*'

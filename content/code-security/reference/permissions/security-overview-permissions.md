@@ -6,10 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Security advisories
-  - Vulnerabilities
-  - Permissions
 contentType: reference
 ---
 

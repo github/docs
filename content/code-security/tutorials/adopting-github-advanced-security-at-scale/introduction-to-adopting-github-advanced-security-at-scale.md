@@ -5,9 +5,6 @@ allowTitleToDifferFromFilename: true
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Secret Protection
 shortTitle: Introduction
 redirect_from:
   - /admin/advanced-security/overview-of-github-advanced-security-deployment

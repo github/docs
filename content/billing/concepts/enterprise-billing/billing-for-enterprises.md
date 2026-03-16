@@ -18,6 +18,8 @@ versions:
   ghes: '*'
 shortTitle: Billing for enterprises
 contentType: concepts
+category:
+  - Manage enterprise licenses
 ---
 
 ## {% data variables.product.prodname_enterprise %} plan costs

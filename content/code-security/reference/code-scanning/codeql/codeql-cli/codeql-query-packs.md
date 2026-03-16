@@ -7,13 +7,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
-  - Repositories
-  - Integration
-  - CI
 contentType: reference
 ---
 

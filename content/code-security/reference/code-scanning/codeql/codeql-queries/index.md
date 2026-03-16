@@ -7,10 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 children:
   - /about-built-in-queries
   - /actions-built-in-queries

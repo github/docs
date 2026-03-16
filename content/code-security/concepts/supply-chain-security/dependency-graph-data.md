@@ -6,10 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Dependency graph
-  - Dependencies
-  - Repositories
 shortTitle: Dependency graph data
 contentType: concepts
 ---

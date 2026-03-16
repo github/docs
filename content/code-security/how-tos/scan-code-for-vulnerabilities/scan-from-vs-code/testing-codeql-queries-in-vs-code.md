@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: You can run unit tests for {% data variables.product.prodname_codeql %} queries using the {% data variables.product.prodname_vscode %} extension.
 allowTitleToDifferFromFilename: true
 redirect_from:

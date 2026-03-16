@@ -4,10 +4,6 @@ shortTitle: Verify release integrity
 intro: You can avoid tampering and accidental changes by ensuring the releases you use have not been modified after publication.
 versions:
   feature: immutable-releases
-topics:
-  - Code Security
-  - Vulnerabilities
-  - Dependencies
 defaultTool: cli
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/verifying-the-integrity-of-a-release

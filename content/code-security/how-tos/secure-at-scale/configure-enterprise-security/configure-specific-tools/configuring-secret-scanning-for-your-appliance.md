@@ -9,11 +9,6 @@ redirect_from:
   - /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance
 versions:
   ghes: '*'
-topics:
-  - Advanced Security
-  - Enterprise
-  - Secret scanning
-  - Security
 contentType: how-tos
 ---
 

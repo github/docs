@@ -6,11 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Code Security
-  - Code scanning
-  - Actions
-  - Repositories
 children:
   - /configuring-default-setup-for-code-scanning
   - /configuring-advanced-setup-for-code-scanning

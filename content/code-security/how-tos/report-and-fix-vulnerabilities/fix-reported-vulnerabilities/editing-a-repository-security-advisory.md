@@ -12,9 +12,6 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Security advisories
-  - Vulnerabilities
 shortTitle: Edit repository advisories
 ---
 

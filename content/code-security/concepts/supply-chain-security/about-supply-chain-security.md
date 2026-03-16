@@ -9,14 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Dependency review
-  - Dependency graph
-  - Vulnerabilities
-  - Dependencies
-  - Pull requests
-  - Repositories
 contentType: concepts
 ---
 

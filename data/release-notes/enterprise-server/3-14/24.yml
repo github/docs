@@ -1,4 +1,10 @@
 date: '2026-03-10'
+intro: |
+  {% warning %}
+  
+  **Warning**: {% data variables.product.prodname_ghe_server %} 3.14.24 has been unpublished due to mismatched Git versions between containers. Please use the most recent available patch release of 3.14. [Updated: 2026-03-13]
+  
+  {% endwarning %}
 sections:
   security_fixes:
     - |
@@ -22,6 +28,8 @@ sections:
     - |
       To improve performance on large instances, HAProxy automatically scales its thread count based on available CPUs and uses higher connection limits for high-traffic backend services including GitHub Actions, database connections, job queues, and package registry. Administrators can override the thread count using `ghe-config haproxy-nbthread` if needed. 
   known_issues:
+    - |
+      The Git version included in the release did not match the version used by the gitrpcd service due to incorrect version determination during the build process. [Updated: 2026-03-13]
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |

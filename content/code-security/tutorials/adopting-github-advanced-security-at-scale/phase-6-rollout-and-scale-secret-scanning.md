@@ -4,9 +4,6 @@ intro: For the final phase, you will focus on the rollout of {% data variables.p
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Secret Protection
 shortTitle: 6. Rollout secret scanning
 redirect_from:
   - /code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning

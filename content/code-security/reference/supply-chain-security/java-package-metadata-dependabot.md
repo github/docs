@@ -7,10 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Dependencies
-  - Repositories
 redirect_from:
   - /code-security/dependabot/ecosystems-supported-by-dependabot/optimizing-java-packages-dependabot
   - /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/optimizing-java-packages-dependabot

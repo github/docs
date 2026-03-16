@@ -17,6 +17,8 @@ versions:
   ghec: '*'
 shortTitle: GitHub Actions
 contentType: concepts
+category:
+  - Understand product costs
 ---
 
 ## How use of {% data variables.product.prodname_actions %} is measured

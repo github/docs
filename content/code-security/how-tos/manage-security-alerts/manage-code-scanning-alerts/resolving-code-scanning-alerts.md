@@ -18,11 +18,6 @@ redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository
   - /code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts
 contentType: how-tos
-topics:
-  - Code Security
-  - Code scanning
-  - Alerts
-  - Repositories
 ---
 
 {% ifversion copilot-chat-ghas-alerts %}

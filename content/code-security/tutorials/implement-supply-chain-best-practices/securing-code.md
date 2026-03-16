@@ -7,13 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Security updates
-  - Vulnerabilities
-  - Code Security
-  - Secret Protection
-  - Secret scanning
 redirect_from:
   - /code-security/supply-chain-security/end-to-end-supply-chain/securing-code
 contentType: tutorials

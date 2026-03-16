@@ -3,9 +3,6 @@ title: Uploading storage and deployment data to the {% data variables.product.vi
 intro: Associate packages and builds in your organization with storage and deployment data.
 versions:
   feature: virtual-registry
-topics:
-  - Vulnerabilities
-  - Dependencies
 contentType: how-tos
 product: Organization accounts on any plan
 permissions: Anyone with write access to an organization-owned repository

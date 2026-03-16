@@ -9,6 +9,8 @@ versions:
 contentType: reference
 redirect_from:
   - /billing/reference/actions-minute-multipliers
+category:
+  - Understand product costs
 ---
 
 {% data variables.product.github %} rounds the minutes and partial minutes each job uses up to the nearest whole minute.

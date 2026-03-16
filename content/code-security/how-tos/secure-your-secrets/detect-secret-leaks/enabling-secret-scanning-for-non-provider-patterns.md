@@ -9,11 +9,6 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: how-tos
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
-  - Repositories
 shortTitle: Enable for non-provider patterns
 redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns

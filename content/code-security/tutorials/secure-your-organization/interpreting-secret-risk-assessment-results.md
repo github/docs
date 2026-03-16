@@ -6,10 +6,6 @@ permissions: Organization owners, security managers, and users with the **admin*
 allowTitleToDifferFromFilename: true
 versions:
   feature: secret-risk-assessment
-topics:
-  - Secret Protection
-  - Organizations
-  - Security
 contentType: tutorials
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/interpreting-secret-risk-assessment-results

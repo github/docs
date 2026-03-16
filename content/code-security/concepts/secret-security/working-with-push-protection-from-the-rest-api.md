@@ -5,11 +5,6 @@ intro: Learn your options for unblocking your push to {% data variables.product.
 permissions: '{% data reusables.permissions.push-protection-resolve-block %}'
 versions:
   feature: secret-scanning-push-protection-content-endpoints
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
-  - Repositories
 redirect_from:
   - /code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-rest-api
 contentType: concepts

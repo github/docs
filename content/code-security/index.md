@@ -37,10 +37,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
-  - Dependencies
-  - Vulnerabilities
 children:
   - /getting-started
   - /concepts

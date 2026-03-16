@@ -5,11 +5,6 @@ intro: Monitor and prioritize security alerts with security overview.
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 contentType: how-tos
 redirect_from:
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/interpreting-security-findings-on-a-repository

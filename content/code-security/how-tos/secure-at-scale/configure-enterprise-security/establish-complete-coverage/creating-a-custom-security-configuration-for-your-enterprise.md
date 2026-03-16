@@ -5,10 +5,6 @@ intro: Build a {% data variables.product.prodname_custom_security_configuration 
 permissions: '{% data reusables.permissions.security-configuration-enterprise-enable %}'
 versions:
   feature: security-configuration-enterprise-level
-topics:
-  - Advanced Security
-  - Enterprise
-  - Security
 redirect_from:
   - /admin/managing-code-security/securing-your-enterprise/creating-a-custom-security-configuration-for-your-enterprise
 contentType: how-tos

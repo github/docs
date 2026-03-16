@@ -6,12 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Dependabot PR comment commands
 contentType: reference
 ---

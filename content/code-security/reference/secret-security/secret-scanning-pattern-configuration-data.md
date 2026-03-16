@@ -5,14 +5,6 @@ intro: Understand the data displayed in the {% data variables.product.prodname_s
 permissions: '{% data reusables.permissions.secret-risk-assessment-report-generation %}'
 versions:
   feature: security-configurations
-topics:
-  - Code Security
-  - Secret scanning
-  - Secret Protection
-  - Organizations
-  - Security
-  - Advanced Security
-  - Enterprise
 contentType: reference
 
 ---

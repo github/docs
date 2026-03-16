@@ -8,10 +8,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-cli/getting-started-with-the-codeql-cli/uploading-codeql-analysis-results-to-github
 contentType: tutorials

@@ -5,10 +5,6 @@ intro: If your organization uses private registries, you can improve the results
 allowTitleToDifferFromFilename: true
 versions:
   feature: org-private-registry
-topics:
-  - Code Security
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries
 contentType: how-tos

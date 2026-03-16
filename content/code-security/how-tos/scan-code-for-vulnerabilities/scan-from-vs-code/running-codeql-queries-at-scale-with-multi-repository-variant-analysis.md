@@ -3,10 +3,6 @@ title: Running CodeQL queries at scale with multi-repository variant analysis
 shortTitle: Run queries at scale
 versions:
   feature: codeql-vs-code-mrva
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: You can run {% data variables.product.prodname_codeql %} queries on a large number of repositories on {% data variables.product.github %} from {% data variables.product.prodname_vscode %}.
 redirect_from:
   - /code-security/codeql-for-vs-code/running-codeql-queries-at-scale-with-mrva

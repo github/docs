@@ -10,12 +10,6 @@ redirect_from:
   - /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise
 versions:
   ghes: '*'
-topics:
-  - Advanced Security
-  - Code scanning
-  - Enterprise
-  - Secret scanning
-  - Security
 contentType: how-tos
 ---
 

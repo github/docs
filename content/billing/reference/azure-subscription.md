@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: reference
+category:
+  - Set up payment
 ---
 
 ## Enterprises and cost centers

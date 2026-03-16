@@ -5,11 +5,6 @@ intro: Go back to managing a repository's security settings on an individual bas
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/managing-the-security-of-your-organization/detaching-repositories-from-their-security-configurations
 contentType: how-tos

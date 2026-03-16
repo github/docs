@@ -4,6 +4,8 @@ intro: 'Learn how premium requests in {% data variables.product.prodname_copilot
 versions:
   feature: copilot
 contentType: concepts
+category:
+  - Understand product costs
 ---
 
 Usage of {% data variables.product.prodname_copilot_short %} is measured through a combination of licenses and monthly usage tracking. For more information about how license costs in {% data variables.product.prodname_copilot_short %} work, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses).

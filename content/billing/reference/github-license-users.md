@@ -15,6 +15,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: reference
+category:
+  - Manage your plan and licenses
 ---
 
 {% data reusables.billing.about-billing %} For organizations and enterprises, the "plan" component of the bill is based on the number of licensed seats you use.

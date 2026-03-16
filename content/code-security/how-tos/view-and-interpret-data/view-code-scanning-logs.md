@@ -12,8 +12,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Security
 shortTitle: View code scanning logs
 ---
 

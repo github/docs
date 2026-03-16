@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: You can view, write, and edit {% data variables.product.prodname_codeql %} model packs in {% data variables.product.prodname_vscode %}.
 redirect_from:
   - /code-security/codeql-for-vs-code/using-the-codeql-model-editor

@@ -8,9 +8,6 @@ versions:
   ghec: '*'
 redirect_from:
   - /code-security/code-scanning/introduction-to-code-scanning
-topics:
-  - Code Security
-  - Code scanning
 contentType: concepts
 children:
   - /about-code-scanning

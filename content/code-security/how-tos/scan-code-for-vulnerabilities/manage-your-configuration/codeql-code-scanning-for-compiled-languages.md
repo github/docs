@@ -18,16 +18,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
-  - Actions
-  - Repositories
-  - C/C++
-  - C#
-  - Java
-  - Kotlin
 contentType: how-tos
 ---
 

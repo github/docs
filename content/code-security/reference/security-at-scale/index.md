@@ -6,13 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
-  - Advanced Security
-  - Enterprise
 contentType: reference
 children:
   - /security-overview-dashboard-metrics

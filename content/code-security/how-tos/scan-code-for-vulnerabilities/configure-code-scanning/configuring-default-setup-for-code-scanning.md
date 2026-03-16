@@ -17,9 +17,6 @@ redirect_from:
   - /code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning
 permissions: '{% data reusables.permissions.security-repo-enable %}'
 product: '{% data reusables.gated-features.code-scanning %}'
-topics:
-  - Code Security
-  - Code scanning
 versions:
   fpt: '*'
   ghes: '*'

@@ -8,14 +8,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
-  - C/C++
-  - C#
-  - Java
-  - Kotlin
 contentType: concepts
 ---
 

@@ -13,19 +13,29 @@ versions:
 
 To show forks in repository search results, add `fork:true` or `fork:only` to your query. For more information, see [AUTOTITLE](/search-github/searching-on-github/searching-for-repositories).
 
-{% ifversion ghes %}Forks are only indexed for code search when they have more stars than the parent repository. You will not be able to search the code in a fork that has fewer stars than its parent. To show forks with more stars than the parent repository in code search results, add `fork:true` or `fork:only` to your query. For more information, see [AUTOTITLE](/search-github/searching-on-github/searching-code).{% endif %}
+{% ifversion ghes %}Forks are only indexed for legacy code search when they have more stars than the parent repository. You will not be able to search the code in a fork that has fewer stars than its parent. To show forks with more stars than the parent repository in legacy code search results, add `fork:true` or `fork:only` to your query. For more information, see [AUTOTITLE](/search-github/searching-on-github/searching-code).{% endif %}
 
 > [!NOTE]
 > Forks can only be included in repository and code searches.
+
+## Repository search
 
 The `fork:true` qualifier finds all results that match your search query, including forks. The `fork:only` qualifier finds _only_ forks that match your search query.
 
 | Qualifier  | Example
 | ------------- | -------------
 | `fork:true` | [**github fork:true**](https://github.com/search?q=github+fork%3Atrue&type=Repositories) matches all repositories containing the word "github," including forks.
-| <code>language:<em>LANGUAGE</em></code> `fork:true` | [**android language:java fork:true**](https://github.com/search?q=android+language%3Ajava+fork%3Atrue&type=Code) matches code with the word "android" that's written in Java, in both forks and regular repositories.
 | `fork:only` | [**github fork:only**](https://github.com/search?q=github+fork%3Aonly&type=Repositories) matches all fork repositories containing the word "github."
 | <code>forks:><em>n</em></code> `fork:only` | [**forks:>500 fork:only**](https://github.com/search?q=forks%3A%3E500+fork%3Aonly&type=Repositories) matches repositories with more than 500 forks, and only returns those that are forks.
+
+## Code search
+
+{% data variables.product.github %} code search uses `is:fork` instead of `fork:true` to include forked repositories in code search results. To exclude forks, use `NOT is:fork`.{% ifversion code-search-upgrade %} For more information, see [AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax).{% endif %}
+
+| Qualifier  | Example
+| ------------- | -------------
+| `is:fork` | [**android language:java is:fork**](https://github.com/search?q=android+language%3Ajava+is%3Afork&type=code) matches code with the word "android" that's written in Java, in forked repositories.
+| `NOT is:fork` | [**android language:java NOT is:fork**](https://github.com/search?q=android+language%3Ajava+NOT+is%3Afork&type=code) matches code with the word "android" that's written in Java, excluding forked repositories.
 
 ## Further reading
 

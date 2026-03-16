@@ -4,9 +4,6 @@ intro: "The {% data variables.product.virtual_registry %} helps you audit and pr
 versions:
   feature: virtual-registry
 shortTitle: 'Linked artifacts'
-topics:
-  - Vulnerabilities
-  - Dependencies
 contentType: concepts
 ---
 

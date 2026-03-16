@@ -13,11 +13,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - Webhooks
-  - Integration
 contentType: concepts
 ---
 

@@ -6,8 +6,6 @@ intro: Use {% data variables.product.prodname_code_quality %} to flag code quali
 product: '{% data reusables.gated-features.code-quality-availability %}'
 versions:
   feature: code-quality
-topics:
-  - Code Quality
 contentType: concepts
 redirect_from:
   - /code-security/code-quality/concepts/about-code-quality

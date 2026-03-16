@@ -5,11 +5,6 @@ intro: Secure your code with the security enablement settings created, managed, 
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations-cloud
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization
 contentType: how-tos

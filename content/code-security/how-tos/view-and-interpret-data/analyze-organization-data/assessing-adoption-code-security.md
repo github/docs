@@ -6,13 +6,6 @@ intro: See which teams and repositories have already enabled features for secure
 permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-both %}'
 contentType: how-tos
-topics:
-  - Security overview
-  - Code Security
-  - Secret Protection
-  - Set up
-  - Organizations
-  - Teams
 versions:
   fpt: '*'
   ghes: '*'

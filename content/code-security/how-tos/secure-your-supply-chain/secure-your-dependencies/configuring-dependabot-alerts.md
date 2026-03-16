@@ -7,13 +7,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Dependabot
-  - Security updates
-  - Alerts
-  - Dependencies
-  - Pull requests
-  - Repositories
 redirect_from:
   - /code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts
   - /code-security/dependabot/dependabot-alerts

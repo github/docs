@@ -5,8 +5,6 @@ intro: Identify and resolve a code quality block on your pull request so you can
 versions:
   feature: code-quality
 permissions: '{% data reusables.permissions.code-quality-see-repo-findings %}'
-topics:
-  - Code Quality
 contentType: how-tos
 redirect_from:
   - /code-security/code-quality/how-tos/unblock-your-pr

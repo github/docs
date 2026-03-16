@@ -3,12 +3,6 @@ title: Dependabot supported ecosystems and repositories
 shortTitle: Dependabot ecosystems
 intro: '{% data variables.product.prodname_dependabot %} supports a variety of ecosystems and repositories'
 allowTitleToDifferFromFilename: true
-topics:
-  - Dependabot
-  - Dependencies
-  - Alerts
-  - Vulnerabilities
-  - Repositories
 versions:
   fpt: '*'
   ghec: '*'

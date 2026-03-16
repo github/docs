@@ -8,9 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection
 contentType: how-tos

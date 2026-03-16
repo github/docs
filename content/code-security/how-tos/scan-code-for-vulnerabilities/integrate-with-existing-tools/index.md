@@ -6,15 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
-  - Repositories
-  - Pull requests
-  - Integration
-  - CI
-  - SARIF
 redirect_from:
   - /code-security/code-scanning/integrating-with-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-results-from-code-scanning

@@ -6,11 +6,6 @@ product: '{% data reusables.rai.secret-scanning.copilot-secret-scanning-gated-fe
 allowTitleToDifferFromFilename: true
 versions:
   feature: secret-scanning-custom-pattern-ai-generated
-topics:
-  - Secret Protection
-  - Secret scanning
-  - AI
-  - Copilot
 redirect_from:
   - /code-security/secret-scanning/about-the-regular-expression-generator-for-custom-patterns
   - /code-security/secret-scanning/about-generating-regular-expressions-with-ai

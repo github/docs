@@ -8,11 +8,6 @@ product: '{% data reusables.gated-features.security-campaigns %}'
 contentType: how-tos
 versions:
   feature: security-campaigns
-topics:
-  - Code Security
-  - Code scanning
-  - Alerts
-  - Repositories
 redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign
 ---

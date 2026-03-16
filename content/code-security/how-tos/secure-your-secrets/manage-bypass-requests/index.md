@@ -6,9 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret Protection
-  - Secret scanning
 contentType: how-tos
 children:
   - /enabling-delegated-bypass-for-push-protection

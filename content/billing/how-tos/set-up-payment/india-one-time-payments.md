@@ -10,6 +10,8 @@ versions:
   ghec: '*'
 shortTitle: India one-time payments
 contentType: how-tos
+category:
+  - Set up payment
 ---
 
 
