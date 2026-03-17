@@ -1,14 +1,7 @@
-date: '2026-02-24'
-release_candidate: true
-deprecated: true
+date: '2026-03-17'
+release_candidate: false
+deprecated: false
 intro: |
-  > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
-  >
-  > Do not upgrade to an RC from a supported, earlier version.
-  >
-  > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
-
-  For upgrade instructions, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
 sections:
   # Remove section heading if the section contains no notes.
 
@@ -20,17 +13,20 @@ sections:
       notes:
         # https://github.com/github/releases/issues/7177
         - |
-          You can configure a dedicated disk for log storage, mounted at /var/log and configured as an LVM volume, to isolate logs from the root disk. This capability is in public preview and applies only to standalone and high availability topologies. It does not apply to cluster topologies. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/multiple-data-disks/configuring-multiple-data-disks).
+          You can configure a dedicated disk for log storage, mounted at `/var/log` and configured as an LVM volume, to isolate logs from the root disk. This capability is in public preview and applies only to standalone and high availability topologies. It does not apply to cluster topologies. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/multiple-data-disks/configuring-multiple-data-disks).
 
         # https://github.com/github/releases/issues/4888
         - |
-          The backup service, previously in public preview, is now generally available in {% data variables.product.prodname_ghe_server %} 3.20. The managed, built-in service provides an alternative to {% data variables.product.prodname_ghe_server %} backup utilities and does not require a separate host for backup software. For more information, see [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server/about-the-backup-service-for-github-enterprise-server). Please note that [Backup Utilities](https://github.com/github/backup-utils/) will be retired starting in version 3.22. 
+          The backup service, previously in public preview, is now generally available in {% data variables.product.prodname_ghe_server %} 3.20. The managed, built-in service provides an alternative to {% data variables.product.prodname_ghe_server %} backup utilities and does not require a separate host for backup software. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/backup-service-for-github-enterprise-server/about-the-backup-service-for-github-enterprise-server). Please note that [Backup Utilities](https://github.com/github/backup-utils/) will be retired starting in version 3.22. 
 
+        # https://github.com/github/releases/issues/8043
+        - |
+          You can add additional nodes to a high-availability datacenter to offload CPU-intensive tasks from the primary data node, allowing horizontal scaling for {% data variables.product.prodname_ghe_server %}. This capability is in public preview and applies only to high-availability topologies. It does not apply to standalone or to cluster topologies. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/additional-nodes/configuring-additional-nodes).
     - heading: Identity and access management
       notes:
         # https://github.com/github/releases/issues/5085
         - |
-          Enterprise owners can create and manage enterprise teams to simplify governance across their enterprise. Using the API or enterprise settings UI, owners can assign enterprise teams to organizations, create and assign custom enterprise roles, and assign roles to both teams and users. Organization and repository owners can assign roles to enterprise teams within their scope, and enterprise teams can be added to ruleset bypass lists. There are product limitations to this experience. This feature is in public preview and subject to change. For more information, see [AUTOTITLE](/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise#what-kind-of-team-should-i-use).
+          Enterprise owners can create and manage enterprise teams to simplify governance across their enterprise. Using the API or enterprise settings UI, owners can assign enterprise teams to organizations, create and assign custom enterprise roles, and assign roles to both teams and users. Organization and repository owners can assign roles to enterprise teams within their scope, and enterprise teams can be added to ruleset bypass lists. There are product limitations to this experience. This feature is in public preview and subject to change. See [AUTOTITLE](/admin/concepts/enterprise-fundamentals/teams-in-an-enterprise#what-kind-of-team-should-i-use).
 
     - heading: GitHub Connect
       notes:
@@ -42,7 +38,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/6804
         - |
-          Administrators can enable code scanning using default setup even if an organization or repository’s GitHub Actions policies would otherwise prevent uploading Actions workflows. This change allows security scans to proceed without being blocked by policy controls on Actions. For more information, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
+          Administrators can enable code scanning using default setup even if an organization or repository’s GitHub Actions policies would otherwise prevent uploading Actions workflows. This change allows security scans to proceed without being blocked by policy controls on Actions. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
         # https://github.com/github/releases/issues/5623
         - |
           GitHub Advanced Security customers can track and manage security remediation work by assigning code scanning alerts to themselves or other users. This feature is in public preview and subject to change.
@@ -73,7 +69,7 @@ sections:
 
         # https://github.com/github/releases/issues/6834
         - |
-          Secret scanning adds new detectors and improves detectors for existing secret types, expanding coverage and improving accuracy for detected secrets. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns).
+          Secret scanning adds new detectors and improves detectors for existing secret types, expanding coverage and improving accuracy for detected secrets. See [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns).
 
         # https://github.com/github/releases/issues/6437
         - |
@@ -119,7 +115,7 @@ sections:
 
         # https://github.com/github/releases/issues/4950
         - |
-          Site administrators can enhance security for public repositories using self-hosted runners. GitHub Actions validates both the pull request author and the event Actor before determining whether workflows should run for pull request events originating from forked repositories. For more information, see the [GitHub blog](https://github.blog/changelog/2024-11-05-notice-of-breaking-changes-for-github-actions/#changes-to-workflow-validation-for-pull-requests-originating-from-forked-repositories) and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#controlling-changes-from-forks-to-workflows-in-public-repositories).
+          Site administrators can enhance security for public repositories using self-hosted runners. GitHub Actions validates both the pull request author and the event Actor before determining whether workflows should run for pull request events originating from forked repositories. See the [GitHub blog](https://github.blog/changelog/2024-11-05-notice-of-breaking-changes-for-github-actions/#changes-to-workflow-validation-for-pull-requests-originating-from-forked-repositories) and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#controlling-changes-from-forks-to-workflows-in-public-repositories).
 
         # https://github.com/github/releases/issues/6639
         - |
@@ -145,7 +141,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/6815
         - |
-          You can use the Projects GraphQL API to track additional events, such as status changes, when items are added or removed from a project, and conversions from drafts to issues. Filtering project items using a project filter is also now available. For more information, see the [GitHub blog](https://github.blog/changelog/2025-11-06-improved-onboarding-flow-for-github-projects/#%f0%9f%a4%96-api-improvements).
+          You can use the Projects GraphQL API to track additional events, such as status changes, when items are added or removed from a project, and conversions from drafts to issues. Filtering project items using a project filter is also now available. See the [GitHub blog](https://github.blog/changelog/2025-11-06-improved-onboarding-flow-for-github-projects/#%f0%9f%a4%96-api-improvements).
 
         # https://github.com/github/releases/issues/6740
         - |
@@ -170,13 +166,11 @@ sections:
   known_issues:
     # INCLUDE NOTES FOR RELEASE FROM "GHES Release Note Tracking" PROJECT'S "Known Issues" TAB
     - |
-      **Note:** This list is not complete. Any new known issues that are identified for the 3.20 release will be added between now and the general availability release.
-    - |
       Custom firewall rules are removed during the upgrade process.
     - |
       During the validation phase of a configuration run, a No such object error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
-      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. See [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
     - |
       {% data reusables.release-notes.large-adoc-files-issue %}
     - |
@@ -205,7 +199,9 @@ sections:
       When applying an enterprise security configuration to all repositories (for example, enabling Secret Scanning or Code Scanning across all repositories), the system immediately enqueues enablement jobs for every organization in the enterprise simultaneously. For enterprises with a large number of repositories, this can result in significant system load and potential performance degradation. If you manage a large enterprise with many organizations and repositories, we recommend applying security configurations at the organization level rather than at the enterprise level in the UI. This allows you to enable security features incrementally and monitor system performance as you roll out changes.
     - |
       When viewing the status of an ongoing backup on the "Backups" page of the Management Console, the backup may initially report as "incomplete" instead of "in progress". You can ignore the initial "incomplete" status because the backup is still running and will report the correct status once it has progressed further. In some configurations, such as cluster topologies, this may take up to 5 minutes.
-
+    - |
+      GHES instances that have multiple Git storage nodes in a voting configurations (including GHES Clusters and Geo Replicate HA instances) where Actions is enabled can encounter a problem upon upgrading. Part of Actions that are shipped with the new version of GHES can not be correctly installed. This can block upgrades and in some cases leave the old versions of these Actions within the instance. If this occurs running the following command on the primary node should help correct the problem: `ghe-config --unset 'app.actions.actions-repos-sha1sum' /usr/local/share/enterprise/ghe-run-init-actions-graph`
+      
   closing_down:
     # https://github.com/github/releases/issues/6704
     - |

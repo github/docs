@@ -69,7 +69,7 @@ jobs:
 
       - name: Create issue if broken links found
         if: always() && steps.check_report.outputs.has_report == 'true'
-        uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v5
+        uses: peter-evans/create-issue-from-file@65115121ba9a3573cbaded4dc66b90ba1f9b69dc
         with:
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           repository: github/docs-content

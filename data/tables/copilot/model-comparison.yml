@@ -55,6 +55,11 @@
 - name: GPT-5.4
   task_area: Deep reasoning and debugging
   excels_at: Multi-step problem solving and architecture-level code analysis
+  further_reading: '[GPT-5.4 model card](https://deploymentsafety.openai.com/gpt-5-4-thinking/introduction)'
+
+- name: GPT-5.4 mini
+  task_area: Agentic software development
+  excels_at: Codebase exploration and is especially effective when using grep-style tools
   further_reading: 'Not available'
 
 # Anthropic
