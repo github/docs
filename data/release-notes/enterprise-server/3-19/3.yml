@@ -2,7 +2,7 @@ date: '2026-03-10'
 intro: |
   {% warning %}
   
-  **Warning**: {% data variables.product.prodname_ghe_server %} 3.19.3 has been unpublished for operatioan reasons. Please use the most recent available patch release of 3.19. [Updated: 2026-03-13]
+  **Warning**: {% data variables.product.prodname_ghe_server %} 3.19.3 has been unpublished for operational reasons. Please use the most recent available patch release of 3.19. [Updated: 2026-03-13]
   
   {% endwarning %}
 sections:
