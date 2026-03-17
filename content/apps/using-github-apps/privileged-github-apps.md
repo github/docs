@@ -8,6 +8,8 @@ versions:
 shortTitle: Privileged apps
 redirect_from: 
   - /apps/using-github-apps/internal-github-apps
+category:
+  - Install and authorize apps
 ---
 
 Some {% data variables.product.prodname_github_apps %} are privileged apps. These apps are owned by {% data variables.product.company_short %} and are granted special capabilities. For example, users can authorize these apps and use them to access data from an organization without requiring approval by the organization.

@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Troubleshoot token request
+category:
+  - Build and manage OAuth apps
 ---
 
 > [!NOTE]

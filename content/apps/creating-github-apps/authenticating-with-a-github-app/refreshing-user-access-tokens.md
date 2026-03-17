@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Refresh user access tokens
+category:
+  - Authenticate with a GitHub App
 ---
 ## About user access tokens that expire
 

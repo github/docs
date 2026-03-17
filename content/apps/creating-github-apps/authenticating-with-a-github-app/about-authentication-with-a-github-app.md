@@ -13,6 +13,8 @@ redirect_from:
   - /developers/apps/authenticating-with-github-apps
   - /developers/apps/building-github-apps/authenticating-with-github-apps
   - /apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-github-apps
+category:
+  - Authenticate with a GitHub App
 ---
 
 ## Authentication as a {% data variables.product.prodname_github_app %}

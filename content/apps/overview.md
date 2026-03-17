@@ -8,6 +8,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Understand GitHub Apps
 ---
 
 ## About {% data variables.product.prodname_github_apps %}

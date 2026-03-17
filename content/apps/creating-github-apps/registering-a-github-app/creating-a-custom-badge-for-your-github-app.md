@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Custom badge
+category:
+  - Register and configure a GitHub App
 ---
 
 ## About badges

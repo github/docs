@@ -12,6 +12,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Webhook events
+category:
+  - Manage payments for your Marketplace app
 ---
 
 {% data reusables.marketplace.marketplace-apps-not-actions %}

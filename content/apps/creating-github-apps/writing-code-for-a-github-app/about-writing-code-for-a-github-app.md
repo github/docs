@@ -18,6 +18,8 @@ redirect_from:
   - /developers/apps/getting-started-with-apps/setting-up-your-development-environment-to-create-a-github-app
   - /apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app
   - /apps/creating-github-apps/writing-code-for-a-github-app/setting-up-your-development-environment-to-create-a-github-app
+category:
+  - Write code for a GitHub App
 ---
 
 ## Prerequisites

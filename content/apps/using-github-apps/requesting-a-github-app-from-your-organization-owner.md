@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Request for org
+category:
+  - Install and authorize apps
 ---
 
 > [!NOTE]
