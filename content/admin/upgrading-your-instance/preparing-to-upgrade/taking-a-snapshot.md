@@ -6,9 +6,6 @@ redirect_from:
   - /enterprise/admin/installation/upgrading-github-enterprise-server#taking-a-snapshot
 versions:
   ghes: '*'
-topics:
-  - Enterprise
-  - Upgrades
 shortTitle: Take a snapshot
 contentType: how-tos
 ---

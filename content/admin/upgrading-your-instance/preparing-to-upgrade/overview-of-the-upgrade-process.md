@@ -18,9 +18,6 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server
 versions:
   ghes: '*'
-topics:
-  - Enterprise
-  - Upgrades
 shortTitle: Upgrading overview
 contentType: concepts
 ---
