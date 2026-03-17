@@ -62,6 +62,10 @@ export function correctTranslatedContentStrings(
     content = content.replace(/\{%-? cuando /g, (match) => {
       return match.replace('cuando', 'when')
     })
+    // Translated block tags
+    content = content.replaceAll('{% nota %}', '{% note %}')
+    content = content.replaceAll('{%- nota %}', '{%- note %}')
+    content = content.replaceAll('{%- nota -%}', '{%- note -%}')
   }
 
   if (context.code === 'ja') {
@@ -313,6 +317,8 @@ export function correctTranslatedContentStrings(
     content = content.replace(/([\w.-]+\.[\w.-]+\.[\w_]+) %данн\w*[^{]*\{%\s+\}/g, '{% data $1 %}')
     // Variant where `%}` appears BEFORE `данных`: `PATH %}данных {% .`
     content = content.replace(/([\w.-]+\.[\w.-]+\.[\w_]+) %\}данн\w*\s*\{%\s*\./g, '{% data $1 %}.')
+    // Variant where path precedes `%{% data  }`: `PATH %{% data  }.`
+    content = content.replace(/([\w.-]+\.[\w.-]+\.[\w_]+) %\{% data\s+\}/g, '{% data $1 %}')
 
     // Translated octicon names
     content = content.replaceAll(
@@ -334,6 +340,16 @@ export function correctTranslatedContentStrings(
     content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?ou [^%]*?%\}/g, (match) => {
       return match.replace(/ ou /g, ' or ')
     })
+    // Translated block tags
+    content = content.replaceAll('{% remarque %}', '{% note %}')
+    content = content.replaceAll('{%- remarque %}', '{%- note %}')
+    content = content.replaceAll('{%- remarque -%}', '{%- note -%}')
+    content = content.replaceAll('{% avertissement %}', '{% warning %}')
+    content = content.replaceAll('{%- avertissement %}', '{%- warning %}')
+    content = content.replaceAll('{%- avertissement -%}', '{%- warning -%}')
+    content = content.replaceAll('{% conseil %}', '{% tip %}')
+    content = content.replaceAll('{%- conseil %}', '{%- tip %}')
+    content = content.replaceAll('{%- conseil -%}', '{%- tip -%}')
   }
 
   if (context.code === 'ko') {
@@ -370,6 +386,16 @@ export function correctTranslatedContentStrings(
     content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?oder [^%]*?%\}/g, (match) => {
       return match.replace(/ oder /g, ' or ')
     })
+    // Translated block tags
+    content = content.replaceAll('{% Hinweis %}', '{% note %}')
+    content = content.replaceAll('{%- Hinweis %}', '{%- note %}')
+    content = content.replaceAll('{%- Hinweis -%}', '{%- note -%}')
+    content = content.replaceAll('{% Warnung %}', '{% warning %}')
+    content = content.replaceAll('{%- Warnung %}', '{%- warning %}')
+    content = content.replaceAll('{%- Warnung -%}', '{%- warning -%}')
+    content = content.replaceAll('{% Tipp %}', '{% tip %}')
+    content = content.replaceAll('{%- Tipp %}', '{%- tip %}')
+    content = content.replaceAll('{%- Tipp -%}', '{%- tip -%}')
   }
 
   // --- Generic fixes (all languages) ---
