@@ -6,6 +6,10 @@ versions:
   feature: security-configurations
 redirect_from:
   - /code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale
+  - /code-security/concepts/security-at-scale/about-security-configurations
+  - /admin/managing-code-security/securing-your-enterprise/about-security-configurations
+  - /code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/choosing-a-security-configuration-for-your-repositories
+  - /code-security/concepts/security-at-scale/choosing-a-security-configuration-for-your-repositories
 contentType: concepts
 ---
 

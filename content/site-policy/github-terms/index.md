@@ -20,4 +20,5 @@ children:
   - /github-event-code-of-conduct
   - /github-educational-use-agreement
   - /github-copilot-extension-developer-policy
+  - /github-secret-scanning-partner-program-agreement
 ---
