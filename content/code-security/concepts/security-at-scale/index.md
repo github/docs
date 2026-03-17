@@ -9,7 +9,6 @@ versions:
 contentType: concepts
 children:
   - /about-enabling-security-features-at-scale
-  - /security-configurations
   - /about-security-overview
   - /about-security-campaigns
   - /auditing-security-alerts

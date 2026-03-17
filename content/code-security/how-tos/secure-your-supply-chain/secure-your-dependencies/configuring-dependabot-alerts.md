@@ -98,10 +98,7 @@ You can also use the organization settings page for "{% data variables.product.U
 
 {% ifversion security-configuration-enterprise-level %}
 
-{% data variables.product.prodname_security_configurations_caps %}, which are collections of security settings,  allow you to manage {% data variables.product.prodname_dependabot_alerts %} for your enterprise. {% ifversion ghec %}You can:
-
-* Use the {% data variables.product.prodname_github_security_configuration %}. This configuration is maintained by {% data variables.product.github %} and is a set of industry best practices and features that provide a robust, baseline security posture for enterprises. See [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/applying-the-github-recommended-security-configuration-to-your-enterprise).
-* Configure your own {% data variables.product.prodname_custom_security_configuration %} if you prefer the enablement settings to meet the specific security needs of your enterprise. {% endif %}See [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/creating-a-custom-security-configuration-for-your-enterprise).
+{% data variables.product.prodname_security_configurations_caps %}, which are collections of security settings, allow you to manage {% data variables.product.prodname_dependabot_alerts %} for your enterprise. You can configure your own {% data variables.product.prodname_custom_security_configuration %} to have the enablement settings to meet the specific security needs of your enterprise. See [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/creating-a-custom-security-configuration-for-your-enterprise).
 
 {% else %}
 
