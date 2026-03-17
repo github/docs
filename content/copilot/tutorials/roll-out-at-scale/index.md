@@ -10,6 +10,7 @@ children:
   - /enable-developers
   - /drive-downstream-impact
   - /measure-success
+  - /maintain-codebase-standards
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/planning-your-rollout
