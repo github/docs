@@ -235,7 +235,7 @@ defaultTool: cli
 
 ### `includeGuides`
 
-* Purpose: Render a list of articles, filterable by `type` and `topics`. Only applicable when used with `layout: product-guides`.
+* Purpose: Render a list of articles, filterable by `type`. Only applicable when used with `layout: product-guides`.
 * Type: `Array`
 * Optional.
 
