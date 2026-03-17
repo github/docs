@@ -20937,6 +20937,11 @@ type IssueFieldSingleSelectValue implements IssueFieldValueCommon & Node {
   The option's name.
   """
   name: String!
+
+  """
+  The selected option's global relay ID.
+  """
+  optionId: String
 }
 
 """
