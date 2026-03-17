@@ -18,7 +18,7 @@ Plugins are packages that extend the functionality of {% data variables.copilot.
 
 For more information, see [AUTOTITLE](/copilot/concepts/agents/copilot-cli/about-cli-plugins).
 
-{% data reusables.copilot.cli-help-note %}
+{% data reusables.copilot.copilot-cli.cli-help-note %}
 
 ## Finding plugins
 
