@@ -4,8 +4,6 @@ shortTitle: Configuring agent settings
 intro: 'Learn how to configure settings for {% data variables.copilot.copilot_coding_agent %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
 category: 
   - Configure Copilot

@@ -12,5 +12,6 @@ children:
   - /autopilot
   - /fleet
   - /research
+  - /chronicle
 contentType: concepts
 ---

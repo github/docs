@@ -6,9 +6,6 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-with-a-hotpatch
 versions:
   ghes: '*'
-topics:
-  - Enterprise
-  - Upgrades
 shortTitle: Upgrade with a hotpatch
 contentType: how-tos
 ---

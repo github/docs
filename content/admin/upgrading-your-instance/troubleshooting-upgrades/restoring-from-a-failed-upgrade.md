@@ -5,10 +5,6 @@ redirect_from:
   - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#restoring-from-a-failed-upgrade
 versions:
   ghes: '*'
-topics:
-  - Enterprise
-  - Upgrades
-  - Troubleshooting
 shortTitle: Restore from a failed upgrade
 contentType: how-tos
 ---

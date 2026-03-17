@@ -12,7 +12,7 @@ redirect_from:
   - /copilot/reference/cli-plugin-reference
 ---
 
-{% data reusables.copilot.cli-help-note %}
+{% data reusables.copilot.copilot-cli.cli-help-note %}
 
 ## CLI commands
 
@@ -81,7 +81,7 @@ These tell the CLI where to find your plugin's components. All are optional. The
 
 ### Example `plugin.json` file
 
-{% data reusables.copilot.cli-example-plugin-file %}
+{% data reusables.copilot.copilot-cli.cli-example-plugin-file %}
 
 ## `marketplace.json`
 
@@ -91,17 +91,17 @@ You can create a plugin marketplace—which people can use to discover and insta
 copilot plugin marketplace add /PATH/TO/my-marketplace
 ```
 
-{% data reusables.copilot.cli-claude-plugin-dir %}
+{% data reusables.copilot.copilot-cli.cli-claude-plugin-dir %}
 
 
 For more information, see [AUTOTITLE](/copilot/how-tos/copilot-cli/customize-copilot/plugins-marketplace).
 
 ### Example `marketplace.json` file
 
-{% data reusables.copilot.cli-example-marketplace-file %}
+{% data reusables.copilot.copilot-cli.cli-example-marketplace-file %}
 
 > [!NOTE]
-> {% data reusables.copilot.cli-path-to-plugins %}
+> {% data reusables.copilot.copilot-cli.cli-path-to-plugins %}
 
 ### `marketplace.json` fields
 

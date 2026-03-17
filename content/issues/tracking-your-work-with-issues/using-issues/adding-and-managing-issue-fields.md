@@ -4,8 +4,6 @@ intro: 'You can set, edit, and clear issue field values on individual issues to 
 versions:
   feature: issue-fields
 contentType: how-tos
-topics:
-  - Project management
 shortTitle: 'Using issue fields'
 permissions: 'People with triage access or greater to a repository can set and edit issue field values.'
 ---
