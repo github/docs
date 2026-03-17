@@ -75,7 +75,9 @@ For more information about limitations, see [Limitations of {% data variables.co
 
 ### Customize your experience with additional context
 
-{% data variables.copilot.copilot_coding_agent %} leverages your prompt, comments and the repository’s code as context when generating suggested changes. To enhance Copilot’s performance, consider implementing custom Copilot instructions to help the agent better understand your project and how to build, test and validate its changes. For more information, see "Add custom instructions to your repository" in [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices#adding-custom-instructions-to-your-repository).
+{% data variables.copilot.copilot_coding_agent %} leverages your prompt, comments and the repository’s code as context when generating suggested changes. The agent also has access to semantic code search, which helps it find relevant code based on meaning rather than just exact text matches, allowing it to complete tasks faster.
+
+To enhance {% data variables.product.prodname_copilot_short %}’s performance, consider implementing custom {% data variables.product.prodname_copilot_short %} instructions to help the agent better understand your project and how to build, test and validate its changes. For more information, see "Add custom instructions to your repository" in [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices#adding-custom-instructions-to-your-repository).
 
 For information about other customizations for {% data variables.copilot.copilot_coding_agent %}, see:
 
