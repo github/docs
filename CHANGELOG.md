@@ -2,6 +2,12 @@
 
 **17 March 2026**
 
+We published [Maintaining codebase standards in a GitHub Copilot rollout](https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/roll-out-at-scale/maintain-codebase-standards).
+
+The guide shows how customers can create a strong governance framework for Copilot by leveraging GitHub's enterprise-grade platform alongside cultural best practices.
+
+<hr>
+
 We published [Resources for getting approval of GitHub Copilot](https://docs.github.com/enterprise-cloud@latest/copilot/get-started/resources-for-approval), a guide that collects resources for enterprise admins to send to legal, compliance, and cybersecurity teams in their company.
 
 <hr>
