@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: 'Migrate from {% data variables.product.prodname_oauth_apps %}'
+category:
+  - Register and configure a GitHub App
 ---
 
 ## Benefits of migrating from {% data variables.product.prodname_oauth_apps %} to {% data variables.product.prodname_github_apps %}

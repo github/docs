@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Third-party applications
+category:
+  - Install and authorize apps
 ---
 When a third-party application wants to identify you by your {% data variables.product.github %} login, you'll see a page with the developer contact information and a list of the specific data that's being requested.
 

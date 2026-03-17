@@ -11,6 +11,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+category:
+  - Manage payments for your Marketplace app
 ---
 
 {% data reusables.marketplace.marketplace-apps-not-actions %}

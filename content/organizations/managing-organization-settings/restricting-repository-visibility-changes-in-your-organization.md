@@ -10,6 +10,8 @@ versions:
   ghec: '*'
 shortTitle: Set visibility changes policy
 permissions: Organization owners can restrict repository visibility changes for an organization.
+category:
+  - Set repository policies
 ---
 
 You can restrict who has the ability to change the visibility of repositories in your organization, such as changing a repository from private to public. For more information about repository visibility, see [AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility).

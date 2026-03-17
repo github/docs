@@ -8,17 +8,28 @@ versions:
 redirect_from:
   - /code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration
   - /code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration
+  - /code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/applying-the-github-recommended-security-configuration-in-your-organization
+  - /code-security/concepts/security-at-scale/security-configurations
+  - /admin/managing-code-security/securing-your-enterprise/applying-the-github-recommended-security-configuration-to-your-enterprise
+  - /code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/applying-the-github-recommended-security-configuration-to-your-enterprise
 contentType: how-tos
 ---
 
-{% ifversion security-configurations-cloud %}
+## About {% data variables.product.prodname_custom_security_configurations %}
 
-If you are familiar with {% data variables.product.company_short %}'s security products, and you have specific security needs that the {% data variables.product.prodname_github_security_configuration %} can't meet, you can create and apply {% data variables.product.prodname_custom_security_configurations %}. For more information, see [AUTOTITLE](/code-security/concepts/security-at-scale/choosing-a-security-configuration-for-your-repositories).
+With {% data variables.product.prodname_custom_security_configurations %}, you can create collections of enablement settings for {% data variables.product.company_short %}'s security products to meet the specific security needs of your organization. For example, you can create a different {% data variables.product.prodname_custom_security_configuration %} for each organization or group of organizations to reflect their unique security requirements and compliance obligations.
 
-{% else %}
+{% ifversion ghas-products %}
 
-With {% data variables.product.prodname_custom_security_configurations %}, you can create collections of enablement settings for {% data variables.product.company_short %}'s security products to meet the specific security needs of your organization. For example, you can create a different {% data variables.product.prodname_custom_security_configuration %} for each group of repositories to reflect their different levels of visibility, risk tolerance, and impact.
+You can also choose whether or not you want to include {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %} features in a configuration.
 
+If you do, keep in mind that these features incur usage costs (or require {% data variables.product.prodname_GHAS %} licenses) when applied to private and internal repositories. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
+
+{% endif %}
+
+{% ifversion ghes %}
+
+When creating a security configuration, keep in mind that:
 * Only features installed by a site administrator on your {% data variables.product.prodname_ghe_server %} instance will appear in the UI.
 * {% ifversion ghas-products %}Some features will only be visible if your organization or {% data variables.product.prodname_ghe_server %} instance has purchased the relevant {% data variables.product.prodname_GHAS %} product ({% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}){% else %}{% data variables.product.prodname_GHAS %} features will only be visible if your organization or {% data variables.product.prodname_ghe_server %} instance holds a {% data variables.product.prodname_GHAS %} license{% endif %}.
 * Certain features, like {% data variables.product.prodname_dependabot_security_updates %} and {% data variables.product.prodname_code_scanning %} default setup, also require that {% data variables.product.prodname_actions %} is installed on the {% data variables.product.prodname_ghe_server %} instance.
@@ -37,6 +48,7 @@ With {% data variables.product.prodname_custom_security_configurations %}, you c
 {% data reusables.organizations.org_settings %}
 {% data reusables.security-configurations.view-configurations-page %}
 1. In the "{% data variables.product.prodname_security_configurations_caps %}" section, click **New configuration**.
+1. To configure groups of security features for your repositories, click **Custom configuration**.
 1. To help identify your {% data variables.product.prodname_custom_security_configuration %} and clarify its purpose on the "{% data variables.product.prodname_security_configurations_caps %}" page, name your configuration and create a description.
 1. Optionally, enable "{% data variables.product.prodname_secret_protection %}", a paid feature for private {% ifversion ghec %}and internal {% endif %} repositories. Enabling {% data variables.product.prodname_secret_protection %} enables alerts for {% data variables.product.prodname_secret_scanning %}. In addition, you can choose whether to enable, disable, or keep the existing settings for the following {% data variables.product.prodname_secret_scanning %} features:
     {% ifversion secret-scanning-validity-check-partner-patterns %}

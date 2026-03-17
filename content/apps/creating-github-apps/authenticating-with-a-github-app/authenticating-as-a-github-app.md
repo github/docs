@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Authenticate as an app
+category:
+  - Authenticate with a GitHub App
 ---
 
 ## About authentication as a {% data variables.product.prodname_github_app %}

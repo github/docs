@@ -9,6 +9,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Manage default branch name
+category:
+  - Set repository policies
 ---
 
 ## About management of the default branch name

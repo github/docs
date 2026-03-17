@@ -31,21 +31,10 @@ For more information on purchasing {% data variables.product.prodname_GH_cs_or_s
 
 {% data reusables.security-configurations.define-security-configurations %}
 
-{% ifversion security-configurations-cloud %}
-
-There are two types of {% data variables.product.prodname_security_configuration %}:
-
-* **The {% data variables.product.prodname_github_security_configuration %}**, which is a collection of enablement settings created and managed by subject matter experts at {% data variables.product.company_short %}
-* **{% data variables.product.prodname_custom_security_configurations_caps %}**, which are configurations you can create and edit yourself, allowing you to meet your specific security needs
-
-For more detailed information on {% data variables.product.prodname_security_configurations %}, see [AUTOTITLE](/code-security/concepts/security-at-scale/security-configurations).
-
-{% elsif security-configurations-ghes-only %}
-
+{% ifversion security-configurations-ghes-only %}
 {% data reusables.security-configurations.custom-configuration-intro-ghes %}
 
 To learn how to create {% data variables.product.prodname_custom_security_configurations %}, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
-
 {% endif %}
 
 ## About {% data variables.product.prodname_global_settings %}
@@ -70,12 +59,4 @@ If your organization uses {% data variables.product.prodname_microsoft_defender 
 
 ## Next steps
 
-{% ifversion security-configurations-cloud %}
-
-To determine which {% data variables.product.prodname_security_configurations %} are right for the repositories in your organization, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/choosing-a-security-configuration-for-your-repositories).
-
-{% elsif security-configurations-ghes-only %}
-
 To get started with creating a {% data variables.product.prodname_security_configuration %} for your organization, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
-
-{% endif %}

@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Move a team
+category:
+  - Organize teams
 ---
 
 Organization owners can change the parent of any team. Team maintainers can change a team's parent if they are maintainers in both the child team and the parent team. Team maintainers without maintainer permissions in the child team can request to add a parent or child team. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/requesting-to-add-or-change-a-parent-team) and [AUTOTITLE](/organizations/organizing-members-into-teams/requesting-to-add-a-child-team).

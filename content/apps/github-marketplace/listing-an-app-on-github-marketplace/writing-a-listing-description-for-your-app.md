@@ -17,6 +17,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Write listing descriptions
+category:
+  - List your app on GitHub Marketplace
 ---
 
 {% data reusables.marketplace.marketplace-apps-not-actions %}

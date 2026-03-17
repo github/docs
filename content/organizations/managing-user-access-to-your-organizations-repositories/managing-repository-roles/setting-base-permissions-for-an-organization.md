@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Set base permissions
+category:
+  - Control repository access
 ---
 
 ## About base permissions for an organization

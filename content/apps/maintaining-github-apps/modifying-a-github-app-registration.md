@@ -17,6 +17,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Maintain and share your app
 ---
 
 ## About {% data variables.product.prodname_github_app %} modifications

@@ -9,6 +9,8 @@ versions:
   ghes: '*'
   ghec: '*'
 allowTitleToDifferFromFilename: true
+category:
+  - Organize teams
 ---
 
 ## About teams

@@ -8,6 +8,8 @@ permissions: '{% data reusables.actions.azure-vnet-organization-permissions %}'
 redirect_from:
   - /organizations/managing-organization-settings/about-using-github-hosted-runners-in-your-azure-virtual-network
 contentType: concepts
+category:
+  - Secure and monitor your organization
 ---
 
 ## About Azure private networking for {% data variables.product.company_short %}-hosted runners

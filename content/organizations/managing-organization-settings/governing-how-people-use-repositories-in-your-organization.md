@@ -6,6 +6,8 @@ versions:
   feature: repo-policy-rules
 shortTitle: Govern repository usage
 contentType: how-tos
+category:
+  - Set repository policies
 ---
 
 {% data reusables.enterprise.repo-policy-rules-preview %}

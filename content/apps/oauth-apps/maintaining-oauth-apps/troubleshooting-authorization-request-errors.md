@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Troubleshoot authorization
+category:
+  - Build and manage OAuth apps
 ---
 ## Application suspended
 

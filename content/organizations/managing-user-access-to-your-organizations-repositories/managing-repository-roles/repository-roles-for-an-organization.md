@@ -13,6 +13,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Repository roles
+category:
+  - Control repository access
 ---
 
 ## Repository roles for organizations

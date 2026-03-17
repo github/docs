@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Install your own app
+category:
+  - Maintain and share your app
 ---
 
 ## About installing your own {% data variables.product.prodname_github_app %}

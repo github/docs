@@ -15,6 +15,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Register and configure a GitHub App
 ---
 
 ## About registering {% data variables.product.prodname_github_apps %}

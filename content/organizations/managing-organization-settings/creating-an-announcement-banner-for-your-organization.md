@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Configure organization features
 ---
 
 {% ifversion ghec %}

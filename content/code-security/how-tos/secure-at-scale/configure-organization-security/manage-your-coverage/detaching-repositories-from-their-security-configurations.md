@@ -14,7 +14,7 @@ If you decide that the security needs of a repository are too specific for a {% 
 
 Detaching a repository from a {% data variables.product.prodname_security_configuration %} will not change the existing security enablement settings for that repository.
 
-Alternatively, if you want to apply a {% data variables.product.prodname_security_configuration %} to a repository that's already attached to a different configuration, you can apply the configuration as normal, and you do not need to detach the current configuration. For more information, see {% ifversion security-configurations-cloud %}[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization) and {% endif %}[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
+Alternatively, if you want to apply a {% data variables.product.prodname_security_configuration %} to a repository that's already attached to a different configuration, you can apply the configuration as normal, and you do not need to detach the current configuration. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
 
 ## Detaching repositories from linked {% data variables.product.prodname_security_configurations %}
 

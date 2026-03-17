@@ -13,6 +13,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Maintain ownership continuity
+category:
+  - Assign roles and permissions
 ---
 
 ## About maintaining ownership continuity for your organization

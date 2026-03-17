@@ -7,6 +7,8 @@ versions:
 permissions: Organization owners can access compliance reports for the organization.
 shortTitle: Access compliance reports
 contentType: how-tos
+category:
+  - Secure and monitor your organization
 ---
 
 ## About {% data variables.product.company_short %}'s compliance reports
