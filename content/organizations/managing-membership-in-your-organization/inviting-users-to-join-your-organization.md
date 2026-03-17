@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Invite users to join
+category:
+  - Manage members
 ---
 
 > [!NOTE] This article does not apply to {% data variables.product.prodname_emus %}. {% data variables.enterprise.prodname_managed_users_caps %} are provisioned using SCIM, not invited.

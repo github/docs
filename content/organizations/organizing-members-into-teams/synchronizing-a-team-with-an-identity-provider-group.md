@@ -8,6 +8,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Synchronize with an IdP
+category:
+  - Organize teams
 ---
 
 {% data reusables.enterprise-accounts.emu-scim-note %}

@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Transfer ownership
+category:
+  - Set up your organization
 ---
 {% ifversion ghec %}
 

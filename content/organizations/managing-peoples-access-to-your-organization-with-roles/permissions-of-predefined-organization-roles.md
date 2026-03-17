@@ -5,6 +5,8 @@ versions:
   feature: 'org-pre-defined-roles'
 shortTitle: Predefined roles permissions
 product: 'Organizations on {% data variables.product.prodname_ghe_cloud %}{% ifversion ghes %} and {% data variables.product.prodname_ghe_server %}{% endif %}'
+category:
+  - Assign roles and permissions
 ---
 
 Organizations support several predefined roles for managing your organization members' access to resources. Assigning predefined roles is the fastest way to assign the permissions someone needs for their responsibilities.

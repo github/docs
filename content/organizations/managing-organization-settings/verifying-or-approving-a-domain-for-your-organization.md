@@ -13,6 +13,8 @@ versions:
   ghec: '*'
 shortTitle: Verify or approve a domain
 contentType: how-tos
+category:
+  - Set up your organization
 ---
 
 ## About domain verification

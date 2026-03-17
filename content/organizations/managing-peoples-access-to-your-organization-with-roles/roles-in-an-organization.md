@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Roles in an organization
+category:
+  - Assign roles and permissions
 ---
 
 ## About roles

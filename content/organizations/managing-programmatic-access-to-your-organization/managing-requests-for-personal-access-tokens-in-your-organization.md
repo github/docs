@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Manage token requests
+category:
+  - Manage app and API access
 ---
 
 ## About {% data variables.product.pat_v2 %} requests

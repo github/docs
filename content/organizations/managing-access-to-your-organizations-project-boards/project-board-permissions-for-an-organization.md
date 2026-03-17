@@ -8,6 +8,8 @@ versions:
   feature: projects-v1
 shortTitle: '{% data variables.product.prodname_project_v1_caps %} permissions'
 allowTitleToDifferFromFilename: true
+category:
+  - Manage projects
 ---
 
 {% data reusables.projects.project_boards_old %}

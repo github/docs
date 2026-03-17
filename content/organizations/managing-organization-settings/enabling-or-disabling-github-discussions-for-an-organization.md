@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Organization discussions
+category:
+  - Configure organization features
 ---
 
 ## About organization discussions

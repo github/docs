@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Manage security & analysis
+category:
+  - Secure and monitor your organization
 ---
 
 ## About management of security and analysis settings

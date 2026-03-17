@@ -7,6 +7,8 @@ permissions: Organization owners can configure SAML SSO and SCIM using Okta for 
 versions:
   ghec: '*'
 shortTitle: Configure SAML & SCIM with Okta
+category:
+  - Configure SAML single sign-on
 ---
 
 ## About SAML and SCIM with Okta

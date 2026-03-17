@@ -13,6 +13,8 @@ versions:
   ghec: '*'
 shortTitle: Restrict email notifications
 contentType: how-tos
+category:
+  - Secure and monitor your organization
 ---
 
 ## About email restrictions

@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Review audit log
+category:
+  - Secure and monitor your organization
 ---
 
 ## Accessing the audit log
