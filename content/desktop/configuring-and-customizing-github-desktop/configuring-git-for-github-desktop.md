@@ -10,6 +10,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Configure and customize GitHub Desktop
 ---
 ## About Git configuration for {% data variables.product.prodname_desktop %}
 

@@ -11,6 +11,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Commit & review changes
+category:
+  - Work with branches and pull requests
 ---
 ## About commits
 
