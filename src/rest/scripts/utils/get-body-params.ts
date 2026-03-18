@@ -20,7 +20,6 @@ export interface TransformedParam {
   name: string
   description: string
   isRequired?: boolean
-  in?: string
   childParamsGroups?: TransformedParam[]
   enum?: string[]
   oneOfObject?: boolean
@@ -31,7 +30,6 @@ interface BodyParamProps {
   paramKey?: string
   required?: string[]
   childParamsGroups?: TransformedParam[]
-  topLevel?: boolean
 }
 
 // If there is a oneOf at the top level, then we have to present just one
@@ -113,7 +111,6 @@ export async function getBodyParams(schema: Schema, topLevel = false): Promise<T
     }
     const paramDecorated = await getTransformedParam(schema, paramType, {
       required,
-      topLevel,
       childParamsGroups,
     })
     return [paramDecorated]
@@ -258,7 +255,6 @@ export async function getBodyParams(schema: Schema, topLevel = false): Promise<T
       paramKey,
       required,
       childParamsGroups,
-      topLevel,
     })
     bodyParametersParsed.push(paramDecorated)
   }
@@ -270,7 +266,7 @@ async function getTransformedParam(
   paramType: string[],
   props: BodyParamProps,
 ): Promise<TransformedParam> {
-  const { paramKey, required, childParamsGroups, topLevel } = props
+  const { paramKey, required, childParamsGroups } = props
   const paramDecorated: TransformedParam = {} as TransformedParam
   // Supports backwards compatibility for OpenAPI 3.0
   // In 3.1 a nullable type is part of the param.type array and
@@ -278,9 +274,6 @@ async function getTransformedParam(
   if (param.nullable) paramType.push('null')
   paramDecorated.type = Array.from(new Set(paramType.filter(Boolean))).join(' or ')
   paramDecorated.name = paramKey || ''
-  if (topLevel) {
-    paramDecorated.in = 'body'
-  }
   paramDecorated.description = await renderContent(param.description || '')
   if (required && required.includes(paramKey || '')) {
     paramDecorated.isRequired = true
