@@ -16,6 +16,8 @@ permissions: Enterprise owners can set up {% data variables.product.prodname_dep
 versions:
   ghes: '*'
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## About {% data variables.product.prodname_dependabot %} for {% data variables.product.prodname_ghe_server %}

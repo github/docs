@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: tutorials
+category:
+  - Manage project items and fields
 ---
 
 ## Converting draft issues in table layout

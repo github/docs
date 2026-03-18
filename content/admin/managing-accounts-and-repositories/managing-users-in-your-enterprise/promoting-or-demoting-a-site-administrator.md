@@ -11,6 +11,8 @@ versions:
   ghes: '*'
 shortTitle: Manage administrators
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 > [!NOTE] For information about promoting a user to an organization owner, see the `ghe-org-admin-promote` section of [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-org-admin-promote).

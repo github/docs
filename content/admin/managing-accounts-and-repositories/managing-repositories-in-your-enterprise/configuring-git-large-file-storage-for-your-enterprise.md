@@ -19,6 +19,8 @@ versions:
   ghes: '*'
 shortTitle: Configure Git LFS
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 ## About {% data variables.large_files.product_name_long %}
 

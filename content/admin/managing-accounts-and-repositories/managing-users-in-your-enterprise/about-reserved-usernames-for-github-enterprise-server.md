@@ -6,6 +6,8 @@ permissions: Enterprise owners
 versions:
   ghes: '*'
 contentType: reference
+category:
+  - Manage accounts and repositories
 ---
 
 ## About reserved usernames

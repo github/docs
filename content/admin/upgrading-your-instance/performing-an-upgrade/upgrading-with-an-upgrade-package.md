@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 shortTitle: Upgrade with an upgrade package
 contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 Using the administrative shell, you can install an upgrade package with the `ghe-upgrade` utility.

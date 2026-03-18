@@ -5,6 +5,8 @@ shortTitle: About assignments
 versions:
   fpt: '*'
 contentType: concepts
+category:
+  - Create and manage assignments
 ---
 
 ## About assignments in {% data variables.product.prodname_classroom %}

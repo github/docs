@@ -10,6 +10,8 @@ versions:
   ghes: '*'
 shortTitle: Configure package ecosystems
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: tutorials
+category:
+  - Automate your project
 ---
 {% ifversion ghes %}
 

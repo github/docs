@@ -15,6 +15,8 @@ versions:
   ghes: '*'
 shortTitle: Configure email notifications
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## Configuring SMTP for your enterprise

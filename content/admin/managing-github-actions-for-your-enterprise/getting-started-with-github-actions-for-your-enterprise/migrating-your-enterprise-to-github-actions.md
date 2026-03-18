@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About enterprise migrations to {% data variables.product.prodname_actions %}

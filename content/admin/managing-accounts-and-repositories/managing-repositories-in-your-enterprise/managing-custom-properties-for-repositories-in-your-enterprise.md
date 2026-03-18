@@ -5,6 +5,8 @@ permissions: Enterprise owners
 versions:
   feature: custom-properties-enterprise
 shortTitle: Custom properties
+category:
+  - Manage accounts and repositories
 ---
 
 {% data reusables.enterprise-onboarding.creating-custom-properties %}

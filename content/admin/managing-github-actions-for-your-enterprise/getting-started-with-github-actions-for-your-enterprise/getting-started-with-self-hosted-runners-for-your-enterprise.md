@@ -9,6 +9,8 @@ permissions: Enterprise owners{% ifversion custom-org-roles %} and users with pe
 redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
 contentType: get-started
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About self-hosted runners for {% data variables.product.prodname_actions %}

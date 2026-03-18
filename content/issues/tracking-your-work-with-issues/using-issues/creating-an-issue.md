@@ -25,6 +25,8 @@ versions:
   ghec: '*'
 shortTitle: Create an issue
 contentType: how-tos
+category:
+  - Create and work with issues
 ---
 
 Issues can be used to keep track of bugs, enhancements, or other requests. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues).

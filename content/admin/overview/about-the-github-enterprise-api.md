@@ -11,6 +11,8 @@ redirect_from:
 versions:
   ghes: '*'
 shortTitle: GitHub Enterprise API
+category:
+  - Get started with GitHub Enterprise
 ---
 
 With the APIs, you can automate many administrative tasks. Some examples include:

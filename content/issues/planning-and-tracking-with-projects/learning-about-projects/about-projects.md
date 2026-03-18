@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/about-projects
 contentType: concepts
+category:
+  - Set up and manage projects
 ---
 
 ## About {% data variables.product.prodname_projects_v2 %}

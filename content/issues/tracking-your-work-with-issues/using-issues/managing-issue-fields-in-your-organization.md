@@ -8,6 +8,8 @@ versions:
 contentType: concepts
 shortTitle: 'Managing issue fields'
 permissions: 'Organization owners can create and manage issue fields.'
+category:
+  - Triage and organize issues
 ---
 
 {% data reusables.issues.issue-fields-public-preview-note %}

@@ -6,6 +6,8 @@ versions:
   ghes: '>= 3.18'
 contentType: how-tos
 allowTitleToDifferFromFilename: true
+category:
+  - Scale your instance
 ---
 
 > [!NOTE]

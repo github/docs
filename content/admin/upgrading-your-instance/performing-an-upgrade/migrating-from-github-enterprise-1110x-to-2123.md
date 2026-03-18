@@ -18,6 +18,8 @@ versions:
   ghes: '*'
 shortTitle: Migrate from 11.10.x to 2.1.23
 contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 > [!NOTE]

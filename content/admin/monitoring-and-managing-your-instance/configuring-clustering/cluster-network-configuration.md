@@ -12,6 +12,8 @@ versions:
   ghes: '*'
 shortTitle: Configure a cluster network
 contentType: reference
+category:
+  - Scale your instance
 ---
 
 ## About networking for a {% data variables.product.prodname_ghe_server %} cluster

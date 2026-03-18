@@ -12,6 +12,8 @@ redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise
 shortTitle: Manage team synchronization
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 {% data reusables.enterprise-accounts.emu-scim-note %}

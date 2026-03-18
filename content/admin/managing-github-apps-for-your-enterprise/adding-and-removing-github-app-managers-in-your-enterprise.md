@@ -8,6 +8,8 @@ shortTitle: Add app managers
 redirect_from:
   - /admin/managing-your-enterprise-account/adding-and-removing-github-app-managers-in-your-enterprise
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About {% data variables.product.prodname_github_app %} managers

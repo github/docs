@@ -11,6 +11,8 @@ versions:
 shortTitle: Administrative shell
 permissions: Site administrators can use the administrative shell to import data from other version control systems.
 contentType: how-tos
+category:
+  - Import source code
 ---
 
 ## Importing projects from Mercurial

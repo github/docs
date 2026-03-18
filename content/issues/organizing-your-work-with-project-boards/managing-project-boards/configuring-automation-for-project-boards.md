@@ -10,6 +10,8 @@ versions:
 shortTitle: Configure automation
 allowTitleToDifferFromFilename: true
 contentType: how-tos
+category:
+  - Use project boards (classic)
 ---
 {% data reusables.projects.project_boards_old %}
 

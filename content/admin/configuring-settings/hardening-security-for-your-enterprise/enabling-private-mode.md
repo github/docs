@@ -13,6 +13,8 @@ redirect_from:
 versions:
   ghes: '*'
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 You must enable private mode if {% data variables.location.product_location %} is publicly accessible over the Internet. In private mode, users cannot anonymously clone repositories. If built-in authentication is also enabled, an administrator must invite new users to create an account on the instance. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication).
 

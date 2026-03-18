@@ -5,6 +5,8 @@ intro: How to change the platform that runs {% data variables.location.product_l
 versions:
   ghes: '*'
 contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 In some cases, you may need to change the platform on which {% data variables.location.product_location %} runs, such as moving from VMware to Azure.

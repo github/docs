@@ -7,6 +7,8 @@ redirect_from:
 versions:
   ghes: '*'
 contentType: concepts
+category:
+  - Get started with GitHub Enterprise
 ---
 
 ## About {% data variables.product.prodname_ghe_server %}

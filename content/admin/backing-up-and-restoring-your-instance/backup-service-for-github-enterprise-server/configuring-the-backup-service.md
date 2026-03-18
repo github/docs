@@ -5,6 +5,8 @@ intro: Enable and configure the built-in backup service in the {% data variables
 versions:
   ghes: '>=3.17'
 contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 Before configuring the backup service, ensure you have:

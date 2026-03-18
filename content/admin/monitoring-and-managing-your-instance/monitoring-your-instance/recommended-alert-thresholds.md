@@ -14,6 +14,8 @@ versions:
   ghes: '*'
 shortTitle: Recommended alert thresholds
 contentType: reference
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## About recommended alert thresholds

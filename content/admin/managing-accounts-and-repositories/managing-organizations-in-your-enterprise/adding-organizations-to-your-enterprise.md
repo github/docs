@@ -12,6 +12,8 @@ versions:
 shortTitle: Add organizations
 permissions: Enterprise owners
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 There are three ways to add organizations to your enterprise.

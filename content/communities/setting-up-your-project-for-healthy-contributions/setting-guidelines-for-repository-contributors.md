@@ -10,6 +10,8 @@ redirect_from:
   - /articles/setting-guidelines-for-repository-contributors
   - /github/building-a-strong-community/setting-guidelines-for-repository-contributors
 shortTitle: Contributor guidelines
+category:
+  - Set up your project for contributions
 ---
 ## About contributing guidelines
 

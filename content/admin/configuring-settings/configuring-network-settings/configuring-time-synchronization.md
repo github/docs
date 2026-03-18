@@ -15,6 +15,8 @@ versions:
   ghes: '*'
 shortTitle: Configure time settings
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## Default NTP servers

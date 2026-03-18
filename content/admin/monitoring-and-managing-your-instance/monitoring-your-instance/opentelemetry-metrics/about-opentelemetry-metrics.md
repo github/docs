@@ -5,6 +5,8 @@ versions:
   feature: ghes-opentelemetry
 shortTitle: OpenTelemetry metrics
 contentType: concepts
+category:
+  - Monitor and audit your enterprise
 ---
 
 {% data reusables.enterprise.opentelemetry-migration %}

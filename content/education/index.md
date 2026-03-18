@@ -8,24 +8,27 @@ redirect_from:
   - /education/explore-internship-projects-with-github-octernships/about-github-octernships
   - /education/explore-internship-projects-with-github-octernships/applying-for-github-octernships
   - /education/explore-internship-projects-with-github-octernships
-featuredLinks:
-  startHere:
-    - /education/about-github-education/github-education-for-students/apply-to-github-education-as-a-student
-    - /education/about-github-education/github-education-for-teachers/apply-to-github-education-as-a-teacher
-    - /education/about-github-education/use-github-at-your-educational-institution
-  guideCards:
-    - /get-started/start-your-journey/creating-an-account-on-github
-    - /get-started/start-your-journey/git-and-github-learning-resources
-  popular:
-    - /education/manage-coursework-with-github-classroom/get-started-with-github-classroom/about-github-classroom
-    - /education/about-github-education/github-education-for-students/about-github-education-for-students
-    - /education/about-github-education/github-education-for-teachers/about-github-education-for-teachers
-    - /desktop
-    - /github-cli/github-cli/about-github-cli
-    - /education/manage-coursework-with-github-classroom/teach-with-github-classroom
 changelog:
   label: education
-layout: product-landing
+layout: discovery-landing
+includedCategories:
+  - Apply for GitHub Education
+  - Set up GitHub Classroom
+  - Integrate GitHub Classroom with an IDE
+  - Create and manage assignments
+  - Track assignment progress
+  - Participate in campus and community programs
+carousels:
+  recommended:
+    - /education/quickstart
+    - /education/about-github-education/github-education-for-students/apply-to-github-education-as-a-student
+    - /education/about-github-education/github-education-for-teachers/apply-to-github-education-as-a-teacher
+    - /education/manage-coursework-with-github-classroom/get-started-with-github-classroom/about-github-classroom
+    - /education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment
+    - /education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom
+    - /education/about-github-education/github-education-for-students/about-github-education-for-students
+    - /education/about-github-education/use-github-at-your-educational-institution/about-github-campus-program
+    - /education/contribute-with-github-community-exchange/getting-started-with-github-community-exchange
 versions:
   fpt: '*'
 children:
@@ -35,4 +38,3 @@ children:
   - /manage-coursework-with-github-classroom
   - /guides
 ---
-

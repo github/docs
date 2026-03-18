@@ -13,6 +13,8 @@ versions:
   ghes: '*'
 shortTitle: Fallback authentication
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 ## About built-in authentication for users outside your provider

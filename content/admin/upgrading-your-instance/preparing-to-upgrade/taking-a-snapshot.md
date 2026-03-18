@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 shortTitle: Take a snapshot
 contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 ## About snapshots

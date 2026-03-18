@@ -5,6 +5,8 @@ versions:
   ghes: '*'
 contentType: concepts
 shortTitle: HA replica information
+category:
+  - Scale your instance
 ---
 
 ## Replica types and capabilities

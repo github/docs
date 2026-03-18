@@ -14,6 +14,8 @@ versions:
   ghec: '*'
 shortTitle: View all issues & PRs
 contentType: how-tos
+category:
+  - Create and work with issues
 ---
 
 ## Viewing your issues and pull requests

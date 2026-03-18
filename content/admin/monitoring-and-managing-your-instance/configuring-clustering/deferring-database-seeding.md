@@ -7,6 +7,8 @@ versions:
 redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/deferring-database-seeding
 contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About deferring database seeding of a MySQL replica node

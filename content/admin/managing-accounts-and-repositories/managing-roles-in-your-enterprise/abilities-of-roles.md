@@ -17,6 +17,8 @@ versions:
   ghes: '*'
 allowTitleToDifferFromFilename: true
 contentType: reference
+category:
+  - Manage accounts and repositories
 ---
 
 ## About roles in an enterprise

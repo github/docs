@@ -11,6 +11,8 @@ redirect_from:
   - /admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
   - /admin/configuration/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About network traffic restrictions

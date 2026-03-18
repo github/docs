@@ -11,6 +11,8 @@ redirect_from:
   - /admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api
   - /admin/managing-iam/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api
 contentType: tutorials
+category:
+  - Provision and manage enterprise users
 ---
 
 {% ifversion ghec %}

@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 allowTitleToDifferFromFilename: true
 contentType: tutorials
+category:
+  - Manage project items and fields
 ---
 
 > [!NOTE]

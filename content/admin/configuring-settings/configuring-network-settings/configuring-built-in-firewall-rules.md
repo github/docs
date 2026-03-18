@@ -11,6 +11,8 @@ versions:
   ghes: '*'
 shortTitle: Configure firewall rules
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 ## About {% data variables.location.product_location %}'s firewall
 

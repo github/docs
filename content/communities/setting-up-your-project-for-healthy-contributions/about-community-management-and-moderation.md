@@ -7,6 +7,8 @@ versions:
 redirect_from:
   - /github/building-a-strong-community/about-community-management-and-moderation
 shortTitle: Management & moderation
+category:
+  - Set up your project for contributions
 ---
 
 ## About community management and moderation

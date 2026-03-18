@@ -7,6 +7,8 @@ versions:
 redirect_from:
   - /admin/configuration/configuring-network-settings/changing-the-hostname-for-your-instance
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## About changes to the hostname for {% data variables.product.prodname_ghe_server %}

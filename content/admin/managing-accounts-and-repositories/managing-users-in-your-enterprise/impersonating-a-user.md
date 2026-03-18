@@ -8,6 +8,8 @@ shortTitle: Impersonate a user
 redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/impersonating-a-user
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 ## About user impersonation

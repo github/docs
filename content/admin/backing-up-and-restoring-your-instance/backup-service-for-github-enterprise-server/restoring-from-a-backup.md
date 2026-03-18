@@ -5,6 +5,8 @@ intro: Restore a {% data variables.product.prodname_ghe_server %} instance using
 versions:
   ghes: '>= 3.17'
 contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 You can restore a {% data variables.product.prodname_ghe_server %} instance from a backup using the command line. The backup service supports full instance restoration, including configuration and user data.

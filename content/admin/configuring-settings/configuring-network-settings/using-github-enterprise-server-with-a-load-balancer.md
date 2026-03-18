@@ -11,6 +11,8 @@ versions:
   ghes: '*'
 shortTitle: Use a load balancer
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## About load balancers

@@ -9,6 +9,8 @@ redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/managing-organization-members-in-your-enterprise
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-organization-members-in-your-enterprise
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 To simplify administration at scale, you can create enterprise teams. {% data reusables.enterprise.enterprise-teams-can %}

@@ -14,6 +14,8 @@ versions:
   ghes: '*'
 shortTitle: Manage user suspension
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 ## About suspended users

@@ -12,6 +12,8 @@ versions:
   ghes: '*'
 shortTitle: Enable automatic update checks
 contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 ## About automatic update checks

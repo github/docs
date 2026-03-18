@@ -7,6 +7,8 @@ shortTitle: Lock a repository
 redirect_from:
   - /admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 ## Locking a repository

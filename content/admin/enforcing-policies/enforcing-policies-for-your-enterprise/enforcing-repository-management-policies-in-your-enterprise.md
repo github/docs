@@ -39,6 +39,8 @@ versions:
   ghes: '*'
 shortTitle: Repository management policies
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About policies for repository management in your enterprise

@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 redirect_from:
   - /rest/overview/breaking-changes
+category:
+  - Learn about the REST API
 ---
 
 ## About breaking changes in the REST API

@@ -6,6 +6,8 @@ versions:
 permissions: Enterprise owners can change the URL for the enterprise.
 shortTitle: Change enterprise URL
 contentType: how-tos
+category:
+  - Get started with GitHub Enterprise
 ---
 
 ## About changes to enterprise slugs

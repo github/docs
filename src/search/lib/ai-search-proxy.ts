@@ -7,7 +7,7 @@ import type { ExtendedRequest } from '@/types'
 import { handleExternalSearchAnalytics } from '@/search/lib/helpers/external-search-analytics'
 
 export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
-  const { query, version } = req.body
+  const { query, version } = req.body ?? {}
 
   const errors = []
 

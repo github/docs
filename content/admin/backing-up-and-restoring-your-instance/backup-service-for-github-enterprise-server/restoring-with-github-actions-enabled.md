@@ -5,6 +5,8 @@ intro: Learn how to prepare for and restore backups when {% data variables.produ
 versions:
   ghes: '>= 3.17'
 contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 >[!IMPORTANT] Data stored in your configured external storage for {% data variables.product.prodname_actions %}—such as logs, artifacts, and other blobs—is not included in {% data variables.product.prodname_enterprise_backup_service %} snapshots. You must back up this data separately using your storage provider's tools and best practices.

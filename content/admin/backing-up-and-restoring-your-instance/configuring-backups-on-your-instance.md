@@ -21,6 +21,8 @@ intro: As part of a disaster recovery plan, you can protect production data on {
 versions:
   ghes: '*'
 contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 {% ifversion ghes > 3.16 %}

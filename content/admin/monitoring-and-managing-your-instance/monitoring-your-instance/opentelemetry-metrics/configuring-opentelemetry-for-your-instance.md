@@ -5,6 +5,8 @@ versions:
   feature: ghes-opentelemetry
 shortTitle: Configure OpenTelemetry
 contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 {% data reusables.enterprise.opentelemetry-migration %}

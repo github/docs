@@ -9,6 +9,8 @@ redirect_from:
   - /issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project
   - /issues/tracking-your-work-with-issues/configuring-issues/planning-and-tracking-work-for-your-team-or-project
 contentType: concepts
+category:
+  - Create and work with issues
 ---
 ## Introduction
 

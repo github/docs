@@ -5,6 +5,8 @@ intro: You can programmatically import repositories to {% data variables.product
 versions:
   feature: source-imports-api-deprecation
 contentType: tutorials
+category:
+  - Plan your migration
 ---
 
 ## About programmatic import of repositories

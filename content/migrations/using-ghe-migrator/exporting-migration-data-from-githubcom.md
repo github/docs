@@ -17,6 +17,8 @@ versions:
   ghes: '*'
 shortTitle: Export from GitHub.com
 contentType: how-tos
+category:
+  - Run an enterprise migration
 ---
 ## Preparing the source organization on {% data variables.product.prodname_dotcom %}
 

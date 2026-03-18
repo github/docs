@@ -14,6 +14,8 @@ redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise
 shortTitle: Restrict email notifications
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About email restrictions for your enterprise

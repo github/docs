@@ -5,6 +5,8 @@ intro: Learn what the built-in backup service offers and how it differs from a H
 versions:
   ghes: '>=3.17'
 contentType: concepts
+category:
+  - Back up and upgrade your instance
 ---
 
 {% ifversion ghes < 3.20 %}

@@ -12,6 +12,8 @@ versions:
   ghes: '*'
 shortTitle: Choosing cluster or HA
 contentType: reference
+category:
+  - Scale your instance
 ---
 
 ## About deployment topologies for {% data variables.product.prodname_ghe_server %}

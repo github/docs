@@ -13,6 +13,8 @@ versions:
   ghes: '*'
 shortTitle: Automatic user license sync
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 ## About automatic license synchronization
 

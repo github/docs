@@ -7,6 +7,8 @@ shortTitle: Enable Packages with Azure
 redirect_from:
   - /admin/packages/enabling-github-packages-with-azure-blob-storage
 contentType: tutorials
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 > [!WARNING]

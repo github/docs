@@ -7,6 +7,8 @@ versions:
   feature: revoke-enterprise-tokens
 shortTitle: Lock down SSO
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 When your enterprise is affected by a major security incident, you can temporarily block single sign-on for all users except enterprise owners. This allows you to lock down access to your enterprise in order to investigate the incident within a more isolated surface area.

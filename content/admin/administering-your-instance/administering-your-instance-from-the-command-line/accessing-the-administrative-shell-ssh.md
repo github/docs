@@ -18,6 +18,8 @@ versions:
   ghes: '*'
 shortTitle: Access the admin shell (SSH)
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 ## About administrative shell access
 

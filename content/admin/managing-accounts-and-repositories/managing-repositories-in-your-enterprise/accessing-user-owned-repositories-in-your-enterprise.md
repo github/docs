@@ -8,6 +8,8 @@ shortTitle: Access user-owned repositories
 redirect_from:
   - /admin/user-management/managing-repositories-in-your-enterprise/accessing-user-owned-repositories-in-your-enterprise
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 ## About temporary access to user-owned repositories

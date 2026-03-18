@@ -11,6 +11,8 @@ redirect_from:
 versions:
   ghes: '*'
 contentType: concepts
+category:
+  - Scale your instance
 ---
 
 ## About {% data variables.product.prodname_ghe_server %} cluster nodes

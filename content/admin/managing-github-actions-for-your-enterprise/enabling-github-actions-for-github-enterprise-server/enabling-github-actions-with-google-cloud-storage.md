@@ -8,6 +8,8 @@ shortTitle: Google Cloud Storage
 redirect_from:
   - /admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-google-cloud-storage
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 > [!NOTE]

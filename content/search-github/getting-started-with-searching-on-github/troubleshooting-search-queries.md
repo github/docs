@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Troubleshoot search queries
+category:
+  - Get started with search
 ---
 ## Potential timeouts
 

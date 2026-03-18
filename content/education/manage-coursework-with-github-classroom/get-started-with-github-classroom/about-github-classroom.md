@@ -4,6 +4,8 @@ intro: Teachers and school administrators can use {% data variables.product.prod
 versions:
   fpt: '*'
 contentType: concepts
+category:
+  - Set up GitHub Classroom
 ---
 
 ## About {% data variables.product.prodname_classroom %}

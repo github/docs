@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Create footer or sidebar
+category:
+  - Document your project with wikis
 ---
 
 ## Creating a footer

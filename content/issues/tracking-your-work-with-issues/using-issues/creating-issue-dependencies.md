@@ -7,6 +7,8 @@ versions:
 permissions: People with at least triage permissions for a repository can create issue dependencies.
 product: Issue dependencies are available for users on {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, and {% data variables.product.prodname_ghe_cloud %} plans.
 contentType: concepts
+category:
+  - Create and work with issues
 ---
 
 Issue dependencies let you define issues that are blocked by, or blocking, other work.

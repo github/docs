@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 shortTitle: Upgrade with a hotpatch
 contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 {% data reusables.enterprise_installation.hotpatching-explanation %}

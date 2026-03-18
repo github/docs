@@ -14,6 +14,8 @@ redirect_from:
   - /issues/managing-your-tasks-with-tasklists/quickstart-for-tasklists
   - /issues/managing-your-tasks-with-tasklists/using-projects-and-tasklists
 contentType: concepts
+category:
+  - Create and work with issues
 ---
 
 You can add sub-issues to an issue to break down larger pieces of work into tasks. Your sub-issues show their relationship to the parent issue allowing you to track your work across {% data variables.product.github %}. Parent issues and sub-issue progress is also available in your {% data variables.projects.projects_v2 %}, allowing you to build views, filter, and group by parent issue.

@@ -12,6 +12,8 @@ redirect_from:
 versions:
   ghes: '*'
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## About the hostname for {% data variables.product.prodname_ghe_server %}

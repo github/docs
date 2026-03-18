@@ -7,6 +7,8 @@ versions:
   ghes: '>= 3.21'
 shortTitle: Custom properties
 contentType: concepts
+category:
+  - Manage accounts and repositories
 ---
 
 ## What are custom properties?

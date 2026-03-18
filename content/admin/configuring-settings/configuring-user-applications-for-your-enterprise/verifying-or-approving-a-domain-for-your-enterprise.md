@@ -19,6 +19,8 @@ redirect_from:
   - /admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise
   - /admin/configuration/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About verification of domains

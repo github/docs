@@ -6,6 +6,8 @@ versions:
 shortTitle: Delete a user
 permissions: Site administrators
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 ## What happens when I delete a user account?

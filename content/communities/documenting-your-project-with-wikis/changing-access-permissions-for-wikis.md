@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Change access permissions
+category:
+  - Document your project with wikis
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

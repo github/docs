@@ -8,6 +8,8 @@ redirect_from:
 versions:
   ghes: '*'
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About the referrer policy for your enterprise

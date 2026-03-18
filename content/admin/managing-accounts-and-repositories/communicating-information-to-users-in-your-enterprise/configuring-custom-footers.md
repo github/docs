@@ -9,6 +9,8 @@ shortTitle: Configure custom footers
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-custom-footers
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 ## About custom footers for your enterprise

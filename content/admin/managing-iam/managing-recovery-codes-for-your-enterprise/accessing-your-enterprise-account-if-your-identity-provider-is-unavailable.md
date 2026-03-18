@@ -8,6 +8,8 @@ permissions: Enterprise owners can use a recovery code to access an enterprise a
 redirect_from:
   - /admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 ## About recovery codes

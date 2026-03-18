@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /github/searching-for-information-on-github/searching-discussions
   - /github/searching-for-information-on-github/searching-on-github/searching-discussions
+category:
+  - Search for work and community content
 ---
 
 ## About searching for discussions

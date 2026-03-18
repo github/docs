@@ -6,6 +6,8 @@ versions:
 contentType: how-tos
 shortTitle: 'Using issue fields'
 permissions: 'People with triage access or greater to a repository can set and edit issue field values.'
+category:
+  - Create and work with issues
 ---
 
 {% data reusables.issues.issue-fields-public-preview-note %}

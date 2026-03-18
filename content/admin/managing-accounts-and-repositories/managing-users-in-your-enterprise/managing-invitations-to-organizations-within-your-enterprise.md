@@ -8,6 +8,8 @@ permissions: Enterprise owners can manage invitations to organizations within th
 redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/managing-invitations-to-organizations-within-your-enterprise
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 You can manage invitations to your enterprise or organizations within your enterprise.

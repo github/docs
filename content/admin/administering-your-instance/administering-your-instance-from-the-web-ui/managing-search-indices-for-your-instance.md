@@ -6,6 +6,8 @@ permissions: Enterprise owners can manage search indices for a {% data variables
 versions:
   ghes: '*'
 contentType: reference
+category:
+  - Install and configure your instance
 ---
 
 ## About search for {% data variables.product.prodname_ghe_server %}

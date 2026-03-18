@@ -21,6 +21,8 @@ versions:
   ghec: '*'
 contentType: concepts
 allowTitleToDifferFromFilename: true
+category:
+  - Provision and manage enterprise users
 ---
 
 ## What are Enterprise Managed Users in {% data variables.product.github %}?

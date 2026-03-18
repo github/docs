@@ -13,6 +13,8 @@ intro: Open network ports selectively based on the network services you need to 
 versions:
   ghes: '*'
 contentType: reference
+category:
+  - Install and configure your instance
 ---
 ## Administrative ports
 

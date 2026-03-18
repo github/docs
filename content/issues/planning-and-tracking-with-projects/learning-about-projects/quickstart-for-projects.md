@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/quickstart
 contentType: get-started
+category:
+  - Set up and manage projects
 ---
 
 ## Introduction

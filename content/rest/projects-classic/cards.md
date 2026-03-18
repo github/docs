@@ -14,6 +14,8 @@ redirect_from:
   - /rest/projects/cards
   - /v3/projects/cards
   - /rest/reference/projects/cards
+category:
+  - Manage issues, pull requests, and projects
 ---
 
 <!-- Content after this section is automatically generated -->

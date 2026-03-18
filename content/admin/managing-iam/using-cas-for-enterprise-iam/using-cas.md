@@ -13,6 +13,8 @@ intro: If you use Central Authentication Service (CAS) to centralize access to m
 versions:
   ghes: '*'
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 ## About CAS authentication for {% data variables.product.prodname_ghe_server %}

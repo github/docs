@@ -15,6 +15,8 @@ versions:
   ghec: '*'
   feature: scim-for-ghes-public-beta
 contentType: how-tos
+category:
+  - Provision and manage enterprise users
 ---
 
 {% data reusables.scim.ghes-beta-note %}

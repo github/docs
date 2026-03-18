@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: tutorials
+category:
+  - Manage project items and fields
 ---
 
 You can enable the "Linked pull requests" and "Reviewers" fields on your projects to see information about a pull request, making a project the way to plan and track your issues, pull request, and code.

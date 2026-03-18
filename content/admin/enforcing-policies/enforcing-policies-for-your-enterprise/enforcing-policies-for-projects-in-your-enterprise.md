@@ -16,6 +16,8 @@ versions:
   ghes: '*'
 shortTitle: Projects policies
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About policies for projects in your enterprise

@@ -5,6 +5,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: concepts
+category:
+  - Get started with GitHub Enterprise
 ---
 
 ## Why should my business choose {% data variables.product.github %}?

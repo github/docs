@@ -12,6 +12,8 @@ redirect_from:
   - /migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-azure-devops-to-github-enterprise-cloud
   - /migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/migrating-repositories-from-azure-devops-to-github-enterprise-cloud
   - /migrations/ado/migrating-repositories-from-azure-devops-to-github-enterprise-cloud
+category:
+  - Migrate from Azure DevOps
 ---
 
 ## Prerequisites

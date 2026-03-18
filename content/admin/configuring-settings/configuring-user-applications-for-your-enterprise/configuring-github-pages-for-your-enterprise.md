@@ -15,6 +15,8 @@ versions:
   ghes: '*'
 shortTitle: Configure GitHub Pages
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## Enabling public sites for {% data variables.product.prodname_pages %}

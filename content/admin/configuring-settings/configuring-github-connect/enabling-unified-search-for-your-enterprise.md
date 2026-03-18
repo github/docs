@@ -16,6 +16,8 @@ permissions: Enterprise owners
 versions:
   ghes: '*'
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## About {% data variables.enterprise.prodname_unified_search %}

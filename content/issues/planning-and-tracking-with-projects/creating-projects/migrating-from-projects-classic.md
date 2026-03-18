@@ -7,6 +7,8 @@ redirect_from:
   - /issues/trying-out-the-new-projects-experience/migrating-your-project
 allowTitleToDifferFromFilename: true
 contentType: tutorials
+category:
+  - Set up and manage projects
 ---
 
 > [!NOTE]

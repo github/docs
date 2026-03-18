@@ -12,6 +12,8 @@ versions:
   ghes: '*'
 shortTitle: Enable subdomain isolation
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 ## About subdomain isolation
 

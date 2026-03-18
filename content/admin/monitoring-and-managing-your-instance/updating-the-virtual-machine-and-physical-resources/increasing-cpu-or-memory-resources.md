@@ -11,6 +11,8 @@ versions:
   ghes: '*'
 shortTitle: Increase CPU or memory
 contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About increasing CPU or memory resources

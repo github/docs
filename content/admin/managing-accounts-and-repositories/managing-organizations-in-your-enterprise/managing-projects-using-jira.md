@@ -13,6 +13,8 @@ versions:
   ghes: '*'
 shortTitle: Project management with Jira
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 ## Connecting Jira to a {% data variables.product.prodname_enterprise %} organization
 

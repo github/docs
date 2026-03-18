@@ -13,6 +13,8 @@ redirect_from:
 versions:
   ghes: '*'
 contentType: reference
+category:
+  - Back up and upgrade your instance
 ---
 
 > [!NOTE]

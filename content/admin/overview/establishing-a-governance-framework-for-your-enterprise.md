@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: concepts
+category:
+  - Secure and govern your enterprise
 ---
 
 As an enterprise owner, you are responsible for maintaining a strong security posture, complying with regulations, mitigating risks, and protecting intellectual property, within your enterprise. {% data variables.product.company_short %} has tools that can help with that.

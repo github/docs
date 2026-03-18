@@ -10,6 +10,8 @@ versions:
   ghes: '*'
 shortTitle: Install on Azure
 contentType: tutorials
+category:
+  - Install and configure your instance
 ---
 You can deploy {% data variables.product.prodname_ghe_server %} on global Azure or Azure Government.
 

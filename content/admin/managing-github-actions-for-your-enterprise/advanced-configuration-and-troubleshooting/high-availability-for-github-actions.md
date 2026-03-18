@@ -8,6 +8,8 @@ redirect_from:
   - /admin/github-actions/advanced-configuration-and-troubleshooting/high-availability-for-github-actions
 shortTitle: HA for GitHub Actions
 contentType: reference
+category:
+  - Enable GitHub features for your enterprise
 ---
 ## Replication or redundancy of your {% data variables.product.prodname_actions %} data
 

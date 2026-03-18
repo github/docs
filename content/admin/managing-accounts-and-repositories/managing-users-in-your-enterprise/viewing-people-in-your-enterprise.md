@@ -12,6 +12,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: View people in your enterprise
+category:
+  - Manage accounts and repositories
 ---
 
 {% data reusables.enterprise-managed.repo-collaborators-note %}

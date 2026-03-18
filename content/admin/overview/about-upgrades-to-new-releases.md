@@ -5,6 +5,8 @@ intro: Learn about how features and bug fixes are added to {% data variables.pro
 versions:
   ghes: '*'
 contentType: concepts
+category:
+  - Back up and upgrade your instance
 ---
 
 {% data reusables.enterprise.constantly-improving %}

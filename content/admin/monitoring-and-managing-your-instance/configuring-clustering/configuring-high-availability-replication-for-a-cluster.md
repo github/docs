@@ -9,6 +9,8 @@ versions:
   ghes: '*'
 shortTitle: Configure HA replication
 contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About high availability replication for clusters

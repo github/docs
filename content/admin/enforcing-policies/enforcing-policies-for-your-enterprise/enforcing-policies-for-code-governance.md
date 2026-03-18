@@ -7,6 +7,8 @@ versions:
 permissions: Enterprise owners
 shortTitle: Create rulesets
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## Introduction

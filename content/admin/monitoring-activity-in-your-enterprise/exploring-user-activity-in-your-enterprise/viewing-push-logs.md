@@ -11,6 +11,8 @@ redirect_from:
 versions:
   ghes: '*'
 contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 Push log entries show:
 

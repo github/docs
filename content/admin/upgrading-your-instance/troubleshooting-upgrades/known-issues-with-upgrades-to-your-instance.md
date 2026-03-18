@@ -9,6 +9,8 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance
   - /admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance
 contentType: concepts
+category:
+  - Back up and upgrade your instance
 ---
 
 ## About known issues with {% data variables.product.prodname_ghe_server %} upgrades

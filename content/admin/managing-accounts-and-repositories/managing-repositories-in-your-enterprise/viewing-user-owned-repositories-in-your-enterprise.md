@@ -8,6 +8,8 @@ shortTitle: View user-owned repositories
 redirect_from:
   - /admin/user-management/managing-repositories-in-your-enterprise/viewing-user-owned-repositories-in-your-enterprise
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 If your enterprise uses {% data variables.product.prodname_emus %}, and you've allowed users to create repositories owned by their user accounts, you can view all user-owned repositories within your enterprise.

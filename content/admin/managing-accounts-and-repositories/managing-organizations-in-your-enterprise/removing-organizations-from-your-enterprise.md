@@ -8,6 +8,8 @@ shortTitle: Remove organizations
 redirect_from:
   - /admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 You can remove an organization that is owned by your enterprise account, so the organization stands alone.

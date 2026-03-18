@@ -5,6 +5,8 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
 shortTitle: Quickstart for educators
+category:
+  - Set up GitHub Classroom
 ---
 
 ## Introduction

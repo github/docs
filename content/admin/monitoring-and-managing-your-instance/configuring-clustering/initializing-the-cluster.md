@@ -11,6 +11,8 @@ redirect_from:
 versions:
   ghes: '*'
 contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About initialization of a {% data variables.product.prodname_ghe_server %} cluster

@@ -9,6 +9,8 @@ versions:
 allowTitleToDifferFromFilename: true
 permissions: Organization owners or people with the team maintainer role and admin permissions on a project can add a project to a team.
 contentType: tutorials
+category:
+  - Set up and manage projects
 ---
 
 ## About adding projects to teams

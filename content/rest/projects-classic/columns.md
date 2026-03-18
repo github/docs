@@ -14,6 +14,8 @@ redirect_from:
   - /rest/projects/columns
   - /v3/projects/columns
   - /rest/reference/projects/columns
+category:
+  - Manage issues, pull requests, and projects
 ---
 
 <!-- Content after this section is automatically generated -->

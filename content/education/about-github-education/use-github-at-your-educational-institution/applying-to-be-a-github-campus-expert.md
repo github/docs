@@ -6,6 +6,8 @@ versions:
 shortTitle: Apply to Campus Experts
 redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/applying-to-be-a-github-campus-expert
+category:
+  - Participate in campus and community programs
 ---
 
 ## Applying to the {% data variables.product.prodname_student_leader_program %} program
