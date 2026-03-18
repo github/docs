@@ -49,13 +49,15 @@ category:
 
 Previously, {% data variables.large_files.product_name_short %} billing used pre-paid data packs. These have been removed and replaced with metered billing and you only pay for what you actually use.
 
-Each {% data variables.product.github %} account includes a quota of free bandwidth and storage for {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). If you exceed this quota, what happens next depends on your {% data variables.large_files.product_name_short %} budget setting:
+Each {% data variables.product.github %} account includes a quota of free bandwidth and storage for {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}).
+
+* **Bandwidth:** Your free quota resets at the start of each billing cycle.
+* **Storage:** Charges accrue continuously throughout the month based on hourly usage. Your accrued storage total resets to zero at the beginning of each billing cycle.
+
+If you exceed this quota, what happens next depends on your {% data variables.large_files.product_name_short %} budget setting:
 
 * **Budget set to $0**: You are not charged for overages, but {% data variables.large_files.product_name_short %} usage is blocked for the rest of the calendar month. Usage resets on the first of the next month.
 * **Budget deleted**: There is no spending limit, and you are billed for all usage beyond the free quota.
-
-* **Bandwidth:** Your free quota resets at the start of each billing cycle. 
-* **Storage:** Charges accrue continuously throughout the month based on hourly usage. Your accrued storage total resets to zero at the beginning of each billing cycle.
 
 {% data variables.large_files.product_name_short %} storage is calculated based on all {% data variables.large_files.product_name_short %} objects associated with a repository, regardless of when they were uploaded. Storage usage is only zero when no {% data variables.large_files.product_name_short %} objects are associated with the repository.
 
