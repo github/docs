@@ -115,7 +115,7 @@ jobs:
 
 {% ifversion artifact-attestations %}
       - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v3
+        uses: actions/attest@v4
         with:
           subject-name: index.docker.io/my-docker-hub-namespace/my-docker-hub-repository
           subject-digest: {% raw %}${{ steps.push.outputs.digest }}{% endraw %}

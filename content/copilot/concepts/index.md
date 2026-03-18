@@ -20,5 +20,6 @@ children:
   - /policies
   - /mcp-management
   - /network-settings
+  - /fallback-and-lts-models
 contentType: concepts
 ---

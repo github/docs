@@ -102,6 +102,10 @@ For more information about premium requests, see [AUTOTITLE](/copilot/managing-c
 
 {% data reusables.copilot.model-multipliers %}
 
+## Fallback and long-term support (LTS) models
+
+For more information about fallback and LTS models, see [AUTOTITLE](/copilot/concepts/fallback-and-lts-models).
+
 ## Next steps
 
 * For task-based guidance on selecting a model, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).

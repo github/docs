@@ -77,7 +77,7 @@ You can upload data to the {% data variables.product.virtual_registry %} in the 
 
 In the following example, we build and publish a Docker image, then use the `{% raw %}${{ steps.push.outputs.digest }}{% endraw %}` output in the next step to generate a provenance attestation.
 
-The `attest-build-provenance` action automatically uploads a storage record to the {% data variables.product.virtual_registry %} when `push-to-registry: true` is set and the workflow includes the `artifact-metadata: write` permission.
+The `attest` action automatically uploads a storage record to the {% data variables.product.virtual_registry %} when `push-to-registry: true` is set and the workflow includes the `artifact-metadata: write` permission.
 
 ``` yaml
 {% raw %}
@@ -108,7 +108,7 @@ jobs:
             ${{ env.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
       - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v3
+        uses: actions/attest@v4
         with:
           subject-name: ${{ env.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}
           subject-digest: ${{ steps.push.outputs.digest }}
