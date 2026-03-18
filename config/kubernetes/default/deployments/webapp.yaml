@@ -32,9 +32,8 @@ spec:
               # Absolute minimum to start app is 4500Mi
               # Would increase with more pages, versions, or languages supported
               # The additional memory helps during traffic surges
-              # Keep ~600 MB headroom above --max-old-space-size in
-              # config/moda/configuration/default/env.yaml for Node
-              # off-heap memory and OS overhead.
+              # V8 heap is set to 75% of the cgroup memory limit via
+              # --max-old-space-size-percentage in the Dockerfile.
             limits:
               cpu: 8000m
               memory: 16Gi
