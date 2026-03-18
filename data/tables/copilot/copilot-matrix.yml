@@ -760,18 +760,6 @@ ides:
         1.4.0: supported
         1.0.1: supported
         0.0.0: supported
-      Custom agents:
-        1.5.54: not-supported
-        1.5.53: not-supported
-        1.5.49: not-supported
-        1.5.45: not-supported
-        1.5.43: not-supported
-        1.5.41: not-supported
-        1.5.39: not-supported
-        1.5.0: not-supported
-        1.4.0: not-supported
-        1.0.1: not-supported
-        0.0.0: not-supported
       Custom instructions:
         1.5.66: preview
         1.5.65: preview
@@ -789,7 +777,7 @@ ides:
         1.4.0: not-supported
         1.0.1: not-supported
         0.0.0: not-supported
-      Custom chat:
+      Custom agents:
         1.5.66: preview
         1.5.65: preview
         1.5.64: preview

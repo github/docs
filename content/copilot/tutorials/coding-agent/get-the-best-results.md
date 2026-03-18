@@ -31,6 +31,9 @@ category:
 * Complete acceptance criteria on what a good solution looks like (for example, should there be unit tests?).
 * Directions about which files need to be changed.
 
+> [!TIP]
+> {% data variables.copilot.copilot_coding_agent %} has the ability to search your codebase, including semantic code search, which helps it find relevant code based on meaning rather than just exact text matches. Even if you don't specify exact file paths in a task, the agent can often discover the right code on its own.
+
 If you pass a task to {% data variables.product.prodname_copilot_short %} by assigning an issue, it's useful to think of the issue you assign to {% data variables.product.prodname_copilot_short %} as a prompt. Consider whether the issue description is likely to work as an AI prompt, and will enable {% data variables.product.prodname_copilot_short %} to make the required code changes.
 
 ## Choosing the right type of tasks to give to {% data variables.product.prodname_copilot_short %}
