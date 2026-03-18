@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Authenticating
+category:
+  - Authenticate API requests
 ---
 
 ## About authentication

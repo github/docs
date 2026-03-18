@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 redirect_from:
   - /rest/overview/api-versions
+category:
+  - Learn about the REST API
 ---
 
 ## About API versioning

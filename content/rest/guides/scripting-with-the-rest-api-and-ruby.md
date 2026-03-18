@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Build apps and integrations
 contentType: tutorials
 ---
 
