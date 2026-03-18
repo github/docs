@@ -40,8 +40,8 @@ An LTS model is an AI model that {% data variables.product.github %} commits to 
 ## Continuous access when premium requests are unavailable
 
 {% data variables.copilot.copilot_gpt_53_codex %} is available on paid plans with a 0x premium request multiplier, which means it does not consume premium requests. This ensures continuous access to {% data variables.product.prodname_copilot_short %} in situations such as:
-* Premium request quota exhausted: If a user has used their monthly premium request allowance, they can continue working with {% data variables.copilot.copilot_gpt_53_codex %} at no additional cost.
-* Overage controls disabled: If an organization or enterprise has disabled premium request overages and a user reaches their limit, {% data variables.copilot.copilot_gpt_53_codex %} remains available.
+* Premium request quota exhausted: If a user has used their monthly premium request allowance, they can continue working with {% data variables.copilot.copilot_gpt_41 %} (the former base model) at no additional cost.
+* Overage controls disabled: If an organization or enterprise has disabled premium request overages and a user reaches their limit, {% data variables.copilot.copilot_gpt_53_codex %} will not remain available.
 
 ## Further reading
 
