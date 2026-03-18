@@ -11,6 +11,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: concepts
+category:
+  - Understand enterprise migration tools
 ---
 
 ## Types of migrations

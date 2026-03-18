@@ -9,6 +9,8 @@ contentType: other
 redirect_from:
   - /migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops
   - /migrations/ado/managing-access-for-a-migration-from-azure-devops
+category:
+  - Migrate from Azure DevOps
 ---
 
 To migrate repositories from Azure DevOps to {% data variables.product.github %}, you need sufficient access to the **source** (an organization on Azure DevOps) and the **destination** (an organization on {% data variables.product.github %}). After you complete the steps in this article, your access and permissions will ready for your migration.

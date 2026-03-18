@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /early-access/github/migrating-with-github-enterprise-importer/running-a-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer
   - /early-access/enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer
+category:
+  - Run an enterprise migration
 ---
 
 ## About troubleshooting steps for {% data variables.product.prodname_importer_proper_name %}

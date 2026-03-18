@@ -7,6 +7,8 @@ versions:
   ghec: '*'
 defaultTool: cli
 contentType: other
+category:
+  - Migrate from Azure DevOps
 ---
 
 If you're a member of an organization that has migrated from Azure DevOps to {% data variables.product.github %}, this guide will explain the changes in your workflows to make the migration as smooth as possible.
