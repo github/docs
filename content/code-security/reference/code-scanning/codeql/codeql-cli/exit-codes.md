@@ -6,10 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-cli/exit-codes
   - /code-security/codeql-cli/codeql-cli-reference/exit-codes

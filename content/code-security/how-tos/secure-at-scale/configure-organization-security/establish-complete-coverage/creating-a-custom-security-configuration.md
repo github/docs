@@ -5,25 +5,31 @@ intro: Build a {% data variables.product.prodname_custom_security_configuration 
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration
   - /code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration
+  - /code-security/how-tos/secure-at-scale/configure-organization-security/establish-complete-coverage/applying-the-github-recommended-security-configuration-in-your-organization
+  - /code-security/concepts/security-at-scale/security-configurations
+  - /admin/managing-code-security/securing-your-enterprise/applying-the-github-recommended-security-configuration-to-your-enterprise
+  - /code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/applying-the-github-recommended-security-configuration-to-your-enterprise
 contentType: how-tos
 ---
 
-{% ifversion security-configurations-cloud %}
+## About {% data variables.product.prodname_custom_security_configurations %}
 
-If you are familiar with {% data variables.product.company_short %}'s security products, and you have specific security needs that the {% data variables.product.prodname_github_security_configuration %} can't meet, you can create and apply {% data variables.product.prodname_custom_security_configurations %}. For more information, see [AUTOTITLE](/code-security/concepts/security-at-scale/choosing-a-security-configuration-for-your-repositories).
+With {% data variables.product.prodname_custom_security_configurations %}, you can create collections of enablement settings for {% data variables.product.company_short %}'s security products to meet the specific security needs of your organization. For example, you can create a different {% data variables.product.prodname_custom_security_configuration %} for each organization or group of organizations to reflect their unique security requirements and compliance obligations.
 
-{% else %}
+{% ifversion ghas-products %}
 
-With {% data variables.product.prodname_custom_security_configurations %}, you can create collections of enablement settings for {% data variables.product.company_short %}'s security products to meet the specific security needs of your organization. For example, you can create a different {% data variables.product.prodname_custom_security_configuration %} for each group of repositories to reflect their different levels of visibility, risk tolerance, and impact.
+You can also choose whether or not you want to include {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %} features in a configuration.
 
+If you do, keep in mind that these features incur usage costs (or require {% data variables.product.prodname_GHAS %} licenses) when applied to private and internal repositories. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
+
+{% endif %}
+
+{% ifversion ghes %}
+
+When creating a security configuration, keep in mind that:
 * Only features installed by a site administrator on your {% data variables.product.prodname_ghe_server %} instance will appear in the UI.
 * {% ifversion ghas-products %}Some features will only be visible if your organization or {% data variables.product.prodname_ghe_server %} instance has purchased the relevant {% data variables.product.prodname_GHAS %} product ({% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}){% else %}{% data variables.product.prodname_GHAS %} features will only be visible if your organization or {% data variables.product.prodname_ghe_server %} instance holds a {% data variables.product.prodname_GHAS %} license{% endif %}.
 * Certain features, like {% data variables.product.prodname_dependabot_security_updates %} and {% data variables.product.prodname_code_scanning %} default setup, also require that {% data variables.product.prodname_actions %} is installed on the {% data variables.product.prodname_ghe_server %} instance.
@@ -42,10 +48,14 @@ With {% data variables.product.prodname_custom_security_configurations %}, you c
 {% data reusables.organizations.org_settings %}
 {% data reusables.security-configurations.view-configurations-page %}
 1. In the "{% data variables.product.prodname_security_configurations_caps %}" section, click **New configuration**.
+1. To configure groups of security features for your repositories, click **Custom configuration**.
 1. To help identify your {% data variables.product.prodname_custom_security_configuration %} and clarify its purpose on the "{% data variables.product.prodname_security_configurations_caps %}" page, name your configuration and create a description.
 1. Optionally, enable "{% data variables.product.prodname_secret_protection %}", a paid feature for private {% ifversion ghec %}and internal {% endif %} repositories. Enabling {% data variables.product.prodname_secret_protection %} enables alerts for {% data variables.product.prodname_secret_scanning %}. In addition, you can choose whether to enable, disable, or keep the existing settings for the following {% data variables.product.prodname_secret_scanning %} features:
     {% ifversion secret-scanning-validity-check-partner-patterns %}
-    * **Validity checks**. To learn more about validity checks for partner patterns, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).{% endif %}{% ifversion org-npp-enablement-security-configurations %}
+    * **Validity checks**. To learn more about validity checks for partner patterns, see [AUTOTITLE](/code-security/concepts/secret-security/about-validity-checks) and [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).{% endif %}{% ifversion fpt or ghec %}
+    * **Extended metadata**. To learn more about extended metadata checks, see [About extended metadata checks](/code-security/concepts/secret-security/about-validity-checks#about-extended-metadata-checks) and [AUTOTITLE](/code-security/tutorials/remediate-leaked-secrets/evaluating-alerts#reviewing-extended-metadata-for-a-token).
+    > [!NOTE]
+    > You can only enable extended metadata checks if validity checks are enabled.{% endif %}{% ifversion org-npp-enablement-security-configurations %}
     * **Non-provider patterns**. To learn more about scanning for non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns) and [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).{% endif %}{% ifversion secret-scanning-ai-generic-secret-detection %}
     * **Scan for generic passwords**. To learn more, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).{% endif %}
     * **Push protection**. To learn about push protection, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).{% ifversion push-protection-delegated-bypass-configurations %}
@@ -70,9 +80,9 @@ With {% data variables.product.prodname_custom_security_configurations %}, you c
         {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
    * **Enforce configuration**. Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.
 
-1. To finish creating your {% data variables.product.prodname_custom_security_configuration %}, click **Save configuration**.
+    {% data reusables.code-scanning.security-configuration-enforcement-edge-cases %}
 
-{% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases-enterprise %}
+{% data reusables.code-scanning.save-custom-configuration %}
 
 ## Creating a {% data variables.product.prodname_GHAS %} configuration
 
@@ -111,7 +121,7 @@ With {% data variables.product.prodname_custom_security_configurations %}, you c
         {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
    * **Enforce configuration**. Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.
 
-1. To finish creating your {% data variables.product.prodname_custom_security_configuration %}, click **Save configuration**.
+{% data reusables.code-scanning.save-custom-configuration %}
 
 {% else %}
 
@@ -139,16 +149,16 @@ With {% data variables.product.prodname_custom_security_configurations %}, you c
     * Non-provider patterns. To learn more about scanning for non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns) and [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).{% endif %}
     * Push protection. To learn about push protection, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
 {% ifversion push-protection-delegated-bypass-configurations %}
-1. Optionally, under "Push protection", choose whether you want to assign bypass privileges to selected actors in your organization. By assigning bypass privileges, selected organization members can bypass push protection, and there is a review and approval process for all other contributors. For further guidance on how to configure this setting, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection#configuring-delegated-bypass-for-an-organization).
+1. Optionally, under "Push protection", choose whether you want to assign bypass privileges to selected actors in your organization. By assigning bypass privileges, selected organization members can bypass push protection, and there is a review and approval process for all other contributors. For further guidance on how to configure this setting, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection#enabling-delegated-bypass-for-an-organization).
 {% endif %}
 1. Optionally, in the "Policy" section, you can choose to automatically apply the {% data variables.product.prodname_security_configuration %} to newly created repositories depending on their visibility. Select the **None** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Public**, or **Private and internal**, or **All repositories**.
 
     {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
 1. Optionally, in the "Policy" section, you can enforce the configuration and block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Next to "Enforce configuration", select **Enforce** from the dropdown menu.
 
-    {% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases %}
+    {% data reusables.code-scanning.security-configuration-enforcement-edge-cases %}
 
-1. To finish creating your {% data variables.product.prodname_custom_security_configuration %}, click **Save configuration**.
+{% data reusables.code-scanning.save-custom-configuration %}
 
 {% endif %}
 

@@ -1,6 +1,6 @@
 ---
 title: About clustering
-intro: 'The cluster topology for {% data variables.product.prodname_ghe_server %} is designed to support tens of thousands of users where other topologies would experience resource exhaustion. In a cluster, the instance''s services scale horizontally across multiple nodes.'
+intro: The cluster topology for {% data variables.product.prodname_ghe_server %} is designed to support tens of thousands of users where other topologies would experience resource exhaustion. In a cluster, the instance's services scale horizontally across multiple nodes.
 product: '{% data variables.product.company_short %} determines eligibility for clustering, and must enable the configuration for your instance''s license. Clustering requires careful planning and additional administrative overhead.'
 redirect_from:
   - /enterprise/admin/clustering/overview
@@ -12,10 +12,7 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/about-clustering
 versions:
   ghes: '*'
-type: overview
-topics:
-  - Clustering
-  - Enterprise
+contentType: concepts
 ---
 
 ## About clustering for {% data variables.product.prodname_ghe_server %}

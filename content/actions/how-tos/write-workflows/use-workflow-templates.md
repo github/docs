@@ -18,11 +18,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
-topics:
-  - Workflows
-  - CI
-  - CD
+contentType: how-tos
+category:
+  - Write workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

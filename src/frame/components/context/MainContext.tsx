@@ -118,7 +118,6 @@ export type MainContextT = {
   nonEnterpriseDefaultVersion: string
   page: {
     documentType: string
-    type?: string
     contentType?: string
     topics: Array<string>
     title: string
@@ -222,7 +221,6 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
   const pageInfo =
     (page && {
       documentType,
-      type: req.context.page.type || null,
       contentType: req.context.page.contentType || null,
       title: req.context.page.title,
       fullTitle: req.context.page.fullTitle || null,

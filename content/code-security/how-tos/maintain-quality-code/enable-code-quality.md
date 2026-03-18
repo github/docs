@@ -6,8 +6,6 @@ versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
 permissions: '{% data reusables.permissions.code-quality-repo-enable %}'
-topics:
-  - Code Quality
 contentType: how-tos
 redirect_from:
   - /code-security/code-quality/how-tos/enable-code-quality
@@ -28,7 +26,7 @@ redirect_from:
 1. Click **Enable code quality**.
 
    > [!NOTE]
-   > If **Enable code quality** is missing from this view, your enterprise owner has disabled the use of {% data variables.product.prodname_code_security %} and {% data variables.product.prodname_code_quality_short %} for your organization. See [AUTOTITLE](/code-security/code-quality/how-tos/allow-in-enterprise).
+   > If **Enable code quality** is missing from this view, your enterprise owner has disabled the use of {% data variables.product.prodname_code_quality_short %} for your organization. See [AUTOTITLE](/code-security/code-quality/how-tos/allow-in-enterprise).
 1. Review the information on the Code quality page:
 
    * **Languages:** If you want to disable {% data variables.product.prodname_codeql %} analysis for any of the languages, clear the associated check box.
@@ -41,5 +39,5 @@ redirect_from:
 
 ## Next steps
 
-* Learn about the code quality backlog for your repository. See [AUTOTITLE](/code-security/code-quality/how-tos/interpret-results).
-* Find and fix code quality issues before they reach your default branch. See [AUTOTITLE](/code-security/code-quality/tutorials/fix-findings-in-prs).
+* **For your repository:** Explore your code quality findings and merge your first fix. See [AUTOTITLE](/code-security/tutorials/improve-code-quality/quickstart).
+* **For your organization:** Understand the code health of your repositories at a glance. See [AUTOTITLE](/code-security/how-tos/view-and-interpret-data/analyze-organization-data/explore-code-quality).

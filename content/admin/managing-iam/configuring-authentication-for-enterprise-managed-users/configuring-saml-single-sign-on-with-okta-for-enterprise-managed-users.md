@@ -5,11 +5,6 @@ intro: 'Learn how to configure Okta for {% data variables.product.prodname_emus 
 product: '{% data reusables.gated-features.emus %}'
 versions:
   ghec: '*'
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users
 ---

@@ -1,7 +1,7 @@
 ---
 title: Configuring built-in authentication
-intro: 'When you use the default authentication method, all authentication details are stored on {% data variables.location.product_location %}.'
-permissions: 'Site administrators can configure authentication for a {% data variables.product.prodname_ghe_server %} instance.'
+intro: When you use the default authentication method, all authentication details are stored on {% data variables.location.product_location %}.
+permissions: Site administrators can configure authentication for a {% data variables.product.prodname_ghe_server %} instance.
 redirect_from:
   - /enterprise/admin/user-management/using-built-in-authentication
   - /enterprise/admin/authentication/using-built-in-authentication
@@ -11,13 +11,8 @@ redirect_from:
   - /admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
 shortTitle: Configure built-in authentication
+contentType: how-tos
 ---
 
 ## About built-in authentication

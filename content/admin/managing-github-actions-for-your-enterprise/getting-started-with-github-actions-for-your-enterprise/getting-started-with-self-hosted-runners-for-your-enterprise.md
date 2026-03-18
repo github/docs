@@ -1,18 +1,14 @@
 ---
 title: Getting started with self-hosted runners for your enterprise
 shortTitle: Self-hosted runners
-intro: 'You can configure a runner machine for your enterprise so your developers can start automating workflows with {% data variables.product.prodname_actions %}.'
+intro: You can configure a runner machine for your enterprise so your developers can start automating workflows with {% data variables.product.prodname_actions %}.
 versions:
   ghec: '*'
   ghes: '*'
-permissions: 'Enterprise owners{% ifversion custom-org-roles %} and users with permissions{% endif %} can configure policies for {% data variables.product.prodname_actions %} and add self-hosted runners to the enterprise.'
-type: quick_start
-topics:
-  - Actions
-  - Enterprise
-  - Fundamentals
+permissions: Enterprise owners{% ifversion custom-org-roles %} and users with permissions{% endif %} can configure policies for {% data variables.product.prodname_actions %} and add self-hosted runners to the enterprise.
 redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
+contentType: get-started
 ---
 
 ## About self-hosted runners for {% data variables.product.prodname_actions %}

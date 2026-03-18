@@ -3,10 +3,9 @@ title: GitHub Copilot premium requests
 intro: 'Learn how premium requests in {% data variables.product.prodname_copilot_short %} work, including usage measurement and managing your budget.'
 versions:
   feature: copilot
-topics:
-  - Billing
-  - Copilot
 contentType: concepts
+category:
+  - Understand product costs
 ---
 
 Usage of {% data variables.product.prodname_copilot_short %} is measured through a combination of licenses and monthly usage tracking. For more information about how license costs in {% data variables.product.prodname_copilot_short %} work, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses).
@@ -110,8 +109,6 @@ You can set a budget in your personal billing settings to receive alerts when yo
 You can set budgets at the organization, enterprise, or cost center level. If you enable **stop usage when budget is reached**, extra premium requests are blocked when the budget runs out.
 
 For detailed setup instructions, see [AUTOTITLE](/billing/tutorials/set-up-budgets).
-
-{% data reusables.copilot.zero-budget-changes-link %}
 
 ## Monitoring usage
 

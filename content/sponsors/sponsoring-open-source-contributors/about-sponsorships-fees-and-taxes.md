@@ -4,13 +4,9 @@ intro: Learn about sponsorships, payment, and tax information for {% data variab
 versions:
   fpt: '*'
   ghec: '*'
-type: overview
-topics:
-  - Open Source
-  - Organizations
-  - Sponsors profile
 shortTitle: About sponsorships
 allowTitleToDifferFromFilename: true
+contentType: concepts
 ---
 
 ## About sponsorships

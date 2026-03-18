@@ -9,19 +9,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Fundamentals
-  - Developer
 shortTitle: Create a codespace for a repo
+contentType: how-tos
 ---
-
-{% ifversion ghec %}
-
-{% data reusables.codespaces.data-residency-availability %}
-
-{% endif %}
 
 ## About creating a codespace for a repository
 

@@ -1,15 +1,13 @@
 ---
 title: Configuring interactive maps
-intro: 'You can enable the display of interactive maps in the web interface for {% data variables.location.product_location %}.'
+intro: You can enable the display of interactive maps in the web interface for {% data variables.location.product_location %}.
 shortTitle: Configure interactive maps
-permissions: 'People with access to the {% data variables.enterprise.management_console %} can configure interactive maps.'
+permissions: People with access to the {% data variables.enterprise.management_console %} can configure interactive maps.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
 redirect_from:
   - /admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps
+contentType: how-tos
 ---
 
 ## About interactive maps

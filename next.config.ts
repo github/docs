@@ -83,6 +83,13 @@ const config: NextConfig = {
   // the CDN marks the cached content as "fresh".
   generateEtags: false,
 
+  // Disable Next.js's in-memory data cache. We don't use ISR or cached
+  // fetch — all pages render via Express middleware with getServerSideProps.
+  // The default 50 MB cache is unnecessary overhead during a memory-leak
+  // investigation and is implicated in known Next.js 16.1.x memory issues
+  // (vercel/next.js#88603).
+  cacheMaxMemorySize: 0,
+
   compiler: {
     styledComponents: true,
   },

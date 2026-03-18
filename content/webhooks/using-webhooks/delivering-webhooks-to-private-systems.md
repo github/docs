@@ -5,8 +5,6 @@ shortTitle: Deliver to private systems
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Webhooks
 ---
 ## About integrating with private systems via reverse proxy
 

@@ -1,22 +1,17 @@
 ---
 title: Configuring an outbound web proxy server
-intro: 'A proxy server provides an additional level of security for {% data variables.location.product_location %}.'
+intro: A proxy server provides an additional level of security for {% data variables.location.product_location %}.
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-a-proxy-server
   - /enterprise/admin/installation/configuring-an-outbound-web-proxy-server
   - /enterprise/admin/configuration/configuring-an-outbound-web-proxy-server
   - /admin/configuration/configuring-an-outbound-web-proxy-server
   - /admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server
-permissions: 'Site administrators can configure an outbound web proxy server for a {% data variables.product.prodname_ghe_server %} instance.'
+permissions: Site administrators can configure an outbound web proxy server for a {% data variables.product.prodname_ghe_server %} instance.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Networking
 shortTitle: Configure an outbound proxy
+contentType: how-tos
 ---
 
 ## About configuration of a proxy for {% data variables.product.prodname_ghe_server %}

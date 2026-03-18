@@ -1,7 +1,7 @@
 import assert from 'assert'
 import path from 'path'
 import fs from 'fs/promises'
-import cheerio from 'cheerio'
+import { load } from 'cheerio'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import generateRedirectsForPermalinks from '@/redirects/lib/permalinks'
 import getEnglishHeadings from '@/languages/lib/get-english-headings'
@@ -57,10 +57,10 @@ type CommunityRedirect = {
   href: string
 }
 
-type GuideWithType = {
+type GuideWithContentType = {
   href: string
   title: string
-  type?: string
+  contentType?: string
   topics?: string[]
 }
 
@@ -91,7 +91,7 @@ class Page {
   public redirect_from?: string[]
   public learningTracks?: any[]
   public rawLearningTracks?: string[]
-  public includeGuides?: GuideWithType[]
+  public includeGuides?: GuideWithContentType[]
   public rawIncludeGuides?: string[]
   public introLinks?: Record<string, string>
   public rawIntroLinks?: Record<string, string>
@@ -378,10 +378,13 @@ class Page {
     }
 
     if (this.rawIncludeGuides) {
-      this.includeGuides = (await getLinkData(this.rawIncludeGuides, context)) as GuideWithType[]
+      this.includeGuides = (await getLinkData(
+        this.rawIncludeGuides,
+        context,
+      )) as GuideWithContentType[]
       this.includeGuides?.map((guide: any) => {
         const { page } = guide
-        guide.type = page.type
+        guide.contentType = page.contentType
         if (page.topics) {
           guide.topics = page.topics
         }
@@ -440,7 +443,7 @@ class Page {
     if (!opts.unwrap) return html
 
     // The unwrap option removes surrounding tags from a string, preserving any inner HTML
-    const $ = cheerio.load(html, { xmlMode: true })
+    const $ = load(html, { xmlMode: true })
     return $.root().contents().html() || ''
   }
 

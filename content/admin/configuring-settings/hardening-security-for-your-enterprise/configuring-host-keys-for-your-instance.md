@@ -1,21 +1,14 @@
 ---
 title: Configuring host keys for your instance
 shortTitle: Configure host keys
-intro: 'You can increase the security of {% data variables.location.product_location %} by configuring the algorithms that your instance uses to generate and advertise host keys for incoming SSH connections.'
+intro: You can increase the security of {% data variables.location.product_location %} by configuring the algorithms that your instance uses to generate and advertise host keys for incoming SSH connections.
 permissions: Site administrators
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-host-keys-for-your-instance
   - /admin/configuration/hardening-security-for-your-enterprise/configuring-host-keys-for-your-instance
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Authentication
-  - Enterprise
-  - Infrastructure
-  - Networking
-  - Security
-  - SSH
+contentType: how-tos
 ---
 
 ## About host keys for your instance

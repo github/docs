@@ -1,15 +1,16 @@
 ---
 title: Actions Runner Controller
-intro: 'You can host your own runners and customize the environment used to run jobs in your {% data variables.product.prodname_actions %} workflows.'
+intro: You can host your own runners and customize the environment used to run jobs in your {% data variables.product.prodname_actions %} workflows.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Actions Runner Controller
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller
   - /actions/concepts/runners/about-actions-runner-controller
+category:
+  - Set up runners
+contentType: concepts
 ---
 
 ## About {% data variables.product.prodname_actions_runner_controller %}

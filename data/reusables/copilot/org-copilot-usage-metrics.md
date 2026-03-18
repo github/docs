@@ -1,1 +1,0 @@
-> [!NOTE] The {% data variables.product.prodname_copilot_short %} usage metrics dashboard reports data at the enterprise level. Organization-level metrics are available through the {% data variables.product.prodname_copilot_short %} usage metrics APIs only. See [AUTOTITLE](/rest/copilot/copilot-usage-metrics).

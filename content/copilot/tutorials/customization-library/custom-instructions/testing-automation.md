@@ -12,8 +12,6 @@ category:
 complexity:
   - Advanced
 octicon: book
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

@@ -7,11 +7,11 @@ versions:
   ghec: '*'
   ghes: '*'
 permissions: '{% data reusables.repositories.repo-rules-permissions %}'
-topics:
-  - Repositories
 shortTitle: Available rules
 redirect_from:
   - /actions/sharing-automations/required-workflows
+category:
+  - Manage branches and protect code
 ---
 
 You can create branch or tag rulesets to control how users can interact with selected branches and tags in a repository. {% ifversion push-rulesets %}You can also create push rulesets to block pushes to a private or internal repository and that repository's entire fork network.{% endif %}

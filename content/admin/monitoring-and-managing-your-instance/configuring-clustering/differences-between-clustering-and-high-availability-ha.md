@@ -1,6 +1,6 @@
 ---
 title: Differences between clustering and high availability (HA)
-intro: 'Learn about the differences between deployment topologies for the virtual machines (VMs) that comprise a {% data variables.product.prodname_ghe_server %} instance.'
+intro: Learn about the differences between deployment topologies for the virtual machines (VMs) that comprise a {% data variables.product.prodname_ghe_server %} instance.
 product: '{% data reusables.gated-features.cluster %}'
 redirect_from:
   - /enterprise/admin/clustering/differences-between-clustering-and-high-availability-ha
@@ -10,13 +10,8 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/differences-between-clustering-and-high-availability-ha
 versions:
   ghes: '*'
-type: reference
-topics:
-  - Clustering
-  - Enterprise
-  - High availability
-  - Infrastructure
 shortTitle: Choosing cluster or HA
+contentType: reference
 ---
 
 ## About deployment topologies for {% data variables.product.prodname_ghe_server %}

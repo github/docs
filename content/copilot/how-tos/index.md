@@ -4,12 +4,12 @@ shortTitle: How-tos
 intro: Learn how to use {% data variables.product.prodname_copilot %}.
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /set-up
   - /get-code-suggestions
   - /chat-with-copilot
+  - /copilot-cli
+  - /copilot-sdk
   - /use-copilot-agents
   - /use-ai-models
   - /provide-context

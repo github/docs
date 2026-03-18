@@ -1,12 +1,9 @@
 ---
 title: About GitHub Enterprise Cloud
-intro: 'Learn about {% data variables.product.prodname_ghe_cloud %}, its features, and management options for large businesses and teams.'
+intro: Learn about {% data variables.product.prodname_ghe_cloud %}, its features, and management options for large businesses and teams.
 versions:
   ghec: '*'
-type: overview
-topics:
-  - Enterprise
-  - Fundamentals
+contentType: concepts
 ---
 
 {% data variables.product.prodname_ghe_cloud %} is a deployment option for {% data variables.product.prodname_enterprise %}, adding advanced features to {% data variables.product.prodname_dotcom %}, including:

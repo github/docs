@@ -1,18 +1,13 @@
 ---
 title: About system logs
-intro: 'To help administrators understand activity and errors, {% data variables.product.prodname_ghe_server %} stores system logs.'
+intro: To help administrators understand activity and errors, {% data variables.product.prodname_ghe_server %} stores system logs.
 versions:
   ghes: '*'
-type: overview
-topics:
-  - Auditing
-  - Enterprise
-  - Logging
-  - Security
 redirect_from:
   - /admin/enterprise-management/monitoring-your-appliance/about-system-logs
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/about-system-logs
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/about-system-logs
+contentType: concepts
 ---
 
 ## About system logs for {% data variables.product.prodname_ghe_server %}

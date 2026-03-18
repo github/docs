@@ -5,13 +5,6 @@ shortTitle: Configure on self-hosted runners
 permissions: '{% data reusables.permissions.dependabot-actions %}'
 versions:
   feature: dependabot-on-actions-self-hosted
-topics:
-  - Dependabot
-  - Security updates
-  - Version updates
-  - Actions
-  - Dependencies
-  - Repositories
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners
   - /code-security/dependabot/maintain-dependencies/managing-dependabot-on-self-hosted-runners
@@ -35,6 +28,9 @@ contentType: how-tos
 1. Optionally, enable workflows triggered by {% data variables.product.prodname_dependabot %} to use more than read-only permissions and to have access to any secrets that are normally available. For more information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-on-github-actions#restrictions-when-dependabot-triggers-events).
 
 ## Enabling self-hosted runners for {% data variables.product.prodname_dependabot_updates %}
+
+> [!WARNING]
+> Before enabling "{% data variables.product.prodname_dependabot %} on self-hosted runners", ensure that your self-hosted runners or {% data variables.actions.hosted_runners %} are configured with the runner label used by {% data variables.product.prodname_dependabot %} (by default, `dependabot`). When this setting is enabled, {% data variables.product.prodname_dependabot %} jobs will only run on runners with this label. If no runners with this label are available, jobs will remain queued indefinitely. See [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners#how-runner-settings-interact).
 
 Once you have configured self-hosted runners for {% data variables.product.prodname_dependabot_updates %}, you can enable or disable {% data variables.product.prodname_dependabot_updates %} on self-hosted runners at the organization or repository level.
 

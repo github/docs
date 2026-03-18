@@ -1,15 +1,13 @@
 ---
-title: 'Adding your {% data variables.projects.project_v2 %} to a repository'
-shortTitle: 'Adding a {% data variables.projects.project_v2 %} to a repo'
-intro: 'You can add your {% data variables.projects.project_v2 %} to a repository to make it accessible from that repository.'
+title: Adding your {% data variables.projects.project_v2 %} to a repository
+shortTitle: Adding a {% data variables.projects.project_v2 %} to a repo
+intro: You can add your {% data variables.projects.project_v2 %} to a repository to make it accessible from that repository.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Projects
 allowTitleToDifferFromFilename: true
+contentType: tutorials
 ---
 
 ## Linking a repository to your project

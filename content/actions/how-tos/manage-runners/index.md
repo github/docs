@@ -10,5 +10,6 @@ children:
   - /self-hosted-runners
   - /larger-runners
   - /use-proxy-servers
+contentType: how-tos
 ---
 

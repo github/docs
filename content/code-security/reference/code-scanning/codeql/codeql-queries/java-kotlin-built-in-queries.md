@@ -8,9 +8,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration/java-kotlin-built-in-queries
   - /code-security/code-scanning/reference/code-ql-built-in-queries/java-kotlin-built-in-queries

@@ -8,11 +8,9 @@ redirect_from:
   - /billing/using-the-enhanced-billing-platform-for-enterprises/roles-for-the-enhanced-billing-platform
   - /billing/using-the-new-billing-platform/roles-for-the-new-billing-platform
   - /billing/managing-your-billing/roles-for-the-new-billing-platform
-topics:
-  - Billing
-  - Enterprise
-  - Team
 contentType: reference
+category:
+  - Get started with billing
 ---
 
 The following roles have access to the billing platform:

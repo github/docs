@@ -1,19 +1,14 @@
 ---
 title: Monitoring a high-availability configuration
-intro: 'After configuration of high availability for {% data variables.location.product_location %}, you can monitor the status of data replication among to your instance''s replica nodes.'
+intro: After configuration of high availability for {% data variables.location.product_location %}, you can monitor the status of data replication among to your instance's replica nodes.
 versions:
   ghes: '*'
-permissions: 'Site administrators can monitor a high-availability configuration for a {% data variables.product.prodname_ghe_server %} instance.'
-type: how_to
-topics:
-  - Enterprise
-  - High availability
-  - Infrastructure
-  - Monitoring
+permissions: Site administrators can monitor a high-availability configuration for a {% data variables.product.prodname_ghe_server %} instance.
 shortTitle: Monitor HA configuration
 redirect_from:
   - /admin/enterprise-management/configuring-high-availability/monitoring-a-high-availability-configuration
   - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/monitoring-a-high-availability-configuration
+contentType: how-tos
 ---
 
 ## About observability for high availability

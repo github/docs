@@ -8,12 +8,6 @@ permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: dependabot-metrics
 contentType: tutorials
-topics:
-  - Code Security
-  - Dependabot
-  - Code scanning
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/prioritizing-dependabot-alerts-using-metrics
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/prioritizing-dependabot-alerts-using-metrics
@@ -35,7 +29,7 @@ Application Security (AppSec) managers often face a flood of {% data variables.p
 * **Alerts closed in the last 30 days, including the number of alerts fixed by {% data variables.product.prodname_dependabot %}, manually dismissed, and auto dismissed**: Tracks alert resolution progress. Illustrates how {% data variables.product.prodname_GH_code_security %} can help you detect vulnerabilities early.
 * **Table showing the total number of open alerts for each repository, as well as severity and expoitability data**: Allows you to dig deeper at the repository level.
 
-For more information about these metrics, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-dependabot-alerts).
+For more information about these metrics, see [AUTOTITLE](/code-security/concepts/supply-chain-security/about-metrics-for-dependabot-alerts).
 
 Additionally, you can specify complex filters, which are combinations of the individual filters that are available. For more information about filters, see [{% data variables.product.prodname_dependabot %} dashboard view filters](/code-security/security-overview/filtering-alerts-in-security-overview#dependabot-dashboard-view-filters).
 

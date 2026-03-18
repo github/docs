@@ -1,18 +1,14 @@
 ---
 title: Setting up a staging instance
-intro: 'You can set up a {% data variables.product.prodname_ghe_server %} instance in a separate, isolated environment, and use the instance to validate and test changes.'
+intro: You can set up a {% data variables.product.prodname_ghe_server %} instance in a separate, isolated environment, and use the instance to validate and test changes.
 redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
   - /admin/installation/setting-up-a-staging-instance
   - /admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Infrastructure
-  - Upgrades
 shortTitle: Set up a staging instance
+contentType: how-tos
 ---
 
 ## About staging instances

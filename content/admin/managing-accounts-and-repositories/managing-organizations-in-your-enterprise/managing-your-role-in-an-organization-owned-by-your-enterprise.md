@@ -7,12 +7,8 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - Administrator
-  - Enterprise
-  - Organizations
 shortTitle: Manage your organization roles
+contentType: how-tos
 ---
 
 ## About role management

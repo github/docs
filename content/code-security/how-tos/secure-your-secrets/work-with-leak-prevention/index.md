@@ -1,14 +1,11 @@
 ---
-title: How-tos for push protection
-shortTitle: Push protection
-intro: Learn how to use {% data variables.product.github %}'s push protection.
+title: How-tos for working with leak prevention
+shortTitle: Work with leak prevention
+intro: Learn how to work with {% data variables.product.github %}'s push protection in different environments.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret Protection
-  - Secret scanning
 contentType: how-tos
 redirect_from:
   - /code-security/secret-scanning/working-with-secret-scanning-and-push-protection

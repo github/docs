@@ -10,8 +10,6 @@ redirect_from:
 versions:
   feature: copilot
 defaultTool: vscode
-topics:
-  - Copilot
 contentType: how-tos
 category:
   - Author and optimize with Copilot

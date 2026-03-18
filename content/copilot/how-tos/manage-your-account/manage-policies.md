@@ -3,8 +3,6 @@ title: Managing GitHub Copilot policies as an individual subscriber
 shortTitle: Manage policies
 intro: 'Find out how to change your personal settings on {% data variables.product.github %} to configure {% data variables.product.prodname_copilot %}''s behavior.'
 product: '{% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_free_short %}'
-topics:
-  - Copilot
 versions:
   feature: copilot
 redirect_from:
@@ -28,9 +26,11 @@ In addition to the configuration for the {% data variables.product.prodname_copi
 
 > [!NOTE] If you are a member of an organization on {% data variables.product.prodname_ghe_cloud %} who has been assigned a {% data variables.product.prodname_copilot %} seat through your organization, you will not be able to configure suggestions matching public code in your personal account settings. Your setting for suggestions matching public code will be inherited from your organization or enterprise.
 
-Your personal settings for {% data variables.product.prodname_copilot %} include an option to either allow or block code suggestions that match publicly available code. If you choose to block suggestions matching public code, {% data variables.product.prodname_copilot %} checks code suggestions with their surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match, or a near match, the suggestion is not shown to you.
+Your personal settings for {% data variables.product.prodname_copilot %} include an option to either allow or block code suggestions that match publicly available code.
 
-If you choose to allow suggestions matching public code, when {% data variables.product.prodname_copilot_short %} suggests matching code you can display details of the matches and click through to the relevant repositories on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions).
+If you choose to block suggestions matching public code, in most {% data variables.product.prodname_copilot %} products, {% data variables.product.prodname_copilot %} checks code suggestions with their surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match, or a near match, the suggestion is not shown to you.
+
+If you choose to allow suggestions matching public code or use a product that does not support "Block" mode, when {% data variables.product.prodname_copilot_short %} suggests matching code you can display details of the matches and click through to the relevant repositories on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions).
 
 {% data reusables.user-settings.copilot-settings %}
 1. To the right of **Suggestions matching public code**, select the dropdown menu, then click **Allow** to allow suggestions matching public code, or **Block** to block suggestions matching public code.
@@ -53,22 +53,29 @@ If you choose to allow suggestions matching public code, when {% data variables.
 
 {% ifversion fpt %}
 
+## Enabling or disabling third-party coding agents in your repositories
+
+> [!NOTE]
+> {% data reusables.gated-features.third-party-agents %}
+
+You can choose whether to allow the following coding agents to be enabled in your personal account:
+
+* {% data variables.product.prodname_anthropic_claude %}
+* {% data variables.product.prodname_openai_codex %}
+
+Coding agents have access to the same repositories that {% data variables.copilot.copilot_coding_agent %} has been enabled in.
+
+To enable coding agents:
+
+1. Navigate to your account's [coding agent settings](https://github.com/settings/copilot/coding_agent?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-3p-agents-cca-settings-cta&utm_medium=docs&utm_campaign=agent-3p-platform-feb-2026).
+1. On the {% data variables.copilot.copilot_coding_agent %} page, under "Partner agents", click the toggle to enable the third-party agent you want to use.
+
 ## Enabling or disabling prompt and suggestion collection
 
 You can choose whether your prompts and {% data variables.product.prodname_copilot_short %}'s suggestions are collected and retained by {% data variables.product.prodname_dotcom %}, and further processed and shared with Microsoft. For more information about data that {% data variables.product.prodname_copilot %} may collect depending on your settings, see [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot) and the [{% data variables.product.prodname_copilot %} privacy FAQ](https://github.com/features/copilot/#faq).
 
 {% data reusables.user-settings.copilot-settings %}
 1. To allow or prevent {% data variables.product.prodname_dotcom %} using your data, select or deselect **Allow {% data variables.product.prodname_dotcom %} to use my code snippets from the code editor for product improvements**.
-
-## Enabling or disabling alternative AI models
-
-You can choose whether to allow the following AI models to be used as an alternative to {% data variables.product.prodname_copilot_short %}'s default model.
-
-* {% data variables.copilot.copilot_claude %} - see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-in-github-copilot)
-* {% data variables.copilot.copilot_gemini %} - see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot)
-
-{% data reusables.user-settings.copilot-settings %}
-1. To the right of the model name, select the dropdown menu, then click **Enabled** or **Disabled**.
 
 ## Enabling or disabling web search for {% data variables.copilot.copilot_chat %}
 

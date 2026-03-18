@@ -17,7 +17,7 @@ This feature requires an external firewall or proxy. {% data variables.contact.g
 
 This feature is not enabled by default. An enterprise owner can enable the feature for your enterprise.
 
-{% data reusables.enterprise-accounts.access-enterprise-emu %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. Under {% octicon "gear" aria-hidden="true" aria-label="gear" %} **Settings**, click **Authentication security**.
 1. In the "Enterprise access restrictions" section, select **Enable enterprise access restrictions**.
@@ -42,7 +42,7 @@ sec-GitHub-allowed-enterprise: ENTERPRISE-ID
 
 An enterprise owner can identify the correct enterprise ID to use in the header for your enterprise.
 
-{% data reusables.enterprise-accounts.access-enterprise-emu %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. Under {% octicon "gear" aria-hidden="true" aria-label="gear" %} **Settings**, click **Authentication security**.
 1. In the "Enterprise access restrictions" section, find the header for your enterprise.

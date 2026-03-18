@@ -3,12 +3,7 @@ title: Verifying the integrity of a release
 shortTitle: Verify release integrity
 intro: You can avoid tampering and accidental changes by ensuring the releases you use have not been modified after publication.
 versions:
-  fpt: '*'
-  ghec: '*'
-topics:
-  - Code Security
-  - Vulnerabilities
-  - Dependencies
+  feature: immutable-releases
 defaultTool: cli
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/verifying-the-integrity-of-a-release
@@ -19,7 +14,7 @@ contentType: how-tos
 
 ## Prerequisites
 
-Before you can validate the authenticity of a release and its assets on the command line, you need to [install the {% data variables.product.prodname_cli %}](https://github.com/cli/cli?tab=readme-ov-file#installation).
+Before you can validate the authenticity of a release and its assets on the command line, you need to [install the {% data variables.product.prodname_cli %}](https://github.com/cli/cli?tab=readme-ov-file&ref_product=supply-chain-security&ref_type=engagement&ref_style=text#installation).
 
 ## Verifying immutable releases and local artifacts
 

@@ -1,18 +1,16 @@
 ---
-title: 'Automating {% data variables.product.prodname_projects_v2 %} using Actions'
+title: Automating {% data variables.product.prodname_projects_v2 %} using Actions
 shortTitle: Automating with Actions
-intro: 'You can use {% data variables.product.prodname_actions %} to automate your projects.'
+intro: You can use {% data variables.product.prodname_actions %} to automate your projects.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/automating-projects
-type: tutorial
-topics:
-  - Projects
 allowTitleToDifferFromFilename: true
 layout: inline
+contentType: tutorials
 ---
 
 

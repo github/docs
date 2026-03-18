@@ -1,19 +1,14 @@
 ---
 title: Initiating a failover to your replica cluster
-intro: 'If your {% data variables.product.prodname_ghe_server %} cluster fails, you can fail over to the replica.'
+intro: If your {% data variables.product.prodname_ghe_server %} cluster fails, you can fail over to the replica.
 redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/initiating-a-failover-to-your-replica-cluster
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Clustering
-  - Enterprise
-  - High availability
-  - Infrastructure
 shortTitle: Initiate a failover to replica
+contentType: how-tos
 ---
 
 ## About failover to your replica cluster

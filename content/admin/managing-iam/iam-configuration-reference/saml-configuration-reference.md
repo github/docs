@@ -1,20 +1,14 @@
 ---
 title: SAML configuration reference
 shortTitle: SAML reference
-intro: 'You can see SAML metadata for {% ifversion ghec %}your organization or enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}, and you can learn more about available SAML attributes and response requirements.'
+intro: You can see SAML metadata for {% ifversion ghec %}your organization or enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}, and you can learn more about available SAML attributes and response requirements.
 versions:
   ghec: '*'
   ghes: '*'
-type: reference
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - SSO
 redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference
   - /admin/identity-and-access-management/iam-configuration-reference/saml-configuration-reference
+contentType: reference
 ---
 
 ## About SAML configuration

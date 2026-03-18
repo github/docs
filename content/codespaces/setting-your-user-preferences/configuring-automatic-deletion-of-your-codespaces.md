@@ -1,15 +1,13 @@
 ---
 title: Configuring automatic deletion of your codespaces
 shortTitle: Configure automatic deletion
-intro: 'Inactive codespaces are automatically deleted. You can choose how long your stopped codespaces are retained, up to a maximum of 30 days.'
+intro: Inactive codespaces are automatically deleted. You can choose how long your stopped codespaces are retained, up to a maximum of 30 days.
 redirect_from:
   - /codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
-type: how_to
+contentType: how-tos
 ---
 
 By default, {% data variables.product.prodname_github_codespaces %} are automatically deleted after they have been stopped and have remained inactive for 30 days.

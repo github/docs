@@ -1,5 +1,5 @@
 ---
-title: 'Best practices for {% data variables.product.prodname_projects_v2 %}'
+title: Best practices for {% data variables.product.prodname_projects_v2 %}
 intro: Learn tips for managing your projects.
 allowTitleToDifferFromFilename: true
 versions:
@@ -8,11 +8,7 @@ versions:
   ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/best-practices-for-managing-projects
-type: overview
-topics:
-  - Projects
-  - Issues
-  - Project management
+contentType: concepts
 ---
 
 You can use {% data variables.product.prodname_projects_v2 %} to manage your work on {% data variables.product.company_short %}, where your issues and pull requests live. Read on for tips to manage your projects efficiently and effectively. For more information about {% data variables.product.prodname_projects_v2 %}, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).

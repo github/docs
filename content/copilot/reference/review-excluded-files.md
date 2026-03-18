@@ -4,8 +4,6 @@ shortTitle: Review excluded files
 intro: 'Understand the types of files that are excluded from a review by {% data variables.product.prodname_copilot_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Author and optimize with Copilot
 contentType: reference

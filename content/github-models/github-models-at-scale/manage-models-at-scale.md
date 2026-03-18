@@ -5,8 +5,6 @@ intro: Control and secure AI models in your organization with {% data variables.
 versions:
   feature: github-models
 permissions: Organization owners can manage the models used in an organization
-topics:
-  - Enterprise
 allowTitleToDifferFromFilename: true
 ---
 

@@ -3,9 +3,6 @@ title: GitHub Misinformation and Disinformation
 shortTitle: Disinformation Policy
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 redirect_from:
   - /github/site-policy/github-misinformation-and-disinformation
   - /github/site-policy/github-community-guidelines#misinformation-and-disinformation

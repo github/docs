@@ -6,9 +6,6 @@ versions:
   ghec: '*'
 permissions: '{% data reusables.permissions.security-repo-enable %}'
 contentType: tutorials
-topics:
-  - Security advisories
-  - Vulnerabilities
 shortTitle: Write security advisories
 redirect_from:
   - /code-security/repository-security-advisories/best-practices-for-writing-repository-security-advisories

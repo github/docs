@@ -6,11 +6,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization
 versions:
   ghec: '*'
-topics:
-  - Authentication
-  - Organizations
-  - Teams
 shortTitle: Connect an IdP
+category:
+  - Configure SAML single sign-on
 ---
 
 ## About connection of your IdP to your organization

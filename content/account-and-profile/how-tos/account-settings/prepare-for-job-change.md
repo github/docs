@@ -13,10 +13,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Prepare for job change
 contentType: how-tos
+category:
+  - Change or close your account
 ---
 
 ## Update your personal account information

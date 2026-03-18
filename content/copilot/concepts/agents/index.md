@@ -5,14 +5,14 @@ allowTitleToDifferFromFilename: true
 intro: Learn how {% data variables.product.prodname_copilot %} can independently execute tasks across the software development lifecycle.
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /coding-agent
+  - /copilot-cli
   - /code-review
-  - /about-copilot-cli
   - /copilot-memory
+  - /about-third-party-agents
   - /openai-codex
+  - /anthropic-claude
   - /about-agent-skills
   - /enterprise-management
 contentType: concepts

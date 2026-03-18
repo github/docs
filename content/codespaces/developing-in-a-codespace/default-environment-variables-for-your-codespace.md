@@ -5,13 +5,9 @@ intro: '{% data variables.product.prodname_dotcom %} sets default environment va
 versions:
   fpt: '*'
   ghec: '*'
-type: overview
-topics:
-  - Codespaces
-  - Fundamentals
-  - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/default-environment-variables-for-your-codespace
+contentType: concepts
 ---
 
 ## About default environment variables

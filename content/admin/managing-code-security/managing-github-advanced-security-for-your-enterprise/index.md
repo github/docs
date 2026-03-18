@@ -11,8 +11,6 @@ redirect_from:
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise
 versions:
   ghes: '<= 3.15'
-topics:
-  - Enterprise
 children:
   - /managing-github-advanced-security-features-for-your-enterprise
 ---

@@ -6,7 +6,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
+contentType: concepts
 topics:
   - Git
   - Fundamentals

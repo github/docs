@@ -4,9 +4,6 @@ intro: You may benefit from beginning with a few high-impact projects and teams 
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Secret Protection
 shortTitle: 3. Pilot programs
 redirect_from:
   - /code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs
@@ -66,15 +63,7 @@ To enable secret scanning for your {% data variables.product.prodname_ghe_server
 
 {% ifversion security-configurations %}
 
-{% ifversion security-configurations-cloud %}
-
-You need to enable {% data variables.product.prodname_secret_scanning %} and push protection for each pilot project. You can do this with the {% data variables.product.prodname_github_security_configuration %}, or you can create a {% data variables.product.prodname_custom_security_configuration %}. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization) and [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
-
-{% elsif security-configurations-ghes-only %}
-
 You need to enable {% data variables.product.prodname_secret_scanning %} and push protection for each pilot project. You can do this with a {% data variables.product.prodname_security_configuration %}. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
-
-{% endif %}
 
 {% else %}
 
@@ -86,7 +75,7 @@ Next, enable push protection for each pilot project.
 
 If you plan to configure a link to a resource in the message that's displayed when a developer attempts to push a blocked secret, now would be a good time to test and start to refine the guidance that you plan to make available.
 
-Start to review activity using the push protection metrics page in security overview. For more information, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection).
+Start to review activity using the push protection metrics page in security overview. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/push-protection-metrics).
 
 If you have collated any custom patterns specific to your enterprise, especially any related to the projects piloting {% data variables.product.prodname_secret_scanning %}, you can configure those. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).
 

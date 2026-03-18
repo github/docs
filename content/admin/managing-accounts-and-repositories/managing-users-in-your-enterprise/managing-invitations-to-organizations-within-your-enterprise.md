@@ -1,17 +1,13 @@
 ---
 title: Managing invitations to organizations within your enterprise
-intro: 'You can retry or cancel invitations to organizations within your enterprise, either one by one or multiple at a time.'
+intro: You can retry or cancel invitations to organizations within your enterprise, either one by one or multiple at a time.
 versions:
   feature: enterprise-manage-organization-members
-type: how_to
-topics:
-  - Administrator
-  - Enterprise
-  - Organizations
 shortTitle: Manage organization invitations
 permissions: Enterprise owners can manage invitations to organizations within their enterprise.
 redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/managing-invitations-to-organizations-within-your-enterprise
+contentType: how-tos
 ---
 
 You can manage invitations to your enterprise or organizations within your enterprise.

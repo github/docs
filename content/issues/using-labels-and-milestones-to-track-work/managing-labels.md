@@ -1,6 +1,6 @@
 ---
 title: Managing labels
-intro: 'You can classify {% ifversion fpt or ghec %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %} by creating, editing, applying, and deleting labels.'
+intro: You can classify {% ifversion fpt or ghec %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %} by creating, editing, applying, and deleting labels.
 permissions: '{% data reusables.enterprise-accounts.emu-permission-repo %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/managing-labels
@@ -24,11 +24,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
-  - Issues
-  - Project management
-type: how_to
+contentType: how-tos
 ---
 ## About labels
 

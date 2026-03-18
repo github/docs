@@ -6,17 +6,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret Protection
-  - Secret scanning
 contentType: how-tos
 redirect_from:
   - /code-security/secret-scanning
 children:
   - /detect-secret-leaks
   - /customize-leak-detection
-  - /troubleshooting-secret-scanning
   - /prevent-future-leaks
   - /work-with-leak-prevention
   - /manage-bypass-requests
 ---
+

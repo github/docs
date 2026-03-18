@@ -1,18 +1,34 @@
 ---
-title: Migrating from Azure DevOps to GitHub Enterprise Cloud
+title: Migrating from Azure DevOps to GitHub
 shortTitle: Migrate from Azure DevOps
-intro: You can migrate repositories to {% data variables.product.prodname_dotcom %} with {% data variables.product.prodname_importer_proper_name %}.
+intro: "Plan and execute a migration from Azure DevOps to {% data variables.product.prodname_ghe_cloud %}. This six-phase guide explains how to configure access, migrate, and the follow-up tasks needed to get your repositories ready for work."
 versions:
   fpt: '*'
-  ghes: '*'
   ghec: '*'
 children:
-  - /about-migrations-from-azure-devops-to-github-enterprise-cloud
-  - /overview-of-a-migration-from-azure-devops-to-github-enterprise-cloud
-  - /managing-access-for-a-migration-from-azure-devops
-  - /migrating-repositories-from-azure-devops-to-github-enterprise-cloud
+  - /phase-1-understand-migrations-from-azure-devops-to-github
+  - /phase-2-manage-access
+  - /phase-3-install-and-configure-github-enterprise-importer
+  - /phase-4-prepare-for-your-migration-from-azure-devops-to-github
+  - /phase-5-migrate-your-repositories-from-azure-devops-to-github
+  - /phase-6-follow-up-tasks
+  - /key-differences-between-azure-devops-and-github
+  - /use-graphql-to-migrate-repositories-from-azure-devops-to-github-enterprise-cloud
+  - /granting-the-migrator-role
 redirect_from:
   - /migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud
-contentType: other
+contentType: tutorials
+heroImage: /assets/images/banner-images/hero-3
+layout: bespoke-landing
+sidebarLink:
+  text: Get started
+  href: /migrations/ado
+carousels:
+  recommended:
+    - /phase-1-understand-migrations-from-azure-devops-to-github
+    - /phase-2-manage-access
+    - /phase-3-install-and-configure-github-enterprise-importer
+    - /phase-4-prepare-for-your-migration-from-azure-devops-to-github
+    - /phase-5-migrate-your-repositories-from-azure-devops-to-github
+    - /phase-6-follow-up-tasks
 ---
-

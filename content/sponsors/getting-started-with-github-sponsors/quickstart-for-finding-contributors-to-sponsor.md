@@ -4,10 +4,8 @@ intro: Learn some best practices for finding open source contributors to sponsor
 versions:
   fpt: '*'
   ghec: '*'
-type: quick_start
-topics:
-  - Open Source
 shortTitle: Quickstart
+contentType: get-started
 ---
 
 ## Explore projects you depend on

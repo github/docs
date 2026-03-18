@@ -1,7 +1,7 @@
 ---
 title: Re-running workflows and jobs
 shortTitle: Re-run workflows and jobs
-intro: 'You can re-run a workflow run, all failed jobs in a workflow run, or specific jobs in a workflow run up to 30 days after its initial run.'
+intro: You can re-run a workflow run, all failed jobs in a workflow run, or specific jobs in a workflow run up to 30 days after its initial run.
 permissions: People with write permissions to a repository can re-run workflows in the repository.
 redirect_from:
   - /actions/managing-workflow-runs/re-running-a-workflow
@@ -12,6 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Manage and monitor workflow runs
+contentType: how-tos
 ---
 
 > [!NOTE]

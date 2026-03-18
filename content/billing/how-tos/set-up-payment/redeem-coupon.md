@@ -16,14 +16,10 @@ versions:
   fpt: '*'
   ghec: '*'
 product: 'Personal, organization, and enterprise account owners<br>Organization and enterprise billing managers'
-topics:
-  - Billing
-  - Discounts
-  - Fundamentals
-  - Organizations
-  - User account
 shortTitle: Redeem coupon
 contentType: how-tos
+category:
+  - Set up payment
 ---
 
 ## Prerequisites

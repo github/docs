@@ -7,14 +7,14 @@ export type LearningTrack = {
   trackProduct: string
   title: string
   description: string
-  guides?: Array<{ href: string; type: string | null; title: string; intro: string }>
+  guides?: Array<{ href: string; contentType: string | null; title: string; intro: string }>
 }
 
 export type ArticleGuide = {
   href: string
   title: string
   intro: string
-  type: string
+  contentType: string
   topics: Array<string>
 }
 
@@ -60,7 +60,7 @@ export const getProductGuidesContextFromRequest = (req: ExtendedRequest): Produc
           title: (guide.title as string) || '',
           intro: (guide.intro as string) || '',
           href: (guide.href as string) || '',
-          type: ((guide.page as any)?.type as string) || null,
+          contentType: ((guide.page as any)?.contentType as string) || null,
         }),
       ),
     }),
@@ -76,7 +76,7 @@ export const getProductGuidesContextFromRequest = (req: ExtendedRequest): Produc
         href: (guide.href as string) || '',
         title: (guide.title as string) || '',
         intro: (guide.intro as string) || '',
-        type: (guide.type as string) || '',
+        contentType: (guide.contentType as string) || '',
         topics: (guide.topics as Array<string>) || [],
       }
     }),

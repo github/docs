@@ -15,8 +15,6 @@ category:
 complexity:
   - Intermediate
 octicon: rocket
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

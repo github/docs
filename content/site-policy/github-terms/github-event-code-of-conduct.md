@@ -5,9 +5,6 @@ redirect_from:
   - /github/site-policy/github-event-code-of-conduct
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 ---
 
 ## Code of Conduct

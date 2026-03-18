@@ -5,9 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Notifications
 shortTitle: Manage Actions notifications
+contentType: how-tos
 ---
 
 For repositories that are set up with {% data variables.product.prodname_actions %} and that you are watching, you can choose how you want to receive workflow run updates.

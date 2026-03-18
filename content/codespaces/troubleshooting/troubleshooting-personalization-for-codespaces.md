@@ -5,12 +5,10 @@ intro: Troubleshooting steps for common issues with dotfiles and Settings Sync.
 versions:
   fpt: '*'
   ghec: '*'
-type: reference
-topics:
-  - Codespaces
 shortTitle: Personalization
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-dotfiles-for-codespaces
+contentType: reference
 ---
 
 You can personalize {% data variables.product.prodname_github_codespaces %} by using a `dotfiles` repository on {% data variables.product.github %} or by using Settings Sync. For more information, see [AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account).

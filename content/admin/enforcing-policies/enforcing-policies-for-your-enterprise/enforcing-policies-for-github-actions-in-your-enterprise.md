@@ -1,7 +1,7 @@
 ---
 title: Enforcing policies for GitHub Actions in your enterprise
-intro: "You can enforce policies to manage how {% data variables.product.prodname_actions %} can be used within your enterprise."
-permissions: "Enterprise owners"
+intro: You can enforce policies to manage how {% data variables.product.prodname_actions %} can be used within your enterprise.
+permissions: Enterprise owners
 redirect_from:
   - /enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
   - /admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
@@ -17,12 +17,8 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - Actions
-  - Enterprise
-  - Policies
 shortTitle: GitHub Actions policies
+contentType: how-tos
 ---
 
 ## What are policies for {% data variables.product.prodname_actions %}?

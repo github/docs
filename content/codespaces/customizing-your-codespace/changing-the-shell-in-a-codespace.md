@@ -5,9 +5,7 @@ intro: You can change your shell in a codespace to keep the setup you're used to
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
-type: how_to
+contentType: how-tos
 ---
 
 When you're working in a codespace, you can open a new terminal window with a shell of your choice, change your default shell for new terminal windows, or install a new shell. You can also use dotfiles to configure your shell.

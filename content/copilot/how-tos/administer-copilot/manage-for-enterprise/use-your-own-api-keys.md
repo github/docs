@@ -4,10 +4,11 @@ shortTitle: Use your own API keys
 intro: 'Learn how to integrate your preferred custom models with {% data variables.product.prodname_copilot %} by using your own LLM API keys, and make them available for organizations in your enterprise account.'
 versions:
   feature: copilot-byok
-topics:
-  - Copilot
 contentType: how-tos
 allowTitleToDifferFromFilename: true
+category:
+  - Configure Copilot
+  - Manage Copilot for a team
 ---
 
 {% data reusables.copilot.byok-intro %}

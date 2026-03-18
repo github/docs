@@ -7,12 +7,6 @@ permissions: Organizations on {% data variables.product.prodname_team %} or {% d
 contentType: concepts
 versions:
   feature: secret-risk-assessment
-topics:
-  - Code Security
-  - Secret scanning
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-security-with-github

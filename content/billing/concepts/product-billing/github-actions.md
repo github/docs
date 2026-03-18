@@ -15,10 +15,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Actions
-  - Billing
-  - Spending limits
 shortTitle: GitHub Actions
 contentType: concepts
 ---
@@ -76,6 +72,27 @@ Deleting artifacts reduces your current storage and prevents future charges, but
 * Example: Storing 3 GB for 10 days = 720 GB-Hours (3 GB × 10 days × 24 hours)
 
 Your monthly bill converts GB-Hours to GB-Months by dividing by the hours in the month (usually 720 hours for a 30-day month).
+
+### Custom image storage
+
+For {% data variables.actions.github_hosted_larger_runners %}, storage for custom images is billed through {% data variables.product.prodname_actions %} storage.
+
+Custom image storage uses the same hourly accrual model as other {% data variables.product.prodname_actions %} storage. Your bill is based on the amount of image data that is stored over time, measured in GB-Hours.
+
+Storage usage for custom images depends on:
+
+* The size of each image version
+* The number of image versions that you retain
+* How long each version is stored
+
+Each successful workflow job that includes the `snapshot` keyword creates a new custom image version. Each retained version contributes to your storage usage until the version is deleted or removed by a retention policy. For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/use-custom-images) and [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#custom-images-retention-policies).
+
+Custom image storage is based on retained image data over time, not on the number of times that a runner uses or pulls an existing image.
+
+For example:
+
+* Storing one 150 GB custom image version for 24 hours uses 3,600 GB-Hours.
+* Storing four 150 GB versions of the same image for 24 hours uses 14,400 GB-Hours.
 
 ### Examples of how usage is measured
 
@@ -165,7 +182,7 @@ For cached storage, billing charts and reports show only the cost of usage beyon
 
 {% data reusables.billing.default-over-quota-behavior %}
 
-{% data reusables.billing.migrated-budgets %}
+You can also receive email notifications when your included {% data variables.product.prodname_actions %} usage reaches 90% and 100% during a billing period. For more information, see [AUTOTITLE](/billing/concepts/budgets-and-alerts#included-usage-alerts).
 
 ## Further reading
 

@@ -5,9 +5,9 @@ shortTitle: Enterprise configuration
 versions:
   feature: copilot
 defaultTool: vscode
-topics:
-  - Copilot
 contentType: how-tos
+category:
+  - Configure Copilot
 ---
 
 The {% data variables.product.github %} MCP server can be configured to work with {% data variables.product.prodname_ghe_server %} and {% data variables.enterprise.data_residency %}. The configuration steps differ depending on whether you are using the remote or local MCP server.

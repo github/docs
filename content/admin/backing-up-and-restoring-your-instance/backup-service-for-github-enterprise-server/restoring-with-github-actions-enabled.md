@@ -1,12 +1,10 @@
 ---
 title: Restoring with GitHub Actions enabled
 shortTitle: Restore with Actions
-intro: 'Learn how to prepare for and restore backups when {% data variables.product.prodname_actions %} is enabled with external blob storage.'
+intro: Learn how to prepare for and restore backups when {% data variables.product.prodname_actions %} is enabled with external blob storage.
 versions:
   ghes: '>= 3.17'
-type: how_to
-topics:
-  - Backups
+contentType: how-tos
 ---
 
 >[!IMPORTANT] Data stored in your configured external storage for {% data variables.product.prodname_actions %}—such as logs, artifacts, and other blobs—is not included in {% data variables.product.prodname_enterprise_backup_service %} snapshots. You must back up this data separately using your storage provider's tools and best practices.

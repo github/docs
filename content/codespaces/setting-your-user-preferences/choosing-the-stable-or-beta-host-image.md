@@ -1,14 +1,11 @@
 ---
 title: Choosing the stable or beta host image
 shortTitle: Choose the host image
-intro: 'You can choose to build codespaces using either the stable or beta version of the host image for the underlying virtual machine.'
+intro: You can choose to build codespaces using either the stable or beta version of the host image for the underlying virtual machine.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Set up
+contentType: how-tos
 ---
 
 ## About the virtual machine host image

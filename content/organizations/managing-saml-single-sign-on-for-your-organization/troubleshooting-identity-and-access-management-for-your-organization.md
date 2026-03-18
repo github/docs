@@ -3,12 +3,11 @@ title: Troubleshooting identity and access management for your organization
 intro: 'Review and resolve common troubleshooting errors for managing your organization''s SAML SSO, team synchronization, or identity provider (IdP) connection.'
 versions:
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Troubleshooting access
 redirect_from:
   - /organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management
+category:
+  - Configure SAML single sign-on
 ---
 
 {% data reusables.saml.current-time-earlier-than-notbefore-condition %}

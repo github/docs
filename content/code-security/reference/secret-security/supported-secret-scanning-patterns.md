@@ -6,9 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret scanning
-  - Secret Protection
 redirect_from:
   - /code-security/secret-scanning/secret-scanning-partners
   - /code-security/secret-scanning/secret-scanning-patterns
@@ -47,6 +44,7 @@ The tables list the secrets supported by {% data variables.product.prodname_secr
   * Includes {% ifversion secret-scanning-alert-experimental-list %}default{% else %}high confidence{% endif %} tokens, which relate to supported patterns and specified custom patterns, as well as non-provider tokens such as private keys, which often result in false positives.{% endif %}
 * **Push protection:** Token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}. Applies to repositories with {% data variables.product.prodname_secret_scanning %} and push protection enabled.
 * **Validity check:** Token for which a validity check is implemented. {% ifversion secret-scanning-validity-check-partner-patterns %}For partner tokens, {% data variables.product.prodname_dotcom %} sends the token to the relevant partner. Note that not all partners are based in the United States. For more information, see [{% data variables.product.prodname_AS %}](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security) in the Site Policy documentation.{% else %} Currently only applies to {% data variables.product.prodname_dotcom %} tokens.{% endif %}
+* **Metadata check:** Token for which extended metadata is available, providing additional context about the detected secret.
 * **Base64:** Token for which Base64-encoded versions are supported.
 
 ### Non-provider patterns
@@ -65,7 +63,7 @@ Precision levels are estimated based on the pattern type's typical false positiv
 | Generic | http_basic_authentication_header | HTTP Basic Authentication credentials in request headers | Medium |
 | Generic | http_bearer_authentication_header | HTTP Bearer tokens used for API authentication | Medium |
 | Generic | mongodb_connection_string | Connection strings for MongoDB databases containing credentials | High |
-| Generic | mysql_connection_string | Connection strings for MySQL databases containing credentials | High |
+| Generic | mysql_connection_url | Connection strings for MySQL databases containing credentials | High |
 | Generic | openssh_private_key | OpenSSH format private keys used for SSH authentication | High |
 | Generic | pgp_private_key | PGP (Pretty Good Privacy) private keys used for encryption and signing | High |
 | Generic | postgres_connection_string | Connection strings for PostgreSQL databases containing credentials | High |
@@ -87,7 +85,7 @@ Precision levels are estimated based on the pattern type's typical false positiv
 | Generic | http_basic_authentication_header | HTTP Basic Authentication credentials in request headers | Medium |
 | Generic | http_bearer_authentication_header | HTTP Bearer tokens used for API authentication | Medium |
 | Generic | mongodb_connection_string | Connection strings for MongoDB databases containing credentials | High |
-| Generic | mysql_connection_string | Connection strings for MySQL databases containing credentials | High |
+| Generic | mysql_connection_url | Connection strings for MySQL databases containing credentials | High |
 | Generic | openssh_private_key | OpenSSH format private keys used for SSH authentication | High |
 | Generic | pgp_private_key | PGP (Pretty Good Privacy) private keys used for encryption and signing | High |
 | Generic | postgres_connection_string | Connection strings for PostgreSQL databases containing credentials | High |
@@ -117,12 +115,12 @@ Precision levels are estimated based on the pattern type's typical false positiv
 {% ifversion fpt or ghec %}
 
 > [!NOTE]
-> Validity checks are only available to users with {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} who enable the feature as part of {% data variables.product.prodname_GH_secret_protection %}.
+> Validity and extended metadata checks are only available to users with {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} who enable the feature as part of {% data variables.product.prodname_GH_secret_protection %}.
 
-| Provider | Token | Partner | User | Push protection | Validity check | Base64 |
-|----|:----|:----:|:----:|:----:|:----:|:----:|
+| Provider | Token | Partner | User | Push protection | Validity check | Metadata check | Base64 |
+|----|:----|:----:|:----:|:----:|:----:|:----:|:----:|
 {%- for entry in secretScanningData %}
-| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPublic %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.isPrivateWithGhas %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.hasPushProtection %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.hasValidityCheck %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.base64Supported %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} |
+| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPublic %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.isPrivateWithGhas %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.hasPushProtection %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.hasValidityCheck %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.hasExtendedMetadata %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.base64Supported %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} |
 {%- endfor %}
 
 {% endif %}

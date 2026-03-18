@@ -3078,6 +3078,82 @@
       ]
     },
     {
+      "name": "createIssueField",
+      "kind": "mutations",
+      "id": "createissuefield",
+      "href": "/graphql/reference/mutations#createissuefield",
+      "description": "<p>Creates a new issue field.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateIssueFieldInput!",
+          "id": "createissuefieldinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createissuefieldinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issueField",
+          "type": "IssueFields",
+          "id": "issuefields",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefields",
+          "description": "<p>The newly created issue field.</p>"
+        }
+      ]
+    },
+    {
+      "name": "createIssueFieldValue",
+      "kind": "mutations",
+      "id": "createissuefieldvalue",
+      "href": "/graphql/reference/mutations#createissuefieldvalue",
+      "description": "<p>Creates a new issue field value for an issue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateIssueFieldValueInput!",
+          "id": "createissuefieldvalueinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createissuefieldvalueinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The issue object.</p>"
+        },
+        {
+          "name": "issueFieldValue",
+          "type": "IssueFieldValue",
+          "id": "issuefieldvalue",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefieldvalue",
+          "description": "<p>The newly created issue field value.</p>"
+        }
+      ]
+    },
+    {
       "name": "createIssueType",
       "kind": "mutations",
       "id": "createissuetype",
@@ -3304,6 +3380,40 @@
           "id": "createprojectv2fieldinput",
           "kind": "input-objects",
           "href": "/graphql/reference/input-objects#createprojectv2fieldinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "projectV2Field",
+          "type": "ProjectV2FieldConfiguration",
+          "id": "projectv2fieldconfiguration",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#projectv2fieldconfiguration",
+          "description": "<p>The new field.</p>"
+        }
+      ]
+    },
+    {
+      "name": "createProjectV2IssueField",
+      "kind": "mutations",
+      "id": "createprojectv2issuefield",
+      "href": "/graphql/reference/mutations#createprojectv2issuefield",
+      "description": "<p>Create a new project issue field.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateProjectV2IssueFieldInput!",
+          "id": "createprojectv2issuefieldinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createprojectv2issuefieldinput"
         }
       ],
       "returnFields": [
@@ -3980,6 +4090,82 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ]
+    },
+    {
+      "name": "deleteIssueField",
+      "kind": "mutations",
+      "id": "deleteissuefield",
+      "href": "/graphql/reference/mutations#deleteissuefield",
+      "description": "<p>Deletes an issue field.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteIssueFieldInput!",
+          "id": "deleteissuefieldinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#deleteissuefieldinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issueField",
+          "type": "IssueFields",
+          "id": "issuefields",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefields",
+          "description": "<p>The deleted issue field.</p>"
+        }
+      ]
+    },
+    {
+      "name": "deleteIssueFieldValue",
+      "kind": "mutations",
+      "id": "deleteissuefieldvalue",
+      "href": "/graphql/reference/mutations#deleteissuefieldvalue",
+      "description": "<p>Deletes an issue field value from an issue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteIssueFieldValueInput!",
+          "id": "deleteissuefieldvalueinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#deleteissuefieldvalueinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The issue object.</p>"
+        },
+        {
+          "name": "success",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "description": "<p>Whether the field value was successfully deleted.</p>"
         }
       ]
     },
@@ -5660,6 +5846,40 @@
       ]
     },
     {
+      "name": "pinIssueComment",
+      "kind": "mutations",
+      "id": "pinissuecomment",
+      "href": "/graphql/reference/mutations#pinissuecomment",
+      "description": "<p>Pins an Issue Comment.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "PinIssueCommentInput!",
+          "id": "pinissuecommentinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#pinissuecommentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issueComment",
+          "type": "IssueComment",
+          "id": "issuecomment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuecomment",
+          "description": "<p>The Issue Comment that was pinned.</p>"
+        }
+      ]
+    },
+    {
       "name": "promoteRepositoryCustomProperty",
       "kind": "mutations",
       "id": "promoterepositorycustomproperty",
@@ -6910,6 +7130,48 @@
       ]
     },
     {
+      "name": "setIssueFieldValue",
+      "kind": "mutations",
+      "id": "setissuefieldvalue",
+      "href": "/graphql/reference/mutations#setissuefieldvalue",
+      "description": "<p>Sets the value of an IssueFieldValue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "SetIssueFieldValueInput!",
+          "id": "setissuefieldvalueinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#setissuefieldvalueinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The issue where the field values were set.</p>"
+        },
+        {
+          "name": "issueFieldValues",
+          "type": "[IssueFieldValue!]",
+          "id": "issuefieldvalue",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefieldvalue",
+          "description": "<p>The issue field values that were created or updated.</p>"
+        }
+      ]
+    },
+    {
       "name": "setOrganizationInteractionLimit",
       "kind": "mutations",
       "id": "setorganizationinteractionlimit",
@@ -7714,6 +7976,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#issue",
           "description": "<p>The issue that was unpinned.</p>"
+        }
+      ]
+    },
+    {
+      "name": "unpinIssueComment",
+      "kind": "mutations",
+      "id": "unpinissuecomment",
+      "href": "/graphql/reference/mutations#unpinissuecomment",
+      "description": "<p>Unpins an Issue Comment.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UnpinIssueCommentInput!",
+          "id": "unpinissuecommentinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#unpinissuecommentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issueComment",
+          "type": "IssueComment",
+          "id": "issuecomment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuecomment",
+          "description": "<p>The Issue Comment that was unpinned.</p>"
         }
       ]
     },
@@ -8790,6 +9086,40 @@
       ]
     },
     {
+      "name": "updateIpAllowListUserLevelEnforcementEnabledSetting",
+      "kind": "mutations",
+      "id": "updateipallowlistuserlevelenforcementenabledsetting",
+      "href": "/graphql/reference/mutations#updateipallowlistuserlevelenforcementenabledsetting",
+      "description": "<p>Sets whether IP allow list user-level enforcement is enabled on an enterprise.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateIpAllowListUserLevelEnforcementEnabledSettingInput!",
+          "id": "updateipallowlistuserlevelenforcementenabledsettinginput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateipallowlistuserlevelenforcementenabledsettinginput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "owner",
+          "type": "IpAllowListOwner",
+          "id": "ipallowlistowner",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#ipallowlistowner",
+          "description": "<p>The IP allow list owner on which the setting was updated.</p>"
+        }
+      ]
+    },
+    {
       "name": "updateIssue",
       "kind": "mutations",
       "id": "updateissue",
@@ -8862,6 +9192,82 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#issuecomment",
           "description": "<p>The updated comment.</p>"
+        }
+      ]
+    },
+    {
+      "name": "updateIssueField",
+      "kind": "mutations",
+      "id": "updateissuefield",
+      "href": "/graphql/reference/mutations#updateissuefield",
+      "description": "<p>Updates an issue field.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateIssueFieldInput!",
+          "id": "updateissuefieldinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateissuefieldinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issueField",
+          "type": "IssueFields",
+          "id": "issuefields",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefields",
+          "description": "<p>The updated issue field.</p>"
+        }
+      ]
+    },
+    {
+      "name": "updateIssueFieldValue",
+      "kind": "mutations",
+      "id": "updateissuefieldvalue",
+      "href": "/graphql/reference/mutations#updateissuefieldvalue",
+      "description": "<p>Updates an existing issue field value for an issue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateIssueFieldValueInput!",
+          "id": "updateissuefieldvalueinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateissuefieldvalueinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The issue object.</p>"
+        },
+        {
+          "name": "issueFieldValue",
+          "type": "IssueFieldValue",
+          "id": "issuefieldvalue",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefieldvalue",
+          "description": "<p>The updated issue field value.</p>"
         }
       ]
     },
@@ -13002,7 +13408,17 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers. Use <code>fullDatabaseId</code> instead. Removal on 2027-01-01 UTC.</p>"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "location",
@@ -24347,6 +24763,14 @@
           "href": "/graphql/reference/enums#ipallowlistforinstalledappsenabledsettingvalue"
         },
         {
+          "name": "ipAllowListUserLevelEnforcementEnabledSetting",
+          "description": "<p>The setting value for whether the enterprise has IP allow list user-level enforcement enabled.</p>",
+          "type": "IpAllowListUserLevelEnforcementEnabledSettingValue!",
+          "id": "ipallowlistuserlevelenforcementenabledsettingvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#ipallowlistuserlevelenforcementenabledsettingvalue"
+        },
+        {
           "name": "isUpdatingDefaultRepositoryPermission",
           "description": "<p>Whether or not the base repository permission is currently being updated.</p>",
           "type": "Boolean!",
@@ -29830,6 +30254,56 @@
           "href": "/graphql/reference/objects#issuedependenciessummary"
         },
         {
+          "name": "issueFieldValues",
+          "description": "<p>Fields that are set on this issue.</p>",
+          "type": "IssueFieldValueConnection",
+          "id": "issuefieldvalueconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuefieldvalueconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "issueType",
           "description": "<p>The issue type for this Issue.</p>",
           "type": "IssueType",
@@ -30036,6 +30510,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "pinnedIssueComment",
+          "description": "<p>The pinned comment for this issue.</p>",
+          "type": "PinnedIssueComment",
+          "id": "pinnedissuecomment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pinnedissuecomment"
         },
         {
           "name": "projectCards",
@@ -30988,6 +31470,11 @@
           "href": "/graphql/reference/interfaces#node"
         },
         {
+          "name": "Pinnable",
+          "id": "pinnable",
+          "href": "/graphql/reference/interfaces#pinnable"
+        },
+        {
           "name": "Reactable",
           "id": "reactable",
           "href": "/graphql/reference/interfaces#reactable"
@@ -31114,6 +31601,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "isPinned",
+          "description": "<p>Indicates whether or not this entity is currently pinned.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "issue",
           "description": "<p>Identifies the issue associated with the comment.</p>",
           "type": "Issue!",
@@ -31136,6 +31631,22 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pinnedAt",
+          "description": "<p>Identifies the date and time when this entity was pinned.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "pinnedBy",
+          "description": "<p>The user who pinned this entity.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
         },
         {
           "name": "publishedAt",
@@ -31330,6 +31841,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCanPin",
+          "description": "<p>Check if the current viewer can pin this entity.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanReact",
           "description": "<p>Can user react to this subject.</p>",
           "type": "Boolean!",
@@ -31340,6 +31859,14 @@
         {
           "name": "viewerCanUnminimize",
           "description": "<p>Check if the current viewer can unminimize this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanUnpin",
+          "description": "<p>Check if the current viewer can unpin this entity.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -31430,6 +31957,102 @@
         {
           "name": "node",
           "description": "<p>The item at the end of the edge.</p>",
+          "type": "IssueComment",
+          "id": "issuecomment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuecomment"
+        }
+      ]
+    },
+    {
+      "name": "IssueCommentPinnedEvent",
+      "kind": "objects",
+      "id": "issuecommentpinnedevent",
+      "href": "/graphql/reference/objects#issuecommentpinnedevent",
+      "description": "<p>Represents a<code>issue_comment_pinned</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueCommentPinnedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "issueComment",
+          "description": "<p>Identifies the issue comment associated with the<code>issue_comment_pinned</code>event.</p>",
+          "type": "IssueComment",
+          "id": "issuecomment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuecomment"
+        }
+      ]
+    },
+    {
+      "name": "IssueCommentUnpinnedEvent",
+      "kind": "objects",
+      "id": "issuecommentunpinnedevent",
+      "href": "/graphql/reference/objects#issuecommentunpinnedevent",
+      "description": "<p>Represents a<code>issue_comment_unpinned</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueCommentUnpinnedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "issueComment",
+          "description": "<p>Identifies the issue comment associated with the<code>issue_comment_unpinned</code>event.</p>",
           "type": "IssueComment",
           "id": "issuecomment",
           "kind": "objects",
@@ -31618,6 +32241,682 @@
           "id": "issue",
           "kind": "objects",
           "href": "/graphql/reference/objects#issue"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldDate",
+      "kind": "objects",
+      "id": "issuefielddate",
+      "href": "/graphql/reference/objects#issuefielddate",
+      "description": "<p>Represents a date issue field.</p>",
+      "implements": [
+        {
+          "name": "IssueFieldCommon",
+          "id": "issuefieldcommon",
+          "href": "/graphql/reference/interfaces#issuefieldcommon"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>The issue field's creation timestamp.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "dataType",
+          "description": "<p>The issue field's data type.</p>",
+          "type": "IssueFieldDataType!",
+          "id": "issuefielddatatype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuefielddatatype"
+        },
+        {
+          "name": "description",
+          "description": "<p>The issue field's description.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueFieldDate object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The issue field's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "visibility",
+          "description": "<p>The issue field's visibility.</p>",
+          "type": "IssueFieldVisibility!",
+          "id": "issuefieldvisibility",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuefieldvisibility"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldDateValue",
+      "kind": "objects",
+      "id": "issuefielddatevalue",
+      "href": "/graphql/reference/objects#issuefielddatevalue",
+      "description": "<p>The value of a date field in an Issue item.</p>",
+      "implements": [
+        {
+          "name": "IssueFieldValueCommon",
+          "id": "issuefieldvaluecommon",
+          "href": "/graphql/reference/interfaces#issuefieldvaluecommon"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "field",
+          "description": "<p>The issue field that contains this value.</p>",
+          "type": "IssueFields",
+          "id": "issuefields",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefields"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueFieldDateValue object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "value",
+          "description": "<p>Value of the field.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldNumber",
+      "kind": "objects",
+      "id": "issuefieldnumber",
+      "href": "/graphql/reference/objects#issuefieldnumber",
+      "description": "<p>Represents a number issue field.</p>",
+      "implements": [
+        {
+          "name": "IssueFieldCommon",
+          "id": "issuefieldcommon",
+          "href": "/graphql/reference/interfaces#issuefieldcommon"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>The issue field's creation timestamp.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "dataType",
+          "description": "<p>The issue field's data type.</p>",
+          "type": "IssueFieldDataType!",
+          "id": "issuefielddatatype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuefielddatatype"
+        },
+        {
+          "name": "description",
+          "description": "<p>The issue field's description.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueFieldNumber object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The issue field's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "visibility",
+          "description": "<p>The issue field's visibility.</p>",
+          "type": "IssueFieldVisibility!",
+          "id": "issuefieldvisibility",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuefieldvisibility"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldNumberValue",
+      "kind": "objects",
+      "id": "issuefieldnumbervalue",
+      "href": "/graphql/reference/objects#issuefieldnumbervalue",
+      "description": "<p>The value of a number field in an Issue item.</p>",
+      "implements": [
+        {
+          "name": "IssueFieldValueCommon",
+          "id": "issuefieldvaluecommon",
+          "href": "/graphql/reference/interfaces#issuefieldvaluecommon"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "field",
+          "description": "<p>The issue field that contains this value.</p>",
+          "type": "IssueFields",
+          "id": "issuefields",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefields"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueFieldNumberValue object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "value",
+          "description": "<p>Value of the field.</p>",
+          "type": "Float!",
+          "id": "float",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#float"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldSingleSelect",
+      "kind": "objects",
+      "id": "issuefieldsingleselect",
+      "href": "/graphql/reference/objects#issuefieldsingleselect",
+      "description": "<p>Represents a single select issue field.</p>",
+      "implements": [
+        {
+          "name": "IssueFieldCommon",
+          "id": "issuefieldcommon",
+          "href": "/graphql/reference/interfaces#issuefieldcommon"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>The issue field's creation timestamp.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "dataType",
+          "description": "<p>The issue field's data type.</p>",
+          "type": "IssueFieldDataType!",
+          "id": "issuefielddatatype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuefielddatatype"
+        },
+        {
+          "name": "description",
+          "description": "<p>The issue field's description.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueFieldSingleSelect object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The issue field's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "options",
+          "description": "<p>Options for the single select field.</p>",
+          "type": "[IssueFieldSingleSelectOption!]!",
+          "id": "issuefieldsingleselectoption",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuefieldsingleselectoption"
+        },
+        {
+          "name": "visibility",
+          "description": "<p>The issue field's visibility.</p>",
+          "type": "IssueFieldVisibility!",
+          "id": "issuefieldvisibility",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuefieldvisibility"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldSingleSelectOption",
+      "kind": "objects",
+      "id": "issuefieldsingleselectoption",
+      "href": "/graphql/reference/objects#issuefieldsingleselectoption",
+      "description": "<p>Represents an option in a single-select issue field.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "color",
+          "description": "<p>The option's display color.</p>",
+          "type": "IssueFieldSingleSelectOptionColor!",
+          "id": "issuefieldsingleselectoptioncolor",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuefieldsingleselectoptioncolor"
+        },
+        {
+          "name": "description",
+          "description": "<p>The option's plain-text description.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueFieldSingleSelectOption object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The option's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "priority",
+          "description": "<p>The option's priority order.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldSingleSelectValue",
+      "kind": "objects",
+      "id": "issuefieldsingleselectvalue",
+      "href": "/graphql/reference/objects#issuefieldsingleselectvalue",
+      "description": "<p>The value of a single select field in an Issue item.</p>",
+      "implements": [
+        {
+          "name": "IssueFieldValueCommon",
+          "id": "issuefieldvaluecommon",
+          "href": "/graphql/reference/interfaces#issuefieldvaluecommon"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "color",
+          "description": "<p>The option's display color.</p>",
+          "type": "IssueFieldSingleSelectOptionColor!",
+          "id": "issuefieldsingleselectoptioncolor",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuefieldsingleselectoptioncolor"
+        },
+        {
+          "name": "description",
+          "description": "<p>The option's plain-text description.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "field",
+          "description": "<p>The issue field that contains this value.</p>",
+          "type": "IssueFields",
+          "id": "issuefields",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefields"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueFieldSingleSelectValue object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The option's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "optionId",
+          "description": "<p>The selected option's global relay ID.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldText",
+      "kind": "objects",
+      "id": "issuefieldtext",
+      "href": "/graphql/reference/objects#issuefieldtext",
+      "description": "<p>Represents a text issue field.</p>",
+      "implements": [
+        {
+          "name": "IssueFieldCommon",
+          "id": "issuefieldcommon",
+          "href": "/graphql/reference/interfaces#issuefieldcommon"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>The issue field's creation timestamp.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "dataType",
+          "description": "<p>The issue field's data type.</p>",
+          "type": "IssueFieldDataType!",
+          "id": "issuefielddatatype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuefielddatatype"
+        },
+        {
+          "name": "description",
+          "description": "<p>The issue field's description.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueFieldText object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The issue field's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "visibility",
+          "description": "<p>The issue field's visibility.</p>",
+          "type": "IssueFieldVisibility!",
+          "id": "issuefieldvisibility",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuefieldvisibility"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldTextValue",
+      "kind": "objects",
+      "id": "issuefieldtextvalue",
+      "href": "/graphql/reference/objects#issuefieldtextvalue",
+      "description": "<p>The value of a text field in an Issue item.</p>",
+      "implements": [
+        {
+          "name": "IssueFieldValueCommon",
+          "id": "issuefieldvaluecommon",
+          "href": "/graphql/reference/interfaces#issuefieldvaluecommon"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "field",
+          "description": "<p>The issue field that contains this value.</p>",
+          "type": "IssueFields",
+          "id": "issuefields",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefields"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueFieldTextValue object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "value",
+          "description": "<p>Value of the field.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldValueConnection",
+      "kind": "objects",
+      "id": "issuefieldvalueconnection",
+      "href": "/graphql/reference/objects#issuefieldvalueconnection",
+      "description": "<p>The connection type for IssueFieldValue.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[IssueFieldValueEdge]",
+          "id": "issuefieldvalueedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuefieldvalueedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[IssueFieldValue]",
+          "id": "issuefieldvalue",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefieldvalue"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldValueEdge",
+      "kind": "objects",
+      "id": "issuefieldvalueedge",
+      "href": "/graphql/reference/objects#issuefieldvalueedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "IssueFieldValue",
+          "id": "issuefieldvalue",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefieldvalue"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldsConnection",
+      "kind": "objects",
+      "id": "issuefieldsconnection",
+      "href": "/graphql/reference/objects#issuefieldsconnection",
+      "description": "<p>The connection type for IssueFields.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[IssueFieldsEdge]",
+          "id": "issuefieldsedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuefieldsedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[IssueFields]",
+          "id": "issuefields",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefields"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldsEdge",
+      "kind": "objects",
+      "id": "issuefieldsedge",
+      "href": "/graphql/reference/objects#issuefieldsedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "IssueFields",
+          "id": "issuefields",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefields"
         }
       ]
     },
@@ -32107,6 +33406,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pinnedFields",
+          "description": "<p>An ordered list of issue fields pinned to this type.</p>",
+          "type": "[IssueFields!]",
+          "id": "issuefields",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefields"
         }
       ]
     },
@@ -43490,6 +44797,66 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "issueFields",
+          "description": "<p>A list of the organization's issue fields.</p>",
+          "type": "IssueFieldsConnection",
+          "id": "issuefieldsconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuefieldsconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for issue fields returned from the connection.</p>",
+              "type": {
+                "name": "IssueFieldOrder",
+                "id": "issuefieldorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#issuefieldorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "issueTypes",
           "description": "<p>A list of the organization's issue types.</p>",
           "type": "IssueTypeConnection",
@@ -48127,6 +49494,78 @@
       ]
     },
     {
+      "name": "PinnedIssueComment",
+      "kind": "objects",
+      "id": "pinnedissuecomment",
+      "href": "/graphql/reference/objects#pinnedissuecomment",
+      "description": "<p>A comment pinned to an Issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the PinnedIssueComment object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "issue",
+          "description": "<p>The issue that this comment belongs to.</p>",
+          "type": "Issue!",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue"
+        },
+        {
+          "name": "issueComment",
+          "description": "<p>The comment that was pinned.</p>",
+          "type": "IssueComment!",
+          "id": "issuecomment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuecomment"
+        },
+        {
+          "name": "pinnedAt",
+          "description": "<p>Identifies when the comment was pinned.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "pinnedBy",
+          "description": "<p>The actor that pinned this comment.</p>",
+          "type": "Actor!",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        }
+      ]
+    },
+    {
       "name": "PinnedIssueConnection",
       "kind": "objects",
       "id": "pinnedissueconnection",
@@ -50746,7 +52185,7 @@
       "fields": [
         {
           "name": "content",
-          "description": "<p>The content of the referenced draft issue, issue, or pull request.</p>",
+          "description": "<p>The content of the referenced draft issue, issue, pull request.</p>",
           "type": "ProjectV2ItemContent",
           "id": "projectv2itemcontent",
           "kind": "unions",
@@ -51862,6 +53301,31 @@
           "id": "projectv2itemfieldvalue",
           "kind": "unions",
           "href": "/graphql/reference/unions#projectv2itemfieldvalue"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2ItemIssueFieldValue",
+      "kind": "objects",
+      "id": "projectv2itemissuefieldvalue",
+      "href": "/graphql/reference/objects#projectv2itemissuefieldvalue",
+      "description": "<p>The value of an issue field in a Project item.</p>",
+      "fields": [
+        {
+          "name": "field",
+          "description": "<p>Field that contains this value.</p>",
+          "type": "ProjectV2FieldConfiguration!",
+          "id": "projectv2fieldconfiguration",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#projectv2fieldconfiguration"
+        },
+        {
+          "name": "issueFieldValue",
+          "description": "<p>Value of the Issue Field.</p>",
+          "type": "ProjectV2IssueFieldValues",
+          "id": "projectv2issuefieldvalues",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#projectv2issuefieldvalues"
         }
       ]
     },
@@ -66313,6 +67777,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasPullRequestsEnabled",
+          "description": "<p>Indicates if the repository has the pull requests feature enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasSponsorshipsEnabled",
           "description": "<p>Indicates if the repository displays a Sponsor button for financial contributions.</p>",
           "type": "Boolean!",
@@ -66370,7 +67842,7 @@
         },
         {
           "name": "isBlankIssuesEnabled",
-          "description": "<p>Returns true if blank issue creation is allowed.</p>",
+          "description": "<p>Returns true if the viewer can create a blank issue in this repository.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -67636,6 +69108,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "pullRequestCreationPolicy",
+          "description": "<p>The policy controlling who can create pull requests in this repository.</p>",
+          "type": "PullRequestCreationPolicy",
+          "id": "pullrequestcreationpolicy",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestcreationpolicy"
         },
         {
           "name": "pullRequestTemplates",
@@ -69095,6 +70575,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "requireExplicitValues",
+          "description": "<p>Whether this repository custom property requires explicit values.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "required",
@@ -76521,11 +78009,13 @@
         },
         {
           "name": "viewerCanSubscribe",
-          "description": "<p>Check if the viewer is able to change their subscription status for the repository.</p>",
+          "description": "<p>Check if the viewer is able to change their subscription status for the subscribable entity.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>Team.viewerCanSubscribe</code> will be removed. Team notifications subscriptions are being deprecated. Removal on 2026-07-01 UTC.</p>"
         },
         {
           "name": "viewerSubscription",
@@ -76533,7 +78023,9 @@
           "type": "SubscriptionState",
           "id": "subscriptionstate",
           "kind": "enums",
-          "href": "/graphql/reference/enums#subscriptionstate"
+          "href": "/graphql/reference/enums#subscriptionstate",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>Team.viewerSubscription</code> will be removed. Team notifications subscriptions are being deprecated. Removal on 2026-07-01 UTC.</p>"
         }
       ]
     },
@@ -82359,6 +83851,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "viewerCopilotAgentTaskUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for task updates.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "viewerCopilotAgentUpdatesChannel",
           "description": "<p>Channel value for subscribing to live updates for session updates.</p>",
           "type": "String",
@@ -84284,6 +85784,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "viewerCopilotAgentTaskUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for task updates.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "viewerCopilotAgentUpdatesChannel",
           "description": "<p>Channel value for subscribing to live updates for session updates.</p>",
           "type": "String",
@@ -85068,6 +86576,72 @@
       ]
     },
     {
+      "name": "IssueFieldCommon",
+      "kind": "interfaces",
+      "id": "issuefieldcommon",
+      "href": "/graphql/reference/interfaces#issuefieldcommon",
+      "description": "<p>Common fields across different issue field types.</p>",
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>The issue field's creation timestamp.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "dataType",
+          "description": "<p>The issue field's data type.</p>",
+          "type": "IssueFieldDataType!",
+          "id": "issuefielddatatype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuefielddatatype"
+        },
+        {
+          "name": "description",
+          "description": "<p>The issue field's description.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The issue field's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "visibility",
+          "description": "<p>The issue field's visibility.</p>",
+          "type": "IssueFieldVisibility!",
+          "id": "issuefieldvisibility",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuefieldvisibility"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldValueCommon",
+      "kind": "interfaces",
+      "id": "issuefieldvaluecommon",
+      "href": "/graphql/reference/interfaces#issuefieldvaluecommon",
+      "description": "<p>Common fields across different issue field value types.</p>",
+      "fields": [
+        {
+          "name": "field",
+          "description": "<p>The issue field that contains this value.</p>",
+          "type": "IssueFields",
+          "id": "issuefields",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issuefields"
+        }
+      ]
+    },
+    {
       "name": "Labelable",
       "kind": "interfaces",
       "id": "labelable",
@@ -85579,6 +87153,55 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "Pinnable",
+      "kind": "interfaces",
+      "id": "pinnable",
+      "href": "/graphql/reference/interfaces#pinnable",
+      "description": "<p>Entities that can be pinned.</p>",
+      "fields": [
+        {
+          "name": "isPinned",
+          "description": "<p>Indicates whether or not this entity is currently pinned.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "pinnedAt",
+          "description": "<p>Identifies the date and time when this entity was pinned.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "pinnedBy",
+          "description": "<p>The user who pinned this entity.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "viewerCanPin",
+          "description": "<p>Check if the current viewer can pin this entity.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanUnpin",
+          "description": "<p>Check if the current viewer can unpin this entity.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -86691,6 +88314,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasPullRequestsEnabled",
+          "description": "<p>Indicates if the repository has the pull requests feature enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasSponsorshipsEnabled",
           "description": "<p>Indicates if the repository displays a Sponsor button for financial contributions.</p>",
           "type": "Boolean!",
@@ -86825,6 +88456,14 @@
           "id": "repositoryowner",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#repositoryowner"
+        },
+        {
+          "name": "pullRequestCreationPolicy",
+          "description": "<p>The policy controlling who can create pull requests in this repository.</p>",
+          "type": "PullRequestCreationPolicy",
+          "id": "pullrequestcreationpolicy",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestcreationpolicy"
         },
         {
           "name": "pushedAt",
@@ -89679,6 +91318,23 @@
       ]
     },
     {
+      "name": "IpAllowListUserLevelEnforcementEnabledSettingValue",
+      "kind": "enums",
+      "id": "ipallowlistuserlevelenforcementenabledsettingvalue",
+      "href": "/graphql/reference/enums#ipallowlistuserlevelenforcementenabledsettingvalue",
+      "description": "<p>The possible values for the IP allow list user-level enforcement enabled setting.</p>",
+      "values": [
+        {
+          "name": "DISABLED",
+          "description": "<p>The setting is disabled for the owner.</p>"
+        },
+        {
+          "name": "ENABLED",
+          "description": "<p>The setting is enabled for the owner.</p>"
+        }
+      ]
+    },
+    {
       "name": "IssueClosedStateReason",
       "kind": "enums",
       "id": "issueclosedstatereason",
@@ -89726,6 +91382,106 @@
         {
           "name": "DEPENDENCY_ADDED_AT",
           "description": "<p>Order issue dependencies by time of when the dependency relationship was added.</p>"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldDataType",
+      "kind": "enums",
+      "id": "issuefielddatatype",
+      "href": "/graphql/reference/enums#issuefielddatatype",
+      "description": "<p>The type of an issue field.</p>",
+      "values": [
+        {
+          "name": "DATE",
+          "description": "<p>Date.</p>"
+        },
+        {
+          "name": "NUMBER",
+          "description": "<p>Number.</p>"
+        },
+        {
+          "name": "SINGLE_SELECT",
+          "description": "<p>Single Select.</p>"
+        },
+        {
+          "name": "TEXT",
+          "description": "<p>Text.</p>"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldOrderField",
+      "kind": "enums",
+      "id": "issuefieldorderfield",
+      "href": "/graphql/reference/enums#issuefieldorderfield",
+      "description": "<p>Properties by which issue field connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order issue fields by creation time.</p>"
+        },
+        {
+          "name": "NAME",
+          "description": "<p>Order issue fields by name.</p>"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldSingleSelectOptionColor",
+      "kind": "enums",
+      "id": "issuefieldsingleselectoptioncolor",
+      "href": "/graphql/reference/enums#issuefieldsingleselectoptioncolor",
+      "description": "<p>The display color of a single-select field option.</p>",
+      "values": [
+        {
+          "name": "BLUE",
+          "description": "<p>blue.</p>"
+        },
+        {
+          "name": "GRAY",
+          "description": "<p>gray.</p>"
+        },
+        {
+          "name": "GREEN",
+          "description": "<p>green.</p>"
+        },
+        {
+          "name": "ORANGE",
+          "description": "<p>orange.</p>"
+        },
+        {
+          "name": "PINK",
+          "description": "<p>pink.</p>"
+        },
+        {
+          "name": "PURPLE",
+          "description": "<p>purple.</p>"
+        },
+        {
+          "name": "RED",
+          "description": "<p>red.</p>"
+        },
+        {
+          "name": "YELLOW",
+          "description": "<p>yellow.</p>"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldVisibility",
+      "kind": "enums",
+      "id": "issuefieldvisibility",
+      "href": "/graphql/reference/enums#issuefieldvisibility",
+      "description": "<p>The visibility of an issue field.</p>",
+      "values": [
+        {
+          "name": "ALL",
+          "description": "<p>All.</p>"
+        },
+        {
+          "name": "ORG_ONLY",
+          "description": "<p>Org Only.</p>"
         }
       ]
     },
@@ -89866,6 +91622,14 @@
         {
           "name": "ISSUE_COMMENT",
           "description": "<p>Represents a comment on an Issue.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT_PINNED_EVENT",
+          "description": "<p>Represents a<code>issue_comment_pinned</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT_UNPINNED_EVENT",
+          "description": "<p>Represents a<code>issue_comment_unpinned</code>event on a given issue.</p>"
         },
         {
           "name": "ISSUE_FIELD_ADDED_EVENT",
@@ -91756,6 +93520,23 @@
       ]
     },
     {
+      "name": "PullRequestCreationPolicy",
+      "kind": "enums",
+      "id": "pullrequestcreationpolicy",
+      "href": "/graphql/reference/enums#pullrequestcreationpolicy",
+      "description": "<p>The policy controlling who can create pull requests in a repository.</p>",
+      "values": [
+        {
+          "name": "ALL",
+          "description": "<p>Anyone can create pull requests.</p>"
+        },
+        {
+          "name": "COLLABORATORS_ONLY",
+          "description": "<p>Only collaborators can create pull requests.</p>"
+        }
+      ]
+    },
+    {
       "name": "PullRequestMergeMethod",
       "kind": "enums",
       "id": "pullrequestmergemethod",
@@ -92061,6 +93842,14 @@
         {
           "name": "ISSUE_COMMENT",
           "description": "<p>Represents a comment on an Issue.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT_PINNED_EVENT",
+          "description": "<p>Represents a<code>issue_comment_pinned</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_COMMENT_UNPINNED_EVENT",
+          "description": "<p>Represents a<code>issue_comment_unpinned</code>event on a given issue.</p>"
         },
         {
           "name": "ISSUE_FIELD_ADDED_EVENT",
@@ -95335,6 +97124,11 @@
           "name": "Team",
           "id": "team",
           "href": "/graphql/reference/objects#team"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/objects#user"
         }
       ]
     },
@@ -95516,6 +97310,64 @@
           "name": "Organization",
           "id": "organization",
           "href": "/graphql/reference/objects#organization"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldValue",
+      "kind": "unions",
+      "id": "issuefieldvalue",
+      "href": "/graphql/reference/unions#issuefieldvalue",
+      "description": "<p>Issue field values.</p>",
+      "possibleTypes": [
+        {
+          "name": "IssueFieldDateValue",
+          "id": "issuefielddatevalue",
+          "href": "/graphql/reference/objects#issuefielddatevalue"
+        },
+        {
+          "name": "IssueFieldNumberValue",
+          "id": "issuefieldnumbervalue",
+          "href": "/graphql/reference/objects#issuefieldnumbervalue"
+        },
+        {
+          "name": "IssueFieldSingleSelectValue",
+          "id": "issuefieldsingleselectvalue",
+          "href": "/graphql/reference/objects#issuefieldsingleselectvalue"
+        },
+        {
+          "name": "IssueFieldTextValue",
+          "id": "issuefieldtextvalue",
+          "href": "/graphql/reference/objects#issuefieldtextvalue"
+        }
+      ]
+    },
+    {
+      "name": "IssueFields",
+      "kind": "unions",
+      "id": "issuefields",
+      "href": "/graphql/reference/unions#issuefields",
+      "description": "<p>Possible issue fields.</p>",
+      "possibleTypes": [
+        {
+          "name": "IssueFieldDate",
+          "id": "issuefielddate",
+          "href": "/graphql/reference/objects#issuefielddate"
+        },
+        {
+          "name": "IssueFieldNumber",
+          "id": "issuefieldnumber",
+          "href": "/graphql/reference/objects#issuefieldnumber"
+        },
+        {
+          "name": "IssueFieldSingleSelect",
+          "id": "issuefieldsingleselect",
+          "href": "/graphql/reference/objects#issuefieldsingleselect"
+        },
+        {
+          "name": "IssueFieldText",
+          "id": "issuefieldtext",
+          "href": "/graphql/reference/objects#issuefieldtext"
         }
       ]
     },
@@ -95733,6 +97585,16 @@
           "name": "IssueComment",
           "id": "issuecomment",
           "href": "/graphql/reference/objects#issuecomment"
+        },
+        {
+          "name": "IssueCommentPinnedEvent",
+          "id": "issuecommentpinnedevent",
+          "href": "/graphql/reference/objects#issuecommentpinnedevent"
+        },
+        {
+          "name": "IssueCommentUnpinnedEvent",
+          "id": "issuecommentunpinnedevent",
+          "href": "/graphql/reference/objects#issuecommentunpinnedevent"
         },
         {
           "name": "IssueTypeAddedEvent",
@@ -96358,6 +98220,35 @@
       ]
     },
     {
+      "name": "ProjectV2IssueFieldValues",
+      "kind": "unions",
+      "id": "projectv2issuefieldvalues",
+      "href": "/graphql/reference/unions#projectv2issuefieldvalues",
+      "description": "<p>Possible issue field values for a Project item.</p>",
+      "possibleTypes": [
+        {
+          "name": "IssueFieldDateValue",
+          "id": "issuefielddatevalue",
+          "href": "/graphql/reference/objects#issuefielddatevalue"
+        },
+        {
+          "name": "IssueFieldNumberValue",
+          "id": "issuefieldnumbervalue",
+          "href": "/graphql/reference/objects#issuefieldnumbervalue"
+        },
+        {
+          "name": "IssueFieldSingleSelectValue",
+          "id": "issuefieldsingleselectvalue",
+          "href": "/graphql/reference/objects#issuefieldsingleselectvalue"
+        },
+        {
+          "name": "IssueFieldTextValue",
+          "id": "issuefieldtextvalue",
+          "href": "/graphql/reference/objects#issuefieldtextvalue"
+        }
+      ]
+    },
+    {
       "name": "ProjectV2ItemContent",
       "kind": "unions",
       "id": "projectv2itemcontent",
@@ -96442,6 +98333,11 @@
           "name": "ProjectV2ItemFieldUserValue",
           "id": "projectv2itemfielduservalue",
           "href": "/graphql/reference/objects#projectv2itemfielduservalue"
+        },
+        {
+          "name": "ProjectV2ItemIssueFieldValue",
+          "id": "projectv2itemissuefieldvalue",
+          "href": "/graphql/reference/objects#projectv2itemissuefieldvalue"
         }
       ]
     },
@@ -96790,6 +98686,16 @@
           "name": "IssueComment",
           "id": "issuecomment",
           "href": "/graphql/reference/objects#issuecomment"
+        },
+        {
+          "name": "IssueCommentPinnedEvent",
+          "id": "issuecommentpinnedevent",
+          "href": "/graphql/reference/objects#issuecommentpinnedevent"
+        },
+        {
+          "name": "IssueCommentUnpinnedEvent",
+          "id": "issuecommentunpinnedevent",
+          "href": "/graphql/reference/objects#issuecommentunpinnedevent"
         },
         {
           "name": "IssueTypeAddedEvent",
@@ -97594,6 +99500,14 @@
       "href": "/graphql/reference/input-objects#addassigneestoassignableinput",
       "description": "<p>Autogenerated input type of AddAssigneesToAssignable.</p>",
       "inputFields": [
+        {
+          "name": "agentAssignment",
+          "description": "<p>Configuration for assigning Copilot to this issue.</p>",
+          "type": "AgentAssignmentInput",
+          "id": "agentassignmentinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#agentassignmentinput"
+        },
         {
           "name": "assignableId",
           "description": "<p>The id of the assignable object to add assignees to.</p>",
@@ -98483,6 +100397,48 @@
           "name": "ownerId",
           "description": "<p>The ID of the owner to add the domain to.</p>",
           "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "AgentAssignmentInput",
+      "kind": "inputObjects",
+      "id": "agentassignmentinput",
+      "href": "/graphql/reference/input-objects#agentassignmentinput",
+      "description": "<p>Represents configuration for assigning Copilot to an issue (public variant).</p>",
+      "inputFields": [
+        {
+          "name": "baseRef",
+          "description": "<p>The base ref/branch for the repository. Defaults to the default branch if not provided.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "customAgent",
+          "description": "<p>Custom agent for Copilot.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "customInstructions",
+          "description": "<p>Custom instructions for Copilot.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "targetRepositoryId",
+          "description": "<p>The Node ID of the target repository where Copilot should work. Defaults to the issue's repository if not provided.</p>",
+          "type": "ID",
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
@@ -100819,12 +102775,120 @@
       ]
     },
     {
+      "name": "CreateIssueFieldInput",
+      "kind": "inputObjects",
+      "id": "createissuefieldinput",
+      "href": "/graphql/reference/input-objects#createissuefieldinput",
+      "description": "<p>Autogenerated input type of CreateIssueField.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "dataType",
+          "description": "<p>The data type of the issue field.</p>",
+          "type": "IssueFieldDataType!",
+          "id": "issuefielddatatype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuefielddatatype"
+        },
+        {
+          "name": "description",
+          "description": "<p>A description of the issue field.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the issue field.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "options",
+          "description": "<p>The options for the issue field if applicable.</p>",
+          "type": "[IssueFieldSingleSelectOptionInput!]",
+          "id": "issuefieldsingleselectoptioninput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#issuefieldsingleselectoptioninput"
+        },
+        {
+          "name": "ownerId",
+          "description": "<p>The ID of the organization where the issue field will be created.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "visibility",
+          "description": "<p>The visibility of the issue field.</p>",
+          "type": "IssueFieldVisibility",
+          "id": "issuefieldvisibility",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuefieldvisibility"
+        }
+      ]
+    },
+    {
+      "name": "CreateIssueFieldValueInput",
+      "kind": "inputObjects",
+      "id": "createissuefieldvalueinput",
+      "href": "/graphql/reference/input-objects#createissuefieldvalueinput",
+      "description": "<p>Autogenerated input type of CreateIssueFieldValue.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueField",
+          "description": "<p>The field value to create.</p>",
+          "type": "IssueFieldCreateOrUpdateInput!",
+          "id": "issuefieldcreateorupdateinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#issuefieldcreateorupdateinput"
+        },
+        {
+          "name": "issueId",
+          "description": "<p>The ID of the issue.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "CreateIssueInput",
       "kind": "inputObjects",
       "id": "createissueinput",
       "href": "/graphql/reference/input-objects#createissueinput",
       "description": "<p>Autogenerated input type of CreateIssue.</p>",
       "inputFields": [
+        {
+          "name": "agentAssignment",
+          "description": "<p>Configuration for assigning Copilot to this issue.</p>",
+          "type": "AgentAssignmentInput",
+          "id": "agentassignmentinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#agentassignmentinput"
+        },
         {
           "name": "assigneeIds",
           "description": "<p>The Node ID of assignees for this issue.</p>",
@@ -100849,6 +102913,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueFields",
+          "description": "<p>An array of issue fields to set on the issue during creation.</p>",
+          "type": "[IssueFieldCreateOrUpdateInput!]",
+          "id": "issuefieldcreateorupdateinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#issuefieldcreateorupdateinput"
         },
         {
           "name": "issueTemplate",
@@ -101325,6 +103397,41 @@
       ]
     },
     {
+      "name": "CreateProjectV2IssueFieldInput",
+      "kind": "inputObjects",
+      "id": "createprojectv2issuefieldinput",
+      "href": "/graphql/reference/input-objects#createprojectv2issuefieldinput",
+      "description": "<p>Autogenerated input type of CreateProjectV2IssueField.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueFieldId",
+          "description": "<p>The ID of the IssueField to create the field for.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the Project to create the field in.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "CreateProjectV2StatusUpdateInput",
       "kind": "inputObjects",
       "id": "createprojectv2statusupdateinput",
@@ -101561,6 +103668,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "requireExplicitValues",
+          "description": "<p>Whether this repository custom property requires explicit values.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "required",
@@ -102365,6 +104480,66 @@
         {
           "name": "id",
           "description": "<p>The ID of the comment to delete.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "DeleteIssueFieldInput",
+      "kind": "inputObjects",
+      "id": "deleteissuefieldinput",
+      "href": "/graphql/reference/input-objects#deleteissuefieldinput",
+      "description": "<p>Autogenerated input type of DeleteIssueField.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "fieldId",
+          "description": "<p>The ID of the field to delete.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "DeleteIssueFieldValueInput",
+      "kind": "inputObjects",
+      "id": "deleteissuefieldvalueinput",
+      "href": "/graphql/reference/input-objects#deleteissuefieldvalueinput",
+      "description": "<p>Autogenerated input type of DeleteIssueFieldValue.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "fieldId",
+          "description": "<p>The ID of the field to delete.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "issueId",
+          "description": "<p>The ID of the issue.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -103999,6 +106174,129 @@
       ]
     },
     {
+      "name": "IssueFieldCreateOrUpdateInput",
+      "kind": "inputObjects",
+      "id": "issuefieldcreateorupdateinput",
+      "href": "/graphql/reference/input-objects#issuefieldcreateorupdateinput",
+      "description": "<p>Represents an issue field value that must be set on an issue during issue creation.</p>",
+      "inputFields": [
+        {
+          "name": "dateValue",
+          "description": "<p>The date value, for a date field.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "delete",
+          "description": "<p>Set to true to delete the field value.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "fieldId",
+          "description": "<p>The ID of the issue field.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "numberValue",
+          "description": "<p>The numeric value, for a number field.</p>",
+          "type": "Float",
+          "id": "float",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#float"
+        },
+        {
+          "name": "singleSelectOptionId",
+          "description": "<p>The ID of the selected option, for a single select field.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "textValue",
+          "description": "<p>The text value, for a text field.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldOrder",
+      "kind": "inputObjects",
+      "id": "issuefieldorder",
+      "href": "/graphql/reference/input-objects#issuefieldorder",
+      "description": "<p>Ordering options for issue field connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order issue fields by.</p>",
+          "type": "IssueFieldOrderField!",
+          "id": "issuefieldorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuefieldorderfield"
+        }
+      ]
+    },
+    {
+      "name": "IssueFieldSingleSelectOptionInput",
+      "kind": "inputObjects",
+      "id": "issuefieldsingleselectoptioninput",
+      "href": "/graphql/reference/input-objects#issuefieldsingleselectoptioninput",
+      "description": "<p>A single selection option for an issue field.</p>",
+      "inputFields": [
+        {
+          "name": "color",
+          "description": "<p>The color associated with the option.</p>",
+          "type": "IssueFieldSingleSelectOptionColor!",
+          "id": "issuefieldsingleselectoptioncolor",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuefieldsingleselectoptioncolor"
+        },
+        {
+          "name": "description",
+          "description": "<p>A description of the option.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the option.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "priority",
+          "description": "<p>The priority of the option in the list.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
       "name": "IssueFilters",
       "kind": "inputObjects",
       "id": "issuefilters",
@@ -105030,6 +107328,32 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
+      "name": "PinIssueCommentInput",
+      "kind": "inputObjects",
+      "id": "pinissuecommentinput",
+      "href": "/graphql/reference/input-objects#pinissuecommentinput",
+      "description": "<p>Autogenerated input type of PinIssueComment.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueCommentId",
+          "description": "<p>The ID of the Issue Comment to pin. Comment pinning is not supported on Pull Requests.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },
@@ -106514,6 +108838,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "agentAssignment",
+          "description": "<p>Configuration for assigning an AI agent to this issue.</p>",
+          "type": "AgentAssignmentInput",
+          "id": "agentassignmentinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#agentassignmentinput"
+        },
+        {
           "name": "assignableId",
           "description": "<p>The id of the assignable object to replace the assignees for.</p>",
           "type": "ID!",
@@ -107648,6 +109980,40 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "SetIssueFieldValueInput",
+      "kind": "inputObjects",
+      "id": "setissuefieldvalueinput",
+      "href": "/graphql/reference/input-objects#setissuefieldvalueinput",
+      "description": "<p>Autogenerated input type of SetIssueFieldValue.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueFields",
+          "description": "<p>The issue fields to set on the issue.</p>",
+          "type": "[IssueFieldCreateOrUpdateInput!]!",
+          "id": "issuefieldcreateorupdateinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#issuefieldcreateorupdateinput"
+        },
+        {
+          "name": "issueId",
+          "description": "<p>The ID of the Issue to set the field value on.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },
@@ -108829,6 +111195,32 @@
         {
           "name": "subjectId",
           "description": "<p>The Node ID of the subject to modify.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "UnpinIssueCommentInput",
+      "kind": "inputObjects",
+      "id": "unpinissuecommentinput",
+      "href": "/graphql/reference/input-objects#unpinissuecommentinput",
+      "description": "<p>Autogenerated input type of UnpinIssueComment.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueCommentId",
+          "description": "<p>The ID of the Issue Comment to unpin. Comment pinning is not supported on Pull Requests.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -110227,6 +112619,40 @@
       ]
     },
     {
+      "name": "UpdateIpAllowListUserLevelEnforcementEnabledSettingInput",
+      "kind": "inputObjects",
+      "id": "updateipallowlistuserlevelenforcementenabledsettinginput",
+      "href": "/graphql/reference/input-objects#updateipallowlistuserlevelenforcementenabledsettinginput",
+      "description": "<p>Autogenerated input type of UpdateIpAllowListUserLevelEnforcementEnabledSetting.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "ownerId",
+          "description": "<p>The ID of the owner.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "settingValue",
+          "description": "<p>The value for the IP allow list user-level enforcement enabled setting.</p>",
+          "type": "IpAllowListUserLevelEnforcementEnabledSettingValue!",
+          "id": "ipallowlistuserlevelenforcementenabledsettingvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#ipallowlistuserlevelenforcementenabledsettingvalue"
+        }
+      ]
+    },
+    {
       "name": "UpdateIssueCommentInput",
       "kind": "inputObjects",
       "id": "updateissuecommentinput",
@@ -110261,12 +112687,112 @@
       ]
     },
     {
+      "name": "UpdateIssueFieldInput",
+      "kind": "inputObjects",
+      "id": "updateissuefieldinput",
+      "href": "/graphql/reference/input-objects#updateissuefieldinput",
+      "description": "<p>Autogenerated input type of UpdateIssueField.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "description",
+          "description": "<p>A description of the issue field.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The ID of the issue field to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the issue field.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "options",
+          "description": "<p>The options for the issue field if applicable.</p>",
+          "type": "[IssueFieldSingleSelectOptionInput!]",
+          "id": "issuefieldsingleselectoptioninput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#issuefieldsingleselectoptioninput"
+        },
+        {
+          "name": "visibility",
+          "description": "<p>The visibility of the issue field.</p>",
+          "type": "IssueFieldVisibility",
+          "id": "issuefieldvisibility",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuefieldvisibility"
+        }
+      ]
+    },
+    {
+      "name": "UpdateIssueFieldValueInput",
+      "kind": "inputObjects",
+      "id": "updateissuefieldvalueinput",
+      "href": "/graphql/reference/input-objects#updateissuefieldvalueinput",
+      "description": "<p>Autogenerated input type of UpdateIssueFieldValue.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueField",
+          "description": "<p>The field value to update.</p>",
+          "type": "IssueFieldCreateOrUpdateInput!",
+          "id": "issuefieldcreateorupdateinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#issuefieldcreateorupdateinput"
+        },
+        {
+          "name": "issueId",
+          "description": "<p>The ID of the issue.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "UpdateIssueInput",
       "kind": "inputObjects",
       "id": "updateissueinput",
       "href": "/graphql/reference/input-objects#updateissueinput",
       "description": "<p>Autogenerated input type of UpdateIssue.</p>",
       "inputFields": [
+        {
+          "name": "agentAssignment",
+          "description": "<p>Configuration for assigning an AI agent to this issue.</p>",
+          "type": "AgentAssignmentInput",
+          "id": "agentassignmentinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#agentassignmentinput"
+        },
         {
           "name": "assigneeIds",
           "description": "<p>An array of Node IDs of users or bots for this issue.</p>",
@@ -111480,6 +114006,14 @@
           "isDeprecated": false
         },
         {
+          "name": "requireExplicitValues",
+          "description": "<p>Whether this repository custom property requires explicit values.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "required",
           "description": "<p>Whether the updated custom property is required.</p>",
           "type": "Boolean",
@@ -111545,6 +114079,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasPullRequestsEnabled",
+          "description": "<p>Indicates if the repository should have the pull requests feature enabled.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasSponsorshipsEnabled",
           "description": "<p>Indicates if the repository displays a Sponsor button for financial contributions.</p>",
           "type": "Boolean",
@@ -111575,6 +114117,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pullRequestCreationPolicy",
+          "description": "<p>The policy controlling who can create pull requests in this repository.</p>",
+          "type": "PullRequestCreationPolicy",
+          "id": "pullrequestcreationpolicy",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestcreationpolicy"
         },
         {
           "name": "repositoryId",

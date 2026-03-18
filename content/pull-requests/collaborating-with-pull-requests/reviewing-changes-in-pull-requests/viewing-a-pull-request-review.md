@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: View a PR review
+category:
+  - Review pull requests
 ---
 {% data reusables.search.requested_reviews_search %}
 

@@ -5,9 +5,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Manage and standardize pull requests
+category:
+  - Create pull requests
 ---
 
 If you are a repository maintainer, there are several ways that you can manage and standardize the pull requests that contributors create in your repository. These steps can help you ensure that pull requests are reviewed by the right people, and that they meet your repository's standards.

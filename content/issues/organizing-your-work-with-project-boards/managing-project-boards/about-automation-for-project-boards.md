@@ -7,8 +7,6 @@ redirect_from:
   - /github/managing-your-work-on-github/about-automation-for-project-boards
 versions:
   feature: projects-v1
-topics:
-  - Pull requests
 shortTitle: 'Automation for {% data variables.product.prodname_projects_v1 %}'
 allowTitleToDifferFromFilename: true
 ---

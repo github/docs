@@ -13,12 +13,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Dependabot options
 contentType: reference
 ---
@@ -100,10 +94,10 @@ For most package managers, you should define a value that will match the depende
 | Dependency types | Supported by package managers | Allow updates |
 |------------------|-------------------------------|--------|
 | `direct` | All | All explicitly defined dependencies. |
-| `indirect` | `bundler`, `pip`, `composer`, `cargo`, `gomod` | Dependencies of direct dependencies (also known as sub-dependencies, or transitive dependencies).|
-| `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`, `gomod`, also the dependencies of direct dependencies.|
-| `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` (not all managers) | Only to dependencies defined by the package manager as production dependencies. |
-| `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` (not all managers) | Only to dependencies defined by the package manager as development dependencies. |
+| `indirect` | `bundler`, `pip`, `composer`, `cargo`, `gomod`{% ifversion dependabot-uv-support %}, `uv`{% endif %} | Dependencies of direct dependencies (also known as sub-dependencies, or transitive dependencies).|
+| `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`, `gomod`{% ifversion dependabot-uv-support %}, `uv`{% endif %}, also the dependencies of direct dependencies.|
+| `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip`{% ifversion dependabot-uv-support %}, `uv`{% endif %} (not all managers) | Only to dependencies defined by the package manager as production dependencies. |
+| `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip`{% ifversion dependabot-uv-support %}, `uv`{% endif %} (not all managers) | Only to dependencies defined by the package manager as development dependencies. |
 
 ## `assignees` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
@@ -151,7 +145,11 @@ When `commit-message` is defined:
 
 ### `prefix-development`
 
+{% ifversion dependabot-uv-support %}
+Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, `pip`, and `uv`.
+{% else %}
 Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
+{% endif %}
 
 * Used only for commit messages that update dependencies in the Development dependency group.
 * Otherwise, the parameter behaves exactly as the `prefix` parameter.
@@ -277,8 +275,11 @@ Parameters | Purpose |
 | `IDENTIFIER` | Define an identifier for the group to use in branch names and pull request titles. This must start and end with a letter, and can contain letters, pipes `\|`, underscores `_`, or hyphens `-`. |
 | `applies-to` | Specify which type of update the group applies to. When undefined, defaults to version updates. Supported values: `version-updates` or `security-updates`. |
 | `dependency-type` | Limit the group to a type. Supported values: `development` or `production`. |
-| `patterns` | Define one or more patterns to include dependencies with matching names. |
 | `exclude-patterns` | Define one or more patterns to exclude dependencies from the group. |
+| {% ifversion dependabot-updates-group-by %} |
+| `group-by` | Group updates across multiple directories. Supported value: `dependency-name`. |
+| {% endif %} |
+| `patterns` | Define one or more patterns to include dependencies with matching names. |
 | `update-types` | Limit the group to one or more semantic versioning levels. Supported values: `minor`, `patch`, and `major`. |
 
 ### `dependency-type` (`groups`)
@@ -289,6 +290,29 @@ By default, a group will include all types of dependencies.
 
 * Use `development` to include only dependencies in the "Development dependency group."
 * Use `production` to include only dependencies in the "Production dependency group."
+
+{% ifversion dependabot-updates-group-by %}
+
+### `group-by` (`groups`)
+
+Use `groups.<group-name>.group-by` to specify how {% data variables.product.prodname_dependabot %} should group updates across multiple directories in a monorepo.
+
+* **Type:** String
+* **Accepted values:** `dependency-name`
+* **Applies to:** Configurations with multiple directories specified
+
+When set to `dependency-name`, {% data variables.product.prodname_dependabot %} will create a single pull request for each dependency update across all specified directories, rather than separate pull requests per directory.
+
+**Limitations of cross-directory grouping**
+
+When using `group-by: dependency-name`:
+* All directories must use the same package ecosystem (for example, all `npm` or all `bundler`)
+* Applies to **version updates only**
+* If directories have incompatible version constraints for a dependency, {% data variables.product.prodname_dependabot %} will create separate pull requests
+
+For examples showing the use of `group-by`, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/optimizing-pr-creation-version-updates#grouping-updates-across-directories-in-a-monorepo).
+
+{% endif %}
 
 ### `patterns` and `exclude-patterns` (`groups`)
 
@@ -359,7 +383,7 @@ Specify which semantic versions (SemVer) to ignore. SemVer is an accepted standa
 
 Supported by: `bundler`, `mix`, and `pip`.
 
-Allow {% data variables.product.prodname_dependabot %} to execute external code in the manifest during updates. For examples, see [Allowing external code execution](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#allowing-external-code-execution).
+Allow {% data variables.product.prodname_dependabot %} to execute external code in the manifest during updates. For examples, see [Allowing external code execution](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#allowing-external-code-execution).
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
@@ -411,7 +435,7 @@ Supported value: the numeric identifier of a milestone.
 >[!TIP]
 >If you view a milestone, the final part of the page URL, after `milestone`, is the identifier. For example: `https://github.com/<org>/<repo>/milestone/3`, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/viewing-your-milestones-progress).
 
-{% ifversion not ghes %}
+{% ifversion dependabot-multi-ecosystem-support %}
 
 ## `multi-ecosystem-groups` {% octicon "versions" aria-label="Version updates" height="24" %}
 
@@ -431,7 +455,7 @@ When `multi-ecosystem-groups` is used:
 Assign individual package ecosystems to a multi-ecosystem group using the `multi-ecosystem-group` parameter in your `updates` configuration.
 
 > [!IMPORTANT]
-> Multi-ecosystem updates require specific configuration patterns and have unique parameter merging behavior. For complete setup instructions, configuration examples, and detailed parameter reference, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-multi-ecosystem-updates).
+> Multi-ecosystem updates require specific configuration patterns and have unique parameter merging behavior. For complete setup instructions, configuration examples, and detailed parameter reference, see [AUTOTITLE](/code-security/tutorials/secure-your-dependencies/configuring-multi-ecosystem-updates).
 
 ```yaml copy
 # Basic `dependabot.yml` file defining a multi-ecosystem-group
@@ -521,13 +545,18 @@ Package manager | YAML value      | Supported versions |
 | pipenv         | `pip`            | <= 2024.4.1    |
 | pnpm   | `npm`            | v7, v8 <br>v9, v10 (version updates only)    |
 | poetry         | `pip`            | v2               |
+| {% ifversion dependabot-pre-commit-support %} |
+| pre-commit | `pre-commit` | Not applicable |
+| {% endif %} |
 | pub         | `pub`            | v2  |
 | {% ifversion dependabot-rust-toolchain-support %} |
 | Rust toolchain | `rust-toolchain` | Not applicable   |
 | {% endif %} |
 | Swift   | `swift`      | v5  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |
+| {% ifversion dependabot-uv-support %} |
 | uv           | `uv`             | v0 |
+| {% endif %} |
 | {% ifversion dependabot-vcpkg-support %} |
 | vcpkg       | `vcpkg`          | Not applicable   |
 | {% endif %} |
@@ -568,11 +597,11 @@ When `rebase-strategy` is set to `disabled`, {% data variables.product.prodname_
 
 ## `registries` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-Configure access to private package registries to allow {% data variables.product.prodname_dependabot %} to update a wider range of dependencies, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot).
+Configure access to private package registries to allow {% data variables.product.prodname_dependabot %} to update a wider range of dependencies, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/guidance-for-the-configuration-of-private-registries-for-dependabot).
 
 There are 2 locations in the `dependabot.yml` file where you can use the `registries` key:
 
-1. At the top level, where you define the private registries you want to use and their access information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot).
+1. At the top level, where you define the private registries you want to use and their access information, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot).
 1. Within the `updates` blocks, where you can specify which private registries each package manager should use.
 
 {% data variables.product.prodname_dependabot %} default behavior is to raise pull requests only to update dependencies stored in publicly accessible registries.
@@ -806,7 +835,11 @@ Supported values: `true` or `false`
 
 ## `versioning-strategy` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-Supported by: `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip`, `pub`
+{% ifversion dependabot-uv-support %}
+Supported by: `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip`, `pub`, and `uv`
+{% else %}
+Supported by: `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip`, and `pub`
+{% endif %}
 
 Define how {% data variables.product.prodname_dependabot %} should edit manifest files. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#defining-a-versioning-strategy).
 
@@ -932,23 +965,25 @@ The parameters used to provide authentication details for access to a private re
 | Registry `type` | Required authentication parameters |
 |--|--|
 | `cargo-registry` | `token` |
-| `composer-repository` | `username` and `password` |
-| `docker-registry` | `username` and `password` |
-| `git` | `username` and `password` |
+| `composer-repository` | `username` and `password`<br>or OIDC with `tenant-id` and `client-id` |
+| `docker-registry` | `username` and `password`<br>or OIDC with `tenant-id` and `client-id` |
+| `git` | `username` and `password`<br>or OIDC with `tenant-id` and `client-id` |
 | `hex-organization` | `organization` and `key` |
 | `hex-repository` | `repo` and `auth-key` optionally with the corresponding `public-key-fingerprint` |
-| `maven-repository` | `username` and `password` |
-| `npm-registry` | `username` and `password`<br>or `token` |
-| `nuget-feed` | `username` and `password`<br>or `token` |
+| `maven-repository` | `username` and `password`<br>or OIDC with `tenant-id` and `client-id` |
+| `npm-registry` | `username` and `password`<br>or `token`<br>or OIDC with `tenant-id` and `client-id` |
+| `nuget-feed` | `username` and `password`<br>or `token`<br>or OIDC with `tenant-id` and `client-id` |
 | `pub-registry` | `token` |
-| `python-index` | `username` and `password`<br>or `token` |
-| `rubygems-server` | `username` and `password`<br>or `token` |
+| `python-index` | `username` and `password`<br>or `token`<br>or OIDC with `tenant-id` and `client-id` |
+| `rubygems-server` | `username` and `password`<br>or `token`<br>or OIDC with `tenant-id` and `client-id` |
 | `terraform-registry` | `token` |
 
-All sensitive data used for authentication should be stored securely and referenced from that secure location, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot).
+All sensitive data used for authentication should be stored securely and referenced from that secure location, see [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot).
 
 > [!TIP]
 > {% data reusables.dependabot.password-definition %}
+
+For more information about  OIDC support for {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/actions/concepts/security/openid-connect#oidc-support-for-dependabot) and [AUTOTITLE](/code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/configuring-access-to-private-registries-for-dependabot#using-oidc-for-authentication).
 
 ### `url` and `replaces-base`
 

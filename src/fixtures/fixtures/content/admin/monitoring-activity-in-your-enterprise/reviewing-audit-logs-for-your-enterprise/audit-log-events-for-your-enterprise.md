@@ -12,7 +12,7 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-type: reference
+contentType: reference
 topics:
   - Auditing
   - Enterprise

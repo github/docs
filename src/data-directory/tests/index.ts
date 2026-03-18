@@ -24,7 +24,7 @@ describe('data-directory', () => {
       return content.replace('markdown', 'MARKDOWN')
     }
     const data = dataDirectory(fixturesDir, { preprocess })
-    expect(data.nested.baz).toBe('I am MARKDOWN!')
+    expect((data.nested as Record<string, unknown>).baz).toBe('I am MARKDOWN!')
   })
 
   test('option: extensions array', async () => {

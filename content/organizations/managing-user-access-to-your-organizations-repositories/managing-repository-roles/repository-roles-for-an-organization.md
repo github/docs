@@ -12,10 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Repository roles
+category:
+  - Control repository access
 ---
 
 ## Repository roles for organizations

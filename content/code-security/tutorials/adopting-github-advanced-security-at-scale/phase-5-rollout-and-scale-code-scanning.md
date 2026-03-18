@@ -4,9 +4,6 @@ intro: You can {% ifversion security-configuration-enterprise-level %}use securi
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Secret Protection
 shortTitle: 5. Rollout code scanning
 redirect_from:
   - /code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning
@@ -40,7 +37,7 @@ You'll also need SMEs if you need to use advanced setup for {% data variables.pr
 
 {% ifversion security-overview-org-codeql-pr-alerts %}
 
-For {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis, you can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests in repositories across your organization, and to identify repositories where you may need to take action. For more information, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-pull-request-alerts).
+For {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis, you can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests in repositories across your organization, and to identify repositories where you may need to take action. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/pull-request-alert-metrics).
 
 {% endif %}
 

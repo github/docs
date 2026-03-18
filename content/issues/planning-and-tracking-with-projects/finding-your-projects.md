@@ -1,6 +1,6 @@
 ---
-title: 'Finding your {% data variables.projects.projects_v2 %}'
-intro: 'Learn how to locate projects in your account, organizations, repositories, and teams.'
+title: Finding your {% data variables.projects.projects_v2 %}
+intro: Learn how to locate projects in your account, organizations, repositories, and teams.
 redirect_from:
   - /issues/planning-and-tracking-with-projects/learning-about-projects/finding-your-projects
 allowTitleToDifferFromFilename: true
@@ -8,9 +8,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: overview
-topics:
-  - Projects
+contentType: concepts
 ---
 
 ## Browsing all of your projects

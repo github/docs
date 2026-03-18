@@ -1,20 +1,16 @@
 ---
 title: Setting up GitHub Sponsors for your organization
-intro: 'Your organization can join {% data variables.product.prodname_sponsors %} to receive payments for your work.'
+intro: Your organization can join {% data variables.product.prodname_sponsors %} to receive payments for your work.
 redirect_from:
   - /articles/setting-up-github-sponsorship-for-your-organization
   - /articles/receiving-sponsorships-as-a-sponsored-organization
   - /github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization
-permissions: 'Organization owners can set up {% data variables.product.prodname_sponsors %} for an organization.'
+permissions: Organization owners can set up {% data variables.product.prodname_sponsors %} for an organization.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Organizations
-  - Sponsors profile
-  - Open Source
 shortTitle: Set up for organization
+contentType: how-tos
 ---
 
 ## Joining {% data variables.product.prodname_sponsors %}

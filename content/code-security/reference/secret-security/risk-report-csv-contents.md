@@ -4,15 +4,8 @@ shortTitle: Risk report CSV contents
 intro: Understand the data included in the CSV export of the {% data variables.product.prodname_secret_risk_assessment %} report.
 product: '{% data reusables.gated-features.secret-risk-assessment-report %}'
 permissions: '{% data reusables.permissions.secret-risk-assessment-report-generation %}'
-type: reference
 versions:
   feature: secret-risk-assessment
-topics:
-  - Code Security
-  - Secret scanning
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/risk-report-csv-contents
 contentType: reference

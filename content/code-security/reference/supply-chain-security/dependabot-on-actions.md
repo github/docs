@@ -6,11 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Actions
-  - Version updates
-  - Dependencies
 contentType: reference
 ---
 

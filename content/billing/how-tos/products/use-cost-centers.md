@@ -9,12 +9,11 @@ redirect_from:
   - /billing/using-the-new-billing-platform/charging-business-units
   - /billing/managing-your-billing/charging-business-units
   - /billing/tutorials/use-cost-centers
-topics:
-  - Billing
-  - Enterprise
 product: '{% data variables.product.prodname_ghe_cloud %}'
 shortTitle: Use cost centers
 contentType: how-tos
+category:
+  - Track spending and control costs
 ---
 
 >[!NOTE] Before you create or update a cost center, if you're unsure of how spending will be allocated to the cost center, see [AUTOTITLE](/billing/reference/cost-center-allocation).

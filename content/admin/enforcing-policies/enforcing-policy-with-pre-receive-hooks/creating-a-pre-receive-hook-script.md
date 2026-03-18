@@ -8,12 +8,8 @@ redirect_from:
   - /admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-script
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Policies
-  - Pre-receive hooks
 shortTitle: Pre-receive hook scripts
+contentType: how-tos
 ---
 
 {% data reusables.enterprise_site_admin_settings.pre-receive-hook-examples %}

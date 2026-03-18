@@ -2,15 +2,12 @@
 title: Listing the codespaces in your organization
 shortTitle: List organization codespaces
 intro: You can list all of the currently active or stopped codespaces for your organization.
-permissions: 'To list all of the current codespaces for your organization, you must be an organization owner.'
+permissions: To list all of the current codespaces for your organization, you must be an organization owner.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Administrator
 product: '{% data reusables.gated-features.codespaces-org %}'
+contentType: how-tos
 ---
 
 ## Overview

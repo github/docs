@@ -6,10 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 product: '{% data reusables.gated-features.codeql %}'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: To get started with {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %}, you need to install and set up the extension.
 allowTitleToDifferFromFilename: true
 redirect_from:
@@ -47,7 +43,7 @@ You can install the {% data variables.product.prodname_codeql %} for {% data var
 
 ### Using the {% data variables.product.prodname_codeql %} VSIX file
 
-1. Download the [{% data variables.product.prodname_codeql %} VSIX file](https://github.com/github/vscode-codeql/releases) from the `github/vscode-codeql` repository on {% data variables.product.prodname_dotcom %}.
+1. Download the [{% data variables.product.prodname_codeql %} VSIX file](https://github.com/github/vscode-codeql/releases?ref_product=code-scanning&ref_type=engagement&ref_style=text) from the `github/vscode-codeql` repository on {% data variables.product.prodname_dotcom %}.
 
 1. In {% data variables.product.prodname_vscode_shortname %}, open the "Extensions" view.
 

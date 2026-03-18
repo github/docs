@@ -1,18 +1,12 @@
 ---
 title: Quickstart for securing your organization
-intro: "You can use a number of {% data variables.product.prodname_dotcom %} features to help keep your organization secure."
+intro: You can use a number of {% data variables.product.prodname_dotcom %} features to help keep your organization secure.
 permissions: '{% data reusables.permissions.security-org-enable %}'
 redirect_from:
   - /code-security/getting-started/securing-your-organization
 versions:
   feature: pre-security-configurations
 contentType: get-started
-topics:
-  - Organizations
-  - Dependencies
-  - Vulnerabilities
-  - Code Security
-  - Secret Protection
 shortTitle: Secure organization quickstart
 ---
 <!--Reminder that this article describes the process for older versions of GHES. GHES 3.12 - 3.14 only. All other versions see "Securing your organization" instead.-->

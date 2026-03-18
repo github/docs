@@ -1,16 +1,14 @@
 ---
-title: 'Managing {% data variables.projects.project_v2 %} templates in your organization'
-shortTitle: 'Managing templates'
-intro: 'You can create templates or set projects as templates in your organization, allowing other people to select your template as the base for projects they create.'
+title: Managing {% data variables.projects.project_v2 %} templates in your organization
+shortTitle: Managing templates
+intro: You can create templates or set projects as templates in your organization, allowing other people to select your template as the base for projects they create.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
-permissions: 'People with admin permissions for a project in an organization can set the project as a template. People with admin or write permissions for a project in an organization can copy the project and set the copied project as a template.'
-topics:
-  - Projects
+permissions: People with admin permissions for a project in an organization can set the project as a template. People with admin or write permissions for a project in an organization can copy the project and set the copied project as a template.
 allowTitleToDifferFromFilename: true
+contentType: tutorials
 ---
 
 

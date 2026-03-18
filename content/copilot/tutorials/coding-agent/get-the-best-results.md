@@ -6,8 +6,6 @@ intro: 'Learn how to get the best results from {% data variables.copilot.copilot
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/best-practices-for-using-copilot-to-work-on-tasks
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/best-practices-for-using-copilot-to-work-on-issues
@@ -32,6 +30,9 @@ category:
 * A clear description of the problem to be solved or the work required.
 * Complete acceptance criteria on what a good solution looks like (for example, should there be unit tests?).
 * Directions about which files need to be changed.
+
+> [!TIP]
+> {% data variables.copilot.copilot_coding_agent %} has the ability to search your codebase, including semantic code search, which helps it find relevant code based on meaning rather than just exact text matches. Even if you don't specify exact file paths in a task, the agent can often discover the right code on its own.
 
 If you pass a task to {% data variables.product.prodname_copilot_short %} by assigning an issue, it's useful to think of the issue you assign to {% data variables.product.prodname_copilot_short %} as a prompt. Consider whether the issue description is likely to work as an AI prompt, and will enable {% data variables.product.prodname_copilot_short %} to make the required code changes.
 

@@ -1,7 +1,7 @@
 ---
 title: Using GitHub Codespaces in Visual Studio Code
 shortTitle: Visual Studio Code
-intro: 'You can develop in your codespace directly in {% data variables.product.prodname_vscode %} by connecting the {% data variables.product.prodname_github_codespaces %} extension with your {% data variables.product.github %} account.'
+intro: You can develop in your codespace directly in {% data variables.product.prodname_vscode %} by connecting the {% data variables.product.prodname_github_codespaces %} extension with your {% data variables.product.github %} account.
 redirect_from:
   - /github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code
   - /github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code
@@ -11,11 +11,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Visual Studio Code
-  - Developer
+contentType: how-tos
 ---
 
 ## About {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}

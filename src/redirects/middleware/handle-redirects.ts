@@ -4,7 +4,11 @@ import patterns from '@/frame/lib/patterns'
 import { pathLanguagePrefixed } from '@/languages/lib/languages-server'
 import { deprecatedWithFunctionalRedirects } from '@/versions/lib/enterprise-server-releases'
 import getRedirect from '../lib/get-redirect'
-import { defaultCacheControl, languageCacheControl } from '@/frame/middleware/cache-control'
+import {
+  defaultCacheControl,
+  languageCacheControl,
+  languageAndVersionCacheControl,
+} from '@/frame/middleware/cache-control'
 import { ExtendedRequest, URLSearchParamsTypes } from '@/types'
 
 export default function handleRedirects(req: ExtendedRequest, res: Response, next: NextFunction) {
@@ -14,7 +18,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   // This must be done before checking if the path
   // is an asset (patterns.assetPaths)
   if (req.path.includes('//')) {
-    return res.redirect(301, req.path.replace(/\/+/g, '/'))
+    return res.safeRedirect(301, req.path.replace(/\/+/g, '/'))
   }
 
   // never redirect assets
@@ -27,13 +31,21 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   // blanket redirects for languageless homepage
   if (req.path === '/') {
     const language = getLanguage(req)
-    languageCacheControl(res)
+    languageAndVersionCacheControl(res)
+
+    // Build redirect path, optionally including user's preferred version
+    let redirectPath = `/${language}`
+    const userVersion = req.userVersion
+    if (userVersion && userVersion !== 'free-pro-team@latest') {
+      redirectPath += `/${userVersion}`
+    }
+
     // Forward query params to the new URL
     let queryParams = new URLSearchParams((req?.query as any) || '').toString()
     if (queryParams) {
       queryParams = `?${queryParams}`
     }
-    return res.redirect(302, `/${language}${queryParams}`)
+    return res.safeRedirect(302, redirectPath + queryParams)
   }
 
   // begin redirect handling
@@ -68,7 +80,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     }
 
     redirectTo += `/search?${sp.toString()}`
-    return res.redirect(301, redirectTo)
+    return res.safeRedirect(301, redirectTo)
   }
 
   // have to do this now because searchPath replacement changes the path as well as the query params
@@ -134,7 +146,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   }
 
   const permanent = redirect.includes('://') || usePermanentRedirect(req)
-  return res.redirect(permanent ? 301 : 302, redirect)
+  return res.safeRedirect(permanent ? 301 : 302, redirect)
 }
 
 function getLanguage(req: ExtendedRequest, default_ = 'en') {

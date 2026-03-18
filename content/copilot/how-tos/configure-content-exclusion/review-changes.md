@@ -6,8 +6,6 @@ permissions: Organization owners
 product: '{% data reusables.gated-features.copilot-business-and-enterprise %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-activity-related-to-github-copilot-in-your-organization/reviewing-changes-to-content-exclusions-for-github-copilot
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/reviewing-changes-to-content-exclusions-for-github-copilot

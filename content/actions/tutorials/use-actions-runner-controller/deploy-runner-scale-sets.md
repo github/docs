@@ -1,19 +1,19 @@
 ---
 title: Deploying runner scale sets with Actions Runner Controller
 shortTitle: Deploy runner scale sets
-intro: 'Learn how to deploy runner scale sets with {% data variables.product.prodname_actions_runner_controller %}, and use advanced configuration options to tailor {% data variables.product.prodname_actions_runner_controller %} to your needs.'
+intro: Learn how to deploy runner scale sets with {% data variables.product.prodname_actions_runner_controller %}, and use advanced configuration options to tailor {% data variables.product.prodname_actions_runner_controller %} to your needs.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: overview
-topics:
-  - Actions Runner Controller
 defaultPlatform: linux
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller
   - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller
   - /actions/tutorials/actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller
+contentType: tutorials
+category:
+  - Set up runners
 ---
 
 ## Deploying a runner scale set

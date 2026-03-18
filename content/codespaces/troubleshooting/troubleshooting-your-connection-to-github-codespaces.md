@@ -1,15 +1,13 @@
 ---
 title: Troubleshooting your connection to GitHub Codespaces
-intro: 'Troubleshooting help for connecting to {% data variables.product.prodname_github_codespaces %}.'
+intro: Troubleshooting help for connecting to {% data variables.product.prodname_github_codespaces %}.
 versions:
   fpt: '*'
   ghec: '*'
-type: reference
-topics:
-  - Codespaces
 shortTitle: Connection
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-your-connection-to-codespaces
+contentType: reference
 ---
 
 ## 503 codespace service unavailable

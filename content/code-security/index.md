@@ -37,10 +37,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
-  - Dependencies
-  - Vulnerabilities
 children:
   - /getting-started
   - /concepts
@@ -48,4 +44,6 @@ children:
   - /reference
   - /tutorials
   - /responsible-use
+contentType: landing
 ---
+

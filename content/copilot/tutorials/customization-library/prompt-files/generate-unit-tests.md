@@ -10,8 +10,6 @@ category:
 complexity:
   - Intermediate
 octicon: copilot
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

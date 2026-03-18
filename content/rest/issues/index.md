@@ -12,14 +12,13 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 children:
   - /assignees
   - /comments
   - /events
-  - /issues
   - /issue-dependencies
+  - /issue-field-values
+  - /issues
   - /labels
   - /milestones
   - /sub-issues

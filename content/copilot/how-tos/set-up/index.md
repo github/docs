@@ -1,9 +1,7 @@
 ---
 title: Setting up GitHub Copilot
 shortTitle: Set up
-intro: 'Learn how to set up {% data variables.product.prodname_copilot %}.'
-topics:
-  - Copilot
+intro: Learn how to set up {% data variables.product.prodname_copilot %}.
 versions:
   feature: copilot
 children:
@@ -12,9 +10,9 @@ children:
   - /set-up-for-enterprise
   - /set-up-a-dedicated-enterprise-for-copilot-business
   - /install-copilot-extension
-  - /install-copilot-cli
 redirect_from:
   - /copilot/setting-up-github-copilot
   - /copilot/get-started/setting-up-github-copilot
 contentType: how-tos
 ---
+

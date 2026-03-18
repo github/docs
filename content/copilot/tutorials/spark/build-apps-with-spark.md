@@ -6,8 +6,6 @@ intro: 'Learn how to build and deploy an intelligent web app with natural langua
 versions:
   feature: spark
 product: '{% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_enterprise_short %}'
-topics:
-  - Copilot
 redirect_from:
   - /copilot/tutorials/building-ai-app-prototypes
   - /copilot/tutorials/build-apps-with-spark

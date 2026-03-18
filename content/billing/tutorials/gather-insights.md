@@ -7,13 +7,11 @@ redirect_from:
   - /billing/using-the-enhanced-billing-platform-for-enterprises/gathering-insights-on-your-spending
   - /billing/using-the-new-billing-platform/gathering-insights-on-your-spending
   - /billing/managing-your-billing/gathering-insights-on-your-spending
-topics:
-  - Billing
-  - Enterprise
-  - Team
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 shortTitle: Gather insights
 contentType: tutorials
+category:
+  - Track spending and control costs
 ---
 
 The new billing platform provides you with the tools to:

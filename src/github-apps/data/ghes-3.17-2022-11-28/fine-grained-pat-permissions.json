@@ -3112,7 +3112,7 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites",
         "additional-permissions": false,
-        "access": "write"
+        "access": "read"
       },
       {
         "category": "repos",
@@ -3121,7 +3121,7 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}",
         "additional-permissions": false,
-        "access": "write"
+        "access": "read"
       },
       {
         "category": "repos",
@@ -3138,33 +3138,6 @@
         "subcategory": "rules",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "repos",
-        "slug": "closing-down---list-tag-protection-states-for-a-repository",
-        "subcategory": "tags",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/tags/protection",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "repos",
-        "slug": "closing-down---create-a-tag-protection-state-for-a-repository",
-        "subcategory": "tags",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/tags/protection",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "repos",
-        "slug": "closing-down---delete-a-tag-protection-state-for-a-repository",
-        "subcategory": "tags",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}",
         "additional-permissions": false,
         "access": "write"
       },
@@ -4462,6 +4435,15 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/events",
         "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "issues",
+        "slug": "list-issue-field-values-for-an-issue",
+        "subcategory": "issue-field-values",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/issue-field-values",
+        "additional-permissions": false,
         "access": "read"
       },
       {

@@ -16,11 +16,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
 shortTitle: Billing for enterprises
 contentType: concepts
+category:
+  - Manage enterprise licenses
 ---
 
 ## {% data variables.product.prodname_enterprise %} plan costs

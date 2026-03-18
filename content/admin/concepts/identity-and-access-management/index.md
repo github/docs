@@ -5,11 +5,10 @@ intro: Learn the concepts around identity and access management (IAM) for {% dat
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Enterprise
 children:
   - /identity-and-access-management-fundamentals
   - /enterprise-managed-users
+  - /setup-user
   - /user-offboarding
 contentType: concepts
 ---

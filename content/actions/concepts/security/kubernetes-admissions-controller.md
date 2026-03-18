@@ -4,6 +4,9 @@ intro: Understand how you can use an admissions controller to enforce artifact a
 versions:
   fpt: '*'
   ghec: '*'
+category:
+  - Secure your workflows
+contentType: concepts
 ---
 
 ## About Kubernetes admission controller

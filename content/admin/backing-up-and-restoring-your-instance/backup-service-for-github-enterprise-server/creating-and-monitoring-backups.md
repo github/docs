@@ -1,13 +1,10 @@
 ---
 title: Creating and monitoring backups
 shortTitle: Create and monitor backups
-intro: 'Run manual backups, understand backup types, and monitor backup activity using the {% data variables.enterprise.management_console %} or command line.'
+intro: Run manual backups, understand backup types, and monitor backup activity using the {% data variables.enterprise.management_console %} or command line.
 versions:
   ghes: '>= 3.17'
-type: how_to
-topics:
-  - Backups
-  - Monitoring
+contentType: how-tos
 ---
 
 ## About backup types

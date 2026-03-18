@@ -1,6 +1,6 @@
 ---
 title: Enabling Dependabot for your enterprise
-intro: 'You can allow users to find and fix vulnerabilities in code dependencies by setting up {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_dependabot_updates %}.'
+intro: You can allow users to find and fix vulnerabilities in code dependencies by setting up {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_dependabot_updates %}.
 shortTitle: Dependabot
 redirect_from:
   - /enterprise/admin/installation/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
@@ -12,15 +12,10 @@ redirect_from:
   - /admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account
   - /admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise
   - /admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise
-permissions: 'Enterprise owners can set up {% data variables.product.prodname_dependabot %}.'
+permissions: Enterprise owners can set up {% data variables.product.prodname_dependabot %}.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Security
-  - Dependency graph
-  - Dependabot
+contentType: how-tos
 ---
 
 ## About {% data variables.product.prodname_dependabot %} for {% data variables.product.prodname_ghe_server %}

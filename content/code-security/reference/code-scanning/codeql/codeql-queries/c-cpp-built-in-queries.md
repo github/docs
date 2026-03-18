@@ -8,9 +8,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration/c-cpp-built-in-queries
   - /code-security/code-scanning/reference/code-ql-built-in-queries/c-cpp-built-in-queries

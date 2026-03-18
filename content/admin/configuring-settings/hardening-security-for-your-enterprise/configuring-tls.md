@@ -1,6 +1,6 @@
 ---
 title: Configuring TLS
-intro: 'You can configure Transport Layer Security (TLS) on {% data variables.location.product_location %} so that you can use a certificate that is signed by a trusted certificate authority.'
+intro: You can configure Transport Layer Security (TLS) on {% data variables.location.product_location %} so that you can use a certificate that is signed by a trusted certificate authority.
 redirect_from:
   - /enterprise/admin/articles/ssl-configuration
   - /enterprise/admin/guides/installation/about-tls
@@ -11,13 +11,7 @@ redirect_from:
   - /admin/configuration/hardening-security-for-your-enterprise/configuring-tls
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Networking
-  - Security
+contentType: how-tos
 ---
 ## About Transport Layer Security
 

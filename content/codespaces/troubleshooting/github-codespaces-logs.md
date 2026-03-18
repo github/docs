@@ -1,16 +1,13 @@
 ---
 title: GitHub Codespaces logs
-intro: 'Overview of the logs used by {% data variables.product.prodname_github_codespaces %}.'
+intro: Overview of the logs used by {% data variables.product.prodname_github_codespaces %}.
 versions:
   fpt: '*'
   ghec: '*'
-type: reference
-topics:
-  - Codespaces
-  - Logging
 shortTitle: Codespaces logs
 redirect_from:
   - /codespaces/troubleshooting/codespaces-logs
+contentType: reference
 ---
 
 Information on {% data variables.product.prodname_github_codespaces %} is output to various logs:

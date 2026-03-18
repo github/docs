@@ -6,11 +6,6 @@ permissions: Organization owners, security managers, and users with the **admin*
 allowTitleToDifferFromFilename: true
 versions:
   feature: security-campaigns
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Organizations
-  - Security
 contentType: tutorials
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/organizing-remediation-efforts-for-leaked-secrets

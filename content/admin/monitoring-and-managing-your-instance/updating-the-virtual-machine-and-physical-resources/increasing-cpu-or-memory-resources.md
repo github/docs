@@ -1,6 +1,6 @@
 ---
 title: Increasing CPU or memory resources
-intro: 'You can increase the CPU or memory resources for the virtual machine (VM) that runs {% data variables.location.product_location %}.'
+intro: You can increase the CPU or memory resources for the virtual machine (VM) that runs {% data variables.location.product_location %}.
 redirect_from:
   - /enterprise/admin/installation/increasing-cpu-or-memory-resources
   - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
@@ -9,12 +9,8 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Infrastructure
-  - Performance
 shortTitle: Increase CPU or memory
+contentType: how-tos
 ---
 
 ## About increasing CPU or memory resources

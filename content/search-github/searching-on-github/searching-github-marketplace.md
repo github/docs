@@ -4,8 +4,6 @@ intro: 'You can search for apps and actions that are available on {% data variab
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - GitHub search
 redirect_from:
   - /github/searching-for-information-on-github/searching-github-marketplace
   - /github/searching-for-information-on-github/searching-on-github/searching-github-marketplace

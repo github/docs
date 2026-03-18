@@ -13,9 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Comment on a PR
+category:
+  - Review pull requests
 ---
 ## About pull request comments
 

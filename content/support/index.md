@@ -17,8 +17,6 @@ children:
   - learning-about-github-support
   - contacting-github-support
   - sharing-feedback-with-github
-topics:
-  - Support
 introLinks:
   overview: /support/learning-about-github-support/about-github-support
 featuredLinks:

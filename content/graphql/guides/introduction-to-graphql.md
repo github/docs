@@ -8,8 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - API
 ---
 
 ## GraphQL terminology

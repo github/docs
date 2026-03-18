@@ -6,8 +6,6 @@ permissions: Organization owners
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
-topics:
-  - Copilot
 shortTitle: 'Add {% data variables.copilot.copilot_coding_agent %}'
 redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/adding-copilot-coding-agent-to-organization

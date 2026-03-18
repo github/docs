@@ -6,9 +6,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Projects
+contentType: tutorials
 ---
 
 ## Converting draft issues in table layout

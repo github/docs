@@ -9,8 +9,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub search
 ---
 You can search for users globally across a {% data variables.product.github %} platform, for example: across {% data variables.product.prodname_dotcom_the_website %} or across {% data variables.product.prodname_ghe_server %}.
 

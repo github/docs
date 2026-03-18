@@ -1,19 +1,16 @@
 ---
 title: Managing GitHub Mobile for your enterprise
-intro: 'You can decide whether people can use {% data variables.product.prodname_mobile %} to connect to {% data variables.location.product_location %}.'
-permissions: 'Enterprise owners'
+intro: You can decide whether people can use {% data variables.product.prodname_mobile %} to connect to {% data variables.location.product_location %}.
+permissions: Enterprise owners
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Mobile
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/managing-github-for-mobile-for-your-enterprise
   - /admin/configuration/managing-github-for-mobile-for-your-enterprise
   - /admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise
   - /admin/configuration/configuring-user-applications-for-your-enterprise/managing-github-mobile-for-your-enterprise
 shortTitle: Manage GitHub Mobile
+contentType: how-tos
 ---
 
 ## About {% data variables.product.prodname_mobile %}

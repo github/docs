@@ -1,13 +1,13 @@
 ---
 title: Controlling user offboarding with the unaffiliated users policy
 allowTitleToDifferFromFilename: true
-intro: 'Set a policy to determine what happens when a user is removed from every organization in your enterprise.'
+intro: Set a policy to determine what happens when a user is removed from every organization in your enterprise.
 versions:
   ghec: '*'
-permissions: 'Enterprise owners'
-product: 'Enterprises with personal accounts on {% data variables.product.prodname_dotcom_the_website %}'
+permissions: Enterprise owners
+product: Enterprises with personal accounts on {% data variables.product.prodname_dotcom_the_website %}
 shortTitle: Control offboarding
-type: how_to
+contentType: how-tos
 ---
 
 ## About the unaffiliated users policy

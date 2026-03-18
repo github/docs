@@ -1,6 +1,6 @@
 ---
 title: Configuring applications
-intro: 'You can configure internal application settings for {% data variables.location.product_location %}.'
+intro: You can configure internal application settings for {% data variables.location.product_location %}.
 redirect_from:
   - /enterprise/admin/installation/configuring-applications
   - /enterprise/admin/configuration/configuring-applications
@@ -9,10 +9,7 @@ redirect_from:
   - /admin/configuration/configuring-user-applications-for-your-enterprise/configuring-applications
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
+contentType: how-tos
 ---
 ## Adjusting image caching
 

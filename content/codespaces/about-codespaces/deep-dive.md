@@ -1,16 +1,14 @@
 ---
-title: 'Deep dive into {% data variables.product.prodname_github_codespaces %}'
-shortTitle: 'Deep dive into {% data variables.product.prodname_codespaces %}'
-intro: 'Explore more detail about how {% data variables.product.prodname_github_codespaces %} work.'
+title: Deep dive into {% data variables.product.prodname_github_codespaces %}
+shortTitle: Deep dive into {% data variables.product.prodname_codespaces %}
+intro: Explore more detail about how {% data variables.product.prodname_github_codespaces %} work.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghec: '*'
-type: quick_start
-topics:
-  - Codespaces
 redirect_from:
   - /codespaces/getting-started/deep-dive
+contentType: get-started
 ---
 
 {% data variables.product.prodname_github_codespaces %} is an instant, cloud-based development environment that uses a container to provide you with common languages, tools, and utilities for development. {% data variables.product.prodname_github_codespaces %} is also configurable, allowing you to create a customized development environment for your project. By configuring a custom development environment for your project, you can have a repeatable codespace configuration for all users of your project.

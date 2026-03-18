@@ -1,15 +1,17 @@
 ---
-title: Creating custom agents
+title: Creating custom agents for {% data variables.copilot.copilot_coding_agent %}
 shortTitle: Create custom agents
-intro: 'You can create specialized agents with tailored expertise for specific development tasks.'
+intro: You can create specialized agents with tailored expertise for specific development tasks.
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
-topics:
-  - Copilot
+category:
+  - Configure Copilot
+  - Author and optimize with Copilot
+contentType: how-tos
 ---
 
-{% data variables.copilot.custom_agents_caps_short %} allow you to create specialized agents with tailored expertise for specific tasks. For a conceptual overview of {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents).
+{% data variables.copilot.custom_agents_caps_short %} allow you to tailor {% data variables.product.prodname_copilot_short %}'s expertise for specific tasks. For a conceptual overview of {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents).
 
 {% data reusables.copilot.custom-agents-ide-preview %}
 
@@ -25,14 +27,14 @@ topics:
 1. Optionally, select the branch you want to create the {% data variables.copilot.agent_profile %} in. The default is the main branch.
 1. Click {% octicon "copilot" aria-label="Select a custom agent" %}, then click **{% octicon "plus" aria-label="Plus button" %} Create an agent**. This will open a template agent profile called `my-agent.agent.md` in the `.github/agents` directory of your target repository.
 1. If you are creating an organization or enterprise-level {% data variables.copilot.copilot_custom_agent_short %}, delete the `.github/` portion of the file path to move your template to the root `agents` directory.
-1. Edit the filename (the text before `.agent.md`), selecting a unique, descriptive name that identifies the agent's purpose. Note that the filename may only contain the following characters: `.`, `-`, `_`, `a-z`, `A-Z`, `0-9`. 
+1. Edit the filename (the text before `.agent.md`), selecting a unique, descriptive name that identifies the agent's purpose. Note that the filename may only contain the following characters: `.`, `-`, `_`, `a-z`, `A-Z`, `0-9`.
 1. Configure the {% data variables.copilot.agent_profile %}, including the name, description, tools, and prompts. For more information on what the {% data variables.copilot.agent_profile %} can include, see [Configuring an {% data variables.copilot.agent_profile %}](#configuring-an-agent-profile).
 1. Commit the file to the repository and merge it into the default branch. Go back to the agents tab and refresh the page if needed. Your {% data variables.copilot.copilot_custom_agent_short %} will now appear in the dropdown when you click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} in the prompt box.
 
 ## Creating a {% data variables.copilot.copilot_custom_agent_short %} profile in {% data variables.product.prodname_vscode %}
 
 1. Open {% data variables.copilot.copilot_chat %} in {% data variables.product.prodname_vscode %}.
-1. From the agents dropdown at the bottom of the chat view, click **Configure Custom Agents...**, then click **{% octicon "plus" aria-label="Plus button" %} Create new custom agent**.
+1. From the agents dropdown at the bottom of the chat view, click **Configure Custom Agents...**, then click **{% octicon "plus" aria-label="Plus button" %} Create new {% data variables.copilot.copilot_custom_agent_short %}**.
 1. Choose the location where the {% data variables.copilot.agent_profile %} should be created:
    * **Workspace**: Create the {% data variables.copilot.copilot_custom_agent_short %} profile in the `.github/agents` folder of your workspace to only use it within that workspace.
    * **User profile**: Create the {% data variables.copilot.copilot_custom_agent_short %} profile in the current user profile folder to use it across all your workspaces.
@@ -71,13 +73,13 @@ To update an {% data variables.copilot.agent_profile %}, select **Configure Agen
 1. From the agents dropdown at the bottom of the chat view, click **{% octicon "plus" aria-label="Plus button" %} Create an agent**.
 1. Enter a file name for the {% data variables.copilot.copilot_custom_agent_short %}. This is the default name that appears in the agents dropdown.
 1. Configure the {% data variables.copilot.agent_profile %} in the newly created `.agent.md` file in the `.github/agents` directory, including the description, tools, and prompts. For more information on what the {% data variables.copilot.agent_profile %} can include, see [Configuring an {% data variables.copilot.agent_profile %}](#configuring-an-agent-profile).
-   * You can use the **Customize Agent** button within the file editor to open a dialog, where you can select the AI model for the agent to use, select available tools (including built-in and MCP server tools), and configure the `handoffs` property for transitioning between custom agents. Click **Apply** to add selected options to the {% data variables.copilot.agent_profile %}.
+   * You can use the **Customize Agent** button within the file editor to open a dialog, where you can select the AI model for the agent to use, select available tools (including built-in and MCP server tools), and configure the `handoffs` property for transitioning between {% data variables.copilot.custom_agents_short %}. Click **Apply** to add selected options to the {% data variables.copilot.agent_profile %}.
 
 To update an {% data variables.copilot.agent_profile %}, from the agents dropdown, click the pencil icon next to the agent you want to modify.
 
 ## Configuring an {% data variables.copilot.agent_profile %}
 
-An {% data variables.copilot.agent_profile %} is a Markdown file with YAML frontmatter that specifies the {% data variables.copilot.copilot_custom_agent_short %}'s name, description, available tools, and MCP server configurations (for organization/enterprise level agents). Configuring an {% data variables.copilot.agent_profile %} involves defining the agent's identity, capabilities, tool access, and behavioral instructions.
+An {% data variables.copilot.agent_profile %} is a Markdown file with YAML frontmatter that specifies the {% data variables.copilot.copilot_custom_agent_short %}'s name, description, available tools, and MCP server configurations. Configuring an {% data variables.copilot.agent_profile %} involves defining the agent's identity, capabilities, tool access, and behavioral instructions.
 
 For detailed configuration information about YAML properties, tools, MCP server setup, tool aliases, and how {% data variables.copilot.custom_agents_short %} are processed, see [AUTOTITLE](/copilot/reference/custom-agents-configuration).
 
@@ -85,8 +87,8 @@ To configure your {% data variables.copilot.agent_profile %}:
 
 1. Optionally, write a `name` for your {% data variables.copilot.copilot_custom_agent_short %}. If unset, the name will default to the filename (without the `.md` or `.agent.md` suffix).
 1. Write a brief `description` (required) explaining what your agent does and its specific capabilities or domain expertise.
-1. In the `tools` property, define which tools the agent can use. This is a list of tool names or aliases, including tools from MCP servers configured in the repository settings or the {% data variables.copilot.agent_profile %} (for example, `tools: ["read", "edit", "search", "some-mcp-server/tool-1"]`). If you omit this property, the agent will have access to all available tools.
-1. If creating an organization or enterprise level agent on {% data variables.product.github %}, you can use the `mcp-servers` property to optionally configure MCP servers that will be available only to this agent to extend its capabilities.
+1. In the `tools` property, define which tools the agent can use. This is a list of tool names or aliases, including tools from MCP servers configured in the repository settings or the {% data variables.copilot.agent_profile %} (for example, `tools: ["read", "edit", "search", "some-mcp-server/tool-1"]`). If you omit this property, the agent will have access to all available tools. See "Tools" in [AUTOTITLE](/copilot/reference/custom-agents-configuration#tools).
+1. Optionally, in the `mcp-servers` property, you can configure MCP servers that will be available only to this agent to extend its capabilities. See "MCP server configuration details" in [AUTOTITLE](/copilot/reference/custom-agents-configuration#mcp-server-configuration-details). 
 1. If you are creating and using the {% data variables.copilot.agent_profile %} in {% data variables.product.prodname_vscode_shortname %}, JetBrains IDEs, Eclipse, or Xcode, you can also use the `model` property to control which AI model the agent should use.
 1. Optionally, set the `target` property to either `vscode` or `github-copilot` if you want to only use the agent in a specific environment. The agent will be available in both environments if you omit the property.
 1. Write the agent's prompt. Define the agent's behavior, expertise, and instructions in the Markdown content below the YAML frontmatter. The prompt can be a maximum of 30,000 characters.

@@ -5,12 +5,9 @@ intro: '{% data variables.product.prodname_actions %} can improve developer prod
 versions:
   ghec: '*'
   ghes: '*'
-type: overview
-topics:
-  - Actions
-  - Enterprise
 redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
+contentType: concepts
 ---
 
 

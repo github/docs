@@ -1,16 +1,14 @@
 ---
-title: 'Adding your {% data variables.projects.project_v2 %} to a team'
-shortTitle: 'Adding a {% data variables.projects.project_v2 %} to a team'
+title: Adding your {% data variables.projects.project_v2 %} to a team
+shortTitle: Adding a {% data variables.projects.project_v2 %} to a team
 intro: You can add projects to teams to manage permissions and improve project discoverability.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Projects
 allowTitleToDifferFromFilename: true
 permissions: Organization owners or people with the team maintainer role and admin permissions on a project can add a project to a team.
+contentType: tutorials
 ---
 
 ## About adding projects to teams

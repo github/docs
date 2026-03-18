@@ -1,17 +1,11 @@
 ---
 title: GitHub security features
-intro: 'An overview of {% data variables.product.github %}''s security features.'
+intro: An overview of {% data variables.product.github %}'s security features.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 contentType: get-started
-topics:
-  - Repositories
-  - Dependencies
-  - Vulnerabilities
-  - Code Security
-  - Secret Protection
 ---
 
 ## About {% data variables.product.github %}'s security features

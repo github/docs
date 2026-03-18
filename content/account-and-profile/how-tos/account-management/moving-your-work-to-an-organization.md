@@ -5,10 +5,10 @@ versions:
   fpt: '*'
   ghes: '>= 3.21'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Move work to organization
+category:
+  - Change or close your account
+contentType: how-tos
 ---
 
 ## Keeping your username for the organization

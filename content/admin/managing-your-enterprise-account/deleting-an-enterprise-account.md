@@ -1,17 +1,13 @@
 ---
 title: Deleting an enterprise account
-intro: 'You can delete an enterprise account to stop paying for {% data variables.product.prodname_enterprise %}.'
+intro: You can delete an enterprise account to stop paying for {% data variables.product.prodname_enterprise %}.
 versions:
   ghec: '*'
-type: how_to
-topics:
-  - Accounts
-  - Enterprise
-  - Fundamentals
 permissions: Enterprise owners can delete an enterprise account if the company pays by credit card or PayPal.
 shortTitle: Delete enterprise account
 redirect_from:
   - /admin/overview/deleting-an-enterprise-account
+contentType: how-tos
 ---
 
 ## Prerequisites
@@ -42,7 +38,7 @@ If you upgraded to an enterprise account from a single organization and then del
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. If you are not trialing {% data variables.product.prodname_ghe_cloud %}, delete your enterprise account:
-   1. Under **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**, click **Profile**.
+   1. Under **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**, click **General**.
    1. In the "Danger Zone" section, click **Delete this enterprise**.
    1. In the text box, type the enterprise slug to confirm the deletion, then click **Delete this enterprise**.
 1. If you are trialing {% data variables.product.prodname_ghe_cloud %}, cancel your trial, or delete the expired trial:

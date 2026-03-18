@@ -5,11 +5,11 @@ shortTitle: Configure toolsets
 versions:
   feature: copilot
 defaultTool: vscode
-topics:
-  - Copilot
 redirect_from:
   - /copilot/how-tos/context/use-mcp/configure-toolsets
 contentType: how-tos
+category:
+  - Configure Copilot
 ---
 
 The {% data variables.product.github %} MCP server includes default toolsets (`repos`, `issues`, and `pull_requests`) that are enabled automatically. You can customize toolset configuration by:

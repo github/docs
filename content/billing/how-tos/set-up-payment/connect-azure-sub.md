@@ -14,9 +14,9 @@ versions:
   ghes: '*'
 shortTitle: Connect Azure sub
 permissions: 'Billing managers or owners'
-topics:
-  - Billing
 contentType: how-tos
+category:
+  - Set up payment
 ---
 
 You can pay for metered usage of {% data variables.product.github %} features through Azure by connecting an Azure Subscription ID to your organization or enterprise account on {% data variables.product.github %}. See [AUTOTITLE](/billing/concepts/azure-subscriptions).

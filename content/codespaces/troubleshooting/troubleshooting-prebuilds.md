@@ -5,9 +5,7 @@ intro: You can use prebuilds to speed up the creation of codespaces. This articl
 versions:
   fpt: '*'
   ghec: '*'
-type: reference
-topics:
-  - Codespaces
+contentType: reference
 ---
 
 For more information about {% data variables.product.prodname_github_codespaces %} prebuilds, see [AUTOTITLE](/codespaces/prebuilding-your-codespaces).

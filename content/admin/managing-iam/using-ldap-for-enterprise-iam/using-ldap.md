@@ -12,15 +12,10 @@ redirect_from:
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-ldap
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-ldap
   - /admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap
-intro: 'If you use Lightweight Directory Access Protocol (LDAP) to centralize access across applications, you can integrate {% data variables.product.prodname_ghe_server %} by configuring LDAP authentication for your instance.'
+intro: If you use Lightweight Directory Access Protocol (LDAP) to centralize access across applications, you can integrate {% data variables.product.prodname_ghe_server %} by configuring LDAP authentication for your instance.
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
+contentType: how-tos
 ---
 
 ## About LDAP authentication for {% data variables.product.prodname_ghe_server %}

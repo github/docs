@@ -1,6 +1,6 @@
 ---
 title: Managing GitHub Actions settings for a repository
-intro: 'You can disable or configure {% data variables.product.prodname_actions %} for a specific repository.'
+intro: You can disable or configure {% data variables.product.prodname_actions %} for a specific repository.
 redirect_from:
   - /github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository
   - /github/administering-a-repository/managing-repository-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository
@@ -10,12 +10,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Actions
-  - Permissions
-  - Pull requests
 shortTitle: Manage GitHub Actions settings
+contentType: how-tos
+category:
+  - Manage access and repository policies
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

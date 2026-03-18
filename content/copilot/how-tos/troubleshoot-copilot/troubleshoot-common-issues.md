@@ -3,8 +3,6 @@ title: Troubleshooting common issues with GitHub Copilot
 intro: 'This guide describes the most common issues with {% data variables.product.prodname_copilot %} and how to resolve them.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 shortTitle: Troubleshoot common issues
 redirect_from:
   - /copilot/troubleshooting-github-copilot/troubleshooting-common-issues-with-github-copilot
@@ -15,6 +13,8 @@ redirect_from:
   - /copilot/how-tos/troubleshoot/troubleshooting-common-issues-with-github-copilot
   - /copilot/how-tos/troubleshoot/troubleshoot-common-issues
 contentType: how-tos
+category:
+  - Troubleshooting Copilot
 ---
 
 

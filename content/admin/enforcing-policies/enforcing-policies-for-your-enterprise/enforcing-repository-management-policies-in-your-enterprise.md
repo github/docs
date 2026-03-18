@@ -1,6 +1,6 @@
 ---
 title: Enforcing repository management policies in your enterprise
-intro: 'You can enforce policies for repository management within your enterprise''s organizations, or allow policies to be set in each organization.'
+intro: You can enforce policies for repository management within your enterprise's organizations, or allow policies to be set in each organization.
 permissions: Enterprise owners can enforce policies for repository management in an enterprise.
 redirect_from:
   - /enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance
@@ -37,13 +37,8 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Policies
-  - Repositories
-  - Security
 shortTitle: Repository management policies
+contentType: how-tos
 ---
 
 ## About policies for repository management in your enterprise

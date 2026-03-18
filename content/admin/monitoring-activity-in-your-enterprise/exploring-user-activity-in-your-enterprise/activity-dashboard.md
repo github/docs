@@ -9,9 +9,7 @@ redirect_from:
   - /admin/user-management/monitoring-activity-in-your-enterprise/activity-dashboard
   - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/activity-dashboard
 versions:
-  ghes: '*'
-topics:
-  - Enterprise
+  ghes: '<3.16'
 ---
 
 The Activity dashboard provides weekly, monthly, and yearly graphs of the number of:

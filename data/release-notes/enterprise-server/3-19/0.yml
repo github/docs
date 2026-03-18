@@ -160,6 +160,9 @@ sections:
         # https://github.com/github/releases/issues/5128
         - |
           Enterprise administrators can manage rules more efficiently with the general availability of ruleset history, import, and export. Ruleset history allows tracking and rolling back changes, while import and export simplify sharing and reusing rulesets, including [GitHub's ruleset-recipes](https://github.com/github/ruleset-recipes).
+        # https://github.com/github/releases/issues/5273
+        - |
+          Users can more easily explore contributors and code frequency insights with improved navigation, interactive chart legends for hiding data series, and options to view or download the data as a CSV or PNG. See [Repositories - Updated insight views (General Availability)](https://github.blog/changelog/2025-02-25-repositories-updated-insight-views-general-availability/) on the GitHub Blog.
 
     - heading: Issues
       notes:
@@ -246,6 +249,8 @@ sections:
       Users may see a mismatch between repository-level Dependabot alerts and the overall Security Risk dashboard metrics. This can be resolved by reloading the page.
     - |
       The setting to define private registries at the organization level for code scanning is only available if dependabot is also enabled for the instance.
+    - |
+      When viewing the status of an ongoing backup on the "Backups" page of the Management Console, the backup may initially report as "incomplete" instead of "in progress". This initial status can be ignored; the backup is still running and will report the correct status once it has progressed further. In some configurations, such as cluster topologies, this may take up to 5 minutes.
 
   closing_down:
     # https://github.com/github/releases/issues/7007

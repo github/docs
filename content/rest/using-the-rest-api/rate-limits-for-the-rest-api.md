@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - API
 redirect_from:
   - /rest/overview/rate-limits-for-the-rest-api
 ---

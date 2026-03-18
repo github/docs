@@ -5,13 +5,7 @@ redirect_from:
   - /admin/configuration/administering-your-instance-from-the-management-console/about-the-management-console
 versions:
   ghes: '*'
-type: overview
-topics:
-  - Administrator
-  - Enterprise
-  - Fundamentals
-  - Networking
-  - Monitoring
+contentType: concepts
 ---
 
 ## About the {% data variables.enterprise.management_console %}

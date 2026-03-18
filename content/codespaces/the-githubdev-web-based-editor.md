@@ -1,16 +1,12 @@
 ---
 title: The github.dev web-based editor
 shortTitle: github.dev editor
-intro: 'You can use the {% data variables.codespaces.serverless %} web-based editor to edit files and commit your changes.'
+intro: You can use the {% data variables.codespaces.serverless %} web-based editor to edit files and commit your changes.
 versions:
   feature: githubdev-editor
-type: how_to
-topics:
-  - Codespaces
-  - Visual Studio Code
-  - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/web-based-editor
+contentType: how-tos
 ---
 
 >[!NOTE] The {% data variables.codespaces.serverless %} editor is currently in {% data variables.release-phases.public_preview %}. You can provide feedback [in our Discussions](https://github.com/community/community/discussions/categories/codespaces).{% ifversion ghec %} Additionally, the {% data variables.codespaces.serverless %} editor is not available on subdomains of {% data variables.enterprise.data_residency_site %}, such as `octocorp.ghe.com`.{% endif %}

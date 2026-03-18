@@ -5,12 +5,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Secret Protection
-  - Secret scanning
 contentType: reference
 children:
   - /understanding-github-secret-types
   - /supported-secret-scanning-patterns
+  - /secret-scanning-detection-scope
+  - /custom-patterns
   - /risk-report-csv-contents
+  - /secret-scanning-pattern-configuration-data
 ---

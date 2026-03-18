@@ -1,7 +1,7 @@
 ---
 title: Monitoring the health of your cluster
 shortTitle: Monitor cluster health
-intro: 'To ensure the performance and redundancy of a {% data variables.product.prodname_ghe_server %} cluster, you can monitor the cluster''s health.'
+intro: To ensure the performance and redundancy of a {% data variables.product.prodname_ghe_server %} cluster, you can monitor the cluster's health.
 product: '{% data reusables.gated-features.cluster %}'
 redirect_from:
   - /enterprise/admin/clustering/monitoring-cluster-nodes
@@ -12,14 +12,7 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/monitoring-the-health-of-your-cluster
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Clustering
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
+contentType: how-tos
 ---
 
 ## About {% data variables.product.prodname_ghe_server %} cluster health

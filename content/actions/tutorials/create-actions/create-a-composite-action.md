@@ -1,7 +1,7 @@
 ---
 title: Creating a composite action
 shortTitle: Create a composite action
-intro: 'In this tutorial, you''ll learn how to build a composite action.'
+intro: In this tutorial, you'll learn how to build a composite action.
 redirect_from:
   - /actions/creating-actions/creating-a-composite-run-steps-action
   - /actions/creating-actions/creating-a-composite-action
@@ -11,10 +11,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 defaultPlatform: linux
-topics:
-  - Action development
+contentType: tutorials
+category:
+  - Reuse and share automations
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

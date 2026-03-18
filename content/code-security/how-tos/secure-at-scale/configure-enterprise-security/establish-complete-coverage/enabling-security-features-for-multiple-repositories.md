@@ -6,13 +6,6 @@ permissions: '{% data reusables.permissions.security-org-enable %}'
 allowTitleToDifferFromFilename: true
 versions:
   feature: security-configurations-beta-and-pre-beta
-topics:
-  - Security overview
-  - Code Security
-  - Secret Protection
-  - Alerts
-  - Organizations
-  - Teams
 redirect_from:
   - /code-security/security-overview/enabling-security-features-for-multiple-repositories
 contentType: how-tos

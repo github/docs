@@ -6,15 +6,13 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
-  - Team
 permissions: '{% data reusables.permissions.enhanced-billing-enterprise %}'
 redirect_from:
   - /billing/managing-your-billing/about-usage-reports
   - /billing/reference/usage-reports
 contentType: reference
+category:
+  - Track spending and control costs
 ---
 
 Usage reports show detailed information about your account’s {% data variables.product.github %} usage, including how much of each SKU was used and the resulting billable amount.

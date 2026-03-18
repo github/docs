@@ -1,6 +1,6 @@
 ---
 title: Sponsoring an open source contributor through GitHub
-intro: 'You can make payments through {% data variables.product.prodname_dotcom %} to a developer or organization who designs, creates, or maintains open source projects you depend on.'
+intro: You can make payments through {% data variables.product.prodname_dotcom %} to a developer or organization who designs, creates, or maintains open source projects you depend on.
 redirect_from:
   - /articles/sponsoring-a-developer
   - /articles/sponsoring-an-open-source-contributor
@@ -11,11 +11,8 @@ versions:
   fpt: '*'
   ghec: '*'
 permissions: '{% data reusables.sponsors.sponsorship-permissions %}'
-type: how_to
-topics:
-  - Open Source
-  - Sponsors payments
 shortTitle: Sponsor through {% data variables.product.prodname_dotcom %}
+contentType: how-tos
 ---
 
 ## About sponsorships with payments through {% data variables.product.prodname_dotcom %}

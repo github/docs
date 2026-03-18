@@ -9,11 +9,8 @@ redirect_from:
   - /admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise
 versions:
   ghes: '*'
-type: overview
-topics:
-  - Actions
-  - Enterprise
 shortTitle: About actions in your enterprise
+contentType: concepts
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

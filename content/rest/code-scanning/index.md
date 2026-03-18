@@ -9,10 +9,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - API
-  - Code scanning
-  - REST
 children:
   - /alert-dismissal-requests
   - /code-scanning

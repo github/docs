@@ -9,9 +9,7 @@ versions:
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/managing-iterations
   - /issues/planning-and-tracking-with-projects/understanding-field-types/about-iteration-fields
-type: tutorial
-topics:
-  - Projects
+contentType: tutorials
 ---
 
 You can create an iteration field to associate items with specific repeating blocks of time. Iterations can be set to any length of time, can include breaks, and can be individually edited to modify name and date range. With projects, you can group by iteration to visualize the balance of upcoming work, use filters to focus on a single iteration, and sort by iteration.
@@ -64,3 +62,14 @@ You can insert breaks into your iterations to communicate when you are taking ti
    ![Screenshot of the list of iterations for a project. On the line dividing two iterations, a button, labeled "Insert break," is outlined in orange.](/assets/images/help/issues/iteration-insert-break.png)
 1. Optionally, to change the duration of the break, click on the date to open the calendar. Click on the start day, then click the end day, and then click **Apply**.
 1. Click **Save changes**.
+
+## Moving items between iterations
+
+When a project view is grouped by an iteration field, you can bulk-move all items from one iteration to another. This is useful for rolling over unfinished work to the next sprint, rescheduling items during reprioritization, or clearing a backlog iteration.
+
+1. Navigate to your project.
+1. In your project, group a view by an iteration field. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-table-layout#grouping-by-field-values).
+1. Click {% octicon "kebab-horizontal" aria-label="iteration options" %} in the group header for the iteration you want to move items from.
+1. Click **Move items to...**.
+1. Select the target iteration you want to move the items to.
+1. Confirm the move. All items in the group are updated to the target iteration.

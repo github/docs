@@ -4,9 +4,6 @@ intro: You will create internal documentation and then communicate this to the c
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Secret Protection
 shortTitle: 4. Create internal documentation
 redirect_from:
   - /code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation

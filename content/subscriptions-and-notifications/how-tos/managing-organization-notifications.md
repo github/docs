@@ -5,9 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Notifications
 shortTitle: Manage organization notifications
+contentType: how-tos
 ---
 
 ## Organization alerts notification options

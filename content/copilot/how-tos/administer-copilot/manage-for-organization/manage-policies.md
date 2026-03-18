@@ -22,9 +22,6 @@ redirect_from:
   - /copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization
   - /copilot/how-tos/administer/organizations/manage-policies
   - /copilot/how-tos/administer/manage-for-organization/manage-policies
-topics:
-  - Copilot
-  - Organizations
 shortTitle: Manage policies
 contentType: how-tos
 category: 
@@ -43,6 +40,26 @@ category:
 1. For each policy you want to configure, click the dropdown menu and select an enforcement option.
 
 {% data reusables.copilot.mcp-servers-policy-note %}
+
+## Enabling or disabling third-party coding agents in your repositories
+
+> [!NOTE]
+> * {% data reusables.gated-features.third-party-agents %}
+
+You can choose whether to allow the following coding agents to be enabled in your organization:
+
+* {% data variables.product.prodname_anthropic_claude %}
+* {% data variables.product.prodname_openai_codex %}
+
+Coding agents have access to the same repositories that {% data variables.copilot.copilot_coding_agent %} has been enabled in.
+
+To enable coding agents:
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.copilot.coding-agent-settings %}
+1. In the sidebar, under **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, click **Coding agent**.
+1. On the {% data variables.copilot.copilot_coding_agent %} page, under "Partner agents", click the toggle to enable the third-party agent you want to use.
 
 ## Opting in to previews or feedback
 

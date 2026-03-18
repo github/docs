@@ -2,20 +2,15 @@
 title: Disabling authentication for Enterprise Managed Users
 allowTitleToDifferFromFilename: true
 shortTitle: Disable authentication
-intro: 'You can disable SAML or OIDC single sign-on (SSO) authentication for {% data variables.product.prodname_emus %} by using a recovery code to sign in as the setup user.'
+intro: You can disable SAML or OIDC single sign-on (SSO) authentication for {% data variables.product.prodname_emus %} by using a recovery code to sign in as the setup user.
 versions:
   ghec: '*'
-type: overview
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - SSO
-permissions: 'The setup user can disable SAML or OIDC authentication for {% data variables.product.prodname_emus %}.'
+permissions: The setup user can disable SAML or OIDC authentication for {% data variables.product.prodname_emus %}.
 redirect_from:
   - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/disabling-authentication-for-enterprise-managed-users
   - /admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/disabling-authentication-for-enterprise-managed-users
   - /admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/disabling-authentication-and-provisioning-for-enterprise-managed-users
+contentType: concepts
 ---
 
 ## About disabled authentication for {% data variables.product.prodname_emus %}
@@ -41,7 +36,7 @@ If you want to migrate to a new identity provider (IdP) or tenant rather than di
 
 {% data reusables.emus.sign-in-as-setup-user %}
 1. Attempt to access your enterprise account, and use a recovery code to bypass SAML SSO or OIDC. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable).
-{% data reusables.enterprise-accounts.access-enterprise-emu %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.identity-provider-tab %}
 {% data reusables.enterprise-accounts.sso-configuration %}
 1. Next to "SAML single sign-on" or "OIDC single sign-on", click to deselect **SAML single sign-on** or **OIDC single sign-on**.

@@ -1,5 +1,5 @@
 ---
-title: 'About insights for {% data variables.product.prodname_projects_v2 %}'
+title: About insights for {% data variables.product.prodname_projects_v2 %}
 intro: You can view and customize charts that are built from your project's data.
 versions:
   fpt: '*'
@@ -7,10 +7,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/using-insights-with-projects
-type: tutorial
-topics:
-  - Projects
 allowTitleToDifferFromFilename: true
+contentType: tutorials
 ---
 
 You can use insights for {% data variables.product.prodname_projects_v2 %} to view, create, and customize charts that use the items added to your project as their source data. You can apply filters to the default chart and also create your own charts. When you create a chart, you set the filters, chart type, the information displayed, and the chart is available to anyone that can view the project. You can generate two types of chart: current charts and historical charts.

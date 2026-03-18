@@ -4,13 +4,12 @@ intro: 'Set up your enterprise for {% data variables.copilot.custom_agents_short
 permissions: Enterprise owners
 versions:
   feature: copilot
-topics:
-  - Copilot
 shortTitle: Prepare for custom agents
 contentType: how-tos
+category:
+  - Configure Copilot
+  - Manage Copilot for a team
 ---
-
-{% data reusables.enterprise-accounts.ai-controls-preview-note %}
 
 Enterprise-level {% data variables.copilot.custom_agents_short %} are defined in a specific repository within an organization in your enterprise. Before you can create and use {% data variables.copilot.custom_agents_short %}, you need to create this repository and configure the relevant enterprise settings.
 

@@ -7,6 +7,8 @@ versions:
   feature: copilot
 defaultTool: jetbrains
 contentType: how-tos
+category:
+  - Configure Copilot
 ---
 
 MCP registries for {% data variables.product.prodname_copilot_short %} in your IDE streamline the process of discovering and setting up MCP servers. By default, {% data variables.product.prodname_copilot_short %} uses the {% data variables.product.github %} MCP Registry, but you can configure your own MCP registry to customize the list of servers available in your environment.

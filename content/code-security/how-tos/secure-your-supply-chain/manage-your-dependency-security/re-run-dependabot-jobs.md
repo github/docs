@@ -5,13 +5,6 @@ intro: Resolve run failures and manually update your dependencies by re-running 
 permissions: '{% data reusables.permissions.dependabot-actions %}'
 versions:
   feature: dependabot-on-actions-opt-in
-topics:
-  - Dependabot
-  - Security updates
-  - Version updates
-  - Actions
-  - Dependencies
-  - Repositories
 contentType: how-tos
 ---
 

@@ -1,21 +1,14 @@
 ---
 title: Configuring SSH connections to your instance
 shortTitle: Configure SSH connections
-intro: 'You can increase the security of {% data variables.location.product_location %} by configuring the SSH algorithms that clients can use to establish a connection.'
+intro: You can increase the security of {% data variables.location.product_location %} by configuring the SSH algorithms that clients can use to establish a connection.
 permissions: Site administrators
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance
   - /admin/configuration/hardening-security-for-your-enterprise/configuring-ssh-connections-to-your-instance
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Authentication
-  - Enterprise
-  - Infrastructure
-  - Networking
-  - Security
-  - SSH
+contentType: how-tos
 ---
 
 ## About SSH connections to your instance

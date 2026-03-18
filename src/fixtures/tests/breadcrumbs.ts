@@ -1,5 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
+import type { Element } from 'domhandler'
+
 import { getDOM } from '@/tests/helpers/e2etest'
 
 describe('breadcrumbs', () => {
@@ -68,7 +70,7 @@ describe('breadcrumbs', () => {
 
     expect($breadcrumbTitles.length).toBe(0)
     expect($breadcrumbLinks.length).toBe(2)
-    expect(($breadcrumbLinks[0] as cheerio.TagElement).attribs.title).toBe('Deeper secrets')
-    expect(($breadcrumbLinks[1] as cheerio.TagElement).attribs.title).toBe('Mariana Trench')
+    expect(($breadcrumbLinks[0] as Element).attribs.title).toBe('Deeper secrets')
+    expect(($breadcrumbLinks[1] as Element).attribs.title).toBe('Mariana Trench')
   })
 })

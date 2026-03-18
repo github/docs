@@ -47,12 +47,7 @@ const layoutNames = [
   false,
 ]
 
-// DEPRECATED: Use 'contentType' instead of 'type' for new content.
-// 'type' exists on ~40% of files but is used only for internal analytics.
-// Migration tool: src/content-render/scripts/add-content-type.ts
-const guideTypes = ['overview', 'quick_start', 'tutorial', 'how_to', 'reference', 'rai']
-
-// As of July 2025, use 'contentType' rather than 'type'.
+// Content type values derived from directory structure.
 export const contentTypesEnum = [
   'get-started',
   'concepts',
@@ -203,14 +198,6 @@ export const schema: Schema = {
         enum: ['builder', 'driver'],
       },
     },
-    // DEPRECATED: Use 'contentType' instead of 'type' for new content.
-    // 'type' exists on ~40% of files but is used only for internal analytics.
-    // Migration tool: src/content-render/scripts/add-content-type.ts
-    type: {
-      type: 'string',
-      enum: guideTypes,
-    },
-    // As of July 2025, use 'contentType' rather than 'type'.
     contentType: {
       type: 'string',
       enum: contentTypesEnum,

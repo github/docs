@@ -1,5 +1,5 @@
 import { visitParents } from 'unist-util-visit-parents'
-import type { Root } from 'hast'
+import type { Root, Element } from 'hast'
 import type { Transformer } from 'unified'
 
 /**
@@ -18,25 +18,17 @@ import type { Transformer } from 'unified'
  *
  * */
 
-function matcher(node: any): boolean {
-  // Using any type due to complex type conflicts between different versions of
-  // @types/hast and @types/unist used by various dependencies. The node should be
-  // an Element with tagName 'th' and no existing 'scope' property.
-  return node.type === 'element' && node.tagName === 'th' && !('scope' in node.properties)
-}
-
-function visitor(node: any, ancestors: any[]): void {
-  // Using any type for the same reason as matcher - complex type conflicts between
-  // hast/unist type definitions across different package versions
-  const parent = ancestors.at(-1)
-  if (parent && parent.tagName === 'tr') {
-    const grandParent = ancestors.at(-2)
-    if (grandParent && grandParent.tagName === 'thead') {
-      node.properties.scope = 'col'
-    }
-  }
-}
-
 export default function rewriteTheadThScope(): Transformer<Root> {
-  return (tree: Root) => visitParents(tree, matcher, visitor)
+  return (tree: Root) =>
+    visitParents(tree, 'element', (node, ancestors) => {
+      const el = node as Element
+      if (el.tagName !== 'th' || 'scope' in el.properties) return
+      const parent = ancestors.at(-1) as Element | undefined
+      if (parent && parent.tagName === 'tr') {
+        const grandParent = ancestors.at(-2) as Element | undefined
+        if (grandParent && grandParent.tagName === 'thead') {
+          el.properties.scope = 'col'
+        }
+      }
+    })
 }

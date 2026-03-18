@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting TLS errors
-intro: 'If you run into TLS issues with your appliance, you can take actions to resolve them.'
+intro: If you run into TLS issues with your appliance, you can take actions to resolve them.
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-ssl-errors
   - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration
@@ -12,15 +12,8 @@ redirect_from:
   - /admin/configuration/hardening-security-for-your-enterprise/troubleshooting-tls-errors
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Errors
-  - Infrastructure
-  - Networking
-  - Security
-  - Troubleshooting
 shortTitle: Troubleshoot TLS errors
+contentType: how-tos
 ---
 ## Removing the passphrase from your key file
 

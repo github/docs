@@ -5,11 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
-  - Dependencies
-  - Vulnerabilities
-  - Advanced Security
 shortTitle: GitHub secret types
 redirect_from:
   - /code-security/getting-started/understanding-github-secret-types

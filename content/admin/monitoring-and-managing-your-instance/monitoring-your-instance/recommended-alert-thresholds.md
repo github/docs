@@ -1,6 +1,6 @@
 ---
 title: Recommended alert thresholds
-intro: 'You can configure an alert to notify you of system resource issues before they affect your {% data variables.product.prodname_ghe_server %} appliance''s performance.'
+intro: You can configure an alert to notify you of system resource issues before they affect your {% data variables.product.prodname_ghe_server %} appliance's performance.
 redirect_from:
   - /enterprise/admin/guides/installation/about-recommended-alert-thresholds
   - /enterprise/admin/installation/about-recommended-alert-thresholds
@@ -12,14 +12,8 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/recommended-alert-thresholds
 versions:
   ghes: '*'
-type: reference
-topics:
-  - Enterprise
-  - Infrastructure
-  - Monitoring
-  - Performance
-  - Storage
 shortTitle: Recommended alert thresholds
+contentType: reference
 ---
 
 ## About recommended alert thresholds

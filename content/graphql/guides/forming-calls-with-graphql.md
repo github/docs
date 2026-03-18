@@ -8,8 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - API
 shortTitle: Form calls with GraphQL
 ---
 

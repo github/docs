@@ -2,16 +2,11 @@
 title: Using the audit log API for your enterprise
 intro: Learn how to programmatically retrieve enterprise events with the REST API.
 shortTitle: Audit log API
-permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}'
+permissions: Enterprise owners {% ifversion ghes %}and site administrators {% endif %}
 versions:
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Auditing
-  - Enterprise
-  - Logging
-  - API
+contentType: tutorials
 ---
 
 >[!NOTE] {% data reusables.webhooks.webhooks-as-audit-log-alternative %}

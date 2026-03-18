@@ -1,14 +1,12 @@
 ---
 title: Managing prebuilds
 shortTitle: Manage prebuilds
-intro: 'You can review, modify, and delete the prebuild configurations for your repository.'
+intro: You can review, modify, and delete the prebuild configurations for your repository.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
 product: '{% data reusables.gated-features.codespaces-repo %}'
+contentType: how-tos
 ---
 
 ## About managing prebuilds

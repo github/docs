@@ -1,6 +1,6 @@
 ---
 title: Initiating a failover to your replica appliance
-intro: 'You can failover to a {% data variables.product.prodname_ghe_server %} replica appliance using the command line for maintenance and testing, or if the primary appliance fails.'
+intro: You can failover to a {% data variables.product.prodname_ghe_server %} replica appliance using the command line for maintenance and testing, or if the primary appliance fails.
 redirect_from:
   - /enterprise/admin/installation/initiating-a-failover-to-your-replica-appliance
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
@@ -9,12 +9,8 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/initiating-a-failover-to-your-replica-appliance
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - High availability
-  - Infrastructure
 shortTitle: Initiate failover to appliance
+contentType: how-tos
 ---
 The time required to failover depends on how long it takes to manually promote the replica and redirect traffic. The average time ranges between 20-30 minutes.
 

@@ -5,8 +5,6 @@ intro: You can ask {% data variables.product.prodname_copilot_short %} to open a
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/concepts/about-assigning-tasks-to-copilot
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/about-assigning-tasks-to-copilot
@@ -67,6 +65,18 @@ Having {% data variables.copilot.copilot_coding_agent %} as an additional coding
 
 You can create specialized {% data variables.copilot.custom_agents_short %} for different tasks. For example, you might create a {% data variables.copilot.copilot_custom_agent_short %} specialized for frontend development that focuses on React components and styling, a documentation agent that excels at writing and updating technical documentation, or a testing agent that specializes in generating comprehensive unit tests. Each {% data variables.copilot.copilot_custom_agent_short %} can be tailored with specific prompts and tools suited to its particular task.
 
+## Measuring pull request outcomes for {% data variables.copilot.copilot_coding_agent %}
+
+Enterprise administrators and organization owners can use {% data variables.product.prodname_copilot_short %} usage metrics to analyze pull request outcomes for pull requests created by {% data variables.copilot.copilot_coding_agent %}.
+
+The {% data variables.product.prodname_copilot_short %} usage metrics APIs include pull request lifecycle metrics such as:
+
+* The total number of pull requests created and merged
+* The number of pull requests created by {% data variables.copilot.copilot_coding_agent %} that have been merged
+* Median time to merge for merged pull requests, including pull requests created by {% data variables.copilot.copilot_coding_agent %}
+
+These metrics can help you track adoption of {% data variables.copilot.copilot_coding_agent %} and monitor changes in pull request throughput and time to merge over time. See [AUTOTITLE](/copilot/concepts/copilot-usage-metrics/copilot-metrics).
+
 ## Integrating {% data variables.copilot.copilot_coding_agent %} with third-party tools
 
 You can also invoke {% data variables.copilot.copilot_coding_agent %} from external tools, allowing you to assign tasks to {% data variables.product.prodname_copilot_short %}, provide context, and open pull requests without leaving your workflow. See [AUTOTITLE](/copilot/concepts/tools/about-copilot-integrations)
@@ -85,9 +95,7 @@ For more information, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/mana
 
 ## AI models for {% data variables.copilot.copilot_coding_agent %}
 
-{% data variables.copilot.copilot_pro %} and {% data variables.copilot.copilot_pro_plus %} users can select the model used by {% data variables.copilot.copilot_coding_agent %}. You may find that different models perform better, or provide more useful responses, depending on the type of tasks you give {% data variables.product.prodname_copilot_short %}.
-
-Support for selecting a model is coming soon for {% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %} users. Until then, for these users, {% data variables.copilot.copilot_coding_agent %} will use {% data variables.copilot.copilot_claude_sonnet_45 %}. {% data variables.product.company_short %} reserves the right to change the model used at any time.
+Depending on how you start your {% data variables.copilot.copilot_coding_agent %} task, you may be able to select the model used by {% data variables.copilot.copilot_coding_agent %}. You may find that different models perform better, or provide more useful responses, depending on the type of tasks you give {% data variables.product.prodname_copilot_short %}.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/changing-the-ai-model).
 
@@ -134,7 +142,9 @@ Security is a fundamental consideration when you enable {% data variables.copilo
 * **Restricted development environment**: {% data variables.copilot.copilot_coding_agent %} works in a sandbox development environment with internet access controlled by a firewall. It has read-only access to the repository it's assigned to work in.
 * **Limited access to branches**: {% data variables.copilot.copilot_coding_agent %} can only create and push to branches beginning with `copilot/`. It is subject to any branch protections and required checks for the working repository.
 * **Responds only to users with write permissions**: {% data variables.copilot.copilot_coding_agent %} will not respond to feedback from users with lower levels of access.
-* **Treated as an outside collaborator**: Draft pull requests proposed by {% data variables.copilot.copilot_coding_agent %} require approval by a user with write permissions before Actions workflows can run. {% data variables.copilot.copilot_coding_agent %} cannot mark its pull requests as "Ready for review" and cannot approve or merge a pull request.
+* **Treated as an outside collaborator**
+  * Draft pull requests created by {% data variables.copilot.copilot_coding_agent %} must be reviewed and merged by a human. {% data variables.copilot.copilot_coding_agent %} cannot mark its pull requests as "Ready for review" and cannot approve or merge a pull request.
+  * By default, {% data variables.product.prodname_actions %} workflows are not triggered for {% data variables.copilot.copilot_coding_agent %}'s pull requests until a user with write access to the repository clicks the **Approve and run workflows** button. Optionally, you can configure {% data variables.product.prodname_copilot_short %} to allow workflows to run automatically. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/review-copilot-prs#managing-github-actions-workflow-runs).
 * **Tracked for compliance**: {% data variables.copilot.copilot_coding_agent %}'s commits are co-authored by the developer who assigned the issue or requested the change to the pull request, allowing attribution of proposed changes. The developer who asked {% data variables.product.prodname_copilot_short %} to create a pull request cannot approve that pull request. In repositories where an approving review is required, this ensures that at least one independent developer reviews {% data variables.copilot.copilot_coding_agent %}'s work.
 
 For more information, see:
@@ -153,7 +163,7 @@ To mitigate this risk, {% data variables.product.github %}:
 * **Limits who can assign tasks to {% data variables.copilot.copilot_coding_agent %}.** Only users with write access to the repository can trigger {% data variables.copilot.copilot_coding_agent %} to work. Comments from users without write access are never presented to the agent.
 * **Limits the permissions in access tokens used by {% data variables.copilot.copilot_coding_agent %}.** Pushes are only allowed to branches beginning with `copilot/`. {% data variables.copilot.copilot_coding_agent %} cannot push to the `main` or `master` branches.
 * **Limits {% data variables.copilot.copilot_coding_agent %}'s credentials.** {% data variables.copilot.copilot_coding_agent %} can only perform simple push operations. It cannot directly run `git push` or other Git commands.
-* **Restricts {% data variables.product.prodname_actions %} workflow runs.** Workflows are not triggered until {% data variables.copilot.copilot_coding_agent %}'s code is reviewed and a user with write access to the repo clicks the **Approve and run workflows** button. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/reviewing-a-pull-request-created-by-copilot).
+* **Restricts {% data variables.product.prodname_actions %} workflow runs.** By default, workflows are not triggered until {% data variables.copilot.copilot_coding_agent %}'s code is reviewed and a user with write access to the repository clicks the **Approve and run workflows** button. Optionally, you can configure {% data variables.product.prodname_copilot_short %} to allow workflows to run automatically. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/review-copilot-prs#managing-github-actions-workflow-runs). 
 * **Prevents the user who asked {% data variables.copilot.copilot_coding_agent %} to create a pull request from approving it.** This maintains the expected controls in the "Required approvals" rule and branch protection. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets).
 
 ### Risk: {% data variables.copilot.copilot_coding_agent %} has access to sensitive information
@@ -174,8 +184,8 @@ Users can include hidden messages in issues assigned to {% data variables.copilo
 
 ### Limitations in {% data variables.copilot.copilot_coding_agent %}'s software development workflow
 
-* **{% data variables.product.prodname_copilot_short %} can only make changes in the same repository where it is creating its pull request**. When {% data variables.product.prodname_copilot_short %} is assigned an issue, it can only make changes in the repository where that issue is located. In addition, {% data variables.product.prodname_copilot_short %} cannot make changes across multiple repositories in one run.
-* **{% data variables.product.prodname_copilot_short %} can only access context in the same repository as the assigned issue**. By default, an integration with the {% data variables.product.prodname_copilot_short %} MCP server provides {% data variables.product.prodname_copilot_short %} access to one repository at a time. You can, however, configure broader access. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
+* **{% data variables.product.prodname_copilot_short %} can only make changes in the repository specified when you start a task**. {% data variables.product.prodname_copilot_short %} cannot make changes across multiple repositories in one run.
+* **By default, {% data variables.product.prodname_copilot_short %} can only access context in the repository specified when you start a task**. The {% data variables.product.prodname_copilot_short %} MCP server is configured by default to allow {% data variables.product.prodname_copilot_short %} to access context (for example issues and historic pull requests) in the repository where it is working. You can, however, configure broader access. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
 * **{% data variables.product.prodname_copilot_short %} can only open one pull request at a time**. {% data variables.product.prodname_copilot_short %} will open exactly one pull request to address each task it is assigned.
 
 ### Limitations in {% data variables.copilot.copilot_coding_agent %}'s compatibility with other features

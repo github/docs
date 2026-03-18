@@ -10,7 +10,7 @@ name: Repo Sync
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 */3 * * *' # Run every 3rd hour at 20 minutes after
+    - cron: '20 14-23/3 * * 1-5' # Mon-Fri 6:20a, 9:20a, 12:20p, 3:20p PST
 
 permissions:
   contents: write
@@ -146,17 +146,38 @@ jobs:
 
             console.log('Merging the pull request')
             // Admin merge pull request to avoid squash
-            await github.rest.pulls.merge({
-              owner,
-              repo,
-              pull_number,
-              merge_method: 'merge',
-            })
-            // Error loud here, so no try/catch
-            console.log('Merged the pull request successfully')
+            // Retry once per minute for up to 15 minutes to wait for required checks (e.g. CodeQL)
+            const maxAttempts = 15
+            const delay = 60_000 // 1 minute
+            for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+              try {
+                await github.rest.pulls.merge({
+                  owner,
+                  repo,
+                  pull_number,
+                  merge_method: 'merge',
+                })
+                console.log('Merged the pull request successfully')
+                break
+              } catch (mergeError) {
+                const msg = mergeError.message || mergeError.response?.data?.message || ''
+                const isRuleViolation = mergeError.status === 405 &&
+                  msg.includes('Repository rule violations')
+                if (!isRuleViolation || attempt === maxAttempts) {
+                  throw mergeError
+                }
+                console.log(`Merge blocked by required checks (attempt ${attempt}/${maxAttempts}), retrying in 60s...`)
+                await new Promise(resolve => setTimeout(resolve, delay))
+              }
+            }
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

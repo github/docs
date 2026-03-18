@@ -12,10 +12,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Notifications
 shortTitle: Manage marketing emails
+contentType: how-tos
 ---
 
 ## Managing {% data variables.product.prodname_dotcom %} marketing emails

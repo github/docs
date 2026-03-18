@@ -5,13 +5,12 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 redirect_from:
   - /github/authenticating-to-github/about-authentication-to-github
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github
 shortTitle: Authentication to GitHub
+category:
+  - Learn about authentication
 ---
 ## About authentication to {% data variables.product.github %}
 
@@ -104,7 +103,7 @@ If you want to use the API in a {% data variables.product.prodname_actions %} wo
 
 Note that `GITHUB_TOKEN` can only access resources within the repository that contains the workflow. If you need to make changes to resources outside of the workflow repository, you will need to use a {% data variables.product.pat_generic %} or {% data variables.product.prodname_github_app %}.
 
-For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token).
+For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication).
 
 ## Authenticating with the command line
 

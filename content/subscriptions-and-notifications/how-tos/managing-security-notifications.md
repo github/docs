@@ -5,9 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Notifications
 shortTitle: Manage security notifications
+contentType: how-tos
 ---
 
 ## {% data variables.product.prodname_dependabot_alerts %} notification options

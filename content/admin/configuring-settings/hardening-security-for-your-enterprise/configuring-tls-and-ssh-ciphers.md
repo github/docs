@@ -1,7 +1,7 @@
 ---
 title: Configuring TLS and SSH ciphers
 shortTitle: Configure TLS and SSH ciphers
-intro: 'You can configure the cipher suites and cryptographic algorithms that {% data variables.product.prodname_ghe_server %} uses for TLS and SSH connections to meet specific compliance or security requirements.'
+intro: You can configure the cipher suites and cryptographic algorithms that {% data variables.product.prodname_ghe_server %} uses for TLS and SSH connections to meet specific compliance or security requirements.
 permissions: Site administrators
 redirect_from:
   - /admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls#configuring-cipher-suites-and-cryptographic-algorithms
@@ -9,13 +9,7 @@ redirect_from:
   - /admin/configuration/hardening-security-for-your-enterprise/configuring-tls#configuring-cipher-suites-and-cryptographic-algorithms
 versions:
   ghes: '>=3.19'
-type: how_to
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Networking
-  - Security
+contentType: how-tos
 ---
 
 

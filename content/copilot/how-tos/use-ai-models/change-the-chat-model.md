@@ -4,8 +4,6 @@ shortTitle: Change the chat model
 intro: 'Learn how to switch between models for {% data variables.copilot.copilot_chat_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat
   - /copilot/how-tos/ai-models/changing-the-ai-model-for-copilot-chat

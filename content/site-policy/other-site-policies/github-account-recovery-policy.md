@@ -2,10 +2,6 @@
 title: GitHub Account Recovery Policy
 versions:
   fpt: '*'
-topics:
-  - 2FA
-  - Policy
-  - Legal
 ---
 
 GitHub provides [a number of account recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials) including an [automated recovery process](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials#authenticating-with-a-verified-device-ssh-token-or-personal-access-token) if you have lost access to your GitHub.com account. **If you cannot use any of the provided recovery methods, you have permanently lost access to your account.**

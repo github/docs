@@ -16,9 +16,6 @@ redirect_from:
 versions:
   ghec: '*'
   feature: scim-for-ghes-public-beta
-topics:
-  - Accounts
-  - Enterprise
 ---
 
 {% data reusables.scim.ghes-beta-note %}
@@ -63,7 +60,7 @@ This table contains the network requirements to configure GHES SCIM with an IdP:
 
 | System | Direction | Purpose | Protocol / Port | Notes |
 |------------|------------|----------|------------------|-------|
-| GitHub Enterprise Server | Inbound | Receives SCIM API requests from IdP for users and groups | TCP 443 (HTTPS) | [AUTOTITLE](/enterprise-server/rest/enterprise-admin/scim) must be reachable from IdP |
+| GitHub Enterprise Server | Inbound | Receives SCIM API requests from IdP for users and groups | TCP 443 (HTTPS) | [AUTOTITLE](/rest/enterprise-admin/scim) must be reachable from IdP |
 | Identity Provider (IdP) | Outbound | Sends SCIM provisioning requests to GitHub for users and groups | TCP 443 (HTTPS) | IdP acts as SCIM client, initiating outbound HTTPS connections to GitHub's SCIM API endpoints. |
 
 * For authentication, your instance must use SAML SSO, or a mix of SAML and built-in authentication.
@@ -136,7 +133,7 @@ To ensure you can continue to sign in and configure settings when SCIM is enable
 ## 4. Enable SCIM on your instance
 
 1. Sign in to your instance as the **built-in setup user** you created earlier.
-{% data reusables.enterprise-accounts.access-enterprise-emu %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 1. Under "SCIM Configuration", select **Enable SCIM configuration**.
@@ -189,7 +186,10 @@ To use a partner IdP's application for both authentication and provisioning, rev
 
 ### Configuring provisioning for other identity management systems
 
-If you don't use a partner IdP, or if you only use a partner IdP for authentication, you can manage the lifecycle of user accounts using {% data variables.product.company_short %}'s REST API endpoints for SCIM provisioning. See [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api).
+If you don't use a partner IdP, or if you only use a partner IdP for SAML authentication, you can manage the lifecycle of user accounts using {% data variables.product.company_short %}'s REST API endpoints for SCIM provisioning. See [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api).
+
+> [!NOTE]
+> Use of the REST API for SCIM provisioning is not supported with enterprises enabled for OIDC.
 
 {% data reusables.emus.mixed-systems-note %}
 
@@ -200,7 +200,7 @@ If you don't use a partner IdP, or if you only use a partner IdP for authenticat
    > [!NOTE]
    > {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
-{% data reusables.enterprise-accounts.access-enterprise-emu %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.identity-provider-tab %}
 {% data reusables.enterprise-accounts.sso-configuration %}
 1. Under "Open SCIM Configuration", select "Enable open SCIM configuration".

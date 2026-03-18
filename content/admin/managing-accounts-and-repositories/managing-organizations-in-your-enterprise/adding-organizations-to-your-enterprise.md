@@ -1,6 +1,6 @@
 ---
 title: Adding organizations to your enterprise
-intro: 'Learn how to add organizations to your enterprise using three different methods.'
+intro: Learn how to add organizations to your enterprise using three different methods.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/adding-organizations-to-your-enterprise-account
   - /articles/adding-organizations-to-your-enterprise-account
@@ -9,13 +9,9 @@ redirect_from:
   - /admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
 versions:
   ghec: '*'
-type: how_to
-topics:
-  - Administrator
-  - Enterprise
-  - Organizations
 shortTitle: Add organizations
 permissions: Enterprise owners
+contentType: how-tos
 ---
 
 There are three ways to add organizations to your enterprise.

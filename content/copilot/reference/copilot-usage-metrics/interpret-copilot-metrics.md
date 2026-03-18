@@ -1,28 +1,26 @@
 ---
 title: Interpreting usage and adoption metrics for GitHub Copilot
 shortTitle: Interpret usage metrics
-intro: 'Evaluate trends surfaced in {% data variables.product.prodname_copilot_short %} usage metrics to enable adoption in your enterprise.'
+intro: '{% data variables.product.prodname_copilot_short %} usage and adoption metrics reveal patterns in how developers engage with {% data variables.product.prodname_copilot_short %} across your enterprise.'
 permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: reference
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /early-access/copilot-metrics/dashboards/interpreting-the-metrics
   - /copilot/reference/interpret-copilot-metrics
+category:
+  - Copilot usage metrics
+  - Understand metrics
+  - Track Copilot usage
 ---
-
->[!NOTE] The {% data variables.product.prodname_copilot_short %} usage metrics dashboard is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 After you’ve viewed the {% data variables.product.prodname_copilot_short %} usage metrics dashboard, you can use this article to interpret each chart and identify opportunities to increase adoption and engagement.
 
-> [!NOTE] The dashboard reports enterprise-level data. Organization-level views are available through the {% data variables.product.prodname_copilot_short %} usage metrics APIs.
-
 ## Reviewing overall usage trends
 
-Use the main usage charts in the dashboard to understand overall adoption and engagement patterns across your enterprise. These charts help you identify where usage is growing, leveling off, or declining, so you can take action to maintain engagement.
+Use the main usage charts in the dashboard to understand overall adoption and engagement patterns. These charts help you identify where usage is growing, leveling off, or declining, so you can take action to maintain engagement.
 
 | Metric | What it shows | How to interpret it |
 |:--|:--|:--|
@@ -36,17 +34,17 @@ The "Requests per chat mode" and "Agent adoption" charts show how developers are
 
 | Signal | What it tells you | What to look for |
 |:--|:--|:--|
-| Requests per chat mode | Breakdown of chat interactions by mode—Ask, Edit, or Agent. | A balanced distribution suggests users are exploring multiple capabilities. Heavy use of one mode can highlight where enablement should focus. |
+| Requests per chat mode | Breakdown of chat interactions by mode—Ask, Edit, Plan, or Agent. | A balanced distribution suggests users are exploring multiple capabilities. Heavy use of one mode can highlight where enablement should focus. |
 | Agent adoption | Percentage of active users who used {% data variables.copilot.copilot_agent_short %}. | Growth over time shows that developers are progressing from basic completions to more advanced {% data variables.product.prodname_copilot_short %} features. |
 
 ## Reviewing model adoption
 
-The "Model usage per day" and "Model usage per chat mode" charts help you understand which AI models are most frequently used in your enterprise.
+The "Model usage per day" and "Model usage per chat mode" charts help you understand which AI models are most frequently used.
 
 | Chart | Description | Insights to derive |
 |:--|:--|:--|
-| Model usage per day | Shows which AI models power {% data variables.copilot.copilot_chat_short %} activity across the enterprise. | Identify whether users are primarily engaging with default models or experimenting with newer ones. |
-| Model usage per chat mode | Breaks down model usage by chat mode (Ask, Edit, Agent). | Monitor how model adoption evolves as new models are released. |
+| Model usage per day | Shows which AI models power {% data variables.copilot.copilot_chat_short %} activity. | Identify whether users are primarily engaging with default models or experimenting with newer ones. |
+| Model usage per chat mode | Breaks down model usage by chat mode (Ask, Edit, Plan, Agent). | Monitor how model adoption evolves as new models are released. |
 
 > [!NOTE]
 > Model usage charts currently represent chat activity only. Completions data is not included in model breakdowns.

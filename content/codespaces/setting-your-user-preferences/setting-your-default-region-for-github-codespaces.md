@@ -1,7 +1,7 @@
 ---
 title: Setting your default region for GitHub Codespaces
 shortTitle: Set the default region
-intro: 'You can set your default region in the {% data variables.product.prodname_github_codespaces %} profile settings page to personalize where your data is held.'
+intro: You can set your default region in the {% data variables.product.prodname_github_codespaces %} profile settings page to personalize where your data is held.
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,9 +9,7 @@ redirect_from:
   - /codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces
   - /codespaces/customizing-your-codespace/setting-your-default-region-for-codespaces
   - /codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces
-topics:
-  - Codespaces
-type: how_to
+contentType: how-tos
 ---
 
 You can manually select the region that your codespaces will be created in, allowing you to meet stringent security and compliance requirements. By default, your region is set automatically, based on your location.

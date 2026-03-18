@@ -1,13 +1,11 @@
 ---
 title: About pull request fields
 shortTitle: About pull request fields
-intro: 'You can show a linked pull request and the pull request reviewers in your projects.'
+intro: You can show a linked pull request and the pull request reviewers in your projects.
 versions:
   fpt: '*'
   ghec: '*'
-type: tutorial
-topics:
-  - Projects
+contentType: tutorials
 ---
 
 You can enable the "Linked pull requests" and "Reviewers" fields on your projects to see information about a pull request, making a project the way to plan and track your issues, pull request, and code.

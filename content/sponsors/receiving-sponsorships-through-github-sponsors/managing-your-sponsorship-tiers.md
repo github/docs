@@ -1,6 +1,6 @@
 ---
 title: Managing your sponsorship tiers
-intro: 'You can add a new sponsorship tier, or edit or retire an existing tier.'
+intro: You can add a new sponsorship tier, or edit or retire an existing tier.
 redirect_from:
   - /articles/changing-your-sponsorship-tiers
   - /github/supporting-the-open-source-community-with-github-sponsors/changing-your-sponsorship-tiers
@@ -8,11 +8,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Open Source
-  - Sponsors profile
 shortTitle: Manage payment tiers
+contentType: how-tos
 ---
 
 ## About sponsorship tiers

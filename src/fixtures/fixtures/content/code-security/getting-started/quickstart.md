@@ -5,7 +5,7 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghec: '*'
-type: quick_start
+contentType: get-started
 topics:
   - Codespaces
 ---

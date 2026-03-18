@@ -1,5 +1,5 @@
 ---
-title: 'Filtering {% data variables.projects.projects_v2 %}'
+title: Filtering {% data variables.projects.projects_v2 %}
 intro: Use filters to choose which items appear in your project's views.
 versions:
   fpt: '*'
@@ -7,10 +7,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/filtering-projects
-type: tutorial
-topics:
-  - Projects
 allowTitleToDifferFromFilename: true
+contentType: tutorials
 ---
 
 You can customize which items appear in your views using filters for item metadata, such as assignees and the labels applied to issues, and by the fields in your project. You can combine filters and save them as views. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views).

@@ -4,8 +4,6 @@ shortTitle: Reduce technical debt
 intro: 'Use {% data variables.product.prodname_copilot_short %} to automate refactoring and maintenance tasks, freeing your team to focus on feature development.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: tutorials
 category:
   - Burn down tech debt

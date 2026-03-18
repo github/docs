@@ -5,19 +5,12 @@ permissions: '{% data reusables.permissions.delegated-alert-dismissal %}'
 versions:
   feature: security-delegated-alert-dismissal
 contentType: how-tos
-topics:
-  - Secret scanning
-  - Advanced Security
-  - Alerts
-  - Repositories
 shortTitle: Delegated alert dismissal
 redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning
 ---
 
-## About enabling delegated alert dismissal
-
-{% data reusables.security.delegated-alert-dismissal-intro %}
+{% data reusables.security.delegated-alert-dismissal-capacity %}
 
 ## Configuring delegated dismissal for a repository
 
@@ -32,7 +25,7 @@ redirect_from:
 
 You must configure delegated dismissal for your organization using a custom security configuration. You can then apply the security configuration to all (or selected) repositories in your organization.
 
-1. Create a new custom security configuration, or edit an existing one. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration#creating-a-custom-security-configuration).
+{% data reusables.security-configurations.custom-security-configurations-org %}
 1. When defining the custom security configuration, under "{% data variables.product.prodname_secret_scanning_caps %}", ensure that the dropdown menu for "Prevent direct alert dismissals" is set to **Enabled**.
 1. Click **Save configuration**.
 1. Apply the security configuration to all (or selected) repositories in your organization. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
@@ -47,7 +40,7 @@ To learn more about security configurations, see [AUTOTITLE](/code-security/secu
 
 ## Configuring delegated dismissal for an enterprise
 
-1. Create a new custom security configuration, or edit an existing one. See [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/creating-a-custom-security-configuration-for-your-enterprise).
+{% data reusables.security-configurations.custom-security-configurations-enterprise %}
 1. When defining the custom security configuration, under "{% data variables.product.prodname_secret_protection %}", ensure that the dropdown menu for "Prevent direct alert dismissals" is set to **Enabled**.
 1. Click **Save configuration**.
 1. Apply the security configuration to all (or selected) repositories in your enterprise. See [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/applying-a-custom-security-configuration-to-your-enterprise).

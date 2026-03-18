@@ -6,10 +6,7 @@ permissions: People with write permissions to a repository can create or edit th
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
-  - Set up
+contentType: how-tos
 ---
 
 ## About recommended secrets

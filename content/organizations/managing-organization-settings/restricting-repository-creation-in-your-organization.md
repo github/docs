@@ -8,10 +8,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Restrict repository creation
+category:
+  - Set repository policies
 ---
 
 {% ifversion repo-policy-rules %}

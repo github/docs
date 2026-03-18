@@ -12,9 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - 2FA
 shortTitle: Access GitHub with 2FA
+category:
+  - Set up two-factor authentication
 ---
 
 {% ifversion 2fa-check-up-period %}

@@ -1,0 +1,3 @@
+{% data variables.copilot.copilot_code-review_short %} uses {% data variables.product.prodname_actions %} to run the {% data variables.copilot.copilot_code-review-tools_short %}, including full project context gathering and the additional tools in {% data variables.release-phases.public_preview %}. By default, {% data variables.copilot.copilot_code-review_short %} uses {% data variables.product.prodname_dotcom %}-hosted runners.
+
+If your organization has disabled {% data variables.product.prodname_dotcom %}-hosted runners, the new {% data variables.copilot.copilot_code-review-tools_short %} will not be available. In this case, code reviews will fall back to a more limited review.

@@ -1,7 +1,7 @@
 ---
 title: Using self-hosted runners in a workflow
 shortTitle: Use in a workflow
-intro: 'To use self-hosted runners in a workflow, you can use labels or groups to specify the runner for a job.'
+intro: To use self-hosted runners in a workflow, you can use labels or groups to specify the runner for a job.
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
   - /actions/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow
@@ -13,6 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Use and manage runners
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

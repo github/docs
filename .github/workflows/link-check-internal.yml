@@ -1,12 +1,8 @@
-name: Check Internal Links
-
-# Runs weekly (Tuesday) at 16:20 UTC
-# On schedule: checks English free-pro-team and latest enterprise-server
-# On workflow_dispatch: run any version/language combo
+name: 'Link Check: Internal'
 
 on:
   schedule:
-    - cron: '20 16 * * 2' # Tuesday at 16:20 UTC
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
   workflow_dispatch:
     inputs:
       version:
@@ -21,7 +17,6 @@ on:
 
 permissions:
   contents: read
-  issues: write
 
 jobs:
   # Determine which version/language combos to run
@@ -39,20 +34,29 @@ jobs:
       - name: Set matrix
         id: set-matrix
         run: |
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+          if [[ "${EVENT_NAME}" == "workflow_dispatch" ]]; then
             # Manual run: use the provided version and language
-            echo 'matrix={"include":[{"version":"${{ inputs.version }}","language":"${{ inputs.language }}"}]}' >> $GITHUB_OUTPUT
+            echo "matrix={\"include\":[{\"version\":\"${INPUT_VERSION}\",\"language\":\"${INPUT_LANGUAGE}\"}]}" >> $GITHUB_OUTPUT
           else
             # Scheduled run: English free-pro-team + English latest enterprise-server
             LATEST_GHES=$(npx tsx -e "import { latest } from './src/versions/lib/enterprise-server-releases'; console.log(latest)")
             echo "matrix={\"include\":[{\"version\":\"free-pro-team@latest\",\"language\":\"en\"},{\"version\":\"enterprise-server@${LATEST_GHES}\",\"language\":\"en\"}]}" >> $GITHUB_OUTPUT
           fi
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_VERSION: ${{ inputs.version }}
+          INPUT_LANGUAGE: ${{ inputs.language }}
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
   check-internal-links:
     if: github.repository == 'github/docs-internal'
@@ -90,7 +94,7 @@ jobs:
 
       - name: Upload report artifact
         if: always()
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: link-report-${{ matrix.version }}-${{ matrix.language }}
           path: artifacts/link-report-*.md
@@ -103,17 +107,25 @@ jobs:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
 
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
   # Create combined report after all matrix jobs complete
   create-report:
     if: always() && github.repository == 'github/docs-internal'
     needs: [setup-matrix, check-internal-links]
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
     steps:
       - name: Checkout
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       - name: Download all artifacts
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8.0.0
         with:
           path: reports
           pattern: link-report-*
@@ -128,6 +140,9 @@ jobs:
 
             # Combine all markdown reports
             echo "# Internal Links Report" > combined-report.md
+            echo "" >> combined-report.md
+            echo "> [!NOTE]" >> combined-report.md
+            echo "> **No action needed right now.** The link checker is being actively worked on and may produce false positives. You can safely ignore this report for now. We'll let you know when it's reliable." >> combined-report.md
             echo "" >> combined-report.md
             echo "Generated: $(date -u +'%Y-%m-%d %H:%M UTC')" >> combined-report.md
             echo "[Action run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> combined-report.md
@@ -158,3 +173,8 @@ jobs:
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+      - uses: ./.github/actions/create-workflow-failure-issue
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}

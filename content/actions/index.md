@@ -5,19 +5,6 @@ intro: 'Automate, customize, and execute your software development workflows rig
 introLinks:
   overview: /actions/get-started/understand-github-actions
   quickstart: /actions/get-started/quickstart
-featuredLinks:
-  startHere:
-    - /actions/how-tos/write-workflows
-    - /actions/tutorials
-    - /actions/get-started/continuous-integration
-    - /packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions
-  guideCards:
-    - /actions/how-tos/write-workflows/use-workflow-templates
-    - /actions/tutorials/publish-packages/publish-nodejs-packages
-    - /actions/tutorials/build-and-test-code/powershell
-  popular:
-    - /actions/reference/workflows-and-actions/workflow-syntax
-    - /actions/how-tos/write-workflows
 changelog:
   label: actions
 redirect_from:
@@ -27,11 +14,36 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions
   - /categories/automating-your-workflow-with-github-actions
   - /marketplace/actions
-layout: product-landing
+layout: discovery-landing
+heroImage: /assets/images/banner-images/hero-3
+contentType: landing
+carousels:
+  recommended:
+    - /actions/get-started/quickstart
+    - /actions/get-started/understand-github-actions
+    - /actions/tutorials/use-actions-runner-controller
+    - /actions/reference/workflows-and-actions/workflow-syntax
+    - /actions/reference/workflows-and-actions/events-that-trigger-workflows
+    - /actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations
+    - /actions/tutorials/migrate-to-github-actions
+    - /actions/how-tos/reuse-automations/reuse-workflows
+    - /actions/how-tos/administer/view-metrics
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+includedCategories:
+  - Get started with GitHub Actions
+  - Migrate to GitHub Actions
+  - Write workflows
+  - Build and test code
+  - Deploy to environments
+  - Set up runners
+  - Use and manage runners
+  - Secure your workflows
+  - Reuse and share automations
+  - Manage and monitor workflow runs
+  - Administer GitHub Actions
 children:
   - /get-started
   - /concepts

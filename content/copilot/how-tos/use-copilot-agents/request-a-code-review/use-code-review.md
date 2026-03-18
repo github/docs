@@ -5,8 +5,6 @@ intro: 'Learn how to request a code review from {% data variables.product.prodna
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /early-access/copilot/code-review/using-copilot-code-review
   - /early-access/copilot/code-reviews/using-copilot-code-review

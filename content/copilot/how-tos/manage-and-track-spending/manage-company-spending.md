@@ -4,8 +4,6 @@ shortTitle: Manage company spending
 intro: 'Learn how to track spending, view usage, and optimize license distribution.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 permissions: Enterprise owners and billing managers
 product: '{% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %}'
 redirect_from:
@@ -42,8 +40,6 @@ This report includes all premium request usage by user, both within and beyond t
 ### Granting more premium requests to members
 
 Your organization or enterprise's policies and budgets determine whether users can use premium requests over their included allowance. See [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
-
-{% data reusables.copilot.zero-budget-changes-link %}
 
 ## Mapping spending to groups of users
 

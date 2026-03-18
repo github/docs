@@ -4,8 +4,6 @@ intro: '{% data variables.product.prodname_github_models %} is a suite of develo
 versions:
   feature: github-models
 shortTitle: About GitHub Models
-topics:
-  - GitHub Models
 ---
 
 {% data reusables.models.models-preview-note %}

@@ -12,14 +12,18 @@ children:
   - about-supply-chain-security
   - best-practices-for-maintaining-dependencies
   - about-the-dependency-graph
+  - dependency-graph-data
   - about-dependency-review
   - about-dependabot-alerts
+  - about-metrics-for-dependabot-alerts
   - about-dependabot-security-updates
   - about-dependabot-version-updates
   - about-dependabot-pull-requests
+  - multi-ecosystem-updates
   - about-the-dependabot-yml-file
   - about-dependabot-auto-triage-rules
   - about-dependabot-on-github-actions-runners
+  - dependabot-job-logs
   - immutable-releases
   - linked-artifacts
 ---

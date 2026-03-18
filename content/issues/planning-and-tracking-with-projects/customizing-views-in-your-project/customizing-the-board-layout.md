@@ -6,9 +6,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
-topics:
-  - Projects
+contentType: tutorials
 ---
 
 ## About the board layout

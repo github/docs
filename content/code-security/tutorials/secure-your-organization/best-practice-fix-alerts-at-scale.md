@@ -1,7 +1,7 @@
 ---
-title: Best practices for fixing security alerts at scale
+title: Running a security campaign to fix alerts at scale
 shortTitle: Fix alerts at scale
-intro: Guidance on how to create successful security campaigns that engage developers and help them grow their understanding of secure coding.
+intro: Launch a focused security campaign to remediate a specific class of security alerts, such as cross-site scripting (XSS), across your organization.
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.security-campaigns %}'
 audience:
@@ -9,115 +9,120 @@ audience:
 contentType: tutorials
 versions:
   feature: security-campaigns
-topics:
-  - Code Security
-  - Secret Protection
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale
   - /code-security/securing-your-organization/fixing-security-alerts-at-scale
 ---
 
-## Elements of a successful security campaign
+## Launching your first campaign
 
-Successful security campaigns to fix alerts at scale have many features in common, including:
+In this tutorial, you’ll plan and run your first organization-wide security campaign focused on XSS alerts. Along the way, you’ll learn how to select the right alerts, prepare developers for success, and structure a campaign that drives meaningful improvements in your security posture.
 
-* Selecting a related group of security alerts for remediation.{% ifversion security-campaigns-autofix %}
-* For code campaigns, using {% data variables.copilot.copilot_autofix_short %} suggestions where possible to help developers remediate alerts faster and more effectively.{% endif %}
-* Making sure that the campaign managers are available for collaboration, reviews, and questions about fixes.
-* Providing access to educational information about the type of alerts included in the campaign.
-* Making {% data variables.copilot.copilot_chat %} available for developers to use to learn about the vulnerabilities highlighted by the security alerts in the campaign.
-* Defining a realistic deadline for campaign, bearing in mind the number of alerts you aim to fix.
-* Publicizing the collaboration to developer teams and identifying the best way to engage them for your organization.
+Imagine you’ve identified a recurring pattern of XSS vulnerabilities in several repositories. Rather than addressing alerts one by one, you decide to run a coordinated campaign that reduces risk while helping developers build confidence in secure coding.
 
-For information about the developer experience, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign).
+## 1. Define a focused goal
 
-## Selecting security alerts for remediation
+When running a campaign at scale, it’s tempting to target all urgent alerts at once. If your developers already have a strong foundation in secure coding and available capacity, that may work.
 
-Your first thought may be to identify all the most urgent alerts and create a security campaign to fix them. If your developers already have a good understanding of secure coding and are keen to remediate potential vulnerabilities, this could be a successful approach for your company. However, if you need to build up knowledge of secure coding{% ifversion security-campaigns-secrets %}, exposed secrets,{% endif %} and common vulnerabilities, you will benefit from a more strategic approach.
+However, if your goal is to both reduce risk and improve secure coding practices, a focused campaign is often more effective. Choosing a single vulnerability type, such as cross-site scripting, allows developers to recognize patterns, apply learning across multiple fixes, and build momentum.
 
-{% ifversion security-campaigns-secrets %}
+For this campaign, you decide to focus on XSS alerts across your organization, within the limits of how many alerts a single campaign can include.
 
-### Example approach for a code campaign
+## 2. Select alerts for your campaign
 
-{% endif %}
+On the security alerts page, start by filtering for cross-site scripting alerts. You can also use a predefined campaign template, such as **Cross-site scripting (CWE-79)**, to quickly define the scope. For information on filtering alerts, see [AUTOTITLE](/code-security/how-tos/manage-security-alerts/remediate-alerts-at-scale/filtering-alerts-in-security-overview).
 
-For a campaign to raise awareness and fix cross-site scripting vulnerabilities, you could:
+> [!NOTE]
+> Security campaigns can include up to 1000 alerts. If your organization has more than 1000 XSS alerts, narrow your filters (for example, by repository, severity, or language) until the number of matching alerts is within this limit, or plan multiple campaigns to cover the remaining alerts.
 
-* Create educational content for developers in a repository using resources from the OWASP Foundation, see [Cross Site Scripting (XSS)](https://owasp.org/www-community/attacks/xss/).{% ifversion security-campaigns-autofix %}
-* Create a campaign to remediate all alerts for this vulnerability where {% data variables.copilot.copilot_autofix_short %} is supported, using the `autofix:supported` filter.{% endif %}
-* Include a link to the educational content in the campaign description.
-* Hold a training session or other event to highlight this opportunity to gain confidence in secure coding while fixing real bugs.
-* Make sure that the security team members assigned to manage the campaign are available to review the pull requests created to fix the campaign alerts, collaborating as needed.
+{% ifversion security-campaigns-autofix %}If {% data variables.copilot.copilot_autofix_short %} is available for your campaign, you can further refine the scope by using the `autofix:supported` filter. This allows developers to take advantage of AI-generated fix suggestions to remediate alerts more efficiently.{% endif %}
 
-{% ifversion security-campaigns-secrets %}
+Before launching the campaign, you also prepare supporting educational materials. For example:
 
-### Example approach for a secrets campaign
+* Create a repository with guidance on preventing XSS vulnerabilities.
+* Link to resources from the OWASP Foundation, such as [Cross Site Scripting (XSS)](https://owasp.org/www-community/attacks/xss/).
+* Provide examples of secure coding patterns and testing approaches.
 
-{% data reusables.security.secrets-campaign-preview %}
+You’ll include links to these resources in the campaign description so developers can reference them as they work through their assigned alerts.
 
-For a campaign to raise awareness and fix exposed passwords, you could:
+## 3. Assign campaign managers and define communication channels
 
-* Create educational content for developers about storing passwords securely, for example, as {% data variables.product.github %} secrets, see [AUTOTITLE](/code-security/getting-started/understanding-github-secret-types).
-* Create a campaign to remediate all alerts for exposed passwords, including a link to the educational content in the campaign description.
-* Make sure that the security team members assigned to manage the campaign are available to ensure secrets are revoked and rotated acceptably, collaborating as needed.
+Before launching the campaign, decide who will support developers throughout the remediation process.
 
-{% endif %}
+When you create a security campaign, you must assign one or more **campaign managers**. Campaign managers must be:
 
-### Campaign filter templates
+* A user with the organization owner role or the security manager role, or
+* A member of a team with one of those roles
 
-When you select alerts to include in a security campaign, you can use any of the filters on the security alerts page to define a subset of alerts. Alternatively, you can choose a campaign template to use one of the pre-defined filters for common needs, for example: "Cross-site scripting (CWE-79)."
+Choose managers who can:
 
-### Draft campaigns
+* Answer questions about XSS vulnerabilities
+* Review pull requests for fixes
+* Help resolve edge cases or complex remediation scenarios
 
-It can be useful to create a draft campaign first, which lists the alerts that are set to be included in the campaign and the campaign details, so that you can collaborate on the scope of the campaign prior to publishing it. For guidance on creating a draft campaign, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns#create-a-campaign).
+Because campaign managers are visible to developers participating in the campaign, this is also an opportunity to establish clear communication. When creating the campaign, include a contact link, such as a link to a {% data variables.product.prodname_discussions %} thread or another communication channel, so developers know where to ask questions.
 
-### Limitations on security campaigns
+By setting expectations early and making support visible, you increase trust and improve remediation rates.
 
-The following limitations are intended to encourage you to take a balanced and measured approach to remediating alerts in your code. An iterative approach, addressing a few targeted sets of alerts at a time, is likely to lead to a sustainable and long-term change in security posture.
+## 4. Create and publish the campaign
 
-* A maximum of 10 active security campaigns at a time (no limits on closed campaigns).
-* Each campaign can contain up to 1000 alerts.
+Now you’re ready to create the campaign.
 
-If you choose to create a campaign that exceeds these limits, alerts will be omitted to bring the campaign into line with the limits. Alerts in repositories with recent pushes are prioritized for inclusion in the campaign.
+When defining the campaign:
 
-## Specifying campaign managers and contact links
+* Use your XSS filter or template to select the alerts.
+* Add a clear description explaining the goal of the campaign.
+* Include links to the educational resources you prepared earlier.
+* Set a realistic due date based on the number of alerts and expected remediation capacity.
 
-When you create a security campaign, you must select one or more "Campaign managers." A campaign manager must be either:
-* A user with the organization owner role,  or the security manager role.
-* A member of a team with either the organization owner role, or the security manager role.
+If you’re unsure about the scope, create a **draft campaign** first. A draft allows you to review the alerts that will be included and collaborate internally before publishing.
 
-The names of the campaign managers are visible to developers when they take part in the campaign. To support communication between developers and the campaigns managers, you can also provide a contact link, such as a link to a {% data variables.product.prodname_discussions %} or another communication channel, when you create a campaign.
+## 5. Enable issue tracking to increase visibility
 
-If you want to increase the remediation rate for alerts and scale the knowledge of the security team, this is a key opportunity to build collaborative relationships with developers. Ideally, the campaign managers are available to answer questions and collaborate on difficult fixes via the contact link. Campaign managers should also be available to review pull requests for fixes over the whole course of the campaign.
+To help developers track their work and provide visibility to managers, you can choose to automatically create an issue in each repository included in the campaign. This allows developers to manage their remediation work within their existing workflows and project boards.
 
-## Creating issues for a campaign
+When you enable issue creation, the campaign’s "Short description", "Contact link", and due date are automatically included in the issue body. If you update the short description, contact link, or due date, those changes are reflected in the issues. Additionally, when the campaign reaches its due date or is closed, a comment is posted on each issue to notify developers. This integration helps maintain clear communication and keeps the campaign organized across multiple repositories.
 
-When you create a campaign, you can choose to automatically open a {% data variables.product.github %} Issue in every repository involved in the campaign. This means that the work can be much more easily tracked, assigned, and managed on team project boards. What's more, when you update the details of the campaign, such as the contact link or due date, the issue body gets automatically updated with the latest information. When a campaign reaches its due date, or gets deleted or closed, a comment is automatically posted on the issue.
+## 6. Support developers during remediation
 
-This can aid developer engagement by providing clear, up-to-date context directly within developers' existing workflows. For information on how to automate issue creation for campaigns, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns#create-a-campaign).
+Once the campaign is live, your role shifts from organizer to enabler. Developers will begin reviewing and fixing XSS alerts in their repositories. To help them move efficiently and confidently:
 
-## Combining security training with a security campaign
+* Ensure campaign managers are available to review pull requests and answer questions.
+* Encourage developers to use {% data variables.copilot.copilot_chat_short %} to better understand why code is vulnerable and how to validate their fixes. {% ifversion security-campaigns-autofix %}
+* Where supported, encourage developers to review and test {% data variables.copilot.copilot_autofix_short %} suggestions before merging changes.{% endif %}
 
-If your security team already provides training for developers on secure coding, creating a campaign with alerts chosen to allow developers to use the skills from the training session is a great way to reinforce their learning. Even if you don't have a formal training program, it makes sense to provide information on the types of security vulnerabilities included in the campaign, examples of how to fix them, and how to test the fixes. This will simplify the role of the campaign manager as they will be able to direct developers to these resources for answers to basic questions.
+If you prepared educational resources earlier, reference them in discussions and pull request reviews. Reinforcing shared guidance reduces repeated questions and helps build long-term secure coding habits.
 
-The OWASP Foundation provides many resources for learning about the most common vulnerabilities and MITRE Corporation maintain a detailed list of common weaknesses, see [About the OWASP Foundation](https://owasp.org/about/) and [About CWE](https://cwe.mitre.org/about/index.html).
+By staying visible and responsive during the campaign, you reinforce that this is a collaborative effort, not just a compliance exercise.
 
-{% ifversion security-campaigns-autofix %}
+## 7. Set a realistic deadline
 
-## Providing AI support for learning about code vulnerabilities
+You set a due date when creating the campaign. As the campaign progresses, ensure that timeline remains achievable.
 
-{% data variables.copilot.copilot_autofix %} is automatically triggered to suggest a resolution for each {% data variables.product.prodname_code_scanning %} alert. However, developers will often want more information about why the original code is insecure and how to test that the fix is correct and doesn't break other components.
+When setting or adjusting the deadline, consider:
 
-{% data variables.product.prodname_copilot %} chat is an important tool for developers who have questions about secure coding, how to fix security alerts, and test their fix. Check that all developers in your organization have access to {% data variables.product.prodname_copilot_short %} in both their IDE and {% data variables.product.github %}, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-access/grant-access).
+* The number of alerts included in the campaign
+* The expected remediation capacity of developers (for example, how much time they can dedicate to fixing alerts alongside their regular work)
+* Any upcoming company deadlines or holidays that may impact availability
 
-{% endif %}
+Unless alert remediation is a dedicated initiative, most developers will be balancing this work alongside feature development. Setting a realistic timeline increases participation and prevents discouragement.
 
-## Considerations in starting a security campaign and defining a deadline
+If needed, you can run multiple focused campaigns over time rather than attempting to address all alert types at once.
 
-As with any other project, it's important to define realistic timescales to avoid discouraging developers from participating in the security campaign. Unless your company is fixing security alerts as part of a larger campaign to reduce technical debt, most developers will not have time allocated to fixing alerts. You need to estimate remediation rates based on the time developers can find between scheduled tasks. It's also always worth checking on key company deadlines that developers may be working towards and checking national holidays.
+## 8. Close the campaign and iterate
+
+As the deadline approaches, monitor progress and collaborate on any remaining complex fixes.
+
+When the campaign is closed:
+
+* Repository issues are updated automatically.
+* Developers have resolved a focused set of vulnerabilities.
+* Your organization has reduced risk in a measurable way.
+
+Most importantly, developers have gained practical experience recognizing and fixing a specific class of vulnerability.
+
+From here, you can repeat the process with another targeted set of alerts, such as SQL injection, insecure deserialization, or exposed secrets, to steadily improve your organization’s security posture over time.
 
 ## Next steps
 
-* [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns)
+Ready to launch your campaign? To create and manage your security campaign, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns).

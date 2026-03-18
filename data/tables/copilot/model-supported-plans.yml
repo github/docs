@@ -7,6 +7,7 @@
 # Column keys:
 # - name: The model name.
 # - free: Availability on Copilot Free.
+# - student: Availability on Copilot Student.
 # - pro: Availability on Copilot Pro.
 # - pro_plus: Availability on Copilot Pro+.
 # - business: Availability on Copilot Business.
@@ -14,27 +15,39 @@
 
 - name: Claude Haiku 4.5
   free: true
+  student: true
   pro: true
   pro_plus: true
   business: true
   enterprise: true
 
-- name: Claude Opus 4.1
+- name: Claude Opus 4.5
   free: false
+  student: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: Claude Opus 4.6
+  free: false
+  student: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: Claude Opus 4.6 (fast mode) (preview)
+  free: false
+  student: false
   pro: false
   pro_plus: true
   business: false
   enterprise: true
 
-- name: Claude Opus 4.5
-  free: false
-  pro: true
-  pro_plus: true
-  business: true
-  enterprise: true
-
 - name: Claude Sonnet 4
   free: false
+  student: false
   pro: true
   pro_plus: true
   business: true
@@ -42,6 +55,15 @@
 
 - name: Claude Sonnet 4.5
   free: false
+  student: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: Claude Sonnet 4.6
+  free: false
+  student: false
   pro: true
   pro_plus: true
   business: true
@@ -49,6 +71,7 @@
 
 - name: Gemini 2.5 Pro
   free: false
+  student: true
   pro: true
   pro_plus: true
   business: true
@@ -56,6 +79,7 @@
 
 - name: Gemini 3 Flash
   free: false
+  student: true
   pro: true
   pro_plus: true
   business: true
@@ -63,6 +87,15 @@
 
 - name: Gemini 3 Pro
   free: false
+  student: true
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: Gemini 3.1 Pro
+  free: false
+  student: true
   pro: true
   pro_plus: true
   business: true
@@ -70,13 +103,7 @@
 
 - name: GPT-4.1
   free: true
-  pro: true
-  pro_plus: true
-  business: true
-  enterprise: true
-
-- name: GPT-5
-  free: false
+  student: true
   pro: true
   pro_plus: true
   business: true
@@ -84,13 +111,7 @@
 
 - name: GPT-5 mini
   free: true
-  pro: true
-  pro_plus: true
-  business: true
-  enterprise: true
-
-- name: GPT-5-Codex
-  free: false
+  student: true
   pro: true
   pro_plus: true
   business: true
@@ -98,6 +119,7 @@
 
 - name: GPT-5.1
   free: false
+  student: true
   pro: true
   pro_plus: true
   business: true
@@ -105,6 +127,7 @@
 
 - name: GPT-5.1-Codex
   free: false
+  student: true
   pro: true
   pro_plus: true
   business: true
@@ -112,6 +135,7 @@
 
 - name: GPT-5.1-Codex-Mini
   free: false
+  student: true
   pro: true
   pro_plus: true
   business: true
@@ -119,6 +143,7 @@
 
 - name: GPT-5.1-Codex-Max
   free: false
+  student: true
   pro: true
   pro_plus: true
   business: true
@@ -126,6 +151,7 @@
 
 - name: GPT-5.2
   free: false
+  student: true
   pro: true
   pro_plus: true
   business: true
@@ -133,13 +159,39 @@
 
 - name: GPT-5.2-Codex
   free: false
+  student: true
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: GPT-5.3-Codex
+  free: false
+  student: true
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: GPT-5.4
+  free: false
+  student: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: GPT-5.4 mini
+  free: false
+  student: false
   pro: true
   pro_plus: true
   business: true
   enterprise: true
 
 - name: Grok Code Fast 1
-  free: false
+  free: true
+  student: true
   pro: true
   pro_plus: true
   business: true
@@ -147,7 +199,16 @@
 
 - name: Raptor mini
   free: true
+  student: true
   pro: true
   pro_plus: true
+  business: false
+  enterprise: false
+
+- name: Goldeneye
+  free: true
+  student: false
+  pro: false
+  pro_plus: false
   business: false
   enterprise: false

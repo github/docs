@@ -1,10 +1,11 @@
 ---
 title: Copilot feature matrix
-intro: 'Identify which IDEs support which {% data variables.product.prodname_copilot %} features.'
+intro: Identify which IDEs support which {% data variables.product.prodname_copilot %} features.
 versions:
   feature: copilot
-topics:
-  - Copilot
+category:
+  - Learn about Copilot
+contentType: reference
 ---
 
 > [!NOTE]
@@ -17,6 +18,7 @@ topics:
 * ✓ = supported
 * ✗ = not supported
 * P = under preview
+* C = closing down
 
 <!-- Source for the following tables lives in data/tables/copilot/copilot-matrix.yml -->
 
@@ -29,7 +31,7 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 {%- comment %}
 This loop generates the "Features by IDE" comparison table:
 - Outer loop: Iterates through each feature from VS Code's feature list (using VS Code as the canonical source)
-- Inner loop: For each feature, iterates through all IDEs to check support in their latest version
+- Inner loop: For each feature, iterates through all IDEs to check support in their latest versions
   - Gets the latest version using ideEntry[1].versions | first
   - Looks up the support level for that feature in that version
   - Outputs ✓ (supported), P (preview), or ✗ (not supported)
@@ -39,7 +41,7 @@ Example row: | Agent mode | ✓ | ✓ | P | ✗ | ... |
 | Feature{%- for entry in tables.copilot.copilot-matrix.ides %} | {{ entry[0] }}{%- endfor %} |
 |:----{%- for entry in tables.copilot.copilot-matrix.ides %}|:----:{%- endfor %}|
 {%- for featureEntry in tables.copilot.copilot-matrix.ides["VS Code"].features %}
-| {{ featureEntry[0] }}{%- for ideEntry in tables.copilot.copilot-matrix.ides %}{%- assign latestVersion = ideEntry[1].versions | first %}{%- assign supportLevel = ideEntry[1].features[featureEntry[0]][latestVersion] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- else %}✗{%- endcase -%}{%- endfor %} |
+| {{ featureEntry[0] }}{%- for ideEntry in tables.copilot.copilot-matrix.ides %}{%- assign latestVersion = ideEntry[1].versions | first %}{%- assign supportLevel = ideEntry[1].features[featureEntry[0]][latestVersion] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- when "closing-down" %}C{%- else %}✗{%- endcase -%}{%- endfor %} |
 {%- endfor %}
 
 {% endides %}
@@ -62,7 +64,7 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 | Feature{%- for version in groupVersions %} | {{ version }}{%- endfor %} |
 |:----{%- for version in groupVersions %}|:----:{%- endfor %}|
 {%- for featureEntry in ideEntry.features %}
-| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- else %}✗{%- endcase -%}{%- endfor %} |
+| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- when "closing-down" %}C{%- else %}✗{%- endcase -%}{%- endfor %} |
 {%- endfor %}
 
 {% endfor %}
@@ -87,7 +89,7 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 | Feature{%- for version in groupVersions %} | {{ version }}{%- endfor %} |
 |:----{%- for version in groupVersions %}|:----:{%- endfor %}|
 {%- for featureEntry in ideEntry.features %}
-| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- else %}✗{%- endcase -%}{%- endfor %} |
+| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- when "closing-down" %}C{%- else %}✗{%- endcase -%}{%- endfor %} |
 {%- endfor %}
 
 {% endfor %}
@@ -112,7 +114,7 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 | Feature{%- for version in groupVersions %} | {{ version }}{%- endfor %} |
 |:----{%- for version in groupVersions %}|:----:{%- endfor %}|
 {%- for featureEntry in ideEntry.features %}
-| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- else %}✗{%- endcase -%}{%- endfor %} |
+| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- when "closing-down" %}C{%- else %}✗{%- endcase -%}{%- endfor %} |
 {%- endfor %}
 
 {% endfor %}
@@ -137,7 +139,7 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 | Feature{%- for version in groupVersions %} | {{ version }}{%- endfor %} |
 |:----{%- for version in groupVersions %}|:----:{%- endfor %}|
 {%- for featureEntry in ideEntry.features %}
-| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- else %}✗{%- endcase -%}{%- endfor %} |
+| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- when "closing-down" %}C{%- else %}✗{%- endcase -%}{%- endfor %} |
 {%- endfor %}
 
 {% endfor %}
@@ -162,7 +164,7 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 | Feature{%- for version in groupVersions %} | {{ version }}{%- endfor %} |
 |:----{%- for version in groupVersions %}|:----:{%- endfor %}|
 {%- for featureEntry in ideEntry.features %}
-| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- else %}✗{%- endcase -%}{%- endfor %} |
+| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- when "closing-down" %}C{%- else %}✗{%- endcase -%}{%- endfor %} |
 {%- endfor %}
 
 {% endfor %}
@@ -187,7 +189,7 @@ The following table shows supported {% data variables.product.prodname_copilot_s
 | Feature{%- for version in groupVersions %} | {{ version }}{%- endfor %} |
 |:----{%- for version in groupVersions %}|:----:{%- endfor %}|
 {%- for featureEntry in ideEntry.features %}
-| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- else %}✗{%- endcase -%}{%- endfor %} |
+| {{ featureEntry[0] }}{%- for version in groupVersions %}{%- assign supportLevel = featureEntry[1][version] %} | {%- case supportLevel -%}{%- when "supported" %}✓{%- when "preview" %}P{%- when "closing-down" %}C{%- else %}✗{%- endcase -%}{%- endfor %} |
 {%- endfor %}
 
 {% endfor %}

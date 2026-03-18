@@ -97,12 +97,47 @@ export class GraphQLReferenceTransformer implements PageTransformer {
         break
     }
 
+    // For objects pages, collapse Connection/Edge types that have only standard
+    // boilerplate fields into a summary. Types with additional fields are kept.
+    let connectionEdgeSummary: string[] | null = null
+    if (schemaKey === 'objects') {
+      const BOILERPLATE_CONNECTION_FIELDS = new Set(['edges', 'nodes', 'pageInfo', 'totalCount'])
+      const BOILERPLATE_EDGE_FIELDS = new Set(['cursor', 'node'])
+      const connEdgeNames: string[] = []
+      const filteredItems: Array<Record<string, unknown>> = []
+      for (const item of preparedItems) {
+        const name = item.name as string
+        const fields = item.fields as Array<Record<string, unknown>> | undefined
+        const fieldNames = new Set((fields || []).map((f) => f.name as string))
+
+        const isBoilerplateConnection =
+          name.endsWith('Connection') &&
+          fieldNames.size === BOILERPLATE_CONNECTION_FIELDS.size &&
+          [...fieldNames].every((f) => BOILERPLATE_CONNECTION_FIELDS.has(f))
+        const isBoilerplateEdge =
+          name.endsWith('Edge') &&
+          fieldNames.size === BOILERPLATE_EDGE_FIELDS.size &&
+          [...fieldNames].every((f) => BOILERPLATE_EDGE_FIELDS.has(f))
+
+        if (isBoilerplateConnection || isBoilerplateEdge) {
+          connEdgeNames.push(name)
+        } else {
+          filteredItems.push(item)
+        }
+      }
+      if (connEdgeNames.length > 0) {
+        connectionEdgeSummary = connEdgeNames.sort()
+        preparedItems = filteredItems
+      }
+    }
+
     const templateData: Record<string, unknown> = {
       pageTitle: page.title,
       pageIntro: intro,
       manualContent,
       items: preparedItems,
       pageType: schemaKey,
+      connectionEdgeSummary,
     }
 
     const templateContent = loadTemplate(this.templateName)

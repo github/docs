@@ -17,8 +17,6 @@ redirect_from:
   - /copilot/using-github-copilot/getting-started-with-github-copilot
   - /copilot/quickstart
 shortTitle: Quickstart
-topics:
-  - Copilot
 contentType: get-started
 category:
   - Configure Copilot

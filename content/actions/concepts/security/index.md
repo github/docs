@@ -14,4 +14,6 @@ children:
   - /script-injections
   - /compromised-runners
   - /kubernetes-admissions-controller
+contentType: concepts
 ---
+

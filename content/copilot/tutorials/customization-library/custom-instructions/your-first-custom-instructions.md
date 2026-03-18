@@ -1,6 +1,6 @@
 ---
 title: Your first custom instructions
-intro: 'Create and test your first custom instruction with this simple example.'
+intro: Create and test your first custom instruction with this simple example.
 versions:
   feature: copilot
 category:
@@ -10,8 +10,7 @@ category:
 complexity:
   - Simple
 octicon: book
-topics:
-  - Copilot
+contentType: tutorials
 ---
 
 {% data reusables.copilot.customization-examples-note %}

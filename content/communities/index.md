@@ -1,7 +1,7 @@
 ---
 title: Building communities documentation
 shortTitle: Building communities
-intro: 'Learn best practices for moderating and setting up collaborative, safe, and effective communities using GitHub’s community-tested tools.'
+intro: "Learn best practices for moderating and setting up collaborative, safe, and effective communities using GitHub's community-tested tools."
 redirect_from:
   - /categories/building-a-strong-community
   - /github/building-a-strong-community
@@ -26,8 +26,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Community
 children:
   - /setting-up-your-project-for-healthy-contributions
   - /using-templates-to-encourage-useful-issues-and-pull-requests

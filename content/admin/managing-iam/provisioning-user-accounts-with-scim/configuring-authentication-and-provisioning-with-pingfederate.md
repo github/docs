@@ -1,18 +1,12 @@
 ---
 title: Configuring authentication and provisioning with PingFederate
-intro: 'Set up PingFederate as an identity provider (IdP) {% ifversion ghes %}to centrally manage authentication and provisioning for your enterprise{% else %}for {% data variables.product.prodname_emus %} on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}{% endif %}.'
+intro: Set up PingFederate as an identity provider (IdP) {% ifversion ghes %}to centrally manage authentication and provisioning for your enterprise{% else %}for {% data variables.product.prodname_emus %} on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}{% endif %}.
 permissions: Enterprise owners with admin access to the IdP
 shortTitle: Set up PingFederate
 versions:
   feature: scim-for-ghes-public-beta
   ghec: '*'
-type: how_to
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
-  - SSO
+contentType: how-tos
 ---
 
 {% data reusables.scim.ghes-beta-note %}

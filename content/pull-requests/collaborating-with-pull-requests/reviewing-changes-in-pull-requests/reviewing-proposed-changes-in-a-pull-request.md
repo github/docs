@@ -10,9 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
 shortTitle: Review proposed changes
+category:
+  - Review pull requests
 ---
 ## About reviewing pull requests
 

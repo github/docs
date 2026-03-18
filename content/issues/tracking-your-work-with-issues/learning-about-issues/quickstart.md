@@ -1,18 +1,15 @@
 ---
 title: Quickstart for GitHub Issues
-intro: 'Follow this brief interactive guide to learn about {% data variables.product.prodname_github_issues %}.'
+intro: Follow this brief interactive guide to learn about {% data variables.product.prodname_github_issues %}.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: quick_start
-topics:
-  - Issues
-  - Project management
 redirect_from:
   - /issues/tracking-your-work-with-issues/quickstart
   - /issues/tracking-your-work-with-issues/configuring-issues/quickstart
+contentType: get-started
 ---
 
 ## Introduction

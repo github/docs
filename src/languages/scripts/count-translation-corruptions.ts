@@ -2,7 +2,6 @@ import path from 'path'
 import fs from 'fs'
 
 import { program } from 'commander'
-import chalk from 'chalk'
 import { TokenizationError } from 'liquidjs'
 import walk from 'walk-sync'
 
@@ -13,42 +12,112 @@ import type { Site } from '@/types'
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
 
 program
-  .description('Tally the number of liquid corruptions in a translation')
+  .description('Tally the number of liquid corruptions in a translation. Outputs JSON to stdout.')
   .argument('[language...]', 'language(s) to compare against')
   .action(main)
 program.parse(process.argv)
 
 type Reusables = Map<string, string>
 
+interface CorruptionEntry {
+  file: string
+  location: string
+  error: string
+  illegalTag?: string
+}
+
+interface LanguageResult {
+  language: string
+  languageName: string
+  total: number
+  corruptions: CorruptionEntry[]
+  byLocation: Record<string, number>
+  topIllegalTags: Array<{ tag: string; count: number }>
+}
+
+interface FrontmatterError {
+  file: string
+  message: string
+}
+
+interface CorruptionReport {
+  hasFailures: boolean
+  totalCount: number
+  frontmatterErrors: FrontmatterError[]
+  languages: LanguageResult[]
+}
+
 async function main(languageCodes: string[]) {
-  const langCodes = languageCodes.length
-    ? languageCodes
-    : Object.keys(languages).filter((x) => x !== 'en')
-  const site = await warmServer(languageCodes.length ? ['en', ...langCodes] : [])
+  // Suppress warmServer noise (frontmatter errors from translations)
+  // and capture them as structured data instead
+  const originalError = console.error
+  const originalWarn = console.warn
+  const originalLog = console.log
+  const suppressedErrors: string[] = []
+  console.error = (...args: unknown[]) => {
+    suppressedErrors.push(args.map(String).join(' '))
+  }
+  console.warn = (...args: unknown[]) => {
+    suppressedErrors.push(args.map(String).join(' '))
+  }
+  console.log = () => {}
 
-  // When checking reusables, we only want to check the files that
-  // have an English equivalent.
-  const reusables = getReusables()
+  let langCodes: string[]
+  let site: Site
+  let reusables: Reusables
 
-  const totalErrors = new Map<string, number>()
+  try {
+    langCodes = languageCodes.length
+      ? languageCodes
+      : Object.keys(languages).filter((x) => x !== 'en')
 
-  for (const languageCode of langCodes) {
-    if (!(languageCode in languages)) {
-      console.error(chalk.red(`Language ${languageCode} not found`))
-      return process.exit(1)
+    for (const code of langCodes) {
+      if (!(code in languages)) {
+        throw new Error(`Language ${code} not found`)
+      }
+      if (code === 'en') {
+        throw new Error("Can't test in English ('en')")
+      }
     }
-    if (languageCode === 'en') {
-      console.error(chalk.red("Can't test in English ('en')"))
-      return process.exit(1)
-    }
-    const { errors } = run(languageCode, site, reusables)
-    for (const [error, count] of Array.from(errors.entries())) {
-      totalErrors.set(error, (totalErrors.get(error) || 0) + count)
-    }
+
+    site = await warmServer(languageCodes.length ? ['en', ...langCodes] : [])
+    reusables = getReusables()
+  } finally {
+    console.error = originalError
+    console.warn = originalWarn
+    console.log = originalLog
   }
 
-  const sumTotal = Array.from(totalErrors.values()).reduce((acc, count) => acc + count, 0)
-  console.log('\nGRAND TOTAL ERRORS:', sumTotal)
+  const frontmatterErrors = parseFrontmatterErrors(suppressedErrors)
+  const languageResults: LanguageResult[] = []
+
+  for (const languageCode of langCodes) {
+    languageResults.push(run(languageCode, site, reusables))
+  }
+
+  const totalCount = languageResults.reduce((sum, r) => sum + r.total, 0)
+
+  const report: CorruptionReport = {
+    hasFailures: totalCount > 0 || frontmatterErrors.length > 0,
+    totalCount,
+    frontmatterErrors,
+    languages: languageResults,
+  }
+
+  console.log(JSON.stringify(report, null, 2))
+}
+
+function parseFrontmatterErrors(suppressedErrors: string[]): FrontmatterError[] {
+  const errors: FrontmatterError[] = []
+  const seen = new Set<string>()
+  for (const err of suppressedErrors) {
+    const match = err.match(/translations\/[^\s']+/)
+    if (match && !seen.has(match[0])) {
+      seen.add(match[0])
+      errors.push({ file: match[0], message: 'YML parsing error' })
+    }
+  }
+  return errors
 }
 
 function getReusables(): Reusables {
@@ -65,37 +134,32 @@ function getReusables(): Reusables {
   return reusables
 }
 
-function run(languageCode: string, site: Site, englishReusables: Reusables) {
-  const PADDING = 60
+function run(languageCode: string, site: Site, englishReusables: Reusables): LanguageResult {
   const language = languages[languageCode as keyof typeof languages]
 
-  console.log(`--- Tallying liquid corruptions in ${languageCode} (${language.name}) ---`)
-
-  const pageList = site.pageList
-  const errors = new Map<string, number>()
+  const corruptions: CorruptionEntry[] = []
   const wheres = new Map<string, number>()
   const illegalTags = new Map<string, number>()
 
-  function countError(error: TokenizationError, where: string) {
-    // TokenizationError from liquidjs may have originalError and token.content
-    // but these aren't in the public type definitions
+  function countError(error: TokenizationError, where: string, file: string) {
     const errorWithExtras = error as TokenizationError & {
       originalError?: Error
       token?: { content?: string }
     }
     const originalError = errorWithExtras.originalError
     const errorString = originalError ? originalError.message : error.message
+
+    let illegalTag: string | undefined
     if (errorString.includes('illegal tag syntax') && errorWithExtras.token?.content) {
-      illegalTags.set(
-        errorWithExtras.token.content,
-        (illegalTags.get(errorWithExtras.token.content) || 0) + 1,
-      )
+      illegalTag = errorWithExtras.token.content
+      illegalTags.set(illegalTag, (illegalTags.get(illegalTag) || 0) + 1)
     }
-    errors.set(errorString, (errors.get(errorString) || 0) + 1)
+
+    corruptions.push({ file, location: where, error: errorString, illegalTag })
     wheres.set(where, (wheres.get(where) || 0) + 1)
   }
 
-  for (const page of pageList) {
+  for (const page of site.pageList) {
     if (page.languageCode !== languageCode) continue
 
     const strings: string[][] = [
@@ -110,7 +174,7 @@ function run(languageCode: string, site: Site, englishReusables: Reusables) {
         getLiquidTokens(string)
       } catch (error) {
         if (error instanceof TokenizationError) {
-          countError(error, where)
+          countError(error, where, page.relativePath)
         } else {
           throw error
         }
@@ -129,7 +193,7 @@ function run(languageCode: string, site: Site, englishReusables: Reusables) {
       getLiquidTokens(correctedContent)
     } catch (error) {
       if (error instanceof TokenizationError) {
-        countError(error, 'reusable')
+        countError(error, 'reusable', relativePath)
       } else if (error instanceof Error && error.message.startsWith('ENOENT')) {
         continue
       } else {
@@ -138,35 +202,17 @@ function run(languageCode: string, site: Site, englishReusables: Reusables) {
     }
   }
 
-  const flat = Array.from(errors.entries()).sort((a, b) => b[1] - a[1])
-  const sumTotal = flat.reduce((acc, [, count]) => acc + count, 0)
+  const topIllegalTags = Array.from(illegalTags.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([tag, count]) => ({ tag, count }))
 
-  console.log('\nMost common errors')
-  for (let i = 0; i < flat.length; i++) {
-    const [error, count] = flat[i]
-    console.log(`${i + 1}.`.padEnd(3), error.padEnd(PADDING), count)
+  return {
+    language: languageCode,
+    languageName: language.name,
+    total: corruptions.length,
+    corruptions,
+    byLocation: Object.fromEntries(wheres),
+    topIllegalTags,
   }
-  console.log(`${'TOTAL:'.padEnd(3 + 1 + PADDING)}`, sumTotal)
-
-  if (sumTotal) {
-    const whereFlat = Array.from(wheres.entries()).sort((a, b) => b[1] - a[1])
-    console.log('\nMost common places')
-    for (let i = 0; i < whereFlat.length; i++) {
-      const [error, count] = whereFlat[i]
-      console.log(`${i + 1}.`.padEnd(3), error.padEnd(PADDING), count)
-    }
-
-    const illegalTagsFlat = Array.from(illegalTags.entries()).sort((a, b) => b[1] - a[1])
-    if (illegalTagsFlat.reduce((acc, [, count]) => acc + count, 0)) {
-      console.log('\nMost common illegal tags', illegalTagsFlat.length > 10 ? ' (Top 10)' : '')
-      const topIllegalTags = illegalTagsFlat.slice(0, 10)
-      for (let i = 0; i < topIllegalTags.length; i++) {
-        const [error, count] = topIllegalTags[i]
-        console.log(`${i + 1}.`.padEnd(3), error.padEnd(PADDING), count)
-      }
-    }
-  }
-  console.log('\n')
-
-  return { errors }
 }

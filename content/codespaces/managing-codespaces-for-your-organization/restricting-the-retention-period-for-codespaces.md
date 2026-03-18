@@ -2,14 +2,12 @@
 title: Restricting the retention period for codespaces
 shortTitle: Restrict the retention period
 intro: You can set a maximum retention period for any codespaces owned by your organization.
-permissions: 'To manage retention constraints for an organization''s codespaces, you must be an owner of the organization.'
+permissions: To manage retention constraints for an organization's codespaces, you must be an owner of the organization.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Codespaces
 product: '{% data reusables.gated-features.codespaces-org %}'
+contentType: how-tos
 ---
 
 ## Overview

@@ -39,17 +39,16 @@ type ArchivedRedirects = {
 // These files are huge so lazy-load them. But note that the
 // `readJsonFileLazily()` function will, at import-time, check that
 // the path does exist.
-const archivedRedirects: () => ArchivedRedirects = readCompressedJsonFileFallbackLazily(
+const archivedRedirects = readCompressedJsonFileFallbackLazily(
   './src/redirects/lib/static/archived-redirects-from-213-to-217.json',
-)
+) as () => ArchivedRedirects
 
 type ArchivedFrontmatterURLs = {
   [url: string]: string[]
 }
-const archivedFrontmatterValidURLS: () => ArchivedFrontmatterURLs =
-  readCompressedJsonFileFallbackLazily(
-    './src/redirects/lib/static/archived-frontmatter-valid-urls.json',
-  )
+const archivedFrontmatterValidURLS = readCompressedJsonFileFallbackLazily(
+  './src/redirects/lib/static/archived-frontmatter-valid-urls.json',
+) as () => ArchivedFrontmatterURLs
 
 // Combine all the things you need to make sure the response is
 // aggressively cached.
@@ -118,10 +117,10 @@ export default async function archivedEnterpriseVersions(
         languageCacheControl(res) // call first to get `vary`
       }
       archivedCacheControl(res) // call second to extend duration
-      return res.redirect(redirectCode, redirectTo)
+      return res.safeRedirect(redirectCode, redirectTo)
     }
 
-    const redirectJson = await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
+    const redirectJson = (await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
       retry: retryConfiguration,
       // This is allowed to be different compared to the other requests
       // we make because downloading the `redirects.json` once is very
@@ -129,7 +128,7 @@ export default async function archivedEnterpriseVersions(
       // And, as of 2021 that `redirects.json` is 10MB so it's more likely
       // to time out.
       timeout: { response: 1000 },
-    })
+    })) as Record<string, string>
     if (!req.context) throw new Error('No context on request')
     const [language, withoutLanguage] = splitPathByLanguage(req.path, req.context.userLanguage)
     const newRedirectTo = redirectJson[withoutLanguage]
@@ -138,7 +137,7 @@ export default async function archivedEnterpriseVersions(
         languageCacheControl(res) // call first to get `vary`
       }
       archivedCacheControl(res) // call second to extend duration
-      return res.redirect(redirectCode, `/${language}${newRedirectTo}`)
+      return res.safeRedirect(redirectCode, `/${language}${newRedirectTo}`)
     }
   }
   // For releases 2.13 and lower, redirect language-prefixed URLs like /en/enterprise/2.10 -> /enterprise/2.10
@@ -147,7 +146,7 @@ export default async function archivedEnterpriseVersions(
     versionSatisfiesRange(requestedVersion, `<${firstVersionDeprecatedOnNewSite}`)
   ) {
     archivedCacheControl(res)
-    return res.redirect(redirectCode, req.baseUrl + req.path.replace(/^\/en/, ''))
+    return res.safeRedirect(redirectCode, req.baseUrl + req.path.replace(/^\/en/, ''))
   }
 
   // Redirects for releases 2.13 - 2.17
@@ -171,7 +170,7 @@ export default async function archivedEnterpriseVersions(
       // new destination.
       const redirect = `/${language || 'en'}${newPath || withoutLanguagePath}`
       cacheAggressively(res)
-      return res.redirect(redirectCode, redirect)
+      return res.safeRedirect(redirectCode, redirect)
     }
   }
   // Redirects for 2.18 - 3.0. Starting with 2.18, we updated the archival
@@ -180,7 +179,7 @@ export default async function archivedEnterpriseVersions(
     versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`) &&
     !deprecatedWithFunctionalRedirects.includes(requestedVersion)
   ) {
-    const redirectJson = await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
+    const redirectJson = (await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
       retry: retryConfiguration,
       // This is allowed to be different compared to the other requests
       // we make because downloading the `redirects.json` once is very
@@ -188,13 +187,13 @@ export default async function archivedEnterpriseVersions(
       // And, as of 2021 that `redirects.json` is 10MB so it's more likely
       // to time out.
       timeout: { response: 1000 },
-    })
+    })) as Record<string, string>
 
     // make redirects found via redirects.json redirect with a 301
     if (redirectJson[req.path]) {
       res.set('x-robots-tag', 'noindex')
       cacheAggressively(res)
-      return res.redirect(redirectCode, redirectJson[req.path])
+      return res.safeRedirect(redirectCode, redirectJson[req.path])
     }
   }
   // Retrieve the page from the archived repo
@@ -261,7 +260,7 @@ export default async function archivedEnterpriseVersions(
     const staticRedirect = body.match(patterns.staticRedirect)
     if (staticRedirect) {
       cacheAggressively(res)
-      return res.redirect(redirectCode, staticRedirect[1])
+      return res.safeRedirect(redirectCode, staticRedirect[1])
     }
 
     res.set('content-type', r.headers.get('content-type') || '')
@@ -374,7 +373,7 @@ export default async function archivedEnterpriseVersions(
       statsTags.push(`fallback:${fallbackRedirect}`)
       statsd.increment('middleware.trying_fallback_redirect_success', 1, statsTags)
       cacheAggressively(res)
-      return res.redirect(redirectCode, fallbackRedirect)
+      return res.safeRedirect(redirectCode, fallbackRedirect)
     }
     statsd.increment('middleware.trying_fallback_redirect_failure', 1, statsTags)
   }

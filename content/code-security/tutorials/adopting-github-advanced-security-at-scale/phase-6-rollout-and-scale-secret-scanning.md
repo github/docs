@@ -4,9 +4,6 @@ intro: For the final phase, you will focus on the rollout of {% data variables.p
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Secret Protection
 shortTitle: 6. Rollout secret scanning
 redirect_from:
   - /code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning
@@ -63,7 +60,7 @@ Once enabled, you can do the following:
 
 1. **Notify:** Define a webhook that specifically tracks {% data variables.secret-scanning.alerts %} created when someone bypasses push protection by using the alert property `"push_protection_bypassed": true`. Or, use the API to get updates on which {% data variables.secret-scanning.alerts %} were the result of a push protection bypass by filtering the list of results for `"push_protection_bypassed": true`. For more information, see [AUTOTITLE](/code-security/getting-started/auditing-security-alerts).
 
-1. **Monitor:** Use security overview to view metrics on how push protection is performing in repositories across your organization, so you can quickly identify any repositories where you might need to take action. For more information, see [AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection).
+1. **Monitor:** Use security overview to view metrics on how push protection is performing in repositories across your organization, so you can quickly identify any repositories where you might need to take action. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/push-protection-metrics).
 
 ## 3. Remediate previously committed secrets, starting with the most critical
 

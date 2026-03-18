@@ -7,11 +7,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Open Source
-  - Sponsors profile
 shortTitle: Manage sponsor goals
+contentType: how-tos
 ---
 
 ## About sponsorship goals

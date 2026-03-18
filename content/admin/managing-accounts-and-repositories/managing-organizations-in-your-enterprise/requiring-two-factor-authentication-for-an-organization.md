@@ -1,20 +1,14 @@
 ---
 title: Requiring two-factor authentication for an organization
-intro: 'You can require organization members and outside collaborators to enable two-factor authentication for their personal accounts in an organization, making it harder for malicious actors to access an organization''s repositories and settings.'
+intro: You can require organization members and outside collaborators to enable two-factor authentication for their personal accounts in an organization, making it harder for malicious actors to access an organization's repositories and settings.
 redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
   - /admin/user-management/requiring-two-factor-authentication-for-an-organization
   - /admin/user-management/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - 2FA
-  - Enterprise
-  - Organizations
-  - Policies
-  - Security
 shortTitle: Require 2FA
+contentType: how-tos
 ---
 When using LDAP or built-in authentication, two-factor authentication is supported on {% data variables.location.product_location %}. Organization owners can require members to have two-factor authentication enabled.
 
