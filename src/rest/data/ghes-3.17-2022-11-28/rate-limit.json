@@ -1,0 +1,436 @@
+{
+  "rate-limit": [
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/rate_limit",
+      "title": "Get rate limit status for the authenticated user",
+      "category": "rate-limit",
+      "subcategory": "rate-limit",
+      "parameters": [],
+      "bodyParameters": [],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nAccessing this endpoint does not count against your REST API rate limit.</p>\n</div>\n<p>Some categories of endpoints have custom rate limits that are separate from the rate limit governing the other REST API endpoints. For this reason, the API response categorizes your rate limit. Under <code>resources</code>, you'll see objects relating to different categories:</p>\n<ul>\n<li>The <code>core</code> object provides your rate limit status for all non-search-related resources in the REST API.</li>\n<li>The <code>search</code> object provides your rate limit status for the REST API for searching (excluding code searches). For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.17/rest/search/search\">Search</a>.\"</li>\n<li>The <code>code_search</code> object provides your rate limit status for the REST API for searching code. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.17/rest/search/search#search-code\">Search code</a>.\"</li>\n<li>The <code>graphql</code> object provides your rate limit status for the GraphQL API. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.17/graphql/overview/resource-limitations#rate-limit\">Resource limitations</a>.\"</li>\n<li>The <code>integration_manifest</code> object provides your rate limit status for the <code>POST /app-manifests/{code}/conversions</code> operation. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.17/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration\">Creating a GitHub App from a manifest</a>.\"</li>\n<li>The <code>dependency_snapshots</code> object provides your rate limit status for submitting snapshots to the dependency graph. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.17/rest/dependency-graph\">Dependency graph</a>.\"</li>\n<li>The <code>dependency_sbom</code> object provides your rate limit status for requesting SBOMs from the dependency graph. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.17/rest/dependency-graph\">Dependency graph</a>.\"</li>\n<li>The <code>code_scanning_upload</code> object provides your rate limit status for uploading SARIF results to code scanning. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.17/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github\">Uploading a SARIF file to GitHub</a>.\"</li>\n<li>The <code>actions_runner_registration</code> object provides your rate limit status for registering self-hosted runners in GitHub Actions. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.17/rest/actions/self-hosted-runners\">Self-hosted runners</a>.\"</li>\n<li>The <code>source_import</code> object is no longer in use for any API endpoints, and it will be removed in the next API version. For more information about API versions, see \"<a href=\"https://docs.github.com/enterprise-server@3.17/rest/about-the-rest-api/api-versions\">API Versions</a>.\"</li>\n</ul>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe <code>rate</code> object is closing down. If you're writing new API client code or updating existing code, you should use the <code>core</code> object instead of the <code>rate</code> object. The <code>core</code> object contains the same information that is present in the <code>rate</code> object.</p>\n</div>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json"
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "resources": {
+                "core": {
+                  "limit": 5000,
+                  "used": 1,
+                  "remaining": 4999,
+                  "reset": 1691591363
+                },
+                "search": {
+                  "limit": 30,
+                  "used": 12,
+                  "remaining": 18,
+                  "reset": 1691591091
+                },
+                "graphql": {
+                  "limit": 5000,
+                  "used": 7,
+                  "remaining": 4993,
+                  "reset": 1691593228
+                },
+                "integration_manifest": {
+                  "limit": 5000,
+                  "used": 1,
+                  "remaining": 4999,
+                  "reset": 1691594631
+                },
+                "source_import": {
+                  "limit": 100,
+                  "used": 1,
+                  "remaining": 99,
+                  "reset": 1691591091
+                },
+                "code_scanning_upload": {
+                  "limit": 500,
+                  "used": 1,
+                  "remaining": 499,
+                  "reset": 1691594631
+                },
+                "actions_runner_registration": {
+                  "limit": 10000,
+                  "used": 0,
+                  "remaining": 10000,
+                  "reset": 1691594631
+                },
+                "scim": {
+                  "limit": 15000,
+                  "used": 0,
+                  "remaining": 15000,
+                  "reset": 1691594631
+                },
+                "dependency_snapshots": {
+                  "limit": 100,
+                  "used": 0,
+                  "remaining": 100,
+                  "reset": 1691591091
+                },
+                "code_search": {
+                  "limit": 10,
+                  "used": 0,
+                  "remaining": 10,
+                  "reset": 1691591091
+                },
+                "code_scanning_autofix": {
+                  "limit": 10,
+                  "used": 0,
+                  "remaining": 10,
+                  "reset": 1691591091
+                }
+              },
+              "rate": {
+                "limit": 5000,
+                "used": 1,
+                "remaining": 4999,
+                "reset": 1372700873
+              }
+            },
+            "schema": {
+              "title": "Rate Limit Overview",
+              "description": "Rate Limit Overview",
+              "type": "object",
+              "properties": {
+                "resources": {
+                  "type": "object",
+                  "properties": {
+                    "core": {
+                      "title": "Rate Limit",
+                      "type": "object",
+                      "properties": {
+                        "limit": {
+                          "type": "integer"
+                        },
+                        "remaining": {
+                          "type": "integer"
+                        },
+                        "reset": {
+                          "type": "integer"
+                        },
+                        "used": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "limit",
+                        "remaining",
+                        "reset",
+                        "used"
+                      ]
+                    },
+                    "graphql": {
+                      "title": "Rate Limit",
+                      "type": "object",
+                      "properties": {
+                        "limit": {
+                          "type": "integer"
+                        },
+                        "remaining": {
+                          "type": "integer"
+                        },
+                        "reset": {
+                          "type": "integer"
+                        },
+                        "used": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "limit",
+                        "remaining",
+                        "reset",
+                        "used"
+                      ]
+                    },
+                    "search": {
+                      "title": "Rate Limit",
+                      "type": "object",
+                      "properties": {
+                        "limit": {
+                          "type": "integer"
+                        },
+                        "remaining": {
+                          "type": "integer"
+                        },
+                        "reset": {
+                          "type": "integer"
+                        },
+                        "used": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "limit",
+                        "remaining",
+                        "reset",
+                        "used"
+                      ]
+                    },
+                    "code_search": {
+                      "title": "Rate Limit",
+                      "type": "object",
+                      "properties": {
+                        "limit": {
+                          "type": "integer"
+                        },
+                        "remaining": {
+                          "type": "integer"
+                        },
+                        "reset": {
+                          "type": "integer"
+                        },
+                        "used": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "limit",
+                        "remaining",
+                        "reset",
+                        "used"
+                      ]
+                    },
+                    "source_import": {
+                      "title": "Rate Limit",
+                      "type": "object",
+                      "properties": {
+                        "limit": {
+                          "type": "integer"
+                        },
+                        "remaining": {
+                          "type": "integer"
+                        },
+                        "reset": {
+                          "type": "integer"
+                        },
+                        "used": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "limit",
+                        "remaining",
+                        "reset",
+                        "used"
+                      ]
+                    },
+                    "integration_manifest": {
+                      "title": "Rate Limit",
+                      "type": "object",
+                      "properties": {
+                        "limit": {
+                          "type": "integer"
+                        },
+                        "remaining": {
+                          "type": "integer"
+                        },
+                        "reset": {
+                          "type": "integer"
+                        },
+                        "used": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "limit",
+                        "remaining",
+                        "reset",
+                        "used"
+                      ]
+                    },
+                    "code_scanning_upload": {
+                      "title": "Rate Limit",
+                      "type": "object",
+                      "properties": {
+                        "limit": {
+                          "type": "integer"
+                        },
+                        "remaining": {
+                          "type": "integer"
+                        },
+                        "reset": {
+                          "type": "integer"
+                        },
+                        "used": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "limit",
+                        "remaining",
+                        "reset",
+                        "used"
+                      ]
+                    },
+                    "actions_runner_registration": {
+                      "title": "Rate Limit",
+                      "type": "object",
+                      "properties": {
+                        "limit": {
+                          "type": "integer"
+                        },
+                        "remaining": {
+                          "type": "integer"
+                        },
+                        "reset": {
+                          "type": "integer"
+                        },
+                        "used": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "limit",
+                        "remaining",
+                        "reset",
+                        "used"
+                      ]
+                    },
+                    "scim": {
+                      "title": "Rate Limit",
+                      "type": "object",
+                      "properties": {
+                        "limit": {
+                          "type": "integer"
+                        },
+                        "remaining": {
+                          "type": "integer"
+                        },
+                        "reset": {
+                          "type": "integer"
+                        },
+                        "used": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "limit",
+                        "remaining",
+                        "reset",
+                        "used"
+                      ]
+                    },
+                    "dependency_sbom": {
+                      "title": "Rate Limit",
+                      "type": "object",
+                      "properties": {
+                        "limit": {
+                          "type": "integer"
+                        },
+                        "remaining": {
+                          "type": "integer"
+                        },
+                        "reset": {
+                          "type": "integer"
+                        },
+                        "used": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "limit",
+                        "remaining",
+                        "reset",
+                        "used"
+                      ]
+                    },
+                    "code_scanning_autofix": {
+                      "title": "Rate Limit",
+                      "type": "object",
+                      "properties": {
+                        "limit": {
+                          "type": "integer"
+                        },
+                        "remaining": {
+                          "type": "integer"
+                        },
+                        "reset": {
+                          "type": "integer"
+                        },
+                        "used": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "limit",
+                        "remaining",
+                        "reset",
+                        "used"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "core",
+                    "search"
+                  ]
+                },
+                "rate": {
+                  "title": "Rate Limit",
+                  "type": "object",
+                  "properties": {
+                    "limit": {
+                      "type": "integer"
+                    },
+                    "remaining": {
+                      "type": "integer"
+                    },
+                    "reset": {
+                      "type": "integer"
+                    },
+                    "used": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "limit",
+                    "remaining",
+                    "reset",
+                    "used"
+                  ]
+                }
+              },
+              "required": [
+                "rate",
+                "resources"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "304",
+          "description": "<p>Not modified</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [],
+        "allowPermissionlessAccess": true,
+        "allowsPublicRead": true
+      }
+    }
+  ]
+}

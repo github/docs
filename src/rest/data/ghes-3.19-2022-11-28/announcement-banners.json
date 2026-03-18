@@ -1,0 +1,293 @@
+{
+  "organizations": [
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/announcement",
+      "title": "Get announcement banner for organization",
+      "category": "announcement-banners",
+      "subcategory": "organizations",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets the announcement banner currently set for the organization. Only returns the announcement banner set at the\norganization level. Organization members may also see an enterprise-level announcement banner. To get an\nannouncement banner displayed at the enterprise level, use the enterprise-level endpoint.</p>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Announcement banner</p>",
+            "example": {
+              "announcement": "Very **important** announcement about _something_.",
+              "expires_at": "2021-01-01T00:00:00.000+00:00",
+              "user_dismissible": false
+            },
+            "schema": {
+              "title": "Announcement Banner",
+              "description": "Announcement at either the repository, organization, or enterprise level",
+              "type": "object",
+              "properties": {
+                "announcement": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"[Basic writing and formatting syntax](https://docs.github.com/enterprise-server@3.19/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).\"",
+                  "examples": [
+                    "Very **important** announcement about _something_."
+                  ]
+                },
+                "expires_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time",
+                  "description": "The time at which the announcement expires. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. To set an announcement that never expires, omit this parameter, set it to `null`, or set it to an empty string.",
+                  "examples": [
+                    "\"2021-01-01T00:00:00.000-07:00\""
+                  ]
+                },
+                "user_dismissible": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ],
+                  "description": "Whether an announcement can be dismissed by the user.",
+                  "default": false,
+                  "examples": [
+                    false
+                  ]
+                }
+              },
+              "required": [
+                "announcement",
+                "expires_at",
+                "user_dismissible"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Organization announcement banners\" organization permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/announcement",
+      "title": "Set announcement banner for organization",
+      "category": "announcement-banners",
+      "subcategory": "organizations",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string or null",
+          "name": "announcement",
+          "in": "body",
+          "description": "<p>The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax\">Basic writing and formatting syntax</a>.\"</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string or null",
+          "name": "expires_at",
+          "in": "body",
+          "description": "<p>The time at which the announcement expires. This is a timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> format: <code>YYYY-MM-DDTHH:MM:SSZ</code>. To set an announcement that never expires, omit this parameter, set it to <code>null</code>, or set it to an empty string.</p>"
+        },
+        {
+          "type": "boolean or null",
+          "name": "user_dismissible",
+          "in": "body",
+          "description": "<p>Whether an announcement can be dismissed by the user.</p>",
+          "default": false
+        }
+      ],
+      "descriptionHTML": "<p>Sets the announcement banner to display for the organization.</p>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "contentType": "application/json",
+            "description": "Announcement banner",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "announcement": "Very **important** announcement about _something_.",
+              "expires_at": "2021-01-01T00:00:00.000+00:00",
+              "user_dismissible": false
+            },
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Announcement banner</p>",
+            "example": {
+              "announcement": "Very **important** announcement about _something_.",
+              "expires_at": "2021-01-01T00:00:00.000+00:00",
+              "user_dismissible": false
+            },
+            "schema": {
+              "title": "Announcement Banner",
+              "description": "Announcement at either the repository, organization, or enterprise level",
+              "type": "object",
+              "properties": {
+                "announcement": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"[Basic writing and formatting syntax](https://docs.github.com/enterprise-server@3.19/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).\"",
+                  "examples": [
+                    "Very **important** announcement about _something_."
+                  ]
+                },
+                "expires_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time",
+                  "description": "The time at which the announcement expires. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. To set an announcement that never expires, omit this parameter, set it to `null`, or set it to an empty string.",
+                  "examples": [
+                    "\"2021-01-01T00:00:00.000-07:00\""
+                  ]
+                },
+                "user_dismissible": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ],
+                  "description": "Whether an announcement can be dismissed by the user.",
+                  "default": false,
+                  "examples": [
+                    false
+                  ]
+                }
+              },
+              "required": [
+                "announcement",
+                "expires_at",
+                "user_dismissible"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Organization announcement banners\" organization permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/announcement",
+      "title": "Remove announcement banner from organization",
+      "category": "announcement-banners",
+      "subcategory": "organizations",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Removes the announcement banner currently set for the organization.</p>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>No Content</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Organization announcement banners\" organization permissions": "write"
+          }
+        ]
+      }
+    }
+  ]
+}
