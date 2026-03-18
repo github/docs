@@ -20,10 +20,10 @@ children:
   - /integrate-coding-agent-with-linear
   - /integrate-coding-agent-with-azure-boards
   - /changing-the-ai-model
+  - /configuring-agent-settings
   - /customize-the-agent-environment
   - /customize-the-agent-firewall
   - /use-hooks
-  - /configuring-agent-settings
   - /troubleshoot-coding-agent
 redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks
