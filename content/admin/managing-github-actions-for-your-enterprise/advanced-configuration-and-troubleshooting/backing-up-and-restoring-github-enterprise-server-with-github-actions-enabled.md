@@ -8,6 +8,8 @@ redirect_from:
   - /admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
   - /admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About backups of {% data variables.product.prodname_ghe_server %} when using {% data variables.product.prodname_actions %}

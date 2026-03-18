@@ -5,6 +5,8 @@ intro: Learn how {% data variables.product.prodname_github_apps %}, external ser
 versions:
   feature: enterprise-apps-public-beta
 contentType: concepts
+category:
+  - Get started with GitHub Enterprise
 ---
 
 Automation on {% data variables.product.github %} typically involves multiple components working together. The most important {% data variables.product.github %} native components are:

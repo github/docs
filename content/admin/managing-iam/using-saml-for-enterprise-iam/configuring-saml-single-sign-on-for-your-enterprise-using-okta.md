@@ -13,6 +13,8 @@ versions:
   ghec: '*'
 shortTitle: Configure SAML SSO with Okta
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 {% data reusables.enterprise-accounts.emu-saml-note %}

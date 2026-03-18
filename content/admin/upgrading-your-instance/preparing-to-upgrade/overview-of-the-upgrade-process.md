@@ -20,6 +20,8 @@ versions:
   ghes: '*'
 shortTitle: Upgrading overview
 contentType: concepts
+category:
+  - Back up and upgrade your instance
 ---
 
 {% data reusables.enterprise.constantly-improving %} You are responsible for upgrades to your instance. See [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases).

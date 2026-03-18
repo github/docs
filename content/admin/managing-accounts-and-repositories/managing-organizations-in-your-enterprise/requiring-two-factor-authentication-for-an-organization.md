@@ -9,6 +9,8 @@ versions:
   ghes: '*'
 shortTitle: Require 2FA
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 When using LDAP or built-in authentication, two-factor authentication is supported on {% data variables.location.product_location %}. Organization owners can require members to have two-factor authentication enabled.
 

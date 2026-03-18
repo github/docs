@@ -3,6 +3,8 @@ title: Setup user
 intro: 'The setup user is used only to configure authentication and provisioning for {% data variables.product.prodname_emus %}.'
 versions:
   ghec: '*'
+category:
+  - Provision and manage enterprise users
 ---
 
 ## How should I use the setup user?

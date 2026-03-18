@@ -7,6 +7,8 @@ versions:
   ghes: '*'
 shortTitle: Restore from a failed upgrade
 contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 If an upgrade fails or is interrupted, you should revert your instance back to its previous state. The process for completing this depends on the type of upgrade.

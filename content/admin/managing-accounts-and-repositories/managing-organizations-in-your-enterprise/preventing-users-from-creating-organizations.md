@@ -11,6 +11,8 @@ versions:
   ghes: '*'
 shortTitle: Prevent organization creation
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

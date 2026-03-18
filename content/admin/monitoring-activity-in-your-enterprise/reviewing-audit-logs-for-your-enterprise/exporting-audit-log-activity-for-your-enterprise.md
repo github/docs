@@ -6,6 +6,8 @@ permissions: Enterprise owners
 versions:
   ghec: '*'
 contentType: tutorials
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## About exports of audit log and Git events data

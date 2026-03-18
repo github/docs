@@ -8,6 +8,8 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/about-system-logs
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/about-system-logs
 contentType: concepts
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## About system logs for {% data variables.product.prodname_ghe_server %}

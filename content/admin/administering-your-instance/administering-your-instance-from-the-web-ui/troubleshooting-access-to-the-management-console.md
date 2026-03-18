@@ -7,6 +7,8 @@ redirect_from:
 versions:
   ghes: '*'
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## About problems with {% data variables.enterprise.management_console %} access

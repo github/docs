@@ -11,6 +11,8 @@ versions:
   ghes: '*'
 shortTitle: Recover a HA configuration
 contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About recovery for a high availability configuration

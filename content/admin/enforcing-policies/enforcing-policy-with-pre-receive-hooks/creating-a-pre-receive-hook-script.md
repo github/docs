@@ -10,6 +10,8 @@ versions:
   ghes: '*'
 shortTitle: Pre-receive hook scripts
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 {% data reusables.enterprise_site_admin_settings.pre-receive-hook-examples %}

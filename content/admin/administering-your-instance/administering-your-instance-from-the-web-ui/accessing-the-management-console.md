@@ -7,6 +7,8 @@ redirect_from:
 versions:
   ghes: '*'
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 {% data reusables.enterprise_site_admin_settings.management-console-access %}

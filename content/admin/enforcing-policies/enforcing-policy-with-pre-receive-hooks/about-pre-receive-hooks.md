@@ -9,6 +9,8 @@ redirect_from:
 versions:
   ghes: '*'
 contentType: concepts
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About pre-receive hooks

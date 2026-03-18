@@ -17,6 +17,8 @@ versions:
   ghes: '*'
 shortTitle: Configure maintenance mode
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## About maintenance mode

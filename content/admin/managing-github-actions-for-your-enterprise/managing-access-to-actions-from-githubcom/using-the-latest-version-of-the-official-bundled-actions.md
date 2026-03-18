@@ -8,6 +8,8 @@ redirect_from:
   - /admin/github-actions/managing-access-to-actions-from-githubcom/using-the-latest-version-of-the-official-bundled-actions
 shortTitle: Use the latest bundled actions
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 {% data reusables.actions.enterprise-github-hosted-runners %}
 

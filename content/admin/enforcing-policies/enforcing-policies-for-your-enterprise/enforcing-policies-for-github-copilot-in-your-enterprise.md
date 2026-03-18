@@ -9,6 +9,8 @@ shortTitle: GitHub Copilot policies
 redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 Enterprise admins can:

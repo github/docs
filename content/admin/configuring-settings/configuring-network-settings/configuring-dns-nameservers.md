@@ -11,6 +11,8 @@ versions:
   ghes: '*'
 shortTitle: Configure DNS servers
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 The nameservers you specify must resolve {% data variables.location.product_location %}'s hostname.
 

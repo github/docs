@@ -9,6 +9,8 @@ versions:
   ghes: '*'
 shortTitle: Initiate a failover to replica
 contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About failover to your replica cluster

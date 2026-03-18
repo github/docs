@@ -9,6 +9,8 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-azure-blob-storage
 shortTitle: Azure Blob storage
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 {% data reusables.actions.enterprise-storage-about %}

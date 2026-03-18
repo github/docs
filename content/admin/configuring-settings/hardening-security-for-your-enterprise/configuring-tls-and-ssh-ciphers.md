@@ -10,6 +10,8 @@ redirect_from:
 versions:
   ghes: '>=3.19'
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 

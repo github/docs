@@ -19,6 +19,8 @@ versions:
   ghes: '*'
 shortTitle: GitHub Actions policies
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## What are policies for {% data variables.product.prodname_actions %}?

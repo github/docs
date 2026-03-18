@@ -8,6 +8,8 @@ shortTitle: Create a README
 redirect_from:
   - /enterprise-onboarding/feature-enhancements/create-a-readme-for-your-enterprise
 contentType: how-tos
+category:
+  - Get started with GitHub Enterprise
 ---
 
 ## About READMEs for enterprises

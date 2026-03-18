@@ -6,6 +6,8 @@ permissions: Site administrators can migrate authentication methods on {% data v
 versions:
   ghes: '>=3.17'
 contentType: how-tos
+category:
+  - Provision and manage enterprise users
 ---
 
 ## About migrating from LDAP to SAML and SCIM

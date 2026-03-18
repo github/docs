@@ -13,6 +13,8 @@ redirect_from:
   - /early-access/admin/preview-of-data-residency-for-github-enterprise/configuring-authentication-and-provisioning-for-your-enterprise
   - /early-access/admin/private-ga-of-data-residency-for-github-enterprise-cloud/configuring-authentication-and-provisioning-for-your-enterprise
   - /early-access/admin/data-residency-for-github-enterprise-cloud/configuring-authentication-and-provisioning-for-your-enterprise
+category:
+  - Get started with GitHub Enterprise
 ---
 
 When you adopt {% data variables.enterprise.data_residency %}, you can choose where your company's code and data are stored.

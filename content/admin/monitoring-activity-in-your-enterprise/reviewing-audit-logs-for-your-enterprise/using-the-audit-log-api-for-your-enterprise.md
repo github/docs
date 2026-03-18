@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: tutorials
+category:
+  - Monitor and audit your enterprise
 ---
 
 >[!NOTE] {% data reusables.webhooks.webhooks-as-audit-log-alternative %}

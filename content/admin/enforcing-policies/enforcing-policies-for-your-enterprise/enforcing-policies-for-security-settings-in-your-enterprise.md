@@ -16,6 +16,8 @@ versions:
   ghes: '*'
 shortTitle: Policies for security settings
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About policies for security settings in your enterprise

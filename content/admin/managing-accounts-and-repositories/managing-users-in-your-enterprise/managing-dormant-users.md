@@ -13,6 +13,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 ## About dormant users

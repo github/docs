@@ -9,6 +9,8 @@ versions:
   ghes: '*'
 shortTitle: Manually sync actions
 contentType: tutorials
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

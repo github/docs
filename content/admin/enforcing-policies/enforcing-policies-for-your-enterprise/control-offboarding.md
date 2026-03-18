@@ -8,6 +8,8 @@ permissions: Enterprise owners
 product: Enterprises with personal accounts on {% data variables.product.prodname_dotcom_the_website %}
 shortTitle: Control offboarding
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About the unaffiliated users policy

@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 ## About encrypted assertions

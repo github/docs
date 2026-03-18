@@ -6,6 +6,8 @@ versions:
   feature: enterprise-custom-roles
 allowTitleToDifferFromFilename: true
 contentType: tutorials
+category:
+  - Manage accounts and repositories
 ---
 
 {% data reusables.enterprise-onboarding.identify-role-requirements %}

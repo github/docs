@@ -6,6 +6,8 @@ versions:
 permissions: Enterprise owners can access compliance reports for the enterprise.
 shortTitle: Access compliance reports
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About {% data variables.product.company_short %}'s compliance reports

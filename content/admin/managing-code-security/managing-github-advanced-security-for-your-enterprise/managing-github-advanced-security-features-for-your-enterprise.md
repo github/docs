@@ -9,6 +9,8 @@ shortTitle: Manage {% data variables.product.prodname_GHAS %}
 redirect_from:
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About management of {% data variables.product.prodname_AS %} features

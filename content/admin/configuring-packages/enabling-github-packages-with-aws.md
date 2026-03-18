@@ -7,6 +7,8 @@ shortTitle: Enable Packages with AWS
 redirect_from:
   - /admin/packages/enabling-github-packages-with-aws
 contentType: tutorials
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 > [!WARNING]

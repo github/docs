@@ -18,6 +18,8 @@ redirect_from:
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-saml-for-enterprise-iam
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/about-saml-for-enterprise-iam
 contentType: concepts
+category:
+  - Configure authentication
 ---
 
 ## About SAML SSO for your enterprise

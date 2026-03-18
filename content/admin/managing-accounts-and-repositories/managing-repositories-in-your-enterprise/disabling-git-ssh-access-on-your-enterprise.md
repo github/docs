@@ -20,6 +20,8 @@ versions:
   ghes: '*'
 shortTitle: Disable SSH for Git
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 ## Disabling Git SSH access to a specific repository
 

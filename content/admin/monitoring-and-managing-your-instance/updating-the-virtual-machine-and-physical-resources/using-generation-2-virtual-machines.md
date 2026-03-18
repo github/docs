@@ -8,6 +8,8 @@ versions:
 shortTitle: Generation 2 virtual machines
 allowTitleToDifferFromFilename: true
 contentType: reference
+category:
+  - Scale your instance
 ---
 
 ## About generation 2 virtual machines

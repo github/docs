@@ -11,6 +11,8 @@ versions:
   ghes: '*'
 shortTitle: Remove a HA replica
 contentType: how-tos
+category:
+  - Scale your instance
 ---
 ## Stopping replication temporarily
 

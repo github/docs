@@ -14,6 +14,8 @@ versions:
   ghes: '*'
 shortTitle: Troubleshoot TLS errors
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 ## Removing the passphrase from your key file
 

@@ -7,6 +7,8 @@ versions:
 redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 ## About updates to users' SAML `NameID`

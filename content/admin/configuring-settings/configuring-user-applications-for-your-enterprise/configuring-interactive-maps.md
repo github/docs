@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About interactive maps

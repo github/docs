@@ -14,6 +14,8 @@ versions:
   ghes: '*'
 shortTitle: About monitor {% ifversion ghes > 3.15 %}dashboards{% else %}dashboard{% endif %}
 contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## Accessing the monitor {% ifversion ghes > 3.15 %}dashboards{% else %}dashboard{% endif %}

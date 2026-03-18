@@ -8,6 +8,8 @@ permissions: Enterprise owners can configure private networking for GitHub-hoste
 redirect_from:
   - /admin/configuration/configuring-private-networking-for-hosted-compute-products/troubleshooting-azure-private-network-configurations-for-github-hosted-runners-in-your-enterprise
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## Troubleshooting configuring private networking for {% data variables.product.company_short %}-hosted runners in your enterprise

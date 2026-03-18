@@ -4,6 +4,8 @@ intro: Learn about {% data variables.product.prodname_ghe_cloud %}, its features
 versions:
   ghec: '*'
 contentType: concepts
+category:
+  - Get started with GitHub Enterprise
 ---
 
 {% data variables.product.prodname_ghe_cloud %} is a deployment option for {% data variables.product.prodname_enterprise %}, adding advanced features to {% data variables.product.prodname_dotcom %}, including:

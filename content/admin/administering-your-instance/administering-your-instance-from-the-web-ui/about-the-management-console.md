@@ -6,6 +6,8 @@ redirect_from:
 versions:
   ghes: '*'
 contentType: concepts
+category:
+  - Install and configure your instance
 ---
 
 ## About the {% data variables.enterprise.management_console %}

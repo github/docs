@@ -11,6 +11,8 @@ versions:
   ghes: '*'
 shortTitle: Increase storage capacity
 contentType: how-tos
+category:
+  - Scale your instance
 ---
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 

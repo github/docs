@@ -7,6 +7,8 @@ versions:
   ghes: '*'
 contentType: concepts
 allowTitleToDifferFromFilename: true
+category:
+  - Get started with GitHub Enterprise
 ---
 
 {% data reusables.enterprise-onboarding.use-innersource %}

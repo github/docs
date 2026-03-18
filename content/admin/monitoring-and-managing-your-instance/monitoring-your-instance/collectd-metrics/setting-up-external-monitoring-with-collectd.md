@@ -21,6 +21,8 @@ versions:
   ghes: '*'
 shortTitle: External monitoring with collectd
 contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 {% data reusables.enterprise.collectd-metrics-future %}

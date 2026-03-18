@@ -7,6 +7,8 @@ versions:
   ghec: '*'
 redirect_from:
   - /admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users
+category:
+  - Provision and manage enterprise users
 ---
 
 >[!WARNING]

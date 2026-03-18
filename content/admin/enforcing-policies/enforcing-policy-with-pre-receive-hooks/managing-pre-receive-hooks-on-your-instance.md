@@ -12,6 +12,8 @@ versions:
   ghes: '*'
 shortTitle: Manage pre-receive hooks
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 ## Creating pre-receive hooks
 

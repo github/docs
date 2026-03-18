@@ -8,6 +8,8 @@ allowTitleToDifferFromFilename: true
 versions:
   ghes: '*'
 shortTitle: Dependabot updates
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About self-hosted runners for {% data variables.product.prodname_dependabot_updates %}

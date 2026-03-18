@@ -8,6 +8,8 @@ versions:
 allowTitleToDifferFromFilename: true
 product: Enterprises that use {% data variables.product.prodname_emus %}, or {% data variables.product.prodname_ghe_server %} instances with SCIM enabled
 contentType: concepts
+category:
+  - Provision and manage enterprise users
 ---
 
 {% data reusables.scim.ghes-beta-note %}

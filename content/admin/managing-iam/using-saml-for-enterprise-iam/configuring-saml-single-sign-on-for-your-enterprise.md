@@ -15,6 +15,8 @@ redirect_from:
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 {% ifversion ghec %}

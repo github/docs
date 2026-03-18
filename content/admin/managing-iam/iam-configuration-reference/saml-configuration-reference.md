@@ -9,6 +9,8 @@ redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference
   - /admin/identity-and-access-management/iam-configuration-reference/saml-configuration-reference
 contentType: reference
+category:
+  - Configure authentication
 ---
 
 ## About SAML configuration

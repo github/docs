@@ -9,6 +9,8 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/generating-a-health-check-for-your-enterprise
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/generating-a-health-check-for-your-enterprise
 contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 > [!NOTE]

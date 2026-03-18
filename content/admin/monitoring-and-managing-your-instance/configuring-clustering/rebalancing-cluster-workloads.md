@@ -10,6 +10,8 @@ redirect_from:
   - /admin/enterprise-management/configuring-clustering/rebalancing-cluster-workloads
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/rebalancing-cluster-workloads
 contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About workload balance for a {% data variables.product.prodname_ghe_server %} cluster

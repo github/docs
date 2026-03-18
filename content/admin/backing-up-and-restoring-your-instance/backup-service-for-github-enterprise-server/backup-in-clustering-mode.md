@@ -5,6 +5,8 @@ intro: Enable backup from a node in cluster.
 versions:
   ghes: '> 3.19'
 contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 ## Configuring backups from a cluster node

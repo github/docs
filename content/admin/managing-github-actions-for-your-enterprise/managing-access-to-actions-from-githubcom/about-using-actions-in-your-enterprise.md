@@ -11,6 +11,8 @@ versions:
   ghes: '*'
 shortTitle: About actions in your enterprise
 contentType: concepts
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

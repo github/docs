@@ -7,6 +7,8 @@ versions:
   feature: oidc-for-emu
 redirect_from:
   - /admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/finding-the-object-id-for-your-entra-oidc-application
+category:
+  - Provision and manage enterprise users
 ---
 
 You can adjust the lifetime of a session, and how often a managed user account needs to reauthenticate with your IdP, by changing the lifetime policy property of the ID tokens issued for {% data variables.product.prodname_dotcom %} from your IdP. The default lifetime is one hour.  

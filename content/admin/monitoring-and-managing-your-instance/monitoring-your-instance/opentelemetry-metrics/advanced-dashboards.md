@@ -7,6 +7,8 @@ versions:
   feature: ghes-opentelemetry
 shortTitle: Advanced dashboards
 contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 {% data reusables.enterprise.opentelemetry-migration %}

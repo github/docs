@@ -8,6 +8,8 @@ redirect_from:
   - /early-access/admin/preview-of-data-residency-for-github-enterprise/network-access-to-resources-on-ghecom
   - /early-access/admin/private-ga-of-data-residency-for-github-enterprise-cloud/network-access-to-resources-on-ghecom
   - /early-access/admin/data-residency-for-github-enterprise-cloud/network-access-to-resources-on-ghecom
+category:
+  - Get started with GitHub Enterprise
 ---
 
 To access your enterprise on {% data variables.enterprise.data_residency_site %}, client systems must:

@@ -5,6 +5,8 @@ versions:
   ghes: '*'
 shortTitle: About Collectd metrics
 contentType: concepts
+category:
+  - Monitor and audit your enterprise
 ---
 
 {% data reusables.enterprise.collectd-metrics-future %}

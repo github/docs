@@ -13,6 +13,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## About search for the enterprise audit log

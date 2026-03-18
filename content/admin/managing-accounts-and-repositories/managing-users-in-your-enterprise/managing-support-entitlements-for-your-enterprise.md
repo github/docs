@@ -7,6 +7,8 @@ redirect_from:
 versions:
   ghec: '*'
 shortTitle: Manage support entitlements
+category:
+  - Manage accounts and repositories
 ---
 
 ## About support entitlements

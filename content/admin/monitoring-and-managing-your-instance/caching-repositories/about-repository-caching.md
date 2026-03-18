@@ -7,6 +7,8 @@ redirect_from:
   - /admin/enterprise-management/caching-repositories/about-repository-caching
   - /admin/monitoring-managing-and-updating-your-instance/caching-repositories/about-repository-caching
 contentType: concepts
+category:
+  - Scale your instance
 ---
 
 If you have teams and CI farms located around the world, you may experience reduced performance on your primary {% data variables.product.prodname_ghe_server %} instance. While active geo-replicas can improve the performance of read requests, this comes at the cost of limiting write throughput. To reduce load on your primary instance and improve write throughput performance, you can configure a repository cache, an asynchronous read-only mirror of repositories located near these geographically-distributed clients.

@@ -8,6 +8,8 @@ redirect_from:
   - /admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment
 shortTitle: Use staging environment
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About staging environments for {% data variables.product.prodname_ghe_server %}

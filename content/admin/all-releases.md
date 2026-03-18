@@ -5,6 +5,8 @@ allowTitleToDifferFromFilename: true
 versions:
   ghes: '*'
 shortTitle: Releases
+category:
+  - Get started with GitHub Enterprise
 ---
 
 {% data reusables.enterprise.constantly-improving %} See [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases).

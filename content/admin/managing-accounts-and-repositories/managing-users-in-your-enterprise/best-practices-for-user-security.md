@@ -9,6 +9,8 @@ versions:
   ghes: '*'
 shortTitle: User security best practices
 contentType: reference
+category:
+  - Manage accounts and repositories
 ---
 
 ## Enabling two-factor authentication

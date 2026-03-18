@@ -9,6 +9,8 @@ redirect_from:
   - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-requests-for-copilot-business-from-organizations-in-your-enterprise
 shortTitle: Manage requests for Copilot
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 Organization owners might not have the necessary permissions to satisfy requests from members. For example, if an organization owner is not an enterprise owner, and {% data variables.copilot.copilot_for_business %} is not enabled for that organization, they will not have the permissions to approve requests for {% data variables.copilot.copilot_for_business %}.

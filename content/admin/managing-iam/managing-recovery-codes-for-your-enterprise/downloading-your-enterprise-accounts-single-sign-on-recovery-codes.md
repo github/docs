@@ -9,6 +9,8 @@ redirect_from:
   - /admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes
 permissions: Enterprise owners can download the SSO recovery codes for the enterprise account.
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 In the event that your IdP is unavailable, you can use a recovery code to sign in and access your enterprise on {% data variables.product.github %}. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable).

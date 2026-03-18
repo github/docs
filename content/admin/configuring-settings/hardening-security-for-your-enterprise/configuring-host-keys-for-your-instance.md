@@ -9,6 +9,8 @@ redirect_from:
 versions:
   ghes: '*'
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About host keys for your instance

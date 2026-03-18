@@ -6,6 +6,8 @@ versions:
   ghes: '*'
 shortTitle: Disable passkeys
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 Passkeys are enabled by default.
