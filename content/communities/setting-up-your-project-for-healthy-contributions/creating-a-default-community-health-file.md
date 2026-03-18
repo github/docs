@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Community health file
+category:
+  - Set up your project for contributions
 ---
 
 ## About default community health files

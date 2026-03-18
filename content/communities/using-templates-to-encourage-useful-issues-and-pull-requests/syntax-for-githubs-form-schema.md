@@ -7,6 +7,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Create issue and pull request templates
 ---
 
 > [!NOTE]

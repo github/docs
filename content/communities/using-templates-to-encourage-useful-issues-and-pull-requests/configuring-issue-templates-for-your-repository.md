@@ -10,6 +10,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Configure
+category:
+  - Create issue and pull request templates
 ---
 
 {% data reusables.repositories.default-issue-templates %}

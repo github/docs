@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: View blocked users in account
+category:
+  - Block users and report abuse
 ---
 
 {% data reusables.user-settings.access_settings %}
