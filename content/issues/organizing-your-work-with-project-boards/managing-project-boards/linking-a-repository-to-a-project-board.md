@@ -9,6 +9,8 @@ versions:
   feature: projects-v1
 shortTitle: Link repository to board
 allowTitleToDifferFromFilename: true
+category:
+  - Use project boards (classic)
 ---
 {% data reusables.projects.project_boards_old %}
 

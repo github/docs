@@ -5,6 +5,8 @@ intro: You can show the type of the issue in your projects.
 versions:
   feature: issue-types
 contentType: tutorials
+category:
+  - Manage project items and fields
 ---
 
 If your organization uses issue types, you can enable the "Type" field on your projects to see the issue type and how the issue is classified in your organization, such as a bug, task, or feature.

@@ -9,6 +9,8 @@ versions:
   ghes: '*'
 allowTitleToDifferFromFilename: true
 contentType: tutorials
+category:
+  - Set up and manage projects
 ---
 
 You can download a view as a _.tsv_ (tab-separated) file.

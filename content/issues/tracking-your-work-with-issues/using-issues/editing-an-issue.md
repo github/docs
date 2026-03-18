@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Create and work with issues
 ---
 
 ## Editing an issue title

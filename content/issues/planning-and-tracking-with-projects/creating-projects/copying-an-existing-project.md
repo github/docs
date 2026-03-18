@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 allowTitleToDifferFromFilename: true
 contentType: tutorials
+category:
+  - Set up and manage projects
 ---
 
 ## About copying projects

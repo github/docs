@@ -10,6 +10,8 @@ versions:
   ghes: '*'
 permissions: Anyone with write access for a project can add a status update. Anyone with read access for a project can view status updates and subscribe.
 contentType: concepts
+category:
+  - Set up and manage projects
 ---
 
 ## About status updates

@@ -12,6 +12,8 @@ versions:
   ghec: '*'
 shortTitle: Create & edit milestones
 contentType: how-tos
+category:
+  - Triage and organize issues
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}

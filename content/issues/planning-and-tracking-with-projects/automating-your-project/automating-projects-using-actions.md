@@ -11,6 +11,8 @@ redirect_from:
 allowTitleToDifferFromFilename: true
 layout: inline
 contentType: tutorials
+category:
+  - Automate your project
 ---
 
 

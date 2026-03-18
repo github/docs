@@ -8,6 +8,8 @@ versions:
 shortTitle: Managing issue types
 permissions: Organization owners can modify issue types.
 contentType: concepts
+category:
+  - Triage and organize issues
 ---
 
 You can use issue types to classify and manage different types of issues across your organization. You can create up to {% data variables.projects.issue_type_limit %} issue types that your organization members can apply to issues, making it easier for you and your members to find issues and plan work.

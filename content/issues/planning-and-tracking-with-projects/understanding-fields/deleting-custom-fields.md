@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /issues/planning-and-tracking-with-projects/understanding-field-types/deleting-fields
 contentType: tutorials
+category:
+  - Manage project items and fields
 ---
 
 {% data reusables.projects.project-settings %}

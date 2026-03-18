@@ -5,27 +5,26 @@ intro: 'Learn how you can use {% data variables.product.prodname_github_issues %
 introLinks:
   overview: /issues/tracking-your-work-with-issues/learning-about-issues/about-issues
   quickstart: /issues/tracking-your-work-with-issues/learning-about-issues/quickstart
-featuredLinks:
-  startHere:
-    - /issues/tracking-your-work-with-issues/using-issues/creating-an-issue
+includedCategories:
+  - Create and work with issues
+  - Triage and organize issues
+  - Set up and manage projects
+  - Manage project items and fields
+  - Customize project views and insights
+  - Automate your project
+  - Use project boards (classic)
+carousels:
+  recommended:
+    - /issues/tracking-your-work-with-issues/learning-about-issues/quickstart
+    - /issues/tracking-your-work-with-issues/learning-about-issues/about-issues
+    - /issues/tracking-your-work-with-issues/learning-about-issues/planning-and-tracking-work-for-your-team-or-project
     - /issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects
     - /issues/planning-and-tracking-with-projects/learning-about-projects/best-practices-for-projects
-    - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
-    - /issues/tracking-your-work-with-issues/learning-about-issues/planning-and-tracking-work-for-your-team-or-project
-  guideCards:
+    - /issues/tracking-your-work-with-issues/using-issues/creating-an-issue
     - /issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view
-    - /issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue
-    - '{% ifversion ghes %}/issues/organizing-your-work-with-project-boards/managing-project-boards/configuring-automation-for-project-boards{% endif %}'
-    - /issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions
-  popular:
-    - /issues/tracking-your-work-with-issues/learning-about-issues/about-issues
-    - /issues/planning-and-tracking-with-projects/learning-about-projects/about-projects
-    - /issues/planning-and-tracking-with-projects/creating-projects/creating-a-project
-    - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates
-    - /issues/using-labels-and-milestones-to-track-work/managing-labels
-    - /issues/tracking-your-work-with-issues/using-issues/viewing-all-of-your-issues-and-pull-requests
-    - '{% ifversion ghes %}/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards{% endif %}'
-layout: product-landing
+    - /issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations
+    - /issues/tracking-your-work-with-issues/administering-issues/triaging-an-issue-with-ai
+layout: discovery-landing
 beta_product: false
 versions:
   fpt: '*'

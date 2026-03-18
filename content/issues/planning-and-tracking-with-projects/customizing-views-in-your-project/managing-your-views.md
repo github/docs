@@ -6,6 +6,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: tutorials
+category:
+  - Customize project views and insights
 ---
 
 

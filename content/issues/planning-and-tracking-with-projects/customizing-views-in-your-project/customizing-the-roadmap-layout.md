@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: tutorials
+category:
+  - Customize project views and insights
 ---
 
 ## About the roadmap layout

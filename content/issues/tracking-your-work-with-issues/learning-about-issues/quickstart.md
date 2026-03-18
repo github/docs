@@ -10,6 +10,8 @@ redirect_from:
   - /issues/tracking-your-work-with-issues/quickstart
   - /issues/tracking-your-work-with-issues/configuring-issues/quickstart
 contentType: get-started
+category:
+  - Create and work with issues
 ---
 
 ## Introduction
