@@ -12,6 +12,8 @@ redirect_from:
 versions:
   fpt: '*'
 shortTitle: About
+category:
+  - Apply for GitHub Education
 ---
 
 {% data reusables.education.about-github-education-link %}
