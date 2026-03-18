@@ -11,7 +11,6 @@ export interface Parameter {
 }
 
 export interface BodyParameter {
-  in: string
   name: string
   description: string
   type: string
