@@ -22,8 +22,8 @@ You can create your own skills to teach {% data variables.product.prodname_copil
 
 {% data variables.product.prodname_copilot_short %} supports:
 
-* Project skills, stored in your repository (`.agents/skills`, `.github/skills` or `.claude/skills`)
-* Personal skills, stored in your home directory and shared across projects (`~/.agents/skills`, `~/.copilot/skills` or `~/.claude/skills`) ({% data variables.copilot.copilot_coding_agent %} and {% data variables.copilot.copilot_cli %} only)
+* Project skills, stored in your repository (`.github/skills/`, `.agents/skills/` or `.claude/skills/`)
+* Personal skills, stored in your home directory and shared across projects (`~/.copilot/skills/` or `~/.claude/skills/`) ({% data variables.copilot.copilot_coding_agent %} and {% data variables.copilot.copilot_cli %} only)
 
 Support for organization-level and enterprise-level skills is coming soon.
 
