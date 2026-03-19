@@ -66,6 +66,9 @@ Here is the rendered version of the issue form.
 You can encourage contributors to use issue templates by setting `blank_issues_enabled` to `false`. If you set `blank_issues_enabled` to `true`, people will have the option to open a blank issue.
 
 > [!NOTE]
+> When `blank_issues_enabled` is set to `false`, users with write access or above (Write, Maintain, or Admin roles) will still see the "Blank issue" option in the template chooser, labeled "Maintainers only." This allows maintainers to bypass template restrictions when needed. Contributors with Read or Triage access will only see the configured templates.
+
+> [!NOTE]
 > If you used the legacy workflow to manually create an `issue_template.md` file in the `.github` folder and enable blank issues in your _config.yml_ file, the template in `issue_template.md` will be used when people choose to open a blank issue. If you disable blank issues, the template will never be used.
 
 If you prefer to receive certain reports outside of {% data variables.product.github %}, you can direct people to external sites with `contact_links`.
