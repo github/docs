@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Follow the style guide and content model
 ---
 
 Procedural content helps people complete a task from start to finish while they are using {% data variables.product.prodname_dotcom %}.
