@@ -340,6 +340,10 @@ export function correctTranslatedContentStrings(
     content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?ou [^%]*?%\}/g, (match) => {
       return match.replace(/ ou /g, ' or ')
     })
+    // French decimal comma in version numbers: `3,16` → `3.16`
+    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?%\}/g, (match) => {
+      return match.replace(/(\d),(\d)/g, '$1.$2')
+    })
     // Translated block tags
     content = content.replaceAll('{% remarque %}', '{% note %}')
     content = content.replaceAll('{%- remarque %}', '{%- note %}')
@@ -460,6 +464,7 @@ export function correctTranslatedContentStrings(
 
   // Common Latin-script typos across multiple languages.
   content = content.replaceAll('{% variables.', '{% data variables.')
+  content = content.replaceAll('{% reusables.', '{% data reusables.')
   content = content.replaceAll('{% datavariables', '{% data variables')
 
   // Empty `{% %}` corruptions where the tag name was removed.
