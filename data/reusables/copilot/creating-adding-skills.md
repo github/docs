@@ -6,9 +6,9 @@ To add a skill, you save the `SKILL.md` file, and any subsidiary resources, to a
 
 1. Create a `skills` directory to store your skill and any others you may want to create in the future.
 
-    For **project skills**, specific to a single repository, store your skill under `.github/skills` or `.claude/skills`.
+    For **project skills**, specific to a single repository, store your skill under `.agents/skills`, `.github/skills` or `.claude/skills`.
 
-    For **personal skills**, shared across projects, store your skill under `~/.copilot/skills` or `~/.claude/skills`.
+    For **personal skills**, shared across projects, store your skill under `~/.agents/skills`, `~/.copilot/skills` or `~/.claude/skills`.
 
 1. Create a subdirectory for your new skill. Each skill should have its own directory (for example, `.github/skills/webapp-testing`).
 
