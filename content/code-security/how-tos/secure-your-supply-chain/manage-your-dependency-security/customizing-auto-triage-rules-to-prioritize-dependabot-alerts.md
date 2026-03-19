@@ -16,9 +16,9 @@ contentType: how-tos
 
 ## About {% data variables.dependabot.custom_rules %}
 
-You can create your own {% data variables.dependabot.auto_triage_rules %} based on alert metadata. You can choose to auto-dismiss alerts indefinitely, or snooze alerts until a patch becomes available, and you can specify which alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for. Rules are applied before alert notifications are sent, so creating custom rules that auto-dismiss low-risk alerts will reduce notification noise from future matching alerts.
+You can create your own {% data variables.dependabot.auto_triage_rules %} based on alert metadata. You can choose to auto-dismiss alerts indefinitely, or snooze alerts until a patch becomes available, and you can specify which {% data variables.product.prodname_dependabot_alerts %} you want {% data variables.product.prodname_dependabot %} to open pull requests for. Rules are applied before alert notifications are sent, so creating custom rules that auto-dismiss low-risk alerts will reduce future notification noise.
 
-Since any rules that you create apply to both future and current alerts, you can also use {% data variables.dependabot.auto_triage_rules_short %} to manage your {% data variables.product.prodname_dependabot_alerts %} in bulk.
+Since any rules that you create apply to both future and current alerts, you can also use {% data variables.dependabot.auto_triage_rules_short %} to manage your alerts in bulk.
 
 Repository administrators can create {% data variables.dependabot.custom_rules %} for their repositories. {% ifversion fpt or ghec %}For private or internal repositories, this requires {% data variables.product.prodname_GH_code_security %}.{% elsif ghes %}This requires {% data variables.product.prodname_GH_code_security %}.{% endif %}
 
@@ -45,7 +45,11 @@ You can create rules to target alerts using the following metadata:
 
 ### Understanding how {% data variables.dependabot.custom_rules %} and {% data variables.product.prodname_dependabot_security_updates %} interact
 
-You can use {% data variables.dependabot.custom_rules %} to tailor which alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for. However, for an "open a pull request" rule to take effect, you must ensure that {% data variables.product.prodname_dependabot_security_updates %} are **disabled** for the repository (or repositories) that the rule should apply to.
+{% ifversion dependabot-malware-alerts %}
+{% data reusables.dependabot.no-prs-for-malware-alerts %}
+{% endif %}
+
+You can use {% data variables.dependabot.custom_rules %} to tailor which {% data variables.product.prodname_dependabot_alerts %} you want {% data variables.product.prodname_dependabot %} to open pull requests for. However, for an "open a pull request" rule to take effect, you must ensure that {% data variables.product.prodname_dependabot_security_updates %} are **disabled** for the repository (or repositories) that the rule should apply to.
 
 When {% data variables.product.prodname_dependabot_security_updates %} are enabled for a repository, {% data variables.product.prodname_dependabot %} will automatically try to open pull requests to resolve **every** open {% data variables.product.prodname_dependabot %} alert that has an available patch. If you prefer to customize this behavior using a rule, you must leave {% data variables.product.prodname_dependabot_security_updates %} disabled.
 
@@ -66,7 +70,10 @@ For more information about enabling or disabling {% data variables.product.prodn
 {% data reusables.dependabot.target-alerts-metadata %}
 1. Under "Rules", select the action you want to take on alerts that match the metadata:
    * Select **Dismiss alerts** to auto-dismiss alerts that match the metadata. You can choose to dismiss alerts indefinitely or until a patch is available.
-   * Select **Open a pull request to resolve this alert** if you want {% data variables.product.prodname_dependabot %} to suggest changes to resolve alerts that match the targeted metadata. Note that this option is unavailable if you have already selected the option to dismiss alerts indefinitely, or if {% data variables.product.prodname_dependabot_security_updates %} are enabled in your repository settings.
+   * Select **Open a pull request to resolve this alert** if you want {% data variables.product.prodname_dependabot %} to suggest changes to resolve alerts that match the targeted metadata. Note that this option is unavailable if you have already selected the option to dismiss alerts indefinitely, or if {% data variables.product.prodname_dependabot_security_updates %} are enabled in your repository settings.{% ifversion dependabot-malware-alerts %}
+
+      {% data reusables.dependabot.no-prs-for-malware-alerts %}{% endif %}
+
 {% data reusables.dependabot.dependabot-alert-rules-click-create-rule %}
 
 ## Adding {% data variables.dependabot.custom_rules %} to your organization

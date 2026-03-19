@@ -1,0 +1,659 @@
+{
+  "licenses": [
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/licenses",
+      "title": "Get all commonly used licenses",
+      "category": "licenses",
+      "subcategory": "licenses",
+      "parameters": [
+        {
+          "name": "featured",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          },
+          "description": ""
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists the most commonly used licenses on GitHub. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository\">Licensing a repository </a>.\"</p>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json"
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "key": "mit",
+                "name": "MIT License",
+                "spdx_id": "MIT",
+                "url": "https://api.github.com/licenses/mit",
+                "node_id": "MDc6TGljZW5zZW1pdA=="
+              },
+              {
+                "key": "lgpl-3.0",
+                "name": "GNU Lesser General Public License v3.0",
+                "spdx_id": "LGPL-3.0",
+                "url": "https://api.github.com/licenses/lgpl-3.0",
+                "node_id": "MDc6TGljZW5zZW1pdA=="
+              },
+              {
+                "key": "mpl-2.0",
+                "name": "Mozilla Public License 2.0",
+                "spdx_id": "MPL-2.0",
+                "url": "https://api.github.com/licenses/mpl-2.0",
+                "node_id": "MDc6TGljZW5zZW1pdA=="
+              },
+              {
+                "key": "agpl-3.0",
+                "name": "GNU Affero General Public License v3.0",
+                "spdx_id": "AGPL-3.0",
+                "url": "https://api.github.com/licenses/agpl-3.0",
+                "node_id": "MDc6TGljZW5zZW1pdA=="
+              },
+              {
+                "key": "unlicense",
+                "name": "The Unlicense",
+                "spdx_id": "Unlicense",
+                "url": "https://api.github.com/licenses/unlicense",
+                "node_id": "MDc6TGljZW5zZW1pdA=="
+              },
+              {
+                "key": "apache-2.0",
+                "name": "Apache License 2.0",
+                "spdx_id": "Apache-2.0",
+                "url": "https://api.github.com/licenses/apache-2.0",
+                "node_id": "MDc6TGljZW5zZW1pdA=="
+              },
+              {
+                "key": "gpl-3.0",
+                "name": "GNU General Public License v3.0",
+                "spdx_id": "GPL-3.0",
+                "url": "https://api.github.com/licenses/gpl-3.0",
+                "node_id": "MDc6TGljZW5zZW1pdA=="
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "License Simple",
+                "description": "License Simple",
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string",
+                    "examples": [
+                      "mit"
+                    ]
+                  },
+                  "name": {
+                    "type": "string",
+                    "examples": [
+                      "MIT License"
+                    ]
+                  },
+                  "url": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "uri",
+                    "examples": [
+                      "https://api.github.com/licenses/mit"
+                    ]
+                  },
+                  "spdx_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "examples": [
+                      "MIT"
+                    ]
+                  },
+                  "node_id": {
+                    "type": "string",
+                    "examples": [
+                      "MDc6TGljZW5zZW1pdA=="
+                    ]
+                  },
+                  "html_url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "key",
+                  "name",
+                  "url",
+                  "spdx_id",
+                  "node_id"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "304",
+          "description": "<p>Not modified</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [],
+        "allowPermissionlessAccess": true,
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/licenses/{license}",
+      "title": "Get a license",
+      "category": "licenses",
+      "subcategory": "licenses",
+      "parameters": [
+        {
+          "name": "license",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": ""
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets information about a specific license. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository\">Licensing a repository </a>.\"</p>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "license": "LICENSE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "key": "mit",
+              "name": "MIT License",
+              "spdx_id": "MIT",
+              "url": "https://api.github.com/licenses/mit",
+              "node_id": "MDc6TGljZW5zZW1pdA==",
+              "html_url": "http://choosealicense.com/licenses/mit/",
+              "description": "A permissive license that is short and to the point. It lets people do anything with your code with proper attribution and without warranty.",
+              "implementation": "Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [year] with the current year and [fullname] with the name (or names) of the copyright holders.",
+              "permissions": [
+                "commercial-use",
+                "modifications",
+                "distribution",
+                "sublicense",
+                "private-use"
+              ],
+              "conditions": [
+                "include-copyright"
+              ],
+              "limitations": [
+                "no-liability"
+              ],
+              "body": "\n\nThe MIT License (MIT)\n\nCopyright (c) [year] [fullname]\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n",
+              "featured": true
+            },
+            "schema": {
+              "title": "License",
+              "description": "License",
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "examples": [
+                    "mit"
+                  ]
+                },
+                "name": {
+                  "type": "string",
+                  "examples": [
+                    "MIT License"
+                  ]
+                },
+                "spdx_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "MIT"
+                  ]
+                },
+                "url": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "uri",
+                  "examples": [
+                    "https://api.github.com/licenses/mit"
+                  ]
+                },
+                "node_id": {
+                  "type": "string",
+                  "examples": [
+                    "MDc6TGljZW5zZW1pdA=="
+                  ]
+                },
+                "html_url": {
+                  "type": "string",
+                  "format": "uri",
+                  "examples": [
+                    "http://choosealicense.com/licenses/mit/"
+                  ]
+                },
+                "description": {
+                  "type": "string",
+                  "examples": [
+                    "A permissive license that is short and to the point. It lets people do anything with your code with proper attribution and without warranty."
+                  ]
+                },
+                "implementation": {
+                  "type": "string",
+                  "examples": [
+                    "Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [year] with the current year and [fullname] with the name (or names) of the copyright holders."
+                  ]
+                },
+                "permissions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "examples": [
+                    "commercial-use",
+                    "modifications",
+                    "distribution",
+                    "sublicense",
+                    "private-use"
+                  ]
+                },
+                "conditions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "examples": [
+                    "include-copyright"
+                  ]
+                },
+                "limitations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "examples": [
+                    "no-liability"
+                  ]
+                },
+                "body": {
+                  "type": "string",
+                  "examples": [
+                    "\n\nThe MIT License (MIT)\n\nCopyright (c) [year] [fullname]\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+                  ]
+                },
+                "featured": {
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ]
+                }
+              },
+              "required": [
+                "key",
+                "name",
+                "url",
+                "spdx_id",
+                "node_id",
+                "html_url",
+                "description",
+                "implementation",
+                "permissions",
+                "conditions",
+                "limitations",
+                "body",
+                "featured"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "304",
+          "description": "<p>Not modified</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [],
+        "allowPermissionlessAccess": true,
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/license",
+      "title": "Get the license for a repository",
+      "category": "licenses",
+      "subcategory": "licenses",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "ref",
+          "description": "<p>The Git reference for the results you want to list. The <code>ref</code> for a branch can be formatted either as <code>refs/heads/&#x3C;branch name></code> or simply <code>&#x3C;branch name></code>. To reference a pull request use <code>refs/pull/&#x3C;number>/merge</code>.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "description": "The Git reference, formatted as `refs/pull/<number>/merge`, `refs/pull/<number>/head`,\n`refs/heads/<branch name>` or simply `<branch name>`."
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>This method returns the contents of the repository's license file, if one is detected.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.20/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw contents of the license.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns the license contents in HTML. Markup languages are rendered to HTML using GitHub's open-source <a href=\"https://github.com/github/markup\">Markup library</a>.</li>\n</ul>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "name": "LICENSE",
+              "path": "LICENSE",
+              "sha": "401c59dcc4570b954dd6d345e76199e1f4e76266",
+              "size": 1077,
+              "url": "https://api.github.com/repos/benbalter/gman/contents/LICENSE?ref=master",
+              "html_url": "https://github.com/benbalter/gman/blob/master/LICENSE",
+              "git_url": "https://api.github.com/repos/benbalter/gman/git/blobs/401c59dcc4570b954dd6d345e76199e1f4e76266",
+              "download_url": "https://raw.githubusercontent.com/benbalter/gman/master/LICENSE?lab=true",
+              "type": "file",
+              "content": "VGhlIE1JVCBMaWNlbnNlIChNSVQpCgpDb3B5cmlnaHQgKGMpIDIwMTMgQmVu\nIEJhbHRlcgoKUGVybWlzc2lvbiBpcyBoZXJlYnkgZ3JhbnRlZCwgZnJlZSBv\nZiBjaGFyZ2UsIHRvIGFueSBwZXJzb24gb2J0YWluaW5nIGEgY29weSBvZgp0\naGlzIHNvZnR3YXJlIGFuZCBhc3NvY2lhdGVkIGRvY3VtZW50YXRpb24gZmls\nZXMgKHRoZSAiU29mdHdhcmUiKSwgdG8gZGVhbCBpbgp0aGUgU29mdHdhcmUg\nd2l0aG91dCByZXN0cmljdGlvbiwgaW5jbHVkaW5nIHdpdGhvdXQgbGltaXRh\ndGlvbiB0aGUgcmlnaHRzIHRvCnVzZSwgY29weSwgbW9kaWZ5LCBtZXJnZSwg\ncHVibGlzaCwgZGlzdHJpYnV0ZSwgc3VibGljZW5zZSwgYW5kL29yIHNlbGwg\nY29waWVzIG9mCnRoZSBTb2Z0d2FyZSwgYW5kIHRvIHBlcm1pdCBwZXJzb25z\nIHRvIHdob20gdGhlIFNvZnR3YXJlIGlzIGZ1cm5pc2hlZCB0byBkbyBzbywK\nc3ViamVjdCB0byB0aGUgZm9sbG93aW5nIGNvbmRpdGlvbnM6CgpUaGUgYWJv\ndmUgY29weXJpZ2h0IG5vdGljZSBhbmQgdGhpcyBwZXJtaXNzaW9uIG5vdGlj\nZSBzaGFsbCBiZSBpbmNsdWRlZCBpbiBhbGwKY29waWVzIG9yIHN1YnN0YW50\naWFsIHBvcnRpb25zIG9mIHRoZSBTb2Z0d2FyZS4KClRIRSBTT0ZUV0FSRSBJ\nUyBQUk9WSURFRCAiQVMgSVMiLCBXSVRIT1VUIFdBUlJBTlRZIE9GIEFOWSBL\nSU5ELCBFWFBSRVNTIE9SCklNUExJRUQsIElOQ0xVRElORyBCVVQgTk9UIExJ\nTUlURUQgVE8gVEhFIFdBUlJBTlRJRVMgT0YgTUVSQ0hBTlRBQklMSVRZLCBG\nSVRORVNTCkZPUiBBIFBBUlRJQ1VMQVIgUFVSUE9TRSBBTkQgTk9OSU5GUklO\nR0VNRU5ULiBJTiBOTyBFVkVOVCBTSEFMTCBUSEUgQVVUSE9SUyBPUgpDT1BZ\nUklHSFQgSE9MREVSUyBCRSBMSUFCTEUgRk9SIEFOWSBDTEFJTSwgREFNQUdF\nUyBPUiBPVEhFUiBMSUFCSUxJVFksIFdIRVRIRVIKSU4gQU4gQUNUSU9OIE9G\nIENPTlRSQUNULCBUT1JUIE9SIE9USEVSV0lTRSwgQVJJU0lORyBGUk9NLCBP\nVVQgT0YgT1IgSU4KQ09OTkVDVElPTiBXSVRIIFRIRSBTT0ZUV0FSRSBPUiBU\nSEUgVVNFIE9SIE9USEVSIERFQUxJTkdTIElOIFRIRSBTT0ZUV0FSRS4K\n",
+              "encoding": "base64",
+              "_links": {
+                "self": "https://api.github.com/repos/benbalter/gman/contents/LICENSE?ref=master",
+                "git": "https://api.github.com/repos/benbalter/gman/git/blobs/401c59dcc4570b954dd6d345e76199e1f4e76266",
+                "html": "https://github.com/benbalter/gman/blob/master/LICENSE"
+              },
+              "license": {
+                "key": "mit",
+                "name": "MIT License",
+                "spdx_id": "MIT",
+                "url": "https://api.github.com/licenses/mit",
+                "node_id": "MDc6TGljZW5zZW1pdA=="
+              }
+            },
+            "schema": {
+              "title": "License Content",
+              "description": "License Content",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "sha": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "integer"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "html_url": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "uri"
+                },
+                "git_url": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "uri"
+                },
+                "download_url": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "uri"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "content": {
+                  "type": "string"
+                },
+                "encoding": {
+                  "type": "string"
+                },
+                "_links": {
+                  "type": "object",
+                  "properties": {
+                    "git": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "uri"
+                    },
+                    "html": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "uri"
+                    },
+                    "self": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "git",
+                    "html",
+                    "self"
+                  ]
+                },
+                "license": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "title": "License Simple",
+                      "description": "License Simple",
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string",
+                          "examples": [
+                            "mit"
+                          ]
+                        },
+                        "name": {
+                          "type": "string",
+                          "examples": [
+                            "MIT License"
+                          ]
+                        },
+                        "url": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "format": "uri",
+                          "examples": [
+                            "https://api.github.com/licenses/mit"
+                          ]
+                        },
+                        "spdx_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "examples": [
+                            "MIT"
+                          ]
+                        },
+                        "node_id": {
+                          "type": "string",
+                          "examples": [
+                            "MDc6TGljZW5zZW1pdA=="
+                          ]
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "name",
+                        "url",
+                        "spdx_id",
+                        "node_id"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "_links",
+                "git_url",
+                "html_url",
+                "download_url",
+                "name",
+                "path",
+                "sha",
+                "size",
+                "type",
+                "url",
+                "content",
+                "encoding",
+                "license"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Metadata\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    }
+  ]
+}

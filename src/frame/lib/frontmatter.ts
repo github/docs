@@ -202,9 +202,6 @@ export const schema: Schema = {
       type: 'string',
       enum: contentTypesEnum,
     },
-    topics: {
-      type: 'array',
-    },
     includeGuides: {
       type: 'array',
     },

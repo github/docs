@@ -1,0 +1,3482 @@
+{
+  "billing": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/settings/billing/advanced-security",
+      "title": "Get GitHub Advanced Security active committers for an organization",
+      "category": "billing",
+      "subcategory": "billing",
+      "parameters": [
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "advanced_security_product",
+          "in": "query",
+          "description": "<p>The security product to get GitHub Advanced Security active committers for.</p>\n<p>For standalone Code Scanning or Secret Protection products, this parameter is required to specify which product you want committer information for. For other plans this parameter cannot be used.</p>",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "code_security",
+              "secret_protection"
+            ]
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets the GitHub Advanced Security active committers for an organization per repository.</p>\n<p>Each distinct user login across all repositories is counted as a single Advanced Security seat, so the <code>total_advanced_security_committers</code> is not the sum of advanced_security_committers for each repository.</p>\n<p>If this organization defers to an enterprise for billing, the <code>total_advanced_security_committers</code> returned from the organization API may include some users that are in more than one organization, so they will only consume a single Advanced Security seat at the enterprise level.</p>\n<p>The total number of repositories with committer information is tracked by the <code>total_count</code> field.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Success</p>",
+            "example": {
+              "total_advanced_security_committers": 2,
+              "total_count": 2,
+              "maximum_advanced_security_committers": 4,
+              "purchased_advanced_security_committers": 4,
+              "repositories": [
+                {
+                  "name": "octocat-org/Hello-World",
+                  "advanced_security_committers": 2,
+                  "advanced_security_committers_breakdown": [
+                    {
+                      "user_login": "octocat",
+                      "last_pushed_date": "2021-11-03",
+                      "last_pushed_email": "octocat@github.com"
+                    },
+                    {
+                      "user_login": "octokitten",
+                      "last_pushed_date": "2021-10-25",
+                      "last_pushed_email": "octokitten@github.com"
+                    }
+                  ]
+                },
+                {
+                  "name": "octocat-org/server",
+                  "advanced_security_committers": 1,
+                  "advanced_security_committers_breakdown": [
+                    {
+                      "user_login": "octokitten",
+                      "last_pushed_date": "2021-10-26",
+                      "last_pushed_email": "octokitten@github.com"
+                    }
+                  ]
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "total_advanced_security_committers": {
+                  "type": "integer"
+                },
+                "total_count": {
+                  "type": "integer"
+                },
+                "maximum_advanced_security_committers": {
+                  "type": "integer",
+                  "description": "The total number of GitHub Advanced Security licences required if all repositories were to enable GitHub Advanced Security"
+                },
+                "purchased_advanced_security_committers": {
+                  "type": "integer",
+                  "description": "The total number of GitHub Advanced Security licences purchased"
+                },
+                "repositories": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "advanced_security_committers": {
+                        "type": "integer"
+                      },
+                      "advanced_security_committers_breakdown": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "user_login": {
+                              "type": "string"
+                            },
+                            "last_pushed_date": {
+                              "type": "string"
+                            },
+                            "last_pushed_email": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "user_login",
+                            "last_pushed_date",
+                            "last_pushed_email"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "advanced_security_committers",
+                      "advanced_security_committers_breakdown"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "repositories"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Success</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" organization permissions": "read"
+          }
+        ]
+      }
+    }
+  ],
+  "budgets": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets",
+      "title": "Get all budgets",
+      "category": "billing",
+      "subcategory": "budgets",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of results to fetch.</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 10).</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 10
+          }
+        },
+        {
+          "name": "scope",
+          "description": "<p>Filter budgets by scope type.</p>",
+          "in": "query",
+          "schema": {
+            "type": "string",
+            "enum": [
+              "enterprise",
+              "organization",
+              "repository",
+              "cost_center"
+            ]
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets all budgets for an enterprise. The authenticated user must be an enterprise admin or billing manager.\nEach page returns up to 10 budgets.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when getting all budgets</p>",
+            "example": {
+              "budgets": [
+                {
+                  "id": "2066deda-923f-43f9-88d2-62395a28c0cdd",
+                  "budget_type": "ProductPricing",
+                  "budget_product_skus": [
+                    "actions"
+                  ],
+                  "budget_scope": "enterprise",
+                  "budget_amount": 1000,
+                  "prevent_further_usage": true,
+                  "budget_alerting": {
+                    "will_alert": true,
+                    "alert_recipients": [
+                      "enterprise-admin",
+                      "billing-manager"
+                    ]
+                  }
+                },
+                {
+                  "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+                  "budget_type": "SkuPricing",
+                  "budget_product_skus": [
+                    "actions_linux"
+                  ],
+                  "budget_scope": "organization",
+                  "budget_amount": 500,
+                  "prevent_further_usage": false,
+                  "budget_alerting": {
+                    "will_alert": true,
+                    "alert_recipients": [
+                      "org-owner"
+                    ]
+                  }
+                },
+                {
+                  "id": "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+                  "budget_type": "ProductPricing",
+                  "budget_product_skus": [
+                    "packages"
+                  ],
+                  "budget_scope": "cost_center",
+                  "budget_amount": 250,
+                  "prevent_further_usage": true,
+                  "budget_alerting": {
+                    "will_alert": false,
+                    "alert_recipients": []
+                  }
+                }
+              ],
+              "has_next_page": false,
+              "total_count": 3
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "budgets": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "The unique identifier for the budget"
+                      },
+                      "budget_type": {
+                        "description": "The type of pricing for the budget",
+                        "oneOf": [
+                          {
+                            "type": "string",
+                            "enum": [
+                              "SkuPricing"
+                            ]
+                          },
+                          {
+                            "type": "string",
+                            "enum": [
+                              "ProductPricing"
+                            ]
+                          }
+                        ]
+                      },
+                      "budget_amount": {
+                        "type": "integer",
+                        "description": "The budget amount limit in whole dollars. For license-based products, this represents the number of licenses."
+                      },
+                      "prevent_further_usage": {
+                        "type": "boolean",
+                        "description": "The type of limit enforcement for the budget"
+                      },
+                      "budget_scope": {
+                        "type": "string",
+                        "description": "The scope of the budget (enterprise, organization, repository, cost center)"
+                      },
+                      "budget_entity_name": {
+                        "type": "string",
+                        "description": "The name of the entity for the budget (enterprise does not require a name)."
+                      },
+                      "budget_product_sku": {
+                        "type": "string",
+                        "description": "A single product or sku to apply the budget to."
+                      },
+                      "budget_alerting": {
+                        "type": "object",
+                        "properties": {
+                          "will_alert": {
+                            "type": "boolean",
+                            "description": "Whether alerts are enabled for this budget"
+                          },
+                          "alert_recipients": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Array of user login names who will receive alerts"
+                          }
+                        },
+                        "required": [
+                          "will_alert",
+                          "alert_recipients"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "budget_type",
+                      "budget_product_sku",
+                      "budget_scope",
+                      "budget_amount",
+                      "prevent_further_usage",
+                      "budget_alerting"
+                    ]
+                  },
+                  "description": "Array of budget objects for the enterprise"
+                },
+                "has_next_page": {
+                  "type": "boolean",
+                  "description": "Indicates if there are more pages of results available (maps to hasNextPage from billing platform)"
+                },
+                "total_count": {
+                  "type": "integer",
+                  "description": "Total number of budgets matching the query"
+                }
+              },
+              "required": [
+                "budgets"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when getting all budgets</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets",
+      "title": "Create a budget",
+      "category": "billing",
+      "subcategory": "budgets",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "integer",
+          "name": "budget_amount",
+          "description": "<p>The budget amount in whole dollars. For license-based products, this represents the number of licenses.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "boolean",
+          "name": "prevent_further_usage",
+          "description": "<p>Whether to prevent additional spending once the budget is exceeded</p>",
+          "isRequired": true
+        },
+        {
+          "type": "object",
+          "name": "budget_alerting",
+          "description": "",
+          "isRequired": true,
+          "childParamsGroups": [
+            {
+              "type": "boolean",
+              "name": "will_alert",
+              "description": "<p>Whether alerts are enabled for this budget</p>",
+              "isRequired": true
+            },
+            {
+              "type": "array of strings",
+              "name": "alert_recipients",
+              "description": "<p>Array of user login names who will receive alerts</p>",
+              "isRequired": true
+            }
+          ]
+        },
+        {
+          "type": "string",
+          "name": "budget_scope",
+          "description": "<p>The scope of the budget</p>",
+          "isRequired": true,
+          "enum": [
+            "enterprise",
+            "organization",
+            "repository",
+            "cost_center"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "budget_entity_name",
+          "description": "<p>The name of the entity to apply the budget to</p>",
+          "default": ""
+        },
+        {
+          "type": "string",
+          "name": "budget_type",
+          "description": "<p>The type of pricing for the budget</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "budget_product_sku",
+          "description": "<p>A single product or SKU that will be covered in the budget</p>"
+        }
+      ],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Creates a new budget for an enterprise. The authenticated user must be an enterprise admin, organization admin, or billing manager of the enterprise.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Create budget example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "budget_amount": 200,
+              "prevent_further_usage": true,
+              "budget_scope": "enterprise",
+              "budget_entity_name": "",
+              "budget_type": "ProductPricing",
+              "budget_product_sku": "actions",
+              "budget_alerting": {
+                "will_alert": false,
+                "alert_recipients": []
+              }
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Budget created successfully</p>",
+            "example": {
+              "message": "Budget successfully created."
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "A message indicating the result of the create operation"
+                },
+                "budget": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "ID of the budget."
+                    },
+                    "budget_scope": {
+                      "type": "string",
+                      "description": "The type of scope for the budget",
+                      "enum": [
+                        "enterprise",
+                        "organization",
+                        "repository",
+                        "cost_center"
+                      ]
+                    },
+                    "budget_entity_name": {
+                      "type": "string",
+                      "description": "The name of the entity to apply the budget to"
+                    },
+                    "budget_amount": {
+                      "type": "number",
+                      "format": "float",
+                      "description": "The budget amount in dollars",
+                      "minimum": 0
+                    },
+                    "prevent_further_usage": {
+                      "type": "boolean",
+                      "description": "Whether to prevent additional spending once the budget is exceeded"
+                    },
+                    "budget_product_sku": {
+                      "type": "string",
+                      "description": "A single product or sku to apply the budget to."
+                    },
+                    "budget_type": {
+                      "description": "The type of pricing for the budget",
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "enum": [
+                            "ProductPricing"
+                          ]
+                        },
+                        {
+                          "type": "string",
+                          "enum": [
+                            "SkuPricing"
+                          ]
+                        }
+                      ]
+                    },
+                    "budget_alerting": {
+                      "type": "object",
+                      "properties": {
+                        "will_alert": {
+                          "type": "boolean",
+                          "description": "Whether alerts are enabled for this budget"
+                        },
+                        "alert_recipients": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Array of user login names who will receive alerts"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "message",
+                "budget"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Budget created successfully</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Feature not enabled</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal server error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}",
+      "title": "Get a budget by ID",
+      "category": "billing",
+      "subcategory": "budgets",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "budget_id",
+          "description": "<p>The ID corresponding to the budget.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets a budget by ID. The authenticated user must be an enterprise admin or billing manager.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "budget_id": "BUDGET_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when updating a budget</p>",
+            "example": {
+              "id": "2066deda-923f-43f9-88d2-62395a28c0cdd",
+              "budget_type": "ProductPricing",
+              "budget_product_sku": "actions_linux",
+              "budget_scope": "repository",
+              "budget_entity_name": "example-repo-name",
+              "budget_amount": 0,
+              "prevent_further_usage": true,
+              "budget_alerting": {
+                "will_alert": true,
+                "alert_recipients": [
+                  "mona",
+                  "lisa"
+                ]
+              }
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "ID of the budget."
+                },
+                "budget_scope": {
+                  "type": "string",
+                  "description": "The type of scope for the budget",
+                  "enum": [
+                    "enterprise",
+                    "organization",
+                    "repository",
+                    "cost_center"
+                  ]
+                },
+                "budget_entity_name": {
+                  "type": "string",
+                  "description": "The name of the entity to apply the budget to"
+                },
+                "budget_amount": {
+                  "type": "integer",
+                  "description": "The budget amount in whole dollars. For license-based products, this represents the number of licenses."
+                },
+                "prevent_further_usage": {
+                  "type": "boolean",
+                  "description": "Whether to prevent additional spending once the budget is exceeded"
+                },
+                "budget_product_sku": {
+                  "type": "string",
+                  "description": "A single product or sku to apply the budget to."
+                },
+                "budget_type": {
+                  "description": "The type of pricing for the budget",
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "ProductPricing"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "enum": [
+                        "SkuPricing"
+                      ]
+                    }
+                  ]
+                },
+                "budget_alerting": {
+                  "type": "object",
+                  "properties": {
+                    "will_alert": {
+                      "type": "boolean",
+                      "description": "Whether alerts are enabled for this budget"
+                    },
+                    "alert_recipients": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Array of user login names who will receive alerts"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "budget_amount",
+                "prevent_further_usage",
+                "budget_product_sku",
+                "budget_type",
+                "budget_alerting",
+                "budget_scope",
+                "budget_entity_name"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when updating a budget</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}",
+      "title": "Update a budget",
+      "category": "billing",
+      "subcategory": "budgets",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>The slug version of the enterprise name</p>"
+        },
+        {
+          "name": "budget_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>The unique identifier of the budget</p>"
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "integer",
+          "name": "budget_amount",
+          "description": "<p>The budget amount in whole dollars. For license-based products, this represents the number of licenses.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "prevent_further_usage",
+          "description": "<p>Whether to prevent additional spending once the budget is exceeded</p>"
+        },
+        {
+          "type": "object",
+          "name": "budget_alerting",
+          "description": "",
+          "childParamsGroups": [
+            {
+              "type": "boolean",
+              "name": "will_alert",
+              "description": "<p>Whether alerts are enabled for this budget</p>"
+            },
+            {
+              "type": "array of strings",
+              "name": "alert_recipients",
+              "description": "<p>Array of user login names who will receive alerts</p>"
+            }
+          ]
+        },
+        {
+          "type": "string",
+          "name": "budget_scope",
+          "description": "<p>The scope of the budget</p>",
+          "enum": [
+            "enterprise",
+            "organization",
+            "repository",
+            "cost_center"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "budget_entity_name",
+          "description": "<p>The name of the entity to apply the budget to</p>"
+        },
+        {
+          "type": "string",
+          "name": "budget_type",
+          "description": "<p>The type of pricing for the budget</p>"
+        },
+        {
+          "type": "string",
+          "name": "budget_product_sku",
+          "description": "<p>A single product or SKU that will be covered in the budget</p>"
+        }
+      ],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Updates an existing budget for an enterprise. The authenticated user must be an enterprise admin, organization admin, or billing manager of the enterprise.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Update budget example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "prevent_further_usage": false,
+              "budget_amount": 10,
+              "budget_alerting": {
+                "will_alert": false,
+                "alert_recipients": []
+              }
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "budget_id": "BUDGET_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Budget updated successfully</p>",
+            "example": {
+              "message": "Budget successfully updated.",
+              "budget": {
+                "id": "2066deda-923f-43f9-88d2-62395a28c0cdd",
+                "budget_type": "ProductPricing",
+                "budget_product_sku": "actions_linux",
+                "budget_scope": "repository",
+                "budget_entity_name": "org-name/example-repo-name",
+                "budget_amount": 0,
+                "prevent_further_usage": true,
+                "budget_alerting": {
+                  "will_alert": true,
+                  "alert_recipients": [
+                    "mona",
+                    "lisa"
+                  ]
+                }
+              }
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "A message indicating the result of the update operation"
+                },
+                "budget": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "ID of the budget."
+                    },
+                    "budget_scope": {
+                      "type": "string",
+                      "description": "The type of scope for the budget",
+                      "enum": [
+                        "enterprise",
+                        "organization",
+                        "repository",
+                        "cost_center"
+                      ]
+                    },
+                    "budget_entity_name": {
+                      "type": "string",
+                      "description": "The name of the entity to apply the budget to"
+                    },
+                    "budget_amount": {
+                      "type": "number",
+                      "format": "float",
+                      "description": "The budget amount in dollars",
+                      "minimum": 0
+                    },
+                    "prevent_further_usage": {
+                      "type": "boolean",
+                      "description": "Whether to prevent additional spending once the budget is exceeded"
+                    },
+                    "budget_product_sku": {
+                      "type": "string",
+                      "description": "A single product or sku to apply the budget to."
+                    },
+                    "budget_type": {
+                      "description": "The type of pricing for the budget",
+                      "oneOf": [
+                        {
+                          "type": "string",
+                          "enum": [
+                            "ProductPricing"
+                          ]
+                        },
+                        {
+                          "type": "string",
+                          "enum": [
+                            "SkuPricing"
+                          ]
+                        }
+                      ]
+                    },
+                    "budget_alerting": {
+                      "type": "object",
+                      "properties": {
+                        "will_alert": {
+                          "type": "boolean",
+                          "description": "Whether alerts are enabled for this budget"
+                        },
+                        "alert_recipients": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Array of user login names who will receive alerts"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "budget",
+                "message"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Budget updated successfully</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Budget not found or feature not enabled</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal server error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/budgets/{budget_id}",
+      "title": "Delete a budget",
+      "category": "billing",
+      "subcategory": "budgets",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "budget_id",
+          "description": "<p>The ID corresponding to the budget.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Deletes a budget by ID. The authenticated user must be an enterprise admin.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "budget_id": "BUDGET_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when deleting a budget</p>",
+            "example": {
+              "message": "Budget successfully deleted.",
+              "budget_id": "2c1feb79-3947-4dc8-a16e-80cbd732cc0b"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "A message indicating the result of the deletion operation"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "The ID of the deleted budget"
+                }
+              },
+              "required": [
+                "message",
+                "id"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when deleting a budget</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    }
+  ],
+  "cost-centers": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers",
+      "title": "Get all cost centers for an enterprise",
+      "category": "billing",
+      "subcategory": "cost-centers",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "state",
+          "in": "query",
+          "description": "<p>Set to <code>active</code> or <code>deleted</code> to only list cost centers in a specific state.</p>",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "active",
+              "deleted"
+            ]
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets a list of all the cost centers for an enterprise.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when getting cost centers</p>",
+            "example": {
+              "costCenters": [
+                {
+                  "id": "2eeb8ffe-6903-11ee-8c99-0242ac120002",
+                  "name": "Cost Center Name",
+                  "state": "active",
+                  "azure_subscription": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+                  "resources": [
+                    {
+                      "type": "User",
+                      "name": "Monalisa"
+                    },
+                    {
+                      "type": "Repo",
+                      "name": "octocat/hello-world"
+                    }
+                  ]
+                },
+                {
+                  "id": "3ffb9ffe-6903-11ee-8c99-0242ac120003",
+                  "name": "Another Cost Center",
+                  "state": "active",
+                  "resources": [
+                    {
+                      "type": "User",
+                      "name": "Octocat"
+                    }
+                  ]
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "costCenters": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "ID of the cost center."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Name of the cost center."
+                      },
+                      "state": {
+                        "type": "string",
+                        "description": "State of the cost center.",
+                        "enum": [
+                          "active",
+                          "deleted"
+                        ]
+                      },
+                      "azure_subscription": {
+                        "type": "string",
+                        "nullable": true,
+                        "description": "Azure subscription ID associated with the cost center. Only present for cost centers linked to Azure subscriptions."
+                      },
+                      "resources": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "description": "Type of the resource."
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "Name of the resource."
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "name"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "resources"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when getting cost centers</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers",
+      "title": "Create a new cost center",
+      "category": "billing",
+      "subcategory": "cost-centers",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "<p>The name of the cost center (max length 255 characters)</p>",
+          "isRequired": true
+        }
+      ],
+      "descriptionHTML": "<p>Creates a new cost center for an enterprise. The authenticated user must be an enterprise admin.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example request to create a cost center",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "name": "Engineering Team"
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Example response for a created cost center</p>",
+            "example": {
+              "id": "abc123",
+              "name": "Engineering Team",
+              "resources": []
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Unique identifier for the cost center"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Name of the cost center"
+                },
+                "azure_subscription": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Azure subscription ID associated with the cost center. Only present for cost centers linked to Azure subscriptions."
+                },
+                "state": {
+                  "type": "string",
+                  "description": "State of the cost center.",
+                  "enum": [
+                    "active",
+                    "deleted"
+                  ]
+                },
+                "resources": {
+                  "type": "array",
+                  "description": "List of resources assigned to this cost center",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "description": "Type of resource (User, Org, or Repo)"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Name/login of the resource"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Cost center created successfully</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad request</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal server error</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}",
+      "title": "Get a cost center by ID",
+      "category": "billing",
+      "subcategory": "cost-centers",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "cost_center_id",
+          "description": "<p>The ID corresponding to the cost center.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets a cost center by ID. The authenticated user must be an enterprise admin.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "cost_center_id": "COST_CENTER_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when getting a cost center</p>",
+            "example": {
+              "id": "2eeb8ffe-6903-11ee-8c99-0242ac120002",
+              "name": "Cost Center Name",
+              "state": "active",
+              "azure_subscription": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+              "resources": [
+                {
+                  "type": "User",
+                  "name": "Monalisa"
+                },
+                {
+                  "type": "Repo",
+                  "name": "octocat/hello-world"
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "ID of the cost center."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Name of the cost center."
+                },
+                "azure_subscription": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Azure subscription ID associated with the cost center. Only present for cost centers linked to Azure subscriptions."
+                },
+                "state": {
+                  "type": "string",
+                  "description": "State of the cost center.",
+                  "enum": [
+                    "active",
+                    "deleted"
+                  ]
+                },
+                "resources": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "description": "Type of the resource."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Name of the resource."
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "name"
+                    ]
+                  }
+                },
+                "has_next_page": {
+                  "type": "boolean",
+                  "description": "Indicates if there are more resources available for pagination. Only present when pagination is used."
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "resources"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when getting a cost center</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}",
+      "title": "Update a cost center name",
+      "category": "billing",
+      "subcategory": "cost-centers",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>The slug version of the enterprise name</p>"
+        },
+        {
+          "name": "cost_center_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "<p>The unique identifier of the cost center</p>"
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "<p>The new name for the cost center</p>",
+          "isRequired": true
+        }
+      ],
+      "descriptionHTML": "<p>Updates an existing cost center name.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Update cost center name example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "name": "New Cost Center Name"
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "cost_center_id": "COST_CENTER_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when updating a cost center</p>",
+            "example": {
+              "id": "2eeb8ffe-6903-11ee-8c99-0242ac120002",
+              "name": "Cost Center Name",
+              "state": "active",
+              "azure_subscription": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+              "resources": [
+                {
+                  "type": "User",
+                  "name": "Monalisa"
+                },
+                {
+                  "type": "Repo",
+                  "name": "octocat/hello-world"
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "ID of the cost center."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Name of the cost center."
+                },
+                "azure_subscription": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Azure subscription ID associated with the cost center. Only present for cost centers linked to Azure subscriptions."
+                },
+                "state": {
+                  "type": "string",
+                  "description": "State of the cost center.",
+                  "enum": [
+                    "active",
+                    "deleted"
+                  ]
+                },
+                "resources": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "description": "Type of the resource."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Name of the resource."
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "name"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "resources"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when updating a cost center</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}",
+      "title": "Delete a cost center",
+      "category": "billing",
+      "subcategory": "cost-centers",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "cost_center_id",
+          "description": "<p>The ID corresponding to the cost center.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Archieves a cost center by ID. The authenticated user must be an enterprise admin.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "cost_center_id": "COST_CENTER_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when deleting a cost center</p>",
+            "example": {
+              "message": "Cost center successfully deleted.",
+              "id": "2066deda-923f-43f9-88d2-62395a28c0cdd",
+              "name": "cc3",
+              "costCenterState": "CostCenterArchived"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "description": "A message indicating the result of the deletion operation"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "The unique identifier of the deleted cost center"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The name of the deleted cost center"
+                },
+                "costCenterState": {
+                  "type": "string",
+                  "enum": [
+                    "CostCenterArchived"
+                  ],
+                  "description": "The state of the cost center after deletion"
+                }
+              },
+              "required": [
+                "message",
+                "id",
+                "name",
+                "costCenterState"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when deleting a cost center</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource",
+      "title": "Add resources to a cost center",
+      "category": "billing",
+      "subcategory": "cost-centers",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "cost_center_id",
+          "description": "<p>The ID corresponding to the cost center.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of strings",
+          "name": "users",
+          "description": "<p>The usernames of the users to add to the cost center.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "organizations",
+          "description": "<p>The organizations to add to the cost center.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "repositories",
+          "description": "<p>The repositories to add to the cost center.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Adds resources to a cost center.</p>\n<p>The usage for the resources will be charged to the cost center's budget. The authenticated user must be an enterprise admin in order to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "users": [
+                "monalisa"
+              ]
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "cost_center_id": "COST_CENTER_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when adding resources to a cost center</p>",
+            "example": {
+              "message": "Resources successfully added to the cost center.",
+              "reassigned_resources": [
+                {
+                  "resource_type": "user",
+                  "name": "monalisa",
+                  "previous_cost_center": "old-cost-center"
+                },
+                {
+                  "resource_type": "organization",
+                  "name": "octo-org",
+                  "previous_cost_center": "another-cost-center"
+                },
+                {
+                  "resource_type": "repository",
+                  "name": "octo-repo",
+                  "previous_cost_center": "yet-another-cost-center"
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "reassigned_resources": {
+                  "type": "array",
+                  "nullable": true,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "resource_type": {
+                        "type": "string",
+                        "description": "The type of resource that was reassigned."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "The name of the resource that was reassigned."
+                      },
+                      "previous_cost_center": {
+                        "type": "string",
+                        "description": "The previous cost center of the resource."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when adding resources to a cost center</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource",
+      "title": "Remove resources from a cost center",
+      "category": "billing",
+      "subcategory": "cost-centers",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "cost_center_id",
+          "description": "<p>The ID corresponding to the cost center.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of strings",
+          "name": "users",
+          "description": "<p>The usernames of the users to remove from the cost center.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "organizations",
+          "description": "<p>The organizations to remove from the cost center.</p>"
+        },
+        {
+          "type": "array of strings",
+          "name": "repositories",
+          "description": "<p>The repositories to remove from the cost center.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Remove resources from a cost center.</p>\n<p>The usage for the resources will no longer be charged to the cost center's budget. The authenticated user must be an enterprise admin in order to use this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "users": [
+                "monalisa"
+              ]
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "cost_center_id": "COST_CENTER_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when removing resources from a cost center</p>",
+            "example": {
+              "message": "Resources successfully removed from the cost center."
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when removing resources from a cost center</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    }
+  ],
+  "usage": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/premium_request/usage",
+      "title": "Get billing premium request usage report for an enterprise",
+      "category": "billing",
+      "subcategory": "usage",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "year",
+          "description": "<p>If specified, only return results for a single year. The value of <code>year</code> is an integer with four digits representing a year. For example, <code>2025</code>. Default value is the current year.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "month",
+          "description": "<p>If specified, only return results for a single month. The value of <code>month</code> is an integer between <code>1</code> and <code>12</code>. Default value is the current month. If no year is specified the default <code>year</code> is used.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "day",
+          "description": "<p>If specified, only return results for a single day. The value of <code>day</code> is an integer between <code>1</code> and <code>31</code>. If no <code>year</code> or <code>month</code> is specified, the default <code>year</code> and <code>month</code> are used.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "organization",
+          "description": "<p>The organization name to query usage for. The name is not case sensitive.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "user",
+          "description": "<p>The user name to query usage for. The name is not case sensitive.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "model",
+          "description": "<p>The model name to query usage for. The name is not case sensitive.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "product",
+          "description": "<p>The product name to query usage for. The name is not case sensitive.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "cost_center_id",
+          "description": "<p>The ID corresponding to a cost center. An ID of 'none' will target usage not associated to any cost center.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets a report of premium request usage for an enterprise. To use this endpoint, you must be an administrator or billing manager of the enterprise.</p>\n<p><strong>Note:</strong> Only data from the past 24 months is accessible via this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when getting a billing premium request usage report</p>",
+            "example": {
+              "timePeriod": {
+                "year": 2025
+              },
+              "enterprise": "GitHub",
+              "usageItems": [
+                {
+                  "product": "Copilot",
+                  "sku": "Copilot Premium Request",
+                  "model": "GPT-5",
+                  "unitType": "requests",
+                  "pricePerUnit": 0.04,
+                  "grossQuantity": 100,
+                  "grossAmount": 4,
+                  "discountQuantity": 0,
+                  "discountAmount": 0,
+                  "netQuantity": 100,
+                  "netAmount": 4
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "timePeriod": {
+                  "type": "object",
+                  "properties": {
+                    "year": {
+                      "type": "integer",
+                      "description": "The year for the usage report."
+                    },
+                    "month": {
+                      "type": "integer",
+                      "description": "The month for the usage report."
+                    },
+                    "day": {
+                      "type": "integer",
+                      "description": "The day for the usage report."
+                    }
+                  },
+                  "required": [
+                    "year"
+                  ]
+                },
+                "enterprise": {
+                  "type": "string",
+                  "description": "The name of the enterprise for the usage report."
+                },
+                "user": {
+                  "type": "string",
+                  "description": "The name of the user for the usage report."
+                },
+                "organization": {
+                  "type": "string",
+                  "description": "The name of the organization for the usage report."
+                },
+                "product": {
+                  "type": "string",
+                  "description": "The product for the usage report."
+                },
+                "model": {
+                  "type": "string",
+                  "description": "The model for the usage report."
+                },
+                "costCenter": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The unique identifier of the cost center."
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The name of the cost center."
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ]
+                },
+                "usageItems": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "product": {
+                        "type": "string",
+                        "description": "Product name."
+                      },
+                      "sku": {
+                        "type": "string",
+                        "description": "SKU name."
+                      },
+                      "model": {
+                        "type": "string",
+                        "description": "Model name."
+                      },
+                      "unitType": {
+                        "type": "string",
+                        "description": "Unit type of the usage line item."
+                      },
+                      "pricePerUnit": {
+                        "type": "number",
+                        "description": "Price per unit of the usage line item."
+                      },
+                      "grossQuantity": {
+                        "type": "number",
+                        "description": "Gross quantity of the usage line item."
+                      },
+                      "grossAmount": {
+                        "type": "number",
+                        "description": "Gross amount of the usage line item."
+                      },
+                      "discountQuantity": {
+                        "type": "number",
+                        "description": "Discount quantity of the usage line item."
+                      },
+                      "discountAmount": {
+                        "type": "number",
+                        "description": "Discount amount of the usage line item."
+                      },
+                      "netQuantity": {
+                        "type": "number",
+                        "description": "Net quantity of the usage line item."
+                      },
+                      "netAmount": {
+                        "type": "number",
+                        "description": "Net amount of the usage line item."
+                      }
+                    },
+                    "required": [
+                      "product",
+                      "sku",
+                      "model",
+                      "unitType",
+                      "pricePerUnit",
+                      "grossQuantity",
+                      "grossAmount",
+                      "discountQuantity",
+                      "discountAmount",
+                      "netQuantity",
+                      "netAmount"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "timePeriod",
+                "enterprise",
+                "usageItems"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when getting a billing premium request usage report</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/usage",
+      "title": "Get billing usage report for an enterprise",
+      "category": "billing",
+      "subcategory": "usage",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "year",
+          "description": "<p>If specified, only return results for a single year. The value of <code>year</code> is an integer with four digits representing a year. For example, <code>2025</code>. Default value is the current year.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "month",
+          "description": "<p>If specified, only return results for a single month. The value of <code>month</code> is an integer between <code>1</code> and <code>12</code>. If no year is specified the default <code>year</code> is used.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "day",
+          "description": "<p>If specified, only return results for a single day. The value of <code>day</code> is an integer between <code>1</code> and <code>31</code>. If no <code>year</code> or <code>month</code> is specified, the default <code>year</code> and <code>month</code> are used.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "cost_center_id",
+          "description": "<p>The ID corresponding to a cost center. The default value is no cost center.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets a report of usage by cost center for an enterprise. To use this endpoint, you must be an administrator or billing manager of the enterprise. By default this endpoint will return usage that does not have a cost center.</p>\n<p><strong>Note:</strong> This endpoint is only available to enterprises with access to the enhanced billing platform. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//billing/using-the-enhanced-billing-platform-for-enterprises/about-the-enhanced-billing-platform-for-enterprises#how-do-i-know-if-i-can-access-the-enhanced-billing-platform\">About the enhanced billing platform for enterprises</a>.\"</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when getting a billing usage report</p>",
+            "example": {
+              "usageItems": [
+                {
+                  "date": "2023-08-01",
+                  "product": "Actions",
+                  "sku": "Actions Linux",
+                  "quantity": 100,
+                  "unitType": "minutes",
+                  "pricePerUnit": 0.008,
+                  "grossAmount": 0.8,
+                  "discountAmount": 0,
+                  "netAmount": 0.8,
+                  "organizationName": "GitHub",
+                  "repositoryName": "github/example"
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "usageItems": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "date": {
+                        "type": "string",
+                        "description": "Date of the usage line item."
+                      },
+                      "product": {
+                        "type": "string",
+                        "description": "Product name."
+                      },
+                      "sku": {
+                        "type": "string",
+                        "description": "SKU name."
+                      },
+                      "quantity": {
+                        "type": "integer",
+                        "description": "Quantity of the usage line item."
+                      },
+                      "unitType": {
+                        "type": "string",
+                        "description": "Unit type of the usage line item."
+                      },
+                      "pricePerUnit": {
+                        "type": "number",
+                        "description": "Price per unit of the usage line item."
+                      },
+                      "grossAmount": {
+                        "type": "number",
+                        "description": "Gross amount of the usage line item."
+                      },
+                      "discountAmount": {
+                        "type": "number",
+                        "description": "Discount amount of the usage line item."
+                      },
+                      "netAmount": {
+                        "type": "number",
+                        "description": "Net amount of the usage line item."
+                      },
+                      "organizationName": {
+                        "type": "string",
+                        "description": "Name of the organization."
+                      },
+                      "repositoryName": {
+                        "type": "string",
+                        "description": "Name of the repository."
+                      }
+                    },
+                    "required": [
+                      "date",
+                      "product",
+                      "sku",
+                      "quantity",
+                      "unitType",
+                      "pricePerUnit",
+                      "grossAmount",
+                      "discountAmount",
+                      "netAmount",
+                      "organizationName"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when getting a billing usage report</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/usage/summary",
+      "title": "Get billing usage summary for an enterprise",
+      "category": "billing",
+      "subcategory": "usage",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "year",
+          "description": "<p>If specified, only return results for a single year. The value of <code>year</code> is an integer with four digits representing a year. For example, <code>2025</code>. Default value is the current year.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "month",
+          "description": "<p>If specified, only return results for a single month. The value of <code>month</code> is an integer between <code>1</code> and <code>12</code>. Default value is the current month. If no year is specified the default <code>year</code> is used.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "day",
+          "description": "<p>If specified, only return results for a single day. The value of <code>day</code> is an integer between <code>1</code> and <code>31</code>. If no <code>year</code> or <code>month</code> is specified, the default <code>year</code> and <code>month</code> are used.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "organization",
+          "description": "<p>The organization name to query usage for. The name is not case sensitive.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository name to query for usage in the format owner/repository.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "product",
+          "description": "<p>The product name to query usage for. The name is not case sensitive.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "sku",
+          "description": "<p>The SKU to query for usage.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "cost_center_id",
+          "description": "<p>The ID corresponding to a cost center. An ID of 'none' will target usage not associated to any cost center.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets a summary report of usage for an enterprise. To use this endpoint, you must be an administrator or billing manager of the enterprise. By default, this endpoint will return usage across all cost centers in the enterprise.</p>\n<p><strong>Note:</strong> Only data from the past 24 months is accessible via this endpoint.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response when getting a billing usage summary</p>",
+            "example": {
+              "timePeriod": {
+                "year": 2025
+              },
+              "enterprise": "GitHub",
+              "usageItems": [
+                {
+                  "product": "Actions",
+                  "sku": "actions_linux",
+                  "unitType": "minutes",
+                  "pricePerUnit": 0.008,
+                  "grossQuantity": 1000,
+                  "grossAmount": 8,
+                  "discountQuantity": 0,
+                  "discountAmount": 0,
+                  "netQuantity": 1000,
+                  "netAmount": 8
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "timePeriod": {
+                  "type": "object",
+                  "properties": {
+                    "year": {
+                      "type": "integer",
+                      "description": "The year for the usage report."
+                    },
+                    "month": {
+                      "type": "integer",
+                      "description": "The month for the usage report."
+                    },
+                    "day": {
+                      "type": "integer",
+                      "description": "The day for the usage report."
+                    }
+                  },
+                  "required": [
+                    "year"
+                  ]
+                },
+                "enterprise": {
+                  "type": "string",
+                  "description": "The name of the enterprise for the usage report."
+                },
+                "organization": {
+                  "type": "string",
+                  "description": "The name of the organization for the usage report."
+                },
+                "repository": {
+                  "type": "string",
+                  "description": "The name of the repository for the usage report."
+                },
+                "product": {
+                  "type": "string",
+                  "description": "The product for the usage report."
+                },
+                "sku": {
+                  "type": "string",
+                  "description": "The SKU for the usage report."
+                },
+                "costCenter": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "The unique identifier of the cost center."
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The name of the cost center."
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ]
+                },
+                "usageItems": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "product": {
+                        "type": "string",
+                        "description": "Product name."
+                      },
+                      "sku": {
+                        "type": "string",
+                        "description": "SKU name."
+                      },
+                      "unitType": {
+                        "type": "string",
+                        "description": "Unit type of the usage line item."
+                      },
+                      "pricePerUnit": {
+                        "type": "number",
+                        "description": "Price per unit of the usage line item."
+                      },
+                      "grossQuantity": {
+                        "type": "number",
+                        "description": "Gross quantity of the usage line item."
+                      },
+                      "grossAmount": {
+                        "type": "number",
+                        "description": "Gross amount of the usage line item."
+                      },
+                      "discountQuantity": {
+                        "type": "number",
+                        "description": "Discount quantity of the usage line item."
+                      },
+                      "discountAmount": {
+                        "type": "number",
+                        "description": "Discount amount of the usage line item."
+                      },
+                      "netQuantity": {
+                        "type": "number",
+                        "description": "Net quantity of the usage line item."
+                      },
+                      "netAmount": {
+                        "type": "number",
+                        "description": "Net amount of the usage line item."
+                      }
+                    },
+                    "required": [
+                      "product",
+                      "sku",
+                      "unitType",
+                      "pricePerUnit",
+                      "grossQuantity",
+                      "grossAmount",
+                      "discountQuantity",
+                      "discountAmount",
+                      "netQuantity",
+                      "netAmount"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "timePeriod",
+                "enterprise",
+                "usageItems"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Response when getting a billing usage summary</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": false,
+        "serverToServer": false,
+        "fineGrainedPat": false,
+        "permissions": []
+      }
+    }
+  ],
+  "usage-reports": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/reports",
+      "title": "List usage report exports",
+      "category": "billing",
+      "subcategory": "usage-reports",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Lists all usage report exports for an enterprise. The authenticated user must be an enterprise admin or billing manager.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>List of usage report exports</p>",
+            "example": {
+              "usage_report_exports": [
+                {
+                  "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                  "report_type": "detailed",
+                  "start_date": "2024-01-01",
+                  "end_date": "2024-01-31",
+                  "status": "completed",
+                  "download_urls": [
+                    "https://github.com/enterprises/github/metered_exports/1234"
+                  ],
+                  "created_at": "2024-01-15T10:30:00Z",
+                  "actor": "monalisa"
+                },
+                {
+                  "id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+                  "report_type": "summarized",
+                  "start_date": "2024-01-01",
+                  "end_date": "2024-01-31",
+                  "status": "processing",
+                  "created_at": "2024-01-14T09:00:00Z",
+                  "actor": "monalisa"
+                },
+                {
+                  "id": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+                  "report_type": "premium_request",
+                  "start_date": "2024-01-01",
+                  "end_date": "2024-01-31",
+                  "status": "processing",
+                  "created_at": "2024-01-13T08:00:00Z",
+                  "actor": "octocat"
+                }
+              ]
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "usage_report_exports": {
+                  "type": "array",
+                  "description": "List of usage report exports",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Unique identifier for the usage report export"
+                      },
+                      "report_type": {
+                        "type": "string",
+                        "description": "The type of usage report",
+                        "enum": [
+                          "detailed",
+                          "summarized",
+                          "premium_request"
+                        ]
+                      },
+                      "start_date": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "The start date for the report"
+                      },
+                      "end_date": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "The end date for the report"
+                      },
+                      "status": {
+                        "type": "string",
+                        "description": "The current status of the report export",
+                        "enum": [
+                          "processing",
+                          "completed",
+                          "failed"
+                        ]
+                      },
+                      "download_urls": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "URLs to download the completed report. Only present when the report status is `completed`."
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "When the report export was created"
+                      },
+                      "actor": {
+                        "type": "string",
+                        "description": "The login of the user who requested the export"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "report_type",
+                      "start_date",
+                      "end_date",
+                      "status"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "usage_report_exports"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>List of usage report exports</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Enterprise administration\" enterprise permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/reports",
+      "title": "Create a usage report export",
+      "category": "billing",
+      "subcategory": "usage-reports",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "report_type",
+          "description": "<p>The type of usage report to generate</p>",
+          "isRequired": true,
+          "enum": [
+            "detailed",
+            "summarized",
+            "premium_request"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "start_date",
+          "description": "<p>The start date for the report in YYYY-MM-DD format</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "end_date",
+          "description": "<p>The end date for the report in YYYY-MM-DD format. Defaults to today (UTC) if not provided.</p>"
+        },
+        {
+          "type": "boolean",
+          "name": "send_email",
+          "description": "<p>Whether to send an email notification to the requester when the report is ready. Defaults to false.</p>",
+          "default": false
+        }
+      ],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Initiates the generation of a usage report export for an enterprise. The report will be processed asynchronously\nand can be downloaded once completed. The authenticated user must be an enterprise admin or billing manager.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "report_type": "detailed",
+              "start_date": "2024-01-01",
+              "end_date": "2024-01-31"
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "202",
+            "contentType": "application/json",
+            "description": "<p>Report export request accepted</p>",
+            "example": {
+              "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "report_type": "detailed",
+              "start_date": "2024-01-01",
+              "end_date": "2024-01-31",
+              "status": "completed",
+              "download_urls": [
+                "https://github.com/enterprises/github/metered_exports/1234"
+              ],
+              "created_at": "2024-01-15T10:30:00Z",
+              "actor": "monalisa"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "Unique identifier for the usage report export"
+                },
+                "report_type": {
+                  "type": "string",
+                  "description": "The type of usage report",
+                  "enum": [
+                    "detailed",
+                    "summarized",
+                    "premium_request"
+                  ]
+                },
+                "start_date": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The start date for the report"
+                },
+                "end_date": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The end date for the report"
+                },
+                "status": {
+                  "type": "string",
+                  "description": "The current status of the report export",
+                  "enum": [
+                    "processing",
+                    "completed",
+                    "failed"
+                  ]
+                },
+                "download_urls": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "URLs to download the completed report. Only present when the report status is `completed`."
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "When the report export was created"
+                },
+                "actor": {
+                  "type": "string",
+                  "description": "The login of the user who requested the export"
+                }
+              },
+              "required": [
+                "id",
+                "report_type",
+                "start_date",
+                "end_date",
+                "status"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "202",
+          "description": "<p>Report export request accepted</p>"
+        },
+        {
+          "httpStatusCode": "400",
+          "description": "<p>Bad Request</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Enterprise administration\" enterprise permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/settings/billing/reports/{report_id}",
+      "title": "Get a usage report export",
+      "category": "billing",
+      "subcategory": "usage-reports",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "report_id",
+          "description": "<p>The unique identifier (UUID) for the usage report export.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets the status and details of a usage report export by ID. The authenticated user must be an enterprise admin or billing manager.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "report_id": "REPORT_ID"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Usage report export details</p>",
+            "example": {
+              "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+              "report_type": "detailed",
+              "start_date": "2024-01-01",
+              "end_date": "2024-01-31",
+              "status": "completed",
+              "download_urls": [
+                "https://github.com/enterprises/github/metered_exports/1234"
+              ],
+              "created_at": "2024-01-15T10:30:00Z",
+              "actor": "monalisa"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "Unique identifier for the usage report export"
+                },
+                "report_type": {
+                  "type": "string",
+                  "description": "The type of usage report",
+                  "enum": [
+                    "detailed",
+                    "summarized",
+                    "premium_request"
+                  ]
+                },
+                "start_date": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The start date for the report"
+                },
+                "end_date": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "The end date for the report"
+                },
+                "status": {
+                  "type": "string",
+                  "description": "The current status of the report export",
+                  "enum": [
+                    "processing",
+                    "completed",
+                    "failed"
+                  ]
+                },
+                "download_urls": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "URLs to download the completed report. Only present when the report status is `completed`."
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "description": "When the report export was created"
+                },
+                "actor": {
+                  "type": "string",
+                  "description": "The login of the user who requested the export"
+                }
+              },
+              "required": [
+                "id",
+                "report_type",
+                "start_date",
+                "end_date",
+                "status"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Usage report export details</p>"
+        },
+        {
+          "httpStatusCode": "401",
+          "description": "<p>Requires authentication</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "500",
+          "description": "<p>Internal Error</p>"
+        },
+        {
+          "httpStatusCode": "503",
+          "description": "<p>Service unavailable</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Enterprise administration\" enterprise permissions": "write"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -49,3 +49,20 @@ environment:
 ```
 
 {% endraw %}
+
+{% ifversion actions-environments-without-deployments %}
+
+### Example: Using an environment without creating a deployment
+
+Set `deployment` to `false` to use an environment's secrets and variables without creating a deployment object.
+
+```yaml
+environment:
+  name: testing
+  deployment: false
+```
+
+Setting `deployment: false` is not compatible with custom deployment protection rules.
+For more information, see [AUTOTITLE](/actions/how-tos/deploy/configure-and-manage-deployments/control-deployments#using-environments-without-deployments).
+
+{% endif %}

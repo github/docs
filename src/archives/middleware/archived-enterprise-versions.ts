@@ -120,15 +120,24 @@ export default async function archivedEnterpriseVersions(
       return res.safeRedirect(redirectCode, redirectTo)
     }
 
-    const redirectJson = (await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
-      retry: retryConfiguration,
-      // This is allowed to be different compared to the other requests
-      // we make because downloading the `redirects.json` once is very
-      // useful because it caches so well.
-      // And, as of 2021 that `redirects.json` is 10MB so it's more likely
-      // to time out.
-      timeout: { response: 1000 },
-    })) as Record<string, string>
+    let redirectJson: Record<string, string>
+    try {
+      redirectJson = (await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
+        retry: retryConfiguration,
+        // This is allowed to be different compared to the other requests
+        // we make because downloading the `redirects.json` once is very
+        // useful because it caches so well.
+        // And, as of 2021 that `redirects.json` is 10MB so it's more likely
+        // to time out.
+        timeout: { response: 1000 },
+      })) as Record<string, string>
+    } catch (err) {
+      logger.error('Failed to fetch archived redirects.json', {
+        version: requestedVersion,
+        error: err instanceof Error ? err : new Error(String(err)),
+      })
+      throw err
+    }
     if (!req.context) throw new Error('No context on request')
     const [language, withoutLanguage] = splitPathByLanguage(req.path, req.context.userLanguage)
     const newRedirectTo = redirectJson[withoutLanguage]
@@ -179,15 +188,24 @@ export default async function archivedEnterpriseVersions(
     versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`) &&
     !deprecatedWithFunctionalRedirects.includes(requestedVersion)
   ) {
-    const redirectJson = (await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
-      retry: retryConfiguration,
-      // This is allowed to be different compared to the other requests
-      // we make because downloading the `redirects.json` once is very
-      // useful because it caches so well.
-      // And, as of 2021 that `redirects.json` is 10MB so it's more likely
-      // to time out.
-      timeout: { response: 1000 },
-    })) as Record<string, string>
+    let redirectJson: Record<string, string>
+    try {
+      redirectJson = (await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
+        retry: retryConfiguration,
+        // This is allowed to be different compared to the other requests
+        // we make because downloading the `redirects.json` once is very
+        // useful because it caches so well.
+        // And, as of 2021 that `redirects.json` is 10MB so it's more likely
+        // to time out.
+        timeout: { response: 1000 },
+      })) as Record<string, string>
+    } catch (err) {
+      logger.error('Failed to fetch archived redirects.json', {
+        version: requestedVersion,
+        error: err instanceof Error ? err : new Error(String(err)),
+      })
+      throw err
+    }
 
     // make redirects found via redirects.json redirect with a 301
     if (redirectJson[req.path]) {
@@ -230,12 +248,20 @@ export default async function archivedEnterpriseVersions(
 
   // Log errors for non-200 responses to help identify issues with archived content
   if (r.status !== 200) {
+    let upstreamBody: string | undefined
+    try {
+      upstreamBody = await r.text()
+    } catch {
+      // ignore — body reading failure shouldn't affect error handling
+    }
     logger.error('Failed to fetch archived enterprise content', {
       version: requestedVersion,
       path: req.path,
       status: r.status,
+      statusText: r.statusText,
       responseTime: `${responseTime}ms`,
       url: getProxyPath(req.path, requestedVersion),
+      upstreamBody: upstreamBody?.slice(0, 500),
     })
   }
 

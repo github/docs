@@ -1,0 +1,537 @@
+{
+  "meta": [
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/",
+      "title": "GitHub API Root",
+      "category": "meta",
+      "subcategory": "meta",
+      "parameters": [],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Get Hypermedia links to resources accessible in GitHub's REST API</p>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json"
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "current_user_url": "https://api.github.com/user",
+              "current_user_authorizations_html_url": "https://github.com/settings/connections/applications{/client_id}",
+              "authorizations_url": "https://api.github.com/authorizations",
+              "code_search_url": "https://api.github.com/search/code?q={query}{&page,per_page,sort,order}",
+              "commit_search_url": "https://api.github.com/search/commits?q={query}{&page,per_page,sort,order}",
+              "emails_url": "https://api.github.com/user/emails",
+              "emojis_url": "https://api.github.com/emojis",
+              "events_url": "https://api.github.com/events",
+              "feeds_url": "https://api.github.com/feeds",
+              "followers_url": "https://api.github.com/user/followers",
+              "following_url": "https://api.github.com/user/following{/target}",
+              "gists_url": "https://api.github.com/gists{/gist_id}",
+              "hub_url": "https://api.github.com/hub",
+              "issue_search_url": "https://api.github.com/search/issues?q={query}{&page,per_page,sort,order}",
+              "issues_url": "https://api.github.com/issues",
+              "keys_url": "https://api.github.com/user/keys",
+              "label_search_url": "https://api.github.com/search/labels?q={query}&repository_id={repository_id}{&page,per_page}",
+              "notifications_url": "https://api.github.com/notifications",
+              "organization_url": "https://api.github.com/orgs/{org}",
+              "organization_repositories_url": "https://api.github.com/orgs/{org}/repos{?type,page,per_page,sort}",
+              "organization_teams_url": "https://api.github.com/orgs/{org}/teams",
+              "public_gists_url": "https://api.github.com/gists/public",
+              "rate_limit_url": "https://api.github.com/rate_limit",
+              "repository_url": "https://api.github.com/repos/{owner}/{repo}",
+              "repository_search_url": "https://api.github.com/search/repositories?q={query}{&page,per_page,sort,order}",
+              "current_user_repositories_url": "https://api.github.com/user/repos{?type,page,per_page,sort}",
+              "starred_url": "https://api.github.com/user/starred{/owner}{/repo}",
+              "starred_gists_url": "https://api.github.com/gists/starred",
+              "topic_search_url": "https://api.github.com/search/topics?q={query}{&page,per_page}",
+              "user_url": "https://api.github.com/users/{user}",
+              "user_organizations_url": "https://api.github.com/user/orgs",
+              "user_repositories_url": "https://api.github.com/users/{user}/repos{?type,page,per_page,sort}",
+              "user_search_url": "https://api.github.com/search/users?q={query}{&page,per_page,sort,order}"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "current_user_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "current_user_authorizations_html_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "authorizations_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "code_search_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "commit_search_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "emails_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "emojis_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "events_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "feeds_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "followers_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "following_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "gists_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "hub_url": {
+                  "type": "string",
+                  "format": "uri-template",
+                  "deprecated": true
+                },
+                "issue_search_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "issues_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "keys_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "label_search_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "notifications_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "organization_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "organization_repositories_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "organization_teams_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "public_gists_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "rate_limit_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "repository_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "repository_search_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "current_user_repositories_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "starred_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "starred_gists_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "topic_search_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "user_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "user_organizations_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "user_repositories_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                },
+                "user_search_url": {
+                  "type": "string",
+                  "format": "uri-template"
+                }
+              },
+              "required": [
+                "current_user_url",
+                "current_user_authorizations_html_url",
+                "authorizations_url",
+                "code_search_url",
+                "commit_search_url",
+                "emails_url",
+                "emojis_url",
+                "events_url",
+                "feeds_url",
+                "followers_url",
+                "following_url",
+                "gists_url",
+                "issue_search_url",
+                "issues_url",
+                "keys_url",
+                "label_search_url",
+                "notifications_url",
+                "organization_url",
+                "organization_repositories_url",
+                "organization_teams_url",
+                "public_gists_url",
+                "rate_limit_url",
+                "repository_url",
+                "repository_search_url",
+                "current_user_repositories_url",
+                "starred_url",
+                "starred_gists_url",
+                "user_url",
+                "user_organizations_url",
+                "user_repositories_url",
+                "user_search_url"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [],
+        "allowPermissionlessAccess": true,
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/meta",
+      "title": "Get GitHub Enterprise Server meta information",
+      "category": "meta",
+      "subcategory": "meta",
+      "parameters": [],
+      "bodyParameters": [],
+      "descriptionHTML": "",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json"
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "verifiable_password_authentication": true,
+              "packages": [
+                "192.0.2.1"
+              ],
+              "domains": {
+                "website": [
+                  "*.example.com"
+                ],
+                "codespaces": [
+                  "*.example.com"
+                ],
+                "copilot": [
+                  "*.example.com"
+                ],
+                "packages": [
+                  "*.example.com"
+                ]
+              },
+              "installed_version": "3.17.0"
+            },
+            "schema": {
+              "title": "Api Overview",
+              "description": "Api Overview",
+              "type": "object",
+              "properties": {
+                "verifiable_password_authentication": {
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ]
+                },
+                "packages": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "examples": [
+                    "192.0.2.1"
+                  ]
+                },
+                "domains": {
+                  "type": "object",
+                  "properties": {
+                    "website": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "examples": [
+                          "example.com"
+                        ]
+                      }
+                    },
+                    "codespaces": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "examples": [
+                          "example.com"
+                        ]
+                      }
+                    },
+                    "copilot": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "examples": [
+                          "example.com"
+                        ]
+                      }
+                    },
+                    "packages": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "examples": [
+                          "example.com"
+                        ]
+                      }
+                    },
+                    "actions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "examples": [
+                          "example.com"
+                        ]
+                      }
+                    },
+                    "actions_inbound": {
+                      "type": "object",
+                      "properties": {
+                        "full_domains": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "examples": [
+                              "example.com"
+                            ]
+                          }
+                        },
+                        "wildcard_domains": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "examples": [
+                              "example.com"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "artifact_attestations": {
+                      "type": "object",
+                      "properties": {
+                        "trust_domain": {
+                          "type": "string",
+                          "examples": [
+                            "example"
+                          ]
+                        },
+                        "services": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "examples": [
+                              "example.com"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "installed_version": {
+                  "type": "string",
+                  "examples": [
+                    "3.17.0"
+                  ]
+                }
+              },
+              "required": [
+                "verifiable_password_authentication"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "304",
+          "description": "<p>Not modified</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [],
+        "allowPermissionlessAccess": true,
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/octocat",
+      "title": "Get Octocat",
+      "category": "meta",
+      "subcategory": "meta",
+      "parameters": [
+        {
+          "name": "s",
+          "in": "query",
+          "description": "<p>The words to show in Octocat's speech bubble</p>",
+          "schema": {
+            "type": "string"
+          },
+          "required": false
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Get the octocat as ASCII art</p>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json"
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/octocat-stream",
+            "description": "<p>Response</p>",
+            "example": "               MMM.           .MMM\n               MMMMMMMMMMMMMMMMMMM\n               MMMMMMMMMMMMMMMMMMM      ___________________________________\n              MMMMMMMMMMMMMMMMMMMMM    |                                   |\n             MMMMMMMMMMMMMMMMMMMMMMM   | Avoid administrative distraction. |\n            MMMMMMMMMMMMMMMMMMMMMMMM   |_   _______________________________|\n            MMMM::- -:::::::- -::MMMM    |/\n             MM~:~ 00~:::::~ 00~:~MM\n        .. MMMMM::.00:::+:::.00::MMMMM ..\n              .MM::::: ._. :::::MM.\n                 MMMM;:::::;MMMM\n          -MM        MMMMMMM\n          ^  M+     MMMMMMMMM\n              MMMMMMM MM MM MM\n                   MM MM MM MM\n                   MM MM MM MM\n                .~~MM~MM~MM~MM~~.\n             ~~~~MM:~MM~~~MM~:MM~~~~\n            ~~~~~~==~==~~~==~==~~~~~~\n             ~~~~~~==~==~==~==~~~~~~\n                 :~==~==~==~==~~\n",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [],
+        "allowPermissionlessAccess": true,
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/zen",
+      "title": "Get the Zen of GitHub",
+      "category": "meta",
+      "subcategory": "meta",
+      "parameters": [],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Get a random sentence from the Zen of GitHub</p>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json"
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "text/plain",
+            "description": "<p>Example response</p>",
+            "example": "Responsive is better than fast",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [],
+        "allowPermissionlessAccess": true,
+        "allowsPublicRead": true
+      }
+    }
+  ]
+}

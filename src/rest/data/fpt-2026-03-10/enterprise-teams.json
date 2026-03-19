@@ -1,0 +1,2633 @@
+{
+  "enterprise-teams": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/teams",
+      "title": "List enterprise teams",
+      "category": "enterprise-teams",
+      "subcategory": "enterprise-teams",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>List all teams in the enterprise for the authenticated user</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "id": 1,
+                "name": "Justice League",
+                "description": "A great team.",
+                "slug": "justice-league",
+                "url": "https://api.github.com/enterprises/dc/teams/justice-league",
+                "group_id": "62ab9291-fae2-468e-974b-7e45096d5021",
+                "html_url": "https://github.com/enterprises/dc/teams/justice-league",
+                "members_url": "https://api.github.com/enterprises/dc/teams/justice-league/members{/member}",
+                "created_at": "2019-01-26T19:01:12Z",
+                "updated_at": "2019-01-26T19:14:43Z"
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Enterprise Team",
+                "description": "Group of enterprise owners and/or members",
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "slug": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "sync_to_organizations": {
+                    "type": "string",
+                    "description": "Retired: this field will not be returned with GHEC enterprise teams."
+                  },
+                  "organization_selection_type": {
+                    "type": "string"
+                  },
+                  "group_id": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "group_name": {
+                    "nullable": true,
+                    "type": "string",
+                    "description": "Retired: this field will not be returned with GHEC enterprise teams."
+                  },
+                  "html_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "members_url": {
+                    "type": "string"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "id",
+                  "url",
+                  "members_url",
+                  "name",
+                  "html_url",
+                  "slug",
+                  "created_at",
+                  "updated_at",
+                  "group_id"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise teams\" enterprise permissions": "read"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/teams",
+      "title": "Create an enterprise team",
+      "category": "enterprise-teams",
+      "subcategory": "enterprise-teams",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "name",
+          "description": "<p>The name of the team.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string or null",
+          "name": "description",
+          "description": "<p>A description of the team.</p>"
+        },
+        {
+          "type": "string",
+          "name": "sync_to_organizations",
+          "description": "<p>Retired: this field is no longer supported.\nWhether the enterprise team should be reflected in each organization.\nThis value cannot be set.</p>",
+          "enum": [
+            "all",
+            "disabled"
+          ],
+          "default": "disabled"
+        },
+        {
+          "type": "string",
+          "name": "organization_selection_type",
+          "description": "<p>Specifies which organizations in the enterprise should have access to this team. Can be one of <code>disabled</code>, <code>selected</code>, or <code>all</code>.\n<code>disabled</code>: The team is not assigned to any organizations. This is the default when you create a new team.\n<code>selected</code>: The team is assigned to specific organizations. You can then use the <a href=\"https://docs.github.com/rest/enterprise-teams/enterprise-team-organizations#add-organization-assignments\">add organization assignments API</a> endpoint.\n<code>all</code>: The team is assigned to all current and future organizations in the enterprise.</p>",
+          "enum": [
+            "disabled",
+            "selected",
+            "all"
+          ],
+          "default": "disabled"
+        },
+        {
+          "type": "string or null",
+          "name": "group_id",
+          "description": "<p>The ID of the IdP group to assign team membership with. You can get this value from the <a href=\"https://docs.github.com/rest/scim#list-provisioned-scim-groups-for-an-enterprise\">REST API endpoints for SCIM</a>.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>To create an enterprise team, the authenticated user must be an owner of the enterprise.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "name": "Justice League",
+              "description": "A great team.",
+              "group_id": "62ab9291-fae2-468e-974b-7e45096d5021"
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "id": 1,
+              "name": "Justice League",
+              "description": "A great team.",
+              "slug": "justice-league",
+              "url": "https://api.github.com/enterprises/dc/teams/justice-league",
+              "group_id": "62ab9291-fae2-468e-974b-7e45096d5021",
+              "html_url": "https://github.com/enterprises/dc/teams/justice-league",
+              "members_url": "https://api.github.com/enterprises/dc/teams/justice-league/members{/member}",
+              "created_at": "2019-01-26T19:01:12Z",
+              "updated_at": "2019-01-26T19:14:43Z"
+            },
+            "schema": {
+              "title": "Enterprise Team",
+              "description": "Group of enterprise owners and/or members",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "sync_to_organizations": {
+                  "type": "string",
+                  "description": "Retired: this field will not be returned with GHEC enterprise teams."
+                },
+                "organization_selection_type": {
+                  "type": "string"
+                },
+                "group_id": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "group_name": {
+                  "nullable": true,
+                  "type": "string",
+                  "description": "Retired: this field will not be returned with GHEC enterprise teams."
+                },
+                "html_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "members_url": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "id",
+                "url",
+                "members_url",
+                "name",
+                "html_url",
+                "slug",
+                "created_at",
+                "updated_at",
+                "group_id"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>Created</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise teams\" enterprise permissions": "write"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/teams/{team_slug}",
+      "title": "Get an enterprise team",
+      "category": "enterprise-teams",
+      "subcategory": "enterprise-teams",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "team_slug",
+          "description": "<p>The slug of the team name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets a team using the team's slug. To create the slug, GitHub replaces special characters in the name string, changes all words to lowercase, and replaces spaces with a <code>-</code> separator and adds the \"ent:\" prefix. For example, \"My TEam Näme\" would become <code>ent:my-team-name</code>.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "team_slug": "TEAM_SLUG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "id": 1,
+              "name": "Justice League",
+              "description": "A great team.",
+              "slug": "justice-league",
+              "url": "https://api.github.com/enterprises/dc/teams/justice-league",
+              "group_id": "62ab9291-fae2-468e-974b-7e45096d5021",
+              "html_url": "https://github.com/enterprises/dc/teams/justice-league",
+              "members_url": "https://api.github.com/enterprises/dc/teams/justice-league/members{/member}",
+              "created_at": "2019-01-26T19:01:12Z",
+              "updated_at": "2019-01-26T19:14:43Z"
+            },
+            "schema": {
+              "title": "Enterprise Team",
+              "description": "Group of enterprise owners and/or members",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "sync_to_organizations": {
+                  "type": "string",
+                  "description": "Retired: this field will not be returned with GHEC enterprise teams."
+                },
+                "organization_selection_type": {
+                  "type": "string"
+                },
+                "group_id": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "group_name": {
+                  "nullable": true,
+                  "type": "string",
+                  "description": "Retired: this field will not be returned with GHEC enterprise teams."
+                },
+                "html_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "members_url": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "id",
+                "url",
+                "members_url",
+                "name",
+                "html_url",
+                "slug",
+                "created_at",
+                "updated_at",
+                "group_id"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise teams\" enterprise permissions": "read"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/teams/{team_slug}",
+      "title": "Update an enterprise team",
+      "category": "enterprise-teams",
+      "subcategory": "enterprise-teams",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "team_slug",
+          "description": "<p>The slug of the team name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string or null",
+          "name": "name",
+          "description": "<p>A new name for the team.</p>"
+        },
+        {
+          "type": "string or null",
+          "name": "description",
+          "description": "<p>A new description for the team.</p>"
+        },
+        {
+          "type": "string",
+          "name": "sync_to_organizations",
+          "description": "<p>Retired: this field is no longer supported.\nWhether the enterprise team should be reflected in each organization.\nThis value cannot be changed.</p>",
+          "enum": [
+            "all",
+            "disabled"
+          ],
+          "default": "disabled"
+        },
+        {
+          "type": "string",
+          "name": "organization_selection_type",
+          "description": "<p>Specifies which organizations in the enterprise should have access to this team. Can be one of <code>disabled</code>, <code>selected</code>, or <code>all</code>.\n<code>disabled</code>: The team is not assigned to any organizations. This is the default when you create a new team.\n<code>selected</code>: The team is assigned to specific organizations. You can then use the <a href=\"https://docs.github.com/rest/enterprise-teams/enterprise-team-organizations#add-organization-assignments\">add organization assignments API</a>.\n<code>all</code>: The team is assigned to all current and future organizations in the enterprise.</p>",
+          "enum": [
+            "disabled",
+            "selected",
+            "all"
+          ],
+          "default": "disabled"
+        },
+        {
+          "type": "string or null",
+          "name": "group_id",
+          "description": "<p>The ID of the IdP group to assign team membership with. The new IdP group will replace the existing one, or replace existing direct members if the team isn't currently linked to an IdP group.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>To edit a team, the authenticated user must be an enterprise owner.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "name": "Justice League",
+              "description": "A great team.",
+              "group_id": "62ab9291-fae2-468e-974b-7e45096d5021"
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "team_slug": "TEAM_SLUG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "id": 1,
+              "name": "Justice League",
+              "description": "A great team.",
+              "slug": "justice-league",
+              "url": "https://api.github.com/enterprises/dc/teams/justice-league",
+              "group_id": "62ab9291-fae2-468e-974b-7e45096d5021",
+              "html_url": "https://github.com/enterprises/dc/teams/justice-league",
+              "members_url": "https://api.github.com/enterprises/dc/teams/justice-league/members{/member}",
+              "created_at": "2019-01-26T19:01:12Z",
+              "updated_at": "2019-01-26T19:14:43Z"
+            },
+            "schema": {
+              "title": "Enterprise Team",
+              "description": "Group of enterprise owners and/or members",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "sync_to_organizations": {
+                  "type": "string",
+                  "description": "Retired: this field will not be returned with GHEC enterprise teams."
+                },
+                "organization_selection_type": {
+                  "type": "string"
+                },
+                "group_id": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "group_name": {
+                  "nullable": true,
+                  "type": "string",
+                  "description": "Retired: this field will not be returned with GHEC enterprise teams."
+                },
+                "html_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "members_url": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "id",
+                "url",
+                "members_url",
+                "name",
+                "html_url",
+                "slug",
+                "created_at",
+                "updated_at",
+                "group_id"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise teams\" enterprise permissions": "write"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/teams/{team_slug}",
+      "title": "Delete an enterprise team",
+      "category": "enterprise-teams",
+      "subcategory": "enterprise-teams",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "team_slug",
+          "description": "<p>The slug of the team name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>To delete an enterprise team, the authenticated user must be an enterprise owner.</p>\n<p>If you are an enterprise owner, deleting an enterprise team will delete all of its IdP mappings as well.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "team_slug": "TEAM_SLUG"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>No Content</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise teams\" enterprise permissions": "write"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    }
+  ],
+  "enterprise-team-members": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships",
+      "title": "List members in an enterprise team",
+      "category": "enterprise-teams",
+      "subcategory": "enterprise-team-members",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "enterprise-team",
+          "description": "<p>The slug version of the enterprise team name. You can also substitute this value with the enterprise team id.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Lists all team members in an enterprise team.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "enterprise-team": "ENTERPRISE-TEAM"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "login": "octocat",
+                "id": 1,
+                "node_id": "MDQ6VXNlcjE=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Simple User",
+                "description": "A GitHub user.",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "email": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "login": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "node_id": {
+                    "type": "string"
+                  },
+                  "avatar_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "gravatar_id": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "html_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "followers_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "following_url": {
+                    "type": "string"
+                  },
+                  "gists_url": {
+                    "type": "string"
+                  },
+                  "starred_url": {
+                    "type": "string"
+                  },
+                  "subscriptions_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "organizations_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "repos_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "events_url": {
+                    "type": "string"
+                  },
+                  "received_events_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "site_admin": {
+                    "type": "boolean"
+                  },
+                  "starred_at": {
+                    "type": "string"
+                  },
+                  "user_view_type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "avatar_url",
+                  "events_url",
+                  "followers_url",
+                  "following_url",
+                  "gists_url",
+                  "gravatar_id",
+                  "html_url",
+                  "id",
+                  "node_id",
+                  "login",
+                  "organizations_url",
+                  "received_events_url",
+                  "repos_url",
+                  "site_admin",
+                  "starred_url",
+                  "subscriptions_url",
+                  "type",
+                  "url"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise teams\" enterprise permissions": "read"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/add",
+      "title": "Bulk add team members",
+      "category": "enterprise-teams",
+      "subcategory": "enterprise-team-members",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "enterprise-team",
+          "description": "<p>The slug version of the enterprise team name. You can also substitute this value with the enterprise team id.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of strings",
+          "name": "usernames",
+          "description": "<p>The GitHub user handles to add to the team.</p>",
+          "isRequired": true
+        }
+      ],
+      "descriptionHTML": "<p>Add multiple team members to an enterprise team.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "usernames": [
+                "monalisa",
+                "octocat"
+              ]
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "enterprise-team": "ENTERPRISE-TEAM"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Successfully added team members.</p>",
+            "example": [
+              {
+                "login": "octocat",
+                "id": 1,
+                "node_id": "MDQ6VXNlcjE=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Simple User",
+                "description": "A GitHub user.",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "email": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "login": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "node_id": {
+                    "type": "string"
+                  },
+                  "avatar_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "gravatar_id": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "html_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "followers_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "following_url": {
+                    "type": "string"
+                  },
+                  "gists_url": {
+                    "type": "string"
+                  },
+                  "starred_url": {
+                    "type": "string"
+                  },
+                  "subscriptions_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "organizations_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "repos_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "events_url": {
+                    "type": "string"
+                  },
+                  "received_events_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "site_admin": {
+                    "type": "boolean"
+                  },
+                  "starred_at": {
+                    "type": "string"
+                  },
+                  "user_view_type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "avatar_url",
+                  "events_url",
+                  "followers_url",
+                  "following_url",
+                  "gists_url",
+                  "gravatar_id",
+                  "html_url",
+                  "id",
+                  "node_id",
+                  "login",
+                  "organizations_url",
+                  "received_events_url",
+                  "repos_url",
+                  "site_admin",
+                  "starred_url",
+                  "subscriptions_url",
+                  "type",
+                  "url"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Successfully added team members.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise teams\" enterprise permissions": "write"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/remove",
+      "title": "Bulk remove team members",
+      "category": "enterprise-teams",
+      "subcategory": "enterprise-team-members",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "enterprise-team",
+          "description": "<p>The slug version of the enterprise team name. You can also substitute this value with the enterprise team id.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of strings",
+          "name": "usernames",
+          "description": "<p>The GitHub user handles to be removed from the team.</p>",
+          "isRequired": true
+        }
+      ],
+      "descriptionHTML": "<p>Remove multiple team members from an enterprise team.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "usernames": [
+                "monalisa",
+                "octocat"
+              ]
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "enterprise-team": "ENTERPRISE-TEAM"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Successfully removed team members.</p>",
+            "example": [
+              {
+                "login": "octocat",
+                "id": 1,
+                "node_id": "MDQ6VXNlcjE=",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/octocat",
+                "html_url": "https://github.com/octocat",
+                "followers_url": "https://api.github.com/users/octocat/followers",
+                "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                "organizations_url": "https://api.github.com/users/octocat/orgs",
+                "repos_url": "https://api.github.com/users/octocat/repos",
+                "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/octocat/received_events",
+                "type": "User",
+                "site_admin": false
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Simple User",
+                "description": "A GitHub user.",
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "email": {
+                    "nullable": true,
+                    "type": "string"
+                  },
+                  "login": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "node_id": {
+                    "type": "string"
+                  },
+                  "avatar_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "gravatar_id": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "html_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "followers_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "following_url": {
+                    "type": "string"
+                  },
+                  "gists_url": {
+                    "type": "string"
+                  },
+                  "starred_url": {
+                    "type": "string"
+                  },
+                  "subscriptions_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "organizations_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "repos_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "events_url": {
+                    "type": "string"
+                  },
+                  "received_events_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "site_admin": {
+                    "type": "boolean"
+                  },
+                  "starred_at": {
+                    "type": "string"
+                  },
+                  "user_view_type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "avatar_url",
+                  "events_url",
+                  "followers_url",
+                  "following_url",
+                  "gists_url",
+                  "gravatar_id",
+                  "html_url",
+                  "id",
+                  "node_id",
+                  "login",
+                  "organizations_url",
+                  "received_events_url",
+                  "repos_url",
+                  "site_admin",
+                  "starred_url",
+                  "subscriptions_url",
+                  "type",
+                  "url"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Successfully removed team members.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise teams\" enterprise permissions": "write"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}",
+      "title": "Get enterprise team membership",
+      "category": "enterprise-teams",
+      "subcategory": "enterprise-team-members",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "enterprise-team",
+          "description": "<p>The slug version of the enterprise team name. You can also substitute this value with the enterprise team id.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "username",
+          "description": "<p>The handle for the GitHub user account.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns whether the user is a member of the enterprise team.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "enterprise-team": "ENTERPRISE-TEAM",
+              "username": "USERNAME"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>User is a member of the enterprise team.</p>",
+            "example": {
+              "login": "octocat",
+              "id": 1,
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "schema": {
+              "title": "Simple User",
+              "description": "A GitHub user.",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "email": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "login": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "avatar_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "gravatar_id": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "html_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "followers_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "following_url": {
+                  "type": "string"
+                },
+                "gists_url": {
+                  "type": "string"
+                },
+                "starred_url": {
+                  "type": "string"
+                },
+                "subscriptions_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "organizations_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "repos_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "events_url": {
+                  "type": "string"
+                },
+                "received_events_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "site_admin": {
+                  "type": "boolean"
+                },
+                "starred_at": {
+                  "type": "string"
+                },
+                "user_view_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "avatar_url",
+                "events_url",
+                "followers_url",
+                "following_url",
+                "gists_url",
+                "gravatar_id",
+                "html_url",
+                "id",
+                "node_id",
+                "login",
+                "organizations_url",
+                "received_events_url",
+                "repos_url",
+                "site_admin",
+                "starred_url",
+                "subscriptions_url",
+                "type",
+                "url"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>User is a member of the enterprise team.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise teams\" enterprise permissions": "read"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}",
+      "title": "Add team member",
+      "category": "enterprise-teams",
+      "subcategory": "enterprise-team-members",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "enterprise-team",
+          "description": "<p>The slug version of the enterprise team name. You can also substitute this value with the enterprise team id.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "username",
+          "description": "<p>The handle for the GitHub user account.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Add a team member to an enterprise team.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "enterprise-team": "ENTERPRISE-TEAM",
+              "username": "USERNAME"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Successfully added team member</p>",
+            "example": {
+              "login": "octocat",
+              "id": 1,
+              "node_id": "MDQ6VXNlcjE=",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/octocat",
+              "html_url": "https://github.com/octocat",
+              "followers_url": "https://api.github.com/users/octocat/followers",
+              "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+              "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+              "organizations_url": "https://api.github.com/users/octocat/orgs",
+              "repos_url": "https://api.github.com/users/octocat/repos",
+              "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/octocat/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "schema": {
+              "title": "Simple User",
+              "description": "A GitHub user.",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "email": {
+                  "nullable": true,
+                  "type": "string"
+                },
+                "login": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "avatar_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "gravatar_id": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "html_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "followers_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "following_url": {
+                  "type": "string"
+                },
+                "gists_url": {
+                  "type": "string"
+                },
+                "starred_url": {
+                  "type": "string"
+                },
+                "subscriptions_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "organizations_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "repos_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "events_url": {
+                  "type": "string"
+                },
+                "received_events_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "site_admin": {
+                  "type": "boolean"
+                },
+                "starred_at": {
+                  "type": "string"
+                },
+                "user_view_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "avatar_url",
+                "events_url",
+                "followers_url",
+                "following_url",
+                "gists_url",
+                "gravatar_id",
+                "html_url",
+                "id",
+                "node_id",
+                "login",
+                "organizations_url",
+                "received_events_url",
+                "repos_url",
+                "site_admin",
+                "starred_url",
+                "subscriptions_url",
+                "type",
+                "url"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>Successfully added team member</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise teams\" enterprise permissions": "write"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/memberships/{username}",
+      "title": "Remove team membership",
+      "category": "enterprise-teams",
+      "subcategory": "enterprise-team-members",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "enterprise-team",
+          "description": "<p>The slug version of the enterprise team name. You can also substitute this value with the enterprise team id.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "username",
+          "description": "<p>The handle for the GitHub user account.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Remove membership of a specific user from a particular team in an enterprise.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "enterprise-team": "ENTERPRISE-TEAM",
+              "username": "USERNAME"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>No Content</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise teams\" enterprise permissions": "write"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    }
+  ],
+  "enterprise-team-organizations": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations",
+      "title": "Get organization assignments",
+      "category": "enterprise-teams",
+      "subcategory": "enterprise-team-organizations",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "enterprise-team",
+          "description": "<p>The slug version of the enterprise team name. You can also substitute this value with the enterprise team id.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "per_page",
+          "description": "<p>The number of results per page (max 100). For more information, see \"<a href=\"https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        {
+          "name": "page",
+          "description": "<p>The page number of the results to fetch. For more information, see \"<a href=\"https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api\">Using pagination in the REST API</a>.\"</p>",
+          "in": "query",
+          "schema": {
+            "type": "integer",
+            "default": 1
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Get all organizations assigned to an enterprise team</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "enterprise-team": "ENTERPRISE-TEAM"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>An array of organizations the team is assigned to</p>",
+            "example": {
+              "login": "github",
+              "id": 1,
+              "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
+              "url": "https://api.github.com/orgs/github",
+              "repos_url": "https://api.github.com/orgs/github/repos",
+              "events_url": "https://api.github.com/orgs/github/events",
+              "hooks_url": "https://api.github.com/orgs/github/hooks",
+              "issues_url": "https://api.github.com/orgs/github/issues",
+              "members_url": "https://api.github.com/orgs/github/members{/member}",
+              "public_members_url": "https://api.github.com/orgs/github/public_members{/member}",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "description": "A great organization"
+            },
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Organization Simple",
+                "description": "A GitHub organization.",
+                "type": "object",
+                "properties": {
+                  "login": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "node_id": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "repos_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "events_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "hooks_url": {
+                    "type": "string"
+                  },
+                  "issues_url": {
+                    "type": "string"
+                  },
+                  "members_url": {
+                    "type": "string"
+                  },
+                  "public_members_url": {
+                    "type": "string"
+                  },
+                  "avatar_url": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "login",
+                  "url",
+                  "id",
+                  "node_id",
+                  "repos_url",
+                  "events_url",
+                  "hooks_url",
+                  "issues_url",
+                  "members_url",
+                  "public_members_url",
+                  "avatar_url",
+                  "description"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>An array of organizations the team is assigned to</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise teams\" enterprise permissions": "read"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/add",
+      "title": "Add organization assignments",
+      "category": "enterprise-teams",
+      "subcategory": "enterprise-team-organizations",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "enterprise-team",
+          "description": "<p>The slug version of the enterprise team name. You can also substitute this value with the enterprise team id.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of strings",
+          "name": "organization_slugs",
+          "description": "<p>Organization slug to assign the team to.</p>",
+          "isRequired": true
+        }
+      ],
+      "descriptionHTML": "<p>Assign an enterprise team to multiple organizations.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "organization_slugs": [
+                "github"
+              ]
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "enterprise-team": "ENTERPRISE-TEAM"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Successfully assigned the enterprise team to organizations.</p>",
+            "example": [
+              {
+                "login": "github",
+                "id": 1,
+                "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
+                "url": "https://api.github.com/orgs/github",
+                "repos_url": "https://api.github.com/orgs/github/repos",
+                "events_url": "https://api.github.com/orgs/github/events",
+                "hooks_url": "https://api.github.com/orgs/github/hooks",
+                "issues_url": "https://api.github.com/orgs/github/issues",
+                "members_url": "https://api.github.com/orgs/github/members{/member}",
+                "public_members_url": "https://api.github.com/orgs/github/public_members{/member}",
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "description": "A great organization"
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Organization Simple",
+                "description": "A GitHub organization.",
+                "type": "object",
+                "properties": {
+                  "login": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "integer"
+                  },
+                  "node_id": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "repos_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "events_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "hooks_url": {
+                    "type": "string"
+                  },
+                  "issues_url": {
+                    "type": "string"
+                  },
+                  "members_url": {
+                    "type": "string"
+                  },
+                  "public_members_url": {
+                    "type": "string"
+                  },
+                  "avatar_url": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "login",
+                  "url",
+                  "id",
+                  "node_id",
+                  "repos_url",
+                  "events_url",
+                  "hooks_url",
+                  "issues_url",
+                  "members_url",
+                  "public_members_url",
+                  "avatar_url",
+                  "description"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Successfully assigned the enterprise team to organizations.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise teams\" enterprise permissions": "write"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/remove",
+      "title": "Remove organization assignments",
+      "category": "enterprise-teams",
+      "subcategory": "enterprise-team-organizations",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "enterprise-team",
+          "description": "<p>The slug version of the enterprise team name. You can also substitute this value with the enterprise team id.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of strings",
+          "name": "organization_slugs",
+          "description": "<p>Organization slug to unassign the team from.</p>",
+          "isRequired": true
+        }
+      ],
+      "descriptionHTML": "<p>Unassign an enterprise team from multiple organizations.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "organization_slugs": [
+                "github"
+              ]
+            },
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "enterprise-team": "ENTERPRISE-TEAM"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Successfully unassigned the enterprise team from organizations.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>Successfully unassigned the enterprise team from organizations.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise teams\" enterprise permissions": "write"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/{org}",
+      "title": "Get organization assignment",
+      "category": "enterprise-teams",
+      "subcategory": "enterprise-team-organizations",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "enterprise-team",
+          "description": "<p>The slug version of the enterprise team name. You can also substitute this value with the enterprise team id.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Check if an enterprise team is assigned to an organization</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "enterprise-team": "ENTERPRISE-TEAM",
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>The team is assigned to the organization</p>",
+            "example": {
+              "login": "github",
+              "id": 1,
+              "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
+              "url": "https://api.github.com/orgs/github",
+              "repos_url": "https://api.github.com/orgs/github/repos",
+              "events_url": "https://api.github.com/orgs/github/events",
+              "hooks_url": "https://api.github.com/orgs/github/hooks",
+              "issues_url": "https://api.github.com/orgs/github/issues",
+              "members_url": "https://api.github.com/orgs/github/members{/member}",
+              "public_members_url": "https://api.github.com/orgs/github/public_members{/member}",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "description": "A great organization"
+            },
+            "schema": {
+              "title": "Organization Simple",
+              "description": "A GitHub organization.",
+              "type": "object",
+              "properties": {
+                "login": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "repos_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "events_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "hooks_url": {
+                  "type": "string"
+                },
+                "issues_url": {
+                  "type": "string"
+                },
+                "members_url": {
+                  "type": "string"
+                },
+                "public_members_url": {
+                  "type": "string"
+                },
+                "avatar_url": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string",
+                  "nullable": true
+                }
+              },
+              "required": [
+                "login",
+                "url",
+                "id",
+                "node_id",
+                "repos_url",
+                "events_url",
+                "hooks_url",
+                "issues_url",
+                "members_url",
+                "public_members_url",
+                "avatar_url",
+                "description"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>The team is assigned to the organization</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>The team is not assigned to the organization</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise teams\" enterprise permissions": "read"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/{org}",
+      "title": "Add an organization assignment",
+      "category": "enterprise-teams",
+      "subcategory": "enterprise-team-organizations",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "enterprise-team",
+          "description": "<p>The slug version of the enterprise team name. You can also substitute this value with the enterprise team id.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Assign an enterprise team to an organization.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "enterprise-team": "ENTERPRISE-TEAM",
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Successfully assigned the enterprise team to the organization.</p>",
+            "example": {
+              "login": "github",
+              "id": 1,
+              "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
+              "url": "https://api.github.com/orgs/github",
+              "repos_url": "https://api.github.com/orgs/github/repos",
+              "events_url": "https://api.github.com/orgs/github/events",
+              "hooks_url": "https://api.github.com/orgs/github/hooks",
+              "issues_url": "https://api.github.com/orgs/github/issues",
+              "members_url": "https://api.github.com/orgs/github/members{/member}",
+              "public_members_url": "https://api.github.com/orgs/github/public_members{/member}",
+              "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+              "description": "A great organization"
+            },
+            "schema": {
+              "title": "Organization Simple",
+              "description": "A GitHub organization.",
+              "type": "object",
+              "properties": {
+                "login": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "integer"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "repos_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "events_url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "hooks_url": {
+                  "type": "string"
+                },
+                "issues_url": {
+                  "type": "string"
+                },
+                "members_url": {
+                  "type": "string"
+                },
+                "public_members_url": {
+                  "type": "string"
+                },
+                "avatar_url": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string",
+                  "nullable": true
+                }
+              },
+              "required": [
+                "login",
+                "url",
+                "id",
+                "node_id",
+                "repos_url",
+                "events_url",
+                "hooks_url",
+                "issues_url",
+                "members_url",
+                "public_members_url",
+                "avatar_url",
+                "description"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>Successfully assigned the enterprise team to the organization.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise teams\" enterprise permissions": "write"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/teams/{enterprise-team}/organizations/{org}",
+      "title": "Delete an organization assignment",
+      "category": "enterprise-teams",
+      "subcategory": "enterprise-team-organizations",
+      "parameters": [
+        {
+          "name": "enterprise",
+          "description": "<p>The slug version of the enterprise name.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "enterprise-team",
+          "description": "<p>The slug version of the enterprise team name. You can also substitute this value with the enterprise team id.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "org",
+          "description": "<p>The organization name. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Unassign an enterprise team from an organization.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "enterprise": "ENTERPRISE",
+              "enterprise-team": "ENTERPRISE-TEAM",
+              "org": "ORG"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Successfully unassigned the enterprise team from the organization.</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>Successfully unassigned the enterprise team from the organization.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": false,
+        "permissions": [
+          {
+            "\"Enterprise teams\" enterprise permissions": "write"
+          }
+        ],
+        "disabledForPatV2": true
+      }
+    }
+  ]
+}

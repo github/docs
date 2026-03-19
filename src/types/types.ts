@@ -57,7 +57,6 @@ export type PageFrontmatter = {
   featuredLinks?: FeaturedLinks
   changelog?: ChangeLog
   contentType?: string
-  topics?: string[]
   includeGuides?: string[]
   learningTracks?: string[]
   beta_product?: boolean

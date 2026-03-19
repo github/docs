@@ -1,0 +1,1764 @@
+{
+  "community": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/community/profile",
+      "title": "Get community profile metrics",
+      "category": "metrics",
+      "subcategory": "community",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns all community profile metrics for a repository. The repository cannot be a fork.</p>\n<p>The returned metrics include an overall health score, the repository description, the presence of documentation, the\ndetected code of conduct, the detected license, and the presence of ISSUE_TEMPLATE, PULL_REQUEST_TEMPLATE,\nREADME, and CONTRIBUTING files.</p>\n<p>The <code>health_percentage</code> score is defined as a percentage of how many of\nthe recommended community health files are present. For more information, see\n\"<a href=\"https://docs.github.com/enterprise-cloud@latest//communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories\">About community profiles for public repositories</a>.\"</p>\n<p><code>content_reports_enabled</code> is only returned for organization-owned repositories.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "health_percentage": 100,
+              "description": "My first repository on GitHub!",
+              "documentation": null,
+              "files": {
+                "code_of_conduct": {
+                  "name": "Contributor Covenant",
+                  "key": "contributor_covenant",
+                  "url": "https://api.github.com/codes_of_conduct/contributor_covenant",
+                  "html_url": "https://github.com/octocat/Hello-World/blob/master/CODE_OF_CONDUCT.md"
+                },
+                "code_of_conduct_file": {
+                  "url": "https://api.github.com/repos/octocat/Hello-World/contents/CODE_OF_CONDUCT.md",
+                  "html_url": "https://github.com/octocat/Hello-World/blob/master/CODE_OF_CONDUCT.md"
+                },
+                "contributing": {
+                  "url": "https://api.github.com/repos/octocat/Hello-World/contents/CONTRIBUTING",
+                  "html_url": "https://github.com/octocat/Hello-World/blob/master/CONTRIBUTING"
+                },
+                "issue_template": {
+                  "url": "https://api.github.com/repos/octocat/Hello-World/contents/ISSUE_TEMPLATE",
+                  "html_url": "https://github.com/octocat/Hello-World/blob/master/ISSUE_TEMPLATE"
+                },
+                "pull_request_template": {
+                  "url": "https://api.github.com/repos/octocat/Hello-World/contents/PULL_REQUEST_TEMPLATE",
+                  "html_url": "https://github.com/octocat/Hello-World/blob/master/PULL_REQUEST_TEMPLATE"
+                },
+                "license": {
+                  "name": "MIT License",
+                  "key": "mit",
+                  "spdx_id": "MIT",
+                  "url": "https://api.github.com/licenses/mit",
+                  "html_url": "https://github.com/octocat/Hello-World/blob/master/LICENSE",
+                  "node_id": "MDc6TGljZW5zZW1pdA=="
+                },
+                "readme": {
+                  "url": "https://api.github.com/repos/octocat/Hello-World/contents/README.md",
+                  "html_url": "https://github.com/octocat/Hello-World/blob/master/README.md"
+                }
+              },
+              "updated_at": "2017-02-28T19:09:29Z",
+              "content_reports_enabled": true
+            },
+            "schema": {
+              "title": "Community Profile",
+              "description": "Community Profile",
+              "type": "object",
+              "properties": {
+                "health_percentage": {
+                  "type": "integer"
+                },
+                "description": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "documentation": {
+                  "type": "string",
+                  "nullable": true
+                },
+                "files": {
+                  "type": "object",
+                  "properties": {
+                    "code_of_conduct": {
+                      "title": "Code Of Conduct Simple",
+                      "description": "Code of Conduct Simple",
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "nullable": true,
+                          "format": "uri"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "key",
+                        "name",
+                        "html_url"
+                      ],
+                      "nullable": true
+                    },
+                    "code_of_conduct_file": {
+                      "title": "Community Health File",
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "html_url"
+                      ],
+                      "nullable": true
+                    },
+                    "license": {
+                      "title": "License Simple",
+                      "description": "License Simple",
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string",
+                          "nullable": true,
+                          "format": "uri"
+                        },
+                        "spdx_id": {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "name",
+                        "url",
+                        "spdx_id",
+                        "node_id"
+                      ],
+                      "nullable": true
+                    },
+                    "contributing": {
+                      "title": "Community Health File",
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "html_url"
+                      ],
+                      "nullable": true
+                    },
+                    "readme": {
+                      "title": "Community Health File",
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "html_url"
+                      ],
+                      "nullable": true
+                    },
+                    "issue_template": {
+                      "title": "Community Health File",
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "html_url"
+                      ],
+                      "nullable": true
+                    },
+                    "pull_request_template": {
+                      "title": "Community Health File",
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      },
+                      "required": [
+                        "url",
+                        "html_url"
+                      ],
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "code_of_conduct",
+                    "code_of_conduct_file",
+                    "license",
+                    "contributing",
+                    "readme",
+                    "issue_template",
+                    "pull_request_template"
+                  ]
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "nullable": true
+                },
+                "content_reports_enabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "health_percentage",
+                "description",
+                "documentation",
+                "files",
+                "updated_at"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    }
+  ],
+  "statistics": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stats/code_frequency",
+      "title": "Get the weekly commit activity",
+      "category": "metrics",
+      "subcategory": "statistics",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns a weekly aggregate of the number of additions and deletions pushed to a repository.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint can only be used for repositories with fewer than 10,000 commits. If the repository contains 10,000 or more commits, a 422 status code will be returned.</p>\n</div>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Returns a weekly aggregate of the number of additions and deletions pushed to a repository.</p>",
+            "example": [
+              [
+                1302998400,
+                1124,
+                -435
+              ]
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Code Frequency Stat",
+                "description": "Code Frequency Stat",
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>Returns a weekly aggregate of the number of additions and deletions pushed to a repository.</p>"
+        },
+        {
+          "httpStatusCode": "202",
+          "description": "<p>Accepted</p>"
+        },
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Repository contains more than 10,000 commits</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Metadata\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stats/commit_activity",
+      "title": "Get the last year of commit activity",
+      "category": "metrics",
+      "subcategory": "statistics",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns the last year of commit activity grouped by week. The <code>days</code> array is a group of commits per day, starting on <code>Sunday</code>.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "days": [
+                  0,
+                  3,
+                  26,
+                  20,
+                  39,
+                  1,
+                  0
+                ],
+                "total": 89,
+                "week": 1336280400
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Commit Activity",
+                "description": "Commit Activity",
+                "type": "object",
+                "properties": {
+                  "days": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "total": {
+                    "type": "integer"
+                  },
+                  "week": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "days",
+                  "total",
+                  "week"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "202",
+          "description": "<p>Accepted</p>"
+        },
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Metadata\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stats/contributors",
+      "title": "Get all contributor commit activity",
+      "category": "metrics",
+      "subcategory": "statistics",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns the <code>total</code> number of commits authored by the contributor. In addition, the response includes a Weekly Hash (<code>weeks</code> array) with the following information:</p>\n<ul>\n<li><code>w</code> - Start of the week, given as a <a href=\"https://en.wikipedia.org/wiki/Unix_time\">Unix timestamp</a>.</li>\n<li><code>a</code> - Number of additions</li>\n<li><code>d</code> - Number of deletions</li>\n<li><code>c</code> - Number of commits</li>\n</ul>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint will return <code>0</code> values for all addition and deletion counts in repositories with 10,000 or more commits.</p>\n</div>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "author": {
+                  "login": "octocat",
+                  "id": 1,
+                  "node_id": "MDQ6VXNlcjE=",
+                  "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                  "gravatar_id": "",
+                  "url": "https://api.github.com/users/octocat",
+                  "html_url": "https://github.com/octocat",
+                  "followers_url": "https://api.github.com/users/octocat/followers",
+                  "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+                  "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+                  "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+                  "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+                  "organizations_url": "https://api.github.com/users/octocat/orgs",
+                  "repos_url": "https://api.github.com/users/octocat/repos",
+                  "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+                  "received_events_url": "https://api.github.com/users/octocat/received_events",
+                  "type": "User",
+                  "site_admin": false
+                },
+                "total": 135,
+                "weeks": [
+                  {
+                    "w": 1367712000,
+                    "a": 6898,
+                    "d": 77,
+                    "c": 10
+                  }
+                ]
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Contributor Activity",
+                "description": "Contributor Activity",
+                "type": "object",
+                "properties": {
+                  "author": {
+                    "title": "Simple User",
+                    "description": "A GitHub user.",
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "email": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "login": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer",
+                        "format": "int64"
+                      },
+                      "node_id": {
+                        "type": "string"
+                      },
+                      "avatar_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "gravatar_id": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "html_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "followers_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "following_url": {
+                        "type": "string"
+                      },
+                      "gists_url": {
+                        "type": "string"
+                      },
+                      "starred_url": {
+                        "type": "string"
+                      },
+                      "subscriptions_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "organizations_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "repos_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "events_url": {
+                        "type": "string"
+                      },
+                      "received_events_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "site_admin": {
+                        "type": "boolean"
+                      },
+                      "starred_at": {
+                        "type": "string"
+                      },
+                      "user_view_type": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "avatar_url",
+                      "events_url",
+                      "followers_url",
+                      "following_url",
+                      "gists_url",
+                      "gravatar_id",
+                      "html_url",
+                      "id",
+                      "node_id",
+                      "login",
+                      "organizations_url",
+                      "received_events_url",
+                      "repos_url",
+                      "site_admin",
+                      "starred_url",
+                      "subscriptions_url",
+                      "type",
+                      "url"
+                    ],
+                    "nullable": true
+                  },
+                  "total": {
+                    "type": "integer"
+                  },
+                  "weeks": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "w": {
+                          "type": "integer"
+                        },
+                        "a": {
+                          "type": "integer"
+                        },
+                        "d": {
+                          "type": "integer"
+                        },
+                        "c": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "author",
+                  "total",
+                  "weeks"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "202",
+          "description": "<p>Accepted</p>"
+        },
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Metadata\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stats/participation",
+      "title": "Get the weekly commit count",
+      "category": "metrics",
+      "subcategory": "statistics",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns the total commit counts for the <code>owner</code> and total commit counts in <code>all</code>. <code>all</code> is everyone combined, including the <code>owner</code> in the last 52 weeks. If you'd like to get the commit counts for non-owners, you can subtract <code>owner</code> from <code>all</code>.</p>\n<p>The array order is oldest week (index 0) to most recent week.</p>\n<p>The most recent week is seven days ago at UTC midnight to today at UTC midnight.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>The array order is oldest week (index 0) to most recent week.</p>",
+            "example": {
+              "all": [
+                11,
+                21,
+                15,
+                2,
+                8,
+                1,
+                8,
+                23,
+                17,
+                21,
+                11,
+                10,
+                33,
+                91,
+                38,
+                34,
+                22,
+                23,
+                32,
+                3,
+                43,
+                87,
+                71,
+                18,
+                13,
+                5,
+                13,
+                16,
+                66,
+                27,
+                12,
+                45,
+                110,
+                117,
+                13,
+                8,
+                18,
+                9,
+                19,
+                26,
+                39,
+                12,
+                20,
+                31,
+                46,
+                91,
+                45,
+                10,
+                24,
+                9,
+                29,
+                7
+              ],
+              "owner": [
+                3,
+                2,
+                3,
+                0,
+                2,
+                0,
+                5,
+                14,
+                7,
+                9,
+                1,
+                5,
+                0,
+                48,
+                19,
+                2,
+                0,
+                1,
+                10,
+                2,
+                23,
+                40,
+                35,
+                8,
+                8,
+                2,
+                10,
+                6,
+                30,
+                0,
+                2,
+                9,
+                53,
+                104,
+                3,
+                3,
+                10,
+                4,
+                7,
+                11,
+                21,
+                4,
+                4,
+                22,
+                26,
+                63,
+                11,
+                2,
+                14,
+                1,
+                10,
+                3
+              ]
+            },
+            "schema": {
+              "title": "Participation Stats",
+              "type": "object",
+              "properties": {
+                "all": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                },
+                "owner": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "required": [
+                "all",
+                "owner"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>The array order is oldest week (index 0) to most recent week.</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Metadata\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/stats/punch_card",
+      "title": "Get the hourly commit count for each day",
+      "category": "metrics",
+      "subcategory": "statistics",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Each array contains the day number, hour number, and number of commits:</p>\n<ul>\n<li><code>0-6</code>: Sunday - Saturday</li>\n<li><code>0-23</code>: Hour of day</li>\n<li>Number of commits</li>\n</ul>\n<p>For example, <code>[2, 14, 25]</code> indicates that there were 25 total commits, during the 2:00pm hour on Tuesdays. All times are based on the time zone of individual commits.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>For example, <code>[2, 14, 25]</code> indicates that there were 25 total commits, during the 2:00pm hour on Tuesdays. All times are based on the time zone of individual commits.</p>",
+            "example": [
+              [
+                0,
+                0,
+                5
+              ],
+              [
+                0,
+                1,
+                43
+              ],
+              [
+                0,
+                2,
+                21
+              ]
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Code Frequency Stat",
+                "description": "Code Frequency Stat",
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>For example, <code>[2, 14, 25]</code> indicates that there were 25 total commits, during the 2:00pm hour on Tuesdays. All times are based on the time zone of individual commits.</p>"
+        },
+        {
+          "httpStatusCode": "204",
+          "description": "<p>A header with no content is returned.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Metadata\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    }
+  ],
+  "traffic": [
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/traffic/clones",
+      "title": "Get repository clones",
+      "category": "metrics",
+      "subcategory": "traffic",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "per",
+          "description": "<p>The time frame to display results for.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "day",
+              "week"
+            ],
+            "default": "day"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Get the total number of clones and breakdown per day or week for the last 14 days. Timestamps are aligned to UTC midnight of the beginning of the day or week. Week begins on Monday.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "count": 173,
+              "uniques": 128,
+              "clones": [
+                {
+                  "timestamp": "2016-10-10T00:00:00Z",
+                  "count": 2,
+                  "uniques": 1
+                },
+                {
+                  "timestamp": "2016-10-11T00:00:00Z",
+                  "count": 17,
+                  "uniques": 16
+                },
+                {
+                  "timestamp": "2016-10-12T00:00:00Z",
+                  "count": 21,
+                  "uniques": 15
+                },
+                {
+                  "timestamp": "2016-10-13T00:00:00Z",
+                  "count": 8,
+                  "uniques": 7
+                },
+                {
+                  "timestamp": "2016-10-14T00:00:00Z",
+                  "count": 5,
+                  "uniques": 5
+                },
+                {
+                  "timestamp": "2016-10-15T00:00:00Z",
+                  "count": 2,
+                  "uniques": 2
+                },
+                {
+                  "timestamp": "2016-10-16T00:00:00Z",
+                  "count": 8,
+                  "uniques": 7
+                },
+                {
+                  "timestamp": "2016-10-17T00:00:00Z",
+                  "count": 26,
+                  "uniques": 15
+                },
+                {
+                  "timestamp": "2016-10-18T00:00:00Z",
+                  "count": 19,
+                  "uniques": 17
+                },
+                {
+                  "timestamp": "2016-10-19T00:00:00Z",
+                  "count": 19,
+                  "uniques": 14
+                },
+                {
+                  "timestamp": "2016-10-20T00:00:00Z",
+                  "count": 19,
+                  "uniques": 15
+                },
+                {
+                  "timestamp": "2016-10-21T00:00:00Z",
+                  "count": 9,
+                  "uniques": 7
+                },
+                {
+                  "timestamp": "2016-10-22T00:00:00Z",
+                  "count": 5,
+                  "uniques": 5
+                },
+                {
+                  "timestamp": "2016-10-23T00:00:00Z",
+                  "count": 6,
+                  "uniques": 5
+                },
+                {
+                  "timestamp": "2016-10-24T00:00:00Z",
+                  "count": 7,
+                  "uniques": 5
+                }
+              ]
+            },
+            "schema": {
+              "title": "Clone Traffic",
+              "description": "Clone Traffic",
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "uniques": {
+                  "type": "integer"
+                },
+                "clones": {
+                  "type": "array",
+                  "items": {
+                    "title": "Traffic",
+                    "type": "object",
+                    "properties": {
+                      "timestamp": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "uniques": {
+                        "type": "integer"
+                      },
+                      "count": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "timestamp",
+                      "uniques",
+                      "count"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "uniques",
+                "count",
+                "clones"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" repository permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/traffic/popular/paths",
+      "title": "Get top referral paths",
+      "category": "metrics",
+      "subcategory": "traffic",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Get the top 10 popular contents over the last 14 days.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "path": "/github/hubot",
+                "title": "github/hubot: A customizable life embetterment robot.",
+                "count": 3542,
+                "uniques": 2225
+              },
+              {
+                "path": "/github/hubot/blob/master/docs/scripting.md",
+                "title": "hubot/scripting.md at master · github/hubot · GitHub",
+                "count": 1707,
+                "uniques": 804
+              },
+              {
+                "path": "/github/hubot/tree/master/docs",
+                "title": "hubot/docs at master · github/hubot · GitHub",
+                "count": 685,
+                "uniques": 435
+              },
+              {
+                "path": "/github/hubot/tree/master/src",
+                "title": "hubot/src at master · github/hubot · GitHub",
+                "count": 577,
+                "uniques": 347
+              },
+              {
+                "path": "/github/hubot/blob/master/docs/index.md",
+                "title": "hubot/index.md at master · github/hubot · GitHub",
+                "count": 379,
+                "uniques": 259
+              },
+              {
+                "path": "/github/hubot/blob/master/docs/adapters.md",
+                "title": "hubot/adapters.md at master · github/hubot · GitHub",
+                "count": 354,
+                "uniques": 201
+              },
+              {
+                "path": "/github/hubot/tree/master/examples",
+                "title": "hubot/examples at master · github/hubot · GitHub",
+                "count": 340,
+                "uniques": 260
+              },
+              {
+                "path": "/github/hubot/blob/master/docs/deploying/heroku.md",
+                "title": "hubot/heroku.md at master · github/hubot · GitHub",
+                "count": 324,
+                "uniques": 217
+              },
+              {
+                "path": "/github/hubot/blob/master/src/robot.coffee",
+                "title": "hubot/robot.coffee at master · github/hubot · GitHub",
+                "count": 293,
+                "uniques": 191
+              },
+              {
+                "path": "/github/hubot/blob/master/LICENSE.md",
+                "title": "hubot/LICENSE.md at master · github/hubot · GitHub",
+                "count": 281,
+                "uniques": 222
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Content Traffic",
+                "description": "Content Traffic",
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "count": {
+                    "type": "integer"
+                  },
+                  "uniques": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "path",
+                  "title",
+                  "uniques",
+                  "count"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" repository permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/traffic/popular/referrers",
+      "title": "Get top referral sources",
+      "category": "metrics",
+      "subcategory": "traffic",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Get the top 10 referrers over the last 14 days.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "referrer": "Google",
+                "count": 4,
+                "uniques": 3
+              },
+              {
+                "referrer": "stackoverflow.com",
+                "count": 2,
+                "uniques": 2
+              },
+              {
+                "referrer": "eggsonbread.com",
+                "count": 1,
+                "uniques": 1
+              },
+              {
+                "referrer": "yandex.ru",
+                "count": 1,
+                "uniques": 1
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Referrer Traffic",
+                "description": "Referrer Traffic",
+                "type": "object",
+                "properties": {
+                  "referrer": {
+                    "type": "string"
+                  },
+                  "count": {
+                    "type": "integer"
+                  },
+                  "uniques": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "referrer",
+                  "uniques",
+                  "count"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" repository permissions": "read"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "https://api.github.com",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/traffic/views",
+      "title": "Get page views",
+      "category": "metrics",
+      "subcategory": "traffic",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "per",
+          "description": "<p>The time frame to display results for.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "day",
+              "week"
+            ],
+            "default": "day"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Get the total number of views and breakdown per day or week for the last 14 days. Timestamps are aligned to UTC midnight of the beginning of the day or week. Week begins on Monday.</p>",
+      "codeExamples": [
+        {
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "count": 14850,
+              "uniques": 3782,
+              "views": [
+                {
+                  "timestamp": "2016-10-10T00:00:00Z",
+                  "count": 440,
+                  "uniques": 143
+                },
+                {
+                  "timestamp": "2016-10-11T00:00:00Z",
+                  "count": 1308,
+                  "uniques": 414
+                },
+                {
+                  "timestamp": "2016-10-12T00:00:00Z",
+                  "count": 1486,
+                  "uniques": 452
+                },
+                {
+                  "timestamp": "2016-10-13T00:00:00Z",
+                  "count": 1170,
+                  "uniques": 401
+                },
+                {
+                  "timestamp": "2016-10-14T00:00:00Z",
+                  "count": 868,
+                  "uniques": 266
+                },
+                {
+                  "timestamp": "2016-10-15T00:00:00Z",
+                  "count": 495,
+                  "uniques": 157
+                },
+                {
+                  "timestamp": "2016-10-16T00:00:00Z",
+                  "count": 524,
+                  "uniques": 175
+                },
+                {
+                  "timestamp": "2016-10-17T00:00:00Z",
+                  "count": 1263,
+                  "uniques": 412
+                },
+                {
+                  "timestamp": "2016-10-18T00:00:00Z",
+                  "count": 1402,
+                  "uniques": 417
+                },
+                {
+                  "timestamp": "2016-10-19T00:00:00Z",
+                  "count": 1394,
+                  "uniques": 424
+                },
+                {
+                  "timestamp": "2016-10-20T00:00:00Z",
+                  "count": 1492,
+                  "uniques": 448
+                },
+                {
+                  "timestamp": "2016-10-21T00:00:00Z",
+                  "count": 1153,
+                  "uniques": 332
+                },
+                {
+                  "timestamp": "2016-10-22T00:00:00Z",
+                  "count": 566,
+                  "uniques": 168
+                },
+                {
+                  "timestamp": "2016-10-23T00:00:00Z",
+                  "count": 675,
+                  "uniques": 184
+                },
+                {
+                  "timestamp": "2016-10-24T00:00:00Z",
+                  "count": 614,
+                  "uniques": 237
+                }
+              ]
+            },
+            "schema": {
+              "title": "View Traffic",
+              "description": "View Traffic",
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer"
+                },
+                "uniques": {
+                  "type": "integer"
+                },
+                "views": {
+                  "type": "array",
+                  "items": {
+                    "title": "Traffic",
+                    "type": "object",
+                    "properties": {
+                      "timestamp": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "uniques": {
+                        "type": "integer"
+                      },
+                      "count": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "timestamp",
+                      "uniques",
+                      "count"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "uniques",
+                "count",
+                "views"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Administration\" repository permissions": "read"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,2750 @@
+{
+  "blobs": [
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/git/blobs",
+      "title": "Create a blob",
+      "category": "git",
+      "subcategory": "blobs",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "content",
+          "in": "body",
+          "description": "<p>The new blob's content.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "encoding",
+          "in": "body",
+          "description": "<p>The encoding used for <code>content</code>. Currently, <code>\"utf-8\"</code> and <code>\"base64\"</code> are supported.</p>",
+          "default": "utf-8"
+        }
+      ],
+      "descriptionHTML": "",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "content": "Content of the blob",
+              "encoding": "utf-8"
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "url": "https://api.github.com/repos/octocat/example/git/blobs/3a0f86fb8db8eea7ccbb9a95f325ddbedfb25e15",
+              "sha": "3a0f86fb8db8eea7ccbb9a95f325ddbedfb25e15"
+            },
+            "schema": {
+              "title": "Short Blob",
+              "description": "Short Blob",
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "sha": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "url",
+                "sha"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>Created</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/git/blobs/{file_sha}",
+      "title": "Get a blob",
+      "category": "git",
+      "subcategory": "blobs",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "file_sha",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": ""
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>The <code>content</code> in the response will always be Base64 encoded.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.14/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw blob data.</li>\n<li><strong><code>application/vnd.github+json</code></strong>: Returns a JSON representation of the blob with <code>content</code> as a base64 encoded string. This is the default if no media type is specified.</li>\n</ul>\n<p><strong>Note</strong> This endpoint supports blobs up to 100 megabytes in size.</p>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "file_sha": "FILE_SHA"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "content": "Q29udGVudCBvZiB0aGUgYmxvYg==",
+              "encoding": "base64",
+              "url": "https://api.github.com/repos/octocat/example/git/blobs/3a0f86fb8db8eea7ccbb9a95f325ddbedfb25e15",
+              "sha": "3a0f86fb8db8eea7ccbb9a95f325ddbedfb25e15",
+              "size": 19,
+              "node_id": "Q29udGVudCBvZiB0aGUgYmxvYg=="
+            },
+            "schema": {
+              "title": "Blob",
+              "description": "Blob",
+              "type": "object",
+              "properties": {
+                "content": {
+                  "type": "string"
+                },
+                "encoding": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "sha": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "highlighted_content": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "sha",
+                "url",
+                "node_id",
+                "size",
+                "content",
+                "encoding"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    }
+  ],
+  "commits": [
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/git/commits",
+      "title": "Create a commit",
+      "category": "git",
+      "subcategory": "commits",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "message",
+          "in": "body",
+          "description": "<p>The commit message</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "tree",
+          "in": "body",
+          "description": "<p>The SHA of the tree object this commit points to</p>",
+          "isRequired": true
+        },
+        {
+          "type": "array of strings",
+          "name": "parents",
+          "in": "body",
+          "description": "<p>The full SHAs of the commits that were the parents of this commit. If omitted or empty, the commit will be written as a root commit. For a single parent, an array of one SHA should be provided; for a merge commit, an array of more than one should be provided.</p>"
+        },
+        {
+          "type": "object",
+          "name": "author",
+          "in": "body",
+          "description": "<p>Information about the author of the commit. By default, the <code>author</code> will be the authenticated user and the current date. See the <code>author</code> and <code>committer</code> object below for details.</p>",
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "name",
+              "description": "<p>The name of the author (or committer) of the commit</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "email",
+              "description": "<p>The email of the author (or committer) of the commit</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "date",
+              "description": "<p>Indicates when this commit was authored (or committed). This is a timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> format: <code>YYYY-MM-DDTHH:MM:SSZ</code>.</p>"
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "name": "committer",
+          "in": "body",
+          "description": "<p>Information about the person who is making the commit. By default, <code>committer</code> will use the information set in <code>author</code>. See the <code>author</code> and <code>committer</code> object below for details.</p>",
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "name",
+              "description": "<p>The name of the author (or committer) of the commit</p>"
+            },
+            {
+              "type": "string",
+              "name": "email",
+              "description": "<p>The email of the author (or committer) of the commit</p>"
+            },
+            {
+              "type": "string",
+              "name": "date",
+              "description": "<p>Indicates when this commit was authored (or committed). This is a timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> format: <code>YYYY-MM-DDTHH:MM:SSZ</code>.</p>"
+            }
+          ]
+        },
+        {
+          "type": "string",
+          "name": "signature",
+          "in": "body",
+          "description": "<p>The <a href=\"https://en.wikipedia.org/wiki/Pretty_Good_Privacy\">PGP signature</a> of the commit. GitHub adds the signature to the <code>gpgsig</code> header of the created commit. For a commit signature to be verifiable by Git or GitHub, it must be an ASCII-armored detached PGP signature over the string commit as it would be written to the object database. To pass a <code>signature</code> parameter, you need to first manually create a valid PGP signature, which can be complicated. You may find it easier to <a href=\"https://git-scm.com/book/id/v2/Git-Tools-Signing-Your-Work\">use the command line</a> to create signed commits.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>Creates a new Git <a href=\"https://git-scm.com/book/en/v2/Git-Internals-Git-Objects\">commit object</a>.</p>\n<p><strong>Signature verification object</strong></p>\n<p>The response will include a <code>verification</code> object that describes the result of verifying the commit's signature. The following fields are included in the <code>verification</code> object:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\">Name</th><th scope=\"col\">Type</th><th scope=\"col\">Description</th></tr></thead><tbody><tr><td><code>verified</code></td><td><code>boolean</code></td><td>Indicates whether GitHub considers the signature in this commit to be verified.</td></tr><tr><td><code>reason</code></td><td><code>string</code></td><td>The reason for verified value. Possible values and their meanings are enumerated in the table below.</td></tr><tr><td><code>signature</code></td><td><code>string</code></td><td>The signature that was extracted from the commit.</td></tr><tr><td><code>payload</code></td><td><code>string</code></td><td>The value that was signed.</td></tr><tr><td><code>verified_at</code></td><td><code>string</code></td><td>The date the signature was verified by GitHub.</td></tr></tbody></table>\n<p>These are the possible values for <code>reason</code> in the <code>verification</code> object:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\">Value</th><th scope=\"col\">Description</th></tr></thead><tbody><tr><td><code>expired_key</code></td><td>The key that made the signature is expired.</td></tr><tr><td><code>not_signing_key</code></td><td>The \"signing\" flag is not among the usage flags in the GPG key that made the signature.</td></tr><tr><td><code>gpgverify_error</code></td><td>There was an error communicating with the signature verification service.</td></tr><tr><td><code>gpgverify_unavailable</code></td><td>The signature verification service is currently unavailable.</td></tr><tr><td><code>unsigned</code></td><td>The object does not include a signature.</td></tr><tr><td><code>unknown_signature_type</code></td><td>A non-PGP signature was found in the commit.</td></tr><tr><td><code>no_user</code></td><td>No user was associated with the <code>committer</code> email address in the commit.</td></tr><tr><td><code>unverified_email</code></td><td>The <code>committer</code> email address in the commit was associated with a user, but the email address is not verified on their account.</td></tr><tr><td><code>bad_email</code></td><td>The <code>committer</code> email address in the commit is not included in the identities of the PGP key that made the signature.</td></tr><tr><td><code>unknown_key</code></td><td>The key that made the signature has not been registered with any user's account.</td></tr><tr><td><code>malformed_signature</code></td><td>There was an error parsing the signature.</td></tr><tr><td><code>invalid</code></td><td>The signature could not be cryptographically verified using the key whose key-id was found in the signature.</td></tr><tr><td><code>valid</code></td><td>None of the above errors applied, so the signature is considered to be verified.</td></tr></tbody></table>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "message": "my commit message",
+              "author": {
+                "name": "Mona Octocat",
+                "email": "octocat@github.com",
+                "date": "2008-07-09T16:13:30+12:00"
+              },
+              "parents": [
+                "7d1b31e74ee336d15cbd21741bc88a537ed063a0"
+              ],
+              "tree": "827efc6d56897b048c772eb4087f854f46256132",
+              "signature": "-----BEGIN PGP SIGNATURE-----\n\niQIzBAABAQAdFiEESn/54jMNIrGSE6Tp6cQjvhfv7nAFAlnT71cACgkQ6cQjvhfv\n7nCWwA//XVqBKWO0zF+bZl6pggvky3Oc2j1pNFuRWZ29LXpNuD5WUGXGG209B0hI\nDkmcGk19ZKUTnEUJV2Xd0R7AW01S/YSub7OYcgBkI7qUE13FVHN5ln1KvH2all2n\n2+JCV1HcJLEoTjqIFZSSu/sMdhkLQ9/NsmMAzpf/iIM0nQOyU4YRex9eD1bYj6nA\nOQPIDdAuaTQj1gFPHYLzM4zJnCqGdRlg0sOM/zC5apBNzIwlgREatOYQSCfCKV7k\nnrU34X8b9BzQaUx48Qa+Dmfn5KQ8dl27RNeWAqlkuWyv3pUauH9UeYW+KyuJeMkU\n+NyHgAsWFaCFl23kCHThbLStMZOYEnGagrd0hnm1TPS4GJkV4wfYMwnI4KuSlHKB\njHl3Js9vNzEUQipQJbgCgTiWvRJoK3ENwBTMVkKHaqT4x9U4Jk/XZB6Q8MA09ezJ\n3QgiTjTAGcum9E9QiJqMYdWQPWkaBIRRz5cET6HPB48YNXAAUsfmuYsGrnVLYbG+\nUpC6I97VybYHTy2O9XSGoaLeMI9CsFn38ycAxxbWagk5mhclNTP5mezIq6wKSwmr\nX11FW3n1J23fWZn5HJMBsRnUCgzqzX3871IqLYHqRJ/bpZ4h20RhTyPj5c/z7QXp\neSakNQMfbbMcljkha+ZMuVQX1K9aRlVqbmv3ZMWh+OijLYVU2bc=\n=5Io4\n-----END PGP SIGNATURE-----\n"
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
+              "node_id": "MDY6Q29tbWl0NzYzODQxN2RiNmQ1OWYzYzQzMWQzZTFmMjYxY2M2MzcxNTU2ODRjZA==",
+              "url": "https://api.github.com/repos/octocat/Hello-World/git/commits/7638417db6d59f3c431d3e1f261cc637155684cd",
+              "author": {
+                "date": "2014-11-07T22:01:45Z",
+                "name": "Monalisa Octocat",
+                "email": "octocat@github.com"
+              },
+              "committer": {
+                "date": "2014-11-07T22:01:45Z",
+                "name": "Monalisa Octocat",
+                "email": "octocat@github.com"
+              },
+              "message": "my commit message",
+              "tree": {
+                "url": "https://api.github.com/repos/octocat/Hello-World/git/trees/827efc6d56897b048c772eb4087f854f46256132",
+                "sha": "827efc6d56897b048c772eb4087f854f46256132"
+              },
+              "parents": [
+                {
+                  "url": "https://api.github.com/repos/octocat/Hello-World/git/commits/7d1b31e74ee336d15cbd21741bc88a537ed063a0",
+                  "sha": "7d1b31e74ee336d15cbd21741bc88a537ed063a0",
+                  "html_url": "https://github.com/octocat/Hello-World/commit/7d1b31e74ee336d15cbd21741bc88a537ed063a0"
+                }
+              ],
+              "verification": {
+                "verified": false,
+                "reason": "unsigned"
+              },
+              "html_url": "https://github.com/octocat/Hello-World/commit/7638417db6d59f3c431d3e1f261cc637155684cd"
+            },
+            "schema": {
+              "title": "Git Commit",
+              "description": "Low-level Git commit operations within a repository",
+              "type": "object",
+              "properties": {
+                "sha": {
+                  "description": "SHA for the commit",
+                  "type": "string",
+                  "examples": [
+                    "7638417db6d59f3c431d3e1f261cc637155684cd"
+                  ]
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "author": {
+                  "description": "Identifying information for the git-user",
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "description": "Timestamp of the commit",
+                      "format": "date-time",
+                      "type": "string",
+                      "examples": [
+                        "2014-08-09T08:02:04+12:00"
+                      ]
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "Git email address of the user",
+                      "examples": [
+                        "monalisa.octocat@example.com"
+                      ]
+                    },
+                    "name": {
+                      "description": "Name of the git user",
+                      "type": "string",
+                      "examples": [
+                        "Monalisa Octocat"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "email",
+                    "name",
+                    "date"
+                  ]
+                },
+                "committer": {
+                  "description": "Identifying information for the git-user",
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "description": "Timestamp of the commit",
+                      "format": "date-time",
+                      "type": "string",
+                      "examples": [
+                        "2014-08-09T08:02:04+12:00"
+                      ]
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "Git email address of the user",
+                      "examples": [
+                        "monalisa.octocat@example.com"
+                      ]
+                    },
+                    "name": {
+                      "description": "Name of the git user",
+                      "type": "string",
+                      "examples": [
+                        "Monalisa Octocat"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "email",
+                    "name",
+                    "date"
+                  ]
+                },
+                "message": {
+                  "description": "Message describing the purpose of the commit",
+                  "type": "string",
+                  "examples": [
+                    "Fix #42"
+                  ]
+                },
+                "tree": {
+                  "type": "object",
+                  "properties": {
+                    "sha": {
+                      "description": "SHA for the commit",
+                      "type": "string",
+                      "examples": [
+                        "7638417db6d59f3c431d3e1f261cc637155684cd"
+                      ]
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "sha",
+                    "url"
+                  ]
+                },
+                "parents": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "sha": {
+                        "description": "SHA for the commit",
+                        "type": "string",
+                        "examples": [
+                          "7638417db6d59f3c431d3e1f261cc637155684cd"
+                        ]
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "html_url": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "sha",
+                      "url",
+                      "html_url"
+                    ]
+                  }
+                },
+                "verification": {
+                  "type": "object",
+                  "properties": {
+                    "verified": {
+                      "type": "boolean"
+                    },
+                    "reason": {
+                      "type": "string"
+                    },
+                    "signature": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "payload": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "verified",
+                    "reason",
+                    "signature",
+                    "payload"
+                  ]
+                },
+                "html_url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "sha",
+                "node_id",
+                "url",
+                "html_url",
+                "author",
+                "committer",
+                "tree",
+                "message",
+                "parents",
+                "verification"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>Created</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/git/commits/{commit_sha}",
+      "title": "Get a commit object",
+      "category": "git",
+      "subcategory": "commits",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "commit_sha",
+          "description": "<p>The SHA of the commit.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "x-multi-segment": true
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Gets a Git <a href=\"https://git-scm.com/book/en/v2/Git-Internals-Git-Objects\">commit object</a>.</p>\n<p>To get the contents of a commit, see \"<a href=\"/rest/commits/commits#get-a-commit\">Get a commit</a>.\"</p>\n<p><strong>Signature verification object</strong></p>\n<p>The response will include a <code>verification</code> object that describes the result of verifying the commit's signature. The following fields are included in the <code>verification</code> object:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\">Name</th><th scope=\"col\">Type</th><th scope=\"col\">Description</th></tr></thead><tbody><tr><td><code>verified</code></td><td><code>boolean</code></td><td>Indicates whether GitHub considers the signature in this commit to be verified.</td></tr><tr><td><code>reason</code></td><td><code>string</code></td><td>The reason for verified value. Possible values and their meanings are enumerated in the table below.</td></tr><tr><td><code>signature</code></td><td><code>string</code></td><td>The signature that was extracted from the commit.</td></tr><tr><td><code>payload</code></td><td><code>string</code></td><td>The value that was signed.</td></tr><tr><td><code>verified_at</code></td><td><code>string</code></td><td>The date the signature was verified by GitHub.</td></tr></tbody></table>\n<p>These are the possible values for <code>reason</code> in the <code>verification</code> object:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\">Value</th><th scope=\"col\">Description</th></tr></thead><tbody><tr><td><code>expired_key</code></td><td>The key that made the signature is expired.</td></tr><tr><td><code>not_signing_key</code></td><td>The \"signing\" flag is not among the usage flags in the GPG key that made the signature.</td></tr><tr><td><code>gpgverify_error</code></td><td>There was an error communicating with the signature verification service.</td></tr><tr><td><code>gpgverify_unavailable</code></td><td>The signature verification service is currently unavailable.</td></tr><tr><td><code>unsigned</code></td><td>The object does not include a signature.</td></tr><tr><td><code>unknown_signature_type</code></td><td>A non-PGP signature was found in the commit.</td></tr><tr><td><code>no_user</code></td><td>No user was associated with the <code>committer</code> email address in the commit.</td></tr><tr><td><code>unverified_email</code></td><td>The <code>committer</code> email address in the commit was associated with a user, but the email address is not verified on their account.</td></tr><tr><td><code>bad_email</code></td><td>The <code>committer</code> email address in the commit is not included in the identities of the PGP key that made the signature.</td></tr><tr><td><code>unknown_key</code></td><td>The key that made the signature has not been registered with any user's account.</td></tr><tr><td><code>malformed_signature</code></td><td>There was an error parsing the signature.</td></tr><tr><td><code>invalid</code></td><td>The signature could not be cryptographically verified using the key whose key-id was found in the signature.</td></tr><tr><td><code>valid</code></td><td>None of the above errors applied, so the signature is considered to be verified.</td></tr></tbody></table>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "commit_sha": "COMMIT_SHA"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
+              "node_id": "MDY6Q29tbWl0NmRjYjA5YjViNTc4NzVmMzM0ZjYxYWViZWQ2OTVlMmU0MTkzZGI1ZQ==",
+              "url": "https://api.github.com/repos/octocat/Hello-World/git/commits/7638417db6d59f3c431d3e1f261cc637155684cd",
+              "html_url": "https://github.com/octocat/Hello-World/commit/7638417db6d59f3c431d3e1f261cc637155684cd",
+              "author": {
+                "date": "2014-11-07T22:01:45Z",
+                "name": "Monalisa Octocat",
+                "email": "octocat@github.com"
+              },
+              "committer": {
+                "date": "2014-11-07T22:01:45Z",
+                "name": "Monalisa Octocat",
+                "email": "octocat@github.com"
+              },
+              "message": "added readme, because im a good github citizen",
+              "tree": {
+                "url": "https://api.github.com/repos/octocat/Hello-World/git/trees/691272480426f78a0138979dd3ce63b77f706feb",
+                "sha": "691272480426f78a0138979dd3ce63b77f706feb"
+              },
+              "parents": [
+                {
+                  "url": "https://api.github.com/repos/octocat/Hello-World/git/commits/1acc419d4d6a9ce985db7be48c6349a0475975b5",
+                  "sha": "1acc419d4d6a9ce985db7be48c6349a0475975b5",
+                  "html_url": "https://github.com/octocat/Hello-World/commit/7638417db6d59f3c431d3e1f261cc637155684cd"
+                }
+              ],
+              "verification": {
+                "verified": false,
+                "reason": "unsigned"
+              }
+            },
+            "schema": {
+              "title": "Git Commit",
+              "description": "Low-level Git commit operations within a repository",
+              "type": "object",
+              "properties": {
+                "sha": {
+                  "description": "SHA for the commit",
+                  "type": "string",
+                  "examples": [
+                    "7638417db6d59f3c431d3e1f261cc637155684cd"
+                  ]
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "author": {
+                  "description": "Identifying information for the git-user",
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "description": "Timestamp of the commit",
+                      "format": "date-time",
+                      "type": "string",
+                      "examples": [
+                        "2014-08-09T08:02:04+12:00"
+                      ]
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "Git email address of the user",
+                      "examples": [
+                        "monalisa.octocat@example.com"
+                      ]
+                    },
+                    "name": {
+                      "description": "Name of the git user",
+                      "type": "string",
+                      "examples": [
+                        "Monalisa Octocat"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "email",
+                    "name",
+                    "date"
+                  ]
+                },
+                "committer": {
+                  "description": "Identifying information for the git-user",
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "description": "Timestamp of the commit",
+                      "format": "date-time",
+                      "type": "string",
+                      "examples": [
+                        "2014-08-09T08:02:04+12:00"
+                      ]
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "Git email address of the user",
+                      "examples": [
+                        "monalisa.octocat@example.com"
+                      ]
+                    },
+                    "name": {
+                      "description": "Name of the git user",
+                      "type": "string",
+                      "examples": [
+                        "Monalisa Octocat"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "email",
+                    "name",
+                    "date"
+                  ]
+                },
+                "message": {
+                  "description": "Message describing the purpose of the commit",
+                  "type": "string",
+                  "examples": [
+                    "Fix #42"
+                  ]
+                },
+                "tree": {
+                  "type": "object",
+                  "properties": {
+                    "sha": {
+                      "description": "SHA for the commit",
+                      "type": "string",
+                      "examples": [
+                        "7638417db6d59f3c431d3e1f261cc637155684cd"
+                      ]
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "sha",
+                    "url"
+                  ]
+                },
+                "parents": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "sha": {
+                        "description": "SHA for the commit",
+                        "type": "string",
+                        "examples": [
+                          "7638417db6d59f3c431d3e1f261cc637155684cd"
+                        ]
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "html_url": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "sha",
+                      "url",
+                      "html_url"
+                    ]
+                  }
+                },
+                "verification": {
+                  "type": "object",
+                  "properties": {
+                    "verified": {
+                      "type": "boolean"
+                    },
+                    "reason": {
+                      "type": "string"
+                    },
+                    "signature": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "payload": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "verified",
+                    "reason",
+                    "signature",
+                    "payload"
+                  ]
+                },
+                "html_url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "sha",
+                "node_id",
+                "url",
+                "html_url",
+                "author",
+                "committer",
+                "tree",
+                "message",
+                "parents",
+                "verification"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    }
+  ],
+  "refs": [
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/git/matching-refs/{ref}",
+      "title": "List matching references",
+      "category": "git",
+      "subcategory": "refs",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "ref",
+          "description": "<p>The Git reference. For more information, see \"<a href=\"https://git-scm.com/book/en/v2/Git-Internals-Git-References\">Git References</a>\" in the Git documentation.</p>",
+          "in": "path",
+          "required": true,
+          "example": "heads/feature-a",
+          "schema": {
+            "type": "string"
+          },
+          "x-multi-segment": true
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns an array of references from your Git database that match the supplied name. The <code>:ref</code> in the URL must be formatted as <code>heads/&#x3C;branch name></code> for branches and <code>tags/&#x3C;tag name></code> for tags. If the <code>:ref</code> doesn't exist in the repository, but existing refs start with <code>:ref</code>, they will be returned as an array.</p>\n<p>When you use this endpoint without providing a <code>:ref</code>, it will return an array of all the references from your Git database, including notes and stashes if they exist on the server. Anything in the namespace is returned, not just <code>heads</code> and <code>tags</code>.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nYou need to explicitly <a href=\"https://docs.github.com/enterprise-server@3.14/rest/pulls/pulls#get-a-pull-request\">request a pull request</a> to trigger a test merge commit, which checks the mergeability of pull requests. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.14/rest/guides/getting-started-with-the-git-database-api#checking-mergeability-of-pull-requests\">Checking mergeability of pull requests</a>\".</p>\n</div>\n<p>If you request matching references for a branch named <code>feature</code> but the branch <code>feature</code> doesn't exist, the response can still include other matching head refs that start with the word <code>feature</code>, such as <code>featureA</code> and <code>featureB</code>.</p>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "ref": "REF"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": [
+              {
+                "ref": "refs/heads/feature-a",
+                "node_id": "MDM6UmVmcmVmcy9oZWFkcy9mZWF0dXJlLWE=",
+                "url": "https://api.github.com/repos/octocat/Hello-World/git/refs/heads/feature-a",
+                "object": {
+                  "type": "commit",
+                  "sha": "aa218f56b14c9653891f9e74264a383fa43fefbd",
+                  "url": "https://api.github.com/repos/octocat/Hello-World/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
+                }
+              },
+              {
+                "ref": "refs/heads/feature-b",
+                "node_id": "MDM6UmVmcmVmcy9oZWFkcy9mZWF0dXJlLWI=",
+                "url": "https://api.github.com/repos/octocat/Hello-World/git/refs/heads/feature-b",
+                "object": {
+                  "type": "commit",
+                  "sha": "612077ae6dffb4d2fbd8ce0cccaa58893b07b5ac",
+                  "url": "https://api.github.com/repos/octocat/Hello-World/git/commits/612077ae6dffb4d2fbd8ce0cccaa58893b07b5ac"
+                }
+              }
+            ],
+            "schema": {
+              "type": "array",
+              "items": {
+                "title": "Git Reference",
+                "description": "Git references within a repository",
+                "type": "object",
+                "properties": {
+                  "ref": {
+                    "type": "string"
+                  },
+                  "node_id": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "object": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "sha": {
+                        "description": "SHA for the reference",
+                        "type": "string",
+                        "minLength": 40,
+                        "maxLength": 40,
+                        "examples": [
+                          "7638417db6d59f3c431d3e1f261cc637155684cd"
+                        ]
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "sha",
+                      "url"
+                    ]
+                  }
+                },
+                "required": [
+                  "ref",
+                  "node_id",
+                  "url",
+                  "object"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/git/ref/{ref}",
+      "title": "Get a reference",
+      "category": "git",
+      "subcategory": "refs",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "ref",
+          "description": "<p>The Git reference. For more information, see \"<a href=\"https://git-scm.com/book/en/v2/Git-Internals-Git-References\">Git References</a>\" in the Git documentation.</p>",
+          "in": "path",
+          "required": true,
+          "example": "heads/feature-a",
+          "schema": {
+            "type": "string"
+          },
+          "x-multi-segment": true
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns a single reference from your Git database. The <code>:ref</code> in the URL must be formatted as <code>heads/&#x3C;branch name></code> for branches and <code>tags/&#x3C;tag name></code> for tags. If the <code>:ref</code> doesn't match an existing ref, a <code>404</code> is returned.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nYou need to explicitly <a href=\"https://docs.github.com/enterprise-server@3.14/rest/pulls/pulls#get-a-pull-request\">request a pull request</a> to trigger a test merge commit, which checks the mergeability of pull requests. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.14/rest/guides/getting-started-with-the-git-database-api#checking-mergeability-of-pull-requests\">Checking mergeability of pull requests</a>\".</p>\n</div>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "ref": "REF"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "ref": "refs/heads/featureA",
+              "node_id": "MDM6UmVmcmVmcy9oZWFkcy9mZWF0dXJlQQ==",
+              "url": "https://api.github.com/repos/octocat/Hello-World/git/refs/heads/featureA",
+              "object": {
+                "type": "commit",
+                "sha": "aa218f56b14c9653891f9e74264a383fa43fefbd",
+                "url": "https://api.github.com/repos/octocat/Hello-World/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
+              }
+            },
+            "schema": {
+              "title": "Git Reference",
+              "description": "Git references within a repository",
+              "type": "object",
+              "properties": {
+                "ref": {
+                  "type": "string"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "object": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "sha": {
+                      "description": "SHA for the reference",
+                      "type": "string",
+                      "minLength": 40,
+                      "maxLength": 40,
+                      "examples": [
+                        "7638417db6d59f3c431d3e1f261cc637155684cd"
+                      ]
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "sha",
+                    "url"
+                  ]
+                }
+              },
+              "required": [
+                "ref",
+                "node_id",
+                "url",
+                "object"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/git/refs",
+      "title": "Create a reference",
+      "category": "git",
+      "subcategory": "refs",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "ref",
+          "in": "body",
+          "description": "<p>The name of the fully qualified reference (ie: <code>refs/heads/master</code>). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "sha",
+          "in": "body",
+          "description": "<p>The SHA1 value for this reference.</p>",
+          "isRequired": true
+        }
+      ],
+      "descriptionHTML": "<p>Creates a reference for your repository. You are unable to create new references for empty repositories, even if the commit SHA-1 hash used exists. Empty repositories are repositories without branches.</p>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "ref": "refs/heads/featureA",
+              "sha": "aa218f56b14c9653891f9e74264a383fa43fefbd"
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "ref": "refs/heads/featureA",
+              "node_id": "MDM6UmVmcmVmcy9oZWFkcy9mZWF0dXJlQQ==",
+              "url": "https://api.github.com/repos/octocat/Hello-World/git/refs/heads/featureA",
+              "object": {
+                "type": "commit",
+                "sha": "aa218f56b14c9653891f9e74264a383fa43fefbd",
+                "url": "https://api.github.com/repos/octocat/Hello-World/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
+              }
+            },
+            "schema": {
+              "title": "Git Reference",
+              "description": "Git references within a repository",
+              "type": "object",
+              "properties": {
+                "ref": {
+                  "type": "string"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "object": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "sha": {
+                      "description": "SHA for the reference",
+                      "type": "string",
+                      "minLength": 40,
+                      "maxLength": 40,
+                      "examples": [
+                        "7638417db6d59f3c431d3e1f261cc637155684cd"
+                      ]
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "sha",
+                    "url"
+                  ]
+                }
+              },
+              "required": [
+                "ref",
+                "node_id",
+                "url",
+                "object"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>Created</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "write"
+          },
+          {
+            "\"Contents\" repository permissions": "write",
+            "\"Workflows\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/git/refs/{ref}",
+      "title": "Update a reference",
+      "category": "git",
+      "subcategory": "refs",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "ref",
+          "description": "<p>The Git reference. For more information, see \"<a href=\"https://git-scm.com/book/en/v2/Git-Internals-Git-References\">Git References</a>\" in the Git documentation.</p>",
+          "in": "path",
+          "required": true,
+          "example": "heads/feature-a",
+          "schema": {
+            "type": "string"
+          },
+          "x-multi-segment": true
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "sha",
+          "in": "body",
+          "description": "<p>The SHA1 value to set this reference to</p>",
+          "isRequired": true
+        },
+        {
+          "type": "boolean",
+          "name": "force",
+          "in": "body",
+          "description": "<p>Indicates whether to force the update or to make sure the update is a fast-forward update. Leaving this out or setting it to <code>false</code> will make sure you're not overwriting work.</p>",
+          "default": false
+        }
+      ],
+      "descriptionHTML": "<p>Updates the provided reference to point to a new SHA. For more information, see \"<a href=\"https://git-scm.com/book/en/v2/Git-Internals-Git-References\">Git References</a>\" in the Git documentation.</p>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "sha": "aa218f56b14c9653891f9e74264a383fa43fefbd",
+              "force": true
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "ref": "REF"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "ref": "refs/heads/featureA",
+              "node_id": "MDM6UmVmcmVmcy9oZWFkcy9mZWF0dXJlQQ==",
+              "url": "https://api.github.com/repos/octocat/Hello-World/git/refs/heads/featureA",
+              "object": {
+                "type": "commit",
+                "sha": "aa218f56b14c9653891f9e74264a383fa43fefbd",
+                "url": "https://api.github.com/repos/octocat/Hello-World/git/commits/aa218f56b14c9653891f9e74264a383fa43fefbd"
+              }
+            },
+            "schema": {
+              "title": "Git Reference",
+              "description": "Git references within a repository",
+              "type": "object",
+              "properties": {
+                "ref": {
+                  "type": "string"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "object": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "sha": {
+                      "description": "SHA for the reference",
+                      "type": "string",
+                      "minLength": 40,
+                      "maxLength": 40,
+                      "examples": [
+                        "7638417db6d59f3c431d3e1f261cc637155684cd"
+                      ]
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "sha",
+                    "url"
+                  ]
+                }
+              },
+              "required": [
+                "ref",
+                "node_id",
+                "url",
+                "object"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "write"
+          },
+          {
+            "\"Contents\" repository permissions": "write",
+            "\"Workflows\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/git/refs/{ref}",
+      "title": "Delete a reference",
+      "category": "git",
+      "subcategory": "refs",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "ref",
+          "description": "<p>The Git reference. For more information, see \"<a href=\"https://git-scm.com/book/en/v2/Git-Internals-Git-References\">Git References</a>\" in the Git documentation.</p>",
+          "in": "path",
+          "required": true,
+          "example": "heads/feature-a",
+          "schema": {
+            "type": "string"
+          },
+          "x-multi-segment": true
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Deletes the provided reference.</p>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "ref": "REF"
+            }
+          },
+          "response": {
+            "statusCode": "204",
+            "description": "<p>Response</p>"
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "204",
+          "description": "<p>No Content</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, an attempt was made to delete the default branch, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "write"
+          }
+        ]
+      }
+    }
+  ],
+  "tags": [
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/git/tags",
+      "title": "Create a tag object",
+      "category": "git",
+      "subcategory": "tags",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "string",
+          "name": "tag",
+          "in": "body",
+          "description": "<p>The tag's name. This is typically a version (e.g., \"v0.0.1\").</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "message",
+          "in": "body",
+          "description": "<p>The tag message.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "object",
+          "in": "body",
+          "description": "<p>The SHA of the git object this is tagging.</p>",
+          "isRequired": true
+        },
+        {
+          "type": "string",
+          "name": "type",
+          "in": "body",
+          "description": "<p>The type of the object we're tagging. Normally this is a <code>commit</code> but it can also be a <code>tree</code> or a <code>blob</code>.</p>",
+          "isRequired": true,
+          "enum": [
+            "commit",
+            "tree",
+            "blob"
+          ]
+        },
+        {
+          "type": "object",
+          "name": "tagger",
+          "in": "body",
+          "description": "<p>An object with information about the individual creating the tag.</p>",
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "name",
+              "description": "<p>The name of the author of the tag</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "email",
+              "description": "<p>The email of the author of the tag</p>",
+              "isRequired": true
+            },
+            {
+              "type": "string",
+              "name": "date",
+              "description": "<p>When this object was tagged. This is a timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> format: <code>YYYY-MM-DDTHH:MM:SSZ</code>.</p>"
+            }
+          ]
+        }
+      ],
+      "descriptionHTML": "<p>Note that creating a tag object does not create the reference that makes a tag in Git. If you want to create an annotated tag in Git, you have to do this call to create the tag object, and then <a href=\"https://docs.github.com/enterprise-server@3.14/rest/git/refs#create-a-reference\">create</a> the <code>refs/tags/[tag]</code> reference. If you want to create a lightweight tag, you only have to <a href=\"https://docs.github.com/enterprise-server@3.14/rest/git/refs#create-a-reference\">create</a> the tag reference - this call would be unnecessary.</p>\n<p><strong>Signature verification object</strong></p>\n<p>The response will include a <code>verification</code> object that describes the result of verifying the commit's signature. The following fields are included in the <code>verification</code> object:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\">Name</th><th scope=\"col\">Type</th><th scope=\"col\">Description</th></tr></thead><tbody><tr><td><code>verified</code></td><td><code>boolean</code></td><td>Indicates whether GitHub considers the signature in this commit to be verified.</td></tr><tr><td><code>reason</code></td><td><code>string</code></td><td>The reason for verified value. Possible values and their meanings are enumerated in table below.</td></tr><tr><td><code>signature</code></td><td><code>string</code></td><td>The signature that was extracted from the commit.</td></tr><tr><td><code>payload</code></td><td><code>string</code></td><td>The value that was signed.</td></tr><tr><td><code>verified_at</code></td><td><code>string</code></td><td>The date the signature was verified by GitHub.</td></tr></tbody></table>\n<p>These are the possible values for <code>reason</code> in the <code>verification</code> object:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\">Value</th><th scope=\"col\">Description</th></tr></thead><tbody><tr><td><code>expired_key</code></td><td>The key that made the signature is expired.</td></tr><tr><td><code>not_signing_key</code></td><td>The \"signing\" flag is not among the usage flags in the GPG key that made the signature.</td></tr><tr><td><code>gpgverify_error</code></td><td>There was an error communicating with the signature verification service.</td></tr><tr><td><code>gpgverify_unavailable</code></td><td>The signature verification service is currently unavailable.</td></tr><tr><td><code>unsigned</code></td><td>The object does not include a signature.</td></tr><tr><td><code>unknown_signature_type</code></td><td>A non-PGP signature was found in the commit.</td></tr><tr><td><code>no_user</code></td><td>No user was associated with the <code>committer</code> email address in the commit.</td></tr><tr><td><code>unverified_email</code></td><td>The <code>committer</code> email address in the commit was associated with a user, but the email address is not verified on their account.</td></tr><tr><td><code>bad_email</code></td><td>The <code>committer</code> email address in the commit is not included in the identities of the PGP key that made the signature.</td></tr><tr><td><code>unknown_key</code></td><td>The key that made the signature has not been registered with any user's account.</td></tr><tr><td><code>malformed_signature</code></td><td>There was an error parsing the signature.</td></tr><tr><td><code>invalid</code></td><td>The signature could not be cryptographically verified using the key whose key-id was found in the signature.</td></tr><tr><td><code>valid</code></td><td>None of the above errors applied, so the signature is considered to be verified.</td></tr></tbody></table>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "tag": "v0.0.1",
+              "message": "initial version",
+              "object": "c3d0be41ecbe669545ee3e94d31ed9a4bc91ee3c",
+              "type": "commit",
+              "tagger": {
+                "name": "Monalisa Octocat",
+                "email": "octocat@github.com",
+                "date": "2011-06-17T14:53:35-07:00"
+              }
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "node_id": "MDM6VGFnOTQwYmQzMzYyNDhlZmFlMGY5ZWU1YmM3YjJkNWM5ODU4ODdiMTZhYw==",
+              "tag": "v0.0.1",
+              "sha": "940bd336248efae0f9ee5bc7b2d5c985887b16ac",
+              "url": "https://api.github.com/repos/octocat/Hello-World/git/tags/940bd336248efae0f9ee5bc7b2d5c985887b16ac",
+              "message": "initial version",
+              "tagger": {
+                "name": "Monalisa Octocat",
+                "email": "octocat@github.com",
+                "date": "2014-11-07T22:01:45Z"
+              },
+              "object": {
+                "type": "commit",
+                "sha": "c3d0be41ecbe669545ee3e94d31ed9a4bc91ee3c",
+                "url": "https://api.github.com/repos/octocat/Hello-World/git/commits/c3d0be41ecbe669545ee3e94d31ed9a4bc91ee3c"
+              },
+              "verification": {
+                "verified": false,
+                "reason": "unsigned"
+              }
+            },
+            "schema": {
+              "title": "Git Tag",
+              "description": "Metadata for a Git tag",
+              "type": "object",
+              "properties": {
+                "node_id": {
+                  "type": "string",
+                  "examples": [
+                    "MDM6VGFnOTQwYmQzMzYyNDhlZmFlMGY5ZWU1YmM3YjJkNWM5ODU4ODdiMTZhYw=="
+                  ]
+                },
+                "tag": {
+                  "description": "Name of the tag",
+                  "type": "string",
+                  "examples": [
+                    "v0.0.1"
+                  ]
+                },
+                "sha": {
+                  "type": "string",
+                  "examples": [
+                    "940bd336248efae0f9ee5bc7b2d5c985887b16ac"
+                  ]
+                },
+                "url": {
+                  "description": "URL for the tag",
+                  "type": "string",
+                  "format": "uri",
+                  "examples": [
+                    "https://api.github.com/repositories/42/git/tags/940bd336248efae0f9ee5bc7b2d5c985887b16ac"
+                  ]
+                },
+                "message": {
+                  "description": "Message describing the purpose of the tag",
+                  "type": "string",
+                  "examples": [
+                    "Initial public release"
+                  ]
+                },
+                "tagger": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "date",
+                    "email",
+                    "name"
+                  ]
+                },
+                "object": {
+                  "type": "object",
+                  "properties": {
+                    "sha": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "sha",
+                    "type",
+                    "url"
+                  ]
+                },
+                "verification": {
+                  "title": "Verification",
+                  "type": "object",
+                  "properties": {
+                    "verified": {
+                      "type": "boolean"
+                    },
+                    "reason": {
+                      "type": "string"
+                    },
+                    "payload": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "signature": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "verified",
+                    "reason",
+                    "payload",
+                    "signature"
+                  ]
+                }
+              },
+              "required": [
+                "sha",
+                "url",
+                "node_id",
+                "tagger",
+                "object",
+                "tag",
+                "message"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>Created</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/git/tags/{tag_sha}",
+      "title": "Get a tag",
+      "category": "git",
+      "subcategory": "tags",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "tag_sha",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": ""
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p><strong>Signature verification object</strong></p>\n<p>The response will include a <code>verification</code> object that describes the result of verifying the commit's signature. The following fields are included in the <code>verification</code> object:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\">Name</th><th scope=\"col\">Type</th><th scope=\"col\">Description</th></tr></thead><tbody><tr><td><code>verified</code></td><td><code>boolean</code></td><td>Indicates whether GitHub considers the signature in this commit to be verified.</td></tr><tr><td><code>reason</code></td><td><code>string</code></td><td>The reason for verified value. Possible values and their meanings are enumerated in table below.</td></tr><tr><td><code>signature</code></td><td><code>string</code></td><td>The signature that was extracted from the commit.</td></tr><tr><td><code>payload</code></td><td><code>string</code></td><td>The value that was signed.</td></tr><tr><td><code>verified_at</code></td><td><code>string</code></td><td>The date the signature was verified by GitHub.</td></tr></tbody></table>\n<p>These are the possible values for <code>reason</code> in the <code>verification</code> object:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\">Value</th><th scope=\"col\">Description</th></tr></thead><tbody><tr><td><code>expired_key</code></td><td>The key that made the signature is expired.</td></tr><tr><td><code>not_signing_key</code></td><td>The \"signing\" flag is not among the usage flags in the GPG key that made the signature.</td></tr><tr><td><code>gpgverify_error</code></td><td>There was an error communicating with the signature verification service.</td></tr><tr><td><code>gpgverify_unavailable</code></td><td>The signature verification service is currently unavailable.</td></tr><tr><td><code>unsigned</code></td><td>The object does not include a signature.</td></tr><tr><td><code>unknown_signature_type</code></td><td>A non-PGP signature was found in the commit.</td></tr><tr><td><code>no_user</code></td><td>No user was associated with the <code>committer</code> email address in the commit.</td></tr><tr><td><code>unverified_email</code></td><td>The <code>committer</code> email address in the commit was associated with a user, but the email address is not verified on their account.</td></tr><tr><td><code>bad_email</code></td><td>The <code>committer</code> email address in the commit is not included in the identities of the PGP key that made the signature.</td></tr><tr><td><code>unknown_key</code></td><td>The key that made the signature has not been registered with any user's account.</td></tr><tr><td><code>malformed_signature</code></td><td>There was an error parsing the signature.</td></tr><tr><td><code>invalid</code></td><td>The signature could not be cryptographically verified using the key whose key-id was found in the signature.</td></tr><tr><td><code>valid</code></td><td>None of the above errors applied, so the signature is considered to be verified.</td></tr></tbody></table>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "tag_sha": "TAG_SHA"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "node_id": "MDM6VGFnOTQwYmQzMzYyNDhlZmFlMGY5ZWU1YmM3YjJkNWM5ODU4ODdiMTZhYw==",
+              "tag": "v0.0.1",
+              "sha": "940bd336248efae0f9ee5bc7b2d5c985887b16ac",
+              "url": "https://api.github.com/repos/octocat/Hello-World/git/tags/940bd336248efae0f9ee5bc7b2d5c985887b16ac",
+              "message": "initial version",
+              "tagger": {
+                "name": "Monalisa Octocat",
+                "email": "octocat@github.com",
+                "date": "2014-11-07T22:01:45Z"
+              },
+              "object": {
+                "type": "commit",
+                "sha": "c3d0be41ecbe669545ee3e94d31ed9a4bc91ee3c",
+                "url": "https://api.github.com/repos/octocat/Hello-World/git/commits/c3d0be41ecbe669545ee3e94d31ed9a4bc91ee3c"
+              },
+              "verification": {
+                "verified": false,
+                "reason": "unsigned"
+              }
+            },
+            "schema": {
+              "title": "Git Tag",
+              "description": "Metadata for a Git tag",
+              "type": "object",
+              "properties": {
+                "node_id": {
+                  "type": "string",
+                  "examples": [
+                    "MDM6VGFnOTQwYmQzMzYyNDhlZmFlMGY5ZWU1YmM3YjJkNWM5ODU4ODdiMTZhYw=="
+                  ]
+                },
+                "tag": {
+                  "description": "Name of the tag",
+                  "type": "string",
+                  "examples": [
+                    "v0.0.1"
+                  ]
+                },
+                "sha": {
+                  "type": "string",
+                  "examples": [
+                    "940bd336248efae0f9ee5bc7b2d5c985887b16ac"
+                  ]
+                },
+                "url": {
+                  "description": "URL for the tag",
+                  "type": "string",
+                  "format": "uri",
+                  "examples": [
+                    "https://api.github.com/repositories/42/git/tags/940bd336248efae0f9ee5bc7b2d5c985887b16ac"
+                  ]
+                },
+                "message": {
+                  "description": "Message describing the purpose of the tag",
+                  "type": "string",
+                  "examples": [
+                    "Initial public release"
+                  ]
+                },
+                "tagger": {
+                  "type": "object",
+                  "properties": {
+                    "date": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "date",
+                    "email",
+                    "name"
+                  ]
+                },
+                "object": {
+                  "type": "object",
+                  "properties": {
+                    "sha": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "required": [
+                    "sha",
+                    "type",
+                    "url"
+                  ]
+                },
+                "verification": {
+                  "title": "Verification",
+                  "type": "object",
+                  "properties": {
+                    "verified": {
+                      "type": "boolean"
+                    },
+                    "reason": {
+                      "type": "string"
+                    },
+                    "payload": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "signature": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "verified",
+                    "reason",
+                    "payload",
+                    "signature"
+                  ]
+                }
+              },
+              "required": [
+                "sha",
+                "url",
+                "node_id",
+                "tagger",
+                "object",
+                "tag",
+                "message"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    }
+  ],
+  "trees": [
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/git/trees",
+      "title": "Create a tree",
+      "category": "git",
+      "subcategory": "trees",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [
+        {
+          "type": "array of objects",
+          "name": "tree",
+          "in": "body",
+          "description": "<p>Objects (of <code>path</code>, <code>mode</code>, <code>type</code>, and <code>sha</code>) specifying a tree structure.</p>",
+          "isRequired": true,
+          "childParamsGroups": [
+            {
+              "type": "string",
+              "name": "path",
+              "description": "<p>The file referenced in the tree.</p>"
+            },
+            {
+              "type": "string",
+              "name": "mode",
+              "description": "<p>The file mode; one of <code>100644</code> for file (blob), <code>100755</code> for executable (blob), <code>040000</code> for subdirectory (tree), <code>160000</code> for submodule (commit), or <code>120000</code> for a blob that specifies the path of a symlink.</p>",
+              "enum": [
+                "100644",
+                "100755",
+                "040000",
+                "160000",
+                "120000"
+              ]
+            },
+            {
+              "type": "string",
+              "name": "type",
+              "description": "<p>Either <code>blob</code>, <code>tree</code>, or <code>commit</code>.</p>",
+              "enum": [
+                "blob",
+                "tree",
+                "commit"
+              ]
+            },
+            {
+              "type": "string or null",
+              "name": "sha",
+              "description": "<p>The SHA1 checksum ID of the object in the tree. Also called <code>tree.sha</code>. If the value is <code>null</code> then the file will be deleted.</p>\n<p><strong>Note:</strong> Use either <code>tree.sha</code> or <code>content</code> to specify the contents of the entry. Using both <code>tree.sha</code> and <code>content</code> will return an error.</p>"
+            },
+            {
+              "type": "string",
+              "name": "content",
+              "description": "<p>The content you want this file to have. GitHub will write this blob out and use that SHA for this entry. Use either this, or <code>tree.sha</code>.</p>\n<p><strong>Note:</strong> Use either <code>tree.sha</code> or <code>content</code> to specify the contents of the entry. Using both <code>tree.sha</code> and <code>content</code> will return an error.</p>"
+            }
+          ]
+        },
+        {
+          "type": "string",
+          "name": "base_tree",
+          "in": "body",
+          "description": "<p>The SHA1 of an existing Git tree object which will be used as the base for the new tree. If provided, a new Git tree object will be created from entries in the Git tree object pointed to by <code>base_tree</code> and entries defined in the <code>tree</code> parameter. Entries defined in the <code>tree</code> parameter will overwrite items from <code>base_tree</code> with the same <code>path</code>. If you're creating new changes on a branch, then normally you'd set <code>base_tree</code> to the SHA1 of the Git tree object of the current latest commit on the branch you're working on.\nIf not provided, GitHub will create a new Git tree object from only the entries defined in the <code>tree</code> parameter. If you create a new commit pointing to such a tree, then all files which were a part of the parent commit's tree and were not defined in the <code>tree</code> parameter will be listed as deleted by the new commit.</p>"
+        }
+      ],
+      "descriptionHTML": "<p>The tree creation API accepts nested entries. If you specify both a tree and a nested path modifying that tree, this endpoint will overwrite the contents of the tree with the new path contents, and create a new tree structure.</p>\n<p>If you use this endpoint to add, delete, or modify the file contents in a tree, you will need to commit the tree and then update a branch to point to the commit. For more information see \"<a href=\"https://docs.github.com/enterprise-server@3.14/rest/git/commits#create-a-commit\">Create a commit</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.14/rest/git/refs#update-a-reference\">Update a reference</a>.\"</p>\n<p>Returns an error if you try to delete a file that does not exist.</p>",
+      "codeExamples": [
+        {
+          "key": "default",
+          "request": {
+            "contentType": "application/json",
+            "description": "Example",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "bodyParameters": {
+              "base_tree": "9fb037999f264ba9a7fc6274d15fa3ae2ab98312",
+              "tree": [
+                {
+                  "path": "file.rb",
+                  "mode": "100644",
+                  "type": "blob",
+                  "sha": "44b4fc6d56897b048c772eb4087f854f46256132"
+                }
+              ]
+            },
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO"
+            }
+          },
+          "response": {
+            "statusCode": "201",
+            "contentType": "application/json",
+            "description": "<p>Response</p>",
+            "example": {
+              "sha": "cd8274d15fa3ae2ab983129fb037999f264ba9a7",
+              "url": "https://api.github.com/repos/octocat/Hello-World/trees/cd8274d15fa3ae2ab983129fb037999f264ba9a7",
+              "tree": [
+                {
+                  "path": "file.rb",
+                  "mode": "100644",
+                  "type": "blob",
+                  "size": 132,
+                  "sha": "7c258a9869f33c1e1e1f74fbb32f07c86cb5a75b",
+                  "url": "https://api.github.com/repos/octocat/Hello-World/git/blobs/7c258a9869f33c1e1e1f74fbb32f07c86cb5a75b"
+                }
+              ],
+              "truncated": true
+            },
+            "schema": {
+              "title": "Git Tree",
+              "description": "The hierarchy between files in a Git repository.",
+              "type": "object",
+              "properties": {
+                "sha": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "truncated": {
+                  "type": "boolean"
+                },
+                "tree": {
+                  "description": "Objects specifying a tree structure",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "path",
+                      "mode",
+                      "type",
+                      "sha"
+                    ],
+                    "properties": {
+                      "path": {
+                        "type": "string",
+                        "examples": [
+                          "test/file.rb"
+                        ]
+                      },
+                      "mode": {
+                        "type": "string",
+                        "examples": [
+                          "040000"
+                        ]
+                      },
+                      "type": {
+                        "type": "string",
+                        "examples": [
+                          "tree"
+                        ]
+                      },
+                      "sha": {
+                        "type": "string",
+                        "examples": [
+                          "23f6827669e43831def8a7ad935069c8bd418261"
+                        ]
+                      },
+                      "size": {
+                        "type": "integer",
+                        "examples": [
+                          12
+                        ]
+                      },
+                      "url": {
+                        "type": "string",
+                        "examples": [
+                          "https://api.github.com/repos/owner-482f3203ecf01f67e9deb18e/BBB_Private_Repo/git/blobs/23f6827669e43831def8a7ad935069c8bd418261"
+                        ]
+                      }
+                    }
+                  },
+                  "examples": [
+                    {
+                      "path": "file.rb",
+                      "mode": "100644",
+                      "type": "blob",
+                      "size": 30,
+                      "sha": "44b4fc6d56897b048c772eb4087f854f46256132",
+                      "url": "https://api.github.com/repos/octocat/Hello-World/git/blobs/44b4fc6d56897b048c772eb4087f854f46256132"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "sha",
+                "tree",
+                "truncated"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "201",
+          "description": "<p>Created</p>"
+        },
+        {
+          "httpStatusCode": "403",
+          "description": "<p>Forbidden</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "write"
+          }
+        ]
+      }
+    },
+    {
+      "serverUrl": "http(s)://HOSTNAME/api/v3",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/git/trees/{tree_sha}",
+      "title": "Get a tree",
+      "category": "git",
+      "subcategory": "trees",
+      "parameters": [
+        {
+          "name": "owner",
+          "description": "<p>The account owner of the repository. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "repo",
+          "description": "<p>The name of the repository without the <code>.git</code> extension. The name is not case sensitive.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "tree_sha",
+          "description": "<p>The SHA1 value or ref (branch or tag) name of the tree.</p>",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "x-multi-segment": true
+        },
+        {
+          "name": "recursive",
+          "description": "<p>Setting this parameter to any value returns the objects or subtrees referenced by the tree specified in <code>:tree_sha</code>. For example, setting <code>recursive</code> to any of the following will enable returning objects or subtrees: <code>0</code>, <code>1</code>, <code>\"true\"</code>, and <code>\"false\"</code>. Omit this parameter to prevent recursively returning objects or subtrees.</p>",
+          "in": "query",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodyParameters": [],
+      "descriptionHTML": "<p>Returns a single tree using the SHA1 value or ref name for that tree.</p>\n<p>If <code>truncated</code> is <code>true</code> in the response then the number of items in the <code>tree</code> array exceeded our maximum limit. If you need to fetch more items, use the non-recursive method of fetching trees, and fetch one sub-tree at a time.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe limit for the <code>tree</code> array is 100,000 entries with a maximum size of 7 MB when using the <code>recursive</code> parameter.</p>\n</div>",
+      "codeExamples": [
+        {
+          "key": "default-response",
+          "request": {
+            "description": "Example 1: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "tree_sha": "TREE_SHA"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Default response</p>",
+            "example": {
+              "sha": "9fb037999f264ba9a7fc6274d15fa3ae2ab98312",
+              "url": "https://api.github.com/repos/octocat/Hello-World/trees/9fb037999f264ba9a7fc6274d15fa3ae2ab98312",
+              "tree": [
+                {
+                  "path": "file.rb",
+                  "mode": "100644",
+                  "type": "blob",
+                  "size": 30,
+                  "sha": "44b4fc6d56897b048c772eb4087f854f46256132",
+                  "url": "https://api.github.com/repos/octocat/Hello-World/git/blobs/44b4fc6d56897b048c772eb4087f854f46256132"
+                },
+                {
+                  "path": "subdir",
+                  "mode": "040000",
+                  "type": "tree",
+                  "sha": "f484d249c660418515fb01c2b9662073663c242e",
+                  "url": "https://api.github.com/repos/octocat/Hello-World/git/blobs/f484d249c660418515fb01c2b9662073663c242e"
+                },
+                {
+                  "path": "exec_file",
+                  "mode": "100755",
+                  "type": "blob",
+                  "size": 75,
+                  "sha": "45b983be36b73c0788dc9cbcb76cbb80fc7bb057",
+                  "url": "https://api.github.com/repos/octocat/Hello-World/git/blobs/45b983be36b73c0788dc9cbcb76cbb80fc7bb057"
+                }
+              ],
+              "truncated": false
+            },
+            "schema": {
+              "title": "Git Tree",
+              "description": "The hierarchy between files in a Git repository.",
+              "type": "object",
+              "properties": {
+                "sha": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "truncated": {
+                  "type": "boolean"
+                },
+                "tree": {
+                  "description": "Objects specifying a tree structure",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "path",
+                      "mode",
+                      "type",
+                      "sha"
+                    ],
+                    "properties": {
+                      "path": {
+                        "type": "string",
+                        "examples": [
+                          "test/file.rb"
+                        ]
+                      },
+                      "mode": {
+                        "type": "string",
+                        "examples": [
+                          "040000"
+                        ]
+                      },
+                      "type": {
+                        "type": "string",
+                        "examples": [
+                          "tree"
+                        ]
+                      },
+                      "sha": {
+                        "type": "string",
+                        "examples": [
+                          "23f6827669e43831def8a7ad935069c8bd418261"
+                        ]
+                      },
+                      "size": {
+                        "type": "integer",
+                        "examples": [
+                          12
+                        ]
+                      },
+                      "url": {
+                        "type": "string",
+                        "examples": [
+                          "https://api.github.com/repos/owner-482f3203ecf01f67e9deb18e/BBB_Private_Repo/git/blobs/23f6827669e43831def8a7ad935069c8bd418261"
+                        ]
+                      }
+                    }
+                  },
+                  "examples": [
+                    {
+                      "path": "file.rb",
+                      "mode": "100644",
+                      "type": "blob",
+                      "size": 30,
+                      "sha": "44b4fc6d56897b048c772eb4087f854f46256132",
+                      "url": "https://api.github.com/repos/octocat/Hello-World/git/blobs/44b4fc6d56897b048c772eb4087f854f46256132"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "sha",
+                "tree",
+                "truncated"
+              ]
+            }
+          }
+        },
+        {
+          "key": "response-recursively-retrieving-a-tree",
+          "request": {
+            "description": "Example 2: Status Code 200",
+            "acceptHeader": "application/vnd.github.v3+json",
+            "parameters": {
+              "owner": "OWNER",
+              "repo": "REPO",
+              "tree_sha": "TREE_SHA"
+            }
+          },
+          "response": {
+            "statusCode": "200",
+            "contentType": "application/json",
+            "description": "<p>Response recursively retrieving a tree</p>",
+            "example": {
+              "sha": "fc6274d15fa3ae2ab983129fb037999f264ba9a7",
+              "url": "https://api.github.com/repos/octocat/Hello-World/trees/fc6274d15fa3ae2ab983129fb037999f264ba9a7",
+              "tree": [
+                {
+                  "path": "subdir/file.txt",
+                  "mode": "100644",
+                  "type": "blob",
+                  "size": 132,
+                  "sha": "7c258a9869f33c1e1e1f74fbb32f07c86cb5a75b",
+                  "url": "https://api.github.com/repos/octocat/Hello-World/git/7c258a9869f33c1e1e1f74fbb32f07c86cb5a75b"
+                }
+              ],
+              "truncated": false
+            },
+            "schema": {
+              "title": "Git Tree",
+              "description": "The hierarchy between files in a Git repository.",
+              "type": "object",
+              "properties": {
+                "sha": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "truncated": {
+                  "type": "boolean"
+                },
+                "tree": {
+                  "description": "Objects specifying a tree structure",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "path",
+                      "mode",
+                      "type",
+                      "sha"
+                    ],
+                    "properties": {
+                      "path": {
+                        "type": "string",
+                        "examples": [
+                          "test/file.rb"
+                        ]
+                      },
+                      "mode": {
+                        "type": "string",
+                        "examples": [
+                          "040000"
+                        ]
+                      },
+                      "type": {
+                        "type": "string",
+                        "examples": [
+                          "tree"
+                        ]
+                      },
+                      "sha": {
+                        "type": "string",
+                        "examples": [
+                          "23f6827669e43831def8a7ad935069c8bd418261"
+                        ]
+                      },
+                      "size": {
+                        "type": "integer",
+                        "examples": [
+                          12
+                        ]
+                      },
+                      "url": {
+                        "type": "string",
+                        "examples": [
+                          "https://api.github.com/repos/owner-482f3203ecf01f67e9deb18e/BBB_Private_Repo/git/blobs/23f6827669e43831def8a7ad935069c8bd418261"
+                        ]
+                      }
+                    }
+                  },
+                  "examples": [
+                    {
+                      "path": "file.rb",
+                      "mode": "100644",
+                      "type": "blob",
+                      "size": 30,
+                      "sha": "44b4fc6d56897b048c772eb4087f854f46256132",
+                      "url": "https://api.github.com/repos/octocat/Hello-World/git/blobs/44b4fc6d56897b048c772eb4087f854f46256132"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "sha",
+                "tree",
+                "truncated"
+              ]
+            }
+          }
+        }
+      ],
+      "statusCodes": [
+        {
+          "httpStatusCode": "200",
+          "description": "<p>OK</p>"
+        },
+        {
+          "httpStatusCode": "404",
+          "description": "<p>Resource not found</p>"
+        },
+        {
+          "httpStatusCode": "409",
+          "description": "<p>Conflict</p>"
+        },
+        {
+          "httpStatusCode": "422",
+          "description": "<p>Validation failed, or the endpoint has been spammed.</p>"
+        }
+      ],
+      "previews": [],
+      "progAccess": {
+        "userToServerRest": true,
+        "serverToServer": true,
+        "fineGrainedPat": true,
+        "permissions": [
+          {
+            "\"Contents\" repository permissions": "read"
+          }
+        ],
+        "allowsPublicRead": true
+      }
+    }
+  ]
+}
