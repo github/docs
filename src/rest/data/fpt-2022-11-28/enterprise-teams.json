@@ -97,12 +97,16 @@
                     "type": "string"
                   },
                   "group_id": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "group_name": {
-                    "nullable": true,
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "Retired: this field will not be returned with GHEC enterprise teams."
                   },
                   "html_url": {
@@ -279,12 +283,16 @@
                   "type": "string"
                 },
                 "group_id": {
-                  "nullable": true,
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "group_name": {
-                  "nullable": true,
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "Retired: this field will not be returned with GHEC enterprise teams."
                 },
                 "html_url": {
@@ -422,12 +430,16 @@
                   "type": "string"
                 },
                 "group_id": {
-                  "nullable": true,
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "group_name": {
-                  "nullable": true,
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "Retired: this field will not be returned with GHEC enterprise teams."
                 },
                 "html_url": {
@@ -612,12 +624,16 @@
                   "type": "string"
                 },
                 "group_id": {
-                  "nullable": true,
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "group_name": {
-                  "nullable": true,
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "Retired: this field will not be returned with GHEC enterprise teams."
                 },
                 "html_url": {
@@ -835,12 +851,16 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "email": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "login": {
                     "type": "string"
@@ -857,8 +877,10 @@
                     "format": "uri"
                   },
                   "gravatar_id": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "url": {
                     "type": "string",
@@ -1044,12 +1066,16 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "email": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "login": {
                     "type": "string"
@@ -1066,8 +1092,10 @@
                     "format": "uri"
                   },
                   "gravatar_id": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "url": {
                     "type": "string",
@@ -1253,12 +1281,16 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "email": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "login": {
                     "type": "string"
@@ -1275,8 +1307,10 @@
                     "format": "uri"
                   },
                   "gravatar_id": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "url": {
                     "type": "string",
@@ -1454,12 +1488,16 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "nullable": true,
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "email": {
-                  "nullable": true,
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "login": {
                   "type": "string"
@@ -1476,8 +1514,10 @@
                   "format": "uri"
                 },
                 "gravatar_id": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "url": {
                   "type": "string",
@@ -1654,12 +1694,16 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "nullable": true,
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "email": {
-                  "nullable": true,
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "login": {
                   "type": "string"
@@ -1676,8 +1720,10 @@
                   "format": "uri"
                 },
                 "gravatar_id": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "url": {
                   "type": "string",
@@ -1974,8 +2020,10 @@
                     "type": "string"
                   },
                   "description": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   }
                 },
                 "required": [
@@ -2132,8 +2180,10 @@
                     "type": "string"
                   },
                   "description": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   }
                 },
                 "required": [
@@ -2360,8 +2410,10 @@
                   "type": "string"
                 },
                 "description": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "required": [
@@ -2514,8 +2566,10 @@
                   "type": "string"
                 },
                 "description": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "required": [

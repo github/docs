@@ -55,9 +55,11 @@
                     "type": "string"
                   },
                   "html_url": {
-                    "type": "string",
-                    "format": "uri",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "uri"
                   }
                 },
                 "required": [
@@ -150,9 +152,11 @@
                   "type": "string"
                 },
                 "html_url": {
-                  "type": "string",
-                  "format": "uri",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "uri"
                 }
               },
               "required": [

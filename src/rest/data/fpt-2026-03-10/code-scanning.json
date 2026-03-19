@@ -33,8 +33,10 @@
           "in": "query",
           "required": false,
           "schema": {
-            "nullable": true,
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data."
           }
         },
@@ -452,157 +454,183 @@
                     "readOnly": true
                   },
                   "state": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "State of a code scanning alert.",
-                    "nullable": true,
                     "enum": [
                       "open",
                       "dismissed",
-                      "fixed"
+                      "fixed",
+                      null
                     ]
                   },
                   "fixed_at": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                     "format": "date-time",
-                    "readOnly": true,
-                    "nullable": true
+                    "readOnly": true
                   },
                   "dismissed_by": {
-                    "title": "Simple User",
-                    "description": "A GitHub user.",
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "nullable": true,
-                        "type": "string"
+                    "anyOf": [
+                      {
+                        "type": "null"
                       },
-                      "email": {
-                        "nullable": true,
-                        "type": "string"
-                      },
-                      "login": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer",
-                        "format": "int64"
-                      },
-                      "node_id": {
-                        "type": "string"
-                      },
-                      "avatar_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
-                      },
-                      "url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "html_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "followers_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "following_url": {
-                        "type": "string"
-                      },
-                      "gists_url": {
-                        "type": "string"
-                      },
-                      "starred_url": {
-                        "type": "string"
-                      },
-                      "subscriptions_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "organizations_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "repos_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "events_url": {
-                        "type": "string"
-                      },
-                      "received_events_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "type": {
-                        "type": "string"
-                      },
-                      "site_admin": {
-                        "type": "boolean"
-                      },
-                      "starred_at": {
-                        "type": "string"
-                      },
-                      "user_view_type": {
-                        "type": "string"
+                      {
+                        "title": "Simple User",
+                        "description": "A GitHub user.",
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "email": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "login": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "integer",
+                            "format": "int64"
+                          },
+                          "node_id": {
+                            "type": "string"
+                          },
+                          "avatar_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "gravatar_id": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "html_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "followers_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "following_url": {
+                            "type": "string"
+                          },
+                          "gists_url": {
+                            "type": "string"
+                          },
+                          "starred_url": {
+                            "type": "string"
+                          },
+                          "subscriptions_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "organizations_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "repos_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "events_url": {
+                            "type": "string"
+                          },
+                          "received_events_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "site_admin": {
+                            "type": "boolean"
+                          },
+                          "starred_at": {
+                            "type": "string"
+                          },
+                          "user_view_type": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "avatar_url",
+                          "events_url",
+                          "followers_url",
+                          "following_url",
+                          "gists_url",
+                          "gravatar_id",
+                          "html_url",
+                          "id",
+                          "node_id",
+                          "login",
+                          "organizations_url",
+                          "received_events_url",
+                          "repos_url",
+                          "site_admin",
+                          "starred_url",
+                          "subscriptions_url",
+                          "type",
+                          "url"
+                        ]
                       }
-                    },
-                    "required": [
-                      "avatar_url",
-                      "events_url",
-                      "followers_url",
-                      "following_url",
-                      "gists_url",
-                      "gravatar_id",
-                      "html_url",
-                      "id",
-                      "node_id",
-                      "login",
-                      "organizations_url",
-                      "received_events_url",
-                      "repos_url",
-                      "site_admin",
-                      "starred_url",
-                      "subscriptions_url",
-                      "type",
-                      "url"
-                    ],
-                    "nullable": true
+                    ]
                   },
                   "dismissed_at": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                     "format": "date-time",
-                    "readOnly": true,
-                    "nullable": true
+                    "readOnly": true
                   },
                   "dismissed_reason": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "**Required when the state is dismissed.** The reason for dismissing or closing the alert.",
-                    "nullable": true,
                     "enum": [
                       "false positive",
                       "won't fix",
-                      "used in tests"
+                      "used in tests",
+                      null
                     ]
                   },
                   "dismissed_comment": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The dismissal comment associated with the dismissal of the alert.",
-                    "nullable": true,
                     "maxLength": 280
                   },
                   "rule": {
                     "type": "object",
                     "properties": {
                       "id": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "A unique identifier for the rule used to detect the alert."
                       },
                       "name": {
@@ -610,25 +638,31 @@
                         "description": "The name of the rule used to detect the alert."
                       },
                       "severity": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The severity of the alert.",
                         "enum": [
                           "none",
                           "note",
                           "warning",
-                          "error"
+                          "error",
+                          null
                         ]
                       },
                       "security_severity_level": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The security severity of the alert.",
                         "enum": [
                           "low",
                           "medium",
                           "high",
-                          "critical"
+                          "critical",
+                          null
                         ]
                       },
                       "description": {
@@ -640,21 +674,27 @@
                         "description": "A description of the rule used to detect the alert."
                       },
                       "tags": {
-                        "nullable": true,
-                        "type": "array",
+                        "type": [
+                          "array",
+                          "null"
+                        ],
                         "description": "A set of tags applicable for the rule.",
                         "items": {
                           "type": "string"
                         }
                       },
                       "help": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "Detailed documentation for the rule as GitHub Flavored Markdown."
                       },
                       "help_uri": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "A link to the documentation for the rule used to detect the alert."
                       }
                     }
@@ -667,13 +707,17 @@
                         "description": "The name of the tool used to generate the code scanning analysis."
                       },
                       "version": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The version of the tool used to generate the code scanning analysis."
                       },
                       "guid": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data."
                       }
                     }
@@ -698,13 +742,16 @@
                         "description": "Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code."
                       },
                       "state": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "State of a code scanning alert.",
-                        "nullable": true,
                         "enum": [
                           "open",
                           "dismissed",
-                          "fixed"
+                          "fixed",
+                          null
                         ]
                       },
                       "commit_sha": {
@@ -746,14 +793,17 @@
                         "type": "array",
                         "description": "Classifications that have been applied to the file that triggered the alert.\nFor example identifying it as documentation, or a generated file.",
                         "items": {
-                          "type": "string",
+                          "type": [
+                            "string",
+                            "null"
+                          ],
                           "description": "A classification of the file. For example to identify it as generated.",
-                          "nullable": true,
                           "enum": [
                             "source",
                             "generated",
                             "test",
-                            "library"
+                            "library",
+                            null
                           ]
                         }
                       }
@@ -787,12 +837,16 @@
                         "type": "object",
                         "properties": {
                           "name": {
-                            "nullable": true,
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "email": {
-                            "nullable": true,
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "login": {
                             "type": "string"
@@ -809,8 +863,10 @@
                             "format": "uri"
                           },
                           "gravatar_id": {
-                            "type": "string",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "url": {
                             "type": "string",
@@ -896,8 +952,10 @@
                         "description": "The URL to view the repository on GitHub.com."
                       },
                       "description": {
-                        "type": "string",
-                        "nullable": true,
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The repository description."
                       },
                       "fork": {
@@ -1117,110 +1175,122 @@
                     ]
                   },
                   "dismissal_approved_by": {
-                    "title": "Simple User",
-                    "description": "A GitHub user.",
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "nullable": true,
-                        "type": "string"
+                    "anyOf": [
+                      {
+                        "type": "null"
                       },
-                      "email": {
-                        "nullable": true,
-                        "type": "string"
-                      },
-                      "login": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer",
-                        "format": "int64"
-                      },
-                      "node_id": {
-                        "type": "string"
-                      },
-                      "avatar_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
-                      },
-                      "url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "html_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "followers_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "following_url": {
-                        "type": "string"
-                      },
-                      "gists_url": {
-                        "type": "string"
-                      },
-                      "starred_url": {
-                        "type": "string"
-                      },
-                      "subscriptions_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "organizations_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "repos_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "events_url": {
-                        "type": "string"
-                      },
-                      "received_events_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "type": {
-                        "type": "string"
-                      },
-                      "site_admin": {
-                        "type": "boolean"
-                      },
-                      "starred_at": {
-                        "type": "string"
-                      },
-                      "user_view_type": {
-                        "type": "string"
+                      {
+                        "title": "Simple User",
+                        "description": "A GitHub user.",
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "email": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "login": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "integer",
+                            "format": "int64"
+                          },
+                          "node_id": {
+                            "type": "string"
+                          },
+                          "avatar_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "gravatar_id": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "html_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "followers_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "following_url": {
+                            "type": "string"
+                          },
+                          "gists_url": {
+                            "type": "string"
+                          },
+                          "starred_url": {
+                            "type": "string"
+                          },
+                          "subscriptions_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "organizations_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "repos_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "events_url": {
+                            "type": "string"
+                          },
+                          "received_events_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "site_admin": {
+                            "type": "boolean"
+                          },
+                          "starred_at": {
+                            "type": "string"
+                          },
+                          "user_view_type": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "avatar_url",
+                          "events_url",
+                          "followers_url",
+                          "following_url",
+                          "gists_url",
+                          "gravatar_id",
+                          "html_url",
+                          "id",
+                          "node_id",
+                          "login",
+                          "organizations_url",
+                          "received_events_url",
+                          "repos_url",
+                          "site_admin",
+                          "starred_url",
+                          "subscriptions_url",
+                          "type",
+                          "url"
+                        ]
                       }
-                    },
-                    "required": [
-                      "avatar_url",
-                      "events_url",
-                      "followers_url",
-                      "following_url",
-                      "gists_url",
-                      "gravatar_id",
-                      "html_url",
-                      "id",
-                      "node_id",
-                      "login",
-                      "organizations_url",
-                      "received_events_url",
-                      "repos_url",
-                      "site_admin",
-                      "starred_url",
-                      "subscriptions_url",
-                      "type",
-                      "url"
-                    ],
-                    "nullable": true
+                    ]
                   },
                   "assignees": {
                     "type": "array",
@@ -1230,12 +1300,16 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "email": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "login": {
                           "type": "string"
@@ -1252,8 +1326,10 @@
                           "format": "uri"
                         },
                         "gravatar_id": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "url": {
                           "type": "string",
@@ -1419,8 +1495,10 @@
           "in": "query",
           "required": false,
           "schema": {
-            "nullable": true,
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data."
           }
         },
@@ -1726,157 +1804,183 @@
                     "readOnly": true
                   },
                   "state": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "State of a code scanning alert.",
-                    "nullable": true,
                     "enum": [
                       "open",
                       "dismissed",
-                      "fixed"
+                      "fixed",
+                      null
                     ]
                   },
                   "fixed_at": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                     "format": "date-time",
-                    "readOnly": true,
-                    "nullable": true
+                    "readOnly": true
                   },
                   "dismissed_by": {
-                    "title": "Simple User",
-                    "description": "A GitHub user.",
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "nullable": true,
-                        "type": "string"
+                    "anyOf": [
+                      {
+                        "type": "null"
                       },
-                      "email": {
-                        "nullable": true,
-                        "type": "string"
-                      },
-                      "login": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer",
-                        "format": "int64"
-                      },
-                      "node_id": {
-                        "type": "string"
-                      },
-                      "avatar_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
-                      },
-                      "url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "html_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "followers_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "following_url": {
-                        "type": "string"
-                      },
-                      "gists_url": {
-                        "type": "string"
-                      },
-                      "starred_url": {
-                        "type": "string"
-                      },
-                      "subscriptions_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "organizations_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "repos_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "events_url": {
-                        "type": "string"
-                      },
-                      "received_events_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "type": {
-                        "type": "string"
-                      },
-                      "site_admin": {
-                        "type": "boolean"
-                      },
-                      "starred_at": {
-                        "type": "string"
-                      },
-                      "user_view_type": {
-                        "type": "string"
+                      {
+                        "title": "Simple User",
+                        "description": "A GitHub user.",
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "email": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "login": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "integer",
+                            "format": "int64"
+                          },
+                          "node_id": {
+                            "type": "string"
+                          },
+                          "avatar_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "gravatar_id": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "html_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "followers_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "following_url": {
+                            "type": "string"
+                          },
+                          "gists_url": {
+                            "type": "string"
+                          },
+                          "starred_url": {
+                            "type": "string"
+                          },
+                          "subscriptions_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "organizations_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "repos_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "events_url": {
+                            "type": "string"
+                          },
+                          "received_events_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "site_admin": {
+                            "type": "boolean"
+                          },
+                          "starred_at": {
+                            "type": "string"
+                          },
+                          "user_view_type": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "avatar_url",
+                          "events_url",
+                          "followers_url",
+                          "following_url",
+                          "gists_url",
+                          "gravatar_id",
+                          "html_url",
+                          "id",
+                          "node_id",
+                          "login",
+                          "organizations_url",
+                          "received_events_url",
+                          "repos_url",
+                          "site_admin",
+                          "starred_url",
+                          "subscriptions_url",
+                          "type",
+                          "url"
+                        ]
                       }
-                    },
-                    "required": [
-                      "avatar_url",
-                      "events_url",
-                      "followers_url",
-                      "following_url",
-                      "gists_url",
-                      "gravatar_id",
-                      "html_url",
-                      "id",
-                      "node_id",
-                      "login",
-                      "organizations_url",
-                      "received_events_url",
-                      "repos_url",
-                      "site_admin",
-                      "starred_url",
-                      "subscriptions_url",
-                      "type",
-                      "url"
-                    ],
-                    "nullable": true
+                    ]
                   },
                   "dismissed_at": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                     "format": "date-time",
-                    "readOnly": true,
-                    "nullable": true
+                    "readOnly": true
                   },
                   "dismissed_reason": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "**Required when the state is dismissed.** The reason for dismissing or closing the alert.",
-                    "nullable": true,
                     "enum": [
                       "false positive",
                       "won't fix",
-                      "used in tests"
+                      "used in tests",
+                      null
                     ]
                   },
                   "dismissed_comment": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The dismissal comment associated with the dismissal of the alert.",
-                    "nullable": true,
                     "maxLength": 280
                   },
                   "rule": {
                     "type": "object",
                     "properties": {
                       "id": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "A unique identifier for the rule used to detect the alert."
                       },
                       "name": {
@@ -1884,25 +1988,31 @@
                         "description": "The name of the rule used to detect the alert."
                       },
                       "severity": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The severity of the alert.",
                         "enum": [
                           "none",
                           "note",
                           "warning",
-                          "error"
+                          "error",
+                          null
                         ]
                       },
                       "security_severity_level": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The security severity of the alert.",
                         "enum": [
                           "low",
                           "medium",
                           "high",
-                          "critical"
+                          "critical",
+                          null
                         ]
                       },
                       "description": {
@@ -1914,21 +2024,27 @@
                         "description": "A description of the rule used to detect the alert."
                       },
                       "tags": {
-                        "nullable": true,
-                        "type": "array",
+                        "type": [
+                          "array",
+                          "null"
+                        ],
                         "description": "A set of tags applicable for the rule.",
                         "items": {
                           "type": "string"
                         }
                       },
                       "help": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "Detailed documentation for the rule as GitHub Flavored Markdown."
                       },
                       "help_uri": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "A link to the documentation for the rule used to detect the alert."
                       }
                     }
@@ -1941,13 +2057,17 @@
                         "description": "The name of the tool used to generate the code scanning analysis."
                       },
                       "version": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The version of the tool used to generate the code scanning analysis."
                       },
                       "guid": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data."
                       }
                     }
@@ -1972,13 +2092,16 @@
                         "description": "Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code."
                       },
                       "state": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "State of a code scanning alert.",
-                        "nullable": true,
                         "enum": [
                           "open",
                           "dismissed",
-                          "fixed"
+                          "fixed",
+                          null
                         ]
                       },
                       "commit_sha": {
@@ -2020,124 +2143,139 @@
                         "type": "array",
                         "description": "Classifications that have been applied to the file that triggered the alert.\nFor example identifying it as documentation, or a generated file.",
                         "items": {
-                          "type": "string",
+                          "type": [
+                            "string",
+                            "null"
+                          ],
                           "description": "A classification of the file. For example to identify it as generated.",
-                          "nullable": true,
                           "enum": [
                             "source",
                             "generated",
                             "test",
-                            "library"
+                            "library",
+                            null
                           ]
                         }
                       }
                     }
                   },
                   "dismissal_approved_by": {
-                    "title": "Simple User",
-                    "description": "A GitHub user.",
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "nullable": true,
-                        "type": "string"
+                    "anyOf": [
+                      {
+                        "type": "null"
                       },
-                      "email": {
-                        "nullable": true,
-                        "type": "string"
-                      },
-                      "login": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer",
-                        "format": "int64"
-                      },
-                      "node_id": {
-                        "type": "string"
-                      },
-                      "avatar_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
-                      },
-                      "url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "html_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "followers_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "following_url": {
-                        "type": "string"
-                      },
-                      "gists_url": {
-                        "type": "string"
-                      },
-                      "starred_url": {
-                        "type": "string"
-                      },
-                      "subscriptions_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "organizations_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "repos_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "events_url": {
-                        "type": "string"
-                      },
-                      "received_events_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "type": {
-                        "type": "string"
-                      },
-                      "site_admin": {
-                        "type": "boolean"
-                      },
-                      "starred_at": {
-                        "type": "string"
-                      },
-                      "user_view_type": {
-                        "type": "string"
+                      {
+                        "title": "Simple User",
+                        "description": "A GitHub user.",
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "email": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "login": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "integer",
+                            "format": "int64"
+                          },
+                          "node_id": {
+                            "type": "string"
+                          },
+                          "avatar_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "gravatar_id": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "html_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "followers_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "following_url": {
+                            "type": "string"
+                          },
+                          "gists_url": {
+                            "type": "string"
+                          },
+                          "starred_url": {
+                            "type": "string"
+                          },
+                          "subscriptions_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "organizations_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "repos_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "events_url": {
+                            "type": "string"
+                          },
+                          "received_events_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "site_admin": {
+                            "type": "boolean"
+                          },
+                          "starred_at": {
+                            "type": "string"
+                          },
+                          "user_view_type": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "avatar_url",
+                          "events_url",
+                          "followers_url",
+                          "following_url",
+                          "gists_url",
+                          "gravatar_id",
+                          "html_url",
+                          "id",
+                          "node_id",
+                          "login",
+                          "organizations_url",
+                          "received_events_url",
+                          "repos_url",
+                          "site_admin",
+                          "starred_url",
+                          "subscriptions_url",
+                          "type",
+                          "url"
+                        ]
                       }
-                    },
-                    "required": [
-                      "avatar_url",
-                      "events_url",
-                      "followers_url",
-                      "following_url",
-                      "gists_url",
-                      "gravatar_id",
-                      "html_url",
-                      "id",
-                      "node_id",
-                      "login",
-                      "organizations_url",
-                      "received_events_url",
-                      "repos_url",
-                      "site_admin",
-                      "starred_url",
-                      "subscriptions_url",
-                      "type",
-                      "url"
-                    ],
-                    "nullable": true
+                    ]
                   },
                   "assignees": {
                     "type": "array",
@@ -2147,12 +2285,16 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "email": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "login": {
                           "type": "string"
@@ -2169,8 +2311,10 @@
                           "format": "uri"
                         },
                         "gravatar_id": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "url": {
                           "type": "string",
@@ -2467,157 +2611,183 @@
                   "readOnly": true
                 },
                 "state": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "State of a code scanning alert.",
-                  "nullable": true,
                   "enum": [
                     "open",
                     "dismissed",
-                    "fixed"
+                    "fixed",
+                    null
                   ]
                 },
                 "fixed_at": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                   "format": "date-time",
-                  "readOnly": true,
-                  "nullable": true
+                  "readOnly": true
                 },
                 "dismissed_by": {
-                  "title": "Simple User",
-                  "description": "A GitHub user.",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "nullable": true,
-                      "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "null"
                     },
-                    "email": {
-                      "nullable": true,
-                      "type": "string"
-                    },
-                    "login": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "node_id": {
-                      "type": "string"
-                    },
-                    "avatar_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "html_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "followers_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "following_url": {
-                      "type": "string"
-                    },
-                    "gists_url": {
-                      "type": "string"
-                    },
-                    "starred_url": {
-                      "type": "string"
-                    },
-                    "subscriptions_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "organizations_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "repos_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "events_url": {
-                      "type": "string"
-                    },
-                    "received_events_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "site_admin": {
-                      "type": "boolean"
-                    },
-                    "starred_at": {
-                      "type": "string"
-                    },
-                    "user_view_type": {
-                      "type": "string"
+                    {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
                     }
-                  },
-                  "required": [
-                    "avatar_url",
-                    "events_url",
-                    "followers_url",
-                    "following_url",
-                    "gists_url",
-                    "gravatar_id",
-                    "html_url",
-                    "id",
-                    "node_id",
-                    "login",
-                    "organizations_url",
-                    "received_events_url",
-                    "repos_url",
-                    "site_admin",
-                    "starred_url",
-                    "subscriptions_url",
-                    "type",
-                    "url"
-                  ],
-                  "nullable": true
+                  ]
                 },
                 "dismissed_at": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                   "format": "date-time",
-                  "readOnly": true,
-                  "nullable": true
+                  "readOnly": true
                 },
                 "dismissed_reason": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "**Required when the state is dismissed.** The reason for dismissing or closing the alert.",
-                  "nullable": true,
                   "enum": [
                     "false positive",
                     "won't fix",
-                    "used in tests"
+                    "used in tests",
+                    null
                   ]
                 },
                 "dismissed_comment": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The dismissal comment associated with the dismissal of the alert.",
-                  "nullable": true,
                   "maxLength": 280
                 },
                 "rule": {
                   "type": "object",
                   "properties": {
                     "id": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A unique identifier for the rule used to detect the alert."
                     },
                     "name": {
@@ -2625,25 +2795,31 @@
                       "description": "The name of the rule used to detect the alert."
                     },
                     "severity": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The severity of the alert.",
                       "enum": [
                         "none",
                         "note",
                         "warning",
-                        "error"
+                        "error",
+                        null
                       ]
                     },
                     "security_severity_level": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The security severity of the alert.",
                       "enum": [
                         "low",
                         "medium",
                         "high",
-                        "critical"
+                        "critical",
+                        null
                       ]
                     },
                     "description": {
@@ -2655,21 +2831,27 @@
                       "description": "A description of the rule used to detect the alert."
                     },
                     "tags": {
-                      "nullable": true,
-                      "type": "array",
+                      "type": [
+                        "array",
+                        "null"
+                      ],
                       "description": "A set of tags applicable for the rule.",
                       "items": {
                         "type": "string"
                       }
                     },
                     "help": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "Detailed documentation for the rule as GitHub Flavored Markdown."
                     },
                     "help_uri": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A link to the documentation for the rule used to detect the alert."
                     }
                   }
@@ -2682,13 +2864,17 @@
                       "description": "The name of the tool used to generate the code scanning analysis."
                     },
                     "version": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The version of the tool used to generate the code scanning analysis."
                     },
                     "guid": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data."
                     }
                   }
@@ -2713,13 +2899,16 @@
                       "description": "Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code."
                     },
                     "state": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "State of a code scanning alert.",
-                      "nullable": true,
                       "enum": [
                         "open",
                         "dismissed",
-                        "fixed"
+                        "fixed",
+                        null
                       ]
                     },
                     "commit_sha": {
@@ -2761,124 +2950,139 @@
                       "type": "array",
                       "description": "Classifications that have been applied to the file that triggered the alert.\nFor example identifying it as documentation, or a generated file.",
                       "items": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "A classification of the file. For example to identify it as generated.",
-                        "nullable": true,
                         "enum": [
                           "source",
                           "generated",
                           "test",
-                          "library"
+                          "library",
+                          null
                         ]
                       }
                     }
                   }
                 },
                 "dismissal_approved_by": {
-                  "title": "Simple User",
-                  "description": "A GitHub user.",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "nullable": true,
-                      "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "null"
                     },
-                    "email": {
-                      "nullable": true,
-                      "type": "string"
-                    },
-                    "login": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "node_id": {
-                      "type": "string"
-                    },
-                    "avatar_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "html_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "followers_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "following_url": {
-                      "type": "string"
-                    },
-                    "gists_url": {
-                      "type": "string"
-                    },
-                    "starred_url": {
-                      "type": "string"
-                    },
-                    "subscriptions_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "organizations_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "repos_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "events_url": {
-                      "type": "string"
-                    },
-                    "received_events_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "site_admin": {
-                      "type": "boolean"
-                    },
-                    "starred_at": {
-                      "type": "string"
-                    },
-                    "user_view_type": {
-                      "type": "string"
+                    {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
                     }
-                  },
-                  "required": [
-                    "avatar_url",
-                    "events_url",
-                    "followers_url",
-                    "following_url",
-                    "gists_url",
-                    "gravatar_id",
-                    "html_url",
-                    "id",
-                    "node_id",
-                    "login",
-                    "organizations_url",
-                    "received_events_url",
-                    "repos_url",
-                    "site_admin",
-                    "starred_url",
-                    "subscriptions_url",
-                    "type",
-                    "url"
-                  ],
-                  "nullable": true
+                  ]
                 },
                 "assignees": {
                   "type": "array",
@@ -2888,12 +3092,16 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "email": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "login": {
                         "type": "string"
@@ -2910,8 +3118,10 @@
                         "format": "uri"
                       },
                       "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "url": {
                         "type": "string",
@@ -3096,7 +3306,8 @@
           "enum": [
             "false positive",
             "won't fix",
-            "used in tests"
+            "used in tests",
+            null
           ]
         },
         {
@@ -3249,157 +3460,183 @@
                   "readOnly": true
                 },
                 "state": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "State of a code scanning alert.",
-                  "nullable": true,
                   "enum": [
                     "open",
                     "dismissed",
-                    "fixed"
+                    "fixed",
+                    null
                   ]
                 },
                 "fixed_at": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                   "format": "date-time",
-                  "readOnly": true,
-                  "nullable": true
+                  "readOnly": true
                 },
                 "dismissed_by": {
-                  "title": "Simple User",
-                  "description": "A GitHub user.",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "nullable": true,
-                      "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "null"
                     },
-                    "email": {
-                      "nullable": true,
-                      "type": "string"
-                    },
-                    "login": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "node_id": {
-                      "type": "string"
-                    },
-                    "avatar_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "html_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "followers_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "following_url": {
-                      "type": "string"
-                    },
-                    "gists_url": {
-                      "type": "string"
-                    },
-                    "starred_url": {
-                      "type": "string"
-                    },
-                    "subscriptions_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "organizations_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "repos_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "events_url": {
-                      "type": "string"
-                    },
-                    "received_events_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "site_admin": {
-                      "type": "boolean"
-                    },
-                    "starred_at": {
-                      "type": "string"
-                    },
-                    "user_view_type": {
-                      "type": "string"
+                    {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
                     }
-                  },
-                  "required": [
-                    "avatar_url",
-                    "events_url",
-                    "followers_url",
-                    "following_url",
-                    "gists_url",
-                    "gravatar_id",
-                    "html_url",
-                    "id",
-                    "node_id",
-                    "login",
-                    "organizations_url",
-                    "received_events_url",
-                    "repos_url",
-                    "site_admin",
-                    "starred_url",
-                    "subscriptions_url",
-                    "type",
-                    "url"
-                  ],
-                  "nullable": true
+                  ]
                 },
                 "dismissed_at": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                   "format": "date-time",
-                  "readOnly": true,
-                  "nullable": true
+                  "readOnly": true
                 },
                 "dismissed_reason": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "**Required when the state is dismissed.** The reason for dismissing or closing the alert.",
-                  "nullable": true,
                   "enum": [
                     "false positive",
                     "won't fix",
-                    "used in tests"
+                    "used in tests",
+                    null
                   ]
                 },
                 "dismissed_comment": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The dismissal comment associated with the dismissal of the alert.",
-                  "nullable": true,
                   "maxLength": 280
                 },
                 "rule": {
                   "type": "object",
                   "properties": {
                     "id": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A unique identifier for the rule used to detect the alert."
                     },
                     "name": {
@@ -3407,25 +3644,31 @@
                       "description": "The name of the rule used to detect the alert."
                     },
                     "severity": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The severity of the alert.",
                       "enum": [
                         "none",
                         "note",
                         "warning",
-                        "error"
+                        "error",
+                        null
                       ]
                     },
                     "security_severity_level": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The security severity of the alert.",
                       "enum": [
                         "low",
                         "medium",
                         "high",
-                        "critical"
+                        "critical",
+                        null
                       ]
                     },
                     "description": {
@@ -3437,21 +3680,27 @@
                       "description": "A description of the rule used to detect the alert."
                     },
                     "tags": {
-                      "nullable": true,
-                      "type": "array",
+                      "type": [
+                        "array",
+                        "null"
+                      ],
                       "description": "A set of tags applicable for the rule.",
                       "items": {
                         "type": "string"
                       }
                     },
                     "help": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "Detailed documentation for the rule as GitHub Flavored Markdown."
                     },
                     "help_uri": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A link to the documentation for the rule used to detect the alert."
                     }
                   }
@@ -3464,13 +3713,17 @@
                       "description": "The name of the tool used to generate the code scanning analysis."
                     },
                     "version": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The version of the tool used to generate the code scanning analysis."
                     },
                     "guid": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data."
                     }
                   }
@@ -3495,13 +3748,16 @@
                       "description": "Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code."
                     },
                     "state": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "State of a code scanning alert.",
-                      "nullable": true,
                       "enum": [
                         "open",
                         "dismissed",
-                        "fixed"
+                        "fixed",
+                        null
                       ]
                     },
                     "commit_sha": {
@@ -3543,124 +3799,139 @@
                       "type": "array",
                       "description": "Classifications that have been applied to the file that triggered the alert.\nFor example identifying it as documentation, or a generated file.",
                       "items": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "A classification of the file. For example to identify it as generated.",
-                        "nullable": true,
                         "enum": [
                           "source",
                           "generated",
                           "test",
-                          "library"
+                          "library",
+                          null
                         ]
                       }
                     }
                   }
                 },
                 "dismissal_approved_by": {
-                  "title": "Simple User",
-                  "description": "A GitHub user.",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "nullable": true,
-                      "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "null"
                     },
-                    "email": {
-                      "nullable": true,
-                      "type": "string"
-                    },
-                    "login": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "node_id": {
-                      "type": "string"
-                    },
-                    "avatar_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "html_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "followers_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "following_url": {
-                      "type": "string"
-                    },
-                    "gists_url": {
-                      "type": "string"
-                    },
-                    "starred_url": {
-                      "type": "string"
-                    },
-                    "subscriptions_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "organizations_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "repos_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "events_url": {
-                      "type": "string"
-                    },
-                    "received_events_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "site_admin": {
-                      "type": "boolean"
-                    },
-                    "starred_at": {
-                      "type": "string"
-                    },
-                    "user_view_type": {
-                      "type": "string"
+                    {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
                     }
-                  },
-                  "required": [
-                    "avatar_url",
-                    "events_url",
-                    "followers_url",
-                    "following_url",
-                    "gists_url",
-                    "gravatar_id",
-                    "html_url",
-                    "id",
-                    "node_id",
-                    "login",
-                    "organizations_url",
-                    "received_events_url",
-                    "repos_url",
-                    "site_admin",
-                    "starred_url",
-                    "subscriptions_url",
-                    "type",
-                    "url"
-                  ],
-                  "nullable": true
+                  ]
                 },
                 "assignees": {
                   "type": "array",
@@ -3670,12 +3941,16 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "email": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "login": {
                         "type": "string"
@@ -3692,8 +3967,10 @@
                         "format": "uri"
                       },
                       "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "url": {
                         "type": "string",
@@ -3897,9 +4174,11 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
-                  "description": "The description of an autofix.",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The description of an autofix."
                 },
                 "started_at": {
                   "type": "string",
@@ -4025,9 +4304,11 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
-                  "description": "The description of an autofix.",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The description of an autofix."
                 },
                 "started_at": {
                   "type": "string",
@@ -4077,9 +4358,11 @@
                   ]
                 },
                 "description": {
-                  "type": "string",
-                  "description": "The description of an autofix.",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The description of an autofix."
                 },
                 "started_at": {
                   "type": "string",
@@ -4426,12 +4709,15 @@
                     "description": "Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code."
                   },
                   "state": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "State of a code scanning alert instance.",
-                    "nullable": true,
                     "enum": [
                       "open",
-                      "fixed"
+                      "fixed",
+                      null
                     ]
                   },
                   "commit_sha": {
@@ -4473,14 +4759,17 @@
                     "type": "array",
                     "description": "Classifications that have been applied to the file that triggered the alert.\nFor example identifying it as documentation, or a generated file.",
                     "items": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "A classification of the file. For example to identify it as generated.",
-                      "nullable": true,
                       "enum": [
                         "source",
                         "generated",
                         "test",
-                        "library"
+                        "library",
+                        null
                       ]
                     }
                   }
@@ -4562,8 +4851,10 @@
           "in": "query",
           "required": false,
           "schema": {
-            "nullable": true,
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data."
           }
         },
@@ -4612,7 +4903,9 @@
           "schema": {
             "type": "string",
             "description": "An identifier for the upload.",
-            "example": "6c81cd8e-b078-4ac3-a3be-1dad7dbd0b53"
+            "examples": [
+              "6c81cd8e-b078-4ac3-a3be-1dad7dbd0b53"
+            ]
           }
         },
         {
@@ -4770,13 +5063,17 @@
                         "description": "The name of the tool used to generate the code scanning analysis."
                       },
                       "version": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The version of the tool used to generate the code scanning analysis."
                       },
                       "guid": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data."
                       }
                     }
@@ -4979,13 +5276,17 @@
                       "description": "The name of the tool used to generate the code scanning analysis."
                     },
                     "version": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The version of the tool used to generate the code scanning analysis."
                     },
                     "guid": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data."
                     }
                   }
@@ -5161,8 +5462,10 @@
           "description": "<p>Allow deletion if the specified analysis is the last in a set. If you attempt to delete the final analysis in a set without setting this parameter to <code>true</code>, you'll get a 400 response with the message: <code>Analysis is last of its type and deletion may result in the loss of historical alert data. Please specify confirm_delete.</code></p>",
           "required": false,
           "schema": {
-            "type": "string",
-            "nullable": true
+            "type": [
+              "string",
+              "null"
+            ]
           }
         }
       ],
@@ -5193,18 +5496,22 @@
               "type": "object",
               "properties": {
                 "next_analysis_url": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "Next deletable analysis in chain, without last analysis deletion confirmation",
                   "format": "uri",
-                  "readOnly": true,
-                  "nullable": true
+                  "readOnly": true
                 },
                 "confirm_delete_url": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "Next deletable analysis in chain, with last analysis deletion confirmation",
                   "format": "uri",
-                  "readOnly": true,
-                  "nullable": true
+                  "readOnly": true
                 }
               },
               "required": [
@@ -5381,12 +5688,16 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "email": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "login": {
                         "type": "string"
@@ -5403,8 +5714,10 @@
                         "format": "uri"
                       },
                       "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "url": {
                         "type": "string",
@@ -5504,9 +5817,11 @@
                     "description": "The URL at which to download the CodeQL database. The `Accept` header must be set to the value of the `content_type` property."
                   },
                   "commit_oid": {
-                    "type": "string",
-                    "description": "The commit SHA of the repository at the time the CodeQL database was created.",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "The commit SHA of the repository at the time the CodeQL database was created."
                   }
                 },
                 "required": [
@@ -5663,12 +5978,16 @@
                   "type": "object",
                   "properties": {
                     "name": {
-                      "nullable": true,
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "nullable": true,
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "login": {
                       "type": "string"
@@ -5685,8 +6004,10 @@
                       "format": "uri"
                     },
                     "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "url": {
                       "type": "string",
@@ -5786,9 +6107,11 @@
                   "description": "The URL at which to download the CodeQL database. The `Accept` header must be set to the value of the `content_type` property."
                 },
                 "commit_oid": {
-                  "type": "string",
-                  "description": "The commit SHA of the repository at the time the CodeQL database was created.",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The commit SHA of the repository at the time the CodeQL database was created."
                 }
               },
               "required": [
@@ -6189,12 +6512,16 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "email": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "login": {
                           "type": "string"
@@ -6211,8 +6538,10 @@
                           "format": "uri"
                         },
                         "gravatar_id": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "url": {
                           "type": "string",
@@ -6298,8 +6627,10 @@
                       "description": "The URL to view the repository on GitHub.com."
                     },
                     "description": {
-                      "type": "string",
-                      "nullable": true,
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The repository description."
                     },
                     "fork": {
@@ -6524,12 +6855,16 @@
                   "type": "object",
                   "properties": {
                     "name": {
-                      "nullable": true,
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "nullable": true,
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "login": {
                       "type": "string"
@@ -6546,8 +6881,10 @@
                       "format": "uri"
                     },
                     "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "url": {
                       "type": "string",
@@ -6654,9 +6991,11 @@
                   "description": "The date and time at which the variant analysis was last updated, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ."
                 },
                 "completed_at": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "date-time",
-                  "nullable": true,
                   "description": "The date and time at which the variant analysis was completed, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. Will be null if the variant analysis has not yet completed or this information is not available."
                 },
                 "status": {
@@ -6711,9 +7050,11 @@
                             "type": "integer"
                           },
                           "updated_at": {
-                            "type": "string",
-                            "format": "date-time",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "format": "date-time"
                           }
                         },
                         "required": [
@@ -6795,9 +7136,11 @@
                                 "type": "integer"
                               },
                               "updated_at": {
-                                "type": "string",
-                                "format": "date-time",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "format": "date-time"
                               }
                             },
                             "required": [
@@ -6871,9 +7214,11 @@
                                 "type": "integer"
                               },
                               "updated_at": {
-                                "type": "string",
-                                "format": "date-time",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "format": "date-time"
                               }
                             },
                             "required": [
@@ -6927,9 +7272,11 @@
                                 "type": "integer"
                               },
                               "updated_at": {
-                                "type": "string",
-                                "format": "date-time",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "format": "date-time"
                               }
                             },
                             "required": [
@@ -7200,12 +7547,16 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "email": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "login": {
                           "type": "string"
@@ -7222,8 +7573,10 @@
                           "format": "uri"
                         },
                         "gravatar_id": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "url": {
                           "type": "string",
@@ -7309,8 +7662,10 @@
                       "description": "The URL to view the repository on GitHub.com."
                     },
                     "description": {
-                      "type": "string",
-                      "nullable": true,
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The repository description."
                     },
                     "fork": {
@@ -7535,12 +7890,16 @@
                   "type": "object",
                   "properties": {
                     "name": {
-                      "nullable": true,
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "nullable": true,
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "login": {
                       "type": "string"
@@ -7557,8 +7916,10 @@
                       "format": "uri"
                     },
                     "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "url": {
                       "type": "string",
@@ -7665,9 +8026,11 @@
                   "description": "The date and time at which the variant analysis was last updated, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ."
                 },
                 "completed_at": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "date-time",
-                  "nullable": true,
                   "description": "The date and time at which the variant analysis was completed, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. Will be null if the variant analysis has not yet completed or this information is not available."
                 },
                 "status": {
@@ -7722,9 +8085,11 @@
                             "type": "integer"
                           },
                           "updated_at": {
-                            "type": "string",
-                            "format": "date-time",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "format": "date-time"
                           }
                         },
                         "required": [
@@ -7806,9 +8171,11 @@
                                 "type": "integer"
                               },
                               "updated_at": {
-                                "type": "string",
-                                "format": "date-time",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "format": "date-time"
                               }
                             },
                             "required": [
@@ -7882,9 +8249,11 @@
                                 "type": "integer"
                               },
                               "updated_at": {
-                                "type": "string",
-                                "format": "date-time",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "format": "date-time"
                               }
                             },
                             "required": [
@@ -7938,9 +8307,11 @@
                                 "type": "integer"
                               },
                               "updated_at": {
-                                "type": "string",
-                                "format": "date-time",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "format": "date-time"
                               }
                             },
                             "required": [
@@ -8211,12 +8582,16 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "email": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "login": {
                           "type": "string"
@@ -8233,8 +8608,10 @@
                           "format": "uri"
                         },
                         "gravatar_id": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "url": {
                           "type": "string",
@@ -8320,8 +8697,10 @@
                       "description": "The URL to view the repository on GitHub.com."
                     },
                     "description": {
-                      "type": "string",
-                      "nullable": true,
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The repository description."
                     },
                     "fork": {
@@ -8546,12 +8925,16 @@
                   "type": "object",
                   "properties": {
                     "name": {
-                      "nullable": true,
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "nullable": true,
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "login": {
                       "type": "string"
@@ -8568,8 +8951,10 @@
                       "format": "uri"
                     },
                     "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "url": {
                       "type": "string",
@@ -8676,9 +9061,11 @@
                   "description": "The date and time at which the variant analysis was last updated, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ."
                 },
                 "completed_at": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "date-time",
-                  "nullable": true,
                   "description": "The date and time at which the variant analysis was completed, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. Will be null if the variant analysis has not yet completed or this information is not available."
                 },
                 "status": {
@@ -8733,9 +9120,11 @@
                             "type": "integer"
                           },
                           "updated_at": {
-                            "type": "string",
-                            "format": "date-time",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "format": "date-time"
                           }
                         },
                         "required": [
@@ -8817,9 +9206,11 @@
                                 "type": "integer"
                               },
                               "updated_at": {
-                                "type": "string",
-                                "format": "date-time",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "format": "date-time"
                               }
                             },
                             "required": [
@@ -8893,9 +9284,11 @@
                                 "type": "integer"
                               },
                               "updated_at": {
-                                "type": "string",
-                                "format": "date-time",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "format": "date-time"
                               }
                             },
                             "required": [
@@ -8949,9 +9342,11 @@
                                 "type": "integer"
                               },
                               "updated_at": {
-                                "type": "string",
-                                "format": "date-time",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "format": "date-time"
                               }
                             },
                             "required": [
@@ -9282,12 +9677,16 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "email": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "login": {
                           "type": "string"
@@ -9304,8 +9703,10 @@
                           "format": "uri"
                         },
                         "gravatar_id": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "url": {
                           "type": "string",
@@ -9391,8 +9792,10 @@
                       "description": "The URL to view the repository on GitHub.com."
                     },
                     "description": {
-                      "type": "string",
-                      "nullable": true,
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The repository description."
                     },
                     "fork": {
@@ -9617,12 +10020,16 @@
                   "type": "object",
                   "properties": {
                     "name": {
-                      "nullable": true,
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "nullable": true,
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "login": {
                       "type": "string"
@@ -9639,8 +10046,10 @@
                       "format": "uri"
                     },
                     "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "url": {
                       "type": "string",
@@ -9747,9 +10156,11 @@
                   "description": "The date and time at which the variant analysis was last updated, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ."
                 },
                 "completed_at": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "date-time",
-                  "nullable": true,
                   "description": "The date and time at which the variant analysis was completed, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. Will be null if the variant analysis has not yet completed or this information is not available."
                 },
                 "status": {
@@ -9804,9 +10215,11 @@
                             "type": "integer"
                           },
                           "updated_at": {
-                            "type": "string",
-                            "format": "date-time",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "format": "date-time"
                           }
                         },
                         "required": [
@@ -9888,9 +10301,11 @@
                                 "type": "integer"
                               },
                               "updated_at": {
-                                "type": "string",
-                                "format": "date-time",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "format": "date-time"
                               }
                             },
                             "required": [
@@ -9964,9 +10379,11 @@
                                 "type": "integer"
                               },
                               "updated_at": {
-                                "type": "string",
-                                "format": "date-time",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "format": "date-time"
                               }
                             },
                             "required": [
@@ -10020,9 +10437,11 @@
                                 "type": "integer"
                               },
                               "updated_at": {
-                                "type": "string",
-                                "format": "date-time",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "format": "date-time"
                               }
                             },
                             "required": [
@@ -10268,12 +10687,16 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "email": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "login": {
                           "type": "string"
@@ -10290,8 +10713,10 @@
                           "format": "uri"
                         },
                         "gravatar_id": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "url": {
                           "type": "string",
@@ -10377,8 +10802,10 @@
                       "description": "The URL to view the repository on GitHub.com."
                     },
                     "description": {
-                      "type": "string",
-                      "nullable": true,
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The repository description."
                     },
                     "fork": {
@@ -10754,17 +11181,22 @@
                 },
                 "runner_type": {
                   "description": "Runner type to be used.",
-                  "nullable": true,
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "enum": [
                     "standard",
-                    "labeled"
+                    "labeled",
+                    null
                   ]
                 },
                 "runner_label": {
                   "description": "Runner label to be used if the runner type is labeled.",
-                  "nullable": true,
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "query_suite": {
                   "description": "CodeQL query suite to be used.",
@@ -10784,16 +11216,21 @@
                 },
                 "updated_at": {
                   "description": "Timestamp of latest configuration update.",
-                  "nullable": true,
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "date-time"
                 },
                 "schedule": {
                   "description": "The frequency of the periodic analysis.",
-                  "nullable": true,
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "enum": [
-                    "weekly"
+                    "weekly",
+                    null
                   ]
                 }
               }
@@ -11207,20 +11644,24 @@
                   "description": "`pending` files have not yet been processed, while `complete` means results from the SARIF have been stored. `failed` files have either not been processed at all, or could only be partially processed."
                 },
                 "analyses_url": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The REST API URL for getting the analyses associated with the upload.",
                   "format": "uri",
-                  "readOnly": true,
-                  "nullable": true
+                  "readOnly": true
                 },
                 "errors": {
-                  "type": "array",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
                   "items": {
                     "type": "string"
                   },
                   "description": "Any errors that ocurred during processing of the delivery.",
-                  "readOnly": true,
-                  "nullable": true
+                  "readOnly": true
                 }
               }
             }

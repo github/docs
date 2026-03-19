@@ -31,7 +31,6 @@
       "descriptionHTML": "<p>Gets information about a GitHub Enterprise Server Pages site.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -75,10 +74,7 @@
                 "url": {
                   "type": "string",
                   "description": "The API address for accessing this Page resource.",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repos/github/hello-world/pages"
-                  ]
+                  "format": "uri"
                 },
                 "status": {
                   "type": [
@@ -91,9 +87,6 @@
                     "building",
                     "errored",
                     null
-                  ],
-                  "examples": [
-                    "built"
                   ]
                 },
                 "cname": {
@@ -101,9 +94,6 @@
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "example.com"
                   ]
                 },
                 "protected_domain_state": {
@@ -117,9 +107,6 @@
                     "verified",
                     "unverified",
                     null
-                  ],
-                  "examples": [
-                    "pending"
                   ]
                 },
                 "pending_domain_unverified_at": {
@@ -133,18 +120,12 @@
                 "custom_404": {
                   "type": "boolean",
                   "description": "Whether the Page has a custom 404 page.",
-                  "default": false,
-                  "examples": [
-                    false
-                  ]
+                  "default": false
                 },
                 "html_url": {
                   "type": "string",
                   "description": "The web address the Page can be accessed from.",
-                  "format": "uri",
-                  "examples": [
-                    "https://example.com"
-                  ]
+                  "format": "uri"
                 },
                 "build_type": {
                   "type": [
@@ -156,9 +137,6 @@
                     "legacy",
                     "workflow",
                     null
-                  ],
-                  "examples": [
-                    "legacy"
                   ]
                 },
                 "source": {
@@ -179,10 +157,7 @@
                 },
                 "public": {
                   "type": "boolean",
-                  "description": "Whether the GitHub Pages site is publicly visible. If set to `true`, the site is accessible to anyone on the internet. If set to `false`, the site will only be accessible to users who have at least `read` access to the repository that published the site.",
-                  "examples": [
-                    true
-                  ]
+                  "description": "Whether the GitHub Pages site is publicly visible. If set to `true`, the site is accessible to anyone on the internet. If set to `false`, the site will only be accessible to users who have at least `read` access to the repository that published the site."
                 },
                 "https_certificate": {
                   "title": "Pages Https Certificate",
@@ -203,27 +178,17 @@
                         "bad_authz",
                         "destroy_pending",
                         "dns_changed"
-                      ],
-                      "examples": [
-                        "approved"
                       ]
                     },
                     "description": {
-                      "type": "string",
-                      "examples": [
-                        "Certificate is approved"
-                      ]
+                      "type": "string"
                     },
                     "domains": {
                       "type": "array",
                       "items": {
                         "type": "string"
                       },
-                      "description": "Array of the domain set and its alternate name (if it is configured)",
-                      "examples": [
-                        "example.com",
-                        "www.example.com"
-                      ]
+                      "description": "Array of the domain set and its alternate name (if it is configured)"
                     },
                     "expires_at": {
                       "type": "string",
@@ -238,10 +203,7 @@
                 },
                 "https_enforced": {
                   "type": "boolean",
-                  "description": "Whether https is enabled on the domain",
-                  "examples": [
-                    true
-                  ]
+                  "description": "Whether https is enabled on the domain"
                 }
               },
               "required": [
@@ -309,7 +271,6 @@
         {
           "type": "string",
           "name": "build_type",
-          "in": "body",
           "description": "<p>The process in which the Page will be built. Possible values are <code>\"legacy\"</code> and <code>\"workflow\"</code>.</p>",
           "enum": [
             "legacy",
@@ -319,7 +280,6 @@
         {
           "type": "object",
           "name": "source",
-          "in": "body",
           "description": "<p>The source branch and directory used to publish your Pages site.</p>",
           "childParamsGroups": [
             {
@@ -344,7 +304,6 @@
       "descriptionHTML": "<p>Configures a GitHub Enterprise Server Pages site. For more information, see \"<a href=\"/github/working-with-github-pages/about-github-pages\">About GitHub Pages</a>.\"</p>\n<p>The authenticated user must be a repository administrator, maintainer, or have the 'manage GitHub Pages settings' permission.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -395,10 +354,7 @@
                 "url": {
                   "type": "string",
                   "description": "The API address for accessing this Page resource.",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repos/github/hello-world/pages"
-                  ]
+                  "format": "uri"
                 },
                 "status": {
                   "type": [
@@ -411,9 +367,6 @@
                     "building",
                     "errored",
                     null
-                  ],
-                  "examples": [
-                    "built"
                   ]
                 },
                 "cname": {
@@ -421,9 +374,6 @@
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "example.com"
                   ]
                 },
                 "protected_domain_state": {
@@ -437,9 +387,6 @@
                     "verified",
                     "unverified",
                     null
-                  ],
-                  "examples": [
-                    "pending"
                   ]
                 },
                 "pending_domain_unverified_at": {
@@ -453,18 +400,12 @@
                 "custom_404": {
                   "type": "boolean",
                   "description": "Whether the Page has a custom 404 page.",
-                  "default": false,
-                  "examples": [
-                    false
-                  ]
+                  "default": false
                 },
                 "html_url": {
                   "type": "string",
                   "description": "The web address the Page can be accessed from.",
-                  "format": "uri",
-                  "examples": [
-                    "https://example.com"
-                  ]
+                  "format": "uri"
                 },
                 "build_type": {
                   "type": [
@@ -476,9 +417,6 @@
                     "legacy",
                     "workflow",
                     null
-                  ],
-                  "examples": [
-                    "legacy"
                   ]
                 },
                 "source": {
@@ -499,10 +437,7 @@
                 },
                 "public": {
                   "type": "boolean",
-                  "description": "Whether the GitHub Pages site is publicly visible. If set to `true`, the site is accessible to anyone on the internet. If set to `false`, the site will only be accessible to users who have at least `read` access to the repository that published the site.",
-                  "examples": [
-                    true
-                  ]
+                  "description": "Whether the GitHub Pages site is publicly visible. If set to `true`, the site is accessible to anyone on the internet. If set to `false`, the site will only be accessible to users who have at least `read` access to the repository that published the site."
                 },
                 "https_certificate": {
                   "title": "Pages Https Certificate",
@@ -523,27 +458,17 @@
                         "bad_authz",
                         "destroy_pending",
                         "dns_changed"
-                      ],
-                      "examples": [
-                        "approved"
                       ]
                     },
                     "description": {
-                      "type": "string",
-                      "examples": [
-                        "Certificate is approved"
-                      ]
+                      "type": "string"
                     },
                     "domains": {
                       "type": "array",
                       "items": {
                         "type": "string"
                       },
-                      "description": "Array of the domain set and its alternate name (if it is configured)",
-                      "examples": [
-                        "example.com",
-                        "www.example.com"
-                      ]
+                      "description": "Array of the domain set and its alternate name (if it is configured)"
                     },
                     "expires_at": {
                       "type": "string",
@@ -558,10 +483,7 @@
                 },
                 "https_enforced": {
                   "type": "boolean",
-                  "description": "Whether https is enabled on the domain",
-                  "examples": [
-                    true
-                  ]
+                  "description": "Whether https is enabled on the domain"
                 }
               },
               "required": [
@@ -633,19 +555,16 @@
         {
           "type": "string or null",
           "name": "cname",
-          "in": "body",
           "description": "<p>Specify a custom domain for the repository. Sending a <code>null</code> value will remove the custom domain. For more about custom domains, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/pages/configuring-a-custom-domain-for-your-github-pages-site\">Using a custom domain with GitHub Pages</a>.\"</p>"
         },
         {
           "type": "boolean",
           "name": "https_enforced",
-          "in": "body",
           "description": "<p>Specify whether HTTPS should be enforced for the repository.</p>"
         },
         {
           "type": "string",
           "name": "build_type",
-          "in": "body",
           "description": "<p>The process by which the GitHub Pages site will be built. <code>workflow</code> means that the site is built by a custom GitHub Actions workflow. <code>legacy</code> means that the site is built by GitHub when changes are pushed to a specific branch.</p>",
           "enum": [
             "legacy",
@@ -655,7 +574,6 @@
         {
           "type": "object",
           "name": "source",
-          "in": "body",
           "description": "<p>Update the source for the repository. Must include the branch name and path.</p>",
           "childParamsGroups": [
             {
@@ -680,7 +598,6 @@
       "descriptionHTML": "<p>Updates information for a GitHub Enterprise Server Pages site. For more information, see \"<a href=\"/github/working-with-github-pages/about-github-pages\">About GitHub Pages</a>.</p>\n<p>The authenticated user must be a repository administrator, maintainer, or have the 'manage GitHub Pages settings' permission.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -765,7 +682,6 @@
       "descriptionHTML": "<p>Deletes a GitHub Enterprise Server Pages site. For more information, see \"<a href=\"/github/working-with-github-pages/about-github-pages\">About GitHub Pages</a>.</p>\n<p>The authenticated user must be a repository administrator, maintainer, or have the 'manage GitHub Pages settings' permission.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -860,7 +776,6 @@
       "descriptionHTML": "<p>Lists builts of a GitHub Enterprise Server Pages site.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -957,133 +872,76 @@
                             ]
                           },
                           "login": {
-                            "type": "string",
-                            "examples": [
-                              "octocat"
-                            ]
+                            "type": "string"
                           },
                           "id": {
                             "type": "integer",
-                            "format": "int64",
-                            "examples": [
-                              1
-                            ]
+                            "format": "int64"
                           },
                           "node_id": {
-                            "type": "string",
-                            "examples": [
-                              "MDQ6VXNlcjE="
-                            ]
+                            "type": "string"
                           },
                           "avatar_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/images/error/octocat_happy.gif"
-                            ]
+                            "format": "uri"
                           },
                           "gravatar_id": {
                             "type": [
                               "string",
                               "null"
-                            ],
-                            "examples": [
-                              "41d064eb2195891e12d0413f63227ea7"
                             ]
                           },
                           "url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "html_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "followers_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/followers"
-                            ]
+                            "format": "uri"
                           },
                           "following_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/following{/other_user}"
-                            ]
+                            "type": "string"
                           },
                           "gists_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/gists{/gist_id}"
-                            ]
+                            "type": "string"
                           },
                           "starred_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                            ]
+                            "type": "string"
                           },
                           "subscriptions_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/subscriptions"
-                            ]
+                            "format": "uri"
                           },
                           "organizations_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/orgs"
-                            ]
+                            "format": "uri"
                           },
                           "repos_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/repos"
-                            ]
+                            "format": "uri"
                           },
                           "events_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/events{/privacy}"
-                            ]
+                            "type": "string"
                           },
                           "received_events_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/received_events"
-                            ]
+                            "format": "uri"
                           },
                           "type": {
-                            "type": "string",
-                            "examples": [
-                              "User"
-                            ]
+                            "type": "string"
                           },
                           "site_admin": {
                             "type": "boolean"
                           },
                           "starred_at": {
-                            "type": "string",
-                            "examples": [
-                              "\"2020-07-09T00:17:55Z\""
-                            ]
+                            "type": "string"
                           },
                           "user_view_type": {
-                            "type": "string",
-                            "examples": [
-                              "public"
-                            ]
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -1189,7 +1047,6 @@
       "descriptionHTML": "<p>You can request that your site be built from the latest revision on the default branch. This has the same effect as pushing a commit to your default branch, but does not require an additional commit. Manually triggering page builds can be helpful when diagnosing build warnings and failures.</p>\n<p>Build requests are limited to one concurrent build per repository and one concurrent build per requester. If you request a build while another is still in progress, the second request will be queued until the first completes.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1213,16 +1070,10 @@
               "properties": {
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repos/github/hello-world/pages/builds/latest"
-                  ]
+                  "format": "uri"
                 },
                 "status": {
-                  "type": "string",
-                  "examples": [
-                    "queued"
-                  ]
+                  "type": "string"
                 }
               },
               "required": [
@@ -1282,7 +1133,6 @@
       "descriptionHTML": "<p>Gets information about the single most recent build of a GitHub Enterprise Server Pages site.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1375,133 +1225,76 @@
                           ]
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
                           ]
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -1615,7 +1408,6 @@
       "descriptionHTML": "<p>Gets information about a GitHub Enterprise Server Pages build.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1709,133 +1501,76 @@
                           ]
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
                           ]
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -1940,21 +1675,18 @@
         {
           "type": "string",
           "name": "artifact_url",
-          "in": "body",
           "description": "<p>The URL of an artifact that contains the .zip or .tar of static assets to deploy. The artifact belongs to the repository.</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "environment",
-          "in": "body",
           "description": "<p>The target environment for this GitHub Pages deployment.</p>",
           "default": "github-pages"
         },
         {
           "type": "string",
           "name": "pages_build_version",
-          "in": "body",
           "description": "<p>A unique string that represents the version of the build for this deployment.</p>",
           "isRequired": true,
           "default": "GITHUB_SHA"
@@ -1962,7 +1694,6 @@
         {
           "type": "string",
           "name": "oidc_token",
-          "in": "body",
           "description": "<p>The OIDC token issued by GitHub Actions certifying the origin of the deployment.</p>",
           "isRequired": true
         }
@@ -1970,7 +1701,6 @@
       "descriptionHTML": "<p>Create a GitHub Pages deployment for a repository.</p>\n<p>The authenticated user must have write permission to the repository.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -2014,26 +1744,17 @@
                 "status_url": {
                   "type": "string",
                   "description": "The URI to monitor GitHub Pages deployment status.",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repos/github/hello-world/pages/deployments/4fd754f7e594640989b406850d0bc8f06a121251"
-                  ]
+                  "format": "uri"
                 },
                 "page_url": {
                   "type": "string",
                   "description": "The URI to the deployed GitHub Pages.",
-                  "format": "uri",
-                  "examples": [
-                    "hello-world.github.io"
-                  ]
+                  "format": "uri"
                 },
                 "preview_url": {
                   "type": "string",
                   "description": "The URI to the deployed GitHub Pages preview.",
-                  "format": "uri",
-                  "examples": [
-                    "monalisa-1231a2312sa32-23sda74.drafts.github.io"
-                  ]
+                  "format": "uri"
                 }
               },
               "required": [
@@ -2122,7 +1843,6 @@
       "descriptionHTML": "<p>Gets the current status of a GitHub Pages deployment.</p>\n<p>The authenticated user must have read permission for the GitHub Pages site.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2235,7 +1955,6 @@
       "descriptionHTML": "<p>Cancels a GitHub Pages deployment.</p>\n<p>The authenticated user must have write permissions for the GitHub Pages site.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",

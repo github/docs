@@ -49,7 +49,6 @@
       "descriptionHTML": "<p>Gets the diff of the dependency changes between two commits of a repository, based on the changes to the dependency manifests made in those commits.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -120,54 +119,33 @@
                     ]
                   },
                   "manifest": {
-                    "type": "string",
-                    "examples": [
-                      "path/to/package-lock.json"
-                    ]
+                    "type": "string"
                   },
                   "ecosystem": {
-                    "type": "string",
-                    "examples": [
-                      "npm"
-                    ]
+                    "type": "string"
                   },
                   "name": {
-                    "type": "string",
-                    "examples": [
-                      "@actions/core"
-                    ]
+                    "type": "string"
                   },
                   "version": {
-                    "type": "string",
-                    "examples": [
-                      "1.0.0"
-                    ]
+                    "type": "string"
                   },
                   "package_url": {
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "pkg:/npm/%40actions/core@1.1.0"
                     ]
                   },
                   "license": {
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "MIT"
                     ]
                   },
                   "source_repository_url": {
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "https://github.com/github/actions"
                     ]
                   },
                   "vulnerabilities": {
@@ -176,28 +154,16 @@
                       "type": "object",
                       "properties": {
                         "severity": {
-                          "type": "string",
-                          "examples": [
-                            "critical"
-                          ]
+                          "type": "string"
                         },
                         "advisory_ghsa_id": {
-                          "type": "string",
-                          "examples": [
-                            "GHSA-rf4j-j272-fj86"
-                          ]
+                          "type": "string"
                         },
                         "advisory_summary": {
-                          "type": "string",
-                          "examples": [
-                            "A summary of the advisory."
-                          ]
+                          "type": "string"
                         },
                         "advisory_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://github.com/advisories/GHSA-rf4j-j272-fj86"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -295,14 +261,12 @@
         {
           "type": "integer",
           "name": "version",
-          "in": "body",
           "description": "<p>The version of the repository snapshot submission.</p>",
           "isRequired": true
         },
         {
           "type": "object",
           "name": "job",
-          "in": "body",
           "description": "",
           "isRequired": true,
           "childParamsGroups": [
@@ -328,21 +292,18 @@
         {
           "type": "string",
           "name": "sha",
-          "in": "body",
           "description": "<p>The commit SHA associated with this dependency snapshot. Maximum length: 40 characters.</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "ref",
-          "in": "body",
           "description": "<p>The repository branch that triggered this snapshot.</p>",
           "isRequired": true
         },
         {
           "type": "object",
           "name": "detector",
-          "in": "body",
           "description": "<p>A description of the detector used.</p>",
           "isRequired": true,
           "childParamsGroups": [
@@ -369,13 +330,11 @@
         {
           "type": "object",
           "name": "metadata",
-          "in": "body",
           "description": "<p>User-defined metadata to store domain-specific information limited to 8 keys with scalar values.</p>"
         },
         {
           "type": "object",
           "name": "manifests",
-          "in": "body",
           "description": "<p>A collection of package manifests, which are a collection of related dependencies declared in a file or representing a logical group of dependencies.</p>",
           "childParamsGroups": [
             {
@@ -460,7 +419,6 @@
         {
           "type": "string",
           "name": "scanned",
-          "in": "body",
           "description": "<p>The time at which the snapshot was scanned.</p>",
           "isRequired": true
         }
@@ -468,7 +426,6 @@
       "descriptionHTML": "<p>Create a new snapshot of a repository's dependencies.</p>\n<p>The authenticated user must have access to the repository.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "example-of-a-dependency-submission",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -609,7 +566,6 @@
       "descriptionHTML": "<p>Exports the software bill of materials (SBOM) for a repository in SPDX JSON format.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -670,42 +626,27 @@
                   "properties": {
                     "SPDXID": {
                       "type": "string",
-                      "description": "The SPDX identifier for the SPDX document.",
-                      "examples": [
-                        "SPDXRef-DOCUMENT"
-                      ]
+                      "description": "The SPDX identifier for the SPDX document."
                     },
                     "spdxVersion": {
                       "type": "string",
-                      "description": "The version of the SPDX specification that this document conforms to.",
-                      "examples": [
-                        "SPDX-2.3"
-                      ]
+                      "description": "The version of the SPDX specification that this document conforms to."
                     },
                     "comment": {
                       "type": "string",
-                      "description": "An optional comment about the SPDX document.",
-                      "examples": [
-                        "Exact versions could not be resolved for some packages. For more information: https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/"
-                      ]
+                      "description": "An optional comment about the SPDX document."
                     },
                     "creationInfo": {
                       "type": "object",
                       "properties": {
                         "created": {
                           "type": "string",
-                          "description": "The date and time the SPDX document was created.",
-                          "examples": [
-                            "2021-11-03T00:00:00Z"
-                          ]
+                          "description": "The date and time the SPDX document was created."
                         },
                         "creators": {
                           "type": "array",
                           "items": {
-                            "type": "string",
-                            "examples": [
-                              "GitHub"
-                            ]
+                            "type": "string"
                           },
                           "description": "The tools that were used to generate the SPDX document."
                         }
@@ -717,24 +658,15 @@
                     },
                     "name": {
                       "type": "string",
-                      "description": "The name of the SPDX document.",
-                      "examples": [
-                        "github/github"
-                      ]
+                      "description": "The name of the SPDX document."
                     },
                     "dataLicense": {
                       "type": "string",
-                      "description": "The license under which the SPDX document is licensed.",
-                      "examples": [
-                        "CC0-1.0"
-                      ]
+                      "description": "The license under which the SPDX document is licensed."
                     },
                     "documentNamespace": {
                       "type": "string",
-                      "description": "The namespace for the SPDX document.",
-                      "examples": [
-                        "https://spdx.org/spdxdocs/protobom/15e41dd2-f961-4f4d-b8dc-f8f57ad70d57"
-                      ]
+                      "description": "The namespace for the SPDX document."
                     },
                     "packages": {
                       "type": "array",
@@ -743,66 +675,39 @@
                         "properties": {
                           "SPDXID": {
                             "type": "string",
-                            "description": "A unique SPDX identifier for the package.",
-                            "examples": [
-                              "SPDXRef-Package"
-                            ]
+                            "description": "A unique SPDX identifier for the package."
                           },
                           "name": {
                             "type": "string",
-                            "description": "The name of the package.",
-                            "examples": [
-                              "github/github"
-                            ]
+                            "description": "The name of the package."
                           },
                           "versionInfo": {
                             "type": "string",
-                            "description": "The version of the package. If the package does not have an exact version specified,\na version range is given.",
-                            "examples": [
-                              "1.0.0"
-                            ]
+                            "description": "The version of the package. If the package does not have an exact version specified,\na version range is given."
                           },
                           "downloadLocation": {
                             "type": "string",
-                            "description": "The location where the package can be downloaded,\nor NOASSERTION if this has not been determined.",
-                            "examples": [
-                              "NOASSERTION"
-                            ]
+                            "description": "The location where the package can be downloaded,\nor NOASSERTION if this has not been determined."
                           },
                           "filesAnalyzed": {
                             "type": "boolean",
-                            "description": "Whether the package's file content has been subjected to\nanalysis during the creation of the SPDX document.",
-                            "examples": [
-                              false
-                            ]
+                            "description": "Whether the package's file content has been subjected to\nanalysis during the creation of the SPDX document."
                           },
                           "licenseConcluded": {
                             "type": "string",
-                            "description": "The license of the package as determined while creating the SPDX document.",
-                            "examples": [
-                              "MIT"
-                            ]
+                            "description": "The license of the package as determined while creating the SPDX document."
                           },
                           "licenseDeclared": {
                             "type": "string",
-                            "description": "The license of the package as declared by its author, or NOASSERTION if this information\nwas not available when the SPDX document was created.",
-                            "examples": [
-                              "NOASSERTION"
-                            ]
+                            "description": "The license of the package as declared by its author, or NOASSERTION if this information\nwas not available when the SPDX document was created."
                           },
                           "supplier": {
                             "type": "string",
-                            "description": "The distribution source of this package, or NOASSERTION if this was not determined.",
-                            "examples": [
-                              "NOASSERTION"
-                            ]
+                            "description": "The distribution source of this package, or NOASSERTION if this was not determined."
                           },
                           "copyrightText": {
                             "type": "string",
-                            "description": "The copyright holders of the package, and any dates present with those notices, if available.",
-                            "examples": [
-                              "Copyright (c) 1985 GitHub.com"
-                            ]
+                            "description": "The copyright holders of the package, and any dates present with those notices, if available."
                           },
                           "externalRefs": {
                             "type": "array",
@@ -811,24 +716,15 @@
                               "properties": {
                                 "referenceCategory": {
                                   "type": "string",
-                                  "description": "The category of reference to an external resource this reference refers to.",
-                                  "examples": [
-                                    "PACKAGE-MANAGER"
-                                  ]
+                                  "description": "The category of reference to an external resource this reference refers to."
                                 },
                                 "referenceLocator": {
                                   "type": "string",
-                                  "description": "A locator for the particular external resource this reference refers to.",
-                                  "examples": [
-                                    "pkg:gem/rails@6.0.1"
-                                  ]
+                                  "description": "A locator for the particular external resource this reference refers to."
                                 },
                                 "referenceType": {
                                   "type": "string",
-                                  "description": "The category of reference to an external resource this reference refers to.",
-                                  "examples": [
-                                    "purl"
-                                  ]
+                                  "description": "The category of reference to an external resource this reference refers to."
                                 }
                               },
                               "required": [
@@ -855,10 +751,7 @@
                         "properties": {
                           "relationshipType": {
                             "type": "string",
-                            "description": "The type of relationship between the two SPDX elements.",
-                            "examples": [
-                              "DEPENDS_ON"
-                            ]
+                            "description": "The type of relationship between the two SPDX elements."
                           },
                           "spdxElementId": {
                             "type": "string",

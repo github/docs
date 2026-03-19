@@ -91,8 +91,10 @@
                       "format": "uri"
                     },
                     "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "url": {
                       "type": "string",
@@ -141,42 +143,60 @@
                       "type": "boolean"
                     },
                     "name": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "company": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "location": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "notification_email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "hireable": {
-                      "type": "boolean",
-                      "nullable": true
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "bio": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "twitter_username": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "public_repos": {
                       "type": "integer"
@@ -309,8 +329,10 @@
                       "format": "uri"
                     },
                     "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "url": {
                       "type": "string",
@@ -359,42 +381,60 @@
                       "type": "boolean"
                     },
                     "name": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "company": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "location": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "notification_email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "hireable": {
-                      "type": "boolean",
-                      "nullable": true
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "bio": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "twitter_username": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "public_repos": {
                       "type": "integer"
@@ -562,8 +602,10 @@
                       "format": "uri"
                     },
                     "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "url": {
                       "type": "string",
@@ -612,42 +654,60 @@
                       "type": "boolean"
                     },
                     "name": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "company": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "location": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "notification_email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "hireable": {
-                      "type": "boolean",
-                      "nullable": true
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "bio": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "twitter_username": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "public_repos": {
                       "type": "integer"
@@ -780,8 +840,10 @@
                       "format": "uri"
                     },
                     "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "url": {
                       "type": "string",
@@ -830,42 +892,60 @@
                       "type": "boolean"
                     },
                     "name": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "company": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "location": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "notification_email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "hireable": {
-                      "type": "boolean",
-                      "nullable": true
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "bio": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "twitter_username": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "public_repos": {
                       "type": "integer"
@@ -1128,8 +1208,10 @@
                   "format": "uri"
                 },
                 "gravatar_id": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "url": {
                   "type": "string",
@@ -1178,42 +1260,60 @@
                   "type": "boolean"
                 },
                 "name": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "company": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "blog": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "location": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "email": {
-                  "type": "string",
-                  "format": "email",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "email"
                 },
                 "notification_email": {
-                  "type": "string",
-                  "format": "email",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "email"
                 },
                 "hireable": {
-                  "type": "boolean",
-                  "nullable": true
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
                 },
                 "bio": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "twitter_username": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "public_repos": {
                   "type": "integer"
@@ -1456,8 +1556,10 @@
                       "format": "uri"
                     },
                     "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "url": {
                       "type": "string",
@@ -1506,42 +1608,60 @@
                       "type": "boolean"
                     },
                     "name": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "company": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "location": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "notification_email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "hireable": {
-                      "type": "boolean",
-                      "nullable": true
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "bio": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "twitter_username": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "public_repos": {
                       "type": "integer"
@@ -1674,8 +1794,10 @@
                       "format": "uri"
                     },
                     "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "url": {
                       "type": "string",
@@ -1724,42 +1846,60 @@
                       "type": "boolean"
                     },
                     "name": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "company": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "location": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "notification_email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "hireable": {
-                      "type": "boolean",
-                      "nullable": true
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "bio": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "twitter_username": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "public_repos": {
                       "type": "integer"
@@ -1936,8 +2076,10 @@
                       "format": "uri"
                     },
                     "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "url": {
                       "type": "string",
@@ -1986,42 +2128,60 @@
                       "type": "boolean"
                     },
                     "name": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "company": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "location": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "notification_email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "hireable": {
-                      "type": "boolean",
-                      "nullable": true
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "bio": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "twitter_username": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "public_repos": {
                       "type": "integer"
@@ -2154,8 +2314,10 @@
                       "format": "uri"
                     },
                     "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "url": {
                       "type": "string",
@@ -2204,42 +2366,60 @@
                       "type": "boolean"
                     },
                     "name": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "company": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "location": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "notification_email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "hireable": {
-                      "type": "boolean",
-                      "nullable": true
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "bio": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "twitter_username": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "public_repos": {
                       "type": "integer"
@@ -2429,12 +2609,16 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "email": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "login": {
                     "type": "string"
@@ -2451,8 +2635,10 @@
                     "format": "uri"
                   },
                   "gravatar_id": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "url": {
                     "type": "string",
@@ -2644,8 +2830,10 @@
                       "format": "uri"
                     },
                     "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "url": {
                       "type": "string",
@@ -2694,42 +2882,60 @@
                       "type": "boolean"
                     },
                     "name": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "company": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "location": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "notification_email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "hireable": {
-                      "type": "boolean",
-                      "nullable": true
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "bio": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "twitter_username": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "public_repos": {
                       "type": "integer"
@@ -2862,8 +3068,10 @@
                       "format": "uri"
                     },
                     "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "url": {
                       "type": "string",
@@ -2912,42 +3120,60 @@
                       "type": "boolean"
                     },
                     "name": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "company": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "location": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "notification_email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "hireable": {
-                      "type": "boolean",
-                      "nullable": true
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "bio": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "twitter_username": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "public_repos": {
                       "type": "integer"
@@ -3124,8 +3350,10 @@
                       "format": "uri"
                     },
                     "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "url": {
                       "type": "string",
@@ -3174,42 +3402,60 @@
                       "type": "boolean"
                     },
                     "name": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "company": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "location": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "notification_email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "hireable": {
-                      "type": "boolean",
-                      "nullable": true
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "bio": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "twitter_username": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "public_repos": {
                       "type": "integer"
@@ -3342,8 +3588,10 @@
                       "format": "uri"
                     },
                     "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "url": {
                       "type": "string",
@@ -3392,42 +3640,60 @@
                       "type": "boolean"
                     },
                     "name": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "company": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "blog": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "location": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "notification_email": {
-                      "type": "string",
-                      "format": "email",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "email"
                     },
                     "hireable": {
-                      "type": "boolean",
-                      "nullable": true
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "bio": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "twitter_username": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "public_repos": {
                       "type": "integer"
@@ -3883,8 +4149,10 @@
                 "attestations_subject_digests": {
                   "type": "object",
                   "additionalProperties": {
-                    "nullable": true,
-                    "type": "array",
+                    "type": [
+                      "array",
+                      "null"
+                    ],
                     "items": {
                       "type": "object",
                       "properties": {
@@ -4533,12 +4801,16 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "email": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "login": {
                     "type": "string"
@@ -4555,8 +4827,10 @@
                     "format": "uri"
                   },
                   "gravatar_id": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "url": {
                     "type": "string",
@@ -4944,8 +5218,10 @@
                     "type": "boolean"
                   },
                   "visibility": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   }
                 },
                 "required": [
@@ -5062,8 +5338,10 @@
                     "type": "boolean"
                   },
                   "visibility": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   }
                 },
                 "required": [
@@ -5184,8 +5462,10 @@
                     "type": "boolean"
                   },
                   "visibility": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   }
                 },
                 "required": [
@@ -5376,8 +5656,10 @@
                     "type": "boolean"
                   },
                   "visibility": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   }
                 },
                 "required": [
@@ -5497,12 +5779,16 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "email": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "login": {
                     "type": "string"
@@ -5519,8 +5805,10 @@
                     "format": "uri"
                   },
                   "gravatar_id": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "url": {
                     "type": "string",
@@ -5699,12 +5987,16 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "email": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "login": {
                     "type": "string"
@@ -5721,8 +6013,10 @@
                     "format": "uri"
                   },
                   "gravatar_id": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "url": {
                     "type": "string",
@@ -6124,12 +6418,16 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "email": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "login": {
                     "type": "string"
@@ -6146,8 +6444,10 @@
                     "format": "uri"
                   },
                   "gravatar_id": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "url": {
                     "type": "string",
@@ -6324,12 +6624,16 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "email": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "login": {
                     "type": "string"
@@ -6346,8 +6650,10 @@
                     "format": "uri"
                   },
                   "gravatar_id": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "url": {
                     "type": "string",
@@ -6600,12 +6906,16 @@
                     "format": "int64"
                   },
                   "name": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "primary_key_id": {
-                    "type": "integer",
-                    "nullable": true
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
                   },
                   "key_id": {
                     "type": "string"
@@ -6679,12 +6989,16 @@
                           "type": "string"
                         },
                         "expires_at": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "raw_key": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "revoked": {
                           "type": "boolean"
@@ -6709,16 +7023,20 @@
                     "format": "date-time"
                   },
                   "expires_at": {
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
                   },
                   "revoked": {
                     "type": "boolean"
                   },
                   "raw_key": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   }
                 },
                 "required": [
@@ -6860,12 +7178,16 @@
                   "format": "int64"
                 },
                 "name": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "primary_key_id": {
-                  "type": "integer",
-                  "nullable": true
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
                 },
                 "key_id": {
                   "type": "string"
@@ -6939,12 +7261,16 @@
                         "type": "string"
                       },
                       "expires_at": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "raw_key": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "revoked": {
                         "type": "boolean"
@@ -6969,16 +7295,20 @@
                   "format": "date-time"
                 },
                 "expires_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
                 },
                 "revoked": {
                   "type": "boolean"
                 },
                 "raw_key": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "required": [
@@ -7119,12 +7449,16 @@
                   "format": "int64"
                 },
                 "name": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "primary_key_id": {
-                  "type": "integer",
-                  "nullable": true
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
                 },
                 "key_id": {
                   "type": "string"
@@ -7198,12 +7532,16 @@
                         "type": "string"
                       },
                       "expires_at": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "raw_key": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "revoked": {
                         "type": "boolean"
@@ -7228,16 +7566,20 @@
                   "format": "date-time"
                 },
                 "expires_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
                 },
                 "revoked": {
                   "type": "boolean"
                 },
                 "raw_key": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "required": [
@@ -7469,12 +7811,16 @@
                     "format": "int64"
                   },
                   "name": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "primary_key_id": {
-                    "type": "integer",
-                    "nullable": true
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
                   },
                   "key_id": {
                     "type": "string"
@@ -7548,12 +7894,16 @@
                           "type": "string"
                         },
                         "expires_at": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "raw_key": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "revoked": {
                           "type": "boolean"
@@ -7578,16 +7928,20 @@
                     "format": "date-time"
                   },
                   "expires_at": {
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
                   },
                   "revoked": {
                     "type": "boolean"
                   },
                   "raw_key": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   }
                 },
                 "required": [
@@ -7718,8 +8072,10 @@
                     "type": "boolean"
                   },
                   "last_used": {
-                    "nullable": true,
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "format": "date-time"
                   }
                 },
@@ -7846,8 +8202,10 @@
                   "type": "boolean"
                 },
                 "last_used": {
-                  "nullable": true,
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "date-time"
                 }
               },
@@ -7973,8 +8331,10 @@
                   "type": "boolean"
                 },
                 "last_used": {
-                  "nullable": true,
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "date-time"
                 }
               },
@@ -8169,8 +8529,10 @@
                     "format": "date-time"
                   },
                   "last_used": {
-                    "nullable": true,
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "format": "date-time"
                   }
                 },

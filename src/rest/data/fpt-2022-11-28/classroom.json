@@ -113,13 +113,17 @@
                 },
                 "max_teams": {
                   "description": "The maximum allowable teams for the assignment.",
-                  "nullable": true,
-                  "type": "integer"
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
                 },
                 "max_members": {
                   "description": "The maximum allowable members per team.",
-                  "nullable": true,
-                  "type": "integer"
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
                 },
                 "editor": {
                   "description": "The selected editor for the assignment.",
@@ -143,9 +147,11 @@
                 },
                 "deadline": {
                   "description": "The time at which the assignment is due.",
-                  "type": "string",
-                  "format": "date-time",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
                 },
                 "starter_code_repository": {
                   "title": "Simple Classroom Repository",
@@ -223,8 +229,10 @@
                           "format": "uri"
                         },
                         "name": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "avatar_url": {
                           "type": "string"
@@ -540,13 +548,17 @@
                       },
                       "max_teams": {
                         "description": "The maximum allowable teams for the assignment.",
-                        "nullable": true,
-                        "type": "integer"
+                        "type": [
+                          "integer",
+                          "null"
+                        ]
                       },
                       "max_members": {
                         "description": "The maximum allowable members per team.",
-                        "nullable": true,
-                        "type": "integer"
+                        "type": [
+                          "integer",
+                          "null"
+                        ]
                       },
                       "editor": {
                         "description": "The selected editor for the assignment.",
@@ -570,9 +582,11 @@
                       },
                       "deadline": {
                         "description": "The time at which the assignment is due.",
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date-time"
                       },
                       "classroom": {
                         "title": "Simple Classroom",
@@ -984,8 +998,10 @@
                       "format": "uri"
                     },
                     "name": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "avatar_url": {
                       "type": "string"
@@ -1161,13 +1177,17 @@
                   },
                   "max_teams": {
                     "description": "The maximum allowable teams for the assignment.",
-                    "nullable": true,
-                    "type": "integer"
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
                   },
                   "max_members": {
                     "description": "The maximum allowable members per team.",
-                    "nullable": true,
-                    "type": "integer"
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
                   },
                   "editor": {
                     "description": "The selected editor for the assignment.",
@@ -1191,9 +1211,11 @@
                   },
                   "deadline": {
                     "description": "The time at which the assignment is due.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
                   },
                   "classroom": {
                     "title": "Simple Classroom",

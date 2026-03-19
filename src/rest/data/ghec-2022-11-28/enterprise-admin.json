@@ -933,8 +933,10 @@
                     "format": "date-time"
                   },
                   "paused_at": {
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "format": "date-time"
                   }
                 }
@@ -1349,8 +1351,10 @@
                   "format": "date-time"
                 },
                 "paused_at": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "date-time"
                 }
               },
@@ -1458,8 +1462,10 @@
                   "format": "date-time"
                 },
                 "paused_at": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "date-time"
                 }
               },
@@ -1883,8 +1889,10 @@
                   "format": "date-time"
                 },
                 "paused_at": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "date-time"
                 }
               },
@@ -2202,19 +2210,25 @@
                     "description": "The repository the bypass request is for.",
                     "properties": {
                       "id": {
-                        "type": "integer",
-                        "description": "The ID of the repository the bypass request is for.",
-                        "nullable": true
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "description": "The ID of the repository the bypass request is for."
                       },
                       "name": {
-                        "type": "string",
-                        "description": "The name of the repository the bypass request is for.",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The name of the repository the bypass request is for."
                       },
                       "full_name": {
-                        "type": "string",
-                        "description": "The full name of the repository the bypass request is for.",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The full name of the repository the bypass request is for."
                       }
                     }
                   },
@@ -2223,14 +2237,18 @@
                     "description": "The organization associated with the repository the bypass request is for.",
                     "properties": {
                       "id": {
-                        "type": "integer",
-                        "description": "The ID of the organization.",
-                        "nullable": true
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "description": "The ID of the organization."
                       },
                       "name": {
-                        "type": "string",
-                        "description": "The name of the organization.",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The name of the organization."
                       }
                     }
                   },
@@ -2253,8 +2271,10 @@
                     "description": "The type of request."
                   },
                   "data": {
-                    "nullable": true,
-                    "type": "array",
+                    "type": [
+                      "array",
+                      "null"
+                    ],
                     "description": "Data describing the push rules that are being requested to be bypassed.",
                     "items": {
                       "type": "object",
@@ -2297,9 +2317,11 @@
                     ]
                   },
                   "requester_comment": {
-                    "type": "string",
-                    "description": "The comment the requester provided when creating the bypass request.",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "The comment the requester provided when creating the bypass request."
                   },
                   "expires_at": {
                     "type": "string",
@@ -2312,9 +2334,11 @@
                     "description": "The date and time the bypass request was created."
                   },
                   "responses": {
-                    "type": "array",
+                    "type": [
+                      "array",
+                      "null"
+                    ],
                     "description": "The responses to the bypass request.",
-                    "nullable": true,
                     "items": {
                       "title": "Bypass response",
                       "description": "A response made by a delegated bypasser to a bypass request.",
@@ -2461,8 +2485,10 @@
                   "description": "Whether secret scanning push protection is automatically enabled for new repositories and repositories\ntransferred to this enterprise."
                 },
                 "secret_scanning_push_protection_custom_link": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "An optional URL string to display to contributors who are blocked from pushing a secret."
                 },
                 "secret_scanning_non_provider_patterns_enabled_for_new_repositories": {
@@ -2810,28 +2836,39 @@
                         }
                       }
                     ],
-                    "nullable": true,
-                    "description": "Default value of the property"
+                    "description": "Default value of the property",
+                    "type": [
+                      "null",
+                      "string",
+                      "array"
+                    ]
                   },
                   "description": {
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "Short description of the property"
                   },
                   "allowed_values": {
-                    "type": "array",
+                    "type": [
+                      "array",
+                      "null"
+                    ],
                     "items": {
                       "type": "string"
                     },
-                    "nullable": true,
                     "description": "An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values."
                   },
                   "values_editable_by": {
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "enum": [
                       "org_actors",
-                      "org_and_repo_actors"
+                      "org_and_repo_actors",
+                      null
                     ],
                     "description": "Who can edit the values of the property"
                   },
@@ -2940,7 +2977,7 @@
               "description": "<p>Whether the property is required.</p>"
             },
             {
-              "type": "string or array or null",
+              "type": "null or string or array",
               "name": "default_value",
               "description": "<p>Default value of the property</p>"
             },
@@ -2960,7 +2997,8 @@
               "description": "<p>Who can edit the values of the property</p>",
               "enum": [
                 "org_actors",
-                "org_and_repo_actors"
+                "org_and_repo_actors",
+                null
               ]
             },
             {
@@ -3092,28 +3130,39 @@
                         }
                       }
                     ],
-                    "nullable": true,
-                    "description": "Default value of the property"
+                    "description": "Default value of the property",
+                    "type": [
+                      "null",
+                      "string",
+                      "array"
+                    ]
                   },
                   "description": {
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "Short description of the property"
                   },
                   "allowed_values": {
-                    "type": "array",
+                    "type": [
+                      "array",
+                      "null"
+                    ],
                     "items": {
                       "type": "string"
                     },
-                    "nullable": true,
                     "description": "An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values."
                   },
                   "values_editable_by": {
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "enum": [
                       "org_actors",
-                      "org_and_repo_actors"
+                      "org_and_repo_actors",
+                      null
                     ],
                     "description": "Who can edit the values of the property"
                   },
@@ -3273,28 +3322,39 @@
                       }
                     }
                   ],
-                  "nullable": true,
-                  "description": "Default value of the property"
+                  "description": "Default value of the property",
+                  "type": [
+                    "null",
+                    "string",
+                    "array"
+                  ]
                 },
                 "description": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "Short description of the property"
                 },
                 "allowed_values": {
-                  "type": "array",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
                   "items": {
                     "type": "string"
                   },
-                  "nullable": true,
                   "description": "An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values."
                 },
                 "values_editable_by": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "enum": [
                     "org_actors",
-                    "org_and_repo_actors"
+                    "org_and_repo_actors",
+                    null
                   ],
                   "description": "Who can edit the values of the property"
                 },
@@ -3443,28 +3503,39 @@
                       }
                     }
                   ],
-                  "nullable": true,
-                  "description": "Default value of the property"
+                  "description": "Default value of the property",
+                  "type": [
+                    "null",
+                    "string",
+                    "array"
+                  ]
                 },
                 "description": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "Short description of the property"
                 },
                 "allowed_values": {
-                  "type": "array",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
                   "items": {
                     "type": "string"
                   },
-                  "nullable": true,
                   "description": "An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values."
                 },
                 "values_editable_by": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "enum": [
                     "org_actors",
-                    "org_and_repo_actors"
+                    "org_and_repo_actors",
+                    null
                   ],
                   "description": "Who can edit the values of the property"
                 },
@@ -3555,7 +3626,7 @@
           "description": "<p>Whether the property is required.</p>"
         },
         {
-          "type": "string or array or null",
+          "type": "null or string or array",
           "name": "default_value",
           "description": "<p>Default value of the property</p>"
         },
@@ -3575,7 +3646,8 @@
           "description": "<p>Who can edit the values of the property</p>",
           "enum": [
             "org_actors",
-            "org_and_repo_actors"
+            "org_and_repo_actors",
+            null
           ]
         },
         {
@@ -3672,28 +3744,39 @@
                       }
                     }
                   ],
-                  "nullable": true,
-                  "description": "Default value of the property"
+                  "description": "Default value of the property",
+                  "type": [
+                    "null",
+                    "string",
+                    "array"
+                  ]
                 },
                 "description": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "Short description of the property"
                 },
                 "allowed_values": {
-                  "type": "array",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
                   "items": {
                     "type": "string"
                   },
-                  "nullable": true,
                   "description": "An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values."
                 },
                 "values_editable_by": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "enum": [
                     "org_actors",
-                    "org_and_repo_actors"
+                    "org_and_repo_actors",
+                    null
                   ],
                   "description": "Who can edit the values of the property"
                 },
@@ -3926,20 +4009,28 @@
                             }
                           }
                         ],
-                        "nullable": true,
-                        "description": "Default value of the property"
+                        "description": "Default value of the property",
+                        "type": [
+                          "null",
+                          "string",
+                          "array"
+                        ]
                       },
                       "description": {
-                        "type": "string",
-                        "nullable": true,
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "Short description of the property"
                       },
                       "allowed_values": {
-                        "type": "array",
+                        "type": [
+                          "array",
+                          "null"
+                        ],
                         "items": {
                           "type": "string"
                         },
-                        "nullable": true,
                         "description": "An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values."
                       }
                     }
@@ -3948,11 +4039,14 @@
                     "type": "object",
                     "properties": {
                       "values_editable_by": {
-                        "type": "string",
-                        "nullable": true,
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "enum": [
                           "enterprise_actors",
-                          "enterprise_and_org_actors"
+                          "enterprise_and_org_actors",
+                          null
                         ],
                         "description": "Who can edit the values of the property"
                       }
@@ -4059,7 +4153,7 @@
               "description": "<p>Whether the property is required.</p>"
             },
             {
-              "type": "string or array or null",
+              "type": "null or string or array",
               "name": "default_value",
               "description": "<p>Default value of the property</p>"
             },
@@ -4079,7 +4173,8 @@
               "description": "<p>Who can edit the values of the property</p>",
               "enum": [
                 "enterprise_actors",
-                "enterprise_and_org_actors"
+                "enterprise_and_org_actors",
+                null
               ]
             }
           ]
@@ -4210,20 +4305,28 @@
                             }
                           }
                         ],
-                        "nullable": true,
-                        "description": "Default value of the property"
+                        "description": "Default value of the property",
+                        "type": [
+                          "null",
+                          "string",
+                          "array"
+                        ]
                       },
                       "description": {
-                        "type": "string",
-                        "nullable": true,
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "Short description of the property"
                       },
                       "allowed_values": {
-                        "type": "array",
+                        "type": [
+                          "array",
+                          "null"
+                        ],
                         "items": {
                           "type": "string"
                         },
-                        "nullable": true,
                         "description": "An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values."
                       }
                     }
@@ -4232,11 +4335,14 @@
                     "type": "object",
                     "properties": {
                       "values_editable_by": {
-                        "type": "string",
-                        "nullable": true,
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "enum": [
                           "enterprise_actors",
-                          "enterprise_and_org_actors"
+                          "enterprise_and_org_actors",
+                          null
                         ],
                         "description": "Who can edit the values of the property"
                       }
@@ -4391,20 +4497,28 @@
                           }
                         }
                       ],
-                      "nullable": true,
-                      "description": "Default value of the property"
+                      "description": "Default value of the property",
+                      "type": [
+                        "null",
+                        "string",
+                        "array"
+                      ]
                     },
                     "description": {
-                      "type": "string",
-                      "nullable": true,
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "Short description of the property"
                     },
                     "allowed_values": {
-                      "type": "array",
+                      "type": [
+                        "array",
+                        "null"
+                      ],
                       "items": {
                         "type": "string"
                       },
-                      "nullable": true,
                       "description": "An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values."
                     }
                   }
@@ -4413,11 +4527,14 @@
                   "type": "object",
                   "properties": {
                     "values_editable_by": {
-                      "type": "string",
-                      "nullable": true,
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "enum": [
                         "enterprise_actors",
-                        "enterprise_and_org_actors"
+                        "enterprise_and_org_actors",
+                        null
                       ],
                       "description": "Who can edit the values of the property"
                     }
@@ -4506,7 +4623,7 @@
           "description": "<p>Whether the property is required.</p>"
         },
         {
-          "type": "string or array or null",
+          "type": "null or string or array",
           "name": "default_value",
           "description": "<p>Default value of the property.</p>"
         },
@@ -4526,7 +4643,8 @@
           "description": "<p>Who can edit the values of the property.</p>",
           "enum": [
             "enterprise_actors",
-            "enterprise_and_org_actors"
+            "enterprise_and_org_actors",
+            null
           ]
         }
       ],
@@ -4621,20 +4739,28 @@
                           }
                         }
                       ],
-                      "nullable": true,
-                      "description": "Default value of the property"
+                      "description": "Default value of the property",
+                      "type": [
+                        "null",
+                        "string",
+                        "array"
+                      ]
                     },
                     "description": {
-                      "type": "string",
-                      "nullable": true,
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "Short description of the property"
                     },
                     "allowed_values": {
-                      "type": "array",
+                      "type": [
+                        "array",
+                        "null"
+                      ],
                       "items": {
                         "type": "string"
                       },
-                      "nullable": true,
                       "description": "An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values."
                     }
                   }
@@ -4643,11 +4769,14 @@
                   "type": "object",
                   "properties": {
                     "values_editable_by": {
-                      "type": "string",
-                      "nullable": true,
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "enum": [
                         "enterprise_actors",
-                        "enterprise_and_org_actors"
+                        "enterprise_and_org_actors",
+                        null
                       ],
                       "description": "Who can edit the values of the property"
                     }
@@ -4877,7 +5006,11 @@
                             }
                           ],
                           "description": "The value assigned to the property",
-                          "nullable": true
+                          "type": [
+                            "null",
+                            "string",
+                            "array"
+                          ]
                         }
                       },
                       "required": [
@@ -4963,7 +5096,7 @@
               "isRequired": true
             },
             {
-              "type": "string or array or null",
+              "type": "null or string or array",
               "name": "value",
               "description": "<p>The value assigned to the property</p>",
               "isRequired": true
@@ -5153,16 +5286,21 @@
                       },
                       "description": {
                         "description": "A short description about who this role is for or what permissions it grants.",
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "source": {
-                        "type": "string",
-                        "nullable": true,
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "Source answers the question, \"where did this role come from?\"",
                         "enum": [
                           "Enterprise",
-                          "Predefined"
+                          "Predefined",
+                          null
                         ]
                       },
                       "permissions": {
@@ -5173,66 +5311,80 @@
                         }
                       },
                       "enterprise": {
-                        "title": "Enterprise",
-                        "description": "An enterprise on GitHub.",
-                        "type": "object",
-                        "properties": {
-                          "description": {
-                            "description": "A short description of the enterprise.",
-                            "type": "string",
-                            "nullable": true
+                        "anyOf": [
+                          {
+                            "type": "null"
                           },
-                          "html_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "website_url": {
-                            "description": "The enterprise's website URL.",
-                            "type": "string",
-                            "nullable": true,
-                            "format": "uri"
-                          },
-                          "id": {
-                            "description": "Unique identifier of the enterprise",
-                            "type": "integer"
-                          },
-                          "node_id": {
-                            "type": "string"
-                          },
-                          "name": {
-                            "description": "The name of the enterprise.",
-                            "type": "string"
-                          },
-                          "slug": {
-                            "description": "The slug url identifier for the enterprise.",
-                            "type": "string"
-                          },
-                          "created_at": {
-                            "type": "string",
-                            "nullable": true,
-                            "format": "date-time"
-                          },
-                          "updated_at": {
-                            "type": "string",
-                            "nullable": true,
-                            "format": "date-time"
-                          },
-                          "avatar_url": {
-                            "type": "string",
-                            "format": "uri"
+                          {
+                            "title": "Enterprise",
+                            "description": "An enterprise on GitHub.",
+                            "type": "object",
+                            "properties": {
+                              "description": {
+                                "description": "A short description of the enterprise.",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "website_url": {
+                                "description": "The enterprise's website URL.",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "format": "uri"
+                              },
+                              "id": {
+                                "description": "Unique identifier of the enterprise",
+                                "type": "integer"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "The name of the enterprise.",
+                                "type": "string"
+                              },
+                              "slug": {
+                                "description": "The slug url identifier for the enterprise.",
+                                "type": "string"
+                              },
+                              "created_at": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "format": "date-time"
+                              },
+                              "updated_at": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "format": "date-time"
+                              },
+                              "avatar_url": {
+                                "type": "string",
+                                "format": "uri"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "node_id",
+                              "name",
+                              "slug",
+                              "html_url",
+                              "created_at",
+                              "updated_at",
+                              "avatar_url"
+                            ]
                           }
-                        },
-                        "required": [
-                          "id",
-                          "node_id",
-                          "name",
-                          "slug",
-                          "html_url",
-                          "created_at",
-                          "updated_at",
-                          "avatar_url"
-                        ],
-                        "nullable": true
+                        ]
                       },
                       "created_at": {
                         "description": "The date and time the role was created.",
@@ -5866,16 +6018,21 @@
                 },
                 "description": {
                   "description": "A short description about who this role is for or what permissions it grants.",
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "source": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "Source answers the question, \"where did this role come from?\"",
                   "enum": [
                     "Enterprise",
-                    "Predefined"
+                    "Predefined",
+                    null
                   ]
                 },
                 "permissions": {
@@ -5886,66 +6043,80 @@
                   }
                 },
                 "enterprise": {
-                  "title": "Enterprise",
-                  "description": "An enterprise on GitHub.",
-                  "type": "object",
-                  "properties": {
-                    "description": {
-                      "description": "A short description of the enterprise.",
-                      "type": "string",
-                      "nullable": true
+                  "anyOf": [
+                    {
+                      "type": "null"
                     },
-                    "html_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "website_url": {
-                      "description": "The enterprise's website URL.",
-                      "type": "string",
-                      "nullable": true,
-                      "format": "uri"
-                    },
-                    "id": {
-                      "description": "Unique identifier of the enterprise",
-                      "type": "integer"
-                    },
-                    "node_id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "description": "The name of the enterprise.",
-                      "type": "string"
-                    },
-                    "slug": {
-                      "description": "The slug url identifier for the enterprise.",
-                      "type": "string"
-                    },
-                    "created_at": {
-                      "type": "string",
-                      "nullable": true,
-                      "format": "date-time"
-                    },
-                    "updated_at": {
-                      "type": "string",
-                      "nullable": true,
-                      "format": "date-time"
-                    },
-                    "avatar_url": {
-                      "type": "string",
-                      "format": "uri"
+                    {
+                      "title": "Enterprise",
+                      "description": "An enterprise on GitHub.",
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "description": "A short description of the enterprise.",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "website_url": {
+                          "description": "The enterprise's website URL.",
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "format": "uri"
+                        },
+                        "id": {
+                          "description": "Unique identifier of the enterprise",
+                          "type": "integer"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "description": "The name of the enterprise.",
+                          "type": "string"
+                        },
+                        "slug": {
+                          "description": "The slug url identifier for the enterprise.",
+                          "type": "string"
+                        },
+                        "created_at": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "format": "date-time"
+                        },
+                        "updated_at": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "format": "date-time"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "node_id",
+                        "name",
+                        "slug",
+                        "html_url",
+                        "created_at",
+                        "updated_at",
+                        "avatar_url"
+                      ]
                     }
-                  },
-                  "required": [
-                    "id",
-                    "node_id",
-                    "name",
-                    "slug",
-                    "html_url",
-                    "created_at",
-                    "updated_at",
-                    "avatar_url"
-                  ],
-                  "nullable": true
+                  ]
                 },
                 "created_at": {
                   "description": "The date and time the role was created.",
@@ -6104,12 +6275,16 @@
                     "type": "string"
                   },
                   "group_id": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "group_name": {
-                    "nullable": true,
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "Retired: this field will not be returned with GHEC enterprise teams."
                   },
                   "html_url": {
@@ -6311,12 +6486,16 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "email": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "login": {
                         "type": "string"
@@ -6333,8 +6512,10 @@
                         "format": "uri"
                       },
                       "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "url": {
                         "type": "string",
@@ -6455,12 +6636,16 @@
                               "type": "string"
                             },
                             "group_id": {
-                              "nullable": true,
-                              "type": "string"
+                              "type": [
+                                "string",
+                                "null"
+                              ]
                             },
                             "group_name": {
-                              "nullable": true,
-                              "type": "string",
+                              "type": [
+                                "string",
+                                "null"
+                              ],
                               "description": "Retired: this field will not be returned with GHEC enterprise teams."
                             },
                             "html_url": {
@@ -6849,8 +7034,10 @@
                         "type": "string"
                       },
                       "github_com_name": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "enterprise_server_user_ids": {
                         "type": "array",
@@ -6862,8 +7049,10 @@
                         "type": "boolean"
                       },
                       "enterprise_server_user": {
-                        "type": "boolean",
-                        "nullable": true
+                        "type": [
+                          "boolean",
+                          "null"
+                        ]
                       },
                       "visual_studio_subscription_user": {
                         "type": "boolean"
@@ -6872,8 +7061,10 @@
                         "type": "string"
                       },
                       "github_com_profile": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "github_com_member_roles": {
                         "type": "array",
@@ -6895,8 +7086,10 @@
                         }
                       },
                       "github_com_saml_name_id": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "github_com_orgs_with_pending_invites": {
                         "type": "array",
@@ -6905,8 +7098,10 @@
                         }
                       },
                       "github_com_two_factor_auth": {
-                        "type": "boolean",
-                        "nullable": true
+                        "type": [
+                          "boolean",
+                          "null"
+                        ]
                       },
                       "enterprise_server_emails": {
                         "type": "array",
@@ -6915,12 +7110,16 @@
                         }
                       },
                       "visual_studio_license_status": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "visual_studio_subscription_email": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "total_user_accounts": {
                         "type": "integer"
@@ -7379,9 +7578,11 @@
                       },
                       "created_on": {
                         "description": "The time at which the network configuration was created, in ISO 8601 format.",
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date-time"
                       }
                     },
                     "required": [
@@ -7525,9 +7726,11 @@
                 },
                 "created_on": {
                   "description": "The time at which the network configuration was created, in ISO 8601 format.",
-                  "type": "string",
-                  "format": "date-time",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
                 }
               },
               "required": [
@@ -7648,9 +7851,11 @@
                 },
                 "created_on": {
                   "description": "The time at which the network configuration was created, in ISO 8601 format.",
-                  "type": "string",
-                  "format": "date-time",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
                 }
               },
               "required": [
@@ -7799,9 +8004,11 @@
                 },
                 "created_on": {
                   "description": "The time at which the network configuration was created, in ISO 8601 format.",
-                  "type": "string",
-                  "format": "date-time",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
                 }
               },
               "required": [
@@ -8964,7 +9171,6 @@
                   "type": "integer"
                 },
                 "account": {
-                  "nullable": true,
                   "anyOf": [
                     {
                       "title": "Simple User",
@@ -8972,12 +9178,16 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "email": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "login": {
                           "type": "string"
@@ -8994,8 +9204,10 @@
                           "format": "uri"
                         },
                         "gravatar_id": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "url": {
                           "type": "string",
@@ -9078,8 +9290,10 @@
                       "properties": {
                         "description": {
                           "description": "A short description of the enterprise.",
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "html_url": {
                           "type": "string",
@@ -9087,8 +9301,10 @@
                         },
                         "website_url": {
                           "description": "The enterprise's website URL.",
-                          "type": "string",
-                          "nullable": true,
+                          "type": [
+                            "string",
+                            "null"
+                          ],
                           "format": "uri"
                         },
                         "id": {
@@ -9107,13 +9323,17 @@
                           "type": "string"
                         },
                         "created_at": {
-                          "type": "string",
-                          "nullable": true,
+                          "type": [
+                            "string",
+                            "null"
+                          ],
                           "format": "date-time"
                         },
                         "updated_at": {
-                          "type": "string",
-                          "nullable": true,
+                          "type": [
+                            "string",
+                            "null"
+                          ],
                           "format": "date-time"
                         },
                         "avatar_url": {
@@ -9132,6 +9352,10 @@
                         "avatar_url"
                       ]
                     }
+                  ],
+                  "type": [
+                    "null",
+                    "object"
                   ]
                 },
                 "repository_selection": {
@@ -9636,8 +9860,10 @@
                   "format": "date-time"
                 },
                 "single_file_name": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "has_multiple_single_files": {
                   "type": "boolean"
@@ -9652,119 +9878,135 @@
                   "type": "string"
                 },
                 "suspended_by": {
-                  "title": "Simple User",
-                  "description": "A GitHub user.",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "nullable": true,
-                      "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "null"
                     },
-                    "email": {
-                      "nullable": true,
-                      "type": "string"
-                    },
-                    "login": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "node_id": {
-                      "type": "string"
-                    },
-                    "avatar_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "html_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "followers_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "following_url": {
-                      "type": "string"
-                    },
-                    "gists_url": {
-                      "type": "string"
-                    },
-                    "starred_url": {
-                      "type": "string"
-                    },
-                    "subscriptions_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "organizations_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "repos_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "events_url": {
-                      "type": "string"
-                    },
-                    "received_events_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "site_admin": {
-                      "type": "boolean"
-                    },
-                    "starred_at": {
-                      "type": "string"
-                    },
-                    "user_view_type": {
-                      "type": "string"
+                    {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
                     }
-                  },
-                  "required": [
-                    "avatar_url",
-                    "events_url",
-                    "followers_url",
-                    "following_url",
-                    "gists_url",
-                    "gravatar_id",
-                    "html_url",
-                    "id",
-                    "node_id",
-                    "login",
-                    "organizations_url",
-                    "received_events_url",
-                    "repos_url",
-                    "site_admin",
-                    "starred_url",
-                    "subscriptions_url",
-                    "type",
-                    "url"
-                  ],
-                  "nullable": true
+                  ]
                 },
                 "suspended_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
                 },
                 "contact_email": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "required": [
@@ -10167,7 +10409,6 @@
                   "type": "integer"
                 },
                 "account": {
-                  "nullable": true,
                   "anyOf": [
                     {
                       "title": "Simple User",
@@ -10175,12 +10416,16 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "email": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "login": {
                           "type": "string"
@@ -10197,8 +10442,10 @@
                           "format": "uri"
                         },
                         "gravatar_id": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "url": {
                           "type": "string",
@@ -10281,8 +10528,10 @@
                       "properties": {
                         "description": {
                           "description": "A short description of the enterprise.",
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "html_url": {
                           "type": "string",
@@ -10290,8 +10539,10 @@
                         },
                         "website_url": {
                           "description": "The enterprise's website URL.",
-                          "type": "string",
-                          "nullable": true,
+                          "type": [
+                            "string",
+                            "null"
+                          ],
                           "format": "uri"
                         },
                         "id": {
@@ -10310,13 +10561,17 @@
                           "type": "string"
                         },
                         "created_at": {
-                          "type": "string",
-                          "nullable": true,
+                          "type": [
+                            "string",
+                            "null"
+                          ],
                           "format": "date-time"
                         },
                         "updated_at": {
-                          "type": "string",
-                          "nullable": true,
+                          "type": [
+                            "string",
+                            "null"
+                          ],
                           "format": "date-time"
                         },
                         "avatar_url": {
@@ -10335,6 +10590,10 @@
                         "avatar_url"
                       ]
                     }
+                  ],
+                  "type": [
+                    "null",
+                    "object"
                   ]
                 },
                 "repository_selection": {
@@ -10839,8 +11098,10 @@
                   "format": "date-time"
                 },
                 "single_file_name": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "has_multiple_single_files": {
                   "type": "boolean"
@@ -10855,119 +11116,135 @@
                   "type": "string"
                 },
                 "suspended_by": {
-                  "title": "Simple User",
-                  "description": "A GitHub user.",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "nullable": true,
-                      "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "null"
                     },
-                    "email": {
-                      "nullable": true,
-                      "type": "string"
-                    },
-                    "login": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "node_id": {
-                      "type": "string"
-                    },
-                    "avatar_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "html_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "followers_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "following_url": {
-                      "type": "string"
-                    },
-                    "gists_url": {
-                      "type": "string"
-                    },
-                    "starred_url": {
-                      "type": "string"
-                    },
-                    "subscriptions_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "organizations_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "repos_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "events_url": {
-                      "type": "string"
-                    },
-                    "received_events_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "site_admin": {
-                      "type": "boolean"
-                    },
-                    "starred_at": {
-                      "type": "string"
-                    },
-                    "user_view_type": {
-                      "type": "string"
+                    {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
                     }
-                  },
-                  "required": [
-                    "avatar_url",
-                    "events_url",
-                    "followers_url",
-                    "following_url",
-                    "gists_url",
-                    "gravatar_id",
-                    "html_url",
-                    "id",
-                    "node_id",
-                    "login",
-                    "organizations_url",
-                    "received_events_url",
-                    "repos_url",
-                    "site_admin",
-                    "starred_url",
-                    "subscriptions_url",
-                    "type",
-                    "url"
-                  ],
-                  "nullable": true
+                  ]
                 },
                 "suspended_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
                 },
                 "contact_email": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "required": [
@@ -12900,8 +13177,10 @@
                     ],
                     "properties": {
                       "actor_id": {
-                        "type": "integer",
-                        "nullable": true,
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
                         "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin` and `EnterpriseOwner` are not applicable for personal repositories."
                       },
                       "actor_type": {
@@ -12955,8 +13234,10 @@
                       }
                     },
                     "html": {
-                      "type": "object",
-                      "nullable": true,
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "properties": {
                         "href": {
                           "type": "string",
@@ -12967,7 +13248,6 @@
                   }
                 },
                 "conditions": {
-                  "nullable": true,
                   "anyOf": [
                     {
                       "title": "Repository ruleset conditions for ref names",
@@ -13239,6 +13519,10 @@
                         }
                       ]
                     }
+                  ],
+                  "type": [
+                    "null",
+                    "object"
                   ]
                 },
                 "rules": {
@@ -14325,8 +14609,10 @@
                     ],
                     "properties": {
                       "actor_id": {
-                        "type": "integer",
-                        "nullable": true,
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
                         "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin` and `EnterpriseOwner` are not applicable for personal repositories."
                       },
                       "actor_type": {
@@ -14380,8 +14666,10 @@
                       }
                     },
                     "html": {
-                      "type": "object",
-                      "nullable": true,
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "properties": {
                         "href": {
                           "type": "string",
@@ -14392,7 +14680,6 @@
                   }
                 },
                 "conditions": {
-                  "nullable": true,
                   "anyOf": [
                     {
                       "title": "Repository ruleset conditions for ref names",
@@ -14664,6 +14951,10 @@
                         }
                       ]
                     }
+                  ],
+                  "type": [
+                    "null",
+                    "object"
                   ]
                 },
                 "rules": {
@@ -17232,8 +17523,10 @@
                     ],
                     "properties": {
                       "actor_id": {
-                        "type": "integer",
-                        "nullable": true,
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
                         "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin` and `EnterpriseOwner` are not applicable for personal repositories."
                       },
                       "actor_type": {
@@ -17287,8 +17580,10 @@
                       }
                     },
                     "html": {
-                      "type": "object",
-                      "nullable": true,
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "properties": {
                         "href": {
                           "type": "string",
@@ -17299,7 +17594,6 @@
                   }
                 },
                 "conditions": {
-                  "nullable": true,
                   "anyOf": [
                     {
                       "title": "Repository ruleset conditions for ref names",
@@ -17571,6 +17865,10 @@
                         }
                       ]
                     }
+                  ],
+                  "type": [
+                    "null",
+                    "object"
                   ]
                 },
                 "rules": {
@@ -18919,7 +19217,9 @@
           "required": false,
           "schema": {
             "type": "string",
-            "example": "members"
+            "examples": [
+              "members"
+            ]
           }
         },
         {
@@ -18931,7 +19231,9 @@
             "type": "integer",
             "default": 1,
             "format": "int32",
-            "example": 1
+            "examples": [
+              1
+            ]
           }
         },
         {
@@ -18943,7 +19245,9 @@
             "type": "integer",
             "default": 30,
             "format": "int32",
-            "example": 1
+            "examples": [
+              1
+            ]
           }
         },
         {
@@ -19054,14 +19358,18 @@
                             }
                           },
                           "externalId": {
-                            "type": "string",
-                            "description": "A unique identifier for the resource as defined by the provisioning client.",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "A unique identifier for the resource as defined by the provisioning client."
                           },
                           "displayName": {
-                            "type": "string",
-                            "description": "A human-readable name for a security group.",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "A human-readable name for a security group."
                           },
                           "members": {
                             "type": "array",
@@ -19335,14 +19643,18 @@
                       }
                     },
                     "externalId": {
-                      "type": "string",
-                      "description": "A unique identifier for the resource as defined by the provisioning client.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A unique identifier for the resource as defined by the provisioning client."
                     },
                     "displayName": {
-                      "type": "string",
-                      "description": "A human-readable name for a security group.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A human-readable name for a security group."
                     },
                     "members": {
                       "type": "array",
@@ -19489,7 +19801,9 @@
           "required": true,
           "schema": {
             "type": "string",
-            "example": "7fce0092-d52e-4f76-b727-3955bd72c939"
+            "examples": [
+              "7fce0092-d52e-4f76-b727-3955bd72c939"
+            ]
           }
         },
         {
@@ -19499,7 +19813,9 @@
           "required": false,
           "schema": {
             "type": "string",
-            "example": "members"
+            "examples": [
+              "members"
+            ]
           }
         },
         {
@@ -19574,14 +19890,18 @@
                       }
                     },
                     "externalId": {
-                      "type": "string",
-                      "description": "A unique identifier for the resource as defined by the provisioning client.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A unique identifier for the resource as defined by the provisioning client."
                     },
                     "displayName": {
-                      "type": "string",
-                      "description": "A human-readable name for a security group.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A human-readable name for a security group."
                     },
                     "members": {
                       "type": "array",
@@ -19728,7 +20048,9 @@
           "required": true,
           "schema": {
             "type": "string",
-            "example": "7fce0092-d52e-4f76-b727-3955bd72c939"
+            "examples": [
+              "7fce0092-d52e-4f76-b727-3955bd72c939"
+            ]
           }
         },
         {
@@ -19849,14 +20171,18 @@
                       }
                     },
                     "externalId": {
-                      "type": "string",
-                      "description": "A unique identifier for the resource as defined by the provisioning client.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A unique identifier for the resource as defined by the provisioning client."
                     },
                     "displayName": {
-                      "type": "string",
-                      "description": "A human-readable name for a security group.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A human-readable name for a security group."
                     },
                     "members": {
                       "type": "array",
@@ -20021,14 +20347,18 @@
                       }
                     },
                     "externalId": {
-                      "type": "string",
-                      "description": "A unique identifier for the resource as defined by the provisioning client.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A unique identifier for the resource as defined by the provisioning client."
                     },
                     "displayName": {
-                      "type": "string",
-                      "description": "A human-readable name for a security group.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A human-readable name for a security group."
                     },
                     "members": {
                       "type": "array",
@@ -20179,7 +20509,9 @@
           "required": true,
           "schema": {
             "type": "string",
-            "example": "7fce0092-d52e-4f76-b727-3955bd72c939"
+            "examples": [
+              "7fce0092-d52e-4f76-b727-3955bd72c939"
+            ]
           }
         },
         {
@@ -20282,14 +20614,18 @@
                       }
                     },
                     "externalId": {
-                      "type": "string",
-                      "description": "A unique identifier for the resource as defined by the provisioning client.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A unique identifier for the resource as defined by the provisioning client."
                     },
                     "displayName": {
-                      "type": "string",
-                      "description": "A human-readable name for a security group.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A human-readable name for a security group."
                     },
                     "members": {
                       "type": "array",
@@ -20449,14 +20785,18 @@
                       }
                     },
                     "externalId": {
-                      "type": "string",
-                      "description": "A unique identifier for the resource as defined by the provisioning client.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A unique identifier for the resource as defined by the provisioning client."
                     },
                     "displayName": {
-                      "type": "string",
-                      "description": "A human-readable name for a security group.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A human-readable name for a security group."
                     },
                     "members": {
                       "type": "array",
@@ -20639,7 +20979,9 @@
           "required": true,
           "schema": {
             "type": "string",
-            "example": "7fce0092-d52e-4f76-b727-3955bd72c939"
+            "examples": [
+              "7fce0092-d52e-4f76-b727-3955bd72c939"
+            ]
           }
         },
         {
@@ -20739,7 +21081,9 @@
             "type": "integer",
             "default": 1,
             "format": "int32",
-            "example": 1
+            "examples": [
+              1
+            ]
           }
         },
         {
@@ -20751,7 +21095,9 @@
             "type": "integer",
             "default": 30,
             "format": "int32",
-            "example": 1
+            "examples": [
+              1
+            ]
           }
         },
         {
@@ -20866,9 +21212,11 @@
                             }
                           },
                           "externalId": {
-                            "type": "string",
-                            "description": "A unique identifier for the resource as defined by the provisioning client.",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "A unique identifier for the resource as defined by the provisioning client."
                           },
                           "active": {
                             "type": "boolean",
@@ -20900,9 +21248,11 @@
                             }
                           },
                           "displayName": {
-                            "type": "string",
-                            "description": "A human-readable name for the user.",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "A human-readable name for the user."
                           },
                           "emails": {
                             "type": "array",
@@ -21327,9 +21677,11 @@
                       }
                     },
                     "externalId": {
-                      "type": "string",
-                      "description": "A unique identifier for the resource as defined by the provisioning client.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A unique identifier for the resource as defined by the provisioning client."
                     },
                     "active": {
                       "type": "boolean",
@@ -21361,9 +21713,11 @@
                       }
                     },
                     "displayName": {
-                      "type": "string",
-                      "description": "A human-readable name for the user.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A human-readable name for the user."
                     },
                     "emails": {
                       "type": "array",
@@ -21590,9 +21944,11 @@
                       }
                     },
                     "externalId": {
-                      "type": "string",
-                      "description": "A unique identifier for the resource as defined by the provisioning client.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A unique identifier for the resource as defined by the provisioning client."
                     },
                     "active": {
                       "type": "boolean",
@@ -21624,9 +21980,11 @@
                       }
                     },
                     "displayName": {
-                      "type": "string",
-                      "description": "A human-readable name for the user.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A human-readable name for the user."
                     },
                     "emails": {
                       "type": "array",
@@ -21899,9 +22257,11 @@
                       }
                     },
                     "externalId": {
-                      "type": "string",
-                      "description": "A unique identifier for the resource as defined by the provisioning client.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A unique identifier for the resource as defined by the provisioning client."
                     },
                     "active": {
                       "type": "boolean",
@@ -21933,9 +22293,11 @@
                       }
                     },
                     "displayName": {
-                      "type": "string",
-                      "description": "A human-readable name for the user.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A human-readable name for the user."
                     },
                     "emails": {
                       "type": "array",
@@ -22363,9 +22725,11 @@
                       }
                     },
                     "externalId": {
-                      "type": "string",
-                      "description": "A unique identifier for the resource as defined by the provisioning client.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A unique identifier for the resource as defined by the provisioning client."
                     },
                     "active": {
                       "type": "boolean",
@@ -22397,9 +22761,11 @@
                       }
                     },
                     "displayName": {
-                      "type": "string",
-                      "description": "A human-readable name for the user.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A human-readable name for the user."
                     },
                     "emails": {
                       "type": "array",
@@ -22730,9 +23096,11 @@
                       }
                     },
                     "externalId": {
-                      "type": "string",
-                      "description": "A unique identifier for the resource as defined by the provisioning client.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A unique identifier for the resource as defined by the provisioning client."
                     },
                     "active": {
                       "type": "boolean",
@@ -22764,9 +23132,11 @@
                       }
                     },
                     "displayName": {
-                      "type": "string",
-                      "description": "A human-readable name for the user.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A human-readable name for the user."
                     },
                     "emails": {
                       "type": "array",
@@ -22983,9 +23353,11 @@
                       }
                     },
                     "externalId": {
-                      "type": "string",
-                      "description": "A unique identifier for the resource as defined by the provisioning client.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A unique identifier for the resource as defined by the provisioning client."
                     },
                     "active": {
                       "type": "boolean",
@@ -23017,9 +23389,11 @@
                       }
                     },
                     "displayName": {
-                      "type": "string",
-                      "description": "A human-readable name for the user.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A human-readable name for the user."
                     },
                     "emails": {
                       "type": "array",
@@ -23231,9 +23605,11 @@
                       }
                     },
                     "externalId": {
-                      "type": "string",
-                      "description": "A unique identifier for the resource as defined by the provisioning client.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A unique identifier for the resource as defined by the provisioning client."
                     },
                     "active": {
                       "type": "boolean",
@@ -23265,9 +23641,11 @@
                       }
                     },
                     "displayName": {
-                      "type": "string",
-                      "description": "A human-readable name for the user.",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "A human-readable name for the user."
                     },
                     "emails": {
                       "type": "array",

@@ -1,7 +1,9 @@
 ---
 title: REST API endpoints for Copilot coding agent management
 shortTitle: Copilot coding agent management
-intro: Use the REST API to manage settings for {% data variables.copilot.copilot_coding_agent %}.
+intro: >-
+  Use the REST API to manage settings for {% data
+  variables.copilot.copilot_coding_agent %}.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
@@ -10,5 +12,3 @@ allowTitleToDifferFromFilename: true
 ---
 
 <!-- Content after this section is automatically generated -->
-
-

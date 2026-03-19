@@ -95,176 +95,228 @@
                   "type": "integer"
                 },
                 "description": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "documentation": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "files": {
                   "type": "object",
                   "properties": {
                     "code_of_conduct": {
-                      "title": "Code Of Conduct Simple",
-                      "description": "Code of Conduct Simple",
-                      "type": "object",
-                      "properties": {
-                        "url": {
-                          "type": "string",
-                          "format": "uri"
+                      "anyOf": [
+                        {
+                          "type": "null"
                         },
-                        "key": {
-                          "type": "string"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "html_url": {
-                          "type": "string",
-                          "nullable": true,
-                          "format": "uri"
+                        {
+                          "title": "Code Of Conduct Simple",
+                          "description": "Code of Conduct Simple",
+                          "type": "object",
+                          "properties": {
+                            "url": {
+                              "type": "string",
+                              "format": "uri"
+                            },
+                            "key": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "html_url": {
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "format": "uri"
+                            }
+                          },
+                          "required": [
+                            "url",
+                            "key",
+                            "name",
+                            "html_url"
+                          ]
                         }
-                      },
-                      "required": [
-                        "url",
-                        "key",
-                        "name",
-                        "html_url"
-                      ],
-                      "nullable": true
+                      ]
                     },
                     "code_of_conduct_file": {
-                      "title": "Community Health File",
-                      "type": "object",
-                      "properties": {
-                        "url": {
-                          "type": "string",
-                          "format": "uri"
+                      "anyOf": [
+                        {
+                          "type": "null"
                         },
-                        "html_url": {
-                          "type": "string",
-                          "format": "uri"
+                        {
+                          "title": "Community Health File",
+                          "type": "object",
+                          "properties": {
+                            "url": {
+                              "type": "string",
+                              "format": "uri"
+                            },
+                            "html_url": {
+                              "type": "string",
+                              "format": "uri"
+                            }
+                          },
+                          "required": [
+                            "url",
+                            "html_url"
+                          ]
                         }
-                      },
-                      "required": [
-                        "url",
-                        "html_url"
-                      ],
-                      "nullable": true
+                      ]
                     },
                     "license": {
-                      "title": "License Simple",
-                      "description": "License Simple",
-                      "type": "object",
-                      "properties": {
-                        "key": {
-                          "type": "string"
+                      "anyOf": [
+                        {
+                          "type": "null"
                         },
-                        "name": {
-                          "type": "string"
-                        },
-                        "url": {
-                          "type": "string",
-                          "nullable": true,
-                          "format": "uri"
-                        },
-                        "spdx_id": {
-                          "type": "string",
-                          "nullable": true
-                        },
-                        "node_id": {
-                          "type": "string"
-                        },
-                        "html_url": {
-                          "type": "string",
-                          "format": "uri"
+                        {
+                          "title": "License Simple",
+                          "description": "License Simple",
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "url": {
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "format": "uri"
+                            },
+                            "spdx_id": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "node_id": {
+                              "type": "string"
+                            },
+                            "html_url": {
+                              "type": "string",
+                              "format": "uri"
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "name",
+                            "url",
+                            "spdx_id",
+                            "node_id"
+                          ]
                         }
-                      },
-                      "required": [
-                        "key",
-                        "name",
-                        "url",
-                        "spdx_id",
-                        "node_id"
-                      ],
-                      "nullable": true
+                      ]
                     },
                     "contributing": {
-                      "title": "Community Health File",
-                      "type": "object",
-                      "properties": {
-                        "url": {
-                          "type": "string",
-                          "format": "uri"
+                      "anyOf": [
+                        {
+                          "type": "null"
                         },
-                        "html_url": {
-                          "type": "string",
-                          "format": "uri"
+                        {
+                          "title": "Community Health File",
+                          "type": "object",
+                          "properties": {
+                            "url": {
+                              "type": "string",
+                              "format": "uri"
+                            },
+                            "html_url": {
+                              "type": "string",
+                              "format": "uri"
+                            }
+                          },
+                          "required": [
+                            "url",
+                            "html_url"
+                          ]
                         }
-                      },
-                      "required": [
-                        "url",
-                        "html_url"
-                      ],
-                      "nullable": true
+                      ]
                     },
                     "readme": {
-                      "title": "Community Health File",
-                      "type": "object",
-                      "properties": {
-                        "url": {
-                          "type": "string",
-                          "format": "uri"
+                      "anyOf": [
+                        {
+                          "type": "null"
                         },
-                        "html_url": {
-                          "type": "string",
-                          "format": "uri"
+                        {
+                          "title": "Community Health File",
+                          "type": "object",
+                          "properties": {
+                            "url": {
+                              "type": "string",
+                              "format": "uri"
+                            },
+                            "html_url": {
+                              "type": "string",
+                              "format": "uri"
+                            }
+                          },
+                          "required": [
+                            "url",
+                            "html_url"
+                          ]
                         }
-                      },
-                      "required": [
-                        "url",
-                        "html_url"
-                      ],
-                      "nullable": true
+                      ]
                     },
                     "issue_template": {
-                      "title": "Community Health File",
-                      "type": "object",
-                      "properties": {
-                        "url": {
-                          "type": "string",
-                          "format": "uri"
+                      "anyOf": [
+                        {
+                          "type": "null"
                         },
-                        "html_url": {
-                          "type": "string",
-                          "format": "uri"
+                        {
+                          "title": "Community Health File",
+                          "type": "object",
+                          "properties": {
+                            "url": {
+                              "type": "string",
+                              "format": "uri"
+                            },
+                            "html_url": {
+                              "type": "string",
+                              "format": "uri"
+                            }
+                          },
+                          "required": [
+                            "url",
+                            "html_url"
+                          ]
                         }
-                      },
-                      "required": [
-                        "url",
-                        "html_url"
-                      ],
-                      "nullable": true
+                      ]
                     },
                     "pull_request_template": {
-                      "title": "Community Health File",
-                      "type": "object",
-                      "properties": {
-                        "url": {
-                          "type": "string",
-                          "format": "uri"
+                      "anyOf": [
+                        {
+                          "type": "null"
                         },
-                        "html_url": {
-                          "type": "string",
-                          "format": "uri"
+                        {
+                          "title": "Community Health File",
+                          "type": "object",
+                          "properties": {
+                            "url": {
+                              "type": "string",
+                              "format": "uri"
+                            },
+                            "html_url": {
+                              "type": "string",
+                              "format": "uri"
+                            }
+                          },
+                          "required": [
+                            "url",
+                            "html_url"
+                          ]
                         }
-                      },
-                      "required": [
-                        "url",
-                        "html_url"
-                      ],
-                      "nullable": true
+                      ]
                     }
                   },
                   "required": [
@@ -278,9 +330,11 @@
                   ]
                 },
                 "updated_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
                 },
                 "content_reports_enabled": {
                   "type": "boolean"
@@ -612,110 +666,122 @@
                 "type": "object",
                 "properties": {
                   "author": {
-                    "title": "Simple User",
-                    "description": "A GitHub user.",
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "nullable": true,
-                        "type": "string"
+                    "anyOf": [
+                      {
+                        "type": "null"
                       },
-                      "email": {
-                        "nullable": true,
-                        "type": "string"
-                      },
-                      "login": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer",
-                        "format": "int64"
-                      },
-                      "node_id": {
-                        "type": "string"
-                      },
-                      "avatar_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
-                      },
-                      "url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "html_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "followers_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "following_url": {
-                        "type": "string"
-                      },
-                      "gists_url": {
-                        "type": "string"
-                      },
-                      "starred_url": {
-                        "type": "string"
-                      },
-                      "subscriptions_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "organizations_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "repos_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "events_url": {
-                        "type": "string"
-                      },
-                      "received_events_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "type": {
-                        "type": "string"
-                      },
-                      "site_admin": {
-                        "type": "boolean"
-                      },
-                      "starred_at": {
-                        "type": "string"
-                      },
-                      "user_view_type": {
-                        "type": "string"
+                      {
+                        "title": "Simple User",
+                        "description": "A GitHub user.",
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "email": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "login": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "integer",
+                            "format": "int64"
+                          },
+                          "node_id": {
+                            "type": "string"
+                          },
+                          "avatar_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "gravatar_id": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "html_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "followers_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "following_url": {
+                            "type": "string"
+                          },
+                          "gists_url": {
+                            "type": "string"
+                          },
+                          "starred_url": {
+                            "type": "string"
+                          },
+                          "subscriptions_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "organizations_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "repos_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "events_url": {
+                            "type": "string"
+                          },
+                          "received_events_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "site_admin": {
+                            "type": "boolean"
+                          },
+                          "starred_at": {
+                            "type": "string"
+                          },
+                          "user_view_type": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "avatar_url",
+                          "events_url",
+                          "followers_url",
+                          "following_url",
+                          "gists_url",
+                          "gravatar_id",
+                          "html_url",
+                          "id",
+                          "node_id",
+                          "login",
+                          "organizations_url",
+                          "received_events_url",
+                          "repos_url",
+                          "site_admin",
+                          "starred_url",
+                          "subscriptions_url",
+                          "type",
+                          "url"
+                        ]
                       }
-                    },
-                    "required": [
-                      "avatar_url",
-                      "events_url",
-                      "followers_url",
-                      "following_url",
-                      "gists_url",
-                      "gravatar_id",
-                      "html_url",
-                      "id",
-                      "node_id",
-                      "login",
-                      "organizations_url",
-                      "received_events_url",
-                      "repos_url",
-                      "site_admin",
-                      "starred_url",
-                      "subscriptions_url",
-                      "type",
-                      "url"
-                    ],
-                    "nullable": true
+                    ]
                   },
                   "total": {
                     "type": "integer"

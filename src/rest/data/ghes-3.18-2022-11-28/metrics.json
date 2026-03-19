@@ -31,7 +31,6 @@
       "descriptionHTML": "<p>Returns a weekly aggregate of the number of additions and deletions pushed to a repository.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -123,7 +122,6 @@
       "descriptionHTML": "<p>Returns the last year of commit activity grouped by week. The <code>days</code> array is a group of commits per day, starting on <code>Sunday</code>.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -162,28 +160,13 @@
                     "type": "array",
                     "items": {
                       "type": "integer"
-                    },
-                    "examples": [
-                      0,
-                      3,
-                      26,
-                      20,
-                      39,
-                      1,
-                      0
-                    ]
+                    }
                   },
                   "total": {
-                    "type": "integer",
-                    "examples": [
-                      89
-                    ]
+                    "type": "integer"
                   },
                   "week": {
-                    "type": "integer",
-                    "examples": [
-                      1336280400
-                    ]
+                    "type": "integer"
                   }
                 },
                 "required": [
@@ -254,7 +237,6 @@
       "descriptionHTML": "<p>Returns the <code>total</code> number of commits authored by the contributor. In addition, the response includes a Weekly Hash (<code>weeks</code> array) with the following information:</p>\n<ul>\n<li><code>w</code> - Start of the week, given as a <a href=\"https://en.wikipedia.org/wiki/Unix_time\">Unix timestamp</a>.</li>\n<li><code>a</code> - Number of additions</li>\n<li><code>d</code> - Number of deletions</li>\n<li><code>c</code> - Number of commits</li>\n</ul>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -330,133 +312,76 @@
                             ]
                           },
                           "login": {
-                            "type": "string",
-                            "examples": [
-                              "octocat"
-                            ]
+                            "type": "string"
                           },
                           "id": {
                             "type": "integer",
-                            "format": "int64",
-                            "examples": [
-                              1
-                            ]
+                            "format": "int64"
                           },
                           "node_id": {
-                            "type": "string",
-                            "examples": [
-                              "MDQ6VXNlcjE="
-                            ]
+                            "type": "string"
                           },
                           "avatar_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/images/error/octocat_happy.gif"
-                            ]
+                            "format": "uri"
                           },
                           "gravatar_id": {
                             "type": [
                               "string",
                               "null"
-                            ],
-                            "examples": [
-                              "41d064eb2195891e12d0413f63227ea7"
                             ]
                           },
                           "url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "html_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "followers_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/followers"
-                            ]
+                            "format": "uri"
                           },
                           "following_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/following{/other_user}"
-                            ]
+                            "type": "string"
                           },
                           "gists_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/gists{/gist_id}"
-                            ]
+                            "type": "string"
                           },
                           "starred_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                            ]
+                            "type": "string"
                           },
                           "subscriptions_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/subscriptions"
-                            ]
+                            "format": "uri"
                           },
                           "organizations_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/orgs"
-                            ]
+                            "format": "uri"
                           },
                           "repos_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/repos"
-                            ]
+                            "format": "uri"
                           },
                           "events_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/events{/privacy}"
-                            ]
+                            "type": "string"
                           },
                           "received_events_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/received_events"
-                            ]
+                            "format": "uri"
                           },
                           "type": {
-                            "type": "string",
-                            "examples": [
-                              "User"
-                            ]
+                            "type": "string"
                           },
                           "site_admin": {
                             "type": "boolean"
                           },
                           "starred_at": {
-                            "type": "string",
-                            "examples": [
-                              "\"2020-07-09T00:17:55Z\""
-                            ]
+                            "type": "string"
                           },
                           "user_view_type": {
-                            "type": "string",
-                            "examples": [
-                              "public"
-                            ]
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -483,10 +408,7 @@
                     ]
                   },
                   "total": {
-                    "type": "integer",
-                    "examples": [
-                      135
-                    ]
+                    "type": "integer"
                   },
                   "weeks": {
                     "type": "array",
@@ -506,15 +428,7 @@
                           "type": "integer"
                         }
                       }
-                    },
-                    "examples": [
-                      {
-                        "w": "1367712000",
-                        "a": 6898,
-                        "d": 77,
-                        "c": 10
-                      }
-                    ]
+                    }
                   }
                 },
                 "required": [
@@ -585,7 +499,6 @@
       "descriptionHTML": "<p>Returns the total commit counts for the <code>owner</code> and total commit counts in <code>all</code>. <code>all</code> is everyone combined, including the <code>owner</code> in the last 52 weeks. If you'd like to get the commit counts for non-owners, you can subtract <code>owner</code> from <code>all</code>.</p>\n<p>The array order is oldest week (index 0) to most recent week.</p>\n<p>The most recent week is seven days ago at UTC midnight to today at UTC midnight.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -787,7 +700,6 @@
       "descriptionHTML": "<p>Each array contains the day number, hour number, and number of commits:</p>\n<ul>\n<li><code>0-6</code>: Sunday - Saturday</li>\n<li><code>0-23</code>: Hour of day</li>\n<li>Number of commits</li>\n</ul>\n<p>For example, <code>[2, 14, 25]</code> indicates that there were 25 total commits, during the 2:00pm hour on Tuesdays. All times are based on the time zone of individual commits.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
