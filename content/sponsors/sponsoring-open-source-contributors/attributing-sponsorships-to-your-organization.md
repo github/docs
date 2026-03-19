@@ -9,6 +9,8 @@ versions:
 permissions: People who are organization owners of both organizations can attribute one organization's sponsorships to another organization.
 shortTitle: Attribute sponsorships
 contentType: how-tos
+category:
+  - Fund open source work
 ---
 
 1. Navigate to the organization whose sponsorships you want to attribute to another organization.

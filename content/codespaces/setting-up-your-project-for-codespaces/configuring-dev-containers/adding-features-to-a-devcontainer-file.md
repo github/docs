@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /codespaces/setting-up-your-project-for-codespaces/adding-features-to-a-devcontainer-file
 contentType: how-tos
+category:
+  - Set up dev containers for a project
 ---
 
 {% data reusables.codespaces.about-features %} Use the tabs in this article to display instructions for each of these ways of adding features.

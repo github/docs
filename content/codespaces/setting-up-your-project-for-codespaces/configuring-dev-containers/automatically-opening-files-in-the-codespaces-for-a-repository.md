@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /codespaces/setting-up-your-project-for-codespaces/automatically-opening-files-in-the-codespaces-for-a-repository
 contentType: how-tos
+category:
+  - Set up dev containers for a project
 ---
 
 ## Overview

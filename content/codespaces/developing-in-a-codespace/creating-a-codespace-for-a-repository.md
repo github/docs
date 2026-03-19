@@ -11,6 +11,8 @@ versions:
   ghec: '*'
 shortTitle: Create a codespace for a repo
 contentType: how-tos
+category:
+  - Create and manage codespaces
 ---
 
 ## About creating a codespace for a repository

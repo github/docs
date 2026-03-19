@@ -6,6 +6,8 @@ versions:
   ghec: '*'
 shortTitle: Rename a codespace
 contentType: how-tos
+category:
+  - Create and manage codespaces
 ---
 
 ## About renaming a codespace

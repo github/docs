@@ -16,6 +16,7 @@ import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-f
 import { readCompressedJsonFileFallbackLazily } from '@/frame/lib/read-json-file'
 import { archivedCacheControl, languageCacheControl } from '@/frame/middleware/cache-control'
 import { pathLanguagePrefixed, languagePrefixPathRegex } from '@/languages/lib/languages-server'
+import { languages as allLanguages } from '@/languages/lib/languages'
 import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect'
 import getRemoteJSON from '@/frame/lib/get-remote-json'
 import { ExtendedRequest } from '@/types'
@@ -214,6 +215,29 @@ export default async function archivedEnterpriseVersions(
       return res.safeRedirect(redirectCode, redirectJson[req.path])
     }
   }
+  // Short-circuit requests that will never resolve on the upstream
+  // GitHub Pages repos, avoiding unnecessary network requests.
+  const earlyNotFound = getEarlyNotFoundReason(req.path, requestedVersion)
+  if (earlyNotFound) {
+    statsd.increment('middleware.archived_early_not_found', 1, [
+      `reason:${earlyNotFound}`,
+      `version:${requestedVersion}`,
+    ])
+    cacheAggressively(res)
+    return res.status(404).type('text').send('Page not found')
+  }
+
+  // Requests without a language prefix for versions > 2.17 will always
+  // 404 upstream (the archive repos store pages under /en/, /zh/, etc.).
+  // Skip the fetch and let downstream middleware handle the redirect.
+  if (
+    versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`) &&
+    !pathLanguagePrefixed(req.path)
+  ) {
+    statsd.increment('middleware.archived_skip_no_language', 1, [`version:${requestedVersion}`])
+    return next()
+  }
+
   // Retrieve the page from the archived repo
   const doGet = () =>
     fetchWithRetry(
@@ -246,7 +270,8 @@ export default async function archivedEnterpriseVersions(
     })
   }
 
-  // Log errors for non-200 responses to help identify issues with archived content
+  // Log non-200 responses — use warn for 404s (expected for missing archived
+  // pages) and error for genuine upstream failures (5xx, timeouts).
   if (r.status !== 200) {
     let upstreamBody: string | undefined
     try {
@@ -254,7 +279,8 @@ export default async function archivedEnterpriseVersions(
     } catch {
       // ignore — body reading failure shouldn't affect error handling
     }
-    logger.error('Failed to fetch archived enterprise content', {
+    const level = r.status === 404 ? 'warn' : 'error'
+    logger[level]('Failed to fetch archived enterprise content', {
       version: requestedVersion,
       path: req.path,
       status: r.status,
@@ -501,4 +527,50 @@ function splitByLanguage(uri: string) {
     withoutLanguage = uri.replace(languagePrefixPathRegex, '/')
   }
   return [language, withoutLanguage]
+}
+
+// Regex to extract any language-like prefix from the path, including
+// "cn" which was the old Chinese language code used in archives ≤3.2.
+const archiveLanguagePrefixRegex = new RegExp(`^/(${Object.keys(allLanguages).join('|')}|cn)(/|$)`)
+
+// Detects request paths that will never resolve on the upstream GitHub
+// Pages archive repos, so we can 404 immediately without making a
+// network request. Returns a short reason string, or null if the
+// request looks plausible.
+function getEarlyNotFoundReason(reqPath: string, version: string): string | null {
+  // Double slashes in the path never resolve (e.g. ".../about-2fa//index.html")
+  if (reqPath.includes('//')) {
+    return 'double-slash'
+  }
+
+  // Duplicated "/developer/developer/" segment — these are broken
+  // crawler URLs from the old developer.github.com site.
+  if (reqPath.includes('/developer/developer/')) {
+    return 'developer-developer'
+  }
+
+  // Check if the language in the path actually exists in this version's
+  // archive. Each language has a `firstArchivedVersion` indicating when
+  // it was first included in the GHES archives.
+  const langMatch = reqPath.match(archiveLanguagePrefixRegex)
+  if (langMatch) {
+    const lang = langMatch[1]
+
+    // "cn" was the old Chinese language code; those archives are ancient
+    // and effectively dead traffic. Always 404.
+    if (lang === 'cn') {
+      return 'language-not-in-version'
+    }
+
+    const langDef = allLanguages[lang]
+    if (langDef?.firstArchivedVersion) {
+      // 404 if the requested version is older than when this language
+      // was first archived (e.g. /zh/ on v3.0 → 404 because zh started in 3.3)
+      if (!versionSatisfiesRange(version, `>=${langDef.firstArchivedVersion}`)) {
+        return 'language-not-in-version'
+      }
+    }
+  }
+
+  return null
 }

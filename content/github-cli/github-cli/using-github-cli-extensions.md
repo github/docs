@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Use and extend the CLI
 ---
 
 ## About {% data variables.product.prodname_cli %} extensions

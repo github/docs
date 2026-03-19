@@ -9,6 +9,8 @@ redirect_from:
   - /codespaces/developing-in-codespaces/using-codespaces-with-github-cli
   - /codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli
 contentType: how-tos
+category:
+  - Write code in a codespace
 ---
 
 ## About {% data variables.product.prodname_cli %}

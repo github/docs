@@ -6,6 +6,8 @@ versions:
   ghec: '*'
 shortTitle: Quickstart
 contentType: get-started
+category:
+  - Fund open source work
 ---
 
 ## Explore projects you depend on

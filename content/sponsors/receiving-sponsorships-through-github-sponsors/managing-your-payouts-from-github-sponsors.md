@@ -9,6 +9,8 @@ versions:
   ghec: '*'
 shortTitle: Manage payouts
 contentType: how-tos
+category:
+  - Manage your sponsored account
 ---
 
 ## About payouts from {% data variables.product.prodname_sponsors %}

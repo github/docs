@@ -6,6 +6,8 @@ versions:
   ghec: '*'
 shortTitle: Sponsors GraphQL API
 contentType: concepts
+category:
+  - Manage your sponsored account
 ---
 
 To get started with the GraphQL API, see [AUTOTITLE](/graphql/guides/introduction-to-graphql).

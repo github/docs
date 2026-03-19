@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Follow the style guide and content model
 ---
 
 ## Conceptual article template

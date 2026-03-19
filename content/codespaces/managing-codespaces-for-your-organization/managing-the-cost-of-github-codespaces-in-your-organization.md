@@ -11,6 +11,8 @@ redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-billing-for-github-codespaces-in-your-organization
 product: '{% data reusables.gated-features.codespaces-org %}'
 contentType: reference
+category:
+  - Manage codespaces for your organization
 ---
 
 ## Overview

@@ -11,6 +11,8 @@ redirect_from:
   - /actions/guides/managing-github-actions-with-github-cli
   - /get-started/using-github/github-cli
 contentType: concepts
+category:
+  - Learn the basics
 ---
 ## About {% data variables.product.prodname_cli %}
 

@@ -207,8 +207,10 @@ export function correctTranslatedContentStrings(
   if (context.code === 'zh') {
     content = content.replaceAll('{% 数据variables', '{% data variables')
     content = content.replaceAll('{% 数据 variables', '{% data variables')
-    content = content.replaceAll('{% 数据可重用', '{% data reusables')
+    // Order matters: the more specific `s.` variant must run first to
+    // avoid the broader rule producing a double-s (`reusabless`).
     content = content.replaceAll('{% 数据可重用s.', '{% data reusables.')
+    content = content.replaceAll('{% 数据可重用', '{% data reusables')
     content = content.replaceAll('{% 其他 %}', '{% else %}')
     content = content.replaceAll('{% 原始 %}', '{% raw %}')
     // Chinese `如果` = "if": `{ 如果 X %}` → `{% if X %}`
@@ -224,6 +226,7 @@ export function correctTranslatedContentStrings(
 
   if (context.code === 'ru') {
     content = content.replaceAll('[«AUTOTITLE»](', '[AUTOTITLE](')
+    content = content.replaceAll('[АВТОЗАГОЛОВОК](', '[AUTOTITLE](')
     content = content.replaceAll('{% данных variables', '{% data variables')
     content = content.replaceAll('{% данных, variables', '{% data variables')
     content = content.replaceAll('{% данными variables', '{% data variables')
@@ -265,7 +268,15 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% конечным %}', '{% endif %}')
     // `{% конец %}` after `{% raw %}` means `{% endraw %}`, not `{% endif %}`.
     // Handle this BEFORE the generic `{% конец %}` → `{% endif %}` fallback.
-    content = content.replace(/(\{% raw %\}[^]*?)\{% конец %\}/g, '$1{% endraw %}')
+    // We use a split-based approach instead of `[^]*?` regex to avoid
+    // catastrophic backtracking on large content (~20s on 150KB inputs).
+    if (content.includes('{% конец %}') && content.includes('{% raw %}')) {
+      const parts = content.split('{% raw %}')
+      for (let i = 1; i < parts.length; i++) {
+        parts[i] = parts[i].replace('{% конец %}', '{% endraw %}')
+      }
+      content = parts.join('{% raw %}')
+    }
     content = content.replaceAll('{% конец %}', '{% endif %}')
     // Cyrillic transliteration of `elsif` (lossy → else, since version param is lost)
     content = content.replaceAll('{% Эльсиф %}', '{% else %}')
@@ -314,11 +325,21 @@ export function correctTranslatedContentStrings(
     // Rearranged `{% data VARIABLE_PATH %}` → `VARIABLE_PATH %данн... {% }`
     // The translation moved `data` (as `данных`/`данными`/`данные`) after the path
     // and split `%}` into `{% }` or `{%  }`. Reconstruct the original tag.
-    content = content.replace(/([\w.-]+\.[\w.-]+\.[\w_]+) %данн\w*[^{]*\{%\s+\}/g, '{% data $1 %}')
-    // Variant where `%}` appears BEFORE `данных`: `PATH %}данных {% .`
-    content = content.replace(/([\w.-]+\.[\w.-]+\.[\w_]+) %\}данн\w*\s*\{%\s*\./g, '{% data $1 %}.')
-    // Variant where path precedes `%{% data  }`: `PATH %{% data  }.`
-    content = content.replace(/([\w.-]+\.[\w.-]+\.[\w_]+) %\{% data\s+\}/g, '{% data $1 %}')
+    // Guard: these regexes start with [\w.-]+ which backtracks O(n²) on large word-char strings.
+    if (content.includes('%данн')) {
+      content = content.replace(
+        /([\w.-]+\.[\w.-]+\.[\w_]+) %данн\w*[^{]*\{%\s+\}/g,
+        '{% data $1 %}',
+      )
+      content = content.replace(
+        /([\w.-]+\.[\w.-]+\.[\w_]+) %\}данн\w*\s*\{%\s*\./g,
+        '{% data $1 %}.',
+      )
+    }
+    if (content.includes('%{% data')) {
+      // Variant where path precedes `%{% data  }`: `PATH %{% data  }.`
+      content = content.replace(/([\w.-]+\.[\w.-]+\.[\w_]+) %\{% data\s+\}/g, '{% data $1 %}')
+    }
 
     // Translated octicon names
     content = content.replaceAll(
@@ -339,6 +360,10 @@ export function correctTranslatedContentStrings(
     // Catch remaining "ou" between any plan names in ifversion/elsif tags
     content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?ou [^%]*?%\}/g, (match) => {
       return match.replace(/ ou /g, ' or ')
+    })
+    // French decimal comma in version numbers: `3,16` → `3.16`
+    content = content.replace(/\{%-? (?:ifversion|elsif) [^%]*?%\}/g, (match) => {
+      return match.replace(/(\d),(\d)/g, '$1.$2')
     })
     // Translated block tags
     content = content.replaceAll('{% remarque %}', '{% note %}')
@@ -396,6 +421,10 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% Tipp %}', '{% tip %}')
     content = content.replaceAll('{%- Tipp %}', '{%- tip %}')
     content = content.replaceAll('{%- Tipp -%}', '{%- tip -%}')
+    // Translated for-loop keywords: `für VARNAME in COLLECTION`
+    content = content.replace(/\{%-? für (\w+) in /g, (match) => {
+      return match.replace('für', 'for')
+    })
   }
 
   // --- Generic fixes (all languages) ---
@@ -460,6 +489,7 @@ export function correctTranslatedContentStrings(
 
   // Common Latin-script typos across multiple languages.
   content = content.replaceAll('{% variables.', '{% data variables.')
+  content = content.replaceAll('{% reusables.', '{% data reusables.')
   content = content.replaceAll('{% datavariables', '{% data variables')
 
   // Empty `{% %}` corruptions where the tag name was removed.
@@ -467,7 +497,15 @@ export function correctTranslatedContentStrings(
   content = content.replaceAll('{% %} de dados variables.', '{% data variables.')
 
   // Fix `{% %}` used as `{% endraw %}` (follows raw content with Liquid expressions).
-  content = content.replace(/(\{% raw %\}[^]*?)\{% %\}/g, '$1{% endraw %}')
+  // We use a split-based approach instead of `[^]*?` regex to avoid
+  // catastrophic backtracking on large content (~20s on 150KB inputs).
+  if (content.includes('{% %}') && content.includes('{% raw %}')) {
+    const parts = content.split('{% raw %}')
+    for (let i = 1; i < parts.length; i++) {
+      parts[i] = parts[i].replace('{% %}', '{% endraw %}')
+    }
+    content = parts.join('{% raw %}')
+  }
 
   // Fix `{% %}` used as `{% else %}` when it appears between ifversion and
   // endif on the same line: `{% ifversion X %}A{% %}B{% endif %}`.
@@ -504,22 +542,30 @@ export function correctTranslatedContentStrings(
   // Recover linebreaks that translations lose after Liquid closing tags.
   // Compares each `{% ... %} ` in the translation against the English
   // to see if it should be `{% ... %}\n` instead.
-  content = content.replace(/\{%(.+?)%\} /g, (match) => {
-    if (match.lastIndexOf('{%') > 0) return match
-    const withLinebreak = `${match.slice(0, -1)}\n`
-    if (englishContent.includes(withLinebreak) && !englishContent.includes(match)) {
-      return withLinebreak
+  // Pre-build a Set of English Liquid-tag-with-linebreak strings so we
+  // avoid O(tags × contentLength) repeated `String.includes()` scans.
+  if (englishContent) {
+    const englishLinebreaks = new Set<string>()
+    const englishSpaces = new Set<string>()
+    for (const m of englishContent.matchAll(/\{%.+?%\}[\n ]/g)) {
+      if (m[0].endsWith('\n')) englishLinebreaks.add(m[0])
+      else englishSpaces.add(m[0])
     }
-    return match
-  })
-  // Special case: `{% endif %} | ` → `{% endif %}\n| ` when English has it.
-  content = content.replace(/\{% endif %\} \| /g, (match) => {
-    const potentiallyBetter = '{% endif %}\n| '
-    if (englishContent.includes(potentiallyBetter)) {
-      return potentiallyBetter
+    if (englishLinebreaks.size > 0) {
+      content = content.replace(/\{%(.+?)%\} /g, (match) => {
+        if (match.lastIndexOf('{%') > 0) return match
+        const withLinebreak = `${match.slice(0, -1)}\n`
+        if (englishLinebreaks.has(withLinebreak) && !englishSpaces.has(match)) {
+          return withLinebreak
+        }
+        return match
+      })
+      // Special case: `{% endif %} | ` → `{% endif %}\n| ` when English has it.
+      if (englishContent.includes('{% endif %}\n| ')) {
+        content = content.replace(/\{% endif %\} \| /g, '{% endif %}\n| ')
+      }
     }
-    return match
-  })
+  }
 
   // Collapsed Markdown table rows — restore linebreaks between `|` cells.
   content = content.replaceAll(' | | ', ' |\n| ')
@@ -527,10 +573,18 @@ export function correctTranslatedContentStrings(
   // Final catch-all: earlier normalizations (e.g. space-in-braces regex) can
   // recreate `{{% KEYWORD` patterns after the per-keyword fixes already ran.
   // Strip the extra `{` for known Liquid tag names.
+  // Note: keywords without a trailing space (e.g. `raw`, `endif`) need `\b`
+  // to ensure a space is not required, while still matching correctly.
   content = content.replace(
-    /\{\{(%\s*(?:data |ifversion |elsif |endif|else |else\b|octicon |note|endnote|tip|endtip|raw|endraw|comment|endcomment|for |endfor|assign |vscode|endvscode|visualstudio|endvisualstudio|rowheaders|endrowheaders))/g,
+    /\{\{(%\s*(?:data |ifversion |elsif |endif\b|else\b|octicon |note\b|endnote\b|tip\b|endtip\b|raw\b|endraw\b|comment\b|endcomment\b|for |endfor\b|assign |vscode\b|endvscode\b|visualstudio\b|endvisualstudio\b|rowheaders\b|endrowheaders\b))/g,
     '{$1',
   )
+
+  // After the catch-all, `{%raw` (no space) can appear. Normalize to `{% raw`.
+  content = content.replaceAll('{%raw %}', '{% raw %}')
+  content = content.replaceAll('{%raw -%}', '{% raw -%}')
+  content = content.replaceAll('{%endraw %}', '{% endraw %}')
+  content = content.replaceAll('{%endraw -%}', '{% endraw -%}')
 
   return content
 }

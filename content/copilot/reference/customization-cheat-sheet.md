@@ -22,6 +22,7 @@ This table shows what each customization feature is and where it lives.
 | [{% data variables.copilot.custom_agents_caps_short %}](/copilot/concepts/agents/coding-agent/about-custom-agents) | Specialist persona with its own instructions, tool restrictions, and context | `.github/agents/AGENT-NAME.md` (repo), `agents/AGENT-NAME.md` in `.github-private` repo (org/enterprise), or user profile |
 | [{% data variables.copilot.subagents_caps_short %}](/copilot/how-tos/chat-with-copilot/chat-in-ide#using-subagents) | Separate agent spawned by the main agent to handle delegated work in an isolated context | N/A (runtime process, not a user-configured file) |
 | [Agent skills](/copilot/concepts/agents/about-agent-skills) | Folder of instructions, scripts, and resources that {% data variables.product.prodname_copilot_short %} loads when relevant to a task | `.github/skills/<skill-name>/SKILL.md` (project) or `~/.copilot/skills/<skill-name>/SKILL.md` (personal) |
+| [Hooks](/copilot/concepts/agents/coding-agent/about-hooks) | Custom shell commands that execute deterministically at specific points in an agent's workflow | `.github/hooks/*.json` |
 | [MCP servers](/copilot/concepts/context/mcp) | Connection to external systems, APIs, and databases | `mcp.json` (path varies by IDE), repo settings on {% data variables.product.github %} ({% data variables.copilot.copilot_coding_agent_short %}), or `mcp-servers` property in {% data variables.copilot.copilot_custom_agent_short %} configurations |
 
 ## Usage comparison
@@ -35,6 +36,7 @@ This table helps you decide which customization feature to use.
 | [{% data variables.copilot.custom_agents_caps_short %}](/copilot/concepts/agents/coding-agent/about-custom-agents) | Manual: select from the agent dropdown in your IDE, on {% data variables.product.github %}, or in {% data variables.copilot.copilot_cli_short %} | Projects or processes with distinct stages that need specialized capabilities or strict handoffs | React reviewer agent, read-only auditing agent |
 | [{% data variables.copilot.subagents_caps_short %}](/copilot/how-tos/chat-with-copilot/chat-in-ide#using-subagents) | Automatic, or reference a {% data variables.copilot.subagent_short %} directly in your prompt | Complex subtasks that should run in isolation from the main agent | Codebase research, running test suites |
 | [Agent skills](/copilot/concepts/agents/about-agent-skills) | Automatic: chosen by {% data variables.product.prodname_copilot_short %} when relevant to your prompt | Multi-step workflows with bundled assets that should be loaded as needed | {% data variables.product.prodname_actions %} failure debugging, deployment procedures, release note drafting |
+| [Hooks](/copilot/concepts/agents/coding-agent/about-hooks) | Automatic: at configured lifecycle events | Tasks that need to run at a specific point in the agent lifecycle, with guaranteed execution | Run a formatter after every file edit, approve or deny tool executions, prevent credential leaks with {% data variables.product.prodname_secret_scanning %} |
 | [MCP servers](/copilot/concepts/context/mcp) | Automatic, or ask for a specific tool by name | Tasks that require access to external tools or real-time data | Manage issues and PRs ({% data variables.product.github %} MCP server), automate browser testing (Playwright MCP server) |
 
 ## IDE and surface support
@@ -56,6 +58,7 @@ This table shows which customization features are supported in each IDE and surf
 | {% data variables.copilot.custom_agents_caps_short %} | ✓ | ✗ | P | P | P | ✓ | ✓ |
 | {% data variables.copilot.subagents_caps_short %} | ✓ | ✗ | P | P | P | ✗ | ✓ |
 | Agent skills | ✓ | ✗ | P | ✗ | ✗ | ✓ | ✓ |
+| Hooks | P | ✗ | ✗ | ✗ | ✗ | ✓ | ✓ |
 | MCP servers | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 
 For a detailed breakdown of which types of custom instructions are supported in each IDE and surface, see [AUTOTITLE](/copilot/reference/custom-instructions-support).

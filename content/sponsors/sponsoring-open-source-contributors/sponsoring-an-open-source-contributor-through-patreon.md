@@ -7,6 +7,8 @@ versions:
 permissions: '{% data reusables.sponsors.sponsorship-permissions %}'
 shortTitle: Sponsor through Patreon
 contentType: how-tos
+category:
+  - Fund open source work
 ---
 
 ## About sponsoring through Patreon
