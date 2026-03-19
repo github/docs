@@ -11,6 +11,8 @@ redirect_from:
   - /codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces
   - /codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces
 contentType: how-tos
+category:
+  - Customize your codespace
 ---
 
 ## About secrets for {% data variables.product.prodname_github_codespaces %}

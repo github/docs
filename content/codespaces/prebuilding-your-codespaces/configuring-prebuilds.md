@@ -8,6 +8,8 @@ versions:
 permissions: People with admin access to a repository can configure prebuilds for the repository.
 product: '{% data reusables.gated-features.codespaces-repo %}'
 contentType: how-tos
+category:
+  - Speed up codespace creation with prebuilds
 ---
 
 You can set up a prebuild configuration for the combination of a specific branch of your repository with a specific dev container configuration file.

@@ -10,6 +10,8 @@ versions:
   ghec: '*'
 shortTitle: Delete a codespace
 contentType: how-tos
+category:
+  - Create and manage codespaces
 ---
 
 ## Overview
