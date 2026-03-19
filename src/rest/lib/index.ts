@@ -11,7 +11,6 @@ import type { Context } from '@/types'
 import type { Operation } from '@/rest/components/types'
 
 export const REST_DATA_DIR = 'src/rest/data'
-export const REST_SCHEMA_FILENAME = 'schema.json'
 const REST_CONTENT_DIR = 'content/rest'
 
 // Type definitions for REST operations
