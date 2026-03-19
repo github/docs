@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Use integrations
 ---
 
 The {% data variables.product.github %} integration for Microsoft Teams lets you connect your {% data variables.product.github %} account to the {% data variables.product.github %} app in Teams. Once connected, you can subscribe to notifications, run commands, and collaborate on issues and pull requests directly within Teams.
