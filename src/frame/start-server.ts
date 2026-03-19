@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 
 import { checkNodeVersion } from './lib/check-node-version'
 import '../observability/lib/handle-exceptions'
+import { startRuntimeMetrics } from '@/observability/lib/runtime-metrics'
 import createApp from './lib/app'
 import warmServer from './lib/warm-server'
 import { createLogger } from '@/observability/logger'
@@ -54,6 +55,8 @@ async function startServer() {
 
   // Workaround for https://github.com/expressjs/express/issues/1101
   const server = http.createServer(app)
+
+  startRuntimeMetrics()
 
   process.once('SIGTERM', () => {
     logger.info('Received SIGTERM, beginning graceful shutdown', { pid: process.pid, port })
