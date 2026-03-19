@@ -10,6 +10,10 @@ import { POD_IDENTITY } from '@/observability/logger/lib/pod-identity'
 
 type IncludeContext = { [key: string]: unknown }
 
+// Read once at module startup so every log line carries the deployed version.
+// BUILD_SHA is baked into each Docker image via ARG/ENV in the Dockerfile.
+const BUILD_SHA = process.env.BUILD_SHA || undefined
+
 // Type definitions for logger methods with overloads
 interface LoggerMethod {
   // Pattern 1: Just a message e.g. `logger.info('Hello world')`
@@ -136,6 +140,7 @@ export function createLogger(filePath: string) {
         ...loggerContext, // requestUuid, path, method, headers, etc. (per-request)
         timestamp,
         level,
+        ...(BUILD_SHA !== undefined ? { build_sha: BUILD_SHA } : {}),
         file: path.relative(process.cwd(), new URL(filePath).pathname),
         message: finalMessage,
       }
@@ -146,6 +151,8 @@ export function createLogger(filePath: string) {
         if (typeof value === 'object' && value instanceof Error) {
           // Errors don't serialize well to JSON, so just log the message + stack trace
           includedContextWithFormattedError[key] = value.message
+          includedContextWithFormattedError[`${key}_code`] = (value as NodeJS.ErrnoException).code
+          includedContextWithFormattedError[`${key}_name`] = value.name
           includedContextWithFormattedError[`${key}_stack`] = value.stack
         } else {
           includedContextWithFormattedError[key] = value

@@ -7,10 +7,13 @@ import { checkNodeVersion } from './lib/check-node-version'
 import '../observability/lib/handle-exceptions'
 import createApp from './lib/app'
 import warmServer from './lib/warm-server'
+import { createLogger } from '@/observability/logger'
 
 dotenv.config()
 
 checkNodeVersion()
+
+const logger = createLogger(import.meta.url)
 
 const { PORT, NODE_ENV } = process.env
 const port = Number(PORT) || 4000
@@ -52,7 +55,16 @@ async function startServer() {
   // Workaround for https://github.com/expressjs/express/issues/1101
   const server = http.createServer(app)
 
+  process.once('SIGTERM', () => {
+    logger.info('Received SIGTERM, beginning graceful shutdown', { pid: process.pid, port })
+    server.close(() => {
+      logger.info('HTTP server closed')
+    })
+  })
+
   return server
-    .listen(port, () => console.log(`app running on http://localhost:${port}`))
+    .listen(port, () =>
+      logger.info('Server started', { port, pid: process.pid, nodeEnv: process.env.NODE_ENV }),
+    )
     .on('error', () => server.close())
 }
