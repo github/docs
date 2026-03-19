@@ -9,6 +9,8 @@ versions:
   ghec: '*'
 shortTitle: Quickstart
 contentType: get-started
+category:
+  - Build with AI models
 ---
 
 ## Introduction
