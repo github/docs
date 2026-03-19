@@ -200,12 +200,16 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "email": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "login": {
                           "type": "string"
@@ -222,8 +226,10 @@
                           "format": "uri"
                         },
                         "gravatar_id": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "url": {
                           "type": "string",
@@ -321,8 +327,10 @@
                           "type": "string"
                         },
                         "description": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "privacy": {
                           "type": "string"
@@ -392,92 +400,100 @@
                           "description": "Unique identifier of the enterprise to which this team belongs"
                         },
                         "parent": {
-                          "title": "Team Simple",
-                          "description": "Groups of organization members that gives permissions on specified repositories.",
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "Unique identifier of the team",
-                              "type": "integer"
+                          "anyOf": [
+                            {
+                              "type": "null"
                             },
-                            "node_id": {
-                              "type": "string"
-                            },
-                            "url": {
-                              "description": "URL for the team",
-                              "type": "string",
-                              "format": "uri"
-                            },
-                            "members_url": {
-                              "type": "string"
-                            },
-                            "name": {
-                              "description": "Name of the team",
-                              "type": "string"
-                            },
-                            "description": {
-                              "description": "Description of the team",
-                              "type": "string",
-                              "nullable": true
-                            },
-                            "permission": {
-                              "description": "Permission that the team will have for its repositories",
-                              "type": "string"
-                            },
-                            "privacy": {
-                              "description": "The level of privacy this team should have",
-                              "type": "string"
-                            },
-                            "notification_setting": {
-                              "description": "The notification setting the team has set",
-                              "type": "string"
-                            },
-                            "html_url": {
-                              "type": "string",
-                              "format": "uri"
-                            },
-                            "repositories_url": {
-                              "type": "string",
-                              "format": "uri"
-                            },
-                            "slug": {
-                              "type": "string"
-                            },
-                            "ldap_dn": {
-                              "description": "Distinguished Name (DN) that team maps to within LDAP environment",
-                              "type": "string"
-                            },
-                            "type": {
-                              "description": "The ownership type of the team",
-                              "type": "string",
-                              "enum": [
-                                "enterprise",
-                                "organization"
+                            {
+                              "title": "Team Simple",
+                              "description": "Groups of organization members that gives permissions on specified repositories.",
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "description": "Unique identifier of the team",
+                                  "type": "integer"
+                                },
+                                "node_id": {
+                                  "type": "string"
+                                },
+                                "url": {
+                                  "description": "URL for the team",
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "members_url": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "description": "Name of the team",
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "description": "Description of the team",
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "permission": {
+                                  "description": "Permission that the team will have for its repositories",
+                                  "type": "string"
+                                },
+                                "privacy": {
+                                  "description": "The level of privacy this team should have",
+                                  "type": "string"
+                                },
+                                "notification_setting": {
+                                  "description": "The notification setting the team has set",
+                                  "type": "string"
+                                },
+                                "html_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "repositories_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "slug": {
+                                  "type": "string"
+                                },
+                                "ldap_dn": {
+                                  "description": "Distinguished Name (DN) that team maps to within LDAP environment",
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "description": "The ownership type of the team",
+                                  "type": "string",
+                                  "enum": [
+                                    "enterprise",
+                                    "organization"
+                                  ]
+                                },
+                                "organization_id": {
+                                  "type": "integer",
+                                  "description": "Unique identifier of the organization to which this team belongs"
+                                },
+                                "enterprise_id": {
+                                  "type": "integer",
+                                  "description": "Unique identifier of the enterprise to which this team belongs"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "node_id",
+                                "url",
+                                "members_url",
+                                "name",
+                                "description",
+                                "permission",
+                                "html_url",
+                                "repositories_url",
+                                "slug",
+                                "type"
                               ]
-                            },
-                            "organization_id": {
-                              "type": "integer",
-                              "description": "Unique identifier of the organization to which this team belongs"
-                            },
-                            "enterprise_id": {
-                              "type": "integer",
-                              "description": "Unique identifier of the enterprise to which this team belongs"
                             }
-                          },
-                          "required": [
-                            "id",
-                            "node_id",
-                            "url",
-                            "members_url",
-                            "name",
-                            "description",
-                            "permission",
-                            "html_url",
-                            "repositories_url",
-                            "slug",
-                            "type"
-                          ],
-                          "nullable": true
+                          ]
                         }
                       },
                       "required": [
@@ -508,9 +524,11 @@
                   },
                   "closed_at": {
                     "description": "The date and time the campaign was closed, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. Will be null if the campaign is still open.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
                   },
                   "state": {
                     "title": "Campaign state",
@@ -523,9 +541,11 @@
                   },
                   "contact_link": {
                     "description": "The contact link of the campaign.",
-                    "type": "string",
-                    "format": "uri",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "uri"
                   },
                   "alert_stats": {
                     "type": "object",
@@ -717,12 +737,16 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "email": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "login": {
                         "type": "string"
@@ -739,8 +763,10 @@
                         "format": "uri"
                       },
                       "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "url": {
                         "type": "string",
@@ -838,8 +864,10 @@
                         "type": "string"
                       },
                       "description": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "privacy": {
                         "type": "string"
@@ -909,92 +937,100 @@
                         "description": "Unique identifier of the enterprise to which this team belongs"
                       },
                       "parent": {
-                        "title": "Team Simple",
-                        "description": "Groups of organization members that gives permissions on specified repositories.",
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "description": "Unique identifier of the team",
-                            "type": "integer"
+                        "anyOf": [
+                          {
+                            "type": "null"
                           },
-                          "node_id": {
-                            "type": "string"
-                          },
-                          "url": {
-                            "description": "URL for the team",
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "members_url": {
-                            "type": "string"
-                          },
-                          "name": {
-                            "description": "Name of the team",
-                            "type": "string"
-                          },
-                          "description": {
-                            "description": "Description of the team",
-                            "type": "string",
-                            "nullable": true
-                          },
-                          "permission": {
-                            "description": "Permission that the team will have for its repositories",
-                            "type": "string"
-                          },
-                          "privacy": {
-                            "description": "The level of privacy this team should have",
-                            "type": "string"
-                          },
-                          "notification_setting": {
-                            "description": "The notification setting the team has set",
-                            "type": "string"
-                          },
-                          "html_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "repositories_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "slug": {
-                            "type": "string"
-                          },
-                          "ldap_dn": {
-                            "description": "Distinguished Name (DN) that team maps to within LDAP environment",
-                            "type": "string"
-                          },
-                          "type": {
-                            "description": "The ownership type of the team",
-                            "type": "string",
-                            "enum": [
-                              "enterprise",
-                              "organization"
+                          {
+                            "title": "Team Simple",
+                            "description": "Groups of organization members that gives permissions on specified repositories.",
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "description": "Unique identifier of the team",
+                                "type": "integer"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "url": {
+                                "description": "URL for the team",
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "members_url": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "Name of the team",
+                                "type": "string"
+                              },
+                              "description": {
+                                "description": "Description of the team",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "permission": {
+                                "description": "Permission that the team will have for its repositories",
+                                "type": "string"
+                              },
+                              "privacy": {
+                                "description": "The level of privacy this team should have",
+                                "type": "string"
+                              },
+                              "notification_setting": {
+                                "description": "The notification setting the team has set",
+                                "type": "string"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repositories_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "slug": {
+                                "type": "string"
+                              },
+                              "ldap_dn": {
+                                "description": "Distinguished Name (DN) that team maps to within LDAP environment",
+                                "type": "string"
+                              },
+                              "type": {
+                                "description": "The ownership type of the team",
+                                "type": "string",
+                                "enum": [
+                                  "enterprise",
+                                  "organization"
+                                ]
+                              },
+                              "organization_id": {
+                                "type": "integer",
+                                "description": "Unique identifier of the organization to which this team belongs"
+                              },
+                              "enterprise_id": {
+                                "type": "integer",
+                                "description": "Unique identifier of the enterprise to which this team belongs"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "node_id",
+                              "url",
+                              "members_url",
+                              "name",
+                              "description",
+                              "permission",
+                              "html_url",
+                              "repositories_url",
+                              "slug",
+                              "type"
                             ]
-                          },
-                          "organization_id": {
-                            "type": "integer",
-                            "description": "Unique identifier of the organization to which this team belongs"
-                          },
-                          "enterprise_id": {
-                            "type": "integer",
-                            "description": "Unique identifier of the enterprise to which this team belongs"
                           }
-                        },
-                        "required": [
-                          "id",
-                          "node_id",
-                          "url",
-                          "members_url",
-                          "name",
-                          "description",
-                          "permission",
-                          "html_url",
-                          "repositories_url",
-                          "slug",
-                          "type"
-                        ],
-                        "nullable": true
+                        ]
                       }
                     },
                     "required": [
@@ -1025,9 +1061,11 @@
                 },
                 "closed_at": {
                   "description": "The date and time the campaign was closed, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. Will be null if the campaign is still open.",
-                  "type": "string",
-                  "format": "date-time",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
                 },
                 "state": {
                   "title": "Campaign state",
@@ -1040,9 +1078,11 @@
                 },
                 "contact_link": {
                   "description": "The contact link of the campaign.",
-                  "type": "string",
-                  "format": "uri",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "uri"
                 },
                 "alert_stats": {
                   "type": "object",
@@ -1237,12 +1277,16 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "email": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "login": {
                         "type": "string"
@@ -1259,8 +1303,10 @@
                         "format": "uri"
                       },
                       "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "url": {
                         "type": "string",
@@ -1358,8 +1404,10 @@
                         "type": "string"
                       },
                       "description": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "privacy": {
                         "type": "string"
@@ -1429,92 +1477,100 @@
                         "description": "Unique identifier of the enterprise to which this team belongs"
                       },
                       "parent": {
-                        "title": "Team Simple",
-                        "description": "Groups of organization members that gives permissions on specified repositories.",
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "description": "Unique identifier of the team",
-                            "type": "integer"
+                        "anyOf": [
+                          {
+                            "type": "null"
                           },
-                          "node_id": {
-                            "type": "string"
-                          },
-                          "url": {
-                            "description": "URL for the team",
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "members_url": {
-                            "type": "string"
-                          },
-                          "name": {
-                            "description": "Name of the team",
-                            "type": "string"
-                          },
-                          "description": {
-                            "description": "Description of the team",
-                            "type": "string",
-                            "nullable": true
-                          },
-                          "permission": {
-                            "description": "Permission that the team will have for its repositories",
-                            "type": "string"
-                          },
-                          "privacy": {
-                            "description": "The level of privacy this team should have",
-                            "type": "string"
-                          },
-                          "notification_setting": {
-                            "description": "The notification setting the team has set",
-                            "type": "string"
-                          },
-                          "html_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "repositories_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "slug": {
-                            "type": "string"
-                          },
-                          "ldap_dn": {
-                            "description": "Distinguished Name (DN) that team maps to within LDAP environment",
-                            "type": "string"
-                          },
-                          "type": {
-                            "description": "The ownership type of the team",
-                            "type": "string",
-                            "enum": [
-                              "enterprise",
-                              "organization"
+                          {
+                            "title": "Team Simple",
+                            "description": "Groups of organization members that gives permissions on specified repositories.",
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "description": "Unique identifier of the team",
+                                "type": "integer"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "url": {
+                                "description": "URL for the team",
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "members_url": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "Name of the team",
+                                "type": "string"
+                              },
+                              "description": {
+                                "description": "Description of the team",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "permission": {
+                                "description": "Permission that the team will have for its repositories",
+                                "type": "string"
+                              },
+                              "privacy": {
+                                "description": "The level of privacy this team should have",
+                                "type": "string"
+                              },
+                              "notification_setting": {
+                                "description": "The notification setting the team has set",
+                                "type": "string"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repositories_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "slug": {
+                                "type": "string"
+                              },
+                              "ldap_dn": {
+                                "description": "Distinguished Name (DN) that team maps to within LDAP environment",
+                                "type": "string"
+                              },
+                              "type": {
+                                "description": "The ownership type of the team",
+                                "type": "string",
+                                "enum": [
+                                  "enterprise",
+                                  "organization"
+                                ]
+                              },
+                              "organization_id": {
+                                "type": "integer",
+                                "description": "Unique identifier of the organization to which this team belongs"
+                              },
+                              "enterprise_id": {
+                                "type": "integer",
+                                "description": "Unique identifier of the enterprise to which this team belongs"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "node_id",
+                              "url",
+                              "members_url",
+                              "name",
+                              "description",
+                              "permission",
+                              "html_url",
+                              "repositories_url",
+                              "slug",
+                              "type"
                             ]
-                          },
-                          "organization_id": {
-                            "type": "integer",
-                            "description": "Unique identifier of the organization to which this team belongs"
-                          },
-                          "enterprise_id": {
-                            "type": "integer",
-                            "description": "Unique identifier of the enterprise to which this team belongs"
                           }
-                        },
-                        "required": [
-                          "id",
-                          "node_id",
-                          "url",
-                          "members_url",
-                          "name",
-                          "description",
-                          "permission",
-                          "html_url",
-                          "repositories_url",
-                          "slug",
-                          "type"
-                        ],
-                        "nullable": true
+                        ]
                       }
                     },
                     "required": [
@@ -1545,9 +1601,11 @@
                 },
                 "closed_at": {
                   "description": "The date and time the campaign was closed, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. Will be null if the campaign is still open.",
-                  "type": "string",
-                  "format": "date-time",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
                 },
                 "state": {
                   "title": "Campaign state",
@@ -1560,9 +1618,11 @@
                 },
                 "contact_link": {
                   "description": "The contact link of the campaign.",
-                  "type": "string",
-                  "format": "uri",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "uri"
                 },
                 "alert_stats": {
                   "type": "object",
@@ -1793,12 +1853,16 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "email": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "login": {
                         "type": "string"
@@ -1815,8 +1879,10 @@
                         "format": "uri"
                       },
                       "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "url": {
                         "type": "string",
@@ -1914,8 +1980,10 @@
                         "type": "string"
                       },
                       "description": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "privacy": {
                         "type": "string"
@@ -1985,92 +2053,100 @@
                         "description": "Unique identifier of the enterprise to which this team belongs"
                       },
                       "parent": {
-                        "title": "Team Simple",
-                        "description": "Groups of organization members that gives permissions on specified repositories.",
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "description": "Unique identifier of the team",
-                            "type": "integer"
+                        "anyOf": [
+                          {
+                            "type": "null"
                           },
-                          "node_id": {
-                            "type": "string"
-                          },
-                          "url": {
-                            "description": "URL for the team",
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "members_url": {
-                            "type": "string"
-                          },
-                          "name": {
-                            "description": "Name of the team",
-                            "type": "string"
-                          },
-                          "description": {
-                            "description": "Description of the team",
-                            "type": "string",
-                            "nullable": true
-                          },
-                          "permission": {
-                            "description": "Permission that the team will have for its repositories",
-                            "type": "string"
-                          },
-                          "privacy": {
-                            "description": "The level of privacy this team should have",
-                            "type": "string"
-                          },
-                          "notification_setting": {
-                            "description": "The notification setting the team has set",
-                            "type": "string"
-                          },
-                          "html_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "repositories_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "slug": {
-                            "type": "string"
-                          },
-                          "ldap_dn": {
-                            "description": "Distinguished Name (DN) that team maps to within LDAP environment",
-                            "type": "string"
-                          },
-                          "type": {
-                            "description": "The ownership type of the team",
-                            "type": "string",
-                            "enum": [
-                              "enterprise",
-                              "organization"
+                          {
+                            "title": "Team Simple",
+                            "description": "Groups of organization members that gives permissions on specified repositories.",
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "description": "Unique identifier of the team",
+                                "type": "integer"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "url": {
+                                "description": "URL for the team",
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "members_url": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "description": "Name of the team",
+                                "type": "string"
+                              },
+                              "description": {
+                                "description": "Description of the team",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "permission": {
+                                "description": "Permission that the team will have for its repositories",
+                                "type": "string"
+                              },
+                              "privacy": {
+                                "description": "The level of privacy this team should have",
+                                "type": "string"
+                              },
+                              "notification_setting": {
+                                "description": "The notification setting the team has set",
+                                "type": "string"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repositories_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "slug": {
+                                "type": "string"
+                              },
+                              "ldap_dn": {
+                                "description": "Distinguished Name (DN) that team maps to within LDAP environment",
+                                "type": "string"
+                              },
+                              "type": {
+                                "description": "The ownership type of the team",
+                                "type": "string",
+                                "enum": [
+                                  "enterprise",
+                                  "organization"
+                                ]
+                              },
+                              "organization_id": {
+                                "type": "integer",
+                                "description": "Unique identifier of the organization to which this team belongs"
+                              },
+                              "enterprise_id": {
+                                "type": "integer",
+                                "description": "Unique identifier of the enterprise to which this team belongs"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "node_id",
+                              "url",
+                              "members_url",
+                              "name",
+                              "description",
+                              "permission",
+                              "html_url",
+                              "repositories_url",
+                              "slug",
+                              "type"
                             ]
-                          },
-                          "organization_id": {
-                            "type": "integer",
-                            "description": "Unique identifier of the organization to which this team belongs"
-                          },
-                          "enterprise_id": {
-                            "type": "integer",
-                            "description": "Unique identifier of the enterprise to which this team belongs"
                           }
-                        },
-                        "required": [
-                          "id",
-                          "node_id",
-                          "url",
-                          "members_url",
-                          "name",
-                          "description",
-                          "permission",
-                          "html_url",
-                          "repositories_url",
-                          "slug",
-                          "type"
-                        ],
-                        "nullable": true
+                        ]
                       }
                     },
                     "required": [
@@ -2101,9 +2177,11 @@
                 },
                 "closed_at": {
                   "description": "The date and time the campaign was closed, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. Will be null if the campaign is still open.",
-                  "type": "string",
-                  "format": "date-time",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
                 },
                 "state": {
                   "title": "Campaign state",
@@ -2116,9 +2194,11 @@
                 },
                 "contact_link": {
                   "description": "The contact link of the campaign.",
-                  "type": "string",
-                  "format": "uri",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "uri"
                 },
                 "alert_stats": {
                   "type": "object",

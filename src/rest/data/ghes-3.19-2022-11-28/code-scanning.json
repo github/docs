@@ -134,7 +134,6 @@
       "descriptionHTML": "<p>Lists code scanning alerts for the default branch for all eligible repositories in an enterprise. Eligible repositories are repositories that are owned by organizations that you own or for which you are a security manager. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization\">Managing security managers in your organization</a>.\"</p>\n<p>The authenticated user must be a member of the enterprise to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> or <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -480,133 +479,76 @@
                             ]
                           },
                           "login": {
-                            "type": "string",
-                            "examples": [
-                              "octocat"
-                            ]
+                            "type": "string"
                           },
                           "id": {
                             "type": "integer",
-                            "format": "int64",
-                            "examples": [
-                              1
-                            ]
+                            "format": "int64"
                           },
                           "node_id": {
-                            "type": "string",
-                            "examples": [
-                              "MDQ6VXNlcjE="
-                            ]
+                            "type": "string"
                           },
                           "avatar_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/images/error/octocat_happy.gif"
-                            ]
+                            "format": "uri"
                           },
                           "gravatar_id": {
                             "type": [
                               "string",
                               "null"
-                            ],
-                            "examples": [
-                              "41d064eb2195891e12d0413f63227ea7"
                             ]
                           },
                           "url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "html_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "followers_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/followers"
-                            ]
+                            "format": "uri"
                           },
                           "following_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/following{/other_user}"
-                            ]
+                            "type": "string"
                           },
                           "gists_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/gists{/gist_id}"
-                            ]
+                            "type": "string"
                           },
                           "starred_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                            ]
+                            "type": "string"
                           },
                           "subscriptions_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/subscriptions"
-                            ]
+                            "format": "uri"
                           },
                           "organizations_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/orgs"
-                            ]
+                            "format": "uri"
                           },
                           "repos_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/repos"
-                            ]
+                            "format": "uri"
                           },
                           "events_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/events{/privacy}"
-                            ]
+                            "type": "string"
                           },
                           "received_events_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/received_events"
-                            ]
+                            "format": "uri"
                           },
                           "type": {
-                            "type": "string",
-                            "examples": [
-                              "User"
-                            ]
+                            "type": "string"
                           },
                           "site_admin": {
                             "type": "boolean"
                           },
                           "starred_at": {
-                            "type": "string",
-                            "examples": [
-                              "\"2020-07-09T00:17:55Z\""
-                            ]
+                            "type": "string"
                           },
                           "user_view_type": {
-                            "type": "string",
-                            "examples": [
-                              "public"
-                            ]
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -856,31 +798,19 @@
                       "id": {
                         "type": "integer",
                         "format": "int64",
-                        "description": "A unique identifier of the repository.",
-                        "examples": [
-                          1296269
-                        ]
+                        "description": "A unique identifier of the repository."
                       },
                       "node_id": {
                         "type": "string",
-                        "description": "The GraphQL identifier of the repository.",
-                        "examples": [
-                          "MDEwOlJlcG9zaXRvcnkxMjk2MjY5"
-                        ]
+                        "description": "The GraphQL identifier of the repository."
                       },
                       "name": {
                         "type": "string",
-                        "description": "The name of the repository.",
-                        "examples": [
-                          "Hello-World"
-                        ]
+                        "description": "The name of the repository."
                       },
                       "full_name": {
                         "type": "string",
-                        "description": "The full, globally unique, name of the repository.",
-                        "examples": [
-                          "octocat/Hello-World"
-                        ]
+                        "description": "The full, globally unique, name of the repository."
                       },
                       "owner": {
                         "title": "Simple User",
@@ -900,133 +830,76 @@
                             ]
                           },
                           "login": {
-                            "type": "string",
-                            "examples": [
-                              "octocat"
-                            ]
+                            "type": "string"
                           },
                           "id": {
                             "type": "integer",
-                            "format": "int64",
-                            "examples": [
-                              1
-                            ]
+                            "format": "int64"
                           },
                           "node_id": {
-                            "type": "string",
-                            "examples": [
-                              "MDQ6VXNlcjE="
-                            ]
+                            "type": "string"
                           },
                           "avatar_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/images/error/octocat_happy.gif"
-                            ]
+                            "format": "uri"
                           },
                           "gravatar_id": {
                             "type": [
                               "string",
                               "null"
-                            ],
-                            "examples": [
-                              "41d064eb2195891e12d0413f63227ea7"
                             ]
                           },
                           "url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "html_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "followers_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/followers"
-                            ]
+                            "format": "uri"
                           },
                           "following_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/following{/other_user}"
-                            ]
+                            "type": "string"
                           },
                           "gists_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/gists{/gist_id}"
-                            ]
+                            "type": "string"
                           },
                           "starred_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                            ]
+                            "type": "string"
                           },
                           "subscriptions_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/subscriptions"
-                            ]
+                            "format": "uri"
                           },
                           "organizations_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/orgs"
-                            ]
+                            "format": "uri"
                           },
                           "repos_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/repos"
-                            ]
+                            "format": "uri"
                           },
                           "events_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/events{/privacy}"
-                            ]
+                            "type": "string"
                           },
                           "received_events_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/received_events"
-                            ]
+                            "format": "uri"
                           },
                           "type": {
-                            "type": "string",
-                            "examples": [
-                              "User"
-                            ]
+                            "type": "string"
                           },
                           "site_admin": {
                             "type": "boolean"
                           },
                           "starred_at": {
-                            "type": "string",
-                            "examples": [
-                              "\"2020-07-09T00:17:55Z\""
-                            ]
+                            "type": "string"
                           },
                           "user_view_type": {
-                            "type": "string",
-                            "examples": [
-                              "public"
-                            ]
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -1057,20 +930,14 @@
                       "html_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The URL to view the repository on GitHub.com.",
-                        "examples": [
-                          "https://github.com/octocat/Hello-World"
-                        ]
+                        "description": "The URL to view the repository on GitHub.com."
                       },
                       "description": {
                         "type": [
                           "string",
                           "null"
                         ],
-                        "description": "The repository description.",
-                        "examples": [
-                          "This your first repo!"
-                        ]
+                        "description": "The repository description."
                       },
                       "fork": {
                         "type": "boolean",
@@ -1079,275 +946,164 @@
                       "url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The URL to get more information about the repository from the GitHub API.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World"
-                        ]
+                        "description": "The URL to get more information about the repository from the GitHub API."
                       },
                       "archive_url": {
                         "type": "string",
-                        "description": "A template for the API URL to download the repository as an archive.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}"
-                        ]
+                        "description": "A template for the API URL to download the repository as an archive."
                       },
                       "assignees_url": {
                         "type": "string",
-                        "description": "A template for the API URL to list the available assignees for issues in the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/assignees{/user}"
-                        ]
+                        "description": "A template for the API URL to list the available assignees for issues in the repository."
                       },
                       "blobs_url": {
                         "type": "string",
-                        "description": "A template for the API URL to create or retrieve a raw Git blob in the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/git/blobs{/sha}"
-                        ]
+                        "description": "A template for the API URL to create or retrieve a raw Git blob in the repository."
                       },
                       "branches_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about branches in the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/branches{/branch}"
-                        ]
+                        "description": "A template for the API URL to get information about branches in the repository."
                       },
                       "collaborators_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about collaborators of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/collaborators{/collaborator}"
-                        ]
+                        "description": "A template for the API URL to get information about collaborators of the repository."
                       },
                       "comments_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about comments on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/comments{/number}"
-                        ]
+                        "description": "A template for the API URL to get information about comments on the repository."
                       },
                       "commits_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about commits on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/commits{/sha}"
-                        ]
+                        "description": "A template for the API URL to get information about commits on the repository."
                       },
                       "compare_url": {
                         "type": "string",
-                        "description": "A template for the API URL to compare two commits or refs.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/compare/{base}...{head}"
-                        ]
+                        "description": "A template for the API URL to compare two commits or refs."
                       },
                       "contents_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get the contents of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/contents/{+path}"
-                        ]
+                        "description": "A template for the API URL to get the contents of the repository."
                       },
                       "contributors_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "A template for the API URL to list the contributors to the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/contributors"
-                        ]
+                        "description": "A template for the API URL to list the contributors to the repository."
                       },
                       "deployments_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to list the deployments of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/deployments"
-                        ]
+                        "description": "The API URL to list the deployments of the repository."
                       },
                       "downloads_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to list the downloads on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/downloads"
-                        ]
+                        "description": "The API URL to list the downloads on the repository."
                       },
                       "events_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to list the events of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/events"
-                        ]
+                        "description": "The API URL to list the events of the repository."
                       },
                       "forks_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to list the forks of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/forks"
-                        ]
+                        "description": "The API URL to list the forks of the repository."
                       },
                       "git_commits_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about Git commits of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/git/commits{/sha}"
-                        ]
+                        "description": "A template for the API URL to get information about Git commits of the repository."
                       },
                       "git_refs_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about Git refs of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/git/refs{/sha}"
-                        ]
+                        "description": "A template for the API URL to get information about Git refs of the repository."
                       },
                       "git_tags_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about Git tags of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/git/tags{/sha}"
-                        ]
+                        "description": "A template for the API URL to get information about Git tags of the repository."
                       },
                       "issue_comment_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about issue comments on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/issues/comments{/number}"
-                        ]
+                        "description": "A template for the API URL to get information about issue comments on the repository."
                       },
                       "issue_events_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about issue events on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/issues/events{/number}"
-                        ]
+                        "description": "A template for the API URL to get information about issue events on the repository."
                       },
                       "issues_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about issues on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/issues{/number}"
-                        ]
+                        "description": "A template for the API URL to get information about issues on the repository."
                       },
                       "keys_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about deploy keys on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/keys{/key_id}"
-                        ]
+                        "description": "A template for the API URL to get information about deploy keys on the repository."
                       },
                       "labels_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about labels of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/labels{/name}"
-                        ]
+                        "description": "A template for the API URL to get information about labels of the repository."
                       },
                       "languages_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to get information about the languages of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/languages"
-                        ]
+                        "description": "The API URL to get information about the languages of the repository."
                       },
                       "merges_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to merge branches in the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/merges"
-                        ]
+                        "description": "The API URL to merge branches in the repository."
                       },
                       "milestones_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about milestones of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/milestones{/number}"
-                        ]
+                        "description": "A template for the API URL to get information about milestones of the repository."
                       },
                       "notifications_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about notifications on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/notifications{?since,all,participating}"
-                        ]
+                        "description": "A template for the API URL to get information about notifications on the repository."
                       },
                       "pulls_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about pull requests on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/pulls{/number}"
-                        ]
+                        "description": "A template for the API URL to get information about pull requests on the repository."
                       },
                       "releases_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about releases on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/releases{/id}"
-                        ]
+                        "description": "A template for the API URL to get information about releases on the repository."
                       },
                       "stargazers_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to list the stargazers on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/stargazers"
-                        ]
+                        "description": "The API URL to list the stargazers on the repository."
                       },
                       "statuses_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about statuses of a commit.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/statuses/{sha}"
-                        ]
+                        "description": "A template for the API URL to get information about statuses of a commit."
                       },
                       "subscribers_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to list the subscribers on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/subscribers"
-                        ]
+                        "description": "The API URL to list the subscribers on the repository."
                       },
                       "subscription_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to subscribe to notifications for this repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/subscription"
-                        ]
+                        "description": "The API URL to subscribe to notifications for this repository."
                       },
                       "tags_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to get information about tags on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/tags"
-                        ]
+                        "description": "The API URL to get information about tags on the repository."
                       },
                       "teams_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to list the teams on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/teams"
-                        ]
+                        "description": "The API URL to list the teams on the repository."
                       },
                       "trees_url": {
                         "type": "string",
-                        "description": "A template for the API URL to create or retrieve a raw Git tree of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/git/trees{/sha}"
-                        ]
+                        "description": "A template for the API URL to create or retrieve a raw Git tree of the repository."
                       },
                       "hooks_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to list the hooks on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/hooks"
-                        ]
+                        "description": "The API URL to list the hooks on the repository."
                       }
                     },
                     "required": [
@@ -1422,133 +1178,76 @@
                             ]
                           },
                           "login": {
-                            "type": "string",
-                            "examples": [
-                              "octocat"
-                            ]
+                            "type": "string"
                           },
                           "id": {
                             "type": "integer",
-                            "format": "int64",
-                            "examples": [
-                              1
-                            ]
+                            "format": "int64"
                           },
                           "node_id": {
-                            "type": "string",
-                            "examples": [
-                              "MDQ6VXNlcjE="
-                            ]
+                            "type": "string"
                           },
                           "avatar_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/images/error/octocat_happy.gif"
-                            ]
+                            "format": "uri"
                           },
                           "gravatar_id": {
                             "type": [
                               "string",
                               "null"
-                            ],
-                            "examples": [
-                              "41d064eb2195891e12d0413f63227ea7"
                             ]
                           },
                           "url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "html_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "followers_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/followers"
-                            ]
+                            "format": "uri"
                           },
                           "following_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/following{/other_user}"
-                            ]
+                            "type": "string"
                           },
                           "gists_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/gists{/gist_id}"
-                            ]
+                            "type": "string"
                           },
                           "starred_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                            ]
+                            "type": "string"
                           },
                           "subscriptions_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/subscriptions"
-                            ]
+                            "format": "uri"
                           },
                           "organizations_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/orgs"
-                            ]
+                            "format": "uri"
                           },
                           "repos_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/repos"
-                            ]
+                            "format": "uri"
                           },
                           "events_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/events{/privacy}"
-                            ]
+                            "type": "string"
                           },
                           "received_events_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/received_events"
-                            ]
+                            "format": "uri"
                           },
                           "type": {
-                            "type": "string",
-                            "examples": [
-                              "User"
-                            ]
+                            "type": "string"
                           },
                           "site_admin": {
                             "type": "boolean"
                           },
                           "starred_at": {
-                            "type": "string",
-                            "examples": [
-                              "\"2020-07-09T00:17:55Z\""
-                            ]
+                            "type": "string"
                           },
                           "user_view_type": {
-                            "type": "string",
-                            "examples": [
-                              "public"
-                            ]
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -1594,133 +1293,76 @@
                           ]
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
                           ]
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -1941,7 +1583,6 @@
       "descriptionHTML": "<p>Lists code scanning alerts for the default branch for all eligible repositories in an organization. Eligible repositories are repositories that are owned by organizations that you own or for which you are a security manager. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization\">Managing security managers in your organization</a>.\"</p>\n<p>The authenticated user must be an owner or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> or <code>repo</code>s cope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2287,133 +1928,76 @@
                             ]
                           },
                           "login": {
-                            "type": "string",
-                            "examples": [
-                              "octocat"
-                            ]
+                            "type": "string"
                           },
                           "id": {
                             "type": "integer",
-                            "format": "int64",
-                            "examples": [
-                              1
-                            ]
+                            "format": "int64"
                           },
                           "node_id": {
-                            "type": "string",
-                            "examples": [
-                              "MDQ6VXNlcjE="
-                            ]
+                            "type": "string"
                           },
                           "avatar_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/images/error/octocat_happy.gif"
-                            ]
+                            "format": "uri"
                           },
                           "gravatar_id": {
                             "type": [
                               "string",
                               "null"
-                            ],
-                            "examples": [
-                              "41d064eb2195891e12d0413f63227ea7"
                             ]
                           },
                           "url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "html_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "followers_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/followers"
-                            ]
+                            "format": "uri"
                           },
                           "following_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/following{/other_user}"
-                            ]
+                            "type": "string"
                           },
                           "gists_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/gists{/gist_id}"
-                            ]
+                            "type": "string"
                           },
                           "starred_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                            ]
+                            "type": "string"
                           },
                           "subscriptions_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/subscriptions"
-                            ]
+                            "format": "uri"
                           },
                           "organizations_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/orgs"
-                            ]
+                            "format": "uri"
                           },
                           "repos_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/repos"
-                            ]
+                            "format": "uri"
                           },
                           "events_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/events{/privacy}"
-                            ]
+                            "type": "string"
                           },
                           "received_events_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/received_events"
-                            ]
+                            "format": "uri"
                           },
                           "type": {
-                            "type": "string",
-                            "examples": [
-                              "User"
-                            ]
+                            "type": "string"
                           },
                           "site_admin": {
                             "type": "boolean"
                           },
                           "starred_at": {
-                            "type": "string",
-                            "examples": [
-                              "\"2020-07-09T00:17:55Z\""
-                            ]
+                            "type": "string"
                           },
                           "user_view_type": {
-                            "type": "string",
-                            "examples": [
-                              "public"
-                            ]
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -2663,31 +2247,19 @@
                       "id": {
                         "type": "integer",
                         "format": "int64",
-                        "description": "A unique identifier of the repository.",
-                        "examples": [
-                          1296269
-                        ]
+                        "description": "A unique identifier of the repository."
                       },
                       "node_id": {
                         "type": "string",
-                        "description": "The GraphQL identifier of the repository.",
-                        "examples": [
-                          "MDEwOlJlcG9zaXRvcnkxMjk2MjY5"
-                        ]
+                        "description": "The GraphQL identifier of the repository."
                       },
                       "name": {
                         "type": "string",
-                        "description": "The name of the repository.",
-                        "examples": [
-                          "Hello-World"
-                        ]
+                        "description": "The name of the repository."
                       },
                       "full_name": {
                         "type": "string",
-                        "description": "The full, globally unique, name of the repository.",
-                        "examples": [
-                          "octocat/Hello-World"
-                        ]
+                        "description": "The full, globally unique, name of the repository."
                       },
                       "owner": {
                         "title": "Simple User",
@@ -2707,133 +2279,76 @@
                             ]
                           },
                           "login": {
-                            "type": "string",
-                            "examples": [
-                              "octocat"
-                            ]
+                            "type": "string"
                           },
                           "id": {
                             "type": "integer",
-                            "format": "int64",
-                            "examples": [
-                              1
-                            ]
+                            "format": "int64"
                           },
                           "node_id": {
-                            "type": "string",
-                            "examples": [
-                              "MDQ6VXNlcjE="
-                            ]
+                            "type": "string"
                           },
                           "avatar_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/images/error/octocat_happy.gif"
-                            ]
+                            "format": "uri"
                           },
                           "gravatar_id": {
                             "type": [
                               "string",
                               "null"
-                            ],
-                            "examples": [
-                              "41d064eb2195891e12d0413f63227ea7"
                             ]
                           },
                           "url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "html_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "followers_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/followers"
-                            ]
+                            "format": "uri"
                           },
                           "following_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/following{/other_user}"
-                            ]
+                            "type": "string"
                           },
                           "gists_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/gists{/gist_id}"
-                            ]
+                            "type": "string"
                           },
                           "starred_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                            ]
+                            "type": "string"
                           },
                           "subscriptions_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/subscriptions"
-                            ]
+                            "format": "uri"
                           },
                           "organizations_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/orgs"
-                            ]
+                            "format": "uri"
                           },
                           "repos_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/repos"
-                            ]
+                            "format": "uri"
                           },
                           "events_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/events{/privacy}"
-                            ]
+                            "type": "string"
                           },
                           "received_events_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/received_events"
-                            ]
+                            "format": "uri"
                           },
                           "type": {
-                            "type": "string",
-                            "examples": [
-                              "User"
-                            ]
+                            "type": "string"
                           },
                           "site_admin": {
                             "type": "boolean"
                           },
                           "starred_at": {
-                            "type": "string",
-                            "examples": [
-                              "\"2020-07-09T00:17:55Z\""
-                            ]
+                            "type": "string"
                           },
                           "user_view_type": {
-                            "type": "string",
-                            "examples": [
-                              "public"
-                            ]
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -2864,20 +2379,14 @@
                       "html_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The URL to view the repository on GitHub.com.",
-                        "examples": [
-                          "https://github.com/octocat/Hello-World"
-                        ]
+                        "description": "The URL to view the repository on GitHub.com."
                       },
                       "description": {
                         "type": [
                           "string",
                           "null"
                         ],
-                        "description": "The repository description.",
-                        "examples": [
-                          "This your first repo!"
-                        ]
+                        "description": "The repository description."
                       },
                       "fork": {
                         "type": "boolean",
@@ -2886,275 +2395,164 @@
                       "url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The URL to get more information about the repository from the GitHub API.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World"
-                        ]
+                        "description": "The URL to get more information about the repository from the GitHub API."
                       },
                       "archive_url": {
                         "type": "string",
-                        "description": "A template for the API URL to download the repository as an archive.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}"
-                        ]
+                        "description": "A template for the API URL to download the repository as an archive."
                       },
                       "assignees_url": {
                         "type": "string",
-                        "description": "A template for the API URL to list the available assignees for issues in the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/assignees{/user}"
-                        ]
+                        "description": "A template for the API URL to list the available assignees for issues in the repository."
                       },
                       "blobs_url": {
                         "type": "string",
-                        "description": "A template for the API URL to create or retrieve a raw Git blob in the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/git/blobs{/sha}"
-                        ]
+                        "description": "A template for the API URL to create or retrieve a raw Git blob in the repository."
                       },
                       "branches_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about branches in the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/branches{/branch}"
-                        ]
+                        "description": "A template for the API URL to get information about branches in the repository."
                       },
                       "collaborators_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about collaborators of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/collaborators{/collaborator}"
-                        ]
+                        "description": "A template for the API URL to get information about collaborators of the repository."
                       },
                       "comments_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about comments on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/comments{/number}"
-                        ]
+                        "description": "A template for the API URL to get information about comments on the repository."
                       },
                       "commits_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about commits on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/commits{/sha}"
-                        ]
+                        "description": "A template for the API URL to get information about commits on the repository."
                       },
                       "compare_url": {
                         "type": "string",
-                        "description": "A template for the API URL to compare two commits or refs.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/compare/{base}...{head}"
-                        ]
+                        "description": "A template for the API URL to compare two commits or refs."
                       },
                       "contents_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get the contents of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/contents/{+path}"
-                        ]
+                        "description": "A template for the API URL to get the contents of the repository."
                       },
                       "contributors_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "A template for the API URL to list the contributors to the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/contributors"
-                        ]
+                        "description": "A template for the API URL to list the contributors to the repository."
                       },
                       "deployments_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to list the deployments of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/deployments"
-                        ]
+                        "description": "The API URL to list the deployments of the repository."
                       },
                       "downloads_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to list the downloads on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/downloads"
-                        ]
+                        "description": "The API URL to list the downloads on the repository."
                       },
                       "events_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to list the events of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/events"
-                        ]
+                        "description": "The API URL to list the events of the repository."
                       },
                       "forks_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to list the forks of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/forks"
-                        ]
+                        "description": "The API URL to list the forks of the repository."
                       },
                       "git_commits_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about Git commits of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/git/commits{/sha}"
-                        ]
+                        "description": "A template for the API URL to get information about Git commits of the repository."
                       },
                       "git_refs_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about Git refs of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/git/refs{/sha}"
-                        ]
+                        "description": "A template for the API URL to get information about Git refs of the repository."
                       },
                       "git_tags_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about Git tags of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/git/tags{/sha}"
-                        ]
+                        "description": "A template for the API URL to get information about Git tags of the repository."
                       },
                       "issue_comment_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about issue comments on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/issues/comments{/number}"
-                        ]
+                        "description": "A template for the API URL to get information about issue comments on the repository."
                       },
                       "issue_events_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about issue events on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/issues/events{/number}"
-                        ]
+                        "description": "A template for the API URL to get information about issue events on the repository."
                       },
                       "issues_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about issues on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/issues{/number}"
-                        ]
+                        "description": "A template for the API URL to get information about issues on the repository."
                       },
                       "keys_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about deploy keys on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/keys{/key_id}"
-                        ]
+                        "description": "A template for the API URL to get information about deploy keys on the repository."
                       },
                       "labels_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about labels of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/labels{/name}"
-                        ]
+                        "description": "A template for the API URL to get information about labels of the repository."
                       },
                       "languages_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to get information about the languages of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/languages"
-                        ]
+                        "description": "The API URL to get information about the languages of the repository."
                       },
                       "merges_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to merge branches in the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/merges"
-                        ]
+                        "description": "The API URL to merge branches in the repository."
                       },
                       "milestones_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about milestones of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/milestones{/number}"
-                        ]
+                        "description": "A template for the API URL to get information about milestones of the repository."
                       },
                       "notifications_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about notifications on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/notifications{?since,all,participating}"
-                        ]
+                        "description": "A template for the API URL to get information about notifications on the repository."
                       },
                       "pulls_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about pull requests on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/pulls{/number}"
-                        ]
+                        "description": "A template for the API URL to get information about pull requests on the repository."
                       },
                       "releases_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about releases on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/releases{/id}"
-                        ]
+                        "description": "A template for the API URL to get information about releases on the repository."
                       },
                       "stargazers_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to list the stargazers on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/stargazers"
-                        ]
+                        "description": "The API URL to list the stargazers on the repository."
                       },
                       "statuses_url": {
                         "type": "string",
-                        "description": "A template for the API URL to get information about statuses of a commit.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/statuses/{sha}"
-                        ]
+                        "description": "A template for the API URL to get information about statuses of a commit."
                       },
                       "subscribers_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to list the subscribers on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/subscribers"
-                        ]
+                        "description": "The API URL to list the subscribers on the repository."
                       },
                       "subscription_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to subscribe to notifications for this repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/subscription"
-                        ]
+                        "description": "The API URL to subscribe to notifications for this repository."
                       },
                       "tags_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to get information about tags on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/tags"
-                        ]
+                        "description": "The API URL to get information about tags on the repository."
                       },
                       "teams_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to list the teams on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/teams"
-                        ]
+                        "description": "The API URL to list the teams on the repository."
                       },
                       "trees_url": {
                         "type": "string",
-                        "description": "A template for the API URL to create or retrieve a raw Git tree of the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/git/trees{/sha}"
-                        ]
+                        "description": "A template for the API URL to create or retrieve a raw Git tree of the repository."
                       },
                       "hooks_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The API URL to list the hooks on the repository.",
-                        "examples": [
-                          "https://api.github.com/repos/octocat/Hello-World/hooks"
-                        ]
+                        "description": "The API URL to list the hooks on the repository."
                       }
                     },
                     "required": [
@@ -3229,133 +2627,76 @@
                             ]
                           },
                           "login": {
-                            "type": "string",
-                            "examples": [
-                              "octocat"
-                            ]
+                            "type": "string"
                           },
                           "id": {
                             "type": "integer",
-                            "format": "int64",
-                            "examples": [
-                              1
-                            ]
+                            "format": "int64"
                           },
                           "node_id": {
-                            "type": "string",
-                            "examples": [
-                              "MDQ6VXNlcjE="
-                            ]
+                            "type": "string"
                           },
                           "avatar_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/images/error/octocat_happy.gif"
-                            ]
+                            "format": "uri"
                           },
                           "gravatar_id": {
                             "type": [
                               "string",
                               "null"
-                            ],
-                            "examples": [
-                              "41d064eb2195891e12d0413f63227ea7"
                             ]
                           },
                           "url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "html_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "followers_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/followers"
-                            ]
+                            "format": "uri"
                           },
                           "following_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/following{/other_user}"
-                            ]
+                            "type": "string"
                           },
                           "gists_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/gists{/gist_id}"
-                            ]
+                            "type": "string"
                           },
                           "starred_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                            ]
+                            "type": "string"
                           },
                           "subscriptions_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/subscriptions"
-                            ]
+                            "format": "uri"
                           },
                           "organizations_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/orgs"
-                            ]
+                            "format": "uri"
                           },
                           "repos_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/repos"
-                            ]
+                            "format": "uri"
                           },
                           "events_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/events{/privacy}"
-                            ]
+                            "type": "string"
                           },
                           "received_events_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/received_events"
-                            ]
+                            "format": "uri"
                           },
                           "type": {
-                            "type": "string",
-                            "examples": [
-                              "User"
-                            ]
+                            "type": "string"
                           },
                           "site_admin": {
                             "type": "boolean"
                           },
                           "starred_at": {
-                            "type": "string",
-                            "examples": [
-                              "\"2020-07-09T00:17:55Z\""
-                            ]
+                            "type": "string"
                           },
                           "user_view_type": {
-                            "type": "string",
-                            "examples": [
-                              "public"
-                            ]
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -3401,133 +2742,76 @@
                           ]
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
                           ]
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -3780,7 +3064,6 @@
       "descriptionHTML": "<p>Lists code scanning alerts.</p>\n<p>The response includes a <code>most_recent_instance</code> object.\nThis provides details of the most recent instance of this alert\nfor the default branch (or for the specified Git reference if you used <code>ref</code> in the request).</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -3995,133 +3278,76 @@
                             ]
                           },
                           "login": {
-                            "type": "string",
-                            "examples": [
-                              "octocat"
-                            ]
+                            "type": "string"
                           },
                           "id": {
                             "type": "integer",
-                            "format": "int64",
-                            "examples": [
-                              1
-                            ]
+                            "format": "int64"
                           },
                           "node_id": {
-                            "type": "string",
-                            "examples": [
-                              "MDQ6VXNlcjE="
-                            ]
+                            "type": "string"
                           },
                           "avatar_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/images/error/octocat_happy.gif"
-                            ]
+                            "format": "uri"
                           },
                           "gravatar_id": {
                             "type": [
                               "string",
                               "null"
-                            ],
-                            "examples": [
-                              "41d064eb2195891e12d0413f63227ea7"
                             ]
                           },
                           "url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "html_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "followers_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/followers"
-                            ]
+                            "format": "uri"
                           },
                           "following_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/following{/other_user}"
-                            ]
+                            "type": "string"
                           },
                           "gists_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/gists{/gist_id}"
-                            ]
+                            "type": "string"
                           },
                           "starred_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                            ]
+                            "type": "string"
                           },
                           "subscriptions_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/subscriptions"
-                            ]
+                            "format": "uri"
                           },
                           "organizations_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/orgs"
-                            ]
+                            "format": "uri"
                           },
                           "repos_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/repos"
-                            ]
+                            "format": "uri"
                           },
                           "events_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/events{/privacy}"
-                            ]
+                            "type": "string"
                           },
                           "received_events_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/received_events"
-                            ]
+                            "format": "uri"
                           },
                           "type": {
-                            "type": "string",
-                            "examples": [
-                              "User"
-                            ]
+                            "type": "string"
                           },
                           "site_admin": {
                             "type": "boolean"
                           },
                           "starred_at": {
-                            "type": "string",
-                            "examples": [
-                              "\"2020-07-09T00:17:55Z\""
-                            ]
+                            "type": "string"
                           },
                           "user_view_type": {
-                            "type": "string",
-                            "examples": [
-                              "public"
-                            ]
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -4386,133 +3612,76 @@
                             ]
                           },
                           "login": {
-                            "type": "string",
-                            "examples": [
-                              "octocat"
-                            ]
+                            "type": "string"
                           },
                           "id": {
                             "type": "integer",
-                            "format": "int64",
-                            "examples": [
-                              1
-                            ]
+                            "format": "int64"
                           },
                           "node_id": {
-                            "type": "string",
-                            "examples": [
-                              "MDQ6VXNlcjE="
-                            ]
+                            "type": "string"
                           },
                           "avatar_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/images/error/octocat_happy.gif"
-                            ]
+                            "format": "uri"
                           },
                           "gravatar_id": {
                             "type": [
                               "string",
                               "null"
-                            ],
-                            "examples": [
-                              "41d064eb2195891e12d0413f63227ea7"
                             ]
                           },
                           "url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "html_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "followers_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/followers"
-                            ]
+                            "format": "uri"
                           },
                           "following_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/following{/other_user}"
-                            ]
+                            "type": "string"
                           },
                           "gists_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/gists{/gist_id}"
-                            ]
+                            "type": "string"
                           },
                           "starred_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                            ]
+                            "type": "string"
                           },
                           "subscriptions_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/subscriptions"
-                            ]
+                            "format": "uri"
                           },
                           "organizations_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/orgs"
-                            ]
+                            "format": "uri"
                           },
                           "repos_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/repos"
-                            ]
+                            "format": "uri"
                           },
                           "events_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/events{/privacy}"
-                            ]
+                            "type": "string"
                           },
                           "received_events_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/received_events"
-                            ]
+                            "format": "uri"
                           },
                           "type": {
-                            "type": "string",
-                            "examples": [
-                              "User"
-                            ]
+                            "type": "string"
                           },
                           "site_admin": {
                             "type": "boolean"
                           },
                           "starred_at": {
-                            "type": "string",
-                            "examples": [
-                              "\"2020-07-09T00:17:55Z\""
-                            ]
+                            "type": "string"
                           },
                           "user_view_type": {
-                            "type": "string",
-                            "examples": [
-                              "public"
-                            ]
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -4558,133 +3727,76 @@
                           ]
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
                           ]
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -4805,7 +3917,6 @@
       "descriptionHTML": "<p>Gets a single code scanning alert.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -4974,133 +4085,76 @@
                           ]
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
                           ]
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -5365,133 +4419,76 @@
                           ]
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
                           ]
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -5537,133 +4534,76 @@
                         ]
                       },
                       "login": {
-                        "type": "string",
-                        "examples": [
-                          "octocat"
-                        ]
+                        "type": "string"
                       },
                       "id": {
                         "type": "integer",
-                        "format": "int64",
-                        "examples": [
-                          1
-                        ]
+                        "format": "int64"
                       },
                       "node_id": {
-                        "type": "string",
-                        "examples": [
-                          "MDQ6VXNlcjE="
-                        ]
+                        "type": "string"
                       },
                       "avatar_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://github.com/images/error/octocat_happy.gif"
-                        ]
+                        "format": "uri"
                       },
                       "gravatar_id": {
                         "type": [
                           "string",
                           "null"
-                        ],
-                        "examples": [
-                          "41d064eb2195891e12d0413f63227ea7"
                         ]
                       },
                       "url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat"
-                        ]
+                        "format": "uri"
                       },
                       "html_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://github.com/octocat"
-                        ]
+                        "format": "uri"
                       },
                       "followers_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/followers"
-                        ]
+                        "format": "uri"
                       },
                       "following_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/following{/other_user}"
-                        ]
+                        "type": "string"
                       },
                       "gists_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/gists{/gist_id}"
-                        ]
+                        "type": "string"
                       },
                       "starred_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                        ]
+                        "type": "string"
                       },
                       "subscriptions_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/subscriptions"
-                        ]
+                        "format": "uri"
                       },
                       "organizations_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/orgs"
-                        ]
+                        "format": "uri"
                       },
                       "repos_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/repos"
-                        ]
+                        "format": "uri"
                       },
                       "events_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/events{/privacy}"
-                        ]
+                        "type": "string"
                       },
                       "received_events_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/received_events"
-                        ]
+                        "format": "uri"
                       },
                       "type": {
-                        "type": "string",
-                        "examples": [
-                          "User"
-                        ]
+                        "type": "string"
                       },
                       "site_admin": {
                         "type": "boolean"
                       },
                       "starred_at": {
-                        "type": "string",
-                        "examples": [
-                          "\"2020-07-09T00:17:55Z\""
-                        ]
+                        "type": "string"
                       },
                       "user_view_type": {
-                        "type": "string",
-                        "examples": [
-                          "public"
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -5783,7 +4723,6 @@
         {
           "type": "string",
           "name": "state",
-          "in": "body",
           "description": "<p>Sets the state of the code scanning alert. You must provide <code>dismissed_reason</code> when you set the state to <code>dismissed</code>.</p>",
           "isRequired": true,
           "enum": [
@@ -5794,7 +4733,6 @@
         {
           "type": "string or null",
           "name": "dismissed_reason",
-          "in": "body",
           "description": "<p><strong>Required when the state is dismissed.</strong> The reason for dismissing or closing the alert.</p>",
           "enum": [
             "false positive",
@@ -5806,26 +4744,22 @@
         {
           "type": "string or null",
           "name": "dismissed_comment",
-          "in": "body",
           "description": "<p>The dismissal comment associated with the dismissal of the alert.</p>"
         },
         {
           "type": "boolean",
           "name": "create_request",
-          "in": "body",
           "description": "<p>If <code>true</code>, attempt to create an alert dismissal request.</p>"
         },
         {
           "type": "array of strings",
           "name": "assignees",
-          "in": "body",
           "description": "<p>The list of users to assign to the code scanning alert. An empty array unassigns all previous assignees from the alert.</p>"
         }
       ],
       "descriptionHTML": "<p>Updates the status of a single code scanning alert.\nOAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -6001,133 +4935,76 @@
                           ]
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
                           ]
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -6392,133 +5269,76 @@
                           ]
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
                           ]
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -6564,133 +5384,76 @@
                         ]
                       },
                       "login": {
-                        "type": "string",
-                        "examples": [
-                          "octocat"
-                        ]
+                        "type": "string"
                       },
                       "id": {
                         "type": "integer",
-                        "format": "int64",
-                        "examples": [
-                          1
-                        ]
+                        "format": "int64"
                       },
                       "node_id": {
-                        "type": "string",
-                        "examples": [
-                          "MDQ6VXNlcjE="
-                        ]
+                        "type": "string"
                       },
                       "avatar_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://github.com/images/error/octocat_happy.gif"
-                        ]
+                        "format": "uri"
                       },
                       "gravatar_id": {
                         "type": [
                           "string",
                           "null"
-                        ],
-                        "examples": [
-                          "41d064eb2195891e12d0413f63227ea7"
                         ]
                       },
                       "url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat"
-                        ]
+                        "format": "uri"
                       },
                       "html_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://github.com/octocat"
-                        ]
+                        "format": "uri"
                       },
                       "followers_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/followers"
-                        ]
+                        "format": "uri"
                       },
                       "following_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/following{/other_user}"
-                        ]
+                        "type": "string"
                       },
                       "gists_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/gists{/gist_id}"
-                        ]
+                        "type": "string"
                       },
                       "starred_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                        ]
+                        "type": "string"
                       },
                       "subscriptions_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/subscriptions"
-                        ]
+                        "format": "uri"
                       },
                       "organizations_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/orgs"
-                        ]
+                        "format": "uri"
                       },
                       "repos_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/repos"
-                        ]
+                        "format": "uri"
                       },
                       "events_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/events{/privacy}"
-                        ]
+                        "type": "string"
                       },
                       "received_events_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/received_events"
-                        ]
+                        "format": "uri"
                       },
                       "type": {
-                        "type": "string",
-                        "examples": [
-                          "User"
-                        ]
+                        "type": "string"
                       },
                       "site_admin": {
                         "type": "boolean"
                       },
                       "starred_at": {
-                        "type": "string",
-                        "examples": [
-                          "\"2020-07-09T00:17:55Z\""
-                        ]
+                        "type": "string"
                       },
                       "user_view_type": {
-                        "type": "string",
-                        "examples": [
-                          "public"
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -6847,7 +5610,6 @@
       "descriptionHTML": "<p>Lists all instances of the specified code scanning alert.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -7158,7 +5920,6 @@
       "descriptionHTML": "<p>Lists the details of all code scanning analyses for a repository,\nstarting with the most recent.\nThe response is paginated and you can use the <code>page</code> and <code>per_page</code> parameters\nto list the analyses you're interested in.\nBy default 30 analyses are listed per page.</p>\n<p>The <code>rules_count</code> field in the response give the number of rules\nthat were run in the analysis.\nFor very old analyses this data is not available,\nand <code>0</code> is returned in this field.</p>\n<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> The <code>tool_name</code> field is closing down and will, in future, not be included in the response for this endpoint. The example response reflects this change. The tool name can now be found inside the <code>tool</code> field.</p>\n</div>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -7244,10 +6005,7 @@
                     "description": "Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code."
                   },
                   "error": {
-                    "type": "string",
-                    "examples": [
-                      "error reading field xyz"
-                    ]
+                    "type": "string"
                   },
                   "created_at": {
                     "type": "string",
@@ -7275,10 +6033,7 @@
                   },
                   "sarif_id": {
                     "type": "string",
-                    "description": "An identifier for the upload.",
-                    "examples": [
-                      "6c81cd8e-b078-4ac3-a3be-1dad7dbd0b53"
-                    ]
+                    "description": "An identifier for the upload."
                   },
                   "tool": {
                     "type": "object",
@@ -7308,10 +6063,7 @@
                   },
                   "warning": {
                     "type": "string",
-                    "description": "Warning generated when processing the analysis",
-                    "examples": [
-                      "123 results were ignored"
-                    ]
+                    "description": "Warning generated when processing the analysis"
                   }
                 },
                 "required": [
@@ -7405,7 +6157,6 @@
       "descriptionHTML": "<p>Gets a specified code scanning analysis for a repository.</p>\n<p>The default JSON response contains fields that describe the analysis.\nThis includes the Git reference and commit SHA to which the analysis relates,\nthe datetime of the analysis, the name of the code scanning tool,\nand the number of alerts.</p>\n<p>The <code>rules_count</code> field in the default response give the number of rules\nthat were run in the analysis.\nFor very old analyses this data is not available,\nand <code>0</code> is returned in this field.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/sarif+json</code></strong>: Instead of returning a summary of the analysis, this endpoint returns a subset of the analysis data that was uploaded. The data is formatted as <a href=\"https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html\">SARIF version 2.1.0</a>. It also returns additional data such as the <code>github/alertNumber</code> and <code>github/alertUrl</code> properties.</li>\n</ul>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
-          "key": "response",
           "request": {
             "description": "Example 1: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -7467,10 +6218,7 @@
                   "description": "Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code."
                 },
                 "error": {
-                  "type": "string",
-                  "examples": [
-                    "error reading field xyz"
-                  ]
+                  "type": "string"
                 },
                 "created_at": {
                   "type": "string",
@@ -7498,10 +6246,7 @@
                 },
                 "sarif_id": {
                   "type": "string",
-                  "description": "An identifier for the upload.",
-                  "examples": [
-                    "6c81cd8e-b078-4ac3-a3be-1dad7dbd0b53"
-                  ]
+                  "description": "An identifier for the upload."
                 },
                 "tool": {
                   "type": "object",
@@ -7531,10 +6276,7 @@
                 },
                 "warning": {
                   "type": "string",
-                  "description": "Warning generated when processing the analysis",
-                  "examples": [
-                    "123 results were ignored"
-                  ]
+                  "description": "Warning generated when processing the analysis"
                 }
               },
               "required": [
@@ -7557,7 +6299,6 @@
           }
         },
         {
-          "key": "response",
           "request": {
             "description": "Example 2: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -7712,7 +6453,6 @@
       "descriptionHTML": "<p>Deletes a specified code scanning analysis from a repository.</p>\n<p>You can delete one analysis at a time.\nTo delete a series of analyses, start with the most recent analysis and work backwards.\nConceptually, the process is similar to the undo function in a text editor.</p>\n<p>When you list the analyses for a repository,\none or more will be identified as deletable in the response:</p>\n<pre><code>\"deletable\": true\n</code></pre>\n<p>An analysis is deletable when it's the most recent in a set of analyses.\nTypically, a repository will have multiple sets of analyses\nfor each enabled code scanning tool,\nwhere a set is determined by a unique combination of analysis values:</p>\n<ul>\n<li><code>ref</code></li>\n<li><code>tool</code></li>\n<li><code>category</code></li>\n</ul>\n<p>If you attempt to delete an analysis that is not the most recent in a set,\nyou'll get a 400 response with the message:</p>\n<pre><code>Analysis specified is not deletable.\n</code></pre>\n<p>The response from a successful <code>DELETE</code> operation provides you with\ntwo alternative URLs for deleting the next analysis in the set:\n<code>next_analysis_url</code> and <code>confirm_delete_url</code>.\nUse the <code>next_analysis_url</code> URL if you want to avoid accidentally deleting the final analysis\nin a set. This is a useful option if you want to preserve at least one analysis\nfor the specified tool in your repository.\nUse the <code>confirm_delete_url</code> URL if you are content to remove all analyses for a tool.\nWhen you delete the last analysis in a set, the value of <code>next_analysis_url</code> and <code>confirm_delete_url</code>\nin the 200 response is <code>null</code>.</p>\n<p>As an example of the deletion process,\nlet's imagine that you added a workflow that configured a particular code scanning tool\nto analyze the code in a repository. This tool has added 15 analyses:\n10 on the default branch, and another 5 on a topic branch.\nYou therefore have two separate sets of analyses for this tool.\nYou've now decided that you want to remove all of the analyses for the tool.\nTo do this you must make 15 separate deletion requests.\nTo start, you must find an analysis that's identified as deletable.\nEach set of analyses always has one that's identified as deletable.\nHaving found the deletable analysis for one of the two sets,\ndelete this analysis and then continue deleting the next analysis in the set until they're all deleted.\nThen repeat the process for the second set.\nThe procedure therefore consists of a nested loop:</p>\n<p><strong>Outer loop</strong>:</p>\n<ul>\n<li>\n<p>List the analyses for the repository, filtered by tool.</p>\n</li>\n<li>\n<p>Parse this list to find a deletable analysis. If found:</p>\n<p><strong>Inner loop</strong>:</p>\n<ul>\n<li>Delete the identified analysis.</li>\n<li>Parse the response for the value of <code>confirm_delete_url</code> and, if found, use this in the next iteration.</li>\n</ul>\n</li>\n</ul>\n<p>The above process assumes that you want to remove all trace of the tool's analyses from the GitHub user interface, for the specified repository, and it therefore uses the <code>confirm_delete_url</code> value. Alternatively, you could use the <code>next_analysis_url</code> value, which would leave the last analysis in each set undeleted to avoid removing a tool's analysis entirely.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -7827,7 +6567,6 @@
       "descriptionHTML": "<p>Gets a code scanning default setup configuration.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -7900,9 +6639,6 @@
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "code-scanning"
                   ]
                 },
                 "query_suite": {
@@ -7927,10 +6663,7 @@
                     "string",
                     "null"
                   ],
-                  "format": "date-time",
-                  "examples": [
-                    "2023-12-06T14:20:20.000Z"
-                  ]
+                  "format": "date-time"
                 },
                 "schedule": {
                   "description": "The frequency of the periodic analysis.",
@@ -8009,7 +6742,6 @@
         {
           "type": "string",
           "name": "state",
-          "in": "body",
           "description": "<p>The desired state of code scanning default setup.</p>",
           "enum": [
             "configured",
@@ -8019,7 +6751,6 @@
         {
           "type": "string",
           "name": "runner_type",
-          "in": "body",
           "description": "<p>Runner type to be used.</p>",
           "enum": [
             "standard",
@@ -8029,13 +6760,11 @@
         {
           "type": "string or null",
           "name": "runner_label",
-          "in": "body",
           "description": "<p>Runner label to be used if the runner type is labeled.</p>"
         },
         {
           "type": "string",
           "name": "query_suite",
-          "in": "body",
           "description": "<p>CodeQL query suite to be used.</p>",
           "enum": [
             "default",
@@ -8045,7 +6774,6 @@
         {
           "type": "string",
           "name": "threat_model",
-          "in": "body",
           "description": "<p>Threat model to be used for code scanning analysis. Use <code>remote</code> to analyze only network sources and <code>remote_and_local</code> to include local sources like filesystem access, command-line arguments, database reads, environment variable and standard input.</p>",
           "enum": [
             "remote",
@@ -8055,14 +6783,12 @@
         {
           "type": "array of strings",
           "name": "languages",
-          "in": "body",
           "description": "<p>CodeQL languages to be analyzed.\nSupported values are: <code>actions</code>, <code>c-cpp</code>, <code>csharp</code>, <code>go</code>, <code>java-kotlin</code>, <code>javascript-typescript</code>, <code>python</code>, <code>ruby</code>, <code>swift</code></p>"
         }
       ],
       "descriptionHTML": "<p>Updates a code scanning default setup configuration.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -8174,47 +6900,40 @@
         {
           "type": "string",
           "name": "commit_sha",
-          "in": "body",
           "description": "<p>The SHA of the commit to which the analysis you are uploading relates.</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "ref",
-          "in": "body",
           "description": "<p>The full Git reference, formatted as <code>refs/heads/&#x3C;branch name></code>,\n<code>refs/tags/&#x3C;tag></code>, <code>refs/pull/&#x3C;number>/merge</code>, or <code>refs/pull/&#x3C;number>/head</code>.</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "sarif",
-          "in": "body",
           "description": "<p>A Base64 string representing the SARIF file to upload. You must first compress your SARIF file using <a href=\"http://www.gnu.org/software/gzip/manual/gzip.html\"><code>gzip</code></a> and then translate the contents of the file into a Base64 encoding string. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/code-security/secure-coding/sarif-support-for-code-scanning\">SARIF support for code scanning</a>.\"</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "checkout_uri",
-          "in": "body",
           "description": "<p>The base directory used in the analysis, as it appears in the SARIF file.\nThis property is used to convert file paths from absolute to relative, so that alerts can be mapped to their correct location in the repository.</p>"
         },
         {
           "type": "string",
           "name": "started_at",
-          "in": "body",
           "description": "<p>The time that the analysis run began. This is a timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> format: <code>YYYY-MM-DDTHH:MM:SSZ</code>.</p>"
         },
         {
           "type": "string",
           "name": "tool_name",
-          "in": "body",
           "description": "<p>The name of the tool used to generate the code scanning analysis. If this parameter is not used, the tool name defaults to \"API\". If the uploaded SARIF contains a tool GUID, this will be available for filtering using the <code>tool_guid</code> parameter of operations such as <code>GET /repos/{owner}/{repo}/code-scanning/alerts</code>.</p>"
         }
       ],
       "descriptionHTML": "<p>Uploads SARIF data containing the results of a code scanning analysis to make the results available in a repository. For troubleshooting information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/code-security/code-scanning/troubleshooting-sarif\">Troubleshooting SARIF uploads</a>.\"</p>\n<p>There are two places where you can upload code scanning results.</p>\n<ul>\n<li>If you upload to a pull request, for example <code>--ref refs/pull/42/merge</code> or <code>--ref refs/pull/42/head</code>, then the results appear as alerts in a pull request check. For more information, see \"<a href=\"/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests\">Triaging code scanning alerts in pull requests</a>.\"</li>\n<li>If you upload to a branch, for example <code>--ref refs/heads/my-branch</code>, then the results appear in the <strong>Security</strong> tab for your repository. For more information, see \"<a href=\"/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository\">Managing code scanning alerts for your repository</a>.\"</li>\n</ul>\n<p>You must compress the SARIF-formatted analysis data that you want to upload, using <code>gzip</code>, and then encode it as a Base64 format string. For example:</p>\n<pre><code>gzip -c analysis-data.sarif | base64 -w0\n</code></pre>\n<p>SARIF upload supports a maximum number of entries per the following data objects, and an analysis will be rejected if any of these objects is above its maximum value. For some objects, there are additional values over which the entries will be ignored while keeping the most important entries whenever applicable.\nTo get the most out of your analysis when it includes data above the supported limits, try to optimize the analysis configuration. For example, for the CodeQL tool, identify and remove the most noisy queries. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/code-security/code-scanning/troubleshooting-sarif/results-exceed-limit\">SARIF results exceed one or more limits</a>.\"</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\"><strong>SARIF data</strong></th><th align=\"center\" scope=\"col\"><strong>Maximum values</strong></th><th scope=\"col\"><strong>Additional limits</strong></th></tr></thead><tbody><tr><td>Runs per file</td><td align=\"center\">20</td><td></td></tr><tr><td>Results per run</td><td align=\"center\">25,000</td><td>Only the top 5,000 results will be included, prioritized by severity.</td></tr><tr><td>Rules per run</td><td align=\"center\">25,000</td><td></td></tr><tr><td>Tool extensions per run</td><td align=\"center\">100</td><td></td></tr><tr><td>Thread Flow Locations per result</td><td align=\"center\">10,000</td><td>Only the top 1,000 Thread Flow Locations will be included, using prioritization.</td></tr><tr><td>Location per result</td><td align=\"center\">1,000</td><td>Only 100 locations will be included.</td></tr><tr><td>Tags per rule</td><td align=\"center\">20</td><td>Only 10 tags will be included.</td></tr></tbody></table>\n<p>The <code>202 Accepted</code> response includes an <code>id</code> value.\nYou can use this ID to check the status of the upload by using it in the <code>/sarifs/{sarif_id}</code> endpoint.\nFor more information, see \"<a href=\"/rest/code-scanning/code-scanning#get-information-about-a-sarif-upload\">Get information about a SARIF upload</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>\n<p>This endpoint is limited to 1,000 requests per hour for each user or app installation calling it.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -8242,10 +6961,7 @@
               "properties": {
                 "id": {
                   "type": "string",
-                  "description": "An identifier for the upload.",
-                  "examples": [
-                    "6c81cd8e-b078-4ac3-a3be-1dad7dbd0b53"
-                  ]
+                  "description": "An identifier for the upload."
                 },
                 "url": {
                   "type": "string",
@@ -8336,7 +7052,6 @@
       "descriptionHTML": "<p>Gets information about a SARIF upload, including the status and the URL of the analysis that was uploaded so that you can retrieve details of the analysis. For more information, see \"<a href=\"/rest/code-scanning/code-scanning#get-a-code-scanning-analysis-for-a-repository\">Get a code scanning analysis for a repository</a>.\"\nOAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint with private or public repositories, or the <code>public_repo</code> scope to use this endpoint with only public repositories.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -8522,7 +7237,6 @@
       "descriptionHTML": "<p>Lists dismissal requests for code scanning alerts for all repositories in an organization.</p>\n<p>The user must be authorized to review dismissal requests for the organization.\nPersonal access tokens (classic) need the <code>security_events</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -8716,10 +7430,7 @@
                   },
                   "resource_identifier": {
                     "type": "string",
-                    "description": "The unique identifier for the request type of the dismissal request.",
-                    "examples": [
-                      "827efc6d56897b048c772eb4087f854f46256132"
-                    ]
+                    "description": "The unique identifier for the request type of the dismissal request."
                   },
                   "status": {
                     "type": "string",
@@ -8805,18 +7516,12 @@
                   },
                   "url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/repos/octo-org/smile/dismissal-requests/code-scanning/1"
-                    ]
+                    "format": "uri"
                   },
                   "html_url": {
                     "type": "string",
                     "description": "The URL to view the dismissal request in a browser.",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/octo-org/smile/code-scanning/alerts/1"
-                    ]
+                    "format": "uri"
                   }
                 }
               }
@@ -8958,7 +7663,6 @@
       "descriptionHTML": "<p>Lists dismissal requests for code scanning alerts for a repository.</p>\n<p>Delegated alert dismissal must be enabled on the repository.\nPersonal access tokens (classic) need the <code>security_events</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -9153,10 +7857,7 @@
                   },
                   "resource_identifier": {
                     "type": "string",
-                    "description": "The unique identifier for the request type of the dismissal request.",
-                    "examples": [
-                      "827efc6d56897b048c772eb4087f854f46256132"
-                    ]
+                    "description": "The unique identifier for the request type of the dismissal request."
                   },
                   "status": {
                     "type": "string",
@@ -9242,18 +7943,12 @@
                   },
                   "url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/repos/octo-org/smile/dismissal-requests/code-scanning/1"
-                    ]
+                    "format": "uri"
                   },
                   "html_url": {
                     "type": "string",
                     "description": "The URL to view the dismissal request in a browser.",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/octo-org/smile/code-scanning/alerts/1"
-                    ]
+                    "format": "uri"
                   }
                 }
               }
@@ -9332,7 +8027,6 @@
       "descriptionHTML": "<p>Gets a dismissal request to dismiss a code scanning alert in a repository.</p>\n<p>Delegated alert dismissal must be enabled on the repository.\nPersonal access tokens (classic) need the <code>security_events</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -9482,10 +8176,7 @@
                 },
                 "resource_identifier": {
                   "type": "string",
-                  "description": "The unique identifier for the request type of the dismissal request.",
-                  "examples": [
-                    "827efc6d56897b048c772eb4087f854f46256132"
-                  ]
+                  "description": "The unique identifier for the request type of the dismissal request."
                 },
                 "status": {
                   "type": "string",
@@ -9571,18 +8262,12 @@
                 },
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repos/octo-org/smile/dismissal-requests/code-scanning/1"
-                  ]
+                  "format": "uri"
                 },
                 "html_url": {
                   "type": "string",
                   "description": "The URL to view the dismissal request in a browser.",
-                  "format": "uri",
-                  "examples": [
-                    "https://github.com/octo-org/smile/code-scanning/alerts/1"
-                  ]
+                  "format": "uri"
                 }
               }
             }
@@ -9660,7 +8345,6 @@
         {
           "type": "string",
           "name": "status",
-          "in": "body",
           "description": "<p>The review action to perform on the bypass request.</p>",
           "isRequired": true,
           "enum": [
@@ -9671,7 +8355,6 @@
         {
           "type": "string",
           "name": "message",
-          "in": "body",
           "description": "<p>A message to include with the review. Has a maximum character length of 2048.</p>",
           "isRequired": true
         }
@@ -9679,7 +8362,6 @@
       "descriptionHTML": "<p>Approve or deny a dismissal request to dismiss a code scanning alert in a repository.</p>\n<p>Delegated alert dismissal must be enabled on the repository and the user must be a dismissal reviewer to access this endpoint.\nPersonal access tokens (classic) need the <code>security_events</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",

@@ -12,7 +12,6 @@
       "descriptionHTML": "<p>OAuth app tokens and personal access tokens (classic) need the <code>user</code> scope in order for the response to include private profile information.</p>",
       "codeExamples": [
         {
-          "key": "response-with-public-and-private-profile-information",
           "request": {
             "description": "Example 1: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -74,121 +73,70 @@
                   "type": "object",
                   "properties": {
                     "login": {
-                      "type": "string",
-                      "examples": [
-                        "octocat"
-                      ]
+                      "type": "string"
                     },
                     "id": {
                       "type": "integer",
-                      "format": "int64",
-                      "examples": [
-                        1
-                      ]
+                      "format": "int64"
                     },
                     "user_view_type": {
                       "type": "string"
                     },
                     "node_id": {
-                      "type": "string",
-                      "examples": [
-                        "MDQ6VXNlcjE="
-                      ]
+                      "type": "string"
                     },
                     "avatar_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://github.com/images/error/octocat_happy.gif"
-                      ]
+                      "format": "uri"
                     },
                     "gravatar_id": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "41d064eb2195891e12d0413f63227ea7"
                       ]
                     },
                     "url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat"
-                      ]
+                      "format": "uri"
                     },
                     "html_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://github.com/octocat"
-                      ]
+                      "format": "uri"
                     },
                     "followers_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/followers"
-                      ]
+                      "format": "uri"
                     },
                     "following_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/following{/other_user}"
-                      ]
+                      "type": "string"
                     },
                     "gists_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/gists{/gist_id}"
-                      ]
+                      "type": "string"
                     },
                     "starred_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                      ]
+                      "type": "string"
                     },
                     "subscriptions_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/subscriptions"
-                      ]
+                      "format": "uri"
                     },
                     "organizations_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/orgs"
-                      ]
+                      "format": "uri"
                     },
                     "repos_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/repos"
-                      ]
+                      "format": "uri"
                     },
                     "events_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/events{/privacy}"
-                      ]
+                      "type": "string"
                     },
                     "received_events_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/received_events"
-                      ]
+                      "format": "uri"
                     },
                     "type": {
-                      "type": "string",
-                      "examples": [
-                        "User"
-                      ]
+                      "type": "string"
                     },
                     "site_admin": {
                       "type": "boolean"
@@ -197,36 +145,24 @@
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "monalisa octocat"
                       ]
                     },
                     "company": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "GitHub"
                       ]
                     },
                     "blog": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "https://github.com/blog"
                       ]
                     },
                     "location": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "San Francisco"
                       ]
                     },
                     "email": {
@@ -234,20 +170,14 @@
                         "string",
                         "null"
                       ],
-                      "format": "email",
-                      "examples": [
-                        "octocat@github.com"
-                      ]
+                      "format": "email"
                     },
                     "notification_email": {
                       "type": [
                         "string",
                         "null"
                       ],
-                      "format": "email",
-                      "examples": [
-                        "octocat@github.com"
-                      ]
+                      "format": "email"
                     },
                     "hireable": {
                       "type": [
@@ -259,93 +189,51 @@
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "There once was..."
                       ]
                     },
                     "twitter_username": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "monalisa"
                       ]
                     },
                     "public_repos": {
-                      "type": "integer",
-                      "examples": [
-                        2
-                      ]
+                      "type": "integer"
                     },
                     "public_gists": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "followers": {
-                      "type": "integer",
-                      "examples": [
-                        20
-                      ]
+                      "type": "integer"
                     },
                     "following": {
-                      "type": "integer",
-                      "examples": [
-                        0
-                      ]
+                      "type": "integer"
                     },
                     "created_at": {
                       "type": "string",
-                      "format": "date-time",
-                      "examples": [
-                        "2008-01-14T04:33:35Z"
-                      ]
+                      "format": "date-time"
                     },
                     "updated_at": {
                       "type": "string",
-                      "format": "date-time",
-                      "examples": [
-                        "2008-01-14T04:33:35Z"
-                      ]
+                      "format": "date-time"
                     },
                     "private_gists": {
-                      "type": "integer",
-                      "examples": [
-                        81
-                      ]
+                      "type": "integer"
                     },
                     "total_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        100
-                      ]
+                      "type": "integer"
                     },
                     "owned_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        100
-                      ]
+                      "type": "integer"
                     },
                     "disk_usage": {
-                      "type": "integer",
-                      "examples": [
-                        10000
-                      ]
+                      "type": "integer"
                     },
                     "collaborators": {
-                      "type": "integer",
-                      "examples": [
-                        8
-                      ]
+                      "type": "integer"
                     },
                     "two_factor_authentication": {
-                      "type": "boolean",
-                      "examples": [
-                        true
-                      ]
+                      "type": "boolean"
                     },
                     "plan": {
                       "type": "object",
@@ -591,34 +479,19 @@
                       ]
                     },
                     "private_gists": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "total_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        2
-                      ]
+                      "type": "integer"
                     },
                     "owned_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        2
-                      ]
+                      "type": "integer"
                     },
                     "disk_usage": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "collaborators": {
-                      "type": "integer",
-                      "examples": [
-                        3
-                      ]
+                      "type": "integer"
                     }
                   },
                   "required": [
@@ -661,7 +534,6 @@
           }
         },
         {
-          "key": "response-with-public-profile-information",
           "request": {
             "description": "Example 2: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -711,121 +583,70 @@
                   "type": "object",
                   "properties": {
                     "login": {
-                      "type": "string",
-                      "examples": [
-                        "octocat"
-                      ]
+                      "type": "string"
                     },
                     "id": {
                       "type": "integer",
-                      "format": "int64",
-                      "examples": [
-                        1
-                      ]
+                      "format": "int64"
                     },
                     "user_view_type": {
                       "type": "string"
                     },
                     "node_id": {
-                      "type": "string",
-                      "examples": [
-                        "MDQ6VXNlcjE="
-                      ]
+                      "type": "string"
                     },
                     "avatar_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://github.com/images/error/octocat_happy.gif"
-                      ]
+                      "format": "uri"
                     },
                     "gravatar_id": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "41d064eb2195891e12d0413f63227ea7"
                       ]
                     },
                     "url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat"
-                      ]
+                      "format": "uri"
                     },
                     "html_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://github.com/octocat"
-                      ]
+                      "format": "uri"
                     },
                     "followers_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/followers"
-                      ]
+                      "format": "uri"
                     },
                     "following_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/following{/other_user}"
-                      ]
+                      "type": "string"
                     },
                     "gists_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/gists{/gist_id}"
-                      ]
+                      "type": "string"
                     },
                     "starred_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                      ]
+                      "type": "string"
                     },
                     "subscriptions_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/subscriptions"
-                      ]
+                      "format": "uri"
                     },
                     "organizations_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/orgs"
-                      ]
+                      "format": "uri"
                     },
                     "repos_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/repos"
-                      ]
+                      "format": "uri"
                     },
                     "events_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/events{/privacy}"
-                      ]
+                      "type": "string"
                     },
                     "received_events_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/received_events"
-                      ]
+                      "format": "uri"
                     },
                     "type": {
-                      "type": "string",
-                      "examples": [
-                        "User"
-                      ]
+                      "type": "string"
                     },
                     "site_admin": {
                       "type": "boolean"
@@ -834,36 +655,24 @@
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "monalisa octocat"
                       ]
                     },
                     "company": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "GitHub"
                       ]
                     },
                     "blog": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "https://github.com/blog"
                       ]
                     },
                     "location": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "San Francisco"
                       ]
                     },
                     "email": {
@@ -871,20 +680,14 @@
                         "string",
                         "null"
                       ],
-                      "format": "email",
-                      "examples": [
-                        "octocat@github.com"
-                      ]
+                      "format": "email"
                     },
                     "notification_email": {
                       "type": [
                         "string",
                         "null"
                       ],
-                      "format": "email",
-                      "examples": [
-                        "octocat@github.com"
-                      ]
+                      "format": "email"
                     },
                     "hireable": {
                       "type": [
@@ -896,93 +699,51 @@
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "There once was..."
                       ]
                     },
                     "twitter_username": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "monalisa"
                       ]
                     },
                     "public_repos": {
-                      "type": "integer",
-                      "examples": [
-                        2
-                      ]
+                      "type": "integer"
                     },
                     "public_gists": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "followers": {
-                      "type": "integer",
-                      "examples": [
-                        20
-                      ]
+                      "type": "integer"
                     },
                     "following": {
-                      "type": "integer",
-                      "examples": [
-                        0
-                      ]
+                      "type": "integer"
                     },
                     "created_at": {
                       "type": "string",
-                      "format": "date-time",
-                      "examples": [
-                        "2008-01-14T04:33:35Z"
-                      ]
+                      "format": "date-time"
                     },
                     "updated_at": {
                       "type": "string",
-                      "format": "date-time",
-                      "examples": [
-                        "2008-01-14T04:33:35Z"
-                      ]
+                      "format": "date-time"
                     },
                     "private_gists": {
-                      "type": "integer",
-                      "examples": [
-                        81
-                      ]
+                      "type": "integer"
                     },
                     "total_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        100
-                      ]
+                      "type": "integer"
                     },
                     "owned_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        100
-                      ]
+                      "type": "integer"
                     },
                     "disk_usage": {
-                      "type": "integer",
-                      "examples": [
-                        10000
-                      ]
+                      "type": "integer"
                     },
                     "collaborators": {
-                      "type": "integer",
-                      "examples": [
-                        8
-                      ]
+                      "type": "integer"
                     },
                     "two_factor_authentication": {
-                      "type": "boolean",
-                      "examples": [
-                        true
-                      ]
+                      "type": "boolean"
                     },
                     "plan": {
                       "type": "object",
@@ -1228,34 +989,19 @@
                       ]
                     },
                     "private_gists": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "total_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        2
-                      ]
+                      "type": "integer"
                     },
                     "owned_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        2
-                      ]
+                      "type": "integer"
                     },
                     "disk_usage": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "collaborators": {
-                      "type": "integer",
-                      "examples": [
-                        3
-                      ]
+                      "type": "integer"
                     }
                   },
                   "required": [
@@ -1337,56 +1083,47 @@
         {
           "type": "string",
           "name": "name",
-          "in": "body",
           "description": "<p>The new name of the user.</p>"
         },
         {
           "type": "string",
           "name": "email",
-          "in": "body",
           "description": "<p>The publicly visible email address of the user.</p>"
         },
         {
           "type": "string",
           "name": "blog",
-          "in": "body",
           "description": "<p>The new blog URL of the user.</p>"
         },
         {
           "type": "string or null",
           "name": "twitter_username",
-          "in": "body",
           "description": "<p>The new Twitter username of the user.</p>"
         },
         {
           "type": "string",
           "name": "company",
-          "in": "body",
           "description": "<p>The new company of the user.</p>"
         },
         {
           "type": "string",
           "name": "location",
-          "in": "body",
           "description": "<p>The new location of the user.</p>"
         },
         {
           "type": "boolean",
           "name": "hireable",
-          "in": "body",
           "description": "<p>The new hiring availability of the user.</p>"
         },
         {
           "type": "string",
           "name": "bio",
-          "in": "body",
           "description": "<p>The new short biography of the user.</p>"
         }
       ],
       "descriptionHTML": "<p><strong>Note:</strong> If your email is set to private and you send an <code>email</code> parameter as part of this request to update your profile, your privacy settings are still enforced: the email address will not be displayed on your public profile or via the API.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example of updating blog and name",
@@ -1451,121 +1188,70 @@
               "type": "object",
               "properties": {
                 "login": {
-                  "type": "string",
-                  "examples": [
-                    "octocat"
-                  ]
+                  "type": "string"
                 },
                 "id": {
                   "type": "integer",
-                  "format": "int64",
-                  "examples": [
-                    1
-                  ]
+                  "format": "int64"
                 },
                 "user_view_type": {
                   "type": "string"
                 },
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDQ6VXNlcjE="
-                  ]
+                  "type": "string"
                 },
                 "avatar_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://github.com/images/error/octocat_happy.gif"
-                  ]
+                  "format": "uri"
                 },
                 "gravatar_id": {
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "41d064eb2195891e12d0413f63227ea7"
                   ]
                 },
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/users/octocat"
-                  ]
+                  "format": "uri"
                 },
                 "html_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://github.com/octocat"
-                  ]
+                  "format": "uri"
                 },
                 "followers_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/users/octocat/followers"
-                  ]
+                  "format": "uri"
                 },
                 "following_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/users/octocat/following{/other_user}"
-                  ]
+                  "type": "string"
                 },
                 "gists_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/users/octocat/gists{/gist_id}"
-                  ]
+                  "type": "string"
                 },
                 "starred_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                  ]
+                  "type": "string"
                 },
                 "subscriptions_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/users/octocat/subscriptions"
-                  ]
+                  "format": "uri"
                 },
                 "organizations_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/users/octocat/orgs"
-                  ]
+                  "format": "uri"
                 },
                 "repos_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/users/octocat/repos"
-                  ]
+                  "format": "uri"
                 },
                 "events_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/users/octocat/events{/privacy}"
-                  ]
+                  "type": "string"
                 },
                 "received_events_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/users/octocat/received_events"
-                  ]
+                  "format": "uri"
                 },
                 "type": {
-                  "type": "string",
-                  "examples": [
-                    "User"
-                  ]
+                  "type": "string"
                 },
                 "site_admin": {
                   "type": "boolean"
@@ -1574,36 +1260,24 @@
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "monalisa octocat"
                   ]
                 },
                 "company": {
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "GitHub"
                   ]
                 },
                 "blog": {
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "https://github.com/blog"
                   ]
                 },
                 "location": {
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "San Francisco"
                   ]
                 },
                 "email": {
@@ -1611,20 +1285,14 @@
                     "string",
                     "null"
                   ],
-                  "format": "email",
-                  "examples": [
-                    "octocat@github.com"
-                  ]
+                  "format": "email"
                 },
                 "notification_email": {
                   "type": [
                     "string",
                     "null"
                   ],
-                  "format": "email",
-                  "examples": [
-                    "octocat@github.com"
-                  ]
+                  "format": "email"
                 },
                 "hireable": {
                   "type": [
@@ -1636,93 +1304,51 @@
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "There once was..."
                   ]
                 },
                 "twitter_username": {
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "monalisa"
                   ]
                 },
                 "public_repos": {
-                  "type": "integer",
-                  "examples": [
-                    2
-                  ]
+                  "type": "integer"
                 },
                 "public_gists": {
-                  "type": "integer",
-                  "examples": [
-                    1
-                  ]
+                  "type": "integer"
                 },
                 "followers": {
-                  "type": "integer",
-                  "examples": [
-                    20
-                  ]
+                  "type": "integer"
                 },
                 "following": {
-                  "type": "integer",
-                  "examples": [
-                    0
-                  ]
+                  "type": "integer"
                 },
                 "created_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2008-01-14T04:33:35Z"
-                  ]
+                  "format": "date-time"
                 },
                 "updated_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2008-01-14T04:33:35Z"
-                  ]
+                  "format": "date-time"
                 },
                 "private_gists": {
-                  "type": "integer",
-                  "examples": [
-                    81
-                  ]
+                  "type": "integer"
                 },
                 "total_private_repos": {
-                  "type": "integer",
-                  "examples": [
-                    100
-                  ]
+                  "type": "integer"
                 },
                 "owned_private_repos": {
-                  "type": "integer",
-                  "examples": [
-                    100
-                  ]
+                  "type": "integer"
                 },
                 "disk_usage": {
-                  "type": "integer",
-                  "examples": [
-                    10000
-                  ]
+                  "type": "integer"
                 },
                 "collaborators": {
-                  "type": "integer",
-                  "examples": [
-                    8
-                  ]
+                  "type": "integer"
                 },
                 "two_factor_authentication": {
-                  "type": "boolean",
-                  "examples": [
-                    true
-                  ]
+                  "type": "boolean"
                 },
                 "plan": {
                   "type": "object",
@@ -1857,7 +1483,6 @@
       "descriptionHTML": "<p>Provides publicly available information about someone with a GitHub account. This method takes their durable user <code>ID</code> instead of their <code>login</code>, which can change over time.</p>\n<p>The <code>email</code> key in the following response is the publicly visible email address from your GitHub Enterprise Server <a href=\"https://github.com/settings/profile\">profile page</a>. When setting up your profile, you can select a primary email address to be public which provides an email entry for this endpoint. If you do not set a public email address for <code>email</code>, then it will have a value of <code>null</code>. You only see publicly visible email addresses when authenticated with GitHub Enterprise Server. For more information, see <a href=\"https://docs.github.com/enterprise-server@3.19/rest/guides/getting-started-with-the-rest-api#authentication\">Authentication</a>.</p>\n<p>The Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see <a href=\"https://docs.github.com/enterprise-server@3.19/rest/users/emails\">Emails API</a>.</p>",
       "codeExamples": [
         {
-          "key": "default-response",
           "request": {
             "description": "Example 1: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1911,121 +1536,70 @@
                   "type": "object",
                   "properties": {
                     "login": {
-                      "type": "string",
-                      "examples": [
-                        "octocat"
-                      ]
+                      "type": "string"
                     },
                     "id": {
                       "type": "integer",
-                      "format": "int64",
-                      "examples": [
-                        1
-                      ]
+                      "format": "int64"
                     },
                     "user_view_type": {
                       "type": "string"
                     },
                     "node_id": {
-                      "type": "string",
-                      "examples": [
-                        "MDQ6VXNlcjE="
-                      ]
+                      "type": "string"
                     },
                     "avatar_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://github.com/images/error/octocat_happy.gif"
-                      ]
+                      "format": "uri"
                     },
                     "gravatar_id": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "41d064eb2195891e12d0413f63227ea7"
                       ]
                     },
                     "url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat"
-                      ]
+                      "format": "uri"
                     },
                     "html_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://github.com/octocat"
-                      ]
+                      "format": "uri"
                     },
                     "followers_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/followers"
-                      ]
+                      "format": "uri"
                     },
                     "following_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/following{/other_user}"
-                      ]
+                      "type": "string"
                     },
                     "gists_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/gists{/gist_id}"
-                      ]
+                      "type": "string"
                     },
                     "starred_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                      ]
+                      "type": "string"
                     },
                     "subscriptions_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/subscriptions"
-                      ]
+                      "format": "uri"
                     },
                     "organizations_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/orgs"
-                      ]
+                      "format": "uri"
                     },
                     "repos_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/repos"
-                      ]
+                      "format": "uri"
                     },
                     "events_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/events{/privacy}"
-                      ]
+                      "type": "string"
                     },
                     "received_events_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/received_events"
-                      ]
+                      "format": "uri"
                     },
                     "type": {
-                      "type": "string",
-                      "examples": [
-                        "User"
-                      ]
+                      "type": "string"
                     },
                     "site_admin": {
                       "type": "boolean"
@@ -2034,36 +1608,24 @@
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "monalisa octocat"
                       ]
                     },
                     "company": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "GitHub"
                       ]
                     },
                     "blog": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "https://github.com/blog"
                       ]
                     },
                     "location": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "San Francisco"
                       ]
                     },
                     "email": {
@@ -2071,20 +1633,14 @@
                         "string",
                         "null"
                       ],
-                      "format": "email",
-                      "examples": [
-                        "octocat@github.com"
-                      ]
+                      "format": "email"
                     },
                     "notification_email": {
                       "type": [
                         "string",
                         "null"
                       ],
-                      "format": "email",
-                      "examples": [
-                        "octocat@github.com"
-                      ]
+                      "format": "email"
                     },
                     "hireable": {
                       "type": [
@@ -2096,93 +1652,51 @@
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "There once was..."
                       ]
                     },
                     "twitter_username": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "monalisa"
                       ]
                     },
                     "public_repos": {
-                      "type": "integer",
-                      "examples": [
-                        2
-                      ]
+                      "type": "integer"
                     },
                     "public_gists": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "followers": {
-                      "type": "integer",
-                      "examples": [
-                        20
-                      ]
+                      "type": "integer"
                     },
                     "following": {
-                      "type": "integer",
-                      "examples": [
-                        0
-                      ]
+                      "type": "integer"
                     },
                     "created_at": {
                       "type": "string",
-                      "format": "date-time",
-                      "examples": [
-                        "2008-01-14T04:33:35Z"
-                      ]
+                      "format": "date-time"
                     },
                     "updated_at": {
                       "type": "string",
-                      "format": "date-time",
-                      "examples": [
-                        "2008-01-14T04:33:35Z"
-                      ]
+                      "format": "date-time"
                     },
                     "private_gists": {
-                      "type": "integer",
-                      "examples": [
-                        81
-                      ]
+                      "type": "integer"
                     },
                     "total_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        100
-                      ]
+                      "type": "integer"
                     },
                     "owned_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        100
-                      ]
+                      "type": "integer"
                     },
                     "disk_usage": {
-                      "type": "integer",
-                      "examples": [
-                        10000
-                      ]
+                      "type": "integer"
                     },
                     "collaborators": {
-                      "type": "integer",
-                      "examples": [
-                        8
-                      ]
+                      "type": "integer"
                     },
                     "two_factor_authentication": {
-                      "type": "boolean",
-                      "examples": [
-                        true
-                      ]
+                      "type": "boolean"
                     },
                     "plan": {
                       "type": "object",
@@ -2428,34 +1942,19 @@
                       ]
                     },
                     "private_gists": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "total_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        2
-                      ]
+                      "type": "integer"
                     },
                     "owned_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        2
-                      ]
+                      "type": "integer"
                     },
                     "disk_usage": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "collaborators": {
-                      "type": "integer",
-                      "examples": [
-                        3
-                      ]
+                      "type": "integer"
                     }
                   },
                   "required": [
@@ -2498,7 +1997,6 @@
           }
         },
         {
-          "key": "response-with-git-hub-plan-information",
           "request": {
             "description": "Example 2: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2558,121 +2056,70 @@
                   "type": "object",
                   "properties": {
                     "login": {
-                      "type": "string",
-                      "examples": [
-                        "octocat"
-                      ]
+                      "type": "string"
                     },
                     "id": {
                       "type": "integer",
-                      "format": "int64",
-                      "examples": [
-                        1
-                      ]
+                      "format": "int64"
                     },
                     "user_view_type": {
                       "type": "string"
                     },
                     "node_id": {
-                      "type": "string",
-                      "examples": [
-                        "MDQ6VXNlcjE="
-                      ]
+                      "type": "string"
                     },
                     "avatar_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://github.com/images/error/octocat_happy.gif"
-                      ]
+                      "format": "uri"
                     },
                     "gravatar_id": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "41d064eb2195891e12d0413f63227ea7"
                       ]
                     },
                     "url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat"
-                      ]
+                      "format": "uri"
                     },
                     "html_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://github.com/octocat"
-                      ]
+                      "format": "uri"
                     },
                     "followers_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/followers"
-                      ]
+                      "format": "uri"
                     },
                     "following_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/following{/other_user}"
-                      ]
+                      "type": "string"
                     },
                     "gists_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/gists{/gist_id}"
-                      ]
+                      "type": "string"
                     },
                     "starred_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                      ]
+                      "type": "string"
                     },
                     "subscriptions_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/subscriptions"
-                      ]
+                      "format": "uri"
                     },
                     "organizations_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/orgs"
-                      ]
+                      "format": "uri"
                     },
                     "repos_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/repos"
-                      ]
+                      "format": "uri"
                     },
                     "events_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/events{/privacy}"
-                      ]
+                      "type": "string"
                     },
                     "received_events_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/received_events"
-                      ]
+                      "format": "uri"
                     },
                     "type": {
-                      "type": "string",
-                      "examples": [
-                        "User"
-                      ]
+                      "type": "string"
                     },
                     "site_admin": {
                       "type": "boolean"
@@ -2681,36 +2128,24 @@
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "monalisa octocat"
                       ]
                     },
                     "company": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "GitHub"
                       ]
                     },
                     "blog": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "https://github.com/blog"
                       ]
                     },
                     "location": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "San Francisco"
                       ]
                     },
                     "email": {
@@ -2718,20 +2153,14 @@
                         "string",
                         "null"
                       ],
-                      "format": "email",
-                      "examples": [
-                        "octocat@github.com"
-                      ]
+                      "format": "email"
                     },
                     "notification_email": {
                       "type": [
                         "string",
                         "null"
                       ],
-                      "format": "email",
-                      "examples": [
-                        "octocat@github.com"
-                      ]
+                      "format": "email"
                     },
                     "hireable": {
                       "type": [
@@ -2743,93 +2172,51 @@
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "There once was..."
                       ]
                     },
                     "twitter_username": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "monalisa"
                       ]
                     },
                     "public_repos": {
-                      "type": "integer",
-                      "examples": [
-                        2
-                      ]
+                      "type": "integer"
                     },
                     "public_gists": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "followers": {
-                      "type": "integer",
-                      "examples": [
-                        20
-                      ]
+                      "type": "integer"
                     },
                     "following": {
-                      "type": "integer",
-                      "examples": [
-                        0
-                      ]
+                      "type": "integer"
                     },
                     "created_at": {
                       "type": "string",
-                      "format": "date-time",
-                      "examples": [
-                        "2008-01-14T04:33:35Z"
-                      ]
+                      "format": "date-time"
                     },
                     "updated_at": {
                       "type": "string",
-                      "format": "date-time",
-                      "examples": [
-                        "2008-01-14T04:33:35Z"
-                      ]
+                      "format": "date-time"
                     },
                     "private_gists": {
-                      "type": "integer",
-                      "examples": [
-                        81
-                      ]
+                      "type": "integer"
                     },
                     "total_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        100
-                      ]
+                      "type": "integer"
                     },
                     "owned_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        100
-                      ]
+                      "type": "integer"
                     },
                     "disk_usage": {
-                      "type": "integer",
-                      "examples": [
-                        10000
-                      ]
+                      "type": "integer"
                     },
                     "collaborators": {
-                      "type": "integer",
-                      "examples": [
-                        8
-                      ]
+                      "type": "integer"
                     },
                     "two_factor_authentication": {
-                      "type": "boolean",
-                      "examples": [
-                        true
-                      ]
+                      "type": "boolean"
                     },
                     "plan": {
                       "type": "object",
@@ -3075,34 +2462,19 @@
                       ]
                     },
                     "private_gists": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "total_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        2
-                      ]
+                      "type": "integer"
                     },
                     "owned_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        2
-                      ]
+                      "type": "integer"
                     },
                     "disk_usage": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "collaborators": {
-                      "type": "integer",
-                      "examples": [
-                        3
-                      ]
+                      "type": "integer"
                     }
                   },
                   "required": [
@@ -3196,7 +2568,6 @@
       "descriptionHTML": "<p>Lists all users, in the order that they signed up on GitHub Enterprise Server. This list includes personal user accounts and organization accounts.</p>\n<p>Note: Pagination is powered exclusively by the <code>since</code> parameter. Use the <a href=\"https://docs.github.com/enterprise-server@3.19/rest/guides/using-pagination-in-the-rest-api#using-link-headers\">Link header</a> to get the URL for the next page of users.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -3247,133 +2618,76 @@
                     ]
                   },
                   "login": {
-                    "type": "string",
-                    "examples": [
-                      "octocat"
-                    ]
+                    "type": "string"
                   },
                   "id": {
                     "type": "integer",
-                    "format": "int64",
-                    "examples": [
-                      1
-                    ]
+                    "format": "int64"
                   },
                   "node_id": {
-                    "type": "string",
-                    "examples": [
-                      "MDQ6VXNlcjE="
-                    ]
+                    "type": "string"
                   },
                   "avatar_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/images/error/octocat_happy.gif"
-                    ]
+                    "format": "uri"
                   },
                   "gravatar_id": {
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "41d064eb2195891e12d0413f63227ea7"
                     ]
                   },
                   "url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat"
-                    ]
+                    "format": "uri"
                   },
                   "html_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/octocat"
-                    ]
+                    "format": "uri"
                   },
                   "followers_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/followers"
-                    ]
+                    "format": "uri"
                   },
                   "following_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/following{/other_user}"
-                    ]
+                    "type": "string"
                   },
                   "gists_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/gists{/gist_id}"
-                    ]
+                    "type": "string"
                   },
                   "starred_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                    ]
+                    "type": "string"
                   },
                   "subscriptions_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/subscriptions"
-                    ]
+                    "format": "uri"
                   },
                   "organizations_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/orgs"
-                    ]
+                    "format": "uri"
                   },
                   "repos_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/repos"
-                    ]
+                    "format": "uri"
                   },
                   "events_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/events{/privacy}"
-                    ]
+                    "type": "string"
                   },
                   "received_events_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/received_events"
-                    ]
+                    "format": "uri"
                   },
                   "type": {
-                    "type": "string",
-                    "examples": [
-                      "User"
-                    ]
+                    "type": "string"
                   },
                   "site_admin": {
                     "type": "boolean"
                   },
                   "starred_at": {
-                    "type": "string",
-                    "examples": [
-                      "\"2020-07-09T00:17:55Z\""
-                    ]
+                    "type": "string"
                   },
                   "user_view_type": {
-                    "type": "string",
-                    "examples": [
-                      "public"
-                    ]
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -3443,7 +2757,6 @@
       "descriptionHTML": "<p>Provides publicly available information about someone with a GitHub account.</p>\n<p>The <code>email</code> key in the following response is the publicly visible email address from your GitHub Enterprise Server <a href=\"https://github.com/settings/profile\">profile page</a>. When setting up your profile, you can select a primary email address to be public which provides an email entry for this endpoint. If you do not set a public email address for <code>email</code>, then it will have a value of <code>null</code>. You only see publicly visible email addresses when authenticated with GitHub Enterprise Server. For more information, see <a href=\"https://docs.github.com/enterprise-server@3.19/rest/guides/getting-started-with-the-rest-api#authentication\">Authentication</a>.</p>\n<p>The Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see <a href=\"https://docs.github.com/enterprise-server@3.19/rest/users/emails\">Emails API</a>.</p>",
       "codeExamples": [
         {
-          "key": "default-response",
           "request": {
             "description": "Example 1: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -3497,121 +2810,70 @@
                   "type": "object",
                   "properties": {
                     "login": {
-                      "type": "string",
-                      "examples": [
-                        "octocat"
-                      ]
+                      "type": "string"
                     },
                     "id": {
                       "type": "integer",
-                      "format": "int64",
-                      "examples": [
-                        1
-                      ]
+                      "format": "int64"
                     },
                     "user_view_type": {
                       "type": "string"
                     },
                     "node_id": {
-                      "type": "string",
-                      "examples": [
-                        "MDQ6VXNlcjE="
-                      ]
+                      "type": "string"
                     },
                     "avatar_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://github.com/images/error/octocat_happy.gif"
-                      ]
+                      "format": "uri"
                     },
                     "gravatar_id": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "41d064eb2195891e12d0413f63227ea7"
                       ]
                     },
                     "url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat"
-                      ]
+                      "format": "uri"
                     },
                     "html_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://github.com/octocat"
-                      ]
+                      "format": "uri"
                     },
                     "followers_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/followers"
-                      ]
+                      "format": "uri"
                     },
                     "following_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/following{/other_user}"
-                      ]
+                      "type": "string"
                     },
                     "gists_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/gists{/gist_id}"
-                      ]
+                      "type": "string"
                     },
                     "starred_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                      ]
+                      "type": "string"
                     },
                     "subscriptions_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/subscriptions"
-                      ]
+                      "format": "uri"
                     },
                     "organizations_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/orgs"
-                      ]
+                      "format": "uri"
                     },
                     "repos_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/repos"
-                      ]
+                      "format": "uri"
                     },
                     "events_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/events{/privacy}"
-                      ]
+                      "type": "string"
                     },
                     "received_events_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/received_events"
-                      ]
+                      "format": "uri"
                     },
                     "type": {
-                      "type": "string",
-                      "examples": [
-                        "User"
-                      ]
+                      "type": "string"
                     },
                     "site_admin": {
                       "type": "boolean"
@@ -3620,36 +2882,24 @@
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "monalisa octocat"
                       ]
                     },
                     "company": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "GitHub"
                       ]
                     },
                     "blog": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "https://github.com/blog"
                       ]
                     },
                     "location": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "San Francisco"
                       ]
                     },
                     "email": {
@@ -3657,20 +2907,14 @@
                         "string",
                         "null"
                       ],
-                      "format": "email",
-                      "examples": [
-                        "octocat@github.com"
-                      ]
+                      "format": "email"
                     },
                     "notification_email": {
                       "type": [
                         "string",
                         "null"
                       ],
-                      "format": "email",
-                      "examples": [
-                        "octocat@github.com"
-                      ]
+                      "format": "email"
                     },
                     "hireable": {
                       "type": [
@@ -3682,93 +2926,51 @@
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "There once was..."
                       ]
                     },
                     "twitter_username": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "monalisa"
                       ]
                     },
                     "public_repos": {
-                      "type": "integer",
-                      "examples": [
-                        2
-                      ]
+                      "type": "integer"
                     },
                     "public_gists": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "followers": {
-                      "type": "integer",
-                      "examples": [
-                        20
-                      ]
+                      "type": "integer"
                     },
                     "following": {
-                      "type": "integer",
-                      "examples": [
-                        0
-                      ]
+                      "type": "integer"
                     },
                     "created_at": {
                       "type": "string",
-                      "format": "date-time",
-                      "examples": [
-                        "2008-01-14T04:33:35Z"
-                      ]
+                      "format": "date-time"
                     },
                     "updated_at": {
                       "type": "string",
-                      "format": "date-time",
-                      "examples": [
-                        "2008-01-14T04:33:35Z"
-                      ]
+                      "format": "date-time"
                     },
                     "private_gists": {
-                      "type": "integer",
-                      "examples": [
-                        81
-                      ]
+                      "type": "integer"
                     },
                     "total_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        100
-                      ]
+                      "type": "integer"
                     },
                     "owned_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        100
-                      ]
+                      "type": "integer"
                     },
                     "disk_usage": {
-                      "type": "integer",
-                      "examples": [
-                        10000
-                      ]
+                      "type": "integer"
                     },
                     "collaborators": {
-                      "type": "integer",
-                      "examples": [
-                        8
-                      ]
+                      "type": "integer"
                     },
                     "two_factor_authentication": {
-                      "type": "boolean",
-                      "examples": [
-                        true
-                      ]
+                      "type": "boolean"
                     },
                     "plan": {
                       "type": "object",
@@ -4014,34 +3216,19 @@
                       ]
                     },
                     "private_gists": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "total_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        2
-                      ]
+                      "type": "integer"
                     },
                     "owned_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        2
-                      ]
+                      "type": "integer"
                     },
                     "disk_usage": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "collaborators": {
-                      "type": "integer",
-                      "examples": [
-                        3
-                      ]
+                      "type": "integer"
                     }
                   },
                   "required": [
@@ -4084,7 +3271,6 @@
           }
         },
         {
-          "key": "response-with-git-hub-plan-information",
           "request": {
             "description": "Example 2: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -4144,121 +3330,70 @@
                   "type": "object",
                   "properties": {
                     "login": {
-                      "type": "string",
-                      "examples": [
-                        "octocat"
-                      ]
+                      "type": "string"
                     },
                     "id": {
                       "type": "integer",
-                      "format": "int64",
-                      "examples": [
-                        1
-                      ]
+                      "format": "int64"
                     },
                     "user_view_type": {
                       "type": "string"
                     },
                     "node_id": {
-                      "type": "string",
-                      "examples": [
-                        "MDQ6VXNlcjE="
-                      ]
+                      "type": "string"
                     },
                     "avatar_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://github.com/images/error/octocat_happy.gif"
-                      ]
+                      "format": "uri"
                     },
                     "gravatar_id": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "41d064eb2195891e12d0413f63227ea7"
                       ]
                     },
                     "url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat"
-                      ]
+                      "format": "uri"
                     },
                     "html_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://github.com/octocat"
-                      ]
+                      "format": "uri"
                     },
                     "followers_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/followers"
-                      ]
+                      "format": "uri"
                     },
                     "following_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/following{/other_user}"
-                      ]
+                      "type": "string"
                     },
                     "gists_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/gists{/gist_id}"
-                      ]
+                      "type": "string"
                     },
                     "starred_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                      ]
+                      "type": "string"
                     },
                     "subscriptions_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/subscriptions"
-                      ]
+                      "format": "uri"
                     },
                     "organizations_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/orgs"
-                      ]
+                      "format": "uri"
                     },
                     "repos_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/repos"
-                      ]
+                      "format": "uri"
                     },
                     "events_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://api.github.com/users/octocat/events{/privacy}"
-                      ]
+                      "type": "string"
                     },
                     "received_events_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://api.github.com/users/octocat/received_events"
-                      ]
+                      "format": "uri"
                     },
                     "type": {
-                      "type": "string",
-                      "examples": [
-                        "User"
-                      ]
+                      "type": "string"
                     },
                     "site_admin": {
                       "type": "boolean"
@@ -4267,36 +3402,24 @@
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "monalisa octocat"
                       ]
                     },
                     "company": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "GitHub"
                       ]
                     },
                     "blog": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "https://github.com/blog"
                       ]
                     },
                     "location": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "San Francisco"
                       ]
                     },
                     "email": {
@@ -4304,20 +3427,14 @@
                         "string",
                         "null"
                       ],
-                      "format": "email",
-                      "examples": [
-                        "octocat@github.com"
-                      ]
+                      "format": "email"
                     },
                     "notification_email": {
                       "type": [
                         "string",
                         "null"
                       ],
-                      "format": "email",
-                      "examples": [
-                        "octocat@github.com"
-                      ]
+                      "format": "email"
                     },
                     "hireable": {
                       "type": [
@@ -4329,93 +3446,51 @@
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "There once was..."
                       ]
                     },
                     "twitter_username": {
                       "type": [
                         "string",
                         "null"
-                      ],
-                      "examples": [
-                        "monalisa"
                       ]
                     },
                     "public_repos": {
-                      "type": "integer",
-                      "examples": [
-                        2
-                      ]
+                      "type": "integer"
                     },
                     "public_gists": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "followers": {
-                      "type": "integer",
-                      "examples": [
-                        20
-                      ]
+                      "type": "integer"
                     },
                     "following": {
-                      "type": "integer",
-                      "examples": [
-                        0
-                      ]
+                      "type": "integer"
                     },
                     "created_at": {
                       "type": "string",
-                      "format": "date-time",
-                      "examples": [
-                        "2008-01-14T04:33:35Z"
-                      ]
+                      "format": "date-time"
                     },
                     "updated_at": {
                       "type": "string",
-                      "format": "date-time",
-                      "examples": [
-                        "2008-01-14T04:33:35Z"
-                      ]
+                      "format": "date-time"
                     },
                     "private_gists": {
-                      "type": "integer",
-                      "examples": [
-                        81
-                      ]
+                      "type": "integer"
                     },
                     "total_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        100
-                      ]
+                      "type": "integer"
                     },
                     "owned_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        100
-                      ]
+                      "type": "integer"
                     },
                     "disk_usage": {
-                      "type": "integer",
-                      "examples": [
-                        10000
-                      ]
+                      "type": "integer"
                     },
                     "collaborators": {
-                      "type": "integer",
-                      "examples": [
-                        8
-                      ]
+                      "type": "integer"
                     },
                     "two_factor_authentication": {
-                      "type": "boolean",
-                      "examples": [
-                        true
-                      ]
+                      "type": "boolean"
                     },
                     "plan": {
                       "type": "object",
@@ -4661,34 +3736,19 @@
                       ]
                     },
                     "private_gists": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "total_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        2
-                      ]
+                      "type": "integer"
                     },
                     "owned_private_repos": {
-                      "type": "integer",
-                      "examples": [
-                        2
-                      ]
+                      "type": "integer"
                     },
                     "disk_usage": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "collaborators": {
-                      "type": "integer",
-                      "examples": [
-                        3
-                      ]
+                      "type": "integer"
                     }
                   },
                   "required": [
@@ -4797,7 +3857,6 @@
       "descriptionHTML": "<p>Provides hovercard information. You can find out more about someone in relation to their pull requests, issues, repositories, and organizations.</p>\n<p>The <code>subject_type</code> and <code>subject_id</code> parameters provide context for the person's hovercard, which returns more information than without the parameters. For example, if you wanted to find out more about <code>octocat</code> who owns the <code>Spoon-Knife</code> repository, you would use a <code>subject_type</code> value of <code>repository</code> and a <code>subject_id</code> value of <code>1300192</code> (the ID of the <code>Spoon-Knife</code> repository).</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -4903,7 +3962,6 @@
       "descriptionHTML": "<p>Lists all of your email addresses, and specifies which one is visible\nto the public.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>user:email</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -4929,30 +3987,18 @@
                 "properties": {
                   "email": {
                     "type": "string",
-                    "format": "email",
-                    "examples": [
-                      "octocat@github.com"
-                    ]
+                    "format": "email"
                   },
                   "primary": {
-                    "type": "boolean",
-                    "examples": [
-                      true
-                    ]
+                    "type": "boolean"
                   },
                   "verified": {
-                    "type": "boolean",
-                    "examples": [
-                      true
-                    ]
+                    "type": "boolean"
                   },
                   "visibility": {
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "public"
                     ]
                   }
                 },
@@ -5013,7 +4059,6 @@
         {
           "type": "array of strings",
           "name": "emails",
-          "in": "body",
           "description": "<p>Adds one or more email addresses to your GitHub account. Must contain at least one email address. <strong>Note:</strong> Alternatively, you can pass a single email address or an <code>array</code> of emails addresses directly, but we recommend that you pass an object using the <code>emails</code> key.</p>",
           "isRequired": true
         }
@@ -5021,7 +4066,6 @@
       "descriptionHTML": "<p>OAuth app tokens and personal access tokens (classic) need the <code>user</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example adding multiple email addresses",
@@ -5067,30 +4111,18 @@
                 "properties": {
                   "email": {
                     "type": "string",
-                    "format": "email",
-                    "examples": [
-                      "octocat@github.com"
-                    ]
+                    "format": "email"
                   },
                   "primary": {
-                    "type": "boolean",
-                    "examples": [
-                      true
-                    ]
+                    "type": "boolean"
                   },
                   "verified": {
-                    "type": "boolean",
-                    "examples": [
-                      true
-                    ]
+                    "type": "boolean"
                   },
                   "visibility": {
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "public"
                     ]
                   }
                 },
@@ -5155,7 +4187,6 @@
         {
           "type": "array of strings",
           "name": "emails",
-          "in": "body",
           "description": "<p>Email addresses associated with the GitHub user account.</p>",
           "isRequired": true
         }
@@ -5163,7 +4194,6 @@
       "descriptionHTML": "<p>OAuth app tokens and personal access tokens (classic) need the <code>user</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "204",
           "request": {
             "contentType": "application/json",
             "description": "Example deleting multiple email accounts",
@@ -5250,7 +4280,6 @@
       "descriptionHTML": "<p>Lists your publicly visible email address, which you can set with the\n<a href=\"https://docs.github.com/enterprise-server@3.19/rest/users/emails#set-primary-email-visibility-for-the-authenticated-user\">Set primary email visibility for the authenticated user</a>\nendpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>user:email</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -5276,30 +4305,18 @@
                 "properties": {
                   "email": {
                     "type": "string",
-                    "format": "email",
-                    "examples": [
-                      "octocat@github.com"
-                    ]
+                    "format": "email"
                   },
                   "primary": {
-                    "type": "boolean",
-                    "examples": [
-                      true
-                    ]
+                    "type": "boolean"
                   },
                   "verified": {
-                    "type": "boolean",
-                    "examples": [
-                      true
-                    ]
+                    "type": "boolean"
                   },
                   "visibility": {
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "public"
                     ]
                   }
                 },
@@ -5382,7 +4399,6 @@
       "descriptionHTML": "<p>Lists the people following the authenticated user.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -5433,133 +4449,76 @@
                     ]
                   },
                   "login": {
-                    "type": "string",
-                    "examples": [
-                      "octocat"
-                    ]
+                    "type": "string"
                   },
                   "id": {
                     "type": "integer",
-                    "format": "int64",
-                    "examples": [
-                      1
-                    ]
+                    "format": "int64"
                   },
                   "node_id": {
-                    "type": "string",
-                    "examples": [
-                      "MDQ6VXNlcjE="
-                    ]
+                    "type": "string"
                   },
                   "avatar_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/images/error/octocat_happy.gif"
-                    ]
+                    "format": "uri"
                   },
                   "gravatar_id": {
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "41d064eb2195891e12d0413f63227ea7"
                     ]
                   },
                   "url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat"
-                    ]
+                    "format": "uri"
                   },
                   "html_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/octocat"
-                    ]
+                    "format": "uri"
                   },
                   "followers_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/followers"
-                    ]
+                    "format": "uri"
                   },
                   "following_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/following{/other_user}"
-                    ]
+                    "type": "string"
                   },
                   "gists_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/gists{/gist_id}"
-                    ]
+                    "type": "string"
                   },
                   "starred_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                    ]
+                    "type": "string"
                   },
                   "subscriptions_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/subscriptions"
-                    ]
+                    "format": "uri"
                   },
                   "organizations_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/orgs"
-                    ]
+                    "format": "uri"
                   },
                   "repos_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/repos"
-                    ]
+                    "format": "uri"
                   },
                   "events_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/events{/privacy}"
-                    ]
+                    "type": "string"
                   },
                   "received_events_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/received_events"
-                    ]
+                    "format": "uri"
                   },
                   "type": {
-                    "type": "string",
-                    "examples": [
-                      "User"
-                    ]
+                    "type": "string"
                   },
                   "site_admin": {
                     "type": "boolean"
                   },
                   "starred_at": {
-                    "type": "string",
-                    "examples": [
-                      "\"2020-07-09T00:17:55Z\""
-                    ]
+                    "type": "string"
                   },
                   "user_view_type": {
-                    "type": "string",
-                    "examples": [
-                      "public"
-                    ]
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -5648,7 +4607,6 @@
       "descriptionHTML": "<p>Lists the people who the authenticated user follows.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -5699,133 +4657,76 @@
                     ]
                   },
                   "login": {
-                    "type": "string",
-                    "examples": [
-                      "octocat"
-                    ]
+                    "type": "string"
                   },
                   "id": {
                     "type": "integer",
-                    "format": "int64",
-                    "examples": [
-                      1
-                    ]
+                    "format": "int64"
                   },
                   "node_id": {
-                    "type": "string",
-                    "examples": [
-                      "MDQ6VXNlcjE="
-                    ]
+                    "type": "string"
                   },
                   "avatar_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/images/error/octocat_happy.gif"
-                    ]
+                    "format": "uri"
                   },
                   "gravatar_id": {
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "41d064eb2195891e12d0413f63227ea7"
                     ]
                   },
                   "url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat"
-                    ]
+                    "format": "uri"
                   },
                   "html_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/octocat"
-                    ]
+                    "format": "uri"
                   },
                   "followers_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/followers"
-                    ]
+                    "format": "uri"
                   },
                   "following_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/following{/other_user}"
-                    ]
+                    "type": "string"
                   },
                   "gists_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/gists{/gist_id}"
-                    ]
+                    "type": "string"
                   },
                   "starred_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                    ]
+                    "type": "string"
                   },
                   "subscriptions_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/subscriptions"
-                    ]
+                    "format": "uri"
                   },
                   "organizations_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/orgs"
-                    ]
+                    "format": "uri"
                   },
                   "repos_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/repos"
-                    ]
+                    "format": "uri"
                   },
                   "events_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/events{/privacy}"
-                    ]
+                    "type": "string"
                   },
                   "received_events_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/received_events"
-                    ]
+                    "format": "uri"
                   },
                   "type": {
-                    "type": "string",
-                    "examples": [
-                      "User"
-                    ]
+                    "type": "string"
                   },
                   "site_admin": {
                     "type": "boolean"
                   },
                   "starred_at": {
-                    "type": "string",
-                    "examples": [
-                      "\"2020-07-09T00:17:55Z\""
-                    ]
+                    "type": "string"
                   },
                   "user_view_type": {
-                    "type": "string",
-                    "examples": [
-                      "public"
-                    ]
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -5905,7 +4806,6 @@
       "descriptionHTML": "",
       "codeExamples": [
         {
-          "key": "204",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -5975,7 +4875,6 @@
       "descriptionHTML": "<p>Note that you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/rest/guides/getting-started-with-the-rest-api#http-method\">HTTP verbs</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>user:follow</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "204",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -6049,7 +4948,6 @@
       "descriptionHTML": "<p>OAuth app tokens and personal access tokens (classic) need the <code>user:follow</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "204",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -6137,7 +5035,6 @@
       "descriptionHTML": "<p>Lists the people following the specified user.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -6191,133 +5088,76 @@
                     ]
                   },
                   "login": {
-                    "type": "string",
-                    "examples": [
-                      "octocat"
-                    ]
+                    "type": "string"
                   },
                   "id": {
                     "type": "integer",
-                    "format": "int64",
-                    "examples": [
-                      1
-                    ]
+                    "format": "int64"
                   },
                   "node_id": {
-                    "type": "string",
-                    "examples": [
-                      "MDQ6VXNlcjE="
-                    ]
+                    "type": "string"
                   },
                   "avatar_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/images/error/octocat_happy.gif"
-                    ]
+                    "format": "uri"
                   },
                   "gravatar_id": {
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "41d064eb2195891e12d0413f63227ea7"
                     ]
                   },
                   "url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat"
-                    ]
+                    "format": "uri"
                   },
                   "html_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/octocat"
-                    ]
+                    "format": "uri"
                   },
                   "followers_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/followers"
-                    ]
+                    "format": "uri"
                   },
                   "following_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/following{/other_user}"
-                    ]
+                    "type": "string"
                   },
                   "gists_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/gists{/gist_id}"
-                    ]
+                    "type": "string"
                   },
                   "starred_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                    ]
+                    "type": "string"
                   },
                   "subscriptions_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/subscriptions"
-                    ]
+                    "format": "uri"
                   },
                   "organizations_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/orgs"
-                    ]
+                    "format": "uri"
                   },
                   "repos_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/repos"
-                    ]
+                    "format": "uri"
                   },
                   "events_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/events{/privacy}"
-                    ]
+                    "type": "string"
                   },
                   "received_events_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/received_events"
-                    ]
+                    "format": "uri"
                   },
                   "type": {
-                    "type": "string",
-                    "examples": [
-                      "User"
-                    ]
+                    "type": "string"
                   },
                   "site_admin": {
                     "type": "boolean"
                   },
                   "starred_at": {
-                    "type": "string",
-                    "examples": [
-                      "\"2020-07-09T00:17:55Z\""
-                    ]
+                    "type": "string"
                   },
                   "user_view_type": {
-                    "type": "string",
-                    "examples": [
-                      "public"
-                    ]
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -6401,7 +5241,6 @@
       "descriptionHTML": "<p>Lists the people who the specified user follows.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -6455,133 +5294,76 @@
                     ]
                   },
                   "login": {
-                    "type": "string",
-                    "examples": [
-                      "octocat"
-                    ]
+                    "type": "string"
                   },
                   "id": {
                     "type": "integer",
-                    "format": "int64",
-                    "examples": [
-                      1
-                    ]
+                    "format": "int64"
                   },
                   "node_id": {
-                    "type": "string",
-                    "examples": [
-                      "MDQ6VXNlcjE="
-                    ]
+                    "type": "string"
                   },
                   "avatar_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/images/error/octocat_happy.gif"
-                    ]
+                    "format": "uri"
                   },
                   "gravatar_id": {
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "41d064eb2195891e12d0413f63227ea7"
                     ]
                   },
                   "url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat"
-                    ]
+                    "format": "uri"
                   },
                   "html_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/octocat"
-                    ]
+                    "format": "uri"
                   },
                   "followers_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/followers"
-                    ]
+                    "format": "uri"
                   },
                   "following_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/following{/other_user}"
-                    ]
+                    "type": "string"
                   },
                   "gists_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/gists{/gist_id}"
-                    ]
+                    "type": "string"
                   },
                   "starred_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                    ]
+                    "type": "string"
                   },
                   "subscriptions_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/subscriptions"
-                    ]
+                    "format": "uri"
                   },
                   "organizations_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/orgs"
-                    ]
+                    "format": "uri"
                   },
                   "repos_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/repos"
-                    ]
+                    "format": "uri"
                   },
                   "events_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/events{/privacy}"
-                    ]
+                    "type": "string"
                   },
                   "received_events_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/received_events"
-                    ]
+                    "format": "uri"
                   },
                   "type": {
-                    "type": "string",
-                    "examples": [
-                      "User"
-                    ]
+                    "type": "string"
                   },
                   "site_admin": {
                     "type": "boolean"
                   },
                   "starred_at": {
-                    "type": "string",
-                    "examples": [
-                      "\"2020-07-09T00:17:55Z\""
-                    ]
+                    "type": "string"
                   },
                   "user_view_type": {
-                    "type": "string",
-                    "examples": [
-                      "public"
-                    ]
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -6656,7 +5438,6 @@
       "descriptionHTML": "",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -6724,7 +5505,6 @@
       "descriptionHTML": "<p>Lists the current user's GPG keys.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:gpg_key</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -6781,18 +5561,12 @@
                 "properties": {
                   "id": {
                     "type": "integer",
-                    "format": "int64",
-                    "examples": [
-                      3
-                    ]
+                    "format": "int64"
                   },
                   "name": {
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "Octocat's GPG Key"
                     ]
                   },
                   "primary_key_id": {
@@ -6802,16 +5576,10 @@
                     ]
                   },
                   "key_id": {
-                    "type": "string",
-                    "examples": [
-                      "3262EFF25BA0D270"
-                    ]
+                    "type": "string"
                   },
                   "public_key": {
-                    "type": "string",
-                    "examples": [
-                      "xsBNBFayYZ..."
-                    ]
+                    "type": "string"
                   },
                   "emails": {
                     "type": "array",
@@ -6825,13 +5593,7 @@
                           "type": "boolean"
                         }
                       }
-                    },
-                    "examples": [
-                      {
-                        "email": "octocat@users.noreply.github.com",
-                        "verified": true
-                      }
-                    ]
+                    }
                   },
                   "subkeys": {
                     "type": "array",
@@ -6900,29 +5662,10 @@
                           "type": "boolean"
                         }
                       }
-                    },
-                    "examples": [
-                      {
-                        "id": 4,
-                        "primary_key_id": 3,
-                        "key_id": "4A595D4C72EE49C7",
-                        "public_key": "zsBNBFayYZ...",
-                        "emails": [],
-                        "can_sign": false,
-                        "can_encrypt_comms": true,
-                        "can_encrypt_storage": true,
-                        "can_certify": false,
-                        "created_at": "2016-03-24T11:31:04-06:00",
-                        "expires_at": null,
-                        "revoked": false
-                      }
-                    ]
+                    }
                   },
                   "can_sign": {
-                    "type": "boolean",
-                    "examples": [
-                      true
-                    ]
+                    "type": "boolean"
                   },
                   "can_encrypt_comms": {
                     "type": "boolean"
@@ -6931,17 +5674,11 @@
                     "type": "boolean"
                   },
                   "can_certify": {
-                    "type": "boolean",
-                    "examples": [
-                      true
-                    ]
+                    "type": "boolean"
                   },
                   "created_at": {
                     "type": "string",
-                    "format": "date-time",
-                    "examples": [
-                      "2016-03-24T11:31:04-06:00"
-                    ]
+                    "format": "date-time"
                   },
                   "expires_at": {
                     "type": [
@@ -6951,10 +5688,7 @@
                     "format": "date-time"
                   },
                   "revoked": {
-                    "type": "boolean",
-                    "examples": [
-                      true
-                    ]
+                    "type": "boolean"
                   },
                   "raw_key": {
                     "type": [
@@ -7030,13 +5764,11 @@
         {
           "type": "string",
           "name": "name",
-          "in": "body",
           "description": "<p>A descriptive name for the new key.</p>"
         },
         {
           "type": "string",
           "name": "armored_public_key",
-          "in": "body",
           "description": "<p>A GPG key in ASCII-armored format.</p>",
           "isRequired": true
         }
@@ -7044,7 +5776,6 @@
       "descriptionHTML": "<p>Adds a GPG key to the authenticated user's GitHub account.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:gpg_key</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -7102,18 +5833,12 @@
               "properties": {
                 "id": {
                   "type": "integer",
-                  "format": "int64",
-                  "examples": [
-                    3
-                  ]
+                  "format": "int64"
                 },
                 "name": {
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "Octocat's GPG Key"
                   ]
                 },
                 "primary_key_id": {
@@ -7123,16 +5848,10 @@
                   ]
                 },
                 "key_id": {
-                  "type": "string",
-                  "examples": [
-                    "3262EFF25BA0D270"
-                  ]
+                  "type": "string"
                 },
                 "public_key": {
-                  "type": "string",
-                  "examples": [
-                    "xsBNBFayYZ..."
-                  ]
+                  "type": "string"
                 },
                 "emails": {
                   "type": "array",
@@ -7146,13 +5865,7 @@
                         "type": "boolean"
                       }
                     }
-                  },
-                  "examples": [
-                    {
-                      "email": "octocat@users.noreply.github.com",
-                      "verified": true
-                    }
-                  ]
+                  }
                 },
                 "subkeys": {
                   "type": "array",
@@ -7221,29 +5934,10 @@
                         "type": "boolean"
                       }
                     }
-                  },
-                  "examples": [
-                    {
-                      "id": 4,
-                      "primary_key_id": 3,
-                      "key_id": "4A595D4C72EE49C7",
-                      "public_key": "zsBNBFayYZ...",
-                      "emails": [],
-                      "can_sign": false,
-                      "can_encrypt_comms": true,
-                      "can_encrypt_storage": true,
-                      "can_certify": false,
-                      "created_at": "2016-03-24T11:31:04-06:00",
-                      "expires_at": null,
-                      "revoked": false
-                    }
-                  ]
+                  }
                 },
                 "can_sign": {
-                  "type": "boolean",
-                  "examples": [
-                    true
-                  ]
+                  "type": "boolean"
                 },
                 "can_encrypt_comms": {
                   "type": "boolean"
@@ -7252,17 +5946,11 @@
                   "type": "boolean"
                 },
                 "can_certify": {
-                  "type": "boolean",
-                  "examples": [
-                    true
-                  ]
+                  "type": "boolean"
                 },
                 "created_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2016-03-24T11:31:04-06:00"
-                  ]
+                  "format": "date-time"
                 },
                 "expires_at": {
                   "type": [
@@ -7272,10 +5960,7 @@
                   "format": "date-time"
                 },
                 "revoked": {
-                  "type": "boolean",
-                  "examples": [
-                    true
-                  ]
+                  "type": "boolean"
                 },
                 "raw_key": {
                   "type": [
@@ -7364,7 +6049,6 @@
       "descriptionHTML": "<p>View extended details for a single GPG key.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:gpg_key</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -7420,18 +6104,12 @@
               "properties": {
                 "id": {
                   "type": "integer",
-                  "format": "int64",
-                  "examples": [
-                    3
-                  ]
+                  "format": "int64"
                 },
                 "name": {
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "Octocat's GPG Key"
                   ]
                 },
                 "primary_key_id": {
@@ -7441,16 +6119,10 @@
                   ]
                 },
                 "key_id": {
-                  "type": "string",
-                  "examples": [
-                    "3262EFF25BA0D270"
-                  ]
+                  "type": "string"
                 },
                 "public_key": {
-                  "type": "string",
-                  "examples": [
-                    "xsBNBFayYZ..."
-                  ]
+                  "type": "string"
                 },
                 "emails": {
                   "type": "array",
@@ -7464,13 +6136,7 @@
                         "type": "boolean"
                       }
                     }
-                  },
-                  "examples": [
-                    {
-                      "email": "octocat@users.noreply.github.com",
-                      "verified": true
-                    }
-                  ]
+                  }
                 },
                 "subkeys": {
                   "type": "array",
@@ -7539,29 +6205,10 @@
                         "type": "boolean"
                       }
                     }
-                  },
-                  "examples": [
-                    {
-                      "id": 4,
-                      "primary_key_id": 3,
-                      "key_id": "4A595D4C72EE49C7",
-                      "public_key": "zsBNBFayYZ...",
-                      "emails": [],
-                      "can_sign": false,
-                      "can_encrypt_comms": true,
-                      "can_encrypt_storage": true,
-                      "can_certify": false,
-                      "created_at": "2016-03-24T11:31:04-06:00",
-                      "expires_at": null,
-                      "revoked": false
-                    }
-                  ]
+                  }
                 },
                 "can_sign": {
-                  "type": "boolean",
-                  "examples": [
-                    true
-                  ]
+                  "type": "boolean"
                 },
                 "can_encrypt_comms": {
                   "type": "boolean"
@@ -7570,17 +6217,11 @@
                   "type": "boolean"
                 },
                 "can_certify": {
-                  "type": "boolean",
-                  "examples": [
-                    true
-                  ]
+                  "type": "boolean"
                 },
                 "created_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2016-03-24T11:31:04-06:00"
-                  ]
+                  "format": "date-time"
                 },
                 "expires_at": {
                   "type": [
@@ -7590,10 +6231,7 @@
                   "format": "date-time"
                 },
                 "revoked": {
-                  "type": "boolean",
-                  "examples": [
-                    true
-                  ]
+                  "type": "boolean"
                 },
                 "raw_key": {
                   "type": [
@@ -7678,7 +6316,6 @@
       "descriptionHTML": "<p>Removes a GPG key from the authenticated user's GitHub account.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:gpg_key</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "204",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -7770,7 +6407,6 @@
       "descriptionHTML": "<p>Lists the GPG keys for a user. This information is accessible by anyone.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -7830,18 +6466,12 @@
                 "properties": {
                   "id": {
                     "type": "integer",
-                    "format": "int64",
-                    "examples": [
-                      3
-                    ]
+                    "format": "int64"
                   },
                   "name": {
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "Octocat's GPG Key"
                     ]
                   },
                   "primary_key_id": {
@@ -7851,16 +6481,10 @@
                     ]
                   },
                   "key_id": {
-                    "type": "string",
-                    "examples": [
-                      "3262EFF25BA0D270"
-                    ]
+                    "type": "string"
                   },
                   "public_key": {
-                    "type": "string",
-                    "examples": [
-                      "xsBNBFayYZ..."
-                    ]
+                    "type": "string"
                   },
                   "emails": {
                     "type": "array",
@@ -7874,13 +6498,7 @@
                           "type": "boolean"
                         }
                       }
-                    },
-                    "examples": [
-                      {
-                        "email": "octocat@users.noreply.github.com",
-                        "verified": true
-                      }
-                    ]
+                    }
                   },
                   "subkeys": {
                     "type": "array",
@@ -7949,29 +6567,10 @@
                           "type": "boolean"
                         }
                       }
-                    },
-                    "examples": [
-                      {
-                        "id": 4,
-                        "primary_key_id": 3,
-                        "key_id": "4A595D4C72EE49C7",
-                        "public_key": "zsBNBFayYZ...",
-                        "emails": [],
-                        "can_sign": false,
-                        "can_encrypt_comms": true,
-                        "can_encrypt_storage": true,
-                        "can_certify": false,
-                        "created_at": "2016-03-24T11:31:04-06:00",
-                        "expires_at": null,
-                        "revoked": false
-                      }
-                    ]
+                    }
                   },
                   "can_sign": {
-                    "type": "boolean",
-                    "examples": [
-                      true
-                    ]
+                    "type": "boolean"
                   },
                   "can_encrypt_comms": {
                     "type": "boolean"
@@ -7980,17 +6579,11 @@
                     "type": "boolean"
                   },
                   "can_certify": {
-                    "type": "boolean",
-                    "examples": [
-                      true
-                    ]
+                    "type": "boolean"
                   },
                   "created_at": {
                     "type": "string",
-                    "format": "date-time",
-                    "examples": [
-                      "2016-03-24T11:31:04-06:00"
-                    ]
+                    "format": "date-time"
                   },
                   "expires_at": {
                     "type": [
@@ -8000,10 +6593,7 @@
                     "format": "date-time"
                   },
                   "revoked": {
-                    "type": "boolean",
-                    "examples": [
-                      true
-                    ]
+                    "type": "boolean"
                   },
                   "raw_key": {
                     "type": [
@@ -8081,7 +6671,6 @@
       "descriptionHTML": "<p>Lists the public SSH keys for the authenticated user's GitHub account.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:public_key</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -8208,13 +6797,11 @@
         {
           "type": "string",
           "name": "title",
-          "in": "body",
           "description": "<p>A descriptive name for the new key.</p>"
         },
         {
           "type": "string",
           "name": "key",
-          "in": "body",
           "description": "<p>The public SSH key to add to your GitHub account.</p>",
           "isRequired": true
         }
@@ -8222,7 +6809,6 @@
       "descriptionHTML": "<p>Adds a public SSH key to the authenticated user's GitHub account.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:public_key</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -8354,7 +6940,6 @@
       "descriptionHTML": "<p>View extended details for a single public SSH key.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:public_key</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -8480,7 +7065,6 @@
       "descriptionHTML": "<p>Removes a public SSH key from the authenticated user's GitHub account.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:public_key</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "204",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -8568,7 +7152,6 @@
       "descriptionHTML": "<p>Lists the <em>verified</em> public SSH keys for a user. This is accessible by anyone.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -8673,7 +7256,6 @@
       "descriptionHTML": "<p>Lists all of your social accounts.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -8696,16 +7278,10 @@
                 "type": "object",
                 "properties": {
                   "provider": {
-                    "type": "string",
-                    "examples": [
-                      "linkedin"
-                    ]
+                    "type": "string"
                   },
                   "url": {
-                    "type": "string",
-                    "examples": [
-                      "https://www.linkedin.com/company/github/"
-                    ]
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -8760,7 +7336,6 @@
         {
           "type": "array of strings",
           "name": "account_urls",
-          "in": "body",
           "description": "<p>Full URLs for the social media profiles to add.</p>",
           "isRequired": true
         }
@@ -8768,7 +7343,6 @@
       "descriptionHTML": "<p>Add one or more social accounts to the authenticated user's profile.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>user</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Adding multiple social accounts",
@@ -8798,16 +7372,10 @@
                 "type": "object",
                 "properties": {
                   "provider": {
-                    "type": "string",
-                    "examples": [
-                      "linkedin"
-                    ]
+                    "type": "string"
                   },
                   "url": {
-                    "type": "string",
-                    "examples": [
-                      "https://www.linkedin.com/company/github/"
-                    ]
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -8869,7 +7437,6 @@
         {
           "type": "array of strings",
           "name": "account_urls",
-          "in": "body",
           "description": "<p>Full URLs for the social media profiles to delete.</p>",
           "isRequired": true
         }
@@ -8877,7 +7444,6 @@
       "descriptionHTML": "<p>Deletes one or more social accounts from the authenticated user's profile.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>user</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "204",
           "request": {
             "contentType": "application/json",
             "description": "Deleting multiple social accounts",
@@ -8973,7 +7539,6 @@
       "descriptionHTML": "<p>Lists social media accounts for a user. This endpoint is accessible by anyone.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -8999,16 +7564,10 @@
                 "type": "object",
                 "properties": {
                   "provider": {
-                    "type": "string",
-                    "examples": [
-                      "linkedin"
-                    ]
+                    "type": "string"
                   },
                   "url": {
-                    "type": "string",
-                    "examples": [
-                      "https://www.linkedin.com/company/github/"
-                    ]
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -9069,7 +7628,6 @@
       "descriptionHTML": "<p>Lists the SSH signing keys for the authenticated user's GitHub account.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:ssh_signing_key</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -9170,13 +7728,11 @@
         {
           "type": "string",
           "name": "title",
-          "in": "body",
           "description": "<p>A descriptive name for the new key.</p>"
         },
         {
           "type": "string",
           "name": "key",
-          "in": "body",
           "description": "<p>The public SSH key to add to your GitHub account. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys\">Checking for existing SSH keys</a>.\"</p>",
           "isRequired": true
         }
@@ -9184,7 +7740,6 @@
       "descriptionHTML": "<p>Creates an SSH signing key for the authenticated user's GitHub account.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>write:ssh_signing_key</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -9293,7 +7848,6 @@
       "descriptionHTML": "<p>Gets extended details for an SSH signing key.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>read:ssh_signing_key</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -9396,7 +7950,6 @@
       "descriptionHTML": "<p>Deletes an SSH signing key from the authenticated user's GitHub account.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:ssh_signing_key</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "204",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -9484,7 +8037,6 @@
       "descriptionHTML": "<p>Lists the SSH signing keys for a user. This operation is accessible by anyone.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",

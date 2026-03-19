@@ -113,13 +113,17 @@
                     "type": "string"
                   },
                   "url": {
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "format": "uri"
                   },
                   "spdx_id": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "node_id": {
                     "type": "string"
@@ -231,13 +235,17 @@
                   "type": "string"
                 },
                 "spdx_id": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "url": {
-                  "type": "string",
-                  "format": "uri",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "uri"
                 },
                 "node_id": {
                   "type": "string"
@@ -424,19 +432,25 @@
                   "format": "uri"
                 },
                 "html_url": {
-                  "type": "string",
-                  "format": "uri",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "uri"
                 },
                 "git_url": {
-                  "type": "string",
-                  "format": "uri",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "uri"
                 },
                 "download_url": {
-                  "type": "string",
-                  "format": "uri",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "uri"
                 },
                 "type": {
                   "type": "string"
@@ -451,14 +465,18 @@
                   "type": "object",
                   "properties": {
                     "git": {
-                      "type": "string",
-                      "format": "uri",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "uri"
                     },
                     "html": {
-                      "type": "string",
-                      "format": "uri",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "uri"
                     },
                     "self": {
                       "type": "string",
@@ -472,41 +490,51 @@
                   ]
                 },
                 "license": {
-                  "title": "License Simple",
-                  "description": "License Simple",
-                  "type": "object",
-                  "properties": {
-                    "key": {
-                      "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "null"
                     },
-                    "name": {
-                      "type": "string"
-                    },
-                    "url": {
-                      "type": "string",
-                      "nullable": true,
-                      "format": "uri"
-                    },
-                    "spdx_id": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "node_id": {
-                      "type": "string"
-                    },
-                    "html_url": {
-                      "type": "string",
-                      "format": "uri"
+                    {
+                      "title": "License Simple",
+                      "description": "License Simple",
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "format": "uri"
+                        },
+                        "spdx_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      },
+                      "required": [
+                        "key",
+                        "name",
+                        "url",
+                        "spdx_id",
+                        "node_id"
+                      ]
                     }
-                  },
-                  "required": [
-                    "key",
-                    "name",
-                    "url",
-                    "spdx_id",
-                    "node_id"
-                  ],
-                  "nullable": true
+                  ]
                 }
               },
               "required": [

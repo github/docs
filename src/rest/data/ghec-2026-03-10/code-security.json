@@ -205,23 +205,30 @@
                     ]
                   },
                   "dependabot_delegated_alert_dismissal": {
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The enablement status of Dependabot delegated alert dismissal",
                     "enum": [
                       "enabled",
                       "disabled",
-                      "not_set"
+                      "not_set",
+                      null
                     ]
                   },
                   "code_scanning_options": {
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "description": "Feature options for code scanning",
-                    "nullable": true,
                     "properties": {
                       "allow_advanced": {
-                        "nullable": true,
-                        "type": "boolean",
+                        "type": [
+                          "boolean",
+                          "null"
+                        ],
                         "description": "Whether to allow repos which use advanced setup"
                       }
                     }
@@ -236,23 +243,30 @@
                     ]
                   },
                   "code_scanning_default_setup_options": {
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "description": "Feature options for code scanning default setup",
-                    "nullable": true,
                     "properties": {
                       "runner_type": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "enum": [
                           "standard",
                           "labeled",
-                          "not_set"
+                          "not_set",
+                          null
                         ],
                         "description": "Whether to use labeled runners or standard GitHub runners."
                       },
                       "runner_label": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The label of the runner to use for code scanning when runner_type is 'labeled'."
                       }
                     }
@@ -845,23 +859,30 @@
                   ]
                 },
                 "dependabot_delegated_alert_dismissal": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The enablement status of Dependabot delegated alert dismissal",
                   "enum": [
                     "enabled",
                     "disabled",
-                    "not_set"
+                    "not_set",
+                    null
                   ]
                 },
                 "code_scanning_options": {
-                  "type": "object",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
                   "description": "Feature options for code scanning",
-                  "nullable": true,
                   "properties": {
                     "allow_advanced": {
-                      "nullable": true,
-                      "type": "boolean",
+                      "type": [
+                        "boolean",
+                        "null"
+                      ],
                       "description": "Whether to allow repos which use advanced setup"
                     }
                   }
@@ -876,23 +897,30 @@
                   ]
                 },
                 "code_scanning_default_setup_options": {
-                  "type": "object",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
                   "description": "Feature options for code scanning default setup",
-                  "nullable": true,
                   "properties": {
                     "runner_type": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "enum": [
                         "standard",
                         "labeled",
-                        "not_set"
+                        "not_set",
+                        null
                       ],
                       "description": "Whether to use labeled runners or standard GitHub runners."
                     },
                     "runner_label": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The label of the runner to use for code scanning when runner_type is 'labeled'."
                     }
                   }
@@ -1290,23 +1318,30 @@
                         ]
                       },
                       "dependabot_delegated_alert_dismissal": {
-                        "type": "string",
-                        "nullable": true,
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The enablement status of Dependabot delegated alert dismissal",
                         "enum": [
                           "enabled",
                           "disabled",
-                          "not_set"
+                          "not_set",
+                          null
                         ]
                       },
                       "code_scanning_options": {
-                        "type": "object",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "description": "Feature options for code scanning",
-                        "nullable": true,
                         "properties": {
                           "allow_advanced": {
-                            "nullable": true,
-                            "type": "boolean",
+                            "type": [
+                              "boolean",
+                              "null"
+                            ],
                             "description": "Whether to allow repos which use advanced setup"
                           }
                         }
@@ -1321,23 +1356,30 @@
                         ]
                       },
                       "code_scanning_default_setup_options": {
-                        "type": "object",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "description": "Feature options for code scanning default setup",
-                        "nullable": true,
                         "properties": {
                           "runner_type": {
-                            "nullable": true,
-                            "type": "string",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
                             "enum": [
                               "standard",
                               "labeled",
-                              "not_set"
+                              "not_set",
+                              null
                             ],
                             "description": "Whether to use labeled runners or standard GitHub runners."
                           },
                           "runner_label": {
-                            "nullable": true,
-                            "type": "string",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
                             "description": "The label of the runner to use for code scanning when runner_type is 'labeled'."
                           }
                         }
@@ -1669,23 +1711,30 @@
                   ]
                 },
                 "dependabot_delegated_alert_dismissal": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The enablement status of Dependabot delegated alert dismissal",
                   "enum": [
                     "enabled",
                     "disabled",
-                    "not_set"
+                    "not_set",
+                    null
                   ]
                 },
                 "code_scanning_options": {
-                  "type": "object",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
                   "description": "Feature options for code scanning",
-                  "nullable": true,
                   "properties": {
                     "allow_advanced": {
-                      "nullable": true,
-                      "type": "boolean",
+                      "type": [
+                        "boolean",
+                        "null"
+                      ],
                       "description": "Whether to allow repos which use advanced setup"
                     }
                   }
@@ -1700,23 +1749,30 @@
                   ]
                 },
                 "code_scanning_default_setup_options": {
-                  "type": "object",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
                   "description": "Feature options for code scanning default setup",
-                  "nullable": true,
                   "properties": {
                     "runner_type": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "enum": [
                         "standard",
                         "labeled",
-                        "not_set"
+                        "not_set",
+                        null
                       ],
                       "description": "Whether to use labeled runners or standard GitHub runners."
                     },
                     "runner_label": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The label of the runner to use for code scanning when runner_type is 'labeled'."
                     }
                   }
@@ -2304,23 +2360,30 @@
                   ]
                 },
                 "dependabot_delegated_alert_dismissal": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The enablement status of Dependabot delegated alert dismissal",
                   "enum": [
                     "enabled",
                     "disabled",
-                    "not_set"
+                    "not_set",
+                    null
                   ]
                 },
                 "code_scanning_options": {
-                  "type": "object",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
                   "description": "Feature options for code scanning",
-                  "nullable": true,
                   "properties": {
                     "allow_advanced": {
-                      "nullable": true,
-                      "type": "boolean",
+                      "type": [
+                        "boolean",
+                        "null"
+                      ],
                       "description": "Whether to allow repos which use advanced setup"
                     }
                   }
@@ -2335,23 +2398,30 @@
                   ]
                 },
                 "code_scanning_default_setup_options": {
-                  "type": "object",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
                   "description": "Feature options for code scanning default setup",
-                  "nullable": true,
                   "properties": {
                     "runner_type": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "enum": [
                         "standard",
                         "labeled",
-                        "not_set"
+                        "not_set",
+                        null
                       ],
                       "description": "Whether to use labeled runners or standard GitHub runners."
                     },
                     "runner_label": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The label of the runner to use for code scanning when runner_type is 'labeled'."
                     }
                   }
@@ -2903,23 +2973,30 @@
                       ]
                     },
                     "dependabot_delegated_alert_dismissal": {
-                      "type": "string",
-                      "nullable": true,
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The enablement status of Dependabot delegated alert dismissal",
                       "enum": [
                         "enabled",
                         "disabled",
-                        "not_set"
+                        "not_set",
+                        null
                       ]
                     },
                     "code_scanning_options": {
-                      "type": "object",
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "description": "Feature options for code scanning",
-                      "nullable": true,
                       "properties": {
                         "allow_advanced": {
-                          "nullable": true,
-                          "type": "boolean",
+                          "type": [
+                            "boolean",
+                            "null"
+                          ],
                           "description": "Whether to allow repos which use advanced setup"
                         }
                       }
@@ -2934,23 +3011,30 @@
                       ]
                     },
                     "code_scanning_default_setup_options": {
-                      "type": "object",
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "description": "Feature options for code scanning default setup",
-                      "nullable": true,
                       "properties": {
                         "runner_type": {
-                          "nullable": true,
-                          "type": "string",
+                          "type": [
+                            "string",
+                            "null"
+                          ],
                           "enum": [
                             "standard",
                             "labeled",
-                            "not_set"
+                            "not_set",
+                            null
                           ],
                           "description": "Whether to use labeled runners or standard GitHub runners."
                         },
                         "runner_label": {
-                          "nullable": true,
-                          "type": "string",
+                          "type": [
+                            "string",
+                            "null"
+                          ],
                           "description": "The label of the runner to use for code scanning when runner_type is 'labeled'."
                         }
                       }
@@ -3340,12 +3424,16 @@
                         "type": "object",
                         "properties": {
                           "name": {
-                            "nullable": true,
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "email": {
-                            "nullable": true,
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "login": {
                             "type": "string"
@@ -3362,8 +3450,10 @@
                             "format": "uri"
                           },
                           "gravatar_id": {
-                            "type": "string",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "url": {
                             "type": "string",
@@ -3449,8 +3539,10 @@
                         "description": "The URL to view the repository on GitHub.com."
                       },
                       "description": {
-                        "type": "string",
-                        "nullable": true,
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The repository description."
                       },
                       "fork": {
@@ -3923,23 +4015,30 @@
                     ]
                   },
                   "dependabot_delegated_alert_dismissal": {
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The enablement status of Dependabot delegated alert dismissal",
                     "enum": [
                       "enabled",
                       "disabled",
-                      "not_set"
+                      "not_set",
+                      null
                     ]
                   },
                   "code_scanning_options": {
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "description": "Feature options for code scanning",
-                    "nullable": true,
                     "properties": {
                       "allow_advanced": {
-                        "nullable": true,
-                        "type": "boolean",
+                        "type": [
+                          "boolean",
+                          "null"
+                        ],
                         "description": "Whether to allow repos which use advanced setup"
                       }
                     }
@@ -3954,23 +4053,30 @@
                     ]
                   },
                   "code_scanning_default_setup_options": {
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "description": "Feature options for code scanning default setup",
-                    "nullable": true,
                     "properties": {
                       "runner_type": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "enum": [
                           "standard",
                           "labeled",
-                          "not_set"
+                          "not_set",
+                          null
                         ],
                         "description": "Whether to use labeled runners or standard GitHub runners."
                       },
                       "runner_label": {
-                        "nullable": true,
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The label of the runner to use for code scanning when runner_type is 'labeled'."
                       }
                     }
@@ -4624,23 +4730,30 @@
                   ]
                 },
                 "dependabot_delegated_alert_dismissal": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The enablement status of Dependabot delegated alert dismissal",
                   "enum": [
                     "enabled",
                     "disabled",
-                    "not_set"
+                    "not_set",
+                    null
                   ]
                 },
                 "code_scanning_options": {
-                  "type": "object",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
                   "description": "Feature options for code scanning",
-                  "nullable": true,
                   "properties": {
                     "allow_advanced": {
-                      "nullable": true,
-                      "type": "boolean",
+                      "type": [
+                        "boolean",
+                        "null"
+                      ],
                       "description": "Whether to allow repos which use advanced setup"
                     }
                   }
@@ -4655,23 +4768,30 @@
                   ]
                 },
                 "code_scanning_default_setup_options": {
-                  "type": "object",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
                   "description": "Feature options for code scanning default setup",
-                  "nullable": true,
                   "properties": {
                     "runner_type": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "enum": [
                         "standard",
                         "labeled",
-                        "not_set"
+                        "not_set",
+                        null
                       ],
                       "description": "Whether to use labeled runners or standard GitHub runners."
                     },
                     "runner_label": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The label of the runner to use for code scanning when runner_type is 'labeled'."
                     }
                   }
@@ -5061,23 +5181,30 @@
                         ]
                       },
                       "dependabot_delegated_alert_dismissal": {
-                        "type": "string",
-                        "nullable": true,
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The enablement status of Dependabot delegated alert dismissal",
                         "enum": [
                           "enabled",
                           "disabled",
-                          "not_set"
+                          "not_set",
+                          null
                         ]
                       },
                       "code_scanning_options": {
-                        "type": "object",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "description": "Feature options for code scanning",
-                        "nullable": true,
                         "properties": {
                           "allow_advanced": {
-                            "nullable": true,
-                            "type": "boolean",
+                            "type": [
+                              "boolean",
+                              "null"
+                            ],
                             "description": "Whether to allow repos which use advanced setup"
                           }
                         }
@@ -5092,23 +5219,30 @@
                         ]
                       },
                       "code_scanning_default_setup_options": {
-                        "type": "object",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "description": "Feature options for code scanning default setup",
-                        "nullable": true,
                         "properties": {
                           "runner_type": {
-                            "nullable": true,
-                            "type": "string",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
                             "enum": [
                               "standard",
                               "labeled",
-                              "not_set"
+                              "not_set",
+                              null
                             ],
                             "description": "Whether to use labeled runners or standard GitHub runners."
                           },
                           "runner_label": {
-                            "nullable": true,
-                            "type": "string",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
                             "description": "The label of the runner to use for code scanning when runner_type is 'labeled'."
                           }
                         }
@@ -5545,23 +5679,30 @@
                   ]
                 },
                 "dependabot_delegated_alert_dismissal": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The enablement status of Dependabot delegated alert dismissal",
                   "enum": [
                     "enabled",
                     "disabled",
-                    "not_set"
+                    "not_set",
+                    null
                   ]
                 },
                 "code_scanning_options": {
-                  "type": "object",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
                   "description": "Feature options for code scanning",
-                  "nullable": true,
                   "properties": {
                     "allow_advanced": {
-                      "nullable": true,
-                      "type": "boolean",
+                      "type": [
+                        "boolean",
+                        "null"
+                      ],
                       "description": "Whether to allow repos which use advanced setup"
                     }
                   }
@@ -5576,23 +5717,30 @@
                   ]
                 },
                 "code_scanning_default_setup_options": {
-                  "type": "object",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
                   "description": "Feature options for code scanning default setup",
-                  "nullable": true,
                   "properties": {
                     "runner_type": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "enum": [
                         "standard",
                         "labeled",
-                        "not_set"
+                        "not_set",
+                        null
                       ],
                       "description": "Whether to use labeled runners or standard GitHub runners."
                     },
                     "runner_label": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The label of the runner to use for code scanning when runner_type is 'labeled'."
                     }
                   }
@@ -6238,23 +6386,30 @@
                   ]
                 },
                 "dependabot_delegated_alert_dismissal": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The enablement status of Dependabot delegated alert dismissal",
                   "enum": [
                     "enabled",
                     "disabled",
-                    "not_set"
+                    "not_set",
+                    null
                   ]
                 },
                 "code_scanning_options": {
-                  "type": "object",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
                   "description": "Feature options for code scanning",
-                  "nullable": true,
                   "properties": {
                     "allow_advanced": {
-                      "nullable": true,
-                      "type": "boolean",
+                      "type": [
+                        "boolean",
+                        "null"
+                      ],
                       "description": "Whether to allow repos which use advanced setup"
                     }
                   }
@@ -6269,23 +6424,30 @@
                   ]
                 },
                 "code_scanning_default_setup_options": {
-                  "type": "object",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
                   "description": "Feature options for code scanning default setup",
-                  "nullable": true,
                   "properties": {
                     "runner_type": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "enum": [
                         "standard",
                         "labeled",
-                        "not_set"
+                        "not_set",
+                        null
                       ],
                       "description": "Whether to use labeled runners or standard GitHub runners."
                     },
                     "runner_label": {
-                      "nullable": true,
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The label of the runner to use for code scanning when runner_type is 'labeled'."
                     }
                   }
@@ -6837,23 +6999,30 @@
                       ]
                     },
                     "dependabot_delegated_alert_dismissal": {
-                      "type": "string",
-                      "nullable": true,
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The enablement status of Dependabot delegated alert dismissal",
                       "enum": [
                         "enabled",
                         "disabled",
-                        "not_set"
+                        "not_set",
+                        null
                       ]
                     },
                     "code_scanning_options": {
-                      "type": "object",
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "description": "Feature options for code scanning",
-                      "nullable": true,
                       "properties": {
                         "allow_advanced": {
-                          "nullable": true,
-                          "type": "boolean",
+                          "type": [
+                            "boolean",
+                            "null"
+                          ],
                           "description": "Whether to allow repos which use advanced setup"
                         }
                       }
@@ -6868,23 +7037,30 @@
                       ]
                     },
                     "code_scanning_default_setup_options": {
-                      "type": "object",
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "description": "Feature options for code scanning default setup",
-                      "nullable": true,
                       "properties": {
                         "runner_type": {
-                          "nullable": true,
-                          "type": "string",
+                          "type": [
+                            "string",
+                            "null"
+                          ],
                           "enum": [
                             "standard",
                             "labeled",
-                            "not_set"
+                            "not_set",
+                            null
                           ],
                           "description": "Whether to use labeled runners or standard GitHub runners."
                         },
                         "runner_label": {
-                          "nullable": true,
-                          "type": "string",
+                          "type": [
+                            "string",
+                            "null"
+                          ],
                           "description": "The label of the runner to use for code scanning when runner_type is 'labeled'."
                         }
                       }
@@ -7278,12 +7454,16 @@
                         "type": "object",
                         "properties": {
                           "name": {
-                            "nullable": true,
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "email": {
-                            "nullable": true,
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "login": {
                             "type": "string"
@@ -7300,8 +7480,10 @@
                             "format": "uri"
                           },
                           "gravatar_id": {
-                            "type": "string",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "url": {
                             "type": "string",
@@ -7387,8 +7569,10 @@
                         "description": "The URL to view the repository on GitHub.com."
                       },
                       "description": {
-                        "type": "string",
-                        "nullable": true,
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The repository description."
                       },
                       "fork": {
@@ -7814,23 +7998,30 @@
                       ]
                     },
                     "dependabot_delegated_alert_dismissal": {
-                      "type": "string",
-                      "nullable": true,
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The enablement status of Dependabot delegated alert dismissal",
                       "enum": [
                         "enabled",
                         "disabled",
-                        "not_set"
+                        "not_set",
+                        null
                       ]
                     },
                     "code_scanning_options": {
-                      "type": "object",
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "description": "Feature options for code scanning",
-                      "nullable": true,
                       "properties": {
                         "allow_advanced": {
-                          "nullable": true,
-                          "type": "boolean",
+                          "type": [
+                            "boolean",
+                            "null"
+                          ],
                           "description": "Whether to allow repos which use advanced setup"
                         }
                       }
@@ -7845,23 +8036,30 @@
                       ]
                     },
                     "code_scanning_default_setup_options": {
-                      "type": "object",
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "description": "Feature options for code scanning default setup",
-                      "nullable": true,
                       "properties": {
                         "runner_type": {
-                          "nullable": true,
-                          "type": "string",
+                          "type": [
+                            "string",
+                            "null"
+                          ],
                           "enum": [
                             "standard",
                             "labeled",
-                            "not_set"
+                            "not_set",
+                            null
                           ],
                           "description": "Whether to use labeled runners or standard GitHub runners."
                         },
                         "runner_label": {
-                          "nullable": true,
-                          "type": "string",
+                          "type": [
+                            "string",
+                            "null"
+                          ],
                           "description": "The label of the runner to use for code scanning when runner_type is 'labeled'."
                         }
                       }

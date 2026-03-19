@@ -104,12 +104,16 @@
                     "type": "boolean"
                   },
                   "added_by": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "last_used": {
-                    "nullable": true,
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "format": "date-time"
                   },
                   "enabled": {
@@ -253,12 +257,16 @@
                   "type": "boolean"
                 },
                 "added_by": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "last_used": {
-                  "nullable": true,
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "date-time"
                 },
                 "enabled": {
@@ -392,12 +400,16 @@
                   "type": "boolean"
                 },
                 "added_by": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "last_used": {
-                  "nullable": true,
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "date-time"
                 },
                 "enabled": {

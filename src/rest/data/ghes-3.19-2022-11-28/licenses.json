@@ -40,7 +40,6 @@
       "descriptionHTML": "<p>Lists the most commonly used licenses on GitHub. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository\">Licensing a repository </a>.\"</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -108,41 +107,26 @@
                 "type": "object",
                 "properties": {
                   "key": {
-                    "type": "string",
-                    "examples": [
-                      "mit"
-                    ]
+                    "type": "string"
                   },
                   "name": {
-                    "type": "string",
-                    "examples": [
-                      "MIT License"
-                    ]
+                    "type": "string"
                   },
                   "url": {
                     "type": [
                       "string",
                       "null"
                     ],
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/licenses/mit"
-                    ]
+                    "format": "uri"
                   },
                   "spdx_id": {
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "MIT"
                     ]
                   },
                   "node_id": {
-                    "type": "string",
-                    "examples": [
-                      "MDc6TGljZW5zZW1pdA=="
-                    ]
+                    "type": "string"
                   },
                   "html_url": {
                     "type": "string",
@@ -203,7 +187,6 @@
       "descriptionHTML": "<p>Gets information about a specific license. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository\">Licensing a repository </a>.\"</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -246,24 +229,15 @@
               "type": "object",
               "properties": {
                 "key": {
-                  "type": "string",
-                  "examples": [
-                    "mit"
-                  ]
+                  "type": "string"
                 },
                 "name": {
-                  "type": "string",
-                  "examples": [
-                    "MIT License"
-                  ]
+                  "type": "string"
                 },
                 "spdx_id": {
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "MIT"
                   ]
                 },
                 "url": {
@@ -271,78 +245,44 @@
                     "string",
                     "null"
                   ],
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/licenses/mit"
-                  ]
+                  "format": "uri"
                 },
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDc6TGljZW5zZW1pdA=="
-                  ]
+                  "type": "string"
                 },
                 "html_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "http://choosealicense.com/licenses/mit/"
-                  ]
+                  "format": "uri"
                 },
                 "description": {
-                  "type": "string",
-                  "examples": [
-                    "A permissive license that is short and to the point. It lets people do anything with your code with proper attribution and without warranty."
-                  ]
+                  "type": "string"
                 },
                 "implementation": {
-                  "type": "string",
-                  "examples": [
-                    "Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [year] with the current year and [fullname] with the name (or names) of the copyright holders."
-                  ]
+                  "type": "string"
                 },
                 "permissions": {
                   "type": "array",
                   "items": {
                     "type": "string"
-                  },
-                  "examples": [
-                    "commercial-use",
-                    "modifications",
-                    "distribution",
-                    "sublicense",
-                    "private-use"
-                  ]
+                  }
                 },
                 "conditions": {
                   "type": "array",
                   "items": {
                     "type": "string"
-                  },
-                  "examples": [
-                    "include-copyright"
-                  ]
+                  }
                 },
                 "limitations": {
                   "type": "array",
                   "items": {
                     "type": "string"
-                  },
-                  "examples": [
-                    "no-liability"
-                  ]
+                  }
                 },
                 "body": {
-                  "type": "string",
-                  "examples": [
-                    "\n\nThe MIT License (MIT)\n\nCopyright (c) [year] [fullname]\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
-                  ]
+                  "type": "string"
                 },
                 "featured": {
-                  "type": "boolean",
-                  "examples": [
-                    true
-                  ]
+                  "type": "boolean"
                 }
               },
               "required": [
@@ -433,7 +373,6 @@
       "descriptionHTML": "<p>This method returns the contents of the repository's license file, if one is detected.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw contents of the license.</li>\n<li><strong><code>application/vnd.github.html+json</code></strong>: Returns the license contents in HTML. Markup languages are rendered to HTML using GitHub's open-source <a href=\"https://github.com/github/markup\">Markup library</a>.</li>\n</ul>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -561,41 +500,26 @@
                       "type": "object",
                       "properties": {
                         "key": {
-                          "type": "string",
-                          "examples": [
-                            "mit"
-                          ]
+                          "type": "string"
                         },
                         "name": {
-                          "type": "string",
-                          "examples": [
-                            "MIT License"
-                          ]
+                          "type": "string"
                         },
                         "url": {
                           "type": [
                             "string",
                             "null"
                           ],
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/licenses/mit"
-                          ]
+                          "format": "uri"
                         },
                         "spdx_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "MIT"
                           ]
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDc6TGljZW5zZW1pdA=="
-                          ]
+                          "type": "string"
                         },
                         "html_url": {
                           "type": "string",

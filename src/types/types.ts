@@ -328,7 +328,6 @@ export type SecretScanningData = {
   hasPushProtection: boolean
   hasValidityCheck: boolean | string
   hasExtendedMetadata?: boolean
-  ismultipart?: boolean
   base64Supported: boolean
   isduplicate: boolean
 }

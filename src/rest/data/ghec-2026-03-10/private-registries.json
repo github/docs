@@ -113,8 +113,10 @@
                       },
                       "username": {
                         "description": "The username to use when authenticating with the private registry.",
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "replaces_base": {
                         "description": "Whether this private registry replaces the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When `true`, Dependabot will only use this registry and will not fall back to the public registry. When `false` (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.",
@@ -688,8 +690,10 @@
                 },
                 "username": {
                   "description": "The username to use when authenticating with the private registry.",
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "replaces_base": {
                   "description": "Whether this private registry replaces the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When `true`, Dependabot will only use this registry and will not fall back to the public registry. When `false` (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.",

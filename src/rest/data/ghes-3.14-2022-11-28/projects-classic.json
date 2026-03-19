@@ -22,7 +22,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -73,32 +72,20 @@
               "properties": {
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/columns/cards/1478"
-                  ]
+                  "format": "uri"
                 },
                 "id": {
                   "description": "The project card's ID",
                   "type": "integer",
-                  "format": "int64",
-                  "examples": [
-                    42
-                  ]
+                  "format": "int64"
                 },
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDExOlByb2plY3RDYXJkMTQ3OA=="
-                  ]
+                  "type": "string"
                 },
                 "note": {
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "Add payload for delete Project column"
                   ]
                 },
                 "creator": {
@@ -124,133 +111,76 @@
                           ]
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
                           ]
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -278,24 +208,15 @@
                 },
                 "created_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2016-09-05T14:21:06Z"
-                  ]
+                  "format": "date-time"
                 },
                 "updated_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2016-09-05T14:20:22Z"
-                  ]
+                  "format": "date-time"
                 },
                 "archived": {
                   "description": "Whether or not the card is archived",
-                  "type": "boolean",
-                  "examples": [
-                    false
-                  ]
+                  "type": "boolean"
                 },
                 "column_name": {
                   "type": "string"
@@ -305,24 +226,15 @@
                 },
                 "column_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/columns/367"
-                  ]
+                  "format": "uri"
                 },
                 "content_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repos/api-playground/projects-test/issues/3"
-                  ]
+                  "format": "uri"
                 },
                 "project_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/120"
-                  ]
+                  "format": "uri"
                 }
               },
               "required": [
@@ -386,20 +298,17 @@
         {
           "type": "string or null",
           "name": "note",
-          "in": "body",
           "description": "<p>The project card's note</p>"
         },
         {
           "type": "boolean",
           "name": "archived",
-          "in": "body",
           "description": "<p>Whether or not the card is archived</p>"
         }
       ],
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Change the note on the card",
@@ -454,32 +363,20 @@
               "properties": {
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/columns/cards/1478"
-                  ]
+                  "format": "uri"
                 },
                 "id": {
                   "description": "The project card's ID",
                   "type": "integer",
-                  "format": "int64",
-                  "examples": [
-                    42
-                  ]
+                  "format": "int64"
                 },
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDExOlByb2plY3RDYXJkMTQ3OA=="
-                  ]
+                  "type": "string"
                 },
                 "note": {
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "Add payload for delete Project column"
                   ]
                 },
                 "creator": {
@@ -505,133 +402,76 @@
                           ]
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
                           ]
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -659,24 +499,15 @@
                 },
                 "created_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2016-09-05T14:21:06Z"
-                  ]
+                  "format": "date-time"
                 },
                 "updated_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2016-09-05T14:20:22Z"
-                  ]
+                  "format": "date-time"
                 },
                 "archived": {
                   "description": "Whether or not the card is archived",
-                  "type": "boolean",
-                  "examples": [
-                    false
-                  ]
+                  "type": "boolean"
                 },
                 "column_name": {
                   "type": "string"
@@ -686,24 +517,15 @@
                 },
                 "column_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/columns/367"
-                  ]
+                  "format": "uri"
                 },
                 "content_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repos/api-playground/projects-test/issues/3"
-                  ]
+                  "format": "uri"
                 },
                 "project_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/120"
-                  ]
+                  "format": "uri"
                 }
               },
               "required": [
@@ -771,7 +593,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "204",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -831,21 +652,18 @@
         {
           "type": "string",
           "name": "position",
-          "in": "body",
           "description": "<p>The position of the card in a column. Can be one of: <code>top</code>, <code>bottom</code>, or <code>after:&#x3C;card_id></code> to place after the specified card.</p>",
           "isRequired": true
         },
         {
           "type": "integer",
           "name": "column_id",
-          "in": "body",
           "description": "<p>The unique identifier of the column the card should be moved to</p>"
         }
       ],
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Move the card to the bottom of the column",
@@ -954,7 +772,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1009,32 +826,20 @@
                 "properties": {
                   "url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/projects/columns/cards/1478"
-                    ]
+                    "format": "uri"
                   },
                   "id": {
                     "description": "The project card's ID",
                     "type": "integer",
-                    "format": "int64",
-                    "examples": [
-                      42
-                    ]
+                    "format": "int64"
                   },
                   "node_id": {
-                    "type": "string",
-                    "examples": [
-                      "MDExOlByb2plY3RDYXJkMTQ3OA=="
-                    ]
+                    "type": "string"
                   },
                   "note": {
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "Add payload for delete Project column"
                     ]
                   },
                   "creator": {
@@ -1060,133 +865,76 @@
                             ]
                           },
                           "login": {
-                            "type": "string",
-                            "examples": [
-                              "octocat"
-                            ]
+                            "type": "string"
                           },
                           "id": {
                             "type": "integer",
-                            "format": "int64",
-                            "examples": [
-                              1
-                            ]
+                            "format": "int64"
                           },
                           "node_id": {
-                            "type": "string",
-                            "examples": [
-                              "MDQ6VXNlcjE="
-                            ]
+                            "type": "string"
                           },
                           "avatar_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/images/error/octocat_happy.gif"
-                            ]
+                            "format": "uri"
                           },
                           "gravatar_id": {
                             "type": [
                               "string",
                               "null"
-                            ],
-                            "examples": [
-                              "41d064eb2195891e12d0413f63227ea7"
                             ]
                           },
                           "url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "html_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "followers_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/followers"
-                            ]
+                            "format": "uri"
                           },
                           "following_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/following{/other_user}"
-                            ]
+                            "type": "string"
                           },
                           "gists_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/gists{/gist_id}"
-                            ]
+                            "type": "string"
                           },
                           "starred_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                            ]
+                            "type": "string"
                           },
                           "subscriptions_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/subscriptions"
-                            ]
+                            "format": "uri"
                           },
                           "organizations_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/orgs"
-                            ]
+                            "format": "uri"
                           },
                           "repos_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/repos"
-                            ]
+                            "format": "uri"
                           },
                           "events_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/events{/privacy}"
-                            ]
+                            "type": "string"
                           },
                           "received_events_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/received_events"
-                            ]
+                            "format": "uri"
                           },
                           "type": {
-                            "type": "string",
-                            "examples": [
-                              "User"
-                            ]
+                            "type": "string"
                           },
                           "site_admin": {
                             "type": "boolean"
                           },
                           "starred_at": {
-                            "type": "string",
-                            "examples": [
-                              "\"2020-07-09T00:17:55Z\""
-                            ]
+                            "type": "string"
                           },
                           "user_view_type": {
-                            "type": "string",
-                            "examples": [
-                              "public"
-                            ]
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -1214,24 +962,15 @@
                   },
                   "created_at": {
                     "type": "string",
-                    "format": "date-time",
-                    "examples": [
-                      "2016-09-05T14:21:06Z"
-                    ]
+                    "format": "date-time"
                   },
                   "updated_at": {
                     "type": "string",
-                    "format": "date-time",
-                    "examples": [
-                      "2016-09-05T14:20:22Z"
-                    ]
+                    "format": "date-time"
                   },
                   "archived": {
                     "description": "Whether or not the card is archived",
-                    "type": "boolean",
-                    "examples": [
-                      false
-                    ]
+                    "type": "boolean"
                   },
                   "column_name": {
                     "type": "string"
@@ -1241,24 +980,15 @@
                   },
                   "column_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/projects/columns/367"
-                    ]
+                    "format": "uri"
                   },
                   "content_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/repos/api-playground/projects-test/issues/3"
-                    ]
+                    "format": "uri"
                   },
                   "project_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/projects/120"
-                    ]
+                    "format": "uri"
                   }
                 },
                 "required": [
@@ -1319,21 +1049,18 @@
         {
           "type": "string or null",
           "name": "note",
-          "in": "body",
           "description": "<p>The project card's note</p>",
           "isRequired": true
         },
         {
           "type": "integer",
           "name": "content_id",
-          "in": "body",
           "description": "<p>The unique identifier of the content associated with the card</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "content_type",
-          "in": "body",
           "description": "<p>The piece of content associated with the card</p>",
           "isRequired": true
         }
@@ -1341,7 +1068,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Create a new card",
@@ -1396,32 +1122,20 @@
               "properties": {
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/columns/cards/1478"
-                  ]
+                  "format": "uri"
                 },
                 "id": {
                   "description": "The project card's ID",
                   "type": "integer",
-                  "format": "int64",
-                  "examples": [
-                    42
-                  ]
+                  "format": "int64"
                 },
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDExOlByb2plY3RDYXJkMTQ3OA=="
-                  ]
+                  "type": "string"
                 },
                 "note": {
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "Add payload for delete Project column"
                   ]
                 },
                 "creator": {
@@ -1447,133 +1161,76 @@
                           ]
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
                           ]
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -1601,24 +1258,15 @@
                 },
                 "created_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2016-09-05T14:21:06Z"
-                  ]
+                  "format": "date-time"
                 },
                 "updated_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2016-09-05T14:20:22Z"
-                  ]
+                  "format": "date-time"
                 },
                 "archived": {
                   "description": "Whether or not the card is archived",
-                  "type": "boolean",
-                  "examples": [
-                    false
-                  ]
+                  "type": "boolean"
                 },
                 "column_name": {
                   "type": "string"
@@ -1628,24 +1276,15 @@
                 },
                 "column_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/columns/367"
-                  ]
+                  "format": "uri"
                 },
                 "content_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repos/api-playground/projects-test/issues/3"
-                  ]
+                  "format": "uri"
                 },
                 "project_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/120"
-                  ]
+                  "format": "uri"
                 }
               },
               "required": [
@@ -1748,7 +1387,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1802,133 +1440,76 @@
                     ]
                   },
                   "login": {
-                    "type": "string",
-                    "examples": [
-                      "octocat"
-                    ]
+                    "type": "string"
                   },
                   "id": {
                     "type": "integer",
-                    "format": "int64",
-                    "examples": [
-                      1
-                    ]
+                    "format": "int64"
                   },
                   "node_id": {
-                    "type": "string",
-                    "examples": [
-                      "MDQ6VXNlcjE="
-                    ]
+                    "type": "string"
                   },
                   "avatar_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/images/error/octocat_happy.gif"
-                    ]
+                    "format": "uri"
                   },
                   "gravatar_id": {
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "41d064eb2195891e12d0413f63227ea7"
                     ]
                   },
                   "url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat"
-                    ]
+                    "format": "uri"
                   },
                   "html_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/octocat"
-                    ]
+                    "format": "uri"
                   },
                   "followers_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/followers"
-                    ]
+                    "format": "uri"
                   },
                   "following_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/following{/other_user}"
-                    ]
+                    "type": "string"
                   },
                   "gists_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/gists{/gist_id}"
-                    ]
+                    "type": "string"
                   },
                   "starred_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                    ]
+                    "type": "string"
                   },
                   "subscriptions_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/subscriptions"
-                    ]
+                    "format": "uri"
                   },
                   "organizations_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/orgs"
-                    ]
+                    "format": "uri"
                   },
                   "repos_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/repos"
-                    ]
+                    "format": "uri"
                   },
                   "events_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/events{/privacy}"
-                    ]
+                    "type": "string"
                   },
                   "received_events_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/received_events"
-                    ]
+                    "format": "uri"
                   },
                   "type": {
-                    "type": "string",
-                    "examples": [
-                      "User"
-                    ]
+                    "type": "string"
                   },
                   "site_admin": {
                     "type": "boolean"
                   },
                   "starred_at": {
-                    "type": "string",
-                    "examples": [
-                      "\"2020-07-09T00:17:55Z\""
-                    ]
+                    "type": "string"
                   },
                   "user_view_type": {
-                    "type": "string",
-                    "examples": [
-                      "public"
-                    ]
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -2015,7 +1596,6 @@
         {
           "type": "string",
           "name": "permission",
-          "in": "body",
           "description": "<p>The permission to grant the collaborator.</p>",
           "enum": [
             "read",
@@ -2028,7 +1608,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "204",
           "request": {
             "contentType": "application/json",
             "description": "Applying write permissions for the new collaborator",
@@ -2106,7 +1685,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "204",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2180,7 +1758,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2247,133 +1824,76 @@
                           ]
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
                           ]
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -2460,7 +1980,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2489,58 +2008,34 @@
               "properties": {
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/columns/367"
-                  ]
+                  "format": "uri"
                 },
                 "project_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/120"
-                  ]
+                  "format": "uri"
                 },
                 "cards_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/columns/367/cards"
-                  ]
+                  "format": "uri"
                 },
                 "id": {
                   "description": "The unique identifier of the project column",
-                  "type": "integer",
-                  "examples": [
-                    42
-                  ]
+                  "type": "integer"
                 },
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDEzOlByb2plY3RDb2x1bW4zNjc="
-                  ]
+                  "type": "string"
                 },
                 "name": {
                   "description": "Name of the project column",
-                  "type": "string",
-                  "examples": [
-                    "Remaining tasks"
-                  ]
+                  "type": "string"
                 },
                 "created_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2016-09-05T14:18:44Z"
-                  ]
+                  "format": "date-time"
                 },
                 "updated_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2016-09-05T14:22:28Z"
-                  ]
+                  "format": "date-time"
                 }
               },
               "required": [
@@ -2603,7 +2098,6 @@
         {
           "type": "string",
           "name": "name",
-          "in": "body",
           "description": "<p>Name of the project column</p>",
           "isRequired": true
         }
@@ -2611,7 +2105,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Rename the project column",
@@ -2644,58 +2137,34 @@
               "properties": {
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/columns/367"
-                  ]
+                  "format": "uri"
                 },
                 "project_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/120"
-                  ]
+                  "format": "uri"
                 },
                 "cards_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/columns/367/cards"
-                  ]
+                  "format": "uri"
                 },
                 "id": {
                   "description": "The unique identifier of the project column",
-                  "type": "integer",
-                  "examples": [
-                    42
-                  ]
+                  "type": "integer"
                 },
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDEzOlByb2plY3RDb2x1bW4zNjc="
-                  ]
+                  "type": "string"
                 },
                 "name": {
                   "description": "Name of the project column",
-                  "type": "string",
-                  "examples": [
-                    "Remaining tasks"
-                  ]
+                  "type": "string"
                 },
                 "created_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2016-09-05T14:18:44Z"
-                  ]
+                  "format": "date-time"
                 },
                 "updated_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2016-09-05T14:22:28Z"
-                  ]
+                  "format": "date-time"
                 }
               },
               "required": [
@@ -2754,7 +2223,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "204",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2810,7 +2278,6 @@
         {
           "type": "string",
           "name": "position",
-          "in": "body",
           "description": "<p>The position of the column in a project. Can be one of: <code>first</code>, <code>last</code>, or <code>after:&#x3C;column_id></code> to place after the specified column.</p>",
           "isRequired": true
         }
@@ -2818,7 +2285,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Move the column to the end of the board",
@@ -2907,7 +2373,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2940,58 +2405,34 @@
                 "properties": {
                   "url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/projects/columns/367"
-                    ]
+                    "format": "uri"
                   },
                   "project_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/projects/120"
-                    ]
+                    "format": "uri"
                   },
                   "cards_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/projects/columns/367/cards"
-                    ]
+                    "format": "uri"
                   },
                   "id": {
                     "description": "The unique identifier of the project column",
-                    "type": "integer",
-                    "examples": [
-                      42
-                    ]
+                    "type": "integer"
                   },
                   "node_id": {
-                    "type": "string",
-                    "examples": [
-                      "MDEzOlByb2plY3RDb2x1bW4zNjc="
-                    ]
+                    "type": "string"
                   },
                   "name": {
                     "description": "Name of the project column",
-                    "type": "string",
-                    "examples": [
-                      "Remaining tasks"
-                    ]
+                    "type": "string"
                   },
                   "created_at": {
                     "type": "string",
-                    "format": "date-time",
-                    "examples": [
-                      "2016-09-05T14:18:44Z"
-                    ]
+                    "format": "date-time"
                   },
                   "updated_at": {
                     "type": "string",
-                    "format": "date-time",
-                    "examples": [
-                      "2016-09-05T14:22:28Z"
-                    ]
+                    "format": "date-time"
                   }
                 },
                 "required": [
@@ -3051,7 +2492,6 @@
         {
           "type": "string",
           "name": "name",
-          "in": "body",
           "description": "<p>Name of the project column</p>",
           "isRequired": true
         }
@@ -3059,7 +2499,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -3092,58 +2531,34 @@
               "properties": {
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/columns/367"
-                  ]
+                  "format": "uri"
                 },
                 "project_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/120"
-                  ]
+                  "format": "uri"
                 },
                 "cards_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/columns/367/cards"
-                  ]
+                  "format": "uri"
                 },
                 "id": {
                   "description": "The unique identifier of the project column",
-                  "type": "integer",
-                  "examples": [
-                    42
-                  ]
+                  "type": "integer"
                 },
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDEzOlByb2plY3RDb2x1bW4zNjc="
-                  ]
+                  "type": "string"
                 },
                 "name": {
                   "description": "Name of the project column",
-                  "type": "string",
-                  "examples": [
-                    "Remaining tasks"
-                  ]
+                  "type": "string"
                 },
                 "created_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2016-09-05T14:18:44Z"
-                  ]
+                  "format": "date-time"
                 },
                 "updated_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2016-09-05T14:22:28Z"
-                  ]
+                  "format": "date-time"
                 }
               },
               "required": [
@@ -3241,7 +2656,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -3300,73 +2714,43 @@
                 "properties": {
                   "owner_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/repos/api-playground/projects-test"
-                    ]
+                    "format": "uri"
                   },
                   "url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/projects/1002604"
-                    ]
+                    "format": "uri"
                   },
                   "html_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/api-playground/projects-test/projects/12"
-                    ]
+                    "format": "uri"
                   },
                   "columns_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/projects/1002604/columns"
-                    ]
+                    "format": "uri"
                   },
                   "id": {
-                    "type": "integer",
-                    "examples": [
-                      1002604
-                    ]
+                    "type": "integer"
                   },
                   "node_id": {
-                    "type": "string",
-                    "examples": [
-                      "MDc6UHJvamVjdDEwMDI2MDQ="
-                    ]
+                    "type": "string"
                   },
                   "name": {
                     "description": "Name of the project",
-                    "type": "string",
-                    "examples": [
-                      "Week One Sprint"
-                    ]
+                    "type": "string"
                   },
                   "body": {
                     "description": "Body of the project",
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "This project represents the sprint of the first week in January"
                     ]
                   },
                   "number": {
-                    "type": "integer",
-                    "examples": [
-                      1
-                    ]
+                    "type": "integer"
                   },
                   "state": {
                     "description": "State of the project; either 'open' or 'closed'",
-                    "type": "string",
-                    "examples": [
-                      "open"
-                    ]
+                    "type": "string"
                   },
                   "creator": {
                     "anyOf": [
@@ -3391,133 +2775,76 @@
                             ]
                           },
                           "login": {
-                            "type": "string",
-                            "examples": [
-                              "octocat"
-                            ]
+                            "type": "string"
                           },
                           "id": {
                             "type": "integer",
-                            "format": "int64",
-                            "examples": [
-                              1
-                            ]
+                            "format": "int64"
                           },
                           "node_id": {
-                            "type": "string",
-                            "examples": [
-                              "MDQ6VXNlcjE="
-                            ]
+                            "type": "string"
                           },
                           "avatar_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/images/error/octocat_happy.gif"
-                            ]
+                            "format": "uri"
                           },
                           "gravatar_id": {
                             "type": [
                               "string",
                               "null"
-                            ],
-                            "examples": [
-                              "41d064eb2195891e12d0413f63227ea7"
                             ]
                           },
                           "url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "html_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "followers_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/followers"
-                            ]
+                            "format": "uri"
                           },
                           "following_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/following{/other_user}"
-                            ]
+                            "type": "string"
                           },
                           "gists_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/gists{/gist_id}"
-                            ]
+                            "type": "string"
                           },
                           "starred_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                            ]
+                            "type": "string"
                           },
                           "subscriptions_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/subscriptions"
-                            ]
+                            "format": "uri"
                           },
                           "organizations_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/orgs"
-                            ]
+                            "format": "uri"
                           },
                           "repos_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/repos"
-                            ]
+                            "format": "uri"
                           },
                           "events_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/events{/privacy}"
-                            ]
+                            "type": "string"
                           },
                           "received_events_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/received_events"
-                            ]
+                            "format": "uri"
                           },
                           "type": {
-                            "type": "string",
-                            "examples": [
-                              "User"
-                            ]
+                            "type": "string"
                           },
                           "site_admin": {
                             "type": "boolean"
                           },
                           "starred_at": {
-                            "type": "string",
-                            "examples": [
-                              "\"2020-07-09T00:17:55Z\""
-                            ]
+                            "type": "string"
                           },
                           "user_view_type": {
-                            "type": "string",
-                            "examples": [
-                              "public"
-                            ]
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -3545,17 +2872,11 @@
                   },
                   "created_at": {
                     "type": "string",
-                    "format": "date-time",
-                    "examples": [
-                      "2011-04-10T20:09:31Z"
-                    ]
+                    "format": "date-time"
                   },
                   "updated_at": {
                     "type": "string",
-                    "format": "date-time",
-                    "examples": [
-                      "2014-03-03T18:58:10Z"
-                    ]
+                    "format": "date-time"
                   },
                   "organization_permission": {
                     "description": "The baseline permission that all organization members have on this project. Only present if owner is an organization.",
@@ -3626,21 +2947,18 @@
         {
           "type": "string",
           "name": "name",
-          "in": "body",
           "description": "<p>The name of the project.</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "body",
-          "in": "body",
           "description": "<p>The description of the project.</p>"
         }
       ],
       "descriptionHTML": "<p>Creates an organization project board. Returns a <code>410 Gone</code> status if projects are disabled in the organization or if the organization does not have existing classic projects. If you do not have sufficient privileges to perform this action, a <code>401 Unauthorized</code> or <code>410 Gone</code> status is returned.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -3698,73 +3016,43 @@
               "properties": {
                 "owner_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repos/api-playground/projects-test"
-                  ]
+                  "format": "uri"
                 },
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/1002604"
-                  ]
+                  "format": "uri"
                 },
                 "html_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://github.com/api-playground/projects-test/projects/12"
-                  ]
+                  "format": "uri"
                 },
                 "columns_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/1002604/columns"
-                  ]
+                  "format": "uri"
                 },
                 "id": {
-                  "type": "integer",
-                  "examples": [
-                    1002604
-                  ]
+                  "type": "integer"
                 },
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDc6UHJvamVjdDEwMDI2MDQ="
-                  ]
+                  "type": "string"
                 },
                 "name": {
                   "description": "Name of the project",
-                  "type": "string",
-                  "examples": [
-                    "Week One Sprint"
-                  ]
+                  "type": "string"
                 },
                 "body": {
                   "description": "Body of the project",
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "This project represents the sprint of the first week in January"
                   ]
                 },
                 "number": {
-                  "type": "integer",
-                  "examples": [
-                    1
-                  ]
+                  "type": "integer"
                 },
                 "state": {
                   "description": "State of the project; either 'open' or 'closed'",
-                  "type": "string",
-                  "examples": [
-                    "open"
-                  ]
+                  "type": "string"
                 },
                 "creator": {
                   "anyOf": [
@@ -3789,133 +3077,76 @@
                           ]
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
                           ]
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -3943,17 +3174,11 @@
                 },
                 "created_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2011-04-10T20:09:31Z"
-                  ]
+                  "format": "date-time"
                 },
                 "updated_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2014-03-03T18:58:10Z"
-                  ]
+                  "format": "date-time"
                 },
                 "organization_permission": {
                   "description": "The baseline permission that all organization members have on this project. Only present if owner is an organization.",
@@ -4039,7 +3264,6 @@
       "descriptionHTML": "<p>Gets a project by its <code>id</code>. Returns a <code>404 Not Found</code> status if projects are disabled. If you do not have sufficient privileges to perform this action, a <code>401 Unauthorized</code> or <code>410 Gone</code> status is returned.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -4092,73 +3316,43 @@
               "properties": {
                 "owner_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repos/api-playground/projects-test"
-                  ]
+                  "format": "uri"
                 },
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/1002604"
-                  ]
+                  "format": "uri"
                 },
                 "html_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://github.com/api-playground/projects-test/projects/12"
-                  ]
+                  "format": "uri"
                 },
                 "columns_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/1002604/columns"
-                  ]
+                  "format": "uri"
                 },
                 "id": {
-                  "type": "integer",
-                  "examples": [
-                    1002604
-                  ]
+                  "type": "integer"
                 },
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDc6UHJvamVjdDEwMDI2MDQ="
-                  ]
+                  "type": "string"
                 },
                 "name": {
                   "description": "Name of the project",
-                  "type": "string",
-                  "examples": [
-                    "Week One Sprint"
-                  ]
+                  "type": "string"
                 },
                 "body": {
                   "description": "Body of the project",
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "This project represents the sprint of the first week in January"
                   ]
                 },
                 "number": {
-                  "type": "integer",
-                  "examples": [
-                    1
-                  ]
+                  "type": "integer"
                 },
                 "state": {
                   "description": "State of the project; either 'open' or 'closed'",
-                  "type": "string",
-                  "examples": [
-                    "open"
-                  ]
+                  "type": "string"
                 },
                 "creator": {
                   "anyOf": [
@@ -4183,133 +3377,76 @@
                           ]
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
                           ]
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -4337,17 +3474,11 @@
                 },
                 "created_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2011-04-10T20:09:31Z"
-                  ]
+                  "format": "date-time"
                 },
                 "updated_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2014-03-03T18:58:10Z"
-                  ]
+                  "format": "date-time"
                 },
                 "organization_permission": {
                   "description": "The baseline permission that all organization members have on this project. Only present if owner is an organization.",
@@ -4425,25 +3556,21 @@
         {
           "type": "string",
           "name": "name",
-          "in": "body",
           "description": "<p>Name of the project</p>"
         },
         {
           "type": "string or null",
           "name": "body",
-          "in": "body",
           "description": "<p>Body of the project</p>"
         },
         {
           "type": "string",
           "name": "state",
-          "in": "body",
           "description": "<p>State of the project; either 'open' or 'closed'</p>"
         },
         {
           "type": "string",
           "name": "organization_permission",
-          "in": "body",
           "description": "<p>The baseline permission that all organization members have on this project</p>",
           "enum": [
             "read",
@@ -4455,14 +3582,12 @@
         {
           "type": "boolean",
           "name": "private",
-          "in": "body",
           "description": "<p>Whether or not this project can be seen by everyone.</p>"
         }
       ],
       "descriptionHTML": "<p>Updates a project board's information. Returns a <code>404 Not Found</code> status if projects are disabled. If you do not have sufficient privileges to perform this action, a <code>401 Unauthorized</code> or <code>410 Gone</code> status is returned.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Change the name, state, and permissions for a project",
@@ -4521,73 +3646,43 @@
               "properties": {
                 "owner_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repos/api-playground/projects-test"
-                  ]
+                  "format": "uri"
                 },
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/1002604"
-                  ]
+                  "format": "uri"
                 },
                 "html_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://github.com/api-playground/projects-test/projects/12"
-                  ]
+                  "format": "uri"
                 },
                 "columns_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/1002604/columns"
-                  ]
+                  "format": "uri"
                 },
                 "id": {
-                  "type": "integer",
-                  "examples": [
-                    1002604
-                  ]
+                  "type": "integer"
                 },
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDc6UHJvamVjdDEwMDI2MDQ="
-                  ]
+                  "type": "string"
                 },
                 "name": {
                   "description": "Name of the project",
-                  "type": "string",
-                  "examples": [
-                    "Week One Sprint"
-                  ]
+                  "type": "string"
                 },
                 "body": {
                   "description": "Body of the project",
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "This project represents the sprint of the first week in January"
                   ]
                 },
                 "number": {
-                  "type": "integer",
-                  "examples": [
-                    1
-                  ]
+                  "type": "integer"
                 },
                 "state": {
                   "description": "State of the project; either 'open' or 'closed'",
-                  "type": "string",
-                  "examples": [
-                    "open"
-                  ]
+                  "type": "string"
                 },
                 "creator": {
                   "anyOf": [
@@ -4612,133 +3707,76 @@
                           ]
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
                           ]
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -4766,17 +3804,11 @@
                 },
                 "created_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2011-04-10T20:09:31Z"
-                  ]
+                  "format": "date-time"
                 },
                 "updated_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2014-03-03T18:58:10Z"
-                  ]
+                  "format": "date-time"
                 },
                 "organization_permission": {
                   "description": "The baseline permission that all organization members have on this project. Only present if owner is an organization.",
@@ -4866,7 +3898,6 @@
       "descriptionHTML": "<p>Deletes a project board. Returns a <code>404 Not Found</code> status if projects are disabled.</p>",
       "codeExamples": [
         {
-          "key": "204",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -4972,7 +4003,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -5030,73 +4060,43 @@
                 "properties": {
                   "owner_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/repos/api-playground/projects-test"
-                    ]
+                    "format": "uri"
                   },
                   "url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/projects/1002604"
-                    ]
+                    "format": "uri"
                   },
                   "html_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/api-playground/projects-test/projects/12"
-                    ]
+                    "format": "uri"
                   },
                   "columns_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/projects/1002604/columns"
-                    ]
+                    "format": "uri"
                   },
                   "id": {
-                    "type": "integer",
-                    "examples": [
-                      1002604
-                    ]
+                    "type": "integer"
                   },
                   "node_id": {
-                    "type": "string",
-                    "examples": [
-                      "MDc6UHJvamVjdDEwMDI2MDQ="
-                    ]
+                    "type": "string"
                   },
                   "name": {
                     "description": "Name of the project",
-                    "type": "string",
-                    "examples": [
-                      "Week One Sprint"
-                    ]
+                    "type": "string"
                   },
                   "body": {
                     "description": "Body of the project",
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "This project represents the sprint of the first week in January"
                     ]
                   },
                   "number": {
-                    "type": "integer",
-                    "examples": [
-                      1
-                    ]
+                    "type": "integer"
                   },
                   "state": {
                     "description": "State of the project; either 'open' or 'closed'",
-                    "type": "string",
-                    "examples": [
-                      "open"
-                    ]
+                    "type": "string"
                   },
                   "creator": {
                     "anyOf": [
@@ -5121,133 +4121,76 @@
                             ]
                           },
                           "login": {
-                            "type": "string",
-                            "examples": [
-                              "octocat"
-                            ]
+                            "type": "string"
                           },
                           "id": {
                             "type": "integer",
-                            "format": "int64",
-                            "examples": [
-                              1
-                            ]
+                            "format": "int64"
                           },
                           "node_id": {
-                            "type": "string",
-                            "examples": [
-                              "MDQ6VXNlcjE="
-                            ]
+                            "type": "string"
                           },
                           "avatar_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/images/error/octocat_happy.gif"
-                            ]
+                            "format": "uri"
                           },
                           "gravatar_id": {
                             "type": [
                               "string",
                               "null"
-                            ],
-                            "examples": [
-                              "41d064eb2195891e12d0413f63227ea7"
                             ]
                           },
                           "url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "html_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "followers_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/followers"
-                            ]
+                            "format": "uri"
                           },
                           "following_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/following{/other_user}"
-                            ]
+                            "type": "string"
                           },
                           "gists_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/gists{/gist_id}"
-                            ]
+                            "type": "string"
                           },
                           "starred_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                            ]
+                            "type": "string"
                           },
                           "subscriptions_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/subscriptions"
-                            ]
+                            "format": "uri"
                           },
                           "organizations_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/orgs"
-                            ]
+                            "format": "uri"
                           },
                           "repos_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/repos"
-                            ]
+                            "format": "uri"
                           },
                           "events_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/events{/privacy}"
-                            ]
+                            "type": "string"
                           },
                           "received_events_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/received_events"
-                            ]
+                            "format": "uri"
                           },
                           "type": {
-                            "type": "string",
-                            "examples": [
-                              "User"
-                            ]
+                            "type": "string"
                           },
                           "site_admin": {
                             "type": "boolean"
                           },
                           "starred_at": {
-                            "type": "string",
-                            "examples": [
-                              "\"2020-07-09T00:17:55Z\""
-                            ]
+                            "type": "string"
                           },
                           "user_view_type": {
-                            "type": "string",
-                            "examples": [
-                              "public"
-                            ]
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -5275,17 +4218,11 @@
                   },
                   "created_at": {
                     "type": "string",
-                    "format": "date-time",
-                    "examples": [
-                      "2011-04-10T20:09:31Z"
-                    ]
+                    "format": "date-time"
                   },
                   "updated_at": {
                     "type": "string",
-                    "format": "date-time",
-                    "examples": [
-                      "2014-03-03T18:58:10Z"
-                    ]
+                    "format": "date-time"
                   },
                   "organization_permission": {
                     "description": "The baseline permission that all organization members have on this project. Only present if owner is an organization.",
@@ -5381,21 +4318,18 @@
         {
           "type": "string",
           "name": "name",
-          "in": "body",
           "description": "<p>The name of the project.</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "body",
-          "in": "body",
           "description": "<p>The description of the project.</p>"
         }
       ],
       "descriptionHTML": "<p>Creates a repository project board. Returns a <code>410 Gone</code> status if projects are disabled in the repository or if the repository does not have existing classic projects. If you do not have sufficient privileges to perform this action, a <code>401 Unauthorized</code> or <code>410 Gone</code> status is returned.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -5454,73 +4388,43 @@
               "properties": {
                 "owner_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repos/api-playground/projects-test"
-                  ]
+                  "format": "uri"
                 },
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/1002604"
-                  ]
+                  "format": "uri"
                 },
                 "html_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://github.com/api-playground/projects-test/projects/12"
-                  ]
+                  "format": "uri"
                 },
                 "columns_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/1002604/columns"
-                  ]
+                  "format": "uri"
                 },
                 "id": {
-                  "type": "integer",
-                  "examples": [
-                    1002604
-                  ]
+                  "type": "integer"
                 },
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDc6UHJvamVjdDEwMDI2MDQ="
-                  ]
+                  "type": "string"
                 },
                 "name": {
                   "description": "Name of the project",
-                  "type": "string",
-                  "examples": [
-                    "Week One Sprint"
-                  ]
+                  "type": "string"
                 },
                 "body": {
                   "description": "Body of the project",
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "This project represents the sprint of the first week in January"
                   ]
                 },
                 "number": {
-                  "type": "integer",
-                  "examples": [
-                    1
-                  ]
+                  "type": "integer"
                 },
                 "state": {
                   "description": "State of the project; either 'open' or 'closed'",
-                  "type": "string",
-                  "examples": [
-                    "open"
-                  ]
+                  "type": "string"
                 },
                 "creator": {
                   "anyOf": [
@@ -5545,133 +4449,76 @@
                           ]
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
                           ]
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -5699,17 +4546,11 @@
                 },
                 "created_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2011-04-10T20:09:31Z"
-                  ]
+                  "format": "date-time"
                 },
                 "updated_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2014-03-03T18:58:10Z"
-                  ]
+                  "format": "date-time"
                 },
                 "organization_permission": {
                   "description": "The baseline permission that all organization members have on this project. Only present if owner is an organization.",
@@ -5785,21 +4626,18 @@
         {
           "type": "string",
           "name": "name",
-          "in": "body",
           "description": "<p>Name of the project</p>",
           "isRequired": true
         },
         {
           "type": "string or null",
           "name": "body",
-          "in": "body",
           "description": "<p>Body of the project</p>"
         }
       ],
       "descriptionHTML": "<p>Creates a user project board. Returns a <code>410 Gone</code> status if the user does not have existing classic projects. If you do not have sufficient privileges to perform this action, a <code>401 Unauthorized</code> or <code>410 Gone</code> status is returned.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Create a new project",
@@ -5854,73 +4692,43 @@
               "properties": {
                 "owner_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repos/api-playground/projects-test"
-                  ]
+                  "format": "uri"
                 },
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/1002604"
-                  ]
+                  "format": "uri"
                 },
                 "html_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://github.com/api-playground/projects-test/projects/12"
-                  ]
+                  "format": "uri"
                 },
                 "columns_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/projects/1002604/columns"
-                  ]
+                  "format": "uri"
                 },
                 "id": {
-                  "type": "integer",
-                  "examples": [
-                    1002604
-                  ]
+                  "type": "integer"
                 },
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDc6UHJvamVjdDEwMDI2MDQ="
-                  ]
+                  "type": "string"
                 },
                 "name": {
                   "description": "Name of the project",
-                  "type": "string",
-                  "examples": [
-                    "Week One Sprint"
-                  ]
+                  "type": "string"
                 },
                 "body": {
                   "description": "Body of the project",
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "This project represents the sprint of the first week in January"
                   ]
                 },
                 "number": {
-                  "type": "integer",
-                  "examples": [
-                    1
-                  ]
+                  "type": "integer"
                 },
                 "state": {
                   "description": "State of the project; either 'open' or 'closed'",
-                  "type": "string",
-                  "examples": [
-                    "open"
-                  ]
+                  "type": "string"
                 },
                 "creator": {
                   "anyOf": [
@@ -5945,133 +4753,76 @@
                           ]
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
                           "type": [
                             "string",
                             "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
                           ]
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -6099,17 +4850,11 @@
                 },
                 "created_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2011-04-10T20:09:31Z"
-                  ]
+                  "format": "date-time"
                 },
                 "updated_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2014-03-03T18:58:10Z"
-                  ]
+                  "format": "date-time"
                 },
                 "organization_permission": {
                   "description": "The baseline permission that all organization members have on this project. Only present if owner is an organization.",
@@ -6224,7 +4969,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-attention\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Warning</p>\n<p>\n<strong>Closing down notice:</strong> Projects (classic) is being deprecated in favor of the new Projects experience.\nSee the <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">changelog</a> for more information.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -6281,73 +5025,43 @@
                 "properties": {
                   "owner_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/repos/api-playground/projects-test"
-                    ]
+                    "format": "uri"
                   },
                   "url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/projects/1002604"
-                    ]
+                    "format": "uri"
                   },
                   "html_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/api-playground/projects-test/projects/12"
-                    ]
+                    "format": "uri"
                   },
                   "columns_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/projects/1002604/columns"
-                    ]
+                    "format": "uri"
                   },
                   "id": {
-                    "type": "integer",
-                    "examples": [
-                      1002604
-                    ]
+                    "type": "integer"
                   },
                   "node_id": {
-                    "type": "string",
-                    "examples": [
-                      "MDc6UHJvamVjdDEwMDI2MDQ="
-                    ]
+                    "type": "string"
                   },
                   "name": {
                     "description": "Name of the project",
-                    "type": "string",
-                    "examples": [
-                      "Week One Sprint"
-                    ]
+                    "type": "string"
                   },
                   "body": {
                     "description": "Body of the project",
                     "type": [
                       "string",
                       "null"
-                    ],
-                    "examples": [
-                      "This project represents the sprint of the first week in January"
                     ]
                   },
                   "number": {
-                    "type": "integer",
-                    "examples": [
-                      1
-                    ]
+                    "type": "integer"
                   },
                   "state": {
                     "description": "State of the project; either 'open' or 'closed'",
-                    "type": "string",
-                    "examples": [
-                      "open"
-                    ]
+                    "type": "string"
                   },
                   "creator": {
                     "anyOf": [
@@ -6372,133 +5086,76 @@
                             ]
                           },
                           "login": {
-                            "type": "string",
-                            "examples": [
-                              "octocat"
-                            ]
+                            "type": "string"
                           },
                           "id": {
                             "type": "integer",
-                            "format": "int64",
-                            "examples": [
-                              1
-                            ]
+                            "format": "int64"
                           },
                           "node_id": {
-                            "type": "string",
-                            "examples": [
-                              "MDQ6VXNlcjE="
-                            ]
+                            "type": "string"
                           },
                           "avatar_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/images/error/octocat_happy.gif"
-                            ]
+                            "format": "uri"
                           },
                           "gravatar_id": {
                             "type": [
                               "string",
                               "null"
-                            ],
-                            "examples": [
-                              "41d064eb2195891e12d0413f63227ea7"
                             ]
                           },
                           "url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "html_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/octocat"
-                            ]
+                            "format": "uri"
                           },
                           "followers_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/followers"
-                            ]
+                            "format": "uri"
                           },
                           "following_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/following{/other_user}"
-                            ]
+                            "type": "string"
                           },
                           "gists_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/gists{/gist_id}"
-                            ]
+                            "type": "string"
                           },
                           "starred_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                            ]
+                            "type": "string"
                           },
                           "subscriptions_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/subscriptions"
-                            ]
+                            "format": "uri"
                           },
                           "organizations_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/orgs"
-                            ]
+                            "format": "uri"
                           },
                           "repos_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/repos"
-                            ]
+                            "format": "uri"
                           },
                           "events_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/events{/privacy}"
-                            ]
+                            "type": "string"
                           },
                           "received_events_url": {
                             "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/received_events"
-                            ]
+                            "format": "uri"
                           },
                           "type": {
-                            "type": "string",
-                            "examples": [
-                              "User"
-                            ]
+                            "type": "string"
                           },
                           "site_admin": {
                             "type": "boolean"
                           },
                           "starred_at": {
-                            "type": "string",
-                            "examples": [
-                              "\"2020-07-09T00:17:55Z\""
-                            ]
+                            "type": "string"
                           },
                           "user_view_type": {
-                            "type": "string",
-                            "examples": [
-                              "public"
-                            ]
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -6526,17 +5183,11 @@
                   },
                   "created_at": {
                     "type": "string",
-                    "format": "date-time",
-                    "examples": [
-                      "2011-04-10T20:09:31Z"
-                    ]
+                    "format": "date-time"
                   },
                   "updated_at": {
                     "type": "string",
-                    "format": "date-time",
-                    "examples": [
-                      "2014-03-03T18:58:10Z"
-                    ]
+                    "format": "date-time"
                   },
                   "organization_permission": {
                     "description": "The baseline permission that all organization members have on this project. Only present if owner is an organization.",

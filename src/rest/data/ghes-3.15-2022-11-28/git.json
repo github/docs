@@ -31,14 +31,12 @@
         {
           "type": "string",
           "name": "content",
-          "in": "body",
           "description": "<p>The new blob's content.</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "encoding",
-          "in": "body",
           "description": "<p>The encoding used for <code>content</code>. Currently, <code>\"utf-8\"</code> and <code>\"base64\"</code> are supported.</p>",
           "default": "utf-8"
         }
@@ -46,7 +44,6 @@
       "descriptionHTML": "",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -162,7 +159,6 @@
       "descriptionHTML": "<p>The <code>content</code> in the response will always be Base64 encoded.</p>\n<p>This endpoint supports the following custom media types. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.15/rest/using-the-rest-api/getting-started-with-the-rest-api#media-types\">Media types</a>.\"</p>\n<ul>\n<li><strong><code>application/vnd.github.raw+json</code></strong>: Returns the raw blob data.</li>\n<li><strong><code>application/vnd.github+json</code></strong>: Returns a JSON representation of the blob with <code>content</code> as a base64 encoded string. This is the default if no media type is specified.</li>\n</ul>\n<p><strong>Note</strong> This endpoint supports blobs up to 100 megabytes in size.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -295,27 +291,23 @@
         {
           "type": "string",
           "name": "message",
-          "in": "body",
           "description": "<p>The commit message</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "tree",
-          "in": "body",
           "description": "<p>The SHA of the tree object this commit points to</p>",
           "isRequired": true
         },
         {
           "type": "array of strings",
           "name": "parents",
-          "in": "body",
           "description": "<p>The full SHAs of the commits that were the parents of this commit. If omitted or empty, the commit will be written as a root commit. For a single parent, an array of one SHA should be provided; for a merge commit, an array of more than one should be provided.</p>"
         },
         {
           "type": "object",
           "name": "author",
-          "in": "body",
           "description": "<p>Information about the author of the commit. By default, the <code>author</code> will be the authenticated user and the current date. See the <code>author</code> and <code>committer</code> object below for details.</p>",
           "childParamsGroups": [
             {
@@ -340,7 +332,6 @@
         {
           "type": "object",
           "name": "committer",
-          "in": "body",
           "description": "<p>Information about the person who is making the commit. By default, <code>committer</code> will use the information set in <code>author</code>. See the <code>author</code> and <code>committer</code> object below for details.</p>",
           "childParamsGroups": [
             {
@@ -363,14 +354,12 @@
         {
           "type": "string",
           "name": "signature",
-          "in": "body",
           "description": "<p>The <a href=\"https://en.wikipedia.org/wiki/Pretty_Good_Privacy\">PGP signature</a> of the commit. GitHub adds the signature to the <code>gpgsig</code> header of the created commit. For a commit signature to be verifiable by Git or GitHub, it must be an ASCII-armored detached PGP signature over the string commit as it would be written to the object database. To pass a <code>signature</code> parameter, you need to first manually create a valid PGP signature, which can be complicated. You may find it easier to <a href=\"https://git-scm.com/book/id/v2/Git-Tools-Signing-Your-Work\">use the command line</a> to create signed commits.</p>"
         }
       ],
       "descriptionHTML": "<p>Creates a new Git <a href=\"https://git-scm.com/book/en/v2/Git-Internals-Git-Objects\">commit object</a>.</p>\n<p><strong>Signature verification object</strong></p>\n<p>The response will include a <code>verification</code> object that describes the result of verifying the commit's signature. The following fields are included in the <code>verification</code> object:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\">Name</th><th scope=\"col\">Type</th><th scope=\"col\">Description</th></tr></thead><tbody><tr><td><code>verified</code></td><td><code>boolean</code></td><td>Indicates whether GitHub considers the signature in this commit to be verified.</td></tr><tr><td><code>reason</code></td><td><code>string</code></td><td>The reason for verified value. Possible values and their meanings are enumerated in the table below.</td></tr><tr><td><code>signature</code></td><td><code>string</code></td><td>The signature that was extracted from the commit.</td></tr><tr><td><code>payload</code></td><td><code>string</code></td><td>The value that was signed.</td></tr><tr><td><code>verified_at</code></td><td><code>string</code></td><td>The date the signature was verified by GitHub.</td></tr></tbody></table>\n<p>These are the possible values for <code>reason</code> in the <code>verification</code> object:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\">Value</th><th scope=\"col\">Description</th></tr></thead><tbody><tr><td><code>expired_key</code></td><td>The key that made the signature is expired.</td></tr><tr><td><code>not_signing_key</code></td><td>The \"signing\" flag is not among the usage flags in the GPG key that made the signature.</td></tr><tr><td><code>gpgverify_error</code></td><td>There was an error communicating with the signature verification service.</td></tr><tr><td><code>gpgverify_unavailable</code></td><td>The signature verification service is currently unavailable.</td></tr><tr><td><code>unsigned</code></td><td>The object does not include a signature.</td></tr><tr><td><code>unknown_signature_type</code></td><td>A non-PGP signature was found in the commit.</td></tr><tr><td><code>no_user</code></td><td>No user was associated with the <code>committer</code> email address in the commit.</td></tr><tr><td><code>unverified_email</code></td><td>The <code>committer</code> email address in the commit was associated with a user, but the email address is not verified on their account.</td></tr><tr><td><code>bad_email</code></td><td>The <code>committer</code> email address in the commit is not included in the identities of the PGP key that made the signature.</td></tr><tr><td><code>unknown_key</code></td><td>The key that made the signature has not been registered with any user's account.</td></tr><tr><td><code>malformed_signature</code></td><td>There was an error parsing the signature.</td></tr><tr><td><code>invalid</code></td><td>The signature could not be cryptographically verified using the key whose key-id was found in the signature.</td></tr><tr><td><code>valid</code></td><td>None of the above errors applied, so the signature is considered to be verified.</td></tr></tbody></table>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -436,10 +425,7 @@
               "properties": {
                 "sha": {
                   "description": "SHA for the commit",
-                  "type": "string",
-                  "examples": [
-                    "7638417db6d59f3c431d3e1f261cc637155684cd"
-                  ]
+                  "type": "string"
                 },
                 "node_id": {
                   "type": "string"
@@ -455,24 +441,15 @@
                     "date": {
                       "description": "Timestamp of the commit",
                       "format": "date-time",
-                      "type": "string",
-                      "examples": [
-                        "2014-08-09T08:02:04+12:00"
-                      ]
+                      "type": "string"
                     },
                     "email": {
                       "type": "string",
-                      "description": "Git email address of the user",
-                      "examples": [
-                        "monalisa.octocat@example.com"
-                      ]
+                      "description": "Git email address of the user"
                     },
                     "name": {
                       "description": "Name of the git user",
-                      "type": "string",
-                      "examples": [
-                        "Monalisa Octocat"
-                      ]
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -488,24 +465,15 @@
                     "date": {
                       "description": "Timestamp of the commit",
                       "format": "date-time",
-                      "type": "string",
-                      "examples": [
-                        "2014-08-09T08:02:04+12:00"
-                      ]
+                      "type": "string"
                     },
                     "email": {
                       "type": "string",
-                      "description": "Git email address of the user",
-                      "examples": [
-                        "monalisa.octocat@example.com"
-                      ]
+                      "description": "Git email address of the user"
                     },
                     "name": {
                       "description": "Name of the git user",
-                      "type": "string",
-                      "examples": [
-                        "Monalisa Octocat"
-                      ]
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -516,20 +484,14 @@
                 },
                 "message": {
                   "description": "Message describing the purpose of the commit",
-                  "type": "string",
-                  "examples": [
-                    "Fix #42"
-                  ]
+                  "type": "string"
                 },
                 "tree": {
                   "type": "object",
                   "properties": {
                     "sha": {
                       "description": "SHA for the commit",
-                      "type": "string",
-                      "examples": [
-                        "7638417db6d59f3c431d3e1f261cc637155684cd"
-                      ]
+                      "type": "string"
                     },
                     "url": {
                       "type": "string",
@@ -548,10 +510,7 @@
                     "properties": {
                       "sha": {
                         "description": "SHA for the commit",
-                        "type": "string",
-                        "examples": [
-                          "7638417db6d59f3c431d3e1f261cc637155684cd"
-                        ]
+                        "type": "string"
                       },
                       "url": {
                         "type": "string",
@@ -682,15 +641,13 @@
           "required": true,
           "schema": {
             "type": "string"
-          },
-          "x-multi-segment": true
+          }
         }
       ],
       "bodyParameters": [],
       "descriptionHTML": "<p>Gets a Git <a href=\"https://git-scm.com/book/en/v2/Git-Internals-Git-Objects\">commit object</a>.</p>\n<p>To get the contents of a commit, see \"<a href=\"/rest/commits/commits#get-a-commit\">Get a commit</a>.\"</p>\n<p><strong>Signature verification object</strong></p>\n<p>The response will include a <code>verification</code> object that describes the result of verifying the commit's signature. The following fields are included in the <code>verification</code> object:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\">Name</th><th scope=\"col\">Type</th><th scope=\"col\">Description</th></tr></thead><tbody><tr><td><code>verified</code></td><td><code>boolean</code></td><td>Indicates whether GitHub considers the signature in this commit to be verified.</td></tr><tr><td><code>reason</code></td><td><code>string</code></td><td>The reason for verified value. Possible values and their meanings are enumerated in the table below.</td></tr><tr><td><code>signature</code></td><td><code>string</code></td><td>The signature that was extracted from the commit.</td></tr><tr><td><code>payload</code></td><td><code>string</code></td><td>The value that was signed.</td></tr><tr><td><code>verified_at</code></td><td><code>string</code></td><td>The date the signature was verified by GitHub.</td></tr></tbody></table>\n<p>These are the possible values for <code>reason</code> in the <code>verification</code> object:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\">Value</th><th scope=\"col\">Description</th></tr></thead><tbody><tr><td><code>expired_key</code></td><td>The key that made the signature is expired.</td></tr><tr><td><code>not_signing_key</code></td><td>The \"signing\" flag is not among the usage flags in the GPG key that made the signature.</td></tr><tr><td><code>gpgverify_error</code></td><td>There was an error communicating with the signature verification service.</td></tr><tr><td><code>gpgverify_unavailable</code></td><td>The signature verification service is currently unavailable.</td></tr><tr><td><code>unsigned</code></td><td>The object does not include a signature.</td></tr><tr><td><code>unknown_signature_type</code></td><td>A non-PGP signature was found in the commit.</td></tr><tr><td><code>no_user</code></td><td>No user was associated with the <code>committer</code> email address in the commit.</td></tr><tr><td><code>unverified_email</code></td><td>The <code>committer</code> email address in the commit was associated with a user, but the email address is not verified on their account.</td></tr><tr><td><code>bad_email</code></td><td>The <code>committer</code> email address in the commit is not included in the identities of the PGP key that made the signature.</td></tr><tr><td><code>unknown_key</code></td><td>The key that made the signature has not been registered with any user's account.</td></tr><tr><td><code>malformed_signature</code></td><td>There was an error parsing the signature.</td></tr><tr><td><code>invalid</code></td><td>The signature could not be cryptographically verified using the key whose key-id was found in the signature.</td></tr><tr><td><code>valid</code></td><td>None of the above errors applied, so the signature is considered to be verified.</td></tr></tbody></table>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -743,10 +700,7 @@
               "properties": {
                 "sha": {
                   "description": "SHA for the commit",
-                  "type": "string",
-                  "examples": [
-                    "7638417db6d59f3c431d3e1f261cc637155684cd"
-                  ]
+                  "type": "string"
                 },
                 "node_id": {
                   "type": "string"
@@ -762,24 +716,15 @@
                     "date": {
                       "description": "Timestamp of the commit",
                       "format": "date-time",
-                      "type": "string",
-                      "examples": [
-                        "2014-08-09T08:02:04+12:00"
-                      ]
+                      "type": "string"
                     },
                     "email": {
                       "type": "string",
-                      "description": "Git email address of the user",
-                      "examples": [
-                        "monalisa.octocat@example.com"
-                      ]
+                      "description": "Git email address of the user"
                     },
                     "name": {
                       "description": "Name of the git user",
-                      "type": "string",
-                      "examples": [
-                        "Monalisa Octocat"
-                      ]
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -795,24 +740,15 @@
                     "date": {
                       "description": "Timestamp of the commit",
                       "format": "date-time",
-                      "type": "string",
-                      "examples": [
-                        "2014-08-09T08:02:04+12:00"
-                      ]
+                      "type": "string"
                     },
                     "email": {
                       "type": "string",
-                      "description": "Git email address of the user",
-                      "examples": [
-                        "monalisa.octocat@example.com"
-                      ]
+                      "description": "Git email address of the user"
                     },
                     "name": {
                       "description": "Name of the git user",
-                      "type": "string",
-                      "examples": [
-                        "Monalisa Octocat"
-                      ]
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -823,20 +759,14 @@
                 },
                 "message": {
                   "description": "Message describing the purpose of the commit",
-                  "type": "string",
-                  "examples": [
-                    "Fix #42"
-                  ]
+                  "type": "string"
                 },
                 "tree": {
                   "type": "object",
                   "properties": {
                     "sha": {
                       "description": "SHA for the commit",
-                      "type": "string",
-                      "examples": [
-                        "7638417db6d59f3c431d3e1f261cc637155684cd"
-                      ]
+                      "type": "string"
                     },
                     "url": {
                       "type": "string",
@@ -855,10 +785,7 @@
                     "properties": {
                       "sha": {
                         "description": "SHA for the commit",
-                        "type": "string",
-                        "examples": [
-                          "7638417db6d59f3c431d3e1f261cc637155684cd"
-                        ]
+                        "type": "string"
                       },
                       "url": {
                         "type": "string",
@@ -986,18 +913,15 @@
           "description": "<p>The Git reference. For more information, see \"<a href=\"https://git-scm.com/book/en/v2/Git-Internals-Git-References\">Git References</a>\" in the Git documentation.</p>",
           "in": "path",
           "required": true,
-          "example": "heads/feature-a",
           "schema": {
             "type": "string"
-          },
-          "x-multi-segment": true
+          }
         }
       ],
       "bodyParameters": [],
       "descriptionHTML": "<p>Returns an array of references from your Git database that match the supplied name. The <code>:ref</code> in the URL must be formatted as <code>heads/&#x3C;branch name></code> for branches and <code>tags/&#x3C;tag name></code> for tags. If the <code>:ref</code> doesn't exist in the repository, but existing refs start with <code>:ref</code>, they will be returned as an array.</p>\n<p>When you use this endpoint without providing a <code>:ref</code>, it will return an array of all the references from your Git database, including notes and stashes if they exist on the server. Anything in the namespace is returned, not just <code>heads</code> and <code>tags</code>.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nYou need to explicitly <a href=\"https://docs.github.com/enterprise-server@3.15/rest/pulls/pulls#get-a-pull-request\">request a pull request</a> to trigger a test merge commit, which checks the mergeability of pull requests. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.15/rest/guides/getting-started-with-the-git-database-api#checking-mergeability-of-pull-requests\">Checking mergeability of pull requests</a>\".</p>\n</div>\n<p>If you request matching references for a branch named <code>feature</code> but the branch <code>feature</code> doesn't exist, the response can still include other matching head refs that start with the word <code>feature</code>, such as <code>featureA</code> and <code>featureB</code>.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1060,10 +984,7 @@
                         "description": "SHA for the reference",
                         "type": "string",
                         "minLength": 40,
-                        "maxLength": 40,
-                        "examples": [
-                          "7638417db6d59f3c431d3e1f261cc637155684cd"
-                        ]
+                        "maxLength": 40
                       },
                       "url": {
                         "type": "string",
@@ -1142,18 +1063,15 @@
           "description": "<p>The Git reference. For more information, see \"<a href=\"https://git-scm.com/book/en/v2/Git-Internals-Git-References\">Git References</a>\" in the Git documentation.</p>",
           "in": "path",
           "required": true,
-          "example": "heads/feature-a",
           "schema": {
             "type": "string"
-          },
-          "x-multi-segment": true
+          }
         }
       ],
       "bodyParameters": [],
       "descriptionHTML": "<p>Returns a single reference from your Git database. The <code>:ref</code> in the URL must be formatted as <code>heads/&#x3C;branch name></code> for branches and <code>tags/&#x3C;tag name></code> for tags. If the <code>:ref</code> doesn't match an existing ref, a <code>404</code> is returned.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nYou need to explicitly <a href=\"https://docs.github.com/enterprise-server@3.15/rest/pulls/pulls#get-a-pull-request\">request a pull request</a> to trigger a test merge commit, which checks the mergeability of pull requests. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.15/rest/guides/getting-started-with-the-git-database-api#checking-mergeability-of-pull-requests\">Checking mergeability of pull requests</a>\".</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1202,10 +1120,7 @@
                       "description": "SHA for the reference",
                       "type": "string",
                       "minLength": 40,
-                      "maxLength": 40,
-                      "examples": [
-                        "7638417db6d59f3c431d3e1f261cc637155684cd"
-                      ]
+                      "maxLength": 40
                     },
                     "url": {
                       "type": "string",
@@ -1287,14 +1202,12 @@
         {
           "type": "string",
           "name": "ref",
-          "in": "body",
           "description": "<p>The name of the fully qualified reference (ie: <code>refs/heads/master</code>). If it doesn't start with 'refs' and have at least two slashes, it will be rejected.</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "sha",
-          "in": "body",
           "description": "<p>The SHA1 value for this reference.</p>",
           "isRequired": true
         }
@@ -1302,7 +1215,6 @@
       "descriptionHTML": "<p>Creates a reference for your repository. You are unable to create new references for empty repositories, even if the commit SHA-1 hash used exists. Empty repositories are repositories without branches.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -1355,10 +1267,7 @@
                       "description": "SHA for the reference",
                       "type": "string",
                       "minLength": 40,
-                      "maxLength": 40,
-                      "examples": [
-                        "7638417db6d59f3c431d3e1f261cc637155684cd"
-                      ]
+                      "maxLength": 40
                     },
                     "url": {
                       "type": "string",
@@ -1443,25 +1352,21 @@
           "description": "<p>The Git reference. For more information, see \"<a href=\"https://git-scm.com/book/en/v2/Git-Internals-Git-References\">Git References</a>\" in the Git documentation.</p>",
           "in": "path",
           "required": true,
-          "example": "heads/feature-a",
           "schema": {
             "type": "string"
-          },
-          "x-multi-segment": true
+          }
         }
       ],
       "bodyParameters": [
         {
           "type": "string",
           "name": "sha",
-          "in": "body",
           "description": "<p>The SHA1 value to set this reference to</p>",
           "isRequired": true
         },
         {
           "type": "boolean",
           "name": "force",
-          "in": "body",
           "description": "<p>Indicates whether to force the update or to make sure the update is a fast-forward update. Leaving this out or setting it to <code>false</code> will make sure you're not overwriting work.</p>",
           "default": false
         }
@@ -1469,7 +1374,6 @@
       "descriptionHTML": "<p>Updates the provided reference to point to a new SHA. For more information, see \"<a href=\"https://git-scm.com/book/en/v2/Git-Internals-Git-References\">Git References</a>\" in the Git documentation.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -1523,10 +1427,7 @@
                       "description": "SHA for the reference",
                       "type": "string",
                       "minLength": 40,
-                      "maxLength": 40,
-                      "examples": [
-                        "7638417db6d59f3c431d3e1f261cc637155684cd"
-                      ]
+                      "maxLength": 40
                     },
                     "url": {
                       "type": "string",
@@ -1611,18 +1512,15 @@
           "description": "<p>The Git reference. For more information, see \"<a href=\"https://git-scm.com/book/en/v2/Git-Internals-Git-References\">Git References</a>\" in the Git documentation.</p>",
           "in": "path",
           "required": true,
-          "example": "heads/feature-a",
           "schema": {
             "type": "string"
-          },
-          "x-multi-segment": true
+          }
         }
       ],
       "bodyParameters": [],
       "descriptionHTML": "<p>Deletes the provided reference.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1697,28 +1595,24 @@
         {
           "type": "string",
           "name": "tag",
-          "in": "body",
           "description": "<p>The tag's name. This is typically a version (e.g., \"v0.0.1\").</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "message",
-          "in": "body",
           "description": "<p>The tag message.</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "object",
-          "in": "body",
           "description": "<p>The SHA of the git object this is tagging.</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "type",
-          "in": "body",
           "description": "<p>The type of the object we're tagging. Normally this is a <code>commit</code> but it can also be a <code>tree</code> or a <code>blob</code>.</p>",
           "isRequired": true,
           "enum": [
@@ -1730,7 +1624,6 @@
         {
           "type": "object",
           "name": "tagger",
-          "in": "body",
           "description": "<p>An object with information about the individual creating the tag.</p>",
           "childParamsGroups": [
             {
@@ -1756,7 +1649,6 @@
       "descriptionHTML": "<p>Note that creating a tag object does not create the reference that makes a tag in Git. If you want to create an annotated tag in Git, you have to do this call to create the tag object, and then <a href=\"https://docs.github.com/enterprise-server@3.15/rest/git/refs#create-a-reference\">create</a> the <code>refs/tags/[tag]</code> reference. If you want to create a lightweight tag, you only have to <a href=\"https://docs.github.com/enterprise-server@3.15/rest/git/refs#create-a-reference\">create</a> the tag reference - this call would be unnecessary.</p>\n<p><strong>Signature verification object</strong></p>\n<p>The response will include a <code>verification</code> object that describes the result of verifying the commit's signature. The following fields are included in the <code>verification</code> object:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\">Name</th><th scope=\"col\">Type</th><th scope=\"col\">Description</th></tr></thead><tbody><tr><td><code>verified</code></td><td><code>boolean</code></td><td>Indicates whether GitHub considers the signature in this commit to be verified.</td></tr><tr><td><code>reason</code></td><td><code>string</code></td><td>The reason for verified value. Possible values and their meanings are enumerated in table below.</td></tr><tr><td><code>signature</code></td><td><code>string</code></td><td>The signature that was extracted from the commit.</td></tr><tr><td><code>payload</code></td><td><code>string</code></td><td>The value that was signed.</td></tr><tr><td><code>verified_at</code></td><td><code>string</code></td><td>The date the signature was verified by GitHub.</td></tr></tbody></table>\n<p>These are the possible values for <code>reason</code> in the <code>verification</code> object:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\">Value</th><th scope=\"col\">Description</th></tr></thead><tbody><tr><td><code>expired_key</code></td><td>The key that made the signature is expired.</td></tr><tr><td><code>not_signing_key</code></td><td>The \"signing\" flag is not among the usage flags in the GPG key that made the signature.</td></tr><tr><td><code>gpgverify_error</code></td><td>There was an error communicating with the signature verification service.</td></tr><tr><td><code>gpgverify_unavailable</code></td><td>The signature verification service is currently unavailable.</td></tr><tr><td><code>unsigned</code></td><td>The object does not include a signature.</td></tr><tr><td><code>unknown_signature_type</code></td><td>A non-PGP signature was found in the commit.</td></tr><tr><td><code>no_user</code></td><td>No user was associated with the <code>committer</code> email address in the commit.</td></tr><tr><td><code>unverified_email</code></td><td>The <code>committer</code> email address in the commit was associated with a user, but the email address is not verified on their account.</td></tr><tr><td><code>bad_email</code></td><td>The <code>committer</code> email address in the commit is not included in the identities of the PGP key that made the signature.</td></tr><tr><td><code>unknown_key</code></td><td>The key that made the signature has not been registered with any user's account.</td></tr><tr><td><code>malformed_signature</code></td><td>There was an error parsing the signature.</td></tr><tr><td><code>invalid</code></td><td>The signature could not be cryptographically verified using the key whose key-id was found in the signature.</td></tr><tr><td><code>valid</code></td><td>None of the above errors applied, so the signature is considered to be verified.</td></tr></tbody></table>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -1808,38 +1700,23 @@
               "type": "object",
               "properties": {
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDM6VGFnOTQwYmQzMzYyNDhlZmFlMGY5ZWU1YmM3YjJkNWM5ODU4ODdiMTZhYw=="
-                  ]
+                  "type": "string"
                 },
                 "tag": {
                   "description": "Name of the tag",
-                  "type": "string",
-                  "examples": [
-                    "v0.0.1"
-                  ]
+                  "type": "string"
                 },
                 "sha": {
-                  "type": "string",
-                  "examples": [
-                    "940bd336248efae0f9ee5bc7b2d5c985887b16ac"
-                  ]
+                  "type": "string"
                 },
                 "url": {
                   "description": "URL for the tag",
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repositories/42/git/tags/940bd336248efae0f9ee5bc7b2d5c985887b16ac"
-                  ]
+                  "format": "uri"
                 },
                 "message": {
                   "description": "Message describing the purpose of the tag",
-                  "type": "string",
-                  "examples": [
-                    "Initial public release"
-                  ]
+                  "type": "string"
                 },
                 "tagger": {
                   "type": "object",
@@ -1990,7 +1867,6 @@
       "descriptionHTML": "<p><strong>Signature verification object</strong></p>\n<p>The response will include a <code>verification</code> object that describes the result of verifying the commit's signature. The following fields are included in the <code>verification</code> object:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\">Name</th><th scope=\"col\">Type</th><th scope=\"col\">Description</th></tr></thead><tbody><tr><td><code>verified</code></td><td><code>boolean</code></td><td>Indicates whether GitHub considers the signature in this commit to be verified.</td></tr><tr><td><code>reason</code></td><td><code>string</code></td><td>The reason for verified value. Possible values and their meanings are enumerated in table below.</td></tr><tr><td><code>signature</code></td><td><code>string</code></td><td>The signature that was extracted from the commit.</td></tr><tr><td><code>payload</code></td><td><code>string</code></td><td>The value that was signed.</td></tr><tr><td><code>verified_at</code></td><td><code>string</code></td><td>The date the signature was verified by GitHub.</td></tr></tbody></table>\n<p>These are the possible values for <code>reason</code> in the <code>verification</code> object:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th scope=\"col\">Value</th><th scope=\"col\">Description</th></tr></thead><tbody><tr><td><code>expired_key</code></td><td>The key that made the signature is expired.</td></tr><tr><td><code>not_signing_key</code></td><td>The \"signing\" flag is not among the usage flags in the GPG key that made the signature.</td></tr><tr><td><code>gpgverify_error</code></td><td>There was an error communicating with the signature verification service.</td></tr><tr><td><code>gpgverify_unavailable</code></td><td>The signature verification service is currently unavailable.</td></tr><tr><td><code>unsigned</code></td><td>The object does not include a signature.</td></tr><tr><td><code>unknown_signature_type</code></td><td>A non-PGP signature was found in the commit.</td></tr><tr><td><code>no_user</code></td><td>No user was associated with the <code>committer</code> email address in the commit.</td></tr><tr><td><code>unverified_email</code></td><td>The <code>committer</code> email address in the commit was associated with a user, but the email address is not verified on their account.</td></tr><tr><td><code>bad_email</code></td><td>The <code>committer</code> email address in the commit is not included in the identities of the PGP key that made the signature.</td></tr><tr><td><code>unknown_key</code></td><td>The key that made the signature has not been registered with any user's account.</td></tr><tr><td><code>malformed_signature</code></td><td>There was an error parsing the signature.</td></tr><tr><td><code>invalid</code></td><td>The signature could not be cryptographically verified using the key whose key-id was found in the signature.</td></tr><tr><td><code>valid</code></td><td>None of the above errors applied, so the signature is considered to be verified.</td></tr></tbody></table>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2031,38 +1907,23 @@
               "type": "object",
               "properties": {
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDM6VGFnOTQwYmQzMzYyNDhlZmFlMGY5ZWU1YmM3YjJkNWM5ODU4ODdiMTZhYw=="
-                  ]
+                  "type": "string"
                 },
                 "tag": {
                   "description": "Name of the tag",
-                  "type": "string",
-                  "examples": [
-                    "v0.0.1"
-                  ]
+                  "type": "string"
                 },
                 "sha": {
-                  "type": "string",
-                  "examples": [
-                    "940bd336248efae0f9ee5bc7b2d5c985887b16ac"
-                  ]
+                  "type": "string"
                 },
                 "url": {
                   "description": "URL for the tag",
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repositories/42/git/tags/940bd336248efae0f9ee5bc7b2d5c985887b16ac"
-                  ]
+                  "format": "uri"
                 },
                 "message": {
                   "description": "Message describing the purpose of the tag",
-                  "type": "string",
-                  "examples": [
-                    "Initial public release"
-                  ]
+                  "type": "string"
                 },
                 "tagger": {
                   "type": "object",
@@ -2207,7 +2068,6 @@
         {
           "type": "array of objects",
           "name": "tree",
-          "in": "body",
           "description": "<p>Objects (of <code>path</code>, <code>mode</code>, <code>type</code>, and <code>sha</code>) specifying a tree structure.</p>",
           "isRequired": true,
           "childParamsGroups": [
@@ -2253,14 +2113,12 @@
         {
           "type": "string",
           "name": "base_tree",
-          "in": "body",
           "description": "<p>The SHA1 of an existing Git tree object which will be used as the base for the new tree. If provided, a new Git tree object will be created from entries in the Git tree object pointed to by <code>base_tree</code> and entries defined in the <code>tree</code> parameter. Entries defined in the <code>tree</code> parameter will overwrite items from <code>base_tree</code> with the same <code>path</code>. If you're creating new changes on a branch, then normally you'd set <code>base_tree</code> to the SHA1 of the Git tree object of the current latest commit on the branch you're working on.\nIf not provided, GitHub will create a new Git tree object from only the entries defined in the <code>tree</code> parameter. If you create a new commit pointing to such a tree, then all files which were a part of the parent commit's tree and were not defined in the <code>tree</code> parameter will be listed as deleted by the new commit.</p>"
         }
       ],
       "descriptionHTML": "<p>The tree creation API accepts nested entries. If you specify both a tree and a nested path modifying that tree, this endpoint will overwrite the contents of the tree with the new path contents, and create a new tree structure.</p>\n<p>If you use this endpoint to add, delete, or modify the file contents in a tree, you will need to commit the tree and then update a branch to point to the commit. For more information see \"<a href=\"https://docs.github.com/enterprise-server@3.15/rest/git/commits#create-a-commit\">Create a commit</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.15/rest/git/refs#update-a-reference\">Update a reference</a>.\"</p>\n<p>Returns an error if you try to delete a file that does not exist.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -2328,53 +2186,25 @@
                     ],
                     "properties": {
                       "path": {
-                        "type": "string",
-                        "examples": [
-                          "test/file.rb"
-                        ]
+                        "type": "string"
                       },
                       "mode": {
-                        "type": "string",
-                        "examples": [
-                          "040000"
-                        ]
+                        "type": "string"
                       },
                       "type": {
-                        "type": "string",
-                        "examples": [
-                          "tree"
-                        ]
+                        "type": "string"
                       },
                       "sha": {
-                        "type": "string",
-                        "examples": [
-                          "23f6827669e43831def8a7ad935069c8bd418261"
-                        ]
+                        "type": "string"
                       },
                       "size": {
-                        "type": "integer",
-                        "examples": [
-                          12
-                        ]
+                        "type": "integer"
                       },
                       "url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/repos/owner-482f3203ecf01f67e9deb18e/BBB_Private_Repo/git/blobs/23f6827669e43831def8a7ad935069c8bd418261"
-                        ]
+                        "type": "string"
                       }
                     }
-                  },
-                  "examples": [
-                    {
-                      "path": "file.rb",
-                      "mode": "100644",
-                      "type": "blob",
-                      "size": 30,
-                      "sha": "44b4fc6d56897b048c772eb4087f854f46256132",
-                      "url": "https://api.github.com/repos/octocat/Hello-World/git/blobs/44b4fc6d56897b048c772eb4087f854f46256132"
-                    }
-                  ]
+                  }
                 }
               },
               "required": [
@@ -2453,8 +2283,7 @@
           "required": true,
           "schema": {
             "type": "string"
-          },
-          "x-multi-segment": true
+          }
         },
         {
           "name": "recursive",
@@ -2470,7 +2299,6 @@
       "descriptionHTML": "<p>Returns a single tree using the SHA1 value or ref name for that tree.</p>\n<p>If <code>truncated</code> is <code>true</code> in the response then the number of items in the <code>tree</code> array exceeded our maximum limit. If you need to fetch more items, use the non-recursive method of fetching trees, and fetch one sub-tree at a time.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThe limit for the <code>tree</code> array is 100,000 entries with a maximum size of 7 MB when using the <code>recursive</code> parameter.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default-response",
           "request": {
             "description": "Example 1: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2542,53 +2370,25 @@
                     ],
                     "properties": {
                       "path": {
-                        "type": "string",
-                        "examples": [
-                          "test/file.rb"
-                        ]
+                        "type": "string"
                       },
                       "mode": {
-                        "type": "string",
-                        "examples": [
-                          "040000"
-                        ]
+                        "type": "string"
                       },
                       "type": {
-                        "type": "string",
-                        "examples": [
-                          "tree"
-                        ]
+                        "type": "string"
                       },
                       "sha": {
-                        "type": "string",
-                        "examples": [
-                          "23f6827669e43831def8a7ad935069c8bd418261"
-                        ]
+                        "type": "string"
                       },
                       "size": {
-                        "type": "integer",
-                        "examples": [
-                          12
-                        ]
+                        "type": "integer"
                       },
                       "url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/repos/owner-482f3203ecf01f67e9deb18e/BBB_Private_Repo/git/blobs/23f6827669e43831def8a7ad935069c8bd418261"
-                        ]
+                        "type": "string"
                       }
                     }
-                  },
-                  "examples": [
-                    {
-                      "path": "file.rb",
-                      "mode": "100644",
-                      "type": "blob",
-                      "size": 30,
-                      "sha": "44b4fc6d56897b048c772eb4087f854f46256132",
-                      "url": "https://api.github.com/repos/octocat/Hello-World/git/blobs/44b4fc6d56897b048c772eb4087f854f46256132"
-                    }
-                  ]
+                  }
                 }
               },
               "required": [
@@ -2600,7 +2400,6 @@
           }
         },
         {
-          "key": "response-recursively-retrieving-a-tree",
           "request": {
             "description": "Example 2: Status Code 200",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2657,53 +2456,25 @@
                     ],
                     "properties": {
                       "path": {
-                        "type": "string",
-                        "examples": [
-                          "test/file.rb"
-                        ]
+                        "type": "string"
                       },
                       "mode": {
-                        "type": "string",
-                        "examples": [
-                          "040000"
-                        ]
+                        "type": "string"
                       },
                       "type": {
-                        "type": "string",
-                        "examples": [
-                          "tree"
-                        ]
+                        "type": "string"
                       },
                       "sha": {
-                        "type": "string",
-                        "examples": [
-                          "23f6827669e43831def8a7ad935069c8bd418261"
-                        ]
+                        "type": "string"
                       },
                       "size": {
-                        "type": "integer",
-                        "examples": [
-                          12
-                        ]
+                        "type": "integer"
                       },
                       "url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/repos/owner-482f3203ecf01f67e9deb18e/BBB_Private_Repo/git/blobs/23f6827669e43831def8a7ad935069c8bd418261"
-                        ]
+                        "type": "string"
                       }
                     }
-                  },
-                  "examples": [
-                    {
-                      "path": "file.rb",
-                      "mode": "100644",
-                      "type": "blob",
-                      "size": 30,
-                      "sha": "44b4fc6d56897b048c772eb4087f854f46256132",
-                      "url": "https://api.github.com/repos/octocat/Hello-World/git/blobs/44b4fc6d56897b048c772eb4087f854f46256132"
-                    }
-                  ]
+                  }
                 }
               },
               "required": [

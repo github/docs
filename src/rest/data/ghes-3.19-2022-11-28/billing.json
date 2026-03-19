@@ -53,7 +53,6 @@
       "descriptionHTML": "<p>Gets the GitHub Advanced Security active committers for an organization per repository.</p>\n<p>Each distinct user login across all repositories is counted as a single Advanced Security seat, so the <code>total_advanced_security_committers</code> is not the sum of advanced_security_committers for each repository.</p>\n<p>If this organization defers to an enterprise for billing, the <code>total_advanced_security_committers</code> returned from the organization API may include some users that are in more than one organization, so they will only consume a single Advanced Security seat at the enterprise level.</p>\n<p>The total number of repositories with committer information is tracked by the <code>total_count</code> field.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -104,30 +103,18 @@
               "type": "object",
               "properties": {
                 "total_advanced_security_committers": {
-                  "type": "integer",
-                  "examples": [
-                    25
-                  ]
+                  "type": "integer"
                 },
                 "total_count": {
-                  "type": "integer",
-                  "examples": [
-                    2
-                  ]
+                  "type": "integer"
                 },
                 "maximum_advanced_security_committers": {
                   "type": "integer",
-                  "description": "The total number of GitHub Advanced Security licences required if all repositories were to enable GitHub Advanced Security",
-                  "examples": [
-                    4
-                  ]
+                  "description": "The total number of GitHub Advanced Security licences required if all repositories were to enable GitHub Advanced Security"
                 },
                 "purchased_advanced_security_committers": {
                   "type": "integer",
-                  "description": "The total number of GitHub Advanced Security licences purchased",
-                  "examples": [
-                    4
-                  ]
+                  "description": "The total number of GitHub Advanced Security licences purchased"
                 },
                 "repositories": {
                   "type": "array",
@@ -135,16 +122,10 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "type": "string",
-                        "examples": [
-                          "octocat/Hello-World"
-                        ]
+                        "type": "string"
                       },
                       "advanced_security_committers": {
-                        "type": "integer",
-                        "examples": [
-                          25
-                        ]
+                        "type": "integer"
                       },
                       "advanced_security_committers_breakdown": {
                         "type": "array",
@@ -155,16 +136,10 @@
                               "type": "string"
                             },
                             "last_pushed_date": {
-                              "type": "string",
-                              "examples": [
-                                "2021-11-03"
-                              ]
+                              "type": "string"
                             },
                             "last_pushed_email": {
-                              "type": "string",
-                              "examples": [
-                                "monalisa@github.com"
-                              ]
+                              "type": "string"
                             }
                           },
                           "required": [

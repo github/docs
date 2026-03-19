@@ -589,12 +589,16 @@
                         "type": "object",
                         "properties": {
                           "name": {
-                            "nullable": true,
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "email": {
-                            "nullable": true,
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "login": {
                             "type": "string"
@@ -611,8 +615,10 @@
                             "format": "uri"
                           },
                           "gravatar_id": {
-                            "type": "string",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "url": {
                             "type": "string",
@@ -696,8 +702,10 @@
                         "format": "uri"
                       },
                       "description": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "fork": {
                         "type": "boolean"
@@ -833,8 +841,10 @@
                         "type": "string"
                       },
                       "mirror_url": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "hooks_url": {
                         "type": "string",
@@ -844,12 +854,16 @@
                         "type": "string"
                       },
                       "homepage": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "language": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "forks_count": {
                         "type": "integer"
@@ -921,19 +935,25 @@
                         "type": "string"
                       },
                       "pushed_at": {
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date-time"
                       },
                       "created_at": {
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date-time"
                       },
                       "updated_at": {
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date-time"
                       },
                       "permissions": {
                         "type": "object",
@@ -989,9 +1009,11 @@
                             "type": "string"
                           },
                           "html_url": {
-                            "type": "string",
-                            "format": "uri",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "format": "uri"
                           }
                         },
                         "required": [
@@ -1002,7 +1024,10 @@
                         ]
                       },
                       "license": {
-                        "type": "object",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "properties": {
                           "key": {
                             "type": "string"
@@ -1014,14 +1039,15 @@
                             "type": "string"
                           },
                           "url": {
-                            "type": "string",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "node_id": {
                             "type": "string"
                           }
-                        },
-                        "nullable": true
+                        }
                       },
                       "forks": {
                         "type": "integer"
@@ -1039,8 +1065,10 @@
                         "type": "boolean"
                       },
                       "security_and_analysis": {
-                        "nullable": true,
-                        "type": "object",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "properties": {
                           "advanced_security": {
                             "description": "Enable or disable GitHub Advanced Security for the repository.\n\nFor standalone Code Scanning or Secret Protection products, this parameter cannot be used.\n",
@@ -1980,9 +2008,11 @@
                     "description": "The total number of Copilot users who engaged with any Copilot feature, for the given day. Examples include but are not limited to accepting a code suggestion, prompting Copilot chat, or triggering a PR Summary. Does not include authentication events. Is not limited to the individual features detailed on the endpoint."
                   },
                   "copilot_ide_code_completions": {
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "description": "Usage metrics for Copilot editor code completions in the IDE.",
-                    "nullable": true,
                     "additionalProperties": true,
                     "properties": {
                       "total_engaged_users": {
@@ -2037,8 +2067,10 @@
                                     "description": "Indicates whether a model is custom or default."
                                   },
                                   "custom_model_training_date": {
-                                    "type": "string",
-                                    "nullable": true,
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ],
                                     "description": "The training date for the custom model."
                                   },
                                   "total_engaged_users": {
@@ -2088,9 +2120,11 @@
                     }
                   },
                   "copilot_ide_chat": {
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "description": "Usage metrics for Copilot Chat in the IDE.",
-                    "nullable": true,
                     "additionalProperties": true,
                     "properties": {
                       "total_engaged_users": {
@@ -2126,8 +2160,10 @@
                                     "description": "Indicates whether a model is custom or default."
                                   },
                                   "custom_model_training_date": {
-                                    "type": "string",
-                                    "nullable": true,
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ],
                                     "description": "The training date for the custom model."
                                   },
                                   "total_engaged_users": {
@@ -2155,9 +2191,11 @@
                     }
                   },
                   "copilot_dotcom_chat": {
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "description": "Usage metrics for Copilot Chat in GitHub.com",
-                    "nullable": true,
                     "additionalProperties": true,
                     "properties": {
                       "total_engaged_users": {
@@ -2179,9 +2217,11 @@
                               "description": "Indicates whether a model is custom or default."
                             },
                             "custom_model_training_date": {
-                              "type": "string",
-                              "description": "The training date for the custom model (if applicable).",
-                              "nullable": true
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "description": "The training date for the custom model (if applicable)."
                             },
                             "total_engaged_users": {
                               "type": "integer",
@@ -2197,9 +2237,11 @@
                     }
                   },
                   "copilot_dotcom_pull_requests": {
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "description": "Usage metrics for Copilot for pull requests.",
-                    "nullable": true,
                     "additionalProperties": true,
                     "properties": {
                       "total_engaged_users": {
@@ -2235,8 +2277,10 @@
                                     "description": "Indicates whether a model is custom or default."
                                   },
                                   "custom_model_training_date": {
-                                    "type": "string",
-                                    "nullable": true,
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ],
                                     "description": "The training date for the custom model."
                                   },
                                   "total_pr_summaries_created": {
@@ -2555,9 +2599,11 @@
                     "description": "The total number of Copilot users who engaged with any Copilot feature, for the given day. Examples include but are not limited to accepting a code suggestion, prompting Copilot chat, or triggering a PR Summary. Does not include authentication events. Is not limited to the individual features detailed on the endpoint."
                   },
                   "copilot_ide_code_completions": {
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "description": "Usage metrics for Copilot editor code completions in the IDE.",
-                    "nullable": true,
                     "additionalProperties": true,
                     "properties": {
                       "total_engaged_users": {
@@ -2612,8 +2658,10 @@
                                     "description": "Indicates whether a model is custom or default."
                                   },
                                   "custom_model_training_date": {
-                                    "type": "string",
-                                    "nullable": true,
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ],
                                     "description": "The training date for the custom model."
                                   },
                                   "total_engaged_users": {
@@ -2663,9 +2711,11 @@
                     }
                   },
                   "copilot_ide_chat": {
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "description": "Usage metrics for Copilot Chat in the IDE.",
-                    "nullable": true,
                     "additionalProperties": true,
                     "properties": {
                       "total_engaged_users": {
@@ -2701,8 +2751,10 @@
                                     "description": "Indicates whether a model is custom or default."
                                   },
                                   "custom_model_training_date": {
-                                    "type": "string",
-                                    "nullable": true,
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ],
                                     "description": "The training date for the custom model."
                                   },
                                   "total_engaged_users": {
@@ -2730,9 +2782,11 @@
                     }
                   },
                   "copilot_dotcom_chat": {
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "description": "Usage metrics for Copilot Chat in GitHub.com",
-                    "nullable": true,
                     "additionalProperties": true,
                     "properties": {
                       "total_engaged_users": {
@@ -2754,9 +2808,11 @@
                               "description": "Indicates whether a model is custom or default."
                             },
                             "custom_model_training_date": {
-                              "type": "string",
-                              "description": "The training date for the custom model (if applicable).",
-                              "nullable": true
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "description": "The training date for the custom model (if applicable)."
                             },
                             "total_engaged_users": {
                               "type": "integer",
@@ -2772,9 +2828,11 @@
                     }
                   },
                   "copilot_dotcom_pull_requests": {
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "description": "Usage metrics for Copilot for pull requests.",
-                    "nullable": true,
                     "additionalProperties": true,
                     "properties": {
                       "total_engaged_users": {
@@ -2810,8 +2868,10 @@
                                     "description": "Indicates whether a model is custom or default."
                                   },
                                   "custom_model_training_date": {
-                                    "type": "string",
-                                    "nullable": true,
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ],
                                     "description": "The training date for the custom model."
                                   },
                                   "total_pr_summaries_created": {
@@ -3213,172 +3273,192 @@
                     "type": "object",
                     "properties": {
                       "assignee": {
-                        "title": "Simple User",
-                        "description": "A GitHub user.",
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "nullable": true,
-                            "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "null"
                           },
-                          "email": {
-                            "nullable": true,
-                            "type": "string"
-                          },
-                          "login": {
-                            "type": "string"
-                          },
-                          "id": {
-                            "type": "integer",
-                            "format": "int64"
-                          },
-                          "node_id": {
-                            "type": "string"
-                          },
-                          "avatar_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "gravatar_id": {
-                            "type": "string",
-                            "nullable": true
-                          },
-                          "url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "html_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "followers_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "following_url": {
-                            "type": "string"
-                          },
-                          "gists_url": {
-                            "type": "string"
-                          },
-                          "starred_url": {
-                            "type": "string"
-                          },
-                          "subscriptions_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "organizations_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "repos_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "events_url": {
-                            "type": "string"
-                          },
-                          "received_events_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "type": {
-                            "type": "string"
-                          },
-                          "site_admin": {
-                            "type": "boolean"
-                          },
-                          "starred_at": {
-                            "type": "string"
-                          },
-                          "user_view_type": {
-                            "type": "string"
+                          {
+                            "title": "Simple User",
+                            "description": "A GitHub user.",
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "email": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "login": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer",
+                                "format": "int64"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "avatar_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "gravatar_id": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "followers_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "following_url": {
+                                "type": "string"
+                              },
+                              "gists_url": {
+                                "type": "string"
+                              },
+                              "starred_url": {
+                                "type": "string"
+                              },
+                              "subscriptions_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "organizations_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repos_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "events_url": {
+                                "type": "string"
+                              },
+                              "received_events_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "site_admin": {
+                                "type": "boolean"
+                              },
+                              "starred_at": {
+                                "type": "string"
+                              },
+                              "user_view_type": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "avatar_url",
+                              "events_url",
+                              "followers_url",
+                              "following_url",
+                              "gists_url",
+                              "gravatar_id",
+                              "html_url",
+                              "id",
+                              "node_id",
+                              "login",
+                              "organizations_url",
+                              "received_events_url",
+                              "repos_url",
+                              "site_admin",
+                              "starred_url",
+                              "subscriptions_url",
+                              "type",
+                              "url"
+                            ]
                           }
-                        },
-                        "required": [
-                          "avatar_url",
-                          "events_url",
-                          "followers_url",
-                          "following_url",
-                          "gists_url",
-                          "gravatar_id",
-                          "html_url",
-                          "id",
-                          "node_id",
-                          "login",
-                          "organizations_url",
-                          "received_events_url",
-                          "repos_url",
-                          "site_admin",
-                          "starred_url",
-                          "subscriptions_url",
-                          "type",
-                          "url"
-                        ],
-                        "nullable": true
+                        ]
                       },
                       "organization": {
-                        "title": "Organization Simple",
-                        "description": "A GitHub organization.",
-                        "type": "object",
-                        "properties": {
-                          "login": {
-                            "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "null"
                           },
-                          "id": {
-                            "type": "integer"
-                          },
-                          "node_id": {
-                            "type": "string"
-                          },
-                          "url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "repos_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "events_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "hooks_url": {
-                            "type": "string"
-                          },
-                          "issues_url": {
-                            "type": "string"
-                          },
-                          "members_url": {
-                            "type": "string"
-                          },
-                          "public_members_url": {
-                            "type": "string"
-                          },
-                          "avatar_url": {
-                            "type": "string"
-                          },
-                          "description": {
-                            "type": "string",
-                            "nullable": true
+                          {
+                            "title": "Organization Simple",
+                            "description": "A GitHub organization.",
+                            "type": "object",
+                            "properties": {
+                              "login": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repos_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "events_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "hooks_url": {
+                                "type": "string"
+                              },
+                              "issues_url": {
+                                "type": "string"
+                              },
+                              "members_url": {
+                                "type": "string"
+                              },
+                              "public_members_url": {
+                                "type": "string"
+                              },
+                              "avatar_url": {
+                                "type": "string"
+                              },
+                              "description": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "login",
+                              "url",
+                              "id",
+                              "node_id",
+                              "repos_url",
+                              "events_url",
+                              "hooks_url",
+                              "issues_url",
+                              "members_url",
+                              "public_members_url",
+                              "avatar_url",
+                              "description"
+                            ]
                           }
-                        },
-                        "required": [
-                          "login",
-                          "url",
-                          "id",
-                          "node_id",
-                          "repos_url",
-                          "events_url",
-                          "hooks_url",
-                          "issues_url",
-                          "members_url",
-                          "public_members_url",
-                          "avatar_url",
-                          "description"
-                        ],
-                        "nullable": true
+                        ]
                       },
                       "assigning_team": {
                         "description": "The team through which the assignee is granted access to GitHub Copilot, if applicable.",
@@ -3401,8 +3481,10 @@
                                 "type": "string"
                               },
                               "description": {
-                                "type": "string",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
                               },
                               "privacy": {
                                 "type": "string"
@@ -3472,92 +3554,100 @@
                                 "description": "Unique identifier of the enterprise to which this team belongs"
                               },
                               "parent": {
-                                "title": "Team Simple",
-                                "description": "Groups of organization members that gives permissions on specified repositories.",
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "description": "Unique identifier of the team",
-                                    "type": "integer"
+                                "anyOf": [
+                                  {
+                                    "type": "null"
                                   },
-                                  "node_id": {
-                                    "type": "string"
-                                  },
-                                  "url": {
-                                    "description": "URL for the team",
-                                    "type": "string",
-                                    "format": "uri"
-                                  },
-                                  "members_url": {
-                                    "type": "string"
-                                  },
-                                  "name": {
-                                    "description": "Name of the team",
-                                    "type": "string"
-                                  },
-                                  "description": {
-                                    "description": "Description of the team",
-                                    "type": "string",
-                                    "nullable": true
-                                  },
-                                  "permission": {
-                                    "description": "Permission that the team will have for its repositories",
-                                    "type": "string"
-                                  },
-                                  "privacy": {
-                                    "description": "The level of privacy this team should have",
-                                    "type": "string"
-                                  },
-                                  "notification_setting": {
-                                    "description": "The notification setting the team has set",
-                                    "type": "string"
-                                  },
-                                  "html_url": {
-                                    "type": "string",
-                                    "format": "uri"
-                                  },
-                                  "repositories_url": {
-                                    "type": "string",
-                                    "format": "uri"
-                                  },
-                                  "slug": {
-                                    "type": "string"
-                                  },
-                                  "ldap_dn": {
-                                    "description": "Distinguished Name (DN) that team maps to within LDAP environment",
-                                    "type": "string"
-                                  },
-                                  "type": {
-                                    "description": "The ownership type of the team",
-                                    "type": "string",
-                                    "enum": [
-                                      "enterprise",
-                                      "organization"
+                                  {
+                                    "title": "Team Simple",
+                                    "description": "Groups of organization members that gives permissions on specified repositories.",
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "description": "Unique identifier of the team",
+                                        "type": "integer"
+                                      },
+                                      "node_id": {
+                                        "type": "string"
+                                      },
+                                      "url": {
+                                        "description": "URL for the team",
+                                        "type": "string",
+                                        "format": "uri"
+                                      },
+                                      "members_url": {
+                                        "type": "string"
+                                      },
+                                      "name": {
+                                        "description": "Name of the team",
+                                        "type": "string"
+                                      },
+                                      "description": {
+                                        "description": "Description of the team",
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      },
+                                      "permission": {
+                                        "description": "Permission that the team will have for its repositories",
+                                        "type": "string"
+                                      },
+                                      "privacy": {
+                                        "description": "The level of privacy this team should have",
+                                        "type": "string"
+                                      },
+                                      "notification_setting": {
+                                        "description": "The notification setting the team has set",
+                                        "type": "string"
+                                      },
+                                      "html_url": {
+                                        "type": "string",
+                                        "format": "uri"
+                                      },
+                                      "repositories_url": {
+                                        "type": "string",
+                                        "format": "uri"
+                                      },
+                                      "slug": {
+                                        "type": "string"
+                                      },
+                                      "ldap_dn": {
+                                        "description": "Distinguished Name (DN) that team maps to within LDAP environment",
+                                        "type": "string"
+                                      },
+                                      "type": {
+                                        "description": "The ownership type of the team",
+                                        "type": "string",
+                                        "enum": [
+                                          "enterprise",
+                                          "organization"
+                                        ]
+                                      },
+                                      "organization_id": {
+                                        "type": "integer",
+                                        "description": "Unique identifier of the organization to which this team belongs"
+                                      },
+                                      "enterprise_id": {
+                                        "type": "integer",
+                                        "description": "Unique identifier of the enterprise to which this team belongs"
+                                      }
+                                    },
+                                    "required": [
+                                      "id",
+                                      "node_id",
+                                      "url",
+                                      "members_url",
+                                      "name",
+                                      "description",
+                                      "permission",
+                                      "html_url",
+                                      "repositories_url",
+                                      "slug",
+                                      "type"
                                     ]
-                                  },
-                                  "organization_id": {
-                                    "type": "integer",
-                                    "description": "Unique identifier of the organization to which this team belongs"
-                                  },
-                                  "enterprise_id": {
-                                    "type": "integer",
-                                    "description": "Unique identifier of the enterprise to which this team belongs"
                                   }
-                                },
-                                "required": [
-                                  "id",
-                                  "node_id",
-                                  "url",
-                                  "members_url",
-                                  "name",
-                                  "description",
-                                  "permission",
-                                  "html_url",
-                                  "repositories_url",
-                                  "slug",
-                                  "type"
-                                ],
-                                "nullable": true
+                                ]
                               }
                             },
                             "required": [
@@ -3605,12 +3695,16 @@
                                 "type": "string"
                               },
                               "group_id": {
-                                "nullable": true,
-                                "type": "string"
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
                               },
                               "group_name": {
-                                "nullable": true,
-                                "type": "string",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
                                 "description": "Retired: this field will not be returned with GHEC enterprise teams."
                               },
                               "html_url": {
@@ -3642,29 +3736,40 @@
                             ]
                           }
                         ],
-                        "nullable": true
+                        "type": [
+                          "null",
+                          "object"
+                        ]
                       },
                       "pending_cancellation_date": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "format": "date",
-                        "nullable": true,
                         "description": "The pending cancellation date for the seat, in `YYYY-MM-DD` format. This will be null unless the assignee's Copilot access has been canceled during the current billing cycle. If the seat has been cancelled, this corresponds to the start of the organization's next billing cycle."
                       },
                       "last_activity_at": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "format": "date-time",
-                        "nullable": true,
                         "description": "Timestamp of user's last GitHub Copilot activity, in ISO 8601 format."
                       },
                       "last_activity_editor": {
-                        "type": "string",
-                        "nullable": true,
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "Last editor that was used by the user for a GitHub Copilot completion."
                       },
                       "last_authenticated_at": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "format": "date-time",
-                        "nullable": true,
                         "description": "Timestamp of the last time the user authenticated with GitHub Copilot, in ISO 8601 format."
                       },
                       "created_at": {
@@ -4257,172 +4362,192 @@
               "type": "object",
               "properties": {
                 "assignee": {
-                  "title": "Simple User",
-                  "description": "A GitHub user.",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "nullable": true,
-                      "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "null"
                     },
-                    "email": {
-                      "nullable": true,
-                      "type": "string"
-                    },
-                    "login": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "node_id": {
-                      "type": "string"
-                    },
-                    "avatar_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "html_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "followers_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "following_url": {
-                      "type": "string"
-                    },
-                    "gists_url": {
-                      "type": "string"
-                    },
-                    "starred_url": {
-                      "type": "string"
-                    },
-                    "subscriptions_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "organizations_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "repos_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "events_url": {
-                      "type": "string"
-                    },
-                    "received_events_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "site_admin": {
-                      "type": "boolean"
-                    },
-                    "starred_at": {
-                      "type": "string"
-                    },
-                    "user_view_type": {
-                      "type": "string"
+                    {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
                     }
-                  },
-                  "required": [
-                    "avatar_url",
-                    "events_url",
-                    "followers_url",
-                    "following_url",
-                    "gists_url",
-                    "gravatar_id",
-                    "html_url",
-                    "id",
-                    "node_id",
-                    "login",
-                    "organizations_url",
-                    "received_events_url",
-                    "repos_url",
-                    "site_admin",
-                    "starred_url",
-                    "subscriptions_url",
-                    "type",
-                    "url"
-                  ],
-                  "nullable": true
+                  ]
                 },
                 "organization": {
-                  "title": "Organization Simple",
-                  "description": "A GitHub organization.",
-                  "type": "object",
-                  "properties": {
-                    "login": {
-                      "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "null"
                     },
-                    "id": {
-                      "type": "integer"
-                    },
-                    "node_id": {
-                      "type": "string"
-                    },
-                    "url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "repos_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "events_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "hooks_url": {
-                      "type": "string"
-                    },
-                    "issues_url": {
-                      "type": "string"
-                    },
-                    "members_url": {
-                      "type": "string"
-                    },
-                    "public_members_url": {
-                      "type": "string"
-                    },
-                    "avatar_url": {
-                      "type": "string"
-                    },
-                    "description": {
-                      "type": "string",
-                      "nullable": true
+                    {
+                      "title": "Organization Simple",
+                      "description": "A GitHub organization.",
+                      "type": "object",
+                      "properties": {
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "hooks_url": {
+                          "type": "string"
+                        },
+                        "issues_url": {
+                          "type": "string"
+                        },
+                        "members_url": {
+                          "type": "string"
+                        },
+                        "public_members_url": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "login",
+                        "url",
+                        "id",
+                        "node_id",
+                        "repos_url",
+                        "events_url",
+                        "hooks_url",
+                        "issues_url",
+                        "members_url",
+                        "public_members_url",
+                        "avatar_url",
+                        "description"
+                      ]
                     }
-                  },
-                  "required": [
-                    "login",
-                    "url",
-                    "id",
-                    "node_id",
-                    "repos_url",
-                    "events_url",
-                    "hooks_url",
-                    "issues_url",
-                    "members_url",
-                    "public_members_url",
-                    "avatar_url",
-                    "description"
-                  ],
-                  "nullable": true
+                  ]
                 },
                 "assigning_team": {
                   "description": "The team through which the assignee is granted access to GitHub Copilot, if applicable.",
@@ -4445,8 +4570,10 @@
                           "type": "string"
                         },
                         "description": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "privacy": {
                           "type": "string"
@@ -4516,92 +4643,100 @@
                           "description": "Unique identifier of the enterprise to which this team belongs"
                         },
                         "parent": {
-                          "title": "Team Simple",
-                          "description": "Groups of organization members that gives permissions on specified repositories.",
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "Unique identifier of the team",
-                              "type": "integer"
+                          "anyOf": [
+                            {
+                              "type": "null"
                             },
-                            "node_id": {
-                              "type": "string"
-                            },
-                            "url": {
-                              "description": "URL for the team",
-                              "type": "string",
-                              "format": "uri"
-                            },
-                            "members_url": {
-                              "type": "string"
-                            },
-                            "name": {
-                              "description": "Name of the team",
-                              "type": "string"
-                            },
-                            "description": {
-                              "description": "Description of the team",
-                              "type": "string",
-                              "nullable": true
-                            },
-                            "permission": {
-                              "description": "Permission that the team will have for its repositories",
-                              "type": "string"
-                            },
-                            "privacy": {
-                              "description": "The level of privacy this team should have",
-                              "type": "string"
-                            },
-                            "notification_setting": {
-                              "description": "The notification setting the team has set",
-                              "type": "string"
-                            },
-                            "html_url": {
-                              "type": "string",
-                              "format": "uri"
-                            },
-                            "repositories_url": {
-                              "type": "string",
-                              "format": "uri"
-                            },
-                            "slug": {
-                              "type": "string"
-                            },
-                            "ldap_dn": {
-                              "description": "Distinguished Name (DN) that team maps to within LDAP environment",
-                              "type": "string"
-                            },
-                            "type": {
-                              "description": "The ownership type of the team",
-                              "type": "string",
-                              "enum": [
-                                "enterprise",
-                                "organization"
+                            {
+                              "title": "Team Simple",
+                              "description": "Groups of organization members that gives permissions on specified repositories.",
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "description": "Unique identifier of the team",
+                                  "type": "integer"
+                                },
+                                "node_id": {
+                                  "type": "string"
+                                },
+                                "url": {
+                                  "description": "URL for the team",
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "members_url": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "description": "Name of the team",
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "description": "Description of the team",
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "permission": {
+                                  "description": "Permission that the team will have for its repositories",
+                                  "type": "string"
+                                },
+                                "privacy": {
+                                  "description": "The level of privacy this team should have",
+                                  "type": "string"
+                                },
+                                "notification_setting": {
+                                  "description": "The notification setting the team has set",
+                                  "type": "string"
+                                },
+                                "html_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "repositories_url": {
+                                  "type": "string",
+                                  "format": "uri"
+                                },
+                                "slug": {
+                                  "type": "string"
+                                },
+                                "ldap_dn": {
+                                  "description": "Distinguished Name (DN) that team maps to within LDAP environment",
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "description": "The ownership type of the team",
+                                  "type": "string",
+                                  "enum": [
+                                    "enterprise",
+                                    "organization"
+                                  ]
+                                },
+                                "organization_id": {
+                                  "type": "integer",
+                                  "description": "Unique identifier of the organization to which this team belongs"
+                                },
+                                "enterprise_id": {
+                                  "type": "integer",
+                                  "description": "Unique identifier of the enterprise to which this team belongs"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "node_id",
+                                "url",
+                                "members_url",
+                                "name",
+                                "description",
+                                "permission",
+                                "html_url",
+                                "repositories_url",
+                                "slug",
+                                "type"
                               ]
-                            },
-                            "organization_id": {
-                              "type": "integer",
-                              "description": "Unique identifier of the organization to which this team belongs"
-                            },
-                            "enterprise_id": {
-                              "type": "integer",
-                              "description": "Unique identifier of the enterprise to which this team belongs"
                             }
-                          },
-                          "required": [
-                            "id",
-                            "node_id",
-                            "url",
-                            "members_url",
-                            "name",
-                            "description",
-                            "permission",
-                            "html_url",
-                            "repositories_url",
-                            "slug",
-                            "type"
-                          ],
-                          "nullable": true
+                          ]
                         }
                       },
                       "required": [
@@ -4649,12 +4784,16 @@
                           "type": "string"
                         },
                         "group_id": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "group_name": {
-                          "nullable": true,
-                          "type": "string",
+                          "type": [
+                            "string",
+                            "null"
+                          ],
                           "description": "Retired: this field will not be returned with GHEC enterprise teams."
                         },
                         "html_url": {
@@ -4686,29 +4825,40 @@
                       ]
                     }
                   ],
-                  "nullable": true
+                  "type": [
+                    "null",
+                    "object"
+                  ]
                 },
                 "pending_cancellation_date": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "date",
-                  "nullable": true,
                   "description": "The pending cancellation date for the seat, in `YYYY-MM-DD` format. This will be null unless the assignee's Copilot access has been canceled during the current billing cycle. If the seat has been cancelled, this corresponds to the start of the organization's next billing cycle."
                 },
                 "last_activity_at": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "date-time",
-                  "nullable": true,
                   "description": "Timestamp of user's last GitHub Copilot activity, in ISO 8601 format."
                 },
                 "last_activity_editor": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "Last editor that was used by the user for a GitHub Copilot completion."
                 },
                 "last_authenticated_at": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "format": "date-time",
-                  "nullable": true,
                   "description": "Timestamp of the last time the user authenticated with GitHub Copilot, in ISO 8601 format."
                 },
                 "created_at": {

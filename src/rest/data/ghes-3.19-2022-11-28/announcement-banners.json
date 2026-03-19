@@ -22,7 +22,6 @@
       "descriptionHTML": "<p>Gets the announcement banner currently set for the organization. Only returns the announcement banner set at the\norganization level. Organization members may also see an enterprise-level announcement banner. To get an\nannouncement banner displayed at the enterprise level, use the enterprise-level endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -49,10 +48,7 @@
                     "string",
                     "null"
                   ],
-                  "description": "The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"[Basic writing and formatting syntax](https://docs.github.com/enterprise-server@3.19/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).\"",
-                  "examples": [
-                    "Very **important** announcement about _something_."
-                  ]
+                  "description": "The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"[Basic writing and formatting syntax](https://docs.github.com/enterprise-server@3.19/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).\""
                 },
                 "expires_at": {
                   "type": [
@@ -60,10 +56,7 @@
                     "null"
                   ],
                   "format": "date-time",
-                  "description": "The time at which the announcement expires. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. To set an announcement that never expires, omit this parameter, set it to `null`, or set it to an empty string.",
-                  "examples": [
-                    "\"2021-01-01T00:00:00.000-07:00\""
-                  ]
+                  "description": "The time at which the announcement expires. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. To set an announcement that never expires, omit this parameter, set it to `null`, or set it to an empty string."
                 },
                 "user_dismissible": {
                   "type": [
@@ -71,10 +64,7 @@
                     "null"
                   ],
                   "description": "Whether an announcement can be dismissed by the user.",
-                  "default": false,
-                  "examples": [
-                    false
-                  ]
+                  "default": false
                 }
               },
               "required": [
@@ -126,20 +116,17 @@
         {
           "type": "string or null",
           "name": "announcement",
-          "in": "body",
           "description": "<p>The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"<a href=\"https://docs.github.com/enterprise-server@3.19/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax\">Basic writing and formatting syntax</a>.\"</p>",
           "isRequired": true
         },
         {
           "type": "string or null",
           "name": "expires_at",
-          "in": "body",
           "description": "<p>The time at which the announcement expires. This is a timestamp in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO 8601</a> format: <code>YYYY-MM-DDTHH:MM:SSZ</code>. To set an announcement that never expires, omit this parameter, set it to <code>null</code>, or set it to an empty string.</p>"
         },
         {
           "type": "boolean or null",
           "name": "user_dismissible",
-          "in": "body",
           "description": "<p>Whether an announcement can be dismissed by the user.</p>",
           "default": false
         }
@@ -147,7 +134,6 @@
       "descriptionHTML": "<p>Sets the announcement banner to display for the organization.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Announcement banner",
@@ -180,10 +166,7 @@
                     "string",
                     "null"
                   ],
-                  "description": "The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"[Basic writing and formatting syntax](https://docs.github.com/enterprise-server@3.19/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).\"",
-                  "examples": [
-                    "Very **important** announcement about _something_."
-                  ]
+                  "description": "The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see \"[Basic writing and formatting syntax](https://docs.github.com/enterprise-server@3.19/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).\""
                 },
                 "expires_at": {
                   "type": [
@@ -191,10 +174,7 @@
                     "null"
                   ],
                   "format": "date-time",
-                  "description": "The time at which the announcement expires. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. To set an announcement that never expires, omit this parameter, set it to `null`, or set it to an empty string.",
-                  "examples": [
-                    "\"2021-01-01T00:00:00.000-07:00\""
-                  ]
+                  "description": "The time at which the announcement expires. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. To set an announcement that never expires, omit this parameter, set it to `null`, or set it to an empty string."
                 },
                 "user_dismissible": {
                   "type": [
@@ -202,10 +182,7 @@
                     "null"
                   ],
                   "description": "Whether an announcement can be dismissed by the user.",
-                  "default": false,
-                  "examples": [
-                    false
-                  ]
+                  "default": false
                 }
               },
               "required": [
@@ -257,7 +234,6 @@
       "descriptionHTML": "<p>Removes the announcement banner currently set for the organization.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",

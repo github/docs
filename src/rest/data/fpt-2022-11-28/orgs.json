@@ -99,8 +99,10 @@
                     "type": "string"
                   },
                   "description": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   }
                 },
                 "required": [
@@ -291,8 +293,10 @@
                   "type": "string"
                 },
                 "description": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "name": {
                   "type": "string"
@@ -312,8 +316,10 @@
                   "format": "email"
                 },
                 "twitter_username": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "is_verified": {
                   "type": "boolean"
@@ -350,22 +356,30 @@
                   "type": "integer"
                 },
                 "private_gists": {
-                  "type": "integer",
-                  "nullable": true
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
                 },
                 "disk_usage": {
-                  "type": "integer",
-                  "nullable": true
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
                 },
                 "collaborators": {
-                  "type": "integer",
-                  "nullable": true,
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
                   "description": "The number of collaborators on private repositories.\n\nThis field may be null if the number of private repositories is over 50,000."
                 },
                 "billing_email": {
-                  "type": "string",
-                  "format": "email",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "email"
                 },
                 "plan": {
                   "type": "object",
@@ -393,21 +407,29 @@
                   ]
                 },
                 "default_repository_permission": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "default_repository_branch": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The default branch for repositories created in this organization."
                 },
                 "members_can_create_repositories": {
-                  "type": "boolean",
-                  "nullable": true
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
                 },
                 "two_factor_requirement_enabled": {
-                  "type": "boolean",
-                  "nullable": true
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
                 },
                 "members_allowed_repository_creation_type": {
                   "type": "string"
@@ -455,8 +477,10 @@
                   "type": "boolean"
                 },
                 "members_can_fork_private_repositories": {
-                  "type": "boolean",
-                  "nullable": true
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
                 },
                 "web_commit_signoff_required": {
                   "type": "boolean"
@@ -496,8 +520,10 @@
                   "description": "Whether a custom link is shown to contributors who are blocked from pushing a secret by push protection."
                 },
                 "secret_scanning_push_protection_custom_link": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "An optional URL string to display to contributors who are blocked from pushing a secret."
                 },
                 "created_at": {
@@ -509,9 +535,11 @@
                   "format": "date-time"
                 },
                 "archived_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
                 },
                 "deploy_keys_enabled_for_repositories": {
                   "type": "boolean",
@@ -898,8 +926,10 @@
                   "type": "string"
                 },
                 "description": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "name": {
                   "type": "string"
@@ -919,8 +949,10 @@
                   "format": "email"
                 },
                 "twitter_username": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "is_verified": {
                   "type": "boolean"
@@ -957,22 +989,30 @@
                   "type": "integer"
                 },
                 "private_gists": {
-                  "type": "integer",
-                  "nullable": true
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
                 },
                 "disk_usage": {
-                  "type": "integer",
-                  "nullable": true
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
                 },
                 "collaborators": {
-                  "type": "integer",
-                  "nullable": true,
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
                   "description": "The number of collaborators on private repositories.\n\nThis field may be null if the number of private repositories is over 50,000."
                 },
                 "billing_email": {
-                  "type": "string",
-                  "format": "email",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "email"
                 },
                 "plan": {
                   "type": "object",
@@ -1000,21 +1040,29 @@
                   ]
                 },
                 "default_repository_permission": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "default_repository_branch": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The default branch for repositories created in this organization."
                 },
                 "members_can_create_repositories": {
-                  "type": "boolean",
-                  "nullable": true
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
                 },
                 "two_factor_requirement_enabled": {
-                  "type": "boolean",
-                  "nullable": true
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
                 },
                 "members_allowed_repository_creation_type": {
                   "type": "string"
@@ -1062,8 +1110,10 @@
                   "type": "boolean"
                 },
                 "members_can_fork_private_repositories": {
-                  "type": "boolean",
-                  "nullable": true
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
                 },
                 "web_commit_signoff_required": {
                   "type": "boolean"
@@ -1103,8 +1153,10 @@
                   "description": "Whether a custom link is shown to contributors who are blocked from pushing a secret by push protection."
                 },
                 "secret_scanning_push_protection_custom_link": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "An optional URL string to display to contributors who are blocked from pushing a secret."
                 },
                 "created_at": {
@@ -1116,9 +1168,11 @@
                   "format": "date-time"
                 },
                 "archived_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
                 },
                 "deploy_keys_enabled_for_repositories": {
                   "type": "boolean",
@@ -1375,7 +1429,6 @@
                         "type": "integer"
                       },
                       "account": {
-                        "nullable": true,
                         "anyOf": [
                           {
                             "title": "Simple User",
@@ -1383,12 +1436,16 @@
                             "type": "object",
                             "properties": {
                               "name": {
-                                "nullable": true,
-                                "type": "string"
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
                               },
                               "email": {
-                                "nullable": true,
-                                "type": "string"
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
                               },
                               "login": {
                                 "type": "string"
@@ -1405,8 +1462,10 @@
                                 "format": "uri"
                               },
                               "gravatar_id": {
-                                "type": "string",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
                               },
                               "url": {
                                 "type": "string",
@@ -1489,8 +1548,10 @@
                             "properties": {
                               "description": {
                                 "description": "A short description of the enterprise.",
-                                "type": "string",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
                               },
                               "html_url": {
                                 "type": "string",
@@ -1498,8 +1559,10 @@
                               },
                               "website_url": {
                                 "description": "The enterprise's website URL.",
-                                "type": "string",
-                                "nullable": true,
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
                                 "format": "uri"
                               },
                               "id": {
@@ -1518,13 +1581,17 @@
                                 "type": "string"
                               },
                               "created_at": {
-                                "type": "string",
-                                "nullable": true,
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
                                 "format": "date-time"
                               },
                               "updated_at": {
-                                "type": "string",
-                                "nullable": true,
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
                                 "format": "date-time"
                               },
                               "avatar_url": {
@@ -1543,6 +1610,10 @@
                               "avatar_url"
                             ]
                           }
+                        ],
+                        "type": [
+                          "null",
+                          "object"
                         ]
                       },
                       "repository_selection": {
@@ -2031,8 +2102,10 @@
                         "format": "date-time"
                       },
                       "single_file_name": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "has_multiple_single_files": {
                         "type": "boolean"
@@ -2047,119 +2120,135 @@
                         "type": "string"
                       },
                       "suspended_by": {
-                        "title": "Simple User",
-                        "description": "A GitHub user.",
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "nullable": true,
-                            "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "null"
                           },
-                          "email": {
-                            "nullable": true,
-                            "type": "string"
-                          },
-                          "login": {
-                            "type": "string"
-                          },
-                          "id": {
-                            "type": "integer",
-                            "format": "int64"
-                          },
-                          "node_id": {
-                            "type": "string"
-                          },
-                          "avatar_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "gravatar_id": {
-                            "type": "string",
-                            "nullable": true
-                          },
-                          "url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "html_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "followers_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "following_url": {
-                            "type": "string"
-                          },
-                          "gists_url": {
-                            "type": "string"
-                          },
-                          "starred_url": {
-                            "type": "string"
-                          },
-                          "subscriptions_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "organizations_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "repos_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "events_url": {
-                            "type": "string"
-                          },
-                          "received_events_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "type": {
-                            "type": "string"
-                          },
-                          "site_admin": {
-                            "type": "boolean"
-                          },
-                          "starred_at": {
-                            "type": "string"
-                          },
-                          "user_view_type": {
-                            "type": "string"
+                          {
+                            "title": "Simple User",
+                            "description": "A GitHub user.",
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "email": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "login": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer",
+                                "format": "int64"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "avatar_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "gravatar_id": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "followers_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "following_url": {
+                                "type": "string"
+                              },
+                              "gists_url": {
+                                "type": "string"
+                              },
+                              "starred_url": {
+                                "type": "string"
+                              },
+                              "subscriptions_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "organizations_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repos_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "events_url": {
+                                "type": "string"
+                              },
+                              "received_events_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "site_admin": {
+                                "type": "boolean"
+                              },
+                              "starred_at": {
+                                "type": "string"
+                              },
+                              "user_view_type": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "avatar_url",
+                              "events_url",
+                              "followers_url",
+                              "following_url",
+                              "gists_url",
+                              "gravatar_id",
+                              "html_url",
+                              "id",
+                              "node_id",
+                              "login",
+                              "organizations_url",
+                              "received_events_url",
+                              "repos_url",
+                              "site_admin",
+                              "starred_url",
+                              "subscriptions_url",
+                              "type",
+                              "url"
+                            ]
                           }
-                        },
-                        "required": [
-                          "avatar_url",
-                          "events_url",
-                          "followers_url",
-                          "following_url",
-                          "gists_url",
-                          "gravatar_id",
-                          "html_url",
-                          "id",
-                          "node_id",
-                          "login",
-                          "organizations_url",
-                          "received_events_url",
-                          "repos_url",
-                          "site_admin",
-                          "starred_url",
-                          "subscriptions_url",
-                          "type",
-                          "url"
-                        ],
-                        "nullable": true
+                        ]
                       },
                       "suspended_at": {
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date-time"
                       },
                       "contact_email": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -2521,12 +2610,16 @@
                         "type": "object",
                         "properties": {
                           "name": {
-                            "nullable": true,
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "email": {
-                            "nullable": true,
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "login": {
                             "type": "string"
@@ -2543,8 +2636,10 @@
                             "format": "uri"
                           },
                           "gravatar_id": {
-                            "type": "string",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "url": {
                             "type": "string",
@@ -2628,8 +2723,10 @@
                         "format": "uri"
                       },
                       "description": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "fork": {
                         "type": "boolean"
@@ -2765,8 +2862,10 @@
                         "type": "string"
                       },
                       "mirror_url": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "hooks_url": {
                         "type": "string",
@@ -2776,12 +2875,16 @@
                         "type": "string"
                       },
                       "homepage": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "language": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "forks_count": {
                         "type": "integer"
@@ -2853,19 +2956,25 @@
                         "type": "string"
                       },
                       "pushed_at": {
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date-time"
                       },
                       "created_at": {
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date-time"
                       },
                       "updated_at": {
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date-time"
                       },
                       "permissions": {
                         "type": "object",
@@ -2921,9 +3030,11 @@
                             "type": "string"
                           },
                           "html_url": {
-                            "type": "string",
-                            "format": "uri",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "format": "uri"
                           }
                         },
                         "required": [
@@ -2934,7 +3045,10 @@
                         ]
                       },
                       "license": {
-                        "type": "object",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "properties": {
                           "key": {
                             "type": "string"
@@ -2946,14 +3060,15 @@
                             "type": "string"
                           },
                           "url": {
-                            "type": "string",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "node_id": {
                             "type": "string"
                           }
-                        },
-                        "nullable": true
+                        }
                       },
                       "forks": {
                         "type": "integer"
@@ -2971,8 +3086,10 @@
                         "type": "boolean"
                       },
                       "security_and_analysis": {
-                        "nullable": true,
-                        "type": "object",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "properties": {
                           "advanced_security": {
                             "description": "Enable or disable GitHub Advanced Security for the repository.\n\nFor standalone Code Scanning or Secret Protection products, this parameter cannot be used.\n",
@@ -3592,8 +3709,10 @@
                     "type": "string"
                   },
                   "description": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   }
                 },
                 "required": [
@@ -3752,8 +3871,10 @@
                     "type": "string"
                   },
                   "description": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   }
                 },
                 "required": [
@@ -3969,8 +4090,10 @@
                     "format": "int64"
                   },
                   "last_rate_limited_timestamp": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "last_request_timestamp": {
                     "type": "string"
@@ -4146,8 +4269,10 @@
                     "type": "integer"
                   },
                   "last_rate_limited_timestamp": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "last_request_timestamp": {
                     "type": "string"
@@ -5083,14 +5208,18 @@
                     "format": "int64"
                   },
                   "integration_id": {
-                    "type": "integer",
-                    "format": "int64",
-                    "nullable": true
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "format": "int64"
                   },
                   "oauth_application_id": {
-                    "type": "integer",
-                    "format": "int64",
-                    "nullable": true
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "format": "int64"
                   },
                   "total_request_count": {
                     "type": "integer"
@@ -5099,8 +5228,10 @@
                     "type": "integer"
                   },
                   "last_rate_limited_timestamp": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "last_request_timestamp": {
                     "type": "string"
@@ -5321,9 +5452,11 @@
                         "type": "string"
                       },
                       "attestation_id": {
-                        "type": "integer",
-                        "description": "The ID of the provenance attestation associated with the deployment record.",
-                        "nullable": true
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "description": "The ID of the provenance attestation associated with the deployment record."
                       }
                     }
                   }
@@ -5564,9 +5697,11 @@
                         "type": "string"
                       },
                       "attestation_id": {
-                        "type": "integer",
-                        "description": "The ID of the provenance attestation associated with the deployment record.",
-                        "nullable": true
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "description": "The ID of the provenance attestation associated with the deployment record."
                       }
                     }
                   }
@@ -5731,15 +5866,19 @@
                         "type": "string"
                       },
                       "artifact_url": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "registry_url": {
                         "type": "string"
                       },
                       "repository": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "status": {
                         "type": "string"
@@ -5904,9 +6043,11 @@
                         "type": "string"
                       },
                       "attestation_id": {
-                        "type": "integer",
-                        "description": "The ID of the provenance attestation associated with the deployment record.",
-                        "nullable": true
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "description": "The ID of the provenance attestation associated with the deployment record."
                       }
                     }
                   }
@@ -6282,8 +6423,10 @@
                 "attestations_subject_digests": {
                   "type": "object",
                   "additionalProperties": {
-                    "nullable": true,
-                    "type": "array",
+                    "type": [
+                      "array",
+                      "null"
+                    ],
                     "items": {
                       "type": "object",
                       "properties": {
@@ -6912,8 +7055,10 @@
                     "type": "object",
                     "properties": {
                       "bundle": {
-                        "nullable": true,
-                        "type": "object",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "properties": {
                           "mediaType": {
                             "type": "string"
@@ -7047,12 +7192,16 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "email": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "login": {
                     "type": "string"
@@ -7069,8 +7218,10 @@
                     "format": "uri"
                   },
                   "gravatar_id": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "url": {
                     "type": "string",
@@ -7481,28 +7632,39 @@
                         }
                       }
                     ],
-                    "nullable": true,
-                    "description": "Default value of the property"
+                    "description": "Default value of the property",
+                    "type": [
+                      "null",
+                      "string",
+                      "array"
+                    ]
                   },
                   "description": {
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "Short description of the property"
                   },
                   "allowed_values": {
-                    "type": "array",
+                    "type": [
+                      "array",
+                      "null"
+                    ],
                     "items": {
                       "type": "string"
                     },
-                    "nullable": true,
                     "description": "An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values."
                   },
                   "values_editable_by": {
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "enum": [
                       "org_actors",
-                      "org_and_repo_actors"
+                      "org_and_repo_actors",
+                      null
                     ],
                     "description": "Who can edit the values of the property"
                   },
@@ -7610,7 +7772,7 @@
               "description": "<p>Whether the property is required.</p>"
             },
             {
-              "type": "string or array or null",
+              "type": "null or string or array",
               "name": "default_value",
               "description": "<p>Default value of the property</p>"
             },
@@ -7630,7 +7792,8 @@
               "description": "<p>Who can edit the values of the property</p>",
               "enum": [
                 "org_actors",
-                "org_and_repo_actors"
+                "org_and_repo_actors",
+                null
               ]
             },
             {
@@ -7762,28 +7925,39 @@
                         }
                       }
                     ],
-                    "nullable": true,
-                    "description": "Default value of the property"
+                    "description": "Default value of the property",
+                    "type": [
+                      "null",
+                      "string",
+                      "array"
+                    ]
                   },
                   "description": {
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "Short description of the property"
                   },
                   "allowed_values": {
-                    "type": "array",
+                    "type": [
+                      "array",
+                      "null"
+                    ],
                     "items": {
                       "type": "string"
                     },
-                    "nullable": true,
                     "description": "An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values."
                   },
                   "values_editable_by": {
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "enum": [
                       "org_actors",
-                      "org_and_repo_actors"
+                      "org_and_repo_actors",
+                      null
                     ],
                     "description": "Who can edit the values of the property"
                   },
@@ -7932,28 +8106,39 @@
                       }
                     }
                   ],
-                  "nullable": true,
-                  "description": "Default value of the property"
+                  "description": "Default value of the property",
+                  "type": [
+                    "null",
+                    "string",
+                    "array"
+                  ]
                 },
                 "description": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "Short description of the property"
                 },
                 "allowed_values": {
-                  "type": "array",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
                   "items": {
                     "type": "string"
                   },
-                  "nullable": true,
                   "description": "An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values."
                 },
                 "values_editable_by": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "enum": [
                     "org_actors",
-                    "org_and_repo_actors"
+                    "org_and_repo_actors",
+                    null
                   ],
                   "description": "Who can edit the values of the property"
                 },
@@ -8043,7 +8228,7 @@
           "description": "<p>Whether the property is required.</p>"
         },
         {
-          "type": "string or array or null",
+          "type": "null or string or array",
           "name": "default_value",
           "description": "<p>Default value of the property</p>"
         },
@@ -8063,7 +8248,8 @@
           "description": "<p>Who can edit the values of the property</p>",
           "enum": [
             "org_actors",
-            "org_and_repo_actors"
+            "org_and_repo_actors",
+            null
           ]
         },
         {
@@ -8160,28 +8346,39 @@
                       }
                     }
                   ],
-                  "nullable": true,
-                  "description": "Default value of the property"
+                  "description": "Default value of the property",
+                  "type": [
+                    "null",
+                    "string",
+                    "array"
+                  ]
                 },
                 "description": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "Short description of the property"
                 },
                 "allowed_values": {
-                  "type": "array",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
                   "items": {
                     "type": "string"
                   },
-                  "nullable": true,
                   "description": "An ordered list of the allowed values of the property.\nThe property can have up to 200 allowed values."
                 },
                 "values_editable_by": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "enum": [
                     "org_actors",
-                    "org_and_repo_actors"
+                    "org_and_repo_actors",
+                    null
                   ],
                   "description": "Who can edit the values of the property"
                 },
@@ -8416,7 +8613,11 @@
                             }
                           ],
                           "description": "The value assigned to the property",
-                          "nullable": true
+                          "type": [
+                            "null",
+                            "string",
+                            "array"
+                          ]
                         }
                       },
                       "required": [
@@ -8502,7 +8703,7 @@
               "isRequired": true
             },
             {
-              "type": "string or array or null",
+              "type": "null or string or array",
               "name": "value",
               "description": "<p>The value assigned to the property</p>",
               "isRequired": true
@@ -8654,8 +8855,10 @@
               "items": {
                 "title": "Issue Field",
                 "description": "A custom attribute defined at the organization level for attaching structured data to issues.",
-                "type": "object",
-                "nullable": true,
+                "type": [
+                  "object",
+                  "null"
+                ],
                 "properties": {
                   "id": {
                     "type": "integer",
@@ -8670,9 +8873,11 @@
                     "description": "The name of the issue field."
                   },
                   "description": {
-                    "type": "string",
-                    "description": "The description of the issue field.",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "The description of the issue field."
                   },
                   "data_type": {
                     "type": "string",
@@ -8694,7 +8899,10 @@
                   },
                   "options": {
                     "description": "Available options for single select fields.",
-                    "type": "array",
+                    "type": [
+                      "array",
+                      "null"
+                    ],
                     "items": {
                       "type": "object",
                       "properties": {
@@ -8707,12 +8915,17 @@
                           "description": "The name of the option."
                         },
                         "description": {
-                          "type": "string",
-                          "description": "The description of the option.",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "description": "The description of the option."
                         },
                         "color": {
-                          "type": "string",
+                          "type": [
+                            "string",
+                            "null"
+                          ],
                           "description": "The color of the option.",
                           "enum": [
                             "gray",
@@ -8722,14 +8935,16 @@
                             "orange",
                             "red",
                             "pink",
-                            "purple"
-                          ],
-                          "nullable": true
+                            "purple",
+                            null
+                          ]
                         },
                         "priority": {
-                          "type": "integer",
-                          "description": "The priority of the option for ordering.",
-                          "nullable": true
+                          "type": [
+                            "integer",
+                            "null"
+                          ],
+                          "description": "The priority of the option for ordering."
                         },
                         "created_at": {
                           "type": "string",
@@ -8746,8 +8961,7 @@
                         "id",
                         "name"
                       ]
-                    },
-                    "nullable": true
+                    }
                   },
                   "created_at": {
                     "type": "string",
@@ -8963,8 +9177,10 @@
             "schema": {
               "title": "Issue Field",
               "description": "A custom attribute defined at the organization level for attaching structured data to issues.",
-              "type": "object",
-              "nullable": true,
+              "type": [
+                "object",
+                "null"
+              ],
               "properties": {
                 "id": {
                   "type": "integer",
@@ -8979,9 +9195,11 @@
                   "description": "The name of the issue field."
                 },
                 "description": {
-                  "type": "string",
-                  "description": "The description of the issue field.",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The description of the issue field."
                 },
                 "data_type": {
                   "type": "string",
@@ -9003,7 +9221,10 @@
                 },
                 "options": {
                   "description": "Available options for single select fields.",
-                  "type": "array",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
                   "items": {
                     "type": "object",
                     "properties": {
@@ -9016,12 +9237,17 @@
                         "description": "The name of the option."
                       },
                       "description": {
-                        "type": "string",
-                        "description": "The description of the option.",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The description of the option."
                       },
                       "color": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The color of the option.",
                         "enum": [
                           "gray",
@@ -9031,14 +9257,16 @@
                           "orange",
                           "red",
                           "pink",
-                          "purple"
-                        ],
-                        "nullable": true
+                          "purple",
+                          null
+                        ]
                       },
                       "priority": {
-                        "type": "integer",
-                        "description": "The priority of the option for ordering.",
-                        "nullable": true
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "description": "The priority of the option for ordering."
                       },
                       "created_at": {
                         "type": "string",
@@ -9055,8 +9283,7 @@
                       "id",
                       "name"
                     ]
-                  },
-                  "nullable": true
+                  }
                 },
                 "created_at": {
                   "type": "string",
@@ -9254,8 +9481,10 @@
             "schema": {
               "title": "Issue Field",
               "description": "A custom attribute defined at the organization level for attaching structured data to issues.",
-              "type": "object",
-              "nullable": true,
+              "type": [
+                "object",
+                "null"
+              ],
               "properties": {
                 "id": {
                   "type": "integer",
@@ -9270,9 +9499,11 @@
                   "description": "The name of the issue field."
                 },
                 "description": {
-                  "type": "string",
-                  "description": "The description of the issue field.",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The description of the issue field."
                 },
                 "data_type": {
                   "type": "string",
@@ -9294,7 +9525,10 @@
                 },
                 "options": {
                   "description": "Available options for single select fields.",
-                  "type": "array",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
                   "items": {
                     "type": "object",
                     "properties": {
@@ -9307,12 +9541,17 @@
                         "description": "The name of the option."
                       },
                       "description": {
-                        "type": "string",
-                        "description": "The description of the option.",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "description": "The description of the option."
                       },
                       "color": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The color of the option.",
                         "enum": [
                           "gray",
@@ -9322,14 +9561,16 @@
                           "orange",
                           "red",
                           "pink",
-                          "purple"
-                        ],
-                        "nullable": true
+                          "purple",
+                          null
+                        ]
                       },
                       "priority": {
-                        "type": "integer",
-                        "description": "The priority of the option for ordering.",
-                        "nullable": true
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "description": "The priority of the option for ordering."
                       },
                       "created_at": {
                         "type": "string",
@@ -9346,8 +9587,7 @@
                       "id",
                       "name"
                     ]
-                  },
-                  "nullable": true
+                  }
                 },
                 "created_at": {
                   "type": "string",
@@ -9525,8 +9765,10 @@
               "items": {
                 "title": "Issue Type",
                 "description": "The type of issue.",
-                "type": "object",
-                "nullable": true,
+                "type": [
+                  "object",
+                  "null"
+                ],
                 "properties": {
                   "id": {
                     "type": "integer",
@@ -9541,12 +9783,17 @@
                     "description": "The name of the issue type."
                   },
                   "description": {
-                    "type": "string",
-                    "description": "The description of the issue type.",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "The description of the issue type."
                   },
                   "color": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The color of the issue type.",
                     "enum": [
                       "gray",
@@ -9556,9 +9803,9 @@
                       "orange",
                       "red",
                       "pink",
-                      "purple"
-                    ],
-                    "nullable": true
+                      "purple",
+                      null
+                    ]
                   },
                   "created_at": {
                     "type": "string",
@@ -9656,7 +9903,8 @@
             "orange",
             "red",
             "pink",
-            "purple"
+            "purple",
+            null
           ]
         }
       ],
@@ -9692,8 +9940,10 @@
             "schema": {
               "title": "Issue Type",
               "description": "The type of issue.",
-              "type": "object",
-              "nullable": true,
+              "type": [
+                "object",
+                "null"
+              ],
               "properties": {
                 "id": {
                   "type": "integer",
@@ -9708,12 +9958,17 @@
                   "description": "The name of the issue type."
                 },
                 "description": {
-                  "type": "string",
-                  "description": "The description of the issue type.",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The description of the issue type."
                 },
                 "color": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The color of the issue type.",
                   "enum": [
                     "gray",
@@ -9723,9 +9978,9 @@
                     "orange",
                     "red",
                     "pink",
-                    "purple"
-                  ],
-                  "nullable": true
+                    "purple",
+                    null
+                  ]
                 },
                 "created_at": {
                   "type": "string",
@@ -9835,7 +10090,8 @@
             "orange",
             "red",
             "pink",
-            "purple"
+            "purple",
+            null
           ]
         }
       ],
@@ -9872,8 +10128,10 @@
             "schema": {
               "title": "Issue Type",
               "description": "The type of issue.",
-              "type": "object",
-              "nullable": true,
+              "type": [
+                "object",
+                "null"
+              ],
               "properties": {
                 "id": {
                   "type": "integer",
@@ -9888,12 +10146,17 @@
                   "description": "The name of the issue type."
                 },
                 "description": {
-                  "type": "string",
-                  "description": "The description of the issue type.",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The description of the issue type."
                 },
                 "color": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The color of the issue type.",
                   "enum": [
                     "gray",
@@ -9903,9 +10166,9 @@
                     "orange",
                     "red",
                     "pink",
-                    "purple"
-                  ],
-                  "nullable": true
+                    "purple",
+                    null
+                  ]
                 },
                 "created_at": {
                   "type": "string",
@@ -10129,12 +10392,16 @@
                     "format": "int64"
                   },
                   "login": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "email": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "role": {
                     "type": "string"
@@ -10143,12 +10410,16 @@
                     "type": "string"
                   },
                   "failed_at": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "failed_reason": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "inviter": {
                     "title": "Simple User",
@@ -10156,12 +10427,16 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "email": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "login": {
                         "type": "string"
@@ -10178,8 +10453,10 @@
                         "format": "uri"
                       },
                       "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "url": {
                         "type": "string",
@@ -10436,12 +10713,16 @@
                     "format": "int64"
                   },
                   "login": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "email": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "role": {
                     "type": "string"
@@ -10450,12 +10731,16 @@
                     "type": "string"
                   },
                   "failed_at": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "failed_reason": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "inviter": {
                     "title": "Simple User",
@@ -10463,12 +10748,16 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "email": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "login": {
                         "type": "string"
@@ -10485,8 +10774,10 @@
                         "format": "uri"
                       },
                       "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "url": {
                         "type": "string",
@@ -10724,12 +11015,16 @@
                   "format": "int64"
                 },
                 "login": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "email": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "role": {
                   "type": "string"
@@ -10738,12 +11033,16 @@
                   "type": "string"
                 },
                 "failed_at": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "failed_reason": {
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "inviter": {
                   "title": "Simple User",
@@ -10751,12 +11050,16 @@
                   "type": "object",
                   "properties": {
                     "name": {
-                      "nullable": true,
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "email": {
-                      "nullable": true,
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "login": {
                       "type": "string"
@@ -10773,8 +11076,10 @@
                       "format": "uri"
                     },
                     "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "url": {
                       "type": "string",
@@ -11073,8 +11378,10 @@
                     "type": "string"
                   },
                   "description": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "privacy": {
                     "type": "string"
@@ -11144,92 +11451,100 @@
                     "description": "Unique identifier of the enterprise to which this team belongs"
                   },
                   "parent": {
-                    "title": "Team Simple",
-                    "description": "Groups of organization members that gives permissions on specified repositories.",
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "description": "Unique identifier of the team",
-                        "type": "integer"
+                    "anyOf": [
+                      {
+                        "type": "null"
                       },
-                      "node_id": {
-                        "type": "string"
-                      },
-                      "url": {
-                        "description": "URL for the team",
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "members_url": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "description": "Name of the team",
-                        "type": "string"
-                      },
-                      "description": {
-                        "description": "Description of the team",
-                        "type": "string",
-                        "nullable": true
-                      },
-                      "permission": {
-                        "description": "Permission that the team will have for its repositories",
-                        "type": "string"
-                      },
-                      "privacy": {
-                        "description": "The level of privacy this team should have",
-                        "type": "string"
-                      },
-                      "notification_setting": {
-                        "description": "The notification setting the team has set",
-                        "type": "string"
-                      },
-                      "html_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "repositories_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "slug": {
-                        "type": "string"
-                      },
-                      "ldap_dn": {
-                        "description": "Distinguished Name (DN) that team maps to within LDAP environment",
-                        "type": "string"
-                      },
-                      "type": {
-                        "description": "The ownership type of the team",
-                        "type": "string",
-                        "enum": [
-                          "enterprise",
-                          "organization"
+                      {
+                        "title": "Team Simple",
+                        "description": "Groups of organization members that gives permissions on specified repositories.",
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "Unique identifier of the team",
+                            "type": "integer"
+                          },
+                          "node_id": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "description": "URL for the team",
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "members_url": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Name of the team",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "Description of the team",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "permission": {
+                            "description": "Permission that the team will have for its repositories",
+                            "type": "string"
+                          },
+                          "privacy": {
+                            "description": "The level of privacy this team should have",
+                            "type": "string"
+                          },
+                          "notification_setting": {
+                            "description": "The notification setting the team has set",
+                            "type": "string"
+                          },
+                          "html_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "repositories_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "slug": {
+                            "type": "string"
+                          },
+                          "ldap_dn": {
+                            "description": "Distinguished Name (DN) that team maps to within LDAP environment",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "The ownership type of the team",
+                            "type": "string",
+                            "enum": [
+                              "enterprise",
+                              "organization"
+                            ]
+                          },
+                          "organization_id": {
+                            "type": "integer",
+                            "description": "Unique identifier of the organization to which this team belongs"
+                          },
+                          "enterprise_id": {
+                            "type": "integer",
+                            "description": "Unique identifier of the enterprise to which this team belongs"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "node_id",
+                          "url",
+                          "members_url",
+                          "name",
+                          "description",
+                          "permission",
+                          "html_url",
+                          "repositories_url",
+                          "slug",
+                          "type"
                         ]
-                      },
-                      "organization_id": {
-                        "type": "integer",
-                        "description": "Unique identifier of the organization to which this team belongs"
-                      },
-                      "enterprise_id": {
-                        "type": "integer",
-                        "description": "Unique identifier of the enterprise to which this team belongs"
                       }
-                    },
-                    "required": [
-                      "id",
-                      "node_id",
-                      "url",
-                      "members_url",
-                      "name",
-                      "description",
-                      "permission",
-                      "html_url",
-                      "repositories_url",
-                      "slug",
-                      "type"
-                    ],
-                    "nullable": true
+                    ]
                   }
                 },
                 "required": [
@@ -11384,12 +11699,16 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "email": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "login": {
                     "type": "string"
@@ -11406,8 +11725,10 @@
                     "format": "uri"
                   },
                   "gravatar_id": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "url": {
                     "type": "string",
@@ -11821,8 +12142,10 @@
                       "type": "string"
                     },
                     "description": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
                   "required": [
@@ -11841,110 +12164,122 @@
                   ]
                 },
                 "user": {
-                  "title": "Simple User",
-                  "description": "A GitHub user.",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "nullable": true,
-                      "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "null"
                     },
-                    "email": {
-                      "nullable": true,
-                      "type": "string"
-                    },
-                    "login": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "node_id": {
-                      "type": "string"
-                    },
-                    "avatar_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "html_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "followers_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "following_url": {
-                      "type": "string"
-                    },
-                    "gists_url": {
-                      "type": "string"
-                    },
-                    "starred_url": {
-                      "type": "string"
-                    },
-                    "subscriptions_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "organizations_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "repos_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "events_url": {
-                      "type": "string"
-                    },
-                    "received_events_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "site_admin": {
-                      "type": "boolean"
-                    },
-                    "starred_at": {
-                      "type": "string"
-                    },
-                    "user_view_type": {
-                      "type": "string"
+                    {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
                     }
-                  },
-                  "required": [
-                    "avatar_url",
-                    "events_url",
-                    "followers_url",
-                    "following_url",
-                    "gists_url",
-                    "gravatar_id",
-                    "html_url",
-                    "id",
-                    "node_id",
-                    "login",
-                    "organizations_url",
-                    "received_events_url",
-                    "repos_url",
-                    "site_admin",
-                    "starred_url",
-                    "subscriptions_url",
-                    "type",
-                    "url"
-                  ],
-                  "nullable": true
+                  ]
                 },
                 "permissions": {
                   "type": "object",
@@ -12183,8 +12518,10 @@
                       "type": "string"
                     },
                     "description": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
                   "required": [
@@ -12203,110 +12540,122 @@
                   ]
                 },
                 "user": {
-                  "title": "Simple User",
-                  "description": "A GitHub user.",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "nullable": true,
-                      "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "null"
                     },
-                    "email": {
-                      "nullable": true,
-                      "type": "string"
-                    },
-                    "login": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "node_id": {
-                      "type": "string"
-                    },
-                    "avatar_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "html_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "followers_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "following_url": {
-                      "type": "string"
-                    },
-                    "gists_url": {
-                      "type": "string"
-                    },
-                    "starred_url": {
-                      "type": "string"
-                    },
-                    "subscriptions_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "organizations_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "repos_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "events_url": {
-                      "type": "string"
-                    },
-                    "received_events_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "site_admin": {
-                      "type": "boolean"
-                    },
-                    "starred_at": {
-                      "type": "string"
-                    },
-                    "user_view_type": {
-                      "type": "string"
+                    {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
                     }
-                  },
-                  "required": [
-                    "avatar_url",
-                    "events_url",
-                    "followers_url",
-                    "following_url",
-                    "gists_url",
-                    "gravatar_id",
-                    "html_url",
-                    "id",
-                    "node_id",
-                    "login",
-                    "organizations_url",
-                    "received_events_url",
-                    "repos_url",
-                    "site_admin",
-                    "starred_url",
-                    "subscriptions_url",
-                    "type",
-                    "url"
-                  ],
-                  "nullable": true
+                  ]
                 },
                 "permissions": {
                   "type": "object",
@@ -12510,12 +12859,16 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "email": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "login": {
                     "type": "string"
@@ -12532,8 +12885,10 @@
                     "format": "uri"
                   },
                   "gravatar_id": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "url": {
                     "type": "string",
@@ -13057,8 +13412,10 @@
                         "type": "string"
                       },
                       "description": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "required": [
@@ -13077,110 +13434,122 @@
                     ]
                   },
                   "user": {
-                    "title": "Simple User",
-                    "description": "A GitHub user.",
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "nullable": true,
-                        "type": "string"
+                    "anyOf": [
+                      {
+                        "type": "null"
                       },
-                      "email": {
-                        "nullable": true,
-                        "type": "string"
-                      },
-                      "login": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer",
-                        "format": "int64"
-                      },
-                      "node_id": {
-                        "type": "string"
-                      },
-                      "avatar_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
-                      },
-                      "url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "html_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "followers_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "following_url": {
-                        "type": "string"
-                      },
-                      "gists_url": {
-                        "type": "string"
-                      },
-                      "starred_url": {
-                        "type": "string"
-                      },
-                      "subscriptions_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "organizations_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "repos_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "events_url": {
-                        "type": "string"
-                      },
-                      "received_events_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "type": {
-                        "type": "string"
-                      },
-                      "site_admin": {
-                        "type": "boolean"
-                      },
-                      "starred_at": {
-                        "type": "string"
-                      },
-                      "user_view_type": {
-                        "type": "string"
+                      {
+                        "title": "Simple User",
+                        "description": "A GitHub user.",
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "email": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "login": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "integer",
+                            "format": "int64"
+                          },
+                          "node_id": {
+                            "type": "string"
+                          },
+                          "avatar_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "gravatar_id": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "html_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "followers_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "following_url": {
+                            "type": "string"
+                          },
+                          "gists_url": {
+                            "type": "string"
+                          },
+                          "starred_url": {
+                            "type": "string"
+                          },
+                          "subscriptions_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "organizations_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "repos_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "events_url": {
+                            "type": "string"
+                          },
+                          "received_events_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "site_admin": {
+                            "type": "boolean"
+                          },
+                          "starred_at": {
+                            "type": "string"
+                          },
+                          "user_view_type": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "avatar_url",
+                          "events_url",
+                          "followers_url",
+                          "following_url",
+                          "gists_url",
+                          "gravatar_id",
+                          "html_url",
+                          "id",
+                          "node_id",
+                          "login",
+                          "organizations_url",
+                          "received_events_url",
+                          "repos_url",
+                          "site_admin",
+                          "starred_url",
+                          "subscriptions_url",
+                          "type",
+                          "url"
+                        ]
                       }
-                    },
-                    "required": [
-                      "avatar_url",
-                      "events_url",
-                      "followers_url",
-                      "following_url",
-                      "gists_url",
-                      "gravatar_id",
-                      "html_url",
-                      "id",
-                      "node_id",
-                      "login",
-                      "organizations_url",
-                      "received_events_url",
-                      "repos_url",
-                      "site_admin",
-                      "starred_url",
-                      "subscriptions_url",
-                      "type",
-                      "url"
-                    ],
-                    "nullable": true
+                    ]
                   },
                   "permissions": {
                     "type": "object",
@@ -13400,8 +13769,10 @@
                       "type": "string"
                     },
                     "description": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
                   "required": [
@@ -13420,110 +13791,122 @@
                   ]
                 },
                 "user": {
-                  "title": "Simple User",
-                  "description": "A GitHub user.",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "nullable": true,
-                      "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "null"
                     },
-                    "email": {
-                      "nullable": true,
-                      "type": "string"
-                    },
-                    "login": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "node_id": {
-                      "type": "string"
-                    },
-                    "avatar_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "html_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "followers_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "following_url": {
-                      "type": "string"
-                    },
-                    "gists_url": {
-                      "type": "string"
-                    },
-                    "starred_url": {
-                      "type": "string"
-                    },
-                    "subscriptions_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "organizations_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "repos_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "events_url": {
-                      "type": "string"
-                    },
-                    "received_events_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "site_admin": {
-                      "type": "boolean"
-                    },
-                    "starred_at": {
-                      "type": "string"
-                    },
-                    "user_view_type": {
-                      "type": "string"
+                    {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
                     }
-                  },
-                  "required": [
-                    "avatar_url",
-                    "events_url",
-                    "followers_url",
-                    "following_url",
-                    "gists_url",
-                    "gravatar_id",
-                    "html_url",
-                    "id",
-                    "node_id",
-                    "login",
-                    "organizations_url",
-                    "received_events_url",
-                    "repos_url",
-                    "site_admin",
-                    "starred_url",
-                    "subscriptions_url",
-                    "type",
-                    "url"
-                  ],
-                  "nullable": true
+                  ]
                 },
                 "permissions": {
                   "type": "object",
@@ -13751,8 +14134,10 @@
                       "type": "string"
                     },
                     "description": {
-                      "type": "string",
-                      "nullable": true
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   },
                   "required": [
@@ -13771,110 +14156,122 @@
                   ]
                 },
                 "user": {
-                  "title": "Simple User",
-                  "description": "A GitHub user.",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "nullable": true,
-                      "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "null"
                     },
-                    "email": {
-                      "nullable": true,
-                      "type": "string"
-                    },
-                    "login": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "node_id": {
-                      "type": "string"
-                    },
-                    "avatar_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "html_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "followers_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "following_url": {
-                      "type": "string"
-                    },
-                    "gists_url": {
-                      "type": "string"
-                    },
-                    "starred_url": {
-                      "type": "string"
-                    },
-                    "subscriptions_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "organizations_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "repos_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "events_url": {
-                      "type": "string"
-                    },
-                    "received_events_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "site_admin": {
-                      "type": "boolean"
-                    },
-                    "starred_at": {
-                      "type": "string"
-                    },
-                    "user_view_type": {
-                      "type": "string"
+                    {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
                     }
-                  },
-                  "required": [
-                    "avatar_url",
-                    "events_url",
-                    "followers_url",
-                    "following_url",
-                    "gists_url",
-                    "gravatar_id",
-                    "html_url",
-                    "id",
-                    "node_id",
-                    "login",
-                    "organizations_url",
-                    "received_events_url",
-                    "repos_url",
-                    "site_admin",
-                    "starred_url",
-                    "subscriptions_url",
-                    "type",
-                    "url"
-                  ],
-                  "nullable": true
+                  ]
                 },
                 "permissions": {
                   "type": "object",
@@ -14062,9 +14459,11 @@
                       },
                       "created_on": {
                         "description": "The time at which the network configuration was created, in ISO 8601 format.",
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date-time"
                       }
                     },
                     "required": [
@@ -14212,9 +14611,11 @@
                 },
                 "created_on": {
                   "description": "The time at which the network configuration was created, in ISO 8601 format.",
-                  "type": "string",
-                  "format": "date-time",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
                 }
               },
               "required": [
@@ -14339,9 +14740,11 @@
                 },
                 "created_on": {
                   "description": "The time at which the network configuration was created, in ISO 8601 format.",
-                  "type": "string",
-                  "format": "date-time",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
                 }
               },
               "required": [
@@ -14494,9 +14897,11 @@
                 },
                 "created_on": {
                   "description": "The time at which the network configuration was created, in ISO 8601 format.",
-                  "type": "string",
-                  "format": "date-time",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
                 }
               },
               "required": [
@@ -14822,29 +15227,37 @@
                       },
                       "description": {
                         "description": "A short description about who this role is for or what permissions it grants.",
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "base_role": {
-                        "type": "string",
-                        "nullable": true,
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The system role from which this role inherits permissions.",
                         "enum": [
                           "read",
                           "triage",
                           "write",
                           "maintain",
-                          "admin"
+                          "admin",
+                          null
                         ]
                       },
                       "source": {
-                        "type": "string",
-                        "nullable": true,
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "Source answers the question, \"where did this role come from?\"",
                         "enum": [
                           "Organization",
                           "Enterprise",
-                          "Predefined"
+                          "Predefined",
+                          null
                         ]
                       },
                       "permissions": {
@@ -14855,110 +15268,122 @@
                         }
                       },
                       "organization": {
-                        "title": "Simple User",
-                        "description": "A GitHub user.",
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "nullable": true,
-                            "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "null"
                           },
-                          "email": {
-                            "nullable": true,
-                            "type": "string"
-                          },
-                          "login": {
-                            "type": "string"
-                          },
-                          "id": {
-                            "type": "integer",
-                            "format": "int64"
-                          },
-                          "node_id": {
-                            "type": "string"
-                          },
-                          "avatar_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "gravatar_id": {
-                            "type": "string",
-                            "nullable": true
-                          },
-                          "url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "html_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "followers_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "following_url": {
-                            "type": "string"
-                          },
-                          "gists_url": {
-                            "type": "string"
-                          },
-                          "starred_url": {
-                            "type": "string"
-                          },
-                          "subscriptions_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "organizations_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "repos_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "events_url": {
-                            "type": "string"
-                          },
-                          "received_events_url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "type": {
-                            "type": "string"
-                          },
-                          "site_admin": {
-                            "type": "boolean"
-                          },
-                          "starred_at": {
-                            "type": "string"
-                          },
-                          "user_view_type": {
-                            "type": "string"
+                          {
+                            "title": "Simple User",
+                            "description": "A GitHub user.",
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "email": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "login": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer",
+                                "format": "int64"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "avatar_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "gravatar_id": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "followers_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "following_url": {
+                                "type": "string"
+                              },
+                              "gists_url": {
+                                "type": "string"
+                              },
+                              "starred_url": {
+                                "type": "string"
+                              },
+                              "subscriptions_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "organizations_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repos_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "events_url": {
+                                "type": "string"
+                              },
+                              "received_events_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "site_admin": {
+                                "type": "boolean"
+                              },
+                              "starred_at": {
+                                "type": "string"
+                              },
+                              "user_view_type": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "avatar_url",
+                              "events_url",
+                              "followers_url",
+                              "following_url",
+                              "gists_url",
+                              "gravatar_id",
+                              "html_url",
+                              "id",
+                              "node_id",
+                              "login",
+                              "organizations_url",
+                              "received_events_url",
+                              "repos_url",
+                              "site_admin",
+                              "starred_url",
+                              "subscriptions_url",
+                              "type",
+                              "url"
+                            ]
                           }
-                        },
-                        "required": [
-                          "avatar_url",
-                          "events_url",
-                          "followers_url",
-                          "following_url",
-                          "gists_url",
-                          "gravatar_id",
-                          "html_url",
-                          "id",
-                          "node_id",
-                          "login",
-                          "organizations_url",
-                          "received_events_url",
-                          "repos_url",
-                          "site_admin",
-                          "starred_url",
-                          "subscriptions_url",
-                          "type",
-                          "url"
-                        ],
-                        "nullable": true
+                        ]
                       },
                       "created_at": {
                         "description": "The date and time the role was created.",
@@ -15532,29 +15957,37 @@
                 },
                 "description": {
                   "description": "A short description about who this role is for or what permissions it grants.",
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "base_role": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The system role from which this role inherits permissions.",
                   "enum": [
                     "read",
                     "triage",
                     "write",
                     "maintain",
-                    "admin"
+                    "admin",
+                    null
                   ]
                 },
                 "source": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "Source answers the question, \"where did this role come from?\"",
                   "enum": [
                     "Organization",
                     "Enterprise",
-                    "Predefined"
+                    "Predefined",
+                    null
                   ]
                 },
                 "permissions": {
@@ -15565,110 +15998,122 @@
                   }
                 },
                 "organization": {
-                  "title": "Simple User",
-                  "description": "A GitHub user.",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "nullable": true,
-                      "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "null"
                     },
-                    "email": {
-                      "nullable": true,
-                      "type": "string"
-                    },
-                    "login": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "node_id": {
-                      "type": "string"
-                    },
-                    "avatar_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "html_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "followers_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "following_url": {
-                      "type": "string"
-                    },
-                    "gists_url": {
-                      "type": "string"
-                    },
-                    "starred_url": {
-                      "type": "string"
-                    },
-                    "subscriptions_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "organizations_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "repos_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "events_url": {
-                      "type": "string"
-                    },
-                    "received_events_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "site_admin": {
-                      "type": "boolean"
-                    },
-                    "starred_at": {
-                      "type": "string"
-                    },
-                    "user_view_type": {
-                      "type": "string"
+                    {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
                     }
-                  },
-                  "required": [
-                    "avatar_url",
-                    "events_url",
-                    "followers_url",
-                    "following_url",
-                    "gists_url",
-                    "gravatar_id",
-                    "html_url",
-                    "id",
-                    "node_id",
-                    "login",
-                    "organizations_url",
-                    "received_events_url",
-                    "repos_url",
-                    "site_admin",
-                    "starred_url",
-                    "subscriptions_url",
-                    "type",
-                    "url"
-                  ],
-                  "nullable": true
+                  ]
                 },
                 "created_at": {
                   "description": "The date and time the role was created.",
@@ -15827,8 +16272,10 @@
                     "type": "string"
                   },
                   "description": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "privacy": {
                     "type": "string"
@@ -15882,92 +16329,100 @@
                     "format": "uri"
                   },
                   "parent": {
-                    "title": "Team Simple",
-                    "description": "Groups of organization members that gives permissions on specified repositories.",
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "description": "Unique identifier of the team",
-                        "type": "integer"
+                    "anyOf": [
+                      {
+                        "type": "null"
                       },
-                      "node_id": {
-                        "type": "string"
-                      },
-                      "url": {
-                        "description": "URL for the team",
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "members_url": {
-                        "type": "string"
-                      },
-                      "name": {
-                        "description": "Name of the team",
-                        "type": "string"
-                      },
-                      "description": {
-                        "description": "Description of the team",
-                        "type": "string",
-                        "nullable": true
-                      },
-                      "permission": {
-                        "description": "Permission that the team will have for its repositories",
-                        "type": "string"
-                      },
-                      "privacy": {
-                        "description": "The level of privacy this team should have",
-                        "type": "string"
-                      },
-                      "notification_setting": {
-                        "description": "The notification setting the team has set",
-                        "type": "string"
-                      },
-                      "html_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "repositories_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "slug": {
-                        "type": "string"
-                      },
-                      "ldap_dn": {
-                        "description": "Distinguished Name (DN) that team maps to within LDAP environment",
-                        "type": "string"
-                      },
-                      "type": {
-                        "description": "The ownership type of the team",
-                        "type": "string",
-                        "enum": [
-                          "enterprise",
-                          "organization"
+                      {
+                        "title": "Team Simple",
+                        "description": "Groups of organization members that gives permissions on specified repositories.",
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "Unique identifier of the team",
+                            "type": "integer"
+                          },
+                          "node_id": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "description": "URL for the team",
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "members_url": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Name of the team",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "Description of the team",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "permission": {
+                            "description": "Permission that the team will have for its repositories",
+                            "type": "string"
+                          },
+                          "privacy": {
+                            "description": "The level of privacy this team should have",
+                            "type": "string"
+                          },
+                          "notification_setting": {
+                            "description": "The notification setting the team has set",
+                            "type": "string"
+                          },
+                          "html_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "repositories_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "slug": {
+                            "type": "string"
+                          },
+                          "ldap_dn": {
+                            "description": "Distinguished Name (DN) that team maps to within LDAP environment",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "The ownership type of the team",
+                            "type": "string",
+                            "enum": [
+                              "enterprise",
+                              "organization"
+                            ]
+                          },
+                          "organization_id": {
+                            "type": "integer",
+                            "description": "Unique identifier of the organization to which this team belongs"
+                          },
+                          "enterprise_id": {
+                            "type": "integer",
+                            "description": "Unique identifier of the enterprise to which this team belongs"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "node_id",
+                          "url",
+                          "members_url",
+                          "name",
+                          "description",
+                          "permission",
+                          "html_url",
+                          "repositories_url",
+                          "slug",
+                          "type"
                         ]
-                      },
-                      "organization_id": {
-                        "type": "integer",
-                        "description": "Unique identifier of the organization to which this team belongs"
-                      },
-                      "enterprise_id": {
-                        "type": "integer",
-                        "description": "Unique identifier of the enterprise to which this team belongs"
                       }
-                    },
-                    "required": [
-                      "id",
-                      "node_id",
-                      "url",
-                      "members_url",
-                      "name",
-                      "description",
-                      "permission",
-                      "html_url",
-                      "repositories_url",
-                      "slug",
-                      "type"
-                    ],
-                    "nullable": true
+                    ]
                   },
                   "type": {
                     "description": "The ownership type of the team",
@@ -16160,8 +16615,10 @@
                         },
                         "description": {
                           "description": "Description of the team",
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "permission": {
                           "description": "Permission that the team will have for its repositories",
@@ -16223,12 +16680,16 @@
                     }
                   },
                   "name": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "email": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "login": {
                     "type": "string"
@@ -16244,8 +16705,10 @@
                     "format": "uri"
                   },
                   "gravatar_id": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "url": {
                     "type": "string",
@@ -16449,12 +16912,16 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "email": {
-                    "nullable": true,
-                    "type": "string"
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "login": {
                     "type": "string"
@@ -16471,8 +16938,10 @@
                     "format": "uri"
                   },
                   "gravatar_id": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "url": {
                     "type": "string",
@@ -16821,7 +17290,9 @@
             "items": {
               "type": "string"
             },
-            "example": "owner[]=octocat1,owner[]=octocat2"
+            "examples": [
+              "owner[]=octocat1,owner[]=octocat2"
+            ]
           }
         },
         {
@@ -16831,7 +17302,9 @@
           "required": false,
           "schema": {
             "type": "string",
-            "example": "Hello-World"
+            "examples": [
+              "Hello-World"
+            ]
           }
         },
         {
@@ -16841,7 +17314,9 @@
           "required": false,
           "schema": {
             "type": "string",
-            "example": "issues_read"
+            "examples": [
+              "issues_read"
+            ]
           }
         },
         {
@@ -16875,7 +17350,9 @@
             "items": {
               "type": "string"
             },
-            "example": "token_id[]=1,token_id[]=2"
+            "examples": [
+              "token_id[]=1,token_id[]=2"
+            ]
           }
         }
       ],
@@ -16948,8 +17425,10 @@
                     "description": "Unique identifier of the request for access via fine-grained personal access token. The `pat_request_id` used to review PAT requests."
                   },
                   "reason": {
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "Reason for requesting access."
                   },
                   "owner": {
@@ -16958,12 +17437,16 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "email": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "login": {
                         "type": "string"
@@ -16980,8 +17463,10 @@
                         "format": "uri"
                       },
                       "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "url": {
                         "type": "string",
@@ -17111,13 +17596,17 @@
                     "description": "Whether the associated fine-grained personal access token has expired."
                   },
                   "token_expires_at": {
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "Date and time when the associated fine-grained personal access token expires."
                   },
                   "token_last_used_at": {
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "Date and time when the associated fine-grained personal access token was last used for authentication."
                   }
                 },
@@ -17591,12 +18080,16 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "email": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "login": {
                         "type": "string"
@@ -17613,8 +18106,10 @@
                         "format": "uri"
                       },
                       "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "url": {
                         "type": "string",
@@ -17698,8 +18193,10 @@
                     "format": "uri"
                   },
                   "description": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "fork": {
                     "type": "boolean"
@@ -17835,8 +18332,10 @@
                     "type": "string"
                   },
                   "mirror_url": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "hooks_url": {
                     "type": "string",
@@ -17846,12 +18345,16 @@
                     "type": "string"
                   },
                   "homepage": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "language": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "forks_count": {
                     "type": "integer"
@@ -17923,19 +18426,25 @@
                     "type": "string"
                   },
                   "pushed_at": {
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
                   },
                   "created_at": {
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
                   },
                   "updated_at": {
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
                   },
                   "permissions": {
                     "type": "object",
@@ -17991,9 +18500,11 @@
                         "type": "string"
                       },
                       "html_url": {
-                        "type": "string",
-                        "format": "uri",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "uri"
                       }
                     },
                     "required": [
@@ -18004,7 +18515,10 @@
                     ]
                   },
                   "license": {
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "properties": {
                       "key": {
                         "type": "string"
@@ -18016,14 +18530,15 @@
                         "type": "string"
                       },
                       "url": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "node_id": {
                         "type": "string"
                       }
-                    },
-                    "nullable": true
+                    }
                   },
                   "forks": {
                     "type": "integer"
@@ -18041,8 +18556,10 @@
                     "type": "boolean"
                   },
                   "security_and_analysis": {
-                    "nullable": true,
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "properties": {
                       "advanced_security": {
                         "description": "Enable or disable GitHub Advanced Security for the repository.\n\nFor standalone Code Scanning or Secret Protection products, this parameter cannot be used.\n",
@@ -18350,7 +18867,9 @@
             "items": {
               "type": "string"
             },
-            "example": "owner[]=octocat1,owner[]=octocat2"
+            "examples": [
+              "owner[]=octocat1,owner[]=octocat2"
+            ]
           }
         },
         {
@@ -18360,7 +18879,9 @@
           "required": false,
           "schema": {
             "type": "string",
-            "example": "Hello-World"
+            "examples": [
+              "Hello-World"
+            ]
           }
         },
         {
@@ -18370,7 +18891,9 @@
           "required": false,
           "schema": {
             "type": "string",
-            "example": "issues_read"
+            "examples": [
+              "issues_read"
+            ]
           }
         },
         {
@@ -18404,7 +18927,9 @@
             "items": {
               "type": "string"
             },
-            "example": "token_id[]=1,token_id[]=2"
+            "examples": [
+              "token_id[]=1,token_id[]=2"
+            ]
           }
         }
       ],
@@ -18481,12 +19006,16 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "email": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "login": {
                         "type": "string"
@@ -18503,8 +19032,10 @@
                         "format": "uri"
                       },
                       "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "url": {
                         "type": "string",
@@ -18634,13 +19165,17 @@
                     "description": "Whether the associated fine-grained personal access token has expired."
                   },
                   "token_expires_at": {
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "Date and time when the associated fine-grained personal access token expires."
                   },
                   "token_last_used_at": {
-                    "type": "string",
-                    "nullable": true,
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "Date and time when the associated fine-grained personal access token was last used for authentication."
                   }
                 },
@@ -19100,12 +19635,16 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "email": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "login": {
                         "type": "string"
@@ -19122,8 +19661,10 @@
                         "format": "uri"
                       },
                       "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "url": {
                         "type": "string",
@@ -19207,8 +19748,10 @@
                     "format": "uri"
                   },
                   "description": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "fork": {
                     "type": "boolean"
@@ -19344,8 +19887,10 @@
                     "type": "string"
                   },
                   "mirror_url": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "hooks_url": {
                     "type": "string",
@@ -19355,12 +19900,16 @@
                     "type": "string"
                   },
                   "homepage": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "language": {
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "forks_count": {
                     "type": "integer"
@@ -19432,19 +19981,25 @@
                     "type": "string"
                   },
                   "pushed_at": {
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
                   },
                   "created_at": {
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
                   },
                   "updated_at": {
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
                   },
                   "permissions": {
                     "type": "object",
@@ -19500,9 +20055,11 @@
                         "type": "string"
                       },
                       "html_url": {
-                        "type": "string",
-                        "format": "uri",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "uri"
                       }
                     },
                     "required": [
@@ -19513,7 +20070,10 @@
                     ]
                   },
                   "license": {
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "properties": {
                       "key": {
                         "type": "string"
@@ -19525,14 +20085,15 @@
                         "type": "string"
                       },
                       "url": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "node_id": {
                         "type": "string"
                       }
-                    },
-                    "nullable": true
+                    }
                   },
                   "forks": {
                     "type": "integer"
@@ -19550,8 +20111,10 @@
                     "type": "boolean"
                   },
                   "security_and_analysis": {
-                    "nullable": true,
-                    "type": "object",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "properties": {
                       "advanced_security": {
                         "description": "Enable or disable GitHub Advanced Security for the repository.\n\nFor standalone Code Scanning or Secret Protection products, this parameter cannot be used.\n",
@@ -20111,14 +20674,18 @@
                   "description": "The unique identifier of the rule insight."
                 },
                 "actor_id": {
-                  "type": "integer",
-                  "description": "The number that identifies the user.",
-                  "nullable": true
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "The number that identifies the user."
                 },
                 "actor_name": {
-                  "type": "string",
-                  "description": "The handle for the GitHub user account.",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The handle for the GitHub user account."
                 },
                 "before_sha": {
                   "type": "string",
@@ -20154,12 +20721,15 @@
                   "description": "The result of the rule evaluations for rules with the `active` enforcement status."
                 },
                 "evaluation_result": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "enum": [
                     "pass",
                     "fail",
-                    "bypass"
+                    "bypass",
+                    null
                   ],
                   "description": "The result of the rule evaluations for rules with the `active` and `evaluate` enforcement statuses, demonstrating whether rules would pass or fail if all rules in the rule suite were `active`. Null if no rules with `evaluate` enforcement status were run."
                 },
@@ -20177,13 +20747,17 @@
                             "description": "The type of rule source."
                           },
                           "id": {
-                            "type": "integer",
-                            "nullable": true,
+                            "type": [
+                              "integer",
+                              "null"
+                            ],
                             "description": "The ID of the rule source."
                           },
                           "name": {
-                            "type": "string",
-                            "nullable": true,
+                            "type": [
+                              "string",
+                              "null"
+                            ],
                             "description": "The name of the rule source."
                           }
                         }
@@ -20210,8 +20784,10 @@
                         "description": "The type of rule."
                       },
                       "details": {
-                        "type": "string",
-                        "nullable": true,
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The detailed failure message for the rule. Null if the rule passed."
                       }
                     }
@@ -20292,7 +20868,9 @@
           "required": false,
           "schema": {
             "type": "string",
-            "example": "branch,tag,push"
+            "examples": [
+              "branch,tag,push"
+            ]
           }
         }
       ],
@@ -20414,8 +20992,10 @@
                       ],
                       "properties": {
                         "actor_id": {
-                          "type": "integer",
-                          "nullable": true,
+                          "type": [
+                            "integer",
+                            "null"
+                          ],
                           "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories."
                         },
                         "actor_type": {
@@ -20468,8 +21048,10 @@
                         }
                       },
                       "html": {
-                        "type": "object",
-                        "nullable": true,
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "properties": {
                           "href": {
                             "type": "string",
@@ -20480,7 +21062,6 @@
                     }
                   },
                   "conditions": {
-                    "nullable": true,
                     "anyOf": [
                       {
                         "title": "Repository ruleset conditions for ref names",
@@ -20752,6 +21333,10 @@
                           }
                         ]
                       }
+                    ],
+                    "type": [
+                      "null",
+                      "object"
                     ]
                   },
                   "rules": {
@@ -22960,8 +23545,10 @@
                     ],
                     "properties": {
                       "actor_id": {
-                        "type": "integer",
-                        "nullable": true,
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
                         "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories."
                       },
                       "actor_type": {
@@ -23014,8 +23601,10 @@
                       }
                     },
                     "html": {
-                      "type": "object",
-                      "nullable": true,
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "properties": {
                         "href": {
                           "type": "string",
@@ -23026,7 +23615,6 @@
                   }
                 },
                 "conditions": {
-                  "nullable": true,
                   "anyOf": [
                     {
                       "title": "Repository ruleset conditions for ref names",
@@ -23298,6 +23886,10 @@
                         }
                       ]
                     }
+                  ],
+                  "type": [
+                    "null",
+                    "object"
                   ]
                 },
                 "rules": {
@@ -24407,8 +24999,10 @@
                     ],
                     "properties": {
                       "actor_id": {
-                        "type": "integer",
-                        "nullable": true,
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
                         "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories."
                       },
                       "actor_type": {
@@ -24461,8 +25055,10 @@
                       }
                     },
                     "html": {
-                      "type": "object",
-                      "nullable": true,
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "properties": {
                         "href": {
                           "type": "string",
@@ -24473,7 +25069,6 @@
                   }
                 },
                 "conditions": {
-                  "nullable": true,
                   "anyOf": [
                     {
                       "title": "Repository ruleset conditions for ref names",
@@ -24745,6 +25340,10 @@
                         }
                       ]
                     }
+                  ],
+                  "type": [
+                    "null",
+                    "object"
                   ]
                 },
                 "rules": {
@@ -26959,8 +27558,10 @@
                     ],
                     "properties": {
                       "actor_id": {
-                        "type": "integer",
-                        "nullable": true,
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
                         "description": "The ID of the actor that can bypass a ruleset. Required for `Integration`, `RepositoryRole`, and `Team` actor types. If `actor_type` is `OrganizationAdmin`, `actor_id` is ignored. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories."
                       },
                       "actor_type": {
@@ -27013,8 +27614,10 @@
                       }
                     },
                     "html": {
-                      "type": "object",
-                      "nullable": true,
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "properties": {
                         "href": {
                           "type": "string",
@@ -27025,7 +27628,6 @@
                   }
                 },
                 "conditions": {
-                  "nullable": true,
                   "anyOf": [
                     {
                       "title": "Repository ruleset conditions for ref names",
@@ -27297,6 +27899,10 @@
                         }
                       ]
                     }
+                  ],
+                  "type": [
+                    "null",
+                    "object"
                   ]
                 },
                 "rules": {
@@ -28730,8 +29336,10 @@
                   },
                   "description": {
                     "description": "Description of the team",
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "permission": {
                     "description": "Permission that the team will have for its repositories",
@@ -30154,26 +30762,34 @@
                   },
                   "action": {
                     "description": "The type of activity for the event that triggered the delivery.",
-                    "type": "string",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   },
                   "installation_id": {
                     "description": "The id of the GitHub App installation associated with this event.",
-                    "type": "integer",
-                    "format": "int64",
-                    "nullable": true
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "format": "int64"
                   },
                   "repository_id": {
                     "description": "The id of the repository associated with this event.",
-                    "type": "integer",
-                    "format": "int64",
-                    "nullable": true
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "format": "int64"
                   },
                   "throttled_at": {
                     "description": "Time when the webhook delivery was throttled.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
                   }
                 },
                 "required": [
@@ -30357,24 +30973,32 @@
                 },
                 "action": {
                   "description": "The type of activity for the event that triggered the delivery.",
-                  "type": "string",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "installation_id": {
                   "description": "The id of the GitHub App installation associated with this event.",
-                  "type": "integer",
-                  "nullable": true
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
                 },
                 "repository_id": {
                   "description": "The id of the repository associated with this event.",
-                  "type": "integer",
-                  "nullable": true
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
                 },
                 "throttled_at": {
                   "description": "Time when the webhook delivery was throttled.",
-                  "type": "string",
-                  "format": "date-time",
-                  "nullable": true
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
                 },
                 "url": {
                   "description": "The URL target of the delivery.",
@@ -30385,14 +31009,18 @@
                   "properties": {
                     "headers": {
                       "description": "The request headers sent with the webhook delivery.",
-                      "type": "object",
-                      "nullable": true,
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "additionalProperties": true
                     },
                     "payload": {
                       "description": "The webhook payload.",
-                      "type": "object",
-                      "nullable": true,
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "additionalProperties": true
                     }
                   },
@@ -30406,14 +31034,18 @@
                   "properties": {
                     "headers": {
                       "description": "The response headers received when the delivery was made.",
-                      "type": "object",
-                      "nullable": true,
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "additionalProperties": true
                     },
                     "payload": {
                       "description": "The response payload received.",
-                      "type": "string",
-                      "nullable": true,
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "additionalProperties": true
                     }
                   },

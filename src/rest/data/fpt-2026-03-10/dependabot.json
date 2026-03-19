@@ -639,24 +639,30 @@
                         "readOnly": true
                       },
                       "scope": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The execution scope of the vulnerable dependency.",
                         "readOnly": true,
-                        "nullable": true,
                         "enum": [
                           "development",
-                          "runtime"
+                          "runtime",
+                          null
                         ]
                       },
                       "relationship": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The vulnerable dependency's relationship to your project.\n\n> [!NOTE]\n> We are rolling out support for dependency relationship across ecosystems. This value will be \"unknown\" for all dependencies in unsupported ecosystems.\n",
                         "readOnly": true,
-                        "nullable": true,
                         "enum": [
                           "unknown",
                           "direct",
-                          "transitive"
+                          "transitive",
+                          null
                         ]
                       }
                     }
@@ -672,10 +678,12 @@
                         "readOnly": true
                       },
                       "cve_id": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The unique CVE ID assigned to the advisory.",
-                        "readOnly": true,
-                        "nullable": true
+                        "readOnly": true
                       },
                       "summary": {
                         "type": "string",
@@ -736,10 +744,12 @@
                               "readOnly": true
                             },
                             "first_patched_version": {
-                              "type": "object",
+                              "type": [
+                                "object",
+                                "null"
+                              ],
                               "description": "Details pertaining to the package version that patches this vulnerability.",
                               "readOnly": true,
-                              "nullable": true,
                               "properties": {
                                 "identifier": {
                                   "type": "string",
@@ -774,24 +784,32 @@
                         ]
                       },
                       "cvss_severities": {
-                        "type": "object",
-                        "nullable": true,
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "properties": {
                           "cvss_v3": {
-                            "type": "object",
-                            "nullable": true,
+                            "type": [
+                              "object",
+                              "null"
+                            ],
                             "properties": {
                               "vector_string": {
-                                "type": "string",
-                                "description": "The CVSS 3 vector string.",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The CVSS 3 vector string."
                               },
                               "score": {
-                                "type": "number",
+                                "type": [
+                                  "number",
+                                  "null"
+                                ],
                                 "description": "The CVSS 3 score.",
                                 "minimum": 0,
                                 "maximum": 10,
-                                "nullable": true,
                                 "readOnly": true
                               }
                             },
@@ -801,20 +819,26 @@
                             ]
                           },
                           "cvss_v4": {
-                            "type": "object",
-                            "nullable": true,
+                            "type": [
+                              "object",
+                              "null"
+                            ],
                             "properties": {
                               "vector_string": {
-                                "type": "string",
-                                "description": "The CVSS 4 vector string.",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The CVSS 4 vector string."
                               },
                               "score": {
-                                "type": "number",
+                                "type": [
+                                  "number",
+                                  "null"
+                                ],
                                 "description": "The CVSS 4 score.",
                                 "minimum": 0,
                                 "maximum": 10,
-                                "nullable": true,
                                 "readOnly": true
                               }
                             },
@@ -826,8 +850,10 @@
                         }
                       },
                       "epss": {
-                        "type": "object",
-                        "nullable": true,
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "readOnly": true,
                         "description": "The EPSS scores as calculated by the [Exploit Prediction Scoring System](https://www.first.org/epss).",
                         "properties": {
@@ -936,11 +962,13 @@
                         "readOnly": true
                       },
                       "withdrawn_at": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The time that the advisory was withdrawn in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                         "format": "date-time",
-                        "readOnly": true,
-                        "nullable": true
+                        "readOnly": true
                       }
                     },
                     "required": [
@@ -1003,10 +1031,12 @@
                         "readOnly": true
                       },
                       "first_patched_version": {
-                        "type": "object",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "description": "Details pertaining to the package version that patches this vulnerability.",
                         "readOnly": true,
-                        "nullable": true,
                         "properties": {
                           "identifier": {
                             "type": "string",
@@ -1053,155 +1083,180 @@
                     "readOnly": true
                   },
                   "dismissed_at": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                     "format": "date-time",
-                    "readOnly": true,
-                    "nullable": true
+                    "readOnly": true
                   },
                   "dismissed_by": {
-                    "title": "Simple User",
-                    "description": "A GitHub user.",
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "nullable": true,
-                        "type": "string"
+                    "anyOf": [
+                      {
+                        "type": "null"
                       },
-                      "email": {
-                        "nullable": true,
-                        "type": "string"
-                      },
-                      "login": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer",
-                        "format": "int64"
-                      },
-                      "node_id": {
-                        "type": "string"
-                      },
-                      "avatar_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
-                      },
-                      "url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "html_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "followers_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "following_url": {
-                        "type": "string"
-                      },
-                      "gists_url": {
-                        "type": "string"
-                      },
-                      "starred_url": {
-                        "type": "string"
-                      },
-                      "subscriptions_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "organizations_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "repos_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "events_url": {
-                        "type": "string"
-                      },
-                      "received_events_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "type": {
-                        "type": "string"
-                      },
-                      "site_admin": {
-                        "type": "boolean"
-                      },
-                      "starred_at": {
-                        "type": "string"
-                      },
-                      "user_view_type": {
-                        "type": "string"
+                      {
+                        "title": "Simple User",
+                        "description": "A GitHub user.",
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "email": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "login": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "integer",
+                            "format": "int64"
+                          },
+                          "node_id": {
+                            "type": "string"
+                          },
+                          "avatar_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "gravatar_id": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "html_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "followers_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "following_url": {
+                            "type": "string"
+                          },
+                          "gists_url": {
+                            "type": "string"
+                          },
+                          "starred_url": {
+                            "type": "string"
+                          },
+                          "subscriptions_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "organizations_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "repos_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "events_url": {
+                            "type": "string"
+                          },
+                          "received_events_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "site_admin": {
+                            "type": "boolean"
+                          },
+                          "starred_at": {
+                            "type": "string"
+                          },
+                          "user_view_type": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "avatar_url",
+                          "events_url",
+                          "followers_url",
+                          "following_url",
+                          "gists_url",
+                          "gravatar_id",
+                          "html_url",
+                          "id",
+                          "node_id",
+                          "login",
+                          "organizations_url",
+                          "received_events_url",
+                          "repos_url",
+                          "site_admin",
+                          "starred_url",
+                          "subscriptions_url",
+                          "type",
+                          "url"
+                        ]
                       }
-                    },
-                    "required": [
-                      "avatar_url",
-                      "events_url",
-                      "followers_url",
-                      "following_url",
-                      "gists_url",
-                      "gravatar_id",
-                      "html_url",
-                      "id",
-                      "node_id",
-                      "login",
-                      "organizations_url",
-                      "received_events_url",
-                      "repos_url",
-                      "site_admin",
-                      "starred_url",
-                      "subscriptions_url",
-                      "type",
-                      "url"
-                    ],
-                    "nullable": true
+                    ]
                   },
                   "dismissed_reason": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The reason that the alert was dismissed.",
-                    "nullable": true,
                     "enum": [
                       "fix_started",
                       "inaccurate",
                       "no_bandwidth",
                       "not_used",
-                      "tolerable_risk"
+                      "tolerable_risk",
+                      null
                     ]
                   },
                   "dismissed_comment": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "An optional comment associated with the alert's dismissal.",
-                    "nullable": true,
                     "maxLength": 280
                   },
                   "fixed_at": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                     "format": "date-time",
-                    "readOnly": true,
-                    "nullable": true
+                    "readOnly": true
                   },
                   "auto_dismissed_at": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The time that the alert was auto-dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                     "format": "date-time",
-                    "readOnly": true,
-                    "nullable": true
+                    "readOnly": true
                   },
                   "dismissal_request": {
                     "title": "Dependabot alert dismissal request",
                     "description": "Information about an active dismissal request for this Dependabot alert.",
-                    "type": "object",
-                    "nullable": true,
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "properties": {
                       "id": {
                         "type": "integer",
@@ -1253,12 +1308,16 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "email": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "login": {
                           "type": "string"
@@ -1275,8 +1334,10 @@
                           "format": "uri"
                         },
                         "gravatar_id": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "url": {
                           "type": "string",
@@ -1381,12 +1442,16 @@
                         "type": "object",
                         "properties": {
                           "name": {
-                            "nullable": true,
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "email": {
-                            "nullable": true,
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "login": {
                             "type": "string"
@@ -1403,8 +1468,10 @@
                             "format": "uri"
                           },
                           "gravatar_id": {
-                            "type": "string",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "url": {
                             "type": "string",
@@ -1490,8 +1557,10 @@
                         "description": "The URL to view the repository on GitHub.com."
                       },
                       "description": {
-                        "type": "string",
-                        "nullable": true,
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The repository description."
                       },
                       "fork": {
@@ -2428,24 +2497,30 @@
                         "readOnly": true
                       },
                       "scope": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The execution scope of the vulnerable dependency.",
                         "readOnly": true,
-                        "nullable": true,
                         "enum": [
                           "development",
-                          "runtime"
+                          "runtime",
+                          null
                         ]
                       },
                       "relationship": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The vulnerable dependency's relationship to your project.\n\n> [!NOTE]\n> We are rolling out support for dependency relationship across ecosystems. This value will be \"unknown\" for all dependencies in unsupported ecosystems.\n",
                         "readOnly": true,
-                        "nullable": true,
                         "enum": [
                           "unknown",
                           "direct",
-                          "transitive"
+                          "transitive",
+                          null
                         ]
                       }
                     }
@@ -2461,10 +2536,12 @@
                         "readOnly": true
                       },
                       "cve_id": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The unique CVE ID assigned to the advisory.",
-                        "readOnly": true,
-                        "nullable": true
+                        "readOnly": true
                       },
                       "summary": {
                         "type": "string",
@@ -2525,10 +2602,12 @@
                               "readOnly": true
                             },
                             "first_patched_version": {
-                              "type": "object",
+                              "type": [
+                                "object",
+                                "null"
+                              ],
                               "description": "Details pertaining to the package version that patches this vulnerability.",
                               "readOnly": true,
-                              "nullable": true,
                               "properties": {
                                 "identifier": {
                                   "type": "string",
@@ -2563,24 +2642,32 @@
                         ]
                       },
                       "cvss_severities": {
-                        "type": "object",
-                        "nullable": true,
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "properties": {
                           "cvss_v3": {
-                            "type": "object",
-                            "nullable": true,
+                            "type": [
+                              "object",
+                              "null"
+                            ],
                             "properties": {
                               "vector_string": {
-                                "type": "string",
-                                "description": "The CVSS 3 vector string.",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The CVSS 3 vector string."
                               },
                               "score": {
-                                "type": "number",
+                                "type": [
+                                  "number",
+                                  "null"
+                                ],
                                 "description": "The CVSS 3 score.",
                                 "minimum": 0,
                                 "maximum": 10,
-                                "nullable": true,
                                 "readOnly": true
                               }
                             },
@@ -2590,20 +2677,26 @@
                             ]
                           },
                           "cvss_v4": {
-                            "type": "object",
-                            "nullable": true,
+                            "type": [
+                              "object",
+                              "null"
+                            ],
                             "properties": {
                               "vector_string": {
-                                "type": "string",
-                                "description": "The CVSS 4 vector string.",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The CVSS 4 vector string."
                               },
                               "score": {
-                                "type": "number",
+                                "type": [
+                                  "number",
+                                  "null"
+                                ],
                                 "description": "The CVSS 4 score.",
                                 "minimum": 0,
                                 "maximum": 10,
-                                "nullable": true,
                                 "readOnly": true
                               }
                             },
@@ -2615,8 +2708,10 @@
                         }
                       },
                       "epss": {
-                        "type": "object",
-                        "nullable": true,
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "readOnly": true,
                         "description": "The EPSS scores as calculated by the [Exploit Prediction Scoring System](https://www.first.org/epss).",
                         "properties": {
@@ -2725,11 +2820,13 @@
                         "readOnly": true
                       },
                       "withdrawn_at": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The time that the advisory was withdrawn in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                         "format": "date-time",
-                        "readOnly": true,
-                        "nullable": true
+                        "readOnly": true
                       }
                     },
                     "required": [
@@ -2792,10 +2889,12 @@
                         "readOnly": true
                       },
                       "first_patched_version": {
-                        "type": "object",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "description": "Details pertaining to the package version that patches this vulnerability.",
                         "readOnly": true,
-                        "nullable": true,
                         "properties": {
                           "identifier": {
                             "type": "string",
@@ -2842,155 +2941,180 @@
                     "readOnly": true
                   },
                   "dismissed_at": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                     "format": "date-time",
-                    "readOnly": true,
-                    "nullable": true
+                    "readOnly": true
                   },
                   "dismissed_by": {
-                    "title": "Simple User",
-                    "description": "A GitHub user.",
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "nullable": true,
-                        "type": "string"
+                    "anyOf": [
+                      {
+                        "type": "null"
                       },
-                      "email": {
-                        "nullable": true,
-                        "type": "string"
-                      },
-                      "login": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer",
-                        "format": "int64"
-                      },
-                      "node_id": {
-                        "type": "string"
-                      },
-                      "avatar_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
-                      },
-                      "url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "html_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "followers_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "following_url": {
-                        "type": "string"
-                      },
-                      "gists_url": {
-                        "type": "string"
-                      },
-                      "starred_url": {
-                        "type": "string"
-                      },
-                      "subscriptions_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "organizations_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "repos_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "events_url": {
-                        "type": "string"
-                      },
-                      "received_events_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "type": {
-                        "type": "string"
-                      },
-                      "site_admin": {
-                        "type": "boolean"
-                      },
-                      "starred_at": {
-                        "type": "string"
-                      },
-                      "user_view_type": {
-                        "type": "string"
+                      {
+                        "title": "Simple User",
+                        "description": "A GitHub user.",
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "email": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "login": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "integer",
+                            "format": "int64"
+                          },
+                          "node_id": {
+                            "type": "string"
+                          },
+                          "avatar_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "gravatar_id": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "html_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "followers_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "following_url": {
+                            "type": "string"
+                          },
+                          "gists_url": {
+                            "type": "string"
+                          },
+                          "starred_url": {
+                            "type": "string"
+                          },
+                          "subscriptions_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "organizations_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "repos_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "events_url": {
+                            "type": "string"
+                          },
+                          "received_events_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "site_admin": {
+                            "type": "boolean"
+                          },
+                          "starred_at": {
+                            "type": "string"
+                          },
+                          "user_view_type": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "avatar_url",
+                          "events_url",
+                          "followers_url",
+                          "following_url",
+                          "gists_url",
+                          "gravatar_id",
+                          "html_url",
+                          "id",
+                          "node_id",
+                          "login",
+                          "organizations_url",
+                          "received_events_url",
+                          "repos_url",
+                          "site_admin",
+                          "starred_url",
+                          "subscriptions_url",
+                          "type",
+                          "url"
+                        ]
                       }
-                    },
-                    "required": [
-                      "avatar_url",
-                      "events_url",
-                      "followers_url",
-                      "following_url",
-                      "gists_url",
-                      "gravatar_id",
-                      "html_url",
-                      "id",
-                      "node_id",
-                      "login",
-                      "organizations_url",
-                      "received_events_url",
-                      "repos_url",
-                      "site_admin",
-                      "starred_url",
-                      "subscriptions_url",
-                      "type",
-                      "url"
-                    ],
-                    "nullable": true
+                    ]
                   },
                   "dismissed_reason": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The reason that the alert was dismissed.",
-                    "nullable": true,
                     "enum": [
                       "fix_started",
                       "inaccurate",
                       "no_bandwidth",
                       "not_used",
-                      "tolerable_risk"
+                      "tolerable_risk",
+                      null
                     ]
                   },
                   "dismissed_comment": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "An optional comment associated with the alert's dismissal.",
-                    "nullable": true,
                     "maxLength": 280
                   },
                   "fixed_at": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                     "format": "date-time",
-                    "readOnly": true,
-                    "nullable": true
+                    "readOnly": true
                   },
                   "auto_dismissed_at": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The time that the alert was auto-dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                     "format": "date-time",
-                    "readOnly": true,
-                    "nullable": true
+                    "readOnly": true
                   },
                   "dismissal_request": {
                     "title": "Dependabot alert dismissal request",
                     "description": "Information about an active dismissal request for this Dependabot alert.",
-                    "type": "object",
-                    "nullable": true,
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "properties": {
                       "id": {
                         "type": "integer",
@@ -3042,12 +3166,16 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "email": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "login": {
                           "type": "string"
@@ -3064,8 +3192,10 @@
                           "format": "uri"
                         },
                         "gravatar_id": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "url": {
                           "type": "string",
@@ -3170,12 +3300,16 @@
                         "type": "object",
                         "properties": {
                           "name": {
-                            "nullable": true,
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "email": {
-                            "nullable": true,
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "login": {
                             "type": "string"
@@ -3192,8 +3326,10 @@
                             "format": "uri"
                           },
                           "gravatar_id": {
-                            "type": "string",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "url": {
                             "type": "string",
@@ -3279,8 +3415,10 @@
                         "description": "The URL to view the repository on GitHub.com."
                       },
                       "description": {
-                        "type": "string",
-                        "nullable": true,
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The repository description."
                       },
                       "fork": {
@@ -4084,24 +4222,30 @@
                         "readOnly": true
                       },
                       "scope": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The execution scope of the vulnerable dependency.",
                         "readOnly": true,
-                        "nullable": true,
                         "enum": [
                           "development",
-                          "runtime"
+                          "runtime",
+                          null
                         ]
                       },
                       "relationship": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The vulnerable dependency's relationship to your project.\n\n> [!NOTE]\n> We are rolling out support for dependency relationship across ecosystems. This value will be \"unknown\" for all dependencies in unsupported ecosystems.\n",
                         "readOnly": true,
-                        "nullable": true,
                         "enum": [
                           "unknown",
                           "direct",
-                          "transitive"
+                          "transitive",
+                          null
                         ]
                       }
                     }
@@ -4117,10 +4261,12 @@
                         "readOnly": true
                       },
                       "cve_id": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The unique CVE ID assigned to the advisory.",
-                        "readOnly": true,
-                        "nullable": true
+                        "readOnly": true
                       },
                       "summary": {
                         "type": "string",
@@ -4181,10 +4327,12 @@
                               "readOnly": true
                             },
                             "first_patched_version": {
-                              "type": "object",
+                              "type": [
+                                "object",
+                                "null"
+                              ],
                               "description": "Details pertaining to the package version that patches this vulnerability.",
                               "readOnly": true,
-                              "nullable": true,
                               "properties": {
                                 "identifier": {
                                   "type": "string",
@@ -4219,24 +4367,32 @@
                         ]
                       },
                       "cvss_severities": {
-                        "type": "object",
-                        "nullable": true,
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "properties": {
                           "cvss_v3": {
-                            "type": "object",
-                            "nullable": true,
+                            "type": [
+                              "object",
+                              "null"
+                            ],
                             "properties": {
                               "vector_string": {
-                                "type": "string",
-                                "description": "The CVSS 3 vector string.",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The CVSS 3 vector string."
                               },
                               "score": {
-                                "type": "number",
+                                "type": [
+                                  "number",
+                                  "null"
+                                ],
                                 "description": "The CVSS 3 score.",
                                 "minimum": 0,
                                 "maximum": 10,
-                                "nullable": true,
                                 "readOnly": true
                               }
                             },
@@ -4246,20 +4402,26 @@
                             ]
                           },
                           "cvss_v4": {
-                            "type": "object",
-                            "nullable": true,
+                            "type": [
+                              "object",
+                              "null"
+                            ],
                             "properties": {
                               "vector_string": {
-                                "type": "string",
-                                "description": "The CVSS 4 vector string.",
-                                "nullable": true
+                                "type": [
+                                  "string",
+                                  "null"
+                                ],
+                                "description": "The CVSS 4 vector string."
                               },
                               "score": {
-                                "type": "number",
+                                "type": [
+                                  "number",
+                                  "null"
+                                ],
                                 "description": "The CVSS 4 score.",
                                 "minimum": 0,
                                 "maximum": 10,
-                                "nullable": true,
                                 "readOnly": true
                               }
                             },
@@ -4271,8 +4433,10 @@
                         }
                       },
                       "epss": {
-                        "type": "object",
-                        "nullable": true,
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "readOnly": true,
                         "description": "The EPSS scores as calculated by the [Exploit Prediction Scoring System](https://www.first.org/epss).",
                         "properties": {
@@ -4381,11 +4545,13 @@
                         "readOnly": true
                       },
                       "withdrawn_at": {
-                        "type": "string",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "The time that the advisory was withdrawn in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                         "format": "date-time",
-                        "readOnly": true,
-                        "nullable": true
+                        "readOnly": true
                       }
                     },
                     "required": [
@@ -4448,10 +4614,12 @@
                         "readOnly": true
                       },
                       "first_patched_version": {
-                        "type": "object",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "description": "Details pertaining to the package version that patches this vulnerability.",
                         "readOnly": true,
-                        "nullable": true,
                         "properties": {
                           "identifier": {
                             "type": "string",
@@ -4498,155 +4666,180 @@
                     "readOnly": true
                   },
                   "dismissed_at": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                     "format": "date-time",
-                    "readOnly": true,
-                    "nullable": true
+                    "readOnly": true
                   },
                   "dismissed_by": {
-                    "title": "Simple User",
-                    "description": "A GitHub user.",
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "nullable": true,
-                        "type": "string"
+                    "anyOf": [
+                      {
+                        "type": "null"
                       },
-                      "email": {
-                        "nullable": true,
-                        "type": "string"
-                      },
-                      "login": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "integer",
-                        "format": "int64"
-                      },
-                      "node_id": {
-                        "type": "string"
-                      },
-                      "avatar_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
-                      },
-                      "url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "html_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "followers_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "following_url": {
-                        "type": "string"
-                      },
-                      "gists_url": {
-                        "type": "string"
-                      },
-                      "starred_url": {
-                        "type": "string"
-                      },
-                      "subscriptions_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "organizations_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "repos_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "events_url": {
-                        "type": "string"
-                      },
-                      "received_events_url": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "type": {
-                        "type": "string"
-                      },
-                      "site_admin": {
-                        "type": "boolean"
-                      },
-                      "starred_at": {
-                        "type": "string"
-                      },
-                      "user_view_type": {
-                        "type": "string"
+                      {
+                        "title": "Simple User",
+                        "description": "A GitHub user.",
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "email": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "login": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "integer",
+                            "format": "int64"
+                          },
+                          "node_id": {
+                            "type": "string"
+                          },
+                          "avatar_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "gravatar_id": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "html_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "followers_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "following_url": {
+                            "type": "string"
+                          },
+                          "gists_url": {
+                            "type": "string"
+                          },
+                          "starred_url": {
+                            "type": "string"
+                          },
+                          "subscriptions_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "organizations_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "repos_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "events_url": {
+                            "type": "string"
+                          },
+                          "received_events_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "site_admin": {
+                            "type": "boolean"
+                          },
+                          "starred_at": {
+                            "type": "string"
+                          },
+                          "user_view_type": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "avatar_url",
+                          "events_url",
+                          "followers_url",
+                          "following_url",
+                          "gists_url",
+                          "gravatar_id",
+                          "html_url",
+                          "id",
+                          "node_id",
+                          "login",
+                          "organizations_url",
+                          "received_events_url",
+                          "repos_url",
+                          "site_admin",
+                          "starred_url",
+                          "subscriptions_url",
+                          "type",
+                          "url"
+                        ]
                       }
-                    },
-                    "required": [
-                      "avatar_url",
-                      "events_url",
-                      "followers_url",
-                      "following_url",
-                      "gists_url",
-                      "gravatar_id",
-                      "html_url",
-                      "id",
-                      "node_id",
-                      "login",
-                      "organizations_url",
-                      "received_events_url",
-                      "repos_url",
-                      "site_admin",
-                      "starred_url",
-                      "subscriptions_url",
-                      "type",
-                      "url"
-                    ],
-                    "nullable": true
+                    ]
                   },
                   "dismissed_reason": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The reason that the alert was dismissed.",
-                    "nullable": true,
                     "enum": [
                       "fix_started",
                       "inaccurate",
                       "no_bandwidth",
                       "not_used",
-                      "tolerable_risk"
+                      "tolerable_risk",
+                      null
                     ]
                   },
                   "dismissed_comment": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "An optional comment associated with the alert's dismissal.",
-                    "nullable": true,
                     "maxLength": 280
                   },
                   "fixed_at": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                     "format": "date-time",
-                    "readOnly": true,
-                    "nullable": true
+                    "readOnly": true
                   },
                   "auto_dismissed_at": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "description": "The time that the alert was auto-dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                     "format": "date-time",
-                    "readOnly": true,
-                    "nullable": true
+                    "readOnly": true
                   },
                   "dismissal_request": {
                     "title": "Dependabot alert dismissal request",
                     "description": "Information about an active dismissal request for this Dependabot alert.",
-                    "type": "object",
-                    "nullable": true,
+                    "type": [
+                      "object",
+                      "null"
+                    ],
                     "properties": {
                       "id": {
                         "type": "integer",
@@ -4698,12 +4891,16 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "email": {
-                          "nullable": true,
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "login": {
                           "type": "string"
@@ -4720,8 +4917,10 @@
                           "format": "uri"
                         },
                         "gravatar_id": {
-                          "type": "string",
-                          "nullable": true
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "url": {
                           "type": "string",
@@ -5113,24 +5312,30 @@
                       "readOnly": true
                     },
                     "scope": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The execution scope of the vulnerable dependency.",
                       "readOnly": true,
-                      "nullable": true,
                       "enum": [
                         "development",
-                        "runtime"
+                        "runtime",
+                        null
                       ]
                     },
                     "relationship": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The vulnerable dependency's relationship to your project.\n\n> [!NOTE]\n> We are rolling out support for dependency relationship across ecosystems. This value will be \"unknown\" for all dependencies in unsupported ecosystems.\n",
                       "readOnly": true,
-                      "nullable": true,
                       "enum": [
                         "unknown",
                         "direct",
-                        "transitive"
+                        "transitive",
+                        null
                       ]
                     }
                   }
@@ -5146,10 +5351,12 @@
                       "readOnly": true
                     },
                     "cve_id": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The unique CVE ID assigned to the advisory.",
-                      "readOnly": true,
-                      "nullable": true
+                      "readOnly": true
                     },
                     "summary": {
                       "type": "string",
@@ -5210,10 +5417,12 @@
                             "readOnly": true
                           },
                           "first_patched_version": {
-                            "type": "object",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
                             "description": "Details pertaining to the package version that patches this vulnerability.",
                             "readOnly": true,
-                            "nullable": true,
                             "properties": {
                               "identifier": {
                                 "type": "string",
@@ -5248,24 +5457,32 @@
                       ]
                     },
                     "cvss_severities": {
-                      "type": "object",
-                      "nullable": true,
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "properties": {
                         "cvss_v3": {
-                          "type": "object",
-                          "nullable": true,
+                          "type": [
+                            "object",
+                            "null"
+                          ],
                           "properties": {
                             "vector_string": {
-                              "type": "string",
-                              "description": "The CVSS 3 vector string.",
-                              "nullable": true
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "description": "The CVSS 3 vector string."
                             },
                             "score": {
-                              "type": "number",
+                              "type": [
+                                "number",
+                                "null"
+                              ],
                               "description": "The CVSS 3 score.",
                               "minimum": 0,
                               "maximum": 10,
-                              "nullable": true,
                               "readOnly": true
                             }
                           },
@@ -5275,20 +5492,26 @@
                           ]
                         },
                         "cvss_v4": {
-                          "type": "object",
-                          "nullable": true,
+                          "type": [
+                            "object",
+                            "null"
+                          ],
                           "properties": {
                             "vector_string": {
-                              "type": "string",
-                              "description": "The CVSS 4 vector string.",
-                              "nullable": true
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "description": "The CVSS 4 vector string."
                             },
                             "score": {
-                              "type": "number",
+                              "type": [
+                                "number",
+                                "null"
+                              ],
                               "description": "The CVSS 4 score.",
                               "minimum": 0,
                               "maximum": 10,
-                              "nullable": true,
                               "readOnly": true
                             }
                           },
@@ -5300,8 +5523,10 @@
                       }
                     },
                     "epss": {
-                      "type": "object",
-                      "nullable": true,
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "readOnly": true,
                       "description": "The EPSS scores as calculated by the [Exploit Prediction Scoring System](https://www.first.org/epss).",
                       "properties": {
@@ -5410,11 +5635,13 @@
                       "readOnly": true
                     },
                     "withdrawn_at": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The time that the advisory was withdrawn in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                       "format": "date-time",
-                      "readOnly": true,
-                      "nullable": true
+                      "readOnly": true
                     }
                   },
                   "required": [
@@ -5477,10 +5704,12 @@
                       "readOnly": true
                     },
                     "first_patched_version": {
-                      "type": "object",
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "description": "Details pertaining to the package version that patches this vulnerability.",
                       "readOnly": true,
-                      "nullable": true,
                       "properties": {
                         "identifier": {
                           "type": "string",
@@ -5527,155 +5756,180 @@
                   "readOnly": true
                 },
                 "dismissed_at": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                   "format": "date-time",
-                  "readOnly": true,
-                  "nullable": true
+                  "readOnly": true
                 },
                 "dismissed_by": {
-                  "title": "Simple User",
-                  "description": "A GitHub user.",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "nullable": true,
-                      "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "null"
                     },
-                    "email": {
-                      "nullable": true,
-                      "type": "string"
-                    },
-                    "login": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "node_id": {
-                      "type": "string"
-                    },
-                    "avatar_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "html_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "followers_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "following_url": {
-                      "type": "string"
-                    },
-                    "gists_url": {
-                      "type": "string"
-                    },
-                    "starred_url": {
-                      "type": "string"
-                    },
-                    "subscriptions_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "organizations_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "repos_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "events_url": {
-                      "type": "string"
-                    },
-                    "received_events_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "site_admin": {
-                      "type": "boolean"
-                    },
-                    "starred_at": {
-                      "type": "string"
-                    },
-                    "user_view_type": {
-                      "type": "string"
+                    {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
                     }
-                  },
-                  "required": [
-                    "avatar_url",
-                    "events_url",
-                    "followers_url",
-                    "following_url",
-                    "gists_url",
-                    "gravatar_id",
-                    "html_url",
-                    "id",
-                    "node_id",
-                    "login",
-                    "organizations_url",
-                    "received_events_url",
-                    "repos_url",
-                    "site_admin",
-                    "starred_url",
-                    "subscriptions_url",
-                    "type",
-                    "url"
-                  ],
-                  "nullable": true
+                  ]
                 },
                 "dismissed_reason": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The reason that the alert was dismissed.",
-                  "nullable": true,
                   "enum": [
                     "fix_started",
                     "inaccurate",
                     "no_bandwidth",
                     "not_used",
-                    "tolerable_risk"
+                    "tolerable_risk",
+                    null
                   ]
                 },
                 "dismissed_comment": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "An optional comment associated with the alert's dismissal.",
-                  "nullable": true,
                   "maxLength": 280
                 },
                 "fixed_at": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                   "format": "date-time",
-                  "readOnly": true,
-                  "nullable": true
+                  "readOnly": true
                 },
                 "auto_dismissed_at": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The time that the alert was auto-dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                   "format": "date-time",
-                  "readOnly": true,
-                  "nullable": true
+                  "readOnly": true
                 },
                 "dismissal_request": {
                   "title": "Dependabot alert dismissal request",
                   "description": "Information about an active dismissal request for this Dependabot alert.",
-                  "type": "object",
-                  "nullable": true,
+                  "type": [
+                    "object",
+                    "null"
+                  ],
                   "properties": {
                     "id": {
                       "type": "integer",
@@ -5727,12 +5981,16 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "email": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "login": {
                         "type": "string"
@@ -5749,8 +6007,10 @@
                         "format": "uri"
                       },
                       "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "url": {
                         "type": "string",
@@ -6158,24 +6418,30 @@
                       "readOnly": true
                     },
                     "scope": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The execution scope of the vulnerable dependency.",
                       "readOnly": true,
-                      "nullable": true,
                       "enum": [
                         "development",
-                        "runtime"
+                        "runtime",
+                        null
                       ]
                     },
                     "relationship": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The vulnerable dependency's relationship to your project.\n\n> [!NOTE]\n> We are rolling out support for dependency relationship across ecosystems. This value will be \"unknown\" for all dependencies in unsupported ecosystems.\n",
                       "readOnly": true,
-                      "nullable": true,
                       "enum": [
                         "unknown",
                         "direct",
-                        "transitive"
+                        "transitive",
+                        null
                       ]
                     }
                   }
@@ -6191,10 +6457,12 @@
                       "readOnly": true
                     },
                     "cve_id": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The unique CVE ID assigned to the advisory.",
-                      "readOnly": true,
-                      "nullable": true
+                      "readOnly": true
                     },
                     "summary": {
                       "type": "string",
@@ -6255,10 +6523,12 @@
                             "readOnly": true
                           },
                           "first_patched_version": {
-                            "type": "object",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
                             "description": "Details pertaining to the package version that patches this vulnerability.",
                             "readOnly": true,
-                            "nullable": true,
                             "properties": {
                               "identifier": {
                                 "type": "string",
@@ -6293,24 +6563,32 @@
                       ]
                     },
                     "cvss_severities": {
-                      "type": "object",
-                      "nullable": true,
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "properties": {
                         "cvss_v3": {
-                          "type": "object",
-                          "nullable": true,
+                          "type": [
+                            "object",
+                            "null"
+                          ],
                           "properties": {
                             "vector_string": {
-                              "type": "string",
-                              "description": "The CVSS 3 vector string.",
-                              "nullable": true
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "description": "The CVSS 3 vector string."
                             },
                             "score": {
-                              "type": "number",
+                              "type": [
+                                "number",
+                                "null"
+                              ],
                               "description": "The CVSS 3 score.",
                               "minimum": 0,
                               "maximum": 10,
-                              "nullable": true,
                               "readOnly": true
                             }
                           },
@@ -6320,20 +6598,26 @@
                           ]
                         },
                         "cvss_v4": {
-                          "type": "object",
-                          "nullable": true,
+                          "type": [
+                            "object",
+                            "null"
+                          ],
                           "properties": {
                             "vector_string": {
-                              "type": "string",
-                              "description": "The CVSS 4 vector string.",
-                              "nullable": true
+                              "type": [
+                                "string",
+                                "null"
+                              ],
+                              "description": "The CVSS 4 vector string."
                             },
                             "score": {
-                              "type": "number",
+                              "type": [
+                                "number",
+                                "null"
+                              ],
                               "description": "The CVSS 4 score.",
                               "minimum": 0,
                               "maximum": 10,
-                              "nullable": true,
                               "readOnly": true
                             }
                           },
@@ -6345,8 +6629,10 @@
                       }
                     },
                     "epss": {
-                      "type": "object",
-                      "nullable": true,
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "readOnly": true,
                       "description": "The EPSS scores as calculated by the [Exploit Prediction Scoring System](https://www.first.org/epss).",
                       "properties": {
@@ -6455,11 +6741,13 @@
                       "readOnly": true
                     },
                     "withdrawn_at": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
                       "description": "The time that the advisory was withdrawn in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                       "format": "date-time",
-                      "readOnly": true,
-                      "nullable": true
+                      "readOnly": true
                     }
                   },
                   "required": [
@@ -6522,10 +6810,12 @@
                       "readOnly": true
                     },
                     "first_patched_version": {
-                      "type": "object",
+                      "type": [
+                        "object",
+                        "null"
+                      ],
                       "description": "Details pertaining to the package version that patches this vulnerability.",
                       "readOnly": true,
-                      "nullable": true,
                       "properties": {
                         "identifier": {
                           "type": "string",
@@ -6572,155 +6862,180 @@
                   "readOnly": true
                 },
                 "dismissed_at": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                   "format": "date-time",
-                  "readOnly": true,
-                  "nullable": true
+                  "readOnly": true
                 },
                 "dismissed_by": {
-                  "title": "Simple User",
-                  "description": "A GitHub user.",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "nullable": true,
-                      "type": "string"
+                  "anyOf": [
+                    {
+                      "type": "null"
                     },
-                    "email": {
-                      "nullable": true,
-                      "type": "string"
-                    },
-                    "login": {
-                      "type": "string"
-                    },
-                    "id": {
-                      "type": "integer",
-                      "format": "int64"
-                    },
-                    "node_id": {
-                      "type": "string"
-                    },
-                    "avatar_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "gravatar_id": {
-                      "type": "string",
-                      "nullable": true
-                    },
-                    "url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "html_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "followers_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "following_url": {
-                      "type": "string"
-                    },
-                    "gists_url": {
-                      "type": "string"
-                    },
-                    "starred_url": {
-                      "type": "string"
-                    },
-                    "subscriptions_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "organizations_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "repos_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "events_url": {
-                      "type": "string"
-                    },
-                    "received_events_url": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "site_admin": {
-                      "type": "boolean"
-                    },
-                    "starred_at": {
-                      "type": "string"
-                    },
-                    "user_view_type": {
-                      "type": "string"
+                    {
+                      "title": "Simple User",
+                      "description": "A GitHub user.",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "login": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "avatar_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "gravatar_id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "followers_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "following_url": {
+                          "type": "string"
+                        },
+                        "gists_url": {
+                          "type": "string"
+                        },
+                        "starred_url": {
+                          "type": "string"
+                        },
+                        "subscriptions_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "organizations_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "repos_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "events_url": {
+                          "type": "string"
+                        },
+                        "received_events_url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "site_admin": {
+                          "type": "boolean"
+                        },
+                        "starred_at": {
+                          "type": "string"
+                        },
+                        "user_view_type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "avatar_url",
+                        "events_url",
+                        "followers_url",
+                        "following_url",
+                        "gists_url",
+                        "gravatar_id",
+                        "html_url",
+                        "id",
+                        "node_id",
+                        "login",
+                        "organizations_url",
+                        "received_events_url",
+                        "repos_url",
+                        "site_admin",
+                        "starred_url",
+                        "subscriptions_url",
+                        "type",
+                        "url"
+                      ]
                     }
-                  },
-                  "required": [
-                    "avatar_url",
-                    "events_url",
-                    "followers_url",
-                    "following_url",
-                    "gists_url",
-                    "gravatar_id",
-                    "html_url",
-                    "id",
-                    "node_id",
-                    "login",
-                    "organizations_url",
-                    "received_events_url",
-                    "repos_url",
-                    "site_admin",
-                    "starred_url",
-                    "subscriptions_url",
-                    "type",
-                    "url"
-                  ],
-                  "nullable": true
+                  ]
                 },
                 "dismissed_reason": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The reason that the alert was dismissed.",
-                  "nullable": true,
                   "enum": [
                     "fix_started",
                     "inaccurate",
                     "no_bandwidth",
                     "not_used",
-                    "tolerable_risk"
+                    "tolerable_risk",
+                    null
                   ]
                 },
                 "dismissed_comment": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "An optional comment associated with the alert's dismissal.",
-                  "nullable": true,
                   "maxLength": 280
                 },
                 "fixed_at": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                   "format": "date-time",
-                  "readOnly": true,
-                  "nullable": true
+                  "readOnly": true
                 },
                 "auto_dismissed_at": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The time that the alert was auto-dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.",
                   "format": "date-time",
-                  "readOnly": true,
-                  "nullable": true
+                  "readOnly": true
                 },
                 "dismissal_request": {
                   "title": "Dependabot alert dismissal request",
                   "description": "Information about an active dismissal request for this Dependabot alert.",
-                  "type": "object",
-                  "nullable": true,
+                  "type": [
+                    "object",
+                    "null"
+                  ],
                   "properties": {
                     "id": {
                       "type": "integer",
@@ -6772,12 +7087,16 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "email": {
-                        "nullable": true,
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "login": {
                         "type": "string"
@@ -6794,8 +7113,10 @@
                         "format": "uri"
                       },
                       "gravatar_id": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "url": {
                         "type": "string",
@@ -7072,373 +7393,390 @@
               "type": "object",
               "properties": {
                 "default_level": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "The default repository access level for Dependabot updates.",
                   "enum": [
                     "public",
-                    "internal"
-                  ],
-                  "nullable": true
+                    "internal",
+                    null
+                  ]
                 },
                 "accessible_repositories": {
                   "type": "array",
                   "items": {
-                    "title": "Simple Repository",
-                    "description": "A GitHub repository.",
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "integer",
-                        "format": "int64",
-                        "description": "A unique identifier of the repository."
+                    "anyOf": [
+                      {
+                        "type": "null"
                       },
-                      "node_id": {
-                        "type": "string",
-                        "description": "The GraphQL identifier of the repository."
-                      },
-                      "name": {
-                        "type": "string",
-                        "description": "The name of the repository."
-                      },
-                      "full_name": {
-                        "type": "string",
-                        "description": "The full, globally unique, name of the repository."
-                      },
-                      "owner": {
-                        "title": "Simple User",
-                        "description": "A GitHub user.",
+                      {
+                        "title": "Simple Repository",
+                        "description": "A GitHub repository.",
                         "type": "object",
                         "properties": {
-                          "name": {
-                            "nullable": true,
-                            "type": "string"
-                          },
-                          "email": {
-                            "nullable": true,
-                            "type": "string"
-                          },
-                          "login": {
-                            "type": "string"
-                          },
                           "id": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "description": "A unique identifier of the repository."
                           },
                           "node_id": {
-                            "type": "string"
-                          },
-                          "avatar_url": {
                             "type": "string",
-                            "format": "uri"
+                            "description": "The GraphQL identifier of the repository."
                           },
-                          "gravatar_id": {
+                          "name": {
                             "type": "string",
-                            "nullable": true
+                            "description": "The name of the repository."
                           },
-                          "url": {
+                          "full_name": {
                             "type": "string",
-                            "format": "uri"
+                            "description": "The full, globally unique, name of the repository."
+                          },
+                          "owner": {
+                            "title": "Simple User",
+                            "description": "A GitHub user.",
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "email": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "login": {
+                                "type": "string"
+                              },
+                              "id": {
+                                "type": "integer",
+                                "format": "int64"
+                              },
+                              "node_id": {
+                                "type": "string"
+                              },
+                              "avatar_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "gravatar_id": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "html_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "followers_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "following_url": {
+                                "type": "string"
+                              },
+                              "gists_url": {
+                                "type": "string"
+                              },
+                              "starred_url": {
+                                "type": "string"
+                              },
+                              "subscriptions_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "organizations_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "repos_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "events_url": {
+                                "type": "string"
+                              },
+                              "received_events_url": {
+                                "type": "string",
+                                "format": "uri"
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "site_admin": {
+                                "type": "boolean"
+                              },
+                              "starred_at": {
+                                "type": "string"
+                              },
+                              "user_view_type": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "avatar_url",
+                              "events_url",
+                              "followers_url",
+                              "following_url",
+                              "gists_url",
+                              "gravatar_id",
+                              "html_url",
+                              "id",
+                              "node_id",
+                              "login",
+                              "organizations_url",
+                              "received_events_url",
+                              "repos_url",
+                              "site_admin",
+                              "starred_url",
+                              "subscriptions_url",
+                              "type",
+                              "url"
+                            ]
+                          },
+                          "private": {
+                            "type": "boolean",
+                            "description": "Whether the repository is private."
                           },
                           "html_url": {
                             "type": "string",
-                            "format": "uri"
+                            "format": "uri",
+                            "description": "The URL to view the repository on GitHub.com."
                           },
-                          "followers_url": {
+                          "description": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "The repository description."
+                          },
+                          "fork": {
+                            "type": "boolean",
+                            "description": "Whether the repository is a fork."
+                          },
+                          "url": {
                             "type": "string",
-                            "format": "uri"
+                            "format": "uri",
+                            "description": "The URL to get more information about the repository from the GitHub API."
                           },
-                          "following_url": {
-                            "type": "string"
-                          },
-                          "gists_url": {
-                            "type": "string"
-                          },
-                          "starred_url": {
-                            "type": "string"
-                          },
-                          "subscriptions_url": {
+                          "archive_url": {
                             "type": "string",
-                            "format": "uri"
+                            "description": "A template for the API URL to download the repository as an archive."
                           },
-                          "organizations_url": {
+                          "assignees_url": {
                             "type": "string",
-                            "format": "uri"
+                            "description": "A template for the API URL to list the available assignees for issues in the repository."
                           },
-                          "repos_url": {
+                          "blobs_url": {
                             "type": "string",
-                            "format": "uri"
+                            "description": "A template for the API URL to create or retrieve a raw Git blob in the repository."
+                          },
+                          "branches_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about branches in the repository."
+                          },
+                          "collaborators_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about collaborators of the repository."
+                          },
+                          "comments_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about comments on the repository."
+                          },
+                          "commits_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about commits on the repository."
+                          },
+                          "compare_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to compare two commits or refs."
+                          },
+                          "contents_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get the contents of the repository."
+                          },
+                          "contributors_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "A template for the API URL to list the contributors to the repository."
+                          },
+                          "deployments_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to list the deployments of the repository."
+                          },
+                          "downloads_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to list the downloads on the repository."
                           },
                           "events_url": {
-                            "type": "string"
-                          },
-                          "received_events_url": {
                             "type": "string",
-                            "format": "uri"
+                            "format": "uri",
+                            "description": "The API URL to list the events of the repository."
                           },
-                          "type": {
-                            "type": "string"
+                          "forks_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to list the forks of the repository."
                           },
-                          "site_admin": {
-                            "type": "boolean"
+                          "git_commits_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about Git commits of the repository."
                           },
-                          "starred_at": {
-                            "type": "string"
+                          "git_refs_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about Git refs of the repository."
                           },
-                          "user_view_type": {
-                            "type": "string"
+                          "git_tags_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about Git tags of the repository."
+                          },
+                          "issue_comment_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about issue comments on the repository."
+                          },
+                          "issue_events_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about issue events on the repository."
+                          },
+                          "issues_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about issues on the repository."
+                          },
+                          "keys_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about deploy keys on the repository."
+                          },
+                          "labels_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about labels of the repository."
+                          },
+                          "languages_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to get information about the languages of the repository."
+                          },
+                          "merges_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to merge branches in the repository."
+                          },
+                          "milestones_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about milestones of the repository."
+                          },
+                          "notifications_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about notifications on the repository."
+                          },
+                          "pulls_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about pull requests on the repository."
+                          },
+                          "releases_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about releases on the repository."
+                          },
+                          "stargazers_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to list the stargazers on the repository."
+                          },
+                          "statuses_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to get information about statuses of a commit."
+                          },
+                          "subscribers_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to list the subscribers on the repository."
+                          },
+                          "subscription_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to subscribe to notifications for this repository."
+                          },
+                          "tags_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to get information about tags on the repository."
+                          },
+                          "teams_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to list the teams on the repository."
+                          },
+                          "trees_url": {
+                            "type": "string",
+                            "description": "A template for the API URL to create or retrieve a raw Git tree of the repository."
+                          },
+                          "hooks_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "The API URL to list the hooks on the repository."
                           }
                         },
                         "required": [
-                          "avatar_url",
+                          "archive_url",
+                          "assignees_url",
+                          "blobs_url",
+                          "branches_url",
+                          "collaborators_url",
+                          "comments_url",
+                          "commits_url",
+                          "compare_url",
+                          "contents_url",
+                          "contributors_url",
+                          "deployments_url",
+                          "description",
+                          "downloads_url",
                           "events_url",
-                          "followers_url",
-                          "following_url",
-                          "gists_url",
-                          "gravatar_id",
+                          "fork",
+                          "forks_url",
+                          "full_name",
+                          "git_commits_url",
+                          "git_refs_url",
+                          "git_tags_url",
+                          "hooks_url",
                           "html_url",
                           "id",
                           "node_id",
-                          "login",
-                          "organizations_url",
-                          "received_events_url",
-                          "repos_url",
-                          "site_admin",
-                          "starred_url",
-                          "subscriptions_url",
-                          "type",
+                          "issue_comment_url",
+                          "issue_events_url",
+                          "issues_url",
+                          "keys_url",
+                          "labels_url",
+                          "languages_url",
+                          "merges_url",
+                          "milestones_url",
+                          "name",
+                          "notifications_url",
+                          "owner",
+                          "private",
+                          "pulls_url",
+                          "releases_url",
+                          "stargazers_url",
+                          "statuses_url",
+                          "subscribers_url",
+                          "subscription_url",
+                          "tags_url",
+                          "teams_url",
+                          "trees_url",
                           "url"
                         ]
-                      },
-                      "private": {
-                        "type": "boolean",
-                        "description": "Whether the repository is private."
-                      },
-                      "html_url": {
-                        "type": "string",
-                        "format": "uri",
-                        "description": "The URL to view the repository on GitHub.com."
-                      },
-                      "description": {
-                        "type": "string",
-                        "nullable": true,
-                        "description": "The repository description."
-                      },
-                      "fork": {
-                        "type": "boolean",
-                        "description": "Whether the repository is a fork."
-                      },
-                      "url": {
-                        "type": "string",
-                        "format": "uri",
-                        "description": "The URL to get more information about the repository from the GitHub API."
-                      },
-                      "archive_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to download the repository as an archive."
-                      },
-                      "assignees_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to list the available assignees for issues in the repository."
-                      },
-                      "blobs_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to create or retrieve a raw Git blob in the repository."
-                      },
-                      "branches_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to get information about branches in the repository."
-                      },
-                      "collaborators_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to get information about collaborators of the repository."
-                      },
-                      "comments_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to get information about comments on the repository."
-                      },
-                      "commits_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to get information about commits on the repository."
-                      },
-                      "compare_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to compare two commits or refs."
-                      },
-                      "contents_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to get the contents of the repository."
-                      },
-                      "contributors_url": {
-                        "type": "string",
-                        "format": "uri",
-                        "description": "A template for the API URL to list the contributors to the repository."
-                      },
-                      "deployments_url": {
-                        "type": "string",
-                        "format": "uri",
-                        "description": "The API URL to list the deployments of the repository."
-                      },
-                      "downloads_url": {
-                        "type": "string",
-                        "format": "uri",
-                        "description": "The API URL to list the downloads on the repository."
-                      },
-                      "events_url": {
-                        "type": "string",
-                        "format": "uri",
-                        "description": "The API URL to list the events of the repository."
-                      },
-                      "forks_url": {
-                        "type": "string",
-                        "format": "uri",
-                        "description": "The API URL to list the forks of the repository."
-                      },
-                      "git_commits_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to get information about Git commits of the repository."
-                      },
-                      "git_refs_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to get information about Git refs of the repository."
-                      },
-                      "git_tags_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to get information about Git tags of the repository."
-                      },
-                      "issue_comment_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to get information about issue comments on the repository."
-                      },
-                      "issue_events_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to get information about issue events on the repository."
-                      },
-                      "issues_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to get information about issues on the repository."
-                      },
-                      "keys_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to get information about deploy keys on the repository."
-                      },
-                      "labels_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to get information about labels of the repository."
-                      },
-                      "languages_url": {
-                        "type": "string",
-                        "format": "uri",
-                        "description": "The API URL to get information about the languages of the repository."
-                      },
-                      "merges_url": {
-                        "type": "string",
-                        "format": "uri",
-                        "description": "The API URL to merge branches in the repository."
-                      },
-                      "milestones_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to get information about milestones of the repository."
-                      },
-                      "notifications_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to get information about notifications on the repository."
-                      },
-                      "pulls_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to get information about pull requests on the repository."
-                      },
-                      "releases_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to get information about releases on the repository."
-                      },
-                      "stargazers_url": {
-                        "type": "string",
-                        "format": "uri",
-                        "description": "The API URL to list the stargazers on the repository."
-                      },
-                      "statuses_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to get information about statuses of a commit."
-                      },
-                      "subscribers_url": {
-                        "type": "string",
-                        "format": "uri",
-                        "description": "The API URL to list the subscribers on the repository."
-                      },
-                      "subscription_url": {
-                        "type": "string",
-                        "format": "uri",
-                        "description": "The API URL to subscribe to notifications for this repository."
-                      },
-                      "tags_url": {
-                        "type": "string",
-                        "format": "uri",
-                        "description": "The API URL to get information about tags on the repository."
-                      },
-                      "teams_url": {
-                        "type": "string",
-                        "format": "uri",
-                        "description": "The API URL to list the teams on the repository."
-                      },
-                      "trees_url": {
-                        "type": "string",
-                        "description": "A template for the API URL to create or retrieve a raw Git tree of the repository."
-                      },
-                      "hooks_url": {
-                        "type": "string",
-                        "format": "uri",
-                        "description": "The API URL to list the hooks on the repository."
                       }
-                    },
-                    "required": [
-                      "archive_url",
-                      "assignees_url",
-                      "blobs_url",
-                      "branches_url",
-                      "collaborators_url",
-                      "comments_url",
-                      "commits_url",
-                      "compare_url",
-                      "contents_url",
-                      "contributors_url",
-                      "deployments_url",
-                      "description",
-                      "downloads_url",
-                      "events_url",
-                      "fork",
-                      "forks_url",
-                      "full_name",
-                      "git_commits_url",
-                      "git_refs_url",
-                      "git_tags_url",
-                      "hooks_url",
-                      "html_url",
-                      "id",
-                      "node_id",
-                      "issue_comment_url",
-                      "issue_events_url",
-                      "issues_url",
-                      "keys_url",
-                      "labels_url",
-                      "languages_url",
-                      "merges_url",
-                      "milestones_url",
-                      "name",
-                      "notifications_url",
-                      "owner",
-                      "private",
-                      "pulls_url",
-                      "releases_url",
-                      "stargazers_url",
-                      "statuses_url",
-                      "subscribers_url",
-                      "subscription_url",
-                      "tags_url",
-                      "teams_url",
-                      "trees_url",
-                      "url"
-                    ],
-                    "nullable": true
+                    ]
                   }
                 }
               },
@@ -8330,12 +8668,16 @@
                         "type": "object",
                         "properties": {
                           "name": {
-                            "nullable": true,
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "email": {
-                            "nullable": true,
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "login": {
                             "type": "string"
@@ -8352,8 +8694,10 @@
                             "format": "uri"
                           },
                           "gravatar_id": {
-                            "type": "string",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "url": {
                             "type": "string",
@@ -8437,8 +8781,10 @@
                         "format": "uri"
                       },
                       "description": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "fork": {
                         "type": "boolean"
@@ -8574,8 +8920,10 @@
                         "type": "string"
                       },
                       "mirror_url": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "hooks_url": {
                         "type": "string",
@@ -8585,12 +8933,16 @@
                         "type": "string"
                       },
                       "homepage": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "language": {
-                        "type": "string",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       },
                       "forks_count": {
                         "type": "integer"
@@ -8659,19 +9011,25 @@
                         "type": "string"
                       },
                       "pushed_at": {
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date-time"
                       },
                       "created_at": {
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date-time"
                       },
                       "updated_at": {
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "format": "date-time"
                       },
                       "permissions": {
                         "type": "object",
@@ -8727,9 +9085,11 @@
                             "type": "string"
                           },
                           "html_url": {
-                            "type": "string",
-                            "format": "uri",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "format": "uri"
                           }
                         },
                         "required": [
@@ -8740,7 +9100,10 @@
                         ]
                       },
                       "license": {
-                        "type": "object",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "properties": {
                           "key": {
                             "type": "string"
@@ -8752,14 +9115,15 @@
                             "type": "string"
                           },
                           "url": {
-                            "type": "string",
-                            "nullable": true
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "node_id": {
                             "type": "string"
                           }
-                        },
-                        "nullable": true
+                        }
                       },
                       "forks": {
                         "type": "integer"
@@ -8777,8 +9141,10 @@
                         "type": "boolean"
                       },
                       "security_and_analysis": {
-                        "nullable": true,
-                        "type": "object",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
                         "properties": {
                           "advanced_security": {
                             "description": "Enable or disable GitHub Advanced Security for the repository.\n\nFor standalone Code Scanning or Secret Protection products, this parameter cannot be used.\n",

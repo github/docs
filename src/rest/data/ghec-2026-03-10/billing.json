@@ -1290,8 +1290,10 @@
                         ]
                       },
                       "azure_subscription": {
-                        "type": "string",
-                        "nullable": true,
+                        "type": [
+                          "string",
+                          "null"
+                        ],
                         "description": "Azure subscription ID associated with the cost center. Only present for cost centers linked to Azure subscriptions."
                       },
                       "resources": {
@@ -1418,8 +1420,10 @@
                   "description": "Name of the cost center"
                 },
                 "azure_subscription": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "Azure subscription ID associated with the cost center. Only present for cost centers linked to Azure subscriptions."
                 },
                 "state": {
@@ -1567,8 +1571,10 @@
                   "description": "Name of the cost center."
                 },
                 "azure_subscription": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "Azure subscription ID associated with the cost center. Only present for cost centers linked to Azure subscriptions."
                 },
                 "state": {
@@ -1725,8 +1731,10 @@
                   "description": "Name of the cost center."
                 },
                 "azure_subscription": {
-                  "type": "string",
-                  "nullable": true,
+                  "type": [
+                    "string",
+                    "null"
+                  ],
                   "description": "Azure subscription ID associated with the cost center. Only present for cost centers linked to Azure subscriptions."
                 },
                 "state": {
@@ -2013,8 +2021,10 @@
                   "type": "string"
                 },
                 "reassigned_resources": {
-                  "type": "array",
-                  "nullable": true,
+                  "type": [
+                    "array",
+                    "null"
+                  ],
                   "items": {
                     "type": "object",
                     "properties": {

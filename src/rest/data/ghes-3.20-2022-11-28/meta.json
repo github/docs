@@ -12,7 +12,6 @@
       "descriptionHTML": "<p>Get Hypermedia links to resources accessible in GitHub's REST API</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -258,7 +257,6 @@
       "descriptionHTML": "",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -294,19 +292,13 @@
               "type": "object",
               "properties": {
                 "verifiable_password_authentication": {
-                  "type": "boolean",
-                  "examples": [
-                    true
-                  ]
+                  "type": "boolean"
                 },
                 "packages": {
                   "type": "array",
                   "items": {
                     "type": "string"
-                  },
-                  "examples": [
-                    "192.0.2.1"
-                  ]
+                  }
                 },
                 "domains": {
                   "type": "object",
@@ -314,46 +306,31 @@
                     "website": {
                       "type": "array",
                       "items": {
-                        "type": "string",
-                        "examples": [
-                          "example.com"
-                        ]
+                        "type": "string"
                       }
                     },
                     "codespaces": {
                       "type": "array",
                       "items": {
-                        "type": "string",
-                        "examples": [
-                          "example.com"
-                        ]
+                        "type": "string"
                       }
                     },
                     "copilot": {
                       "type": "array",
                       "items": {
-                        "type": "string",
-                        "examples": [
-                          "example.com"
-                        ]
+                        "type": "string"
                       }
                     },
                     "packages": {
                       "type": "array",
                       "items": {
-                        "type": "string",
-                        "examples": [
-                          "example.com"
-                        ]
+                        "type": "string"
                       }
                     },
                     "actions": {
                       "type": "array",
                       "items": {
-                        "type": "string",
-                        "examples": [
-                          "example.com"
-                        ]
+                        "type": "string"
                       }
                     },
                     "actions_inbound": {
@@ -362,19 +339,13 @@
                         "full_domains": {
                           "type": "array",
                           "items": {
-                            "type": "string",
-                            "examples": [
-                              "example.com"
-                            ]
+                            "type": "string"
                           }
                         },
                         "wildcard_domains": {
                           "type": "array",
                           "items": {
-                            "type": "string",
-                            "examples": [
-                              "example.com"
-                            ]
+                            "type": "string"
                           }
                         }
                       }
@@ -383,18 +354,12 @@
                       "type": "object",
                       "properties": {
                         "trust_domain": {
-                          "type": "string",
-                          "examples": [
-                            "example"
-                          ]
+                          "type": "string"
                         },
                         "services": {
                           "type": "array",
                           "items": {
-                            "type": "string",
-                            "examples": [
-                              "example.com"
-                            ]
+                            "type": "string"
                           }
                         }
                       }
@@ -402,10 +367,7 @@
                   }
                 },
                 "installed_version": {
-                  "type": "string",
-                  "examples": [
-                    "3.20.0"
-                  ]
+                  "type": "string"
                 }
               },
               "required": [
@@ -457,7 +419,6 @@
       "descriptionHTML": "<p>Get the octocat as ASCII art</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -501,7 +462,6 @@
       "descriptionHTML": "<p>Get a random sentence from the Zen of GitHub</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
