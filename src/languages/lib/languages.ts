@@ -27,6 +27,10 @@ export interface Language {
   locale: LocaleCode
   redirectPatterns?: RegExp[]
   dir?: string
+  // The earliest archived GHES version that includes this language.
+  // Used to short-circuit requests for translations that don't exist
+  // in a given archive. English is always available so it has no value.
+  firstArchivedVersion?: string
 }
 
 export interface Languages {
@@ -48,6 +52,7 @@ export const languages: Languages = {
     code: 'es',
     hreflang: 'es',
     locale: 'es-es',
+    firstArchivedVersion: '3.0',
   },
   ja: {
     name: 'Japanese',
@@ -56,6 +61,7 @@ export const languages: Languages = {
     hreflang: 'ja',
     redirectPatterns: [/^\/jp/],
     locale: 'ja-jp',
+    firstArchivedVersion: '3.0',
   },
   pt: {
     name: 'Portuguese',
@@ -64,6 +70,7 @@ export const languages: Languages = {
     hreflang: 'pt',
     redirectPatterns: [/^\/br/],
     locale: 'pt-br',
+    firstArchivedVersion: '3.0',
   },
   zh: {
     name: 'Simplified Chinese',
@@ -72,6 +79,7 @@ export const languages: Languages = {
     hreflang: 'zh-Hans',
     redirectPatterns: [/^\/cn/, /^\/zh-\w{2}/],
     locale: 'zh-cn',
+    firstArchivedVersion: '3.3',
   },
   ru: {
     name: 'Russian',
@@ -79,6 +87,7 @@ export const languages: Languages = {
     code: 'ru',
     hreflang: 'ru',
     locale: 'ru-ru',
+    firstArchivedVersion: '3.3',
   },
   fr: {
     name: 'French',
@@ -86,6 +95,7 @@ export const languages: Languages = {
     code: 'fr',
     hreflang: 'fr',
     locale: 'fr-fr',
+    firstArchivedVersion: '3.3',
   },
   ko: {
     name: 'Korean',
@@ -94,6 +104,7 @@ export const languages: Languages = {
     hreflang: 'ko',
     redirectPatterns: [/^\/kr/],
     locale: 'ko-kr',
+    firstArchivedVersion: '3.3',
   },
   de: {
     name: 'German',
@@ -101,6 +112,7 @@ export const languages: Languages = {
     code: 'de',
     hreflang: 'de',
     locale: 'de-de',
+    firstArchivedVersion: '3.3',
   },
 }
 
