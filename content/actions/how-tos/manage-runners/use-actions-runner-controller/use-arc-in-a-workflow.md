@@ -1,7 +1,7 @@
 ---
 title: Using Actions Runner Controller runners in a workflow
 shortTitle: Use ARC in a workflow
-intro: You can use {% data variables.product.prodname_actions_runner_controller %} runners in a workflow file.
+intro: Use {% data variables.product.prodname_actions_runner_controller %} runners in a workflow file.
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,9 +11,8 @@ redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow
   - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow
   - /actions/tutorials/actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow
-contentType: tutorials
-category:
-  - Use and manage runners
+  - /actions/tutorials/use-actions-runner-controller/use-arc-in-a-workflow
+contentType: how-tos
 ---
 
 ## Using ARC runners in a workflow file
@@ -49,6 +48,25 @@ jobs:
 Runner scale set names are unique within the runner group they belong to. To deploy multiple runner scale sets with the same name, they must belong to different runner groups. For more information about specifying runner scale set names, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller).
 
 {% data reusables.actions.actions-runner-controller-labels %} For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#scaling-runners).
+
+## Using labels to target runner scale sets
+
+You can also assign multiple labels to a runner scale set and use them to target runners in your workflow. To configure labels for a runner scale set, set the `runnerScaleSetLabels` values in your `values.yaml` file.
+
+```yaml
+runnerScaleSetLabels:
+  - linux
+  - gpu
+  - private-network
+```
+
+To target a runner scale set with specific labels, specify the labels as an array in the `runs-on` key of your workflow.
+
+```yaml
+jobs:
+  job_name:
+    runs-on: [linux, gpu, private-network]
+```
 
 ## Legal notice
 

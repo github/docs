@@ -1,7 +1,7 @@
 ---
 title: Deploying runner scale sets with Actions Runner Controller
 shortTitle: Deploy runner scale sets
-intro: Learn how to deploy runner scale sets with {% data variables.product.prodname_actions_runner_controller %}, and use advanced configuration options to tailor {% data variables.product.prodname_actions_runner_controller %} to your needs.
+intro: Deploy runner scale sets with {% data variables.product.prodname_actions_runner_controller %}, and use advanced configuration options to tailor {% data variables.product.prodname_actions_runner_controller %} to your needs.
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,9 +11,8 @@ redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller
   - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller
   - /actions/tutorials/actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller
-contentType: tutorials
-category:
-  - Set up runners
+  - /actions/tutorials/use-actions-runner-controller/deploy-runner-scale-sets
+contentType: how-tos
 ---
 
 ## Deploying a runner scale set
@@ -32,7 +31,7 @@ You can deploy runner scale sets with ARC's Helm charts or by deploying the nece
 
    When you run the command, keep the following in mind.
 
-   * Update the `INSTALLATION_NAME` value carefully. You will use the installation name as the value of [`runs-on`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on) in your workflows.
+   * Update the `INSTALLATION_NAME` value carefully. You can use the installation name as the value of [`runs-on`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on) in your workflows.
    * Update the `NAMESPACE` value to the location you want the runner pods to be created.
    * Set the `GITHUB_CONFIG_URL` value to the URL of your repository, organization, or enterprise. This is the entity that the runners will belong to.
    * This example command installs the latest version of the Helm chart. To install a specific version, you can pass the `--version` argument with the version of the chart you want to install. You can find the list of releases in the [`actions-runner-controller`](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set) repository.
@@ -1222,7 +1221,7 @@ You can use {% data variables.product.prodname_actions_runner_controller %} to c
 
 You can also use ARC with {% data variables.product.prodname_codeql %} to identify vulnerabilities and errors in your code. For more information, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql). If you're already using {% data variables.product.prodname_code_scanning %} and want to configure a runner scale set to use default setup, set `INSTALLATION_NAME=code-scanning`. For more information about {% data variables.product.prodname_code_scanning %} default setup, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
 
-{% data variables.product.prodname_actions_runner_controller %} does not use multiple labels to route jobs to specific runner scale sets. Instead, to designate a runner scale set for {% data variables.product.prodname_dependabot %} updates or {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}, use a descriptive installation name in your Helm chart, such as `dependabot` or `code-scanning`. You can then set the `runs-on` value in your workflows to the installation name as the single label, and use the designated runner scale set for {% data variables.product.prodname_dependabot %} updates or {% data variables.product.prodname_code_scanning %} jobs.
+To designate a runner scale set for {% data variables.product.prodname_dependabot %} updates or {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}, use a descriptive installation name in your Helm chart, such as `dependabot` or `code-scanning`. You can then set the `runs-on` value in your workflows to the installation name, and use the designated runner scale set for {% data variables.product.prodname_dependabot %} updates or {% data variables.product.prodname_code_scanning %} jobs.
 
 If you're using default setup for {% data variables.product.prodname_code_scanning %}, the analysis will automatically look for a runner scale set with the installation name `code-scanning` {% ifversion code-scanning-default-setup-customize-labels %} but you can specify a custom name in the configuration, so that individual repositories can use different runner scale sets. See [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners){% endif %}.
 

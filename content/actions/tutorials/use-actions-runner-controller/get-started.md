@@ -1,19 +1,18 @@
 ---
-title: Quickstart for Actions Runner Controller
-shortTitle: Quickstart
-intro: In this tutorial, you'll try out the basics of {% data variables.product.prodname_actions_runner_controller %}.
+title: Get started with Actions Runner Controller
+shortTitle: Get started
+intro: 'In this tutorial, you''ll try out the basics of {% data variables.product.prodname_actions_runner_controller %}.'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
 defaultPlatform: linux
+contentType: tutorials
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/quickstart-for-actions-runner-controller
   - /actions/tutorials/quickstart-for-actions-runner-controller
   - /actions/tutorials/actions-runner-controller/quickstart-for-actions-runner-controller
-contentType: tutorials
-category:
-  - Set up runners
+  - /actions/tutorials/use-actions-runner-controller/quickstart
 ---
 
 ## Prerequisites
