@@ -49,7 +49,6 @@
       "descriptionHTML": "",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -105,16 +104,12 @@
                     "type": "boolean"
                   },
                   "added_by": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": "string",
+                    "nullable": true
                   },
                   "last_used": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
+                    "nullable": true,
+                    "type": "string",
                     "format": "date-time"
                   },
                   "enabled": {
@@ -184,27 +179,23 @@
         {
           "type": "string",
           "name": "title",
-          "in": "body",
           "description": "<p>A name for the key.</p>"
         },
         {
           "type": "string",
           "name": "key",
-          "in": "body",
           "description": "<p>The contents of the key.</p>",
           "isRequired": true
         },
         {
           "type": "boolean",
           "name": "read_only",
-          "in": "body",
           "description": "<p>If <code>true</code>, the key will only be able to read repository contents. Otherwise, the key will be able to read and write.</p>\n<p>Deploy keys with write access can perform the same actions as an organization member with admin access, or a collaborator on a personal repository. For more information, see \"<a href=\"https://docs.github.com/articles/repository-permission-levels-for-an-organization/\">Repository permission levels for an organization</a>\" and \"<a href=\"https://docs.github.com/articles/permission-levels-for-a-user-account-repository/\">Permission levels for a user account repository</a>.\"</p>"
         }
       ],
       "descriptionHTML": "<p>You can create a read-only deploy key.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -262,16 +253,12 @@
                   "type": "boolean"
                 },
                 "added_by": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "type": "string",
+                  "nullable": true
                 },
                 "last_used": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
+                  "nullable": true,
+                  "type": "string",
                   "format": "date-time"
                 },
                 "enabled": {
@@ -353,7 +340,6 @@
       "descriptionHTML": "",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -406,16 +392,12 @@
                   "type": "boolean"
                 },
                 "added_by": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "type": "string",
+                  "nullable": true
                 },
                 "last_used": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
+                  "nullable": true,
+                  "type": "string",
                   "format": "date-time"
                 },
                 "enabled": {
@@ -497,7 +479,6 @@
       "descriptionHTML": "<p>Deploy keys are immutable. If you need to update a key, remove the key and create a new one instead.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",

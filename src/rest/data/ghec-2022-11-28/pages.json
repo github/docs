@@ -31,7 +31,6 @@
       "descriptionHTML": "<p>Gets information about a GitHub Enterprise Cloud Pages site.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -75,90 +74,56 @@
                 "url": {
                   "type": "string",
                   "description": "The API address for accessing this Page resource.",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repos/github/hello-world/pages"
-                  ]
+                  "format": "uri"
                 },
                 "status": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
+                  "type": "string",
                   "description": "The status of the most recent build of the Page.",
                   "enum": [
                     "built",
                     "building",
-                    "errored",
-                    null
+                    "errored"
                   ],
-                  "examples": [
-                    "built"
-                  ]
+                  "nullable": true
                 },
                 "cname": {
                   "description": "The Pages site's custom domain",
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "examples": [
-                    "example.com"
-                  ]
+                  "type": "string",
+                  "nullable": true
                 },
                 "protected_domain_state": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
+                  "type": "string",
                   "description": "The state if the domain is verified",
+                  "nullable": true,
                   "enum": [
                     "pending",
                     "verified",
-                    "unverified",
-                    null
-                  ],
-                  "examples": [
-                    "pending"
+                    "unverified"
                   ]
                 },
                 "pending_domain_unverified_at": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
+                  "type": "string",
                   "description": "The timestamp when a pending domain becomes unverified.",
+                  "nullable": true,
                   "format": "date-time"
                 },
                 "custom_404": {
                   "type": "boolean",
                   "description": "Whether the Page has a custom 404 page.",
-                  "default": false,
-                  "examples": [
-                    false
-                  ]
+                  "default": false
                 },
                 "html_url": {
                   "type": "string",
                   "description": "The web address the Page can be accessed from.",
-                  "format": "uri",
-                  "examples": [
-                    "https://example.com"
-                  ]
+                  "format": "uri"
                 },
                 "build_type": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
+                  "type": "string",
                   "description": "The process in which the Page will be built.",
+                  "nullable": true,
                   "enum": [
                     "legacy",
-                    "workflow",
-                    null
-                  ],
-                  "examples": [
-                    "legacy"
+                    "workflow"
                   ]
                 },
                 "source": {
@@ -179,10 +144,7 @@
                 },
                 "public": {
                   "type": "boolean",
-                  "description": "Whether the GitHub Pages site is publicly visible. If set to `true`, the site is accessible to anyone on the internet. If set to `false`, the site will only be accessible to users who have at least `read` access to the repository that published the site.",
-                  "examples": [
-                    true
-                  ]
+                  "description": "Whether the GitHub Pages site is publicly visible. If set to `true`, the site is accessible to anyone on the internet. If set to `false`, the site will only be accessible to users who have at least `read` access to the repository that published the site."
                 },
                 "https_certificate": {
                   "title": "Pages Https Certificate",
@@ -203,27 +165,17 @@
                         "bad_authz",
                         "destroy_pending",
                         "dns_changed"
-                      ],
-                      "examples": [
-                        "approved"
                       ]
                     },
                     "description": {
-                      "type": "string",
-                      "examples": [
-                        "Certificate is approved"
-                      ]
+                      "type": "string"
                     },
                     "domains": {
                       "type": "array",
                       "items": {
                         "type": "string"
                       },
-                      "description": "Array of the domain set and its alternate name (if it is configured)",
-                      "examples": [
-                        "example.com",
-                        "www.example.com"
-                      ]
+                      "description": "Array of the domain set and its alternate name (if it is configured)"
                     },
                     "expires_at": {
                       "type": "string",
@@ -238,10 +190,7 @@
                 },
                 "https_enforced": {
                   "type": "boolean",
-                  "description": "Whether https is enabled on the domain",
-                  "examples": [
-                    true
-                  ]
+                  "description": "Whether https is enabled on the domain"
                 }
               },
               "required": [
@@ -309,7 +258,6 @@
         {
           "type": "string",
           "name": "build_type",
-          "in": "body",
           "description": "<p>The process in which the Page will be built. Possible values are <code>\"legacy\"</code> and <code>\"workflow\"</code>.</p>",
           "enum": [
             "legacy",
@@ -319,7 +267,6 @@
         {
           "type": "object",
           "name": "source",
-          "in": "body",
           "description": "<p>The source branch and directory used to publish your Pages site.</p>",
           "childParamsGroups": [
             {
@@ -344,7 +291,6 @@
       "descriptionHTML": "<p>Configures a GitHub Enterprise Cloud Pages site. For more information, see \"<a href=\"/github/working-with-github-pages/about-github-pages\">About GitHub Pages</a>.\"</p>\n<p>The authenticated user must be a repository administrator, maintainer, or have the 'manage GitHub Pages settings' permission.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -395,90 +341,56 @@
                 "url": {
                   "type": "string",
                   "description": "The API address for accessing this Page resource.",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repos/github/hello-world/pages"
-                  ]
+                  "format": "uri"
                 },
                 "status": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
+                  "type": "string",
                   "description": "The status of the most recent build of the Page.",
                   "enum": [
                     "built",
                     "building",
-                    "errored",
-                    null
+                    "errored"
                   ],
-                  "examples": [
-                    "built"
-                  ]
+                  "nullable": true
                 },
                 "cname": {
                   "description": "The Pages site's custom domain",
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "examples": [
-                    "example.com"
-                  ]
+                  "type": "string",
+                  "nullable": true
                 },
                 "protected_domain_state": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
+                  "type": "string",
                   "description": "The state if the domain is verified",
+                  "nullable": true,
                   "enum": [
                     "pending",
                     "verified",
-                    "unverified",
-                    null
-                  ],
-                  "examples": [
-                    "pending"
+                    "unverified"
                   ]
                 },
                 "pending_domain_unverified_at": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
+                  "type": "string",
                   "description": "The timestamp when a pending domain becomes unverified.",
+                  "nullable": true,
                   "format": "date-time"
                 },
                 "custom_404": {
                   "type": "boolean",
                   "description": "Whether the Page has a custom 404 page.",
-                  "default": false,
-                  "examples": [
-                    false
-                  ]
+                  "default": false
                 },
                 "html_url": {
                   "type": "string",
                   "description": "The web address the Page can be accessed from.",
-                  "format": "uri",
-                  "examples": [
-                    "https://example.com"
-                  ]
+                  "format": "uri"
                 },
                 "build_type": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
+                  "type": "string",
                   "description": "The process in which the Page will be built.",
+                  "nullable": true,
                   "enum": [
                     "legacy",
-                    "workflow",
-                    null
-                  ],
-                  "examples": [
-                    "legacy"
+                    "workflow"
                   ]
                 },
                 "source": {
@@ -499,10 +411,7 @@
                 },
                 "public": {
                   "type": "boolean",
-                  "description": "Whether the GitHub Pages site is publicly visible. If set to `true`, the site is accessible to anyone on the internet. If set to `false`, the site will only be accessible to users who have at least `read` access to the repository that published the site.",
-                  "examples": [
-                    true
-                  ]
+                  "description": "Whether the GitHub Pages site is publicly visible. If set to `true`, the site is accessible to anyone on the internet. If set to `false`, the site will only be accessible to users who have at least `read` access to the repository that published the site."
                 },
                 "https_certificate": {
                   "title": "Pages Https Certificate",
@@ -523,27 +432,17 @@
                         "bad_authz",
                         "destroy_pending",
                         "dns_changed"
-                      ],
-                      "examples": [
-                        "approved"
                       ]
                     },
                     "description": {
-                      "type": "string",
-                      "examples": [
-                        "Certificate is approved"
-                      ]
+                      "type": "string"
                     },
                     "domains": {
                       "type": "array",
                       "items": {
                         "type": "string"
                       },
-                      "description": "Array of the domain set and its alternate name (if it is configured)",
-                      "examples": [
-                        "example.com",
-                        "www.example.com"
-                      ]
+                      "description": "Array of the domain set and its alternate name (if it is configured)"
                     },
                     "expires_at": {
                       "type": "string",
@@ -558,10 +457,7 @@
                 },
                 "https_enforced": {
                   "type": "boolean",
-                  "description": "Whether https is enabled on the domain",
-                  "examples": [
-                    true
-                  ]
+                  "description": "Whether https is enabled on the domain"
                 }
               },
               "required": [
@@ -633,19 +529,16 @@
         {
           "type": "string or null",
           "name": "cname",
-          "in": "body",
           "description": "<p>Specify a custom domain for the repository. Sending a <code>null</code> value will remove the custom domain. For more about custom domains, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//pages/configuring-a-custom-domain-for-your-github-pages-site\">Using a custom domain with GitHub Pages</a>.\"</p>"
         },
         {
           "type": "boolean",
           "name": "https_enforced",
-          "in": "body",
           "description": "<p>Specify whether HTTPS should be enforced for the repository.</p>"
         },
         {
           "type": "string",
           "name": "build_type",
-          "in": "body",
           "description": "<p>The process by which the GitHub Pages site will be built. <code>workflow</code> means that the site is built by a custom GitHub Actions workflow. <code>legacy</code> means that the site is built by GitHub when changes are pushed to a specific branch.</p>",
           "enum": [
             "legacy",
@@ -655,7 +548,6 @@
         {
           "type": "object",
           "name": "source",
-          "in": "body",
           "description": "<p>Update the source for the repository. Must include the branch name and path.</p>",
           "childParamsGroups": [
             {
@@ -679,14 +571,12 @@
         {
           "type": "boolean",
           "name": "public",
-          "in": "body",
           "description": "<p>Configures access controls for the GitHub Pages site. If public is set to <code>true</code>, the site is accessible to anyone on the internet. If set to <code>false</code>, the site will only be accessible to users who have at least <code>read</code> access to the repository that published the site. This includes anyone in your Enterprise if the repository is set to <code>internal</code> visibility.</p>"
         }
       ],
       "descriptionHTML": "<p>Updates information for a GitHub Enterprise Cloud Pages site. For more information, see \"<a href=\"/github/working-with-github-pages/about-github-pages\">About GitHub Pages</a>.</p>\n<p>The authenticated user must be a repository administrator, maintainer, or have the 'manage GitHub Pages settings' permission.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -771,7 +661,6 @@
       "descriptionHTML": "<p>Deletes a GitHub Enterprise Cloud Pages site. For more information, see \"<a href=\"/github/working-with-github-pages/about-github-pages\">About GitHub Pages</a>.</p>\n<p>The authenticated user must be a repository administrator, maintainer, or have the 'manage GitHub Pages settings' permission.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -866,7 +755,6 @@
       "descriptionHTML": "<p>Lists builts of a GitHub Enterprise Cloud Pages site.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -930,10 +818,8 @@
                     "type": "object",
                     "properties": {
                       "message": {
-                        "type": [
-                          "string",
-                          "null"
-                        ]
+                        "type": "string",
+                        "nullable": true
                       }
                     },
                     "required": [
@@ -941,179 +827,110 @@
                     ]
                   },
                   "pusher": {
-                    "anyOf": [
-                      {
-                        "type": "null"
+                    "title": "Simple User",
+                    "description": "A GitHub user.",
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "nullable": true,
+                        "type": "string"
                       },
-                      {
-                        "title": "Simple User",
-                        "description": "A GitHub user.",
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "string",
-                              "null"
-                            ]
-                          },
-                          "email": {
-                            "type": [
-                              "string",
-                              "null"
-                            ]
-                          },
-                          "login": {
-                            "type": "string",
-                            "examples": [
-                              "octocat"
-                            ]
-                          },
-                          "id": {
-                            "type": "integer",
-                            "format": "int64",
-                            "examples": [
-                              1
-                            ]
-                          },
-                          "node_id": {
-                            "type": "string",
-                            "examples": [
-                              "MDQ6VXNlcjE="
-                            ]
-                          },
-                          "avatar_url": {
-                            "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/images/error/octocat_happy.gif"
-                            ]
-                          },
-                          "gravatar_id": {
-                            "type": [
-                              "string",
-                              "null"
-                            ],
-                            "examples": [
-                              "41d064eb2195891e12d0413f63227ea7"
-                            ]
-                          },
-                          "url": {
-                            "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat"
-                            ]
-                          },
-                          "html_url": {
-                            "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/octocat"
-                            ]
-                          },
-                          "followers_url": {
-                            "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/followers"
-                            ]
-                          },
-                          "following_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/following{/other_user}"
-                            ]
-                          },
-                          "gists_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/gists{/gist_id}"
-                            ]
-                          },
-                          "starred_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                            ]
-                          },
-                          "subscriptions_url": {
-                            "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/subscriptions"
-                            ]
-                          },
-                          "organizations_url": {
-                            "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/orgs"
-                            ]
-                          },
-                          "repos_url": {
-                            "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/repos"
-                            ]
-                          },
-                          "events_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/events{/privacy}"
-                            ]
-                          },
-                          "received_events_url": {
-                            "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/received_events"
-                            ]
-                          },
-                          "type": {
-                            "type": "string",
-                            "examples": [
-                              "User"
-                            ]
-                          },
-                          "site_admin": {
-                            "type": "boolean"
-                          },
-                          "starred_at": {
-                            "type": "string",
-                            "examples": [
-                              "\"2020-07-09T00:17:55Z\""
-                            ]
-                          },
-                          "user_view_type": {
-                            "type": "string",
-                            "examples": [
-                              "public"
-                            ]
-                          }
-                        },
-                        "required": [
-                          "avatar_url",
-                          "events_url",
-                          "followers_url",
-                          "following_url",
-                          "gists_url",
-                          "gravatar_id",
-                          "html_url",
-                          "id",
-                          "node_id",
-                          "login",
-                          "organizations_url",
-                          "received_events_url",
-                          "repos_url",
-                          "site_admin",
-                          "starred_url",
-                          "subscriptions_url",
-                          "type",
-                          "url"
-                        ]
+                      "email": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "login": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer",
+                        "format": "int64"
+                      },
+                      "node_id": {
+                        "type": "string"
+                      },
+                      "avatar_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "gravatar_id": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "html_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "followers_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "following_url": {
+                        "type": "string"
+                      },
+                      "gists_url": {
+                        "type": "string"
+                      },
+                      "starred_url": {
+                        "type": "string"
+                      },
+                      "subscriptions_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "organizations_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "repos_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "events_url": {
+                        "type": "string"
+                      },
+                      "received_events_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "site_admin": {
+                        "type": "boolean"
+                      },
+                      "starred_at": {
+                        "type": "string"
+                      },
+                      "user_view_type": {
+                        "type": "string"
                       }
-                    ]
+                    },
+                    "required": [
+                      "avatar_url",
+                      "events_url",
+                      "followers_url",
+                      "following_url",
+                      "gists_url",
+                      "gravatar_id",
+                      "html_url",
+                      "id",
+                      "node_id",
+                      "login",
+                      "organizations_url",
+                      "received_events_url",
+                      "repos_url",
+                      "site_admin",
+                      "starred_url",
+                      "subscriptions_url",
+                      "type",
+                      "url"
+                    ],
+                    "nullable": true
                   },
                   "commit": {
                     "type": "string"
@@ -1195,7 +1012,6 @@
       "descriptionHTML": "<p>You can request that your site be built from the latest revision on the default branch. This has the same effect as pushing a commit to your default branch, but does not require an additional commit. Manually triggering page builds can be helpful when diagnosing build warnings and failures.</p>\n<p>Build requests are limited to one concurrent build per repository and one concurrent build per requester. If you request a build while another is still in progress, the second request will be queued until the first completes.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1219,16 +1035,10 @@
               "properties": {
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repos/github/hello-world/pages/builds/latest"
-                  ]
+                  "format": "uri"
                 },
                 "status": {
-                  "type": "string",
-                  "examples": [
-                    "queued"
-                  ]
+                  "type": "string"
                 }
               },
               "required": [
@@ -1288,7 +1098,6 @@
       "descriptionHTML": "<p>Gets information about the single most recent build of a GitHub Enterprise Cloud Pages site.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1348,10 +1157,8 @@
                   "type": "object",
                   "properties": {
                     "message": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
+                      "type": "string",
+                      "nullable": true
                     }
                   },
                   "required": [
@@ -1359,179 +1166,110 @@
                   ]
                 },
                 "pusher": {
-                  "anyOf": [
-                    {
-                      "type": "null"
+                  "title": "Simple User",
+                  "description": "A GitHub user.",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "nullable": true,
+                      "type": "string"
                     },
-                    {
-                      "title": "Simple User",
-                      "description": "A GitHub user.",
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "email": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
-                        },
-                        "id": {
-                          "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
-                        },
-                        "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
-                        },
-                        "avatar_url": {
-                          "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
-                        },
-                        "gravatar_id": {
-                          "type": [
-                            "string",
-                            "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
-                          ]
-                        },
-                        "url": {
-                          "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
-                        },
-                        "html_url": {
-                          "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
-                        },
-                        "followers_url": {
-                          "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
-                        },
-                        "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
-                        },
-                        "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
-                        },
-                        "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
-                        },
-                        "subscriptions_url": {
-                          "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
-                        },
-                        "organizations_url": {
-                          "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
-                        },
-                        "repos_url": {
-                          "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
-                        },
-                        "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
-                        },
-                        "received_events_url": {
-                          "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
-                        },
-                        "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
-                        },
-                        "site_admin": {
-                          "type": "boolean"
-                        },
-                        "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
-                        },
-                        "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "avatar_url",
-                        "events_url",
-                        "followers_url",
-                        "following_url",
-                        "gists_url",
-                        "gravatar_id",
-                        "html_url",
-                        "id",
-                        "node_id",
-                        "login",
-                        "organizations_url",
-                        "received_events_url",
-                        "repos_url",
-                        "site_admin",
-                        "starred_url",
-                        "subscriptions_url",
-                        "type",
-                        "url"
-                      ]
+                    "email": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "login": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    "node_id": {
+                      "type": "string"
+                    },
+                    "avatar_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "gravatar_id": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "html_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "followers_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "following_url": {
+                      "type": "string"
+                    },
+                    "gists_url": {
+                      "type": "string"
+                    },
+                    "starred_url": {
+                      "type": "string"
+                    },
+                    "subscriptions_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "organizations_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "repos_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "events_url": {
+                      "type": "string"
+                    },
+                    "received_events_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "site_admin": {
+                      "type": "boolean"
+                    },
+                    "starred_at": {
+                      "type": "string"
+                    },
+                    "user_view_type": {
+                      "type": "string"
                     }
-                  ]
+                  },
+                  "required": [
+                    "avatar_url",
+                    "events_url",
+                    "followers_url",
+                    "following_url",
+                    "gists_url",
+                    "gravatar_id",
+                    "html_url",
+                    "id",
+                    "node_id",
+                    "login",
+                    "organizations_url",
+                    "received_events_url",
+                    "repos_url",
+                    "site_admin",
+                    "starred_url",
+                    "subscriptions_url",
+                    "type",
+                    "url"
+                  ],
+                  "nullable": true
                 },
                 "commit": {
                   "type": "string"
@@ -1621,7 +1359,6 @@
       "descriptionHTML": "<p>Gets information about a GitHub Enterprise Cloud Pages build.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1682,10 +1419,8 @@
                   "type": "object",
                   "properties": {
                     "message": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
+                      "type": "string",
+                      "nullable": true
                     }
                   },
                   "required": [
@@ -1693,179 +1428,110 @@
                   ]
                 },
                 "pusher": {
-                  "anyOf": [
-                    {
-                      "type": "null"
+                  "title": "Simple User",
+                  "description": "A GitHub user.",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "nullable": true,
+                      "type": "string"
                     },
-                    {
-                      "title": "Simple User",
-                      "description": "A GitHub user.",
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "email": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
-                        },
-                        "id": {
-                          "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
-                        },
-                        "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
-                        },
-                        "avatar_url": {
-                          "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
-                        },
-                        "gravatar_id": {
-                          "type": [
-                            "string",
-                            "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
-                          ]
-                        },
-                        "url": {
-                          "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
-                        },
-                        "html_url": {
-                          "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
-                        },
-                        "followers_url": {
-                          "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
-                        },
-                        "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
-                        },
-                        "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
-                        },
-                        "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
-                        },
-                        "subscriptions_url": {
-                          "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
-                        },
-                        "organizations_url": {
-                          "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
-                        },
-                        "repos_url": {
-                          "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
-                        },
-                        "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
-                        },
-                        "received_events_url": {
-                          "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
-                        },
-                        "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
-                        },
-                        "site_admin": {
-                          "type": "boolean"
-                        },
-                        "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
-                        },
-                        "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "avatar_url",
-                        "events_url",
-                        "followers_url",
-                        "following_url",
-                        "gists_url",
-                        "gravatar_id",
-                        "html_url",
-                        "id",
-                        "node_id",
-                        "login",
-                        "organizations_url",
-                        "received_events_url",
-                        "repos_url",
-                        "site_admin",
-                        "starred_url",
-                        "subscriptions_url",
-                        "type",
-                        "url"
-                      ]
+                    "email": {
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "login": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    "node_id": {
+                      "type": "string"
+                    },
+                    "avatar_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "gravatar_id": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "html_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "followers_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "following_url": {
+                      "type": "string"
+                    },
+                    "gists_url": {
+                      "type": "string"
+                    },
+                    "starred_url": {
+                      "type": "string"
+                    },
+                    "subscriptions_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "organizations_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "repos_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "events_url": {
+                      "type": "string"
+                    },
+                    "received_events_url": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "site_admin": {
+                      "type": "boolean"
+                    },
+                    "starred_at": {
+                      "type": "string"
+                    },
+                    "user_view_type": {
+                      "type": "string"
                     }
-                  ]
+                  },
+                  "required": [
+                    "avatar_url",
+                    "events_url",
+                    "followers_url",
+                    "following_url",
+                    "gists_url",
+                    "gravatar_id",
+                    "html_url",
+                    "id",
+                    "node_id",
+                    "login",
+                    "organizations_url",
+                    "received_events_url",
+                    "repos_url",
+                    "site_admin",
+                    "starred_url",
+                    "subscriptions_url",
+                    "type",
+                    "url"
+                  ],
+                  "nullable": true
                 },
                 "commit": {
                   "type": "string"
@@ -1946,26 +1612,22 @@
         {
           "type": "number",
           "name": "artifact_id",
-          "in": "body",
           "description": "<p>The ID of an artifact that contains the .zip or .tar of static assets to deploy. The artifact belongs to the repository. Either <code>artifact_id</code> or <code>artifact_url</code> are required.</p>"
         },
         {
           "type": "string",
           "name": "artifact_url",
-          "in": "body",
           "description": "<p>The URL of an artifact that contains the .zip or .tar of static assets to deploy. The artifact belongs to the repository. Either <code>artifact_id</code> or <code>artifact_url</code> are required.</p>"
         },
         {
           "type": "string",
           "name": "environment",
-          "in": "body",
           "description": "<p>The target environment for this GitHub Pages deployment.</p>",
           "default": "github-pages"
         },
         {
           "type": "string",
           "name": "pages_build_version",
-          "in": "body",
           "description": "<p>A unique string that represents the version of the build for this deployment.</p>",
           "isRequired": true,
           "default": "GITHUB_SHA"
@@ -1973,7 +1635,6 @@
         {
           "type": "string",
           "name": "oidc_token",
-          "in": "body",
           "description": "<p>The OIDC token issued by GitHub Actions certifying the origin of the deployment.</p>",
           "isRequired": true
         }
@@ -1981,7 +1642,6 @@
       "descriptionHTML": "<p>Create a GitHub Pages deployment for a repository.</p>\n<p>The authenticated user must have write permission to the repository.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -2025,26 +1685,17 @@
                 "status_url": {
                   "type": "string",
                   "description": "The URI to monitor GitHub Pages deployment status.",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/repos/github/hello-world/pages/deployments/4fd754f7e594640989b406850d0bc8f06a121251"
-                  ]
+                  "format": "uri"
                 },
                 "page_url": {
                   "type": "string",
                   "description": "The URI to the deployed GitHub Pages.",
-                  "format": "uri",
-                  "examples": [
-                    "hello-world.github.io"
-                  ]
+                  "format": "uri"
                 },
                 "preview_url": {
                   "type": "string",
                   "description": "The URI to the deployed GitHub Pages preview.",
-                  "format": "uri",
-                  "examples": [
-                    "monalisa-1231a2312sa32-23sda74.drafts.github.io"
-                  ]
+                  "format": "uri"
                 }
               },
               "required": [
@@ -2133,7 +1784,6 @@
       "descriptionHTML": "<p>Gets the current status of a GitHub Pages deployment.</p>\n<p>The authenticated user must have read permission for the GitHub Pages site.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2246,7 +1896,6 @@
       "descriptionHTML": "<p>Cancels a GitHub Pages deployment.</p>\n<p>The authenticated user must have write permissions for the GitHub Pages site.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2315,7 +1964,6 @@
       "descriptionHTML": "<p>Gets a health check of the DNS settings for the <code>CNAME</code> record configured for a repository's GitHub Pages.</p>\n<p>The first request to this endpoint returns a <code>202 Accepted</code> status and starts an asynchronous background task to get the results for the domain. After the background task completes, subsequent requests to this endpoint return a <code>200 OK</code> status with the health check results in the response.</p>\n<p>The authenticated user must be a repository administrator, maintainer, or have the 'manage GitHub Pages settings' permission to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>repo</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2411,46 +2059,32 @@
                       "type": "boolean"
                     },
                     "is_proxied": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_cloudflare_ip": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_fastly_ip": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_old_ip_address": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_a_record": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "has_cname_record": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "has_mx_records_present": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_valid_domain": {
                       "type": "boolean"
@@ -2459,58 +2093,42 @@
                       "type": "boolean"
                     },
                     "should_be_a_record": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_cname_to_github_user_domain": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_cname_to_pages_dot_github_dot_com": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_cname_to_fastly": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_pointed_to_github_pages_ip": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_non_github_pages_ip_present": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_pages_domain": {
                       "type": "boolean"
                     },
                     "is_served_by_pages": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_valid": {
                       "type": "boolean"
                     },
                     "reason": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
+                      "type": "string",
+                      "nullable": true
                     },
                     "responds_to_https": {
                       "type": "boolean"
@@ -2519,30 +2137,22 @@
                       "type": "boolean"
                     },
                     "https_error": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
+                      "type": "string",
+                      "nullable": true
                     },
                     "is_https_eligible": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "caa_error": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
+                      "type": "string",
+                      "nullable": true
                     }
                   }
                 },
                 "alt_domain": {
-                  "type": [
-                    "object",
-                    "null"
-                  ],
+                  "type": "object",
+                  "nullable": true,
                   "properties": {
                     "host": {
                       "type": "string"
@@ -2557,46 +2167,32 @@
                       "type": "boolean"
                     },
                     "is_proxied": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_cloudflare_ip": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_fastly_ip": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_old_ip_address": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_a_record": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "has_cname_record": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "has_mx_records_present": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_valid_domain": {
                       "type": "boolean"
@@ -2605,58 +2201,42 @@
                       "type": "boolean"
                     },
                     "should_be_a_record": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_cname_to_github_user_domain": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_cname_to_pages_dot_github_dot_com": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_cname_to_fastly": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_pointed_to_github_pages_ip": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_non_github_pages_ip_present": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_pages_domain": {
                       "type": "boolean"
                     },
                     "is_served_by_pages": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "is_valid": {
                       "type": "boolean"
                     },
                     "reason": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
+                      "type": "string",
+                      "nullable": true
                     },
                     "responds_to_https": {
                       "type": "boolean"
@@ -2665,22 +2245,16 @@
                       "type": "boolean"
                     },
                     "https_error": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
+                      "type": "string",
+                      "nullable": true
                     },
                     "is_https_eligible": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
+                      "type": "boolean",
+                      "nullable": true
                     },
                     "caa_error": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
+                      "type": "string",
+                      "nullable": true
                     }
                   }
                 }

@@ -12,7 +12,6 @@
       "descriptionHTML": "<p>Get Hypermedia links to resources accessible in GitHub's REST API</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -246,7 +245,6 @@
       "descriptionHTML": "<p>Returns meta information about GitHub, including a list of GitHub's IP addresses. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//articles/about-github-s-ip-addresses/\">About GitHub's IP addresses</a>.\"</p>\n<p>The API's response also includes a list of GitHub's domain names.</p>\n<p>The values shown in the documentation's response are example values. You must always query the API directly to get the latest values.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint returns both IPv4 and IPv6 addresses. However, not all features support IPv6. You should refer to the specific documentation for each feature to determine if IPv6 is supported.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -325,10 +323,7 @@
               "type": "object",
               "properties": {
                 "verifiable_password_authentication": {
-                  "type": "boolean",
-                  "examples": [
-                    true
-                  ]
+                  "type": "boolean"
                 },
                 "ssh_key_fingerprints": {
                   "type": "object",
@@ -351,127 +346,85 @@
                   "type": "array",
                   "items": {
                     "type": "string"
-                  },
-                  "examples": [
-                    "ssh-ed25519 ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                  ]
+                  }
                 },
                 "hooks": {
                   "type": "array",
                   "items": {
                     "type": "string"
-                  },
-                  "examples": [
-                    "192.0.2.1"
-                  ]
+                  }
                 },
                 "github_enterprise_importer": {
                   "type": "array",
                   "items": {
                     "type": "string"
-                  },
-                  "examples": [
-                    "192.0.2.1"
-                  ]
+                  }
                 },
                 "web": {
                   "type": "array",
                   "items": {
                     "type": "string"
-                  },
-                  "examples": [
-                    "192.0.2.1"
-                  ]
+                  }
                 },
                 "api": {
                   "type": "array",
                   "items": {
                     "type": "string"
-                  },
-                  "examples": [
-                    "192.0.2.1"
-                  ]
+                  }
                 },
                 "git": {
                   "type": "array",
                   "items": {
                     "type": "string"
-                  },
-                  "examples": [
-                    "192.0.2.1"
-                  ]
+                  }
                 },
                 "packages": {
                   "type": "array",
                   "items": {
                     "type": "string"
-                  },
-                  "examples": [
-                    "192.0.2.1"
-                  ]
+                  }
                 },
                 "pages": {
                   "type": "array",
                   "items": {
                     "type": "string"
-                  },
-                  "examples": [
-                    "192.0.2.1"
-                  ]
+                  }
                 },
                 "importer": {
                   "type": "array",
                   "items": {
                     "type": "string"
-                  },
-                  "examples": [
-                    "192.0.2.1"
-                  ]
+                  }
                 },
                 "actions": {
                   "type": "array",
                   "items": {
                     "type": "string"
-                  },
-                  "examples": [
-                    "192.0.2.1"
-                  ]
+                  }
                 },
                 "actions_macos": {
                   "type": "array",
                   "items": {
                     "type": "string"
-                  },
-                  "examples": [
-                    "192.0.2.1"
-                  ]
+                  }
                 },
                 "codespaces": {
                   "type": "array",
                   "items": {
                     "type": "string"
-                  },
-                  "examples": [
-                    "192.0.2.1"
-                  ]
+                  }
                 },
                 "dependabot": {
                   "type": "array",
                   "items": {
                     "type": "string"
-                  },
-                  "examples": [
-                    "192.0.2.1"
-                  ]
+                  }
                 },
                 "copilot": {
                   "type": "array",
                   "items": {
                     "type": "string"
-                  },
-                  "examples": [
-                    "192.0.2.1"
-                  ]
+                  }
                 },
                 "domains": {
                   "type": "object",
@@ -479,46 +432,31 @@
                     "website": {
                       "type": "array",
                       "items": {
-                        "type": "string",
-                        "examples": [
-                          "example.com"
-                        ]
+                        "type": "string"
                       }
                     },
                     "codespaces": {
                       "type": "array",
                       "items": {
-                        "type": "string",
-                        "examples": [
-                          "example.com"
-                        ]
+                        "type": "string"
                       }
                     },
                     "copilot": {
                       "type": "array",
                       "items": {
-                        "type": "string",
-                        "examples": [
-                          "example.com"
-                        ]
+                        "type": "string"
                       }
                     },
                     "packages": {
                       "type": "array",
                       "items": {
-                        "type": "string",
-                        "examples": [
-                          "example.com"
-                        ]
+                        "type": "string"
                       }
                     },
                     "actions": {
                       "type": "array",
                       "items": {
-                        "type": "string",
-                        "examples": [
-                          "example.com"
-                        ]
+                        "type": "string"
                       }
                     },
                     "actions_inbound": {
@@ -527,19 +465,13 @@
                         "full_domains": {
                           "type": "array",
                           "items": {
-                            "type": "string",
-                            "examples": [
-                              "example.com"
-                            ]
+                            "type": "string"
                           }
                         },
                         "wildcard_domains": {
                           "type": "array",
                           "items": {
-                            "type": "string",
-                            "examples": [
-                              "example.com"
-                            ]
+                            "type": "string"
                           }
                         }
                       }
@@ -548,18 +480,12 @@
                       "type": "object",
                       "properties": {
                         "trust_domain": {
-                          "type": "string",
-                          "examples": [
-                            "example"
-                          ]
+                          "type": "string"
                         },
                         "services": {
                           "type": "array",
                           "items": {
-                            "type": "string",
-                            "examples": [
-                              "example.com"
-                            ]
+                            "type": "string"
                           }
                         }
                       }
@@ -616,7 +542,6 @@
       "descriptionHTML": "<p>Get the octocat as ASCII art</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -660,7 +585,6 @@
       "descriptionHTML": "<p>Get all supported GitHub Enterprise Cloud API versions.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -678,10 +602,7 @@
               "type": "array",
               "items": {
                 "type": "string",
-                "format": "date",
-                "examples": [
-                  "2021-01-01"
-                ]
+                "format": "date"
               }
             }
           }
@@ -719,7 +640,6 @@
       "descriptionHTML": "<p>Get a random sentence from the Zen of GitHub</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"

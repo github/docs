@@ -22,7 +22,6 @@
       "descriptionHTML": "<p>Gets a GitHub Classroom assignment. Assignment will only be returned if the current user is an administrator of the GitHub Classroom for the assignment.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -74,24 +73,15 @@
               "properties": {
                 "id": {
                   "description": "Unique identifier of the repository.",
-                  "type": "integer",
-                  "examples": [
-                    42
-                  ]
+                  "type": "integer"
                 },
                 "public_repo": {
                   "description": "Whether an accepted assignment creates a public repository.",
-                  "type": "boolean",
-                  "examples": [
-                    true
-                  ]
+                  "type": "boolean"
                 },
                 "title": {
                   "description": "Assignment title.",
-                  "type": "string",
-                  "examples": [
-                    "Intro to Binaries"
-                  ]
+                  "type": "string"
                 },
                 "type": {
                   "description": "Whether it's a group assignment or individual assignment.",
@@ -99,111 +89,63 @@
                   "enum": [
                     "individual",
                     "group"
-                  ],
-                  "examples": [
-                    "individual"
                   ]
                 },
                 "invite_link": {
                   "description": "The link that a student can use to accept the assignment.",
-                  "type": "string",
-                  "examples": [
-                    "https://classroom.github.com/a/Lx7jiUgx"
-                  ]
+                  "type": "string"
                 },
                 "invitations_enabled": {
                   "description": "Whether the invitation link is enabled. Visiting an enabled invitation link will accept the assignment.",
-                  "type": "boolean",
-                  "examples": [
-                    true
-                  ]
+                  "type": "boolean"
                 },
                 "slug": {
                   "description": "Sluggified name of the assignment.",
-                  "type": "string",
-                  "examples": [
-                    "intro-to-binaries"
-                  ]
+                  "type": "string"
                 },
                 "students_are_repo_admins": {
                   "description": "Whether students are admins on created repository when a student accepts the assignment.",
-                  "type": "boolean",
-                  "examples": [
-                    true
-                  ]
+                  "type": "boolean"
                 },
                 "feedback_pull_requests_enabled": {
                   "description": "Whether feedback pull request will be created when a student accepts the assignment.",
-                  "type": "boolean",
-                  "examples": [
-                    true
-                  ]
+                  "type": "boolean"
                 },
                 "max_teams": {
                   "description": "The maximum allowable teams for the assignment.",
-                  "type": [
-                    "integer",
-                    "null"
-                  ],
-                  "examples": [
-                    0
-                  ]
+                  "nullable": true,
+                  "type": "integer"
                 },
                 "max_members": {
                   "description": "The maximum allowable members per team.",
-                  "type": [
-                    "integer",
-                    "null"
-                  ],
-                  "examples": [
-                    0
-                  ]
+                  "nullable": true,
+                  "type": "integer"
                 },
                 "editor": {
                   "description": "The selected editor for the assignment.",
-                  "type": "string",
-                  "examples": [
-                    "codespaces"
-                  ]
+                  "type": "string"
                 },
                 "accepted": {
                   "description": "The number of students that have accepted the assignment.",
-                  "type": "integer",
-                  "examples": [
-                    25
-                  ]
+                  "type": "integer"
                 },
                 "submitted": {
                   "description": "The number of students that have submitted the assignment.",
-                  "type": "integer",
-                  "examples": [
-                    10
-                  ]
+                  "type": "integer"
                 },
                 "passing": {
                   "description": "The number of students that have passed the assignment.",
-                  "type": "integer",
-                  "examples": [
-                    10
-                  ]
+                  "type": "integer"
                 },
                 "language": {
                   "description": "The programming language used in the assignment.",
-                  "type": "string",
-                  "examples": [
-                    "elixir"
-                  ]
+                  "type": "string"
                 },
                 "deadline": {
                   "description": "The time at which the assignment is due.",
-                  "type": [
-                    "string",
-                    "null"
-                  ],
+                  "type": "string",
                   "format": "date-time",
-                  "examples": [
-                    "2011-01-26T19:06:43Z"
-                  ]
+                  "nullable": true
                 },
                 "starter_code_repository": {
                   "title": "Simple Classroom Repository",
@@ -212,32 +154,20 @@
                   "properties": {
                     "id": {
                       "type": "integer",
-                      "description": "A unique identifier of the repository.",
-                      "examples": [
-                        1296269
-                      ]
+                      "description": "A unique identifier of the repository."
                     },
                     "full_name": {
                       "type": "string",
-                      "description": "The full, globally unique name of the repository.",
-                      "examples": [
-                        "octocat/Hello-World"
-                      ]
+                      "description": "The full, globally unique name of the repository."
                     },
                     "html_url": {
                       "type": "string",
                       "format": "uri",
-                      "description": "The URL to view the repository on GitHub.com.",
-                      "examples": [
-                        "https://github.com/octocat/Hello-World"
-                      ]
+                      "description": "The URL to view the repository on GitHub.com."
                     },
                     "node_id": {
                       "type": "string",
-                      "description": "The GraphQL identifier of the repository.",
-                      "examples": [
-                        "MDEwOlJlcG9zaXRvcnkxMjk2MjY5"
-                      ]
+                      "description": "The GraphQL identifier of the repository."
                     },
                     "private": {
                       "type": "boolean",
@@ -245,10 +175,7 @@
                     },
                     "default_branch": {
                       "type": "string",
-                      "description": "The default branch for the repository.",
-                      "examples": [
-                        "main"
-                      ]
+                      "description": "The default branch for the repository."
                     }
                   },
                   "required": [
@@ -267,24 +194,15 @@
                   "properties": {
                     "id": {
                       "description": "Unique identifier of the classroom.",
-                      "type": "integer",
-                      "examples": [
-                        42
-                      ]
+                      "type": "integer"
                     },
                     "name": {
                       "description": "The name of the classroom.",
-                      "type": "string",
-                      "examples": [
-                        "Programming Elixir"
-                      ]
+                      "type": "string"
                     },
                     "archived": {
                       "description": "Whether classroom is archived.",
-                      "type": "boolean",
-                      "examples": [
-                        false
-                      ]
+                      "type": "boolean"
                     },
                     "organization": {
                       "title": "Organization Simple for Classroom",
@@ -292,44 +210,24 @@
                       "type": "object",
                       "properties": {
                         "id": {
-                          "type": "integer",
-                          "examples": [
-                            1
-                          ]
+                          "type": "integer"
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "github"
-                          ]
+                          "type": "string"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDEyOk9yZ2FuaXphdGlvbjE="
-                          ]
+                          "type": "string"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/github"
-                          ]
+                          "format": "uri"
                         },
                         "name": {
-                          "type": [
-                            "string",
-                            "null"
-                          ],
-                          "examples": [
-                            "Github - Code thigns happen here"
-                          ]
+                          "type": "string",
+                          "nullable": true
                         },
                         "avatar_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -343,10 +241,7 @@
                     },
                     "url": {
                       "description": "The URL of the classroom on GitHub Classroom.",
-                      "type": "string",
-                      "examples": [
-                        "https://classroom.github.com/classrooms/1-programming-elixir"
-                      ]
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -443,7 +338,6 @@
       "descriptionHTML": "<p>Lists any assignment repositories that have been created by students accepting a GitHub Classroom assignment. Accepted assignments will only be returned if the current user is an administrator of the GitHub Classroom for the assignment.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -511,38 +405,23 @@
                 "properties": {
                   "id": {
                     "description": "Unique identifier of the repository.",
-                    "type": "integer",
-                    "examples": [
-                      42
-                    ]
+                    "type": "integer"
                   },
                   "submitted": {
                     "description": "Whether an accepted assignment has been submitted.",
-                    "type": "boolean",
-                    "examples": [
-                      true
-                    ]
+                    "type": "boolean"
                   },
                   "passing": {
                     "description": "Whether a submission passed.",
-                    "type": "boolean",
-                    "examples": [
-                      true
-                    ]
+                    "type": "boolean"
                   },
                   "commit_count": {
                     "description": "Count of student commits.",
-                    "type": "integer",
-                    "examples": [
-                      5
-                    ]
+                    "type": "integer"
                   },
                   "grade": {
                     "description": "Most recent grade.",
-                    "type": "string",
-                    "examples": [
-                      "10/10"
-                    ]
+                    "type": "string"
                   },
                   "students": {
                     "type": "array",
@@ -552,30 +431,18 @@
                       "type": "object",
                       "properties": {
                         "id": {
-                          "type": "integer",
-                          "examples": [
-                            1
-                          ]
+                          "type": "integer"
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         }
                       },
                       "required": [
@@ -593,32 +460,20 @@
                     "properties": {
                       "id": {
                         "type": "integer",
-                        "description": "A unique identifier of the repository.",
-                        "examples": [
-                          1296269
-                        ]
+                        "description": "A unique identifier of the repository."
                       },
                       "full_name": {
                         "type": "string",
-                        "description": "The full, globally unique name of the repository.",
-                        "examples": [
-                          "octocat/Hello-World"
-                        ]
+                        "description": "The full, globally unique name of the repository."
                       },
                       "html_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "The URL to view the repository on GitHub.com.",
-                        "examples": [
-                          "https://github.com/octocat/Hello-World"
-                        ]
+                        "description": "The URL to view the repository on GitHub.com."
                       },
                       "node_id": {
                         "type": "string",
-                        "description": "The GraphQL identifier of the repository.",
-                        "examples": [
-                          "MDEwOlJlcG9zaXRvcnkxMjk2MjY5"
-                        ]
+                        "description": "The GraphQL identifier of the repository."
                       },
                       "private": {
                         "type": "boolean",
@@ -626,10 +481,7 @@
                       },
                       "default_branch": {
                         "type": "string",
-                        "description": "The default branch for the repository.",
-                        "examples": [
-                          "main"
-                        ]
+                        "description": "The default branch for the repository."
                       }
                     },
                     "required": [
@@ -648,24 +500,15 @@
                     "properties": {
                       "id": {
                         "description": "Unique identifier of the repository.",
-                        "type": "integer",
-                        "examples": [
-                          42
-                        ]
+                        "type": "integer"
                       },
                       "public_repo": {
                         "description": "Whether an accepted assignment creates a public repository.",
-                        "type": "boolean",
-                        "examples": [
-                          true
-                        ]
+                        "type": "boolean"
                       },
                       "title": {
                         "description": "Assignment title.",
-                        "type": "string",
-                        "examples": [
-                          "Intro to Binaries"
-                        ]
+                        "type": "string"
                       },
                       "type": {
                         "description": "Whether it's a Group Assignment or Individual Assignment.",
@@ -673,111 +516,63 @@
                         "enum": [
                           "individual",
                           "group"
-                        ],
-                        "examples": [
-                          "individual"
                         ]
                       },
                       "invite_link": {
                         "description": "The link that a student can use to accept the assignment.",
-                        "type": "string",
-                        "examples": [
-                          "https://classroom.github.com/a/Lx7jiUgx"
-                        ]
+                        "type": "string"
                       },
                       "invitations_enabled": {
                         "description": "Whether the invitation link is enabled. Visiting an enabled invitation link will accept the assignment.",
-                        "type": "boolean",
-                        "examples": [
-                          true
-                        ]
+                        "type": "boolean"
                       },
                       "slug": {
                         "description": "Sluggified name of the assignment.",
-                        "type": "string",
-                        "examples": [
-                          "intro-to-binaries"
-                        ]
+                        "type": "string"
                       },
                       "students_are_repo_admins": {
                         "description": "Whether students are admins on created repository on accepted assignment.",
-                        "type": "boolean",
-                        "examples": [
-                          true
-                        ]
+                        "type": "boolean"
                       },
                       "feedback_pull_requests_enabled": {
                         "description": "Whether feedback pull request will be created on assignment acceptance.",
-                        "type": "boolean",
-                        "examples": [
-                          true
-                        ]
+                        "type": "boolean"
                       },
                       "max_teams": {
                         "description": "The maximum allowable teams for the assignment.",
-                        "type": [
-                          "integer",
-                          "null"
-                        ],
-                        "examples": [
-                          0
-                        ]
+                        "nullable": true,
+                        "type": "integer"
                       },
                       "max_members": {
                         "description": "The maximum allowable members per team.",
-                        "type": [
-                          "integer",
-                          "null"
-                        ],
-                        "examples": [
-                          0
-                        ]
+                        "nullable": true,
+                        "type": "integer"
                       },
                       "editor": {
                         "description": "The selected editor for the assignment.",
-                        "type": "string",
-                        "examples": [
-                          "codespaces"
-                        ]
+                        "type": "string"
                       },
                       "accepted": {
                         "description": "The number of students that have accepted the assignment.",
-                        "type": "integer",
-                        "examples": [
-                          25
-                        ]
+                        "type": "integer"
                       },
                       "submitted": {
                         "description": "The number of students that have submitted the assignment.",
-                        "type": "integer",
-                        "examples": [
-                          10
-                        ]
+                        "type": "integer"
                       },
                       "passing": {
                         "description": "The number of students that have passed the assignment.",
-                        "type": "integer",
-                        "examples": [
-                          10
-                        ]
+                        "type": "integer"
                       },
                       "language": {
                         "description": "The programming language used in the assignment.",
-                        "type": "string",
-                        "examples": [
-                          "elixir"
-                        ]
+                        "type": "string"
                       },
                       "deadline": {
                         "description": "The time at which the assignment is due.",
-                        "type": [
-                          "string",
-                          "null"
-                        ],
+                        "type": "string",
                         "format": "date-time",
-                        "examples": [
-                          "2011-01-26T19:06:43Z"
-                        ]
+                        "nullable": true
                       },
                       "classroom": {
                         "title": "Simple Classroom",
@@ -786,31 +581,19 @@
                         "properties": {
                           "id": {
                             "description": "Unique identifier of the classroom.",
-                            "type": "integer",
-                            "examples": [
-                              42
-                            ]
+                            "type": "integer"
                           },
                           "name": {
                             "description": "The name of the classroom.",
-                            "type": "string",
-                            "examples": [
-                              "Programming Elixir"
-                            ]
+                            "type": "string"
                           },
                           "archived": {
                             "description": "Returns whether classroom is archived or not.",
-                            "type": "boolean",
-                            "examples": [
-                              false
-                            ]
+                            "type": "boolean"
                           },
                           "url": {
                             "description": "The url of the classroom on GitHub Classroom.",
-                            "type": "string",
-                            "examples": [
-                              "https://classroom.github.com/classrooms/1-programming-elixir"
-                            ]
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -894,7 +677,6 @@
       "descriptionHTML": "<p>Gets grades for a GitHub Classroom assignment. Grades will only be returned if the current user is an administrator of the GitHub Classroom for the assignment.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1054,7 +836,6 @@
       "descriptionHTML": "<p>Lists GitHub Classroom classrooms for the current user. Classrooms will only be returned if the current user is an administrator of one or more GitHub Classrooms.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -1078,31 +859,19 @@
                 "properties": {
                   "id": {
                     "description": "Unique identifier of the classroom.",
-                    "type": "integer",
-                    "examples": [
-                      42
-                    ]
+                    "type": "integer"
                   },
                   "name": {
                     "description": "The name of the classroom.",
-                    "type": "string",
-                    "examples": [
-                      "Programming Elixir"
-                    ]
+                    "type": "string"
                   },
                   "archived": {
                     "description": "Returns whether classroom is archived or not.",
-                    "type": "boolean",
-                    "examples": [
-                      false
-                    ]
+                    "type": "boolean"
                   },
                   "url": {
                     "description": "The url of the classroom on GitHub Classroom.",
-                    "type": "string",
-                    "examples": [
-                      "https://classroom.github.com/classrooms/1-programming-elixir"
-                    ]
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -1154,7 +923,6 @@
       "descriptionHTML": "<p>Gets a GitHub Classroom classroom for the current user. Classroom will only be returned if the current user is an administrator of the GitHub Classroom.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1187,24 +955,15 @@
               "properties": {
                 "id": {
                   "description": "Unique identifier of the classroom.",
-                  "type": "integer",
-                  "examples": [
-                    42
-                  ]
+                  "type": "integer"
                 },
                 "name": {
                   "description": "The name of the classroom.",
-                  "type": "string",
-                  "examples": [
-                    "Programming Elixir"
-                  ]
+                  "type": "string"
                 },
                 "archived": {
                   "description": "Whether classroom is archived.",
-                  "type": "boolean",
-                  "examples": [
-                    false
-                  ]
+                  "type": "boolean"
                 },
                 "organization": {
                   "title": "Organization Simple for Classroom",
@@ -1212,44 +971,24 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "integer",
-                      "examples": [
-                        1
-                      ]
+                      "type": "integer"
                     },
                     "login": {
-                      "type": "string",
-                      "examples": [
-                        "github"
-                      ]
+                      "type": "string"
                     },
                     "node_id": {
-                      "type": "string",
-                      "examples": [
-                        "MDEyOk9yZ2FuaXphdGlvbjE="
-                      ]
+                      "type": "string"
                     },
                     "html_url": {
                       "type": "string",
-                      "format": "uri",
-                      "examples": [
-                        "https://github.com/github"
-                      ]
+                      "format": "uri"
                     },
                     "name": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                      "examples": [
-                        "Github - Code thigns happen here"
-                      ]
+                      "type": "string",
+                      "nullable": true
                     },
                     "avatar_url": {
-                      "type": "string",
-                      "examples": [
-                        "https://github.com/images/error/octocat_happy.gif"
-                      ]
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -1263,10 +1002,7 @@
                 },
                 "url": {
                   "description": "The URL of the classroom on GitHub Classroom.",
-                  "type": "string",
-                  "examples": [
-                    "https://classroom.github.com/classrooms/1-programming-elixir"
-                  ]
+                  "type": "string"
                 }
               },
               "required": [
@@ -1340,7 +1076,6 @@
       "descriptionHTML": "<p>Lists GitHub Classroom assignments for a classroom. Assignments will only be returned if the current user is an administrator of the GitHub Classroom.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1386,24 +1121,15 @@
                 "properties": {
                   "id": {
                     "description": "Unique identifier of the repository.",
-                    "type": "integer",
-                    "examples": [
-                      42
-                    ]
+                    "type": "integer"
                   },
                   "public_repo": {
                     "description": "Whether an accepted assignment creates a public repository.",
-                    "type": "boolean",
-                    "examples": [
-                      true
-                    ]
+                    "type": "boolean"
                   },
                   "title": {
                     "description": "Assignment title.",
-                    "type": "string",
-                    "examples": [
-                      "Intro to Binaries"
-                    ]
+                    "type": "string"
                   },
                   "type": {
                     "description": "Whether it's a Group Assignment or Individual Assignment.",
@@ -1411,111 +1137,63 @@
                     "enum": [
                       "individual",
                       "group"
-                    ],
-                    "examples": [
-                      "individual"
                     ]
                   },
                   "invite_link": {
                     "description": "The link that a student can use to accept the assignment.",
-                    "type": "string",
-                    "examples": [
-                      "https://classroom.github.com/a/Lx7jiUgx"
-                    ]
+                    "type": "string"
                   },
                   "invitations_enabled": {
                     "description": "Whether the invitation link is enabled. Visiting an enabled invitation link will accept the assignment.",
-                    "type": "boolean",
-                    "examples": [
-                      true
-                    ]
+                    "type": "boolean"
                   },
                   "slug": {
                     "description": "Sluggified name of the assignment.",
-                    "type": "string",
-                    "examples": [
-                      "intro-to-binaries"
-                    ]
+                    "type": "string"
                   },
                   "students_are_repo_admins": {
                     "description": "Whether students are admins on created repository on accepted assignment.",
-                    "type": "boolean",
-                    "examples": [
-                      true
-                    ]
+                    "type": "boolean"
                   },
                   "feedback_pull_requests_enabled": {
                     "description": "Whether feedback pull request will be created on assignment acceptance.",
-                    "type": "boolean",
-                    "examples": [
-                      true
-                    ]
+                    "type": "boolean"
                   },
                   "max_teams": {
                     "description": "The maximum allowable teams for the assignment.",
-                    "type": [
-                      "integer",
-                      "null"
-                    ],
-                    "examples": [
-                      0
-                    ]
+                    "nullable": true,
+                    "type": "integer"
                   },
                   "max_members": {
                     "description": "The maximum allowable members per team.",
-                    "type": [
-                      "integer",
-                      "null"
-                    ],
-                    "examples": [
-                      0
-                    ]
+                    "nullable": true,
+                    "type": "integer"
                   },
                   "editor": {
                     "description": "The selected editor for the assignment.",
-                    "type": "string",
-                    "examples": [
-                      "codespaces"
-                    ]
+                    "type": "string"
                   },
                   "accepted": {
                     "description": "The number of students that have accepted the assignment.",
-                    "type": "integer",
-                    "examples": [
-                      25
-                    ]
+                    "type": "integer"
                   },
                   "submitted": {
                     "description": "The number of students that have submitted the assignment.",
-                    "type": "integer",
-                    "examples": [
-                      10
-                    ]
+                    "type": "integer"
                   },
                   "passing": {
                     "description": "The number of students that have passed the assignment.",
-                    "type": "integer",
-                    "examples": [
-                      10
-                    ]
+                    "type": "integer"
                   },
                   "language": {
                     "description": "The programming language used in the assignment.",
-                    "type": "string",
-                    "examples": [
-                      "elixir"
-                    ]
+                    "type": "string"
                   },
                   "deadline": {
                     "description": "The time at which the assignment is due.",
-                    "type": [
-                      "string",
-                      "null"
-                    ],
+                    "type": "string",
                     "format": "date-time",
-                    "examples": [
-                      "2011-01-26T19:06:43Z"
-                    ]
+                    "nullable": true
                   },
                   "classroom": {
                     "title": "Simple Classroom",
@@ -1524,31 +1202,19 @@
                     "properties": {
                       "id": {
                         "description": "Unique identifier of the classroom.",
-                        "type": "integer",
-                        "examples": [
-                          42
-                        ]
+                        "type": "integer"
                       },
                       "name": {
                         "description": "The name of the classroom.",
-                        "type": "string",
-                        "examples": [
-                          "Programming Elixir"
-                        ]
+                        "type": "string"
                       },
                       "archived": {
                         "description": "Returns whether classroom is archived or not.",
-                        "type": "boolean",
-                        "examples": [
-                          false
-                        ]
+                        "type": "boolean"
                       },
                       "url": {
                         "description": "The url of the classroom on GitHub Classroom.",
-                        "type": "string",
-                        "examples": [
-                          "https://classroom.github.com/classrooms/1-programming-elixir"
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [

@@ -40,7 +40,6 @@
       "descriptionHTML": "<p>List all teams in the enterprise for the authenticated user</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -92,42 +91,23 @@
                   },
                   "sync_to_organizations": {
                     "type": "string",
-                    "description": "Retired: this field will not be returned with GHEC enterprise teams.",
-                    "examples": [
-                      "disabled | all"
-                    ]
+                    "description": "Retired: this field will not be returned with GHEC enterprise teams."
                   },
                   "organization_selection_type": {
-                    "type": "string",
-                    "examples": [
-                      "disabled | selected | all"
-                    ]
+                    "type": "string"
                   },
                   "group_id": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "examples": [
-                      "62ab9291-fae2-468e-974b-7e45096d5021"
-                    ]
+                    "nullable": true,
+                    "type": "string"
                   },
                   "group_name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "description": "Retired: this field will not be returned with GHEC enterprise teams.",
-                    "examples": [
-                      "Justice League"
-                    ]
+                    "nullable": true,
+                    "type": "string",
+                    "description": "Retired: this field will not be returned with GHEC enterprise teams."
                   },
                   "html_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/enterprises/dc/teams/justice-league"
-                    ]
+                    "format": "uri"
                   },
                   "members_url": {
                     "type": "string"
@@ -202,20 +182,17 @@
         {
           "type": "string",
           "name": "name",
-          "in": "body",
           "description": "<p>The name of the team.</p>",
           "isRequired": true
         },
         {
           "type": "string or null",
           "name": "description",
-          "in": "body",
           "description": "<p>A description of the team.</p>"
         },
         {
           "type": "string",
           "name": "sync_to_organizations",
-          "in": "body",
           "description": "<p>Retired: this field is no longer supported.\nWhether the enterprise team should be reflected in each organization.\nThis value cannot be set.</p>",
           "enum": [
             "all",
@@ -226,7 +203,6 @@
         {
           "type": "string",
           "name": "organization_selection_type",
-          "in": "body",
           "description": "<p>Specifies which organizations in the enterprise should have access to this team. Can be one of <code>disabled</code>, <code>selected</code>, or <code>all</code>.\n<code>disabled</code>: The team is not assigned to any organizations. This is the default when you create a new team.\n<code>selected</code>: The team is assigned to specific organizations. You can then use the <a href=\"https://docs.github.com/rest/enterprise-teams/enterprise-team-organizations#add-organization-assignments\">add organization assignments API</a> endpoint.\n<code>all</code>: The team is assigned to all current and future organizations in the enterprise.</p>",
           "enum": [
             "disabled",
@@ -238,14 +214,12 @@
         {
           "type": "string or null",
           "name": "group_id",
-          "in": "body",
           "description": "<p>The ID of the IdP group to assign team membership with. You can get this value from the <a href=\"https://docs.github.com/rest/scim#list-provisioned-scim-groups-for-an-enterprise\">REST API endpoints for SCIM</a>.</p>"
         }
       ],
       "descriptionHTML": "<p>To create an enterprise team, the authenticated user must be an owner of the enterprise.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -299,42 +273,23 @@
                 },
                 "sync_to_organizations": {
                   "type": "string",
-                  "description": "Retired: this field will not be returned with GHEC enterprise teams.",
-                  "examples": [
-                    "disabled | all"
-                  ]
+                  "description": "Retired: this field will not be returned with GHEC enterprise teams."
                 },
                 "organization_selection_type": {
-                  "type": "string",
-                  "examples": [
-                    "disabled | selected | all"
-                  ]
+                  "type": "string"
                 },
                 "group_id": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "examples": [
-                    "62ab9291-fae2-468e-974b-7e45096d5021"
-                  ]
+                  "nullable": true,
+                  "type": "string"
                 },
                 "group_name": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "description": "Retired: this field will not be returned with GHEC enterprise teams.",
-                  "examples": [
-                    "Justice League"
-                  ]
+                  "nullable": true,
+                  "type": "string",
+                  "description": "Retired: this field will not be returned with GHEC enterprise teams."
                 },
                 "html_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://github.com/enterprises/dc/teams/justice-league"
-                  ]
+                  "format": "uri"
                 },
                 "members_url": {
                   "type": "string"
@@ -413,7 +368,6 @@
       "descriptionHTML": "<p>Gets a team using the team's slug. To create the slug, GitHub replaces special characters in the name string, changes all words to lowercase, and replaces spaces with a <code>-</code> separator and adds the \"ent:\" prefix. For example, \"My TEam Näme\" would become <code>ent:my-team-name</code>.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -462,42 +416,23 @@
                 },
                 "sync_to_organizations": {
                   "type": "string",
-                  "description": "Retired: this field will not be returned with GHEC enterprise teams.",
-                  "examples": [
-                    "disabled | all"
-                  ]
+                  "description": "Retired: this field will not be returned with GHEC enterprise teams."
                 },
                 "organization_selection_type": {
-                  "type": "string",
-                  "examples": [
-                    "disabled | selected | all"
-                  ]
+                  "type": "string"
                 },
                 "group_id": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "examples": [
-                    "62ab9291-fae2-468e-974b-7e45096d5021"
-                  ]
+                  "nullable": true,
+                  "type": "string"
                 },
                 "group_name": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "description": "Retired: this field will not be returned with GHEC enterprise teams.",
-                  "examples": [
-                    "Justice League"
-                  ]
+                  "nullable": true,
+                  "type": "string",
+                  "description": "Retired: this field will not be returned with GHEC enterprise teams."
                 },
                 "html_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://github.com/enterprises/dc/teams/justice-league"
-                  ]
+                  "format": "uri"
                 },
                 "members_url": {
                   "type": "string"
@@ -580,19 +515,16 @@
         {
           "type": "string or null",
           "name": "name",
-          "in": "body",
           "description": "<p>A new name for the team.</p>"
         },
         {
           "type": "string or null",
           "name": "description",
-          "in": "body",
           "description": "<p>A new description for the team.</p>"
         },
         {
           "type": "string",
           "name": "sync_to_organizations",
-          "in": "body",
           "description": "<p>Retired: this field is no longer supported.\nWhether the enterprise team should be reflected in each organization.\nThis value cannot be changed.</p>",
           "enum": [
             "all",
@@ -603,7 +535,6 @@
         {
           "type": "string",
           "name": "organization_selection_type",
-          "in": "body",
           "description": "<p>Specifies which organizations in the enterprise should have access to this team. Can be one of <code>disabled</code>, <code>selected</code>, or <code>all</code>.\n<code>disabled</code>: The team is not assigned to any organizations. This is the default when you create a new team.\n<code>selected</code>: The team is assigned to specific organizations. You can then use the <a href=\"https://docs.github.com/rest/enterprise-teams/enterprise-team-organizations#add-organization-assignments\">add organization assignments API</a>.\n<code>all</code>: The team is assigned to all current and future organizations in the enterprise.</p>",
           "enum": [
             "disabled",
@@ -615,14 +546,12 @@
         {
           "type": "string or null",
           "name": "group_id",
-          "in": "body",
           "description": "<p>The ID of the IdP group to assign team membership with. The new IdP group will replace the existing one, or replace existing direct members if the team isn't currently linked to an IdP group.</p>"
         }
       ],
       "descriptionHTML": "<p>To edit a team, the authenticated user must be an enterprise owner.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -677,42 +606,23 @@
                 },
                 "sync_to_organizations": {
                   "type": "string",
-                  "description": "Retired: this field will not be returned with GHEC enterprise teams.",
-                  "examples": [
-                    "disabled | all"
-                  ]
+                  "description": "Retired: this field will not be returned with GHEC enterprise teams."
                 },
                 "organization_selection_type": {
-                  "type": "string",
-                  "examples": [
-                    "disabled | selected | all"
-                  ]
+                  "type": "string"
                 },
                 "group_id": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "examples": [
-                    "62ab9291-fae2-468e-974b-7e45096d5021"
-                  ]
+                  "nullable": true,
+                  "type": "string"
                 },
                 "group_name": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "description": "Retired: this field will not be returned with GHEC enterprise teams.",
-                  "examples": [
-                    "Justice League"
-                  ]
+                  "nullable": true,
+                  "type": "string",
+                  "description": "Retired: this field will not be returned with GHEC enterprise teams."
                 },
                 "html_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://github.com/enterprises/dc/teams/justice-league"
-                  ]
+                  "format": "uri"
                 },
                 "members_url": {
                   "type": "string"
@@ -795,7 +705,6 @@
       "descriptionHTML": "<p>To delete an enterprise team, the authenticated user must be an enterprise owner.</p>\n<p>If you are an enterprise owner, deleting an enterprise team will delete all of its IdP mappings as well.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -884,7 +793,6 @@
       "descriptionHTML": "<p>Lists all team members in an enterprise team.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -927,145 +835,82 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "nullable": true,
+                    "type": "string"
                   },
                   "email": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "nullable": true,
+                    "type": "string"
                   },
                   "login": {
-                    "type": "string",
-                    "examples": [
-                      "octocat"
-                    ]
+                    "type": "string"
                   },
                   "id": {
                     "type": "integer",
-                    "format": "int64",
-                    "examples": [
-                      1
-                    ]
+                    "format": "int64"
                   },
                   "node_id": {
-                    "type": "string",
-                    "examples": [
-                      "MDQ6VXNlcjE="
-                    ]
+                    "type": "string"
                   },
                   "avatar_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/images/error/octocat_happy.gif"
-                    ]
+                    "format": "uri"
                   },
                   "gravatar_id": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "examples": [
-                      "41d064eb2195891e12d0413f63227ea7"
-                    ]
+                    "type": "string",
+                    "nullable": true
                   },
                   "url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat"
-                    ]
+                    "format": "uri"
                   },
                   "html_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/octocat"
-                    ]
+                    "format": "uri"
                   },
                   "followers_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/followers"
-                    ]
+                    "format": "uri"
                   },
                   "following_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/following{/other_user}"
-                    ]
+                    "type": "string"
                   },
                   "gists_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/gists{/gist_id}"
-                    ]
+                    "type": "string"
                   },
                   "starred_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                    ]
+                    "type": "string"
                   },
                   "subscriptions_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/subscriptions"
-                    ]
+                    "format": "uri"
                   },
                   "organizations_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/orgs"
-                    ]
+                    "format": "uri"
                   },
                   "repos_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/repos"
-                    ]
+                    "format": "uri"
                   },
                   "events_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/events{/privacy}"
-                    ]
+                    "type": "string"
                   },
                   "received_events_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/received_events"
-                    ]
+                    "format": "uri"
                   },
                   "type": {
-                    "type": "string",
-                    "examples": [
-                      "User"
-                    ]
+                    "type": "string"
                   },
                   "site_admin": {
                     "type": "boolean"
                   },
                   "starred_at": {
-                    "type": "string",
-                    "examples": [
-                      "\"2020-07-09T00:17:55Z\""
-                    ]
+                    "type": "string"
                   },
                   "user_view_type": {
-                    "type": "string",
-                    "examples": [
-                      "public"
-                    ]
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -1143,7 +988,6 @@
         {
           "type": "array of strings",
           "name": "usernames",
-          "in": "body",
           "description": "<p>The GitHub user handles to add to the team.</p>",
           "isRequired": true
         }
@@ -1151,7 +995,6 @@
       "descriptionHTML": "<p>Add multiple team members to an enterprise team.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -1201,145 +1044,82 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "nullable": true,
+                    "type": "string"
                   },
                   "email": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "nullable": true,
+                    "type": "string"
                   },
                   "login": {
-                    "type": "string",
-                    "examples": [
-                      "octocat"
-                    ]
+                    "type": "string"
                   },
                   "id": {
                     "type": "integer",
-                    "format": "int64",
-                    "examples": [
-                      1
-                    ]
+                    "format": "int64"
                   },
                   "node_id": {
-                    "type": "string",
-                    "examples": [
-                      "MDQ6VXNlcjE="
-                    ]
+                    "type": "string"
                   },
                   "avatar_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/images/error/octocat_happy.gif"
-                    ]
+                    "format": "uri"
                   },
                   "gravatar_id": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "examples": [
-                      "41d064eb2195891e12d0413f63227ea7"
-                    ]
+                    "type": "string",
+                    "nullable": true
                   },
                   "url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat"
-                    ]
+                    "format": "uri"
                   },
                   "html_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/octocat"
-                    ]
+                    "format": "uri"
                   },
                   "followers_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/followers"
-                    ]
+                    "format": "uri"
                   },
                   "following_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/following{/other_user}"
-                    ]
+                    "type": "string"
                   },
                   "gists_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/gists{/gist_id}"
-                    ]
+                    "type": "string"
                   },
                   "starred_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                    ]
+                    "type": "string"
                   },
                   "subscriptions_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/subscriptions"
-                    ]
+                    "format": "uri"
                   },
                   "organizations_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/orgs"
-                    ]
+                    "format": "uri"
                   },
                   "repos_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/repos"
-                    ]
+                    "format": "uri"
                   },
                   "events_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/events{/privacy}"
-                    ]
+                    "type": "string"
                   },
                   "received_events_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/received_events"
-                    ]
+                    "format": "uri"
                   },
                   "type": {
-                    "type": "string",
-                    "examples": [
-                      "User"
-                    ]
+                    "type": "string"
                   },
                   "site_admin": {
                     "type": "boolean"
                   },
                   "starred_at": {
-                    "type": "string",
-                    "examples": [
-                      "\"2020-07-09T00:17:55Z\""
-                    ]
+                    "type": "string"
                   },
                   "user_view_type": {
-                    "type": "string",
-                    "examples": [
-                      "public"
-                    ]
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -1417,7 +1197,6 @@
         {
           "type": "array of strings",
           "name": "usernames",
-          "in": "body",
           "description": "<p>The GitHub user handles to be removed from the team.</p>",
           "isRequired": true
         }
@@ -1425,7 +1204,6 @@
       "descriptionHTML": "<p>Remove multiple team members from an enterprise team.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -1475,145 +1253,82 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "nullable": true,
+                    "type": "string"
                   },
                   "email": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "nullable": true,
+                    "type": "string"
                   },
                   "login": {
-                    "type": "string",
-                    "examples": [
-                      "octocat"
-                    ]
+                    "type": "string"
                   },
                   "id": {
                     "type": "integer",
-                    "format": "int64",
-                    "examples": [
-                      1
-                    ]
+                    "format": "int64"
                   },
                   "node_id": {
-                    "type": "string",
-                    "examples": [
-                      "MDQ6VXNlcjE="
-                    ]
+                    "type": "string"
                   },
                   "avatar_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/images/error/octocat_happy.gif"
-                    ]
+                    "format": "uri"
                   },
                   "gravatar_id": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "examples": [
-                      "41d064eb2195891e12d0413f63227ea7"
-                    ]
+                    "type": "string",
+                    "nullable": true
                   },
                   "url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat"
-                    ]
+                    "format": "uri"
                   },
                   "html_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://github.com/octocat"
-                    ]
+                    "format": "uri"
                   },
                   "followers_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/followers"
-                    ]
+                    "format": "uri"
                   },
                   "following_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/following{/other_user}"
-                    ]
+                    "type": "string"
                   },
                   "gists_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/gists{/gist_id}"
-                    ]
+                    "type": "string"
                   },
                   "starred_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                    ]
+                    "type": "string"
                   },
                   "subscriptions_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/subscriptions"
-                    ]
+                    "format": "uri"
                   },
                   "organizations_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/orgs"
-                    ]
+                    "format": "uri"
                   },
                   "repos_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/repos"
-                    ]
+                    "format": "uri"
                   },
                   "events_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/users/octocat/events{/privacy}"
-                    ]
+                    "type": "string"
                   },
                   "received_events_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/users/octocat/received_events"
-                    ]
+                    "format": "uri"
                   },
                   "type": {
-                    "type": "string",
-                    "examples": [
-                      "User"
-                    ]
+                    "type": "string"
                   },
                   "site_admin": {
                     "type": "boolean"
                   },
                   "starred_at": {
-                    "type": "string",
-                    "examples": [
-                      "\"2020-07-09T00:17:55Z\""
-                    ]
+                    "type": "string"
                   },
                   "user_view_type": {
-                    "type": "string",
-                    "examples": [
-                      "public"
-                    ]
+                    "type": "string"
                   }
                 },
                 "required": [
@@ -1700,7 +1415,6 @@
       "descriptionHTML": "<p>Returns whether the user is a member of the enterprise team.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1740,145 +1454,82 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "nullable": true,
+                  "type": "string"
                 },
                 "email": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "nullable": true,
+                  "type": "string"
                 },
                 "login": {
-                  "type": "string",
-                  "examples": [
-                    "octocat"
-                  ]
+                  "type": "string"
                 },
                 "id": {
                   "type": "integer",
-                  "format": "int64",
-                  "examples": [
-                    1
-                  ]
+                  "format": "int64"
                 },
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDQ6VXNlcjE="
-                  ]
+                  "type": "string"
                 },
                 "avatar_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://github.com/images/error/octocat_happy.gif"
-                  ]
+                  "format": "uri"
                 },
                 "gravatar_id": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "examples": [
-                    "41d064eb2195891e12d0413f63227ea7"
-                  ]
+                  "type": "string",
+                  "nullable": true
                 },
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/users/octocat"
-                  ]
+                  "format": "uri"
                 },
                 "html_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://github.com/octocat"
-                  ]
+                  "format": "uri"
                 },
                 "followers_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/users/octocat/followers"
-                  ]
+                  "format": "uri"
                 },
                 "following_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/users/octocat/following{/other_user}"
-                  ]
+                  "type": "string"
                 },
                 "gists_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/users/octocat/gists{/gist_id}"
-                  ]
+                  "type": "string"
                 },
                 "starred_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                  ]
+                  "type": "string"
                 },
                 "subscriptions_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/users/octocat/subscriptions"
-                  ]
+                  "format": "uri"
                 },
                 "organizations_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/users/octocat/orgs"
-                  ]
+                  "format": "uri"
                 },
                 "repos_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/users/octocat/repos"
-                  ]
+                  "format": "uri"
                 },
                 "events_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/users/octocat/events{/privacy}"
-                  ]
+                  "type": "string"
                 },
                 "received_events_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/users/octocat/received_events"
-                  ]
+                  "format": "uri"
                 },
                 "type": {
-                  "type": "string",
-                  "examples": [
-                    "User"
-                  ]
+                  "type": "string"
                 },
                 "site_admin": {
                   "type": "boolean"
                 },
                 "starred_at": {
-                  "type": "string",
-                  "examples": [
-                    "\"2020-07-09T00:17:55Z\""
-                  ]
+                  "type": "string"
                 },
                 "user_view_type": {
-                  "type": "string",
-                  "examples": [
-                    "public"
-                  ]
+                  "type": "string"
                 }
               },
               "required": [
@@ -1964,7 +1615,6 @@
       "descriptionHTML": "<p>Add a team member to an enterprise team.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2004,145 +1654,82 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "nullable": true,
+                  "type": "string"
                 },
                 "email": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
+                  "nullable": true,
+                  "type": "string"
                 },
                 "login": {
-                  "type": "string",
-                  "examples": [
-                    "octocat"
-                  ]
+                  "type": "string"
                 },
                 "id": {
                   "type": "integer",
-                  "format": "int64",
-                  "examples": [
-                    1
-                  ]
+                  "format": "int64"
                 },
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDQ6VXNlcjE="
-                  ]
+                  "type": "string"
                 },
                 "avatar_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://github.com/images/error/octocat_happy.gif"
-                  ]
+                  "format": "uri"
                 },
                 "gravatar_id": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "examples": [
-                    "41d064eb2195891e12d0413f63227ea7"
-                  ]
+                  "type": "string",
+                  "nullable": true
                 },
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/users/octocat"
-                  ]
+                  "format": "uri"
                 },
                 "html_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://github.com/octocat"
-                  ]
+                  "format": "uri"
                 },
                 "followers_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/users/octocat/followers"
-                  ]
+                  "format": "uri"
                 },
                 "following_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/users/octocat/following{/other_user}"
-                  ]
+                  "type": "string"
                 },
                 "gists_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/users/octocat/gists{/gist_id}"
-                  ]
+                  "type": "string"
                 },
                 "starred_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                  ]
+                  "type": "string"
                 },
                 "subscriptions_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/users/octocat/subscriptions"
-                  ]
+                  "format": "uri"
                 },
                 "organizations_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/users/octocat/orgs"
-                  ]
+                  "format": "uri"
                 },
                 "repos_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/users/octocat/repos"
-                  ]
+                  "format": "uri"
                 },
                 "events_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/users/octocat/events{/privacy}"
-                  ]
+                  "type": "string"
                 },
                 "received_events_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/users/octocat/received_events"
-                  ]
+                  "format": "uri"
                 },
                 "type": {
-                  "type": "string",
-                  "examples": [
-                    "User"
-                  ]
+                  "type": "string"
                 },
                 "site_admin": {
                   "type": "boolean"
                 },
                 "starred_at": {
-                  "type": "string",
-                  "examples": [
-                    "\"2020-07-09T00:17:55Z\""
-                  ]
+                  "type": "string"
                 },
                 "user_view_type": {
-                  "type": "string",
-                  "examples": [
-                    "public"
-                  ]
+                  "type": "string"
                 }
               },
               "required": [
@@ -2228,7 +1815,6 @@
       "descriptionHTML": "<p>Remove membership of a specific user from a particular team in an enterprise.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2318,7 +1904,6 @@
       "descriptionHTML": "<p>Get all organizations assigned to an enterprise team</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2353,82 +1938,44 @@
                 "type": "object",
                 "properties": {
                   "login": {
-                    "type": "string",
-                    "examples": [
-                      "github"
-                    ]
+                    "type": "string"
                   },
                   "id": {
-                    "type": "integer",
-                    "examples": [
-                      1
-                    ]
+                    "type": "integer"
                   },
                   "node_id": {
-                    "type": "string",
-                    "examples": [
-                      "MDEyOk9yZ2FuaXphdGlvbjE="
-                    ]
+                    "type": "string"
                   },
                   "url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/orgs/github"
-                    ]
+                    "format": "uri"
                   },
                   "repos_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/orgs/github/repos"
-                    ]
+                    "format": "uri"
                   },
                   "events_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/orgs/github/events"
-                    ]
+                    "format": "uri"
                   },
                   "hooks_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/orgs/github/hooks"
-                    ]
+                    "type": "string"
                   },
                   "issues_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/orgs/github/issues"
-                    ]
+                    "type": "string"
                   },
                   "members_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/orgs/github/members{/member}"
-                    ]
+                    "type": "string"
                   },
                   "public_members_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/orgs/github/public_members{/member}"
-                    ]
+                    "type": "string"
                   },
                   "avatar_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://github.com/images/error/octocat_happy.gif"
-                    ]
+                    "type": "string"
                   },
                   "description": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "examples": [
-                      "A great organization"
-                    ]
+                    "type": "string",
+                    "nullable": true
                   }
                 },
                 "required": [
@@ -2500,7 +2047,6 @@
         {
           "type": "array of strings",
           "name": "organization_slugs",
-          "in": "body",
           "description": "<p>Organization slug to assign the team to.</p>",
           "isRequired": true
         }
@@ -2508,7 +2054,6 @@
       "descriptionHTML": "<p>Assign an enterprise team to multiple organizations.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -2551,82 +2096,44 @@
                 "type": "object",
                 "properties": {
                   "login": {
-                    "type": "string",
-                    "examples": [
-                      "github"
-                    ]
+                    "type": "string"
                   },
                   "id": {
-                    "type": "integer",
-                    "examples": [
-                      1
-                    ]
+                    "type": "integer"
                   },
                   "node_id": {
-                    "type": "string",
-                    "examples": [
-                      "MDEyOk9yZ2FuaXphdGlvbjE="
-                    ]
+                    "type": "string"
                   },
                   "url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/orgs/github"
-                    ]
+                    "format": "uri"
                   },
                   "repos_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/orgs/github/repos"
-                    ]
+                    "format": "uri"
                   },
                   "events_url": {
                     "type": "string",
-                    "format": "uri",
-                    "examples": [
-                      "https://api.github.com/orgs/github/events"
-                    ]
+                    "format": "uri"
                   },
                   "hooks_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/orgs/github/hooks"
-                    ]
+                    "type": "string"
                   },
                   "issues_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/orgs/github/issues"
-                    ]
+                    "type": "string"
                   },
                   "members_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/orgs/github/members{/member}"
-                    ]
+                    "type": "string"
                   },
                   "public_members_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://api.github.com/orgs/github/public_members{/member}"
-                    ]
+                    "type": "string"
                   },
                   "avatar_url": {
-                    "type": "string",
-                    "examples": [
-                      "https://github.com/images/error/octocat_happy.gif"
-                    ]
+                    "type": "string"
                   },
                   "description": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "examples": [
-                      "A great organization"
-                    ]
+                    "type": "string",
+                    "nullable": true
                   }
                 },
                 "required": [
@@ -2698,7 +2205,6 @@
         {
           "type": "array of strings",
           "name": "organization_slugs",
-          "in": "body",
           "description": "<p>Organization slug to unassign the team from.</p>",
           "isRequired": true
         }
@@ -2706,7 +2212,6 @@
       "descriptionHTML": "<p>Unassign an enterprise team from multiple organizations.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -2786,7 +2291,6 @@
       "descriptionHTML": "<p>Check if an enterprise team is assigned to an organization</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2820,82 +2324,44 @@
               "type": "object",
               "properties": {
                 "login": {
-                  "type": "string",
-                  "examples": [
-                    "github"
-                  ]
+                  "type": "string"
                 },
                 "id": {
-                  "type": "integer",
-                  "examples": [
-                    1
-                  ]
+                  "type": "integer"
                 },
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDEyOk9yZ2FuaXphdGlvbjE="
-                  ]
+                  "type": "string"
                 },
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/orgs/github"
-                  ]
+                  "format": "uri"
                 },
                 "repos_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/orgs/github/repos"
-                  ]
+                  "format": "uri"
                 },
                 "events_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/orgs/github/events"
-                  ]
+                  "format": "uri"
                 },
                 "hooks_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/orgs/github/hooks"
-                  ]
+                  "type": "string"
                 },
                 "issues_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/orgs/github/issues"
-                  ]
+                  "type": "string"
                 },
                 "members_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/orgs/github/members{/member}"
-                  ]
+                  "type": "string"
                 },
                 "public_members_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/orgs/github/public_members{/member}"
-                  ]
+                  "type": "string"
                 },
                 "avatar_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://github.com/images/error/octocat_happy.gif"
-                  ]
+                  "type": "string"
                 },
                 "description": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "examples": [
-                    "A great organization"
-                  ]
+                  "type": "string",
+                  "nullable": true
                 }
               },
               "required": [
@@ -2979,7 +2445,6 @@
       "descriptionHTML": "<p>Assign an enterprise team to an organization.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -3013,82 +2478,44 @@
               "type": "object",
               "properties": {
                 "login": {
-                  "type": "string",
-                  "examples": [
-                    "github"
-                  ]
+                  "type": "string"
                 },
                 "id": {
-                  "type": "integer",
-                  "examples": [
-                    1
-                  ]
+                  "type": "integer"
                 },
                 "node_id": {
-                  "type": "string",
-                  "examples": [
-                    "MDEyOk9yZ2FuaXphdGlvbjE="
-                  ]
+                  "type": "string"
                 },
                 "url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/orgs/github"
-                  ]
+                  "format": "uri"
                 },
                 "repos_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/orgs/github/repos"
-                  ]
+                  "format": "uri"
                 },
                 "events_url": {
                   "type": "string",
-                  "format": "uri",
-                  "examples": [
-                    "https://api.github.com/orgs/github/events"
-                  ]
+                  "format": "uri"
                 },
                 "hooks_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/orgs/github/hooks"
-                  ]
+                  "type": "string"
                 },
                 "issues_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/orgs/github/issues"
-                  ]
+                  "type": "string"
                 },
                 "members_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/orgs/github/members{/member}"
-                  ]
+                  "type": "string"
                 },
                 "public_members_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://api.github.com/orgs/github/public_members{/member}"
-                  ]
+                  "type": "string"
                 },
                 "avatar_url": {
-                  "type": "string",
-                  "examples": [
-                    "https://github.com/images/error/octocat_happy.gif"
-                  ]
+                  "type": "string"
                 },
                 "description": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "examples": [
-                    "A great organization"
-                  ]
+                  "type": "string",
+                  "nullable": true
                 }
               },
               "required": [
@@ -3168,7 +2595,6 @@
       "descriptionHTML": "<p>Unassign an enterprise team from an organization.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",

@@ -22,7 +22,6 @@
       "descriptionHTML": "<p>Shows which type of GitHub user can interact with this organization and when the restriction expires. If there is no restrictions, you will see an empty response.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -53,23 +52,14 @@
                         "existing_users",
                         "contributors_only",
                         "collaborators_only"
-                      ],
-                      "examples": [
-                        "collaborators_only"
                       ]
                     },
                     "origin": {
-                      "type": "string",
-                      "examples": [
-                        "repository"
-                      ]
+                      "type": "string"
                     },
                     "expires_at": {
                       "type": "string",
-                      "format": "date-time",
-                      "examples": [
-                        "2018-08-17T04:18:39Z"
-                      ]
+                      "format": "date-time"
                     }
                   },
                   "required": [
@@ -128,7 +118,6 @@
         {
           "type": "string",
           "name": "limit",
-          "in": "body",
           "description": "<p>The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.</p>",
           "isRequired": true,
           "enum": [
@@ -140,7 +129,6 @@
         {
           "type": "string",
           "name": "expiry",
-          "in": "body",
           "description": "<p>The duration of the interaction restriction. Default: <code>one_day</code>.</p>",
           "enum": [
             "one_day",
@@ -154,7 +142,6 @@
       "descriptionHTML": "<p>Temporarily restricts interactions to a certain type of GitHub user in any public repository in the given organization. You must be an organization owner to set these restrictions. Setting the interaction limit at the organization level will overwrite any interaction limits that are set for individual repositories owned by the organization.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -188,23 +175,14 @@
                     "existing_users",
                     "contributors_only",
                     "collaborators_only"
-                  ],
-                  "examples": [
-                    "collaborators_only"
                   ]
                 },
                 "origin": {
-                  "type": "string",
-                  "examples": [
-                    "repository"
-                  ]
+                  "type": "string"
                 },
                 "expires_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2018-08-17T04:18:39Z"
-                  ]
+                  "format": "date-time"
                 }
               },
               "required": [
@@ -260,7 +238,6 @@
       "descriptionHTML": "<p>Removes all interaction restrictions from public repositories in the given organization. You must be an organization owner to remove restrictions.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -325,7 +302,6 @@
       "descriptionHTML": "<p>Shows which type of GitHub user can interact with this repository and when the restriction expires. If there are no restrictions, you will see an empty response.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -357,23 +333,14 @@
                         "existing_users",
                         "contributors_only",
                         "collaborators_only"
-                      ],
-                      "examples": [
-                        "collaborators_only"
                       ]
                     },
                     "origin": {
-                      "type": "string",
-                      "examples": [
-                        "repository"
-                      ]
+                      "type": "string"
                     },
                     "expires_at": {
                       "type": "string",
-                      "format": "date-time",
-                      "examples": [
-                        "2018-08-17T04:18:39Z"
-                      ]
+                      "format": "date-time"
                     }
                   },
                   "required": [
@@ -441,7 +408,6 @@
         {
           "type": "string",
           "name": "limit",
-          "in": "body",
           "description": "<p>The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.</p>",
           "isRequired": true,
           "enum": [
@@ -453,7 +419,6 @@
         {
           "type": "string",
           "name": "expiry",
-          "in": "body",
           "description": "<p>The duration of the interaction restriction. Default: <code>one_day</code>.</p>",
           "enum": [
             "one_day",
@@ -467,7 +432,6 @@
       "descriptionHTML": "<p>Temporarily restricts interactions to a certain type of GitHub user within the given repository. You must have owner or admin access to set these restrictions. If an interaction limit is set for the user or organization that owns this repository, you will receive a <code>409 Conflict</code> response and will not be able to use this endpoint to change the interaction limit for a single repository.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example request body",
@@ -502,23 +466,14 @@
                     "existing_users",
                     "contributors_only",
                     "collaborators_only"
-                  ],
-                  "examples": [
-                    "collaborators_only"
                   ]
                 },
                 "origin": {
-                  "type": "string",
-                  "examples": [
-                    "repository"
-                  ]
+                  "type": "string"
                 },
                 "expires_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2018-08-17T04:18:39Z"
-                  ]
+                  "format": "date-time"
                 }
               },
               "required": [
@@ -583,7 +538,6 @@
       "descriptionHTML": "<p>Removes all interaction restrictions from the given repository. You must have owner or admin access to remove restrictions. If the interaction limit is set for the user or organization that owns this repository, you will receive a <code>409 Conflict</code> response and will not be able to use this endpoint to change the interaction limit for a single repository.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -634,7 +588,6 @@
       "descriptionHTML": "<p>Shows which type of GitHub user can interact with your public repositories and when the restriction expires.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -662,23 +615,14 @@
                         "existing_users",
                         "contributors_only",
                         "collaborators_only"
-                      ],
-                      "examples": [
-                        "collaborators_only"
                       ]
                     },
                     "origin": {
-                      "type": "string",
-                      "examples": [
-                        "repository"
-                      ]
+                      "type": "string"
                     },
                     "expires_at": {
                       "type": "string",
-                      "format": "date-time",
-                      "examples": [
-                        "2018-08-17T04:18:39Z"
-                      ]
+                      "format": "date-time"
                     }
                   },
                   "required": [
@@ -731,7 +675,6 @@
         {
           "type": "string",
           "name": "limit",
-          "in": "body",
           "description": "<p>The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.</p>",
           "isRequired": true,
           "enum": [
@@ -743,7 +686,6 @@
         {
           "type": "string",
           "name": "expiry",
-          "in": "body",
           "description": "<p>The duration of the interaction restriction. Default: <code>one_day</code>.</p>",
           "enum": [
             "one_day",
@@ -757,7 +699,6 @@
       "descriptionHTML": "<p>Temporarily restricts which type of GitHub user can interact with your public repositories. Setting the interaction limit at the user level will overwrite any interaction limits that are set for individual repositories owned by the user.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -788,23 +729,14 @@
                     "existing_users",
                     "contributors_only",
                     "collaborators_only"
-                  ],
-                  "examples": [
-                    "collaborators_only"
                   ]
                 },
                 "origin": {
-                  "type": "string",
-                  "examples": [
-                    "repository"
-                  ]
+                  "type": "string"
                 },
                 "expires_at": {
                   "type": "string",
-                  "format": "date-time",
-                  "examples": [
-                    "2018-08-17T04:18:39Z"
-                  ]
+                  "format": "date-time"
                 }
               },
               "required": [
@@ -850,7 +782,6 @@
       "descriptionHTML": "<p>Removes any interaction restrictions from your public repositories.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"

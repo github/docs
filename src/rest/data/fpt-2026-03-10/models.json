@@ -12,7 +12,6 @@
       "descriptionHTML": "<p>Get a list of models available for use, including details like supported input/output modalities,\npublisher, and rate limits.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"
@@ -166,8 +165,7 @@
           "description": "<p>The API version to use. Optional, but required for some features.</p>",
           "schema": {
             "type": "string"
-          },
-          "example": "2024-05-01-preview"
+          }
         },
         {
           "in": "path",
@@ -183,21 +181,18 @@
         {
           "type": "string",
           "name": "model",
-          "in": "body",
           "description": "<p>ID of the specific model to use for the request. The model ID should be in the format of {publisher}/{model_name} where \"openai/text-embedding-3-small\" is an example of a model ID. You can find supported models in the catalog/models endpoint.</p>",
           "isRequired": true
         },
         {
           "type": "string or array",
           "name": "input",
-          "in": "body",
           "description": "<p>Input text to embed, encoded as a string or array of strings. To embed multiple inputs in a single request, pass an array of strings. Each input must not exceed the max input tokens for the model, cannot be an empty string, and any array must be 2048 dimensions or less.</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "encoding_format",
-          "in": "body",
           "description": "<p>The format to return the embeddings in. Can be either float or base64.</p>",
           "enum": [
             "float",
@@ -208,20 +203,17 @@
         {
           "type": "integer",
           "name": "dimensions",
-          "in": "body",
           "description": "<p>The number of dimensions the resulting output embeddings should have. Only supported in text-embedding-3 and later models.</p>"
         },
         {
           "type": "string",
           "name": "user",
-          "in": "body",
           "description": "<p>A unique identifier representing your end-user, which can help us to monitor and detect abuse.</p>"
         }
       ],
       "descriptionHTML": "<p>This endpoint allows you to run an embedding request attributed to a specific organization. You must be a member of the organization and have enabled models to use this endpoint.\nThe token used to authenticate must have the <code>models: read</code> permission if using a fine-grained PAT or GitHub App minted token.\nThe request body should contain the model ID and the input text(s) for the embedding request. The response will include the generated embeddings.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -362,29 +354,25 @@
           "description": "<p>The API version to use. Optional, but required for some features.</p>",
           "schema": {
             "type": "string"
-          },
-          "example": "2024-05-01-preview"
+          }
         }
       ],
       "bodyParameters": [
         {
           "type": "string",
           "name": "model",
-          "in": "body",
           "description": "<p>ID of the specific model to use for the request. The model ID should be in the format of {publisher}/{model_name} where \"openai/text-embedding-3-small\" is an example of a model ID. You can find supported models in the catalog/models endpoint.</p>",
           "isRequired": true
         },
         {
           "type": "string or array",
           "name": "input",
-          "in": "body",
           "description": "<p>Input text to embed, encoded as a string or array of strings. To embed multiple inputs in a single request, pass an array of strings. Each input must not exceed the max input tokens for the model, cannot be an empty string, and any array must be 2048 dimensions or less.</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "encoding_format",
-          "in": "body",
           "description": "<p>The format to return the embeddings in. Can be either float or base64.</p>",
           "enum": [
             "float",
@@ -395,20 +383,17 @@
         {
           "type": "integer",
           "name": "dimensions",
-          "in": "body",
           "description": "<p>The number of dimensions the resulting output embeddings should have. Only supported in text-embedding-3 and later models.</p>"
         },
         {
           "type": "string",
           "name": "user",
-          "in": "body",
           "description": "<p>A unique identifier representing your end-user, which can help us to monitor and detect abuse.</p>"
         }
       ],
       "descriptionHTML": "<p>This endpoint allows you to run an embedding request. The token used to authenticate must have the <code>models: read</code> permission if using a fine-grained PAT or GitHub App minted token.\nThe request body should contain the model ID and the input text(s) for the embedding request. The response will include the generated embeddings.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -548,8 +533,7 @@
           "description": "<p>The API version to use. Optional, but required for some features.</p>",
           "schema": {
             "type": "string"
-          },
-          "example": "2024-05-01-preview"
+          }
         },
         {
           "in": "path",
@@ -565,14 +549,12 @@
         {
           "type": "string",
           "name": "model",
-          "in": "body",
           "description": "<p>ID of the specific model to use for the request. The model ID should be in the format of {publisher}/{model_name} where \"openai/gpt-4.1\" is an example of a model ID. You can find supported models in the catalog/models endpoint.</p>",
           "isRequired": true
         },
         {
           "type": "array of objects",
           "name": "messages",
-          "in": "body",
           "description": "<p>The collection of context messages associated with this chat completion request. Typical usage begins with a chat message for the System role that provides instructions for the behavior of the assistant, followed by alternating messages between the User and Assistant roles.</p>",
           "isRequired": true,
           "childParamsGroups": [
@@ -599,31 +581,26 @@
         {
           "type": "number",
           "name": "frequency_penalty",
-          "in": "body",
           "description": "<p>A value that influences the probability of generated tokens appearing based on their cumulative frequency in generated text. Positive values will make tokens less likely to appear as their frequency increases and decrease the likelihood of the model repeating the same statements verbatim. Supported range is [-2, 2].</p>"
         },
         {
           "type": "integer",
           "name": "max_tokens",
-          "in": "body",
           "description": "<p>The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens cannot exceed the model's context length. For example, if your prompt is 100 tokens and you set max_tokens to 50, the API will return a completion with a maximum of 50 tokens.</p>"
         },
         {
           "type": "array of strings",
           "name": "modalities",
-          "in": "body",
           "description": "<p>The modalities that the model is allowed to use for the chat completions response. The default modality is text. Indicating an unsupported modality combination results in a 422 error.\nSupported values are: <code>text</code>, <code>audio</code></p>"
         },
         {
           "type": "number",
           "name": "presence_penalty",
-          "in": "body",
           "description": "<p>A value that influences the probability of generated tokens appearing based on their existing presence in generated text. Positive values will make tokens less likely to appear when they already exist and increase the model's likelihood to output new tokens. Supported range is [-2, 2].</p>"
         },
         {
           "type": "object",
           "name": "response_format",
-          "in": "body",
           "description": "<p>The desired format for the response.</p>",
           "childParamsGroups": [
             {
@@ -670,20 +647,17 @@
         {
           "type": "integer",
           "name": "seed",
-          "in": "body",
           "description": "<p>If specified, the system will make a best effort to sample deterministically such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed.</p>"
         },
         {
           "type": "boolean",
           "name": "stream",
-          "in": "body",
           "description": "<p>A value indicating whether chat completions should be streamed for this request.</p>",
           "default": false
         },
         {
           "type": "object",
           "name": "stream_options",
-          "in": "body",
           "description": "<p>Whether to include usage information in the response. Requires stream to be set to true.</p>",
           "childParamsGroups": [
             {
@@ -697,19 +671,16 @@
         {
           "type": "array of strings",
           "name": "stop",
-          "in": "body",
           "description": "<p>A collection of textual sequences that will end completion generation.</p>"
         },
         {
           "type": "number",
           "name": "temperature",
-          "in": "body",
           "description": "<p>The sampling temperature to use that controls the apparent creativity of generated completions. Higher values will make output more random while lower values will make results more focused and deterministic. It is not recommended to modify temperature and top_p for the same completion request as the interaction of these two settings is difficult to predict. Supported range is [0, 1]. Decimal values are supported.</p>"
         },
         {
           "type": "string",
           "name": "tool_choice",
-          "in": "body",
           "description": "<p>If specified, the model will configure which of the provided tools it can use for the chat completions response.</p>",
           "enum": [
             "auto",
@@ -720,7 +691,6 @@
         {
           "type": "array of objects",
           "name": "tools",
-          "in": "body",
           "description": "<p>A list of tools the model may request to call. Currently, only functions are supported as a tool. The model may respond with a function call request and provide the input arguments in JSON format for that function.</p>",
           "childParamsGroups": [
             {
@@ -758,14 +728,12 @@
         {
           "type": "number",
           "name": "top_p",
-          "in": "body",
           "description": "<p>An alternative to sampling with temperature called nucleus sampling. This value causes the model to consider the results of tokens with the provided probability mass. As an example, a value of 0.15 will cause only the tokens comprising the top 15% of probability mass to be considered. It is not recommended to modify temperature and top_p for the same request as the interaction of these two settings is difficult to predict. Supported range is [0, 1]. Decimal values are supported.</p>"
         }
       ],
       "descriptionHTML": "<p>This endpoint allows you to run an inference request attributed to a specific organization. You must be a member of the organization and have enabled models to use this endpoint.\nThe token used to authenticate must have the <code>models: read</code> permission if using a fine-grained PAT or GitHub App minted token.\nThe request body should contain the model ID and the messages for the chat completion request. The response will include either a non-streaming or streaming response based on the request parameters.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -888,22 +856,19 @@
           "description": "<p>The API version to use. Optional, but required for some features.</p>",
           "schema": {
             "type": "string"
-          },
-          "example": "2024-05-01-preview"
+          }
         }
       ],
       "bodyParameters": [
         {
           "type": "string",
           "name": "model",
-          "in": "body",
           "description": "<p>ID of the specific model to use for the request. The model ID should be in the format of {publisher}/{model_name} where \"openai/gpt-4.1\" is an example of a model ID. You can find supported models in the catalog/models endpoint.</p>",
           "isRequired": true
         },
         {
           "type": "array of objects",
           "name": "messages",
-          "in": "body",
           "description": "<p>The collection of context messages associated with this chat completion request. Typical usage begins with a chat message for the System role that provides instructions for the behavior of the assistant, followed by alternating messages between the User and Assistant roles.</p>",
           "isRequired": true,
           "childParamsGroups": [
@@ -930,31 +895,26 @@
         {
           "type": "number",
           "name": "frequency_penalty",
-          "in": "body",
           "description": "<p>A value that influences the probability of generated tokens appearing based on their cumulative frequency in generated text. Positive values will make tokens less likely to appear as their frequency increases and decrease the likelihood of the model repeating the same statements verbatim. Supported range is [-2, 2].</p>"
         },
         {
           "type": "integer",
           "name": "max_tokens",
-          "in": "body",
           "description": "<p>The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens cannot exceed the model's context length. For example, if your prompt is 100 tokens and you set max_tokens to 50, the API will return a completion with a maximum of 50 tokens.</p>"
         },
         {
           "type": "array of strings",
           "name": "modalities",
-          "in": "body",
           "description": "<p>The modalities that the model is allowed to use for the chat completions response. The default modality is text. Indicating an unsupported modality combination results in a 422 error.\nSupported values are: <code>text</code>, <code>audio</code></p>"
         },
         {
           "type": "number",
           "name": "presence_penalty",
-          "in": "body",
           "description": "<p>A value that influences the probability of generated tokens appearing based on their existing presence in generated text. Positive values will make tokens less likely to appear when they already exist and increase the model's likelihood to output new tokens. Supported range is [-2, 2].</p>"
         },
         {
           "type": "object",
           "name": "response_format",
-          "in": "body",
           "description": "<p>The desired format for the response.</p>",
           "childParamsGroups": [
             {
@@ -1001,20 +961,17 @@
         {
           "type": "integer",
           "name": "seed",
-          "in": "body",
           "description": "<p>If specified, the system will make a best effort to sample deterministically such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed.</p>"
         },
         {
           "type": "boolean",
           "name": "stream",
-          "in": "body",
           "description": "<p>A value indicating whether chat completions should be streamed for this request.</p>",
           "default": false
         },
         {
           "type": "object",
           "name": "stream_options",
-          "in": "body",
           "description": "<p>Whether to include usage information in the response. Requires stream to be set to true.</p>",
           "childParamsGroups": [
             {
@@ -1028,19 +985,16 @@
         {
           "type": "array of strings",
           "name": "stop",
-          "in": "body",
           "description": "<p>A collection of textual sequences that will end completion generation.</p>"
         },
         {
           "type": "number",
           "name": "temperature",
-          "in": "body",
           "description": "<p>The sampling temperature to use that controls the apparent creativity of generated completions. Higher values will make output more random while lower values will make results more focused and deterministic. It is not recommended to modify temperature and top_p for the same completion request as the interaction of these two settings is difficult to predict. Supported range is [0, 1]. Decimal values are supported.</p>"
         },
         {
           "type": "string",
           "name": "tool_choice",
-          "in": "body",
           "description": "<p>If specified, the model will configure which of the provided tools it can use for the chat completions response.</p>",
           "enum": [
             "auto",
@@ -1051,7 +1005,6 @@
         {
           "type": "array of objects",
           "name": "tools",
-          "in": "body",
           "description": "<p>A list of tools the model may request to call. Currently, only functions are supported as a tool. The model may respond with a function call request and provide the input arguments in JSON format for that function.</p>",
           "childParamsGroups": [
             {
@@ -1089,14 +1042,12 @@
         {
           "type": "number",
           "name": "top_p",
-          "in": "body",
           "description": "<p>An alternative to sampling with temperature called nucleus sampling. This value causes the model to consider the results of tokens with the provided probability mass. As an example, a value of 0.15 will cause only the tokens comprising the top 15% of probability mass to be considered. It is not recommended to modify temperature and top_p for the same request as the interaction of these two settings is difficult to predict. Supported range is [0, 1]. Decimal values are supported.</p>"
         }
       ],
       "descriptionHTML": "<p>This endpoint allows you to run an inference request. The token used to authenticate must have the <code>models: read</code> permission if using a fine-grained PAT or GitHub App minted token.\nThe request body should contain the model ID and\nthe messages for the chat completion request. The response will include either a non-streaming or streaming response based on the request parameters.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",

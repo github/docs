@@ -54,7 +54,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets all budgets for an organization. The authenticated user must be an organization admin or billing manager.\nEach page returns up to 10 budgets.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -129,10 +128,7 @@
                     "properties": {
                       "id": {
                         "type": "string",
-                        "description": "The unique identifier for the budget",
-                        "examples": [
-                          "2066deda-923f-43f9-88d2-62395a28c0cdd"
-                        ]
+                        "description": "The unique identifier for the budget"
                       },
                       "budget_type": {
                         "description": "The type of pricing for the budget",
@@ -149,9 +145,6 @@
                               "ProductPricing"
                             ]
                           }
-                        ],
-                        "examples": [
-                          "SkuPricing"
                         ]
                       },
                       "budget_amount": {
@@ -160,24 +153,15 @@
                       },
                       "prevent_further_usage": {
                         "type": "boolean",
-                        "description": "The type of limit enforcement for the budget",
-                        "examples": [
-                          true
-                        ]
+                        "description": "The type of limit enforcement for the budget"
                       },
                       "budget_scope": {
                         "type": "string",
-                        "description": "The scope of the budget (enterprise, organization, repository, cost center)",
-                        "examples": [
-                          "enterprise"
-                        ]
+                        "description": "The scope of the budget (enterprise, organization, repository, cost center)"
                       },
                       "budget_entity_name": {
                         "type": "string",
-                        "description": "The name of the entity for the budget (enterprise does not require a name).",
-                        "examples": [
-                          "octocat/hello-world"
-                        ]
+                        "description": "The name of the entity for the budget (enterprise does not require a name)."
                       },
                       "budget_product_sku": {
                         "type": "string",
@@ -188,21 +172,14 @@
                         "properties": {
                           "will_alert": {
                             "type": "boolean",
-                            "description": "Whether alerts are enabled for this budget",
-                            "examples": [
-                              true
-                            ]
+                            "description": "Whether alerts are enabled for this budget"
                           },
                           "alert_recipients": {
                             "type": "array",
                             "items": {
                               "type": "string"
                             },
-                            "description": "Array of user login names who will receive alerts",
-                            "examples": [
-                              "mona",
-                              "lisa"
-                            ]
+                            "description": "Array of user login names who will receive alerts"
                           }
                         },
                         "required": [
@@ -300,7 +277,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets a budget by ID. The authenticated user must be an organization admin or billing manager.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -344,17 +320,11 @@
                     "organization",
                     "repository",
                     "cost_center"
-                  ],
-                  "examples": [
-                    "enterprise"
                   ]
                 },
                 "budget_entity_name": {
                   "type": "string",
-                  "description": "The name of the entity to apply the budget to",
-                  "examples": [
-                    "octocat/hello-world"
-                  ]
+                  "description": "The name of the entity to apply the budget to"
                 },
                 "budget_amount": {
                   "type": "integer",
@@ -362,17 +332,11 @@
                 },
                 "prevent_further_usage": {
                   "type": "boolean",
-                  "description": "Whether to prevent additional spending once the budget is exceeded",
-                  "examples": [
-                    true
-                  ]
+                  "description": "Whether to prevent additional spending once the budget is exceeded"
                 },
                 "budget_product_sku": {
                   "type": "string",
-                  "description": "A single product or sku to apply the budget to.",
-                  "examples": [
-                    "actions_linux"
-                  ]
+                  "description": "A single product or sku to apply the budget to."
                 },
                 "budget_type": {
                   "description": "The type of pricing for the budget",
@@ -389,9 +353,6 @@
                         "SkuPricing"
                       ]
                     }
-                  ],
-                  "examples": [
-                    "ProductPricing"
                   ]
                 },
                 "budget_alerting": {
@@ -399,21 +360,14 @@
                   "properties": {
                     "will_alert": {
                       "type": "boolean",
-                      "description": "Whether alerts are enabled for this budget",
-                      "examples": [
-                        true
-                      ]
+                      "description": "Whether alerts are enabled for this budget"
                     },
                     "alert_recipients": {
                       "type": "array",
                       "items": {
                         "type": "string"
                       },
-                      "description": "Array of user login names who will receive alerts",
-                      "examples": [
-                        "mona",
-                        "lisa"
-                      ]
+                      "description": "Array of user login names who will receive alerts"
                     }
                   }
                 }
@@ -501,19 +455,16 @@
         {
           "type": "integer",
           "name": "budget_amount",
-          "in": "body",
           "description": "<p>The budget amount in whole dollars. For license-based products, this represents the number of licenses.</p>"
         },
         {
           "type": "boolean",
           "name": "prevent_further_usage",
-          "in": "body",
           "description": "<p>Whether to prevent additional spending once the budget is exceeded</p>"
         },
         {
           "type": "object",
           "name": "budget_alerting",
-          "in": "body",
           "description": "",
           "childParamsGroups": [
             {
@@ -531,7 +482,6 @@
         {
           "type": "string",
           "name": "budget_scope",
-          "in": "body",
           "description": "<p>The scope of the budget</p>",
           "enum": [
             "enterprise",
@@ -543,26 +493,22 @@
         {
           "type": "string",
           "name": "budget_entity_name",
-          "in": "body",
           "description": "<p>The name of the entity to apply the budget to</p>"
         },
         {
           "type": "string",
           "name": "budget_type",
-          "in": "body",
           "description": "<p>The type of pricing for the budget</p>"
         },
         {
           "type": "string",
           "name": "budget_product_sku",
-          "in": "body",
           "description": "<p>A single product or SKU that will be covered in the budget</p>"
         }
       ],
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Updates an existing budget for an organization. The authenticated user must be an organization admin or billing manager.</p>",
       "codeExamples": [
         {
-          "key": "update-budget",
           "request": {
             "contentType": "application/json",
             "description": "Update budget example",
@@ -607,10 +553,7 @@
               "type": "object",
               "properties": {
                 "message": {
-                  "type": "string",
-                  "examples": [
-                    "Budget successfully updated."
-                  ]
+                  "type": "string"
                 },
                 "budget": {
                   "type": "object",
@@ -764,7 +707,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Deletes a budget by ID for an organization. The authenticated user must be an organization admin or billing manager.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -917,7 +859,6 @@
       "descriptionHTML": "<p>Gets a report of premium request usage for an organization. To use this endpoint, you must be an administrator of an organization within an enterprise or an organization account.</p>\n<p><strong>Note:</strong> Only data from the past 24 months is accessible via this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1151,7 +1092,6 @@
       "descriptionHTML": "<p>Gets a report of the total usage for an organization. To use this endpoint, you must be an administrator of an organization within an enterprise or an organization account.</p>\n<p><strong>Note:</strong> This endpoint is only available to organizations with access to the enhanced billing platform. For more information, see \"<a href=\"https://docs.github.com/billing/using-the-new-billing-platform\">About the enhanced billing platform</a>.\"</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1362,7 +1302,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets a summary report of usage for an organization. To use this endpoint, you must be an administrator of an organization within an enterprise or an organization account.</p>\n<p><strong>Note:</strong> Only data from the past 24 months is accessible via this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1604,7 +1543,6 @@
       "descriptionHTML": "<p>Gets a report of premium request usage for a user.</p>\n<p><strong>Note:</strong> Only data from the past 24 months is accessible via this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1834,7 +1772,6 @@
       "descriptionHTML": "<p>Gets a report of the total usage for a user.</p>\n<p><strong>Note:</strong> This endpoint is only available to users with access to the enhanced billing platform.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -2039,7 +1976,6 @@
       "descriptionHTML": "<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint is in public preview and is subject to change.</p>\n</div>\n<p>Gets a summary report of usage for a user.</p>\n<p><strong>Note:</strong> Only data from the past 24 months is accessible via this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",

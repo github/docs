@@ -85,7 +85,6 @@
       "descriptionHTML": "<p>Lists campaigns in an organization.</p>\n<p>The authenticated user must be an owner or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -201,145 +200,82 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
+                          "nullable": true,
+                          "type": "string"
                         },
                         "email": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
+                          "nullable": true,
+                          "type": "string"
                         },
                         "login": {
-                          "type": "string",
-                          "examples": [
-                            "octocat"
-                          ]
+                          "type": "string"
                         },
                         "id": {
                           "type": "integer",
-                          "format": "int64",
-                          "examples": [
-                            1
-                          ]
+                          "format": "int64"
                         },
                         "node_id": {
-                          "type": "string",
-                          "examples": [
-                            "MDQ6VXNlcjE="
-                          ]
+                          "type": "string"
                         },
                         "avatar_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/images/error/octocat_happy.gif"
-                          ]
+                          "format": "uri"
                         },
                         "gravatar_id": {
-                          "type": [
-                            "string",
-                            "null"
-                          ],
-                          "examples": [
-                            "41d064eb2195891e12d0413f63227ea7"
-                          ]
+                          "type": "string",
+                          "nullable": true
                         },
                         "url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/octocat"
-                          ]
+                          "format": "uri"
                         },
                         "followers_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/followers"
-                          ]
+                          "format": "uri"
                         },
                         "following_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/following{/other_user}"
-                          ]
+                          "type": "string"
                         },
                         "gists_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/gists{/gist_id}"
-                          ]
+                          "type": "string"
                         },
                         "starred_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                          ]
+                          "type": "string"
                         },
                         "subscriptions_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/subscriptions"
-                          ]
+                          "format": "uri"
                         },
                         "organizations_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/orgs"
-                          ]
+                          "format": "uri"
                         },
                         "repos_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/repos"
-                          ]
+                          "format": "uri"
                         },
                         "events_url": {
-                          "type": "string",
-                          "examples": [
-                            "https://api.github.com/users/octocat/events{/privacy}"
-                          ]
+                          "type": "string"
                         },
                         "received_events_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://api.github.com/users/octocat/received_events"
-                          ]
+                          "format": "uri"
                         },
                         "type": {
-                          "type": "string",
-                          "examples": [
-                            "User"
-                          ]
+                          "type": "string"
                         },
                         "site_admin": {
                           "type": "boolean"
                         },
                         "starred_at": {
-                          "type": "string",
-                          "examples": [
-                            "\"2020-07-09T00:17:55Z\""
-                          ]
+                          "type": "string"
                         },
                         "user_view_type": {
-                          "type": "string",
-                          "examples": [
-                            "public"
-                          ]
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -385,10 +321,8 @@
                           "type": "string"
                         },
                         "description": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
+                          "type": "string",
+                          "nullable": true
                         },
                         "privacy": {
                           "type": "string"
@@ -432,10 +366,7 @@
                         },
                         "html_url": {
                           "type": "string",
-                          "format": "uri",
-                          "examples": [
-                            "https://github.com/orgs/rails/teams/core"
-                          ]
+                          "format": "uri"
                         },
                         "members_url": {
                           "type": "string"
@@ -454,158 +385,99 @@
                         },
                         "organization_id": {
                           "type": "integer",
-                          "description": "Unique identifier of the organization to which this team belongs",
-                          "examples": [
-                            37
-                          ]
+                          "description": "Unique identifier of the organization to which this team belongs"
                         },
                         "enterprise_id": {
                           "type": "integer",
-                          "description": "Unique identifier of the enterprise to which this team belongs",
-                          "examples": [
-                            42
-                          ]
+                          "description": "Unique identifier of the enterprise to which this team belongs"
                         },
                         "parent": {
-                          "anyOf": [
-                            {
-                              "type": "null"
+                          "title": "Team Simple",
+                          "description": "Groups of organization members that gives permissions on specified repositories.",
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "Unique identifier of the team",
+                              "type": "integer"
                             },
-                            {
-                              "title": "Team Simple",
-                              "description": "Groups of organization members that gives permissions on specified repositories.",
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "description": "Unique identifier of the team",
-                                  "type": "integer",
-                                  "examples": [
-                                    1
-                                  ]
-                                },
-                                "node_id": {
-                                  "type": "string",
-                                  "examples": [
-                                    "MDQ6VGVhbTE="
-                                  ]
-                                },
-                                "url": {
-                                  "description": "URL for the team",
-                                  "type": "string",
-                                  "format": "uri",
-                                  "examples": [
-                                    "https://api.github.com/organizations/1/team/1"
-                                  ]
-                                },
-                                "members_url": {
-                                  "type": "string",
-                                  "examples": [
-                                    "https://api.github.com/organizations/1/team/1/members{/member}"
-                                  ]
-                                },
-                                "name": {
-                                  "description": "Name of the team",
-                                  "type": "string",
-                                  "examples": [
-                                    "Justice League"
-                                  ]
-                                },
-                                "description": {
-                                  "description": "Description of the team",
-                                  "type": [
-                                    "string",
-                                    "null"
-                                  ],
-                                  "examples": [
-                                    "A great team."
-                                  ]
-                                },
-                                "permission": {
-                                  "description": "Permission that the team will have for its repositories",
-                                  "type": "string",
-                                  "examples": [
-                                    "admin"
-                                  ]
-                                },
-                                "privacy": {
-                                  "description": "The level of privacy this team should have",
-                                  "type": "string",
-                                  "examples": [
-                                    "closed"
-                                  ]
-                                },
-                                "notification_setting": {
-                                  "description": "The notification setting the team has set",
-                                  "type": "string",
-                                  "examples": [
-                                    "notifications_enabled"
-                                  ]
-                                },
-                                "html_url": {
-                                  "type": "string",
-                                  "format": "uri",
-                                  "examples": [
-                                    "https://github.com/orgs/rails/teams/core"
-                                  ]
-                                },
-                                "repositories_url": {
-                                  "type": "string",
-                                  "format": "uri",
-                                  "examples": [
-                                    "https://api.github.com/organizations/1/team/1/repos"
-                                  ]
-                                },
-                                "slug": {
-                                  "type": "string",
-                                  "examples": [
-                                    "justice-league"
-                                  ]
-                                },
-                                "ldap_dn": {
-                                  "description": "Distinguished Name (DN) that team maps to within LDAP environment",
-                                  "type": "string",
-                                  "examples": [
-                                    "uid=example,ou=users,dc=github,dc=com"
-                                  ]
-                                },
-                                "type": {
-                                  "description": "The ownership type of the team",
-                                  "type": "string",
-                                  "enum": [
-                                    "enterprise",
-                                    "organization"
-                                  ]
-                                },
-                                "organization_id": {
-                                  "type": "integer",
-                                  "description": "Unique identifier of the organization to which this team belongs",
-                                  "examples": [
-                                    37
-                                  ]
-                                },
-                                "enterprise_id": {
-                                  "type": "integer",
-                                  "description": "Unique identifier of the enterprise to which this team belongs",
-                                  "examples": [
-                                    42
-                                  ]
-                                }
-                              },
-                              "required": [
-                                "id",
-                                "node_id",
-                                "url",
-                                "members_url",
-                                "name",
-                                "description",
-                                "permission",
-                                "html_url",
-                                "repositories_url",
-                                "slug",
-                                "type"
+                            "node_id": {
+                              "type": "string"
+                            },
+                            "url": {
+                              "description": "URL for the team",
+                              "type": "string",
+                              "format": "uri"
+                            },
+                            "members_url": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "description": "Name of the team",
+                              "type": "string"
+                            },
+                            "description": {
+                              "description": "Description of the team",
+                              "type": "string",
+                              "nullable": true
+                            },
+                            "permission": {
+                              "description": "Permission that the team will have for its repositories",
+                              "type": "string"
+                            },
+                            "privacy": {
+                              "description": "The level of privacy this team should have",
+                              "type": "string"
+                            },
+                            "notification_setting": {
+                              "description": "The notification setting the team has set",
+                              "type": "string"
+                            },
+                            "html_url": {
+                              "type": "string",
+                              "format": "uri"
+                            },
+                            "repositories_url": {
+                              "type": "string",
+                              "format": "uri"
+                            },
+                            "slug": {
+                              "type": "string"
+                            },
+                            "ldap_dn": {
+                              "description": "Distinguished Name (DN) that team maps to within LDAP environment",
+                              "type": "string"
+                            },
+                            "type": {
+                              "description": "The ownership type of the team",
+                              "type": "string",
+                              "enum": [
+                                "enterprise",
+                                "organization"
                               ]
+                            },
+                            "organization_id": {
+                              "type": "integer",
+                              "description": "Unique identifier of the organization to which this team belongs"
+                            },
+                            "enterprise_id": {
+                              "type": "integer",
+                              "description": "Unique identifier of the enterprise to which this team belongs"
                             }
-                          ]
+                          },
+                          "required": [
+                            "id",
+                            "node_id",
+                            "url",
+                            "members_url",
+                            "name",
+                            "description",
+                            "permission",
+                            "html_url",
+                            "repositories_url",
+                            "slug",
+                            "type"
+                          ],
+                          "nullable": true
                         }
                       },
                       "required": [
@@ -636,11 +508,9 @@
                   },
                   "closed_at": {
                     "description": "The date and time the campaign was closed, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. Will be null if the campaign is still open.",
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "format": "date-time"
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
                   },
                   "state": {
                     "title": "Campaign state",
@@ -653,11 +523,9 @@
                   },
                   "contact_link": {
                     "description": "The contact link of the campaign.",
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "format": "uri"
+                    "type": "string",
+                    "format": "uri",
+                    "nullable": true
                   },
                   "alert_stats": {
                     "type": "object",
@@ -746,7 +614,6 @@
       "descriptionHTML": "<p>Create a campaign for an organization.</p>\n<p>The authenticated user must be an owner or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint.</p>\n<p>Fine-grained tokens must have the \"Code scanning alerts\" repository permissions (read) on all repositories included\nin the campaign.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -850,145 +717,82 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "type": [
-                          "string",
-                          "null"
-                        ]
+                        "nullable": true,
+                        "type": "string"
                       },
                       "email": {
-                        "type": [
-                          "string",
-                          "null"
-                        ]
+                        "nullable": true,
+                        "type": "string"
                       },
                       "login": {
-                        "type": "string",
-                        "examples": [
-                          "octocat"
-                        ]
+                        "type": "string"
                       },
                       "id": {
                         "type": "integer",
-                        "format": "int64",
-                        "examples": [
-                          1
-                        ]
+                        "format": "int64"
                       },
                       "node_id": {
-                        "type": "string",
-                        "examples": [
-                          "MDQ6VXNlcjE="
-                        ]
+                        "type": "string"
                       },
                       "avatar_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://github.com/images/error/octocat_happy.gif"
-                        ]
+                        "format": "uri"
                       },
                       "gravatar_id": {
-                        "type": [
-                          "string",
-                          "null"
-                        ],
-                        "examples": [
-                          "41d064eb2195891e12d0413f63227ea7"
-                        ]
+                        "type": "string",
+                        "nullable": true
                       },
                       "url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat"
-                        ]
+                        "format": "uri"
                       },
                       "html_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://github.com/octocat"
-                        ]
+                        "format": "uri"
                       },
                       "followers_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/followers"
-                        ]
+                        "format": "uri"
                       },
                       "following_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/following{/other_user}"
-                        ]
+                        "type": "string"
                       },
                       "gists_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/gists{/gist_id}"
-                        ]
+                        "type": "string"
                       },
                       "starred_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                        ]
+                        "type": "string"
                       },
                       "subscriptions_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/subscriptions"
-                        ]
+                        "format": "uri"
                       },
                       "organizations_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/orgs"
-                        ]
+                        "format": "uri"
                       },
                       "repos_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/repos"
-                        ]
+                        "format": "uri"
                       },
                       "events_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/events{/privacy}"
-                        ]
+                        "type": "string"
                       },
                       "received_events_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/received_events"
-                        ]
+                        "format": "uri"
                       },
                       "type": {
-                        "type": "string",
-                        "examples": [
-                          "User"
-                        ]
+                        "type": "string"
                       },
                       "site_admin": {
                         "type": "boolean"
                       },
                       "starred_at": {
-                        "type": "string",
-                        "examples": [
-                          "\"2020-07-09T00:17:55Z\""
-                        ]
+                        "type": "string"
                       },
                       "user_view_type": {
-                        "type": "string",
-                        "examples": [
-                          "public"
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -1034,10 +838,8 @@
                         "type": "string"
                       },
                       "description": {
-                        "type": [
-                          "string",
-                          "null"
-                        ]
+                        "type": "string",
+                        "nullable": true
                       },
                       "privacy": {
                         "type": "string"
@@ -1081,10 +883,7 @@
                       },
                       "html_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://github.com/orgs/rails/teams/core"
-                        ]
+                        "format": "uri"
                       },
                       "members_url": {
                         "type": "string"
@@ -1103,158 +902,99 @@
                       },
                       "organization_id": {
                         "type": "integer",
-                        "description": "Unique identifier of the organization to which this team belongs",
-                        "examples": [
-                          37
-                        ]
+                        "description": "Unique identifier of the organization to which this team belongs"
                       },
                       "enterprise_id": {
                         "type": "integer",
-                        "description": "Unique identifier of the enterprise to which this team belongs",
-                        "examples": [
-                          42
-                        ]
+                        "description": "Unique identifier of the enterprise to which this team belongs"
                       },
                       "parent": {
-                        "anyOf": [
-                          {
-                            "type": "null"
+                        "title": "Team Simple",
+                        "description": "Groups of organization members that gives permissions on specified repositories.",
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "Unique identifier of the team",
+                            "type": "integer"
                           },
-                          {
-                            "title": "Team Simple",
-                            "description": "Groups of organization members that gives permissions on specified repositories.",
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "description": "Unique identifier of the team",
-                                "type": "integer",
-                                "examples": [
-                                  1
-                                ]
-                              },
-                              "node_id": {
-                                "type": "string",
-                                "examples": [
-                                  "MDQ6VGVhbTE="
-                                ]
-                              },
-                              "url": {
-                                "description": "URL for the team",
-                                "type": "string",
-                                "format": "uri",
-                                "examples": [
-                                  "https://api.github.com/organizations/1/team/1"
-                                ]
-                              },
-                              "members_url": {
-                                "type": "string",
-                                "examples": [
-                                  "https://api.github.com/organizations/1/team/1/members{/member}"
-                                ]
-                              },
-                              "name": {
-                                "description": "Name of the team",
-                                "type": "string",
-                                "examples": [
-                                  "Justice League"
-                                ]
-                              },
-                              "description": {
-                                "description": "Description of the team",
-                                "type": [
-                                  "string",
-                                  "null"
-                                ],
-                                "examples": [
-                                  "A great team."
-                                ]
-                              },
-                              "permission": {
-                                "description": "Permission that the team will have for its repositories",
-                                "type": "string",
-                                "examples": [
-                                  "admin"
-                                ]
-                              },
-                              "privacy": {
-                                "description": "The level of privacy this team should have",
-                                "type": "string",
-                                "examples": [
-                                  "closed"
-                                ]
-                              },
-                              "notification_setting": {
-                                "description": "The notification setting the team has set",
-                                "type": "string",
-                                "examples": [
-                                  "notifications_enabled"
-                                ]
-                              },
-                              "html_url": {
-                                "type": "string",
-                                "format": "uri",
-                                "examples": [
-                                  "https://github.com/orgs/rails/teams/core"
-                                ]
-                              },
-                              "repositories_url": {
-                                "type": "string",
-                                "format": "uri",
-                                "examples": [
-                                  "https://api.github.com/organizations/1/team/1/repos"
-                                ]
-                              },
-                              "slug": {
-                                "type": "string",
-                                "examples": [
-                                  "justice-league"
-                                ]
-                              },
-                              "ldap_dn": {
-                                "description": "Distinguished Name (DN) that team maps to within LDAP environment",
-                                "type": "string",
-                                "examples": [
-                                  "uid=example,ou=users,dc=github,dc=com"
-                                ]
-                              },
-                              "type": {
-                                "description": "The ownership type of the team",
-                                "type": "string",
-                                "enum": [
-                                  "enterprise",
-                                  "organization"
-                                ]
-                              },
-                              "organization_id": {
-                                "type": "integer",
-                                "description": "Unique identifier of the organization to which this team belongs",
-                                "examples": [
-                                  37
-                                ]
-                              },
-                              "enterprise_id": {
-                                "type": "integer",
-                                "description": "Unique identifier of the enterprise to which this team belongs",
-                                "examples": [
-                                  42
-                                ]
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "node_id",
-                              "url",
-                              "members_url",
-                              "name",
-                              "description",
-                              "permission",
-                              "html_url",
-                              "repositories_url",
-                              "slug",
-                              "type"
+                          "node_id": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "description": "URL for the team",
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "members_url": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Name of the team",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "Description of the team",
+                            "type": "string",
+                            "nullable": true
+                          },
+                          "permission": {
+                            "description": "Permission that the team will have for its repositories",
+                            "type": "string"
+                          },
+                          "privacy": {
+                            "description": "The level of privacy this team should have",
+                            "type": "string"
+                          },
+                          "notification_setting": {
+                            "description": "The notification setting the team has set",
+                            "type": "string"
+                          },
+                          "html_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "repositories_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "slug": {
+                            "type": "string"
+                          },
+                          "ldap_dn": {
+                            "description": "Distinguished Name (DN) that team maps to within LDAP environment",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "The ownership type of the team",
+                            "type": "string",
+                            "enum": [
+                              "enterprise",
+                              "organization"
                             ]
+                          },
+                          "organization_id": {
+                            "type": "integer",
+                            "description": "Unique identifier of the organization to which this team belongs"
+                          },
+                          "enterprise_id": {
+                            "type": "integer",
+                            "description": "Unique identifier of the enterprise to which this team belongs"
                           }
-                        ]
+                        },
+                        "required": [
+                          "id",
+                          "node_id",
+                          "url",
+                          "members_url",
+                          "name",
+                          "description",
+                          "permission",
+                          "html_url",
+                          "repositories_url",
+                          "slug",
+                          "type"
+                        ],
+                        "nullable": true
                       }
                     },
                     "required": [
@@ -1285,11 +1025,9 @@
                 },
                 "closed_at": {
                   "description": "The date and time the campaign was closed, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. Will be null if the campaign is still open.",
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "format": "date-time"
+                  "type": "string",
+                  "format": "date-time",
+                  "nullable": true
                 },
                 "state": {
                   "title": "Campaign state",
@@ -1302,11 +1040,9 @@
                 },
                 "contact_link": {
                   "description": "The contact link of the campaign.",
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "format": "uri"
+                  "type": "string",
+                  "format": "uri",
+                  "nullable": true
                 },
                 "alert_stats": {
                   "type": "object",
@@ -1415,7 +1151,6 @@
       "descriptionHTML": "<p>Gets a campaign for an organization.</p>\n<p>The authenticated user must be an owner or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1502,145 +1237,82 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "type": [
-                          "string",
-                          "null"
-                        ]
+                        "nullable": true,
+                        "type": "string"
                       },
                       "email": {
-                        "type": [
-                          "string",
-                          "null"
-                        ]
+                        "nullable": true,
+                        "type": "string"
                       },
                       "login": {
-                        "type": "string",
-                        "examples": [
-                          "octocat"
-                        ]
+                        "type": "string"
                       },
                       "id": {
                         "type": "integer",
-                        "format": "int64",
-                        "examples": [
-                          1
-                        ]
+                        "format": "int64"
                       },
                       "node_id": {
-                        "type": "string",
-                        "examples": [
-                          "MDQ6VXNlcjE="
-                        ]
+                        "type": "string"
                       },
                       "avatar_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://github.com/images/error/octocat_happy.gif"
-                        ]
+                        "format": "uri"
                       },
                       "gravatar_id": {
-                        "type": [
-                          "string",
-                          "null"
-                        ],
-                        "examples": [
-                          "41d064eb2195891e12d0413f63227ea7"
-                        ]
+                        "type": "string",
+                        "nullable": true
                       },
                       "url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat"
-                        ]
+                        "format": "uri"
                       },
                       "html_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://github.com/octocat"
-                        ]
+                        "format": "uri"
                       },
                       "followers_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/followers"
-                        ]
+                        "format": "uri"
                       },
                       "following_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/following{/other_user}"
-                        ]
+                        "type": "string"
                       },
                       "gists_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/gists{/gist_id}"
-                        ]
+                        "type": "string"
                       },
                       "starred_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                        ]
+                        "type": "string"
                       },
                       "subscriptions_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/subscriptions"
-                        ]
+                        "format": "uri"
                       },
                       "organizations_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/orgs"
-                        ]
+                        "format": "uri"
                       },
                       "repos_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/repos"
-                        ]
+                        "format": "uri"
                       },
                       "events_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/events{/privacy}"
-                        ]
+                        "type": "string"
                       },
                       "received_events_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/received_events"
-                        ]
+                        "format": "uri"
                       },
                       "type": {
-                        "type": "string",
-                        "examples": [
-                          "User"
-                        ]
+                        "type": "string"
                       },
                       "site_admin": {
                         "type": "boolean"
                       },
                       "starred_at": {
-                        "type": "string",
-                        "examples": [
-                          "\"2020-07-09T00:17:55Z\""
-                        ]
+                        "type": "string"
                       },
                       "user_view_type": {
-                        "type": "string",
-                        "examples": [
-                          "public"
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -1686,10 +1358,8 @@
                         "type": "string"
                       },
                       "description": {
-                        "type": [
-                          "string",
-                          "null"
-                        ]
+                        "type": "string",
+                        "nullable": true
                       },
                       "privacy": {
                         "type": "string"
@@ -1733,10 +1403,7 @@
                       },
                       "html_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://github.com/orgs/rails/teams/core"
-                        ]
+                        "format": "uri"
                       },
                       "members_url": {
                         "type": "string"
@@ -1755,158 +1422,99 @@
                       },
                       "organization_id": {
                         "type": "integer",
-                        "description": "Unique identifier of the organization to which this team belongs",
-                        "examples": [
-                          37
-                        ]
+                        "description": "Unique identifier of the organization to which this team belongs"
                       },
                       "enterprise_id": {
                         "type": "integer",
-                        "description": "Unique identifier of the enterprise to which this team belongs",
-                        "examples": [
-                          42
-                        ]
+                        "description": "Unique identifier of the enterprise to which this team belongs"
                       },
                       "parent": {
-                        "anyOf": [
-                          {
-                            "type": "null"
+                        "title": "Team Simple",
+                        "description": "Groups of organization members that gives permissions on specified repositories.",
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "Unique identifier of the team",
+                            "type": "integer"
                           },
-                          {
-                            "title": "Team Simple",
-                            "description": "Groups of organization members that gives permissions on specified repositories.",
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "description": "Unique identifier of the team",
-                                "type": "integer",
-                                "examples": [
-                                  1
-                                ]
-                              },
-                              "node_id": {
-                                "type": "string",
-                                "examples": [
-                                  "MDQ6VGVhbTE="
-                                ]
-                              },
-                              "url": {
-                                "description": "URL for the team",
-                                "type": "string",
-                                "format": "uri",
-                                "examples": [
-                                  "https://api.github.com/organizations/1/team/1"
-                                ]
-                              },
-                              "members_url": {
-                                "type": "string",
-                                "examples": [
-                                  "https://api.github.com/organizations/1/team/1/members{/member}"
-                                ]
-                              },
-                              "name": {
-                                "description": "Name of the team",
-                                "type": "string",
-                                "examples": [
-                                  "Justice League"
-                                ]
-                              },
-                              "description": {
-                                "description": "Description of the team",
-                                "type": [
-                                  "string",
-                                  "null"
-                                ],
-                                "examples": [
-                                  "A great team."
-                                ]
-                              },
-                              "permission": {
-                                "description": "Permission that the team will have for its repositories",
-                                "type": "string",
-                                "examples": [
-                                  "admin"
-                                ]
-                              },
-                              "privacy": {
-                                "description": "The level of privacy this team should have",
-                                "type": "string",
-                                "examples": [
-                                  "closed"
-                                ]
-                              },
-                              "notification_setting": {
-                                "description": "The notification setting the team has set",
-                                "type": "string",
-                                "examples": [
-                                  "notifications_enabled"
-                                ]
-                              },
-                              "html_url": {
-                                "type": "string",
-                                "format": "uri",
-                                "examples": [
-                                  "https://github.com/orgs/rails/teams/core"
-                                ]
-                              },
-                              "repositories_url": {
-                                "type": "string",
-                                "format": "uri",
-                                "examples": [
-                                  "https://api.github.com/organizations/1/team/1/repos"
-                                ]
-                              },
-                              "slug": {
-                                "type": "string",
-                                "examples": [
-                                  "justice-league"
-                                ]
-                              },
-                              "ldap_dn": {
-                                "description": "Distinguished Name (DN) that team maps to within LDAP environment",
-                                "type": "string",
-                                "examples": [
-                                  "uid=example,ou=users,dc=github,dc=com"
-                                ]
-                              },
-                              "type": {
-                                "description": "The ownership type of the team",
-                                "type": "string",
-                                "enum": [
-                                  "enterprise",
-                                  "organization"
-                                ]
-                              },
-                              "organization_id": {
-                                "type": "integer",
-                                "description": "Unique identifier of the organization to which this team belongs",
-                                "examples": [
-                                  37
-                                ]
-                              },
-                              "enterprise_id": {
-                                "type": "integer",
-                                "description": "Unique identifier of the enterprise to which this team belongs",
-                                "examples": [
-                                  42
-                                ]
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "node_id",
-                              "url",
-                              "members_url",
-                              "name",
-                              "description",
-                              "permission",
-                              "html_url",
-                              "repositories_url",
-                              "slug",
-                              "type"
+                          "node_id": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "description": "URL for the team",
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "members_url": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Name of the team",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "Description of the team",
+                            "type": "string",
+                            "nullable": true
+                          },
+                          "permission": {
+                            "description": "Permission that the team will have for its repositories",
+                            "type": "string"
+                          },
+                          "privacy": {
+                            "description": "The level of privacy this team should have",
+                            "type": "string"
+                          },
+                          "notification_setting": {
+                            "description": "The notification setting the team has set",
+                            "type": "string"
+                          },
+                          "html_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "repositories_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "slug": {
+                            "type": "string"
+                          },
+                          "ldap_dn": {
+                            "description": "Distinguished Name (DN) that team maps to within LDAP environment",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "The ownership type of the team",
+                            "type": "string",
+                            "enum": [
+                              "enterprise",
+                              "organization"
                             ]
+                          },
+                          "organization_id": {
+                            "type": "integer",
+                            "description": "Unique identifier of the organization to which this team belongs"
+                          },
+                          "enterprise_id": {
+                            "type": "integer",
+                            "description": "Unique identifier of the enterprise to which this team belongs"
                           }
-                        ]
+                        },
+                        "required": [
+                          "id",
+                          "node_id",
+                          "url",
+                          "members_url",
+                          "name",
+                          "description",
+                          "permission",
+                          "html_url",
+                          "repositories_url",
+                          "slug",
+                          "type"
+                        ],
+                        "nullable": true
                       }
                     },
                     "required": [
@@ -1937,11 +1545,9 @@
                 },
                 "closed_at": {
                   "description": "The date and time the campaign was closed, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. Will be null if the campaign is still open.",
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "format": "date-time"
+                  "type": "string",
+                  "format": "date-time",
+                  "nullable": true
                 },
                 "state": {
                   "title": "Campaign state",
@@ -1954,11 +1560,9 @@
                 },
                 "contact_link": {
                   "description": "The contact link of the campaign.",
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "format": "uri"
+                  "type": "string",
+                  "format": "uri",
+                  "nullable": true
                 },
                 "alert_stats": {
                   "type": "object",
@@ -2059,43 +1663,36 @@
         {
           "type": "string",
           "name": "name",
-          "in": "body",
           "description": "<p>The name of the campaign</p>"
         },
         {
           "type": "string",
           "name": "description",
-          "in": "body",
           "description": "<p>A description for the campaign</p>"
         },
         {
           "type": "array of strings",
           "name": "managers",
-          "in": "body",
           "description": "<p>The logins of the users to set as the campaign managers. At this time, only a single manager can be supplied.</p>"
         },
         {
           "type": "array of strings",
           "name": "team_managers",
-          "in": "body",
           "description": "<p>The slugs of the teams to set as the campaign managers.</p>"
         },
         {
           "type": "string",
           "name": "ends_at",
-          "in": "body",
           "description": "<p>The end date and time of the campaign, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.</p>"
         },
         {
           "type": "string or null",
           "name": "contact_link",
-          "in": "body",
           "description": "<p>The contact link of the campaign. Must be a URI.</p>"
         },
         {
           "type": "string",
           "name": "state",
-          "in": "body",
           "description": "<p>Indicates whether a campaign is open or closed</p>",
           "enum": [
             "open",
@@ -2106,7 +1703,6 @@
       "descriptionHTML": "<p>Updates a campaign in an organization.</p>\n<p>The authenticated user must be an owner or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -2197,145 +1793,82 @@
                     "type": "object",
                     "properties": {
                       "name": {
-                        "type": [
-                          "string",
-                          "null"
-                        ]
+                        "nullable": true,
+                        "type": "string"
                       },
                       "email": {
-                        "type": [
-                          "string",
-                          "null"
-                        ]
+                        "nullable": true,
+                        "type": "string"
                       },
                       "login": {
-                        "type": "string",
-                        "examples": [
-                          "octocat"
-                        ]
+                        "type": "string"
                       },
                       "id": {
                         "type": "integer",
-                        "format": "int64",
-                        "examples": [
-                          1
-                        ]
+                        "format": "int64"
                       },
                       "node_id": {
-                        "type": "string",
-                        "examples": [
-                          "MDQ6VXNlcjE="
-                        ]
+                        "type": "string"
                       },
                       "avatar_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://github.com/images/error/octocat_happy.gif"
-                        ]
+                        "format": "uri"
                       },
                       "gravatar_id": {
-                        "type": [
-                          "string",
-                          "null"
-                        ],
-                        "examples": [
-                          "41d064eb2195891e12d0413f63227ea7"
-                        ]
+                        "type": "string",
+                        "nullable": true
                       },
                       "url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat"
-                        ]
+                        "format": "uri"
                       },
                       "html_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://github.com/octocat"
-                        ]
+                        "format": "uri"
                       },
                       "followers_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/followers"
-                        ]
+                        "format": "uri"
                       },
                       "following_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/following{/other_user}"
-                        ]
+                        "type": "string"
                       },
                       "gists_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/gists{/gist_id}"
-                        ]
+                        "type": "string"
                       },
                       "starred_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                        ]
+                        "type": "string"
                       },
                       "subscriptions_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/subscriptions"
-                        ]
+                        "format": "uri"
                       },
                       "organizations_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/orgs"
-                        ]
+                        "format": "uri"
                       },
                       "repos_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/repos"
-                        ]
+                        "format": "uri"
                       },
                       "events_url": {
-                        "type": "string",
-                        "examples": [
-                          "https://api.github.com/users/octocat/events{/privacy}"
-                        ]
+                        "type": "string"
                       },
                       "received_events_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://api.github.com/users/octocat/received_events"
-                        ]
+                        "format": "uri"
                       },
                       "type": {
-                        "type": "string",
-                        "examples": [
-                          "User"
-                        ]
+                        "type": "string"
                       },
                       "site_admin": {
                         "type": "boolean"
                       },
                       "starred_at": {
-                        "type": "string",
-                        "examples": [
-                          "\"2020-07-09T00:17:55Z\""
-                        ]
+                        "type": "string"
                       },
                       "user_view_type": {
-                        "type": "string",
-                        "examples": [
-                          "public"
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -2381,10 +1914,8 @@
                         "type": "string"
                       },
                       "description": {
-                        "type": [
-                          "string",
-                          "null"
-                        ]
+                        "type": "string",
+                        "nullable": true
                       },
                       "privacy": {
                         "type": "string"
@@ -2428,10 +1959,7 @@
                       },
                       "html_url": {
                         "type": "string",
-                        "format": "uri",
-                        "examples": [
-                          "https://github.com/orgs/rails/teams/core"
-                        ]
+                        "format": "uri"
                       },
                       "members_url": {
                         "type": "string"
@@ -2450,158 +1978,99 @@
                       },
                       "organization_id": {
                         "type": "integer",
-                        "description": "Unique identifier of the organization to which this team belongs",
-                        "examples": [
-                          37
-                        ]
+                        "description": "Unique identifier of the organization to which this team belongs"
                       },
                       "enterprise_id": {
                         "type": "integer",
-                        "description": "Unique identifier of the enterprise to which this team belongs",
-                        "examples": [
-                          42
-                        ]
+                        "description": "Unique identifier of the enterprise to which this team belongs"
                       },
                       "parent": {
-                        "anyOf": [
-                          {
-                            "type": "null"
+                        "title": "Team Simple",
+                        "description": "Groups of organization members that gives permissions on specified repositories.",
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "description": "Unique identifier of the team",
+                            "type": "integer"
                           },
-                          {
-                            "title": "Team Simple",
-                            "description": "Groups of organization members that gives permissions on specified repositories.",
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "description": "Unique identifier of the team",
-                                "type": "integer",
-                                "examples": [
-                                  1
-                                ]
-                              },
-                              "node_id": {
-                                "type": "string",
-                                "examples": [
-                                  "MDQ6VGVhbTE="
-                                ]
-                              },
-                              "url": {
-                                "description": "URL for the team",
-                                "type": "string",
-                                "format": "uri",
-                                "examples": [
-                                  "https://api.github.com/organizations/1/team/1"
-                                ]
-                              },
-                              "members_url": {
-                                "type": "string",
-                                "examples": [
-                                  "https://api.github.com/organizations/1/team/1/members{/member}"
-                                ]
-                              },
-                              "name": {
-                                "description": "Name of the team",
-                                "type": "string",
-                                "examples": [
-                                  "Justice League"
-                                ]
-                              },
-                              "description": {
-                                "description": "Description of the team",
-                                "type": [
-                                  "string",
-                                  "null"
-                                ],
-                                "examples": [
-                                  "A great team."
-                                ]
-                              },
-                              "permission": {
-                                "description": "Permission that the team will have for its repositories",
-                                "type": "string",
-                                "examples": [
-                                  "admin"
-                                ]
-                              },
-                              "privacy": {
-                                "description": "The level of privacy this team should have",
-                                "type": "string",
-                                "examples": [
-                                  "closed"
-                                ]
-                              },
-                              "notification_setting": {
-                                "description": "The notification setting the team has set",
-                                "type": "string",
-                                "examples": [
-                                  "notifications_enabled"
-                                ]
-                              },
-                              "html_url": {
-                                "type": "string",
-                                "format": "uri",
-                                "examples": [
-                                  "https://github.com/orgs/rails/teams/core"
-                                ]
-                              },
-                              "repositories_url": {
-                                "type": "string",
-                                "format": "uri",
-                                "examples": [
-                                  "https://api.github.com/organizations/1/team/1/repos"
-                                ]
-                              },
-                              "slug": {
-                                "type": "string",
-                                "examples": [
-                                  "justice-league"
-                                ]
-                              },
-                              "ldap_dn": {
-                                "description": "Distinguished Name (DN) that team maps to within LDAP environment",
-                                "type": "string",
-                                "examples": [
-                                  "uid=example,ou=users,dc=github,dc=com"
-                                ]
-                              },
-                              "type": {
-                                "description": "The ownership type of the team",
-                                "type": "string",
-                                "enum": [
-                                  "enterprise",
-                                  "organization"
-                                ]
-                              },
-                              "organization_id": {
-                                "type": "integer",
-                                "description": "Unique identifier of the organization to which this team belongs",
-                                "examples": [
-                                  37
-                                ]
-                              },
-                              "enterprise_id": {
-                                "type": "integer",
-                                "description": "Unique identifier of the enterprise to which this team belongs",
-                                "examples": [
-                                  42
-                                ]
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "node_id",
-                              "url",
-                              "members_url",
-                              "name",
-                              "description",
-                              "permission",
-                              "html_url",
-                              "repositories_url",
-                              "slug",
-                              "type"
+                          "node_id": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "description": "URL for the team",
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "members_url": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Name of the team",
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "Description of the team",
+                            "type": "string",
+                            "nullable": true
+                          },
+                          "permission": {
+                            "description": "Permission that the team will have for its repositories",
+                            "type": "string"
+                          },
+                          "privacy": {
+                            "description": "The level of privacy this team should have",
+                            "type": "string"
+                          },
+                          "notification_setting": {
+                            "description": "The notification setting the team has set",
+                            "type": "string"
+                          },
+                          "html_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "repositories_url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "slug": {
+                            "type": "string"
+                          },
+                          "ldap_dn": {
+                            "description": "Distinguished Name (DN) that team maps to within LDAP environment",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "The ownership type of the team",
+                            "type": "string",
+                            "enum": [
+                              "enterprise",
+                              "organization"
                             ]
+                          },
+                          "organization_id": {
+                            "type": "integer",
+                            "description": "Unique identifier of the organization to which this team belongs"
+                          },
+                          "enterprise_id": {
+                            "type": "integer",
+                            "description": "Unique identifier of the enterprise to which this team belongs"
                           }
-                        ]
+                        },
+                        "required": [
+                          "id",
+                          "node_id",
+                          "url",
+                          "members_url",
+                          "name",
+                          "description",
+                          "permission",
+                          "html_url",
+                          "repositories_url",
+                          "slug",
+                          "type"
+                        ],
+                        "nullable": true
                       }
                     },
                     "required": [
@@ -2632,11 +2101,9 @@
                 },
                 "closed_at": {
                   "description": "The date and time the campaign was closed, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ. Will be null if the campaign is still open.",
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "format": "date-time"
+                  "type": "string",
+                  "format": "date-time",
+                  "nullable": true
                 },
                 "state": {
                   "title": "Campaign state",
@@ -2649,11 +2116,9 @@
                 },
                 "contact_link": {
                   "description": "The contact link of the campaign.",
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "format": "uri"
+                  "type": "string",
+                  "format": "uri",
+                  "nullable": true
                 },
                 "alert_stats": {
                   "type": "object",
@@ -2758,7 +2223,6 @@
       "descriptionHTML": "<p>Deletes a campaign in an organization.</p>\n<p>The authenticated user must be an owner or security manager for the organization to use this endpoint.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>security_events</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",

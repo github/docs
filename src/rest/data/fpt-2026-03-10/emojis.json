@@ -12,7 +12,6 @@
       "descriptionHTML": "<p>Lists all the emojis available to use on GitHub.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json"

@@ -40,7 +40,6 @@
       "descriptionHTML": "<p>Lists all private registry configurations available at the organization-level without revealing their encrypted\nvalues.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -84,10 +83,7 @@
                     "properties": {
                       "name": {
                         "description": "The name of the private registry configuration.",
-                        "type": "string",
-                        "examples": [
-                          "MAVEN_REPOSITORY_SECRET"
-                        ]
+                        "type": "string"
                       },
                       "registry_type": {
                         "description": "The registry type.",
@@ -117,13 +113,8 @@
                       },
                       "username": {
                         "description": "The username to use when authenticating with the private registry.",
-                        "type": [
-                          "string",
-                          "null"
-                        ],
-                        "examples": [
-                          "monalisa"
-                        ]
+                        "type": "string",
+                        "nullable": true
                       },
                       "replaces_base": {
                         "description": "Whether this private registry replaces the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When `true`, Dependabot will only use this registry and will not fall back to the public registry. When `false` (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.",
@@ -210,7 +201,6 @@
         {
           "type": "string",
           "name": "registry_type",
-          "in": "body",
           "description": "<p>The registry type.</p>",
           "isRequired": true,
           "enum": [
@@ -234,41 +224,35 @@
         {
           "type": "string",
           "name": "url",
-          "in": "body",
           "description": "<p>The URL of the private registry.</p>",
           "isRequired": true
         },
         {
           "type": "string or null",
           "name": "username",
-          "in": "body",
           "description": "<p>The username to use when authenticating with the private registry. This field should be omitted if the private registry does not require a username for authentication.</p>"
         },
         {
           "type": "boolean",
           "name": "replaces_base",
-          "in": "body",
           "description": "<p>Whether this private registry should replace the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When set to <code>true</code>, Dependabot will only use this registry and will not fall back to the public registry. When set to <code>false</code> (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.</p>",
           "default": false
         },
         {
           "type": "string",
           "name": "encrypted_value",
-          "in": "body",
           "description": "<p>The value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/private-registries/organization-configurations#get-private-registries-public-key-for-an-organization\">Get private registries public key for an organization</a> endpoint.</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "key_id",
-          "in": "body",
           "description": "<p>The ID of the key you used to encrypt the secret.</p>",
           "isRequired": true
         },
         {
           "type": "string",
           "name": "visibility",
-          "in": "body",
           "description": "<p>Which type of organization repositories have access to the private registry. <code>selected</code> means only the repositories specified by <code>selected_repository_ids</code> can access the private registry.</p>",
           "isRequired": true,
           "enum": [
@@ -280,14 +264,12 @@
         {
           "type": "array of integers",
           "name": "selected_repository_ids",
-          "in": "body",
           "description": "<p>An array of repository IDs that can access the organization private registry. You can only provide a list of repository IDs when <code>visibility</code> is set to <code>selected</code>. You can manage the list of selected repositories using the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/private-registries/organization-configurations#update-a-private-registry-for-an-organization\">Update a private registry for an organization</a> endpoint. This field should be omitted if <code>visibility</code> is set to <code>all</code> or <code>private</code>.</p>"
         }
       ],
       "descriptionHTML": "<p>Creates a private registry configuration with an encrypted value for an organization. Encrypt your secret using <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "org-private-registry-with-private-visibility",
           "request": {
             "contentType": "application/json",
             "description": "Example of a private registry configuration with private visibility",
@@ -328,10 +310,7 @@
               "properties": {
                 "name": {
                   "description": "The name of the private registry configuration.",
-                  "type": "string",
-                  "examples": [
-                    "MAVEN_REPOSITORY_SECRET"
-                  ]
+                  "type": "string"
                 },
                 "registry_type": {
                   "description": "The registry type.",
@@ -361,10 +340,7 @@
                 },
                 "username": {
                   "description": "The username to use when authenticating with the private registry.",
-                  "type": "string",
-                  "examples": [
-                    "monalisa"
-                  ]
+                  "type": "string"
                 },
                 "replaces_base": {
                   "description": "Whether this private registry replaces the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When `true`, Dependabot will only use this registry and will not fall back to the public registry. When `false` (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.",
@@ -407,7 +383,6 @@
           }
         },
         {
-          "key": "org-private-registry-with-selected-visibility",
           "request": {
             "contentType": "application/json",
             "description": "Example of a private registry configuration with selected visibility",
@@ -447,10 +422,7 @@
               "properties": {
                 "name": {
                   "description": "The name of the private registry configuration.",
-                  "type": "string",
-                  "examples": [
-                    "MAVEN_REPOSITORY_SECRET"
-                  ]
+                  "type": "string"
                 },
                 "registry_type": {
                   "description": "The registry type.",
@@ -480,10 +452,7 @@
                 },
                 "username": {
                   "description": "The username to use when authenticating with the private registry.",
-                  "type": "string",
-                  "examples": [
-                    "monalisa"
-                  ]
+                  "type": "string"
                 },
                 "replaces_base": {
                   "description": "Whether this private registry replaces the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When `true`, Dependabot will only use this registry and will not fall back to the public registry. When `false` (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.",
@@ -574,7 +543,6 @@
       "descriptionHTML": "<p>Gets the org public key, which is needed to encrypt private registry secrets. You need to encrypt a secret before you can create or update secrets.</p>\n<p>OAuth tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -599,17 +567,11 @@
               "properties": {
                 "key_id": {
                   "description": "The identifier for the key.",
-                  "type": "string",
-                  "examples": [
-                    "012345678912345678"
-                  ]
+                  "type": "string"
                 },
                 "key": {
                   "description": "The Base64 encoded public key.",
-                  "type": "string",
-                  "examples": [
-                    "2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJyvv1234"
-                  ]
+                  "type": "string"
                 }
               }
             }
@@ -669,7 +631,6 @@
       "descriptionHTML": "<p>Get the configuration of a single private registry defined for an organization, omitting its encrypted value.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -697,10 +658,7 @@
               "properties": {
                 "name": {
                   "description": "The name of the private registry configuration.",
-                  "type": "string",
-                  "examples": [
-                    "MAVEN_REPOSITORY_SECRET"
-                  ]
+                  "type": "string"
                 },
                 "registry_type": {
                   "description": "The registry type.",
@@ -730,13 +688,8 @@
                 },
                 "username": {
                   "description": "The username to use when authenticating with the private registry.",
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "examples": [
-                    "monalisa"
-                  ]
+                  "type": "string",
+                  "nullable": true
                 },
                 "replaces_base": {
                   "description": "Whether this private registry replaces the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When `true`, Dependabot will only use this registry and will not fall back to the public registry. When `false` (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.",
@@ -825,7 +778,6 @@
         {
           "type": "string",
           "name": "registry_type",
-          "in": "body",
           "description": "<p>The registry type.</p>",
           "enum": [
             "maven_repository",
@@ -848,38 +800,32 @@
         {
           "type": "string",
           "name": "url",
-          "in": "body",
           "description": "<p>The URL of the private registry.</p>"
         },
         {
           "type": "string or null",
           "name": "username",
-          "in": "body",
           "description": "<p>The username to use when authenticating with the private registry. This field should be omitted if the private registry does not require a username for authentication.</p>"
         },
         {
           "type": "boolean",
           "name": "replaces_base",
-          "in": "body",
           "description": "<p>Whether this private registry should replace the base registry (e.g., npmjs.org for npm, rubygems.org for rubygems). When set to <code>true</code>, Dependabot will only use this registry and will not fall back to the public registry. When set to <code>false</code> (default), Dependabot will use this registry for scoped packages but may fall back to the public registry for other packages.</p>",
           "default": false
         },
         {
           "type": "string",
           "name": "encrypted_value",
-          "in": "body",
           "description": "<p>The value for your secret, encrypted with <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a> using the public key retrieved from the <a href=\"https://docs.github.com/enterprise-cloud@latest//rest/private-registries/organization-configurations#get-private-registries-public-key-for-an-organization\">Get private registries public key for an organization</a> endpoint.</p>"
         },
         {
           "type": "string",
           "name": "key_id",
-          "in": "body",
           "description": "<p>The ID of the key you used to encrypt the secret.</p>"
         },
         {
           "type": "string",
           "name": "visibility",
-          "in": "body",
           "description": "<p>Which type of organization repositories have access to the private registry. <code>selected</code> means only the repositories specified by <code>selected_repository_ids</code> can access the private registry.</p>",
           "enum": [
             "all",
@@ -890,14 +836,12 @@
         {
           "type": "array of integers",
           "name": "selected_repository_ids",
-          "in": "body",
           "description": "<p>An array of repository IDs that can access the organization private registry. You can only provide a list of repository IDs when <code>visibility</code> is set to <code>selected</code>. This field should be omitted if <code>visibility</code> is set to <code>all</code> or <code>private</code>.</p>"
         }
       ],
       "descriptionHTML": "<p>Updates a private registry configuration with an encrypted value for an organization. Encrypt your secret using <a href=\"https://libsodium.gitbook.io/doc/bindings_for_other_languages\">LibSodium</a>. For more information, see \"<a href=\"https://docs.github.com/enterprise-cloud@latest//rest/guides/encrypting-secrets-for-the-rest-api\">Encrypting secrets for the REST API</a>.\"</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "contentType": "application/json",
             "description": "Example",
@@ -975,7 +919,6 @@
       "descriptionHTML": "<p>Delete a private registry configuration at the organization-level.</p>\n<p>OAuth app tokens and personal access tokens (classic) need the <code>admin:org</code> scope to use this endpoint.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",

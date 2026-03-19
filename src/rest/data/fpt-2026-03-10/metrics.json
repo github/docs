@@ -31,7 +31,6 @@
       "descriptionHTML": "<p>Returns all community profile metrics for a repository. The repository cannot be a fork.</p>\n<p>The returned metrics include an overall health score, the repository description, the presence of documentation, the\ndetected code of conduct, the detected license, and the presence of ISSUE_TEMPLATE, PULL_REQUEST_TEMPLATE,\nREADME, and CONTRIBUTING files.</p>\n<p>The <code>health_percentage</code> score is defined as a percentage of how many of\nthe recommended community health files are present. For more information, see\n\"<a href=\"https://docs.github.com/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories\">About community profiles for public repositories</a>.\"</p>\n<p><code>content_reports_enabled</code> is only returned for organization-owned repositories.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -93,267 +92,179 @@
               "type": "object",
               "properties": {
                 "health_percentage": {
-                  "type": "integer",
-                  "examples": [
-                    100
-                  ]
+                  "type": "integer"
                 },
                 "description": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "examples": [
-                    "My first repository on GitHub!"
-                  ]
+                  "type": "string",
+                  "nullable": true
                 },
                 "documentation": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
-                  "examples": [
-                    "example.com"
-                  ]
+                  "type": "string",
+                  "nullable": true
                 },
                 "files": {
                   "type": "object",
                   "properties": {
                     "code_of_conduct": {
-                      "anyOf": [
-                        {
-                          "type": "null"
+                      "title": "Code Of Conduct Simple",
+                      "description": "Code of Conduct Simple",
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
                         },
-                        {
-                          "title": "Code Of Conduct Simple",
-                          "description": "Code of Conduct Simple",
-                          "type": "object",
-                          "properties": {
-                            "url": {
-                              "type": "string",
-                              "format": "uri",
-                              "examples": [
-                                "https://api.github.com/repos/github/docs/community/code_of_conduct"
-                              ]
-                            },
-                            "key": {
-                              "type": "string",
-                              "examples": [
-                                "citizen_code_of_conduct"
-                              ]
-                            },
-                            "name": {
-                              "type": "string",
-                              "examples": [
-                                "Citizen Code of Conduct"
-                              ]
-                            },
-                            "html_url": {
-                              "type": [
-                                "string",
-                                "null"
-                              ],
-                              "format": "uri",
-                              "examples": [
-                                "https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md"
-                              ]
-                            }
-                          },
-                          "required": [
-                            "url",
-                            "key",
-                            "name",
-                            "html_url"
-                          ]
+                        "key": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "nullable": true,
+                          "format": "uri"
                         }
-                      ]
+                      },
+                      "required": [
+                        "url",
+                        "key",
+                        "name",
+                        "html_url"
+                      ],
+                      "nullable": true
                     },
                     "code_of_conduct_file": {
-                      "anyOf": [
-                        {
-                          "type": "null"
+                      "title": "Community Health File",
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
                         },
-                        {
-                          "title": "Community Health File",
-                          "type": "object",
-                          "properties": {
-                            "url": {
-                              "type": "string",
-                              "format": "uri"
-                            },
-                            "html_url": {
-                              "type": "string",
-                              "format": "uri"
-                            }
-                          },
-                          "required": [
-                            "url",
-                            "html_url"
-                          ]
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
                         }
-                      ]
+                      },
+                      "required": [
+                        "url",
+                        "html_url"
+                      ],
+                      "nullable": true
                     },
                     "license": {
-                      "anyOf": [
-                        {
-                          "type": "null"
+                      "title": "License Simple",
+                      "description": "License Simple",
+                      "type": "object",
+                      "properties": {
+                        "key": {
+                          "type": "string"
                         },
-                        {
-                          "title": "License Simple",
-                          "description": "License Simple",
-                          "type": "object",
-                          "properties": {
-                            "key": {
-                              "type": "string",
-                              "examples": [
-                                "mit"
-                              ]
-                            },
-                            "name": {
-                              "type": "string",
-                              "examples": [
-                                "MIT License"
-                              ]
-                            },
-                            "url": {
-                              "type": [
-                                "string",
-                                "null"
-                              ],
-                              "format": "uri",
-                              "examples": [
-                                "https://api.github.com/licenses/mit"
-                              ]
-                            },
-                            "spdx_id": {
-                              "type": [
-                                "string",
-                                "null"
-                              ],
-                              "examples": [
-                                "MIT"
-                              ]
-                            },
-                            "node_id": {
-                              "type": "string",
-                              "examples": [
-                                "MDc6TGljZW5zZW1pdA=="
-                              ]
-                            },
-                            "html_url": {
-                              "type": "string",
-                              "format": "uri"
-                            }
-                          },
-                          "required": [
-                            "key",
-                            "name",
-                            "url",
-                            "spdx_id",
-                            "node_id"
-                          ]
+                        "name": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string",
+                          "nullable": true,
+                          "format": "uri"
+                        },
+                        "spdx_id": {
+                          "type": "string",
+                          "nullable": true
+                        },
+                        "node_id": {
+                          "type": "string"
+                        },
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
                         }
-                      ]
+                      },
+                      "required": [
+                        "key",
+                        "name",
+                        "url",
+                        "spdx_id",
+                        "node_id"
+                      ],
+                      "nullable": true
                     },
                     "contributing": {
-                      "anyOf": [
-                        {
-                          "type": "null"
+                      "title": "Community Health File",
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
                         },
-                        {
-                          "title": "Community Health File",
-                          "type": "object",
-                          "properties": {
-                            "url": {
-                              "type": "string",
-                              "format": "uri"
-                            },
-                            "html_url": {
-                              "type": "string",
-                              "format": "uri"
-                            }
-                          },
-                          "required": [
-                            "url",
-                            "html_url"
-                          ]
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
                         }
-                      ]
+                      },
+                      "required": [
+                        "url",
+                        "html_url"
+                      ],
+                      "nullable": true
                     },
                     "readme": {
-                      "anyOf": [
-                        {
-                          "type": "null"
+                      "title": "Community Health File",
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
                         },
-                        {
-                          "title": "Community Health File",
-                          "type": "object",
-                          "properties": {
-                            "url": {
-                              "type": "string",
-                              "format": "uri"
-                            },
-                            "html_url": {
-                              "type": "string",
-                              "format": "uri"
-                            }
-                          },
-                          "required": [
-                            "url",
-                            "html_url"
-                          ]
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
                         }
-                      ]
+                      },
+                      "required": [
+                        "url",
+                        "html_url"
+                      ],
+                      "nullable": true
                     },
                     "issue_template": {
-                      "anyOf": [
-                        {
-                          "type": "null"
+                      "title": "Community Health File",
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
                         },
-                        {
-                          "title": "Community Health File",
-                          "type": "object",
-                          "properties": {
-                            "url": {
-                              "type": "string",
-                              "format": "uri"
-                            },
-                            "html_url": {
-                              "type": "string",
-                              "format": "uri"
-                            }
-                          },
-                          "required": [
-                            "url",
-                            "html_url"
-                          ]
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
                         }
-                      ]
+                      },
+                      "required": [
+                        "url",
+                        "html_url"
+                      ],
+                      "nullable": true
                     },
                     "pull_request_template": {
-                      "anyOf": [
-                        {
-                          "type": "null"
+                      "title": "Community Health File",
+                      "type": "object",
+                      "properties": {
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
                         },
-                        {
-                          "title": "Community Health File",
-                          "type": "object",
-                          "properties": {
-                            "url": {
-                              "type": "string",
-                              "format": "uri"
-                            },
-                            "html_url": {
-                              "type": "string",
-                              "format": "uri"
-                            }
-                          },
-                          "required": [
-                            "url",
-                            "html_url"
-                          ]
+                        "html_url": {
+                          "type": "string",
+                          "format": "uri"
                         }
-                      ]
+                      },
+                      "required": [
+                        "url",
+                        "html_url"
+                      ],
+                      "nullable": true
                     }
                   },
                   "required": [
@@ -367,20 +278,12 @@
                   ]
                 },
                 "updated_at": {
-                  "type": [
-                    "string",
-                    "null"
-                  ],
+                  "type": "string",
                   "format": "date-time",
-                  "examples": [
-                    "2017-02-28T19:09:29Z"
-                  ]
+                  "nullable": true
                 },
                 "content_reports_enabled": {
-                  "type": "boolean",
-                  "examples": [
-                    true
-                  ]
+                  "type": "boolean"
                 }
               },
               "required": [
@@ -446,7 +349,6 @@
       "descriptionHTML": "<p>Returns a weekly aggregate of the number of additions and deletions pushed to a repository.</p>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint can only be used for repositories with fewer than 10,000 commits. If the repository contains 10,000 or more commits, a 422 status code will be returned.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -542,7 +444,6 @@
       "descriptionHTML": "<p>Returns the last year of commit activity grouped by week. The <code>days</code> array is a group of commits per day, starting on <code>Sunday</code>.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -581,28 +482,13 @@
                     "type": "array",
                     "items": {
                       "type": "integer"
-                    },
-                    "examples": [
-                      0,
-                      3,
-                      26,
-                      20,
-                      39,
-                      1,
-                      0
-                    ]
+                    }
                   },
                   "total": {
-                    "type": "integer",
-                    "examples": [
-                      89
-                    ]
+                    "type": "integer"
                   },
                   "week": {
-                    "type": "integer",
-                    "examples": [
-                      1336280400
-                    ]
+                    "type": "integer"
                   }
                 },
                 "required": [
@@ -673,7 +559,6 @@
       "descriptionHTML": "<p>Returns the <code>total</code> number of commits authored by the contributor. In addition, the response includes a Weekly Hash (<code>weeks</code> array) with the following information:</p>\n<ul>\n<li><code>w</code> - Start of the week, given as a <a href=\"https://en.wikipedia.org/wiki/Unix_time\">Unix timestamp</a>.</li>\n<li><code>a</code> - Number of additions</li>\n<li><code>d</code> - Number of deletions</li>\n<li><code>c</code> - Number of commits</li>\n</ul>\n<div class=\"ghd-alert ghd-alert-accent\" data-container=\"alert\"><p class=\"ghd-alert-title\"><svg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden><path d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"></path></svg>Note</p>\n<p>\nThis endpoint will return <code>0</code> values for all addition and deletion counts in repositories with 10,000 or more commits.</p>\n</div>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -727,185 +612,113 @@
                 "type": "object",
                 "properties": {
                   "author": {
-                    "anyOf": [
-                      {
-                        "type": "null"
+                    "title": "Simple User",
+                    "description": "A GitHub user.",
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "nullable": true,
+                        "type": "string"
                       },
-                      {
-                        "title": "Simple User",
-                        "description": "A GitHub user.",
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "string",
-                              "null"
-                            ]
-                          },
-                          "email": {
-                            "type": [
-                              "string",
-                              "null"
-                            ]
-                          },
-                          "login": {
-                            "type": "string",
-                            "examples": [
-                              "octocat"
-                            ]
-                          },
-                          "id": {
-                            "type": "integer",
-                            "format": "int64",
-                            "examples": [
-                              1
-                            ]
-                          },
-                          "node_id": {
-                            "type": "string",
-                            "examples": [
-                              "MDQ6VXNlcjE="
-                            ]
-                          },
-                          "avatar_url": {
-                            "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/images/error/octocat_happy.gif"
-                            ]
-                          },
-                          "gravatar_id": {
-                            "type": [
-                              "string",
-                              "null"
-                            ],
-                            "examples": [
-                              "41d064eb2195891e12d0413f63227ea7"
-                            ]
-                          },
-                          "url": {
-                            "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat"
-                            ]
-                          },
-                          "html_url": {
-                            "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://github.com/octocat"
-                            ]
-                          },
-                          "followers_url": {
-                            "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/followers"
-                            ]
-                          },
-                          "following_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/following{/other_user}"
-                            ]
-                          },
-                          "gists_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/gists{/gist_id}"
-                            ]
-                          },
-                          "starred_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/starred{/owner}{/repo}"
-                            ]
-                          },
-                          "subscriptions_url": {
-                            "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/subscriptions"
-                            ]
-                          },
-                          "organizations_url": {
-                            "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/orgs"
-                            ]
-                          },
-                          "repos_url": {
-                            "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/repos"
-                            ]
-                          },
-                          "events_url": {
-                            "type": "string",
-                            "examples": [
-                              "https://api.github.com/users/octocat/events{/privacy}"
-                            ]
-                          },
-                          "received_events_url": {
-                            "type": "string",
-                            "format": "uri",
-                            "examples": [
-                              "https://api.github.com/users/octocat/received_events"
-                            ]
-                          },
-                          "type": {
-                            "type": "string",
-                            "examples": [
-                              "User"
-                            ]
-                          },
-                          "site_admin": {
-                            "type": "boolean"
-                          },
-                          "starred_at": {
-                            "type": "string",
-                            "examples": [
-                              "\"2020-07-09T00:17:55Z\""
-                            ]
-                          },
-                          "user_view_type": {
-                            "type": "string",
-                            "examples": [
-                              "public"
-                            ]
-                          }
-                        },
-                        "required": [
-                          "avatar_url",
-                          "events_url",
-                          "followers_url",
-                          "following_url",
-                          "gists_url",
-                          "gravatar_id",
-                          "html_url",
-                          "id",
-                          "node_id",
-                          "login",
-                          "organizations_url",
-                          "received_events_url",
-                          "repos_url",
-                          "site_admin",
-                          "starred_url",
-                          "subscriptions_url",
-                          "type",
-                          "url"
-                        ]
+                      "email": {
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "login": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "integer",
+                        "format": "int64"
+                      },
+                      "node_id": {
+                        "type": "string"
+                      },
+                      "avatar_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "gravatar_id": {
+                        "type": "string",
+                        "nullable": true
+                      },
+                      "url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "html_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "followers_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "following_url": {
+                        "type": "string"
+                      },
+                      "gists_url": {
+                        "type": "string"
+                      },
+                      "starred_url": {
+                        "type": "string"
+                      },
+                      "subscriptions_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "organizations_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "repos_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "events_url": {
+                        "type": "string"
+                      },
+                      "received_events_url": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "site_admin": {
+                        "type": "boolean"
+                      },
+                      "starred_at": {
+                        "type": "string"
+                      },
+                      "user_view_type": {
+                        "type": "string"
                       }
-                    ]
+                    },
+                    "required": [
+                      "avatar_url",
+                      "events_url",
+                      "followers_url",
+                      "following_url",
+                      "gists_url",
+                      "gravatar_id",
+                      "html_url",
+                      "id",
+                      "node_id",
+                      "login",
+                      "organizations_url",
+                      "received_events_url",
+                      "repos_url",
+                      "site_admin",
+                      "starred_url",
+                      "subscriptions_url",
+                      "type",
+                      "url"
+                    ],
+                    "nullable": true
                   },
                   "total": {
-                    "type": "integer",
-                    "examples": [
-                      135
-                    ]
+                    "type": "integer"
                   },
                   "weeks": {
                     "type": "array",
@@ -925,15 +738,7 @@
                           "type": "integer"
                         }
                       }
-                    },
-                    "examples": [
-                      {
-                        "w": "1367712000",
-                        "a": 6898,
-                        "d": 77,
-                        "c": 10
-                      }
-                    ]
+                    }
                   }
                 },
                 "required": [
@@ -1004,7 +809,6 @@
       "descriptionHTML": "<p>Returns the total commit counts for the <code>owner</code> and total commit counts in <code>all</code>. <code>all</code> is everyone combined, including the <code>owner</code> in the last 52 weeks. If you'd like to get the commit counts for non-owners, you can subtract <code>owner</code> from <code>all</code>.</p>\n<p>The array order is oldest week (index 0) to most recent week.</p>\n<p>The most recent week is seven days ago at UTC midnight to today at UTC midnight.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1206,7 +1010,6 @@
       "descriptionHTML": "<p>Each array contains the day number, hour number, and number of commits:</p>\n<ul>\n<li><code>0-6</code>: Sunday - Saturday</li>\n<li><code>0-23</code>: Hour of day</li>\n<li>Number of commits</li>\n</ul>\n<p>For example, <code>[2, 14, 25]</code> indicates that there were 25 total commits, during the 2:00pm hour on Tuesdays. All times are based on the time zone of individual commits.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1320,7 +1123,6 @@
       "descriptionHTML": "<p>Get the total number of clones and breakdown per day or week for the last 14 days. Timestamps are aligned to UTC midnight of the beginning of the day or week. Week begins on Monday.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1420,16 +1222,10 @@
               "type": "object",
               "properties": {
                 "count": {
-                  "type": "integer",
-                  "examples": [
-                    173
-                  ]
+                  "type": "integer"
                 },
                 "uniques": {
-                  "type": "integer",
-                  "examples": [
-                    128
-                  ]
+                  "type": "integer"
                 },
                 "clones": {
                   "type": "array",
@@ -1518,7 +1314,6 @@
       "descriptionHTML": "<p>Get the top 10 popular contents over the last 14 days.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1601,28 +1396,16 @@
                 "type": "object",
                 "properties": {
                   "path": {
-                    "type": "string",
-                    "examples": [
-                      "/github/hubot"
-                    ]
+                    "type": "string"
                   },
                   "title": {
-                    "type": "string",
-                    "examples": [
-                      "github/hubot: A customizable life embetterment robot."
-                    ]
+                    "type": "string"
                   },
                   "count": {
-                    "type": "integer",
-                    "examples": [
-                      3542
-                    ]
+                    "type": "integer"
                   },
                   "uniques": {
-                    "type": "integer",
-                    "examples": [
-                      2225
-                    ]
+                    "type": "integer"
                   }
                 },
                 "required": [
@@ -1689,7 +1472,6 @@
       "descriptionHTML": "<p>Get the top 10 referrers over the last 14 days.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1732,22 +1514,13 @@
                 "type": "object",
                 "properties": {
                   "referrer": {
-                    "type": "string",
-                    "examples": [
-                      "Google"
-                    ]
+                    "type": "string"
                   },
                   "count": {
-                    "type": "integer",
-                    "examples": [
-                      4
-                    ]
+                    "type": "integer"
                   },
                   "uniques": {
-                    "type": "integer",
-                    "examples": [
-                      3
-                    ]
+                    "type": "integer"
                   }
                 },
                 "required": [
@@ -1827,7 +1600,6 @@
       "descriptionHTML": "<p>Get the total number of views and breakdown per day or week for the last 14 days. Timestamps are aligned to UTC midnight of the beginning of the day or week. Week begins on Monday.</p>",
       "codeExamples": [
         {
-          "key": "default",
           "request": {
             "description": "Example",
             "acceptHeader": "application/vnd.github.v3+json",
@@ -1927,16 +1699,10 @@
               "type": "object",
               "properties": {
                 "count": {
-                  "type": "integer",
-                  "examples": [
-                    14850
-                  ]
+                  "type": "integer"
                 },
                 "uniques": {
-                  "type": "integer",
-                  "examples": [
-                    3782
-                  ]
+                  "type": "integer"
                 },
                 "views": {
                   "type": "array",
