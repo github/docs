@@ -13,6 +13,8 @@ versions:
 permissions: '{% data reusables.sponsors.sponsorship-permissions %}'
 shortTitle: Sponsor through {% data variables.product.prodname_dotcom %}
 contentType: how-tos
+category:
+  - Fund open source work
 ---
 
 ## About sponsorships with payments through {% data variables.product.prodname_dotcom %}

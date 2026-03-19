@@ -6,6 +6,8 @@ versions:
   ghec: '*'
 shortTitle: Disable your account
 contentType: how-tos
+category:
+  - Manage your sponsored account
 ---
 
 If you are receiving sponsorship payments, you'll need to contact GitHub Support to disable your {% data variables.product.prodname_sponsors %} account.
