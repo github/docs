@@ -6,6 +6,7 @@ import {
   useProductionLogging,
 } from '@/observability/logger/lib/log-levels'
 import { toLogfmt } from '@/observability/logger/lib/to-logfmt'
+import { POD_IDENTITY } from '@/observability/logger/lib/pod-identity'
 
 type IncludeContext = { [key: string]: unknown }
 
@@ -131,7 +132,8 @@ export function createLogger(filePath: string) {
     if (useProductionLogging()) {
       // Logfmt logging in production
       const logObject: IncludeContext = {
-        ...loggerContext,
+        ...POD_IDENTITY, // pod_name, pod_namespace, node_hostname (static; {} in local dev)
+        ...loggerContext, // requestUuid, path, method, headers, etc. (per-request)
         timestamp,
         level,
         file: path.relative(process.cwd(), new URL(filePath).pathname),
