@@ -13,7 +13,7 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Connect Azure sub
-permissions: 'Billing managers or owners'
+permissions: 'Enterprise owners and organization owners'
 contentType: how-tos
 category:
   - Set up payment

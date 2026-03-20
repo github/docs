@@ -9,7 +9,6 @@ versions:
   fpt: '*'
   ghec: '*'
 permissions: 'Enterprise owners, organization owners, and billing managers'
-product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 contentType: tutorials
 category:
   - Track spending and control costs
