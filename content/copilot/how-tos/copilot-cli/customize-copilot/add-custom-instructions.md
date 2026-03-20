@@ -43,7 +43,7 @@ Instructions in the `AGENTS.md` file in the root directory, if found, are treate
 
 Instructions found in other `AGENTS.md` files are treated as additional instructions. Any primary instructions that are found are likely to have more effect on {% data variables.product.prodname_copilot_short %}'s responses than additional instructions.
 
-For more information, see the [openai/agents.md repository](https://github.com/openai/agents.md).
+For more information, see the [agentsmd/agents.md repository](https://github.com/agentsmd/agents.md).
 
 Alternatively, you can use `CLAUDE.md` and `GEMINI.md` files. These must be located at the root of the repository.
 
