@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp
+  annotations:
+    moda.github.net/inject-unified-service-tag-env-var: docs-internal
 spec:
   replicas: 1
   selector:
