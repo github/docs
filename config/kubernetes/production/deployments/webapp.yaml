@@ -4,6 +4,7 @@ metadata:
   name: webapp
   annotations:
     moda.github.net/allow-missing-ready-pods: '1'
+    moda.github.net/inject-unified-service-tag-env-var: docs-internal
 spec:
   replicas: 12
   strategy:
