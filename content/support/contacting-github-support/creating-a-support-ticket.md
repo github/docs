@@ -19,6 +19,8 @@ redirect_from:
   - /admin/enterprise-support/receiving-help-from-github-support/submitting-a-ticket
   - /articles/submitting-a-ticket
   - /github/working-with-github-support/submitting-a-ticket
+category:
+  - Contact GitHub
 ---
 
 ## About support tickets

@@ -22,12 +22,6 @@ versions:
 changelog:
   label: '2FA,authentication,security keys,SSH,token authentication'
 layout: product-landing
-topics:
-  - 2FA
-  - Identity
-  - Access management
-  - Usernames
-  - Device verification
 children:
   - /keeping-your-account-and-data-secure
 ---

@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines
 contentType: how-tos
+category:
+  - Set up dev containers for a project
 ---
 
 ## Overview

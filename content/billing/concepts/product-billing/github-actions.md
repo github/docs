@@ -44,7 +44,7 @@ For **private repositories**, each {% data variables.product.github %} account r
 
 It's important to understand the difference between what you see on {% data variables.product.github %} and what appears on your bill:
 
-* **Current storage:** The amount of storage you have right now (visible in repository settings and the **Billing Overview** page)
+* **Current storage:** The amount of storage you have right now
 * **Accrued storage:** The cumulative total of storage used throughout the billing cycle (determines your bill)
 
 **When you delete artifacts:**

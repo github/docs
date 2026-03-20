@@ -7,6 +7,9 @@ import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-f
 import { errorCacheControl } from '@/frame/middleware/cache-control'
 import statsd from '@/observability/lib/statsd'
 import { ExtendedRequest } from '@/types'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 const DEBUG_MIDDLEWARE_TESTS = Boolean(JSON.parse(process.env.DEBUG_MIDDLEWARE_TESTS || 'false'))
 
@@ -29,6 +32,10 @@ function timedOut(req: ExtendedRequest) {
     incrementTags.push(`product:${req.context.currentCategory}`)
   }
   statsd.increment('middleware.timeout', 1, incrementTags)
+  logger.warn('Request timed out', {
+    path: req.pagePath || req.path,
+    method: req.method,
+  })
 }
 
 async function handleError(

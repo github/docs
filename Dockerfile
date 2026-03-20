@@ -155,9 +155,11 @@ ENV BUILD_SHA=$BUILD_SHA
 
 # V8 heap limit as a percentage of the container cgroup memory limit.
 # Uses --max-old-space-size-percentage (Node 24+) so the heap adapts
-# automatically when K8s memory limits change. 75% leaves ~25% headroom
+# automatically when K8s memory limits change. 80% leaves ~20% headroom
 # for off-heap memory (Buffers, V8 code cache, libuv) and OS overhead.
-ENV NODE_OPTIONS="--max-old-space-size-percentage=75"
+# Raised from 75% on advice from performance engineering to reduce GC
+# pressure during traffic spikes.
+ENV NODE_OPTIONS="--max-old-space-size-percentage=80"
 
 # Entrypoint to start the server
 CMD ["node_modules/.bin/tsx", "src/frame/server.ts"]

@@ -7,6 +7,8 @@ versions:
   ghec: '*'
 redirect_from:
   - /codespaces/managing-your-codespaces/reviewing-your-security-logs-for-codespaces
+category:
+  - Customize your codespace
 ---
 
 ## About security logs for {% data variables.product.prodname_github_codespaces %}

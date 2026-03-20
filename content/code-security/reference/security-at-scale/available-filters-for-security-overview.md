@@ -181,7 +181,9 @@ For more information about production context, see [AUTOTITLE](/code-security/se
 
 ## {% data variables.product.prodname_dependabot %} alert view filters
 
-**Available in:** {% data variables.product.prodname_dependabot %} alert view
+**Available in:**
+* {% data variables.product.prodname_dependabot_alerts %} view{% ifversion dependabot-malware-alerts %}
+* {% data variables.product.prodname_dependabot_malware_alerts %} view{% endif %}
 
 | Qualifier | Description |
 | -------- | -------- |

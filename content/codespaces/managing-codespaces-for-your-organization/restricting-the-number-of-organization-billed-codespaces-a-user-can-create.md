@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 product: '{% data reusables.gated-features.codespaces-org %}'
 contentType: how-tos
+category:
+  - Manage codespaces for your organization
 ---
 
 ## Overview

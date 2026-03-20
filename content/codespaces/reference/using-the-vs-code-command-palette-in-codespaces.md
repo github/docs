@@ -10,6 +10,8 @@ redirect_from:
   - /codespaces/codespaces-reference/using-the-command-palette-in-codespaces
   - /codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces
 contentType: reference
+category:
+  - Write code in a codespace
 ---
 
 ## About the {% data variables.product.prodname_vscode_command_palette %}

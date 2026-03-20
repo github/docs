@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter
+category:
+  - Write and format content
 ---
 
 ## About YAML frontmatter

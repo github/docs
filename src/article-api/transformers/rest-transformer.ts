@@ -58,15 +58,14 @@ export class RestTransformer implements PageTransformer {
     const subcategory = pathParts[restIndex + 2] // May be undefined for category-only pages
 
     // Get the REST operations data
-    const restData = await getRest(currentVersion, effectiveApiVersion)
+    const categoryData = await getRest(currentVersion, effectiveApiVersion, category)
 
     let operations: Operation[] = []
 
-    if (subcategory && restData[category]?.[subcategory]) {
-      operations = restData[category][subcategory]
-    } else if (category && restData[category]) {
+    if (subcategory && categoryData?.[subcategory]) {
+      operations = categoryData[subcategory]
+    } else if (category && categoryData) {
       // For categories without subcategories, operations are nested directly
-      const categoryData = restData[category]
       // Flatten all operations from all subcategories
       operations = Object.values(categoryData).flat()
     }

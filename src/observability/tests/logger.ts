@@ -389,4 +389,46 @@ describe('createLogger', () => {
       expect(logOutput).toContain('included.key=value')
     })
   })
+
+  describe('pod identity fields in production logs', () => {
+    it('should include podName, podNamespace, nodeHostname in logfmt output when env vars are set', async () => {
+      vi.stubEnv('POD_NAME', 'webapp-abc123')
+      vi.stubEnv('POD_NAMESPACE', 'docs-internal-staging-cedar')
+      vi.stubEnv('KUBE_NODE_HOSTNAME', 'ghe-k8s-node-42')
+      vi.stubEnv('LOG_LIKE_PRODUCTION', 'true')
+
+      // Reset modules so pod-identity is re-evaluated with the new env vars
+      vi.resetModules()
+      const { createLogger: freshCreateLogger } = await import('@/observability/logger')
+
+      const logger = freshCreateLogger('file:///path/to/test.js')
+      logger.info('Pod identity test')
+
+      expect(consoleLogs).toHaveLength(1)
+      const logOutput = consoleLogs[0]
+      expect(logOutput).toContain('podName=webapp-abc123')
+      expect(logOutput).toContain('podNamespace=docs-internal-staging-cedar')
+      expect(logOutput).toContain('nodeHostname=ghe-k8s-node-42')
+    })
+
+    it('should not include pod identity fields in logfmt output when env vars are absent', async () => {
+      vi.stubEnv('LOG_LIKE_PRODUCTION', 'true')
+      // Ensure pod env vars are absent
+      delete process.env.POD_NAME
+      delete process.env.POD_NAMESPACE
+      delete process.env.KUBE_NODE_HOSTNAME
+
+      vi.resetModules()
+      const { createLogger: freshCreateLogger } = await import('@/observability/logger')
+
+      const logger = freshCreateLogger('file:///path/to/test.js')
+      logger.info('No pod identity test')
+
+      expect(consoleLogs).toHaveLength(1)
+      const logOutput = consoleLogs[0]
+      expect(logOutput).not.toContain('podName=')
+      expect(logOutput).not.toContain('podNamespace=')
+      expect(logOutput).not.toContain('nodeHostname=')
+    })
+  })
 })

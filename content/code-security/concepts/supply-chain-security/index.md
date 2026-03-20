@@ -15,6 +15,7 @@ children:
   - dependency-graph-data
   - about-dependency-review
   - about-dependabot-alerts
+  - dependabot-malware-alerts
   - about-metrics-for-dependabot-alerts
   - about-dependabot-security-updates
   - about-dependabot-version-updates

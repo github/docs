@@ -43,6 +43,19 @@ When {% data variables.product.prodname_ghe_server %} receives information about
 
 For repositories with {% data variables.product.prodname_dependabot_alerts %} enabled, scanning is triggered on any push to the default branch that contains a manifest file or lock file. Additionally, when a new vulnerability record is added, {% data variables.product.prodname_ghe_server %} scans all existing repositories and generates alerts for any repository that is vulnerable. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
 
+{% ifversion dependabot-malware-alerts %}
+
+#### {% data variables.product.prodname_dependabot_malware_alerts %}
+
+{% data variables.product.prodname_dependabot %} can also use data from the {% data variables.product.prodname_advisory_database %} to raise alerts for malicious packages. These packages are identified using data from {% data variables.product.company_short %}-reviewed advisories, which sync to your instance every hour. {% data variables.product.prodname_dependabot %} scans for malicious packages:
+* When the {% data variables.product.prodname_advisory_database %} syncs to your instance
+* When a push to the default branch contains a manifest file or lock file
+
+> [!NOTE]
+> When you enable {% data variables.product.prodname_dependabot_malware_alerts %}, no code or information about code from {% data variables.product.prodname_ghe_server %} is uploaded to {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}.
+
+{% endif %}
+
 ### About {% data variables.product.prodname_dependabot_updates %}
 
 After you enable {% data variables.product.prodname_dependabot_alerts %}, you can choose to enable {% data variables.product.prodname_dependabot_updates %}. When {% data variables.product.prodname_dependabot_updates %} are enabled for {% data variables.product.prodname_ghe_server %}, users can configure repositories so that their dependencies are updated and kept secure automatically.

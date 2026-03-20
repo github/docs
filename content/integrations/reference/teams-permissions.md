@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: reference
+category:
+  - Learn about integrations
 ---
 
 By granting the {% data variables.product.github %} app access to your Microsoft Teams workspace, you are providing necessary authorizations to your {% data variables.product.github %} account and your Teams workspace. These permissions enable the app to perform its functions and provide you with a seamless experience when using {% data variables.product.github %} in Teams.

@@ -7,12 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
-topics:
-  - Git
-  - Fundamentals
-  - GitHub
-  - Collaboration
-  - Community
 redirect_from:
   - /get-started/quickstart/about-github-and-git
 ---

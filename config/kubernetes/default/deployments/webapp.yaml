@@ -16,6 +16,8 @@ spec:
         # See https://thehub.github.com/epd/engineering/dev-practicals/observability/logging/ for more details
         fluentbit.io/parser: logfmt_sloppy
         observability.github.com/splunk_index: docs-internal
+        ad.datadoghq.com/webapp.logs: '[{"source":"nodejs","service":"docs-internal","tags":["env:staging"]}]'
+        ad.datadoghq.com/tolerate-unready: 'true'
     spec:
       dnsPolicy: Default
       containers:
@@ -47,6 +49,15 @@ spec:
             # configuration set in config/moda/configuration/*/env.yaml
             - configMapRef:
                 name: application-config
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
           # Zero-downtime deploys
           # https://thehub.github.com/engineering/products-and-services/internal/moda/feature-documentation/pod-lifecycle/#required-prestop-hook
           # https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks

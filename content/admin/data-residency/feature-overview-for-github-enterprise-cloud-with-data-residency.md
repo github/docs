@@ -103,4 +103,4 @@ Some features on {% data variables.enterprise.data_residency_site %} are current
 
 ### {% data variables.product.prodname_github_codespaces %}
 
-{% data variables.product.prodname_github_codespaces %} on {% data variables.enterprise.data_residency_site %} are in {% data variables.release-phases.public_preview %}.
+{% data variables.product.prodname_github_codespaces %} on {% data variables.enterprise.data_residency_site %} are in {% data variables.release-phases.public_preview %} and are available in all {% data variables.enterprise.data_residency %} regions: EU, Australia, US, and Japan.

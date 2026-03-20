@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: reference
+category:
+  - Use and extend the CLI
 ---
 
 To view all top-level {% data variables.product.prodname_cli %} commands, enter `gh` without arguments.

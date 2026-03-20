@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /codespaces/troubleshooting/troubleshooting-codespaces-clients
 contentType: reference
+category:
+  - Troubleshoot codespaces
 ---
 
 {% webui %}

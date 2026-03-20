@@ -9,6 +9,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Migrate from REST to GraphQL
+category:
+  - Understand API changes and limits
 ---
 
 ## Differences in API logic

@@ -10,6 +10,8 @@ redirect_from:
   - /codespaces/codespaces-reference/using-github-copilot-in-codespaces
   - /codespaces/codespaces-reference/using-github-copilot-in-github-codespaces
 contentType: reference
+category:
+  - Write code in a codespace
 ---
 
 [{% data variables.product.prodname_copilot %}](https://copilot.github.com/) is an AI pair programmer that you can use in any codespace that you open in the {% data variables.product.prodname_vscode_shortname %} web client or desktop application. For more information about {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot).

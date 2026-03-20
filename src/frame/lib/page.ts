@@ -61,7 +61,6 @@ type GuideWithContentType = {
   href: string
   title: string
   contentType?: string
-  topics?: string[]
 }
 
 export class FrontmatterErrorsError extends Error {
@@ -385,9 +384,6 @@ class Page {
       this.includeGuides?.map((guide: any) => {
         const { page } = guide
         guide.contentType = page.contentType
-        if (page.topics) {
-          guide.topics = page.topics
-        }
         delete guide.page
         return guide
       })
