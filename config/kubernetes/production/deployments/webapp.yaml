@@ -5,7 +5,12 @@ metadata:
   annotations:
     moda.github.net/allow-missing-ready-pods: '1'
 spec:
-  replicas: 6
+  replicas: 12
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 2
   selector:
     matchLabels:
       app: webapp
@@ -27,17 +32,17 @@ spec:
           image: docs-internal
           resources:
             requests:
-              cpu: 2500m
+              cpu: 1250m
               # Absolute minimum to start app is 1000m
               # Node is single-threaded but we want more CPUs
               # for OS and image resizing, and other binary executions
               # Better to increase replicas or memory than CPU
-              memory: 16.0Gi
+              memory: 8.0Gi
               # Absolute minimum to start app is 4500Mi
               # Would increase with more pages, versions, or languages supported
               # The additional memory helps during traffic surges
             limits:
-              cpu: 16000m
+              cpu: 8000m
               memory: 16.0Gi
           ports:
             - name: http
