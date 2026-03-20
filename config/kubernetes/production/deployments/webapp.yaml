@@ -32,13 +32,13 @@ spec:
               # Node is single-threaded but we want more CPUs
               # for OS and image resizing, and other binary executions
               # Better to increase replicas or memory than CPU
-              memory: 8.0Gi
+              memory: 16.0Gi
               # Absolute minimum to start app is 4500Mi
               # Would increase with more pages, versions, or languages supported
               # The additional memory helps during traffic surges
             limits:
               cpu: 16000m
-              memory: 8.0Gi
+              memory: 16.0Gi
           ports:
             - name: http
               containerPort: 4000
@@ -68,10 +68,18 @@ spec:
             preStop:
               exec:
                 command: ['sleep', '5']
-          readinessProbe:
-            initialDelaySeconds: 5
+          startupProbe:
             httpGet:
-              # WARNING: This should be updated to a meaningful endpoint for your application which will return a 200 once the app is fully started.
-              # See: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes
+              path: /healthcheck
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 12
+            timeoutSeconds: 5
+          readinessProbe:
+            timeoutSeconds: 5
+            periodSeconds: 10
+            failureThreshold: 3
+            httpGet:
               path: /healthcheck
               port: http

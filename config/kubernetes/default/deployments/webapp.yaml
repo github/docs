@@ -65,10 +65,18 @@ spec:
             preStop:
               exec:
                 command: ['sleep', '5']
-          readinessProbe:
-            initialDelaySeconds: 5
+          startupProbe:
             httpGet:
-              # WARNING: This should be updated to a meaningful endpoint for your application which will return a 200 once the app is fully started.
-              # See: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes
+              path: /healthcheck
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 12
+            timeoutSeconds: 5
+          readinessProbe:
+            timeoutSeconds: 5
+            periodSeconds: 10
+            failureThreshold: 3
+            httpGet:
               path: /healthcheck
               port: http
