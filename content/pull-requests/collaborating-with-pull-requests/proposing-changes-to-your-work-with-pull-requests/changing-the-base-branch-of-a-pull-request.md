@@ -20,7 +20,7 @@ category:
 
 {% data reusables.repositories.sidebar-pr %}
 1. In the "Pull Requests" list, click the pull request you'd like to modify.
-1. Next to the pull request's title, click the pencil icon to edit the pull request.
+1. Next to the pull request title, click **Edit title** {% octicon "pencil" aria-label="Edit title" %}.
 
 1. In the base branch drop-down menu, select the base branch you'd like to [compare changes against](/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits#comparing-branches).
 
