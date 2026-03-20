@@ -4,8 +4,6 @@ intro: Audio and visual transcript.
 shortTitle: Billing through Azure
 allowTitleToDifferFromFilename: true
 product_video: 'https://www.youtube.com/watch?v=Y-f7JKJ4_8Y'
-topics:
-  - Transcripts
 versions:
   fpt: '*'
   ghec: '*'

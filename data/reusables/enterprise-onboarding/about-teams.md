@@ -1,6 +1,6 @@
 ## What are teams?
 
-Teams are **groups of users** in an enterprise or organization. By creating teams, you can manage users at scale and simplify access, licensing, and communication. For example, you could create an auditor team for users who need access to audit logs, or a {% data variables.product.prodname_copilot_short %} team for users who receive {% data variables.product.prodname_copilot_short %} licenses.
+Teams are **groups of users** in an enterprise or organization. By creating teams, you can manage users at scale and simplify access, licensing, and communication. For example, you could create an auditor team for users who need access to audit logs{% ifversion copilot %}, or a {% data variables.product.prodname_copilot_short %} team for users who receive {% data variables.product.prodname_copilot_short %} licenses{% endif %}.
 
 **Enterprise teams** are managed at the enterprise level and can include users from across the enterprise and its organizations. With enterprise teams, you can centralize administration and manage organization access, roles, and licensing at scale.
 
@@ -10,21 +10,28 @@ Teams are **groups of users** in an enterprise or organization. By creating team
 
 ## Can I manage teams from an identity provider?
 
-If you have integrated {% data variables.product.github %} with an identity provider (IdP), you can link teams on {% data variables.product.github %} with groups in your IdP. When membership of the IdP group changes, the change is reflected in the {% data variables.product.github %} team, allowing you to centralize access management.
+{% ifversion ghes %}If you have enabled SCIM user provisioning on {% data variables.product.prodname_ghe_server %}{% else %}If you have integrated {% data variables.product.github %} with an identity provider (IdP){% endif %}, you can link teams on {% data variables.product.github %} with groups in your IdP. When membership of the IdP group changes, the change is reflected in the {% data variables.product.github %} team, allowing you to centralize access management.
 
+{% ifversion not ghes %}
 The capabilities of this feature depend on whether you use {% data variables.product.prodname_emus %} or personal accounts.
 
 ### {% data variables.product.prodname_emus %}
 
-You can make changes to IdP groups to manage repository access, add or remove users from organizations, or grant or remove {% data variables.product.prodname_copilot %} licenses. For example, if a new user is added to an IdP group that is linked to a team with access to an organization, the user receives access to that organization. For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/managing-team-memberships-with-identity-provider-groups#about-team-management-with-enterprise-managed-users).
+{% endif %}
+
+You can make changes to IdP groups to manage repository access, add or remove users from organizations, or grant or remove {% data variables.product.prodname_copilot %} licenses. For example, if a new user is added to an IdP group that is linked to a team with access to an organization, the user receives access to that organization. For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/managing-team-memberships-with-identity-provider-groups).
 
 This feature is available with both enterprise and organization teams.
+
+{% ifversion not ghes %}
 
 ### Personal accounts
 
 Team synchronization allows you to centrally manage any privileges linked to an organization team, such as repository access and CODEOWNER status. However, team sync cannot be used to add users to organizations where they don't already have access. For more information, see [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise).
 
 Team sync with personal accounts is only available with organization teams, and you must use Entra ID or Okta as an IdP.
+
+{% endif %}
 
 ## What kind of team should I use?
 
@@ -39,7 +46,9 @@ However, unlike organization teams, enterprise teams currently do **not** suppor
 * `@-mentions` of the team name in organizations
 * Review requests of the team in pull requests
 * Adding the team to a project board
+{%- ifversion not ghes %}
 * Team sync if you use {% data variables.product.prodname_ghe_cloud %} with personal accounts
+{%- endif %}
 * CODEOWNER status
 * Secret teams
 * Nested teams

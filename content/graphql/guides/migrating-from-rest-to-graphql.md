@@ -8,9 +8,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - API
 shortTitle: Migrate from REST to GraphQL
+category:
+  - Understand API changes and limits
 ---
 
 ## Differences in API logic

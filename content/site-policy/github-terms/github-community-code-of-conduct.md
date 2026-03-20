@@ -7,9 +7,6 @@ redirect_from:
   - /site-policy/github-terms/github-community-forum-code-of-conduct
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 ---
 
 ## Overview and Purpose

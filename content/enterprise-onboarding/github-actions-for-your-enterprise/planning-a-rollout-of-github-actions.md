@@ -1,18 +1,14 @@
 ---
 title: Planning a rollout of GitHub Actions
-shortTitle: 'Plan a rollout'
+shortTitle: Plan a rollout
 intro: You can plan how to roll out {% data variables.product.prodname_actions %} in your enterprise.
 versions:
   ghec: '*'
-type: how_to
-topics:
-  - Actions
-  - Enterprise
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /enterprise-onboarding/github-actions-for-your-enterprise/security-hardening-for-github-actions
   - /enterprise-onboarding/github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
-contentType: other
+contentType: how-tos
 ---
 
 ## Governance and compliance

@@ -1,30 +1,37 @@
 import FailBot from './failbot'
+import { createLogger } from '@/observability/logger'
 
-process.on('uncaughtException', async (err: Error) => {
-  if ((err as NodeJS.ErrnoException).code === 'MODULE_NOT_FOUND') {
-    console.error('\n\n🔥 Uh oh! It looks you are missing a required npm module.')
-    console.error(
-      'Please run `npm install` to make sure you have all the required dependencies.\n\n',
-    )
-  }
+const logger = createLogger(import.meta.url)
 
-  console.error(err)
+// Safely convert an unknown thrown value to an Error, avoiding JSON.stringify
+// which can throw on circular references.
+function toError(value: Error | unknown): Error {
+  if (value instanceof Error) return value
   try {
-    FailBot.report(err)
+    return new Error(JSON.stringify(value))
+  } catch {
+    return new Error(String(value))
+  }
+}
+
+process.on('uncaughtException', async (err: Error | unknown) => {
+  const error = toError(err)
+  logger.error('uncaughtException', { error })
+  try {
+    FailBot.report(error)
   } catch (failBotError) {
-    console.warn('Even sending the uncaughtException error to FailBot failed!')
-    console.error(failBotError)
+    logger.warn('Even sending the uncaughtException error to FailBot failed!')
+    logger.error('Failed to report uncaughtException to FailBot', { error: toError(failBotError) })
   }
 })
 
 process.on('unhandledRejection', async (err: Error | unknown) => {
-  console.error(err)
+  const error = toError(err)
+  logger.error('unhandledRejection', { error })
   try {
-    // Type guard to ensure we have an Error object for FailBot
-    const error = err instanceof Error ? err : new Error(String(err))
     FailBot.report(error)
   } catch (failBotError) {
-    console.warn('Even sending the unhandledRejection error to FailBot failed!')
-    console.error(failBotError)
+    logger.warn('Even sending the unhandledRejection error to FailBot failed!')
+    logger.error('Failed to report unhandledRejection to FailBot', { error: toError(failBotError) })
   }
 })

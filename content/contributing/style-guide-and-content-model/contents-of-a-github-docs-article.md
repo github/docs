@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Follow the style guide and content model
 ---
 
 ## About the structure of an article

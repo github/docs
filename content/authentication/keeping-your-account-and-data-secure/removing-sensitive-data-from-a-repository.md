@@ -12,10 +12,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Identity
-  - Access management
 shortTitle: Remove sensitive data
+category:
+  - Manage access credentials
 ---
 
 ## About removing sensitive data from a repository

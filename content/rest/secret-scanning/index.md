@@ -7,8 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - API
 children:
   - /alert-dismissal-requests
   - /delegated-bypass

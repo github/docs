@@ -64,3 +64,7 @@ sections:
       After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
     - |
       In some scenarios, upgrades from GHES 3.14.x to 3.16 can fail with a migration error. Running `ghe-single-config-apply` _should_ allow the migration to proceed, and complete the upgrade. This will be fixed in GHES 3.16.7. To work around this issue, in your Enterprise's Code Security Settings, disable all security settings that apply to "new repositories". Once upgraded, create an Enterprise Security Configuration with your desired settings and set that configuration as the default for new repositories.
+    - |
+      Upgrading to this version from GHES 3.14.19 and higher or 3.15.14 and higher will cause the upgrade to fail due to this version containing an older version of MySQL. To avoid this issue please upgrade to GHES 3.16.10 or higher.
+
+      [Updated: 2025-11-24]

@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+category:
+  - Follow the style guide and content model
 ---
 
 We create referential articles and referential sections within other articles.

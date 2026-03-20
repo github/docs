@@ -1,15 +1,12 @@
 ---
 title: Setting up a trial of GitHub Enterprise
-intro: 'Understand what is included in the {% data variables.product.prodname_ghe_cloud %} trial, and how to get started.'
+intro: Understand what is included in the {% data variables.product.prodname_ghe_cloud %} trial, and how to get started.
 versions:
   ghec: '*'
-type: how_to
-topics:
-  - Accounts
-  - Enterprise
 shortTitle: Start a trial
 redirect_from:
   - /enterprise-onboarding/getting-started-with-your-enterprise/ending-a-trial-of-github-enterprise
+contentType: how-tos
 ---
 
 To set up a trial, you must be signed in to a personal account.

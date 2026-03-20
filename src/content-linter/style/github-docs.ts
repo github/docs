@@ -187,6 +187,13 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
+  'rai-app-card-structure': {
+    // GHD064
+    // Disabled until RAI content migration is complete (github/docs-team#6340).
+    // To enable, change severity to 'error'.
+    severity: 'warning',
+    'partial-markdown-files': false,
+  },
 }
 
 export const githubDocsFrontmatterConfig = {
@@ -242,7 +249,7 @@ export const githubDocsFrontmatterConfig = {
     'partial-markdown-files': false,
     'yml-files': false,
   },
-  'frontmatter-landing-recommended': {
+  'frontmatter-landing-carousels': {
     // GHD056
     severity: 'error',
     'partial-markdown-files': false,
@@ -280,6 +287,24 @@ export const githubDocsFrontmatterConfig = {
   },
   'frontmatter-intro-links': {
     // GHD062
+    severity: 'error',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
+  'frontmatter-children': {
+    // GHD063
+    severity: 'error',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
+  'frontmatter-curly-quotes': {
+    // GHD034
+    severity: 'error',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
+  'frontmatter-content-type': {
+    // GHD065
     severity: 'error',
     'partial-markdown-files': false,
     'yml-files': false,

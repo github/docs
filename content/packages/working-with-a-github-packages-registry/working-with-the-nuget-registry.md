@@ -296,6 +296,61 @@ If you're using a nuspec file, ensure that it has a `repository` element with th
 
 If you're using a `GITHUB_TOKEN` to authenticate to a {% data variables.product.prodname_registry %} registry within a {% data variables.product.prodname_actions %} workflow, the token cannot access private repository-based packages in a different repository other than where the workflow is running in. To access packages associated with other repositories, instead generate a {% data variables.product.pat_v1 %} with the `read:packages` scope and pass this token in as a secret.
 
+### Intermittent 403 errors when restoring public packages
+
+If you're using {% data variables.product.prodname_registry %} alongside _nuget.org_ and experiencing intermittent 403 Forbidden errors when restoring standard public packages (like `Microsoft.Extensions.*`), this may occur because NuGet queries all configured package sources for every package. If {% data variables.product.prodname_registry %} authentication fails temporarily, it can block the entire restore—even for packages that don't exist on {% data variables.product.prodname_registry %}.
+
+To avoid this, use [NuGet Package Source Mapping](https://learn.microsoft.com/nuget/consume-packages/package-source-mapping) to route packages to specific sources.
+
+Replace:
+* `NAMESPACE` with the name of the personal account or organization that owns your {% data variables.product.prodname_registry %} NuGet feed.
+* `PACKAGE-ID-PREFIX` with the NuGet package ID prefix that you use for packages hosted on {% data variables.product.prodname_registry %}. If you use multiple prefixes, add additional `<package>` entries for each prefix.{% ifversion ghes %}
+* `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
+
+{% ifversion ghes %}If your instance has subdomain isolation enabled:
+{% endif %}
+
+```xml
+<configuration>
+    <packageSources>
+        <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
+        <add key="github" value="https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/NAMESPACE/index.json" />
+    </packageSources>
+    <packageSourceMapping>
+        <packageSource key="nuget.org">
+            <package pattern="*" />
+        </packageSource>
+        <packageSource key="github">
+            <package pattern="PACKAGE-ID-PREFIX.*" />
+        </packageSource>
+    </packageSourceMapping>
+</configuration>
+```
+
+{% ifversion ghes %}
+If your instance has subdomain isolation disabled:
+
+```xml
+<configuration>
+    <packageSources>
+        <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
+        <add key="github" value="https://HOSTNAME/_registry/nuget/NAMESPACE/index.json" />
+    </packageSources>
+    <packageSourceMapping>
+        <packageSource key="nuget.org">
+            <package pattern="*" />
+        </packageSource>
+        <packageSource key="github">
+            <package pattern="PACKAGE-ID-PREFIX.*" />
+        </packageSource>
+    </packageSourceMapping>
+</configuration>
+```
+
+{% endif %}
+
+NuGet uses the [most specific matching pattern](https://learn.microsoft.com/nuget/consume-packages/package-source-mapping#package-pattern-precedence), so packages matching `PACKAGE-ID-PREFIX.*` are fetched only from {% data variables.product.prodname_registry %}, while all other packages are fetched from _nuget.org_. This also helps prevent dependency confusion attacks by ensuring your private packages can only come from your {% data variables.product.prodname_registry %} feed.
+
 ## Further reading
 
 * [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)

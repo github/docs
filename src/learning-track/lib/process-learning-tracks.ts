@@ -3,7 +3,13 @@ import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import { renderContent } from '@/content-render/index'
 import { executeWithFallback } from '@/languages/lib/render-with-fallback'
-import { Context, TrackGuide, LearningTrack, ProcessedLearningTracks } from './types'
+import {
+  Context,
+  TrackGuide,
+  LearningTrack,
+  LearningTrackMetadata,
+  ProcessedLearningTracks,
+} from './types'
 
 const renderOpts = { textOnly: true }
 
@@ -25,7 +31,7 @@ export default async function processLearningTracks(
       ? await executeWithFallback(
           context,
           () => renderContent(rawTrackName, context, renderOpts),
-          () => '', // todo use english rawTrackName
+          (enContext: Context) => renderContent(rawTrackName, enContext, renderOpts),
         )
       : rawTrackName
     if (!renderedTrackName) continue
@@ -63,7 +69,7 @@ export default async function processLearningTracks(
     //      we need to have the English `title` and `description` to
     //      fall back to.
     //
-    let enTrack: any
+    let enTrack!: LearningTrackMetadata
     if (context.currentLanguage !== 'en') {
       enTrack = getDataByLanguage(
         `learning-tracks.${context.currentProduct}.${renderedTrackName}`,
@@ -90,12 +96,12 @@ export default async function processLearningTracks(
     const title = await executeWithFallback(
       context,
       () => renderContent(track.title, context, renderOpts),
-      (enContext: any) => renderContent(enTrack.title, enContext, renderOpts),
+      (enContext: Context) => renderContent(enTrack.title, enContext, renderOpts),
     )
     const description = await executeWithFallback(
       context,
       () => renderContent(track.description, context, renderOpts),
-      (enContext: any) => renderContent(enTrack.description, enContext, renderOpts),
+      (enContext: Context) => renderContent(enTrack.description, enContext, renderOpts),
     )
 
     const guides = (await getLinkData(track.guides, context)) || []

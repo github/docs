@@ -4,9 +4,9 @@ shortTitle: Integrate coding agent with Linear
 intro: 'Use the {% data variables.product.prodname_copilot_short %} integration in Linear to provide context and open pull requests, all from within your Linear workspace.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 contentType: how-tos
+category:
+  - Integrate Copilot with your tools
 ---
 
 > [!NOTE]
@@ -30,7 +30,7 @@ For information about additional {% data variables.product.prodname_copilot_shor
 
 The {% data variables.product.prodname_copilot_short %} app only needs to be installed once in an organization. After the app is installed, any member of the organization can connect their {% data variables.product.prodname_copilot_short %} account to the app and start using it.
 
-1. Go to the [{% data variables.product.prodname_copilot_short %} for Linear page](https://github.com/apps/github-copilot-for-linear?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-linear-copilot&utm_medium=docs&utm_campaign=universe25post) and click **Configure**.
+1. Go to the [{% data variables.product.prodname_copilot_short %} for Linear page](https://github.com/apps/github-copilot-for-linear?ref_product=copilot&ref_type=engagement&ref_style=text) and click **Configure**.
 1. Follow the prompts on screen to configure and authorize the app in the organization or enterprise where you want to use it.
 
 ## Using the {% data variables.product.prodname_copilot_short %} app in Linear

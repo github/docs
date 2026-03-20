@@ -4,8 +4,6 @@ shortTitle: Disable Copilot Free
 intro: 'Learn how to disable {% data variables.copilot.copilot_free_short %} in your IDE or {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/disabling-github-copilot-free
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/disabling-github-copilot-free

@@ -3,9 +3,6 @@ title: GitHub Sexually Obscene Content
 shortTitle: Sexually Obscene Content
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 redirect_from:
   - /github/site-policy/github-sexually-obscene-content
   - /github/site-policy/github-community-guidelines#sexually-obscene-content

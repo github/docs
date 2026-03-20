@@ -11,9 +11,9 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 shortTitle: View people in your enterprise
+category:
+  - Manage accounts and repositories
 ---
 
 {% data reusables.enterprise-managed.repo-collaborators-note %}

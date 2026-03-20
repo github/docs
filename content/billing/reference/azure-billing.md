@@ -6,11 +6,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Billing
-  - Enterprise
 allowTitleToDifferFromFilename: true
 contentType: reference
+category:
+  - Set up payment
 ---
 
 You can connect an Azure subscription to your {% data variables.product.github %} account. When you do, charges for {% data variables.product.github %} products (such as {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_actions %}, or {% data variables.product.prodname_codespaces %}) are billed through Azure instead of directly through {% data variables.product.github %}.

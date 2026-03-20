@@ -15,8 +15,6 @@ category:
 complexity:
   - Intermediate
 octicon: book
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

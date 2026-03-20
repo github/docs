@@ -19,11 +19,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Notifications
 shortTitle: Set commit email address
 contentType: how-tos
+category:
+  - Manage your email
 ---
 
 ## Setting your commit email address on {% data variables.product.github %}

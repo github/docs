@@ -6,6 +6,7 @@ import { isArchivedVersionByPath } from '@/archives/lib/is-archived-version'
 import getRedirect from '@/redirects/lib/get-redirect'
 import { getVersionStringFromPath, getLangFromPath } from '@/frame/lib/path-utils'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+import { allVersions } from '@/versions/lib/all-versions'
 
 // validates the path for pagelist endpoint
 // specifically, defaults to `/en/free-pro-team@latest` when those values are missing
@@ -120,6 +121,50 @@ export const pageValidationMiddleware = (
   }
   // The pathname might have changed if it was a redirect
   req.pageinfo.pathname = pathname
+
+  return next()
+}
+
+export const apiVersionValidationMiddleware = (
+  req: ExtendedRequestWithPageInfo,
+  res: Response,
+  next: NextFunction,
+) => {
+  const apiVersion = req.query.apiVersion as string | string[] | undefined
+
+  // If no apiVersion is provided, continue (it will default to latest)
+  if (!apiVersion) {
+    return next()
+  }
+
+  // Validate apiVersion is a single string, not an array
+  if (Array.isArray(apiVersion)) {
+    return res.status(400).json({ error: "Multiple 'apiVersion' keys" })
+  }
+
+  // Get the version from the pathname query parameter
+  const pathname = req.pageinfo?.pathname || (req.query.pathname as string)
+  if (!pathname) {
+    // This should not happen as pathValidationMiddleware runs first
+    throw new Error('pathname not available for apiVersion validation')
+  }
+
+  // Extract version from the pathname
+  const currentVersion = getVersionStringFromPath(pathname) || nonEnterpriseDefaultVersion
+  const versionInfo = allVersions[currentVersion]
+
+  if (!versionInfo) {
+    return res.status(400).json({ error: `Invalid version '${currentVersion}'` })
+  }
+
+  const validApiVersions = versionInfo.apiVersions || []
+
+  // If this version has API versioning, validate the provided version
+  if (validApiVersions.length > 0 && !validApiVersions.includes(apiVersion)) {
+    return res.status(400).json({
+      error: `Invalid apiVersion '${apiVersion}' for ${currentVersion}. Valid API versions are: ${validApiVersions.join(', ')}`,
+    })
+  }
 
   return next()
 }

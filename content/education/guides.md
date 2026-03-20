@@ -5,6 +5,8 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
 shortTitle: Guides
+category:
+  - Set up GitHub Classroom
 ---
 
 ## Get started with {% data variables.product.github %}

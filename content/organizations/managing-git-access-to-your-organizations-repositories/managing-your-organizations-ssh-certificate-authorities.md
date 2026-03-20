@@ -7,11 +7,10 @@ redirect_from:
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage SSH authorities
 permissions: Organization owners can manage an organization's SSH certificate authorities (CA).
+category:
+  - Manage authentication methods
 ---
 
 You can allow members to access your organization's repositories using SSH certificates you provide by adding an SSH CA to your organization. {% data reusables.organizations.can-require-ssh-cert %} For more information, see [AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities).

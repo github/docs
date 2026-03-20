@@ -13,7 +13,7 @@ interface Props {
   pickerLabel?: string
   dataTestId: string
   defaultText: string
-  ariaLabel: string
+  ariaLabel?: string
   alignment: AnchorAlignment
   descriptionFontSize?: number
   renderItem?: (item: PickerItem) => ReactNode | string
@@ -24,7 +24,10 @@ export interface PickerItem {
   text: string
   selected: boolean
   extra?: {
-    [key: string]: any
+    arrow?: boolean
+    info?: boolean
+    version?: string
+    currentDate?: string
   }
   divider?: boolean
 }

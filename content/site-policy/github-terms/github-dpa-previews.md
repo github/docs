@@ -3,17 +3,14 @@ title: GitHub DPA-Covered Previews
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 ---
 
 ## GitHub DPA-Covered Previews
 
-The pre-release products and features listed below use data handling that is the same as when the software becomes generally available. Under [GitHub’s Pre-Release License Terms](https://gh.io/preview-terms), this software is governed by [the GitHub Data Protection Agreement](https://gh.io/dpa) as of the date listed, and the Customer is the Data Controller beginning on that date.
+The pre-release products and features listed below use data handling that is the same as when the software becomes generally available. Under [GitHub’s Pre-Release License Terms](https://gh.io/preview-terms), this software is governed by [the GitHub Data Protection Agreement](https://gh.io/dpa) as of the date listed, and the Customer is the Data Controller beginning on that date (the "DPA Coverage Date"). The software is no longer considered a Preview on the date it becomes generally available (the "GA Date").
 
-| Product / Feature                                  | DPA Coverage Date   |
-|:---------------------------------------------------|:-------------------:|
-| Copilot CLI                                        | 27 October 2025     |
-| Copilot Enterprise & Users Usage Metrics Dashboard | 27 October 2025     |
-| Spark                                              | 27 October 2025     |
+| Product / Feature                                  | DPA Coverage Date   | GA Date            |
+|:---------------------------------------------------|:-------------------:|:------------------:|
+| Copilot CLI                                        | 27 October 2025     | 25 February 2026   |
+| Copilot Enterprise & Users Usage Metrics Dashboard | 27 October 2025     | 27 February 2026   |
+| Spark                                              | 27 October 2025     | [TBD]              |

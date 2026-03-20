@@ -7,8 +7,6 @@ redirect_from:
   - /copilot/tutorials/copilot-chat-cookbook/documenting-code
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /creating-issues
   - /document-legacy-code

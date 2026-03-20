@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'Learn how to configure {% data variables.product.prodname_copilot_short %} to automatically review pull requests.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/using-github-copilot/code-review/configuring-automatic-code-review-by-copilot
   - /copilot/how-tos/agents/copilot-code-review/configuring-automatic-code-review-by-copilot

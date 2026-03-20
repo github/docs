@@ -15,8 +15,6 @@ category:
 complexity:
   - Advanced
 octicon: rocket
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

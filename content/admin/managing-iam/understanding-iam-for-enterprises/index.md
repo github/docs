@@ -19,11 +19,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Accounts
-  - Authentication
-  - Enterprise
-  - Identity
 children:
   - /about-saml-for-enterprise-iam
   - /abilities-and-restrictions-of-managed-user-accounts

@@ -8,18 +8,24 @@ redirect_from:
   - /early-access/admin/preview-of-data-residency-for-github-enterprise/network-access-to-resources-on-ghecom
   - /early-access/admin/private-ga-of-data-residency-for-github-enterprise-cloud/network-access-to-resources-on-ghecom
   - /early-access/admin/data-residency-for-github-enterprise-cloud/network-access-to-resources-on-ghecom
+category:
+  - Get started with GitHub Enterprise
 ---
 
 To access your enterprise on {% data variables.enterprise.data_residency_site %}, client systems must:
 
-* Trust the following SSH key fingerprints
-* Have access to the following hostnames and IP addresses
+* Trust {% data variables.product.github %}'s SSH key fingerprints
+* Have access to {% data variables.product.github %}'s hostnames and IP addresses
 
 ## {% data variables.product.github %}'s SSH key fingerprints
 
-* `SHA256:PYES2CtancLX+w0+VvwWRQclfulUkqj6hpZmcKFAO3w` (RSA)
-* `SHA256:TKoEXigNsj5b6XaSOSf20L0y3cuNx41WWM+l4AAK9k4` (ECDSA)
-* `SHA256:LqPvjvQugr3MmzVYw9M3gT7won8/lUPZCSvmNydl7vU` (Ed25519)
+To find these details, use the `/meta` API endpoint for your instance. For example, using the {% data variables.product.prodname_cli %}:
+
+```shell
+gh api /meta --hostname octocorp.ghe.com
+```
+
+For more information, see [AUTOTITLE](/rest/meta/meta).
 
 ## {% data variables.product.github %}'s hostnames
 
@@ -29,14 +35,13 @@ To access your enterprise on {% data variables.enterprise.data_residency_site %}
 * `*.githubassets.com`
 * `*.githubusercontent.com`
 * `*.blob.core.windows.net`
+* `auth.ghe.com`
 
 ## {% data variables.product.github %}'s IP addresses
 
 {% data variables.product.company_short %}'s IP address ranges for enterprises on {% data variables.enterprise.data_residency_site %} depend on your chosen region.
 
 ### The EU
-
-These are {% data variables.product.company_short %}'s IP address ranges for enterprises hosted in the EU.
 
 | Ranges for egress traffic | Ranges for ingress traffic |
 |--------------------------|---------------------------|
@@ -49,8 +54,6 @@ These are {% data variables.product.company_short %}'s IP address ranges for ent
 
 ### Australia
 
-These are {% data variables.product.company_short %}'s IP address ranges for enterprises hosted in Australia.
-
 | Ranges for egress traffic | Ranges for ingress traffic |
 |--------------------------|---------------------------|
 | 20.5.34.240/28           | 4.237.73.192/28           |
@@ -59,13 +62,19 @@ These are {% data variables.product.company_short %}'s IP address ranges for ent
 
 ### US
 
-These are {% data variables.product.company_short %}'s IP address ranges for enterprises hosted in the US.
-
 | Ranges for egress traffic | Ranges for ingress traffic |
 |--------------------------|---------------------------|
 | 20.221.76.128/28         | 74.249.180.192/28         |
 | 135.233.115.208/28       | 48.214.149.96/28          |
 | 20.118.27.192/28         | 172.202.123.176/28        |
+
+### Japan
+
+| Ranges for egress traffic | Ranges for ingress traffic |
+|--------------------------|-----------------------------|
+| 74.226.88.192/28         | 74.226.88.240/28            |
+| 40.81.180.112/28         | 40.81.176.224/28            |
+| 4.190.169.192/28         | 4.190.169.240/28            |
 
 ## Supported regions for Azure private networking
 
@@ -95,6 +104,14 @@ If you use Azure private networking for {% data variables.product.company_short 
 | arm64 | `centralus`, `eastus2`, `westus3` |
 | GPU | `centralus`, `eastus2`, `westus3` |
 
+### Supported regions in Japan
+
+| Runner type | Supported regions |
+| ----------- | ----------------- |
+| x64 | `japaneast`, `japanwest` |
+| arm64 | `japaneast`, `japanwest` |
+| GPU | `japaneast` |
+
 ### IP ranges for Azure private networking
 
 #### EU
@@ -113,16 +130,29 @@ EU region:
 * 20.240.220.192/28
 * 20.240.211.208/28
 
-#### Austrailia
+#### Australia
 
 Actions IPs:
 * 4.147.140.77
 * 20.53.114.78
 
-Austraila region:
+Australia region:
 * 4.237.73.192/28
 * 20.5.226.112/28
 * 20.248.163.176/28
+
+#### Japan
+
+Actions IPs:
+
+* 20.63.233.164
+* 172.192.153.164
+
+Japan region:
+
+74.226.88.241
+40.81.176.225
+4.190.169.240
 
 #### Required for all regions
 
@@ -150,45 +180,65 @@ Austraila region:
 
 ### Domains for Azure private networking
 
+#### Required for all regions
+
 * `*.<TENANT>.ghe.com`
 * `<TENANT>.ghe.com`
 * `github.com`
 * `*.githubusercontent.com`
-* `*.blob.core.windows.net`
+* `*.blob.core.windows.net` (can be further restricted by region, see below)
 * `*.web.core.windows.net`
+
+#### EU
+
+`*.blob.core.windows.net` can be replaced with:
+* `prodsdc01resultssa0.blob.core.windows.net`
+* `prodsdc01resultssa1.blob.core.windows.net`
+* `prodsdc01resultssa2.blob.core.windows.net`
+* `prodsdc01resultssa3.blob.core.windows.net`
+* `prodweu01resultssa0.blob.core.windows.net`
+* `prodweu01resultssa1.blob.core.windows.net`
+* `prodweu01resultssa2.blob.core.windows.net`
+* `prodweu01resultssa3.blob.core.windows.net` 
+
+#### Australia
+
+`*.blob.core.windows.net` can be replaced with:
+* `prodae01resultssa0.blob.core.windows.net`
+* `prodae01resultssa1.blob.core.windows.net`
+* `prodae01resultssa2.blob.core.windows.net`
+* `prodae01resultssa3.blob.core.windows.net`
+
+#### Japan
+
+`*.blob.core.windows.net` can be replaced with:
+* `prodjpw01resultssa0.blob.core.windows.net`
+* `prodjpw01resultssa1.blob.core.windows.net`
+* `prodjpw01resultssa2.blob.core.windows.net`
+* `prodjpw01resultssa3.blob.core.windows.net`
+
+### OAuth callback URL for connecting an Azure subscription for billing
+
+When you connect or update an Azure subscription for billing, you must allow access to the following URL:
+
+* `https://github.com/enterprises/oauth_callback`
+
+This URL is required during the OAuth authentication flow that occurs when:
+
+* Connecting an Azure subscription to your enterprise for the first time
+* Changing or updating an existing Azure subscription connection
+
+> [!IMPORTANT]
+> * The URL must be allowed with all query parameters, for example `https://github.com/enterprises/oauth_callback?code=...`
+> * After the Azure subscription is successfully connected and the subscription ID is stored, you can remove this URL from your allowlist
+> * To change or update your Azure subscription, you must add the URL back to your allowlist
+
+The OAuth flow works as follows:
+
+1. The user starts the connection process on `SUBDOMAIN.ghe.com`
+1. Azure redirects to `https://github.com/enterprises/oauth_callback` to complete the OAuth flow
+1. The system redirects back to `SUBDOMAIN.ghe.com` to finalize the connection
 
 ## IP ranges for {% data variables.product.prodname_importer_proper_name %}
 
 If you're running a migration to your enterprise with {% data variables.product.prodname_importer_proper_name %}, you may need to add certain ranges to an IP allow list. See [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations).
-
-### Required in the EU
-
-* 4.231.155.80/29
-* 4.225.9.96/29
-* 51.12.152.184/29
-* 20.199.6.80/29
-* 51.12.144.32/29
-* 20.199.1.232/29
-* 51.12.152.240/29
-* 20.19.101.136/29
-* 74.241.131.48/28
-* 51.12.252.16/28
-* 20.240.211.176/28
-* 108.143.221.96/28
-* 20.61.46.32/28
-* 20.224.62.160/28
-
-### Required in Australia
-
-* 20.213.241.72/29
-* 20.11.90.48/29
-* 20.5.34.240/28
-* 20.5.146.128/28
-* 68.218.155.16/28
-
-### Required in the US
-
-* 130.213.245.128/28
-* 20.171.204.144/28
-* 20.171.204.176/28
-* 4.150.167.192/28

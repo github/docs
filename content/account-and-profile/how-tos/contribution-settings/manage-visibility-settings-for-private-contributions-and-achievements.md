@@ -13,11 +13,11 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profiles
 shortTitle: Private contributions {% ifversion hide-individual-achievements %}and achievements{% endif %}
 allowTitleToDifferFromFilename: true
 contentType: how-tos
+category:
+  - Track your contributions
 ---
 
 ## Changing the visibility of your private contributions

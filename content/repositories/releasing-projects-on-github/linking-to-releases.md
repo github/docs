@@ -9,8 +9,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
+category:
+  - Release software
 ---
 
 ## Linking to the latest release

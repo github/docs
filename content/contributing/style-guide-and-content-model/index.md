@@ -3,11 +3,12 @@ title: Style guide and content model
 intro: 'Learn about how we keep GitHub''s documentation consistent, easy to follow, and maintainable.'
 versions:
   feature: 'contributing'
+redirect_from:
+  - /contributing/style-guide-and-content-model/about-topics
 children:
     - /style-guide
     - /about-the-content-model
     - /contents-of-a-github-docs-article
-    - /about-topics
     - /conceptual-content-type
     - /referential-content-type
     - /procedural-content-type

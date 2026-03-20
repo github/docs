@@ -1,17 +1,11 @@
 ---
 title: GitHub security features
-intro: 'An overview of {% data variables.product.github %}''s security features.'
+intro: An overview of {% data variables.product.github %}'s security features.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
-topics:
-  - Repositories
-  - Dependencies
-  - Vulnerabilities
-  - Code Security
-  - Secret Protection
+contentType: get-started
 ---
 
 ## About {% data variables.product.github %}'s security features
@@ -79,6 +73,14 @@ You can also use default {% data variables.dependabot.auto_triage_rules %} curat
 
 {% data reusables.dependabot.quickstart-link %}
 
+{% ifversion dependabot-malware-alerts %}
+
+#### {% data variables.product.prodname_dependabot_malware_alerts %}
+
+On {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_ghe_server %} 3.22+, you can view alerts for malicious dependencies in your repository. See [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-malware-alerts).
+
+{% endif %}
+
 ### {% data variables.product.prodname_dependabot_version_updates %}
 
 Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. You can also customize {% data variables.product.prodname_dependabot_version_updates %} to streamline their integration into your repositories. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates).
@@ -124,7 +126,7 @@ Push protection for users automatically protects you from accidentally committin
 
 ## Available with {% data variables.product.prodname_GH_secret_protection %}
 
-For accounts on {% ifversion fpt or ghec %}{% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}{% endif %}{% ifversion ghes %} {% data variables.product.prodname_ghe_server %}{% endif %}, you can access additional security features when you purchase **{% data variables.product.prodname_GH_secret_protection %}**.  
+For accounts on {% ifversion fpt or ghec %}{% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}{% endif %}{% ifversion ghes %} {% data variables.product.prodname_ghe_server %}{% endif %}, you can access additional security features when you purchase **{% data variables.product.prodname_GH_secret_protection %}**.
 
 {% data variables.product.prodname_GH_secret_protection %} includes features that help you detect and prevent secret leaks, such as {% data variables.product.prodname_secret_scanning %} and push protection.
 
@@ -179,7 +181,7 @@ Security overview allows you to review the overall security landscape of your or
 
 ## Available with {% data variables.product.prodname_GH_code_security %}
 
-For accounts on {% ifversion fpt or ghec %}{% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}{% endif %}{% ifversion ghes %} {% data variables.product.prodname_ghe_server %}{% endif %}, you can access additional security features when you purchase **{% data variables.product.prodname_GH_code_security %}**.  
+For accounts on {% ifversion fpt or ghec %}{% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %}{% endif %}{% ifversion ghes %} {% data variables.product.prodname_ghe_server %}{% endif %}, you can access additional security features when you purchase **{% data variables.product.prodname_GH_code_security %}**.
 
 {% data variables.product.prodname_GH_code_security %} includes features that help you find and fix vulnerabilities, like {% data variables.product.prodname_code_scanning %}, premium {% data variables.product.prodname_dependabot %} features, and dependency review.
 

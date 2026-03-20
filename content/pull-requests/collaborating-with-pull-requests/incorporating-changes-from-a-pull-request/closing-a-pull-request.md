@@ -10,8 +10,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
+category:
+  - Merge and close pull requests
 ---
 
 > [!TIP]

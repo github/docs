@@ -6,14 +6,14 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - CD
-  - Azure App Service
 redirect_from:
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-php-to-azure-app-service
   - /actions/use-cases-and-examples/deploying/deploying-php-to-azure-app-service
   - /actions/how-tos/use-cases-and-examples/deploying/deploying-php-to-azure-app-service
   - /actions/how-tos/managing-workflow-runs-and-deployments/deploying-to-third-party-platforms/deploying-php-to-azure-app-service
+category:
+  - Deploy to environments
+contentType: how-tos
 ---
 
 ## Prerequisites

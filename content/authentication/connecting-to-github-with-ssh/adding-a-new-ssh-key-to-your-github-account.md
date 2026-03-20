@@ -9,9 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
 shortTitle: Add a new SSH key
+category:
+  - Connect with SSH
 ---
 
 ## About addition of SSH keys to your account

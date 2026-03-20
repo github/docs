@@ -10,8 +10,6 @@ category:
 complexity:
   - Simple
 octicon: code
-topics:
-  - Copilot
 redirect_from:
   - /copilot/tutorials/copilot-chat-cookbook/security-analysis/securing-your-repository
   - /copilot/tutorials/copilot-chat-cookbook/security-analysis/secure-your-repository

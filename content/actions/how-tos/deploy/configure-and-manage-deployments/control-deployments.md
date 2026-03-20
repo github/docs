@@ -1,21 +1,20 @@
 ---
 title: Deploying with GitHub Actions
 shortTitle: Control deployments
-intro: Learn how to control deployments with features like environments and concurrency.
+intro: '{% data variables.product.prodname_actions %} gives you fine-grained control over deployments with environments, concurrency groups, and protection rules.'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
 redirect_from:
   - /actions/deployment/deploying-with-github-actions
   - /actions/deployment/about-deployments/deploying-with-github-actions
   - /actions/use-cases-and-examples/deploying/deploying-with-github-actions
   - /actions/concepts/use-cases/deploying-with-github-actions
   - /actions/tutorials/deploying-with-github-actions
-topics:
-  - CD
-  - Deployment
+contentType: how-tos
+category:
+  - Deploy to environments
 ---
 
 ## Prerequisites
@@ -55,8 +54,54 @@ You can configure environments with protection rules and secrets. When a workflo
 
 Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. You can use concurrency so that an environment has a maximum of one deployment in progress and one deployment pending at a time. For more information about concurrency, see [AUTOTITLE](/actions/using-jobs/using-concurrency).
 
-> [!NOTE]
-> `concurrency` and `environment` are not connected. The concurrency value can be any string; it does not need to be an environment name. Additionally, if another workflow uses the same environment but does not specify concurrency, that workflow will not be subject to any concurrency rules.
+{% ifversion actions-environments-without-deployments %}
+
+## Using environments without deployments
+
+By default, when a workflow job references an environment, {% data variables.product.company_short %} creates a deployment object to track the deployment. You can opt out of deployment creation by setting `deployment` to `false` in the environment configuration. The valid values are `true` (default) and `false`. You can also use an expression, for example `deployment: {% raw %}${{ github.ref_name == 'main' }}{% endraw %}`.
+
+```yaml
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+      deployment: false
+    steps:
+      - name: run tests
+        env:
+          API_KEY: {% raw %}${{ secrets.API_KEY }}{% endraw %}
+        run: echo "Running tests with staging secrets"
+```
+
+When `deployment` is set to `false`:
+
+* The job has full access to environment secrets and variables.
+* No {% data variables.product.github %} deployment object is created—the deployment history for the environment is not updated.
+* Wait timer protection rules still apply—the job waits for the configured duration.
+* Required reviewers still apply—reviewers must still approve before the job runs.
+
+This is useful when you want to use environments for:
+
+* **Organizing secrets**—group related secrets under an environment name without creating deployment records.
+* **Access control**—restrict which branches can use certain secrets via environment branch policies, without deployment tracking.
+* **CI and testing jobs**—reference an environment for its configuration without adding noise to the deployment history.
+
+### Interaction with protection rules
+
+The `deployment` property controls which protection rules apply:
+
+| Protection rule | `deployment: true` (default) | `deployment: false` |
+|----------------|------------------------------|---------------------|
+| **None** | Deployment created, job runs | No deployment, job runs |
+| **Wait timer** | Wait timer enforced | Wait timer still enforced |
+| **Required reviewers** | Reviewers must approve | Reviewers must approve |
+| **Custom deployment protection rule app** | App webhook sent, must approve | **Job fails with error** |
+
+Custom deployment protection rules ({% data variables.product.prodname_github_apps %}) require a deployment object to function. If you set `deployment: false` on an environment that has custom deployment protection rules, the job will fail immediately with an annotation or error message explaining that the environment's protection rules are incompatible with `deployment: false`. Either remove `deployment: false` from your workflow, or remove the custom deployment protection rules from the environment.
+
+Note that `concurrency` and `environment` are not connected. The concurrency value can be any string; it does not need to be an environment name. Additionally, if another workflow uses the same environment but does not specify concurrency, that workflow will not be subject to any concurrency rules.
+{% endif %}
 
 For example, when the following workflow runs, it will be paused with the status `pending` if any job or workflow that uses the `production` concurrency group is in progress. It will also cancel any job or workflow that uses the `production` concurrency group and has the status `pending`. This means that there will be a maximum of one running and one pending job or workflow in that uses the `production` concurrency group.
 
@@ -127,6 +172,12 @@ For guidance on writing deployment-specific steps, see [Finding deployment examp
 ## Viewing deployment history
 
 When a {% data variables.product.prodname_actions %} workflow deploys to an environment, the environment is displayed on the main page of the repository. For more information about viewing deployments to environments, see [AUTOTITLE](/actions/deployment/managing-your-deployments/viewing-deployment-history).
+
+{% ifversion virtual-registry %}
+
+Your organization can collect deployment records for all your builds in a single place by uploading data to the {% data variables.product.virtual_registry %}. See [AUTOTITLE](/code-security/concepts/supply-chain-security/linked-artifacts).
+
+{% endif %}
 
 ## Monitoring workflow runs
 

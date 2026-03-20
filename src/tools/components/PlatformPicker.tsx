@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useArticleContext } from '@/frame/components/context/ArticleContext'
 import { parseUserAgent } from '@/events/components/user-agent'
 import { InArticlePicker } from './InArticlePicker'
+import { OS_PREFERRED_COOKIE_NAME } from '@/frame/lib/constants'
 
 const platformQueryKey = 'platform'
 const platforms = [
@@ -72,7 +73,7 @@ export const PlatformPicker = () => {
           ? defaultUA
           : detectedPlatforms[detectedPlatforms.length - 1]
       }
-      cookieKey="osPreferred"
+      cookieKey={OS_PREFERRED_COOKIE_NAME}
       queryStringKey={platformQueryKey}
       onValue={showPlatformSpecificContent}
       preferenceName="os"

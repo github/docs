@@ -1,15 +1,11 @@
 ---
-title: 'Managing support entitlements'
-intro: 'Manage support entitlements for your enterprise.'
+title: Managing support entitlements
+intro: Manage support entitlements for your enterprise.
 versions:
   ghec: '*'
 allowTitleToDifferFromFilename: true
-type: how_to
-topics:
-  - Enterprise
-  - Set up
-  - Support
 shortTitle: Manage support entitlements
+contentType: how-tos
 ---
 
 ## About support entitlements
@@ -18,7 +14,7 @@ People with support entitlements for your enterprise account can use the support
 
 Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to a limited number of enterprise members.
 * **{% data variables.product.premium_support_plan %}:** Up to 20 members
-* **{% data variables.product.premium_plus_support_plan %}:** Up to 40 members
+* **{% data variables.product.premium_plus_support_plan %} / {% data variables.product.microsoft_premium_plus_support_plan %}:** Up to 40 members
 
 ## Adding support entitlements
 

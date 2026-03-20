@@ -1,16 +1,36 @@
 # Scraping for General Search
 
-We need to scrape each page on the Docs site and use the data we scrape to index Elasticsearch.
+We fetch each page's content via the Article API and use the structured data to index Elasticsearch. This replaced the previous approach of rendering full HTML pages and scraping them with cheerio.
 
 We currently only scrape for **general search** results.
 
 Autocomplete search data is generated from analytics events and GPT queries.
 
+## How it works
+
+The scrape script starts by loading all indexable pages, then for each page it calls the Article API (`/api/article?pathname=<path>`) on the local server. The API returns structured JSON with the page's title, intro, breadcrumbs, and markdown body. The markdown is parsed into an AST with GFM support (so tables are handled cleanly), navigational headings like "Further reading" are filtered out, and the full content (including code blocks) is converted to plain text for indexing.
+
+The implementation lives in `lib/build-records-from-api.ts`.
+
 ## CLI Script
 
-Before running the scraping script ensure that the server is running in another terminal with `npm run general-search-scrape-server`
+Before running the scraping script, start the server in another terminal:
 
-Run the script with `npm run general-search-scrape -- <scrape-directory>`
+```bash
+npm run general-search-scrape-server
+```
+
+Then run the scrape:
+
+```bash
+npm run general-search-scrape -- <scrape-directory>
+```
+
+To scrape a specific language and version:
+
+```bash
+npx tsx src/search/scripts/scrape/scrape-cli.ts -l en -V fpt <scrape-directory>
+```
 
 After a successful run it will generate a series of JSON files with the page data of every page of the Docs site into the passed directory.
 

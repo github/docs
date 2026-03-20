@@ -4,6 +4,1002 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>optionId</code> was added to object type <code>IssueFieldSingleSelectValue</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-03-17"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Member <code>User</code> was added to Union type <code>BypassActor</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-03-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>CreateIssueFieldInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>CreateIssueFieldInput</code></p>",
+          "<p>Input field <code>dataType</code> of type <code>IssueFieldDataType!</code> was added to input object type <code>CreateIssueFieldInput</code></p>",
+          "<p>Input field <code>description</code> of type <code>String</code> was added to input object type <code>CreateIssueFieldInput</code></p>",
+          "<p>Input field <code>name</code> of type <code>String!</code> was added to input object type <code>CreateIssueFieldInput</code></p>",
+          "<p>Input field <code>options</code> of type '[IssueFieldSingleSelectOptionInput!]<code>was added to input object type</code>CreateIssueFieldInput'</p>",
+          "<p>Input field <code>ownerId</code> of type <code>ID!</code> was added to input object type <code>CreateIssueFieldInput</code></p>",
+          "<p>Input field <code>visibility</code> of type <code>IssueFieldVisibility</code> was added to input object type <code>CreateIssueFieldInput</code></p>",
+          "<p>Type <code>CreateIssueFieldPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>CreateIssueFieldPayload</code></p>",
+          "<p>Field <code>issueField</code> was added to object type <code>CreateIssueFieldPayload</code></p>",
+          "<p>Type <code>CreateIssueFieldValueInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>CreateIssueFieldValueInput</code></p>",
+          "<p>Input field <code>issueField</code> of type <code>IssueFieldCreateOrUpdateInput!</code> was added to input object type <code>CreateIssueFieldValueInput</code></p>",
+          "<p>Input field <code>issueId</code> of type <code>ID!</code> was added to input object type <code>CreateIssueFieldValueInput</code></p>",
+          "<p>Type <code>CreateIssueFieldValuePayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>CreateIssueFieldValuePayload</code></p>",
+          "<p>Field <code>issue</code> was added to object type <code>CreateIssueFieldValuePayload</code></p>",
+          "<p>Field <code>issueFieldValue</code> was added to object type <code>CreateIssueFieldValuePayload</code></p>",
+          "<p>Type 'CreateProjectV2IssueFieldInput' was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type 'CreateProjectV2IssueFieldInput'</p>",
+          "<p>Input field <code>issueFieldId</code> of type <code>ID!</code> was added to input object type 'CreateProjectV2IssueFieldInput'</p>",
+          "<p>Input field <code>projectId</code> of type <code>ID!</code> was added to input object type 'CreateProjectV2IssueFieldInput'</p>",
+          "<p>Type 'CreateProjectV2IssueFieldPayload' was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type 'CreateProjectV2IssueFieldPayload'</p>",
+          "<p>Field 'projectV2Field<code>was added to object type</code>CreateProjectV2IssueFieldPayload'</p>",
+          "<p>Type <code>DeleteIssueFieldInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>DeleteIssueFieldInput</code></p>",
+          "<p>Input field <code>fieldId</code> of type <code>ID!</code> was added to input object type <code>DeleteIssueFieldInput</code></p>",
+          "<p>Type <code>DeleteIssueFieldPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>DeleteIssueFieldPayload</code></p>",
+          "<p>Field <code>issueField</code> was added to object type <code>DeleteIssueFieldPayload</code></p>",
+          "<p>Type <code>DeleteIssueFieldValueInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>DeleteIssueFieldValueInput</code></p>",
+          "<p>Input field <code>fieldId</code> of type <code>ID!</code> was added to input object type <code>DeleteIssueFieldValueInput</code></p>",
+          "<p>Input field <code>issueId</code> of type <code>ID!</code> was added to input object type <code>DeleteIssueFieldValueInput</code></p>",
+          "<p>Type <code>DeleteIssueFieldValuePayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>DeleteIssueFieldValuePayload</code></p>",
+          "<p>Field <code>issue</code> was added to object type <code>DeleteIssueFieldValuePayload</code></p>",
+          "<p>Field <code>success</code> was added to object type <code>DeleteIssueFieldValuePayload</code></p>",
+          "<p>Type <code>IssueCommentPinnedEvent</code> was added</p>",
+          "<p><code>IssueCommentPinnedEvent</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>actor</code> was added to object type <code>IssueCommentPinnedEvent</code></p>",
+          "<p>Field <code>createdAt</code> was added to object type <code>IssueCommentPinnedEvent</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>IssueCommentPinnedEvent</code></p>",
+          "<p>Field <code>issueComment</code> was added to object type <code>IssueCommentPinnedEvent</code></p>",
+          "<p>Type <code>IssueCommentUnpinnedEvent</code> was added</p>",
+          "<p><code>IssueCommentUnpinnedEvent</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>actor</code> was added to object type <code>IssueCommentUnpinnedEvent</code></p>",
+          "<p>Field <code>createdAt</code> was added to object type <code>IssueCommentUnpinnedEvent</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>IssueCommentUnpinnedEvent</code></p>",
+          "<p>Field <code>issueComment</code> was added to object type <code>IssueCommentUnpinnedEvent</code></p>",
+          "<p>Type <code>IssueFieldCommon</code> was added</p>",
+          "<p>Field <code>createdAt</code> was added to interface <code>IssueFieldCommon</code></p>",
+          "<p>Field <code>dataType</code> was added to interface <code>IssueFieldCommon</code></p>",
+          "<p>Field <code>description</code> was added to interface <code>IssueFieldCommon</code></p>",
+          "<p>Field <code>name</code> was added to interface <code>IssueFieldCommon</code></p>",
+          "<p>Field <code>visibility</code> was added to interface <code>IssueFieldCommon</code></p>",
+          "<p>Type <code>IssueFieldCreateOrUpdateInput</code> was added</p>",
+          "<p>Input field <code>dateValue</code> of type <code>String</code> was added to input object type <code>IssueFieldCreateOrUpdateInput</code></p>",
+          "<p>Input field <code>delete</code> of type <code>Boolean</code> was added to input object type <code>IssueFieldCreateOrUpdateInput</code></p>",
+          "<p>Input field <code>fieldId</code> of type <code>ID!</code> was added to input object type <code>IssueFieldCreateOrUpdateInput</code></p>",
+          "<p>Input field <code>numberValue</code> of type <code>Float</code> was added to input object type <code>IssueFieldCreateOrUpdateInput</code></p>",
+          "<p>Input field <code>singleSelectOptionId</code> of type <code>ID</code> was added to input object type <code>IssueFieldCreateOrUpdateInput</code></p>",
+          "<p>Input field <code>textValue</code> of type <code>String</code> was added to input object type <code>IssueFieldCreateOrUpdateInput</code></p>",
+          "<p>Type <code>IssueFieldDataType</code> was added</p>",
+          "<p>Enum value <code>DATE</code> was added to enum <code>IssueFieldDataType</code></p>",
+          "<p>Enum value <code>NUMBER</code> was added to enum <code>IssueFieldDataType</code></p>",
+          "<p>Enum value 'SINGLE_SELECT<code>was added to enum</code>IssueFieldDataType'</p>",
+          "<p>Enum value <code>TEXT</code> was added to enum <code>IssueFieldDataType</code></p>",
+          "<p>Type <code>IssueFieldDate</code> was added</p>",
+          "<p><code>IssueFieldDate</code> object implements <code>IssueFieldCommon</code> interface</p>",
+          "<p><code>IssueFieldDate</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>createdAt</code> was added to object type <code>IssueFieldDate</code></p>",
+          "<p>Field <code>dataType</code> was added to object type <code>IssueFieldDate</code></p>",
+          "<p>Field <code>description</code> was added to object type <code>IssueFieldDate</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>IssueFieldDate</code></p>",
+          "<p>Field <code>name</code> was added to object type <code>IssueFieldDate</code></p>",
+          "<p>Field <code>visibility</code> was added to object type <code>IssueFieldDate</code></p>",
+          "<p>Type <code>IssueFieldDateValue</code> was added</p>",
+          "<p><code>IssueFieldDateValue</code> object implements <code>IssueFieldValueCommon</code> interface</p>",
+          "<p><code>IssueFieldDateValue</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>field</code> was added to object type <code>IssueFieldDateValue</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>IssueFieldDateValue</code></p>",
+          "<p>Field <code>value</code> was added to object type <code>IssueFieldDateValue</code></p>",
+          "<p>Type <code>IssueFieldNumber</code> was added</p>",
+          "<p><code>IssueFieldNumber</code> object implements <code>IssueFieldCommon</code> interface</p>",
+          "<p><code>IssueFieldNumber</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>createdAt</code> was added to object type <code>IssueFieldNumber</code></p>",
+          "<p>Field <code>dataType</code> was added to object type <code>IssueFieldNumber</code></p>",
+          "<p>Field <code>description</code> was added to object type <code>IssueFieldNumber</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>IssueFieldNumber</code></p>",
+          "<p>Field <code>name</code> was added to object type <code>IssueFieldNumber</code></p>",
+          "<p>Field <code>visibility</code> was added to object type <code>IssueFieldNumber</code></p>",
+          "<p>Type <code>IssueFieldNumberValue</code> was added</p>",
+          "<p><code>IssueFieldNumberValue</code> object implements <code>IssueFieldValueCommon</code> interface</p>",
+          "<p><code>IssueFieldNumberValue</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>field</code> was added to object type <code>IssueFieldNumberValue</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>IssueFieldNumberValue</code></p>",
+          "<p>Field <code>value</code> was added to object type <code>IssueFieldNumberValue</code></p>",
+          "<p>Type <code>IssueFieldOrder</code> was added</p>",
+          "<p>Input field <code>direction</code> of type <code>OrderDirection!</code> was added to input object type <code>IssueFieldOrder</code></p>",
+          "<p>Input field <code>field</code> of type <code>IssueFieldOrderField!</code> was added to input object type <code>IssueFieldOrder</code></p>",
+          "<p>Type <code>IssueFieldOrderField</code> was added</p>",
+          "<p>Enum value 'CREATED_AT<code>was added to enum</code>IssueFieldOrderField'</p>",
+          "<p>Enum value <code>NAME</code> was added to enum <code>IssueFieldOrderField</code></p>",
+          "<p>Type <code>IssueFieldSingleSelect</code> was added</p>",
+          "<p><code>IssueFieldSingleSelect</code> object implements <code>IssueFieldCommon</code> interface</p>",
+          "<p><code>IssueFieldSingleSelect</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>createdAt</code> was added to object type <code>IssueFieldSingleSelect</code></p>",
+          "<p>Field <code>dataType</code> was added to object type <code>IssueFieldSingleSelect</code></p>",
+          "<p>Field <code>description</code> was added to object type <code>IssueFieldSingleSelect</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>IssueFieldSingleSelect</code></p>",
+          "<p>Field <code>name</code> was added to object type <code>IssueFieldSingleSelect</code></p>",
+          "<p>Field <code>options</code> was added to object type <code>IssueFieldSingleSelect</code></p>",
+          "<p>Field <code>visibility</code> was added to object type <code>IssueFieldSingleSelect</code></p>",
+          "<p>Type <code>IssueFieldSingleSelectOption</code> was added</p>",
+          "<p><code>IssueFieldSingleSelectOption</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>color</code> was added to object type <code>IssueFieldSingleSelectOption</code></p>",
+          "<p>Field <code>description</code> was added to object type <code>IssueFieldSingleSelectOption</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>IssueFieldSingleSelectOption</code></p>",
+          "<p>Field <code>name</code> was added to object type <code>IssueFieldSingleSelectOption</code></p>",
+          "<p>Field <code>priority</code> was added to object type <code>IssueFieldSingleSelectOption</code></p>",
+          "<p>Type <code>IssueFieldSingleSelectOptionColor</code> was added</p>",
+          "<p>Enum value <code>BLUE</code> was added to enum <code>IssueFieldSingleSelectOptionColor</code></p>",
+          "<p>Enum value <code>GRAY</code> was added to enum <code>IssueFieldSingleSelectOptionColor</code></p>",
+          "<p>Enum value <code>GREEN</code> was added to enum <code>IssueFieldSingleSelectOptionColor</code></p>",
+          "<p>Enum value <code>ORANGE</code> was added to enum <code>IssueFieldSingleSelectOptionColor</code></p>",
+          "<p>Enum value <code>PINK</code> was added to enum <code>IssueFieldSingleSelectOptionColor</code></p>",
+          "<p>Enum value <code>PURPLE</code> was added to enum <code>IssueFieldSingleSelectOptionColor</code></p>",
+          "<p>Enum value <code>RED</code> was added to enum <code>IssueFieldSingleSelectOptionColor</code></p>",
+          "<p>Enum value <code>YELLOW</code> was added to enum <code>IssueFieldSingleSelectOptionColor</code></p>",
+          "<p>Type <code>IssueFieldSingleSelectOptionInput</code> was added</p>",
+          "<p>Input field <code>color</code> of type <code>IssueFieldSingleSelectOptionColor!</code> was added to input object type <code>IssueFieldSingleSelectOptionInput</code></p>",
+          "<p>Input field <code>description</code> of type <code>String</code> was added to input object type <code>IssueFieldSingleSelectOptionInput</code></p>",
+          "<p>Input field <code>name</code> of type <code>String!</code> was added to input object type <code>IssueFieldSingleSelectOptionInput</code></p>",
+          "<p>Input field <code>priority</code> of type <code>Int!</code> was added to input object type <code>IssueFieldSingleSelectOptionInput</code></p>",
+          "<p>Type <code>IssueFieldSingleSelectValue</code> was added</p>",
+          "<p><code>IssueFieldSingleSelectValue</code> object implements <code>IssueFieldValueCommon</code> interface</p>",
+          "<p><code>IssueFieldSingleSelectValue</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>color</code> was added to object type <code>IssueFieldSingleSelectValue</code></p>",
+          "<p>Field <code>description</code> was added to object type <code>IssueFieldSingleSelectValue</code></p>",
+          "<p>Field <code>field</code> was added to object type <code>IssueFieldSingleSelectValue</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>IssueFieldSingleSelectValue</code></p>",
+          "<p>Field <code>name</code> was added to object type <code>IssueFieldSingleSelectValue</code></p>",
+          "<p>Type <code>IssueFieldText</code> was added</p>",
+          "<p><code>IssueFieldText</code> object implements <code>IssueFieldCommon</code> interface</p>",
+          "<p><code>IssueFieldText</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>createdAt</code> was added to object type <code>IssueFieldText</code></p>",
+          "<p>Field <code>dataType</code> was added to object type <code>IssueFieldText</code></p>",
+          "<p>Field <code>description</code> was added to object type <code>IssueFieldText</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>IssueFieldText</code></p>",
+          "<p>Field <code>name</code> was added to object type <code>IssueFieldText</code></p>",
+          "<p>Field <code>visibility</code> was added to object type <code>IssueFieldText</code></p>",
+          "<p>Type <code>IssueFieldTextValue</code> was added</p>",
+          "<p><code>IssueFieldTextValue</code> object implements <code>IssueFieldValueCommon</code> interface</p>",
+          "<p><code>IssueFieldTextValue</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>field</code> was added to object type <code>IssueFieldTextValue</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>IssueFieldTextValue</code></p>",
+          "<p>Field <code>value</code> was added to object type <code>IssueFieldTextValue</code></p>",
+          "<p>Type <code>IssueFieldValue</code> was added</p>",
+          "<p>Member <code>IssueFieldDateValue</code> was added to Union type <code>IssueFieldValue</code></p>",
+          "<p>Member <code>IssueFieldNumberValue</code> was added to Union type <code>IssueFieldValue</code></p>",
+          "<p>Member <code>IssueFieldSingleSelectValue</code> was added to Union type <code>IssueFieldValue</code></p>",
+          "<p>Member <code>IssueFieldTextValue</code> was added to Union type <code>IssueFieldValue</code></p>",
+          "<p>Type <code>IssueFieldValueCommon</code> was added</p>",
+          "<p>Field <code>field</code> was added to interface <code>IssueFieldValueCommon</code></p>",
+          "<p>Type <code>IssueFieldValueConnection</code> was added</p>",
+          "<p>Field <code>edges</code> was added to object type <code>IssueFieldValueConnection</code></p>",
+          "<p>Field <code>nodes</code> was added to object type <code>IssueFieldValueConnection</code></p>",
+          "<p>Field <code>pageInfo</code> was added to object type <code>IssueFieldValueConnection</code></p>",
+          "<p>Field <code>totalCount</code> was added to object type <code>IssueFieldValueConnection</code></p>",
+          "<p>Type <code>IssueFieldValueEdge</code> was added</p>",
+          "<p>Field <code>cursor</code> was added to object type <code>IssueFieldValueEdge</code></p>",
+          "<p>Field <code>node</code> was added to object type <code>IssueFieldValueEdge</code></p>",
+          "<p>Type <code>IssueFieldVisibility</code> was added</p>",
+          "<p>Enum value <code>ALL</code> was added to enum <code>IssueFieldVisibility</code></p>",
+          "<p>Enum value 'ORG_ONLY<code>was added to enum</code>IssueFieldVisibility'</p>",
+          "<p>Type <code>IssueFields</code> was added</p>",
+          "<p>Member <code>IssueFieldDate</code> was added to Union type <code>IssueFields</code></p>",
+          "<p>Member <code>IssueFieldNumber</code> was added to Union type <code>IssueFields</code></p>",
+          "<p>Member <code>IssueFieldSingleSelect</code> was added to Union type <code>IssueFields</code></p>",
+          "<p>Member <code>IssueFieldText</code> was added to Union type <code>IssueFields</code></p>",
+          "<p>Type <code>IssueFieldsConnection</code> was added</p>",
+          "<p>Field <code>edges</code> was added to object type <code>IssueFieldsConnection</code></p>",
+          "<p>Field <code>nodes</code> was added to object type <code>IssueFieldsConnection</code></p>",
+          "<p>Field <code>pageInfo</code> was added to object type <code>IssueFieldsConnection</code></p>",
+          "<p>Field <code>totalCount</code> was added to object type <code>IssueFieldsConnection</code></p>",
+          "<p>Type <code>IssueFieldsEdge</code> was added</p>",
+          "<p>Field <code>cursor</code> was added to object type <code>IssueFieldsEdge</code></p>",
+          "<p>Field <code>node</code> was added to object type <code>IssueFieldsEdge</code></p>",
+          "<p>Type <code>PinIssueCommentInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>PinIssueCommentInput</code></p>",
+          "<p>Input field <code>issueCommentId</code> of type <code>ID!</code> was added to input object type <code>PinIssueCommentInput</code></p>",
+          "<p>Type <code>PinIssueCommentPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>PinIssueCommentPayload</code></p>",
+          "<p>Field <code>issueComment</code> was added to object type <code>PinIssueCommentPayload</code></p>",
+          "<p>Type <code>Pinnable</code> was added</p>",
+          "<p>Field <code>isPinned</code> was added to interface <code>Pinnable</code></p>",
+          "<p>Field <code>pinnedAt</code> was added to interface <code>Pinnable</code></p>",
+          "<p>Field <code>pinnedBy</code> was added to interface <code>Pinnable</code></p>",
+          "<p>Field <code>viewerCanPin</code> was added to interface <code>Pinnable</code></p>",
+          "<p>Field <code>viewerCanUnpin</code> was added to interface <code>Pinnable</code></p>",
+          "<p>Type <code>PinnedIssueComment</code> was added</p>",
+          "<p><code>PinnedIssueComment</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>databaseId</code> was added to object type <code>PinnedIssueComment</code></p>",
+          "<p>Field <code>fullDatabaseId</code> was added to object type <code>PinnedIssueComment</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>PinnedIssueComment</code></p>",
+          "<p>Field <code>issue</code> was added to object type <code>PinnedIssueComment</code></p>",
+          "<p>Field <code>issueComment</code> was added to object type <code>PinnedIssueComment</code></p>",
+          "<p>Field <code>pinnedAt</code> was added to object type <code>PinnedIssueComment</code></p>",
+          "<p>Field <code>pinnedBy</code> was added to object type <code>PinnedIssueComment</code></p>",
+          "<p>Type 'ProjectV2IssueFieldValues' was added</p>",
+          "<p>Member <code>IssueFieldDateValue</code> was added to Union type 'ProjectV2IssueFieldValues'</p>",
+          "<p>Member <code>IssueFieldNumberValue</code> was added to Union type 'ProjectV2IssueFieldValues'</p>",
+          "<p>Member <code>IssueFieldSingleSelectValue</code> was added to Union type 'ProjectV2IssueFieldValues'</p>",
+          "<p>Member <code>IssueFieldTextValue</code> was added to Union type 'ProjectV2IssueFieldValues'</p>",
+          "<p>Type 'ProjectV2ItemIssueFieldValue' was added</p>",
+          "<p>Field <code>field</code> was added to object type 'ProjectV2ItemIssueFieldValue'</p>",
+          "<p>Field <code>issueFieldValue</code> was added to object type 'ProjectV2ItemIssueFieldValue'</p>",
+          "<p>Type <code>SetIssueFieldValueInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>SetIssueFieldValueInput</code></p>",
+          "<p>Input field <code>issueFields</code> of type '[IssueFieldCreateOrUpdateInput!]!<code>was added to input object type</code>SetIssueFieldValueInput'</p>",
+          "<p>Input field <code>issueId</code> of type <code>ID!</code> was added to input object type <code>SetIssueFieldValueInput</code></p>",
+          "<p>Type <code>SetIssueFieldValuePayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>SetIssueFieldValuePayload</code></p>",
+          "<p>Field <code>issue</code> was added to object type <code>SetIssueFieldValuePayload</code></p>",
+          "<p>Field <code>issueFieldValues</code> was added to object type <code>SetIssueFieldValuePayload</code></p>",
+          "<p>Type <code>UnpinIssueCommentInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>UnpinIssueCommentInput</code></p>",
+          "<p>Input field <code>issueCommentId</code> of type <code>ID!</code> was added to input object type <code>UnpinIssueCommentInput</code></p>",
+          "<p>Type <code>UnpinIssueCommentPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>UnpinIssueCommentPayload</code></p>",
+          "<p>Field <code>issueComment</code> was added to object type <code>UnpinIssueCommentPayload</code></p>",
+          "<p>Type <code>UpdateIssueFieldInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>UpdateIssueFieldInput</code></p>",
+          "<p>Input field <code>description</code> of type <code>String</code> was added to input object type <code>UpdateIssueFieldInput</code></p>",
+          "<p>Input field <code>id</code> of type <code>ID!</code> was added to input object type <code>UpdateIssueFieldInput</code></p>",
+          "<p>Input field <code>name</code> of type <code>String</code> was added to input object type <code>UpdateIssueFieldInput</code></p>",
+          "<p>Input field <code>options</code> of type '[IssueFieldSingleSelectOptionInput!]<code>was added to input object type</code>UpdateIssueFieldInput'</p>",
+          "<p>Input field <code>visibility</code> of type <code>IssueFieldVisibility</code> was added to input object type <code>UpdateIssueFieldInput</code></p>",
+          "<p>Type <code>UpdateIssueFieldPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>UpdateIssueFieldPayload</code></p>",
+          "<p>Field <code>issueField</code> was added to object type <code>UpdateIssueFieldPayload</code></p>",
+          "<p>Type <code>UpdateIssueFieldValueInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>UpdateIssueFieldValueInput</code></p>",
+          "<p>Input field <code>issueField</code> of type <code>IssueFieldCreateOrUpdateInput!</code> was added to input object type <code>UpdateIssueFieldValueInput</code></p>",
+          "<p>Input field <code>issueId</code> of type <code>ID!</code> was added to input object type <code>UpdateIssueFieldValueInput</code></p>",
+          "<p>Type <code>UpdateIssueFieldValuePayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>UpdateIssueFieldValuePayload</code></p>",
+          "<p>Field <code>issue</code> was added to object type <code>UpdateIssueFieldValuePayload</code></p>",
+          "<p>Field <code>issueFieldValue</code> was added to object type <code>UpdateIssueFieldValuePayload</code></p>",
+          "<p>Input field <code>issueFields</code> of type '[IssueFieldCreateOrUpdateInput!]<code>was added to input object type</code>CreateIssueInput'</p>",
+          "<p>Field <code>issueFieldValues</code> was added to object type <code>Issue</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>Issue.issueFieldValues</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>Issue.issueFieldValues</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>Issue.issueFieldValues</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>Issue.issueFieldValues</code></p>",
+          "<p>Field <code>pinnedIssueComment</code> was added to object type <code>Issue</code></p>",
+          "<p><code>IssueComment</code> object implements <code>Pinnable</code> interface</p>",
+          "<p>Field <code>isPinned</code> was added to object type <code>IssueComment</code></p>",
+          "<p>Field <code>pinnedAt</code> was added to object type <code>IssueComment</code></p>",
+          "<p>Field <code>pinnedBy</code> was added to object type <code>IssueComment</code></p>",
+          "<p>Field <code>viewerCanPin</code> was added to object type <code>IssueComment</code></p>",
+          "<p>Field <code>viewerCanUnpin</code> was added to object type <code>IssueComment</code></p>",
+          "<p>Member <code>IssueCommentPinnedEvent</code> was added to Union type <code>IssueTimelineItems</code></p>",
+          "<p>Member <code>IssueCommentUnpinnedEvent</code> was added to Union type <code>IssueTimelineItems</code></p>",
+          "<p>Field <code>pinnedFields</code> was added to object type <code>IssueType</code></p>",
+          "<p>Field <code>createIssueField</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: CreateIssueFieldInput!</code> added to field <code>Mutation.createIssueField</code></p>",
+          "<p>Field <code>createIssueFieldValue</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: CreateIssueFieldValueInput!</code> added to field <code>Mutation.createIssueFieldValue</code></p>",
+          "<p>Field 'createProjectV2IssueField<code>was added to object type</code>Mutation'</p>",
+          "<p>Argument 'input: CreateProjectV2IssueFieldInput!<code>added to field</code>Mutation.createProjectV2IssueField'</p>",
+          "<p>Field <code>deleteIssueField</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: DeleteIssueFieldInput!</code> added to field <code>Mutation.deleteIssueField</code></p>",
+          "<p>Field <code>deleteIssueFieldValue</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: DeleteIssueFieldValueInput!</code> added to field <code>Mutation.deleteIssueFieldValue</code></p>",
+          "<p>Field <code>pinIssueComment</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: PinIssueCommentInput!</code> added to field <code>Mutation.pinIssueComment</code></p>",
+          "<p>Field <code>setIssueFieldValue</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: SetIssueFieldValueInput!</code> added to field <code>Mutation.setIssueFieldValue</code></p>",
+          "<p>Field <code>unpinIssueComment</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: UnpinIssueCommentInput!</code> added to field <code>Mutation.unpinIssueComment</code></p>",
+          "<p>Field <code>updateIssueField</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: UpdateIssueFieldInput!</code> added to field <code>Mutation.updateIssueField</code></p>",
+          "<p>Field <code>updateIssueFieldValue</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: UpdateIssueFieldValueInput!</code> added to field <code>Mutation.updateIssueFieldValue</code></p>",
+          "<p>Field <code>issueFields</code> was added to object type <code>Organization</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>Organization.issueFields</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>Organization.issueFields</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>Organization.issueFields</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>Organization.issueFields</code></p>",
+          "<p>Argument <code>orderBy: IssueFieldOrder</code> (with default value) added to field <code>Organization.issueFields</code></p>",
+          "<p>Member 'ProjectV2ItemIssueFieldValue<code>was added to Union type</code>ProjectV2ItemFieldValue'</p>",
+          "<p>Member <code>IssueCommentPinnedEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Member <code>IssueCommentUnpinnedEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-03-12"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>viewerCopilotAgentTaskUpdatesChannel</code> was added to interface <code>Agentic</code></p>",
+          "<p>Field <code>viewerCopilotAgentTaskUpdatesChannel</code> was added to object type <code>User</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-03-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>fullDatabaseId</code> was added to object type <code>CheckAnnotation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>Artifact.databaseId</code>:<code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead. <strong>Effective 2027-01-01</strong>.</p>",
+          "<p>On member <code>CheckAnnotation.databaseId</code>:<code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead. <strong>Effective 2027-01-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2026-03-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Input field <code>requireExplicitValues</code> of type <code>Boolean</code> was added to input object type <code>CreateRepositoryCustomPropertyInput</code></p>",
+          "<p>Field <code>requireExplicitValues</code> was added to object type <code>RepositoryCustomProperty</code></p>",
+          "<p>Input field <code>requireExplicitValues</code> of type <code>Boolean</code> was added to input object type <code>UpdateRepositoryCustomPropertyInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-02-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value 'ISSUE_COMMENT_PINNED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_COMMENT_UNPINNED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_COMMENT_PINNED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_COMMENT_UNPINNED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-02-23"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>PullRequestCreationPolicy</code> was added</p>",
+          "<p>Enum value <code>ALL</code> was added to enum <code>PullRequestCreationPolicy</code></p>",
+          "<p>Enum value 'COLLABORATORS_ONLY<code>was added to enum</code>PullRequestCreationPolicy'</p>",
+          "<p>Field <code>hasPullRequestsEnabled</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>pullRequestCreationPolicy</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>hasPullRequestsEnabled</code> was added to interface <code>RepositoryInfo</code></p>",
+          "<p>Field <code>pullRequestCreationPolicy</code> was added to interface <code>RepositoryInfo</code></p>",
+          "<p>Input field <code>hasPullRequestsEnabled</code> of type <code>Boolean</code> was added to input object type <code>UpdateRepositoryInput</code></p>",
+          "<p>Input field <code>pullRequestCreationPolicy</code> of type <code>PullRequestCreationPolicy</code> was added to input object type <code>UpdateRepositoryInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-02-20"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": []
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>Team.viewerCanSubscribe</code>:<code>viewerCanSubscribe</code> will be removed. <strong>Effective 2026-07-01</strong>.</p>",
+          "<p>On member <code>Team.viewerSubscription</code>:<code>viewerSubscription</code> will be removed. <strong>Effective 2026-07-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2026-02-13"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>AgentAssignmentInput</code> was added</p>",
+          "<p>Input field <code>baseRef</code> of type <code>String</code> was added to input object type <code>AgentAssignmentInput</code></p>",
+          "<p>Input field <code>customAgent</code> of type <code>String</code> was added to input object type <code>AgentAssignmentInput</code></p>",
+          "<p>Input field <code>customInstructions</code> of type <code>String</code> was added to input object type <code>AgentAssignmentInput</code></p>",
+          "<p>Input field <code>targetRepositoryId</code> of type <code>ID</code> was added to input object type <code>AgentAssignmentInput</code></p>",
+          "<p>Input field <code>agentAssignment</code> of type <code>AgentAssignmentInput</code> was added to input object type <code>AddAssigneesToAssignableInput</code></p>",
+          "<p>Input field <code>agentAssignment</code> of type <code>AgentAssignmentInput</code> was added to input object type <code>CreateIssueInput</code></p>",
+          "<p>Input field <code>agentAssignment</code> of type <code>AgentAssignmentInput</code> was added to input object type <code>ReplaceActorsForAssignableInput</code></p>",
+          "<p>Input field <code>agentAssignment</code> of type <code>AgentAssignmentInput</code> was added to input object type <code>UpdateIssueInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-02-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>IpAllowListUserLevelEnforcementEnabledSettingValue</code> was added</p>",
+          "<p>Enum value <code>DISABLED</code> was added to enum <code>IpAllowListUserLevelEnforcementEnabledSettingValue</code></p>",
+          "<p>Enum value <code>ENABLED</code> was added to enum <code>IpAllowListUserLevelEnforcementEnabledSettingValue</code></p>",
+          "<p>Type <code>UpdateIpAllowListUserLevelEnforcementEnabledSettingInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>UpdateIpAllowListUserLevelEnforcementEnabledSettingInput</code></p>",
+          "<p>Input field <code>ownerId</code> of type <code>ID!</code> was added to input object type <code>UpdateIpAllowListUserLevelEnforcementEnabledSettingInput</code></p>",
+          "<p>Input field <code>settingValue</code> of type <code>IpAllowListUserLevelEnforcementEnabledSettingValue!</code> was added to input object type <code>UpdateIpAllowListUserLevelEnforcementEnabledSettingInput</code></p>",
+          "<p>Type <code>UpdateIpAllowListUserLevelEnforcementEnabledSettingPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>UpdateIpAllowListUserLevelEnforcementEnabledSettingPayload</code></p>",
+          "<p>Field <code>owner</code> was added to object type <code>UpdateIpAllowListUserLevelEnforcementEnabledSettingPayload</code></p>",
+          "<p>Field <code>ipAllowListUserLevelEnforcementEnabledSetting</code> was added to object type <code>EnterpriseOwnerInfo</code></p>",
+          "<p>Field <code>updateIpAllowListUserLevelEnforcementEnabledSetting</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: UpdateIpAllowListUserLevelEnforcementEnabledSettingInput!</code> added to field <code>Mutation.updateIpAllowListUserLevelEnforcementEnabledSetting</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-02-05"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>Issue.projectItems</code> changed type from 'ProjectV2ItemConnection!<code>to</code>ProjectV2ItemConnection'</p>",
+          "<p>Field <code>PullRequest.projectItems</code> changed type from 'ProjectV2ItemConnection!<code>to</code>ProjectV2ItemConnection'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-01-28"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Input field <code>actorLogins</code> of type '[String!]<code>was added to input object type</code>ReplaceActorsForAssignableInput'</p>",
+          "<p>Input field <code>ReplaceActorsForAssignableInput.actorIds</code> changed type from '[ID!]!<code>to</code>[ID!]'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-01-23"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>RequestReviewsByLoginInput</code> was added</p>",
+          "<p>Input field <code>botLogins</code> of type '[String!]<code>was added to input object type</code>RequestReviewsByLoginInput'</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>RequestReviewsByLoginInput</code></p>",
+          "<p>Input field <code>pullRequestId</code> of type <code>ID!</code> was added to input object type <code>RequestReviewsByLoginInput</code></p>",
+          "<p>Input field <code>teamSlugs</code> of type '[String!]<code>was added to input object type</code>RequestReviewsByLoginInput'</p>",
+          "<p>Input field <code>union</code> of type <code>Boolean</code> with default value <code>false</code> was added to input object type <code>RequestReviewsByLoginInput</code></p>",
+          "<p>Input field <code>userLogins</code> of type '[String!]<code>was added to input object type</code>RequestReviewsByLoginInput'</p>",
+          "<p>Type <code>RequestReviewsByLoginPayload</code> was added</p>",
+          "<p>Field <code>actor</code> was added to object type <code>RequestReviewsByLoginPayload</code></p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>RequestReviewsByLoginPayload</code></p>",
+          "<p>Field <code>pullRequest</code> was added to object type <code>RequestReviewsByLoginPayload</code></p>",
+          "<p>Field <code>requestedReviewersEdge</code> was added to object type <code>RequestReviewsByLoginPayload</code></p>",
+          "<p>Field <code>requestReviewsByLogin</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: RequestReviewsByLoginInput!</code> added to field <code>Mutation.requestReviewsByLogin</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-01-22"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Argument <code>query: String</code> added to field <code>PullRequest.suggestedReviewerActors</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-01-21"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>UpdateEnterpriseTeamDiscussionsSettingInput</code> was removed</p>",
+          "<p>Type <code>UpdateEnterpriseTeamDiscussionsSettingPayload</code> was removed</p>",
+          "<p>Field <code>teamDiscussionsSettingOrganizations</code> was removed from object type <code>EnterpriseOwnerInfo</code></p>",
+          "<p>Field <code>updateEnterpriseTeamDiscussionsSetting</code> was removed from object type <code>Mutation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>EnterpriseOwnerInfo.teamDiscussionsSetting</code>:<code>teamDiscussionsSetting</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2026-01-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>CreateTeamDiscussionInput</code> was removed</p>",
+          "<p>Type <code>CreateTeamDiscussionPayload</code> was removed</p>",
+          "<p>Type <code>DeleteTeamDiscussionInput</code> was removed</p>",
+          "<p>Type <code>DeleteTeamDiscussionPayload</code> was removed</p>",
+          "<p>Type <code>TeamDiscussion</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionConnection</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionEdge</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionOrder</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionOrderField</code> was removed</p>",
+          "<p>Type <code>UpdateTeamDiscussionInput</code> was removed</p>",
+          "<p>Type <code>UpdateTeamDiscussionPayload</code> was removed</p>",
+          "<p>Field <code>createTeamDiscussion</code> was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>deleteTeamDiscussion</code> was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>updateTeamDiscussion</code> was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>discussion</code> was removed from object type <code>Team</code></p>",
+          "<p>Field <code>discussions</code> was removed from object type <code>Team</code></p>",
+          "<p>Field <code>discussionsResourcePath</code> was removed from object type <code>Team</code></p>",
+          "<p>Field <code>discussionsUrl</code> was removed from object type <code>Team</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-01-08"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>CreateTeamDiscussionInput</code> was added</p>",
+          "<p>Input field <code>body</code> of type <code>String</code> was added to input object type <code>CreateTeamDiscussionInput</code></p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>CreateTeamDiscussionInput</code></p>",
+          "<p>Input field <code>private</code> of type <code>Boolean</code> was added to input object type <code>CreateTeamDiscussionInput</code></p>",
+          "<p>Input field <code>teamId</code> of type <code>ID</code> was added to input object type <code>CreateTeamDiscussionInput</code></p>",
+          "<p>Input field <code>title</code> of type <code>String</code> was added to input object type <code>CreateTeamDiscussionInput</code></p>",
+          "<p>Type <code>CreateTeamDiscussionPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>CreateTeamDiscussionPayload</code></p>",
+          "<p>Field <code>teamDiscussion</code> was added to object type <code>CreateTeamDiscussionPayload</code></p>",
+          "<p>Type <code>DeleteTeamDiscussionInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>DeleteTeamDiscussionInput</code></p>",
+          "<p>Input field <code>id</code> of type <code>ID!</code> was added to input object type <code>DeleteTeamDiscussionInput</code></p>",
+          "<p>Type <code>DeleteTeamDiscussionPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>DeleteTeamDiscussionPayload</code></p>",
+          "<p>Type <code>TeamDiscussion</code> was added</p>",
+          "<p><code>TeamDiscussion</code> object implements <code>Comment</code> interface</p>",
+          "<p><code>TeamDiscussion</code> object implements <code>Deletable</code> interface</p>",
+          "<p><code>TeamDiscussion</code> object implements <code>Node</code> interface</p>",
+          "<p><code>TeamDiscussion</code> object implements <code>Reactable</code> interface</p>",
+          "<p><code>TeamDiscussion</code> object implements <code>Subscribable</code> interface</p>",
+          "<p><code>TeamDiscussion</code> object implements <code>UniformResourceLocatable</code> interface</p>",
+          "<p><code>TeamDiscussion</code> object implements <code>Updatable</code> interface</p>",
+          "<p><code>TeamDiscussion</code> object implements <code>UpdatableComment</code> interface</p>",
+          "<p>Field <code>author</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>authorAssociation</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>body</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>bodyHTML</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>bodyText</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>bodyVersion</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>commentsResourcePath</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>commentsUrl</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>createdAt</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>createdViaEmail</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>databaseId</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>editor</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>includesCreatedEdit</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>isPinned</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>isPrivate</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>lastEditedAt</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>number</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>publishedAt</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>reactionGroups</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>reactions</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>TeamDiscussion.reactions</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>TeamDiscussion.reactions</code></p>",
+          "<p>Argument <code>content: ReactionContent</code> added to field <code>TeamDiscussion.reactions</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>TeamDiscussion.reactions</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>TeamDiscussion.reactions</code></p>",
+          "<p>Argument <code>orderBy: ReactionOrder</code> added to field <code>TeamDiscussion.reactions</code></p>",
+          "<p>Field <code>resourcePath</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>team</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>title</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>updatedAt</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>url</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>userContentEdits</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>TeamDiscussion.userContentEdits</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>TeamDiscussion.userContentEdits</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>TeamDiscussion.userContentEdits</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>TeamDiscussion.userContentEdits</code></p>",
+          "<p>Field <code>viewerCanDelete</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>viewerCanPin</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>viewerCanReact</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>viewerCanSubscribe</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>viewerCanUpdate</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>viewerCannotUpdateReasons</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>viewerDidAuthor</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Field <code>viewerSubscription</code> was added to object type <code>TeamDiscussion</code></p>",
+          "<p>Type <code>TeamDiscussionConnection</code> was added</p>",
+          "<p>Field <code>edges</code> was added to object type <code>TeamDiscussionConnection</code></p>",
+          "<p>Field <code>nodes</code> was added to object type <code>TeamDiscussionConnection</code></p>",
+          "<p>Field <code>pageInfo</code> was added to object type <code>TeamDiscussionConnection</code></p>",
+          "<p>Field <code>totalCount</code> was added to object type <code>TeamDiscussionConnection</code></p>",
+          "<p>Type <code>TeamDiscussionEdge</code> was added</p>",
+          "<p>Field <code>cursor</code> was added to object type <code>TeamDiscussionEdge</code></p>",
+          "<p>Field <code>node</code> was added to object type <code>TeamDiscussionEdge</code></p>",
+          "<p>Type <code>TeamDiscussionOrder</code> was added</p>",
+          "<p>Input field <code>direction</code> of type <code>OrderDirection!</code> was added to input object type <code>TeamDiscussionOrder</code></p>",
+          "<p>Input field <code>field</code> of type <code>TeamDiscussionOrderField!</code> was added to input object type <code>TeamDiscussionOrder</code></p>",
+          "<p>Type <code>TeamDiscussionOrderField</code> was added</p>",
+          "<p>Enum value 'CREATED_AT<code>was added to enum</code>TeamDiscussionOrderField'</p>",
+          "<p>Type <code>UpdateTeamDiscussionInput</code> was added</p>",
+          "<p>Input field <code>body</code> of type <code>String</code> was added to input object type <code>UpdateTeamDiscussionInput</code></p>",
+          "<p>Input field <code>bodyVersion</code> of type <code>String</code> was added to input object type <code>UpdateTeamDiscussionInput</code></p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>UpdateTeamDiscussionInput</code></p>",
+          "<p>Input field <code>id</code> of type <code>ID!</code> was added to input object type <code>UpdateTeamDiscussionInput</code></p>",
+          "<p>Input field <code>pinned</code> of type <code>Boolean</code> was added to input object type <code>UpdateTeamDiscussionInput</code></p>",
+          "<p>Input field <code>title</code> of type <code>String</code> was added to input object type <code>UpdateTeamDiscussionInput</code></p>",
+          "<p>Type <code>UpdateTeamDiscussionPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>UpdateTeamDiscussionPayload</code></p>",
+          "<p>Field <code>teamDiscussion</code> was added to object type <code>UpdateTeamDiscussionPayload</code></p>",
+          "<p>Field <code>createTeamDiscussion</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: CreateTeamDiscussionInput!</code> added to field <code>Mutation.createTeamDiscussion</code></p>",
+          "<p>Field <code>deleteTeamDiscussion</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: DeleteTeamDiscussionInput!</code> added to field <code>Mutation.deleteTeamDiscussion</code></p>",
+          "<p>Field <code>updateTeamDiscussion</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: UpdateTeamDiscussionInput!</code> added to field <code>Mutation.updateTeamDiscussion</code></p>",
+          "<p>Field <code>discussion</code> was added to object type <code>Team</code></p>",
+          "<p>Argument <code>number: Int!</code> added to field <code>Team.discussion</code></p>",
+          "<p>Field <code>discussions</code> was added to object type <code>Team</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>Team.discussions</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>Team.discussions</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>Team.discussions</code></p>",
+          "<p>Argument <code>isPinned: Boolean</code> added to field <code>Team.discussions</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>Team.discussions</code></p>",
+          "<p>Argument <code>orderBy: TeamDiscussionOrder</code> added to field <code>Team.discussions</code></p>",
+          "<p>Field <code>discussionsResourcePath</code> was added to object type <code>Team</code></p>",
+          "<p>Field <code>discussionsUrl</code> was added to object type <code>Team</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>CreateTeamDiscussionInput.body</code>:<code>body</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>",
+          "<p>On member <code>CreateTeamDiscussionInput.private</code>:<code>private</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>",
+          "<p>On member <code>CreateTeamDiscussionInput.teamId</code>:<code>teamId</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>",
+          "<p>On member <code>CreateTeamDiscussionInput.title</code>:<code>title</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>",
+          "<p>On member <code>CreateTeamDiscussionPayload.teamDiscussion</code>:<code>teamDiscussion</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>",
+          "<p>On member <code>TeamDiscussion.authorAssociation</code>:<code>authorAssociation</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>",
+          "<p>On member <code>TeamDiscussion.bodyVersion</code>:<code>bodyVersion</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>",
+          "<p>On member <code>TeamDiscussion.commentsResourcePath</code>:<code>commentsResourcePath</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>",
+          "<p>On member <code>TeamDiscussion.commentsUrl</code>:<code>commentsUrl</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>",
+          "<p>On member <code>TeamDiscussion.isPinned</code>:<code>isPinned</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>",
+          "<p>On member <code>TeamDiscussion.isPrivate</code>:<code>isPrivate</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>",
+          "<p>On member <code>TeamDiscussion.number</code>:<code>number</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>",
+          "<p>On member <code>TeamDiscussion.resourcePath</code>:<code>resourcePath</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>",
+          "<p>On member <code>TeamDiscussion.team</code>:<code>team</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>",
+          "<p>On member <code>TeamDiscussion.title</code>:<code>title</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>",
+          "<p>On member <code>TeamDiscussion.url</code>:<code>url</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>",
+          "<p>On member <code>TeamDiscussion.viewerCanPin</code>:<code>viewerCanPin</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. <strong>Effective 2024-07-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2026-01-06"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>CreateTeamDiscussionInput</code> was removed</p>",
+          "<p>Type <code>CreateTeamDiscussionPayload</code> was removed</p>",
+          "<p>Type <code>DeleteTeamDiscussionInput</code> was removed</p>",
+          "<p>Type <code>DeleteTeamDiscussionPayload</code> was removed</p>",
+          "<p>Type <code>TeamDiscussion</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionConnection</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionEdge</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionOrder</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionOrderField</code> was removed</p>",
+          "<p>Type <code>UpdateTeamDiscussionInput</code> was removed</p>",
+          "<p>Type <code>UpdateTeamDiscussionPayload</code> was removed</p>",
+          "<p>Field <code>createTeamDiscussion</code> was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>deleteTeamDiscussion</code> was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>updateTeamDiscussion</code> was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>discussion</code> was removed from object type <code>Team</code></p>",
+          "<p>Field <code>discussions</code> was removed from object type <code>Team</code></p>",
+          "<p>Field <code>discussionsResourcePath</code> was removed from object type <code>Team</code></p>",
+          "<p>Field <code>discussionsUrl</code> was removed from object type <code>Team</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-01-05"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>CreateTeamDiscussionCommentInput</code> was removed</p>",
+          "<p>Type <code>CreateTeamDiscussionCommentPayload</code> was removed</p>",
+          "<p>Type <code>DeleteTeamDiscussionCommentInput</code> was removed</p>",
+          "<p>Type <code>DeleteTeamDiscussionCommentPayload</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionComment</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionCommentConnection</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionCommentEdge</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionCommentOrder</code> was removed</p>",
+          "<p>Type <code>TeamDiscussionCommentOrderField</code> was removed</p>",
+          "<p>Type <code>UpdateTeamDiscussionCommentInput</code> was removed</p>",
+          "<p>Type <code>UpdateTeamDiscussionCommentPayload</code> was removed</p>",
+          "<p>Field <code>createTeamDiscussionComment</code> was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>deleteTeamDiscussionComment</code> was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>updateTeamDiscussionComment</code> was removed from object type <code>Mutation</code></p>",
+          "<p>Field <code>comments</code> (deprecated) was removed from object type <code>TeamDiscussion</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2026-01-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": []
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>ReviewRequest.requestedBy</code>:<code>requestedBy</code> will be removed. Use <code>requestedByActor</code> instead. <strong>Effective 2026-04-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2025-12-13"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>CreateRepositoryCustomPropertyInput</code> was added</p>",
+          "<p>Input field <code>allowedValues</code> of type '[String!]<code>was added to input object type</code>CreateRepositoryCustomPropertyInput'</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>CreateRepositoryCustomPropertyInput</code></p>",
+          "<p>Input field <code>defaultValue</code> of type <code>String</code> was added to input object type <code>CreateRepositoryCustomPropertyInput</code></p>",
+          "<p>Input field <code>description</code> of type <code>String</code> was added to input object type <code>CreateRepositoryCustomPropertyInput</code></p>",
+          "<p>Input field <code>propertyName</code> of type <code>String!</code> was added to input object type <code>CreateRepositoryCustomPropertyInput</code></p>",
+          "<p>Input field <code>regex</code> of type <code>String</code> was added to input object type <code>CreateRepositoryCustomPropertyInput</code></p>",
+          "<p>Input field <code>required</code> of type <code>Boolean</code> was added to input object type <code>CreateRepositoryCustomPropertyInput</code></p>",
+          "<p>Input field <code>sourceId</code> of type <code>ID!</code> was added to input object type <code>CreateRepositoryCustomPropertyInput</code></p>",
+          "<p>Input field <code>valueType</code> of type <code>CustomPropertyValueType!</code> was added to input object type <code>CreateRepositoryCustomPropertyInput</code></p>",
+          "<p>Input field <code>valuesEditableBy</code> of type <code>RepositoryCustomPropertyValuesEditableBy</code> was added to input object type <code>CreateRepositoryCustomPropertyInput</code></p>",
+          "<p>Type <code>CreateRepositoryCustomPropertyPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>CreateRepositoryCustomPropertyPayload</code></p>",
+          "<p>Field <code>repositoryCustomProperty</code> was added to object type <code>CreateRepositoryCustomPropertyPayload</code></p>",
+          "<p>Type <code>CustomPropertySource</code> was added</p>",
+          "<p>Member <code>Enterprise</code> was added to Union type <code>CustomPropertySource</code></p>",
+          "<p>Member <code>Organization</code> was added to Union type <code>CustomPropertySource</code></p>",
+          "<p>Type <code>CustomPropertyValue</code> was added</p>",
+          "<p>Type <code>CustomPropertyValueInput</code> was added</p>",
+          "<p>Input field <code>propertyName</code> of type <code>String!</code> was added to input object type <code>CustomPropertyValueInput</code></p>",
+          "<p>Input field <code>value</code> of type <code>CustomPropertyValue</code> was added to input object type <code>CustomPropertyValueInput</code></p>",
+          "<p>Type <code>CustomPropertyValueType</code> was added</p>",
+          "<p>Enum value 'MULTI_SELECT<code>was added to enum</code>CustomPropertyValueType'</p>",
+          "<p>Enum value 'SINGLE_SELECT<code>was added to enum</code>CustomPropertyValueType'</p>",
+          "<p>Enum value <code>STRING</code> was added to enum <code>CustomPropertyValueType</code></p>",
+          "<p>Enum value 'TRUE_FALSE<code>was added to enum</code>CustomPropertyValueType'</p>",
+          "<p>Enum value <code>URL</code> was added to enum <code>CustomPropertyValueType</code></p>",
+          "<p>Type <code>DeleteRepositoryCustomPropertyInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>DeleteRepositoryCustomPropertyInput</code></p>",
+          "<p>Input field <code>id</code> of type <code>ID!</code> was added to input object type <code>DeleteRepositoryCustomPropertyInput</code></p>",
+          "<p>Type <code>DeleteRepositoryCustomPropertyPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>DeleteRepositoryCustomPropertyPayload</code></p>",
+          "<p>Field <code>repositoryCustomProperty</code> was added to object type <code>DeleteRepositoryCustomPropertyPayload</code></p>",
+          "<p>Type <code>PromoteRepositoryCustomPropertyInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>PromoteRepositoryCustomPropertyInput</code></p>",
+          "<p>Input field <code>repositoryCustomPropertyId</code> of type <code>ID!</code> was added to input object type <code>PromoteRepositoryCustomPropertyInput</code></p>",
+          "<p>Type <code>PromoteRepositoryCustomPropertyPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>PromoteRepositoryCustomPropertyPayload</code></p>",
+          "<p>Field <code>repositoryCustomProperty</code> was added to object type <code>PromoteRepositoryCustomPropertyPayload</code></p>",
+          "<p>Type <code>RepositoryCustomProperty</code> was added</p>",
+          "<p><code>RepositoryCustomProperty</code> object implements <code>Node</code> interface</p>",
+          "<p>Field <code>allowedValues</code> was added to object type <code>RepositoryCustomProperty</code></p>",
+          "<p>Field <code>defaultValue</code> was added to object type <code>RepositoryCustomProperty</code></p>",
+          "<p>Field <code>description</code> was added to object type <code>RepositoryCustomProperty</code></p>",
+          "<p>Field <code>id</code> was added to object type <code>RepositoryCustomProperty</code></p>",
+          "<p>Field <code>propertyName</code> was added to object type <code>RepositoryCustomProperty</code></p>",
+          "<p>Field <code>regex</code> was added to object type <code>RepositoryCustomProperty</code></p>",
+          "<p>Field <code>required</code> was added to object type <code>RepositoryCustomProperty</code></p>",
+          "<p>Field <code>source</code> was added to object type <code>RepositoryCustomProperty</code></p>",
+          "<p>Field <code>valueType</code> was added to object type <code>RepositoryCustomProperty</code></p>",
+          "<p>Field <code>valuesEditableBy</code> was added to object type <code>RepositoryCustomProperty</code></p>",
+          "<p>Type <code>RepositoryCustomPropertyConnection</code> was added</p>",
+          "<p>Field <code>edges</code> was added to object type <code>RepositoryCustomPropertyConnection</code></p>",
+          "<p>Field <code>nodes</code> was added to object type <code>RepositoryCustomPropertyConnection</code></p>",
+          "<p>Field <code>pageInfo</code> was added to object type <code>RepositoryCustomPropertyConnection</code></p>",
+          "<p>Field <code>totalCount</code> was added to object type <code>RepositoryCustomPropertyConnection</code></p>",
+          "<p>Type <code>RepositoryCustomPropertyEdge</code> was added</p>",
+          "<p>Field <code>cursor</code> was added to object type <code>RepositoryCustomPropertyEdge</code></p>",
+          "<p>Field <code>node</code> was added to object type <code>RepositoryCustomPropertyEdge</code></p>",
+          "<p>Type <code>RepositoryCustomPropertyValue</code> was added</p>",
+          "<p>Field <code>propertyName</code> was added to object type <code>RepositoryCustomPropertyValue</code></p>",
+          "<p>Field <code>value</code> was added to object type <code>RepositoryCustomPropertyValue</code></p>",
+          "<p>Type <code>RepositoryCustomPropertyValueConnection</code> was added</p>",
+          "<p>Field <code>edges</code> was added to object type <code>RepositoryCustomPropertyValueConnection</code></p>",
+          "<p>Field <code>nodes</code> was added to object type <code>RepositoryCustomPropertyValueConnection</code></p>",
+          "<p>Field <code>pageInfo</code> was added to object type <code>RepositoryCustomPropertyValueConnection</code></p>",
+          "<p>Field <code>totalCount</code> was added to object type <code>RepositoryCustomPropertyValueConnection</code></p>",
+          "<p>Type <code>RepositoryCustomPropertyValueEdge</code> was added</p>",
+          "<p>Field <code>cursor</code> was added to object type <code>RepositoryCustomPropertyValueEdge</code></p>",
+          "<p>Field <code>node</code> was added to object type <code>RepositoryCustomPropertyValueEdge</code></p>",
+          "<p>Type <code>RepositoryCustomPropertyValuesEditableBy</code> was added</p>",
+          "<p>Enum value 'ORG_ACTORS<code>was added to enum</code>RepositoryCustomPropertyValuesEditableBy'</p>",
+          "<p>Enum value 'ORG_AND_REPO_ACTORS<code>was added to enum</code>RepositoryCustomPropertyValuesEditableBy'</p>",
+          "<p>Type <code>SetRepositoryCustomPropertyValuesInput</code> was added</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>SetRepositoryCustomPropertyValuesInput</code></p>",
+          "<p>Input field <code>properties</code> of type '[CustomPropertyValueInput!]!<code>was added to input object type</code>SetRepositoryCustomPropertyValuesInput'</p>",
+          "<p>Input field <code>repositoryId</code> of type <code>ID!</code> was added to input object type <code>SetRepositoryCustomPropertyValuesInput</code></p>",
+          "<p>Type <code>SetRepositoryCustomPropertyValuesPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>SetRepositoryCustomPropertyValuesPayload</code></p>",
+          "<p>Field <code>repository</code> was added to object type <code>SetRepositoryCustomPropertyValuesPayload</code></p>",
+          "<p>Type <code>UpdateRepositoryCustomPropertyInput</code> was added</p>",
+          "<p>Input field <code>allowedValues</code> of type '[String!]<code>was added to input object type</code>UpdateRepositoryCustomPropertyInput'</p>",
+          "<p>Input field <code>clientMutationId</code> of type <code>String</code> was added to input object type <code>UpdateRepositoryCustomPropertyInput</code></p>",
+          "<p>Input field <code>defaultValue</code> of type <code>String</code> was added to input object type <code>UpdateRepositoryCustomPropertyInput</code></p>",
+          "<p>Input field <code>description</code> of type <code>String</code> was added to input object type <code>UpdateRepositoryCustomPropertyInput</code></p>",
+          "<p>Input field <code>regex</code> of type <code>String</code> was added to input object type <code>UpdateRepositoryCustomPropertyInput</code></p>",
+          "<p>Input field <code>repositoryCustomPropertyId</code> of type <code>ID!</code> was added to input object type <code>UpdateRepositoryCustomPropertyInput</code></p>",
+          "<p>Input field <code>required</code> of type <code>Boolean</code> was added to input object type <code>UpdateRepositoryCustomPropertyInput</code></p>",
+          "<p>Input field <code>valuesEditableBy</code> of type <code>RepositoryCustomPropertyValuesEditableBy</code> was added to input object type <code>UpdateRepositoryCustomPropertyInput</code></p>",
+          "<p>Type <code>UpdateRepositoryCustomPropertyPayload</code> was added</p>",
+          "<p>Field <code>clientMutationId</code> was added to object type <code>UpdateRepositoryCustomPropertyPayload</code></p>",
+          "<p>Field <code>repositoryCustomProperty</code> was added to object type <code>UpdateRepositoryCustomPropertyPayload</code></p>",
+          "<p>Field <code>repositoryCustomProperties</code> was added to object type <code>Enterprise</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>Enterprise.repositoryCustomProperties</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>Enterprise.repositoryCustomProperties</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>Enterprise.repositoryCustomProperties</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>Enterprise.repositoryCustomProperties</code></p>",
+          "<p>Field <code>repositoryCustomProperty</code> was added to object type <code>Enterprise</code></p>",
+          "<p>Argument <code>propertyName: String!</code> added to field <code>Enterprise.repositoryCustomProperty</code></p>",
+          "<p>Field <code>createRepositoryCustomProperty</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: CreateRepositoryCustomPropertyInput!</code> added to field <code>Mutation.createRepositoryCustomProperty</code></p>",
+          "<p>Field <code>deleteRepositoryCustomProperty</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: DeleteRepositoryCustomPropertyInput!</code> added to field <code>Mutation.deleteRepositoryCustomProperty</code></p>",
+          "<p>Field <code>promoteRepositoryCustomProperty</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: PromoteRepositoryCustomPropertyInput!</code> added to field <code>Mutation.promoteRepositoryCustomProperty</code></p>",
+          "<p>Field <code>setRepositoryCustomPropertyValues</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: SetRepositoryCustomPropertyValuesInput!</code> added to field <code>Mutation.setRepositoryCustomPropertyValues</code></p>",
+          "<p>Field <code>updateRepositoryCustomProperty</code> was added to object type <code>Mutation</code></p>",
+          "<p>Argument <code>input: UpdateRepositoryCustomPropertyInput!</code> added to field <code>Mutation.updateRepositoryCustomProperty</code></p>",
+          "<p>Field <code>repositoryCustomProperties</code> was added to object type <code>Organization</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>Organization.repositoryCustomProperties</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>Organization.repositoryCustomProperties</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>Organization.repositoryCustomProperties</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>Organization.repositoryCustomProperties</code></p>",
+          "<p>Field <code>repositoryCustomProperty</code> was added to object type <code>Organization</code></p>",
+          "<p>Argument <code>propertyName: String!</code> added to field <code>Organization.repositoryCustomProperty</code></p>",
+          "<p>Field <code>repositoryCustomPropertyValue</code> was added to object type <code>Repository</code></p>",
+          "<p>Argument <code>propertyName: String!</code> added to field <code>Repository.repositoryCustomPropertyValue</code></p>",
+          "<p>Field <code>repositoryCustomPropertyValues</code> was added to object type <code>Repository</code></p>",
+          "<p>Argument <code>after: String</code> added to field <code>Repository.repositoryCustomPropertyValues</code></p>",
+          "<p>Argument <code>before: String</code> added to field <code>Repository.repositoryCustomPropertyValues</code></p>",
+          "<p>Argument <code>first: Int</code> added to field <code>Repository.repositoryCustomPropertyValues</code></p>",
+          "<p>Argument <code>last: Int</code> added to field <code>Repository.repositoryCustomPropertyValues</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-12-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>automaticCopilotCodeReviewEnabled</code> was removed from object type <code>PullRequestParameters</code></p>",
+          "<p>Input field <code>automaticCopilotCodeReviewEnabled</code> was removed from input object type <code>PullRequestParametersInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-12-05"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>SuggestedReviewerActor</code> was added</p>",
+          "<p>Type <code>SuggestedReviewerActorConnection</code> was added</p>",
+          "<p>Type <code>SuggestedReviewerActorEdge</code> was added</p>",
+          "<p>Enum value 'ISSUE_FIELD_ADDED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_FIELD_CHANGED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_FIELD_REMOVED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Field <code>suggestedReviewerActors</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Enum value 'ISSUE_FIELD_ADDED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_FIELD_CHANGED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_FIELD_REMOVED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-11-30"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>Agentic</code> was added</p>",
           "<p><code>User</code> object implements <code>Agentic</code> interface</p>",
           "<p>Field <code>viewerCopilotAgentCreatesChannel</code> was added to object type <code>User</code></p>",

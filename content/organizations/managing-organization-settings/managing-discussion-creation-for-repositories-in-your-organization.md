@@ -8,10 +8,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Manage repository discussions
+category:
+  - Configure organization features
 ---
 
 

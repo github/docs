@@ -14,6 +14,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Caching credentials
+category:
+  - Set up Git
 ---
 
 > [!TIP]

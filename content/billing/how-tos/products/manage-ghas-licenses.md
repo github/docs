@@ -9,12 +9,10 @@ redirect_from:
   - /billing/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing
   - /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing
   - /billing/how-tos/products/manage-ghas-license
-topics:
-  - Billing
-  - Advanced Security
-  - Enterprise
 shortTitle: Manage GHAS licenses
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 There are two different ways to pay for {% data variables.product.prodname_GHAS_cs_and_sp %} licenses: volume/subscription licenses purchased in advance or usage-based metered billing paid in arrears. This article is about volume/subscription licenses. For information about the two different billing models, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
@@ -23,15 +21,8 @@ For information about using policies to control use of licenses in your enterpri
 
 ## Changing the size of your license
 
-1. In the upper-right corner of any page on {% data variables.product.github %}, click your profile picture.
-
-1. Select the account you want to view and then access the "Billing & Licensing" pages:
-
-   * **Organizations**: Click **Your organizations**, then next to the organization, click **Settings**. In the organization sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
-
-   * **Enterprises**: Click **Your enterprises**, then click the enterprise name. Click the **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing** tab at the top of the page.
-
-1. From the list of "Billing & licensing" pages, click {% octicon "law" aria-hidden="true" aria-label="law" %} **Licensing** to display the licensing page.
+{% data reusables.billing.nav-to-org-or-ent %}
+{% data reusables.billing.click-licensing %}
 
    ![Screenshot of the {% data variables.product.prodname_AS %} licensing screen. The "Manage licenses" button is outlined in orange.](/assets/images/help/enterprises/ghas-licenses-dropdown.png)
 
@@ -44,7 +35,15 @@ For information about using policies to control use of licenses in your enterpri
 
 ## Canceling your {% data variables.product.prodname_AS %} subscription
 
-1. Navigate to the "Billing & licensing" pages for your enterprise or organization.
-1. Click {% octicon "law" aria-hidden="true" aria-label="law" %} **Licensing** to display the licensing page.
+{% data reusables.billing.nav-to-org-or-ent %}
+{% data reusables.billing.click-licensing %}
 1. To the right of "{% data variables.product.prodname_AS %}", select {% octicon "kebab-horizontal" aria-label="Open menu" %}, then click **Cancel subscription**.
 1. To confirm your cancellation, click **I understand, cancel {% data variables.product.prodname_AS %}**.
+
+{% ifversion disable-ghas-button %}
+
+## Disabling {% data variables.product.prodname_GHAS %} in an enterprise
+
+Enterprise owners can disable {% data variables.product.prodname_GHAS %} completely and set a policy to prevent future re-enablement. See [AUTOTITLE](/billing/how-tos/products/disable-ghas-for-enterprise).
+
+{% endif %}

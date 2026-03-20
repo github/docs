@@ -6,6 +6,9 @@ import { isArchivedVersion } from '@/archives/lib/is-archived-version'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 import { archivedCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control'
 import type { ExtendedRequest } from '@/types'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 // This module handles requests for the CSS and JS assets for
 // deprecated GitHub Enterprise versions by routing them to static content in
@@ -126,6 +129,11 @@ export default async function archivedEnterpriseVersionsAssets(
     if (err instanceof Error && err.toString().includes('Nock: No match for request')) {
       throw err
     }
+
+    logger.warn('Failed to proxy archived enterprise asset', {
+      url: proxyPath,
+      error: err instanceof Error ? err : new Error(String(err)),
+    })
 
     // It's important that we don't give up on this by returning a 404
     // here. It's better to let this through in case the asset exists

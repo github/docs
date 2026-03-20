@@ -8,6 +8,8 @@ versions:
 shortTitle: Hover cards
 redirect_from:
   - /get-started/learning-about-github/using-hover-cards-on-github-docs
+category:
+  - Explore GitHub plans and features
 ---
 
 ## About hover cards

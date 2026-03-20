@@ -13,6 +13,8 @@ versions:
   ghes: '*'
 shortTitle: Jira project integration
 contentType: how-tos
+category:
+  - Configure account settings
 ---
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}

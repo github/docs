@@ -8,10 +8,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Convert organization to user
+category:
+  - Set up your organization
 ---
 
 {% ifversion fpt or ghec %}

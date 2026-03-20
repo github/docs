@@ -2,14 +2,13 @@
 title: Username reference
 shortTitle: Username reference
 intro: Find information about changing your {% data variables.product.github %} username.
-topics:
-  - Accounts
-  - Usernames
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 contentType: reference
+category:
+  - Set up your account
 ---
 
 ## Changing your username

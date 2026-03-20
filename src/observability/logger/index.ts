@@ -6,8 +6,13 @@ import {
   useProductionLogging,
 } from '@/observability/logger/lib/log-levels'
 import { toLogfmt } from '@/observability/logger/lib/to-logfmt'
+import { POD_IDENTITY } from '@/observability/logger/lib/pod-identity'
 
-type IncludeContext = { [key: string]: any }
+type IncludeContext = { [key: string]: unknown }
+
+// Read once at module startup so every log line carries the deployed version.
+// BUILD_SHA is baked into each Docker image via ARG/ENV in the Dockerfile.
+const BUILD_SHA = process.env.BUILD_SHA || undefined
 
 // Type definitions for logger methods with overloads
 interface LoggerMethod {
@@ -30,7 +35,7 @@ interface LoggerMethod {
   (message: string, error: Error): void
   // Pattern 6: Message with multiple parts and Error objects
   // e.g. `logger.error('Multiple failures', error1, error2)`
-  (message: string, ...args: (string | number | boolean | Error | IncludeContext)[]): void
+  (message: string, ...args: (string | number | boolean | Error | IncludeContext | object)[]): void
 }
 
 /*
@@ -46,11 +51,11 @@ export function createLogger(filePath: string) {
   }
 
   // Helper function to check if a value is a plain object (not Array, Error, Date, etc.)
-  function isPlainObject(value: any): boolean {
+  function isPlainObject(value: unknown): value is Record<string, unknown> {
     return (
       value !== null &&
       typeof value === 'object' &&
-      value.constructor === Object &&
+      (value as Record<string, unknown>).constructor === Object &&
       !(value instanceof Error) &&
       !(value instanceof Array) &&
       !(value instanceof Date)
@@ -58,14 +63,14 @@ export function createLogger(filePath: string) {
   }
 
   // The actual log function used by each level-specific method.
-  function logMessage(level: keyof typeof LOG_LEVELS, message: string, ...args: any[]) {
+  function logMessage(level: keyof typeof LOG_LEVELS, message: string, ...args: unknown[]) {
     // Determine if we have extraData or additional message parts
     let finalMessage: string
     let includeContext: IncludeContext = {}
 
     // First, extract any Error objects from the arguments and handle them specially
     const errorObjects: Error[] = []
-    const nonErrorArgs: any[] = []
+    const nonErrorArgs: unknown[] = []
 
     for (const arg of args) {
       if (arg instanceof Error) {
@@ -78,7 +83,7 @@ export function createLogger(filePath: string) {
     // Handle the non-error arguments for message building and extraData
     if (nonErrorArgs.length > 0 && isPlainObject(nonErrorArgs[nonErrorArgs.length - 1])) {
       // Last non-error argument is a plain object - treat as extraData
-      includeContext = { ...nonErrorArgs[nonErrorArgs.length - 1] }
+      includeContext = { ...(nonErrorArgs[nonErrorArgs.length - 1] as IncludeContext) }
       const messageParts = nonErrorArgs.slice(0, -1)
       if (messageParts.length > 0) {
         // There are message parts before the extraData object
@@ -131,9 +136,11 @@ export function createLogger(filePath: string) {
     if (useProductionLogging()) {
       // Logfmt logging in production
       const logObject: IncludeContext = {
-        ...loggerContext,
+        ...POD_IDENTITY, // pod_name, pod_namespace, node_hostname (static; {} in local dev)
+        ...loggerContext, // requestUuid, path, method, headers, etc. (per-request)
         timestamp,
         level,
+        ...(BUILD_SHA !== undefined ? { build_sha: BUILD_SHA } : {}),
         file: path.relative(process.cwd(), new URL(filePath).pathname),
         message: finalMessage,
       }
@@ -144,6 +151,8 @@ export function createLogger(filePath: string) {
         if (typeof value === 'object' && value instanceof Error) {
           // Errors don't serialize well to JSON, so just log the message + stack trace
           includedContextWithFormattedError[key] = value.message
+          includedContextWithFormattedError[`${key}_code`] = (value as NodeJS.ErrnoException).code
+          includedContextWithFormattedError[`${key}_name`] = value.name
           includedContextWithFormattedError[`${key}_stack`] = value.stack
         } else {
           includedContextWithFormattedError[key] = value

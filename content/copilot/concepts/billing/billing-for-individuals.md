@@ -4,8 +4,6 @@ shortTitle: Billing for individuals
 intro: 'Learn how billing works for {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/about-billing-for-github-copilot-individual
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-github-copilot-pro-subscription/about-billing-for-copilot-pro

@@ -4,8 +4,6 @@ shortTitle: License changes
 intro: 'Learn how changes to {% data variables.product.prodname_copilot %} licenses affect billing and user access for organizations, enterprises, and personal accounts.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 category:
   - Learn about Copilot
 allowTitleToDifferFromFilename: true

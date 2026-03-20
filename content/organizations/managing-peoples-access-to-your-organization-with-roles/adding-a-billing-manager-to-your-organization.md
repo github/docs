@@ -7,11 +7,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
-  - Billing
 shortTitle: Add a billing manager
+category:
+  - Assign roles and permissions
 ---
 
 Members of your organization's Owners team can give _billing manager_ permissions to people. Once a person accepts their invitation to become a billing manager for your organization, they can invite additional people to be billing managers.
