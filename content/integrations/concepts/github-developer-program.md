@@ -20,10 +20,6 @@ Building an application that integrates with {% data variables.product.github %}
 
 Build your own tools that seamlessly integrate with {% data variables.product.github %} APIs. For more information, see [AUTOTITLE](/rest/about-the-rest-api/comparing-githubs-rest-api-and-graphql-api).
 
-## Take on the enterprise
-
-Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request developer licenses to build and test your application against {% data variables.product.prodname_ghe_server %}.
-
 ## Have an integration that works with GitHub?
 
 Awesome! Here’s how you can spread the word:
