@@ -4,9 +4,6 @@ shortTitle: Spark
 intro: 'Learn how to use {% data variables.product.prodname_spark %} responsibly by understanding its purposes, capabilities, and limitations.'
 versions:
   feature: spark
-topics:
-  - Copilot
-  - AI
 redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-spark
   - /copilot/responsible-use-of-github-copilot-features/spark

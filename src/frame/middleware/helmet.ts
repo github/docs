@@ -28,7 +28,9 @@ const DEFAULT_OPTIONS = {
       prefetchSrc: ["'self'"],
       // When doing local dev, especially in Safari, you need to add `ws:`
       // which NextJS uses for the hot module reloading.
-      connectSrc: ["'self'", isDev && 'ws:'].filter(Boolean) as string[],
+      connectSrc: ["'self'", 'https://collector.githubapp.com', isDev && 'ws:'].filter(
+        Boolean,
+      ) as string[],
       fontSrc: ["'self'", 'data:'],
       imgSrc: [...GITHUB_DOMAINS, 'data:', 'placehold.it'],
       objectSrc: ["'self'"],

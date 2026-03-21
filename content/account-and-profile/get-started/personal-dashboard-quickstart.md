@@ -15,10 +15,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 shortTitle: Personal dashboard quickstart
 contentType: get-started
+category:
+  - Set up your account
 ---
 
 ## Accessing your personal dashboard

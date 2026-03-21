@@ -11,9 +11,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
 shortTitle: Generate new SSH key
+category:
+  - Connect with SSH
 ---
 
 ## About SSH key passphrases
@@ -165,6 +165,19 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% data reusables.ssh.add-public-key-to-github %}
 
+> ### Troubleshooting SSH agent conflicts in Windows
+>
+> In Windows environments, the native Windows OpenSSH implementation and the one included with Git for Windows (based on MSYS2/Bash) can coexist.
+>
+> If you configure and save your passphrases in the Windows agent using PowerShell, Git may still prompt you for your passphrase during operations like `git push`. This can happen when Git for Windows uses its bundled `ssh.exe` (from MSYS2) instead of the Windows system OpenSSH client, and therefore can't talk to the Windows `ssh-agent` service.
+>
+> To ensure Git uses the agent where you've stored your credentials, force Git to use the system's SSH binary by running:
+>
+> ```powershell
+> git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
+> ```
+
+
 {% endwindows %}
 
 {% linux %}
@@ -254,5 +267,7 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
    > Enter passphrase (empty for no passphrase): [Type a passphrase]
    > Enter same passphrase again: [Type passphrase again]
    ```
-
+   
 {% data reusables.ssh.add-public-key-to-github %}
+
+

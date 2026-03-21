@@ -9,6 +9,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: On behalf of an organization
+category:
+  - Commit changes
 ---
 
 To create commits on behalf of an organization:

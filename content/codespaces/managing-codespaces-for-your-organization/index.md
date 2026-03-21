@@ -6,8 +6,6 @@ intro: 'You can manage and review how users in your organization can use {% data
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Codespaces
 children:
   - /enabling-or-disabling-github-codespaces-for-your-organization
   - /choosing-who-owns-and-pays-for-codespaces-in-your-organization

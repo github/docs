@@ -1,14 +1,13 @@
 ---
 title: Using a fiscal host to receive GitHub Sponsors payouts
-intro: 'You can become a sponsored developer by joining {% data variables.product.prodname_sponsors %} and choosing a fiscal host for your payouts to come through.'
+intro: You can become a sponsored developer by joining {% data variables.product.prodname_sponsors %} and choosing a fiscal host for your payouts to come through.
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - User account
-  - Sponsors profile
 shortTitle: Using a fiscal host
+contentType: how-tos
+category:
+  - Set up to receive sponsorships
 ---
 
 ## About using a fiscal host to receive {% data variables.product.prodname_sponsors %} payouts
@@ -24,6 +23,7 @@ When you sign up for a {% data variables.product.prodname_sponsors %} profile so
 * [Open Collective Europe](https://opencollective.com/europe)
 * [Open Source Collective](https://opencollective.com/opensource)
 * [Python Software Foundation](https://www.python.org/psf-landing/)
+* [Radiant Earth](https://radiant.earth/)
 * [Software in the Public Interest](https://www.spi-inc.org/)
 * [Software Underground](https://softwareunderground.org/)
 

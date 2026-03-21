@@ -6,9 +6,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Integration
 contentType: reference
+category:
+  - Learn about integrations
 ---
 
 By granting the {% data variables.product.github %} app access to your Slack workspace, you are providing necessary authorizations to your {% data variables.product.github %} account and your Slack workspace. These permissions enable the app to perform its functions and provide you with a seamless experience when using GitHub in Slack.

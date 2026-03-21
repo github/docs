@@ -1,20 +1,10 @@
 ---
 title: Configuring private networking for GitHub-hosted runners in your enterprise
 shortTitle: Configuring private networking
-intro: 'Learn how to use {% data variables.product.company_short %}-hosted runners with an Azure private network.'
+intro: Learn how to use {% data variables.product.company_short %}-hosted runners with an Azure private network.
 versions:
   ghec: '*'
-type: how_to
 permissions: Enterprise owners can configure private networking for GitHub-hosted runners at the enterprise level.
-topics:
-  - Actions
-  - Action development
-  - Azure Virtual Network
-  - Administrator
-  - Developer
-  - CI
-  - CD
-  - Enterprise
 redirect_from:
   - /actions/using-github-hosted-runners/connecting-to-a-private-network/configuring-an-azure-virtual-network-for-your-enterprise
   - /actions/using-github-hosted-runners/connecting-to-a-private-network/configuring-azure-resources-for-private-networking-with-github-hosted-runners
@@ -23,6 +13,9 @@ redirect_from:
   - /actions/using-github-hosted-runners/connecting-to-a-private-network/configuring-your-github-settings-for-use-with-azure-virtual-network
   - /admin/configuration/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners
   - /admin/configuration/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise
+contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## About Azure private networking for {% data variables.product.company_short %}-hosted runners

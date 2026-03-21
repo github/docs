@@ -91,17 +91,28 @@ export async function updateAutomatedPipelines() {
     .map((version) => version.openApiVersionName)
 
   for (const pipeline of pipelines) {
-    if (!existsSync(`src/${pipeline}/data`)) continue
+    // secret-scanning has a different directory structure than the others
+    const directoryWithReleases =
+      pipeline === 'secret-scanning'
+        ? 'src/secret-scanning/data/pattern-docs'
+        : `src/${pipeline}/data`
+    if (!existsSync(directoryWithReleases)) continue
+
     const isCalendarDateVersioned = JSON.parse(
       await readFile(`src/${pipeline}/lib/config.json`, 'utf-8'),
     )['api-versions']
 
-    const directoryListing = await readdir(`src/${pipeline}/data`)
+    const directoryListing = await readdir(directoryWithReleases)
     // filter the directory list to only include directories that start with
     // basenames with numbered releases (e.g., ghes-).
     const existingDataDir = directoryListing.filter((directory) =>
       numberedReleaseBaseNames.some((basename) => directory.startsWith(basename)),
     )
+
+    if (!existingDataDir.length) {
+      throw new Error(`Cannot find ghes- release directories in ${directoryWithReleases}.`)
+    }
+
     const expectedDirectory = isCalendarDateVersioned ? versionNamesCalDate : versionNames
 
     // Get a list of data directories to remove (deprecate) and remove them
@@ -113,28 +124,44 @@ export async function updateAutomatedPipelines() {
     }
 
     // Get a list of data directories to create (release) and create them
-    // This should only happen if a relase is being added.
+    // This should only happen if a release is being added.
     const addFiles = difference(expectedDirectory, existingDataDir)
-    if (addFiles.length > numberedReleaseBaseNames.length) {
-      throw new Error(
-        'Only one new release per numbered release version should be added at a time. Check that the lib/enterprise-server-releases.ts is correct.',
-      )
+
+    // Verify all new directories belong to the current release
+    for (const dir of addFiles) {
+      if (!dir.includes(currentReleaseNumber)) {
+        throw new Error(
+          `Unexpected directory to add: ${dir}. Only directories for the current release ` +
+            `(${currentReleaseNumber}) should be added. Check that the lib/enterprise-server-releases.ts is correct.`,
+        )
+      }
     }
 
     for (const base of numberedReleaseBaseNames) {
-      const dirToAdd = addFiles.find((item) => item.startsWith(base))
-      if (!dirToAdd) continue
-      // The suppported array is ordered from most recent (index 0) to oldest
-      // Index 1 will be the release prior to the most recent release
-      const lastRelease = supported[1]
-      const previousDirName = existingDataDir.filter((directory) => directory.includes(lastRelease))
+      // Find ALL directories to add for this base name (may be multiple
+      // when a release has more than one calendar-date version).
+      const dirsToAdd = addFiles.filter((item) => item.startsWith(base))
+      for (const dirToAdd of dirsToAdd) {
+        // Derive the previous release's corresponding directory by replacing
+        // the current release number with the previous one. This correctly
+        // maps each calendar-date variant to its predecessor, e.g.:
+        //   ghes-3.20-2022-11-28 → ghes-3.19-2022-11-28
+        //   ghes-3.20-2026-03-10 → ghes-3.19-2026-03-10
+        const previousDirName = dirToAdd.replace(currentReleaseNumber, previousReleaseNumber)
+        if (!existingDataDir.includes(previousDirName)) {
+          throw new Error(
+            `Cannot find previous release directory '${previousDirName}' to copy from ` +
+              `when creating '${dirToAdd}' in src/${pipeline}/data/.`,
+          )
+        }
 
-      console.log(
-        `Copying src/${pipeline}/data/${previousDirName} to src/${pipeline}/data/${dirToAdd}`,
-      )
-      await cp(`src/${pipeline}/data/${previousDirName}`, `src/${pipeline}/data/${dirToAdd}`, {
-        recursive: true,
-      })
+        console.log(
+          `Copying src/${pipeline}/data/${previousDirName} to src/${pipeline}/data/${dirToAdd}`,
+        )
+        await cp(`src/${pipeline}/data/${previousDirName}`, `src/${pipeline}/data/${dirToAdd}`, {
+          recursive: true,
+        })
+      }
     }
   }
 

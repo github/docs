@@ -1,13 +1,13 @@
 import { describe, expect, test } from 'vitest'
 import sharp from 'sharp'
-import cheerio from 'cheerio'
+import type { CheerioAPI } from 'cheerio'
 
 import { get, head, getDOM } from '@/tests/helpers/e2etest'
 import { MAX_WIDTH } from '@/content-render/unified/rewrite-asset-img-tags'
 
 describe('render Markdown image tags', () => {
   test('page with a single image', async () => {
-    const $: cheerio.Root = await getDOM('/get-started/images/single-image')
+    const $: CheerioAPI = await getDOM('/get-started/images/single-image')
 
     const pictures = $('#article-contents picture')
     expect(pictures.length).toBe(1)
@@ -46,7 +46,7 @@ describe('render Markdown image tags', () => {
   })
 
   test('images have density specified', async () => {
-    const $: cheerio.Root = await getDOM('/get-started/images/retina-image')
+    const $: CheerioAPI = await getDOM('/get-started/images/retina-image')
 
     const pictures = $('#article-contents picture')
     expect(pictures.length).toBe(3)
@@ -60,14 +60,14 @@ describe('render Markdown image tags', () => {
   })
 
   test('image inside a list keeps its span', async () => {
-    const $: cheerio.Root = await getDOM('/get-started/images/images-in-lists')
+    const $: CheerioAPI = await getDOM('/get-started/images/images-in-lists')
 
     const imageSpan = $('#article-contents > div > ol > li > div.procedural-image-wrapper')
     expect(imageSpan.length).toBe(1)
   })
 
   test("links directly to images aren't rewritten", async () => {
-    const $: cheerio.Root = await getDOM('/get-started/images/link-to-image')
+    const $: CheerioAPI = await getDOM('/get-started/images/link-to-image')
     // There is only 1 link inside that page
     const links = $('#article-contents a[href^="/"]') // exclude header link
     expect(links.length).toBe(1)

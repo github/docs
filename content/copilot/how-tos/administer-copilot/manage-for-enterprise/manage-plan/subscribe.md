@@ -6,8 +6,6 @@ permissions: Enterprise owners
 product: 'Enterprises on {% data variables.product.prodname_ghe_cloud %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-enterprise-subscription
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/subscribing-to-copilot-for-your-enterprise

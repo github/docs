@@ -10,6 +10,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Add a repository
+category:
+  - Add and clone repositories
 ---
 
 > [!TIP]

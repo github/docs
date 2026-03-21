@@ -18,6 +18,8 @@ redirect_from:
   - /early-access/enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/preparing-to-run-a-migration-with-github-enterprise-importer
   - /migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/preparing-to-run-a-migration-with-github-enterprise-importer
   - /migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer
+category:
+  - Understand enterprise migration tools
 ---
 
 ## About {% data variables.product.prodname_importer_proper_name %}
@@ -43,6 +45,8 @@ You can migrate on a repository-by-repository basis or, if your migration source
 
 To learn more about the migration path you require, and the data that {% data variables.product.prodname_importer_proper_name %} migrates, see the following articles.
 
+{% ifversion fpt or ghec %}
 * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/about-migrations-from-azure-devops-to-github-enterprise-cloud)
+{% endif %}
 * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/about-migrations-from-bitbucket-server-to-github-enterprise-cloud)
 * [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)

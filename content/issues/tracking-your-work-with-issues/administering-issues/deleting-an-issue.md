@@ -11,8 +11,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Pull requests
+category:
+  - Triage and organize issues
 ---
 The ability to delete issues depends on whether the repository is owned by a personal account or an organization:
 * The only account that can delete issues in a repository owned by a personal account is that account.

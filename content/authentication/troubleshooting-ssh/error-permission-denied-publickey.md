@@ -9,9 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - SSH
 shortTitle: Permission denied (publickey)
+category:
+  - Troubleshoot authentication issues
 ---
 {% ifversion ghec %}
 

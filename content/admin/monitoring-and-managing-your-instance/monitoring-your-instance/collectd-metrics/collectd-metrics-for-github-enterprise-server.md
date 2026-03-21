@@ -1,18 +1,14 @@
 ---
 title: collectd metrics for GitHub Enterprise Server
 shortTitle: collectd metrics
-intro: 'You can review the metrics that `collectd` gathers for {% data variables.location.product_location %}.'
+intro: You can review the metrics that `collectd` gathers for {% data variables.location.product_location %}.
 versions:
   ghes: '*'
-type: reference
-topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Monitoring
-  - Performance
 redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/collectd-metrics-for-github-enterprise-server
+contentType: reference
+category:
+  - Monitor and audit your enterprise
 ---
 
 {% data reusables.enterprise.collectd-metrics-future %}

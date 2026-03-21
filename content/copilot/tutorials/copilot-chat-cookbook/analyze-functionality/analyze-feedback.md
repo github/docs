@@ -15,8 +15,6 @@ category:
 complexity:
   - Intermediate
 octicon: lightbulb
-topics:
-  - Copilot
 contentType: tutorials
 ---
 

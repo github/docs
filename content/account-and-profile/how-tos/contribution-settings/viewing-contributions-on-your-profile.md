@@ -14,10 +14,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Profiles
 shortTitle: View contributions
 contentType: how-tos
+category:
+  - Track your contributions
 ---
 
 ## Prerequisites

@@ -8,8 +8,8 @@ versions:
 redirect_from:
   - /articles/github-marketplace-support
   - /github/working-with-github-support/github-marketplace-support
-topics:
-  - Support
+category:
+  - Understand your support options
 ---
 
 ## Contacting your app's provider for support

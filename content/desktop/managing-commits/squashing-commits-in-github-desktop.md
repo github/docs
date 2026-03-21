@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/squashing-commits
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/squashing-commits-in-github-desktop
+category:
+  - Manage commits
 ---
 
 ## About squashing a commit

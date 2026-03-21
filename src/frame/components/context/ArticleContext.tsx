@@ -42,6 +42,7 @@ export type ArticleContextT = {
   allTools: Record<string, string>
   supportPortalVaIframeProps: SupportPortalVaIframeProps
   currentLayout?: string
+  currentPath: string
 }
 
 export const ArticleContext = createContext<ArticleContextT | null>(null)
@@ -107,5 +108,6 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
     allTools: page.allToolsParsed || [], // this is set at the page level, see lib/page.ts
     supportPortalVaIframeProps,
     currentLayout: req.context.currentLayoutName,
+    currentPath: req.context.currentPath || '',
   }
 }

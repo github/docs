@@ -9,7 +9,7 @@
 
 For more information, see [AUTOTITLE](/discussions).
 
-### Issue and Pull Requests
+### Issue and pull requests
 
 * Assign or remove a user
 * Add or remove a label
@@ -21,14 +21,14 @@ For more information, see [AUTOTITLE](/discussions).
 * Delete an issue
 * Mark an issue as a duplicate
 
-### Merge Queue
+### Merge queue
 
 * Request a solo merge
 * Jump to the front of the queue
 
 For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue).
 
-### Pull Request
+### Pull request
 
 * Close a pull request
 * Reopen a closed pull request
@@ -58,13 +58,13 @@ For more information, see [AUTOTITLE](/repositories/configuring-branches-and-mer
 
 ### Security
 
-* View {% data variables.product.prodname_code_scanning %} results
-* Dismiss or reopen {% data variables.product.prodname_code_scanning %} results
-* Delete {% data variables.product.prodname_code_scanning %} results
+* View {% data variables.product.prodname_code_scanning %} alerts
+* Dismiss or reopen {% data variables.product.prodname_code_scanning %} alerts
+* Delete {% data variables.product.prodname_code_scanning %} alerts
 * View {% data variables.product.prodname_dependabot_alerts %}
 * Dismiss or reopen {% data variables.product.prodname_dependabot_alerts %}
-* View {% data variables.product.prodname_secret_scanning %} results
-* Dismiss or reopen {% data variables.product.prodname_secret_scanning %} results
+* View {% data variables.product.prodname_secret_scanning %} alerts
+* Dismiss, reopen, or assign {% data variables.product.prodname_secret_scanning %} alerts
 
 {%- ifversion ghec %}
 ### Actions

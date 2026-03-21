@@ -6,8 +6,6 @@ permissions: Organization owners
 product: 'Organizations with a {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %} plan'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/customizing-copilot/adding-organization-custom-instructions-for-github-copilot
   - /copilot/how-tos/custom-instructions/adding-organization-custom-instructions-for-github-copilot

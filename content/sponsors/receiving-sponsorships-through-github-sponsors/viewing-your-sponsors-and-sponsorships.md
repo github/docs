@@ -7,11 +7,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
-topics:
-  - Open Source
-  - Analytics
 shortTitle: View sponsors & sponsorships
+contentType: how-tos
+category:
+  - Manage your sponsored account
 ---
 
 ## About sponsors and sponsorships

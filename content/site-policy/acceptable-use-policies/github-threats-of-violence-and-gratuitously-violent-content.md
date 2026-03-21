@@ -3,9 +3,6 @@ title: GitHub Threats of Violence and Gratuitously Violent Content
 shortTitle: Threats of Violence and Gratuitously Violent Content
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 redirect_from:
   - /github/site-policy/github-threats-of-violence-and-gratuitously-violent-content
   - /github/site-policy/github-community-guidelines#threats-of-violence

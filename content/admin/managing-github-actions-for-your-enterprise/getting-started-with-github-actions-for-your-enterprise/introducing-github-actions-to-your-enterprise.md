@@ -1,16 +1,15 @@
 ---
 title: Introducing GitHub Actions to your enterprise
 shortTitle: Introduce Actions
-intro: 'You can plan how to roll out {% data variables.product.prodname_actions %} in your enterprise.'
+intro: You can plan how to roll out {% data variables.product.prodname_actions %} in your enterprise.
 versions:
   ghec: '*'
   ghes: '*'
-type: how_to
-topics:
-  - Actions
-  - Enterprise
 redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About {% data variables.product.prodname_actions %} for enterprises
@@ -130,6 +129,4 @@ You can view both usage and performance data for your enterprise under the "Insi
 
 For more detailed usage data at a per job or per workflow level, you{% else %}You{% endif %} can use webhooks to subscribe to information about workflow jobs and workflow runs. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/about-webhooks).
 
-Make a plan for how your enterprise can pass the information from these webhooks into a data archiving system. You can consider using "CEDAR.GitHub.Collector", an open source tool that collects and processes webhook data from {% data variables.product.prodname_dotcom %}. For more information, see the [`Microsoft/CEDAR.GitHub.Collector` repository](https://github.com/microsoft/CEDAR.GitHub.Collector/).
-
-You should also plan how you'll enable your teams to get the data they need from your archiving system.
+Make a plan for how your enterprise can pass the information from these webhooks into a data archiving system, and plan how you'll enable your teams to get the data they need from your archiving system.

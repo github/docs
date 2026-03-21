@@ -3,6 +3,8 @@ title: Getting started with GitHub Enterprise Server
 intro: 'Get started with setting up and managing {% data variables.location.product_location %}.'
 versions:
   ghes: '*'
+category:
+  - Set up your account on GitHub
 ---
 
 This guide will walk you through setting up, configuring and managing {% data variables.location.product_location %} as an enterprise administrator.

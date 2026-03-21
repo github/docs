@@ -1,6 +1,6 @@
 ---
 title: Managing projects using Jira
-intro: 'You can integrate Jira with {% data variables.product.prodname_ghe_server %} for project management.'
+intro: You can integrate Jira with {% data variables.product.prodname_ghe_server %} for project management.
 redirect_from:
   - /enterprise/admin/guides/installation/project-management-using-jira
   - /enterprise/admin/articles/project-management-using-jira
@@ -11,11 +11,10 @@ redirect_from:
   - /admin/user-management/managing-organizations-in-your-enterprise/managing-projects-using-jira
 versions:
   ghes: '*'
-type: how_to
-topics:
-  - Enterprise
-  - Project management
 shortTitle: Project management with Jira
+contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 ## Connecting Jira to a {% data variables.product.prodname_enterprise %} organization
 

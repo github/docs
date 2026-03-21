@@ -1,7 +1,7 @@
 ---
 title: Evaluate expressions in workflows and actions
 shortTitle: Expressions
-intro: 'Find information for expressions in {% data variables.product.prodname_actions %}.'
+intro: Find information for expressions in {% data variables.product.prodname_actions %}.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,9 @@ redirect_from:
   - /actions/writing-workflows/choosing-what-your-workflow-does/expressions
   - /actions/writing-workflows/choosing-what-your-workflow-does/evaluate-expressions-in-workflows-and-actions
   - /actions/reference/evaluate-expressions-in-workflows-and-actions
+category:
+  - Write workflows
+contentType: reference
 ---
 
 ## Literals
@@ -80,21 +83,6 @@ env:
 * When `NaN` is one of the operands of any relational comparison (`>`, `<`, `>=`, `<=`), the result is always `false`. For more information, see the [NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN).
 * {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
 * Objects and arrays are only considered equal when they are the same instance.
-
-{% data variables.product.prodname_dotcom %} provides a way to create conditional logic in expressions using binary logical operators (`&&` and `||`). This pattern can be used to achieve similar functionality to the ternary operator (`?:`) found in many programming languages, while actually using only binary operators.
-
-### Example
-
-{% raw %}
-
-```yaml
-env:
-  MY_ENV_VAR: ${{ github.ref == 'refs/heads/main' && 'value_for_main_branch' || 'value_for_other_branches' }}
-```
-
-{% endraw %}
-
-In this example, we're using a combination of `&&` and `||` operators to set the value of the `MY_ENV_VAR` environment variable based on whether the {% data variables.product.prodname_dotcom %} reference is set to `refs/heads/main` or not. If it is, the variable is set to `value_for_main_branch`. Otherwise, it is set to `value_for_other_branches`. It is important to note that the first value after the `&&` must be truthy. Otherwise, the value after the `||` will always be returned.
 
 ## Functions
 
@@ -286,6 +274,44 @@ Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repos
 Creates a hash for all `.rb` files in the `lib` directory at root level, including any subdirectories of `lib`, but excluding `.rb` files in the `foo` subdirectory.
 
 `hashFiles('/lib/**/*.rb', '!/lib/foo/*.rb')`
+
+### case
+
+`case( pred1, val1, pred2, val2, ..., default )`
+
+Evaluates predicates in order and returns the value corresponding to the first predicate that evaluates to `true`. If no predicate matches, it returns the last argument as the default value.
+
+#### Example with a single predicate
+
+{% raw %}
+
+```yaml
+env:
+  MY_ENV_VAR: ${{ case(github.ref == 'refs/heads/main', 'production', 'development') }}
+```
+
+{% endraw %}
+
+Sets `MY_ENV_VAR` to `production` when the ref is `refs/heads/main`, otherwise sets it to `development`.
+
+#### Example with multiple predicates
+
+{% raw %}
+
+```yaml
+env:
+  MY_ENV_VAR: |-
+    ${{ case(
+      github.ref == 'refs/heads/main', 'production',
+      github.ref == 'refs/heads/staging', 'staging',
+      startsWith(github.ref, 'refs/heads/feature/'), 'development',
+      'unknown'
+    ) }}
+```
+
+{% endraw %}
+
+Sets `MY_ENV_VAR` based on the branch: `production` for `main`, `staging` for `staging`, `development` for branches starting with `feature/`, or `unknown` for all other branches.
 
 ## Status check functions
 

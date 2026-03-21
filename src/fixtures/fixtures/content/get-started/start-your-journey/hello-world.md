@@ -5,10 +5,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: quick_start
-topics:
-  - Pull requests
-  - Fundamentals
+contentType: get-started
 ---
 
 ## Introduction

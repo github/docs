@@ -10,8 +10,6 @@ category:
 complexity:
   - Simple
 octicon: copilot
-topics:
-  - Copilot
 contentType: tutorials
 ---
 
@@ -32,7 +30,7 @@ Start with this simple prompt file that helps you write clear, well-documented c
 
 ```text copy
 ---
-mode: 'agent'
+agent: 'agent'
 description: 'Generate a clear code explanation with examples'
 ---
 

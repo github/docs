@@ -1,13 +1,15 @@
 ---
 title: Signing in with a passkey
-intro: 'You can use a passkey to sign in safely and easily to {% data variables.product.prodname_dotcom %} in your browser, without requiring a password and two-factor authentication. You can also sign in using a passkey on a nearby device.'
+intro: You can use a passkey to sign in safely and easily to {% data variables.product.prodname_dotcom %} in your browser, without requiring a password and two-factor authentication. You can also sign in using a passkey on a nearby device.
 permissions: '{% ifversion fpt or ghec%}Personal account owners who manage their own credentials{% endif %}'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: how_to
 shortTitle: Sign in with a passkey
+category:  
+  - Sign in with SSO or a passkey
+contentType: how-tos
 ---
 
 {% data reusables.passkeys.ghes-disable %}

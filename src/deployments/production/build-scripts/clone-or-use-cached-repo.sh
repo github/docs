@@ -19,9 +19,21 @@ clone_or_use_cached_repo() {
     cd "$repo_name"
     
     # Fetch latest changes
-    git fetch origin "$branch"
-    git checkout "$branch"
-    git pull origin "$branch"
+    if ! git fetch origin "$branch"; then
+      echo "❌ Failed to fetch repository '$repo_name'"
+      cd ..
+      return 1
+    fi
+    if ! git checkout "$branch"; then
+      echo "❌ Failed to checkout branch '$branch' in repository '$repo_name'"
+      cd ..
+      return 1
+    fi
+    if ! git pull origin "$branch"; then
+      echo "❌ Failed to pull repository '$repo_name'"
+      cd ..
+      return 1
+    fi
 
     echo "Updated repository '$repo_name' with the latest changes from $branch."
 
@@ -30,7 +42,10 @@ clone_or_use_cached_repo() {
     echo "Cloning repository '$repo_name' from branch '$branch'..."
 
     # We only need the most recent change for production deploys, so we use --depth 1
-    git clone --depth 1 --branch "$branch" "https://${GITHUB_TOKEN}@github.com/github/$repo_url.git" "$repo_name"
+    if ! git clone --depth 1 --branch "$branch" "https://${GITHUB_TOKEN}@github.com/github/$repo_url.git" "$repo_name"; then
+      echo "❌ Failed to clone repository '$repo_name'"
+      return 1
+    fi
   fi
 
   echo "Repository '$repo_name' is up to date."

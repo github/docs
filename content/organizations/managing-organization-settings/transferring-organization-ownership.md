@@ -9,10 +9,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Transfer ownership
+category:
+  - Set up your organization
 ---
 {% ifversion ghec %}
 

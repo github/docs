@@ -4,7 +4,7 @@ import nock from 'nock'
 import FailBot from '../lib/failbot'
 
 describe('FailBot', () => {
-  const requestBodiesSent: any[] = []
+  const requestBodiesSent: unknown[] = []
 
   beforeEach(() => {
     delete process.env.HAYSTACK_URL

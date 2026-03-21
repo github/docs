@@ -5,10 +5,6 @@ intro: Use {% data variables.product.prodname_copilot_short %} to quickly genera
 permissions: Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.product.prodname_copilot_short %} to create issues or update existing issues. <br> <a href="https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=button&ref_plan=free" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_copilot_short %} for free</span> {% octicon "link-external" height:16 %}</a>
 versions:
   feature: copilot-create-issues
-topics:
-  - Copilot
-  - Issues
-  - Project management
 redirect_from:
   - /copilot/using-github-copilot/using-github-copilot-to-create-issues
   - /copilot/how-tos/github-flow/using-github-copilot-to-create-issues
@@ -28,9 +24,9 @@ You stay in control of the process. You can review and refine what {% data varia
 
 ## Creating an issue with {% data variables.product.prodname_copilot_short %}
 
-You can create issues from {% data variables.copilot.copilot_chat_short %}'s immersive view.
+You can create issues from {% data variables.copilot.copilot_chat_short %} in {% data variables.product.github %}.
 
-1. Go to the immersive view of {% data variables.copilot.copilot_chat_short %} ([https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text).
+1. Go to {% data variables.copilot.copilot_chat_short %} ([https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text)).
 1. In the prompt box, describe the issue you want to create.
 
    If you contribute issues to multiple repositories, use the `repo-owner/repo-name` format to specify the target repository for this issue. If you don't specify a repository, {% data variables.product.prodname_copilot_short %} will infer the repository based on the repository you last created an issue in.

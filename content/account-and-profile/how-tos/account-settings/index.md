@@ -14,8 +14,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
 children:
   - /managing-security-and-analysis-features
   - /managing-your-tab-size-rendering-preference

@@ -2,6 +2,7 @@ import { getUIDataMerged } from '@/data-directory/lib/get-data'
 import { type LanguageCode } from '@/languages/lib/languages'
 import { translate } from '@/languages/lib/translation-utils'
 import { extractLanguageFromPath } from '@/app/lib/language-utils'
+import { type UIStrings } from '@/frame/components/context/MainContext'
 
 export interface AppRouterContext {
   currentLanguage: LanguageCode
@@ -9,7 +10,7 @@ export interface AppRouterContext {
   sitename: string
   site: {
     data: {
-      ui: any
+      ui: UIStrings
     }
   }
 }

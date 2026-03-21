@@ -3,9 +3,6 @@ title: GitHub Terrorism and Violent Extremism
 shortTitle: Terrorism and Violent Extremism Content
 versions:
   fpt: '*'
-topics:
-  - Policy
-  - Legal
 redirect_from:
   - /tvec
   - /github/site-policy/github-terrorism-and-violent-extremism

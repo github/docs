@@ -32,7 +32,7 @@ export default async function manifestJson(req: Request, res: Response, next: Ne
   if (req.url !== '/manifest.json') {
     // E.g. `/manifest.json/anything` or `/manifest.json?foo=bar`
     defaultCacheControl(res)
-    return res.redirect(302, '/manifest.json')
+    return res.safeRedirect(302, '/manifest.json')
   }
 
   const icons: Icon[] = []

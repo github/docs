@@ -1,7 +1,7 @@
 ---
 title: Configuring SAML single sign-on for Enterprise Managed Users
 shortTitle: Configure SAML
-intro: 'You can automatically manage access to your enterprise account on {% data variables.product.prodname_dotcom %} by configuring Security Assertion Markup Language (SAML) single sign-on (SSO).'
+intro: You can automatically manage access to your enterprise account on {% data variables.product.prodname_dotcom %} by configuring Security Assertion Markup Language (SAML) single sign-on (SSO).
 product: '{% data reusables.gated-features.emus %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users
@@ -12,11 +12,9 @@ redirect_from:
   - /admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users
 versions:
   ghec: '*'
-type: tutorial
-topics:
-  - Authentication
-  - Enterprise
-  - SSO
+contentType: tutorials
+category:
+  - Provision and manage enterprise users
 ---
 
 **Before** following the steps in this article, make sure that your enterprise uses **managed users** and that you are signed in as the setup user whose username is your enterprise's shortcode suffixed with `_admin`. You can verify you are signed in with the correct user by checking whether your enterprise view has the "Viewing as SHORTCODE_admin" header bar at the top of the screen. If you see this, you are signed in with the correct user and you can follow the steps in this article. For more information about the setup user, see [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users).
@@ -104,7 +102,7 @@ After the initial configuration of SAML SSO, the only setting you can update on 
    > {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
 1. If you're using a **non-partner IdP** (an IdP other than Okta, PingFederate or Entra ID), before enabling SAML, you must update a setting so that you will be able to set up SCIM using the REST API. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#configuring-provisioning-for-other-identity-management-systems).
-{% data reusables.enterprise-accounts.access-enterprise-emu %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.identity-provider-tab %}
 {% data reusables.enterprise-accounts.sso-configuration %}
 
@@ -114,7 +112,7 @@ After the initial configuration of SAML SSO, the only setting you can update on 
 1. Under **Public Certificate**, paste the certificate that you noted while configuring your IdP, to verify SAML responses.
 
    > [!NOTE]
-   > {% data variables.product.github %} does not enforce the expiration of this SAML IdP certificate. This means that even if this certificate expires, your SAML authentication will continue to work. However, if your IdP administrator regenerates the SAML certificate, and you don't update it on the {% data variables.product.github %} side, users will encounter a `digest mismatch` error during SAML authentication attempts due to the certificate mismatch. See [Error: Digest mismatch](/admin/managing-iam/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#error-digest-mismatch).
+   > {% data variables.product.github %} does not enforce the expiration of this SAML IdP certificate. This means that even if this certificate expires, your SAML authentication will continue to work. However, {% data variables.product.github %}'s recommendation is to update the certificate before it expires. We will accept a SAML response signed with an expired certificate, but we cannot comment on how the certificate expiring will be handled at the identity provider level. If your IdP administrator regenerates the SAML certificate, and you don't update it on the {% data variables.product.github %} side, users will encounter a `digest mismatch` error during SAML authentication attempts due to the certificate mismatch. See [Error: Digest mismatch](/admin/managing-iam/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#error-digest-mismatch).
 1. Under the same **Public Certificate** section, select the **Signature Method** and **Digest Method** dropdown menus, then click the hashing algorithm used by your SAML issuer.
 1. Before enabling SAML SSO for your enterprise, to ensure that the information you've entered is correct, click **Test SAML configuration**. {% data reusables.saml.test-must-succeed %}
 1. Click **Save SAML settings**.

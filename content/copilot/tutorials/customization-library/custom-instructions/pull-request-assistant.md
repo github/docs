@@ -1,6 +1,6 @@
 ---
 title: Pull request assistant
-intro: 'Generate comprehensive pull request descriptions and reviews.'
+intro: Generate comprehensive pull request descriptions and reviews.
 versions:
   feature: copilot
 category:
@@ -10,9 +10,7 @@ category:
 complexity:
   - Simple
 octicon: book
-topics:
-  - Copilot
-  - Pull requests
+contentType: tutorials
 ---
 
 {% data reusables.copilot.customization-examples-note %}

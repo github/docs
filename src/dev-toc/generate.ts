@@ -15,7 +15,7 @@ import path from 'path'
 import { execSync } from 'child_process'
 import { program } from 'commander'
 import type { NextFunction, Response } from 'express'
-import type { ExtendedRequest } from '@/types'
+import type { ExtendedRequest, Context } from '@/types'
 import fpt from '@/versions/lib/non-enterprise-default-version'
 import { allVersionKeys } from '@/versions/lib/all-versions'
 import { liquid } from '@/content-render/index'
@@ -60,10 +60,16 @@ async function main(): Promise<void> {
     get: () => '',
     header: () => '',
     accepts: () => false,
-    context: {} as any,
+    context: {} as Context,
   } as unknown as ExtendedRequest
 
-  async function recurse(tree: any): Promise<void> {
+  interface PageTreeNode {
+    page: { rawTitle: string }
+    renderedFullTitle?: string
+    childPages?: PageTreeNode[]
+  }
+
+  async function recurse(tree: PageTreeNode): Promise<void> {
     const { page } = tree
     tree.renderedFullTitle = page.rawTitle.includes('{')
       ? await liquid.parseAndRender(page.rawTitle, req.context)
@@ -92,7 +98,7 @@ async function main(): Promise<void> {
     }
 
     if (req.context && req.context.currentEnglishTree) {
-      await recurse(req.context.currentEnglishTree)
+      await recurse(req.context.currentEnglishTree as PageTreeNode)
     }
 
     // Add any defaultOpenSections to the context.

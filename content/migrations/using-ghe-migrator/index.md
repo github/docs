@@ -11,8 +11,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
 children:
   - /about-ghe-migrator
   - /exporting-migration-data-from-github-enterprise-server

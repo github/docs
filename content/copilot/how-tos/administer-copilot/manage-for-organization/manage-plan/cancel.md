@@ -6,8 +6,6 @@ permissions: Organization owners
 product: '{% data variables.copilot.copilot_business_short %}'
 versions:
   feature: copilot
-topics:
-  - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/canceling-copilot-for-your-organization
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-subscription-for-your-organization/canceling-copilot-for-your-organization

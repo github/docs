@@ -13,9 +13,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Community
 shortTitle: Manage wiki pages
+category:
+  - Document your project with wikis
 ---
 
 ## Adding wiki pages

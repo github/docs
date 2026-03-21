@@ -12,8 +12,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - GitHub search
+category:
+  - Search for code
 ---
 {% ifversion code-search-upgrade %}
 

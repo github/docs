@@ -11,11 +11,12 @@ export type LoggerContext = {
   requestUuid: string
   path: string
   method: string
-  headers: any
-  query?: any
-  body?: any
+  headers: Record<string, string>
+  query?: Record<string, unknown>
+  body?: unknown
   language?: string
   userLanguage?: string
+  userVersion?: string
   version?: string
   pagePath?: string
 }
@@ -25,7 +26,7 @@ export function getLoggerContext(): LoggerContext {
     requestUuid: '',
     path: '',
     method: '',
-    headers: '',
+    headers: {},
     language: '',
     userLanguage: '',
     query: '',
@@ -51,6 +52,8 @@ const INCLUDE_HEADERS = [
   // Language
   'x-user-language',
   'accept-language',
+  // Version
+  'x-user-version',
   // Host
   'host',
   'x-host',

@@ -1,6 +1,6 @@
 ---
 title: Filtering and searching issues and pull requests
-intro: 'To find detailed information about a repository on {% data variables.product.github %}, you can filter, sort, and search issues and pull requests that are relevant to the repository.'
+intro: To find detailed information about a repository on {% data variables.product.github %}, you can filter, sort, and search issues and pull requests that are relevant to the repository.
 redirect_from:
   - /github/managing-your-work-on-github/finding-information-in-a-repository/filtering-issues-and-pull-requests-by-assignees
   - /articles/filtering-issues-and-pull-requests-by-assignees
@@ -38,11 +38,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Issues
-  - Pull requests
 shortTitle: Filter and search
-type: how_to
+contentType: how-tos
+category:
+  - Create and work with issues
 ---
 
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}
@@ -147,6 +146,22 @@ If your organization uses issue types, you can filter issues for a particular ty
 
 {% endif %}
 
+{% ifversion issue-fields %}
+
+## Filtering by issue fields
+
+If your organization uses issue fields, you can filter issues by field values. Type `field.` followed by the field name and value in your filter. Field names with spaces should be enclosed in quotes.
+
+Examples:
+* `field.priority:high` -- find issues with priority set to "high"
+* `field."target date":>=2026-03-01` -- find issues with a target date on or after March 1, 2026
+* `field.story-points:>5` -- find issues with a number field value greater than 5
+* `field.priority:high,medium` -- find issues with priority set to "high" or "medium"
+
+For more information about managing issue fields, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-fields-in-your-organization).
+
+{% endif %}
+
 ## Filtering pull requests by review status
 
 You can use filters to list pull requests by review status and to find pull requests that you've reviewed or other people have asked you to review.
@@ -216,15 +231,17 @@ With issue and pull request search terms, you can:
 * Filter out search terms by using `-` before the term: `state:open is:issue -author:octocat`
 
 > [!TIP]
-> You can filter issues by label using logical OR or using logical AND.
-> * To filter issues using logical OR, use the comma syntax: `label:"bug","wip"`.
-> * To filter issues using logical AND, use separate label filters: `label:"bug" label:"wip"`.
+> * You can filter issues by label using logical OR or using logical AND.
+>   * To filter issues using logical OR, use the comma syntax: `label:"bug","wip"`.
+>   * To filter issues using logical AND, use separate label filters: `label:"bug" label:"wip"`.
+> * You can use `@copilot` with qualifiers like `assignee:` and `author:` to search for issues and pull requests assigned to or authored by {% data variables.product.prodname_copilot_short %}. For example, `assignee:@copilot` or `author:@copilot`.
 
 For issues, you can also use search to:
 
 * Filter for issues that are linked to a pull request by a closing reference: `linked:pr`
 * Filter issues by the reason they were closed: `is:closed reason:completed` or `is:closed reason:"not planned"`
-{% ifversion issue-types %}* Filter for issues with a particular type: `is:open type:"Bug"`{% endif %}{% ifversion issues-advanced-search %}
+{% ifversion issue-types %}* Filter for issues with a particular type: `is:open type:"Bug"`{% endif %}{% ifversion issue-fields %}
+* Filter for issues by field value: `is:open field.priority:high`{% endif %}{% ifversion issues-advanced-search %}
 * Filter for issues that have metadata: `has:label`
 * Filter for issues that are missing metadata: `no:project`
 * Filter for issues from repositories [**owned**](/search-github/searching-on-github/searching-issues-and-pull-requests#search-within-a-users-or-organizations-repositories) by a certain user or organization, limited to up to 16 `user` and `org` qualifiers with no limit on `repo` qualifiers: `state:open is:issue org:github OR user:octocat`{% endif %}
@@ -241,6 +258,9 @@ For pull requests, you can also use search to:
 * Filter pull requests that someone has asked you directly to review: `state:open is:pr user-review-requested:@me`
 * Filter pull requests by the team requested for review: `state:open is:pr team-review-requested:github/docs`
 * Filter for pull requests that are linked to an issue that the pull request may close: `linked:issue`
+* Filter pull requests where all statuses are successful: `status:success`
+* Filter pull requests with at least one error or failure status: `status:failure`
+* Filter pull requests with no statuses or at least one status in the pending state: `status:pending`
 * Filter pull requests by state of [merging](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges): `is:merged` or `is:unmerged`
 
 ## Sorting issues and pull requests

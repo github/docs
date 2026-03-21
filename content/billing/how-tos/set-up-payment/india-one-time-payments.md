@@ -8,12 +8,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - Billing
-  - Sponsors
-  - Policy
 shortTitle: India one-time payments
 contentType: how-tos
+category:
+  - Set up payment
 ---
 
 

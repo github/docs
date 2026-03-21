@@ -15,4 +15,6 @@ children:
 redirect_from:
   - /actions/security-for-github-actions/using-artifact-attestations
   - /actions/how-tos/security-for-github-actions/using-artifact-attestations
+contentType: how-tos
 ---
+

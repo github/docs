@@ -5,10 +5,9 @@ allowTitleToDifferFromFilename: true
 intro: 'Find out how to get great results from {% data variables.copilot.copilot_coding_agent %}.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /get-the-best-results
   - /pilot-coding-agent
+  - /improve-a-project
 contentType: tutorials
 ---

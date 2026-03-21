@@ -7,23 +7,21 @@
 // Also parse equals signs, where id=some-id becomes { id: 'some-id' }
 
 import { visit } from 'unist-util-visit'
+import type { Node } from 'unist'
 
-interface CodeNode {
+interface CodeNode extends Node {
   type: 'code'
   lang?: string
   meta?: string | Record<string, string | boolean>
   value: string
 }
 
-// Note: Using 'any' for node because unist-util-visit's type constraints
-// don't easily allow for proper code node typing without complex generics
-const matcher = (node: any): node is CodeNode => node.type === 'code' && node.lang
+const matcher = (node: Node): node is CodeNode => node.type === 'code' && !!(node as CodeNode).lang
 
 export default function parseInfoString() {
-  // Note: Using 'any' for tree because unified's AST types are complex and
-  // this function works with different tree types depending on the processor
-  return (tree: any) => {
-    visit(tree, matcher, (node: CodeNode) => {
+  return (tree: Node) => {
+    visit(tree, 'code', (node: Node) => {
+      if (!matcher(node)) return
       node.meta = strToObj(node.meta as string)
 
       // Temporary, remove {:copy} to avoid highlight parse error in translations.

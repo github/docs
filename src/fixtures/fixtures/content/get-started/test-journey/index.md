@@ -7,18 +7,19 @@ versions:
   ghes: '*'
   ghec: '*'
 journeyTracks:
-  - id: 'getting_started'
-    title: 'Getting started'
-    description: 'Learn the basics of our platform.'
+  - id: 'first_track'
+    title: 'First Track'
+    description: 'The first track in the journey.'
     guides:
-      - '/get-started/start-your-journey/hello-world'
-      - '/get-started/foo/bar'
-  - id: 'advanced'
-    title: 'Advanced topics' 
-    description: 'Dive deeper into advanced features.'
+      - href: '/get-started/start-your-journey/hello-world'
+      - href: '/get-started/foo/journey-test-article'
+        alternativeNextStep: 'Want to skip ahead? See [AUTOTITLE](/get-started/start-your-journey/hello-world)'
+  - id: 'second_track'
+    title: 'Next Track'
+    description: 'The second track in the journey.'
     guides:
-      - '/get-started/foo/autotitling'
-      - '/get-started/start-your-journey/hello-world'
+      - href: '/get-started/foo/autotitling'
+      - href: '/get-started/start-your-journey/hello-world'
 ---
 
 This is a test page for journey tracks.

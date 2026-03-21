@@ -52,7 +52,7 @@ async function processLink(
     ? await executeWithFallback(
         context,
         () => renderContent(linkHref, context, opts),
-        () => '', // todo get english linkHref
+        (enContext: Context) => renderContent(linkHref, enContext, opts),
       )
     : linkHref
   // If the link was `{% ifversion ghes %}/admin/foo/bar{% endifversion %}`

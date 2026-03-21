@@ -4,8 +4,6 @@ shortTitle: Tutorials
 intro: 'Build skills and knowledge about {% data variables.product.prodname_copilot %} through examples and hands-on activities.'
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /copilot-chat-cookbook
   - /customization-library
@@ -21,12 +19,17 @@ children:
   - /explore-pull-requests
   - /write-tests
   - /refactor-code
+  - /optimize-code-reviews
+  - /reduce-technical-debt
   - /review-ai-generated-code
   - /learn-a-new-language
   - /modernize-legacy-code
+  - /modernize-java-applications
   - /migrate-a-project
   - /plan-a-project
+  - /vibe-coding
   - /upgrade-projects
+  - /copilot-cli-hooks
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
 contentType: tutorials
@@ -35,10 +38,11 @@ layout: bespoke-landing
 sidebarLink:
   text: All tutorials
   href: /copilot/tutorials
-recommended:
-  - /copilot/tutorials/copilot-chat-cookbook
-  - /copilot/tutorials/customization-library
-  - /copilot/tutorials/roll-out-at-scale
+carousels:
+  recommended:
+    - /copilot/tutorials/copilot-chat-cookbook
+    - /copilot/tutorials/customization-library
+    - /copilot/tutorials/roll-out-at-scale
 includedCategories:
   - Accelerate PR velocity
   - Automate simple user stories

@@ -1,15 +1,13 @@
 ---
 title: GitHub Copilot Spaces
 shortTitle: Use Copilot Spaces
-intro: 'Organize and centralize relevant content into {% data variables.copilot.copilot_spaces_short %} that ground {% data variables.product.prodname_copilot_short %}’s responses in the right context for a specific task.'
+intro: "Organize and centralize relevant content into {% data variables.copilot.copilot_spaces_short %} that ground {% data variables.product.prodname_copilot_short %}'s responses in the right context for a specific task."
 versions:
   feature: copilot
-topics:
-  - Copilot
 children:
   - /create-copilot-spaces
   - /use-copilot-spaces
-  - /collaborate-with-your-team
+  - /collaborate-with-others
 redirect_from:
   - /copilot/using-github-copilot/copilot-spaces
   - /copilot/how-tos/context/copilot-spaces

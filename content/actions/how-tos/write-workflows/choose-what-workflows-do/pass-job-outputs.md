@@ -11,6 +11,9 @@ redirect_from:
   - /actions/writing-workflows/choosing-what-your-workflow-does/defining-outputs-for-jobs
   - /actions/writing-workflows/choosing-what-your-workflow-does/passing-information-between-jobs
   - /actions/how-tos/writing-workflows/choosing-what-your-workflow-does/passing-information-between-jobs
+category:
+  - Write workflows
+contentType: how-tos
 ---
 
 ## Defining and using job outputs

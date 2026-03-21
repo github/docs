@@ -5,12 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: 'Learn about the policies that control the availability of {% data variables.product.prodname_copilot %} features and models for users granted a license through your organization or an organization in your enterprise.'
 versions:
   feature: copilot
-topics:
-  - Copilot
-  - Policy
-  - Access management
-  - Organizations
-  - Enterprise
 contentType: concepts
 category: 
   - Manage Copilot for a team

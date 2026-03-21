@@ -17,8 +17,6 @@ sections:
   changes:
     - |
       For administrators managing logs, log folders are more consistently accessible from the administrative account without the need to use `sudo`.
-    - |
-      Azure VMs that use the NVMe disk controller are now supported, as well as Azure VMs that do not include temporary resource disks.
   known_issues:
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.

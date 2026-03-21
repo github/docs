@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Linked to wrong user
+category:
+  - Commit changes
 ---
 
 > [!NOTE]

@@ -14,6 +14,8 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom
   - /education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-to-github-classroom
 shortTitle: Connect an LMS course
+category:
+  - Set up GitHub Classroom
 ---
 ## About connecting an LMS to your classroom
 

@@ -4,9 +4,6 @@ intro: 'Learn how to adopt {% data variables.product.prodname_actions %} for you
 versions:
   ghec: '*'
   ghes: '*'
-topics:
-  - Enterprise
-  - Actions
 children:
   - /about-github-actions-for-enterprises
   - /introducing-github-actions-to-your-enterprise

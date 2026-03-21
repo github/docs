@@ -17,11 +17,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Accounts
-  - Usernames
 shortTitle: Username changes
 contentType: concepts
+category:
+  - Set up your account
 ---
 
 ## About username changes

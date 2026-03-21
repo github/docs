@@ -13,8 +13,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Repositories
+category:
+  - Release software
 ---
 ## About releases
 
