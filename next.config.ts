@@ -36,13 +36,7 @@ const config: NextConfig = {
   },
   sassOptions: {
     quietDeps: true,
-    silenceDeprecations: [
-      'legacy-js-api',
-      'import',
-      'global-builtin',
-      'color-4-api',
-      'mixed-decls',
-    ],
+    silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'color-4-api'],
   },
   // Don't use automatic Next.js logging in dev unless the log level is `debug` or higher
   // See `src/observability/logger/README.md` for log levels

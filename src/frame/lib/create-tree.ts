@@ -4,6 +4,8 @@ import fs from 'fs/promises'
 import PageClass from './page'
 import type { UnversionedTree, Page } from '@/types'
 
+const isProduction = process.env.NODE_ENV === 'production'
+
 export default async function createTree(
   originalPath: string,
   rootPath?: string,
@@ -179,19 +181,12 @@ function equalArray(arr1: string[], arr2: string[]): boolean {
 }
 
 async function getMtime(filePath: string): Promise<number> {
-  // Use mtimeMs, which is a regular floating point number, instead of the
-  // mtime which is a Date based on that same number.
-  // Otherwise, if we use the Date instances, we have to compare
-  // them using `oneDate.getTime() === anotherDate.getTime()`.
-  const { mtimeMs } = await fs.stat(filePath)
-  // The `mtimeMs` is a number like `1669827766942.7954`
-  // From the docs:
-  // "The timestamp indicating the last time this file was modified expressed
-  // in nanoseconds since the POSIX Epoch."
-  // But the number isn't actually all that important. We just need it to
-  // later be able to know if it changed. We round it to the nearest
-  // millisecond.
-  return Math.round(mtimeMs)
+  if (isProduction) {
+    // In production, skip the full stat but still verify existence
+    await fs.access(filePath)
+    return 1
+  }
+  return Math.round((await fs.stat(filePath)).mtimeMs)
 }
 
 // Page class has dynamic frontmatter properties that aren't in the type definition

@@ -2,7 +2,6 @@ import type { Context, Page } from '@/types'
 import type { PageTransformer } from './types'
 import { load } from 'js-yaml'
 import path from 'path'
-import { getVersionInfo } from '@/app/lib/constants'
 import { liquid, renderContent } from '@/content-render/index'
 import { allVersions } from '@/versions/lib/all-versions'
 import { loadTemplate } from '@/article-api/lib/load-template'
@@ -25,7 +24,8 @@ export class SecretScanningTransformer implements PageTransformer {
       const currentVersion = context.currentVersion
       if (!currentVersion) throw new Error('currentVersion is required')
 
-      const { isEnterpriseCloud, isEnterpriseServer } = getVersionInfo(currentVersion)
+      const isEnterpriseCloud = currentVersion.includes('cloud')
+      const isEnterpriseServer = currentVersion.includes('enterprise-server')
       const versionPath = isEnterpriseCloud
         ? 'ghec'
         : isEnterpriseServer

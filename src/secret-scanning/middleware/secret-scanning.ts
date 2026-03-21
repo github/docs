@@ -6,7 +6,6 @@ import type { NextFunction, Response } from 'express'
 import { liquid } from '@/content-render/index'
 import { ExtendedRequest } from '@/types'
 import { allVersions } from '@/versions/lib/all-versions'
-import { getVersionInfo } from '@/app/lib/constants'
 import { getSecretScanningData } from '@/secret-scanning/lib/get-secret-scanning-data'
 
 const secretScanningDir = 'src/secret-scanning/data/pattern-docs'
@@ -29,7 +28,8 @@ export default async function secretScanning(
   const { currentVersion } = req.context
   if (!currentVersion) throw new Error('currentVersion not set in context')
 
-  const { isEnterpriseCloud, isEnterpriseServer } = getVersionInfo(currentVersion)
+  const isEnterpriseCloud = currentVersion.includes('cloud')
+  const isEnterpriseServer = currentVersion.includes('enterprise-server')
 
   if (isEnterpriseServer && !allVersions[currentVersion]) {
     return next()

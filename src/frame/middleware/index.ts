@@ -70,7 +70,6 @@ import safeRedirect from './safe-redirect'
 import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants'
 import { initLoggerContext } from '@/observability/logger/lib/logger-context'
 import { getAutomaticRequestLogger } from '@/observability/logger/middleware/get-automatic-request-logger'
-import appRouterGateway from './app-router-gateway'
 import urlDecode from './url-decode'
 
 const { NODE_ENV } = process.env
@@ -241,9 +240,6 @@ export default function index(app: Express) {
 
   // Check for a dropped connection before proceeding
   app.use(haltOnDroppedConnection)
-
-  // *** Add App Router Gateway here - before heavy contextualizers ***
-  app.use(asyncMiddleware(appRouterGateway))
 
   // *** Rendering, 2xx responses ***
   app.use('/api', api)
