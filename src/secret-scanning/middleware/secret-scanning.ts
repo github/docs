@@ -4,9 +4,10 @@ import yaml from 'js-yaml'
 import type { NextFunction, Response } from 'express'
 
 import { liquid } from '@/content-render/index'
-import { ExtendedRequest, SecretScanningData } from '@/types'
+import { ExtendedRequest } from '@/types'
 import { allVersions } from '@/versions/lib/all-versions'
 import { getVersionInfo } from '@/app/lib/constants'
+import { getSecretScanningData } from '@/secret-scanning/lib/get-secret-scanning-data'
 
 const secretScanningDir = 'src/secret-scanning/data/pattern-docs'
 
@@ -41,9 +42,7 @@ export default async function secretScanning(
       : 'fpt'
   const filepath = `${secretScanningDir}/${versionPath}/public-docs.yml`
 
-  req.context.secretScanningData = yaml.load(
-    fs.readFileSync(filepath, 'utf-8'),
-  ) as SecretScanningData[]
+  req.context.secretScanningData = await getSecretScanningData(filepath)
 
   // Some entries might use Liquid syntax, so we need
   // to execute that Liquid to get the actual value.
