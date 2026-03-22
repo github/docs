@@ -1,5 +1,6 @@
 import type { Context, Page } from '@/types'
 import type { LinkData } from '@/article-api/transformers/types'
+import { renderLiquid } from '@/content-render/liquid/index'
 import { resolvePath } from './resolve-path'
 
 interface PageWithChildren extends Page {
@@ -28,9 +29,16 @@ export async function getAllTocItems(
   options: {
     recurse?: boolean
     renderIntros?: boolean
+    /** Use Liquid-only rendering for titles and intros instead of the full
+     *  Markdown/unified pipeline. Resolves {% data %} variables without
+     *  the cost of Markdown parsing, unified processing, and Cheerio unwrap. */
+    liquidOnly?: boolean
+    /** Only recurse into children whose resolved path starts with this prefix.
+     *  Prevents cross-product traversal (e.g. /en/rest listing /enterprise-admin). */
+    basePath?: string
   } = {},
 ): Promise<TocItem[]> {
-  const { recurse = true, renderIntros = true } = options
+  const { recurse = true, renderIntros = true, liquidOnly = false } = options
   const pageWithChildren = page as PageWithChildren
   const languageCode = page.languageCode || 'en'
 
@@ -44,43 +52,69 @@ export async function getAllTocItems(
   )
   const pathname = pagePermalink ? pagePermalink.href : `/${languageCode}`
 
-  const items: TocItem[] = []
+  // On the first call, set basePath to this page's path so recursion
+  // stays within the same product section.
+  const basePath = options.basePath ?? pathname
 
-  for (const childHref of pageWithChildren.children) {
-    const childPage = resolvePath(childHref, languageCode, pathname, context) as
-      | PageWithChildren
-      | undefined
-
-    if (!childPage) continue
-
-    const title = await childPage.renderTitle(context, { unwrap: true })
-    const intro =
-      renderIntros && childPage.intro
-        ? await childPage.renderProp('intro', context, { textOnly: true })
-        : ''
-
-    const childPermalink = childPage.permalinks.find(
-      (p) => p.languageCode === languageCode && p.pageVersion === context.currentVersion,
+  const resolvedChildren = pageWithChildren.children
+    .map((childHref) => ({
+      childHref,
+      childPage: resolvePath(childHref, languageCode, pathname, context) as
+        | PageWithChildren
+        | undefined,
+    }))
+    .filter(
+      (entry): entry is { childHref: string; childPage: PageWithChildren } =>
+        entry.childPage !== undefined,
     )
-    const href = childPermalink ? childPermalink.href : childHref
 
-    const category = childPage.category || []
+  const items = await Promise.all(
+    resolvedChildren.map(async ({ childHref, childPage }) => {
+      const childPermalink = childPage.permalinks.find(
+        (p) => p.languageCode === languageCode && p.pageVersion === context.currentVersion,
+      )
+      const href = childPermalink ? childPermalink.href : childHref
 
-    const item: TocItem = {
-      href,
-      title,
-      intro,
-      category,
-      childTocItems: [],
-    }
+      let title: string
+      if (liquidOnly) {
+        const raw = childPage.shortTitle || childPage.title
+        try {
+          title = await renderLiquid(raw, context)
+        } catch {
+          // Fall back to raw frontmatter string if Liquid rendering fails
+          // (e.g. translation errors in non-English pages)
+          title = raw
+        }
+      } else {
+        title = await childPage.renderTitle(context, { unwrap: true })
+      }
 
-    // Recursively get children if enabled
-    if (recurse && childPage.children && childPage.children.length > 0) {
-      item.childTocItems = await getAllTocItems(childPage, context, options)
-    }
+      let intro = ''
+      if (renderIntros && childPage.intro) {
+        if (liquidOnly) {
+          const rawIntro = childPage.rawIntro || childPage.intro
+          try {
+            intro = await renderLiquid(rawIntro, context)
+          } catch {
+            intro = rawIntro
+          }
+        } else {
+          intro = await childPage.renderProp('intro', context, { textOnly: true })
+        }
+      }
 
-    items.push(item)
-  }
+      const category = childPage.category || []
+
+      // Only recurse if the child is within the same product section
+      const withinSection = href.startsWith(basePath)
+      const childTocItems =
+        recurse && withinSection && childPage.children && childPage.children.length > 0
+          ? await getAllTocItems(childPage, context, { ...options, basePath })
+          : []
+
+      return { href, title, intro, category, childTocItems } as TocItem
+    }),
+  )
 
   return items
 }
