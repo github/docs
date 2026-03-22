@@ -1,4 +1,4 @@
----
+--v1.0-0241936b8a3592253c4ae5f6-21164752e51f0367aedf4e473257d5b4c5085e722773d1c7b91b38095ae395c303b152083f5b2373ee988011641757aea16e28d91310fe1f7b875d5842943c49a06833c5cdcf06fbbf
 title: About passkeys
 intro: 'Passkeys allow you to sign in safely and easily, without requiring a password and two-factor authentication.'
 permissions: '{% ifversion fpt or ghec %}Personal account owners who manage their own credentials{% endif %}'
