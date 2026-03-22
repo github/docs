@@ -8,8 +8,6 @@ versions:
 shortTitle: Find discussions
 redirect_from:
   - /discussions/guides/finding-discussions-across-multiple-repositories
-category:
-  - Participate in discussions
 ---
 
 ## Finding discussions

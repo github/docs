@@ -6,8 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Grant higher permissions
-category:
-  - Manage and moderate discussions
 ---
 
 

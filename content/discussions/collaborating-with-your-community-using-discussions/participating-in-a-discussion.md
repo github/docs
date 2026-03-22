@@ -7,8 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Participate in discussion
-category:
-  - Participate in discussions
 ---
 
 

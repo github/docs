@@ -5,8 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-category:
-  - Participate in discussions
 ---
 
 

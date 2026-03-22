@@ -7,8 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Quickstart
-category:
-  - Participate in discussions
 ---
 
 
