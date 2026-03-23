@@ -7,6 +7,8 @@ versions:
 contentType: reference
 redirect_from:
   - /code-security/code-quality/reference/codeql-queries/go-queries
+category:
+  - Improve code quality
 ---
 
 {% data variables.product.prodname_code_quality_short %} uses the following {% data variables.product.prodname_codeql %} queries to analyze Go code and detect code quality issues on:

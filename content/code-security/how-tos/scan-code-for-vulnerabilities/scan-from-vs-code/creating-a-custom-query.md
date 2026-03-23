@@ -9,6 +9,8 @@ intro: You can work from a template to write your own code to create a custom qu
 redirect_from:
   - /code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/creating-a-custom-query
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 You can write custom {% data variables.product.prodname_codeql %} queries to find specific issues relevant to your own project. This is optional, and the [`github/codeql`](https://github.com/github/codeql) repository contains a large number of example queries you can use instead.

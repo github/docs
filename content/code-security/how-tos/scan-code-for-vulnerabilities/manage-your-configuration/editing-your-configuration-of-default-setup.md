@@ -10,6 +10,8 @@ versions:
 redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup
 contentType: how-tos
+category:
+  - Find and fix code vulnerabilities
 ---
 
 After running an initial analysis of your code with default setup, you can make changes to your configuration to better meet your needs. See [AUTOTITLE](/code-security/concepts/code-scanning/setup-types){% ifversion codeql-custom-properties %} and [AUTOTITLE](/code-security/concepts/code-scanning/repository-properties){% endif %}.

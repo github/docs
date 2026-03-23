@@ -10,6 +10,8 @@ versions:
 redirect_from:
   - /code-security/trialing-github-advanced-security/planning-a-trial-of-ghas
 contentType: tutorials
+category:
+  - Plan your security strategy
 ---
 
 ## Is a self-serve trial right for you?

@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration/built-in-codeql-query-suites
   - /code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites
 contentType: concepts
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## What are query suites?

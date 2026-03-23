@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## About the importance of providing access to private registries

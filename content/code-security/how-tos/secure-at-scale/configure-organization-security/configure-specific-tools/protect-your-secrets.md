@@ -10,6 +10,8 @@ versions:
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/choosing-github-secret-protection
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/protect-your-secrets
+category:
+  - Secure at scale
 ---
 
 ## Prerequisites

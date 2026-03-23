@@ -10,6 +10,8 @@ contentType: tutorials
 redirect_from:
   - /code-security/code-quality/tutorials/improve-active-code
   - /code-security/code-quality/tutorials/improve-recent-merges
+category:
+  - Improve code quality
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}

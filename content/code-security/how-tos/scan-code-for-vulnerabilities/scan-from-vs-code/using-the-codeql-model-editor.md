@@ -10,6 +10,8 @@ redirect_from:
   - /code-security/codeql-for-vs-code/using-the-codeql-model-editor
   - /code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 {% data reusables.code-scanning.beta-model-packs %}

@@ -23,6 +23,8 @@ redirect_from:
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/advanced-setup-of-the-codeql-cli
   - /code-security/how-tos/scan-code-for-vulnerabilities/scan-from-the-command-line/advanced-setup-of-the-codeql-cli
 contentType: concepts
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 Software developers and security researchers can secure their code

@@ -13,6 +13,8 @@ versions:
 redirect_from:
   - /code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-tracking-security-campaigns
   - /code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns
+category:
+  - Secure at scale
 ---
 
 {% data reusables.security.secrets-campaign-preview %}

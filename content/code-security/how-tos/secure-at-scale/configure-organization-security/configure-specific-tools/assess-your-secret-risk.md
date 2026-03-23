@@ -10,6 +10,8 @@ redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/assess-your-secret-risk
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## Generating an initial {% data variables.product.prodname_secret_risk_assessment %}

@@ -16,6 +16,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: concepts
+category:
+  - Secure at scale
 ---
 
 {% ifversion fpt %}

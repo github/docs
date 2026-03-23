@@ -10,6 +10,8 @@ versions:
   feature: security-overview-org-codeql-pr-alerts
 redirect_from:
   - /code-security/security-overview/viewing-metrics-for-pull-request-alerts
+category:
+  - Secure at scale
 ---
 
 ## Viewing {% data variables.product.prodname_codeql %} pull request alerts metrics for an organization

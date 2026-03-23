@@ -10,6 +10,8 @@ versions:
   feature: security-campaigns
 redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign
+category:
+  - Secure at scale
 ---
 
 ## Viewing alerts in a security campaign

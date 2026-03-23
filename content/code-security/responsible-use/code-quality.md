@@ -7,6 +7,8 @@ versions:
 contentType: rai
 redirect_from:
   - /code-security/code-quality/responsible-use/code-quality
+category:
+  - Improve code quality
 ---
 
 > [!NOTE]

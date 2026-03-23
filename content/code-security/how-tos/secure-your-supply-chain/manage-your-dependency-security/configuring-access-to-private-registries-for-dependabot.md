@@ -14,6 +14,8 @@ versions:
   ghes: '*'
 shortTitle: Configure access to private registries
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## About private registries

@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 shortTitle: Dependabot PR comment commands
 contentType: reference
+category:
+  - Secure your dependencies
 ---
 
 {% data variables.product.prodname_dependabot %} responds to simple commands in comments. Each pull request contains details of the commands you can use to process the pull request (for example: to merge, squash, reopen, close, or rebase the pull request) under the "{% data variables.product.prodname_dependabot %} commands and options" section. The aim is to make it as easy as possible for you to triage these automatically generated pull requests.

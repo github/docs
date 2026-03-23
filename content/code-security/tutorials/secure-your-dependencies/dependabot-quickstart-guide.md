@@ -10,6 +10,8 @@ contentType: tutorials
 shortTitle: Dependabot quickstart
 redirect_from:
   - /code-security/getting-started/dependabot-quickstart-guide
+category:
+  - Secure your dependencies
 ---
 
 ## About {% data variables.product.prodname_dependabot %}

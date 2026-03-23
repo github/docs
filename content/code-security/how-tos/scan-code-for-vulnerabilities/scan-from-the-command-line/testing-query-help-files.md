@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli/testing-query-help-files
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/testing-query-help-files
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## Prerequisites

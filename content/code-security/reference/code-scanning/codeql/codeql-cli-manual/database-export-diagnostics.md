@@ -13,6 +13,8 @@ redirect_from:
   - /code-security/codeql-cli/manual/database-export-diagnostics
   - /code-security/codeql-cli/codeql-cli-manual/database-export-diagnostics
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 <!-- markdownlint-disable GHD053 -->

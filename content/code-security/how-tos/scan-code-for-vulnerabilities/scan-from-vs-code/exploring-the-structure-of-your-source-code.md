@@ -10,6 +10,8 @@ redirect_from:
   - /code-security/codeql-for-vs-code/exploring-the-structure-of-your-source-code
   - /code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/exploring-the-structure-of-your-source-code
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## Prerequisites

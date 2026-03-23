@@ -10,6 +10,8 @@ redirect_from:
   - /code-security/codeql-for-vs-code/exploring-data-flow-with-path-queries
   - /code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/exploring-data-flow-with-path-queries
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## Prerequisites

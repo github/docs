@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/codeql-cli/manual/dataset-check
   - /code-security/codeql-cli/codeql-cli-manual/dataset-check
 contentType: reference
+category:
+  - Find CodeQL CLI commands
 ---
 
 <!-- markdownlint-disable GHD053 -->

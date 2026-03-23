@@ -10,6 +10,8 @@ versions:
   feature: security-campaigns
 redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts/best-practices-for-participating-in-a-security-campaign
+category:
+  - Secure at scale
 ---
 
 ## What is a code security campaign?

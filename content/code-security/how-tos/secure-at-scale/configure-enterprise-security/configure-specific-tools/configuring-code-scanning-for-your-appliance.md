@@ -14,6 +14,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Find and fix code vulnerabilities
 ---
 <!--The CodeQL CLI man pages include a link to a section in this article. If you rename this article,
 make sure that you also update the MS short link: https://aka.ms/code-scanning-docs/configuring-ghes.-->

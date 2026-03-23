@@ -8,6 +8,8 @@ redirect_from:
   - /admin/code-security/managing-supply-chain-security-for-your-enterprise/configuring-dependabot-to-work-with-limited-internet-access
   - /admin/managing-code-security/managing-supply-chain-security-for-your-enterprise/configuring-dependabot-to-work-with-limited-internet-access
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## About {% data variables.product.prodname_dependabot %} updates

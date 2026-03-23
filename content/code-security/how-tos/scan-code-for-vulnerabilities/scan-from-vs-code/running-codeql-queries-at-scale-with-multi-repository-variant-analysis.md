@@ -8,6 +8,8 @@ redirect_from:
   - /code-security/codeql-for-vs-code/running-codeql-queries-at-scale-with-mrva
   - /code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries-at-scale-with-multi-repository-variant-analysis
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 With multi-repository variant analysis (MRVA), you can run {% data variables.product.prodname_codeql %} queries on a list of up to 1,000 repositories on {% data variables.product.github %} from {% data variables.product.prodname_vscode %}.

@@ -10,6 +10,8 @@ versions:
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 {% data reusables.organizations.navigate-to-org %}

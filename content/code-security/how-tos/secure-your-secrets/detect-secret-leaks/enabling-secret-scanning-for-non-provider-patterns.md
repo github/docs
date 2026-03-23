@@ -13,6 +13,8 @@ shortTitle: Enable for non-provider patterns
 redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns
+category:
+  - Protect your secrets
 ---
 
 ## Enabling scanning for non-provider patterns

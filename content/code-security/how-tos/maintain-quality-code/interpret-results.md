@@ -10,6 +10,8 @@ permissions: '{% data reusables.permissions.code-quality-see-repo-findings %}'
 contentType: how-tos
 redirect_from:
   - /code-security/code-quality/how-tos/interpret-results
+category:
+  - Improve code quality
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}

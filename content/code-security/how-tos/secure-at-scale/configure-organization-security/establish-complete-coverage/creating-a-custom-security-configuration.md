@@ -13,6 +13,8 @@ redirect_from:
   - /admin/managing-code-security/securing-your-enterprise/applying-the-github-recommended-security-configuration-to-your-enterprise
   - /code-security/how-tos/secure-at-scale/configure-enterprise-security/establish-complete-coverage/applying-the-github-recommended-security-configuration-to-your-enterprise
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## About {% data variables.product.prodname_custom_security_configurations %}
