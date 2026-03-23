@@ -41,7 +41,7 @@ The `dependabot.yml` file controls how {% data variables.product.prodname_depend
 
 ## Where to store the `dependabot.yml` file
 
-You must store this file in the `.github` directory of your repository in the default branch (typically `main`). The path is:  `.github/dependabot.yml`.
+You must store this file in the `.github` directory of your repository in the default branch (typically `main`). The path is:  `.github/dependabot.yml` (you can also use `.github/dependabot.yaml`).
 
 ## How the `dependabot.yml` file works
 
