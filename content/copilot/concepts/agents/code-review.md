@@ -97,13 +97,16 @@ If {% data variables.product.prodname_actions %} is unavailable or if Actions wo
 
 ### Usage of {% data variables.product.prodname_actions %} runners for agentic capabilities in code review
 
-{% data variables.copilot.copilot_code-review_short %} uses free minutes for {% data variables.product.prodname_actions %} to run the agentic capabilities, including full project context gathering and any capabilities in {% data variables.release-phases.public_preview %}. By default, {% data variables.copilot.copilot_code-review_short %} uses {% data variables.product.prodname_dotcom %}-hosted runners.
+{% data variables.copilot.copilot_code-review_short %} uses free minutes for {% data variables.product.prodname_actions %} to run the agentic capabilities, including full project context gathering and any capabilities in {% data variables.release-phases.public_preview %}. By default, {% data variables.copilot.copilot_code-review_short %} uses {% data variables.product.prodname_dotcom %}-hosted runners. You can also upgrade to larger {% data variables.product.prodname_dotcom %}-hosted runners for better performance.
+
+> [!NOTE]
+> Usage of larger {% data variables.product.prodname_dotcom %}-hosted runners is billed per-minute and may incur additional {% data variables.product.prodname_actions %} charges.
 
 You do not need to have {% data variables.product.prodname_actions %} enabled in your organization or enterprise to use the agentic capabilities in code review.
 
-If your organization has disabled {% data variables.product.prodname_dotcom %}-hosted runners, the agentic capabilities will not be available. In this case, code reviews will fall back to a more limited review.
+If your organization has disabled {% data variables.product.prodname_dotcom %}-hosted runners, the agentic capabilities will not be available. In this case, code reviews will fall back to a more limited review. Organizations in this situation can use self-hosted runners.
 
-Organizations in this situation can use self-hosted runners. For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/configure-self-hosted-runners).
+For more information on configuring runners, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/configure-runners).
 
 ## Code review monthly quota
 
