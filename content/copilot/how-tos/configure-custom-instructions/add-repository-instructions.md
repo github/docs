@@ -415,7 +415,7 @@ Whitespace between instructions is ignored, so the instructions can be written a
 ### Using the settings page
 
 {% data reusables.copilot.jetbrains-settings %}
-{% data reusables.copilot.jetbrains-tools %}
+{% data reusables.copilot.jetbrains-tools %}, then click **Customizations**.
 1. Under "{% data variables.product.prodname_copilot_short %} Instructions", click **Workspace** or **Global** to choose whether the custom instructions apply to the current workspace or all workspaces.
 
 ### Manually creating a workspace custom instructions file
