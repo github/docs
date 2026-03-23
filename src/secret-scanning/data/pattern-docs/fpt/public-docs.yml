@@ -4041,7 +4041,7 @@
   secretType: salesforce_marketing_cloud_api_oauth2_token
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   hasExtendedMetadata: false
   base64Supported: false

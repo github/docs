@@ -15,6 +15,15 @@ const config: NextConfig = {
   // Transpile @primer/react so Next's webpack can process its CSS and other assets
   // This ensures CSS in node_modules/@primer/react is handled by the app's loaders.
   transpilePackages: ['@primer/react'],
+  // Keep OTel packages out of the Next.js server bundle.
+  // They must be loaded via native require() for auto-instrumentation to work.
+  serverExternalPackages: [
+    '@opentelemetry/api',
+    '@opentelemetry/auto-instrumentations-node',
+    '@opentelemetry/core',
+    '@opentelemetry/exporter-trace-otlp-proto',
+    '@opentelemetry/sdk-node',
+  ],
   // speed up production `next build` by ignoring typechecking during that step of build.
   // type-checking still occurs in the Dockerfile build
   typescript: {
@@ -27,13 +36,7 @@ const config: NextConfig = {
   },
   sassOptions: {
     quietDeps: true,
-    silenceDeprecations: [
-      'legacy-js-api',
-      'import',
-      'global-builtin',
-      'color-4-api',
-      'mixed-decls',
-    ],
+    silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'color-4-api'],
   },
   // Don't use automatic Next.js logging in dev unless the log level is `debug` or higher
   // See `src/observability/logger/README.md` for log levels
@@ -48,8 +51,15 @@ const config: NextConfig = {
     })
   },
 
-  webpack: (webpackConfig) => {
+  webpack: (webpackConfig, { isServer }) => {
     webpackConfig.resolve.fallback = { fs: false, async_hooks: false }
+    // OTel is server-only. Alias to empty stub in browser bundles.
+    if (!isServer) {
+      webpackConfig.resolve.alias = {
+        ...webpackConfig.resolve.alias,
+        '@/observability/lib/tracing': path.resolve('./src/observability/lib/tracing.browser.ts'),
+      }
+    }
     return webpackConfig
   },
 
@@ -70,6 +80,9 @@ const config: NextConfig = {
       },
       '@/observability/logger/lib/logger-context': {
         browser: './empty.ts',
+      },
+      '@/observability/lib/tracing': {
+        browser: './src/observability/lib/tracing.browser.ts',
       },
     },
   },

@@ -17,6 +17,10 @@ The following roles have access to the billing platform:
 
 * **Enterprise owners and enterprise billing managers**: Can manage billing for an enterprise account.
 * **Organization owners and organization billing managers**: Can manage billing for an organization on {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %}.
+
+  > [!NOTE]
+  > If your organization is owned by an enterprise account, you cannot add billing managers at the organization level. Billing for enterprise-owned organizations is managed at the enterprise level.
+
 * **Personal accounts (non-managed)**: Can access the billing platform for their personal usage.
 
 To add a billing manager, see:
@@ -38,9 +42,7 @@ You have full administrative access to your organization. You can:
 
 You can:
 
-* View all metered usage for your organization its repositories.
-* View organization-level budgets.
-* Download CSV usage reports.
+{% data reusables.billing.org-billing-manager-permissions %}
 
 ## Enterprise owners and enterprise billing managers
 
@@ -51,6 +53,8 @@ You can:
 * Download CSV usage reports for products your enterprise is using.
 * Set budgets for your enterprise.
 * Create cost centers for all organizations within your enterprise.
+* View and manage user licenses.
+* Manage other billing settings, such as payment methods and billing contacts.
 
 ## Further reading
 
