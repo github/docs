@@ -10,10 +10,9 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Organizations
-  - Teams
 shortTitle: Roles in an organization
+category:
+  - Assign roles and permissions
 ---
 
 ## About roles

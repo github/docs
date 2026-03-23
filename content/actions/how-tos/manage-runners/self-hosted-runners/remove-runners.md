@@ -1,7 +1,7 @@
 ---
 title: Removing self-hosted runners
 shortTitle: Remove runners
-intro: 'You can permanently remove a self-hosted runner from a repository{% ifversion fpt %} or organization{% elsif ghec or ghes %}, an organization, or an enterprise{% endif %}.'
+intro: You can permanently remove a self-hosted runner from a repository{% ifversion fpt %} or organization{% elsif ghec or ghes %}, an organization, or an enterprise{% endif %}.
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/removing-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners
@@ -15,6 +15,7 @@ versions:
   ghec: '*'
 category:
   - Use and manage runners
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

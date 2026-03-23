@@ -11,6 +11,8 @@ redirect_from:
 allowTitleToDifferFromFilename: true
 permissions: Organization owners can manage the visibility of {% data variables.projects.projects_v2 %} in their organization. Organization owners can also allow collaborators with admin permissions to manage project visibility. Visibility of user projects can be managed by the owner of the project and collaborators with admin permissions.
 contentType: tutorials
+category:
+  - Set up and manage projects
 ---
 
 ## About project visibility

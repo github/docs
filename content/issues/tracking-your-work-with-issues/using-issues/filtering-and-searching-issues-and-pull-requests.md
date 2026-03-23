@@ -40,6 +40,8 @@ versions:
   ghec: '*'
 shortTitle: Filter and search
 contentType: how-tos
+category:
+  - Create and work with issues
 ---
 
 {% data reusables.cli.filter-issues-and-pull-requests-tip %}

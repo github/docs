@@ -9,6 +9,8 @@ shortTitle: Create enterprise account
 redirect_from:
   - /admin/overview/creating-an-enterprise-account
 contentType: how-tos
+category:
+  - Get started with GitHub Enterprise
 ---
 
 <!-- expires 2027-01-30 -->

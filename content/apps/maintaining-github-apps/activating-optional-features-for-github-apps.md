@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Activate optional features
+category:
+  - Maintain and share your app
 ---
 
 > [!WARNING]

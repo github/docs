@@ -3,10 +3,10 @@ title: Permissions of predefined organization roles
 intro: "Learn about the predefined organization roles and the permissions each role grants in your organization."
 versions:
   feature: 'org-pre-defined-roles'
-topics:
-  - Organizations
 shortTitle: Predefined roles permissions
 product: 'Organizations on {% data variables.product.prodname_ghe_cloud %}{% ifversion ghes %} and {% data variables.product.prodname_ghe_server %}{% endif %}'
+category:
+  - Assign roles and permissions
 ---
 
 Organizations support several predefined roles for managing your organization members' access to resources. Assigning predefined roles is the fastest way to assign the permissions someone needs for their responsibilities.

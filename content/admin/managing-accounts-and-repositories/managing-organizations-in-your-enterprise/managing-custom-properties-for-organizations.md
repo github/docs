@@ -7,6 +7,8 @@ versions:
   ghes: '>= 3.21'
 shortTitle: Organization custom properties
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 {% data reusables.enterprise-accounts.org-custom-properties-public-preview %}

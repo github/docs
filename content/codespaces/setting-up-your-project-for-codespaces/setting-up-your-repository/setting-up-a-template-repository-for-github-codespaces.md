@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-a-template-repository-for-github-codespaces
 contentType: how-tos
+category:
+  - Set up dev containers for a project
 ---
 
 ## Introduction

@@ -7,14 +7,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Dependencies
-  - Repositories
 redirect_from:
   - /code-security/dependabot/ecosystems-supported-by-dependabot/optimizing-java-packages-dependabot
   - /code-security/how-tos/secure-your-supply-chain/manage-your-dependency-security/optimizing-java-packages-dependabot
-contentType: how-tos
+contentType: reference
 ---
 
 {% data variables.product.prodname_dependabot %} uses the `url`, `scm`, and `issueManagement` fields in `pom.xml` files to create pull requests for Java dependency updates. When you include this metadata, pull requests will contain links to release notes and issue trackers, helping users update packages with confidence.

@@ -10,6 +10,8 @@ versions:
   ghes: '*'
 shortTitle: Rebuild contributions
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 Whenever a commit is pushed to {% data variables.product.prodname_enterprise %}, it is linked to a user account if they are both associated with the same email address. However, existing commits are _not_ retroactively linked when a user registers a new email address or creates a new account.
 

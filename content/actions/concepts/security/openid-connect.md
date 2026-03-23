@@ -9,7 +9,7 @@ redirect_from:
   - /actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect
   - /actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect
   - /actions/concepts/security/about-security-hardening-with-openid-connect
-contentType: tutorials
+contentType: concepts
 category:
   - Secure your workflows
 ---

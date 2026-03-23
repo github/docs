@@ -7,6 +7,8 @@ redirect_from:
   - /admin/enterprise-management/caching-repositories/configuring-a-repository-cache
   - /admin/monitoring-managing-and-updating-your-instance/caching-repositories/configuring-a-repository-cache
 contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About configuration for repository caching

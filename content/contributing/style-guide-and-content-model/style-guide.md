@@ -7,6 +7,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /contributing/writing-for-github-docs/style-guide
+category:
+  - Follow the style guide and content model
 ---
 
 <!--

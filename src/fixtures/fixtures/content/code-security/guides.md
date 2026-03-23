@@ -6,11 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Advanced Security
-  - Code scanning
-  - Actions
-  - Repositories
 includeGuides:
   - /code-security/getting-started/quickstart
   - /code-security/getting-started/securing-your-organization

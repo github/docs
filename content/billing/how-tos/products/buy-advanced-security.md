@@ -12,6 +12,8 @@ redirect_from:
   - /billing/how-tos/products/add-advanced-security
 shortTitle: Buy Advanced Security
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 ## Checking your current plan

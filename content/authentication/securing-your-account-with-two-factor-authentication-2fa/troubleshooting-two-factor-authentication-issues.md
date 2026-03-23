@@ -6,6 +6,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Troubleshooting 2FA
+category:
+  - Troubleshoot authentication issues
 ---
 
 If you are receiving a "Two-factor authentication failed" error when authenticating with two-factor authentication (2FA), the authentication code you are entering is incorrect. You can try troubleshooting your configured authentication methods before attempting account recovery.

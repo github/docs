@@ -20,6 +20,8 @@ redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise
 shortTitle: Security & analysis
 contentType: how-tos
+category:
+  - Secure and govern your enterprise
 ---
 
 ## About policies for using security features in your enterprise

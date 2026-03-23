@@ -6,6 +6,8 @@ versions:
   feature: actions-private-networking-azure-vnet
 permissions: '{% data reusables.actions.azure-vnet-organization-permissions %}'
 contentType: how-tos
+category:
+  - Secure and monitor your organization
 ---
 
 ## About Azure private networking for {% data variables.product.company_short %}-hosted runners

@@ -6,10 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 children:
   - /setting-up-the-codeql-cli
   - /write-custom-queries

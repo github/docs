@@ -1,7 +1,7 @@
 ---
 title: Setting a default shell and working directory
 shortTitle: Set default values for jobs
-intro: 'Define the default settings that will apply to all jobs in the workflow, or all steps in a job.'
+intro: Define the default settings that will apply to all jobs in the workflow, or all steps in a job.
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,6 +13,7 @@ redirect_from:
   - /actions/how-tos/writing-workflows/choosing-what-your-workflow-does/setting-a-default-shell-and-working-directory
 category:
   - Write workflows
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

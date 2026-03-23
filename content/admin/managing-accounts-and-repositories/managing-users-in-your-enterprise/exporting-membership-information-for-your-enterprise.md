@@ -7,6 +7,8 @@ shortTitle: Export membership information
 permissions: Enterprise owners can export membership information for an enterprise.
 redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise
+category:
+  - Manage accounts and repositories
 ---
 
 ## About export of membership information

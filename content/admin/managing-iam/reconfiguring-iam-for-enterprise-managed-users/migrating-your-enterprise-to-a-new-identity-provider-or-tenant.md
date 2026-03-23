@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-your-enterprise-to-a-new-identity-provider-or-tenant
   - /admin/identity-and-access-management/reconfiguring-iam-for-enterprise-managed-users/migrating-your-enterprise-to-a-new-identity-provider-or-tenant
+category:
+  - Configure authentication
 ---
 
 ## About migrations between IdPs and tenants

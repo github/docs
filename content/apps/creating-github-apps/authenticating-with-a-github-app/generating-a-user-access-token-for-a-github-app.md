@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Generate a user access token
+category:
+  - Authenticate with a GitHub App
 ---
 
 ## About user access tokens

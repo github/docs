@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Transfer ownership
+category:
+  - Maintain and share your app
 ---
 
 ## About transferring {% data variables.product.prodname_github_apps %}

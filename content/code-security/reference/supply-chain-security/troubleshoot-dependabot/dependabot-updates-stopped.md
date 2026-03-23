@@ -7,12 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Dependabot stopped working
 redirect_from:
   - /code-security/dependabot/troubleshooting-dependabot/dependabot-updates-stopped

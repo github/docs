@@ -1,6 +1,6 @@
 ---
 title: Featured GitHub integrations
-intro: 'Use {% data variables.product.github %} extensions to work seamlessly in repositories on {% data variables.location.product_location %} within third-party applications.'
+intro: Use {% data variables.product.github %} extensions to work seamlessly in repositories on {% data variables.location.product_location %} within third-party applications.
 redirect_from:
   - /articles/about-github-extensions-for-third-party-applications
   - /articles/github-extensions-and-integrations
@@ -16,6 +16,7 @@ versions:
 shortTitle: Featured integrations
 category:
   - Learn about integrations
+contentType: concepts
 ---
 
 {% ifversion fpt or ghec %}

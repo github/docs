@@ -7,12 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: tutorials
-topics:
-  - Dependabot
-  - Alerts
-  - Vulnerabilities
-  - Repositories
-  - Dependencies
 shortTitle: Dependabot quickstart
 redirect_from:
   - /code-security/getting-started/dependabot-quickstart-guide

@@ -9,6 +9,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Convert organization to user
+category:
+  - Set up your organization
 ---
 
 {% ifversion fpt or ghec %}

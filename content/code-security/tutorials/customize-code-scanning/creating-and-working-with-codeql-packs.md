@@ -6,10 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-cli/creating-and-working-with-codeql-packs
   - /code-security/codeql-cli/using-the-codeql-cli/creating-and-working-with-codeql-packs

@@ -11,6 +11,8 @@ redirect_from:
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 ## About SAML single sign-on for enterprise accounts

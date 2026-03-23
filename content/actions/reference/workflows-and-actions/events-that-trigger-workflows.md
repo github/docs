@@ -1,6 +1,6 @@
 ---
 title: Events that trigger workflows
-intro: 'You can configure your workflows to run when specific activity on {% data variables.product.github %} happens, at a scheduled time, or when an event outside of {% data variables.product.github %} occurs.'
+intro: You can configure your workflows to run when specific activity on {% data variables.product.github %} happens, at a scheduled time, or when an event outside of {% data variables.product.github %} occurs.
 redirect_from:
   - /articles/events-that-trigger-workflows
   - /github/automating-your-workflow-with-github-actions/events-that-trigger-workflows
@@ -15,6 +15,7 @@ versions:
   ghec: '*'
 category:
   - Write workflows
+contentType: reference
 ---
 
 ## About events that trigger workflows

@@ -13,12 +13,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Dependabot
-  - Alerts
-  - Vulnerabilities
-  - Repositories
-  - Dependencies
 shortTitle: Dependabot alerts
 contentType: concepts
 ---
@@ -78,8 +72,8 @@ Alternatively, you can opt into the weekly email digest, or even completely turn
 * Alerts can't catch every security issue. Always review your dependencies and keep manifest and lock files up to date for accurate detection.
 * New vulnerabilities may take time to appear in the {% data variables.product.prodname_advisory_database %} and trigger alerts.
 * Only advisories reviewed by {% data variables.product.github %} trigger alerts.
-* {% data variables.product.prodname_dependabot %} doesn't scan archived repositories.
-* {% data variables.product.prodname_dependabot %} doesn't generate alerts for malware.
+* {% data variables.product.prodname_dependabot %} doesn't scan archived repositories.{% ifversion dependabot-malware-alerts %}{% else %}
+* {% data variables.product.prodname_dependabot %} doesn't generate alerts for malware.{% endif %}
 * {% data reusables.dependabot.dependabot-alert-actions-semver %}
 
 {% ifversion fpt or ghec %}{% data variables.product.github %} never publicly discloses vulnerabilities for any repository. {% endif %}
@@ -94,6 +88,8 @@ With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% d
 
 ## Further reading
 
+{% ifversion dependabot-malware-alerts %}
+* [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-malware-alerts){% endif %}
 * [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)
 * [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)
 * [AUTOTITLE](/code-security/getting-started/auditing-security-alerts)

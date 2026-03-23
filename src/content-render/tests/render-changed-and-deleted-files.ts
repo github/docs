@@ -41,7 +41,8 @@ const EMPTY = Symbol('EMPTY')
 const pageList = await loadPages(undefined, ['en'])
 
 function getChangedContentFiles() {
-  return getContentFiles(process.env.CHANGED_FILES)
+  const deleted = new Set(getDeletedContentFiles())
+  return getContentFiles(process.env.CHANGED_FILES).filter((f) => !deleted.has(f))
 }
 function getDeletedContentFiles() {
   return getContentFiles(process.env.DELETED_FILES)

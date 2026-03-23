@@ -3115,7 +3115,7 @@ input BulkSponsorship {
 """
 Types that can represent a repository ruleset bypass actor.
 """
-union BypassActor = App | Team
+union BypassActor = App | Team | User
 
 """
 A user, team, or app who has the ability to bypass a force push requirement on a protected branch.
@@ -20937,6 +20937,11 @@ type IssueFieldSingleSelectValue implements IssueFieldValueCommon & Node {
   The option's name.
   """
   name: String!
+
+  """
+  The selected option's global relay ID.
+  """
+  optionId: String
 }
 
 """
@@ -39461,7 +39466,7 @@ An item within a Project.
 """
 type ProjectV2Item implements Node {
   """
-  The content of the referenced draft issue, issue, or pull request
+  The content of the referenced draft issue, issue, pull request
   """
   content: ProjectV2ItemContent
 

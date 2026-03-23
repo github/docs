@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting workflows
 shortTitle: Troubleshoot workflows
-intro: 'You can use the tools in {% data variables.product.prodname_actions %} to debug your workflows.'
+intro: You can use the tools in {% data variables.product.prodname_actions %} to debug your workflows.
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,6 +15,7 @@ redirect_from:
   - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows
 category:
   - Manage and monitor workflow runs
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

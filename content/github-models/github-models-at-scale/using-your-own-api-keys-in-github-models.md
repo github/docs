@@ -8,6 +8,8 @@ permissions: 'Organization owners can add custom models to {% data variables.pro
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /github-models/github-models-at-scale/set-up-custom-model-integration-models-byok
+category:
+  - Manage GitHub Models for your organization
 ---
 
 {% data reusables.models.byok-preview-note %}

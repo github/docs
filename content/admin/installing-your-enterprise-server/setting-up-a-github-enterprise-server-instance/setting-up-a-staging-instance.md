@@ -9,6 +9,8 @@ versions:
   ghes: '*'
 shortTitle: Set up a staging instance
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## About staging instances

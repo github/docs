@@ -8,6 +8,8 @@ permissions: Site administrators
 redirect_from:
   - /admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 ## About organization restoration

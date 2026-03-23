@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Test your SSH connection
+category:
+  - Connect with SSH
 ---
 
 Before testing your SSH connection, you should have already:

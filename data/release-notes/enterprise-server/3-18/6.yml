@@ -1,4 +1,10 @@
 date: '2026-03-10'
+intro: |
+  {% warning %}
+
+  **Warning**: {% data variables.product.prodname_ghe_server %} 3.18.6 has been unpublished for operational reasons. Please use the most recent available patch release of 3.18. [Updated: 2026-3-13]
+  
+  {% endwarning %}
 sections:
   security_fixes:
     - |

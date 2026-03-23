@@ -6,6 +6,7 @@ versions:
   ghec: '*'
 category:
   - Secure your workflows
+contentType: concepts
 ---
 
 ## About Kubernetes admission controller
@@ -22,7 +23,7 @@ To [install the controller](/actions/how-tos/security-for-github-actions/using-a
 
 When the Policy Controller is installed, it will intercept all image pull requests and verify the attestation for the image. The attestation must be stored in the image registry as an [OCI attached artifact](https://oras.land/docs/concepts/reftypes/) containing a [Sigstore Bundle](https://docs.sigstore.dev/about/bundle/) which contains the attestation and cryptographic material (e.g. certificates and signatures) used to verify the attestation. A verification process is then performed that ensures the image was built with the specified build provenance and matches any policies enabled by the cluster administrator.
 
-In order for an image to be verifiable, it must have a valid provenance attestation in the registry, which can be done by enabling the `push-to-registry: true` attribute in the `actions/attest-build-provenance` action. See [Generating build provenance for container images](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds#generating-build-provenance-for-container-images) for more details on how to generate attestations for container images.
+In order for an image to be verifiable, it must have a valid provenance attestation in the registry, which can be done by enabling the `push-to-registry: true` attribute in the `actions/attest` action. See [Generating build provenance for container images](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds#generating-build-provenance-for-container-images) for more details on how to generate attestations for container images.
 
 ### About trust roots and policies
 

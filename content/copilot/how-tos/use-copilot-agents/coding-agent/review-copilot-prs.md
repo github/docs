@@ -48,13 +48,7 @@ For more information, see the section "Use comments to iterate on a pull request
 
 ## Managing {% data variables.product.prodname_actions %} workflow runs
 
-{% data variables.product.prodname_actions %} workflows will not run automatically when {% data variables.product.prodname_copilot_short %} pushes changes to a pull request.
-
-{% data variables.product.prodname_actions %} workflows can be privileged and have access to sensitive secrets. {% data reusables.actions.workflows.inspect-proposed-changes %}
-
-To allow {% data variables.product.prodname_actions %} workflows to run, click the **Approve and run workflows** button in the pull request's merge box.
-
-![Screenshot of the merge box on a pull request from Copilot with the "Approve and run workflows" button.](/assets/images/help/copilot/coding-agent/approve-and-run-workflows.png)
+{% data reusables.copilot.coding-agent-workflow-run-approval-default %} For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/configuring-agent-settings).
 
 ## Giving feedback on {% data variables.product.prodname_copilot_short %}'s work
 

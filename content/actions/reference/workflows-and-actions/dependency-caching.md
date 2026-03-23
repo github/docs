@@ -16,7 +16,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-contentType: concepts
+contentType: reference
 category:
   - Write workflows
 ---

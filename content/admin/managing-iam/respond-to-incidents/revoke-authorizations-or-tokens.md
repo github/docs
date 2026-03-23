@@ -7,6 +7,8 @@ versions:
   feature: revoke-enterprise-tokens
 shortTitle: Revoke authorizations or tokens
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 When your enterprise is affected by a major security incident, you can respond by preventing programmatic access to your enterprise or its organizations.

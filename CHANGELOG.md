@@ -1,18 +1,37 @@
 # Docs changelog
 
-<<<<<<< changelog-update-1772664132
-**4 March 2026**
+**18 March 2026**
 
-We've published a new article to coincide with the public preview of the Copilot coding agent for Jira integration.
+We added documentation for using session data in Copilot CLI—including the `/chronicle` slash command:
 
-See [Integrating Copilot coding agent with Jira](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-jira).
-=======
+* [About GitHub Copilot CLI session data](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/chronicle)
+* [Using GitHub Copilot CLI session data](https://docs.github.com/copilot/how-tos/copilot-cli/chronicle)
+
+<hr>
+
+**17 March 2026**
+
+We published [Maintaining codebase standards in a GitHub Copilot rollout](https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/roll-out-at-scale/maintain-codebase-standards).
+
+The guide shows how customers can create a strong governance framework for Copilot by leveraging GitHub's enterprise-grade platform alongside cultural best practices.
+
+We also published [Resources for getting approval of GitHub Copilot](https://docs.github.com/enterprise-cloud@latest/copilot/get-started/resources-for-approval), a guide that collects resources for enterprise admins to send to legal, compliance, and cybersecurity teams in their company.
+
+<hr>
+
 **5 March 2026**
 
 We've updated our documentation to include a series of articles about the GitHub integration in Teams (previously, docs for the integration lived in a public repository).
 
 See [GitHub integration in Teams](https://docs.github.com/integrations/how-tos/teams).
->>>>>>> main
+
+<hr>
+
+**4 March 2026**
+
+We've published a new article to coincide with the public preview of the Copilot coding agent for Jira integration.
+
+See [Integrating Copilot coding agent with Jira](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-jira).
 
 <hr>
 
@@ -34,7 +53,7 @@ We've added an article about the new `/research` slash command in Copilot CLI:
 
 **27 February 2026**
 
-We've extended the reference information for Copilot CLI, adding much more detail. See [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/cli-command-reference#custom-agents-reference).
+We've extended the reference information for Copilot CLI, adding much more detail. See [GitHub Copilot CLI command reference](https://docs.github.com/copilot/reference/cli-command-reference#custom-agents-reference).
 
 <hr>
 

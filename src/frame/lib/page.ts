@@ -18,8 +18,9 @@ import { allTools } from '@/tools/lib/all-tools'
 import { renderContentWithFallback } from '@/languages/lib/render-with-fallback'
 import { deprecated, supported } from '@/versions/lib/enterprise-server-releases'
 import { allPlatforms } from '@/tools/lib/all-platforms'
-
 import type { Context, FrontmatterVersions, FeaturedLinksExpanded } from '@/types'
+
+const isProduction = process.env.NODE_ENV === 'production'
 
 // We're going to check a lot of pages' "ID" (the first part of
 // the relativePath) against `productMap` to make sure it's valid.
@@ -61,7 +62,6 @@ type GuideWithContentType = {
   href: string
   title: string
   contentType?: string
-  topics?: string[]
 }
 
 export class FrontmatterErrorsError extends Error {
@@ -147,8 +147,8 @@ class Page {
       }: ReadFileContentsResult = await readFileContents(fullPath)
 
       // Get file modification time
-      const stats = await fs.stat(fullPath)
-      const mtime = stats.mtimeMs
+      // Only used to quick reload local dev; not needed for production
+      const mtime = isProduction ? 1 : (await fs.stat(fullPath)).mtimeMs
 
       // The `|| ''` is for pages that are purely frontmatter.
       // So the `content` property will be `undefined`.
@@ -385,9 +385,6 @@ class Page {
       this.includeGuides?.map((guide: any) => {
         const { page } = guide
         guide.contentType = page.contentType
-        if (page.topics) {
-          guide.topics = page.topics
-        }
         delete guide.page
         return guide
       })

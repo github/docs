@@ -90,13 +90,21 @@ The following table shows which AI models are available in each {% data variable
 
 ## Model multipliers
 
-{% data reusables.copilot.sonnet-46-model-multiplier-note %}
+> [!NOTE]
+> The multiplier for these models are subject to change.
+>
+> * {% data variables.copilot.copilot_claude_sonnet_46 %}
+> * {% data variables.copilot.copilot_gpt_54_mini %}
 
 Each model has a premium request multiplier, based on its complexity and resource usage. If you are on a paid {% data variables.product.prodname_copilot_short %} plan, your premium request allowance is deducted according to this multiplier.
 
 For more information about premium requests, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
 
 {% data reusables.copilot.model-multipliers %}
+
+## Fallback and long-term support (LTS) models
+
+For more information about fallback and LTS models, see [AUTOTITLE](/copilot/concepts/fallback-and-lts-models).
 
 ## Next steps
 

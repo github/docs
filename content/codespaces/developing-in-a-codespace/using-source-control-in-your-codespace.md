@@ -8,6 +8,8 @@ shortTitle: Source control
 redirect_from:
   - /codespaces/developing-in-codespaces/using-source-control-in-your-codespace
 contentType: how-tos
+category:
+  - Write code in a codespace
 ---
 
 ## About source control in {% data variables.product.prodname_github_codespaces %}

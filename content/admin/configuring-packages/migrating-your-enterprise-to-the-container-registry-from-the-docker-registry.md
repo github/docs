@@ -8,6 +8,8 @@ versions:
 shortTitle: Migrate to Container registry
 redirect_from:
   - /admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 {% data reusables.package_registry.container-registry-ghes-beta %}

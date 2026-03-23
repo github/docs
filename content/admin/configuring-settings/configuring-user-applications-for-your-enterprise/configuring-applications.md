@@ -10,6 +10,8 @@ redirect_from:
 versions:
   ghes: '*'
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 ## Adjusting image caching
 

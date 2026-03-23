@@ -6,8 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code scanning
 contentType: concepts
 children:
   - /about-code-scanning-with-codeql

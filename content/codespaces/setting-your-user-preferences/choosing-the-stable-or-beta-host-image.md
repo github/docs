@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Customize your codespace
 ---
 
 ## About the virtual machine host image

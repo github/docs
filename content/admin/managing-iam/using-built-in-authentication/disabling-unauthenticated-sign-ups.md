@@ -14,6 +14,8 @@ versions:
   ghes: '*'
 shortTitle: Block unauthenticated sign-up
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 ## About unauthenticated sign-ups

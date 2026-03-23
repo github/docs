@@ -9,6 +9,8 @@ redirect_from:
   - /admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise
 shortTitle: Troubleshoot GitHub Actions
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## Checking the health of {% data variables.product.prodname_actions %}

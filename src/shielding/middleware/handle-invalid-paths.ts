@@ -86,12 +86,8 @@ export default function handleInvalidPaths(
   if (req.path.endsWith('/index.md')) {
     defaultCacheControl(res)
     const newUrl = req.originalUrl.replace(req.path, req.path.replace(/\/index\.md$/, ''))
-    return res.redirect(newUrl)
-  } else if (req.path.endsWith('.md')) {
-    req.url = req.url.replace(/\.md($|\?)/, '$1')
-    req.originalUrl = req.originalUrl.replace(/\.md($|\?)/, '$1')
-    req.headers.accept = 'text/markdown'
-    return next()
+    return res.safeRedirect(newUrl)
   }
+
   return next()
 }

@@ -10,6 +10,8 @@ permissions: Organization owners can manage team synchronization for an organiza
 versions:
   ghec: '*'
 shortTitle: Manage team synchronization
+category:
+  - Configure SAML single sign-on
 ---
 
 {% data reusables.enterprise-accounts.emu-scim-note %}

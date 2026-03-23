@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 {% ifversion ghes %}

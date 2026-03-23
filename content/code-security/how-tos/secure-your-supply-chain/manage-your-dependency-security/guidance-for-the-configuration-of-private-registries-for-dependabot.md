@@ -6,12 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Version updates
-  - Secret store
-  - Repositories
-  - Dependencies
 shortTitle: Configure private registries
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot

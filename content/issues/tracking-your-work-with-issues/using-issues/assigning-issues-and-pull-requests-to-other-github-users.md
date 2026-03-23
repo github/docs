@@ -13,6 +13,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Assign issues & PRs
+category:
+  - Create and work with issues
 ---
 
 ## About issue and pull request assignees

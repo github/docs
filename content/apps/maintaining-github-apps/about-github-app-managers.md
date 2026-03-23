@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: GitHub App managers
+category:
+  - Maintain and share your app
 ---
 
 {% data reusables.apps.github-app-managers %}

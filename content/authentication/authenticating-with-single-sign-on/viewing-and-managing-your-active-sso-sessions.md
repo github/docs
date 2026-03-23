@@ -9,6 +9,8 @@ redirect_from:
 versions:
   ghec: '*'
 shortTitle: Active SSO sessions
+category:
+  - Sign in with SSO or a passkey
 contentType: how-tos
 ---
 

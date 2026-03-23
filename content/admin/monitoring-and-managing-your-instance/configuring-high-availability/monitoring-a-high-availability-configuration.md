@@ -9,6 +9,8 @@ redirect_from:
   - /admin/enterprise-management/configuring-high-availability/monitoring-a-high-availability-configuration
   - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/monitoring-a-high-availability-configuration
 contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About observability for high availability

@@ -9,6 +9,8 @@ versions:
   ghes: '*'
 shortTitle: Manage your organization roles
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 ## About role management

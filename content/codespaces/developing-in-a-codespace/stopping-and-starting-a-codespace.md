@@ -8,6 +8,8 @@ shortTitle: Stop a codespace
 redirect_from:
   - /codespaces/developing-in-codespaces/stopping-and-starting-a-codespace
 contentType: how-tos
+category:
+  - Create and manage codespaces
 ---
 
 ## About stopping and starting a codespace

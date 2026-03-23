@@ -7,6 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 shortTitle: Sign in with a passkey
+category:  
+  - Sign in with SSO or a passkey
 contentType: how-tos
 ---
 

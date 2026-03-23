@@ -8,10 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/codeql-cli/creating-codeql-databases
   - /code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases

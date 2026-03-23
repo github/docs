@@ -43,6 +43,10 @@ export default async function contextualize(
     // req.pagePath is used later in the rendering pipeline to
     // locate the file in the tree so it cannot have .md
     req.pagePath = req.pagePath.replace(/\/index\.md$/, '').replace(/\.md$/, '')
+    req.context.markdownRequested = true
+    // Track that markdown was requested via URL suffix, not Accept header.
+    // This avoids adding a misleading Vary: accept cache header.
+    req.context.markdownViaUrl = true
   }
 
   // define each context property explicitly for code-search friendliness

@@ -10,6 +10,8 @@ redirect_from:
   - /admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
 permissions: Enterprise owners
 contentType: tutorials
+category:
+  - Monitor and audit your enterprise
 ---
 
 

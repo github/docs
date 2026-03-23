@@ -9,6 +9,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: concepts
+category:
+  - Set up and manage projects
 ---
 
 ## Browsing all of your projects

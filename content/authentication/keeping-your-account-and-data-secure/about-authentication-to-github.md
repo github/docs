@@ -9,6 +9,8 @@ redirect_from:
   - /github/authenticating-to-github/about-authentication-to-github
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/about-authentication-to-github
 shortTitle: Authentication to GitHub
+category:
+  - Learn about authentication
 ---
 ## About authentication to {% data variables.product.github %}
 

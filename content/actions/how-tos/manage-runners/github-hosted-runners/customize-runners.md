@@ -12,7 +12,7 @@ redirect_from:
   - /actions/using-github-hosted-runners/using-github-hosted-runners/customizing-github-hosted-runners
   - /actions/how-tos/using-github-hosted-runners/using-github-hosted-runners/customizing-github-hosted-runners
   - /actions/how-tos/using-github-hosted-runners/customizing-github-hosted-runners
-contentType: tutorials
+contentType: how-tos
 category:
   - Set up runners
 ---

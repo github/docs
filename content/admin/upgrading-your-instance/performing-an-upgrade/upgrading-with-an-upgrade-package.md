@@ -6,11 +6,10 @@ redirect_from:
   - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-with-an-upgrade-package
 versions:
   ghes: '*'
-topics:
-  - Enterprise
-  - Upgrades
 shortTitle: Upgrade with an upgrade package
 contentType: how-tos
+category:
+  - Back up and upgrade your instance
 ---
 
 Using the administrative shell, you can install an upgrade package with the `ghe-upgrade` utility.

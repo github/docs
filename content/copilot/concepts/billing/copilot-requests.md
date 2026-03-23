@@ -25,7 +25,7 @@ category:
 
 ## What is a request?
 
-A request is any interaction where you ask {% data variables.product.prodname_copilot_short %} to do something for you—whether it’s generating code, answering a question, or helping you through an extension. Each time you send a prompt in a chat window or trigger a response from {% data variables.product.prodname_copilot_short %}, you’re making a request.
+A request is any interaction where you ask {% data variables.product.prodname_copilot_short %} to do something for you—whether it's generating code, answering a question, or helping you through an extension. Each time you send a prompt in a chat window or trigger a response from {% data variables.product.prodname_copilot_short %}, you're making a request. For agentic features, only the prompts you send count as premium requests; actions {% data variables.product.prodname_copilot_short %} takes autonomously to complete your task, such as tool calls, do not. For example, using `/plan` in {% data variables.copilot.copilot_cli_short %} counts as one premium request, and any follow-up prompt you send counts as another.
 
 ## What are premium requests?
 

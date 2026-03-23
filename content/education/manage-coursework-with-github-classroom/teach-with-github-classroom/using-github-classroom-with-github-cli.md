@@ -6,6 +6,8 @@ intro: You can use `gh`, the {% data variables.product.github %} command line in
 versions:
   fpt: '*'
 contentType: how-tos
+category:
+  - Set up GitHub Classroom
 ---
 
 ## About {% data variables.product.prodname_classroom %} CLI <!-- omit in toc -->

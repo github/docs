@@ -25,6 +25,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Triage and organize issues
 ---
 ## About labels
 

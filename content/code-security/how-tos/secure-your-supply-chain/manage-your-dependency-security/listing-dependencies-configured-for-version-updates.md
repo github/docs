@@ -12,11 +12,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Repositories
-  - Dependabot
-  - Version updates
-  - Dependencies
 shortTitle: List configured dependencies
 contentType: how-tos
 ---

@@ -10,6 +10,7 @@ redirect_from:
   - /actions/concepts/security/about-secrets
 category:
   - Secure your workflows
+contentType: concepts
 ---
 
 ## About secrets

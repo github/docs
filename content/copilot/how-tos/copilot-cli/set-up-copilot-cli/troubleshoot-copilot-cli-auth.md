@@ -169,10 +169,10 @@ On Linux, use the system keyring or store credentials in plaintext.
    command -v secret-tool
    ```
 
-1. If `secret-tool` is not found or the search command returns no results, install `libsecret` and its dependencies.
+1. If `secret-tool` is not found or the search command returns no results, install `libsecret` and its dependencies. For example, on Debian and Ubuntu you could use the following command."
 
    ```bash copy
-   sudo apt sudo apt list libsecret-1-0 libsecret-1-dev libsecret-common gnome-keyring gnome-keyring-pkcs11 seahorse
+   sudo apt install libsecret-1-0 gnome-keyring seahorse
    ```
 
 1. Once `secret-tool` is installed, search the keyring for a saved credential:

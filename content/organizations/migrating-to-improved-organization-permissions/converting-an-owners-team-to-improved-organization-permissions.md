@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Convert Owners team
+category:
+  - Assign roles and permissions
 ---
 
 You have a few options to convert your legacy Owners team:

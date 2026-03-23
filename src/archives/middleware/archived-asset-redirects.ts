@@ -29,7 +29,7 @@ export default function archivedAssetRedirects(
 ) {
   if (req.path in REDIRECTS) {
     const redirect = REDIRECTS[req.path].replace('/assets/', '/assets/cb-0000/')
-    return res.redirect(308, redirect)
+    return res.safeRedirect(308, redirect)
   }
 
   return next()

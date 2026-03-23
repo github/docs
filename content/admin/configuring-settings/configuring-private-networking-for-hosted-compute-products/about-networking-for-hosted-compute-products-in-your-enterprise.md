@@ -9,6 +9,8 @@ redirect_from:
   - /admin/configuration/configuring-private-networking-for-hosted-compute-products/about-networking-for-hosted-compute-products
   - /admin/configuration/configuring-private-networking-for-hosted-compute-products/about-networking-for-hosted-compute-products-in-your-enterprise
 contentType: concepts
+category:
+  - Install and configure your instance
 ---
 
 ## About network configurations

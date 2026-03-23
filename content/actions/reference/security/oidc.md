@@ -1,7 +1,7 @@
 ---
 title: OpenID Connect reference
 shortTitle: OIDC
-intro: 'Find information about using OpenID Connect (OIDC) to authenticate {% data variables.product.prodname_actions %} workflows with cloud providers.'
+intro: Find information about using OpenID Connect (OIDC) to authenticate {% data variables.product.prodname_actions %} workflows with cloud providers.
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,6 +10,7 @@ redirect_from:
   - /actions/reference/openid-connect-reference
 category:
   - Secure your workflows
+contentType: reference
 ---
 
 ## OIDC token claims
@@ -71,7 +72,7 @@ The OIDC token includes the following claims.
 | `repository_owner`| The name of the organization in which the `repository` is stored.                   |
 | `repository_owner_id`| The ID of the organization in which the `repository` is stored.            |
 | {% ifversion oidc-custom-properties %} |
-| `repo_property_*`| Custom properties defined at the organization or enterprise level that are included as claims in the OIDC token, prefixed with `repo_property_`. For more information, see [AUTOTITLE](#including-repository-custom-properties-in-oidc-tokens).                  |
+| `repo_property_*`| Custom properties defined at the organization or enterprise level that are included as claims in the OIDC token, prefixed with `repo_property_`. For more information, see [Including repository custom properties in OIDC tokens](#including-repository-custom-properties-in-oidc-tokens).                  |
 | {% endif %} |
 | `run_id`| The ID of the workflow run that triggered the workflow.                   |
 | `run_number`| The number of times this workflow has been run.                   |
@@ -183,7 +184,7 @@ You can security harden your OIDC configuration by customizing the claims that a
 * You can customize the format of your OIDC configuration by setting conditions on the subject (`sub`) claim that require JWT tokens to originate from a specific repository, reusable workflow, or other source.
 * You can define granular OIDC policies by using additional OIDC token claims, such as `repository_id` and `repository_visibility`. See [AUTOTITLE](/actions/concepts/security/openid-connect#understanding-the-oidc-token).
 {% ifversion oidc-custom-properties %}
-* You can include repository custom properties as claims in OIDC tokens, enabling attribute-based access control policies. See [AUTOTITLE](#including-repository-custom-properties-in-oidc-tokens).
+* You can include repository custom properties as claims in OIDC tokens, enabling attribute-based access control policies. See [Including repository custom properties in OIDC tokens](#including-repository-custom-properties-in-oidc-tokens).
 {% endif %}
 
 ### Customizing the `audience` value

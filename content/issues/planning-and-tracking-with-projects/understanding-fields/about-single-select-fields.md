@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /issues/planning-and-tracking-with-projects/understanding-field-types/about-single-select-fields
 contentType: tutorials
+category:
+  - Manage project items and fields
 ---
 
 You can filter by your single select fields by specifying the option, for example: `fieldname:option`. You can filter for multiple values by providing a comma-separated list of options, for example: `fieldname:option,option`. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects).

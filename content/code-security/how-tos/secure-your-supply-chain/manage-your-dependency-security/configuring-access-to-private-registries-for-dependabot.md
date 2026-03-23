@@ -12,12 +12,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Version updates
-  - Secret store
-  - Repositories
-  - Dependencies
 shortTitle: Configure access to private registries
 contentType: how-tos
 ---

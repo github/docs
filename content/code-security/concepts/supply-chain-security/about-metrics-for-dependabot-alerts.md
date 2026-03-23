@@ -5,13 +5,6 @@ versions:
   feature: dependabot-metrics
 product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
 permissions: '{% data reusables.permissions.security-overview-dependabot-metrics %}'
-topics:
-  - Security overview
-  - Code Security
-  - Dependabot
-  - Organizations
-  - Alerts
-  - Vulnerabilities
 shortTitle: Dependabot alert metrics
 contentType: concepts
 ---

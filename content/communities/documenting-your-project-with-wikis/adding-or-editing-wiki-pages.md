@@ -14,6 +14,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Manage wiki pages
+category:
+  - Document your project with wikis
 ---
 
 ## Adding wiki pages

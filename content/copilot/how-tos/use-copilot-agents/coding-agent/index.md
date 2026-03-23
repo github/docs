@@ -20,6 +20,7 @@ children:
   - /integrate-coding-agent-with-linear
   - /integrate-coding-agent-with-azure-boards
   - /changing-the-ai-model
+  - /configuring-agent-settings
   - /customize-the-agent-environment
   - /customize-the-agent-firewall
   - /use-hooks

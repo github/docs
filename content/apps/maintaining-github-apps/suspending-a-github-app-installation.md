@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Suspend an installation
+category:
+  - Maintain and share your app
 ---
 
 > [!NOTE]

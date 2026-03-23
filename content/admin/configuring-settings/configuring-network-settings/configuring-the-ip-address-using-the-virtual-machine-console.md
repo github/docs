@@ -10,6 +10,8 @@ versions:
   ghes: '*'
 shortTitle: Set the IP using the console
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 > [!NOTE]

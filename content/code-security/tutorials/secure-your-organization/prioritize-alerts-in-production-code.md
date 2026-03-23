@@ -6,12 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: tutorials
-topics:
-  - Code Security
-  - Dependabot
-  - Code scanning
-  - Organizations
-  - Security
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/prioritizing-dependabot-alerts-using-production-context
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/alerts-in-production-code

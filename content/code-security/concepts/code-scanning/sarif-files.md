@@ -2,9 +2,6 @@
 title: About SARIF files for code scanning
 shortTitle: SARIF files
 intro: SARIF files convert third-party analyses into alerts on {% data variables.product.github %}.
-topics:
-  - Code Security
-  - Code scanning
 versions:
   fpt: '*'
   ghes: '*'

@@ -5,6 +5,8 @@ versions:
   feature: ghes-opentelemetry
 shortTitle: External monitoring OpenTelemetry
 contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 {% ifversion ghes = 3.18 %}

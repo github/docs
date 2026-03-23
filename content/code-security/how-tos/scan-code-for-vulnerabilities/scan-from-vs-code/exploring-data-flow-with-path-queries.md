@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: Detect potential vulnerabilities by running path queries and analyzing your data flow.
 redirect_from:
   - /code-security/codeql-for-vs-code/exploring-data-flow-with-path-queries

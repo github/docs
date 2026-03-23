@@ -5,6 +5,8 @@ intro: You can configure additional data disks and use them to host data of diff
 versions:
   ghes: '>= 3.19'
 contentType: concepts
+category:
+  - Scale your instance
 ---
 
 > [!NOTE]

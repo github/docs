@@ -26,6 +26,8 @@ versions:
   ghec: '*'
 shortTitle: Upgrade plan
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 ## Upgrading your personal account's plan

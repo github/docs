@@ -5,11 +5,11 @@ redirect_from:
   - /organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles
 versions:
   feature: 'custom-org-roles'
-topics:
-  - Organizations
 shortTitle: Custom roles permissions
 
 product: 'Organizations on {% data variables.product.prodname_ghe_cloud %}{% ifversion ghes %} and {% data variables.product.prodname_ghe_server %}{% endif %}'
+category:
+  - Assign roles and permissions
 ---
 
 {% data reusables.organizations.custom-org-roles-intro %}

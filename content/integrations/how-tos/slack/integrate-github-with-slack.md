@@ -1,13 +1,14 @@
 ---
 title: Integrating GitHub with Slack
 shortTitle: Integrate GitHub with Slack
-intro: 'Learn how to integrate GitHub with Slack to improve collaboration and streamline workflows.'
+intro: Learn how to integrate GitHub with Slack to improve collaboration and streamline workflows.
 versions:
-    fpt: '*'
-    ghes: '*'
-    ghec: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 category:
   - Administer integrations
+contentType: how-tos
 ---
 
 ## About the {% data variables.product.github %} integration for Slack

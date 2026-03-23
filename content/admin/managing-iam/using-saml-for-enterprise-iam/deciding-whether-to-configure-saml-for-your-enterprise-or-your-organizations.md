@@ -7,6 +7,8 @@ versions:
 redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/deciding-whether-to-configure-saml-for-your-enterprise-or-your-organizations
 contentType: concepts
+category:
+  - Configure authentication
 ---
 
 {% data reusables.enterprise.ghec-authentication-options %} For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise).

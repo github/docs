@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Organization news feed
+category:
+  - Set up your organization
 ---
 
 

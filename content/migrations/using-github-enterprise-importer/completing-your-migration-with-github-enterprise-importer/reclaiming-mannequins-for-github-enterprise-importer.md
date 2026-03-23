@@ -10,6 +10,8 @@ permissions: Organization owners can reclaim mannequins.
 redirect_from:
   - /early-access/github/migrating-with-github-enterprise-importer/running-a-migration-with-github-enterprise-importer/reclaiming-mannequins-for-github-enterprise-importer
   - /early-access/enterprise-importer/completing-your-migration-with-github-enterprise-importer/reclaiming-mannequins-for-github-enterprise-importer
+category:
+  - Run an enterprise migration
 ---
 
 ## About mannequins

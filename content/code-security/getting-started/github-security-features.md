@@ -1,17 +1,11 @@
 ---
 title: GitHub security features
-intro: 'An overview of {% data variables.product.github %}''s security features.'
+intro: An overview of {% data variables.product.github %}'s security features.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 contentType: get-started
-topics:
-  - Repositories
-  - Dependencies
-  - Vulnerabilities
-  - Code Security
-  - Secret Protection
 ---
 
 ## About {% data variables.product.github %}'s security features
@@ -78,6 +72,14 @@ and [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-depe
 You can also use default {% data variables.dependabot.auto_triage_rules %} curated by {% data variables.product.github %} to automatically filter out a substantial amount of false positives.
 
 {% data reusables.dependabot.quickstart-link %}
+
+{% ifversion dependabot-malware-alerts %}
+
+#### {% data variables.product.prodname_dependabot_malware_alerts %}
+
+On {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_ghe_server %} 3.22+, you can view alerts for malicious dependencies in your repository. See [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-malware-alerts).
+
+{% endif %}
 
 ### {% data variables.product.prodname_dependabot_version_updates %}
 

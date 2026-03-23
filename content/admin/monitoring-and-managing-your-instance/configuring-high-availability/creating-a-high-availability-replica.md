@@ -11,6 +11,8 @@ versions:
   ghes: '*'
 shortTitle: Create HA replica
 contentType: how-tos
+category:
+  - Scale your instance
 ---
 {% data reusables.enterprise_installation.replica-limit %}
 

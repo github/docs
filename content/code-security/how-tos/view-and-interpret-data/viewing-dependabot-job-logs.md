@@ -8,12 +8,6 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: how-tos
-topics:
-  - Dependabot
-  - Troubleshooting
-  - Errors
-  - Security updates
-  - Dependencies
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/viewing-dependabot-job-logs
   - /code-security/dependabot/troubleshooting-dependabot/viewing-dependabot-job-logs

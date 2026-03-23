@@ -13,6 +13,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Review OAuth apps
+category:
+  - Install and authorize apps
 ---
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.access_applications %}

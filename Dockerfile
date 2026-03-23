@@ -1,7 +1,9 @@
 # This Dockerfile is used solely for production deployments to Moda
 # For building this file locally, see src/deployments/production/README.md
-# Environment variables are set in the Moda configuration:
+# Most environment variables are set in the Moda configuration:
 #   config/moda/configuration/*/env.yaml
+# V8 heap sizing is set here via NODE_OPTIONS and mirrored in
+# the Moda config files for defense-in-depth.
 
 # ---------------------------------------------------------------
 # BASE STAGE: Install linux dependencies and set up the node user
@@ -150,6 +152,14 @@ COPY --chown=node:node --from=precompute_stage $APP_HOME/.pageinfo-cache.json.br
 # and it then becomes available as an environment variable in the docker run.
 ARG BUILD_SHA
 ENV BUILD_SHA=$BUILD_SHA
+
+# V8 heap limit as a percentage of the container cgroup memory limit.
+# Uses --max-old-space-size-percentage (Node 24+) so the heap adapts
+# automatically when K8s memory limits change. 80% leaves ~20% headroom
+# for off-heap memory (Buffers, V8 code cache, libuv) and OS overhead.
+# Raised from 75% on advice from performance engineering to reduce GC
+# pressure during traffic spikes.
+ENV NODE_OPTIONS="--max-old-space-size-percentage=80"
 
 # Entrypoint to start the server
 CMD ["node_modules/.bin/tsx", "src/frame/server.ts"]

@@ -20,6 +20,8 @@ versions:
   ghes: '*'
 shortTitle: Migrate data
 contentType: how-tos
+category:
+  - Run an enterprise migration
 ---
 
 ## Preparing the migrated data

@@ -15,15 +15,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Security updates
-  - Version updates
-  - Repositories
-  - Pull requests
-  - Troubleshooting
-  - Errors
-  - Dependencies
 contentType: reference
 ---
 

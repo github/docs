@@ -17,6 +17,8 @@ versions:
   ghes: '*'
 shortTitle: Export from GHES
 contentType: how-tos
+category:
+  - Run an enterprise migration
 ---
 
 ## Preparing the {% data variables.product.prodname_ghe_server %} source instance

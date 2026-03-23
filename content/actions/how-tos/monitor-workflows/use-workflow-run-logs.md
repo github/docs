@@ -1,7 +1,7 @@
 ---
 title: Using workflow run logs
 shortTitle: Use workflow run logs
-intro: 'You can view, search, and download the logs for each job in a workflow run.'
+intro: You can view, search, and download the logs for each job in a workflow run.
 redirect_from:
   - /actions/managing-workflow-runs/using-workflow-run-logs
   - /actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs
@@ -14,6 +14,7 @@ versions:
   ghec: '*'
 category:
   - Manage and monitor workflow runs
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -4,10 +4,10 @@ intro: 'You can set, edit, and clear issue field values on individual issues to 
 versions:
   feature: issue-fields
 contentType: how-tos
-topics:
-  - Project management
 shortTitle: 'Using issue fields'
 permissions: 'People with triage access or greater to a repository can set and edit issue field values.'
+category:
+  - Create and work with issues
 ---
 
 {% data reusables.issues.issue-fields-public-preview-note %}
@@ -84,5 +84,6 @@ For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/usi
 
 Issue fields have full REST and GraphQL API support. You can automate field management, set values programmatically, and integrate with external tools.
 
-- **Managing fields**: Create, update, and delete organization-level fields. See the [Organization issue fields REST API](/rest/orgs/issue-fields).
-- **Using fields**: Get, set, and clear field values on individual issues. See the [Issue field values REST API](/rest/issues/issue-field-values).
+* **Managing fields**: Create, update, and delete organization-level fields. See the [Organization issue fields REST API](/rest/orgs/issue-fields).
+* **Using fields**: Get, set, and clear field values on individual issues. See the [Issue field values REST API](/rest/issues/issue-field-values).
+* **GraphQL**: Issue field types and mutations are also available via GraphQL. See the [`IssueFields` union](/graphql/reference/unions#issuefields), [issue field objects](/graphql/reference/objects#issuefieldtext) (such as `IssueFieldText`, `IssueFieldSingleSelect`, `IssueFieldNumber`, and `IssueFieldDate`), and [mutations](/graphql/reference/mutations#createissuefield) (such as `createIssueField`, `updateIssueField`, and `setIssueFieldValue`).

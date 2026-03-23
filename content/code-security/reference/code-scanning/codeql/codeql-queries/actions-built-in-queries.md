@@ -8,9 +8,6 @@ versions:
   fpt: '*'
   ghes: '>3.17'
   ghec: '*'
-topics:
-  - Code scanning
-  - CodeQL
 redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration/actions-built-in-queries
   - /code-security/code-scanning/managing-your-code-scanning-configuration/github-actions-built-in-queries

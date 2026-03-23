@@ -8,6 +8,8 @@ shortTitle: Delete enterprise account
 redirect_from:
   - /admin/overview/deleting-an-enterprise-account
 contentType: how-tos
+category:
+  - Get started with GitHub Enterprise
 ---
 
 ## Prerequisites

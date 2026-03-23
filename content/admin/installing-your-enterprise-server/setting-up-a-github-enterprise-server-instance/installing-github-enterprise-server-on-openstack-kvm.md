@@ -10,6 +10,8 @@ versions:
   ghes: '*'
 shortTitle: Install on OpenStack
 contentType: tutorials
+category:
+  - Install and configure your instance
 ---
 ## Prerequisites
 

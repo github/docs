@@ -9,6 +9,8 @@ versions:
   ghes: '*'
 shortTitle: Place a legal hold
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 Usually, if someone deletes a repository, it will be available on disk for 90 days and can be restored via the site admin dashboard. After 90 days the repository is purged and deleted forever. If you place a legal hold on a user or organization, repositories they own are available for restore indefinitely.

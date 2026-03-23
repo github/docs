@@ -8,10 +8,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
 redirect_from:
   - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository
 ---

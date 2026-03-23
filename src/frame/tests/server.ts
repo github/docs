@@ -86,16 +86,7 @@ describe('server', () => {
     // Important to use the prefix /en/ on the failing URL or else
     // it will render a very basic plain text 404 response.
     const $ = await getDOM('/en/not-a-real-page', { allow404: true })
-    expect($('h1').first().text()).toBe('Ooops!')
-    // Using type assertion because cheerio v1 types don't include text() on root
-    expect(($ as any).text().includes("It looks like this page doesn't exist.")).toBe(true)
-    expect(
-      ($ as any)
-        .text()
-        .includes(
-          'We track these errors automatically, but if the problem persists please feel free to contact us.',
-        ),
-    ).toBe(true)
+    expect(($ as any).text()).toContain('Page not found.')
     expect($.res.statusCode).toBe(404)
   })
 
@@ -310,6 +301,40 @@ describe('server', () => {
       })
       expect(res.statusCode).toBe(200)
       expect(res.headers['content-type']).toContain('text/html')
+    })
+
+    test('landing page returns non-empty markdown with title via Accept header', async () => {
+      const res = await get('/en/get-started', {
+        headers: {
+          accept: 'text/markdown',
+        },
+      })
+      expect(res.statusCode).toBe(200)
+      expect(res.headers['content-type']).toContain('text/markdown')
+      expect(res.body).toMatch(/^# .+/)
+      // Verify the landing page has content beyond just the title
+      expect(res.body).toMatch(/\n\n/)
+      expect(res.body.split('\n').length).toBeGreaterThan(3)
+    })
+
+    test('.md URL extension returns markdown with correct content type', async () => {
+      const res = await get('/en/get-started.md')
+      expect(res.statusCode).toBe(200)
+      expect(res.headers['content-type']).toContain('text/markdown')
+      expect(res.body).toMatch(/^# .+/)
+    })
+
+    test('/index.md redirects to the page without /index.md', async () => {
+      const res = await get('/en/get-started/index.md')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/en/get-started')
+    })
+
+    test('regular article .md URL includes title and intro', async () => {
+      const res = await get('/en/get-started/start-your-journey/hello-world.md')
+      expect(res.statusCode).toBe(200)
+      expect(res.headers['content-type']).toContain('text/markdown')
+      expect(res.body).toMatch(/^# Hello World/)
     })
   })
 })

@@ -7,6 +7,8 @@ versions:
 redirect_from:
   - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/exporting-and-scraping-prometheus-metrics
 contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 {% data reusables.enterprise.collectd-metrics-future %}

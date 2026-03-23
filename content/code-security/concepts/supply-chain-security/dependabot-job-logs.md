@@ -7,11 +7,6 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: concepts
-topics:
-  - Dependabot
-  - Troubleshooting
-  - Dependencies
-  - Security updates
 ---
 
 

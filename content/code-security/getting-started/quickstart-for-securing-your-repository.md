@@ -1,6 +1,6 @@
 ---
 title: Quickstart for securing your repository
-intro: 'Manage access to your code. Find and fix vulnerable code and dependencies automatically.'
+intro: Manage access to your code. Find and fix vulnerable code and dependencies automatically.
 permissions: '{% data reusables.permissions.security-repo-enable %}'
 redirect_from:
   - /github/administering-a-repository/about-securing-your-repository
@@ -11,12 +11,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: get-started
-topics:
-  - Repositories
-  - Dependencies
-  - Vulnerabilities
-  - Code Security
-  - Secret Protection
 shortTitle: Secure repository quickstart
 ---
 

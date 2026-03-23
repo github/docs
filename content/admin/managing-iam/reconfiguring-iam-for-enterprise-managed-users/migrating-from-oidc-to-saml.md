@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-oidc-to-saml
   - /admin/identity-and-access-management/reconfiguring-iam-for-enterprise-managed-users/migrating-from-oidc-to-saml
+category:
+  - Configure authentication
 ---
 
 {% data reusables.enterprise-accounts.azure-emu-support-oidc %}

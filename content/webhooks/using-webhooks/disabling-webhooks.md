@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Set up and manage webhooks
 ---
 
 ## About disabling webhooks

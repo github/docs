@@ -7,12 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Control dependency update
 redirect_from:
   - /code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated

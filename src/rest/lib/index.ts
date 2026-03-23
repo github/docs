@@ -1,7 +1,9 @@
-import fs from 'fs'
+import fs, { promises as fsPromises } from 'fs'
 import path from 'path'
 
-import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file'
+import QuickLRU from 'quick-lru'
+import { brotliDecompress } from 'zlib'
+import { promisify } from 'util'
 import { getAutomatedPageMiniTocItems } from '@/frame/lib/get-mini-toc-items'
 import { allVersions, getOpenApiVersion } from '@/versions/lib/all-versions'
 import languages from '@/languages/lib/languages-server'
@@ -9,16 +11,11 @@ import type { Context } from '@/types'
 import type { Operation } from '@/rest/components/types'
 
 export const REST_DATA_DIR = 'src/rest/data'
-export const REST_SCHEMA_FILENAME = 'schema.json'
 const REST_CONTENT_DIR = 'content/rest'
 
 // Type definitions for REST operations
-interface RestOperationCategory {
+export interface RestOperationCategory {
   [subcategory: string]: Operation[]
-}
-
-interface RestOperationData {
-  [category: string]: RestOperationCategory
 }
 
 interface RestMiniTocData {
@@ -53,11 +50,22 @@ interface RestMiniTocData {
   }
 */
 const NOT_API_VERSIONED = 'not_api_versioned'
+const brotliDecompressAsync = promisify(brotliDecompress)
 const restOperationData = new Map<
   string,
   Map<string, Map<string, Map<string, Map<string, RestMiniTocData>>>>
 >()
-const restOperations = new Map<string, Map<string, RestOperationData>>()
+
+// Two-tier cache: fpt and ghec are pinned in a plain Map (never evicted) because
+// they account for >90% of traffic and each version needs ~100 slots alone.
+// All other versions (ghes) go into a bounded LRU cache.
+const PINNED_OPEN_API_VERSIONS = new Set(['fpt', 'ghec'])
+export const pinnedCache = new Map<string, RestOperationCategory>() // @internal
+const LRU_MAX_SIZE = Math.max(1, parseInt(process.env.REST_SCHEMA_LRU_SIZE ?? '', 10) || 96)
+export const lruCache = new QuickLRU<string, RestOperationCategory>({ maxSize: LRU_MAX_SIZE }) // @internal
+
+// In-flight deduplication: concurrent cache misses for the same key share one read.
+const inflight = new Map<string, Promise<RestOperationCategory>>()
 
 for (const language of Object.keys(languages)) {
   restOperationData.set(language, new Map())
@@ -90,29 +98,54 @@ export const categoriesWithoutSubcategories: string[] = fs
 
 export default async function getRest(
   version: string,
-  apiVersion?: string,
-): Promise<RestOperationData> {
+  apiVersion: string | undefined,
+  category: string,
+): Promise<RestOperationCategory> {
   const openApiVersion = getOpenApiVersion(version)
-  const openapiSchemaName = apiVersion ? `${openApiVersion}-${apiVersion}` : `${openApiVersion}`
   const apiDate = apiVersion || NOT_API_VERSIONED
-  const fileName = path.join(REST_DATA_DIR, openapiSchemaName, REST_SCHEMA_FILENAME)
+  const openapiSchemaName = apiVersion ? `${openApiVersion}-${apiVersion}` : `${openApiVersion}`
+  const lruKey = `${openApiVersion}:${apiDate}:${category}`
 
-  if (!restOperations.has(openApiVersion)) {
-    restOperations.set(openApiVersion, new Map())
-    // The `readCompressedJsonFileFallback()` function
-    // will check for both a .br and .json extension.
-    restOperations
-      .get(openApiVersion)!
-      .set(apiDate, readCompressedJsonFileFallback(fileName) as RestOperationData)
-  } else if (!restOperations.get(openApiVersion)!.has(apiDate)) {
-    // The `readCompressedJsonFileFallback()` function
-    // will check for both a .br and .json extension.
-    restOperations
-      .get(openApiVersion)!
-      .set(apiDate, readCompressedJsonFileFallback(fileName) as RestOperationData)
+  const cache = PINNED_OPEN_API_VERSIONS.has(openApiVersion) ? pinnedCache : lruCache
+
+  if (!cache.has(lruKey)) {
+    const basePath = path.join(REST_DATA_DIR, openapiSchemaName, `${category}.json`)
+    if (!inflight.has(lruKey)) {
+      inflight.set(
+        lruKey,
+        loadCategoryFile(basePath).finally(() => inflight.delete(lruKey)),
+      )
+    }
+    cache.set(lruKey, await inflight.get(lruKey)!)
   }
 
-  return restOperations.get(openApiVersion)!.get(apiDate)!
+  return cache.get(lruKey)!
+}
+
+// Read asynchronously to avoid blocking the event loop on a cache miss.
+// A synchronous read + JSON.parse of a category file (1–2 MB) would stall
+// all in-flight requests on this pod for the duration of the parse.
+// Try the brotli-compressed variant first (used in staging), then plain JSON.
+async function loadCategoryFile(basePath: string): Promise<RestOperationCategory> {
+  try {
+    const compressed = await fsPromises.readFile(`${basePath}.br`)
+    const decompressed = await brotliDecompressAsync(compressed)
+    return JSON.parse(decompressed.toString()) as RestOperationCategory
+  } catch {
+    // .br missing, corrupt, or unreadable — fall back to plain JSON
+    const raw = await fsPromises.readFile(basePath, 'utf-8')
+    return JSON.parse(raw) as RestOperationCategory
+  }
+}
+
+export function getRestCategories(version: string, apiVersion?: string): string[] {
+  const openApiVersion = getOpenApiVersion(version)
+  const openapiSchemaName = apiVersion ? `${openApiVersion}-${apiVersion}` : `${openApiVersion}`
+  return fs
+    .readdirSync(path.join(REST_DATA_DIR, openapiSchemaName))
+    .filter((f) => f.endsWith('.json') && f !== 'schema.json')
+    .map((f) => f.replace('.json', ''))
+    .sort()
 }
 
 // Generates the miniToc for a rest reference page.

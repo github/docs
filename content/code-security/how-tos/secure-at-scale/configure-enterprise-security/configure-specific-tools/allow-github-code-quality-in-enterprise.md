@@ -8,8 +8,6 @@ product: '{% data reusables.gated-features.code-quality-availability %}'
 permissions: Enterprise owners
 audience:
   - driver
-topics:
-  - Code Quality
 contentType: how-tos
 allowTitleToDifferFromFilename: true
 redirect_from:

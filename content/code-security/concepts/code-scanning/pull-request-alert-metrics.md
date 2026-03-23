@@ -4,13 +4,6 @@ shortTitle: Pull request alert metrics
 intro: Understand {% data variables.product.prodname_codeql %}'s performance in pull requests across your organizations.
 permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
-topics:
-  - Security overview
-  - Code Security
-  - Code scanning
-  - CodeQL
-  - Organizations
-  - Teams
 contentType: concepts
 versions:
   feature: security-overview-org-codeql-pr-alerts

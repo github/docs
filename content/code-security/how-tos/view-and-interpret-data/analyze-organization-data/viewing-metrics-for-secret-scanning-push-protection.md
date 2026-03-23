@@ -9,12 +9,6 @@ contentType: how-tos
 redirect_from:
   - /code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization
   - /code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection
-topics:
-  - Security overview
-  - Secret Protection
-  - Secret scanning
-  - Organizations
-  - Teams
 versions:
   fpt: '*'
   ghec: '*'

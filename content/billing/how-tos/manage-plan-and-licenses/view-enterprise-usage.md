@@ -17,6 +17,8 @@ versions:
   ghes: '*'
 shortTitle: View enterprise usage
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 ## Viewing subscription and usage for your enterprise

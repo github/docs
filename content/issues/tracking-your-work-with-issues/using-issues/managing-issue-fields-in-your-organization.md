@@ -6,10 +6,10 @@ redirect_from:
 versions:
   feature: issue-fields
 contentType: concepts
-topics:
-  - Project management
 shortTitle: 'Managing issue fields'
 permissions: 'Organization owners can create and manage issue fields.'
+category:
+  - Triage and organize issues
 ---
 
 {% data reusables.issues.issue-fields-public-preview-note %}

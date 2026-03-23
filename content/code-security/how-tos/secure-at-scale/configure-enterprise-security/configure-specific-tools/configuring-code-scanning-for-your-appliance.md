@@ -13,11 +13,6 @@ redirect_from:
 versions:
   ghes: '*'
   ghec: '*'
-topics:
-  - Advanced Security
-  - Code scanning
-  - Enterprise
-  - Security
 contentType: how-tos
 ---
 <!--The CodeQL CLI man pages include a link to a section in this article. If you rename this article,

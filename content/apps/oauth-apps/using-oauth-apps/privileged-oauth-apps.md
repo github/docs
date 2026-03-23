@@ -8,6 +8,8 @@ versions:
 shortTitle: Privileged apps
 redirect_from: 
   - /apps/oauth-apps/using-oauth-apps/internal-oauth-apps
+category:
+  - Install and authorize apps
 ---
 
 Some {% data variables.product.prodname_oauth_apps %} are privileged apps. These apps are owned by {% data variables.product.company_short %} and are granted special capabilities. For example, even if an organization owner has restricted access by {% data variables.product.prodname_oauth_apps %} to the organization's data, users can still authorize these apps and use them to access data from the organization.

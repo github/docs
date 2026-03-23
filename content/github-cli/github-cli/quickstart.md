@@ -8,6 +8,8 @@ versions:
 allowTitleToDifferFromFilename: true
 shortTitle: Quickstart
 contentType: concepts
+category:
+  - Learn the basics
 ---
 
 ## About {% data variables.product.prodname_cli %}

@@ -6,6 +6,8 @@ permissions: '{% data reusables.actions.azure-vnet-organization-permissions %}'
 versions:
   feature: actions-private-networking-azure-vnet
 contentType: how-tos
+category:
+  - Secure and monitor your organization
 ---
 
 ## About network configurations

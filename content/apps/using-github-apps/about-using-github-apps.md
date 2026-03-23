@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+category:
+  - Understand GitHub Apps
 ---
 
 ## About {% data variables.product.prodname_github_apps %}

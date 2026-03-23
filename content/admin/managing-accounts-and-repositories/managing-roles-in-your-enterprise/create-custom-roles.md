@@ -7,6 +7,8 @@ shortTitle: Create custom roles
 redirect_from:
   - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/custom-organization-roles
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 {% data reusables.enterprise-onboarding.create-custom-roles %}

@@ -8,6 +8,8 @@ shortTitle: Create a GitHub App
 redirect_from:
   - /admin/managing-your-enterprise-account/creating-github-apps-for-your-enterprise
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 {% data reusables.enterprise-onboarding.create-enterprise-apps %}

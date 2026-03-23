@@ -5,11 +5,6 @@ permissions: '{% data reusables.permissions.delegated-alert-dismissal %}'
 versions:
   feature: security-delegated-alert-dismissal
 contentType: how-tos
-topics:
-  - Secret scanning
-  - Advanced Security
-  - Alerts
-  - Repositories
 shortTitle: Delegated alert dismissal
 redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning

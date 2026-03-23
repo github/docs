@@ -11,6 +11,8 @@ redirect_from:
   - /admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/disabling-authentication-for-enterprise-managed-users
   - /admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/disabling-authentication-and-provisioning-for-enterprise-managed-users
 contentType: concepts
+category:
+  - Provision and manage enterprise users
 ---
 
 ## About disabled authentication for {% data variables.product.prodname_emus %}

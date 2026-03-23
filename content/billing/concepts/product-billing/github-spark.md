@@ -8,6 +8,8 @@ redirect_from:
   - /copilot/concepts/copilot-billing/about-billing-for-github-spark
   - /copilot/concepts/copilot-billing/billing-for-spark
 contentType: concepts
+category:
+  - Understand product costs
 ---
 
 {% data reusables.copilot.spark-business-intro %}

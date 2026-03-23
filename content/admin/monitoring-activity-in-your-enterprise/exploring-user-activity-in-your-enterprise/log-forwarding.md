@@ -12,6 +12,8 @@ redirect_from:
 versions:
   ghes: '*'
 contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## About log forwarding

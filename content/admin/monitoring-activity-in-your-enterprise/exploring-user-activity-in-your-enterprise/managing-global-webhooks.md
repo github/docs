@@ -19,6 +19,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## About global webhooks

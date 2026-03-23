@@ -9,7 +9,7 @@ redirect_from:
   - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-jfrog
   - /actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-jfrog
   - /actions/how-tos/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-jfrog
-contentType: tutorials
+contentType: how-tos
 category:
   - Secure your workflows
 ---

@@ -14,13 +14,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Dependabot
-  - Security updates
-  - Alerts
-  - Dependencies
-  - Pull requests
-  - Repositories
 ---
 
 {% data reusables.dependabot.enterprise-enable-dependabot %}

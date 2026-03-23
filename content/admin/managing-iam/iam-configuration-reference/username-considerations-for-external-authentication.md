@@ -10,6 +10,8 @@ redirect_from:
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/username-considerations-for-external-authentication
   - /admin/identity-and-access-management/iam-configuration-reference/username-considerations-for-external-authentication
 contentType: reference
+category:
+  - Configure authentication
 ---
 
 {% ifversion ghec %}

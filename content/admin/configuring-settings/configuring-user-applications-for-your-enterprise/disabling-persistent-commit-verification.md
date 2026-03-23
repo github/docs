@@ -6,6 +6,8 @@ versions:
   ghes: '>=3.17'
 permissions: Site administrators
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About persistent commit verification

@@ -238,7 +238,7 @@ defaultTool: cli
 **Note: the featured track is set by a specific property in the learning tracks YAML. See that [README](../data/learning-tracks/README.md) for details.*
 
 ### `includeGuides`
-- Purpose: Render a list of articles, filterable by `contentType` and `topics`. Only applicable when used with `layout: product-guides`.
+- Purpose: Render a list of articles, filterable by `contentType`. Only applicable when used with `layout: product-guides`.
 - Type: `Array`
 - Optional.
 

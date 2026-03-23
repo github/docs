@@ -16,6 +16,8 @@ redirect_from:
 versions:
   ghec: '*'
   feature: scim-for-ghes-public-beta
+category:
+  - Provision and manage enterprise users
 ---
 
 {% data reusables.scim.ghes-beta-note %}

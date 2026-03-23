@@ -64,37 +64,31 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-data-in-github-insights/managing-repositories
   - /admin/configuration/configuring-your-enterprise/configuring-data-encryption-for-your-enterprise
   - /admin/guides
-introLinks:
-  overview: '{% ifversion ghes %}/admin/overview/about-github-enterprise-server{% elsif ghec %}/admin/overview/about-github-enterprise-cloud{% endif %}'
-  releases: '{% ifversion ghes %}/admin/all-releases{% endif %}'
-  try_ghec_for_free: '{% ifversion ghec %}https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise{% endif %}'
 changelog:
   label: enterprise
-featuredLinks:
-  startHere:
-    - '/admin/concepts/identity-and-access-management\identity-and-access-management-fundamentals'
-    - '{% ifversion ghec %}/admin/concepts/identity-and-access-management/enterprise-types-for-github-enterprise-cloud{% endif %}'
-    - '{% ifversion ghec %}/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles{% endif %}'
-    - '{% ifversion ghes %}/admin/getting-started-with-enterprise/about-upgrades-to-new-releases{% endif %}'
-    - '{% ifversion ghes %}/billing/how-tos/set-up-payment/manage-enterprise-invoice{% endif %}'
-  guideCards:
-    - '{% ifversion ghes %}/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server{% endif %}'
-    - '{% ifversion ghes %}/admin/configuring-packages/getting-started-with-github-packages-for-your-enterprise{% endif %}'
-    - '{% ifversion ghes < 3.15 %}/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise{% endif %}'
-    - '{% ifversion ghec %}/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise{% endif %}'
-    - '{% ifversion ghec %}/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise{% endif %}'
-    - '{% ifversion ghec %}/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise{% endif %}'
-  popular:
-    - /admin/getting-started-with-enterprise/about-github-enterprise-server
-    - '{% ifversion ghes %}/admin/getting-started-with-enterprise/setting-up-a-trial-of-github-enterprise-server{% endif %}'
-    - '{% ifversion ghes %}/admin/installing-your-enterprise-server{% endif %}'
-    - '{% ifversion ghec %}/admin/configuring-settings/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise{% endif %}'
-    - '/admin/concepts/security-and-compliance/audit-log-for-an-enterprise'
-    - '{% ifversion ghec %}/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/managing-global-webhooks{% endif %}'
-    - '{% ifversion ghec %}/billing/how-tos/set-up-payment/set-up-vs-subscription{% endif %}'
-    - /support/learning-about-github-support/about-github-support
-    - /admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities
-layout: product-landing
+layout: discovery-landing
+includedCategories:
+  - Get started with GitHub Enterprise
+  - Install and configure your instance
+  - Configure authentication
+  - Provision and manage enterprise users
+  - Manage accounts and repositories
+  - Secure and govern your enterprise
+  - Monitor and audit your enterprise
+  - Back up and upgrade your instance
+  - Scale your instance
+  - Enable GitHub features for your enterprise
+carousels:
+  recommended:
+    - /admin/overview/about-github-enterprise-cloud
+    - /admin/overview/about-github-enterprise-server
+    - /admin/concepts/enterprise-fundamentals/enterprise-accounts
+    - /admin/concepts/identity-and-access-management/identity-and-access-management-fundamentals
+    - /admin/concepts/identity-and-access-management/enterprise-managed-users
+    - /admin/concepts/security-and-compliance/audit-log-for-an-enterprise
+    - /admin/overview/about-upgrades-to-new-releases
+    - /admin/overview/accessing-compliance-reports-for-your-enterprise
+    - /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
 versions:
   ghec: '*'
   ghes: '*'

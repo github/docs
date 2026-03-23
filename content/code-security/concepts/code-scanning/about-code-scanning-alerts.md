@@ -11,10 +11,6 @@ versions:
 redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts
   - /code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 contentType: concepts
 ---
 

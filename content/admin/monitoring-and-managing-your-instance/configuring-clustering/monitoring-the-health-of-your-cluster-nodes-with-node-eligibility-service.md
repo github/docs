@@ -10,6 +10,8 @@ redirect_from:
   - /admin/enterprise-management/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service
 contentType: how-tos
+category:
+  - Scale your instance
 ---
 
 ## About {% data variables.product.prodname_nes %}

@@ -6,11 +6,6 @@ versions:
   feature: secret-scanning-push-protection-for-users
 product: '{% data reusables.gated-features.push-protection-for-users %}'
 contentType: how-tos
-topics:
-  - Secret scanning
-  - Secret Protection
-  - Alerts
-  - User account
 redirect_from:
   - /code-security/secret-scanning/push-protection-for-users
   - /code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users

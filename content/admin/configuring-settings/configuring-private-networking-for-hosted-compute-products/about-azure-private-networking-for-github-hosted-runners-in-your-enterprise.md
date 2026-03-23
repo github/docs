@@ -10,6 +10,8 @@ redirect_from:
   - /admin/configuration/configuring-private-networking-for-hosted-compute-products/about-using-github-hosted-runners-in-your-azure-virtual-network
   - /admin/configuration/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise
 contentType: concepts
+category:
+  - Install and configure your instance
 ---
 
 ## About Azure private networking for {% data variables.product.company_short %}-hosted runners

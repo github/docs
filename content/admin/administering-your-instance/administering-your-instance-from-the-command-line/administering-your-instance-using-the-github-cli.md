@@ -5,6 +5,8 @@ versions:
   feature: ghes-manage-api-cli-extension
 shortTitle: Using the GitHub CLI
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 ## About the `gh es` extension for {% data variables.product.prodname_cli %}
 

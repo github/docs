@@ -8,6 +8,8 @@ versions:
 contentType: get-started
 audience:
   - driver
+category:
+  - Get started with billing
 ---
 
 <!--

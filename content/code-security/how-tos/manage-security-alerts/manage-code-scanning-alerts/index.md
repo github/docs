@@ -7,11 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Code Security
-  - Code scanning
-  - Alerts
-  - Repositories
 redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts
 children:

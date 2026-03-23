@@ -6,15 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Dependabot
-  - Version updates
-  - Repositories
-  - Dependencies
-  - Pull requests
-  - Dependency graph
-  - Alerts
-  - Vulnerabilities
 contentType: reference
 children:
   - /automatic-dependency-submission

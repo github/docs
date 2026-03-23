@@ -15,10 +15,12 @@ children:
   - dependency-graph-data
   - about-dependency-review
   - about-dependabot-alerts
+  - dependabot-malware-alerts
   - about-metrics-for-dependabot-alerts
   - about-dependabot-security-updates
   - about-dependabot-version-updates
   - about-dependabot-pull-requests
+  - multi-ecosystem-updates
   - about-the-dependabot-yml-file
   - about-dependabot-auto-triage-rules
   - about-dependabot-on-github-actions-runners

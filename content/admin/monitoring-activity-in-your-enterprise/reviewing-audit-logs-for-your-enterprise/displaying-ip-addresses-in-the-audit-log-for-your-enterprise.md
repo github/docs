@@ -6,6 +6,8 @@ permissions: Enterprise owners can display IP addresses in the audit log for an 
 versions:
   feature: enterprise-audit-log-ip-addresses
 contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## About display of IP addresses in the audit log

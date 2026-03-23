@@ -9,6 +9,8 @@ redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-web-commit-signing
   - /admin/configuration/configuring-user-applications-for-your-enterprise/configuring-web-commit-signing
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About web commit signing

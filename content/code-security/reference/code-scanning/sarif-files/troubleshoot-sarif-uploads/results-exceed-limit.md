@@ -3,11 +3,6 @@ title: SARIF results exceed one or more limits
 shortTitle: Results exceed limits
 allowTitleToDifferFromFilename: true
 intro: Learn how to resolve problems when a SARIF file is rejected by {% data variables.product.prodname_code_scanning %} because one or more limits is exceeded.
-topics:
-  - Code scanning
-  - Errors
-  - SARIF
-  - Troubleshooting
 versions:
   fpt: '*'
   ghes: '*'

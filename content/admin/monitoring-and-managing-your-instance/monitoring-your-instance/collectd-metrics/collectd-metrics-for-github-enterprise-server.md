@@ -7,6 +7,8 @@ versions:
 redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/collectd-metrics-for-github-enterprise-server
 contentType: reference
+category:
+  - Monitor and audit your enterprise
 ---
 
 {% data reusables.enterprise.collectd-metrics-future %}

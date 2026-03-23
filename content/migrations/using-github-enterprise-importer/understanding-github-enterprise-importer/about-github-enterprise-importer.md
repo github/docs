@@ -18,6 +18,8 @@ redirect_from:
   - /early-access/enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/preparing-to-run-a-migration-with-github-enterprise-importer
   - /migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/preparing-to-run-a-migration-with-github-enterprise-importer
   - /migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer
+category:
+  - Understand enterprise migration tools
 ---
 
 ## About {% data variables.product.prodname_importer_proper_name %}

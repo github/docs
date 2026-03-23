@@ -11,6 +11,8 @@ versions:
   ghec: '*'
 shortTitle: Code review settings
 permissions: Team maintainers and organization owners can configure code review settings.
+category:
+  - Organize teams
 ---
 
 ## About code review settings

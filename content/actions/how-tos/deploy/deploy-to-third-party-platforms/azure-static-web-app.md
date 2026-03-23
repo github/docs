@@ -13,6 +13,7 @@ redirect_from:
   - /actions/how-tos/managing-workflow-runs-and-deployments/deploying-to-third-party-platforms/deploying-to-azure-static-web-app
 category:
   - Deploy to environments
+contentType: how-tos
 ---
 
 ## Prerequisites

@@ -4,6 +4,8 @@ intro: 'You can configure monitoring and alerting so that you''re aware of poten
 versions:
   ghes: '*'
 shortTitle: About monitoring
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## Metrics

@@ -5,11 +5,9 @@ intro: 'Add nodes to the primary high availability (HA) datacenter. This is inte
 versions:
   ghes: '>= 3.18'
 contentType: how-tos
-topics:
-  - High availability
-  - Enterprise
-  - Infrastructure
 allowTitleToDifferFromFilename: true
+category:
+  - Scale your instance
 ---
 
 > [!NOTE]

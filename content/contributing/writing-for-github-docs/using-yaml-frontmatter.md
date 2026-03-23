@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 redirect_from:
   - /contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter
+category:
+  - Write and format content
 ---
 
 ## About YAML frontmatter
@@ -235,7 +237,7 @@ defaultTool: cli
 
 ### `includeGuides`
 
-* Purpose: Render a list of articles, filterable by `type` and `topics`. Only applicable when used with `layout: product-guides`.
+* Purpose: Render a list of articles, filterable by `type`. Only applicable when used with `layout: product-guides`.
 * Type: `Array`
 * Optional.
 

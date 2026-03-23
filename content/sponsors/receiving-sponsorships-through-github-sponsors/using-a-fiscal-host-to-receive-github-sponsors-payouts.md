@@ -6,6 +6,8 @@ versions:
   ghec: '*'
 shortTitle: Using a fiscal host
 contentType: how-tos
+category:
+  - Set up to receive sponsorships
 ---
 
 ## About using a fiscal host to receive {% data variables.product.prodname_sponsors %} payouts

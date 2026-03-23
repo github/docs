@@ -13,10 +13,6 @@ redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page
   - /code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page
   - /code-security/how-tos/scan-code-for-vulnerabilities/manage-your-configuration/about-the-tool-status-page
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 contentType: how-tos
 ---
 

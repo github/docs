@@ -12,6 +12,8 @@ versions:
   ghes: '*'
 shortTitle: Configure an outbound proxy
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 
 ## About configuration of a proxy for {% data variables.product.prodname_ghe_server %}

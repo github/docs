@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: Download and install dependencies for your {% data variables.product.prodname_codeql %} query and library packs in {% data variables.product.prodname_vscode %} using the {% data variables.product.prodname_codeql %} extension.
 allowTitleToDifferFromFilename: true
 redirect_from:

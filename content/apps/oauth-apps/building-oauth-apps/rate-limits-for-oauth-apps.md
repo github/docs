@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Rate limits
+category:
+  - Build and manage OAuth apps
 ---
 
 > [!NOTE]

@@ -9,6 +9,8 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/preparing-for-the-elasticsearch-upgrade
   - /admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/preparing-for-the-elasticsearch-upgrade
 contentType: reference
+category:
+  - Back up and upgrade your instance
 ---
 
 ## Overview

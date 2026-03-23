@@ -6,11 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Vulnerabilities
-  - Repositories
-  - Dependencies
 shortTitle: dependabot.yml file
 contentType: concepts
 ---

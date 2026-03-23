@@ -6,16 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
-  - Actions
-  - Repositories
-  - C/C++
-  - C#
-  - Java
-  - Kotlin
 redirect_from:
   - /code-security/code-scanning/managing-your-code-scanning-configuration
 children:

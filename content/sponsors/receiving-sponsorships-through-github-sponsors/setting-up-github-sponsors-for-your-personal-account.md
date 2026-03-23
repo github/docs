@@ -11,6 +11,8 @@ versions:
   ghec: '*'
 shortTitle: Set up for personal account
 contentType: how-tos
+category:
+  - Set up to receive sponsorships
 ---
 
 ## Joining {% data variables.product.prodname_sponsors %}

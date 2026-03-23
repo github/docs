@@ -12,6 +12,8 @@ versions:
   ghec: '*'
 shortTitle: Impact of plan changes
 contentType: concepts
+category:
+  - Manage your plan and licenses
 ---
 
 ## How plan changes affect billing

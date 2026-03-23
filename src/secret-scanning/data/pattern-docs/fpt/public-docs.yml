@@ -4037,6 +4037,16 @@
   base64Supported: false
   isduplicate: false
 - provider: Salesforce
+  supportedSecret: Salesforce Marketing Cloud API OAuth2 Token
+  secretType: salesforce_marketing_cloud_api_oauth2_token
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  hasExtendedMetadata: false
+  base64Supported: false
+  isduplicate: false
+- provider: Salesforce
   supportedSecret: Salesforce OAuth2 Consumer Key
   secretType: salesforce_oauth2_consumer_key, </br>salesforce_oauth2_consumer_secret
   isPublic: false

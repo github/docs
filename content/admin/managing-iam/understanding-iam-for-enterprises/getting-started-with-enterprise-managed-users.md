@@ -8,6 +8,8 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users
 contentType: concepts
+category:
+  - Configure authentication
 ---
 
 Before your developers can use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}, you must follow a series of configuration steps.

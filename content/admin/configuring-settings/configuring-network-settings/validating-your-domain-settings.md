@@ -10,6 +10,8 @@ versions:
   ghes: '*'
 shortTitle: Validate domain settings
 contentType: how-tos
+category:
+  - Install and configure your instance
 ---
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

@@ -5,13 +5,6 @@ intro: Approve or deny requests from contributors who need to push commits conta
 permissions: '{% data reusables.permissions.security-overview %}'
 product: '{% data reusables.gated-features.security-overview-fpt-sp-only %}'
 contentType: how-tos
-topics:
-  - Security overview
-  - Secret Protection
-  - Organizations
-  - Teams
-  - Secret scanning
-  - Alerts
 versions:
   feature: security-overview-delegated-bypass-requests
 redirect_from:

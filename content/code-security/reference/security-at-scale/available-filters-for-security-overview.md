@@ -10,13 +10,6 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: reference
-topics:
-  - Security overview
-  - Code Security
-  - Secret Protection
-  - Alerts
-  - Organizations
-  - Teams
 redirect_from:
   - /code-security/reference/security-alert-management/available-filters-for-security-overview
   - /code-security/reference/security-alert-management
@@ -188,7 +181,9 @@ For more information about production context, see [AUTOTITLE](/code-security/se
 
 ## {% data variables.product.prodname_dependabot %} alert view filters
 
-**Available in:** {% data variables.product.prodname_dependabot %} alert view
+**Available in:**
+* {% data variables.product.prodname_dependabot_alerts %} view{% ifversion dependabot-malware-alerts %}
+* {% data variables.product.prodname_dependabot_malware_alerts %} view{% endif %}
 
 | Qualifier | Description |
 | -------- | -------- |

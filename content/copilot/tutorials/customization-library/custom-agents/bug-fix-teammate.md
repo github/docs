@@ -4,11 +4,14 @@ intro: A custom agent that identifies critical bugs in your project and implemen
 category:
   - Custom agents
   - Getting started
+  - Scale institutional knowledge
+  - Configure Copilot
 complexity:
   - Simple
 octicon: copilot
 versions:
   feature: copilot
+contentType: tutorials
 ---
 
 {% data reusables.copilot.custom-agents-examples-note %}

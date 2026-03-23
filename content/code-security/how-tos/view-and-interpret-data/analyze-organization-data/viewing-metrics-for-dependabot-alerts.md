@@ -8,13 +8,6 @@ versions:
 permissions: '{% data reusables.permissions.security-overview-dependabot-metrics %}'
 product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
 contentType: how-tos
-topics:
-  - Security overview
-  - Code Security
-  - Dependabot
-  - Organizations
-  - Alerts
-  - Vulnerabilities
 redirect_from:
   - /code-security/security-overview/viewing-metrics-for-dependabot-alerts
 ---

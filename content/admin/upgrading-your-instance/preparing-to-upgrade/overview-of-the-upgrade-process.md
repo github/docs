@@ -18,11 +18,10 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server
 versions:
   ghes: '*'
-topics:
-  - Enterprise
-  - Upgrades
 shortTitle: Upgrading overview
 contentType: concepts
+category:
+  - Back up and upgrade your instance
 ---
 
 {% data reusables.enterprise.constantly-improving %} You are responsible for upgrades to your instance. See [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases).

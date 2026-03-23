@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Activate optional features
+category:
+  - Build and manage OAuth apps
 ---
 
 > [!WARNING]

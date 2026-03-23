@@ -16,6 +16,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Visibility
+category:
+  - Register and configure a GitHub App
 ---
 
 ## About visibility for {% data variables.product.prodname_github_apps %}

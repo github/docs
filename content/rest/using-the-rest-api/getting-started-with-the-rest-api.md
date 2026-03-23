@@ -14,6 +14,8 @@ redirect_from:
   - /v3/media
   - /rest/overview/media-types
   - /rest/using-the-rest-api/media-types
+category:
+  - Learn about the REST API
 ---
 
 ## Introduction

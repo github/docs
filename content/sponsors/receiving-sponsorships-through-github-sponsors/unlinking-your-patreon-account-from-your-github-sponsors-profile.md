@@ -6,6 +6,8 @@ versions:
   ghec: '*'
 shortTitle: Unlink Patreon
 contentType: how-tos
+category:
+  - Manage your sponsored account
 ---
 
 > [!NOTE]

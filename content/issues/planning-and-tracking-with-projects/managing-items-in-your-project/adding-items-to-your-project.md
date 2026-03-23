@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 allowTitleToDifferFromFilename: true
 contentType: tutorials
+category:
+  - Manage project items and fields
 ---
 
 > [!NOTE]
@@ -18,9 +20,6 @@ contentType: tutorials
 You have several options for adding issues and pull requests to your project. You can add them individually, automatically, or in bulk. Furthermore, you can include issues and pull requests from any organization, and you also have the ability to add draft issues that can be converted into regular issues later on. For more information, see [Creating draft issues](#creating-draft-issues).
 
 {% ifversion projects-v2-timeline-events %}
-
-> [!NOTE]
-> Timeline events for Projects is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 When you add an issue or pull request to your project, an event will be added to the issue or pull request's timeline. Timeline events will also be added when you remove issues or pull requests and when changes are made to its `status` field for those items. Timeline events are only visible to people who have at least read permission for the project. If a change is made by a built-in workflow, the activity will be attributed to **@github-project-automation**.
 

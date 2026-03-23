@@ -119,7 +119,6 @@ export type MainContextT = {
   page: {
     documentType: string
     contentType?: string
-    topics: Array<string>
     title: string
     fullTitle?: string
     introPlainText?: string
@@ -224,7 +223,6 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
       contentType: req.context.page.contentType || null,
       title: req.context.page.title,
       fullTitle: req.context.page.fullTitle || null,
-      topics: req.context.page.topics || [],
       introPlainText: req.context.page?.introPlainText || null,
       applicableVersions: req.context.page?.permalinks.map((obj: any) => obj.pageVersion) || [],
       hidden: req.context.page.hidden || false,

@@ -5,6 +5,8 @@ versions:
   feature: pull-request-approval-limit
 permissions: Organization owners can limit which users can submit reviews that approve or request changes to a pull request.
 shortTitle: Manage pull request reviews
+category:
+  - Set repository policies
 ---
 
 ## About code review limits

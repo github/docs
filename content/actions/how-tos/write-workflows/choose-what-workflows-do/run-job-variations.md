@@ -15,6 +15,7 @@ redirect_from:
   - /actions/how-tos/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow
 category:
   - Write workflows
+contentType: how-tos
 ---
 
 ## About matrix strategies

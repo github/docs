@@ -13,6 +13,8 @@ versions:
   ghes: '*'
 shortTitle: Configure built-in authentication
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 ## About built-in authentication

@@ -6,10 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 permissions: '{% data reusables.permissions.dependency-graph-export-sbom %}'
-topics:
-  - Dependency graph
-  - Dependencies
-  - Repositories
 shortTitle: Export dependencies as SBOM
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository

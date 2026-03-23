@@ -15,14 +15,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - Actions
-  - Repositories
-  - Pull requests
-  - JavaScript
-  - Python
 shortTitle: Workflow configuration options
 allowTitleToDifferFromFilename: true
 contentType: reference

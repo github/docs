@@ -8,6 +8,8 @@ versions:
   ghec: '*'
 allowTitleToDifferFromFilename: true
 contentType: tutorials
+category:
+  - Manage project items and fields
 ---
 
 ## Copying and pasting cells in a table

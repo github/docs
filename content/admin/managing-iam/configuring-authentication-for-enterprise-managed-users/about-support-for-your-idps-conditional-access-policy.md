@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy
   - /admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/about-support-for-your-idps-conditional-access-policy
+category:
+  - Provision and manage enterprise users
 ---
 
 {% data reusables.enterprise-accounts.azure-emu-support-oidc %}

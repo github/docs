@@ -5,8 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: Explore the queries that {% data variables.product.prodname_codeql %} uses to analyze code quality for code written in JavaScript.
 versions:
   feature: code-quality
-topics:
-  - Code Quality
 contentType: reference
 redirect_from:
   - /code-security/code-quality/reference/codeql-queries/javascript-queries

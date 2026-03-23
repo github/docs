@@ -13,13 +13,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Security updates
-  - Vulnerabilities
-  - Repositories
-  - Dependencies
-  - Pull requests
 contentType: concepts
 ---
 

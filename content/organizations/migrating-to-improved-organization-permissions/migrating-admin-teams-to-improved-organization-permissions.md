@@ -10,6 +10,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Migrate admin team
+category:
+  - Assign roles and permissions
 ---
 
 ## About migrations for legacy admin teams

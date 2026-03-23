@@ -14,6 +14,8 @@ versions:
   ghes: '*'
 shortTitle: Invite people to manage
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 
 ## About administrator management

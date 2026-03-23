@@ -5,22 +5,12 @@ intro: Build a {% data variables.product.prodname_custom_security_configuration 
 permissions: '{% data reusables.permissions.security-configuration-enterprise-enable %}'
 versions:
   feature: security-configuration-enterprise-level
-topics:
-  - Advanced Security
-  - Enterprise
-  - Security
 redirect_from:
   - /admin/managing-code-security/securing-your-enterprise/creating-a-custom-security-configuration-for-your-enterprise
 contentType: how-tos
 ---
 
 ## About {% data variables.product.prodname_custom_security_configurations %}
-
-{% ifversion security-configurations-cloud %}
-
-We recommend securing your enterprise with the {% data variables.product.prodname_github_security_configuration %}, then evaluating the security findings on your repositories before configuring {% data variables.product.prodname_custom_security_configurations %}. For more information, see [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/applying-the-github-recommended-security-configuration-to-your-enterprise).
-
-{% endif %}
 
 With {% data variables.product.prodname_custom_security_configurations %}, you can create collections of enablement settings for {% data variables.product.company_short %}'s security products to meet the specific security needs of your enterprise. For example, you can create a different {% data variables.product.prodname_custom_security_configuration %} for each organization or group of organizations to reflect their unique security requirements and compliance obligations.
 
@@ -54,9 +44,9 @@ When creating a security configuration, keep in mind that:
 {% data reusables.enterprise-accounts.advanced-security-tab %}
 1. In the "{% data variables.product.prodname_security_configurations_caps %}" section, click **New configuration**.
 1. To help identify your {% data variables.product.prodname_custom_security_configuration %} and clarify its purpose on the "{% data variables.product.prodname_security_configurations_caps %}" page, name your configuration and create a description.
-1. Optionally, enable "{% data variables.product.prodname_secret_protection %}", a paid feature for private {% ifversion ghec %}and internal {% endif %} repositories. Enabling {% data variables.product.prodname_secret_protection %} enables alerts for {% data variables.product.prodname_secret_scanning %}. In addition, you can choose whether to enable, disable, or keep the existing settings for the following {% data variables.product.prodname_secret_scanning %} features:
-    {% ifversion secret-scanning-validity-check-partner-patterns %}
-    * **Validity checks**.  To learn more about validity checks for partner patterns, see [AUTOTITLE](/code-security/concepts/secret-security/about-validity-checks) and [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).{% endif %}{% ifversion fpt or ghec %}
+1. Optionally, enable "{% data variables.product.prodname_secret_protection %}", a paid feature for private {% ifversion ghec %}and internal {% endif %} repositories. Enabling {% data variables.product.prodname_secret_protection %} enables alerts for {% data variables.product.prodname_secret_scanning %}. In addition, you can choose whether to enable, disable, or keep the existing settings for the following {% data variables.product.prodname_secret_scanning %} features:{% ifversion secret-scanning-validity-check-partner-patterns %}
+    * **Validity checks**. To learn more about validity checks for partner patterns, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).{% ifversion ghes > 3.19 %}
+       Your site administrator must enable validity checks before you can use this feature. See [AUTOTITLE](/code-security/how-tos/secure-at-scale/configure-enterprise-security/configure-specific-tools/configuring-secret-scanning-for-your-appliance).{% endif %}{% endif %}{% ifversion fpt or ghec %}
     * **Extended metadata**. To learn more about extended metadata checks, see [About extended metadata checks](/code-security/concepts/secret-security/about-validity-checks#about-extended-metadata-checks) and [AUTOTITLE](/code-security/tutorials/remediate-leaked-secrets/evaluating-alerts#reviewing-extended-metadata-for-a-token).
     > [!NOTE]
     > You can only enable extended metadata checks if validity checks are enabled.{% endif %}{% ifversion org-npp-enablement-security-configurations %}
@@ -77,7 +67,8 @@ When creating a security configuration, keep in mind that:
    * **Automatic dependency submission**. To learn about automatic dependency submission, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository).{%- endif %}
    * **{% data variables.product.prodname_dependabot %} alerts**. To learn about {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
    * **Security updates**. To learn about security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).{% ifversion dependabot-delegated-alert-dismissal %}
-   * **Prevent direct alert dismissals**. To learn more, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/enable-delegated-alert-dismissal).{% endif %}{% ifversion fpt or ghec %}
+   * **Prevent direct alert dismissals**. To learn more, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/enable-delegated-alert-dismissal).{% endif %}{% ifversion dependabot-malware-alerts %}
+   * **{% data variables.product.prodname_dependabot_malware_alerts_short_caps %}**. To learn more, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-malware-alerts).{% endif %}{% ifversion fpt or ghec %}
 1. For "Private vulnerability reporting", choose whether you want to enable, disable, or keep the existing settings. To learn about private vulnerability reporting, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository).{% endif %}
 1. Optionally, in the "Policy" section, you can use additional options to control how the configuration is applied:
    * **Use as default for newly created repositories**. Select the **None** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Public**, **Private and internal**, or **All repositories**.
@@ -117,7 +108,8 @@ When creating a security configuration, keep in mind that:
    * **Automatic dependency submission**. To learn about automatic dependency submission, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository).{%- endif %}
    * **{% data variables.product.prodname_dependabot %} alerts**. To learn about {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
    * **Security updates**. To learn about security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).{% ifversion dependabot-delegated-alert-dismissal %}
-   * **Prevent direct alert dismissals**. To learn more, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/enable-delegated-alert-dismissal).{% endif %}{% ifversion fpt or ghec %}
+   * **Prevent direct alert dismissals**. To learn more, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/enable-delegated-alert-dismissal).{% endif %}{% ifversion dependabot-malware-alerts %}
+   * **{% data variables.product.prodname_dependabot_malware_alerts_short_caps %}**. To learn more, see [AUTOTITLE](/code-security/concepts/supply-chain-security/dependabot-malware-alerts).{% endif %}{% ifversion fpt or ghec %}
 1. For "Private vulnerability reporting", choose whether you want to enable, disable, or keep the existing settings. To learn about private vulnerability reporting, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository).{% endif %}
 1. Optionally, in the "Policy" section, you can use additional options to control how the configuration is applied:
    * **Use as default for newly created repositories**. Select the **None** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Public**, **Private and internal**, or **All repositories**.

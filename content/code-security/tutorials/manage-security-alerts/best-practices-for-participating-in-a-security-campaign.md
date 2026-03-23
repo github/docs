@@ -8,11 +8,6 @@ product: '{% data reusables.gated-features.security-campaigns %}'
 contentType: tutorials
 versions:
   feature: security-campaigns
-topics:
-  - Code Security
-  - Code scanning
-  - Alerts
-  - Repositories
 redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts/best-practices-for-participating-in-a-security-campaign
 ---

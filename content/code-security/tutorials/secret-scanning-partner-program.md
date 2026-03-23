@@ -13,10 +13,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-topics:
-  - API
-  - Secret scanning
-  - Secret Protection
 shortTitle: Partner program
 contentType: tutorials
 ---

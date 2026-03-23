@@ -15,6 +15,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Rate limits
+category:
+  - Register and configure a GitHub App
 ---
 
 {% ifversion ghes %}

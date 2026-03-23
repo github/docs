@@ -9,6 +9,8 @@ redirect_from:
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/troubleshooting-identity-and-access-management-for-your-enterprise
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/troubleshooting-identity-and-access-management-for-your-enterprise
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 {% ifversion ghec %}

@@ -1,13 +1,14 @@
 ---
 title: Using GitHub in Slack
 shortTitle: Use GitHub in Slack
-intro: 'Learn how to use GitHub in Slack to improve collaboration and streamline your workflow.'
+intro: Learn how to use GitHub in Slack to improve collaboration and streamline your workflow.
 versions:
-    fpt: '*'
-    ghes: '*'
-    ghec: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 category:
   - Use integrations
+contentType: how-tos
 ---
 
 The {% data variables.product.github %} integration for Slack allows you to connect your {% data variables.product.github %} account to the {% data variables.product.github %} app in Slack. Once connected, you can use slash commands to interact with {% data variables.product.github %}, receive notifications about repository activity, and collaborate with your team directly within Slack.

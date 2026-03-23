@@ -21,6 +21,26 @@ describe('junk paths', () => {
     expect(res.headers['cache-control']).toMatch('public')
   })
 
+  test('double-slash protocol-relative paths are safely redirected', async () => {
+    const res = await get('//evil.com')
+    expect(res.statusCode).toBe(301)
+    // Must normalize to a safe local path, not redirect externally
+    expect(res.headers.location).toBe('/evil.com')
+  })
+
+  test('double-slash with query params does not open redirect', async () => {
+    const res = await get('//evil.com?a=1&b=2&c=3')
+    // With 3 unrecognized query keys, the query string middleware redirects
+    // using res.safeRedirect which normalizes // to /
+    expect(res.headers.location).not.toMatch(/^\/\//)
+  })
+
+  test('triple-slash paths are still blocked', async () => {
+    const res = await get('///evil.com')
+    expect(res.statusCode).toBe(404)
+    expect(res.headers['content-type']).toMatch('text/plain')
+  })
+
   test('junk base name', async () => {
     const res = await get('/en/get-started/.env.local')
     expect(res.statusCode).toBe(404)

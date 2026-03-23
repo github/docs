@@ -19,6 +19,7 @@ versions:
   ghec: '*'
 category:
   - Write workflows
+contentType: how-tos
 ---
 
 ## Defining environment variables for a single workflow

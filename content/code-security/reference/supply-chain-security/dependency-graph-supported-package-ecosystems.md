@@ -3,12 +3,6 @@ title: Dependency graph supported package ecosystems
 shortTitle: Dependency graph ecosystems
 intro: Dependency graph supports a variety of ecosystems.
 allowTitleToDifferFromFilename: true
-topics:
-  - Dependency graph
-  - Dependencies
-  - Alerts
-  - Vulnerabilities
-  - Repositories
 versions:
   fpt: '*'
   ghec: '*'

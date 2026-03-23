@@ -7,6 +7,8 @@ shortTitle: Teams
 redirect_from:
   - /admin/overview/about-teams
 contentType: concepts
+category:
+  - Get started with GitHub Enterprise
 ---
 
 {% data reusables.enterprise-onboarding.about-teams %}

@@ -11,6 +11,8 @@ versions:
   ghes: '*'
 shortTitle: About HA configuration
 contentType: concepts
+category:
+  - Scale your instance
 ---
 When you configure high availability, there is an automated setup of one-way, asynchronous replication of all datastores (Git repositories, MySQL, Redis, and Elasticsearch) from the primary to the replica appliance. Most {% data variables.product.prodname_ghe_server %} configuration settings are also replicated, including the {% data variables.enterprise.management_console %} password. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console).
 

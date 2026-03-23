@@ -14,6 +14,8 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 {% data reusables.audit_log.retention-periods %}
 

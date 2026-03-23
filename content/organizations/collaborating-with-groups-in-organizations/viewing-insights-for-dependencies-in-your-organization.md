@@ -9,6 +9,8 @@ versions:
   ghec: '*'
 shortTitle: Dependency insights
 permissions: '{% data reusables.permissions.dependency-graph-view-org-insights %}'
+category:
+  - Configure organization features
 ---
 
 > [!NOTE]

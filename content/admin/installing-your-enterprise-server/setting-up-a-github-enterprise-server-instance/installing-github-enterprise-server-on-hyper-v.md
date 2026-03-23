@@ -10,6 +10,8 @@ versions:
   ghes: '*'
 shortTitle: Install on Hyper-V
 contentType: tutorials
+category:
+  - Install and configure your instance
 ---
 ## Prerequisites
 

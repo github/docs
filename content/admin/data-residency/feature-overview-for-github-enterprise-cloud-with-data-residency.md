@@ -6,6 +6,8 @@ versions:
   ghec: '*'
 redirect_from:
   - /early-access/admin/data-residency-for-github-enterprise-cloud/feature-overview-for-github-enterprise-cloud-with-data-residency
+category:
+  - Get started with GitHub Enterprise
 ---
 
 {% data reusables.data-residency.data-resident-enterprise-feature-availability %} Some features work differently or require additional configuration compared to the equivalent feature on {% data variables.product.prodname_dotcom_the_website %}.
@@ -101,4 +103,4 @@ Some features on {% data variables.enterprise.data_residency_site %} are current
 
 ### {% data variables.product.prodname_github_codespaces %}
 
-{% data variables.product.prodname_github_codespaces %} on {% data variables.enterprise.data_residency_site %} are in {% data variables.release-phases.public_preview %}.
+{% data variables.product.prodname_github_codespaces %} on {% data variables.enterprise.data_residency_site %} are in {% data variables.release-phases.public_preview %} and are available in all {% data variables.enterprise.data_residency %} regions: EU, Australia, US, and Japan.

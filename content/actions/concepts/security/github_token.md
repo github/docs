@@ -7,6 +7,7 @@ versions:
   ghec: '*'
 category:
   - Secure your workflows
+contentType: concepts
 ---
 
 ## About the `GITHUB_TOKEN`

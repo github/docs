@@ -11,13 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - Dependabot
-  - Alerts
-  - Notifications
-  - Vulnerabilities
-  - Dependencies
-  - Repositories
 contentType: how-tos
 ---
 

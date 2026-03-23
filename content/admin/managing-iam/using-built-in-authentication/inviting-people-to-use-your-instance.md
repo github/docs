@@ -8,6 +8,8 @@ shortTitle: Invite people
 redirect_from:
   - /admin/identity-and-access-management/using-built-in-authentication/inviting-people-to-use-your-instance
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 ## About invitations for new users

@@ -14,6 +14,7 @@ versions:
   ghec: '*'
 category:
   - Manage and monitor workflow runs
+contentType: how-tos
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

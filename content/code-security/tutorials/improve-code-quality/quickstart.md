@@ -7,8 +7,6 @@ versions:
 shortTitle: Quickstart
 product: '{% data reusables.gated-features.code-quality-availability %}'
 permissions: '{% data reusables.permissions.code-quality-see-repo-findings %}'
-topics:
-  - Code Quality
 contentType: tutorials
 redirect_from:
   - /code-security/code-quality/get-started/quickstart

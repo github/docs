@@ -4,7 +4,7 @@ shortTitle: '{% data variables.copilot.copilot_cli_short %}'
 intro: Use {% data variables.product.prodname_copilot_short %} directly from your terminal to answer questions, write and debug code, and interact with {% data variables.product.github %}.
 versions:
   feature: copilot
-contentType: landing
+contentType: how-tos
 layout: bespoke-landing
 heroImage: /assets/images/banner-images/hero-4
 sidebarLink:
@@ -14,23 +14,24 @@ introLinks:
   overview: /copilot/concepts/agents/copilot-cli/about-copilot-cli
   quickstart: /copilot/how-tos/copilot-cli/cli-getting-started
 children:
-  # Top-level articles and sub-categories in the Copilot How-to's are listed at the top of this list.
-  # This sets the order we show them in the side nav.
-  # All content from other directories and in any sub-directories can be added in any order underneath.
   - /cli-getting-started
   - /cli-best-practices
   - /set-up-copilot-cli
+  - /allowing-tools
   - /automate-copilot-cli
   - /customize-copilot
   - /use-copilot-cli-agents
   - /administer-copilot-cli-for-your-enterprise
   - /speeding-up-task-completion
+  - /chronicle
   - /content/copilot/concepts/agents/copilot-cli/about-copilot-cli
   - /content/copilot/concepts/agents/copilot-cli/comparing-cli-features
+  - /content/copilot/concepts/agents/about-agent-skills
   - /content/copilot/concepts/agents/copilot-cli/about-cli-plugins
   - /content/copilot/concepts/agents/copilot-cli/autopilot
   - /content/copilot/concepts/agents/copilot-cli/fleet
   - /content/copilot/concepts/agents/copilot-cli/research
+  - /content/copilot/concepts/agents/copilot-cli/chronicle
   - /set-up-copilot-cli/install-copilot-cli
   - /set-up-copilot-cli/configure-copilot-cli
   - /automate-copilot-cli/quickstart
@@ -44,7 +45,6 @@ children:
   - /customize-copilot/plugins-marketplace
   - /customize-copilot/overview
   - /customize-copilot/use-hooks
-  - /content/copilot/concepts/agents/about-agent-skills
   - /content/copilot/reference/copilot-cli-reference/cli-command-reference
   - /content/copilot/reference/copilot-cli-reference/cli-plugin-reference
   - /content/copilot/reference/copilot-cli-reference/cli-programmatic-reference

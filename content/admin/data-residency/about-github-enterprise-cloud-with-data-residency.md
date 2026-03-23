@@ -10,6 +10,8 @@ redirect_from:
   - /early-access/admin/preview-of-data-residency-for-github-enterprise/about-the-preview-of-data-residency-for-github-enterprise
   - /early-access/admin/private-ga-of-data-residency-for-github-enterprise-cloud/about-the-private-ga-of-data-residency-for-github-enterprise-cloud
   - /early-access/admin/data-residency-for-github-enterprise-cloud/about-data-residency-for-github-enterprise-cloud
+category:
+  - Get started with GitHub Enterprise
 ---
 
 By default, {% data variables.product.company_short %} stores data for {% data variables.product.prodname_dotcom_the_website %} in the USA. {% data reusables.data-residency.when-you-adopt-data-residency %} To learn how {% data variables.product.company_short %} handles data storage, see [AUTOTITLE](/admin/data-residency/about-storage-of-your-data-with-data-residency).

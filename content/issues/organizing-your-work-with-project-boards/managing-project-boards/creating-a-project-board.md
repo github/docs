@@ -10,6 +10,8 @@ versions:
   feature: projects-v1-can-create
 allowTitleToDifferFromFilename: true
 contentType: how-tos
+category:
+  - Use project boards (classic)
 ---
 {% data reusables.projects.project_boards_old %}
 

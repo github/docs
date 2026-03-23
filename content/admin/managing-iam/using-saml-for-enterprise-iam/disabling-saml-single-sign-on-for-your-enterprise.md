@@ -7,6 +7,8 @@ shortTitle: Disable SAML SSO
 redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/disabling-saml-single-sign-on-for-your-enterprise
 contentType: how-tos
+category:
+  - Configure authentication
 ---
 
 ## About disabled SAML SSO for your enterprise

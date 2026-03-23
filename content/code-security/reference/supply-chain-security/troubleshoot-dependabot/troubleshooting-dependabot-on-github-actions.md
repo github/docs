@@ -5,14 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Actions
-  - Dependabot
-  - Version updates
-  - Security updates
-  - Repositories
-  - Dependencies
-  - Pull requests
 shortTitle: Troubleshoot Dependabot on Actions
 redirect_from:
   - /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-on-github-actions

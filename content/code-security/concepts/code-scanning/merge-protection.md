@@ -2,9 +2,6 @@
 title: Code scanning merge protection
 shortTitle: Merge protection
 intro: Code scanning rules prevent pull requests with potential vulnerabilities from being merged.
-topics:
-  - Code Security
-  - Code scanning
 product: 'Rulesets are available in public repositories with {% data variables.product.prodname_free_user %} and {% data variables.product.prodname_free_team %} for organizations, and in public and private repositories with {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, and {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}'
 permissions: 'Repository administrators and organization owners'
 versions:

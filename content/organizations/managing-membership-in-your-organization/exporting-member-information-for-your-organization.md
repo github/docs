@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Export member information
+category:
+  - Manage members
 ---
 
 ## About export of membership information

@@ -5,6 +5,8 @@ versions:
   feature: ghes-opentelemetry
 shortTitle: Using Grafana to analyze metrics
 contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## Prerequisites

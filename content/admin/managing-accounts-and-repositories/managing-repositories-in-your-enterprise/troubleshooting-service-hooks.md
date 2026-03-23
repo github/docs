@@ -10,6 +10,8 @@ redirect_from:
 versions:
   ghes: '*'
 shortTitle: Troubleshoot service hooks
+category:
+  - Manage accounts and repositories
 ---
 ## Getting information on deliveries
 

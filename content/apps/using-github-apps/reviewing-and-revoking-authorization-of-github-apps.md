@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Review your authorizations
+category:
+  - Install and authorize apps
 ---
 
 ## About authorized {% data variables.product.prodname_github_apps %}

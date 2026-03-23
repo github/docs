@@ -8,6 +8,8 @@ versions:
   ghes: '*'
 allowTitleToDifferFromFilename: true
 contentType: tutorials
+category:
+  - Set up and manage projects
 ---
 
 ## Linking a repository to your project

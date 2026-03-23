@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: You can run queries on {% data variables.product.prodname_codeql %} databases and view the results in {% data variables.product.prodname_vscode %}.
 allowTitleToDifferFromFilename: true
 redirect_from:

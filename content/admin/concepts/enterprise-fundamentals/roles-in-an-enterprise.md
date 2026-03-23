@@ -7,6 +7,8 @@ shortTitle: Roles
 redirect_from:
   - /admin/overview/about-roles
 contentType: concepts
+category:
+  - Get started with GitHub Enterprise
 ---
 
 {% data reusables.enterprise-onboarding.about-roles %}

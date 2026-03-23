@@ -32663,6 +32663,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "optionId",
+          "description": "<p>The selected option's global relay ID.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -52177,7 +52185,7 @@
       "fields": [
         {
           "name": "content",
-          "description": "<p>The content of the referenced draft issue, issue, or pull request.</p>",
+          "description": "<p>The content of the referenced draft issue, issue, pull request.</p>",
           "type": "ProjectV2ItemContent",
           "id": "projectv2itemcontent",
           "kind": "unions",
@@ -97116,6 +97124,11 @@
           "name": "Team",
           "id": "team",
           "href": "/graphql/reference/objects#team"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/objects#user"
         }
       ]
     },

@@ -12,6 +12,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+category:
+  - Get started
 ---
 
 ## Introduction

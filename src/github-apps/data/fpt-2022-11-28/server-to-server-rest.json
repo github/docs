@@ -25,6 +25,24 @@
       "requestPath": "/enterprises/{enterprise}/actions/cache/storage-limit"
     },
     {
+      "slug": "list-oidc-custom-property-inclusions-for-an-enterprise",
+      "subcategory": "oidc",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/properties/repo"
+    },
+    {
+      "slug": "create-an-oidc-custom-property-inclusion-for-an-enterprise",
+      "subcategory": "oidc",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/properties/repo"
+    },
+    {
+      "slug": "delete-an-oidc-custom-property-inclusion-for-an-enterprise",
+      "subcategory": "oidc",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/properties/repo/{custom_property_name}"
+    },
+    {
       "slug": "get-github-actions-cache-retention-limit-for-an-organization",
       "subcategory": "cache",
       "verb": "get",
@@ -155,6 +173,24 @@
       "subcategory": "hosted-runners",
       "verb": "delete",
       "requestPath": "/orgs/{org}/actions/hosted-runners/{hosted_runner_id}"
+    },
+    {
+      "slug": "list-oidc-custom-property-inclusions-for-an-organization",
+      "subcategory": "oidc",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/oidc/customization/properties/repo"
+    },
+    {
+      "slug": "create-an-oidc-custom-property-inclusion-for-an-organization",
+      "subcategory": "oidc",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/actions/oidc/customization/properties/repo"
+    },
+    {
+      "slug": "delete-an-oidc-custom-property-inclusion-for-an-organization",
+      "subcategory": "oidc",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/oidc/customization/properties/repo/{custom_property_name}"
     },
     {
       "slug": "get-the-customization-template-for-an-oidc-subject-claim-for-an-organization",
@@ -2119,6 +2155,42 @@
       "subcategory": "copilot-user-management",
       "verb": "delete",
       "requestPath": "/orgs/{org}/copilot/billing/selected_users"
+    },
+    {
+      "slug": "get-copilot-coding-agent-permissions-for-an-organization",
+      "subcategory": "copilot-coding-agent-management",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/coding-agent/permissions"
+    },
+    {
+      "slug": "set-copilot-coding-agent-permissions-for-an-organization",
+      "subcategory": "copilot-coding-agent-management",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/copilot/coding-agent/permissions"
+    },
+    {
+      "slug": "list-repositories-enabled-for-copilot-coding-agent-in-an-organization",
+      "subcategory": "copilot-coding-agent-management",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories"
+    },
+    {
+      "slug": "set-selected-repositories-for-copilot-coding-agent-in-an-organization",
+      "subcategory": "copilot-coding-agent-management",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories"
+    },
+    {
+      "slug": "enable-a-repository-for-copilot-coding-agent-in-an-organization",
+      "subcategory": "copilot-coding-agent-management",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}"
+    },
+    {
+      "slug": "disable-a-repository-for-copilot-coding-agent-in-an-organization",
+      "subcategory": "copilot-coding-agent-management",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}"
     },
     {
       "slug": "get-copilot-content-exclusion-rules-for-an-organization",

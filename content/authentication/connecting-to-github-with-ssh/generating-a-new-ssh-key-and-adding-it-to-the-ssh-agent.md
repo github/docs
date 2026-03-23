@@ -12,6 +12,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Generate new SSH key
+category:
+  - Connect with SSH
 ---
 
 ## About SSH key passphrases

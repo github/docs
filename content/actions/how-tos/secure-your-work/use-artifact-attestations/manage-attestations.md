@@ -9,6 +9,7 @@ redirect_from:
   - /actions/how-tos/security-for-github-actions/using-artifact-attestations/managing-the-lifecycle-of-artifact-attestations
 category:
   - Secure your workflows
+contentType: how-tos
 ---
 
 {% data reusables.actions.lifecycle-of-attestations %}
@@ -31,8 +32,8 @@ Use the `created` filter to filter by creation date. To enter a custom date rang
 
 Use the `predicate` filter to filter by the kind of attestation. A predicate is the type of claim that an attestation makes about an artifact, such as "this artifact was built during a particular workflow run and originates from this repository."
 
-* Provenance attestations were created with the `attest-build-provenance` action.
-* SBOM attestations were created with the `attest-sbom` action.
+* Provenance attestations were created with the `attest` action.
+* SBOM attestations were created with the `attest` action using the `sbom-path` input.
 * Custom predicate type patterns are **not** supported in the search field, but are supported by the API.
 
 ## Deleting attestations

@@ -10,6 +10,8 @@ versions:
   ghes: '*'
 shortTitle: Use GitHub Connect for actions
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

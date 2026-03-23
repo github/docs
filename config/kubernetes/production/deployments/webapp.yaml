@@ -4,8 +4,14 @@ metadata:
   name: webapp
   annotations:
     moda.github.net/allow-missing-ready-pods: '1'
+    moda.github.net/inject-unified-service-tag-env-var: docs-internal
 spec:
-  replicas: 6
+  replicas: 12
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 2
   selector:
     matchLabels:
       app: webapp
@@ -18,6 +24,8 @@ spec:
         # See https://thehub.github.com/epd/engineering/dev-practicals/observability/logging/ for more details
         fluentbit.io/parser: logfmt_sloppy
         observability.github.com/splunk_index: docs-internal
+        ad.datadoghq.com/webapp.logs: '[{"source":"nodejs","service":"docs-internal","tags":["env:production"]}]'
+        ad.datadoghq.com/tolerate-unready: 'true'
     spec:
       dnsPolicy: Default
       containers:
@@ -25,18 +33,18 @@ spec:
           image: docs-internal
           resources:
             requests:
-              cpu: 2500m
+              cpu: 1250m
               # Absolute minimum to start app is 1000m
               # Node is single-threaded but we want more CPUs
               # for OS and image resizing, and other binary executions
               # Better to increase replicas or memory than CPU
-              memory: 6.0Gi
+              memory: 8.0Gi
               # Absolute minimum to start app is 4500Mi
               # Would increase with more pages, versions, or languages supported
               # The additional memory helps during traffic surges
             limits:
-              cpu: 16000m
-              memory: 16Gi
+              cpu: 8000m
+              memory: 16.0Gi
           ports:
             - name: http
               containerPort: 4000
@@ -50,6 +58,15 @@ spec:
             # configuration set in config/moda/configuration/*/env.yaml
             - configMapRef:
                 name: application-config
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
           # Zero-downtime deploys
           # https://thehub.github.com/engineering/products-and-services/internal/moda/feature-documentation/pod-lifecycle/#required-prestop-hook
           # https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
@@ -57,10 +74,18 @@ spec:
             preStop:
               exec:
                 command: ['sleep', '5']
-          readinessProbe:
-            initialDelaySeconds: 5
+          startupProbe:
             httpGet:
-              # WARNING: This should be updated to a meaningful endpoint for your application which will return a 200 once the app is fully started.
-              # See: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes
+              path: /healthcheck
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 12
+            timeoutSeconds: 5
+          readinessProbe:
+            timeoutSeconds: 5
+            periodSeconds: 10
+            failureThreshold: 3
+            httpGet:
               path: /healthcheck
               port: http

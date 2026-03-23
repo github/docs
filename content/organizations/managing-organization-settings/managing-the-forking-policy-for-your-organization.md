@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Manage forking policy
+category:
+  - Set repository policies
 ---
 
 By default, new organizations are configured to disallow the forking of private{% ifversion ghes or ghec %} and internal{% endif %} repositories.

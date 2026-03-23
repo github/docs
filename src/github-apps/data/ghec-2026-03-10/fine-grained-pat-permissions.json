@@ -290,6 +290,33 @@
       },
       {
         "category": "actions",
+        "slug": "list-oidc-custom-property-inclusions-for-an-organization",
+        "subcategory": "oidc",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/oidc/customization/properties/repo",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
+        "slug": "create-an-oidc-custom-property-inclusion-for-an-organization",
+        "subcategory": "oidc",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/actions/oidc/customization/properties/repo",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "delete-an-oidc-custom-property-inclusion-for-an-organization",
+        "subcategory": "oidc",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/oidc/customization/properties/repo/{custom_property_name}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "actions",
         "slug": "get-the-customization-template-for-an-oidc-subject-claim-for-an-organization",
         "subcategory": "oidc",
         "verb": "get",
@@ -1081,6 +1108,66 @@
         "verb": "delete",
         "requestPath": "/orgs/{org}/campaigns/{campaign_number}",
         "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
+  "organization_copilot_agent_settings": {
+    "title": "Copilot agent settings",
+    "displayTitle": "Organization permissions for \"Copilot agent settings\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "get-copilot-coding-agent-permissions-for-an-organization",
+        "subcategory": "copilot-coding-agent-management",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/coding-agent/permissions",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "set-copilot-coding-agent-permissions-for-an-organization",
+        "subcategory": "copilot-coding-agent-management",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/copilot/coding-agent/permissions",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "list-repositories-enabled-for-copilot-coding-agent-in-an-organization",
+        "subcategory": "copilot-coding-agent-management",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "set-selected-repositories-for-copilot-coding-agent-in-an-organization",
+        "subcategory": "copilot-coding-agent-management",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "enable-a-repository-for-copilot-coding-agent-in-an-organization",
+        "subcategory": "copilot-coding-agent-management",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "disable-a-repository-for-copilot-coding-agent-in-an-organization",
+        "subcategory": "copilot-coding-agent-management",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/copilot/coding-agent/permissions/repositories/{repository_id}",
+        "additional-permissions": true,
         "access": "write"
       }
     ]

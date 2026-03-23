@@ -8,6 +8,8 @@ versions:
 redirect_from:
   - /codespaces/developing-in-codespaces/default-environment-variables-for-your-codespace
 contentType: concepts
+category:
+  - Write code in a codespace
 ---
 
 ## About default environment variables

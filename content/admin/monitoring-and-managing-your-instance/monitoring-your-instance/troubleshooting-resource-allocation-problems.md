@@ -7,6 +7,8 @@ versions:
   ghes: '*'
 shortTitle: Troubleshooting resource allocation problems
 contentType: how-tos
+category:
+  - Monitor and audit your enterprise
 ---
 
 ## Troubleshooting common resource allocation problems on your appliance

@@ -11,6 +11,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Manage comments
+category:
+  - Moderate comments and conversations
 ---
 
 ## Hiding a comment

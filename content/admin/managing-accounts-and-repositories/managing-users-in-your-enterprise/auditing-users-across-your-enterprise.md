@@ -11,6 +11,8 @@ versions:
   ghes: '*'
 shortTitle: Audit users
 contentType: how-tos
+category:
+  - Manage accounts and repositories
 ---
 ## Accessing the audit log
 

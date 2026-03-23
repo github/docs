@@ -18,12 +18,6 @@ versions:
   ghec: '*'
   ghes: '*'
 contentType: how-tos
-topics:
-  - Security advisories
-  - Alerts
-  - Dependabot
-  - Vulnerabilities
-  - CVEs
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Browsing security vulnerabilities in the GitHub Advisory Database".-->
 

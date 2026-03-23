@@ -15,6 +15,8 @@ redirect_from:
   - /billing/how-tos/manage-plan-and-licenses/add-licenses
 shortTitle: Manage user licenses
 contentType: how-tos
+category:
+  - Manage your plan and licenses
 ---
 
 ## Organizations on {% data variables.product.prodname_team %}
@@ -28,6 +30,9 @@ If you're the **owner** or **billing manager** of an organization on a {% data v
 1. In the {% data variables.product.prodname_team %} banner, click **Edit** and select **Add seats** or **Remove seats**.
 1. Define the number of new seats you require. The details of the prorated cost for the remainder of the billing cycle and the total for your next bill are updated automatically.
 1. Click **Add seats** or **Remove seats**.
+
+> [!NOTE]
+> **Remove seats** is only displayed when you have unassigned seats available.
 
 ### Changing members to outside collaborators
 

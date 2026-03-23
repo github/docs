@@ -1,12 +1,12 @@
 ---
 title: Customizing notifications for GitHub in Slack
 shortTitle: Customize notifications
-intro: 'Learn how to customize notifications for GitHub in Slack.'
+intro: Learn how to customize notifications for GitHub in Slack.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-contentType: reference
+contentType: how-tos
 category:
   - Use integrations
 ---

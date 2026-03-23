@@ -1,12 +1,11 @@
-import type { Context, Page, SecretScanningData } from '@/types'
+import type { Context, Page } from '@/types'
 import type { PageTransformer } from './types'
-import fs from 'fs'
-import yaml from 'js-yaml'
+import { load } from 'js-yaml'
 import path from 'path'
-import { getVersionInfo } from '@/app/lib/constants'
 import { liquid, renderContent } from '@/content-render/index'
 import { allVersions } from '@/versions/lib/all-versions'
 import { loadTemplate } from '@/article-api/lib/load-template'
+import { getSecretScanningData } from '@/secret-scanning/lib/get-secret-scanning-data'
 
 /**
  * Transformer for Secret Scanning pages.
@@ -25,7 +24,8 @@ export class SecretScanningTransformer implements PageTransformer {
       const currentVersion = context.currentVersion
       if (!currentVersion) throw new Error('currentVersion is required')
 
-      const { isEnterpriseCloud, isEnterpriseServer } = getVersionInfo(currentVersion)
+      const isEnterpriseCloud = currentVersion.includes('cloud')
+      const isEnterpriseServer = currentVersion.includes('enterprise-server')
       const versionPath = isEnterpriseCloud
         ? 'ghec'
         : isEnterpriseServer
@@ -35,15 +35,15 @@ export class SecretScanningTransformer implements PageTransformer {
       const secretScanningDir = path.join(process.cwd(), 'src/secret-scanning/data/pattern-docs')
       const filepath = path.join(secretScanningDir, versionPath, 'public-docs.yml')
 
-      if (fs.existsSync(filepath)) {
-        const data = yaml.load(fs.readFileSync(filepath, 'utf-8')) as SecretScanningData[]
+      try {
+        const data = await getSecretScanningData(filepath)
 
         // Process Liquid in values
         for (const entry of data) {
           // Only process Liquid for the hasValidityCheck field, as in the middleware
           if (typeof entry.hasValidityCheck === 'string' && entry.hasValidityCheck.includes('{%')) {
             // Render Liquid and parse as YAML to get correct boolean type
-            entry.hasValidityCheck = yaml.load(
+            entry.hasValidityCheck = load(
               await liquid.parseAndRender(entry.hasValidityCheck, context),
             ) as boolean
           }
@@ -51,15 +51,15 @@ export class SecretScanningTransformer implements PageTransformer {
           if (entry.isduplicate) {
             entry.secretType += ' <br/><a href="#token-versions">Token versions</a>'
           }
-          if (entry.ismultipart) {
-            entry.secretType += ' <br/><a href="#multi-part-secrets">Multi-part secrets</a>'
-          }
         }
 
         context.secretScanningData = data
-      } else {
-        // If the file does not exist, set to empty array to ensure predictable behavior
-        context.secretScanningData = []
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
+          context.secretScanningData = []
+        } else {
+          throw error
+        }
       }
     }
 

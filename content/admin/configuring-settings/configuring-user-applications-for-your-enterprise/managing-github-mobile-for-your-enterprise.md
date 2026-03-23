@@ -11,6 +11,8 @@ redirect_from:
   - /admin/configuration/configuring-user-applications-for-your-enterprise/managing-github-mobile-for-your-enterprise
 shortTitle: Manage GitHub Mobile
 contentType: how-tos
+category:
+  - Enable GitHub features for your enterprise
 ---
 
 ## About {% data variables.product.prodname_mobile %}

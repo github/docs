@@ -12,6 +12,8 @@ versions:
   fpt: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Write code in a codespace
 ---
 
 ## About {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}

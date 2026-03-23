@@ -16,13 +16,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Dependabot
-  - Security updates
-  - Alerts
-  - Dependencies
-  - Pull requests
-  - Repositories
 contentType: how-tos
 ---
 <!--Marketing-LINK: From home page "Learn more about Dependabot".-->

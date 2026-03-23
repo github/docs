@@ -10,6 +10,7 @@ redirect_from:
   - /actions/how-tos/sharing-automations/sharing-actions-and-workflows-from-your-private-repository
 category:
   - Reuse and share automations
+contentType: how-tos
 ---
 
 > [!WARNING]

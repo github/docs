@@ -5,10 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-topics:
-  - Code Security
-  - Code scanning
-  - CodeQL
 intro: You can work with {% data variables.product.prodname_codeql %} databases using the extension.
 redirect_from:
   - /code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/managing-codeql-databases

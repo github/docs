@@ -12,6 +12,7 @@ redirect_from:
   - /actions/how-tos/writing-workflows/choosing-what-your-workflow-does/using-jobs-in-a-workflow
 category:
   - Write workflows
+contentType: how-tos
 ---
 
 ## Prerequisites

@@ -5,9 +5,8 @@ intro: 'Learn how to use organization-level issue fields in your projects to tra
 versions:
   feature: issue-fields
 contentType: tutorials
-topics:
-  - Projects
-  - Issues
+category:
+  - Manage project items and fields
 ---
 
 {% data reusables.issues.issue-fields-public-preview-note %}
