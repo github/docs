@@ -10,6 +10,7 @@ contentType: concepts
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>=3.20'
 ---
 
 ## About validity checks

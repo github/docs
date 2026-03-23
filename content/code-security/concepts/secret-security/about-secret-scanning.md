@@ -40,7 +40,7 @@ When credentials like API keys and passwords are committed to repositories, they
 
 When {% data variables.product.prodname_secret_scanning %} finds a potential secret, {% data variables.product.github %} generates an alert on your repository's **Security** tab with details about the exposed credential.
 
-Review the alert and rotate the affected credential immediately to ensure it can no longer be used. While you can also remove secrets from your Git history, this is time-intensive and often unnecessary if you've already revoked the credential.
+When you receive an alert, rotate the affected credential immediately to prevent unauthorized access. While you can also remove secrets from your Git history, this is time-intensive and often unnecessary if you've already revoked the credential.
 
 {% ifversion fpt or ghec %}
 
@@ -59,6 +59,16 @@ Beyond the default detection of partner and provider secrets, you can expand and
 * **Validity checks.** Prioritize remediation by checking whether detected secrets are still active.
 {% ifversion secret-scanning-ai-generic-secret-detection %}
 * **{% data variables.secret-scanning.copilot-secret-scanning %}.** Use AI to detect unstructured secrets like passwords, or to generate regular expressions for custom patterns.
+{% endif %}
+
+{% ifversion secret-scanning-validity-check-partner-patterns %}
+
+### About validity checks
+
+Validity checks help you prioritize which secrets to remediate first by verifying whether a detected secret is still active. When you enable validity checks, {% data variables.product.prodname_secret_scanning %} may contact the secret's issuing service to determine if the credential has been revoked.
+
+Validity checks are separate from {% data variables.product.prodname_secret_scanning %}'s partner program. While partner secrets are automatically reported to service providers for revocation, validity checks verify the status of secrets you manage in your own alerts. For more information, see [AUTOTITLE](/code-security/concepts/secret-security/about-validity-checks).
+
 {% endif %}
 
 ## How can I access this feature?

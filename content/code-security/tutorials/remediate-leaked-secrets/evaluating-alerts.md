@@ -29,37 +29,37 @@ Validity checks help you prioritize alerts by telling you which secrets are `act
 
 By default, {% data variables.product.company_short %} checks the validity of {% data variables.product.company_short %} tokens and displays the validation status of the token in the alert view.
 
-Organizations using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_secret_protection %} can also enable validity checks for partner patterns. For more information, see [Checking a secret's validity](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).
+{% ifversion secret-scanning-validity-check-partner-patterns %}Organizations using {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_secret_protection %}, or {% data variables.product.prodname_ghe_server %} with a license for {% data variables.product.prodname_GH_secret_protection %} can also enable validity checks for partner patterns. For more information, see [Checking a secret's validity](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).{% endif %}
 
 {% data reusables.secret-scanning.validity-check-table %}
 
 {% ifversion secret-scanning-validity-check-partner-patterns %}
 
-{% data reusables.gated-features.partner-pattern-validity-check-ghas %}
+{% data reusables.gated-features.partner-pattern-validity-check-ghas %}{% endif %}
 
-For information on how to enable validity checks for partner patterns, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository), and for information on which partner patterns are currently supported, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns).
+{% ifversion secret-scanning-validity-check-partner-patterns %}
 
-{% endif %}
+For information on how to enable validity checks for partner patterns, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository), and for information on which partner patterns are currently supported, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns).{% endif %}
 
-You can use the REST API to retrieve a list of the most recent validation status for each of your tokens. For more information, see [AUTOTITLE](/rest/secret-scanning) in the REST API documentation. You can also use webhooks to be notified of activity relating to a {% data variables.product.prodname_secret_scanning %} alert. For more information, see the `secret_scanning_alert` event in [AUTOTITLE](/webhooks/webhook-events-and-payloads?actionType=created#secret_scanning_alert).
+{% ifversion secret-scanning-validity-check-partner-patterns %}
+
+You can enable validity checks for partner patterns by using security configurations, either set at the enterprise or at the organization level. See [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/creating-a-custom-security-configuration-for-your-enterprise) and [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).{% endif %}
+
+For information on which partner patterns are currently supported, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns).
 
 {% ifversion copilot-chat-ghas-alerts %}
-
-## Asking {% data variables.copilot.copilot_chat %} about {% data variables.product.prodname_secret_scanning %} alerts
 
 With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_secret_scanning %} alerts, in repositories in your organization. For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
 
 {% endif %}
 
-{% ifversion secret-scanning-validity-check-partner-patterns %}
+You can use the REST API to retrieve a list of the most recent validation status for each of your tokens. For more information, see [AUTOTITLE](/rest/secret-scanning) in the REST API documentation. You can also use webhooks to be notified of activity relating to a {% data variables.product.prodname_secret_scanning %} alert. For more information, see the `secret_scanning_alert` event in [AUTOTITLE](/webhooks/webhook-events-and-payloads?actionType=created#secret_scanning_alert).
 
 ## Performing an on-demand validity check
 
 Once you have enabled validity checks for partner patterns for your repository, you can perform an "on-demand" validity check for any supported secret by clicking **{% octicon "sync" aria-hidden="true" aria-label="sync" %} Verify secret** in the alert view. {% data variables.product.company_short %} will send the pattern to the relevant partner and display the validation status of the secret in the alert view.
 
 ![Screenshot of the UI showing a {% data variables.product.prodname_secret_scanning %} alert. A button, labeled "Verify secret" is highlighted with an orange outline.](/assets/images/help/security/secret-scanning-verify-secret.png)
-
-{% endif %}
 
 ## Reviewing {% data variables.product.company_short %} token metadata
 
@@ -110,6 +110,14 @@ The following table shows **all the available metadata**. Note that metadata che
 {% endif %}
 
 {% ifversion secret-scanning-multi-repo-public-leak-deduped-alerts or secret-scanning-multi-repo-public-leak %}
+
+{% ifversion copilot-chat-ghas-alerts %}
+
+## Asking {% data variables.copilot.copilot_chat %} about {% data variables.product.prodname_secret_scanning %} alerts
+
+With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_secret_scanning %} alerts, in repositories in your organization. For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
+
+{% endif %}
 
 ## Reviewing alert labels
 
