@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection
 contentType: concepts
+category:
+  - Protect your secrets
 ---
 
 {% data reusables.secret-scanning.push-protection-delegate-bypass-beta-note %}

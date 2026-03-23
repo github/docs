@@ -15,6 +15,8 @@ versions:
   ghec: '*'
 shortTitle: Secret scanning
 contentType: concepts
+category:
+  - Protect your secrets
 ---
 
 When credentials like API keys and passwords are committed to repositories, they become targets for unauthorized access. {% data variables.product.prodname_secret_scanning_caps %} automatically detects these exposed secrets so you can secure them before they're exploited.

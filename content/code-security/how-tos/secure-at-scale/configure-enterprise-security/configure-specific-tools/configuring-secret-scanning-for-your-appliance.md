@@ -10,6 +10,8 @@ redirect_from:
 versions:
   ghes: '*'
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## About {% data variables.product.prodname_secret_scanning %}

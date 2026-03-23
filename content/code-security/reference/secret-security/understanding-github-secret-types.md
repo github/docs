@@ -9,6 +9,8 @@ shortTitle: GitHub secret types
 redirect_from:
   - /code-security/getting-started/understanding-github-secret-types
 contentType: reference
+category:
+  - Protect your secrets
 ---
 
 {% ifversion fpt or ghec %}

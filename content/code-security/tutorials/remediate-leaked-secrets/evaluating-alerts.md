@@ -11,6 +11,8 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts
 contentType: tutorials
+category:
+  - Protect your secrets
 ---
 
 ## About evaluating alerts

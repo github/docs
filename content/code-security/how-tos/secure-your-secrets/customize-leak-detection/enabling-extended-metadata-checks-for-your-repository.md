@@ -9,6 +9,8 @@ versions:
 contentType: how-tos
 redirect_from:
   - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-extended-metadata-checks-for-your-repository
+category:
+  - Protect your secrets
 ---
 
 {% data reusables.secret-scanning.metadata-checks-public-preview %}

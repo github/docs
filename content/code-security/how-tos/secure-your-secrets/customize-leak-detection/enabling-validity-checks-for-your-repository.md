@@ -8,6 +8,8 @@ versions:
 contentType: how-tos
 redirect_from:
   - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository
+category:
+  - Protect your secrets
 ---
 
 You can enable validity checks for individual repositories through repository settings. Validity checks verify whether detected secrets are still active, helping you prioritize remediation efforts. For information about what validity checks are and how they work, see [AUTOTITLE](/code-security/concepts/secret-security/about-validity-checks).

@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/dependabot/dependabot-auto-triage-rules/using-github-curated-default-rules-to-prioritize-dependabot-alerts
   - /code-security/dependabot/dependabot-auto-triage-rules/using-github-preset-rules-to-prioritize-dependabot-alerts
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 
 ## Prerequisites

@@ -14,6 +14,8 @@ redirect_from:
   - /code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets
   - /code-security/secret-scanning/copilot-secret-scanning
 contentType: rai
+category:
+  - Protect your secrets
 ---
 
 <!--Note on the versioning above ^. This article is visible to free, pro, team users for transparency. They cannot use the feature so `fpt` is not included in the feature definition.-->

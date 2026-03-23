@@ -9,6 +9,8 @@ versions:
 contentType: tutorials
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/interpreting-secret-risk-assessment-results
+category:
+  - Secure at scale
 ---
 
 ## Introduction

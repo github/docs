@@ -11,6 +11,8 @@ redirect_from:
 versions:
   ghes: '*'
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## About enabling {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %}

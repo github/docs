@@ -8,6 +8,8 @@ versions:
 contentType: reference
 redirect_from:
   - /code-security/code-quality/reference/codeql-queries/ruby-queries
+category:
+  - Improve code quality
 ---
 
 {% data variables.product.prodname_code_quality_short %} uses the following {% data variables.product.prodname_codeql %} queries to analyze Ruby code and detect code quality issues on:

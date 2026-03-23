@@ -14,6 +14,8 @@ versions:
   ghes: '*'
 shortTitle: Configure version updates
 contentType: how-tos
+category:
+  - Secure your dependencies
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
 {% data reusables.dependabot.enterprise-enable-dependabot %}

@@ -10,6 +10,8 @@ contentType: how-tos
 redirect_from:
   - /code-security/security-overview/exporting-data-from-the-risk-and-coverage-pages
   - /code-security/security-overview/exporting-data-from-security-overview
+category:
+  - Secure at scale
 ---
 
 {% data reusables.security-overview.download-csv-files %}

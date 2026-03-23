@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/risk-report-csv-contents
 contentType: reference
+category:
+  - Secure at scale
 ---
 
 The {% data variables.product.prodname_secret_risk_assessment %} report CSV file includes the following information:

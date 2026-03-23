@@ -13,6 +13,8 @@ redirect_from:
   - /code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules
   - /code-security/dependabot/dependabot-auto-triage-rules
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 ## About {% data variables.dependabot.auto_triage_rules %}

@@ -11,6 +11,8 @@ versions:
 redirect_from:
   - /code-security/codeql-cli/getting-started-with-the-codeql-cli/uploading-codeql-analysis-results-to-github
 contentType: tutorials
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 After analyzing a {% data variables.product.prodname_codeql %} database using the {% data variables.product.prodname_codeql_cli %}, you will have a SARIF file that contains the results. You can then use the {% data variables.product.prodname_codeql_cli %} to upload results to {% data variables.product.github %}.

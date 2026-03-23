@@ -13,6 +13,8 @@ versions:
   ghes: '*'
   ghec: '*'
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 With default setup for {% data variables.product.prodname_code_scanning %}, you can quickly secure code in repositories across your organization. For more information, see [AUTOTITLE](/code-security/concepts/code-scanning/setup-types).

@@ -10,6 +10,8 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/setting-up-a-codeql-workspace
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## Setting up a {% data variables.product.prodname_codeql %} workspace

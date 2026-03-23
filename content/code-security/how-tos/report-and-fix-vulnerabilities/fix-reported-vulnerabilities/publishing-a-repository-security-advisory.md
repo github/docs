@@ -15,6 +15,8 @@ versions:
   ghec: '*'
 contentType: how-tos
 shortTitle: Publish repository advisory
+category:
+  - Report and disclose vulnerabilities
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Publishing a security advisory".-->
 

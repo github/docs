@@ -12,6 +12,8 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/fewer-lines-scanned-than-expected
   - /code-security/how-tos/scan-code-for-vulnerabilities/troubleshooting/troubleshooting-analysis-errors/fewer-lines-scanned-than-expected
 contentType: reference
+category:
+  - Troubleshoot security tools
 ---
 
 ## About analysis of compiled languages

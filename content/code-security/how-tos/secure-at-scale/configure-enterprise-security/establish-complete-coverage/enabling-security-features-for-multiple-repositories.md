@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /code-security/security-overview/enabling-security-features-for-multiple-repositories
 contentType: how-tos
+category:
+  - Secure at scale
 ---
 
 ## About enabling security features

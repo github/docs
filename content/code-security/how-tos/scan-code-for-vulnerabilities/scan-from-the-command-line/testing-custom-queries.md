@@ -13,6 +13,8 @@ redirect_from:
   - /code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/testing-custom-queries
   - /code-security/tutorials/customize-code-scanning/testing-custom-queries
 contentType: how-tos
+category:
+  - Customize vulnerability detection with CodeQL
 ---
 
 ## Testing custom queries

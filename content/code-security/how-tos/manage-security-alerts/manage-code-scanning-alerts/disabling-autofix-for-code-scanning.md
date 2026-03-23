@@ -9,6 +9,8 @@ versions:
 contentType: how-tos
 redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning
+category:
+  - Find and fix code vulnerabilities
 ---
 
 {% data reusables.rai.code-scanning.copilot-autofix-note %}

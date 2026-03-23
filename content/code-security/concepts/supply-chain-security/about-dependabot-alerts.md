@@ -15,6 +15,8 @@ versions:
   ghec: '*'
 shortTitle: Dependabot alerts
 contentType: concepts
+category:
+  - Secure your dependencies
 ---
 
 Software often relies on packages from various sources, creating dependency relationships that can unknowingly introduce security vulnerabilities. When your code depends on packages with known security vulnerabilities, you become a target for attackers seeking to exploit your system—potentially gaining access to your code, data, customers, or contributors. {% data variables.product.prodname_dependabot_alerts %} notify you about vulnerable dependencies so you can upgrade to secure versions and protect your project.

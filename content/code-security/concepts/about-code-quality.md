@@ -11,6 +11,8 @@ redirect_from:
   - /code-security/code-quality/concepts/about-code-quality
   - /code-security/code-quality/concepts
   - /code-security/code-quality
+category:
+  - Improve code quality
 ---
 
 {% data reusables.code-quality.code-quality-preview-note %}

@@ -11,6 +11,8 @@ shortTitle: Monitor alerts
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /code-security/secret-scanning/managing-alerts-from-secret-scanning/monitoring-alerts
+category:
+  - Protect your secrets
 ---
 
 When {% data variables.product.prodname_secret_scanning %} detects a potential secret leak in your repository, staying informed about these alerts is crucial for maintaining your code's security. {% data variables.product.github %} provides multiple notification channels to ensure you and your team are promptly alerted when secrets are found. You can customize how and when you receive these notifications based on your role and preferences.

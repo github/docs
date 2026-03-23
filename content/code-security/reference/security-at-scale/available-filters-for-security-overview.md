@@ -13,6 +13,8 @@ contentType: reference
 redirect_from:
   - /code-security/reference/security-alert-management/available-filters-for-security-overview
   - /code-security/reference/security-alert-management
+category:
+  - Secure at scale
 ---
 
 This article lists all available filters (qualifiers) for security overview. The available filters vary depending on the specific view and whether you are viewing data at the enterprise or organization level.
