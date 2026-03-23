@@ -6,6 +6,8 @@ versions:
 category:
   - Custom agents
   - Getting started
+  - Scale institutional knowledge
+  - Configure Copilot
 complexity:
   - Simple
 octicon: copilot

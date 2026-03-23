@@ -5,6 +5,9 @@ permissions: Enterprise owners
 versions:
   feature: copilot
 shortTitle: Maintain codebase standards
+category:
+  - Roll Copilot out at scale
+  - Manage Copilot for a team
 contentType: tutorials
 ---
 

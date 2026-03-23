@@ -4,6 +4,8 @@ intro: A custom agent that cleans up messy code, removes duplication, and improv
 category:
   - Custom agents
   - Getting started
+  - Scale institutional knowledge
+  - Configure Copilot
 complexity:
   - Simple
 octicon: copilot
