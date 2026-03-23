@@ -65,7 +65,7 @@ For more information, see [AUTOTITLE](/copilot/concepts/prompting/response-custo
 
 ### Configure allowed tools
 
-Manage which tools {% data variables.product.prodname_copilot_short %} can run without asking for permission. When {% data variables.product.prodname_copilot_short %} requests permission for an action, you can choose to **Allow once**, or **Always allow** to add the tool to your allowlist for this and future sessions.
+Manage which tools {% data variables.product.prodname_copilot_short %} can run without asking for permission. When {% data variables.product.prodname_copilot_short %} requests permission for an action, you can typically choose either to allow it just this time, or allow the tool to be used for the rest of the CLI session.
 
 To reset previously approved tools, use:
 
