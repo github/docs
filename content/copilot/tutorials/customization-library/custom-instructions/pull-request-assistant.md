@@ -7,6 +7,7 @@ category:
   - Custom instructions
   - GitHub flows
   - Configure Copilot
+  - Scale institutional knowledge
 complexity:
   - Simple
 octicon: book

@@ -9,6 +9,7 @@ category:
   - Path-specific
   - Repository
   - Configure Copilot
+  - Scale institutional knowledge
 complexity:
   - Simple
 octicon: book
