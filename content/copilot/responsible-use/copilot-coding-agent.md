@@ -117,7 +117,7 @@ The agent filters hidden characters, that are not displayed on {% data variables
 
 Copilot only has access to the repository where it is creating a pull request, and cannot access other repositories.
 
-Its permissions are limited, allowing it to push code and read other resources. Built-in protections mean that Copilot can only push to branches with names beginning with `copilot/`. This means that Copilot cannot push to your default branch (for example, `main`).
+Its permissions are limited, allowing it to push code and read other resources. Built-in protections mean that Copilot can only push to a single branch: the existing pull request branch when triggered via `@copilot`, or otherwise to a new `copilot/` branch. This means that Copilot cannot push directly to your default branch (for example, `main`).
 
 {% data variables.copilot.copilot_coding_agent %} does not have access to Actions organization or repository secrets or variables during runtime. Only secrets and variables specifically added to the `copilot` environment are passed to the agent.
 
